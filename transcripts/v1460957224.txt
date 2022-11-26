@@ -1,0 +1,924 @@
+Moin Leute, heute wird Ikea-Krampel Custom-Firmware flashed und habt ihr es gesehen, Julian BAM
+wurde gehackt.
+Ich verfolge den Channel nicht, aber ich finde es immer bedenklich, wenn so große Channels
+mit angeblich Triple-Factor-Authentifizierung übernommen werden.
+Ich weiß nicht was war, ehrlich gesagt, wie, ich tippe mal drauf, wer hat sich irgendein
+Virus, Trojaner, was auch immer eingefangen, der dann im Prinzip das alles über seinen
+Rechner gemacht hat, wo er angemeldet war, vermute ich jetzt einfach mal, keine Ahnung,
+weiß es nicht.
+Und das ist aber immer ein bisschen bedenklich, weil es besteht ja immer noch die Möglichkeit,
+dass es Schwächen in der 2-3-Factor-Authentifizierung gibt von irgendwelchen Anbietern.
+Ich meine, da gucken 30.000 Leute drauf, die schlau sind, schlauer als wir alle zusammen,
+die sich um so Sachen wie Google-Anmeldungen und sonst was kümmern, na gut, 30.000 vielleicht
+ein bisschen übertrieben, übertrieben, lass es mal 50 sein oder so, aber das ist schon
+gut durchdacht.
+Also die Wahrscheinlichkeit, dass er sich auf seinem Rechner was eingefangen hat, wahrscheinlich
+ist aber keine Ahnung, was da war.
+Sabun für den IQ-Boost, das ist eine gute Entscheidung, du bist eh in der Abo-Falle,
+Sabun ist vorbei.
+SMS, 2-Factor-Authentifizierung, ja gut, das kommt ja manchmal vor, dass findige Leute,
+die deine Nummer wissen, beim Anbieter anrufen und sagen, was weiß ich, ist Handy verloren,
+neue Adresse und so was und der Anbieter ist dann so blöd und schickt dir eine SIM-Karte
+und so was, ja, deswegen verrate ich auch keine meine Handy-Nummer und außerdem ist
+es am besten, man macht 2-Factor-Authentifizierung dann, wie anders, SMS finde ich ein bisschen
+oldschool, da ist tatsächlich irgendeine Authenticator-App irgendwie besser.
+Du kannst das so abfangen, ist ja noch schlimmer, ist ja noch schlimmer.
+Ich muss erstmal kurz hydrate stain, Leute, bevor ich anfange.
+Passt das mal zusammen, also ich hab einen, pass mal auf, ich hab einen Ikea Windrick
+Ning gekauft, ich hoffe, ich sprich das richtig aus, weil schwedisch ist nicht unbedingt
+jetzt gerade, ich bin nicht unbedingt schwedisch native speaker, Windrick Ning und dort bauen
+wir heute einen ESP32 ein oder einen ESP8266, ich weiß es noch nicht genau, mal gucken
+ob der ESP32 da reinpasst, der D1-Mini ist ein bisschen größer und dann schließen wir
+den da an und lesen mit dem ESP32 die Werte aus, weil der normale Sensor, der hat nur
+so eine LED-Anzeige und zusätzlich, das können wir vielleicht auch noch mit in das
+heute reinschreiben und zusätzlich schließen wir noch einen Bosch BME660, 680, weiß es
+gerade aus dem Kopf nicht, einen Sensor an, der Gas, Luftdruck, Temperatur und Luftfeuchtigkeit
+mit ausliest, das heißt dann haben wir einen rundum Luftqualitätssensor, der mehr kann
+als das Standard Ikea-Ding und per WLAN in die Heimautomatisierung eingebunden werden
+kann, so das machen wir heute, was ist denn ein guter Fenstersensor, den man einfach
+auslesen kann, ich vergesse manchmal ein Fenster zuzumachen, da würde ich dir tatsächlich
+keine WLAN-Geräte empfehlen, weil WLAN-Geräte brauchen viel zu viel Strom, in der Regel,
+Ausnahme besteht in die Regel, aber die Aqara-Dinger, wie auch immer man sie ausspricht, sind ganz
+gut, also die da Dinger, wenn man jetzt frisch einsteigt, ist das kein schlechtes System,
+die da zum Beispiel, nicht Temperatur, Door-Window-Sensor, die sind auch günstig, weiß gar nicht was
+der Campbell gerade bei Amazon kostet, bei AliExpress kriegst du es oftmals sehr günstig,
+für unter 10 Euro das Stück, musst du mal gucken, die gibt es in unterschiedlichen Ausführungen,
+musst du mal ein bisschen schauen, aber die sind nicht schlecht, damit die funktionieren,
+wir können mal bei AliExpress kurz gucken, bei AliExpress mache ich, AliExpress mache
+ich nicht auf meinem Desktop auf, hallo Leute übrigens, moin, oh nein jetzt habe ich AliExpress
+auch noch Benachrichtigungen zugelassen, ne ist dir das Hörschen für Ficken, nicht
+dass ich nach Damenhörschen für Ficken gesucht hätte, aber ok, zu geil, die China-Chinesen
+man, die haben keine Ahnung, was sie da eintragen, Hörschen für Ficken, so, guck mal, hier,
+nächste, 21 Euro, 4 Stück, guck mal, das ist schön günstig, du musst aber gucken, dass
+es die ZigBee-Variante ist, da muss man schauen, aber, ist das ZigBee, ist das ZigBee, ja,
+die sind gut, du brauchst aber noch irgendeinen ZigBee-Stick, aber ZigBee-Stick kannst du
+eh gebrauchen für so ziemlich alles an Sensoren, das ist eine gute Kombination, weil die Dinge
+halten auch lang, da hast du 2-3 Jahre Batterielaufzeit, also Ikea-Dings ist da, du brauchst aber noch
+einen Stick, entweder nimmst du einen ganz billigen ZigBee-Stick, oh wie heißen diese
+ganz billigen C, sind die das, die die Leute auf YouTube verwenden, den würde ich dir
+aber nicht empfehlen, das ist wirklich nur wenn es billig as fuck sein muss, ein guter
+ZigBee-Stick ist zum Beispiel KonBee, KonBee 2-Stick, da braucht man keinen Account, das
+ist alles offline, ja, hol dir so ein und damit kannst du nahezu alle ZigBee-Geräte,
+die es gibt betreiben und dann holst du dir ein paar, holst du dir Acara-Sensoren oder
+Aquara-Sensoren, ich weiß bis heute nicht, wie man den Krempel richtig ausspricht, am
+besten, am besten halt über AliExpress, da kriegst du wie gesagt für unter 10€, 21,21
+durch 4 sind 5,25€, also günstiger kriegst du den Kram nicht, wichtig ist halt, dass
+es die ZigBee-Variante ist, achso für AliExpress, ja für AliExpress brauchst du einen Account
+zum Bestellen, du kannst den Kram auch bei Amazon kaufen, da gibt es auch manchmal günstige
+Angebote, aber hier guck mal, hier bezahlst du 15€ aktuell für einen Sensor und du bezahlst
+bei AliExpress China-Chinese bezahlst du 5€, also du kriegst quasi 3 Sensoren für den
+Preis von einem, also allein schon aus dem, aus dem Gesichtspunkt, ähm, nicht das nicht,
+ja und die sehen hier relativ groß ein, die sind furzklein, die Dinger, die sind so lang
+wie mein Daumen und so, die sind so groß, so lang und so dick wie mein Daumen, da ist
+nicht viel dran.
+Kannst auch den Sonoffstick kaufen, ich empfehle den Konbi-Stick, weil den hab ich auch und
+der funktioniert wunderbar.
+Genau, guck mal, wieviel gibt es denn hier, wieviel sind das, wieviel Stück, erkennt
+sich jemand, soll ich das jetzt zählen oder was, 3 Pieces, jebaited man, hier sind irgendwie
+8 Dinger drauf und da unten steht 3 Pieces, 4 Pieces, 2 Pieces, 3 Pieces, jebaited, musste,
+musste mal gucken, kaufst du die billigsten, billigsten und dann hast du für 100€ dein
+gesamtes Haus mit ausgestattet und hast gleichzeitig noch einen guten Zigbee-Stick, den du für
+alle anderen Sachen verwenden kannst, so will ichs machen.
+Auf Wish gibt es die billige, auf Wish gibt es alles billiger, plus dass es nicht ankommt
+oder nicht, dass es was drauf steht, bei AliExpress hast du den großen Vorteil, du hast AliExpress
+auch auf deiner Seite, weil das ist ja nur, das AliExpress ist ja eigentlich nur ein großer
+Marketplace.
+Und die sind da relativ coolant, wenn du sagst, mir wurde Mist geliefert, nichts geliefert,
+sonst was, dann schicken die dir einfach die Kohle wieder und gut ist.
+Wie leise ist die Musik, ja?
+Ja, besser.
+Mein Angebot war 22 für, echt, warte mal.
+Ach, siehst du, ich hab mich jebaiten lassen, 4, 4 und das sind nur 2, keck wait, Alter.
+You got jebaited, das ist immer noch billiger als bei Amazon, aber du kannst, gerade bei
+dem Akara Zeug, kannst du manchmal auch bei Banggood gucken, was nichts hier irgendwie
+mit zu tun hat oder so, Akara Door Sensor, die haben manchmal auch günstig, nur aktuell
+nicht so, ich hab gelesen, dass es Probleme gibt mit den Schiffen hin und zurück aus
+China und dass deswegen jetzt teurer ist, musst du gucken, aber das ist immer noch billiger
+als mit Z-Wave anzufangen und es ist billiger als das meiste andere Zeug, kann man sich
+eigentlich nicht beschweren.
+Der Label-Champ, der ist noch nicht fertig, der Label-Champ, da gehts demnächst weiter,
+heute machen wir erstmal Windrickning, Windrickning Modding.
+Das können wir irgendwann mal angucken, wenn es uns langweilig ist, mach das mal auf.
+Von 2014, ok, das war schon ein bisschen älter, klingt wie ein merkwürdiges Windows Tool,
+ja das ist aber schwedisch, Windrickning heißt das, Windrichtung auf Deutsch, hier Ikea Windrickning
+heißt Windrichtung.
+Wofür Kastenfirmen unterstützt das Ding SIG B2M QTT, nö, das Ding hat keinerlei Funkverbindung,
+das einzige, ich schließe das mal kurz an, dass ihr das seht, so, ich schließe das mal
+kurz an.
+Da kommen jetzt mal wieder meine 50 China-Chinesen-USB-Kabel zum Einsatz, ich hab mir irgendwann
+mal ein 50er Park China-Chinesen-USB-Kabel gekauft und das war eine sehr gute Idee, weil
+jetzt hab ich immer genug USB-Kabel und ich war damals schon glücklicherweise vorausschauend
+genug mir die mit Mikro-USB und USB-C zu kaufen.
+So, ich schließe das mal an, das einzige was dieser Sensor kann ist, ganz schön wackelig,
+ich hoffe ich hab's hier irgendwie halb kaputt gemacht, also das einzige was dieser, so, das
+einzige was dieser Sensor kann ist leuchten, wenn er an ist, ich mach mal kurz, dass ihr
+das besser seht, mach ich mal kurz hier die Lampe aus, so, das einzige was der kann ist
+leuchten, der hat keinen WLAN, der hat keinen Zigbee, der hat keinen Z-Wave, der hat keinen
+Low-Energy-Bluetooth, der hat keine SIM-Karte, der hat nix, der hat keinerlei Funk-Anbindung
+an dieser Sensor, aber das coole ist, dass Ikea nett war, Ikea hat die Pins innen drinne
+alle dargelassen und hat nix versucht irgendwie zu verschlimmbessern, das heißt wir haben
+alle Pins und kommen easy dran, zumindest hab ich das gesehen in einem Video, das werden
+wir jetzt ausprobieren, ob das alles so funktioniert.
+Heute kein Battlefield 2042 Update, Leute, ich hab das, ich hab das Update gesehen zu
+Battlefield 2042, ich muss echt, ich muss richtig cack, cack, dribble you und guckt
+euch das mal an, ähm, patch notes, mega Update, da ist überhaupt nix, notes, ok, Battlefield
+com, wir gucken mal auf Twitter, da ist das verlinkt, so, wisst ihr was das Schlimme
+ist, ihr wisst ja was das Schlimme hier ist, dass sie das Update 4.0 nennen, das erweckt
+den anschein, als ist dieses Spiel schon mal irgendwann bei 1.0 gewesen, wann soll denn
+1.0 bitteschön stattgefunden haben bei Battlefield 2042, wenn das 4.0 ist, das ist, das ist
+0.73 wahrscheinlich, ja, unten drunter steht lustigerweise 0.4, sie sind sich da selbst
+nicht so ganz einig, wie das Ding jetzt heißt, also intern heißt es wahrscheinlich 0.4 und
+die Marketing Abteilung hat 4.0 draus gemacht, aber es ändert sich ja auch nix, es ist ein
+bisschen balancing tweaks und jetzt ist VoIP drin, ja super, es ist VoIP jetzt zu dem Zeitpunkt
+drin, wo keine Sau mehr drauf spielen spielt, top, perfekt, so muss, oh, das ist Hovercraft,
+so muss das sein, Steam, schauen wir mal, ob das was bringt, oh ja, es gucken sich tatsächlich
+400 Leute mehr das Spiel aktuell an, Massive, Alter, das wird's wahrscheinlich, guck mal,
+das wird's wahrscheinlich mega rausreißen hier, Alter, uiuiui, neue Höhenfliege aber,
+ist das gerade eine VM, nö, das ist Windows, das ist ganz normal Windows hier, Woman of
+History, take the quiz, meine Taskleiste ist heute aber äußerst divers muss man sagen,
+so, das hier ist eine VM, das hier ist eine VM, guck, das, die Ledungskiste ist eine VM
+und das Windows Ding ist unten drunter, native, natürlich fühlen sich alle verarscht, der
+einzige Grund, warum die dieses Spiel überhaupt noch weiter supporten und so große Reden schwingen
+ist, dass die Leute, also dass sie das eben das Mindeste liefern, dass sie nicht bei den
+Amis von irgendwelchen Sammelklagen betroffen werden oder so, die liefern 4 Spezialisten
+und 4 Maps, weil sie das versprochen haben, sonst nichts, also nichts nennenswertes zumindest,
+vielleicht mit den ein oder anderen geilen Skin oder so, das ist so eine Shitshow, das
+ist so, was zu virtualisieren vor allem bei Workstation, oh ne, da heute fangen wir nicht
+wieder mit dem Thema an, weil es sagt, weil sich ganz kurz gesagt, weil sich Linux unter
+Windows besser virtualisieren lässt als Windows unter Linux, ohne durch zig Reifen springen
+zu müssen, womit ich das umschalte mit Windows Boardmitteln, guck mal, du kannst doch bei
+Windows mittlerweile, kannst du noch verschiedene Desktops anlegen, das macht übrigens dieses
+Symbol hier unten, wenn ich weiß, was das macht, dafür ist das da und dann kannst du
+Control Windows rechte Pfeiltaste drücken und linke Pfeiltaste und die Desktops durch
+switchen und ich hab auf dem zweiten Desktop einfach Linux und ich schalte dann zwischen
+dem ersten Desktop und dem zweiten Desktop um, das ist eigentlich ziemlich, Windows Taste
+und Tab, ne das funktioniert nicht, Windows Taste und Tab ist Taste, du kannst es dann
+hier mit der Maus machen ja aber, aber das ist nicht so schön ne, also besser ist Control
+Windows rechts links, ja weirdchamp ne, wirechamp, ja beste Entscheidung ist nicht zu kaufen,
+hast du noch Android auf dem, ja ja ja, ich hab das jetzt eigentlich komplett fertig eingerichtet
+aber ich muss jetzt meinen alten Server noch ausstecken und hab mich nicht dazu durchringen
+können bisher, vor allem bei Workstation, welche Version, ich glaub 16 ist das noch,
+was sind die aktuelle, ist egal, ist egal, hier Control, ich benutze das seit 5 Jahren
+oder so, so, das heißt die letzten zig vor immer Version funktionieren einfach, ist
+egal ob du die neu start oder eine ein bisschen älter ist, Windows Taste plus V, das ist
+die Clipboard Historie, ja klar, das ist tatsächlich eines der sinnvollsten Funktionen die sie
+jetzt eingeführt haben, dass sowas dabei ist, endlich mal einer der hier die Emote
+Vielfalt benutzt, was doch, natürlich funktioniert das, 100 Pro funktioniert das mit deinem Ryzen,
+garantiert funktioniert, doch das war klar, warum soll vor allem bei Workstation mit deinem
+Ryzen nicht funktionieren, warum soll das nicht gehen, klar funktioniert das, echt,
+halt die 16er Version mit, ja dann nehmen wir halt irgendeine andere Version, warum hat
+die 16er Version mit Ryzen Probleme, Kekwade, ich benutze Ruffy Clip oder wie das heißt,
+ja ihr könnt in Google suchen was ihr wollt, plus nicht in Chat schreiben hier, ja wenn
+du in Bios die Virtualisierungsfunktion eingeschaltet hast, ja keine Ahnung, Schelze von Nikso
+S habe ich noch nicht ausprobiert, also es wäre sehr merkwürdig, weil gerade im Server
+Bereich auf Epic Basis ist ja Virtualisierungs eines der Dinger schlechthin, na gut, so also
+wir kommen uns jetzt mal das Teil hier an, also ihr seht ja, aktuell ist es der Meinung,
+wir haben hier super, super nice grüne Luft und so, übrigens ich muss euch was zeigen
+Leute, ich weiß bloß nicht wie ich das machen soll, ich bin mir nicht ganz sicher, wartet
+mal, ich muss mal kurz hier, warte mal, ich muss mal schnell den, ja ja, den muss man
+mal kurz raus machen, na auf, das ist jetzt China-Chinesen Zeug, das ist jetzt wieder
+Müll, so, ich muss euch mal kurz was zeigen, aber dazu muss ich erstmal das Kabel hier
+weg machen, da muss ich das Ding nochmal schnell richtig einstellen, dass das hier, so, ich
+muss euch mal kurz was zeigen, keine Ahnung ob das funktioniert, Achtung, Achtung, ansonsten
+muss ich mein T-Shirt ausziehen, das will ich jetzt aber nicht, aber ihr seht das eh
+nicht, pass mal auf hier, guck mal, guck mal, Moment, Moment, Moment, seht ihr das?
+Ne, Moment, Moment, ihr seht das nicht, ne, fuck, ähm, ich will jetzt mein Hemd nicht
+ausziehen, aber ich ziehe jetzt mein Hemd aus, ich muss euch das zeigen, bestes T-Shirt,
+MonkaS, MonkaS, ich weiß nicht genau warum, warum ich mir, ich mein ich bin, ich bin 37,
+warum kaufe ich mir ein MonkaS-Shirt, ich weiß es nicht, aber ich finde es nice, gehst
+du aus dem Haus mit dem, ja, aber meistens habe ich auch ein Hemd drüber, das siehst
+du nicht, wirklich keine habe ich gerade so vor der Kamera gestanden, also nicht vor der
+Kamera gestanden, so hier vom Tisch gestanden, keiner hat es gesehen, so ich muss jetzt mal
+schnell was trinken und dann geht es los, also, was haben wir hier am Start, wir haben
+einmal eine Ikea Windrickning am Start, pass mal auf, wir müssen erstmal kurz gucken ob
+ich das richtig ausspreche, Alter, geh fort Microsoft man, Windrick, Ikea Wind, Achtung,
+Windricknings, Windricknings, Windricknings, so falsch war ich gar nicht, schon nicht schlecht
+gewesen, ja, also, einmal hier den Sensor, den machen wir dann gleich auf und gucken
+da mal rein, also ich habe mir das im Vorfeld schon eingeschaut, wahrscheinlich ist das
+so, hier unten ist ein Lüfter drin, hier ist der Luftqualitätssensor drin, hier oben
+ist ziemlich viel Platz, ne, hier oben ist der Luftqualitätssensor drin, hier oben ist
+relativ viel Platz, dass ich die Luft gescheit durch analysieren kann und hier unten müsste
+noch Platz sein für den Controller, aufkriegen wir das hoffe ich mal irgendwie gleich damit
+irgendwie mal schauen, so, dann habe ich noch ein ESP32, ne, ne das ist kein ESP32, ESP866,
+aber ich würde es lieber mit dem ESP32 machen, da habe ich noch mehr von, vielleicht machen
+wir das mit dem ESP32, wir testen mal, ich habe hier einen, wir testen mal ob das besser
+reinpasst, schauen wir mal, also ich würde lieber den nehmen, die sehen jetzt auf den
+ersten Blick, ich mache das mal kurz auf, die Controller sehen jetzt auf den ersten
+Blick relativ gleich aus, aber das Ding hier, die Header brauchen wir nicht, ich gebe die
+Header-Lahn, hier, die Dinger sehen auf den relativ gleich aus, aber, außer dass sie ein
+bisschen unterschiedlich groß sind, aber der da ist billiger, der da ist billiger, dafür
+ist der da deutlich leistungsfähiger, was ziemlich egal ist für diesen Anwendungszweck,
+aber man darf nicht vergessen, wie weit wir mittlerweile 2022 sind mit Technik, ich meine
+stellt euch mal vor, in so einem Teil hier, also der eigentliche Chip ist ja hier drunter,
+das ist die Abdeckung, das hier ist die WLAN, das ist die Antenne hier unten, das schwarze,
+da muss ich mal vorstellen, in so einem kleinen Chip ist ein 240MHz Dual Core, eigentlich
+sogar ein Triple Core, es ist ein 240MHz Dual Core drinnen und ein 8MHz Low Power Prozessor,
+also eigentlich hat das Ding 3 CPUs drauf, zig GPIO Pins, 4MB Flash, ich glaube 150K
+RAM oder sonst was, aber allein schon 240MHz Dual Core, ich muss euch mal vorstellen, so
+ein kleines Scheißding für 4,50€, kann man sich nicht beschweren, natürlich kann man
+das nicht mit einem Pentium 2 vergleichen, und das ungekühlt und billig, es gibt garantiert
+schon Doom auf dem ESP, das ist kein Ding, der hier, der ESP866 ist ein bisschen verbreitet,
+also sie sind beide saumäßig verbreitet, das sind so die Go To China Chinesen Controller
+und Chips eigentlich der letzten 5-6 Jahre, davor haben die Leute gerne Arduino verwendet,
+aber so die letzten 5-6 Jahre sind eigentlich überall durch die Bank weg, an vielen Stellen
+sowohl im Bastel Hobbybereich als auch viele professionelle Produkte die rauskommen, gerade
+aus China, haben diese 2 Sachen drinnen, im Prinzip hauptsächlich früher den ESP866,
+mittlerweile eher auch den ESP32, manche haben schon die ganz neuen ESP32C123 mit drinnen,
+aber das ist wirklich nice, da fällt einem immer wieder auf, wie weit wir mit der Technik
+mittlerweile schon sind, dass in so einem kleinen Furzding ein 240MHz Dual Core ist,
+der kann sogar Raytracing, der kann theoretisch alles berechnen, was es gibt, weil da läuft
+vollständig C, C++ drauf, aber er erhält nicht sonderlich schnell manche Sachen, ja
+Der hier ist ein Ticken älter und ein großer Vorteil von beiden, von beiden ist, dass die
+erstens Arduino kompatibel sind, das heißt man kann alle möglichen Arduino Libraries
+zum größten, das heißt aber 99% der Arduino Libraries kannst du verwenden und das herstellereigene
+Entwicklungskit ist auch relativ gut, obwohl es China Chinesen Zeug ist, du hast mittlerweile
+eine Plattform I.O. Integration und kannst jeder Noob, der ein bisschen Ahnung davon
+hat, aber wirklich, du musst damit noch nichts großartig gemacht haben mit Microcontroller
+Kram, jeder Noob kann sich Visual Studio Code installieren, Plattform I.O. installieren
+und über den Assistent sein erstes Programm dafür anlegen, geflasht und das ist auch
+ein Vorteil gegenüber älteren Boards oder anderen Chips, du kriegst diese Boards immer
+im handelsüblichen Micro-USB, das heißt du kannst den Krempel an PC anschließen und
+direkt über den PC flaschen, das heißt du brauchst keinen Serial-USB Adapter oder
+irgendwie so ein Blödsinn, das brauchst du zwar normalerweise für den ESP schon, aber
+es gibt eigentlich keine Entwicklungs- oder keine so normalen Boards, die kein USB haben.
+Die Dinger sind sogar relativ stromsparend, also man muss das ein bisschen relativieren,
+also die Dinger sind an sich immer stromsparend, wenn man das mal mit einem Raspberry Pi oder
+so vergleicht, also wenn die Dinger 150, 200 Mikroampere brauchen bei 5 Volt, dann ist
+das schon viel, das brauchen die wenn das WLAN voll pullert, ansonsten brauchen die
+irgendwie 80, 90, könnt ihr ja ausrechnen, 5 Volt mal 0,2, dann habt ihr das ganze in
+Watt, also das braucht irgendwie, keine Ahnung, halbes Watt oder irgendwie sowas, die Dinger
+brauchen nicht wirklich viel, also deutlich sparsamer auch als Raspberry Pi, vor allem
+Sparsamer als Raspberry Pi 4, Vergleich mit dem Desktop PC müssen wir das gar nicht machen,
+aber, was man nicht denken darf, ist, dass man damit jetzt irgendwelche batteriebetriebenen
+Sachen machen kann, weil, wenn man so eine Batterie drinne hat, so ein ganz normal Lithium-Ionen-Akku,
+was haben die 3,7 Volt oder so, oder 4,2 Volt vollgeladen haben die glaube ich, das passt
+schon von der Stromversorgung her, aber die verbrauchen trotzdem zu viel, da hält da eine
+die auch bloß eine Woche oder so, also für so ultra low power Batteriebetrieb sind die
+Boards nicht gut, es gibt aber Boards, weil der ESP32 oder der ESP266 an sich, die verbrauchen
+ziemlich wenig, aber die Zusatz-Hardware auf den Boards, ja manche schalten den USB, den
+Spannungswander nicht ab, das geht immer über den Spannungswander drüber, manche versorgen
+diesen USB, auf Serial geht es permanent mit Strom, es gibt Boards, die kommen auf, im Deep
+Sleep, wo man gemerkt hat, man macht dann Sleep, lässt sich nicht permanent rödeln,
+die kommen auf ungefähr, glaube ich, 10 micro Ampere im Deep Sleep und das ist dann schon
+nice, da kannst du, wenn du 3-4 mal am Tag aufwachst, um neue Daten zu schicken, den Sensor
+auch 2-3 Jahre laufen lassen irgendwo am Arsch der Welt, das funktioniert dann, da braucht
+man aber spezielle Boards, die sind ein bisschen teurer, aber nicht viel, so, jetzt mal nur
+so ganz kurz Exkurs über ESP32 und ESP266 und diese 2 Boards, die ihr hier seht, das
+sind beides mit die beliebtesten, das ist ein ESP266 D1 Mini und das ist ein ESP32 D1 Mini,
+es ist kein Original D1 Mini, es ist ein Nachbau, aber das ist China-Chinesen Zeug, der im
+Prinzip eh immer und die funktionieren, NodeMCUs sind die anderen relativ verbreiteten Entwicklungsboards,
+ja, gut, passt, so viel ESP32 Gelaber, machen wir mal die Header weg, die brauchen wir heute
+eh nicht, so und jetzt gucken wir uns mal, achso, ja und eins habe ich auch noch, habe
+ich ganz vergessen zu zeigen, ich habe noch ein, das liegt bei mir bestimmt schon seit
+3 Jahren rum, lange auf jeden Fall, habe ich noch nie verwendet, das ist ein, wobei 3 Jahre
+ist ein bisschen übertrieben, ein Jahr oder so liegt das hier rum, das ist ein BME 680
+oder 680, das ist ein Sensor, der sieht zwar so klein und unscheinbar aus, was ist denn
+das da eigentlich für einen Anschluss nehmen, hat jemand einen Plan, was das da für einen
+Anschluss ist hier neben, guckt mal, was ist denn das, das schauen wir gleich mal, es steht
+ja auch oben, was er macht, guckt mal, Luftdruck, Luftfeuchtigkeit, Temperatur und Gas, ne,
+ne, das ist kein Mikro-USB, wir gucken, wir gucken gerade mal, was das, was das, was das
+baut, keine Ahnung, weiß ich nicht, das ist irgendwie ein Other Fruit, die sind normalerweise
+viel zu teuer, ich weiß auch nicht, warum ich mir das Ding mal irgendwann gekauft habe,
+BME 680, ja, übrigens der Sensor ist fast mit das teuerste an dem ganzen Projekt, was
+sind das hier neben für Anschlüsse, Finn, Dankeschön, das Motor kommt drauf, kein
+ESP Home, was sind, was sind das für Connector, was, Stämmer Cute, ne, ne, wir löten das
+schon dran, ach so, ok, das braucht nur wirklich niemand, also, ich meine, irgendwann muss
+ich mein Lötkolm ja mal lohnen, den ich gekauft habe, ja, ich würde mir heute wahrscheinlich
+auch nicht mehr das Ding für den Preis kaufen, aber egal, besser als weiter in der Tüte
+liegen lassen und jetzt würde ich sagen, machen wir das Teil mal auf und gucken, wie das von
+innen so aussieht, also Ziel ist folgendes, hier oben wahrscheinlich den Sensor rein,
+hier unten eins der beiden Boards, ich vermute mal, der könnte bissi groß sein, der ESP32,
+müssen wir mal gucken, schauen wir mal gleich, also so rum passt der gerade so, aber ich weiß,
+mal schauen, wie viel Platz da hinten ist und hier unten das Board rein, so, fertig,
+das ganze verbinden wir dann hier mit ein paar Kabels, schauen wir mal und wir löten
+das ganze zusammen und lassen das auf, gucken erstmal, ob es funktioniert und dann machen
+wir es zu. Willst du das Innenleben komplett austauschen? Nein, das ist doch gerade der
+Sinn davon, das ist ein relativ günstiger Partikelsensor mit, ich glaube, 2,5 Nanometer,
+ist es Nanometer, Mikrometer, Durchmesser, Partikelgröße, das ist relativ günstig für
+den Sensor, der da drin ist, ich will das nicht aus, es bleibt alles so wie es ist, es kommt
+nur zusätzlich, liegt im Namensschild, fuck, wo, wo es liegt? Oh ja, ich sehe es, Monka
+League, alter, Wupp League, nee, nee, der hat die Partikelsache nicht, der hier ist nur
+für Luftfeuchtigkeit, Luftdruck, Gas und Luftfeuchtigkeit, Temperatur und der Sensor
+hier drin ist, der bleibt als Partikelsensor, so, also ihr seht, das sind halt ganz normale
+Schraubsorn, muss ich mal gucken, ob wir das so auf, der da vielleicht, ja, gucken wir
+mal, ich leg das mal ein bisschen so hin, weil, so, gucken wir mal rein, ich bin mal
+gespannt, Windregning, da, erste Schraub, ich mag das immer nicht, wenn man nicht sieht,
+wo man schraubt, kannst du ein Smart Mirror bauen, ja, ich habe gesehen, dass da Kappa
+dahinter steht, aber, ich antworte jetzt trotzdem mal, ernst drauf, weil, Smart Mirror, ihr
+wisst, dass ich Smart Home technisch, ja, also ich bastel so ziemlich alles, was es
+gibt, was ich für sinnvoll halte, ich halte Smart Mirrors nicht für sinnvoll, deswegen
+habe ich weder dran gedacht, im Stream mal sowas zu bauen, noch für mich privat, ich
+finde Smart Mirrors ist total overrated, mag irgendwie so einen Wow-Effekt haben, vielleicht
+auch zum zeigen oder so, aber die Nützlichkeit hält sich meiner Meinung nach in Grenzen,
+weil, ich mein, wozu braucht man ein Smart Mirror, dass man sich das Wetter anzeigen
+lassen kann oder was, kann mir doch keiner erzählen, dass man nicht morgens eh aufs
+Handy guckt, ich brauch doch in meinem Spiegel keine Wetteranzeige für heute, und wenn ich
+das richtig gut gemacht hab, dann hab ich eh ein Home Automation Dashboard im Flur hängen,
+wo ich da einfach mal drauf gucken kann, oder ich hab eh mal ein Smart, ich versteh den
+Sinn von Smart Mirrors ehrlich gesagt nicht.
+So, guck mal, easy, also Ikea will, dass man die mottet, ich sags euch, Ikea will, dass
+man die mottet, so einfach wie das aufgeht, können sich da China-Chinesen Sachen mal
+wirklich was von abschneiden, ok, guck mal, hier haben wir den Kram, also, wir haben,
+das find ich nice bei diesem Ikea Ding, die Schweden waren so nett und haben alle Pins
+beschriftet drauf gelassen in einer Größe, wo man easy Sachen dran löten kann, die wollen,
+dass das gemottet wird, changed my mind, die wollen, dass das gemottet wird, ich mein,
+die haben hier oben sogar extra, guckt mal, beschriftete, ups, das rockelt, beschriftete
+Pins für Ground, für 5 Volt, für SDA, Clock und alles, das ist, die wollen das, theoretisch
+kann man sogar noch einen eigenen Lüfter hier unten dran anschließen und sowas, die wollen
+das, so, jetzt müssen wir mal gucken, wie wir den Kram hier rein, also ich hab mir das
+so gedacht, das hab ich nämlich auch in einem Video gesehen, auf YouTube, ich hab mir gedacht,
+wir machen den Luftfeuchtigkeitssensor, Luftdruck und Gassensor, den machen wir hier oben rein,
+weil hier ist der eigentliche Sensor für die Nanopartikel oder Luftpartikel, das heißt,
+ich mache den ESP nicht hier drüber, weil der Luftflow sonst beeinträchtigt wird, mal
+gucken, ob der hier reinpasst, aber Leute, das kann ich so nicht machen, da ist der Lüfter
+dicht, guck mal, ich krieg den kaum wieder raus, ich glaube, wir müssen den ESP32 nehmen,
+weil guckt mal, hier unten ist ein Lüfter, irgendwo, ja, hier unten ist ein Lüfter und
+wenn ich den Komplette zumach, ist, glaube ich, nicht so sinnvoll, deswegen mach ich lieber,
+vielleicht, guck mal, vielleicht kriegt man den sogar hier neben irgendwie hin, aber
+ich glaube, da ist kein Platz, aber das wäre mir natürlich am liebsten, dann würde ich
+den Krempel irgendwie hier neben hin kriegen, aber ich glaube, da sind, wisst ihr was, vielleicht
+kriegen wir den so hin, guck mal, so ist doch viel besser, so machen wir das, so, und jetzt
+geht es noch zu, wartet mal, Alter, ah ne, das geht nicht zu, Mist, da unten muss ja das
+USB durch, hier muss das USB durch, das geht nicht, die Einheit mit dem Lüfter kannst
+du raus, der Lüfter geht nach vorne raus, echt, ich meine, eher wo der was ansaugt,
+meinste, hier geht, hinten bläst er das raus, ja gut, dann könnte man dann auch den anderen
+drunter stecken, mal schauen, ich persönlich würde ja lieber den ESP32 nehmen, mal checken,
+ob das noch zugeht mit dem ESP32 drin, müsste aber eigentlich, ja wunderbar, kein Problem,
+ja, dann flashen wir den nochmal, die kriegt man echt schlecht wieder raus, dann flashen
+wir den mal, ich nehme den ESP32, erstens habe ich da mehr von, und ansonsten eigentlich
+ist es Overkill, eigentlich ist es Overkill, ich nehme, na, ich nehme den, scheiß drauf,
+die kann ich für 2 Euro oder so das Stück nachkaufen, ich nehme den kleinen, kannst
+du einen VTuber Avatar im Stream entwickeln, nee, weil ich kenne mich mit sowas nicht aus
+und ich bin sehr ungeschickt was so Artist Sachen angeht, aber ich suche schon lange
+jemand der sowas machen kann, weil ich will auch einen VTuber, ich will auch einen VTuber
+Avatar haben, aber nicht einfach so ein Avatar wie die ganzen, wie die ganzen VTuber Girls,
+ich will einen Kekshunder sprich, das heißt es muss jemand sein der ordentlich Blender
+3D Models machen kann und sowas, nee hier oben, ich meine man könnte es hier oben an
+die Seite machen, ja, ich meine es passt hier relativ gut oben an die Seite, weil einfach
+mit Heißkleber festmachen oder so, aber hier oben muss ja schon der Sensor rein, ich heiß
+klebere den Sensor hier oben fest und der kommt unten rein, jetzt muss ich nur mal kurz gucken
+wie man die Kabel hier hin macht, also so geht es zu, kriege ich denn jetzt die, ich muss
+Kabel, also naja doch, Leute mir kann keiner erzählen, mir kann langsam echt keiner mehr
+erzählen Ikea will nicht dass man das modet, guck mal, die haben sogar, die haben sogar
+eine Führung für Kabel hier neben rein gemacht, wo du die Kabel durch machen kannst, ohne
+dass du sie abquetschen musst, das ist doch, das kann ich mir nicht erzählen, dass das
+Ikea rein zufällig gemacht hat, die wollen dass man den Kram modet er, ist das meine
+Original Stimme, Sekunde, da fällt mir gerade was auf, ich glaube mal ein Mikrofon übersteuert
+und keiner sagt was, weil ich musste ja wieder Teams telefonieren, den ganzen Tag und Teams
+stellt gerne, naja nicht wirklich großartig, aber Teams stellt gerne an meinen Mikrofon
+Settings rum, Pfeiferbeauftragung, das kannst du vergessen, hast du den Avatar von JV Peak
+gesehen, der ist, nee, da würde mich mal interessieren wo der den gemacht hat.
+Sorry Leute, falls ich heute irgendwelche Subscribers oder so übersehe, aber ich blick da nicht
+durch, wenn ich hier am basteln bin und noch Chat gucke und dann ab und zu noch überlegen
+muss und es kann sein, dass ich die ein oder anderen Subscriptions übersehe, aber trotzdem
+danke schonmal für alle Subs, die es heute gegeben hat bis jetzt, es ist übrigens immer
+noch kostenlos mit einem Prime Account, kann man einmal im Monat einen Streamer seiner Wahl,
+die Wahl darf natürlich auch gerne auf mich fallen, kostenlos unterstützen und quasi 2,50
+Euro an Besos überweisen, übrigens guck mal da, ich hab endlich mir einen Fluxstift gekauft,
+der Mini Fluxer, da können wir jetzt hier für Huge Loot Action Fluxen, guck mal hier,
+der Fluxer und jetzt ist alles hier schön gefluxed, Gachibas Flux, was ein Satz alter,
+Fluxchamp, das ist Flussmittel fürs Lootsen, Albi danke für den Sub, Technik danke, nutzt
+du dann einen Computer für die Arbeit, ja und nicht nur einen, alle beide und ein Notebook,
+was hier hinten liegt, gut also wie fangen wir das, wie gehen wir das denn jetzt am besten
+an, wie gehen wir das am besten an, also erstmal müssen wir gucken, was brauchen wir denn hier
+für Anschlüsse, kann man das vielleicht raus machen, das wäre natürlich äußerst praktisch,
+wenn ich das löten könnte und raus machen wollte, hab aber Schiss, wenn ich das abmache,
+ne das lass ich mal besser, das lass ich mal, dass ich das wieder reinkriege Scheiße, das
+macht nämlich ein bisschen fragilen Eindruck hier die Kabels da, so also ich vermute mal,
+wir brauchen 5 Volt, also von der Idee her, ich denke mal so machen wir das, wir brauchen
+ein Kabel unten hier unten da, 5 Volt, einmal Ground und dann, was brauchen wir denn überhaupt
+für diesen Sensor, ich glaube 2 Stück davon, ne, da müssen wir erstmal gucken, wie man
+das Zeug anschließt, das gucken wir jetzt mal bei denen bei TASMOTA, WinIkea, WinDrickNingTASMOTA,
+die haben da ne schöne Anleitung dazu, was bei mir Max115 sagt, bei ihm auf der Arbeit
+wird ihm ein Laptop in die Hand gedrückt, andere Sachen darf man nicht nutzen, VPN haben
+wir auch nicht, wir haben extra VMs, VPN haben wir auch nicht mehr, wir haben extra VMs,
+die man für sowas benutzen kann, glücklicherweise mittlerweile auch ordentlich bedienbar, hast
+du mal Bock ein Linux from scratch zu machen, nö, es gibt so paar gewisse Sachen, da hab
+ich, das reizt mich nicht, genauso wie nochmal Chrome von Hand kompilieren, da hab ich auch
+kein Bock drauf, jetzt Sachen die kann man machen, die muss man aber nicht machen, so
+was haben wir hier sonst, disassembly, gut, das haben wir uns gerade angeguckt, you will
+need soldering, ok, was, ok, lass mal kurz just for fun gucken, was empfehlen die für
+ein Lötkolben, muss tool, das klingt nach billigstem China-Chinese-Crab, alter, oh nein,
+wenn ich das schon sehe, das kommt mir nicht ins Haus, so, wires, ESP-Board, ja ja, haben
+wir alle, Spannungswandler, wozu brauchen wir einen Spannungswandler, der ESP, der D1
+Mini kann 5 Volt als Input, ah, der verwendet kein D1 Mini, der verwendet ein ESP M3, hast
+mal Bock auf einen C++ Stream, wir haben doch schon ein paar Arduino-Sachen hier, bzw.
+ESPs programmiert mit C++, bin ich ja immer halb durchgedreht, weil C++ so ein Ultra-Crab
+ist, man, äh, C++, es wird jedem Standard sogar noch wirrer, ok, also, was muss man
+machen, unplug, unplug two connectors, ne, gut, das ist optional, das muss man nicht
+machen, ach, da muss man dran, ich dachte, man kann da direkt dran, chat, warum, das
+müssen wir jetzt mal einer erklären, das verstehe ich jetzt nicht, warum, warum soll
+man an die Pads da oben, warum soll man nicht an die runden Pads, sondern an diese Pads,
+also warum soll man an diese Pads da oben und nicht an die da drunter, doch im Prinzip
+genau das gleiche, hm, keine Ahnung, Geschmackssache würde ich sagen, oder, die haben die, ja,
+haben die gleiche Bezeichnung, guck, die haben, äh, Ground 5 Volt, Ground 5 Volt, Clock,
+S, ESPR und Reset, das ist genau der gleiche, sogar in der gleichen Reihenfolge, vielleicht,
+vielleicht kommt man hier besser dran, das heißt, man kann die auch mixen miteinander,
+ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne,
+ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne,
+ist wenn du ein web server haben willst mit ssl dann ist eh vorbei was ich persönlich
+ganz cool finde greif was ein geben von wenen an passen wir dann ok weiter also verzinden
+ja ja bla bla wo muss er was dran ist so so schlau bin ich auch so schlau bin ich auch
+also bis dahin krieg ich noch hin dass ich kraut und 5 volt brauche warum schreibst du
+immer eine einzelne die machen wir aus rufzeichen 1 im chat da habe ich das mal irgendwann versucht
+zu erklären und reset wozu brauchen wir reset aber reset und weil man braucht reset braucht
+kein reset was das ist der pin used to receive data from
+warum verwenden ein reset zum daten empfangen das hätte jetzt komplett falsch gemacht
+ich hätte gedacht man braucht hier glock und und dings das da und sonst was hättet ihr
+damit gerechnet dass reset der daten pin ist wobei es ist rest das ist nicht reset ok aber
+da hätte ich gedacht ja dann ist easy dann ist dann ist easy warum reset
+4 extra wires ach hier die da ja ok ja das können wir machen so wie schließt man wie
+schließt man das ding an bme 680 wirtschamp also was braucht man da man muss an ok das
+ist kann man da jeden pin verwenden für i2c was ist denn der die ich glaube bei das motor
+kann man jeden pin dafür das motor i2c wie konfiguriert man das habe ich noch nicht
+gemacht ja ich glaube man kann also ich glaube man kann mehr oder weniger den pin auswählen
+dann in den in den settings wobei haben die das hier nicht einfach irgendwo drinnen stehen
+wie man das motor settings macht das motor configuration ok das motor i2c konfig man
+spricht das i2c aus ok ich nicht ok man kann man kann die gpi aus auswählen wie man wie
+man lustig ist ich will ich will bloß sicherstellen dass ich nicht dass ich nicht das doppelt
+machen muss und wieder ablöten muss und so was hier das da suche ich ok das kann man
+also einstellen dann ist ja alles gut das motor bme 680 was braucht man dafür settings
+für einfach so hier guckt easy einfach so ok dann nehme ich einfach auch die gleichen
+gpio pins ein gutes gut das heißt was für gpio ausnehmen wir am besten welche auf der
+gleichen seite und am besten auf der seite wo auch 5 volt ist also irgendwelche pins
+unten also nehmen wir pin d4 d3 d2 wir schauen noch mal kurz in die pin belegung rein nicht
+dass es irgendwelche reserved sachen sind für reset oder flash oder sowas die 1 mini
+dsp 2866 pin out also da dran wollen wir d3 ist für flash ach guck mal d1 und d2 sind
+schon starrmäßig scl erst jahr das ist ja alles gut dann ist alles gut ihr reicht doch
+dann nehmen wir d4 d4 d2 und d1 das reicht doch mehr brauche ich nicht d4 d2 d1 easy da
+machen wir das doch mal dann da machen das doch mal dann löten wir erstmal was dran also
+wir machen ich würde vorschlagen wir machen folgendes wir flaschen den hier mit das motor
+dann schließen wir den sensor an gucken ob das funktioniert oder wir löten den krempel
+hier zuerst dran dann habe ich das hinter mir wir machen das lass mal lass mal kurz überlegen
+wie machen wir das am besten also wir brauchen auf jeden fall was hatten das ding hier überhaupt
+für für anschlüsse lass mal kurz lass mal kurz schauen v in 3,3 volt die 3,3 volt brauche
+ich vom esp das ist wahrscheinlich 3,3 volt sensor gehe ich mal von aus da muss ich mal
+schauen was ist denn das bme 680 ist das ein 3,3 volt sensor oder ist das ein verkrafteter
+5 volt ach guck mal da ah easy for your convenience we've picked and placed sensor on a pcb 3.3
+regulator and some level shifting so it can be easily used for your favorite 3,3 ok denn
+das heißt ich brauche leider mal das das heißt ich kann das einfach v in mit an die
+5 volt packen und gut ist das ist auch gut das ist ja gut da muss ich mir gar keine Gedanken
+drüber machen so das heißt wir brauchen ein schwarzes kabel für ground das man dann am
+endeffekt auch die sachen wieder findet wir brauchen ein rotes kabel für 5 volt und dann
+chat ihr dürft euch aussuchen was was was nehmen wir wir haben noch wir haben noch drei
+sachen zur auswahl daten vom luftsensor brauchen wir ein kabel und zwei kabel für datenübertragung
+von dem ding was was wollen wir nehmen wir haben blau,purple,grau,grün,gelb,braun und
+orange zur auswahl ihr dürft euch aussuchen gelb,lila,grau ok na rot haben wir schon rot
+und schwarz haben wir schon orange na gut das wir haben jetzt zur auswahl gelb,lila,grau
+und orange orange wir machen das so wir machen wir machen gelb wir machen gelb lila grau
+genau so exellent ok also schauen wir uns das ganze mal an wir brauchen viel kabel braucht
+man hier drin ja nicht machen wir hier kurz mal ab weil ich hab doch hier irgendwo den
+so viel kabels brauchen wir nicht das reicht ja schon reicht ja schon dicke im endeffekt
+guck mal das will ikea doch dass man das hier durch macht oder kann mir keiner was erzählen
+dass sie das nicht wollen easy wir machen die kabel vielleicht ein bisschen länger sodass
+dass wir auf jeden fall dass wir auf jeden fall genug haben müssen sie ja nicht übertreiben
+jetzt so also das hier ist das board das board das muss auf jeden fall die kabel runter also
+das heißt im endeffekt wir brauchen auf jeden fall mehr ground kabels machen wir mal ab
+brauchen wir zwei stück brauchen zwei stück davon also wir brauchen einmal eins wobei
+kann man das jetzt habe ich guck war das so rum ja also wir müssen einmal hier vom runter
+dahin beziehungsweise zweimal einmal noch zum klauen von dem sensor dann brauchen wir
+fünf volt runter zum esp der esp kommt dann da so so rum rein einmal runter dann brauchen
+wir hier noch fünf volt v in aber das mache ich eh hier oben dran das passt dann das ist
+nicht so wild zweimal datenkabels so das ist nicht lang ja das müsste eins gehen was
+ich habe ich habe mich auf den chat was wer war vivo aktiv keine ahnung so ich muss jetzt
+mal meinen lötkolben irgendwo auspacken wir haben etwas etwas wenig platz hier oben müssen
+wir mal schauen wie wir das jetzt hinkriegen weil hier neben hier neben ist auch nicht
+viel platz jetzt die steckdose direkt neben dran muss man ein bisschen bisschen platz
+machen ok auf gehts der lötchamp wo ist er hier ok stellen wir mal hier hin dass es
+nicht im weg ist ja ich habe hier nicht sonderlich üppig viel platz in dem setup aber man muss
+das hier alles sehen man kann das ding morden ja ich habe letztens ein video gesehen auf
+youtube dazu ich glaube ich habe gewackelt ich habe ein video auf youtube gesehen deswegen
+habe ich mir auch gedacht wir machen das jetzt ok ich will jetzt erstmal eine zweimal zweimal
+ground brauchen wir zweimal ground das müsste ich eigentlich ganz gut hier dran kriegen
+als erstes mache ich mal ein bisschen löten übrigens wisst ihr was das gute an dieser
+lötstation ist die heizt relativ schnell guck mal ich mache jetzt an so und jetzt zack
+und wir haben gleich 360 370 grad easy fertig geheizt das geht sehr zackig so wir machen
+tatsächlich erstmal eine runde lötzchen ein bisschen auf die pins dazu brauche ich
+eine runde lötzchen komm her so jetzt wird es ein bisschen kompliziert weil ich sehe
+immer nicht richtig wenn ich am streben bin und ich hier was versuche zu machen weil eigentlich
+müsste ich hier unten was sehen was ich ja nicht mache aber vielleicht haben wir glück
+vielleicht können wir das hiermit machen falls man das mal vielleicht vielleicht kriege
+ich das wirklich ab wie macht man leute chat kennt jemand von euch diese connectors gibt
+es da irgendeinen trick muss man aber im schraubenzieher irgendwas machen oder an irgendeine richtung
+ziehen oder so dass das besonders leicht raus geht irgendwie kippen oder ok der ist schon
+mal ab easy und der da
+also den hier habe ich nicht gecheckt ok easy einfach einfach rohe gewalt und gutes
+weil so ist es deutlich angenehmer gerade vielleicht kann ich das sogar hier hinlegen
+dann ist weil hier unten ist ja dieses teil drunter dann dann ist es ein bisschen fester
+ok jetzt machen wir erstmal bisschen bisschen lötzchen auf die pets mal schauen ob ich
+das gescheit sehe und dass ihr was seht ich hoffe mal also ich mache jetzt erstmal ein
+bisschen lötzchen hier unten auf die pets drauf
+schön wir könnten wir könnten es eigentlich jetzt noch eine runde eine runde fluchsen
+was ist mit dem fluchser los warum geht der nicht
+warum fluchser fluchser nicht richtig
+jetzt fluchser fluchser weiß ich ob ihr das seht
+aber richtig schön der dicke fluchst drauf jetzt gut
+warum nimmst du nicht die größeren pets wie im tutorial ja wie nimmt er jetzt die
+jetzt ich habe mir das tutorials die bilder gar nicht mal geguckt macht er das jetzt auch
+an die größeren pets das wollte ich ja eigentlich ursprünglich aber aus irgendwelchen gründen
+dachte ich die nehmen die kleinen pets nimmt er auch das große weil wenn er die großen
+pets nimmt ach der nimmt auch ja dann ist weil mir sind die großen pets auch deutlich
+lieber was für was ist der flugstift dass das lötzchen besser fließt
+braucht man nicht wirklich geht ohne leute guckt mal guckt vergleicht
+es mal mit der anleitung bei ihm sind die dinger komplett naggisch die kontakte hier
+ne und bei meinem hat ikea netterweise bei meinem hat ikea netterweise schon vorverzint
+die pets alle seht ihr das also jetzt mal ehrlich ikea will dass man sich den kram
+zum modden kauft die haben alle pins drauf die haben alle pins beschriffte drauf und
+die haben die pins sogar schon vor ververzint
+willst du den ans home netz anschließen naja home netz ans wlan ans wlan ja wir machen
+trotzdem noch noch noch noch ein klecks noch ein klecks drauf ohne ohne irgendwie die wartet
+mal nur so rum ein klecks drauf ohne die plastikfüßchen hier irgendwie
+so was brauchen wir denn reset brauchen wir
+jetzt haben wir ansonsten noch reset 5 volt 5 volt round sehr schön next da brauchen wir
+die kabels gucken wir mal machen wir mal nach möglichkeit nicht so viel ab ah das ups das
+war wahrscheinlich fast schon fast schon ein bisschen viel
+brauchen wir nicht viel so ground und brauchen wir einmal für ein esp war bestehend da einmal
+für ein esp so diesmal mache ich nicht den fehler wie das letzte mal diesmal mache ich
+nicht den fehler wie das letzte mal letztes mal habe ich den fehler gemacht alles da dran
+zu löten bevor ich es an esp gelötet habe ich mache es jetzt anders rum ich löte die
+kann erst an esp und dann mache ich es an den kram dran ist mehr feifert
+übrig gebliebenes lötzchen vorne dran machen so schauen wir mal wir wollen pin 5 volt was
+hatten wir gesagt 5 volt ground d4 d2 d1 d3 haben wir ausgelassen
+planst du auch den luftreiniger smart zu machen ich habe kein luftreiniger ne ne wir
+könnten jetzt mal was testen und zwar benutzt das normalerweise nicht so oft aber in dem
+fall bringt es vielleicht was weiß ich ob ihr das jetzt besser seht ich sehe es auf
+jeden fall besser von oben jetzt muss ich mich nämlich nicht davor setzen immer fort
+kann man nämlich hier oben schön 5 volt 5 volt jawohl sehr schick round round so was
+haben wir gesagt 5 volt ground 5 volt d4 d2 d1 so und jetzt kabel champ so 5 volt wir
+brauchen noch ein rotes kabel für aber guck mal dass das ungefähr gleich lang ist so
+wahrscheinlich dass viel viel zu lang aber in ordnung man wurscht haben wir genug platz
+drin ist ja nicht so als hätten wir da irgendwie zu wenig platz in dem gehäuse na geil
+gut also 5 volt 5 volt kabels
+was geht auch relativ easy was geht easy du meinst den luftreiniger ich habe nicht vor
+mir den luftreiniger zu kaufen du meinst starkwind starkwind ist der ikea luftreiniger
+ja aber starkwind wollte ich mir gar nicht kaufen ikea benahmung sind eh die besten
+alle oder starkwind ok was nehmen wir jetzt wir nehmen den gelben merkt euch das mal jett
+wir nehmen den gelben für den anschluss an den luftsensor das heißt der luftsensor
+das geht dann nur dass ich das jetzt mir mal kurz im kopf überlege so das kommt dann
+da unten rein und der anschluss ist oben da muss aber nicht sonderlich lange sein generell
+ist die kabels viel zu lang die kann ich jetzt die hälfte abschneiden cacquade braucht
+keiner so lange kabel hier aber besser bisschen mehr spielraum als zu wenig da ich mir jetzt
+mal so gelb anschluss luftsensor genau
+chat merkt sich das starkwind ist von haus aus schmart schmart ist das genau von haus
+aus schmart vornuftig was vornuftig ok das ist ein luftfilter von ikea klingt auf jedenfall
+sehr ikea mäßig ja vornuftig also hier sensor so dann brauchen wir noch was haben wir gesagt
+koppel
+waren wir heute der abisulier champ hat nicht funktioniert warum jetzt aber jetzt aber
+hat er jetzt nicht das ist nicht schön das gefällt mir nicht das gefällt mir nicht das
+machen wir noch ab das machen wir noch ab jetzt ist ok jetzt auch ja ja jetzt ist gut so und
+als letztes noch ein krauen und dann gucken wir mal wie das funktioniert da bin ich bin mal
+gespannt ob das funktioniert wir müssen es gleich noch flaschen das ding das hätte ich
+eigentlich als erstes machen sollen zu flaschen aber ich ziemlich war ich zu zu zu ppega im
+kopf dass ich es geflasht habe dass ich nicht geflasht habe das wäre deutlich sinnvoller
+gewesen übrigens wie ist das bei euch stört euch das wenn ihr diese lötsachen einatmet
+oder nicht also dass das schlimmste der gefühle das höchste der gefühle was ich davon schon mal
+hatte ist kopf weh aber auf dauer ist es wahrscheinlich wirklich wirklich nicht sonderlich
+gesund das ist nicht schön das ist nicht schön das gefällt mir nicht ja besser ok gut wir
+haben alle kabels dran der rauch nervt ja man kommt in das motor drauf gleich wenn das
+wenn das alles angeschlossen ist ja ich habe ich habe mir für sowas mal ein usb lüfter
+gekauft den ich daneben stellen kann naja gut bevor wir weitermachen chat das ist eine
+sehr gute sehr gute idee flaschen wir erst mal weil bevor ich habe garantiert keinen
+bock mehr den krempel als ein pc anzustöpseln wenn ich das eingebaut habe wir flaschen
+es erst mal schnell flaschchamp und zwar tesmo taser haben wir doch irgendwo ok es
+gibt es eine neues update tesmo taser schitt schitt tesmo taser gut den tesmo taser können
+wir gar nicht verwenden wir brauchen das motor all sensors ich weiß gar nicht ob der tesmo
+taser das tesmo taisen kann ich habe es gar nicht darüber installiert aber was habe ich
+das denn zählt pip install tasmo nee installiert man das ich meine man kann es mit dem esp
+tool einfach flaschen ja das geht auch stimmt wir können es ja über die neue webseite
+machen die haben doch jetzt so eine tasmotar webserie die haben doch jetzt so eine webseite
+für usb gedöns na web usb stimmt stimmt ja ihr habt recht wir brauchen das gar nicht
+mehr machen wenn ich nur wüsste wo die ist web flasch ja ja flasch flasching from your
+web browser äh wo ist der link tasmotar web installer hier das suche ich genau haben
+die all sensors ich brauche all sensors unofficial all sensors das brauche ich weil nur da ist
+ein windregning dabei das ist by the way kann das firefox auch wahrscheinlich haben wir
+mal chrome auf install ok usb gib ihm usb ich habe keinen freien usb was kann ich denn
+hier raus machen das da äh moment leute ich habe keinen freien usb ich muss mal kurz gucken
+wo ist denn mein mikrofon dran das kann ich nämlich dann raus machen ja das da ok das
+ist das normale mikrofon also nicht das was ich jetzt hier habe connect to virtual machine
+poggers remember jawoll da schauen wir mal ob das jetzt mit dem mit dem flaschen funktioniert
+über übers web interface das habe ich noch nicht gemacht all sensors brauchen wir das
+habe ich im vorfeld schon gesehen connect geht es jetzt wahrscheinlich der hier schauen
+wir mal tty usb alles klar ja dann ist es be no port selected weiß ich habe den raus
+gewählt usb connect tatsächlich das sind wir das sind wir leute install install das
+motor all sensors jawoll erase device next install ich habe noch nie über den browser
+geflasht prog prog g gibt auch auf git ein mqtt connectivity ja ich weiß aber wir nehmen
+das motor das ist mit abstand am einfachsten wenn es denn dann mal drauf ist so ich mache
+schon mal mein ipad ich zucke schon mal mein ipad dass ich den sensor wlan technisch einrichten
+kann da dürft ihr dann aber nicht zugucken weil ich will mein wlan password nicht on
+stream leaken warum nicht wir machen auch nix ich kenne euch also ihr werdet die letzten
+die was machen wenn ich mein wlan password liege beziehungsweise wenn ich irgendwelche
+account account password da liege ihr werdet die letzten die was macht ne ich weiß ich
+weiß ja ja ich erinnere mich noch daran als ich mal aus versehen was war das denn was
+ich da geleakt habe 10 minute mail oder irgendwie sowas wo ich dann gleich wo ich dann gleich
+subscriptions hatte zum bracer newsletter und und was weiß ich sonstige dinger ich erinnere
+mich noch chat ok das motor ah guck mal wir haben ein tas motor gerät gefunden das ist
+schon mal gut next nein nein nein wir scannen hier nix nix vor wifi das mache ich selbst
+ok
+alles klar so dann schließe ich das mal hier an und wir schauen mal ob ich das gescheit
+konfiguriert kriegen ihr seht habt geplinkt das motor access point da ist er warum warum
+startet das ding warum startet das ding jetzt keine wifi konfig soll das jetzt nicht eigentlich
+wifi konfig starten beziehungsweise auf die muss jetzt von hand auf die webseite das ist
+doch komisch das ist irgendwas mit dem webflasher der vielleicht was anders macht meine ahnung
+und hier und eins ne funktioniert alles gut also key pass das seht ihr jetzt nicht und
+ich liege jetzt auch keine passwörter so also das muss jetzt mal kurz eingeben user
+passwort alles klar safe not now und jetzt muss ich in meinen router gucken ob der kram
+eine ip hat und dann geht's weiter das motor hat eine leases irgendwas mit 60 60 113 das
+klingt doch gut ping ok so bei so bei empfang alles klar so geht das motor jetzt auf
+öffnen da sind wir nice ok das motor kram ist drauf wir können weitermachen ip liegt
+oh nein jetzt ist aber jetzt vorbei leute ich habe meine ip geliegt shit ich muss euch
+übrigens wirklich mal kurz ausmachen muss ntp server und zeug eingeben das problem ist
+nicht die ntp server die ich nicht will dass ihr seht sondern eventuelle wifi settings und
+gedöns ich weiß nicht genau was passiert wenn ich die konsolen wenn ich die konsolen
+ansicht aufmache weiß jetzt aus dem kopf kann ich müssen wir mal schauen konsole geht
+auch gerade nicht auf ihr seid jetzt ihr seid jetzt kurz unter euch chat oder oder ihr sagt
+ihr guckt nicht hin wenn ich den chat wenn ich wenn ich das fenster aufmache da kann
+ich euch doch bestimmt trauen wenn ihr sagt ihr guckt mich hin
+ja ja ich weiß ich weiß immer dem chat kamer prinzipiell was was blind vertrauen das ist
+ja allseits bekannt das weiß man ja so ich bin aber auch schon fertig es ist eh nicht
+schlimm ist was man da kurz was man da sieht aber man muss ja nicht mehr liegen als sein
+muss so fertig also wir haben es geflasht es ist alles da wir können das theoretisch schon
+einstellen generic braucht man hier glaube ich generic 18 save sollte es eigentlich neu
+starten ja ja ihr dürft wieder gucken ihr dürft die augen aufmachen schätz alles gut
+und figure module so und hier können wir den kram dann einstellen ach hier ist ach so ok
+was hatten wir noch mal also d4 ist wenn windrick ning ist d4 und dann machen wir so das d1
+und d2 wieder die eins und jetzt also die eins ist scl machen wir so die eins ist scl
+ist scl sda so main menu gut jetzt haben wir alles konfiguriert am sensor was wir konfigurieren
+müssen das heißt im endeffekt wenn ich es jetzt anlöte sollte es eigentlich sofort
+funktionieren wofür steht scl und sda boah das eine ist glaube ich clock oder so ich
+weiß gar nicht das eine ist ich glaube das eine ist clock und das andere ist data also
+ich glaube scl ist clock und das andere ist data oder so ach serial clock ok ja ja genau
+was machst du eigentlich beruflich was hast du gelernt ich habe mal fachinformatiker system
+integration gelernt 2007 das ist schon ein bisschen her ich bin ja auch alt nicht wie
+die ganzen zoomer im chat ja was ich auf der arbeit mache das kannst du dir auf youtube
+angucken da habe ich irgendwelche videos zum thema gemacht kannst du entweder das lange
+video mit dem noel angucken wo wir uns drüber ausgelassen haben oder du guckst dir mein
+video an wo ich aus irgendwelchen gründen für eine gute idee hielt dass oder muss los
+wie ihm rein zu hauen na gut wolltest du nicht ein video mit meinem chef das wollte nicht
+video mit meinem chef mein ich wollte ich video mit meinem stazubi gemacht ja mit einem anderen
+aus der firma der bei der hotline früher gearbeitet hat und irgendwelche horror stories erzählen
+kann ja das wollte ich machen ich habe noch ein bettel viel drei gameplay von meinem
+chef von vor zehn jahren oder so auf musik hat er mir irgendwann mal gegeben ok so jetzt
+muss man erst mal anlöten leute ja auf auf es ist 21 uhr 50 minuten zeit das muss man
+jetzt mal machen also löten kann wieder an stellsding hier weg so also das war es ja
+eigentlich also wir haben den kram hier alles ordentlich dran ist ok dann mache ich mal
+kurz den dinge zum festhalten wieder weg das ist total useless zum größten teil gut
+also wie kriegen wir denn jetzt diesen krempel hier dran also wir brauchen wir brauchen fünf
+volt und wir brauchen ground das ist erstmal das wichtigste wir schließen erstmal den
+air quality sensor an erstmal nur den air quality sensor dann mal schauen was weggeflogen
+gerade mal kurz die kabels ein bisschen verlöt zinnen das erhält oder es ist aber sehr
+minimalistisch das kabel was ich da ab isoliert habe aber sollte reichen ok also kabel ground
+ist der da wir machen 5 volt dran weil wir fangen auf der rechten seite an also 5 volt
+so 5 volt kabel dran das habe ich natürlich gewohnt seriously max alter so das ist nicht
+der laktrad ne so das hier ist ground ah das funktioniert die kabel sind nicht schlecht
+so ground haben wir dran und jetzt brauchen wir noch gelb hatten wir gesagt gelb ist das
+kabel oh das ist nicht schön geworden max max so geht das aber nicht das muss ich nochmal
+neu machen das sagt das habe ich nicht richtig gesehen
+die kunde das muss ich nochmal neu machen das ist müll wobei das brauchen wir eigentlich
+jetzt auch erstmal nicht mein konne ist klassisch schön dass du hier den wish her gefunden
+hast das muss ich auch mal schnell ordentlich machen seht ihr eigentlich meinen kopf wenn
+ich so mache neke jetzt sagt er nein nein lull dabei ist alles sichtbar ah das ist schön
+fest pock pock das wir machen das nochmal bisschen ordentlicher ich hoffe dass der kram
+auch hält später ja das ist schön das ist schön so und jetzt hier nochmal den gelben
+dran nein kapp ja jetzt ist schön fest alles klar so also und d4 haben wir gesagt auf oder
+den rest was auch immer rest der da oh den habe ich gar nicht abisoliert mal mal kurz
+so und dann schalten wir ein und dann sollte direkt der luftqualitäts sensor funktionieren
+sobald ich das usb kabel dran stecke soweit zumindest in der theorie auch gleich funktioniert
+alles ah das sieht gut aus das sieht richtig gut aus da ist das habe ich das habe ich gut
+hingekriegt guck mal kann man sich kann man sich nicht nicht beschweren ok so schließen
+wir mal an und gucken ob es funktioniert schauen wir mal bin bin gespannt bin bin gespannt
+ob es funktioniert wenn ich das richtig gemacht habe dann sollte jetzt nämlich auch der sensor
+angehen wenn ich das ikea teil einstöpsel also da gucken wir mal ikea stöpseler alles
+richtig dran 5 volt ground letzte möglichkeit zu checken 5 volt ground ja alles klar bamm
+es hat geplinkt sachen die plinken und nicht rauchen sind schon mal immer gut woop woop
+smoke ja da sind wir leute bamm habe ich nicht mit wind dricken eingestellt config module
+gpio 4 sind wir noch gpio 4 oder nicht gpio 4 d4 ah ich habe ist ne ne ist doch richtig
+d4 ist wind regnen ich muss wahrscheinlich noch config oh oh ne template config template
+muss ich machen wait wait a minute bin ich mal mal muss man das jetzt über config module
+machen oder config config template ich bin ich bin moment wie macht wie machten der
+du das jetzt module parameters ja habe ich gemacht ein
+wo ist das problem
+habe das mehr oder weniger so wie der dude eingestellt safe drücken keine ahnung vielleicht
+bringt der müsste eigentlich mir die werte vom luftqualitäts sensor anzeigen vielleicht
+geht leute null der sensor sogar nicht dran ich habe den sensor abgesteckt dass er da
+nichts anzeichnet sei relativ klar ab aufwickeln weg damit ich hoffe das geht jetzt wenn ich
+das dranschließe also so so und so so jetzt sind wir dran also ich habe doch alles also
+controller ist dran auf d4 ist der gelbe und der gelbe ist auf rest das ist eigentlich
+alles richtig an eigentlich alles ok ja guck mal mal jetzt funktioniert die hat ja ha wind
+dringend pm 2,5 um micrometers in einem kubikmeter luft ne also 48 mikrogramm partikel in einem
+kubikmeter luft interpretiere ich das hier richtig ja ist das gut oder schlecht
+ich habe keine ahnung ich weiß es nicht wir können das mal ausprobieren ich meine die
+luft hier drin ist nicht gut ich habe hier gelöt stinkt die ganze zeit ich ich puste
+mal was da passiert macht das irgendwas juckt ihn das soll ich mal rein purzen ich bin mir
+gar nicht sicher ob das permanent misst oder oder es aus oder der hat es gerade ausgeschaltet
+warte einen minuten der bringt mir auch bis sie oft was ist da los was ist da los was ist
+da los meine kurzschlüsse habe ich auch kapituliert ist alles alles sehr nice und ordentlich das
+ist der einzige problem
+550
+Sag mal, das Ding schallt sich doch aus und ein, oder?
+Sehe ich das falsch oder überträgt das einfach nur Daten die ganze Zeit?
+Ja wie kann ich denn das jetzt kann ich irgendwie bisschen bisschen staub machen oder irgendwas
+das ist ich habe keine ahnung was ich da ich das testen kann ob das funktioniert kärze
+oder streich das ist eine super idee ich habe ein feuerzeug hier irgendwo ja bin bei der
+war ich bin nicht raucher das ist nur zum nur für schrumpffläuche nur für schrumpffläuche
+no cup bringt das was wenn ich mit dem feuerzeug irgendwie so irgendwie mache also keine ahnung
+feuerzeug bringt ja nichts oder doch doch guckt mal ein bisschen was gebracht
+ein bisschen was gebracht haben desinfektionsmittel gute idee ich könnte ja ich könnte ja gas
+ey leute wir können den gassensor testen guck mal jetzt ist wieder runtergegangen das lager
+wir können den gassensor testen wenn ich einfach hier drauf drücke da kommt ein bisschen
+gas raus oder ja ist das klappt das bei feuerzeug noch dass
+dann gas raus kommt wenn man da einfach da drauf drückt ich bin kein feuerzeug experte
+gut guck mal jetzt gehts wieder runter das hat tatsächlich das hat reproduzierbar funktioniert
+mit dem feuerzeug ich mein ich hab hier noch so eins
+ich glaub das andere mal das andere macht mehr mehr partikel
+das andere macht mehr partikel wegen diesem komischen feuer
+was auch immer ich glaube ich glaube dem schon dass das funktioniert sehr schön gut also
+das funktioniert da bin ich happy bist du raucher nein no cup ich hab die feuerzeuge
+nur zum schrumpfschlauch für schrumpfschläuche und soll ich euch mal die geilste erfindung
+für guck mal 65 geht hoch die geilste erfindung für leute die kein bock haben zu löten aber
+mehrere sachen verbinden müssen zeigen ich hols mal kurz
+guck mal ich hab jetzt nur einen mittelgroßen geholt das ist eine kombination eine kombination
+aus schrumpfschlauch mit lötzin und auto und kleber die das wasserdicht zu macht funktioniert
+folgendermaßen ich bräuchte mal ein kabel was ein bisschen dicker ist
+aber gerade hier keins egal ich dann zeige ich dann zeige ich euch das jetzt mal damit
+es ist ja wurscht
+ich hab doch eben noch mehr von diesem kraut mit dem schwarzen kabel abgemacht oder
+ja also von der idee funktioniert das folgendermaßen einfach hier ein bisschen von dem von dem
+schwarzen kabel man nimmt das ist jetzt zu dünn das das funktioniert das nicht richtig
+so man nimmt das isoliert das isoliert das ab ordentlich so an beiden seiten und dann
+nimmt man das und dann nimmt man das kann das jetzt nicht
+gescheit zeigen das ist ja toll man nimmt das und steckt das hier rein von beiden seiten
+zack dass es in die mitte geht und das auch so in die mitte und dann nimmt man feuerzeug
+dann nimmt man feuerzeug und schmilzt das in der mitte easy und dann schmilzt das lötzin
+und dann kann man den rest noch schrumpfen hier das funktioniert es nicht richtig weil
+die kabel die kabel sind zu dünn aber ihr könnt euch glaube ich vorstellen ungefähr
+wie es funktioniert und das ist halt richtig richtig nice und ihr habt jetzt ein komplett
+verlötetes ich weiß nicht ob man das gescheit erkennt ich muss mal aufbauen das ist noch
+ein bisschen heiß ihr habt jetzt ein komplett verlötetes kabel wasserdicht durch das kleber
+an der seite und geschrumpft schlauch zusammen ist das dien konform keine ahnung es ist praktisch
+es ist praktisch konform das ist das ist wirklich mega nice dieses zeug nur mal so nebenbei
+gezeigt ja die dinger sind wirklich die kosten auch nur ein apple und ein eyeball bei amazon
+so ein set weiß ich hatte mal plan wie das heißt schrumpfverbinder oder irgendwas lötverbinder
+oder irgendwie so in der richtung weiß ich nicht wie das zumindest praktisch ok hat es
+jetzt mit dem sensor alles funktioniert er läuft noch er misst noch warum geht der aus
+nach einer zeit wisst ihr woran ich glaube dass das liegt glaube das liegt am china chinesen
+usb kabel so dumm es klingt ich glaube es liegt am china chinesen usb kabel wüsste
+nicht warum der warum der regelmäßig ausgehen sollte ehrlich gesagt gibt er gibt wenig sinn
+ok gut also erstmal kurz ein bisschen platz machen hier so jetzt müssen wir noch den
+da dran löten das ist der sensor für gas das können wir gleich testen der sensor für
+gas für luftdruck luftfeuchtigkeit und temperatur gucken wir mal
+gut löten wir das mal dran müssen wir mal kurz gucken welche haben wir gesagt die da
+hat sich irgendjemand gemerkt was sdl ist und was sda ist ich weiß wir können es einfach
+umstellen das ist kein ding so wir brauchen noch einmal ground und einmal 5 volt dafür
+merke ich gerade habe ich schon wieder verdrängt was wärme schrumpfender stoßverbinder quasi
+der gachi bassverbinder ok das da das da jetzt habe ich das natürlich
+hier dran gemacht das war ziemlich ich brauche nämlich noch was und zwar das hätte ich mal
+ordentlich aufwickeln sollen mensch das denn hier ach jetzt weiß ich aber was da vorhin
+geflogen ist diese diese zusammenhaltdinger sind darunter geflogen ich brauche ein kurzes
+ein sehr kurzes schwarzes kabel noch es muss wirklich nicht lang sein weil das geht im
+endeffekt nur von hier nach hier nicht nicht weit so gut ich löte es dann direkt hier
+dran und an den sensor was das so an den sensor dann brauchen wir noch ein rotes für 5 volt
+auch nicht so lang auch so das reicht dann schauen wir mal ob das mit dem sensor auch
+so easy funktioniert und einfach und einfach tut mal gespannt was das mit dem feuerzeug
+funktioniert hast du eigentlich schon mal mit skala programmiert nein ich hatte mal
+die ehre nicht wirklich großartig was damit zu machen aber wir hatten mal eine software
+in erlangen ein bisschen erlangen kram zu lesen und das war absolute zumutung das ganze
+besteht nur aus klammern diese programmier sprache man richtig richtig hyper pepega kram
+ist das soll wieder einschalten also wer sich wer sich erlangen ausgedacht hat ist
+mir auch komplettes rätsel der muss der steht auf jeden fall auf klammern der typ also erlangen
+ist was für die für absolute klammer fans habe hier zu wenig platz erlangen da stehen
+wirklich die ganze leute muss stehen da auf klammern wie sonst was war sehr clever und
+ich frag mich bis heute war was die an klammern so geil finden eigentlich mich mich nervt
+das wenn ich um jeden aus so klammern machen muss aber gut die erlangen fans finden das
+nice so wie man das jetzt am besten also das muss irgendwie noch hier dran mal schauen
+ob ich das da noch dran krieg ohne dass ich ohne dass ich verkacke wir machen erst mal
+den da dran in der hoffnung es fällt nicht ab keg weight nein das hat ziemlich gut funktioniert
+alles alles noch dicht alles noch dran alles noch gut hier wird es jetzt ein bisschen ekliger
+hinzukommen monka es alter da komme ich nicht hin
+präge präge leute präge ich glaube präge war erfolgreich ich glaube es hat funktioniert
+ja ja ja aber ziemlich gut ziemlich ziemlich stabiler ganze kram macht jedoch den nähe
+ich habe kein bock das jetzt abzumachen ok jetzt brauchen wir hier noch ein bisschen
+lütze drauf alter mein stich ist zu klein man ich bekomme anfälle guckt euch das mal
+so also wir brauchen in was ist denn hier überhaupt was sind das kennt ihr das sind
+die doppelt vorhanden die pins fau in doppelt kron doppelt oder wie oder was oder hä die
+sieht so aus na gut oder auch nicht zum teufel ist das st 0 cs was was wollen die von mir
+das muss das muss ich mir jetzt mal beim hersteller angucken was das was das sein soll gibt es
+darüber wie präzise der ekea ich habe keine ahnung welche welche pins sind denn hier
+bitteschön was das ist wahrscheinlich 5 voll oder wie oder was haben die irgendwo in den
+pinnen ich meine seriously was ist davon was das ist was anderes als das also ich habe
+jetzt fau in und grauen schon einmal ja und dann brauche ich was brauche ich sonst noch
+spi oder eiskursi ach das ist alles mögliche also brauche ich st 0 wahrscheinlich und s
+c oder ja wo schließe ich denn da jetzt was antran was ist denn jetzt was ich bin verwirrt
+weil was ist jetzt haben wir nicht in den pinn diagramm oder sowas für nups pdf data
+schied data schied vom sensor wiring so was
+c s ist clock signal also das heißt ich brauche
+ich brauche im endeffekt c s das geht auf scl und was was was brauche ich sonst noch
+s c s und dann ich schippselekt ja jetzt bin ich bin ich echt verwirrt wiring ja da kriegen
+wir es gezeigt also ja ja kriege ich das mal in groß please ja ich muss fallen ground
+s s dings s ok also also da wo sdi steht und da wo sck steht sck ist scl ok alles klar
+da war das mal also ich brauche uns jetzt habe ich ausgeschaltet oft gehe wieder an
+geht jam so also neben ground ist ja das neben ground und
+dann in der mitte ok tja dann keine ahnung das habe ich so noch nicht gesehen so jetzt
+haben wir den krempe jetzt brauchen wir die signal dinger und vorher machen wir aber
+ground dran ground und 5 volt ok ground und 5 volt dran also v in tja da bräuchte ich
+jetzt da mal meine dritte hand oder wenn es auch nur wenn es auch nur das ding hier ist
+soll mir auch recht sein hauptsache das bewegt sich jetzt nicht immer deswegen hier so hingestellt
+oder da vielleicht dann man so reicht es mir ja schon hauptsache hauptsache es hält ok
+also das ist jetzt v in gut v in hält ziemlich gut dann haben wir als nächstes jetzt ich
+sollte mal ein stück knete besorgen das machen die ganzen ami channels immer die haben alle
+so ein stück knete ok das ist dran
+ja eiskursie will ich das verbinden genau so passt also das ist dran auch relativ fest
+und relativ gut so und jetzt kommt jetzt kommen die datenleitung dran die muss noch schnell
+ein bisschen abisolieren und dann sehen wir sofort ob es funktioniert ich bin wirklich
+mal sehr gespannt da lutz denn hin da bin wirklich mal sehr gespannt ob das gleich einfach
+funktionieren wird na auf komm her bin ich wirklich gespannt ok also ich nehme ich hab
+jetzt vergessen wie rum ich das wie rum ich das gemacht habe die eins keine ahnung ich
+kann ich kann sie dann ich kann sie wieder umdrehen also ich mache es jetzt so die zwei
+weiß jemand wo ich glock drauf habe ich mache jetzt die zwei mache ich jetzt auf auf das
+auf scl schon ob das funktioniert
+so achso ich habe euch gar nicht im fullscreen aber ihr verpasst eigentlich auch nichts muss
+man noch ein kabel dran machen so jetzt als letztes den da denn ich will
+das nicht richtig dran ist kaum kaum denkt man dass man fertig ist bis man nicht fertig
+geht ja auch nichts jetzt ist gut jetzt ist gut ok ich schalte mal an und wir gucken ob
+es funktioniert easy nach möglichkeit nicht über den china chinesen usb weil das irgendwie
+rumspackt wie es aussieht ja aber noch eines doch besser kein china chinesen usb das muss
+funktionieren so also ich habe jetzt vielleicht vielleicht muss ich die sache noch rumdrehen
+vielleicht habe ich glock vertauscht also ich habe die zwei jetzt auf glock mal gucken
+wenn ich tausche ich die zwei dinger und dann funktioniert es dann gut mal gucke der sensor
+leuchtet schon mal chat meines funktioniert nope konfig module was habe ich da d2a ich
+habe es so war ich habe es genau falsche rum ist auch egal sagt einfach getauscht gucken
+wir mal mein zack fertig geht easy obs falsches fall der knopf ja was willst du da mehr uns
+die kreml noch schnell einbauen also wir haben jetzt zur auswahl temperature x daubt dass
+wir gerade 30 grad ok ok das pendelt sich ein das brach näher das brauche ein bisschen
+vielleicht vielleicht ist es vom lötkolben noch ein bisschen warm das pendelt sich jetzt
+gerade gerade ein ne ne das pendelt sich das pendelt sich ein alles gut also gas haben
+wir noch das testen wir jetzt ob gas funktioniert leute ob der gas sensor tut gucken wir mal
+mal gucken was wir hier haben wir haben hier ein neuer zeug weiß nicht der hängt da ein
+bisschen blöd aber ok der gas sensor weiß nicht wo ist der sensor überhaupt hier oder
+hat ihr geguckt ist das gas hochgegangen gerade ist hoch oder ist das co2 sensor dann ist vielleicht
+co2 ich weiß nicht was das für man kann ich kann einfach mal pusten ich kann einfach mal
+pusten also da also wenn ich puste geht auf jeden fall die luftfeuchtigkeit hoch und die
+temperatur wobei die temperatur ist schon oben ja das das geht also wenn ich es richtig
+richtig krass pustchamp mache jetzt geht es ordentlich hoch luftfeuchtigkeit ne ja guck
+mal luftfeuchtigkeit ich genau ich blase gerade ja ja geht geht drauf funktioniert ja gut
+dann mache ich das doch mal schnell zusammen gachi roll du du du du du du du du du du du
+mal gucken wie man das jetzt ja am besten reinkriegen lödkolben kann weg sind fertig
+muss man nichts mal machen bis zumindest bisschen mehr platz hier ist ok also jetzt bauen wir
+den kram zusammen gut der sensor habe ich gesagt kommt oben rein auf jeden fall sinnvoll
+den oben rein zu machen und der hier der esp kommt unten rein irgendwelchen könnten gar
+nicht gescheit passen will was ich sehr merkwürdig finde aber in dem usb anschluss lull was zum
+ah leute ich muss noch was anderes machen der hat schrauben und ich will nicht dass
+der esp sich kurz schließt da ist da muss irgendwas dazwischen stecken ich habe doch
+hier bestimmt ich habe doch hier noch so ein bisschen antistatik kram oder so ja komm
+mehr massif heilig secure antistatik folie dengan die luftöffnung ach was heilig secure
+antistatik stellts so gut so der kram ist oben drin aber das irgendwie busy guck mal
+ich hab viel zu lange kabel keck wait alter guckt euch das an viel zu lange kabels aber
+letztendlich ist auch wurscht das können wir einfach hier rein machen ich glaube nicht
+dass großartig stört habe ich überhaupt richtig rum ein ja ok
+so windregning schauen wir mal ich mach nur mal ich mach nur mal kurz zwei zwei schrauben
+zu ich habe eine schraube ich habe eine schraube verloren
+ach falscher vielleicht mache ich das morgen auch mal off stream ein bisschen
+ordentlicher mit den kabellängen die sind nämlich viel zu lang na
+denn hier warum geht das nicht zu
+gut so ist zu ich mache es dann ich mache es gleich noch richtig zu wir schließen es
+jetzt erst noch mal an aber nicht besseren usbc hier irgendwo ja wir haben das raspberry
+pie netz teil ist doch gut das nehmen wir jetzt dafür das raspberry pie netz teil das
+sollte nur was der hell das sollte nur mehr als ausreichend sein so windregning geht an
+er pinkt auch schon mal gut zack da haben wir es da ist er
+luftqualität gelb um nicht zu sagen die meine luftqualität sagt so was haben was haben die
+denn hier noch für ne da das gleiche wie ich was hat er denn hier iacu core was ist
+denn das iacu iacu core was misst das ding co2 und tv ok was was was alles klar ihr wisst
+auch bescheid oder bettaschen sun tv oc ne ich kann das fenster nicht aufmachen ich hab
+fliegengitter also ich kann das fenster aufmachen aber ich kann es nicht raus machen ich hab
+fliegengitter ist das sinnvoll noch so nen sensor wie der da hat wenn der wenn der windregning
+schon dinge hat wie viel kosten so ein ding ich bin ja immer fan von möglichst viel in
+die sachen rein zu stopfen wenn man schon mal dabei ist irak sensor hat er grad gesucht
+lull ne sowas gibt es hier nicht ja mit dem anderen kann ich aber auch erstmal leben so
+also unser tasmotor ist der meinung meine luft ist nicht gut weil ich 5 und 2 ich mein
+ich kann mal das oh das fenster auf wir können wir können mal das fenster aufmachen weil
+ich den rollern unter hab und zeugs hier liegen hab vorm fenster tja aber was ich machen kann
+ist ich kanns mal eine andere ecke ich kanns ja ein bisschen weiter weg wo wir nicht so
+krass gelötet haben stellen und dann gucken wir mal runter geht oder so dass jetzt irgendwie
+besser wird ja guck mal es geht runter seht ihr pock champ massive pock ne jetzt gehts
+wieder hoch was wurde bis jetzt an dem ding umgesetzt alles alles eingebauen ok leute
+wisst ihr was ich mach die kamera aus und wir machen das fenster mal auf ich muss das
+noch mal kurz freiräumen konnte nicht jetzt musst du was breathing bodies was ist was
+ist breathing bodies was für ein ding klingt irgendwie unanständig breathing bodies was
+so schauen wir mal jetzt müsste es runter gehen ich habs fenster auf steht jetzt steht
+jetzt ziemlich direkt am offenen fenster geht auch ziemlich runter windere knigen ich dreh
+es mal ein bisschen rum was auch ansauen kann ja guck mal guck mal viel besser ja
+seht ihr es funktioniert es wird auch kühler die luftfeuchtigkeit sinkt die artikel gehen
+runter funktioniert kann man nix sagen
+das ding auf dem ekea basiert ganz einfach weil es billiger ist als selbst bauen du hast
+ein ordentliches case dabei du hast ordentlich led vorn ran der sensor ist billiger als wenn
+du dir den so kaufst ja ist gar nicht schlecht es ist eigentlich ziemlich gute idee gut dass
+es ist also ich habe das ja bin ja selbst nicht auf die idee kommen ich habe ein youtube video
+darüber gesehen haben wir gar zu können auch mal ausprobieren weiß sehr schön leute es
+ist 22 uhr welchem tutorial ja das ist quasi so die offizielle seite mit also weiß ich
+wie offiziell der ist aber die haben für alle tas motor gerätes settings genau ihr wisst
+da schon spät ist ja ausgeschaltet übrigens gerade hat euch der stream gefallen ich hoffe
+mal ob mal schnell er kriege
+ich bin müde habt ihr lust so was das ist nice richtig poggers ja schön dass euch gefallen
+hat ich muss jetzt ins bett weil ihr wisst schon spät deswegen jetzt bis denn macht's
+gut zu
+gehen
+Das war's für heute. Bis zum nächsten Mal.

@@ -1,0 +1,729 @@
+So Leute, weiter geht's, ich muss mir gerade noch was zu trinken holen.
+Ihr werdet es nicht glauben, ich hab off stream weiter gemacht, sodass es jetzt eigentlich
+funktioniert.
+Weil ich bin immer so lahm, wenn wir im stream was machen, da brauche ich drei Stunden für
+zwei Zeilen.
+Ups, warum ist da der Rahmen drum?
+Deswegen, ich mach mal kurz die ganzen Vms an, dann erzähle ich euch, ich zeige euch
+einfach, was ich gebaut habe.
+Kann sein, dass wir es noch ein bisschen umbauen müssen, dass ich es jetzt im stream verwenden
+kann, aber mal gucken.
+Erstmal starten, my home assistant starten und dann gucken wir mal.
+Heute bauen wir ein home assistant addon und pushen es, wir pushen es vielleicht schon
+auf shithub, falls irgendjemand nen fiat hat oder nen jeep oder irgendwas mit uconnect.
+Könnt ihr es dann theoretisch sogar schon ausprobieren, vorausgesetzt, ich kriege das
+gebacken, ein home assistant addon zu bauen, das habe ich noch nie gemacht, legit, wirklich.
+Nicht so dieses noch nie und ich hab doch irgendwie mal davor geguckt, hab ich wirklich noch
+nie gemacht.
+Aber ich hab vorhin mal geschaut, so das Starttutorial sieht easy aus, ja genau, ich hab reingeguckt,
+das sah relativ easy aus, irgendwie drei Dateien hinlegen und gut ist, mal gucken, wie es wirklich
+in der Praxis dann aussieht, mal schauen, so, home assistant gestartet, progas vm gestartet,
+diesen ganzen Krempel muss ich nochmal kurz zumachen, äh, kurz eine Runde Updates und
+dann nix, wie, gibt nix, keck wait, keine Updates, ah, aber dafür hier jede Menge Updates,
+geb ihm, Updaten, so, hier haben wir, der Mockchamp, hier haben wir auch noch äh, älteres Zeug
+auf Exit, gut, dann lassen wir den erstmal updaten und dann machen wir weiter, also
+ich hab, wie gesagt, ähm, das nochmal ein bisschen umgebaut und ähm, home assistant
+integration ordentlich reingebaut, also sprich, ich zeig's euch, ich zeig's euch, ich werd's
+einfach gleich laufen lassen, wir müssen bloß, doch, wir müssen zwei Sachen ändern,
+dass er sich nicht versucht, wirklich buffiert einzuloggen, weil, wie gesagt, ähm, ich hab
+nicht vor, mein Account zu leaken hier im Stream, deswegen muss ich das noch umbauen,
+dass er die Fake-Daten nimmt, anstatt sich direkt einzuloggen, aber dann ist, dann ist
+okay, ich, deswegen hab ich's auch noch nicht auf GitHub gepusht, ist der einzige Grund,
+warum ich's noch nicht auf GitHub gepusht hab, weil ich mir nicht sicher war, ob ich
+nicht im Source-Code irgendwo noch E-Mail oder Passwort oder so stehen hab, da hab ich
+mir gedacht, so na, guck, guck lieber nochmal bevor das, ups, was jetzt, lul, guck lieber
+nochmal bevor das pusht, aber da dürfte eigentlich nix mehr drin sein, ich hatte das nur an einer
+Stelle stehen und das hab ich rausgeschmissen, so, Update ist durch, genau, das sind übrig
+gebliebenen Sachen vom letztem Mal, äh, wenn wir grad dabei sind, ist was für Reap, was
+ich jetzt eigentlich nicht mehr, ich reboot immer, macht nix.
+Gibt's da eigentlich keine automatischen Checks beim Puschen?
+Also, du hast so eine, du hast diese Anzeige, aus was deine Repo besteht, also wenn du ausversehen
+irgendwelche SSL-Keys oder so pusht, dann siehst du's in der Code Übersicht, aber
+ich glaube, irgendwelche Analysetools standardmäßig gibt's nicht, du kannst natürlich selbst
+was machen, ja, du kannst bei nem Push irgendeinen Job laufen lassen, der guckt, aber da musst
+du halt erstmal puschen, das ist ja auch eine Sache, die find ich persönlich an GitHub
+ein bisschen doof, im Vergleich zu nem selbst gehausten Repo, du kannst auf GitHub keine
+ordentlichen Git-Hooks verwenden, das klappt nicht, das einzige was du machen kannst ist,
+irgendwelche, irgendwelche Web-Hooks kannst du verwenden, du kannst aber keine klassischen
+Git-Hooks verwenden, dass du quasi pushen, ablehnen kannst oder sowas, du kannst zwar
+die offiziellen Pre-Receive-Hooks nehmen, also quasi Branch-Protection oder sowas, aber
+wenn du sagst, hey, ich möchte eine spezielle, ich möchte einmal scannen nach Passwörtern
+bevor ich pushe, dann geht das nicht, zumindest nicht in nem Git-Hook, weil du kannst auf
+GitHub keine Pushs ablehnen, du kannst nur nach einem Push was auslösen, also du könntest
+checken, ob das okay ist und dann, nachdem du gepusht hast, könntest du dann irgendeine
+Meldung dir schicken, so Achtung, da ist ein Passwort drin, ja, du kannst natürlich auch
+einen lokalen Commit-Hook machen, aber ich fand das bei, mit nem lokalen Git-Repo, beziehungsweise
+lokal, irgendein Repo, was auf nem Server liegt, ganz praktisch, da konntest du Pre-Receive-Hooks
+machen, dass du manche Sachen ablehnen konntest beim Git-Push. So, Reboot ist immer gut,
+genau. Oh, was haben wir denn da heute im Hintergrund? Wie gesagt, Bing Image of the Day. Sowas?
+Weiß ich nicht. Das kommt drauf an, wie die das machen. Das musst du dir auch irgendwo
+laufen lassen und irgendwo muss es getriggert werden. Das kenn ich nicht, keine Ahnung.
+Sagt mir nix, ist aber sehr beliebt anscheinend. Äh, ich, also... Warum sollte ich ein extra
+Package hinzufügen, um ein Commit-Hook laufen lassen zu können? In jedem Git, das versteh
+ich wieder mal nicht, das ist so ein JavaScript-Git für uns wieder. Du kannst in jedem Git-Repo
+Punkt Git Hooks, Pre-Receive und Commit, da kannst du einfach was reinschreiben, das
+ist schon da. Also warum man das braucht, erschließt sich mir jetzt ehrlich gesagt
+gerade nicht. Noch nix, ich hab grad meine VM Rebooted. So, da sind wir. Mal hier Konsole
+starten. Das schöne an Git Hooks ist, das kommt gar nicht auf meine Code Pays an. Die
+sind einfach da. Guck mal hier. Achtung, Achtung. Machst du ein Hacks Addon? Ja, mach ich, wenn
+ich checke wie es funktioniert. Gut, Git Hooks. Und guck mal da. Leute. Ganz ohne NPM Install
+sind da einfach schon irgendwelche Git Hooks da. Wie ist das überhaupt möglich ohne NPM
+Install, dass da überhaupt irgendwas läuft ohne NPM Install? Ich dachte ohne NPM Install
+ist eigentlich prinzipiell überhaupt nichts möglich. Ich mein ohne NPM Install kann man
+noch nicht mal feststellen, ob eine Zahl gerade oder ungerade ist, hab ich gehört. Weiß nicht,
+wie es euch geht, Chat. Chat, könnt ihr das feststellen ohne NPM? Also bei mir hört's
+da auf. Ich brauch der NPM dazu. Oder Alternative PIP, oder GEM, oder Nugget, oder... Was gibt's
+denn da noch so alle? Ja, siehste, ohne zwei Gigabyte Module geht da natürlich nix, da
+habt ihr recht. Das ist das JavaScript Mindset, so mag ich euch, Chat. Exzellent. Halt die
+HiIQ wieder angesagt. Ohne zwei Gigabyte Abhängigkeiten ist das nicht möglich, das ist... So ist
+es. So sieht's aus. Und jeder der was anderes behauptet hat, einfach keine Ahnung. Alles
+Kacknubs. Äh, das ist der Package Manager für.NET. Allerdings nur mit nur einem G.
+Ich mein, eigentlich heißt es Nugget, aber ich sag immer Nugget. User32DLL. Das ist
+sehr Windows-Style, der Name. Aber danke schön für den Sub. Massive Subscription hier, drei
+Monate, huge. So, also ich check mal kurz mein lokales Repo aus. Ah ne, das gibt's schon.
+Ähm, da muss ich mal kurz den Fiat-Champ ummoven. Leute, morgen wird's auf der Arbeit
+lustig, ich krieg morgen ein neues Notebook. Ein Surface Book. Und wisst ihr was das erste
+ist, was ich mache auf dem Surface Book? Der Chat gibt, ihr wisst das, ihr wisst das, geht
+mal in euch. Was ist das erste was ich mache? Na, Linux ist klar. Welches Linux? Welches
+Linux? Archlinux, korrekt. Das erste was ich mache, ich hab extra schon USB-Stick eingepackt,
+das erste was ich machen werde ist ein Archlinux draufknallen. Da bin ich mal gespannt wie
+gut das auf dem Surface Hub läuft. So Leute, ich muss mal kurz mein lokales Repo klonen.
+HTTPS, SSH, hier. Achtung, mkdir, Fiat-Champ, wobei ich glaub es geht auch so. Geht klonen,
+da sind wir. Oh ne, Moment, ich hab das Fiat-Client genannt. Alter, was ist denn mit mir los?
+Weird-Champing. Das Repo heißt komplett falsch. Wie kann man das nur so kaputt nennen? Ne,
+so gehts ja, so gehts ja nicht. Gut, so ich werde das mal öffnen und dann zeige ich euch
+was ich gemacht hab. Und zeige euch auch die Home Assistant-Integration, wie gut das jetzt
+alles schon funktioniert, ohne dass wir uns hier schleppend im Stream dadurch durchkämpfen
+müssen. Also. Ja ja, ich truste meinem eigenen Repo. So, ich muss mal ganz kurz ins Main gucken
+ob das die richtige Version ohne Passwörter ist. Ja, ist es. Okay, also, auf gehts. Ach,
+da heißt es Fiat-Champ. Ich konnte mich auch nicht entscheiden, oder? Das Repo heißt Fiat-Client
+und das hier heißt Fiat-Champ. Na gut, also im Prinzip ist es mehr oder weniger das gleiche
+was wir gebaut haben zusammen im Stream. Nur, Alter, hab ich hier immer so eine große Schrift,
+oder? Ich hab doch nicht immer so eine fette Schrift hier im Stream, oder? Bin ich, bin
+ich, bin ich, bin ich? Ist das wirklich so, ist das immer so fett? Ich dachte eher ich
+hab sowas hier. Und das ist ja mega fett. Echt? Da erkennst du ja gar nichts. Aber es
+ist für euch besser, ne? Da erkennt ihr mehr. Naja, dann ist man, dann ist man auch gar
+nicht geneigt mehr als 120 Zeichen zu machen, weil mehr als 120 Zeichen passen dann gar
+nicht, ne, mehr als 108 Zeichen, weil mehr passen dann ja auch gar nicht auf den Bildschirm.
+Also, was wir heute machen ist folgendes. Also, ich fang nochmal anders an. Für alle,
+die nicht dabei waren, ich hab mir ein Fiat Elektroauto gekauft und hab festgestellt,
+ich bekomme die ganzen Daten nicht in meine Heimautomatisierung. Da so Sachen wie zum
+Beispiel Ladestatus, wie viel Prozent hat die Batterie, wieviel kann ich damit noch
+fahren, Reifendruck, aktueller Kilometerzähler, wieviel bin ich heute gefahren und solche
+Geschichten bekomme ich nicht in Home Assistant. Deswegen, das kannst du als Clip machen,
+ja, dann kannst du gleich Clip machen. Also, deswegen haben wir da was gebastelt, was
+die fiat api, sag mal so die inoffizielle fiat api anzapft. Muss ich nochmal abdecken
+hier? Alter, Home Assistant, ja, dann installier halt schnell. Also, was die fiat api anzapft
+und die Sachen in Home Assistant pumpt, das funktioniert schon ganz gut. Wo wir das letzte
+Mal stehen geblieben sind ist und was ich jetzt Offstream fertig gemacht hab ist, man kann
+nicht nur Sensoren in Home Assistant reinpumpen, sondern man kann auch Commands. Max, ja, ich
+hab noch gar nicht angefangen, das ist das, was ich das letzte Mal gemacht hab. So, und
+jetzt bin ich, jetzt bin ich, jetzt weiß ich nicht, was ich sagen wollte. Ähm, erstmal
+Home Assistant updaten, dann gehts weiter. Ja, also genau, jetzt weiß ich wieder. Wir
+sind stehen geblieben, dass wir nur Sachen in Home Assistant reinpumpen konnten, wir
+konnten keine Kommandos ausführen. Das hab ich jetzt auch gebaut, wir können jetzt
+Kommandos ausführen. Ich, wie gesagt, ich werd euch, ich werd's euch gleich zeigen.
+Wir können jetzt nämlich sowohl die, ah, das muss ich wahrscheinlich dann auch ändern,
+wir können die, den Standort des Autos abfragen und wir können diese Fiat Befehle, die, die
+ich aus diesem iOpRocker Addon mir abgeguckt hab, können wir auch direkt an Home Assistant
+sticken. Also wir können jetzt zum Beispiel dann, über Home Assistant hat man dann nen
+Schalter, da kann man dann den Kofferraum anlocken oder locken oder die Lichter blinken
+lassen oder, äh, die Klimaanlage an- und ausschalten und sowas. Das ist tatsächlich
+ganz praktisch, weil sonst geht ja die Hälfte der Funktion, die die App hat nicht und ich
+will ja, dass ich mehr oder weniger alles kann wie die App und eigentlich nur besser.
+So, da sind wir. So, also da haben wir das letzte Mal aufgehört. Ich glaube, ich muss
+euch jetzt nicht das alles im Detail zeigen, aber nur mal so ganz grob. Ich beleg grad,
+wie wir das machen. Wie kann ich das jetzt ausführen? Was ist der TÜV da? Nix. Was
+soll das? Ist doch dem TÜV egal. Das ist immer so ein, das, das hör ich bei total
+vielen Sachen. Was wohl, was soll denn der TÜV davon halten? Das ist, das geht dem
+TÜV am Arsch vorbei, ob ich über ein Webinterface irgendwelche Datenauslese, die eh schon da
+sind. Was soll das? Das juckt den TÜV doch immer absolut gar nicht. Das ist höchstens
+für mich gut, dass ich weiß, wann ich wieder zur nächsten Wartung fahren muss. Ja, weil
+zum Beispiel, ich sehe hier Kilometer bis zur Wartung. Ja gut, das ist Fake, Fake-Response,
+aber ja. Nee, das ist dem TÜV vollkommen egal. So, wir tragen da jetzt mal ein paar Fake-Werte
+ein. Ach so, Remote blinken lassen. Nö, das ist dem TÜV auch egal. Das kannst du
+über die App ja auch machen. Nur weil du das über die Home Assistant machst, dann
+statt der App ist das dem TÜV, wenn man davon abkommt, der TÜV kriegt das gar nicht
+mit. Und selbst wenn er es mitkriegt, wäre es ihm egal. Genau, ja. So, also Leute, wir
+müssen mal, was ist denn, was hat denn Deutschland für Länge und Breitengrad so? Hier, Salzgitter,
+da, da muss schon immer mal mein Auto stehen. Salzgitter, Leute. Das ist mein Auto jetzt.
+Salzgitter. Auto hupen lassen, während es beim TÜV steht. Man kann nicht hupen lassen,
+das wäre natürlich mega, wenn das geht. Man kann das Auto nur die Lichthupe machen.
+Man kann Lichthupe machen und das ist dafür da, dass man sein Auto wieder findet, wenn
+man beispielsweise irgendwie im Dunklen über den Parkplatz läuft. Das ist eigentlich eine
+ganz gute Idee. Aber hupen lassen geht nicht. Ja, beim Tesla geht technisch an sich eh schon
+einiges mehr. Die zeichnen ja auch beispielsweise exakte Verläufe der Fahrten auf und so was.
+Das macht der Fiat auch nicht. Der Fiat zeichnet die Kilometer auf und der übermittelt ab
+und zu mal so alle Viertelstunde, alle 10 Minuten Viertelstunde die GPS Position. Also
+sprich, das ist, naja, also wirklich Bewegungsprofil, ein gutes. Kannst du da dran nicht erstellen.
+Aber ist egal. Ich zeige euch jetzt erstmal im Home Assistant, wie das Ganze dann ausschaut.
+Damit das funktioniert, ich mir gerade überlegen. Ich habe das nämlich schon angepasst, dass
+man das über Environment Variablen reinkriegt. Dann testen wir doch gerade mal, ob es mit
+Environment Variablen alles funktioniert. Probieren das doch gerade mal aus. Epo, Fiat,
+Client. Testen wir noch mal gerade. Also, weil wir können ja, wenn wir das im Container
+laufen lassen, müssen wir die Daten von Home Assistant über Environment Variablen da reinpacken.
+Deswegen simuliere ich das jetzt einfach gerade mal. Also Fiat Login. Gut, Fiat Login werden
+wir nicht brauchen, weil wir Fake-Responses verwenden, weil ich mein Passwort nicht liegen
+will. CAC, Fiat, PW, CAC, MQTT Server, das brauchen wir. Das ist nicht CAC, sondern das
+da. MQTT User. Weiß ich schon gar nicht mehr. Sub. Ach, MQTT 123456. Ne, da hätte ich ja
+auch selbst drauf kommen können. MQTT User, MQTT PW ist 123456. Was brauchen wir sonst
+noch? Port. Port brauchen wir nicht. Ok, also ich lasse es jetzt mal laufen und dann werden
+wir gleich sehen, es crasht. Es ist logisch, dass es crasht, weil naja, CAC und CAC ist
+kein gültiges Fiat Login. Mal gucken, was passiert. Na ja, ganz... Ja, guck hier, verbinden.
+Invalid Login ID. Hunst nicht. Kaputt. Invalid Login ID. Invalid Login ID or Passwort. Ja,
+das hätte man sich aber eigentlich denken können. Ja, das hätte man sich denken können,
+weil CAC und CAC ist kein gültiges Fiat Login. Deswegen kommentiere ich jetzt, dass wir das
+ordentliche testen können offline. Deswegen kommentiere ich jetzt einfach mal das Login
+aus, dass er sich versucht einzuloggen und beim Fahrzeug Fetchen rufen wir einfach Fake
+Daten ab und gut ist, die Fake Daten kopieren wir uns mal kurz aus diesem anderen, was ich
+hier hatte vom letzten Mal. Hier. Fake. Fake. Könnte bei Gelegenheit... Habe ich das in
+dem anderen nicht schon gemacht vom letzten Mal? Ja. Ja. Oh, Vim. No. Set. Nee. Set.
+Set number aus. Alter Vim Logik, du kannst... Manchmal ist es Set No, No Set, Set irgendetwas
+gleich Null, das hat alles keinerlei System wie man das macht. Entweder man merkt sich
+oder man hat verloren ok zack zack so wir returnen mal für eine fake fake response dass ich mein
+home assistant befüllt krieg und dass ich euch den rechts den rest zeigen kann sehr schön ist
+wim zu schwer bist du zu schwach leute wim ist einfach total inkonsistent an vielen stellen
+dafür ist wim was das editieren angeht mega poc weil wenn man sich einmal gemerkt hat was
+da so geht mit mit editieren und change change inner quotes und solche sachen dann ist das wirklich
+mega nice leider dauert es ein bisschen ok auf geht's wir exportieren das ganze mal schauen
+ob das funktioniert jetzt wir sollten jetzt im home assistant ein eintrag bekommen der sich
+kartu nennt integrations mqtt oder pock pock k hatten wir das letzte mal pock k genau das
+sollten wir jetzt wieder bekommen mit allen möglichen infos aber jetzt mit switches und allem ich
+hoffe es funktioniert jetzt aber da ist es pock k ha ha da haben wir alles
+mein fiat login war gerade zu sehen wo ach hier ne das ist fake
+das da ne das ist fake das macht nichts das ist das ist fake das gibt's nicht meinst das
+hier ne ne ne ne ne das ist nix nix bildes das ist fake adresse mit fake password das
+habe ich extra für ein stream angelegt weil eigentlich ist login ist da nicht mehr drinne
+zu also mein mein richtiges mein richtig ja ist gut dass du sagst ja chat six hat heim
+wieder gut dass du sagst denn das hatte ich fake mäßig für ein stream angelegt mein
+richtiges login ist nicht drinne so also hier ist das auto wieder nur mit dem unterschied
+guckt mal ich habe es umbenannt ist natürlich auch sehr sehr clever gewesen von mir das
+dass das umzubringen wisst ihr was ich benenne es jetzt testweise wieder zurück weil ich
+keinen bock habe im web interface das zurück zu wir löschen es noch mal und fühlen es
+noch mal aus root habe ich das letzte mal genannt ja siehst du so einfach kann man
+zum neuen fiat kommen so da sind wir jetzt passt auch wieder so guck jetzt ist das dashboard
+auch wieder befüllt also ladung 8 90 prozent 45 kilometer gefahren bla bla bla blub es gibt
+jetzt ein paar neue sachen was ich gemacht habe während ihr nicht da wart nämlich zum
+beispiel bekommt man jetzt die location von dem auto die ist nämlich da guckt also die
+location das ist fake location jetzt die ich für ein stream eingetragen habe jetzt hat
+man nämlich auch die location das heißt man kann jetzt zum beispiel auch sowas hier machen
+dass man eine map einbindet und sagt dann car location und dann sieht man in städt steht
+angeblich mein auto ok standort aus to show 48 default zoom das ist natürlich cool angeblich
+cup das ist natürlich sehr praktisch jetzt kann man auch gleich sehen wo das auto ist
+ich überlege gerade habe ich habe ich sonst noch irgendwas bei mir lokal geändert ach
+so ja natürlich jetzt kann man nämlich auch die buttons hier hinzuführen guckt mal jetzt
+kann ich nämlich sagen hier zum beispiel wir machen ein grit mit einem oder nehmen wir
+machen kein grit cancel und so eine entity liste und sagen dann hier zum beispiel k nicht
+location sensor klimaanlage auto klimaanlage an und aus kann man machen oder was habe ich
+sonst noch hier drin blink zum beispiel kofferraum kofferraum kann man auch kofferraum kann man
+auch machen kofferraum schreibt man das so mit 2f und 2r täglich deutsch truck genau
+dass die datenbank muss dahin für kofferraum ja jetzt kann man den kofferraum auf und zu
+machen klimaanlage an und ausschalten oder auch zum beispiel blinken lassen aber das
+mal blink haben wir hier ein light icon lights oder so
+zumindest kann man jetzt auch kommandos an sein auto schicken das ist das worauf ich
+raus will also kann man zum beispiel sagen kofferraum klimaanlage an aus und kofferraum
+auf und zu und solche geschichten allerdings muss man halt sagen das ist asynchron das
+geht über die fiat api das dauert ein bisschen also sprich selbst wenn ich jetzt die klimaanlage
+einschalte dann dauert das bestimmt 20 sekunden bis es angeht
+das ist das ist langsam und kofferraum öffnen dauert bestimmt auch 20 sekunden aber gut
+da kann es nichts machen deswegen stelle ich den status auch sofort auf ok nicht dass die
+leute hier anfangen so dumm rumzuklicken genau ja also so sieht die aktuelle home assistant
+integration aus ich denke mal das ist richtig nice kofferraum geht auf nachdem man losgefahren
+ist das weiß ich nicht das habe ich nicht ausprobiert ob man beispielsweise wenn jemand
+drinne ist und das auto angeschaltet hat wirklich sagen kann kofferraum entriegeln und ob das
+dann auch geht keine ahnung wobei naja gut wenn du fährst geht ja keiner hinten und
+macht auf aber das weiß ich nicht ob die dann einen schutz drin haben oder nicht wenn
+es klickt bis selbst dran schuld das schreibe ich auch in die app rein ich übernehme keine
+garantie für irgendwas so und jetzt müssen wir daraus den home assistant addon bauen
+die sache ist nämlich die schön und gut wenn ich das hier bei mir laufen lassen kann und
+über mqtt in home assistant sachen exportieren man will ja dass das ganze automatisch funktioniert
+und ich kann ja auch keinem zumuten irgendwie den source code runterzuladen da was drinne
+einzutragen dann selbst zu kompilieren oder sowas das ist ja natürlich bescheuert deswegen
+versuche ich da draus jetzt mal ein home assistant addon zu bauen das habe ich legit noch nie
+gemacht home assistant addon tutorial aber ich habe vorhin mal in das tutorial reingeguckt das
+sah tatsächlich gar nicht so kompliziert aus man braucht irgendwie den docker feil konfig
+jammel runsh also ich würde sagen wir probieren das einfach mal aus ja also fiat client da sind
+wir also was brauchen wir das lasst uns das mal angucken inside that directory brauchen wir
+docker feil konfig jammel runsh ja gut aus das lässt sich das lässt sich einrichten ein docker
+feil brauma ein konfig jammel brauma ich glaube die meinen dass man das hier im root macht du
+musst nach integration suchen ich will keine integration machen ich will ein addon machen
+eine integration muss ja in python programmiert sein und muss dann als integration da rein ach
+so ja du hast recht deswegen mache ich auch nicht über hacks weil über hacks kannst du das ja
+nicht machen ich will kein das wird ein addon so runsh brauchen wir noch ein runsh alles unter
+ordner ist hyperplot so also was muss denn jetzt da rein vor allem wie kriege ich das dann auf
+mein home assistant drauf habe ich habe ich ssh addons oder sowas installiert ja habe ich
+zum glück kann ich bei ssh drauf kopieren aber ich glaube dass das wird man ja sieht man ja
+denn hier drin also was muss man machen die dateien anlegen docker feil soll so aussehen ok das kriegen
+wir hin ark bild from bild sollte da nicht irgendwas rein oder ersetzt das oder ersetzt
+das home assistant automatisch copy runsh ok dann führt der runsh aus ok das ist easy das
+könnte nicht viel einfacher sein config feil jammel so was kann man da konfigurieren hello world
+my first addon den heißt vier champ keck version 1 0 slack hetschapp in it was macht denn in it
+also das gibt es auf jeden fall nur für amd 64 das da und für arm v7 und v8 ist das v8
+was anderes was anderes unterstützen wenn ich das reicht aber auch ganz ehrlich das ist auch ok so
+passt so und jetzt wie geht das weiter runsh ja gut das kriege ich ok wisst ihr was wir machen
+mal das tutorial durch dass ich ungefähr verstehe um was es geht moment warum habe ich das muss ich
+docker feil kopieren nicht dahin was muss dahin hello world ok alles klar installing and testing
+your add-on open config home assistant add-on backup super adon store check for update button
+you should now see ne moment das sehe ich bestimmt nicht das liegt bei mir lokal auf der platte wie
+kriege ich das hin ach hier vor ssh ok ich das heißt ich muss es auf mein respawn nicht auf
+was habe ich denn ich habe ich muss es auf mein home assistant rüber kopieren gut probieren wir
+das mal aus also der da auf welchem port läuft das ist auch standardmäßig auch 22 nice ssh key
+gen minus er ist und was ist das default password configuration cute chat 123 alles klar ich glaube
+ich glaube wir machen mal wir kopieren mal kurz das password rüber aus irgendwelchen gründen ist
+es mir nicht ist es ok sfdp brauche ich glaube ich muss das in authorized keys rein packen sonst
+geht das nicht anders ok cut ssh achtung leute jetzt kein ssh key liegen max et poggers muss man
+das kann man das so reinschreiben save restart hoffentlich frisst er das lock ja gehen wir nicht
+auf den sack ob man mal funktioniert oder verwendet er den key gar nicht dass der key ist fünf jahre
+alt oder so wo ist mein key hin
+warum
+ach mehrere save buttons alter six hat konfiguration
+das ist der IQ technisch schon wieder versagt so geht's jetzt
+das sieht natürlich schon das sieht wie der hive meint im chat ja das ist halt so der chat
+ist mittlerweile durch die ganzen subs und bits und alles und über die letzten jahre über der
+ist so extrem high IQ da kann ich kann ich nicht mal gegen anstehen der ist der chat ist
+wirklich schon mittlerweile so der kopf ist so quasi komplett in die breite schon seit 16 zu
+neun eher 16 zu fünf so da sind wir eingelogged wie wo hin muss ich den kram überhaupt kopieren für
+ok das mag ich an home assistant die dinger sind immer relativ selbsterklärend ok also heißt von
+der idee bild publish publish also minus konfiguration nicht release die back ist ok
+minus wobei kommt scheiß drauf wir lassen erst mal das hello world laufen und gut ist
+also wohin wird der ganze krempel der netz scp scp 134 also wir scp das da jetzt einfach mal
+nach dem slash add ons ist es 1 2 1 3 2 überhaupt gewesen ach nee 1 3 1 3 1 3 2 ist es gewesen ok
+action close ach so ich muss ja minus er machen scp connection close ich habe irgendwas von sftp
+er laut oder so gesehen zeigt mal her ich muss ich das auf true setzen dass ich ssh machen kann
+wenn alles nicht hilft dann erst und ja erst und ist ja eigentlich das was man eher nehmen sollte
+nexon refused alter was jetzt you have enabled sftp using ssh enable this requires ssh username to be root was
+ok ist mir lieber wenn ich ruht bin ruht tut gut
+jetzt sagt fahr jetzt zu megas dann da sind wir dann fahr du mal zu megas glhf bei megas
+jetzt geben halt alle geben halt per ruht drauf mein sind wir halt ruht slash add ons via champ da
+sind wir ok also und jetzt wie lebt man jetzt die add ons basic kakona ja hau dir den richtig
+fetten kakona burger rein hat attack burger wobei ich glaube so was gibt es bei mcdonalds nicht
+aber in amis gibt so was die haben doch in den usa gibt es auch diese komische fast food ich
+weiß nicht welche das ist da gibt es auch diese fast food kette wo du hat attack burger kaufen
+kannst wo auch die die kellerin in bikinis und so rumlaufen wie heißt das normal da sitzen die
+ganzen halbe kakone aus rum und fressen den ganzen tag guters das kann sein ich ja doch kann sein
+so wo muss ich denn jetzt hin hau muss es den frontend da sind wir configuration add ons und
+add ons store ok im prinzip weiß ich eigentlich wo ich hin muss wir sind ja hier schon richtig
+auch nicht settings add ons add ons store und jetzt was muss ich bin verwirrt habe ich das
+jetzt gerade geschlossen oder was jetzt gerade habe ich das jetzt gerade zugemacht weil ich
+total bescheuert bin so also click add ons store in the bottom right habe ich top right overflow
+in new click check for update button da und jetzt hier schutz siehnau new section called local add
+ons nur löse ich nicht habe ich irgendwas vergessen also man muss das so heißen muss
+das so heißen kann das sein dass der kram nicht richtig heißt dass es dass es so heißen muss weil
+ich hier in der config jammel das ding auch so genannt kann das sein check for updates
+nö und jetzt das tutorial klappt nicht
+hier oben sollte ich jetzt local add ons sehen nö sehe ich nicht ich sehe keine local add ons
+gibt es nicht finden tut auch nicht habe ich irgendwas übersehen was ich machen muss add
+ons folder samba nö nö slash addon muss man sonst muss man dann nichts machen ok dann machen
+wir das mal anders wenn das nicht funktioniert wir machen jetzt wirklich eins zu eins das tutorial
+machen eins zu eins das tutorial also ich soll ein verzeichnis erstellen hello world alles klar
+add ons mk dir hello world dann da drin ein docker file erstellen mit diesem inhalt alles
+klar habe ich gemacht danach eine config jammel erstellen mit diesem inhalt auch auch alles klar
+dann ein runsh file erstellen es stimmt recht stand da was von chmod mein ich bin root wenn
+ich dateien anlege dann das kann natürlich sein dass es nicht gut gehören darf du hast recht
+das ist das das wird es wahrscheinlich sein ja ja ja guck dir mal ups alter ich kann das gehört
+root aber wir machen einfach mal 777 auf move dockerfile config jammel run nach hello world
+.sh so jetzt haben wir exakt das gemacht was im tutorial steht installing and testing check
+updates nö will nicht hä leute ich hätte wahrscheinlich einfach refreshen müssen wobei
+ok install start start logs hello world ok das hat funktioniert uninstall uninstall
+was auch immer ja dann scp ich das ding jetzt noch mal scp fiat fiat champ allerdings nach
+geht das habe ich noch nie ausprobiert ob man das so umbenennen kann mit scp ja geht
+sehr schön jetzt müsste es jetzt müsste es eigentlich checken da ist er doch der fiat
+champ man muss einfach ohne cash refreshen und gut ist alter lull das muss jetzt erstmal
+einer verstehen na gut ok also wir wollen jetzt natürlich nicht hello world ausführen
+sondern erst einmal erst einmal wollen wir das ding bilden publish publish so config
+nee release lassen wir weg ich will mit debug ausgabe sehen dot net publish linux self contain
+publish ja das ist erstmal ok so wie groß ist das binary jetzt 120 mb 68 das geht ja
+sogar noch so und das wollen wir starten ja ok das funst das heißt in das run file muss
+jetzt was rein nee moment erst einmal docker file wir müssen den krempel jetzt noch kopieren
+genau wir wollen nämlich wir wollen nämlich bild slash fiat champ da auch hinkopieren
+wollen wir das nicht vorwarnen vielleicht unterordner machen irgendwie so kann man so
+und dann kommt der kram noch hier drauf zum ausführen ja und dann starten wir runsh und
+in runsh sagen wir da nicht hello world sondern slash fiat champ so und jetzt sollte den krempel
+zumindest schon mal starten jetzt habe ich im tutorial gesehen jetzt muss man die versionsnummer
+hoch zählen sonst checkt das nämlich net net zcpn wirs rüber jetzt muss ich ersunken
+Leute sonst dauert es zu lang wenn ich das nicht ersünke dauert das drei stunden ich
+habe das jetzt ineinander kopiert ne das ist ok wir ersunken das jetzt mal ersünk
+minus v minus a ging das so nee ersünk es ist three hat so ey sieht schon mal besser
+aus jawoll nice und jetzt kann ich nämlich den ganzen krempel auch ein bisschen schneller
+sinken alles da schauen wir mal was wir jetzt neues neue addon version haben eins punkt
+eins ok install dark zone schreibt was was macht minus k ist minus k nicht zertifikate
+ignorieren moin zusammen ich versuche im moment ross desk von github bei mir auf eine ubuntu
+vm zu installieren im firmnetz und wenn ich weg hat mache sagt er mir dass die echtheit
+vom zertifikat nicht überprüft werden kann hab schon sehr also kannst du das einfach
+ignorieren sowohl mit karl als auch mit weget und ja ich glaube es wirklich minus k aber
+dann sagt er das denn weil ich mein github hat definitiv ein gültiges zertifikat es
+würde mich doch sehr wundern hätte github kein gültiges zertifikat achso starten muss
+ich vielleicht noch log vier champ no such file or directory warum
+warum nicht wo ist es denn
+wo ist es hin muss ich das so nennen
+das müsste ich habe es auch ich habe es doch dahin kopiert das müsste auch da sein oder bin
+ich jetzt bin ich jetzt pp gar im kopf was docker docker feil angeht
+ne ne es ist kein punkt sh es ist einfach nur guck einfach ohne ohne was aber das
+müsste auch eigentlich da sein wenn ich es dann noch mal hin
+habe ich den sündungsfehler immer im docker feil oder sowas aber also mich wird es wirklich
+wundern wenn weget mein das github das zertifikat abgelaufen ist das ist verwirrt die anzeige ist
+etwas durcheinander hier glaube ich jetzt install dann bin ich nicht so verstehe ich nicht so ganz
+was er für schmerzen hat warum er es nicht findet ist nicht das github zrm er will es
+doch von github installieren wo ist das problem warte mal ich muss mal kurz chat lesen so
+wenn du ein weget auf github machst sagt er das ist nicht echt ja die zeit stimmt vielleicht
+in der ubuntu vm nicht das könnte eventuell noch sein aber ansonsten geht es über irgendein
+proxien die dich irgendwie machen die irgendwelche magic mit transparenter proxy oder machen
+die irgendwelche komischen dinger bei euch auf der arbeit
+was hat denn sein company company hu ca und der trust store mit einem get mit einem weget
+auf github zu tun ich würde jetzt lieber gerne wissen warum der der meinung ist dass
+der vier champ nicht findet wo ist das wo ist jetzt das problem das mache ich doch richtig
+oder copy run asa nach slash run asa und jetzt copy bild für dahin und dann ist es doch da
+mehr die run asa brauche ich nicht wirklich aber vielleicht wird doch die brauche ich
+ich will ja noch ein bisschen mehr machen gleich aber wo ist das problem also jetzt
+fliege ich nicht mehr durch slash gibt's nicht wisst ihr der fiat pfiat champs store page
+jetzt das geht immer in das internet so copy so schwierig ist das ja eigentlich nett genau
+das ist theoretisch relativ simpel findet er das nicht beim ko hat hat man vielleicht
+ein lock vom bild oder so dass man hier irgendwie nachgucken kann lock hat kein lock vom bild
+vielleicht in den system locks locks locks supervisor aha build verstehe ich das leuchtet
+jetzt nicht nein ich weil wenn ich da in krab angebe dann sollte das bilden schon mal überhaupt
+nicht funktionieren da hätte ich jetzt nicht gedacht dass es an der stelle kompliziert
+wird schon es fackt mich immer ab wenn so einfache dinger dann nicht funktionieren
+so ne wo war das hier addon store check for updates nein wir brauchen kein backup aha
+ja siehste wenn es nicht wenn du was kopierst was nicht da ist dann geht es nicht das ist
+ja ok so bild fiat champ ok so was ich jetzt mal mach lsla slash lass mir anzeigen check
+for updates update man jetzt macht ein backup eget in beim ch mod ich kopier es dahin und
+dann mache ich ein ch mod das ist ok ok warum braucht jetzt drei stunden dafür alter was
+machst du denn da ach jetzt hat er geupdatet ok lock start da ist es doch da ist es doch
+ganz offensichtlich und hat auch execute rechte will er mich verarschen da ist es doch das
+ist doch ganz offensichtlich da ich habs nicht für arm gebaut ich habs für x86 gebaut
+oder ja kann das sein ok ich hab ne idee ich hab ne idee kann das sein dass diese meldung
+einfach nur richtig bescheuert ist probieren wir mal was aus blub.sh bin.sh echo123 so ok
+copy blub.sh ich mach das alles mal in ein eigenes verzeichnis gleich so und jetzt gucken
+wir mal ob das geht weil es könnte sein dass der ein anderes problem hat ich glaube der
+hat ein anderes problem rsync rüber rsync dieser store ist wirklich ganz pepega zu bedienen
+ja so check for updates alles klar update wisst ihr was ich glaube das no such filo directory
+ist dotnet beim starten was das sagt ich gehe davon aus da fehlt irgendwas weil dotnet
+hat eine oder zwei abhängigkeiten selbst bei self contained access wenn man das nicht
+abschaltet man kann das abschalten die brauchen irgendeine translation library oder sowas wenn
+es nicht ausschaltet guck hier das funktioniert das funst was ist denn das für ein system
+wir installieren da was nach kann man sich da irgendwie connecten oder so docker protection
+mode ach was protection mode nix protection hier wird nix protected ich hab doch grad
+schon geupdatet der ist der ist verwirrt der ist verwirrt protection mode protection protection
+mode ich will ich will per command line auf das system drauf so was läuft da wo ist denn
+meiner wo ist denn hier der nee wo ist es denn wie kann ich mich jetzt auf meinen läuft
+das addon überhaupt protection mode ist das ps-a aber es sollte doch laufen ach nee es
+läuft nicht es hat sein es hat sein links gestartet und gut es aber wie ging das jetzt
+docker execk kriege ich aus dem kopf nicht gebacken docker execk bin bash oder so nee
+er ist noch running run it run it war das run it run it was latest was moment nein image
+execk ist richtig aber wie ging das jetzt was so tatsächlich nee nee nee nee nee nee
+das ist run bin bash docker hier ja das das ist neu starten warum findet er das image
+eigentlich nicht muss die muss das da muss das image hinten dran
+ja ich mach das schon nicht das ist schon richtig nee nee
+docker images wo ist es denn da hier das da brauchen wir ach nee image id das da brauchen
+wir so also was ist denn das ist das ein debian nee das ist das ist ein dings das ist ein
+alpine oder ok slash fiat fiat champ no such file directly ok da fehlt irgendwas wartet
+mal was braucht dotnet noch mal dass es läuft ohne wenn man es nicht abschaltet das braucht
+dings wie heißt das irgend so eine globalization translation library war das eco an die ad
+ist es lip eq oder sowas wie heißt der kram einfach so eq lips fiat champ fuck ähm warte
+mal ach moment das ist ein alpine das muss man anders warte mal dotnet das muss das musste
+man doch anders machen oder für alpine linux muss man das doch anders nennen genau da musste
+ich so kompilieren dass es funktioniert stimmt ich erinnere mich da muss man das muss man
+so machen publish weil alpine benutzt irgend so eine furchtbar exotische c library mit
+der es sonst nicht funktioniert so willst du das neue kort ausprobieren ja wahrscheinlich
+schon ok jetzt jetzt sollte es aber funktionieren bild da ist es mal gucken wann es zuletzt
+kompiliert wurde 2127 das sieht ziemlich gut aus so jetzt müssen muss es aber funktionieren
+so zack dass da weg da mal die versionsnummer rauf und ersunken das rüber rüber ersünkt
+addons ne da muss man nicht hin wir müssen hier irgendwo ins webinterface ja addons zack
+für updates hallo oh ich hab vergessen zu speichern ersünkt check for updates update
+so und jetzt sollte es laufen kannst du nicht einfach ein ubuntu docker image nehmen doch
+wahrscheinlich aber das default image von denen ist wahrscheinlich ist anscheinend ein
+alpine image wahrscheinlich kann ich nehmen was ich will ja da gehe ich auch mal von
+aus so wie sieht es denn jetzt aus start achtung
+ok das stimmt irgendwelche versionen nicht entweder ist da irgendwas zu machen wie ich
+sowas nicht ab kann so ok wir nehmen anderes image build from home assistant addons base
+images was haben wir da alles zu bieten base images ja was haben wir da hast du das mit
+der dotnet beta gemacht ja aber sollte eigentlich mal wir können ja mal gucken dotnet sieben
+prerequisites die sollten eigentlich mehrere jahre zurück
+ja so ported os alpine linux 13 ok release notes für
+ach so das ist noch das ist noch core sieben ja man kann bestimmt l.o.t. compile aber support
+os alpine 115 so und das ist das ist von sonst wann wie gesagt wir haben das von einem ubuntu
+von vor 15 jahren laufen lassen kann er jetzt nicht sein
+die side base images was haben wir denn für base images dockerfile alpine 316 siehste wir
+das probieren wir doch mal aus docker images das da wollen wir haben run so slash fiat
+ja also daran wird es jetzt wird es ja nicht liegen das würde normalerweise eine ordentliche
+fehler easy tatsächlich die die übersetzungs library die internationalisierungs dingsbums
+library das kann man ausschalten da muss ich in invariant bilden dann geht das aber
+wir können es auch einfach wir können es auch einfach adden
+was auch immer ich davon brauche wunderbar so versionsnummer fünf
+ok so jetzt aber please einfach einfach funktionieren check for updates jawoll fünf ist da kein
+backup update jetzt aber auf an ich muss noch starten das sieht doch gut aus es funktioniert
+ja das ist gut es funktioniert jetzt können wir gucken wie wir die ganzen daten da rein
+kriegen also ich habe in diesem tutorial folgendes
+gefunden man kann man kann auslesen was der genau options home assistant addons mqtt man
+kann auslesen was für den mqtt server gesetzt ist das heißt das muss man gar nicht in der
+config angeben genau so hoffe das hoffe das war so
+mqtt oder mysql ging das ja so das heißt schreiben wir das mal in die runsh und geben
+wir mal testweise keine ahnung testweise irgendwie usernamen aus
+und schauen wir mal vielleicht vielleicht geht es ja auch ohne update vielleicht reicht
+es ja auch wenn ich einfach nach rebuild
+vielleicht macht das ja dann neu und ich brauche den ganzen krempel ich weil da kriege
+ich die ganzen infos raus und die muss ich dann als environment variablen exportieren
+dass der krempel funktioniert ok start
+ok nee geht halt nicht funktioniert man muss man muss wirklich die config file soll halt
+wir machen das jetzt mal anders wir machen wir machen das mal anders ich habe mich keinen
+bock immer das von hand da einzutragen mit mit config config version und und gedöns
+ja wobei ich wollte jetzt automatisch wollte irgendwie den seet rüber machen aber dann
+habe ich überlegt wie zähle ich dann hoch kannst du nicht einfach auto update machen
+tja und scheinheit ich muss immer da oben klicken
+ich wobei was wir machen können ist kann das da aufmachen den store dann klicke ich hier
+auf update und hier bleibe ich dann da drinnen für update ja kannst du nicht auch einfach
+auto update machen ja wie gut das könne ich wahrscheinlich wirklich machen aber trotzdem
+muss jemand die datei anpassen das ist halt das doofe start
+ja nee sollte er nicht eigentlich den echo machen mit usernamen aber wahrscheinlich
+ich fand das nicht echo haben wir hier irgendwie sowas rein usernamen host vielleicht funktioniert
+das ja so gar nicht
+und jetzt muss ich da wieder richtig das richtig dumm er so refresh ja check for update so
+hoffentlich hoffentlich zeigt das mir jetzt irgendwas an weil ich meine ich brauche mein
+mqtt server und ich brauche den api login
+nee das ist was anderes mit dem kein zugriff auf den service
+oder achso
+und wie kriege ich access zu meinem mqtt service
+das ist nicht im scope genau wie kriege ich access zu meinem
+und da muss man bestimmt hier irgendwas das ist eine mario playlist
+das muss ich bestimmt hier reinschreiben dass ich das dass ich das machen darf da muss
+ich über home assist home assistant discovery
+wo habe ich denn das gefunden
+das war irgendeine hilfeseite da ging es um mysql und um mqtt da stand drinne wie das funktioniert
+hier addon communication genau das brauche ich ja we have an internal service api to make
+service public addon needs ok addon needs to mark the usage of the server over his configuration
+also da muss man irgendwas da muss man irgendwas eintragen dass man das dass man das darf
+a list of services discovery was in meinem beispiel werfeleinheit verkehrt
+discovery ok ich sehe schon dass es ist nicht so einfach
+optional configuration options optional options das ist auch gut
+discovery ok das heißt ich muss hier unten in die config jammeln reinschreiben discovery
+und dann eine liste mqtt hoffe ich mal dass es dann so funktioniert
+was mqtt ist das ist ein sehr leichtgewichtiger message broker bus
+das ist in der iot welt so das ding wo alle devices ihre infos hinschicken und broadcasten
+und subscriben und so
+alter wo ist das problem man no access to mqtt warum ich habe doch explizit gesagt ich will
+das haben in der config so wir suchen jetzt einfach mal nach der
+fehlermeldung ja genau hier zeige ich wie es funktioniert service not enabled
+mostly ja und
+weiter
+no access to mqtt ja gut mein addon braucht irgendwelche spezialrechte dafür dass man
+das machen darf und und und wie fragt man das an
+eine güte das ist tatsächlich komplizierter als ich mir das vorgestellt habe die sündags
+im jammeln richtig würde mal sagen ja
+ja würde ich schon mal sagen dass die richtig ist
+ich meine das ist jason style das müsste aber in jammeln auch erlaubt sein man könne
+es ja so machen aber trotzdem
+was macht denn in it eigentlich in it that is to fall so deshalb die docker die fall system
+in it
+ok man muss auch voll stehen lassen also
+es ist nicht so einfach
+das ist wirklich 6 hat da muss man muss man genau gucken wie das wie das funktioniert
+hier wir suchen mal ok ich weiß was wir machen jetzt hab
+wir gucken mal rein wie die anderen leute das definiert haben so
+da kann ich den ganzen jammeln weg das ist was anderes oder
+wenn das steht einfach nur mq ne das ist was anderes
+wo ja wo ist denn wo ist denn hier jetzt die die konfig jammeln die gibt es hier gar nicht
+ok was was für einen addon hat auf jeden fall
+options also das sind options die er mir anzeigt im web interface das ist nicht die
+options was mein addon darf und was es nicht darf das ist was anderes
+wo ist was mit service ach so alter btf jetzt ernsthaft
+wie soll man da drauf kommen also da wäre ich im leben nicht drauf
+gekommen das so zu schreiben wirklich ganz sicherlich nicht
+so jetzt müssen wir das mal in verjamme lisieren so und hoffen dass jammel jetzt jammelt erzink
+dies jetzt einfach einfach funktionieren wenn es geht einfach funken
+so aber das müsste damit doch jetzt eigentlich gehen
+was addons addons username ist addons ach das ist ein eigener username oder wie ok jetzt
+bin ich mal gespannt was ist password ok was ist port und was ist was ist password dann
+also addons haben anscheinend den eigenen user der alles darf scheint so zu sein man
+muss gar nicht den standard user nehmen da bin ich mal gespannt noch mal kurz abdehnen
+ok das ist aber schon mal gut zu wissen da brauchen wir jetzt noch options was wir im
+im web interface eintragen können unter configuration
+war gespannt was das jetzt anzeigt start tatsächlich eier obviously ist das das password
+da werde mehr also da hätte ich selbst drauf kommen können dass das das password ist
+ok ja dann ok dann weiß ich was wir als nächstes machen muss da gehen wir jetzt in die run jamme
+wir sagen host ist vier champ mqtt server password ist mqtt pw username forst password
+mqtt server mqtt user und report so dann haben wir das nämlich als environment variable
+gesetzt oder export davor machen machen wir mal sondern haben wir das nämlich gesetzt
+und dann sollte der das finden gleich nach dem starten ok das heißt als nicht warum ist
+das sündungs highlighting hier so kaputt so das heißt als nächstes brauchen wir options
+für das frontend also hier sowas brauchen wir das da brauchen wir options also wir brauchen
+ein fiat user ne moment wie heißt das ding fiat user ein fiat password und später noch
+ein fiat pin damit man sachen freischalten kann standardmäßig sind die dinger leer
+falls falls man das so machen muss und ich hoffe das ergibt sinn was ich meine ich copy
+paste ist einfach nur aus denen ihrer aus denen ihre anleitung mal gucken so und wenn
+das jetzt klappt dann sollte ich im web interface options angezeigt bekommen
+das sollte oder configuration zumindest gleich was stehen auf upgrade jetzt mal weiß ich
+was er da immer drei stunden macht config oder da sind wir doch nice da kann man jetzt
+zeugs eintragen sehr produktive sprints ja wir iterieren im minutentakt und und pushen
+direkt live so also und wie kriege ich den kram jetzt abgefragt per environment variable
+wir sind unser eigenes ci cd so und jetzt natürlich die frage mich das per environment
+variable abgefragt bekomme aha so kriegt man das raus config default lease config also
+das heißt im endeffekt ich muss jetzt so was machen wie alles sind alles strings fiat fiat
+user fiat pw und hin so ich denke mal so kann man da auch irgendwie noch eine hilfe zu angeben
+weil so weiß ja keiner so wirklich was er da reinschreiben soll neue dat neue version
+er so ein grüber da ist irgendwie fast aber das geht eigentlich nur wenn wir written in
+rust werden weiß nicht weiß nicht ob wir so basically fast sein können ist das ist das
+möglich leute kann man plays in den plays in die fast sein auch wenn man nicht in rust
+written ist oder in go in go vielleicht noch vielleicht noch in go mit wim stimmt stimmt
+wenn man das ohne wim das geht natürlich gar nicht rust und wim only ap user not found
+das hat schon mal nicht geklappt das hat schon mal nicht geklappt das so zu exportieren
+dann dann dann check ich nicht so genau was ich verkehrt mache create main config meint
+oder ist ok wir müssen uns mal die die hilfe angucken von dem wo ist die config jammel options
+ist eigentlich ist eigentlich genau richtig ist eigentlich genau richtig man trägt die
+options ein genauso wie ich das gemacht habe hier kommt mal options ach moment jammel alter
+ne moment ne das ist kein array das ist key key value also ja prinzipiell schon richtig
+komm scheiße wir machen back up vorher aber wenn das also wenn jetzt die default werte
+gleich drin stehen ich sollte das vielleicht mal ausgeben um zu gucken ob es funktioniert
+ich meine vielleicht habe ich mich hier auch sofort also ich echo
+ja deswegen heiße ich hier auch nicht so wie auf youtube damit die leute nicht so sehr
+verwirrt das funktioniert einfach nicht muss das vielleicht kleingeschrieben sein oder
+muss das problem also ich brauche ich brauche auf jeden fall ein eigenes repo wo das automatisch
+pull ich drehe jetzt schon durch beim ganzen auf update klicken hier jedes javascript framework
+ist doch blazing fast javascript framework sind nicht nur blazing fast die tun auch immer
+so als haben sie irgendwie super krasses neues zeug erfunden wie vorhin dieses framework
+irgendwie npm install damit ihr git hooks machen kann machen könnt jedes git repo hat
+standardmäßig fünf bash scripts drinne für für git hooks warum brauche warum muss ich
+den ersten npm installieren für wie gesagt ohne npm install ist odd ist even geht eh
+nix funktioniert bei euch da ist 16 download noch nicht ausprobiert
+dort ist doch funktioniert doch leute api user not found warum nicht
+guckt mal da der sucht nach es heißt fiat login nicht fiat user
+mensch wer nennt es auch so doof
+ersynch ne version hochzählen so jetzt ersynch leute ich drehe durch mit dem versions hochzählen
+wir müssen das irgendwie anders machen seht jemand jemand eine high iq idee muss die version
+wirklich hochgezählt werden acht ok das moment fai fai fai fai fai fai fai fai fai fai fai
+file grab version kann man am punkt fällt drei jaja sieht schonmal sieht schonmal gut
+Und jetzt hoch zählen, Moment erst noch mal irgen, so und jetzt bash magic, ohje echo,
+plus eins, fack, Moment wie ging das nochmal, rechnen in bash, so schonmal nett, fack doch
+ein unix timestamp als version, das ist ja, aber wie war man, wie war bash, in bash rechnen
+nochmal, also obviously so natürlich, wie sollte es auch anders sein, oh, also Moment,
+also so, ach du kacke, Moment, so, hey, es funst, so bash magic, so jetzt haben wir 16
+und jetzt, Achtung neun, jetzt seht, wie war das sehtechnisch nochmal, so ne, so, in config
+jamme, ne, ah mein hirn, Moment, ne ne so einfach ist es nicht, jetzt sind 16 und was
+will ich ersetzen, ich will die gesamte zeile ersetzen, jetzt funktioniert, fast, fast,
+Punkt, ne, ok, ich gehe davon aus, ich muss es quoteen, dass das funktioniert richtig,
+Moment, wenn ich das quotee, gehts nicht, bash magic, oh meine güde, no matches found,
+ah fuck, ok, easy, oh ne, ich hab nix gekillt, Moment, da ist noch ein quote, da, ne, ach
+du scheiße, bash hör auf, ok, jetzt aber, jawoll, es hat funktioniert, es hat funktioniert,
+version, doppelpunkt, ein, oh fuck, jetzt aber, version, kann man das hier wenigstens
+einzeln quoteen, jawoll, version, Punkt, so, ja, ja, ist schonmal gut, 1.0, ja, ja, das
+sieht auch schonmal gut aus, sehr gut, sehr gut, jetzt hinten noch einmal quotes dran,
+ah, yes, wunderbar, so, minus i, und guckt mal, und jetzt zählt er automatisch hoch,
+jedes mal wenn ich minus i mache, excellent bash, logik, guckt hier, guckt da, boom, zählt
+automatisch hoch, ich mein lesen, kanns keines sau, aber es funktioniert, so und jetzt jedes
+mal bevor ich in rsync mache, zähle ich die Datei eins hoch, so, easy, bump.sh, alles
+inline, rest ist alles bloated, so jetzt updaten wir schnell, noch, das sollte eigentlich,
+ob ich check for updates, ah ja, update, guter code muss auch lesbar sein, das gilt für
+alles außer bash, und c++, ja gut, das ist ja, ja, es funktioniert, Leute, es funktioniert,
+es läuft, jetzt muss ich noch die fake Dateien rüber kopieren im build, build action, copy,
+always, publish, publish, die Weihnachtsnups sind zurück, so und jetzt unser wahnsinnstolles,
+eigentlich bräuchten wir jetzt ein deploy.sh, wo das reinkommt, check for updates, update,
+pünktlich bei Version 20, bald überholen wir chrome, Leute, ich würde sagen, nächster
+Stream wird chrome überholt in den Versionstab an, ach, warte mal, es lief die ganze Zeit,
+noch, start, put non-fine file, warum nicht, ah, weil ich das nicht mitkopiere, ok, docker
+recursive, copy recursive, docker, macht es das standardmäßig, das ist, verzeih, ach,
+anscheinend kopiert er das einfach so, ok, ja, weil dann ist easy, dann kopieren wir
+dann nämlich einfach build, build nach build und sagen dann plubsh, braucht keiner mehr
+und sagen dann einfach chmod, minus, ist es klein oder großr, minus großr, siehste, slash
+build, genau, und im run machen wir dann einfach slash build slash viachamp und dann müsste
+es glaube ich besser funktionieren, run, zack, kommt homosys dann eigentlich mit pre-release
+und build, markers in der sem wäre klar, das ist eine gute frage, keine ahnung, ich kann
+es ausprobieren wenn du willst, sag mir mal was ich markern soll, sowas wie minus test
+oder irgendwas hinten dranhängen oder minus hash von git commit dranhängen oder was, restart,
+kann man ausprobieren, be not found, wie, warum not found, ah ich weiß warum not found,
+weil ich absolut 3 hat bin, ich muss nach build wechseln und dann den viachamp starten,
+anders funktioniert es natürlich nicht, ok dann hänge ich mal hinten was an die versionsnummer
+dran, zum ausprobieren, keckel, plus 4, das geht mal wieder weg, äh ne moment, versunken,
+ui, schauen wir mal ob es das checkt, ja wir updaten jetzt zu 1021 keckel plus 4, oh was,
+ich hab jetzt noch ein paar probleme damit, oder muss ich erst mal stopp sagen, vielleicht
+kommt da doch nicht klar damit, weil connection resetted ergibt ja wenig sinn, connection
+resetted, ne jetzt funktionierts, das kommt damit nicht klar,
+start, jetzt es läuft, es läuft, leute es funktioniert, es läuft, und sind unsere daten
+am start, schauen wir mal, settings, integrations, da ist es, und es gab messages um 9.51, jawoll
+hat funktioniert, so wir können es nochmal, ich kann nochmal gucken ob es wirklich funktioniert,
+alles, ich lösche das mal, das auto was ich vorher angelegt hab, so und jetzt, gucken
+wir mal hier mein dashboard mit dem auto, ist auch nix da, irgendwelche gründen ist
+mein standort noch da, ok, amsterdam, alles klar, alles klar, addon, restart, und dann
+sollte jetzt gleich, so jetzt sollte gleich hier, guckt, jawoll, addon funktioniert,
+ja, das funktioniert, jetzt kann man das addon tatsächlich sogar halbwegs schon verwenden,
+ich meine, man kann eine configuration angeben, man kann passwort und keine pin angeben, gibt
+es irgendwie die möglichkeit da hilfe dazu einzutragen, wie sieht denn das bei anderen,
+moment wie sieht denn das bei anderen addons aus, wie sieht es z.b. bei diesem ssh addon
+aus, so, configuration, ja da steht, guck mal da steht, hilfetext oben drüber, stimmt
+und wie macht man das mit den passwörtern, na gut, im klartext, wie kann man, wie kann
+man passwörter, das ist tatsächlich eine gute frage, wie kann man passwörter verstecken,
+welches addon, welches addon benutzt denn passwörter wo man sich das abgucken kann,
+ducktns fürs api token vielleicht, aha, alles klar, da können wir abgucken, da können wir
+abgucken, config.yml, also options, token, und woher weiß der jetzt, dass das, hä?
+also daran erkenne ich mal gar nichts, vielleicht weil es token heißt, meint ihr,
+das ist so magic, das ist so magic, das ist anhand des namens, das kann ich, das wäre
+bescheuert, aber was anderes ist es, was anderes, was anderes ist da nicht, oh Null, das war,
+ach guck mal hier, da kann man direkt Passwort angeben, ja, maybe it's reserved,
+I don't know, I don't think it's reserved keyword, it's, we try password, ich glaub
+nicht, dass das reserved ist, kann ich mir nicht vorstellen, guck mal, wir probieren
+einfach mal aus, Passwort da reinzuschreiben, so, und pin, der pin ist auf jeden fall auch
+ein Passwort, so, Achtung, seht magic, seht magic, Version hat hochgezählt, den krempel,
+den uninstall ich jetzt mal schnell wieder, check for updates, so, hat das jetzt geupdatet,
+aha, guck mal da, jetzt ist es, so ist das gut, save, restart, so ist das gut, so mag
+ich das, so, und es funktioniert, das Auto ist da, das Auto steht in Salzgitter, was
+ist das, nicht, oder nee, Moment, es steht nicht, es steht in, wo steht das Auto, im See,
+im Stadtparkteich, alles klar, das geht auch wenn man mehr als ein Auto hat, ja, das ist
+alles dynamisch anhand der Fahrzeug-ID und dem Index von deinem Auto, wobei nee, der
+Index, dynamisch anhand deiner Fahrzeug-ID, also wenn das zweite Auto erscheint würde
+dann einfach hier, Moment, Integrations, ja, ja, das Echo kommt noch aus, Integrations,
+dann würde einfach hier das zweite Auto stehen und wenn du dein Auto bei Fiat ein Nickname
+gegeben hast, dann steht sogar der richtige Name da, ok, machen wir das hier mal weg,
+das Debug von diesem ganzen Kramus raus, im Programm, da wo ich Route eingetragen habe,
+wollte ich eigentlich K eintragen, weil das viel besser passt, so, jetzt müsste das eigentlich,
+ich pusht das jetzt einfach mal auf GitHub, falls irgendjemand Bock hat daraus zu probieren,
+wie gesagt, das geht noch nicht alles, also die Commands, die gehen noch ins Leere, wobei
+ich pusht, ich pusht für den nächsten Stream, ich bin mir nicht ganz sicher, ob ich denn
+noch irgendwas machen muss, ich müsste ja auch noch ein Addon Repo machen und ne, lass
+mal ausprobieren, so, was, was, müssen wir noch irgendwas machen für heute, ne, wir haben
+den Kram, kann ich das Auto auch downloaden, genauso wie Ram, der Karlsson, danke schön
+für den Sub, ich mein, das kann man, das ist bestimmt nicht der Weisheitsletzter Schluss
+hier das so zu machen, Max, danke schön für den Sub, aber das ist schon okay so, das ist
+tatsächlich mal was schönes, schönes Anwendungsbeispiel für Containerkrempel hier, wir müssen übrigens
+dann das nächste Mal noch gucken, wir brauchen ja Builds für x86, Raspberry Pi, das muss
+dann quasi anders heißen, also ich muss das dann, ich muss das dann unterschiedlich irgendwie
+kopieren, mal gucken, wie wir das machen, wie man das unterscheidet, weil wir brauchen
+ja dann andere Dateien, die kopiert werden, je nach Plattform, okay, Git, Status, das
+brauchen wir nicht mehr, ja, Commit, A-M, Postchamp, beste, so muss das heißen, das
+passt alles, ja, dann würde ich sagen, das pushen wir dann das nächste Mal, aber das
+funktioniert ja schon mal, wir haben hier ein Auto angelegt, wo alles drinne ist, inklusive
+Buttons, Kilometerstand und sonst was, also da fehlt nicht mal viel, dann kann ich das
+auf Github pushen und die Leute können sich freuen, dass es dann auch ein Fiat Addon gibt
+für Home Assistant und das Schöne ist, man muss eigentlich außer seiner ID und dem Pin,
+also man muss eigentlich nur das hier eintragen, alles andere macht der Autodiscovery, Autodiscovery,
+hat jemand schon mal Docker Files gebaut, die irgendwie unabhängig von der, abhängig
+von der Architektur sind, also kann man das im Docker, fragt man das, das habe ich noch
+nie gemacht, fragt man das im Docker File irgendwie ab, ne ich suche auf jeden Fall
+nach irgendwas, was in Home Assistant am Ende auch funktioniert, weil Home Assistant bildet
+das Ding ja anscheinend, ja, das muss ich mir mal überlegen, das machen wir erstmal
+aus, weil jetzt ist, die Musik passt wunderbar, es ist Bad-Git-Time, nächsten, einen Stream
+brauchen wir noch dafür würde ich sagen, dann kommt es auf Github und gut ist, hat
+jemand von euch einen Fiat oder einen Jeep oder irgendwas mit Uconnect, der das mal ausprobieren
+will, nächstes mal, ich habe hier einen Gitwerk-Workflow von mir, zeigt mal her, aha, ein Yimmelschreiber,
+Docker Image, aha, aber wie unterscheidest du das im Docker File?
+Kannst du das im Docker File irgendwie unterscheiden, weil ich muss ja im Docker File je nach Version
+anderes Zeug kopieren, oder aber, oder aber noch besser, wir machen das.NET Build auch
+direkt im Docker Container, bei, das ist eigentlich auch blöd, das Binary da drin zu bilden, nee,
+ich gehe jetzt auf, Dollar Bild Plattform, ja genau, so was brauche ich, ja genau, das
+brauche ich, Dollar Bild Plattform, das muss ich mir jetzt noch da reinschreiben, weil
+sonst weiß ich das bis zum nächsten Stream nicht mehr, Dollar Bild Plattform, ja also
+quasi, ja jetzt muss ich hier gucken, das ist alles okay, so und jetzt muss ich dann
+quasi hier gucken, nee Dollar Bild Plattform, kann man Bash Style, Bash Style If machen irgendwie,
+geht so was, geht so was, keine Ahnung, das probiere ich jetzt nicht, das probiere ich
+jetzt nicht aus, das geht nicht, ah, dann gucken wir uns das das nächste Mal an, hier
+so weiter machen, ja weil dann kann ich das kopieren, unabhängig, also abhängig davon,
+weil von der Idee her ich würde dann halt sowas machen, ich würde dann halt sowas machen
+hier, Bild und dann hier halt das, keine Ahnung, irgendwie das da, Linux, so irgendwie so und
+dann dahin kopieren, so und dann das andere machen und dann irgendwie sowas wie, ich weiß
+halt nicht ob das funktioniert, ja irgendwie sowas in der Richtung, da muss ich mal schlau
+machen wie das funktioniert, keine Ahnung, alles klar, so Leute jetzt aber wirklich Schluss,
+warum nicht im Container bauen, muss ich da dort nicht im Container installieren, das
+macht so eine unnötig groß und dann selbst, selbst brauche ich, dann brauche ich ja auch
+das richtige Argument für das Bild im Container, ich muss ne angeben was ich kompilieren will
+bei.NET für welche Zielplattform, kannst du das fertige Bild nicht, nee kann ich nicht,
+weil soweit ich verstanden hab, macht den Bild der Home Assistant oder, oder ist das
+jetzt nur in meinem Fall so, weil es ein lokales Addon ist und normalerweise zieht das sich
+das aus irgendeiner Registrie, egal probier es nächstes Mal aus, bis dann machts gut
+tschüss, tschüss.

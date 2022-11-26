@@ -1,0 +1,910 @@
+Häh, warum sieht die Quali so kacke aus?
+Watt!
+Ach, meine Auflösung ist falsch, lul.
+Geht gut.
+Das ist ein guter Titel, das muss ich jetzt gleich ändern.
+Das ist auch ein bester Titel.
+So, also, ich warte mal bis noch ein paar Leute da sind, weil es bringt dann nichts,
+wenn ich jetzt erzähle, was wir heute machen und es ist noch keiner da.
+Was ist das, fragt DxVinstea, ja, meinst du Git oder meinst du das, was du im Hintergrund
+siehst?
+Hallo, Opa-Burger.
+Git!
+Git ist ein Versionsverwaltungssystem oder eine, oh, wie schreiben sie offiziell, eine
+dezentrale Versionsverwaltung oder so.
+Komm mal gucken, was die selbst sagen, was sie sind.
+Ja gut, it's a version control system, da wäre ich jetzt auch drauf gekommen.
+Was sagen sie denn selbst, was sie sind?
+Git easy to learn, lightning fast, das sind immer die besten Intros.
+Ups.
+Das ist noch die Textdatei, wo ich meinen neuen Rechner geplant habe, aber der neue
+Rechner ist ja mittlerweile am Start.
+Ja, wir gucken uns heute Git an, weil, hat einen ganz speziellen Grund, ich hab das ja
+auch vor einer Weile schon mal angekündigt oder gefragt, besser gesagt, ob ich das machen
+soll, ob wir uns mal so Git-Grundlagen angucken wollen, sollen, wie auch immer und nachdem
+ich jetzt schon überraschend viele Leute immer mal wieder gefragt haben, wann es das
+denn jetzt gibt, hab ich mir gedacht, ah ja, go, go, go, da war das jetzt mal.
+Also ich kann jetzt sagen, also wer jetzt Call of Duty haben will, das mach ich vielleicht
+später noch ein paar Runden, aber jetzt machen wir erstmal Git-Grundlagen.
+Mal so in die Runde gefragt, so an die Leute, die schon da sind, habt ihr erstens eine Ahnung,
+was man mit einem Versionsverwaltungssystem macht oder mit einem Software, Source Code
+Versionssystem, Versionssystem, wie auch immer man es genau nennen mag, und habt ihr schon
+mal was mit Git gemacht?
+Git-Clone, Git-Clone ist, das haben wahrscheinlich die meisten, das ist das erste, was man damit
+macht.
+Also ich mein, GitHub werden wahrscheinlich auch die meisten kennen, weil man sagen muss,
+dass GitHub mit Git eigentlich erstmal gar nichts zu tun hat, GitHub ist ein Web-Frontend
+und hat mit Git an sich nichts zu tun.
+Du hast Git benutzt, um deine Hausaufgaben an der Uni abzugeben, echt, muss man Hausaufgaben
+mit Git hochladen, auch nicht schlecht.
+Sivuri hat es auch schon benutzt, ja es gibt da mittlerweile für so ziemlich jedes Betriebssystem
+entweder Pakete oder irgendwas fertig zum installieren oder irgendwelche IDE-Extensions, was auch
+immer, ist der Sound eigentlich von der Lautstärke her so ok, mal kurz gucken, oder soll ich
+den Sound auch ein bisschen leiser machen, also man kann das ja mittlerweile echt auf
+jedem Betriebssystem benutzen, ja, aber bevor wir uns jetzt so die Git-Grundlagen angucken
+können, müssen wir eine Sache noch machen, nachdem ich keinen Lust habe jetzt irgendeinen
+GitHub-Account vollzumüllen mit irgendwas, installieren wir uns oder hab ich ein Git-Management-Web-Frontend
+schon mal hier lokal bei mir installiert, was fast aussieht wie GitHub, wo wir da unser
+Repo anlegen können, das wir auch mal zu einem Remote-Server pullen können oder von einem
+Remote-Server pullen können und zu einem Remote-Server pushen können und sowas in
+der Richtung, Lola ausauf kam ja verbraucht, er macht das schon, so, jetzt mal die Frage,
+ich muss da selbstfalls ein bisschen reinkommen, ich hab mir ehrlich gesagt nicht so viele
+Gedanken gemacht, wie wir am besten anfangen, zumindest, zumindest GitHub werden wahrscheinlich
+die meisten Leute kennen, zum Beispiel der Linux-Könnel ist auf GitHub, der South-Code
+vom Linux-Könnel ist auf GitHub, so, da ist er, den klonen wir uns jetzt aber nicht, weil
+das ist saumäßig groß, ich weiß gar nicht wie lange das mittlerweile dauert, sich den
+Linux-Könnel zu klonen, also da ist, es hat auch ein paar Comets und so mittlerweile, oder
+was, was ist das für eine nervige Musik, so, es ist von Google beispielsweise auch ganz
+viel Software auf GitHub, öffentlich verfügbar, auch im Linux-Könnel, aber von Google gibt's
+auch viel, Microsoft hat Visual Studio Code, auch auf GitHub, den South-Code, ja, Mr.
+Milchmann, den Linux-Könnel klonen ist so eine Sache für sich, da würde ich aufpassen,
+das dauert ewig und ist ziemlich groß, aber nichtsdestotrotz ist es mit Git alles relativ
+schnell, wenn man es erstmal geklont hat, so, was wir jetzt als erstes machen, ist wir
+installieren uns mal so einen kleinen eigenen GitHub-Klon, den wir als Web-Frontend verwenden
+können, wohlgemerkt, das Web-Frontend hat mit Git unten drunter, also mit dem eigentlichen
+Tool überhaupt nichts zu tun, das macht bloß die Verwaltung und die Zusammenarbeit, wenn
+man mit mehreren Leuten oder auch alleine an unterschiedlichen Projekten in Repos arbeitet,
+ein bisschen einfacher, und nachdem viele Leute mit GitHub arbeiten, dachte ich mir,
+es ist genauso wichtig, so ein bisschen das zu zeigen, anstatt nur rein Git auf der Kommando-Zeile,
+denn wir gucken uns Git an, so wie es gedacht ist, nämlich mit den Kommando-Zeilen-Tools,
+es gibt für fast jede Entwicklungsumgebung mittlerweile Addons, wo man das quasi mit
+irgendeinem GUI rumklicken kann, gibt's für Eclipse beispielsweise, hat den besten Namen
+überhaupt, heißt EGIT, passt zu Eclipse, es hört gleich so richtig an, EGIT, aber es
+ist halt auch Eclipse, da muss man sich nicht wundern, es gibt für aber alle anderen Ideas
+mittlerweile, entweder schon eingebaut oder aber zum Unterladen, Git Extensions, Visual
+Studio Code hat's eingebaut, Visual Studio selbst hat's mittlerweile glaube ich auch
+eingebaut und für die anderen großen Ideas auch, aber ich bin da Ansicht, am besten
+kann man Git immer noch auf der Kommando-Zeile verwenden, weil das einfach die Tools sind,
+wofür es ursprünglich dafür entwickelt wurden und viele Sachen unter der Haube kann man
+auch nur mit den Kommando-Zeilen-Tools machen, so aber vorher, jetzt nochmal eine Frage an
+euch, wie gesagt wir benutzen kein GitHub Direct, wir benutzen GitHub Clone, bei mir
+die Lokal, das ist die Frage, ich hab schon einen installiert, den können wir gleich
+verwenden oder wollen wir uns mal einen selbst installieren, ich habe hier meinen Server
+stehen um die Ecke im Schrank und da könnten wir uns schnell einen Git Tiga, oder wie ihr
+man das ausspricht, Webfronten dann drauf installieren, dass man auch mal so sieht wie
+simpel das eigentlich geht, sich quasi so ein privates GitHub zu installieren, wohlgemerkt
+nochmal an der Stelle, man braucht kein Webfrontend um Git zu verwenden, ich kann auch ohne Probleme
+rein bei mir Lokal Stream, ich kann auch rein bei mir Lokal Git verwenden und machen und
+tun, ich brauche dazu kein Webfrontend wie Git haben, jetzt halt die Frage, soll ich
+erst mal eine Teamarkt Session, Teamarkt setzt irgendwie meine Terminal Variable nicht richtig,
+kann das sein, kann ja nix werden, wie dem auch sein, ich verbinde mich jetzt mal auf
+meinen Server und installiere uns einen lokalen GitHub Klon, den wir dann verwenden, was ist
+der Unterschied zwischen Git Tiga und Gox, Gox, Git Tiga ist ein Gox Fork, das ist alles
+Go programmiert und alles ziemlich ähnlich, es gibt eigentlich zwei, ich sag mal drei
+größere GitHub Klone, das ist einmal Gox, das ist einmal Bitbucket und das ist einmal
+GitLab, wenn ich jetzt noch richtig tippen könnte, das sind so, oder sagen wir mal,
+wenn man das hier noch mitnimmt, vier, das sind so die vier größten GitHub Klone zum
+selbst installieren, GitLab ist mit Abstand am ekligsten und kompliziertesten zu installieren,
+das ist eine Ruby und Rails Anwendung, funktioniert auch wunderbar, aber das zu installieren ist
+echt immer ein riesen Akt, Bitbucket gibt es auch zum lokalen installieren, ist von Atlassian,
+das ist im Business Bereich relativ beliebt und Gox, wahrscheinlich spricht man das Go
+GS oder so aus, ist auch sowas in der Richtung, so ein GitHub Klon, aber wir installieren
+uns jetzt erstmal lokal Git Tiga, wie man das auch immer schreibt, das ist ziemlich
+simpel, ich werde jetzt einfach mal einen Container anlegen auf meinem Server, installieren
+das und dann verwenden wir das im restlichen Stream, bei uns wird Bitbucket verwendet,
+ich gehe mal davon aus, dass es Bitbucket nicht Gitbucket heißen soll, Bitbucket ist
+im Business Umfeld tatsächlich sehr beliebt, weil Bitbuckets kommt von Atlassian und Atlassian
+stellen ganz viele Business Zeug Software her, so Ticket Systeme und Wikis und so, wo Business
+Leute draufstehen, deswegen ist im Business Umfeld Bitbucket relativ beliebt, so, ja,
+schlaue ich mich mal auf meinem Server ein, der den ganz unauffälligen Namen POGCHAMP.INTERN
+trägt, jetzt muss ich aber aufpassen, was ich mache, denn ich will ja hier kein Mist,
+Mist auf meinem Server treiben, sonst ist alles weg, aber vorher muss ich mal, wie kommt
+man TMAX Set, weil es geht mir auf den Sack, dass ich keine Farben habe, aha, kann man
+Default Terminal umstellen, Default Terminal Option, ja, das machen wir doch mal, meine
+TMAX Conf sieht außer ein bisschen Farben, wir können auch mal irgendwann uns noch eine
+Runde TMAX und so die grundlegenden Kommando Zeilen, Tools und sowas angucken, was habe
+ich mir jetzt verkehrt gemacht, wie ist denn die richtige, achso Set, wie ging das nochmal,
+Set, achso geht das, ok, weißt du, Stack Overflow Driven Programming, so ging das, ups,
+ja, jetzt haben wir glaube ich auch, jetzt haben wir auch ordentliche Farbe und alles,
+so, loggen wir uns mal auf meinem Server ein und ich schreibe jetzt mein Passwort nicht
+hin, sodass man das sehen kann, so und wir legen uns jetzt mal einen neuen Container
+an, das mache ich mit LXT, das kann man auch mit Docker oder sonst was in der Richtung
+machen, mit Docker ist es ein bisschen einfacher, da gibt es schon komplett fertige Docker Container,
+die startlich einfach und da läuft dann irgendwie in Setze X beliebiges Git Webfrontend ein,
+wir legen uns jetzt einfach mal selbst einen an, wie nennen wir denn den, Launch, so nennen
+wir ihn nicht, wir müssen ihn irgendwie Twitch Emotes mäßig nennen, habe ich schon einen
+gebated Container, ich glaube nicht, gebated, heißt der jetzt, so, jetzt haben wir uns noch
+einen Container angelegt, da brauche ich jetzt natürlich noch ein Netzwerk Interface und
+jetzt können wir uns verbinden in das Ding, so, das wird unser Git Frontend Server, ich
+kann mir vorstellen, das ist jetzt ziemlich verwirrend, was ich hier treibe, weil, weiß
+nicht, wie sehr verbreitet Linux Container und sowas sind, zumindest ist es eigentlich
+vollkommen wurscht, weil ich will ja nur mal temporär mir einen Git Webfrontend installieren,
+ist eigentlich egal, was ich genau mache, so, install, wo haben die hier ihre Install Anleitung,
+Git Grundlagen gebated, install, install from binary, das ist ok, das ist Go, Go ist das
+immer relativ simpel, da kann man einfach was runterladen, starten und gut ist, ah, ich
+komme nicht ins Internet, weil ich keine IP habe, dann starten wir mal den Container
+neu, dann kriege ich wahrscheinlich eine IP, so, also habe ich eine IP, jetzt kann ich
+auch den Gram runterladen, wir machen da jetzt gar keine großen Sperenzien, wir lassen es
+jetzt unter root laufen und gut ist, ich müsste jetzt von meinem Rechner aus eigentlich gebated.internal
+auflösen können, geht nicht, warum geht das nicht, normalerweise sollte man DHCP Server,
+sobald sich, sobald sich den Server eine DHCP IP zieht, sollte der den eigentlich eintragen,
+macht er aber nicht, aber naja, es gibt schlimmeres, warum macht er sowas nicht, was soll das,
+muss ich mal nachgucken, ist aber auch egal, wir können auch die IP von dem Ding nehmen,
+kann es sein, dass man Container mit einer VM gleichsetzen kann, so ungefähr, es gibt
+halt einen gravierenden Unterschied, dass eine VM quasi die Hardware komplett virtualisiert,
+emuliert, wie auch immer man das will und ein Container nicht, also ein Container, wenn
+du in einem Container ein Programm startest, ist das im Endeffekt kein Unterschied, so
+wie wenn du das auf dem Server direkt starten würdest, bloß das noch so ein bisschen Sandbox
+drum herum ist, VM läuft ja komplett in einer eigenen virtuellen Rechner, der mit dem Hostsystem
+nichts mehr zu tun hat, so würde ich mal die Unterschiede beschreiben zwischen Container
+und VM, was ich echt merkwürdig finde, dass normalerweise geht das immer, sobald ich einen
+neuen Container anlege, zack, ist der im DNS drinne, ich weiß nicht, warum das nicht funktioniert
+jetzt, weil ich meine, weil man selber funktioniert es ja auch, kann das sein, dass ich noch den,
+dass ich noch Hostname setzen muss, das könnte tatsächlich sein, dass ich noch Hostname und
+Zeug setzen muss, probieren wir das nochmal aus, Hostname, Ups, Hostname, eh, umgedreht,
+muss man das nochmal gucken, ob es jetzt funktioniert, strage es nebenbei nochmal so ein, so, gut,
+besser wieder, jetzt gehts, sehr schön, es löst das auch auf, jetzt haben wir hier eine
+ordentliche Domain, die brauchen wir zwar nicht, aber sie ist schöner, ok, haben wir
+den Krampel runtergeladen, haben wir, ah ja, haben wir, Moment, das ist eine total alte
+Version, die will ich nicht, Downloadpage, kurze Frage Max, wie findest du World War
+2 bisher, also wie gesagt, ich fand es in der Beta schon nicht schlecht, aber es steht
+und fällt damit, wie das auf dem PC sich entwickelt mit Spielerzahlen und Cheater, der Milchmann
+hat sich die Linux-Krone geklonen, sehr schön, so, haben wir hier lang genug jetzt rumgemacht,
+jetzt gucken wir uns mal, wirklich Git an, keine Webfront eins, so, jetzt gehen wir mal
+auf unseren lokalen GitHub-Klonen, tubated.internal.port3000, warum port3000, weil es da steht, zack, so,
+wir brauchen eine Lokale, wir benutzen immer SQL-Datenbank-Lokal, nein, nicht immer SQL,
+SQLite-Datenbank-Lokal, Domain is eternal, tubated.internal, so, Admin-Account wird jetzt
+über Max, Passwort, ganz furchtbar komplex, adds, was weiß ich, null, einfach komm, egal,
+okay, oh, brauchen wir nicht, wieder neues repo an, so, das ist jetzt nicht GitHub, das
+ist jetzt bei mir lokal installierte Version von, denkst, wie heißt, Git, Gitia, äh,
+Richie, äh, der Richie fragt, was ist Git, denn überhaupt, und wozu verwendet man es,
+Git ist ein Versionsverwaltungssystem für, ich lass den Service als Routel auf und sieh
+wo, genau, scheiß drauf, das ist jetzt nur zum, zum angucken, nicht für produktiven
+Einsatz, ähm, das ist ein Versionsverwaltungssystem, das heißt, damit kann man seinen Source-Code
+verwalten und jetzt natürlich die große Frage, was hat man davon, wenn man seinen Source-Code
+damit verwaltet, man kann zum Beispiel einfacher Fehler suchen, wann Fehler aufgetreten sind,
+man kann gucken, quasi, wann welche Sachen hinzugekommen sind, ab wann was kaputt ist,
+man kann sich die Versionshistorie angucken, ähm, wenn man was verkackt, ist es relativ
+einfach, auf einen funktionierenden Stand zurückzugehen, wenn man mit mehreren Leuten
+an einem Projekt arbeitet, ist das sehr schön, um das dann am Ende, die Ergebnisse zu kombinieren
+und sowas, also, wenn man nicht gerade allein an irgendwas werkelt, ist es fast schon Pflicht
+und selbst wenn man allein an was werkelt, hat das schon seine Vorteile, weil zum Beispiel,
+ich mein, mal angenommen, man hat jetzt hier irgendwas, irgendwas programmiert, ja, irgendwas
+langes, was auch immer, das ist jetzt irgendwie meine tolle Programmiersprache, so und ich
+hab jetzt ganz viel programmiert, so, einen ganzen Tag lang hab ich das hier jetzt programmiert,
+das war ganz furchtbar schwer und ich mein, jeder kennt's, dass man dann sagt, fuck, irgendwas
+hab ich jetzt kaputt gemacht, woran lag das denn jetzt noch mal und dann fängst du an,
+hier die große Steuerung Z-Orgie zu machen, bis zu einem Stand vor ein paar Stunden, wo
+du weißt, dass es funktioniert, dann änderst du wieder was und dann vertippst du dich und
+kommst nicht mehr zurück und hast zwei Stunden Arbeit verloren, das Problem hat man mit einer
+Versionsverwaltungssystem nicht mehr, wenn man es dann ordentlich verwendet, weil dann
+macht man sich einfach, dann committet man einfach seine Changes, die man zu einem Stand,
+wo man weiß, dass sie funktioniert haben und wenn man es dann verkackt, dann kann ich immer
+noch sagen, ok, ich geh jetzt auf den Stand zurück, wo es funktioniert hat, so, legen
+wir mal ein neues Repo an, ja, sowas hatte jeder wahrscheinlich schon, Stream, das brauchen
+wir nicht, Create Repo, der hat's nicht so hier mit Domains richtig setzten, das stimmt
+nicht wirklich, oder, kann man das jetzt noch ändern, die Domain ist, ja die Domain ist
+nicht in Tunnel, der hätte sagen sollen, man soll den FQDN angeben, Kackprogramm, äh,
+nervt mich jetzt schon, ich weiß jetzt, wo wir in welchem Ort wir sind, machen wir den
+ganzen Scheiß nochmal, so und wir machen jetzt wirklich mal so ganz simple Sachen, wie gesagt
+wir legen uns jetzt ein Repo an, dann machen wir mal ein paar Branches, dann machen wir
+ein paar Commits, dann merken wir das ganze, ähm, also eigentlich ziemlich, ziemlich
+basic, machen wir die ganzen Kram nochmal, weil's komische Sachen gemacht hat, ok, dann
+ist es jetzt, schreiben wir das halt mal komplett hin, äh, Admin Accounts, hochkomplexes Passwort,
+so, so, jetzt legen wir nochmal unser Repo an für heute, was wir heute verwenden, nennen
+wir mal Stream, blablabla, create, jetzt stimmt das ganze auch, so, hier stehen jetzt schon
+so ein paar Standard, die Musik ist irgendwie, oh, wupp wupp wupp, wupp wupp wupp, so, das
+ist jetzt quasi unser Fake GitHub, mit unserem Repo drauf, das Repo nennt sich Stream, das
+wird auf GitHub nicht so viel anders aussehen, ähm, in dem Repo ist noch überhaupt nichts
+drinne, deswegen legen wir uns jetzt ein neues Repo an und pushen da initial mal eine leere
+Readme Datei rein, das machen wir nicht so wie es da steht, sondern wir machen das jetzt
+eine Reihe nach, ähm, ich geh jetzt erstmal in meinen Repo Ordner, das muss man nicht
+machen, aber ich mach das immer ganz gerne, ich hab in meinem Heimatverzeichnis immer
+einen Ordner, der nennt sich Repos, und da sind meine ganzen unterschiedlichen Git Repos
+drinne, die ich von irgendwo geklont hab, oder selbst angelegt hab, ähm, das sind, irgendwie
+geht mir die Musik heute echt auf den Sack, ich mach jetzt mal aus, hat da, hat jemand
+einen guten Link zu irgendwelcher entspannender Hintergrundmusik, da klone ich meistens meine
+ganzen Repos rein, da weiß ich wenigstens wo sie sind, auf der Arbeit sind da wahrscheinlich
+schon alle 70 Repos oder sowas in der Richtung drinne, so, ich hab sogar schon ein Repo vorhin
+angelegt, ich lösch das jetzt aber nochmal, ähm, Stream, ein Repo legt man ganz einfach
+an, indem man in den Ordner reingeht und sagt Git Init, ich glaube man kann auch sagen Git
+Init Name, geht auch, also man kann auch sagen Git Init Stream, jetzt haben wir ein leeres
+Git Repo angelegt, wo nichts drinne ist, der auch noch keine Comments hat und noch gar
+nichts, es ist einfach ein leeres Git Repo, ich glaub euch nix hier im Chat, was auch immer,
+wenn da einer schon was vorschlägt und mit Kappa dahinter, da weiß ich schon, das klappt
+wahrscheinlich eher nicht mit Entspannungsmusik, komm wir machen wieder hier, wie hieß er,
+ähm, Piano, wie hieß der Typ der, das war doch echt entspannt, das hatten wir doch schon
+mal vor ner Weile an, außerdem haben es die Japaner halt übelst drauf, ja das ist echt
+entspannt, aber es ist ein bisschen leise, ja das ist nice, so, ähm, wir legen jetzt
+einfach mal ne leere Readme Datei an, in unserem Repo, wir schreiben da nix rein, wir können
+da reinschreiben Hallo oder irgendwie sowas, so, und jetzt haben wir gerade ein leeres
+Git Repo angelegt und die erste Datei drin erstellt, das muss keine Readme Datei sein,
+das kann alles mögliche sein, das kann auch direkt euren schon vorhandener Source Code
+sein, den ihr da jetzt einfach reinkopiert, was aber wichtig ist, sobald man irgendwas
+geändert hat und Git mitteilen möchte, dass man diesen Stand benutzen will beziehungsweise
+diesen Stand jetzt, ähm, nen, ja, was man denn, nen Name geben will oder den Stand committen
+will, weil so heißt der Befehl letztendlich auch, macht man Git commit und am Anfang wird
+er jetzt meckern, dass ich noch keine Lautstärke, Lautstärke, am Anfang wird er jetzt natürlich
+meckern, dass ich noch keine, keinen Namen und, und Gedöns und Zeug gesetzt hab, ähm,
+aber so ist das halt, ähm, ja, und er wird wahrscheinlich meckern, dass es nichts zu
+committen gibt, richtig, wir pushen jetzt einfach mal ne leere Datei ins Repo rein und dann
+gucken wir uns das Ganze im Detail nochmal an. So, ich muss, äh, Name setzen, meine E-Mail
+Adresse ist maxandlocalhost und mein Name ist max, fertig. So, ähm, und jetzt kann
+ich den Stand nehmen, den ich hier drinne hab und, ähm, quasi erst mal zu meinem Remote
+Server schieben und sobald ich das gemacht hab, wird dann hier dann auch der ganze Krempel
+drin auftauchen. Hier wird gehackselt, ja, genau, Silent Pain. Äh, Oxygen Event, was
+meinst du? Für was ist das ganze Programmierzeug? Ja, zum Programmieren, oder was meinst du?
+Äh, Swiss fragts, Max, auf wieviel Gigahertz ist dein i7-8700k? Auf 5 ist der. Mittlerweile.
+Auf 5 Gigahertz. Max, hast du schon mal versucht einen Cheat für ein Game zu programmieren?
+Nö. So, ähm, wobei das machen wir nicht, wir machen das so wie die das geschrieben
+haben. Wat? Ich darf nicht drauf zugreifen, warum? Ah, ich darf wahrscheinlich nicht
+drauf zugreifen, weil ich, ich muss wahrscheinlich noch mein SSH Key, mein SSH Key noch hier
+irgendwie hinterlegen, irgendwo, wo auch immer, der genau hin muss. Ist natürlich jetzt
+ein bisschen doof. Ja, ich hätt mir das vielleicht ein bisschen besser überlegen sollen am Anfang,
+wie wir das machen, aber gleich, gleich haben wir's. Äh, wahrscheinlich new settings, SSH
+Key, geht das so? Ich hab das Tool noch nie verwendet. Sehr schön, hat funktioniert.
+So, in dem Zustand, wie unser Repo jetzt ist, vergesst einfach alles, was wir gerade gemacht
+haben, in dem Zustand, wie unser Repo jetzt ist, sieht es normalerweise so aus, wenn man
+es sich von GitHub geklonet hat. Also sprich, man hat, ähm, das können wir jetzt auch mal
+machen. Wo ist es denn hin? Genau, jetzt ist die ReadMe drinne und sonst nix. So, wir löschen
+das Repo jetzt nochmal lokal und eine Sache wird man dann schon sehen, wenn ich lokal
+irgendwas an meinem Repo mache, hat das logischerweise überhaupt keine Auswirkungen drauf, was mit
+dem Stand irgendwo anders passiert. Und das ist eine ganz wichtige Sache, die man sich
+bei Git erstmal standardmäßig merken muss, ähm, bevor ich nicht was pushe, es ist alles
+nur lokal, auch wenn da lokal irgendwie Remote dran steht oder sowas in der Richtung. Das
+ist vollkommen wurscht bei Git, es ist alles nur lokal, das muss man sich merken. Also
+man kann nichts irgendwie kaputt machen, das ist nicht wie bei SVN oder sowas in der Richtung,
+wo man quasi halb immer mit einem Bein auf dem Server ist. Bei Git ist alles standardmäßig
+lokal, bis man explizit sagt, man schiebt es irgendwo hin. Auch wenn es auf den ersten
+Blick nicht so aussieht. So, also wenn jemand schon mal auf GitHub war, ähm, oder falls
+irgendjemand sich jetzt mal die Linux-Körne klonen will oder sowas in der Richtung, ähm,
+ja, Patrick, ich hause mir ein Git-Tee, oder wie das Ding hieß. Ist einfacher zu installieren
+als GitLab. Man kann auch GitLab verwenden, ist eigentlich überhaupt kein Ding. So. Z-Frames,
+das guck ich mir nachher mal irgendwann an. So, ähm, also vollkommen unabhängig von dem,
+was wir jetzt gemacht haben, der erste Schritt, wo viele Leute erstmal mit Git in Berührung
+kommen, ist, wenn sie sich irgendwo in ein Repo klonen wollen. Also sprich, den Source-Code
+beispielsweise von GitHub, hier jetzt von Visual Studio Code oder von irgendwelchen Projekten
+wollen sie sich lokal bei ihnen auf dem Rechner klonen, editieren vielleicht, vielleicht
+auch noch was einreichen, dann wieder bei dem jeweiligen Projekt. Aber das erste, womit
+Leute in Kontakt kommen, ist wahrscheinlich Git-Clone. Und Git-Clone ist auch genauso
+simpel, wie es aussieht. Man schreibt einfach hin, Git-Clone, und dann die Url, was man
+sich klonen will, und dann hat man lokal einen Ordner von dem jeweiligen Repo, was
+man sich geklont hat. Also easy. Das ist auch noch nicht wirklich das Komplizierte. Das
+kriegt glaube ich jeder noch hin. Das kann man auch mit allen möglichen Sachen machen.
+Ich könnte jetzt auch beispielsweise sagen, jetzt sind wir hier auf GitHub, ich könnte
+auch sagen, hier, ich will mir jetzt einfach mal Visual Studio Code klonen. Das funktioniert,
+kann ich machen. Git-Clone, bam, das man sieht schon, das dauert ein bisschen länger,
+das ist auch ein bisschen größer. Funktioniert, ist überhaupt kein Ding. Ähm, wirklich interessant
+wird es natürlich erst, wenn man was editiert, bzw. wenn man was entwickelt. Und noch interessanter
+wird es, wenn mehrere Leute dran editieren und dran entwickeln. Was man eben schon ganz
+gut gesehen hat, ist die Musik wieder ein bisschen laut, ne? Ach wobei, nicht, das passt.
+Aber ein bisschen. Was man eben schon ganz gut gesehen hat, ich meine, ich konnte lokal
+das Repo löschen und es war Remod noch da. Das heißt, jeder der an irgendeinem Projekt
+mitarbeitet und das Repo sich geklont hat, hat lokal erstmal ne Kopie vom kompletten
+Repo. Wirklich komplett, mit allem dabei. Ähm, das hat natürlich den riesen Vorteil,
+es geht auch nicht so leicht mal was verloren. Selbst wenn der Server, auf dem das ganze
+mal gehostet war, oder gehostet ist, wenn der verreckt, also wenn morgen jetzt beispielsweise
+GitHub abraucht, weiß ja nicht, könnte sein, so Ruby on Rails Abwendung, ähm, wenn morgen
+GitHub abraucht, ist der Source Code von Visual Studio Code garantiert nicht verloren, weil
+sich mindestens 5000 Leute dieses Repo bisher geforkt haben, äh, und sich wahrscheinlich
+noch viel viel mehr Leute dieses Repo mal lokal bei sich irgendwo hingeklont haben.
+Und das ist auch eines der wichtigsten Unterschiede zu ähm, anderen Versionsverwaltungssystemen
+wie, äh, wie SVN oder sowas, dass man eben erstmal hauptsächlich lokal arbeitet und
+erst dann pusht, bzw. sich neue Changes pullt. Und man kann Git nach Herzenlust ausprobieren
+bei sich lokal, man kann nichts kaputt machen. Es wäre ja auch ziemlich bescheuert, ich meine,
+ich hab mir jetzt hier den Source Code von Visual Studio Code geklont und ich lösche
+jetzt einfach mal alles. Bäm! Es wäre ganz schön bescheuert, wenn es jetzt bei Microsoft
+gelöscht wäre, ne? Ist es nicht, es ist nur bei mir lokal gelöscht. Ok, gehen wir mal
+wieder in unser Test Repo. Wenn man jetzt was entwickelt, irgendwas kleines, ja? Irgendeine
+Mini-Anwendung. Wir können jetzt ja mal hier im, im, wir machen irgendwie mal so ein Mini-Bashed
+Crypt, was, was irgendeinen Mist ausgibt oder so. Ähm, dann commiten wir da ein paar Änderungen
+rein und dann pushen wir das und merchant das und schauen uns das mal in der Ruhe, äh,
+in Ruhe an. Ähm, ich muss sagen, mir fällt es ein bisschen schwierig, das so zu erklären
+von Anfang an, dass das alles nachvollziehbar ist, weil ich benutze das schon eine ganze
+Weile und ich kümmere mich eigentlich hauptsächlich um der, auf der Arbeit, um unsere Git Repos,
+um unsere Software Repos. Und viele Sachen, die ich wahrscheinlich einfach so mache, leuchten
+euch nicht so großartig ein, könnte ich mir vorstellen. So, ähm, ja, es gibt ein paar
+wichtige Sachen, die man auch wissen muss, wo immer einige Leute durcheinander kommen.
+Es gibt, ähm, wenn man sich ein Repo geklont hat, gibt es standardmäßig erstmal zwei
+Sachen, oder meistens zwei Sachen standardmäßig. Ähm, die Quelle, von der man sich das Repo
+geklont hat, ist standardmäßig eingetragen hier als Remote-Server. Der nennt sich Origin,
+das Ding heißt immer Origin. Origin ist immer der Server, von dem ich mir mein Repo geklont
+habe, aber das muss nicht so heißen. Das kann irgendwie heißen. Origin ist einfach nur Name
+und sie mussten ja irgendeinen Default-Name vergeben. Ja, ich glaube, der Nightbot ist
+abgeschmiert, Sebaro, stimmt's? Aber die haben gestern auch schon ganz schön rumgeleckt.
+Vielleicht ist es einfach kaputt. Das muss man sich merken, ähm, Origin ist einfach nur
+ein Name. Das sehe ich auch auf der Arbeit ganz oft, dass viele Leute denken, Origin
+wäre irgendein Git-Befehl oder sowas. Und das hat auch nichts mit Origin von EA zu tun,
+sondern es ist einfach gemeint, von da hast du es halt ursprünglich geklont, dein Repo.
+Aber man kann auch mehrere Remote-Repos haben und dort Sachen reinpushen. Also ich könnte
+beispielsweise hier meinen lokalen Server haben, wo halt dieses Frontend beispielsweise
+drauf läuft, plus noch einen Rechner von einem Kumpel, der bei mir mitentwickelt, oder noch
+einen Server in irgendeinem Rechenzentrum, auf dem die Anwendung wirklich drauf läuft.
+Und die kann ich mir alle als Remotes eintragen und bei Push und Pull verwenden. Aber dass
+das Ding Origin heißt, ist vollkommen egal, ist einfach nur ein Name. So, und was man
+auch wissen muss... Hä, Siebauer, was? Hä, verstehe ich nicht. Was man auch noch wissen
+muss, dass man standardmäßig eine Branche hat, der Master heißt, das ist auch einfach
+nur, weil er ja irgendwas nach dem Klonen anzeigen muss. Und dann nimmt er einfach standardmäßig
+Master, wenn es ihn gibt. Das ist nichts, was wirklich so heißen muss. Viele Leute denken,
+die Dinger müssen Origin oder müssen Master heißen, ist vollkommen egal. So, also wir
+haben jetzt wirklich ein ziemlich leeres, quasi nur mit einer Datei befüllendem repo.
+Und in dieser Datei steht einfach nur Hallo drin. Wenn wir uns jetzt mal die History angucken,
+sehen wir, es gibt genau ein Comment, das ist von mir und das ist vor, was weiß ich, 10
+Minuten entstanden und ist offensichtlich das erste. Was man bei Git wissen muss, was
+ist, oder so die Grundlagen, mit denen man früher oder später in Berührung kommt, sind,
+was sind Comments, was sind Branches, vielleicht noch was sind Tags und was gibt es denn sonst
+noch interessantes, was sind Remotes. Aber am wichtigsten ist eigentlich am Anfang mal
+zu wissen, was ist ein Branch und was ist ein Comment. Wenn ich jetzt hier irgendwas anfange
+zu entwickeln, so beispielsweise, ich will jetzt ein ganz tolles Bash-Skript programmieren,
+was irgendwas tolles macht. Ich hatte ja einer eine glorreiche Idee, was das tolles machen
+könnte. Oder machen wir es anders. Komm, wir einfach alles in Mastercommenten. Ja, das
+ist finde ich sogar, äh, Patrick, das ist finde ich sogar legitim, wenn man das macht,
+wenn man alleine daran entwickelt. Wir machen das jetzt mal, das repo machen wir jetzt mal
+auf mit Visual Studio Code, dass man bisschen GUI-mäßig, dass man sieht, dass das überhaupt
+nichts mit den eigentlichen Programmen zu tun hat, was man verwendet. Ähm, äh, Open
+Folder. Plende das standardmäßig Readmees aus, das Ding, oder was? Lull. Ein Skript,
+das den Sinn des Lebens bricht. Jawoll, das können wir machen. Also, wir fangen jetzt,
+wir fangen jetzt mal an ein ganz tolles Bash-Skript zu programmieren. Ähm, und danach kommitten
+wir das in unser Git-Repo, machen Änderungen und Dinger. Ich glaube, dann wird das wahrscheinlich
+auch alles ein bisschen, bisschen greifbarer. Wie macht mir die neue Datei-Steuerung N. So,
+das wird jetzt, äh, unser ganz tolles Bash-Skript. Die Schrift ist riesengroß. Echo. Hallo Twitch.
+Ups, ich hab einen Punkt zu viel. So. Und, wenn man sich das jetzt mal anguckt in unserem
+Git-Repo, äh, Hasenkürze fragt, was ist deiner Meinung nach die Entwicklungsumgebung
+der Zukunft? Eclipse Intellijane Visual Studio kommt drauf an, für was. Also, ich denke,
+unter Windows und für Microsoft-Gedöns, was, also sowas wie C-Sharp oder, oder VisualBasic.net
+oder solche Dinger. Ich bin im falschen Ordner gelandet. Echt? Ne, ich glaub, ich glaub,
+das passt. Ähm, ne, ich bin im falschen Ordner. WTF, hä? Ach, ich bin im falschen, ja, ich
+bin wirklich im falschen Ordner. Lul. Da ist es. Da ist jetzt auch das drinne. Naja,
+um nochmal zur Entwicklungsumgebung zurückzukommen. Jetzt ist auch die ReadMe drinne, ja. Jetzt
+funktioniert das Ganze auch. Ähm, unter Windows wird es weiter Visual Studio bleiben. Für
+JavaScript seh ich, also für JavaScript und Webzeug, seh ich ehrlich gesagt Visual Studio
+Code ziemlich weit vorne und ist auch recht beliebt. Für C++ find ich den Cute Creator
+ziemlich gut. Aber man kann auch, wenn man Windows Zeug entwickelt, das ohne Problem
+mit Visual Studio machen. Und für Java und solche Sachen, ich hasse Eclipse. Ich, Eclipse
+ist wirklich, da musst du instant kotzen, wenn man es benutzen muss. Ähm, wenn, dann
+verwende ich Intelli, war das IntelliJ? IntelliJ, ID, genau, ja, das Ding. Für Groovy und solche
+Sachen. Aber, ähm, für Webgeschichten ist Visual Studio Code zur Zeit sehr angesagt.
+So, jetzt hab ich, jetzt hab ich irgendwie ziemlich n Mist gemacht hier. So, ähm, wir
+haben jetzt angefangen unser tolles Bash Script zu programmieren. Das macht nicht sonderlich
+viel. Das macht aktuell noch gar nix. Außer auszugeben, hallo Twitch. Nein, das neue Assassin's
+Creed hab ich mir noch nicht angeguckt. Ähm, jetzt will ich aber vielleicht, dass da der
+Patrick oder der Sebaro oder irgendjemand dran mitarbeiten können. Und deswegen muss
+ich jetzt erstmal mein tolles neues Bash Script comitten und pushen, dass das irgendjemand
+anderes verwenden könnte. Und man sieht hier schon, dass Git da grundsätzlich das erstmal
+unterscheidet zwischen Dateien, die es kennt und Dateien, die es nicht kennt. Wenn ich
+eine neue Datei angelegt hab, dann sagt Git erstmal standardmäßig, ähm, selbst wenn
+ich jetzt sage, ich will comitten, sagt Git erstmal standardmäßig, ne, kenn ich net,
+das ist das. Wenn ich mir mit Git Status angucke, was gerade im Repo so passiert, ähm, sehe
+ich, dass ich untracked Files drinne hab. Warum sind die Files untracked? Naja, ich
+hab's gerade eben erst angelegt. Und da muss ich initial einmal für jede Datei, die neu
+ist, man kann das auch umgehen, ja, man kann das auch einfacher machen, ähm, die muss
+ich erstmal hinzufügen. Muss ich erstmal sagen, Git, kümmere dich um die Datei in
+diesem Ordner. Nur weil ich hier in dem Git Ordner drinne bin, heißt das noch lange nicht,
+dass sich Git standardmäßig für jede Datei zuständig fühlt. So, wenn ich jetzt ein Git
+add auf die Datei gemacht hab, dann sehe ich schonmal bei dem nächsten Git Status, change
+to be committed, also sprich, Git kennt die Datei jetzt, ähm, und ich kann mir jetzt
+auch mit Git diff, ne, mit Git, äh, fuck, wie ging das, staged, ähm, kann ich mir auch
+angucken, was Git jetzt committen würde. Und nun kann ich auch sagen, Git commit, und
+jetzt, ich kann das immer nur betonen, die meisten Leute halten sich nicht dran, oder,
+ähm, sind da einfach nur zu faul für, ich muss sagen, bin ich auch oftmals, ne gescheite
+Commit Message reinzuschreiben. Das muss nix langes sein, aber was ne schlechte Commit
+Message ist, ist zum Beispiel das hier. Wenn ich an jedem Projekt arbeite, und selbst wenn
+ich nur alleine dran arbeite, dann hab ich spätestens in zwei Tagen keine Ahnung mehr,
+was ich hier bitteschön bei Fixes gemacht hab. Wenn ich da jetzt reinschreib, wenn
+ich da wenigstens sowas reinschreib, Schreibfehler, fix, irgendwie, verschrieben, gefixt, ähm,
+also, es hat seinen Vorteil, wenn man da irgendwas Sinnvolles reinschreibt, ja, äh, es reicht
+schon, wenn wir irgendwie reinschreiben, hier edit new script oder irgendwas, da hat man
+halbwegs noch nen Anhaltspunkt, was denn da, warum ist das eigentlich Nano? Warum ist das
+Nano? Ich will, ich will kein Nano. Wie konnte man das nochmal ändern? Editor, ähm, wenn
+man das hier so richtig schreibt, config, global, editor, oh, fuck, wie ging das jetzt,
+das muss ich nachgucken. Was einem auch bei Git klar sein muss, man ist ziemlich oft unterwegs,
+man kann entweder in der Gitman-Page gucken, wobei die Gitman-Page absolut wir geschrieben
+ist, oder aber, man schaut einfach nach. Ah, hier, guck, git config global core editor
+vim, das will ich machen. So, und wenn ich jetzt das nächste Mal was committe, dann geht
+auch ein ordentlicher Editor auf und nicht Nano. So, was man jetzt hier schon sieht ist,
+ich hab ein neues Skript angelegt, ähm, ich hab's commited, wenn ich jetzt in die history
+gucke, ja, ja, Milchwein, ich sag ja Stack Overflow Driven Programming, wenn ich jetzt
+in meine history gucke, also sprich, dort wo ich sehe, in welcher Reihenfolge was passiert
+ist, dann seh ich auch, ok, es gab hier unten einmal mein initiales Comet und hier drüber
+seh ich, ich hab ein neues Comet gemacht hier vor ein paar Minuten, wo ich ein neues Skript
+hinzugefügt hab. Wenn ich's jetzt genau wissen will, aktuell ist es noch ziemlich übersichtlich.
+Moment. Aktuell ist es noch ziemlich übersichtlich, es ist, sind zwei Comets in dem Repo und die
+sind beide von mir. Ähm, wenn man sich jetzt mal beispielsweise von Visual Studio Code
+die Comets anguckt, das sind beispielsweise 25.000 und von total vielen unterschiedlichen
+Leuten. Wir gucken uns jetzt noch mal auf der Kommando-Zeile an, ich klon mir das Ganze
+noch mal. Das ist ein Projekt, das ist, hat eine gute Größe, das ist nicht so riesengroß
+wie der, wie jetzt irgendwie der Linux Kernel oder sowas. Na, eben war das Ganze aber auch
+schon ein bisschen schneller. Hat das eben schon genau so lang gebraucht, den Krams zu
+klonen, ging das nicht eben noch schneller? Ha. Ja gut, sobald, sobald das geklont ist,
+gucken wir da mal in die Historie rein, da sehen wir, dass ich schon ein bisschen mehr
+als war mir im Repo drin und da wird eine Sache auch schon mal gleich klar und zwar,
+dass es sinnvoll ist, ordentliche Comet-Messages zu machen. Das ist jetzt nämlich ein Projekt,
+wo 409 Leute schon mitgewirkt haben in 25.000 oder in knapp 26.000 Comets. Da wird es dann
+schon ein bisschen schwieriger mit der Übersicht. Wenn wir jetzt hier mal ein Gitlog drinnen
+machen, sehen wir nämlich auch, dass es sind von ganz vielen unterschiedlichen Leuten,
+die da dran mitgearbeitet haben und wenn jetzt hier jeder reingeschrieben hätte, irgendwie
+fix ist, dann wird es ganz schön kompliziert zu checken, was da eigentlich passiert ist.
+Einmal wieder zurück zu unserem Noob-Repo, so ein Billig-Repo, das hat immer noch zwei
+Comets drin und jetzt der große Unterschied zu Versionsverwaltungssystemen wie beispielsweise
+SVN, ja doch, ich kann das Zeug nicht richtig, ich verdrehe da immer die Buchstaben, ich
+verdrehe auch immer CVS und CSV und alles. Der große Unterschied zu quasi zentralen
+Versionsverwaltungssystemen mit dem zentralen Server, was es ja so bei Git nicht gibt, ist,
+ich habe jetzt eine neue Datei angelegt, ich habe jetzt diesen neuen Stand committed, habe
+ich mit einer Commit-Message dabei, aber das ist nach wie vor nur lokal bei mir. Das muss
+man wissen, das ist nur lokal, also sprich, wenn jetzt irgendjemand von euch sich hier
+mein Repo klonen würde, würde er diese Änderung noch nicht sehen, obwohl sie committed sind,
+das ist bei SVN komplett anders. Da ist Commit halt Commit. Und was ich jetzt machen muss,
+dass das andere Leute auch benutzen können, bzw. um es halt zu irgendeinem anderen Server
+zu schieben, achtmal mit Git push. Und hier ist es auch wichtig, dass man, auch wenn man
+es nicht machen muss, ist es sinnvoll, hier immer die kompletten Optionen anzugeben.
+Also quasi, was ich machen will ist, ich will Git benutzen, ich will meinen Stand woanders
+hinschieben, Git push, jetzt muss ich angeben, wohin, in dem Fall Origin, Origin ist das Repo,
+von dem ich geklonet habe, und jetzt, welcher Branch, was ein Branch ist, kommen wir gleich
+noch dazu. So, wenn ich das mache, dann funktioniert das Ganze auch, und wenn ich jetzt hier refresche,
+ist das auch da, mein Skript. Und wenn jetzt jemand von euch sich mein Repo geklonet hätte,
+und Git pull macht, dann wird er die Änderung auch sehen. Warum ich das für wichtig halte,
+hier immer alles komplett anzugeben. Man kann auch die Kurzfassung machen, Git push. Git
+push funktioniert in 99% der Fälle ohne Probleme, weil Git mittlerweile relativ clever ist, und
+bei Git push standardmäßig halt nur den Branch pusht, auf dem man drauf ist. Das war früher
+nicht so. Früher war Git push das Standard, das die Fault verhalten so, dass alle Branches,
+die man lokal hatte, gepusht wurden, und da hat man teilweise Sachen gepusht, die man
+nicht pushen wollte. Ich hatte mal auf der Arbeit einen, der hat irgendwie 15 Branches
+gepusht, die er sich mal irgendwann ausgecheckt hat, paar Änderungen drin ausprobiert hat,
+und die wollte er eigentlich gar nicht pushen. Das war halt ein bisschen blöd für ihn. Der
+Name Origin verwirrt mich. Origin ist der Default Name für die Quelle, von der man,
+oder wie es der Patrick gerade sagt, von der Herkunft, von der Quelle, wo man geklont
+hat. Das ist der Default Name des Servers, des Remotes, bei Git heißt das Remote, von
+dem man geklont hat. Man kann das übrigens auch umbenennen. Ich kann auch Git remote
+rename, wie ging das nochmal, wenn ich das noch richtig schreibe, Git remote rename,
+Origin kann ich auch umbenennen in, zum Beispiel GitHub. Wenn ich mir das jetzt angucke, heißt
+das überhaupt nicht mehr Origin. Wenn ich das jetzt nochmal machen würde, würde ich
+sagen, das geht nicht, weil es das Remote Origin nicht mehr gibt. Jetzt müsste ich sagen,
+Git push, Git hub master. Ist auch zu empfehlen, also wenn man mehrere Remotes hat, ist das
+sinnvoll, die so zu benennen, dass man auf den ersten Blick gleich sieht, ja was wozu
+gehört. Also das ist schon nicht verkehrt. Wir rename das nochmal, weil es ist ja gar
+nicht GitHub, sondern es ist unser Fake GitHub. Es ist ja gar kein echtes GitHub, worauf
+wir gepusht haben. Es ist ja nur unser Fake GitHub. Was wir jetzt gemacht haben ist, wir
+haben ein neues Skript angelegt, wir haben das committed und wir haben das gepusht. Das
+sind so die Standard-Basis-Operationen, die man immer braucht in Git. Ohne commiten, ohne
+adden, ohne commiten, ohne pushen kommt man meistens nicht weit. Den Part mit pushen kann
+man weglassen, wenn man nur lokal arbeitet. Man braucht sowas hier nicht, also sprich,
+man muss sein Zeug nicht auf GitHub hochladen, das muss nicht sein. Man kann auch rein lokal
+arbeiten. Ist auch nicht schlecht, wie gesagt, wenn man irgendwas klein im Bastelt und auch
+gar nicht vorhat, das zu veröffentlichen. So, was gibt es jetzt als nächstes? Genau,
+was sind Branches? Dazu muss man sich erstmal angucken, was sind commits. Wenn man in die
+History guckt, was man, by the way, mit GitLog macht. GitLog hat übrigens sehr viele praktische
+Optionen, beispielsweise das hier. Das hier ist ein Beispiel für typische Git-Optionen,
+die sind nicht immer logisch. Also standardmäßig zeigt mir GitLog meine History an, also sprich
+vom ältesten Commit zum neuesten Commit. Sag ich jetzt, GitLog name only als Option
+zeigt es mir mehr an, allerdings noch die Namen, die sich geändert haben im jeweiligen
+Commit der Datei, also welche Dateien sich im jeweiligen Commit geändert haben. Obwohl
+die Option minus minus name only so aussieht, als würde es weniger anzeigen, nämlich nur
+names only, macht es das nicht. Ganz viele Git-Commandos sind total wir, da muss man
+sich mit abfinden. Und die Git-Man-Pages sind ehrlich gesagt auch nicht sonderlich
+hilfreich. So mal hier als Beispiel. Guckt euch, lest euch mal, oder lesen wir uns mal
+die ersten Sätze durch von GitPush. Man versteht nichts. Normalerweise ist eine Man-Page dafür
+da, das soll einem das alles erklären, ein bisschen helfen, wie das Ganze funktioniert.
+So, und die Hilfeseite für GitPush sagt mir, GitPush updates remote refs using local refs
+while sending objects necessary to complete the given refs. Und jetzt kommt der beste
+Satz überhaupt. You can make interesting things happen to a repository. Also, die Git-Man-Pages
+sind legendär verwirrend. Ich würde gar nicht erst anfangen Git-Man-Pages zu lesen,
+in dem Fall ist man wirklich mit einer Google-Suche und Stack-Overflow-Antworten meistens besser
+dran. Also Git-Man-Pages sind wirklich sehr verwirrend. So, aber wenn wir uns jetzt nochmal
+die History angucken, sehen wir, wir haben zwei Comets drinne, mein initiales Comet und
+das, wo wir das Skript hinzugefügt haben. Jedes Comet bekommt in Git eine eindeutige
+Hashtag-ID. Das ist ein Schar-Hash-Wert, wenn das interessiert. Und man sieht ja auch
+teilweise ganz interessante Informationen dahinter. Zum Beispiel, welcher Remote-Stand eben auf
+welchem Comet gerade ist und sowas, aber das ist jetzt erstmal egal. Wichtig ist, dass
+jedes Comet einen eindeutigen Hashtag-Wert bekommt. Und dieser Hashtag-Wert oder diese
+Comet-ID, nennen wir es mal Comet-ID, ist eines der Grundlagen, worauf Git basiert und
+eines der wichtigsten Sachen. Man muss nicht wissen, was es ist, was es genau macht. Was
+man wissen muss ist, jedes Comet hat weltweit sehr, sehr, sehr wahrscheinlich eine eindeutige
+ID. Und ihr habt hier beispielsweise das Visual Studio Code-Repo gesehen, das hat schon 25.000
+Comets. Und es ist sehr wahrscheinlich, dass es kein Git-Repo gibt. Alle Git-Repos weltweit
+zusammen. Dass es kein Comet gibt, das die gleiche ID hat. Und das ist auch wichtig,
+weil bei Git ziemlich viel auf dieser Comet-ID basiert. Man braucht sie selbst relativ selten,
+aber ich denke, das ist eine wichtige Sache, die einem klar sein muss. Weil, und das ist
+auch eine wichtige Sache, man kann in Git die History, ich weiß, dass es geht, aber
+ich sag's jetzt mal ein bisschen überspitzt, man kann in Git die History nicht ändern.
+Man kann in Git die History nur umschreiben. Und wenn man in Git die History umschreibt,
+ändert sich alles ab dem Zeitpunkt des Umschreibens. Weil die ganzen Comets basieren aufeinander.
+Also sprich, diese Comet-ID, oder besser gesagt, diese Comet-ID, wird errechnet, aus dem der
+es committet, aus der Uhrzeit, wann es committet wird, und ganz wichtig, aus der Comet-ID,
+des Vorgänger-Comets. Das heißt, wenn ich jetzt feststelle, ich hab hier unten irgendwann
+mal Mist committet, was vorkommen wird, wie man das beheben kann, kommen wir auch noch
+dazu. Wenn ich jetzt feststelle, ich hab hier unten irgendwann mal Mist committet in mein
+Git Repo, dann kann ich das erstmal so pauschal nicht ändern. Das ist drinnen. Für immer
+und ewig ist das in diesem Git Repo drinnen. Weil wenn ich jetzt hier hingehen würde,
+und das ändern, würden sich alle Comets, die da drauf kommen, die nachvollen Comets,
+wie sich die Comet-ID ändern. Was dazu führen würde, dass es für Git intern ein komplett
+anderes Repo wäre, und alle, die irgendwie mitarbeiten an dem Repo, eine Historie haben
+die nicht mehr zusammenpasst. Also die Historie in Git kann man nicht ändern. Man kann sie
+nur umschreiben, und da sollte man auch aufpassen, was man macht. So, deswegen ist es auch nochmal
+wichtig, dass es einem klar wird, dass man mit Git standardmäßig nur lokal arbeitet.
+Das heißt, man kann, wenn man Mist committet hat, bevor man es pusht, das ändern, wie
+man will, das wird nie jemand sehen, aber wenn man es gepusht hat, ist es da. Quasi
+für immer. Das heißt, man muss sich überlegen, was man pusht. So, einmal angenommen, das
+ist was, was viele Git-Tutorials beispielsweise viel später machen, aber ich finde, das ist
+eigentlich eines der häufigsten Probleme, die Leute haben, die neu mit Git anfangen
+oder die halt allgemein sich da, sich das gerade einfach ein bisschen angucken und das
+lernen wollen. Wie kriege ich denn jetzt was wieder raus, wenn ich Mist committet habe?
+Was, die Uhrzeit stimmt nicht? Ja, stimmt, die Uhrzeit stimmt nicht. Die Uhrzeit ist
+total falsch. So, wie kriege ich denn jetzt wieder raus, wenn ich Mist committet habe?
+Weil angenommen, ich habe hier jetzt irgendwas committet. Wir können uns mit git log minus
+p, kann man sich anzeigen lassen, was committet wurde. Da sehen wir zum Beispiel, okay, ich
+habe hier halt eine Datei committet mit diesem Inhalt und ich habe jetzt festgestellt, Mist,
+eigentlich wollte ich schreiben, hallo stream und ich habe hallo twitch tv geschrieben.
+Ich habe das jetzt gepusht, das ist da. Also man sieht das ja auch hier, wenn sich jetzt
+irgendjemand geklont hätte, ja, dann hätte er jetzt halt das fehlerhafte Skript gehabt.
+Was mache ich denn jetzt? Wie kriege ich denn das wieder raus? Und die einfache Antwort
+ist gar nicht. Fixen und neu committen. Das ist der Weg in Git Fehler zu beheben. Also
+selbst, wenn ich jetzt quasi theoretisch zurückrollen könnte, sollte ich das auf keinen Fall machen,
+wenn ich es schon gepusht habe, weil danach sieht die history anders aus. So, und der
+Gitweg, sowas zu fixen, ist im Prinzip ganz einfach. Man macht ein neues Comet. Also sprich,
+ich rolle das jetzt nicht zurück und committe es nochmal mit dem korrekten Text, sondern
+ich editiere das jetzt einfach zu dem, was ich eigentlich haben wollte, zwar hallo stream,
+ich wollte nicht hallo twitch schreiben und jetzt committe ich das ganze einfach nochmal.
+Jetzt Git Status eingeben, sagt der mir hier, guck mal, es hat sich was geändert. Visual
+Studio Code sollte glaube ich auch irgendwie anzeigen, dass sich was geändert hat, macht
+es nicht. Konnte das Visual Studio Code nicht, konnte das nicht anzeigen, dass sich was
+Git technisch geändert hat. Keine Ahnung, ist ja auch wurscht. Ähm, wir machen das
+jetzt mal hier alles Commando-Zeile. Genau, und jetzt mache ich ein neues Comet. Ich kann
+das alles ein bisschen abkürzen. Die richtige Reihenfolge ist doch links im Git-Reiter.
+Ah, das habe ich gesucht, ja quasi so ein Diff, was sich geändert hat. Aber sonderlich
+schön ist es, schön ist es nicht. Ich kenne es von manchen Editoren, dass man hier vorne
+so Plus und Minus angezeigt bekommt, wo sich was geändert hat. Ist aber auch egal. So,
+die normale Reihenfolge, was zu committen ist ja, man edit es, ich mach das jetzt nicht,
+man committet es und danach kann man es pushen oder das lokal lassen. Es gibt eine Kurzform
+davon und die wird wahrscheinlich jeder verwenden, der häufiger Git verwendet, weil es einfach
+nervig ist immer was zu adden. Man sagt einfach Git A minus M. Das heißt, committe alles,
+alle Änderungen aus Dateien, die du kennst. In dem Fall, tolles Skript. Message nimmt
+den Text, den ich hier hinten angebe, als Comet-Message. Ja, ich schaue jetzt irgendwie
+mit Echo Text, was auch immer. So, wenn ich jetzt nachgucke, jetzt habe ich ein drittes
+Comet, was den Fehler korrigiert hat, den ich vorher mit committet habe. Ich habe vorher
+Mist committet, den habe ich jetzt wieder korrigiert. Und das ist der Weg, wie man das
+in Git fixt. Standardmäßig rollt man nichts zurück, um was zu fixen. Also man rollt nichts
+zurück, fixt es und committet es wieder. Man sagt, ok, der Fehler ist drinne, man ändert
+ihn und macht ein neues Comet. Was ja auch irgendwo sinnvoll ist, weil überlegt euch
+mal, ihr habt einen Fehler gepusht schon. Jemand anderes, der mitarbeitet, hat sich
+das quasi ausgecheckt bei sich und hat jetzt die Datei mit dem Fehler und er hat vielleicht
+da drin schon was editiert und ihr würdet es dann zurückrollen und dann pusht ihr eine
+Datei, die so aussieht, die, quasi die Version, die er bei sich lokal hat, hätte es ja dann
+nie gegeben in der History. Deswegen hat Git bei sowas Probleme, wenn man History ändert.
+Da kommt es zu ganz wirren Ergebnissen und ich kann es nicht empfehlen, irgendwie die
+History umzuschreiben. Es sei denn, es ist lokal, bevor man pusht. So. Wenn man noch
+nicht gepusht hat, kann man sich das Leben ein bisschen einfacher machen. Wie gesagt,
+normalerweise kommt das in Git-Tutorials immer viel später dran, aber ich finde das, wie
+gesagt, das ist eines da, ja, eines, ein großes Problem, was viele Leute haben, die neue Git
+verwenden. Wenn man noch nicht gepusht hat, kann man sich das Leben ein bisschen einfacher
+machen. Zum Beispiel, wenn ich jetzt sage, Mist, meine Comet-Message ist falsch. Ich
+wollte eigentlich nicht hinschreiben, Changed Echo Text, sondern Fixed Echo Text. Mist,
+was mache ich denn jetzt? Soll ich jetzt ein neues Comet wirklich machen, wo ich dann
+nochmal Fixed Echo, das ist doch, das ist doof. Das ist doof. Aber ich hab Glück, ich hab
+noch nicht gepusht. Da sieht man hier unten auch an dem kleinen Pfeil von meiner, äh,
+hier bash-git-sonsmaas-extension, äh, zschl-bash, äh, zsh-git-extension, ähm, dass ich quasi
+lokal mehr Comets habe als Remote und ich die jetzt pushen könnte. Deswegen ist da
+jetzt so ein Pfeil nach oben. Ähm, wenn ich jetzt einfach nur die Comet-Message ändern
+will von meinem letzten Comet, wohlgemerkt, wenn ich noch nicht gepusht habe, sobald ich
+gepusht habe, soll ich dieses Comet nie wieder anfassen, ähm, dann kann ich das so machen.
+Und wir merken uns jetzt mal hier den Hash-Wert von diesem Comet, also quasi die weltweit
+eindeutige Comet-ID. So, und hiermit kann ich jetzt das letzte Comet nochmal ändern.
+So, und ich wollte schreiben Fixed-Echo-Text. Bam. Und jetzt kommt der Knackpunkt, die Comet-ID
+hat sich geändert. Und die Comet-ID ist das, woran Git festmacht, ob es ein Comet eben
+kennt oder nicht. Das heißt, wenn ich es schon gepusht hätte, hätte das jetzt geändert,
+dass, äh, dann wäre Git verwirrt. Und alle, die es schon geklont hätten, wären auch verwirrt,
+weil dann auf einmal was verschwindet, was schon mal da war. Und Git basiert darauf,
+dass nichts verschwindet, sondern nur neue Sachen oben drauf kommen. Also das muss immer
+so eine, die Historie muss immer quasi eins auf dem anderen aufsetzen und darf sich nicht
+zwischendrin ändern. Ähm, aber nachdem ich das ja nur lokal bei mir hatte, hat das Remote
+noch nie jemand gesehen. Sieht man ja auch, wenn ich hier meine Comments angucke, mein
+neustes Comet hab ich noch überhaupt nicht gepusht. Jetzt hab ich es lokal bei mir gefixt
+und jetzt kann ich das Ganze auch pushen und gut ist. Ähm, so und ich zeig euch jetzt
+mal, was passiert, wenn ich das doch machen würde, die Historie ändern. Die haben was
+genannt. GitHub, nee. Fake GitHub. So und dann gucken wir uns mal an, was Branches sind.
+Comets sind da. Passt, jetzt hab ich es gepusht. So und wenn ich jetzt mich nicht dran halte
+und sage, ich ändere was in meiner Historie, obwohl ich schon gepusht habe. Äh, ah guck
+mal, der Eaxe ist da. Schon durch, mit was? Du meinst hier mit, äh, mit Kot? Ne, ich
+hab heute noch gar nicht gespielt. Ich hatte heute noch keine Zeit. Aber wahrscheinlich
+spiel ich nachher ne Runde. Komm, wir können nachher ne Runde, ähm, Dings hier War spielen
+zusammen, wenn du willst. So und wenn ich jetzt jetzt doch mache, also sprich, wenn
+ich jetzt doch die Historie ändere, obwohl ich schon gepusht hab, machen wir mal, ich
+hab jetzt schon gepusht, jetzt sag ich, ach nee, ich würde doch gerne, dass mein, dass
+meine letzte Comet Message wieder, äh, nicht Fixed Echo Text ist, sondern, äh, Changed
+so Echo, Echo Text. Kann ich lokal machen. Jetzt zeigt es mir hier aber auch schon lokal
+an, äh, die Historie passt irgendwie nicht zusammen. Und wenn ich das jetzt versuche
+zu pushen, dann sagt Git, geht nicht. Weil, Git hat als letztes Comet, das hier und bei
+mir lokal will ich was pushen, wo es dieses Comet nicht gibt. Da sagt Git jetzt irgendwie,
+Moment, das passt nicht zusammen. Äh, guckst du Overwatch World Cup Halbfinale? Ja, mach
+ich. Das geht demnächst los, ne? Muss ich mal gucken. Ja, geht irgendwie in 20 Minuten
+oder so los. Also die Basics mach ich, mach ich immer noch fertig. Äh, äh, Eax, ich
+will Overwatch gucken fällt mir gerade ein. Ich wollt, wollt, äh, Dings die Overwatch
+Halbfinale gucken. Ich kann's vergessen, dass das jetzt schon anfängt. So, und jetzt
+sieht man schon, wenn ich das versuch zu pushen, geht nicht. So, und eine, die blödeste Sache,
+die ich jetzt machen könnte, ich zeige euch nur mal, dass es geht, ist, wenn ich mit Force
+pushe. Weil dann sag ich, Git, einfach scheiß drauf, was du denkst, mach's einfach. So,
+und jetzt sieht man, ähm, wenn ich jetzt hier auf Comets gehe, jetzt ist das Comet
+verschwunden und meins da. Jeder, der sich dieses Repo jetzt geklonet hätte, würde
+einen Fehler bekommen, wenn er das nächste Mal versucht, was zu pullen. Das will man
+nicht. Also, ganz einfach kann man sich merken, sobald was gepusht ist, wird das nicht mehr
+angefasst. Nie wieder. Bis das Universum sich in Luft auflöst. Was gepusht wurde,
+public, wird nie wieder angefasst. So. Das muss man jetzt mal so klar sagen. Monka Shake,
+das macht man nicht, sowas. Weil dann haben alle, die dann dran mitarbeiten und man selbst
+Probleme danach. Wie kann ich denn jetzt was rückgängig machen? Ähm, mal angenommen,
+ich hab jetzt was größeres geändert und das war einfach kompletter Mist. Also sprich,
+ähm, ich hab jetzt hier nen Sündagsfehler drinne. Ich hab jetzt hier nen Sündagsfehler
+drinne. So. Ich hab ein neues Feature programmiert, was eigentlich, ähm, ganz toll ist und super
+funktionieren sollte. So, und ich hab das jetzt committed, gepusht und jetzt stell ich fest,
+Mist ich habe Mist gepusht. Ich hab nen Sündagsfehler drinne. Ja gut. In dem Fall ist es jetzt relativ
+einfach. Ich mein, ich kann jetzt das genauso machen, wie ich es eben gezeigt hab. Ich
+könnte hier reingehen, das löschen und nochmal neu committen. Aber, wenn wir jetzt mal von
+ausgehen würden, realistischer gesehen, ähm, dieses neue Feature würde sich, sagen wir
+mal, über 20 Dateien und 500 geänderte Zeilen erstrecken und ich, quasi derjenige, der sich
+um das Repo kümmert, ja, dass das alles sauber und ordentlich läuft, hat gar keine Ahnung
+von dem, was dieser Typ da committed hat, dann ist es ganz schön schwierig von Hand
+das Commit wieder rückgängig zu machen und in die Form zu bringen, dass es wieder funktioniert.
+Bei anderen Versionsverwaltungssystemen wäre die logischste Schlussfolgerung jetzt, ich
+rolle zurück, also quasi auf den Stand vor diesem Commit, was alles kaputt gemacht hat,
+weil, ne, dieses Commit hat unser tolles Programm zerstört. Also würde ich jetzt normalerweise
+hier rauf zurückrollen, weil ich weiß, davor ging es noch alles. Das ist ja auch, sieht
+man es wieder, ist eines der großen Vorteile von einem Versionsverwaltungssystem, da kann
+ich sowas machen, sprich, ich hab hier meine vergangenen Stände relativ gut beschrieben
+und weiß auch jetzt noch, wie das Programm heute Morgen ausgeschaut hat, oder ich kann
+mir den Stand von heute Morgen auch angucken. Also, wie macht man das jetzt? Also mal angenommen,
+dieses Feature hätte sich jetzt über 20 Dateien verteilt und hätte 500 Zeilen geändert
+und ich hab dieses Feature nicht programmiert, also ich weiß gar nicht genau, was der da
+eigentlich gemacht hat. Ich will es einfach rückgängig machen. Ich will es einfach rückgängig
+machen und, wie ich es gerade gesagt hab, einfach auf den Stand vorher zurückrollen
+ist mit Git nicht. Dafür gibt es bei Git den Befehl Revert. Revert macht genau das, was
+ich vorher von Hand gemacht hab, nämlich der dreht das Comet einfach um. Also, ich
+zeig es euch hier nochmal. In dem letzten Comet weiß Git ja, dass ich, ich zeig mal
+nur das letzte an, Git weiß ja, in dem letzten Comet wurden diese Zeilen geändert, hinzugefügt.
+So, und Git Revert ist ziemlich simpel in dem, was es macht, das dreht das einfach um.
+Also sprich, wenn in diesem Comet diese Zeilen hinzugekommen sind, wird ein Git Revert diese
+Zeilen löschen. Zeilen, die gelöscht werden, wird ein Git Revert hinzufügen. Ein Git Revert
+macht quasi einfach ein umgedrehtes Comet. So, und wenn es jetzt wirklich von jemand
+anderem, was entwickelt worden wäre, dieses Feature, was jetzt unser Programm kaputt
+gemacht hat und halt sich über 500 Zeilen erstrecken würde und ich will einfach nur,
+dass das Programm wieder geht, dann würde ich sagen Git Revert, letztes Comet, da kann
+man jetzt entweder die Comet ID nehmen oder man kann es auch abkürzen, wir nehmen jetzt
+mal die Comet ID, das ist glaube ich einfacher und jetzt sagt er mir auch hier, ok, das
+ist ein neues Comet, aber dieses Comet löscht einfach nur die Veränderung von eben diesem
+Comet. Wenn ich jetzt in meine History gucke, ist im Endeffekt genauso, wie ich das vorher
+von Hand gemacht habe, bloß, dass das Git Revert automatisch für mich gemacht hat. Das
+Comet ist immer noch da, aber der Inhalt ist wieder weg. Also sprich, die Dateien sind
+wieder auf dem Stand von da, aber ich bin in der History nicht auf dem Stand von da,
+sondern dort. So viel zu, wenn man Mist Cometet hat, wie kriegt man es wieder weg. Find ich
+ist eines der wichtigsten Sachen, die man wissen muss, die meisten Git Tutorials machen
+das irgendwann am Schluss. Und jetzt kann ich das nämlich auch pushen ohne Force, weil
+die History immer noch 1, 2, 3, 4, 5, also aufeinander basiert und nichts mehr verschwindet
+zwischendurch. So was sieht man ab und zu mal, also sprich, wenn man den öffentlichen Git
+Push guckt, wird man das ab und zu mal sehen, Revert von bla bla bla. Also sprich, da ist
+irgendwie ein Comet reingekommen, was irgendwas kaputt gemacht hat und anstatt es lange zu
+suchen oder es zu fixen, sagt man, ok, wir Reverten das einfach erstmal wieder, dann
+ist es weg. Aber es ist halt wohlgemerkt aus dem Programm raus, also hier aus dem Bash
+Script ist es raus, allerdings in der Git History ist es noch drin. Das ist wichtig
+zu wissen. So. Nächste Frage ist, was ist ein Branch? Wir haben uns jetzt angeguckt,
+die History, wir haben uns angeguckt, dass jedes Comet eine eindeutige Aldi hat. Ja cheat,
+ich weiß, dass meine Comet Messages wahnsinnig aussagekräftig sind, aber die sind aussagekräftiger
+als die meisten Comet Messages, die ich auf der Arbeit lese. So. Also, wir wissen jetzt,
+wie man was committet, wie man, wenn man Mist committet hat, das wieder wegbekommt und wir
+wissen, wie man was zu einem Remoteserver pushen kann. Das sind schon mal ganz gute
+Grundlagen, wo man erstmal mitarbeiten kann und wo man auch schon zumindest in beschränktem
+Umfang zusammenarbeiten kann. Äh, zockst du heute noch Cod? Ich hatte eigentlich vor
+heute Cod zu spielen, allerdings fängt gleich der Overwatch World Cup an und ich wollte
+ich gucken. Aber eins, ich muss jetzt mal eine Sache gucken, wenn wir gerade dabei sind.
+Kommuniert er das? Nein, ich guck das einfach nur. Naja, immerhin 45.000, das ist für
+immer noch relativ viel, ja. So. Jetzt gucken wir uns aber nochmal an, zwei Sachen muss
+man uns noch anschauen, bevor wir so mit den absoluten Git Basics durch sind und zwar
+sind, was sind Branches und wie führt man zwei Branches wieder zusammen. Das ist ein
+Thema, generell kann man über diese ganzen Sachen stundenlang erzählen und wir sind
+wahrscheinlich auch jetzt mit diesem Stream heute noch nicht ganz fertig, weil wirklich
+weit kommen tut man damit noch nicht, es fehlen noch ein paar Sachen. Aber was wichtig zu
+wissen ist, was sind Branches. Branches sind ähm, Namen für einen Commit, könnte man
+so sagen, wo man später noch neue oben drauf legen kann. Ähm, also sprich, ich kann jetzt,
+dass ich hier im Master Branch drinnen bin, ist einfach nur, weil das so defaultmäßig
+ist, weil man in irgendeinem Branch drinnen sein muss. Ähm, Branch ist, gibt's bestimmt
+ein schönes Bild dazu, genau. Ein Branch ist sowas, also quasi, man hat einen Baum, man
+hat einen Ast und davon gehen halt so kleine Branchen, kleinere Äste von raus. Und so
+ähnlich ist das in Git auch, ich hab hier meinen Master Branch, also quasi das default
+Ding, in dem ich standardmäßig entwickle. Wenn ich jetzt was neues einbauen möchte
+in unser tolles Bash Crypt. Wenn ich jetzt da irgendwas neues drin einbauen will, was
+ganz furchtbar experimentell ist zum Beispiel, von dem ich nicht weiß, ob es überhaupt
+funktionieren wird, dann wäre das ziemlich blöd, ich würde das im Master Branch entwickeln,
+Committen und zwischendrin pushen, weil dann kriegen ja alle Leute die Version, die vielleicht
+kaputt ist. Und deswegen macht man sich dann meistens einen eigenen Branch auf dafür,
+man kann auch den Master entwickeln, vor allem wenn man alleine an irgendwas entwickelt.
+Hehe, der Nilsson. Übrigens Nilsson, was mir gerade einfällt, hat dich auf Twitter
+in dem letzten Mal ein Joe angeschrieben, ob du über seine Rechnerzusammenstellung drüber
+gucken könntest. Das wäre nett von dir, wenn du mal drüber gucken könntest, weil
+da tut sich da sehr schwer. Genau, wir machen jetzt, wir wollen jetzt ein super experimentelles
+hochkritisches Feature in unser tolles Bash Crypt einbauen. Zum Beispiel, wie das Serious
+Max gerade schreibt im Chat Echo123. Ganz kritisch, furchtbar schlimm und das wollen
+wir nicht in unserem Hauptentwicklungszweig, Hauptentwicklungsbranche machen, weil wir
+wollen ja da eine Version drin haben, die erstmal, auf den ersten Blick lauffähig
+ist. Deswegen macht man dann einen eigenen Branch auf, dazu sagt man Git Checkout minus
+B. Zum Beispiel, äh, nennen wir jetzt den Branch neues Feature. Das ist vielleicht
+auch nicht der beste Name. So, äh, und jetzt hab ich quasi den Stand, ich geh nochmal
+zurück. Fuck, ich hab meine Alias hier nicht, nicht, Git Checkout Master. Äh, jetzt hab
+ich quasi den Stand von meiner History genommen und einfach, wie man es hier oben sieht, ähm,
+da noch einen weiteren Namen dran geklebt. Also, auf dieses Comet, dieses Comet kann
+ich zur Zeit mit unterschiedlichen Namen ansprechen. Beispielsweise mit Master, mit, ja, FakeGit
+Hat Master, äh, oder eben auch mit neues Feature. Alle diese Branches zeigen aktuell noch auf
+dieses Comet. Jetzt hab ich es aber aufgesplittet, indem ich einen neuen Branch gemacht hab und
+wenn ich jetzt neue Sachen committe, dann sind die erstmal nur in neues Feature drinne
+und nicht in Master. Also, zum Beispiel, wir machen jetzt hier mal ganz, ganz kritisch,
+Echo123. Das ist wirklich, das ist hoch expert, wie schreibt man das überhaupt? Kritisch.
+Das ist ganz kritisch, Echo123, das kann echt in die Hose gehen, ja. Äh, das, das committe
+ich jetzt noch mit, ähm, es ist hier, Achtung, gefährlich. So, jetzt hab ich ein neues Comet
+angelegt für mein ganz kritisches, äh, ganz kompliziertes, kritisches Feature und das
+ist jetzt nur in diesem Branch drinnen. Und wenn man hier auf mein FakeGit Hat noch mal
+geht, dann sieht man auch aktuell gibt es woanders überhaupt eine Branch Anzeige. Ah,
+hier, Branch. Es gibt aktuell nur Master Branch. Jetzt kann ich das pushen als, ähm, in diesem
+Branch und das hat jetzt den großen Vorteil, dass der Master Branch auf einer Version geblieben
+ist, die geht, die funktioniert, allerdings mein neues Feature Branch eben diesen super
+gefährlichen Comet enthält, der vielleicht alles kaputt gemacht hat. So, und die Version
+dieses Scripts kann man jetzt erstmal ordentlich testen und ausprobieren und wenn dieses neue
+Feature sich dann als brauchbar herausgestellt hat, dann kann ich sagen, ich nehme das neue
+Feature jetzt und schiebe das wieder zurück in den Master Branch. Aber bis ich das gemacht
+hab, ist im Master Branch weiterhin ein relativ stabiler Stand und alle experimentellen Entwicklungen
+hier in diesem neuen Feature Branch. Ja, Silbaro, genau dafür ist das sinnvoll. Silbaro hat
+geschrieben, neue Branches sind voll für neue Versionen oder Betas. Richtig. Man verwendet
+Branches für unterschiedliche Sachen, entweder gibt es, also eigentlich kann man es machen
+wie man will, aber es gibt so ein paar Konventionen, wie man das in Neudeutsch nennt, Best Practice,
+es gibt so ein paar Sachen, die haben sich so etabliert, also man macht Branches beispielsweise
+für neue Features. Man macht Branches auch für alte Release Versionen, wo man vielleicht
+noch was dran fixen muss. Das macht der Lidlxkernel beispielsweise so. Man kann auch Hotfix Branches
+machen. In der Regel macht man Branches immer dann, wenn man erstmal den eigentlichen Stand
+nicht verändern will und erstmal ausprobieren möchte. Deswegen ist es in den Reb, ich muss
+meine Git-Aliasse hier einrichten, sonst dreh ich durch. Deswegen ist es auch bei den Git-Repos,
+die ich verwalte, so, dass in den Master-Branche außer mir keiner pushen darf. Das hab ich
+durchgeblockt. Außer mir darf in 5 Branches keiner pushen, unter anderem Master. So ist
+sichergestellt, dass zumindest ein gewisses Maß an Kontrolle vorhanden ist, was im Master
+kommt und was nicht. Weil es ist einfach so, dass Master eben der Standard-Branch ist,
+auf dem Leute ihre neuen Entwicklungen aufsetzen. Und der sollte halbwegs stabil sein. Das ist
+nicht das stable Release, was ich jetzt irgendwie zum Download anbiete oder so. Das sollte aber
+ein halbwegs stabiler Entwicklungsstand sein, wo andere Leute drauf aufsetzen können. Das
+Ding Master heißt, ist aber wie gesagt auch einfach nur ein Name, genauso wie das Origin
+des Remotes. Das ist einfach nur ein Name, ich kann das Ding auch umbenennen. Also wenn
+ich jetzt beispielsweise nicht will, dass es standardmäßig einen Master-Branch gibt,
+ich kann's auch umbenennen. Ich kann jetzt auch sagen, Master zu stable. Was bescheuert
+ist, weil in der Regel ist das eben der aktive Entwicklungs-Branch, der aber halt nicht kaputt
+sein sollte. Und jetzt können wir beispielsweise ein neues Feature testen, alles wunderbar.
+Und wenn ich fertig bin, und das werden wir nächstes Mal noch ein bisschen vertiefen,
+weil dann gucken wir uns mal an, was passiert, wenn das Zusammenführen Konflikte gibt und
+sowas in der Richtung. Wenn ich damit fertig bin, wenn das getestet ist, und nachdem ich
+diesen Branch gepusht habe, können das natürlich auch andere Leute bei sich ausprobieren,
+indem sie einfach eben mit Git Checkout den Branch wechseln. Dann kommt das Ganze wieder
+zurück in Master. Ach fuck, wie konnte man Graf mal nochmal Git Lock? So, aktuell sieht
+unsere History noch ziemlich gerade aus. Erstes Comet, zweites Comet, drittes Comet, viertes
+Comet, jedes Comet setzt aufeinander auf und alles ist gut. So sieht aktuell unsere
+History aus. Wenn ich jetzt fertig bin mit meinem neuen Feature, wenn ich das fertig
+entwickelt habe, kann ich sagen, ok, ich nehme dieses neue Feature und schiebe es in mein
+Hauptentwicklungsbranche rein, also in Master. Was mache ich mit Git Merge? Diese Option
+kann ich nächstes Mal erklären, das muss ich jetzt machen, dass ich überhaupt was sehe.
+So, jetzt kann ich das Mergen, dann gibt es ein eigenes Merge Comet und wenn ich jetzt
+in meine History reingucke, sehe ich, siehe da, das sind die Comets, die wir schon ein
+bisschen hatten und jetzt kommt hier ein neues Comet, das kommt aber aus einem anderen Branch,
+ich meine, das ist hier so ASCII-Graf gemalt, ja, man kann sich schon so ungefähr vorstellen.
+Bis hier ging es immer geradeaus und da kam aus einem zweiten Branch, hier wurde es abgespalten
+aus dem eigentlichen Branch, was committet und das ging dann parallel und hier in diesem
+letzten Comet wurde es wieder zusammengefügt. Ja, natürlich, das war jetzt wirklich die
+absolut ideale Zustand. Es kann ohne Probleme passieren, dass zwei Leute parallel an der
+gleichen Datei was geändert haben und dass sich das dann nicht verträgt beim Mergen.
+Aber das gucken wir uns das nächste Mal an und das nächste Mal habe ich mir vorher auch
+ein bisschen mehr Gedanken gemacht, was ich eigentlich erzählen will, weil es hat ein
+bisschen gedauert, bis ich reingekommen bin. Zumindest, was wir uns heute angeguckt haben,
+damit kommt man zumindest auf GitHub so basic-mäßig schon mal ganz gut zurecht, man kann sich
+in den Repo klonen, man kann was editieren, man kann was committen, man kann was pushen,
+das sind erstmal die wichtigsten Sachen und man kann Branches wechseln, wenn man vielleicht
+was ausprobieren will. Ich meine, es könnte ja sein, dass man ein GitHub-Projekt sich
+angucken möchte und halt nicht den Masterstand, den Hauptentwicklungsstand, von dem man sich
+angucken will, sondern wirklich irgendein experimentales Feature, weil einen das eben
+interessiert. Also Branch wechseln ist auch eine wichtige Geschichte und die logische
+Schlussfolgerung daraus ist, man muss auch wissen, wie man zwei Branches wieder zusammenführt.
+Ja, auskernFox mache ich auch so. Er hat geschrieben, wie hältst du es mit merge und commit? Ich
+fahre immer ganz gut mit Branches, in die nur committed wird und Branches, in die nur
+gemerged wird. Das mache ich ähnlich, mit immer mal kleinen Ausnahmen. Also, was nächstes
+Mal ist morgen Mittag? Was meinst du? Also, ich mache das immer mit kleinen Ausnahmen,
+weil manchmal ist es einfach viel einfacher, wenn man wirklich da irgendwie einen Zahlendreher
+drin hat oder sowas. Also, mal angenommen. Mal angenommen, wir haben jetzt eine neue
+Version und irgendwie die QS stellt fest, ist irgendwas kaputt. Natürlich kann ich
+demjenigen dann sagen, der damit was zu tun hat, hier mach mal einen Hotfix-Branch oder
+sonst was auf, das ist schon sinnvoll. Zu der Reihenlehre nach, ja. Aber wenn das mal
+angenommen wirklich sowas ganz furchtbar Simples ist, dass der einfach, keine Ahnung,
+Zahlendreher bei einer IP oder bei einem Name oder sowas falsch hat, dann setzen wir
+uns auch manchmal zu mir an den Rechner, gehen auf den jeweiligen Branch drauf, also auf
+den Beta, auf den aktuellen Beta-Branch und machen dann halt commit da drauf, obwohl da
+eigentlich nichts drauf committed werden soll. Das kann ich dann aber entscheiden und wenn
+ich das einfach sehe, dass es nur ein Zahlendreher ist oder so, dann sag ich dann, ja okay, komm,
+lass machen, machen wir keinen extra Branch auf. Aber auf ScanFolks normalerweise mach
+ich das auch so, ja. Alle Leute haben gefälligst, den eigenen Branch zu entwickeln, es zu testen
+und quasi als Merchrequest, Pullrequest, wie man es nennt, wie man es auch immer macht,
+einzureichen als Änderung für Master. Tobi tickt, benutzt du eine Git GUI um Merchkonflikte
+zu erkennen? Na ja, Merchkonflikte erkennt man auf jeden Fall, wenn es sobald sie gibt,
+weil da geht es nicht weiter. Ansonsten verwende ich eigentlich keine GUI für, ich mach das,
+wenn es kleine übersichtliche Merchkonflikte sind, aber das gucken wir uns das nächste
+Mal an. Wenn es kleine übersichtliche Merchkonflikte sind, mach ich das hier einfach auf der Kommandozeile
+im Wim. Oder aber, was auch ein ganz gutes Merch, ganz gut Merch-Diff an sich hat, ist
+Visual Studio Code. Aber normalerweise sind, ich weiß, dass viele Leute, die früher SVN
+verwendet haben, für die ist Merchen und Merchkonflikte und solche Sachen, das ist
+für die, das ist kurz bevor das Rechenzentrum implodiert quasi, das ist in Git alles nicht
+so wild. Also die meisten Merchkonflikte sind recht übersichtlich. Und ich meine, ich hab
+jetzt noch nie an sowas Großem beispielsweise, oder ich hatte noch nie die Verantwortung
+für das Repo, sowas Großem wie beispielsweise der Git, äh, der Linux-Könnel, ja. Aber
+wer hat das schon? Da gibt es eine Handvoll Leute auf der Welt, die das haben. Aber die
+Repo, äh, die Repos bei uns sind relativ groß. Und die Merchkonflikte, die es da gibt, sind
+eigentlich recht übersichtlich. Das ist nicht so wild. Weil es ist so, dass, es ist ja meistens
+in einem Projekt, wo mehrere Leute dran arbeiten, schon so ein bisschen aufgeteilt, so wer ist
+für was zuständig. Also es ist selten, dass quasi 3-4 Leute an den gleichen Dateien was
+editieren, ja. Der eine kümmert sich um das, der eine kümmert sich eher um das. Und klar,
+es gibt auch mal Dateien, wo parallel dran editiert wird. Aber meistens, meistens editieren
+die Leute an unterschiedlichen Dateien. Dementsprechend gibt es gar keine Merchkonflikte. Oder wenn
+es Merchkonflikte gibt, ist es relativ einfach zu lösen. Entweder ist es so offensichtlich,
+dass man das direkt, dass ich es direkt selber sehe. Oder aber, naja, ich nehme einfach die
+zwei Leute, von denen die Comets sind und die Bratsches sind, die Konflikten und sag
+ja, Jungs, werdet euch mal einig, wie muss es denn aussehen am Ende. Und das ist meistens
+nicht, nicht großartig kompliziert. Da sind vielleicht 3-4 Zeilen dann, die da konflikten
+oder so. Also es hält sich in Grenzen. Welches Webinterface benutzt ihr in der Firma für
+Pull-Request? GitLab. Wir haben früher GitLab verwendet. Und ich fand GitLab auch ziemlich
+gut. Ich hätte auch GitLab weiterverwendet. Aber die Firma hat sich ganz viele Atlassian-Tools
+gekauft. Und jetzt haben wir Bitbucket. Ja, Sebaro. Das stimmt. Irgendjemand hat eben
+was zu Pull-Request. Ach nee, hier war eine Frage drinne. Welches Webinterface benutzt
+ihr in der Firma für Pull-Request? GitLab. Bitbucket. Bitbucket. Das ist auch ganz gut.
+Also im Vergleich zu anderen Kack-Business-Software ist Bitbucket wirklich in Ordnung. Ich finde
+GitLab auch gut. Wobei GitLab mittlerweile ziemlich aufgebläht ist. Ah gut, es ist
+halt eine Ruby-On-Wales-Anwendung. So, ich hoffe euch hat der Stream gefallen. Ich gebe
+zu, das war am Anfang ein bisschen chaotisch, weil ich selbst nicht genau wusste, was ich
+alles erzählen muss, in welcher Reihenfolge und so. Das nächste Mal mache ich mir ein
+bisschen mehr Gedanken drüber. Aber ich hoffe so die ganz grundlegenden Basics sind
+zu rüber gekommen. Also sprich, man könnte jetzt ein Repo von GitHub klonen und dort
+eine Änderung mit drin und machen und vielleicht vorher einen eigenen Branch aufmachen und
+das Ganze pushen. Morgen geht es weiter. Ja, ich kann morgen weiter machen, Cheat. Hast
+du Vorschläge, was ich morgen machen soll? Also was immer super ist, ist wenn die Leute
+Fragen haben zu irgendwelchen Sachen, dann ist es einfach an roten Fahrten zu finden,
+was man erzählen kann. Wie schalt es mit dem Discord-Server aus, habe ich noch nicht gemacht.
+Also was ich morgen, ich werde morgen ein bisschen versteckte Sachen zeigen, die aber
+recht praktisch sind. Zum Beispiel, wie man Fehler finden kann. Es gibt in Git eingebaute
+Tools, die einem das Fehler finden ziemlich erleichtern. Also mit Fehler finden meine
+ich jetzt zum Beispiel, man stellt halt wirklich in der Beta-Phase irgendwie fest, es geht
+was nicht und dann geht es darum zu finden oder den Comet rauszufinden, der es kaputt
+gemacht hat. Das ist in Git viel einfacher als gedacht. Flash Gordon fragt, was ist mit
+Stashing und Staging? Du meinst, was der Unterschied ist? Verstehe ich das richtig? Oder ob ich
+es zeigen soll? Ja, Fatal, das stimmt. So richtige Probleme kriegt man eh erst, wenn man es verwendet.
+Ja, Cherrypicks ist aber schon ein bisschen, das brauchen die meisten Leute nicht. Das
+brauche ich, wenn man sich um sowas kümmert, quasi als Verantwortlicher für die Repos
+und so und für die unterschiedlichen Entwicklungsstufen. Da braucht man öfters mal Cherrypick, aber
+die meisten Leute brauchen es eigentlich nicht. Ganz simpel gesagt, Flash Gordon, hat Stash
+und Stage eigentlich überhaupt nichts miteinander zu tun, das sind komplett unterschiedliche
+Sachen. Stashing ist Zwischenspeichern von Änderungen, wenn man einen Branch wechseln
+muss und Staging ist das, was ich vorgemerkt habe für das nächste Comet, um es mal ganz
+kurz zu sagen. Wenn ich etwas adde und noch nicht committe, dann ist es gestaged für
+das nächste Comet und wenn ich etwas editiert habe, aber jetzt nicht committen will, weil
+ich vielleicht den Branch wechseln muss, weil mein Chef gerade zu mir gekommen ist und
+gesagt hat, du musst etwas machen, dann stash ich quasi in Zwischenspeicher. Ja, Fatal,
+das ist cool, dann hat es sich am wenigsten gelohnt, dass ich etwas dazu erzählt habe.
+Ja, dann mache ich das mal morgen. Es gibt noch einige coole Sachen, die man zeigen kann,
+wobei man sagen muss, bei Git ist es so, man kann damit alles machen, man kann damit machen,
+was man will und wie man es will, man sollte aber aufpassen, dass man es nicht übertreibt.
+Nur weil ich 500 Branches anlegen kann, muss ich das nicht unbedingt machen. Git selbst
+stört das überhaupt nicht, Git ist mit 500 Branches noch genauso schnell wie mit 2 Branches,
+aber es ist halt nicht wirklich übersichtlich. Nur weil ich 5 Branches auf einmal merken
+kann, weil das Git zulässt, muss ich das nicht unbedingt machen. Also, man kann alles
+mitmachen, es ist auch vollkommen egal, wie man das macht, aber wenn ich bei jedem Comet
+Force pushen muss, mache ich irgendwas verkehrt. Wie wäre es mit Versionstacks? Ja, könnte
+man auch machen. Bei der Gelegenheit könnte man eigentlich noch mal sagen, dass Comet
+IDs und Branches und Texts relativ ähnlich sind. Rebase, Rebase könnte man auch mal machen.
+Rebase ist wichtig, wenn man halt seine eigenen Comets aufräumen will, bevor man sie einreicht
+als Pull oder Merchrequest. Ja, das werde ich morgen machen. Und jetzt werde ich Overwatch
+World Cup gucken. Ich hoffe euch hat es gefallen. Übrigens wir haben ja heute unsere Linux
+FM verwendet, die wir vor paar Wochen eingerichtet haben zusammen im Stream. Wem das noch nicht
+aufgefallen ist. Gut. Dann macht's gut, bis morgen. Tschüss.

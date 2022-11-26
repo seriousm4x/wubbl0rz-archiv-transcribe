@@ -1,0 +1,1336 @@
+So Leute, ich bin mal wieder da, vor 10 Stunden war ich schon mal da.
+Ich habe nichts zu tun heute Abend, großartig, habe ich mir gedacht, komm weißt du was, wir
+schwätzen ein bisschen und basteln ein bisschen weiter an unseres Welts Übungsanwendung.
+Hat ja an Weihnachten sonst nichts besseres zu tun.
+Oh, ich merke gerade, ich muss mich noch einloggen, in der Cloud, ohne dass ihr es seht, oder
+aber, ich mache das einfach Offscreen, dann könnt ihr es nicht sehen, eher, wahrscheinlich
+mache ich das einfach Offscreen, heute ist ja nicht Sponsort.
+Cookies erlauben, Login, Cloud, muss nämlich noch ein Nordbalancer anlegen.
+So, OTP eingeben, OTP eingeben, wo ist meine Authenticator App, ich finde das Ding immer
+nicht, Authenticator App, Massive Big Brain Pin, so, Verify, nice, ok, ich log mich doch
+mal Onstream ein, ich log mich doch mal Onstream ein, dass ihr zugucken könnt, wenn ich den
+Nordbalancer anlege, ich glaube, das ist ganz interessant, die Geschichte, aber da muss
+ich euch zumindest für den Username und Zeug erstmal kurz ausmachen, Incognito, rein theoretisch
+frage ich, wie viele Subs muss ich giften, damit du einen Stream lang die Qt.VM benutzt,
+gar keinen, das Problem ist, das ist ein uraltes Ubuntu, das macht überhaupt keinen Sinn,
+das zu verwenden, das kann man auch für kaum was richtig verwenden, ihr müsst jetzt mal
+kurz die Augen zumachen, keiner gucken, ok, keiner gucken, wenn ich mich einlogge.
+Keiner spicken, Uber, keiner abgucken hier, so, One Time Token eingeben, zack, Stream,
+ok, da sind wir, alles klar, ich mach euch wieder an, ich mach euch wieder an, so, da
+sind wir, damit wir nämlich, ich mach halt keinen super krassen Tetzner sehr laut oder
+sowas, aber damit wir, damit wir die App, damit ihr die App angucken könnt, brauchen
+wir ja wieder ein Notbalancer, dass das funktioniert, oh, ich muss die DNS-Geschichte auch noch
+umleiten, ja gut, du hattest auch japanisch ein bisschen, oh wir haben 16 an Zuschauer,
+top, Max wie war die Weihnachtsfeier auf der Arbeit, ich war nicht da, was soll ich da,
+geht doch gar nicht hin, ich glaube es war dieses Jahr auch gar keine, so, also ihr wisst
+ja, wir haben hier eine super nice Domain, nämlich todo.caqw.services und das geht gerade
+nicht, weil ich gestern den Notbalancer gelöscht habe, weil ich keinen Bock habe 5€ im Monat
+zu bezahlen für eine Kiste, die ich nicht brauche, deswegen legen wir ein Notbalancer
+an, weil wir beliebig viele App-Server dahinter haben können, so, was muss man, was muss man
+achten, wenn man Notbalancer anlegt, auch an Weihnachten, da muss ich überlegen, wo
+kriegt man das Zertifikat her, wo stellt man das Zertifikat denn jetzt nochmal ein, also
+wir wollen HTTPS, Port 3000, so viel weiß ich noch, hier Zertifikat todo.caqw.services
+add Zertifikat, Nürnberg, Loadbalancer, Kicks, todo, LB, so, wenn ich alles richtig
+gemacht habe, sollte das jetzt funktionieren, ja, ich muss DNS kurz umstellen, Leute, dürft
+ihr wieder nicht gucken, das hätte ich alles vorm Stream machen sollen, aber kann man
+jetzt nicht ändern, DNS umstellen, caqw.services, save, ok, alles klar, wir sind wieder am Start,
+VM starten, Display Capture starten, nice, ok, jetzt kann es, jetzt kann es aber losgehen,
+ich zeige euch mal, wo wir stehen geblieben sind das letzte Mal, ich mache mal ein bisschen
+anderes gedudeln, ich zeige euch mal, wo wir stehen geblieben sind bei der Test App,
+dass ihr so ungefähr, ja wisst, was wir gemacht haben, oh Leute, ich habe jetzt die Auswahl
+zwischen, ich könnte jetzt noch mal schnell einen, Zack, wie heißt der Kram, Pralinen
+mit 41% Nugatrüffelfüllung futtern, ist aber keine gute Idee, dass ich das auf dem Schreibtisch
+stehen habe, Leute, alternativ kann ich auch gegen, für den Hals, kann ich eine Runde
+Ricola Weizer Kräuterzucker futtern, das mit Zucker meinen die aber ernst, oder alternativ
+was wahrscheinlich für Pepofet auch die bessere Variante ist, eine runde Halspompon zuckerfrei
+vom Lidl, glaube ich mache ich mal das, ist das ein Evoli, das ist wie ein Evoli, wo ist
+das Evoli eigentlich, wir hatten mal einen Mod, der hieß das Evoli, den habe ich schon
+lange nicht mehr gesehen, wer hat es erfunden, erfunden, genau, ja, nice, ich hoffe bei dir
+gab es auch ordentlich Zeug, die App ist production ready, ja, ich zeige euch die App gleich mal,
+das ist ein Evoli, sieht aus wie ein Evoli, ne, chemistry pokemon zeug nicht aus, aber
+das sieht aus wie ein Evoli, so, der Load Balancer ist da, dann Ansible, ja, ich habe
+das Ding ins Rebo gepusht vorhin, so, wir bauen mal kurz den Server auf, dass ihr euch den
+aktuellen Stand angucken könnt, ich hoffe das funktioniert jetzt alles so, also wenn
+das jetzt ordentlich durchläuft haben wir gleich einen App Server mit Debian 11, triple
+core CPU und dann läuft ein Ansible Playbook und konfiguriert uns den Server, ok, schauen
+wir mal ob das was ich da gebastelt habe, funktioniert, ah, ich habe das wichtigste
+vergessen, ich muss den Load Balancer einstellen, Targets, Label, to do, so, das nimmt der Load
+Balancer das nicht auf, aber sowas von production ready, oh Max hast du ne Empfehlung was man
+für einen Host nehmen kann, für React Apps und Node.js Projekte ja und nein, kommt drauf
+an, ob die rein kleinzeitig sind oder ob du ne Backend brauchst, also so wie ich dich
+verstehe brauchst du ja noch ne Backend, also du hast ja Node.js Backends und React Frontend,
+was hältst du von, also die klassische Variante ist natürlich, nimm dir ne VM bei Hetzner,
+kannst du dir mal 20€ Startgutschein sichern, da musst du dich halt selbst drum kümmern,
+dann hast du noch für das reine Hosting von der App hast du da noch so Sachen wie Netlify
+zum Beispiel, wobei ich keine Ahnung habe wie es mit Netlify und Node.js Backends aussieht,
+Netlify ist ja eigentlich nur zum Hosten der Frontend Geschichten, hat jemand schon mal
+Netlify in Verbindung mit Node.js gemacht, da brauchst du wahrscheinlich trotzdem noch
+irgendwo ne VM, wo du dein Node Zeug laufen lassen kannst oder du machst eh nen Container
+und schiebst nach Azure oder Google Cloud oder so, ich hab Netlify noch nie gemacht, wobei
+Netlify hat bestimmt auch die Möglichkeit Container laufen zu lassen oder?
+Scheint geht das, oder scheint zu funktionieren, wobei du da wahrscheinlich mehr bezahlen wirst
+als bei nem normalen VM, jaja also da darf man sich nicht davon chibaten lassen, das
+klingt immer so super cool diese Sachen mit ja bezahle genauso viel nur wie du brauchst,
+aber über einen wirklich minimalen Basic Wert hinausgehend bist du in der Regel mit
+einer stinknormalen VM, zum Beispiel bei Henshner billiger als wenn du dir irgendwelche Azure
+Functions Dinge oder so machst, aber klar du musst dich halt auch selbst darum kümmern.
+So guck mal hier, Ansible ist durchgelaufen, jetzt sollten wir ein To-Do, To-Do keqw.service,
+haben, Leute es funktioniert, nein funktioniert nicht, warum gehts nicht, was ist kaputt,
+geht die App bei euch, To-Do Server Healthy, Leute geht die App bei euch, warum geht die
+App nicht, klappt, das ist ein DNS Problem, ach ne jetzt funktionierts, alter das ist ja
+mal krass, huge, lahm, was ist denn jetzt los, warum ist das so langsam, das ist mal
+mega lahm, ok Leute mal kurz, FireFox, FireFox aus, To-Do, alter was ist denn da los, machen
+wir einen Curl, was ist denn das, hat Henshner gerade irgendwelche Schwierigkeiten oder liegt
+es an mir, machen wir mal kurz hier den auf und gucken mal was passiert, ja Port 3000,
+das ist der Loadbalancer der langsam ist, oder ist mein DNS noch nicht geupdatet, Sekunde,
+mein DNS ist bestimmt noch nicht upgedatet, guck mal, 16, was hat der Loadbalancer, mein
+DNS ist noch nicht refreshed, mein DNS hat es noch nicht gecheckt, dass die IP anders
+ist, guckt, ja, das ist, es müsste eigentlich 144 hinten haben, fragen wir mal bei Google
+an, ach die haben noch gar nicht aktualisiert, bei Cloudflare hat es schon aktualisiert,
+guckt, also wenn ihr Cloudflare DNS macht gehts über Google DNS, ah, der Google DNS
+ist gerade noch ein bisschen, der weiß noch nicht genau, welches das jetzt ist, aber Google
+DNS ist auch immer so eine Sache, das ist ja Anycast, du kommst nicht immer beim gleichen
+Google DNS raus und manche haben schon aktualisiert und manche nicht, natürlich doof, ja, dann
+müssen wir kurz warten, bis das aktualisiert hat, das dauert ja meist nur 2, 3 Minuten,
+ja das ist, wie lernt man nochmal seinen Cache, clear, wobei, wahrscheinlich brauch ich das
+auch gar nicht, der macht das ja automatisch neu, also zumindest der Browser fragt ja nochmal
+an, ja also bei mir ist der Google DNS, Einweise noch nicht aktuell, guckt, aha, jetzt schon,
+jetzt hat er es gecheckt, jetzt hat er es gecheckt, alles klar, ok wunderbar, so jetzt
+könnt ihr euch das ganze angucken, hat man Windows schon kapiert, alter was ist mit meinem,
+was ist mit meinem DNS Zeug los, der hat es noch gecached, muss ich mich jetzt ernsthaft
+bei meinem Router einloggen und DNS clearen oder was, alter Lan, was ist hier los, DNS,
+cache, ja, tu du, da ist es noch, der cache in meinem Router ist, jebaitet mich und der
+läuft in 5 Minuten 48 ab, ich sag jetzt flash cache, so weg damit, cache geflasht und jetzt
+sollte es eigentlich funktionieren, aha, jetzt funktioniert es auch, gut, jetzt sollte es
+hier auch tun, alles klar, ok, also hier sind wir stehen geblieben, nee ich muss noch bei
+meinem Router den DNS clearen, bisschen laut die Musik, aber so, ja das wird besser, also
+ich sag euch mal wo wir stehen geblieben sind, das ist keine App, ich sag es gleich dazu,
+das ist keine App wo ich irgendwie darauf abziele, dass da super viele Leute verwenden,
+das ist rein, dass ich ein bisschen üben kann, wie das funktioniert, also was wir schon gemacht
+haben das letzte Mal, das ganze ist übrigens in soweit responsive, dass es sich halbwegs
+skalieren lässt und auf dem Handy den kleineren Button klickt, also guckt, der Button wird
+ab einer gewissen Stelle größer, dass man auf dem Handy nicht irgendwie die halbe Seite
+voll hat, Herzlichen Dankeschön für den Sub, so das ist eine simple To Do App, die im Prinzip
+außer To Do's anlegen auch nichts großartiges kann, also To Do App, man kann To Do's anlegen
+und man kann To Do's closen und die geklosen To Do's sortieren sich unten ein und oben
+hat man, kennst du schon bessere C++ Alternative, Otto++, ja das sieht sehr, so aus als will
+man das unbedingt lernen ja, vor allem bei dieser Webseite, guck mal hier, was auch immer
+mir da grad der Chat geschickt hat, Otto++, Struktur trifft Tabelle, das sieht schon kommt,
+das ist doch fake oder, es ist doch fake, wo ist das Impressum, deutsche Seite und kein
+Impressum, direkt Anzeige raus, kein Impressum, direkt Anzeige Video, warum nennt man seine
+Programmiersprache Otto++, who is, who is, genau, who is, ja, tatsächlich, ne, ja gut
+man weiß ja nimmer, also kein Schimmer, was das, was das sein soll, aber hier kann man
+Otto++ im, im, ai ai ai, ok, was auch immer, wir bleiben lieber bei uns, bei unserer To
+do App, Rost, Rost auf Deutsch, oh es ist ein richtiger Paint-Champ, wenn gerade die Franzosen
+immer anfangen ihre Variablen auf Französisch zu nennen, wo sind wir denn stehen geblieben,
+ich zeige euch übrigens mal ein richtig cooles ZSH Feature, guck mal, wenn man in dieses,
+in dieses Verzeichnis hier oben rein will, ich mein, ihr kennt ja die Geschichte, dass
+man sowas machen kann wie Repos, Tab, Keks, Tab, Ansible, Tab, das geht, aber man kann
+auch sagen, Repo, Repo, Keks, Ansible und dann Tab drücken, ok, es ist nicht eindeutig
+gewesen, aber jetzt ist eindeutig, ja, also man kann Repo, Keks, Ansible machen, Keks
+ist auch doppelblick, aber ihr wisst was ich meine, er checkt es automatisch, Repo, Keks,
+Ansible, zack, das ist sehr praktisch, ein sehr nice Feature, so das wars, mehr kann
+diese super advanced High IQ To Do App nicht, achso ja doch, man kann To Do's noch löschen,
+das funktioniert auch noch und dann ist der Progress hier oben, so und wenn man fertig
+ist, dann ist der Progress bei 100% und man beachte, dass es sogar animiert wird, diese
+Progress-Balten, seht ihr das, der Progress-Balten ist animated, weil, weil, huge, Animierung,
+die Suche, ach Suche, das ist eine gute Idee, Suche können wir auch noch machen, ja, gute
+Idee, Suche machen wir auch noch, so ich mache mal kurz hier auf, Repos, Keks, To Do, so
+machen wir mal kurz auf, gucken wir uns den Sourcecode an, für alle die nicht dabei waren,
+es ist wirklich ziemlich eklig gemacht, weil ich habe alles in einer Datei geschrieben,
+das ist aber nicht viel, 140 Zeilen und 140 Zeilen, das ist alles JavaScript und HTML
+und Styling, also da ist eigentlich gar nichts großartig kompliziertes dabei, ja die Daten
+werden auch, das habe ich ganz vergessen, wenn ihr jetzt was hinzufügt und neu ladet,
+dann behältst du das, also die Daten sind Local Storage gespeichert, ja, richtig, genau,
+also wir machen, genau, wir machen Komponenten auslagern, aber das mit der Suche finde ich
+ist schon mal eine gute Idee, Suche, Suche sollten wir auf jeden Fall noch machen, ich
+habe mir überlegt, wir machen folgendes, also es gibt so ein paar, machen wir mal hier
+so, machen wir mal ne To Do oder so, To Do ist für die To Do App, beste, Features, also
+was wir einbauen können, ich suche, dann das sag mal mal, wie nennen wir das mal, ordentlich
+machen, hübsch machen, auslagern in Komponenten mit Slots und Events, dass es ein bisschen
+übersichtlicher wird, weil, ne das soll nicht da rein, das soll vielleicht da hin, Features.md.
+So, wie gesagt die To Do App ist nicht dafür gedacht zu großartig zu benutzen, das ist
+zum üben gedacht und ich will garantiert keine To Do App, die in meinem Local Storage ist
+für repoweite Features, ja Gruppen, ich hab gedacht Gruppen, man könnte das Bücher oder
+so nennen, dann könnte man hier oben so ne Leiste hin machen, buchen mit nem Name dran,
+so nach dem Motto, verschiedene Notizbücher, Gruppen könnte man machen und ich hab mir
+gedacht, wisst ihr was wir auch machen können, sharen, aber anders als ihr denkt, weil wir
+haben ja kein Backend, aber was man machen könnte ist folgendes, man macht hier nen
+share Button und dieser share Button, der generiert einfach nen Link zu diesem Service mit der
+kompletten Base64 oder Gehzipten oder was auch immer, Dings in der Url und dann kann
+man die copypasten und jemand anderes kann sich die rüber kopieren und dann kannst du
+quasi die ganze To Do Liste sharen als Snapshot, natürlich editieren sich die nicht parallel
+sondern einmalig, einmalig sind sie gleich und dann unterschiedlich, bringt das was
+wenn man die To Do's, Chasen, Chasen Stringified, Gehzipt und dann Base64 encoded, ist das dann
+kleiner anstatt, ja gut wahrscheinlich, floated, genau, im Prinzip genau, du schickst einem
+den Link mit, du schickst einem den Link mit Base64 hinten dran und dann macht er daraus
+wieder die richtigen To Do's, die Dotfiles sind ein bisschen outdated aber nicht so viel,
+also das ist Manjaro mit I3, by the way Archlinux, Archlinux by the way, muss ich vielleicht
+nochmal erwähnen, ich hab gehört, dass memen die Leute immer gern, dass man Archlinux verwendet
+und dann kommen die Leute wieder, Max Manjaro ist kein Archlinux, das hab ich doch egal,
+das ist alles archbasiert, aber nein, nein, nein, nein, Manjaro ist kein Archlinux, also
+ich benutze übrigens Archlinux, was man übrigens by the way Archlinux und nicht Archlinux
+ausspricht und die richtige Hackermann Umgebung habe ich auch direkt am Start, also wenn mal
+einer, wenn der Chef vorbeikommt und es soll so aussehen als arbeitet, dann war es einfach
+Hollywood starten.
+Wie bist du drauf gekommen Manjaro zu verwenden?
+Das ist eine gute Frage, ich glaube weil mir Ubuntu auf dem Desktop und diese ganzen Derivate
+so auf den Sack gegangen sind und ich irgendwas mit aktueller Software haben wollte, aber
+ich keinen Bock hatte auf normale Archlinux installieren und Installationen und da hab
+ich gesagt, Manjaro ist so eigentlich relativ easy zu installieren, hast aber die kompletten
+User Repos und alles was man so braucht, ich glaube das war mein Gedankengang dahinter.
+Leute ich hatte gerade eine richtige High IQ Idee, wir probieren jetzt mal kurz aus ob
+das funktioniert, ne wir machen erstmal kurz, wir machen erstmal die To Do's weiter und
+vorher Open, starten wir das ganze mal lokal, damit wir das ausprobieren können.
+Test 0B, so, also dann hab ich überlegt, wir können das sharen, gezip, base64 an url
+oder irgendwie sowas, dass man sich To Do Listen sharen kann, wie gesagt es ist im Prinzip
+alles nur zum üben, es ist nicht dafür gedacht, dass es am Ende wirklich verwendet wird, To
+Do Apps gibt es in tausend Varianten und das ist überhaupt nichts neues und da gibt es
+sicherlich auch deutlich featurekomplettere und bessere als das was ich hier zusammen
+bastle, das ist einfach nur, dass ich bisschen Svelte üben kann, hab ich noch nie was mit
+gemacht, ich hab da vor zwei Tagen mir das das erste Mal angeguckt und ich muss sagen,
+bis jetzt finde ich es wirklich nice, aber ich denke wenn wir ein bisschen kompliziertere
+Sachen machen, werde ich auch relativ schnell merken, ob es weiterhin nice bleibt oder ob
+noch einige Sachen fehlen, mal gucken, mal gucken wie das ist, also man könnte das sharen
+als link, also quasi To Do Liste sharen als link, könnte man noch machen, dann könnte
+man delete all button oder sowas machen in der richtung, danach machen wir keine native
+app, danach machen wir vielleicht eine pw art raus, kommt der dann, kommt der eh nicht
+raus, shortcuts, shortcuts, also zum beispiel, keine Ahnung, alt plus enter gleich completed
+für new und dann, könnte man zum beispiel machen, man könnte vielleicht noch prioritäten
+an to dos machen oder so, und man könnte den Papierkorb machen, so das ist alles was
+mir so einfällt, wenn ihr noch fife hat export als file, ja das vielleicht auch nicht so,
+backup, das ist alles was mir so einfällt, was auch glaube ich relativ übersichtlich
+ist, was man machen kann, übrigens leute ich muss was sagen, ich hatte die mega idee
+gerade, guck mal, ich hab nämlich heute morgen im bett auf dem smartphone ein tailwind css
+tutorial angeguckt und da hat er gezeigt, dass tailwind animationen standardmäßig mit
+drinne hat und ich hab mir gedacht, wir könnten jetzt folgendes machen, guck mal, hier ist
+doch der mülleimer und der mülleimer, der wird ja, wenn man hovert, wird der so pink
+und da hab ich mir gedacht, was wir machen könnten ist, also guck das hier ist der knopf
+für den mülleimer und magenta, aber es heißt offiziell pink, magenta ist ja rechtlich
+copyrighted von der telekom, ich hab mir gedacht, wir könnten sowas hier machen, guck mal,
+animate, spin und dann haben wir einen kogas mülleimer, der übrigens immer noch pink
+wird, ne das hab ich mir nicht gedacht, jetzt mal ernsthaft, was ich mir gedacht hab, ist
+folgendes, was wir machen könnten, guck mal, wir können sagen transition, stop transition
+muss man angeben, transition, guck mal, jetzt transition die farbe schon ein bisschen,
+seht ihr, vorher war es direkt, jetzt merkt ihr es, jetzt hat die farbe eine kleine verzügung
+und aber ich hab mir gedacht, wir können jetzt sagen hover, hover und dann animate, bounce
+oder sowas vielleicht, aber guck mal, jetzt hüpft er, jetzt haben wir einen hüpfenden
+bounce, was haben wir sonst noch zur auswahl, pulse, ne, wie wärs mit scale, scale, irgendwie
+125% oder so, ey das ist schick, das find ich net schlecht, guck mal hier und auch richtig
+schön animiert, das find ich cool, da kann man nicht so vorbei tippen, das ist nicht
+schick, jetzt haben wir einen animierten transition, transitierenden mülleimer, der pink wird
+und scaled auf 150% und jetzt muss er natürlich noch ganz wichtig hover, animate, spin, das
+ist ganz essentiell, oh, der spinnt ja überhaupt nicht, warum spinnt der jetzt nicht, ich mein,
+das ist auch ganz cool, aber warum spinnt der jetzt nicht, soll der nicht spinnen, jetzt
+pulst er nur, kann es sein, dass der nicht spinnt, weil spinnen irgendwie selbst auch
+scale verwendet oder so, anders kann ich mir das nicht erklären, weil da spinnt er, guckt
+und jetzt pulsiert er nur, hä, ok was auch immer, ich glaub wir lassen das sonst, sonst
+haben wir es komplett kaputt, ich glaub es ist jetzt schon broken genug, ich glaub jetzt
+ist es komplett genug, schon komplett kaputt, aber so, irgendwie bin ich grad auf die Idee
+gekommen, Leute ich hab noch eine Idee was wir machen können, wie wärs denn, oh big
+brain time, mal gucken wie wir das hinkriegen, eigentlich ist das nichts von dem was ich
+hier reingeschrieben hab in features, aber fällt mir grad so ein, wie wärs denn, wenn
+das Text fällt, wenn man draufklickt, größer wird, also es kann ja sein, dass man beispielsweise
+mehrere Zeilen to do's haben will, sag mal bis zu 5 Zeilen oder so und wenn man das fokussiert,
+dann fährt das aus, boah das muss ich jetzt ausbilden ob das funktioniert, also, Unterpunkte
+wären besser, ne Unterpunkte sind nicht besser, weil Unterpunkte, wenn du Unterpunkte anlegst,
+das müsstest du irgendwie in der Datenstruktur abbilden, ja, was weiß ich, vielleicht brauchen
+wir ein bisschen längeres to do, was weiß ich, vielleicht braucht man ein to do, erst
+Auto waschen, dann N64 auf Ebay kaufen und dann, und jetzt reichen die Zeilen nicht
+mehr, so, dann 0w gachi roll aktivieren, siehste, das ist kacke, jetzt krollt das, krollt das
+nicht richtig, das probieren wir jetzt mal aus, da bin ich gespannt, also wir machen
+mal, gibt es multi, multiline, ne, wie macht man den Input jetzt größer, track and drop
+sorting, ne, track and drop ist bisschen, also ich schreibs mal auf, aber das ist wirklich
+hier advanced, track and drop, das ist wirklich advanced dann schon, text area ist das besser
+als Input, was ist der Unterschied zwischen text area und Input, man weiß es, aha, ah,
+verstehe, ok, so, das wollen wir aber nicht, wir wollen standardmäßig haben, das war jetzt
+rose, glaube ich, bei text area, ne, rose 1, ne, ich glaub das müssen wir mit CSS machen,
+sections bzw überschriften für die to do's, wir könnten machen, dass die erste zeile
+fett gerendert wird oder sowas vielleicht, also, ok, also wir wollen H8 oder so, was
+ist das, H9 ist eine Zeile, ok, Focus, passt mal auf, vielleicht geht das ganz einfach,
+vielleicht geht das ganz einfach, guck mal, Focus und jetzt sagen wir einfach 40, boah,
+das klappt aus, huge und das jetzt noch animiert, Leute, und das jetzt noch animiert, dass es
+smooth ausfährt, wie hast du gestern mpv und ascii die buchstaben size verändert, also
+als erstes mal hab ich mpv kaga installiert, weil man für ascii rennen an mpv kaga braucht
+und dann hab ich das terminal ganz klein gemacht, die schriftart und hab's noch mal gestartet
+und dann geht das, aber guck mal, jetzt fährt es schon aus, richtig pogge, wie kriegen wir
+das jetzt animiert, reicht das, wenn ich da einfach hinschreibe, transition, ne, gibt
+es sowas wie transition height, transition height oder sowas, ne, ok, google fragen, google
+weiß das, tailwind transition height, tailwind transition inside, was auch immer, transition
+height duration, is in is out, extension method, die extension method ist doch eklig, ist das
+nicht standardmäßig dabei, seriously, oh guck mal, was ist denn das, from tailwind v3
+you can now use an arbitrary value to generate one of transition property on the fly, sowas
+da, jetzt wirds aber richtig 5 hat time-ig langsam, dann einfach so transition, boah,
+heute ist animated, es animiert, transition, guck mal, pog, das ist ja easy, easy as fuck,
+ist das nicht massive pog, easy as fuck, easy as fuck, easy as fuck, easy as fuck, easy
+as fuck, nice, easy, das ist ja cool, damit hätte ich jetzt nicht gerechnet ehrlich gesagt,
+guck mal hier, wie nice, jetzt müssen wir nur noch, Leute, jetzt müssen wir nur noch
+diesen hässlichen scroll wegkriegen, lasst mal meine css skills walten, resize, none,
+ok jetzt ist unten dieser komische resize weg, overflow, over scroll, overflow, clip hidden,
+was ist der Unterschied zwischen clip und hidden, 1337, das hab ich mich bis jetzt noch
+nicht gefragt, so nice, guck mal hier, aha, ich hab einen bug gefunden, aber guck mal,
+ich kann nicht mal mit der maus scrollen jetzt, maus scrollen geht nicht mehr, und das ist
+zu hoch, das sieht eklig aus, haben wir h8, h7, h8, h9, hä, eben, what the fuck, ok jetzt
+wirds advanced, jetzt müssen wir rausfinden, wie man die scrollleiste ausschaltet, ohne
+den eigentlichen overflow auszuschalten, google fragen, maus scroll overflow, irgendwie sowas,
+but should enable mouse scrolling, siehst du, stack overflow weiß Bescheid, was overflow
+auto, das glaub ich nicht, aber wenn der chat das sagt, probier ichs mal, äh bringt nix,
+da braucht man bestimmt wieder irgendwelche special css hacks für unterschiedliche browser,
+scroll bar width, ok im moment, das probier maus, scroll bar hat tailwind nicht, also
+style scroll bar width, none gibts nicht, äh kann ich einfach sagen null, ne das bringt
+nix, unset, none, nö geht nicht, das geht nicht, vielleicht geht das nur im firefox,
+aber im firefox muss ich jetzt erstmal irgendwas eintragen, ah ja guck mal im firefox funktioniert
+das, im chrome gehts nicht, das ist wieder so ein zwischending zwischen chrome und firefox
+extrawurst, ok, ähm wir fragen, wir fragen die hier, was, was, was, nein, ah moment da
+war doch was, guck mal, webkit scroll bar, gibts da nicht irgendwas für alle, wir brauchen
+bessere suchbegriffe, maus, scroll, overflow hidden, stack overflow, äh, stack overflow,
+hide scroll bar, overflow y hidden, ja aber dann geht die maus auch weiterhin nicht, oder,
+wenn ich jetzt sag, overflow y hidden, ne da geht die maus ja nicht, das ist ja der witz,
+ich will ja weiter mit der maus scrollen können, hide scroll bar, but while still being able
+to scroll, exakt das brauch ich, stack overflow, ah yes, i, nein, das da will ich haben, genau
+das, webkit scroll bar, webkit, ne, das ist jetzt aber nur für webkit, aha, hier guck
+mal, internet explorer, firefox und für safari und chrome, exellent, das brauchen wir, da
+nicht container, das nennen wir jetzt irgendwie scroll bar off oder so, dann so, und jetzt
+schreiben wir das da ran, scroll bar off, ha, und geht das scroll noch, und das maus spiel
+scrollen funktioniert leute, eckermans wieder am start hier, wir haben gewonnen, wir haben
+gewonnen, auf touch geräten, äh, können wir ausprobieren, ob es auf touch geräten
+funktioniert, ihr könnt es selbst ausprobieren, ich deploy das mal schnell, deploy champ, playbook,
+achso, äh, welcher ip hat unseren surfer gekriegt, zack, ja, ich, ich deploy mal schnell,
+ok, ist deployed, auf gehts, to do services, ich machs mal auf dem iphone auf und guck mir
+das ganze an, to do, cac with services, mein iphone hat es immer noch gecashed, ok, das
+funzt, leute es funzt auf dem iphone richtig gut, das funktioniert auf dem iphone fast besser
+als aufm, äh, als aufm desktop, weil es richtig, weil es richtig schön smooth scrolled, richtig
+spork, das funktioniert richtig gut aufm iphone, nice, sehr schön, so, dann sollten wir vielleicht
+noch ne andere sachen machen, wenn ein neues to do angelegt wird, oh, jetzt hab ich, jetzt
+hab ich irgendwie zu viel gelöscht gerade, das war nicht so schlau, cac wait, wahrscheinlich
+war die animation zu lang und deswegen hab ich jetzt was falsches gelöscht, aber eigentlich
+muss das doch nur ausfahren, wenn multiline text ist oder, wie jetzt, es fährt doch, achso,
+du meinst nur wenn wir mehrere zeilen text haben, ja dann müsste ich irgendwie heraus
+bekommen, ob da mehrere zeilen text drinstehen, das ist glaub ich gar nicht so einfach, das
+müsste eigentlich nur so weit ausfahren, wie wir textzeilen haben, das ist in der tats
+glaube ich jetzt gar nicht so einfach rauszubekommen, wie viele textzeilen wir haben, das hängt
+von der schriftart ab, dem browser, der auflösung, das ist tatsächlich nicht so easy, dann lieber
+so, cac wait, cac wait, cac wait, wait, wait, wait, cac wait, was auf brave ist die tastatur
+danach kaputt, ja, brave lul, who cares brave, aber das find ich ein nice feature, guck mal
+während das ein und aus fährt, ist es verbugged, da kann man nichts anderes anklicken, warum?
+wahrscheinlich, weil beim klicken die maus dann schon wieder weg ist, kaputt, man kann
+es nicht anklicken, man kann es auch nicht löschen, während es wieder einfährt, das
+ist kein so schönes feature, aber gut, dafür ist es cool zu sehen, wie das ein und aus
+fährt, so jetzt müssen wir es nur noch hinkriegen, dass wenn man ein neues to do anlegt, das
+nicht leer ist, so, neues to do, default to dos hatten wir hier irgendwo, neue default
+to dos ist der text nicht leer, sondern, keine ahnung, title, ja wunderbar, guck mal, man
+kann nur löschen, man kann nur löschen, wenn es wieder eingefahren ist, so, nice, kicks
+to do for the win hier, google design award 2002, ich weiß gar nicht, ob es sowas gibt,
+ich bewerb mich beim deutschen computerspiele preis, das ist zwar kein spiel, aber da kriegt
+eh jeder irgendwas, egal wie schlecht es ist, da muss man sich nur noch überlegen, warum
+das ein spiel ist, und man muss irgendwie eine pädagogisch wertvolle message vermitteln,
+dass man da gewinnt, da müssen wir uns irgendwas ausdenken, warum ich mich damit beim deutschen
+computerspiele preis bewerben kann, es ist wichtig, dass man sich in seinem leben die
+zeit gut einteilt, und deswegen gibt es die kicks to do app, die dafür sorgt, dass Kinder
+die hausaufgaben pünktlich erledigen, oder irgendein blödsinn, ein schwachsinn, da wird
+man bestimmt beim deutschen computerspiele preis angelockt, so, park, kunst, huge animation,
+ich muss euch mal sagen, dafür, dass ich das design einfach random aus vorgefertigten
+tailwind klassen zusammengeklickt habe, sieht das von der farbgebung her gar nicht so scheiße
+aus im dark theme, oder, ich finde das sieht sogar mit dem grau, und auch mit dem pink,
+ich finde das sieht sogar relativ stylisch aus, so, was sollten wir jetzt noch machen,
+lass mal überlegen, wir könnten noch die checkbox, pass mal auf, checkbox, hover, animate, animate
+pulse, guck mal, wenn es über die checkbox geht, dann macht die checkbox richtig hyper
+gachi, mach doch in light mode, das problem ist, wenn ich in light mode mache, da muss
+ich mir für alles neue farben ausdenken, da habe ich kein bock drauf, es fehlt fortnite,
+wie soll ich das mit fortnite in verbindung bringen, wäre es vielleicht sinnvoll, wenn
+das immer oben bleibt und nicht mit ausfährt, chat was meint ihr, wäre das sinnvoll, wenn
+die dinger immer oben allein bleiben würden, oder dass sie mit ausfahren, und die to do's
+trennen, könnte man ja durch den extra strich nochmal, das machen wir mal, also nach jedem
+to do, nach jedem to do was der rendert, machen wir einen strich, ich glaube nicht, dass sowas
+gut aussieht oder, aber wir können an das diff gehen und sagen unten, border, bottom
+oder sowas, falls das geht, 2 pixel, nee, warte mal, und dann muss man sagen was, border,
+width oder was, ah, bottom, bottom, width, 2 pixel, ach quatsch, wir sind ja nicht zuerst,
+wir sind ja tailwind, wir sind ja im tailwind, nee moment, hä, sekunde, wo bin ich denn
+hier gelandet jetzt, warum habe ich hier noch inline style, das ist ja komplett beknackt,
+hä, was habe ich denn da gemacht, war das, ist das noch übrig von bevor wir tailwind
+eingebunden haben, das ist ja richtig bescheuert, nee, dann müssen wir das anders machen, class,
+flex, align, nee, wie war das, item center und dann padding, padding, bottom, irgendwie
+2 oder so in dem fall, lass mal kurz gucken, oh, was habe ich jetzt verpasst, was ja, item
+center ist falsch, doch align, item center, was ist jetzt der unterschied dazwischen,
+das müsste doch beides mehr oder weniger, ach da ist ein semi colon drin, ah, jetzt passt,
+ok, eigentlich können wir das padding weglassen, ich habe jetzt gelernt, es gibt sowas wie
+gap, guck mal, bei flexbox, es gibt sowas wie gap, wusste ich bis gestern nicht, dass
+es sowas gibt und nachdem ich das jetzt gelernt habe, dass es sowas gibt, könnte man eigentlich
+hier wieder die abstände rausnehmen, die ich aber gar nicht finde, habe ich die hier gar
+nicht drin, hier margin 2, nee das sieht kacke aus, dann lasse ich das mit dem gap bleiben,
+dann lasse ich das jetzt so, wunderbar, was wollte ich jetzt machen, unter jedes to do
+ein strich, ne, also border minus 2, ok border bottom, nee border, wie macht man nur unten
+ein border in, ach border minus b ist das jetzt oder was, das hätte man aber auch bisschen
+schöner benennen können, also da würde ich ja im leben ja nicht drauf kommen, ok das
+sieht rounded, sieht hängen geblieben aus, so was machen wir da jetzt für eine farbe,
+ich würde sagen wir nehmen die gleiche farbe, die war, oh, das sieht doch eigentlich ganz
+ok aus jetzt, nur dass das letzte to do jetzt auch unten was hat, das ist dumm, oder das
+sieht hässlich aus, da bräuchte ich jetzt noch irgendwie next level logik um das zu
+fixen, da hält mir jetzt grad nix ein wenn ich ehrlich bin, Vue.js ist mit abstand des
+geiles, ja ich verwende eigentlich auch für fast alles Vue.js, aber, ich wollte mal was
+anderes ausprobieren, last child, ach last, boah die leute, der chat wieder, alter warum
+ist mein chat so high iq, ach ich weiß, weil alle so prime subscribt haben in der vergangenheit
+schon, der chat ist einfach wieder massive brained, guckt euch mal so last, ne, ging das
+so, last, ach so, ach ne, es ist border 2 und bei last ist es border 0, ah, oh, ne, oder
+auch nicht, warum nicht, dein folgetauschen, meinst du das macht was, ne, macht nichts,
+der scope ist falsch, ja da hört es bei mir jetzt auf mit css, da reicht mein gehirn
+nicht mal dafür jetzt, was ist wenn ich sag last border 2, moment, der scope, ja ja der
+scope ist falsch, ich weiß nicht wo der hin muss, ah, aber, ne, das hier ist doch das
+flex, das li ist doch nicht mal last, hä, was es muss bei der liste hin, wie jetzt wirklich,
+da, das kann aber noch nicht funktionieren, ne, falsch, da, oh, ok, ähm, nein, no pass,
+so geht das nicht und außerdem, wenn schon, bezieht sich das doch auf das flex oder, da
+bin ich nicht high iq für das hier zu checken, wenn dann auf dem li, ok, wenn der chat das
+sagt, dann glaube ich im chat das, hey, alter, massive brain der chat wieder, ok, dann brauchen
+wir jetzt noch border grey 500, border grey 500, sag, wunderbar exquisite, komm mal, jetzt
+haben wir ein animiertes, ein animiertes löschen button, einen pulsierenden abhaken knopf und
+ein ein und aus fadendes textding, das ist ja poggers, so und jetzt ist die frage, wie
+kriege ich die dinger nach oben aligned, als web-entwickler endlich mal den urlauben max
+zuschauen, ja, kannst du dich ein bisschen kaputt lachen, wie ich die einfachsten css
+dinger nicht checke, gibt es jemand, der so css dinger checkt überhaupt, ich sehe auch
+immer auf youtube die leute massig schneiden, wenn sie zum css part kommen in ihren tutorials,
+also normalerweise kannst du die leuten ganz gut zugucken, wenn die irgendwelche logik
+programmieren, das geht dann relativ flüssig und weniger schritte, weniger schnitte, kaum
+kommen die zum css part, gibt es zwei varianten, entweder sagen sie, ich hab da mal was vorbereitet
+und pasten einfach mal kurz so irgendwie 250 zeilen rein und sagen, so, das ist jetzt
+das css was wir brauchen, ihr müsst euch nicht weiter Gedanken zu machen oder sie schneiden
+nach jeder zweiten zeile css, weil sie nachgucken müssen, so diese zwei tutorials kommen mir
+öfters unter, so, was wollte ich denn jetzt machen, dann hab ich vergessen, was ich machen
+wollte, ah, dass das oben allein bleibt, wie kriege ich das oben allein, das ist irgendeine
+flexbox-geschichte, leute, ich muss mal kurz, ich muss euch mal kurz muten, ich muss mal
+mein headset entknoten, das backt rum, das backt massiv an der seite rum, so, ok, jetzt
+müssen wir irgendwie gucken, wie man das hier, so zum besseren testen, zum besseren testen
+machen wir mal die, oh die auch H40, so, wie kriegen wir die Dinge oben aligned, items
+start, items, ach meinste oben beim flex oder hier, also anscheinend items start, nee, warum
+hab ich die noch mal gesendert, aha, guck mal da, pogge, yep, so jetzt müssen wir das
+nur noch ein bisschen nach unten ausrichten, dann passt das alles, margin top 2, ach so,
+die sind auch so nicht ganz gerade, was hatten wir da vorher, 8, wegen der margin hier, ah,
+und jetzt, und jetzt können wir hier flex, yep, 2, margin top 4, naaah, margin 2, ja,
+so ist doch alles ganz ok, ach stimmt, margin y, das gibt es ja auch noch, oh poggers, poggers,
+das zwar nicht ganze line, aber das wird sich nicht ändern lassen, weil das eine schriftgröße
+liegt, nice, extrem nice, hier, das wird aber ganz schön unübersichtlich nach einer Zeit,
+oder, wenn hier so ein tailwind Ding aus 50 Milliarden Sachen steht, hier padding, warum
+hab ich hier ein padding drin, weil, eigentlich will ich nicht padding 1 haben, was, wie sieht
+es mit padding 0 aus, padding y1 wieder, nee, x, nee, padding 0, und dann, padding left 2,
+ja, das ist doch ganz gut, und jetzt können wir das glaube ich noch, 1 kleiner mal, ah,
+yes, aber so ist es eigentlich besser, so, wunderbar, jetzt ist das mal wirklich next
+level shit, oh guck mal, jetzt kann man nämlich auch oben klicken, während das expanded ist,
+das funktioniert jetzt, sollte das nicht wieder nach oben kommen automatisch, warum kommt
+es nicht wieder automatisch nach oben beim rendern jetzt, na gut, woher auch, jetzt wieder
+ein outtake, hä, was, ich wollte mit dem fabian ein video aufnehmen, der hat aber erst morgens
+zeit, oder über morgens, glaube ich, erst, die haben nämlich, dem Fabian haben sie nämlich
+das internet abgeschaltet, passend zu Weihnachten, beste stelle, beste Jahreszeit, er, ist natürlich
+wieder fail, aber kann er ja nix für, statement, ein stream, was, on stream gefurzt, alter,
+ihr habt auch wieder alles mitgeschnitten, oder, ok, das ist doch kein furz, das ist,
+wenn die Jacke, das ist, wenn die Jacke am, hier, das ist, wenn die Jacke am mikrofon
+kratzt, ist das, das ist kein furz, und selbst wenn, und selbst wenn, dass man da so genau
+drauf achten, ist ja auch schon wieder so ein ding, aber das ist hier, habt ihr grad gehört,
+das ist die Jacke, die ich an hab am mikrofon, so, richtig, richtig, jetzt soll ich deployen,
+deployen, leute, dass ihr auch euch die neuste version angucken könnt, ansible playbook
+deploy, jawoll, ich mein, wisst ihr, was wir uns noch, was, wisst ihr, was wir uns noch
+merken könnten, nach was sollten die to do's sortiert sein, eigentlich nach erstellungsdatum,
+oder, ne, ne, ich will nicht dumb to do's oben, ich will to do's oben, die als erstes
+erstellt wurden, was meint ihr, ist es sinnvoll, also im angenommen, ich mach das hier jetzt,
+ding, dann geht's runter, und wenn ich's jetzt hier anklicke, dann geht's halt nicht wieder
+hoch, nach wichtigkeit, ja, aber die dinge haben keine priorität, man hat keine möglichkeiten
+aktuell prioritäten zu vergeben, und ich wüsste auch krass aus dem stegreifen nicht,
+wo ich da irgendwas für prioritäten noch einbauen sollte, man könnt es nach erstelldatum
+sortieren, vielleicht, oder man könnte sich auch interessanteren features widmen als so
+kleinen optimierungskram, ne, na, drag and drop, drag and drop ist wirklich nicht einfach,
+priorität entscheidet eine ai, das ist es, leute, wir lassen big brain, blockchain, data
+science, ai, das entscheiden, wo unsere to do's hinkommen, so, ähm, lass mal kurz in
+mich gehen, sortiere nach due date, ja, aber es gibt kein due date, oder gibt es einen
+coolen, moment, swelled date time picker, gibt es da irgendwie einen coolen swelled date
+time picker, lightweight date time picker, mit crit stack gs, es vergeht auch keinen
+tag wo es neue javascript frameworks gibt, oder, es gibt einen default vom browser, stimmt,
+warte mal, browser date, oder irgendwie date time picker, wie sieht denn der aus, der ist
+bestimmt hässlich, oder, that default date time picker, da kann man überhaupt nix picken,
+input date time, deprecated, warum ist das deprecated, was soll man anstatt dessen, this
+feature has no current browser implementation, naja, also wisst ihr was, es gibt schlimmeres,
+es gibt wirklich schlimmeres als diesen date time picker, oder, ok, firefox, firefox hat
+ich gedacht wir brauchen keinen date time picker, ah doch hier, ich mein es ist keine
+augenweite, aber so hässlich ist es doch jetzt auch nicht, also der schlimmste, der schlimmste
+date time picker ist der hier, ich mag beautify, aber das mag ich überhaupt nicht, guckt euch
+das mal an, monkaS, das ist material design shit, aber, naja, beim besten will ich nicht,
+das mag ich überhaupt gar nicht, ok, also was muss man, input gleich date time local,
+dann probieren wir das doch mal aus, wir machen einfach hier mal den input hin, ihh, kann
+man den, kann man den stylen, wahrscheinlich nicht, ne, das ist wieder so ein ding was
+man nicht richtig stylen kann, bg, naja, naja, das popup kann man nicht stylen, ja gut, why
+not, sag mal gibt es auch, gibt es die möglichkeit da einfach nur das hier anzuzeigen, nur, nur
+on popup, weil dafür habe ich überhaupt keinen platz, ich bräuchte einen button, der nur
+das icon anzeigt und dann das hier, das hier öffnet, ehh, date time local icon only, change
+date time input, was für ein ding, wat, ne, ne, remove calendar icon, ne, ne, ne, ich will
+nur das calendar icon haben, input type date, das ist eklig, mach doch eine sortierung nach
+erstelldatum oder oder ablaufdatum, ja, ablaufdatum will ich ja gerade setzen, die sache ist,
+wie kriege ich den date time picker so hin, dass er nur das icon anzeigt, ich mein was
+ich machen könnte ist, ehh, was war die frage eben leute, was in, in was für einem programm
+schreibt man einen solchen code, ehh, in dem fall, in dem fall ist es wishlist studio code,
+aber muss es nicht sein, du kannst das in jedem x beliebigen editor programmieren, aber
+es bietet sich in dem fall an wishlist studio code zu verwenden, weil es relativ viele plugins
+hat und hört nicht auf den chat mit vim, ich bin vim fan, was kommandozeilen editieren
+angeht, aber sowas bräuchte ich nicht, input date time local, ich mein was man machen könnte,
+was aber wahrscheinlich nicht schön ist, man könnte sagen, ehhm, breite 2, breite 4, breite
+8, was weiß ich 20, so, guck mal man könnte, man könnte die breite so machen, dass am ende,
+ihh, das geht aber dann unter firefox nicht richtig, ich glaube das funktioniert nicht
+gescheit, mir fällt nicht ein, wie ich diesen date time picker, gescheit da rein basteln
+sollte, mic diet, dankeschön für den sub, ok, da bin ich, da bin ich zu noobig für,
+das ist auch nicht, das ist auch nicht, ehhm, einheitlich genug irgendwie, könnte man, ne,
+wir nehmen eben den fertigen date time picker, komm wir gucken mal was es da gibt, ich hab
+doch eben gesucht, ich hab doch eben gesucht, hier guck mal svelte kalender, svelte date
+time picker, 11 tage zuletzt aktualisiert, demo, ich brauch ne demo, demo, with time,
+with time, choose date, ok, das liegt an meinem darkreel, dass das kacke aussieht, range picker,
+ich will, ich will eigentlich, ich will ohne date, wobei ne, ne, ich will date time picker,
+aber das funktioniert dann wieder unter ios kacke, ist denn wenigstens das ding, das muss
+ich jetzt, das müssen wir jetzt mal ausbringen leute, ist denn wenigstens das ding hier unter
+ios dann der native date time picker, wenn ich das einblende, ich push das mal kurz,
+ich push das mal kurz und wir probieren, ihr könnt das dann auch ausprobieren hier, ja,
+ok, probier mal aus, hier date time picker, probier ich das mal auf dem iphone aus, das
+ist der native, weil der native date time picker brauchst du für ios, sonst, sonst checkts
+keiner mehr, äh, das service geht bei mir grade nicht auf dem, auf dem handy, warum
+bin ich, irgendwie lädt das bei mir nicht, ist mein wlan down oder so, nö, äh, ok,
+ich weiß nicht warum, aber auf meinem iphone lädts nicht, aber wenn ihr sagt, das ist
+der native date time picker, dann ist ja, ist ja alles in ordnung, Leute ich hab keine
+gute idee dafür, wie wir das mit date time machen sollen, ich mein ich bräuchte, warum
+geht denn das nicht, warum geht auf meinem iphone diese seite nicht mehr, grade vorhin
+da ging sie noch, keine ahnung, auf meinem iphone gehts nicht mal auf, unsichtbares input
+mit externem button, ist das mit swell direkt responsive, naja, so wie ichs gebaut hab, ist
+es halt so responsive wie es geht, so größer hier, kriegst nen größeren button, haben
+eine gewisse größe und ansonsten bleibt das relativ responsive, also es ist responsive
+bis auf diese größe runter, ich glaub das reicht sogar für ein altes nokia handy, nee
+also das gefällt mir immer gar nicht mit dem date time picker hier, ich mein wir könnten
+nen button machen, funktioniert dann sowas hier, würde dann sowas funktionieren, dass
+ich den date time picker trigger über nen extra button, das sagen wir mal zum testen,
+machen wir das mal zum testen, ich mach jetzt einfach mal nen button hier hin zum ausprobieren,
+oder hier plus, so, das ist button, so und dann machen wir nen hidden date time, und jetzt
+trigger ich über diesen button den date time, so wie mach ich das überhaupt, nee nee nee
+class hidden, nee nee nee das bringt nix, ähm class hidden ist schon ok, aber ich will
+ja, ich will ja das hier triggern, wisst ihr was wir machen das jetzt nicht hier für
+alles, das hab ich noch nie gemacht, das probieren wir jetzt mal aus, das machen wir hier einmal
+oben, dass ich weiß wo wir sind, nee nee nee class remove blinkt auch nix, ich will doch
+nicht diesen scheiß anzeigen, ich will das hier triggern, das, ich will quasi n click
+simulieren oder sowas, also id picker, machen wir mal die klassische, machen wir mal die
+klassische javascript variante, ähm, keine ahnung, äh trigger, nehmen wir den jetzt
+einfach mal, was jetzt, direct, achso, ja, das ist auch doof, dass man da immer diese
+komischen klammern drum braucht, so, äh, function, trigger, keine parameter, so, document get
+element by id, picker, mal gucken ob das funktioniert, was ich da gestrickt hab, das ist aber bestimmt
+nicht das swelled way, das kann ich euch jetzt schon sagen, ok, das funktioniert und jetzt
+click, click, das funktioniert nicht, ok, datetime local trigger button, how to trigger,
+you can hide most of the input content and keep styling the calendar using css classes
+for shadow dom, ok, ok, das ist richtiger paints champ gerade, ok nice, wie sieht denn
+das in firefox jetzt aus, ist klar, dass sind ja auch die webkit dinger, ich, das ding muss
+man doch triggern können, ok, wir gucken jetzt mal bei mozilla, was das ding für events
+hat, das problem ist das ding sieht in jedem browser anders aus, was hat das ding für
+events, change input list, select step down step up, you have only change and input events
+events ist nichts für mich zum klicken, event ist das was ausgelöst wird wenn es passiert
+nicht um es zu triggern, ja gut, das ist eine stack overflow kopie, der hat das einfach
+gerippt, das stack overflow ding, pack das gibt es nicht, ok, jetzt weiß ich auch warum
+die alle custom date time picker verwenden, weil das paints champ nicht hoch 10 ist, sag
+mal warum geht dann bitte schön in meinem handy meine webseite nicht mehr auf, ist das
+ok, ne das funktioniert nicht gescheit, ne also sowas gibt es hier nicht, ok, click geht
+bei mir nicht, click chrome desktop, ne funktioniert bei mir nicht, ok, das ist richtig cancer,
+ne ne ne, das machen wir nicht, das machen wir nicht, da brauchen wir irgendeinen fertigen
+date time picker und am liebsten hätte ich halt einen date time picker der dann in ios
+auch ordentlich funktioniert, das ist halt schon richtig eklig, was ist aus dem preischamp
+geworden, der preischamp da wird wohl Ende des jahres abgeschaltet, ne das funktioniert
+so nicht, aber das ist ja eklig, das ist ja eklig, dass das nicht standard ist, ok was
+hatten wir hier nochmal, ihr mein der scheint mir doch ganz in ordnung zu sein hier, mit
+time, wie kann ich hier die time auswählen, continue alter, boah ist das abartig, alter
+ne ne das ist ja mega hässlich das ding, ne wird ja immer schlimmer, ne ne das verwende
+ich nicht, ne gibt es nicht, gebt kein due date, due date is overrated, she baited outdated,
+das machen wir nicht, wir machen ein created date, wir machen created, plat picker, ich
+bräuchte nen picker der auf ios das native element verwendet, ich weiß gar nicht wie
+das native element aussieht auf ios, weil mein handy der meinung ist er lädt die seite
+einfach nicht, warte mal ich mach jetzt einfach mein chrome auf, ich mach jetzt mal chrome
+auf und gucke ob es da drin geht bei mir auf dem handy, no thanks, todo.caqv.services,
+warum zum teufel geht auf einmal auf meinem iphone meine eigene app nicht mehr, ich ändere
+mal den dns, mein dns hat bestimmt mist gecached, wifi, info dns, configure dns, manual, add
+server, nennen wir mal google hier, 8.8.8.8, delete den standard server ok, jetzt gehts
+wieder, mein dns hat mist gecached, ja und der ios ist der date time picker wunderbar,
+den will ich ja verwenden, ich will den standard ios date time picker verwenden wenn ich die
+möglichkeit habe und überall anders und gerade auf dem desktop, ok was hat irgendjemand gesagt,
+demo, flat picker, org.js, examples, date time picker, naja, augenweite ist es jetzt
+auch nicht gerade, aber ganz ok, das ist wirklich ein komplexes thema hätte ich nicht gedacht,
+das schreibe ich mal in die featureliste unter advanced, date time picker due date, das sieht
+man mal wenn die websachen nicht standardisiert sind dann ist es eklig, kannst du das projekt
+auf github packen, ja kann ich machen, oh guck mal das buggt immer noch ein bisschen, was
+ist hier los, warum buggt das delete, hä hä, ok, hm, not not sure if serious, warum buggen
+das delete rum, direkt weniger zu tun, ja, vielleicht wegen meinem rumgesorte hier, das
+ist nicht stimmt, wobei nee, das muss funktionieren, ich glaube ich weiß was es ist, ich glaube
+irgendwie ist mein filter wahrscheinlich nicht richtig, ich, wobei ich mache eine neue liste
+mit to do's, die nicht die id haben, ah, nee id++, ach so, ich speicher die id, ok ich
+habe den bug gefunden leute, der bug ist richtig dumm, guck mal, meine id fängt immer bei
+1 an, aber wenn ich die seite reloade fängt die id wieder bei 1 an und wenn ich die adde
+habe ich jetzt mehrfach to do's mit der gleichen id, ok das ist glaube ich etwas low iq, oi,
+was gibt es da zwischen für schöne möglichkeiten als id zu verwenden, gibt es eine möglichkeit
+im browser, irgendwie, browser, gen, irgendwie sowas, how to create guid im browser, bleh,
+kripto random ui, ok, ok, moment, moment, wie geht das jetzt, was, kripto, ui, nee,
+htps, ernsthaft, ich kann doch nicht mal lokal mit nem server das entwickeln oder was, supporting
+browsers und alle supporten es, außer, außer natürlich, was sonst, wer supportet es wieder
+nicht, wer könnte es sein, wer es nicht supportet, na, 3 mal dürft ihr raten, wer ist es, es
+Warum ist Apple so kacke unter iOS was Browser angeht?
+Das ist wirklich Ethernet Explorer 2.0 das Ding.
+Das ist ganz ganz grausam, dazu kann man bloß sagen PISS DICH ALDO!
+Gibt es da eine gute Möglichkeit UNIQ-IDs im Browser zu generieren?
+Ich meine ansonsten speichere ich mir einfach die ID im Local Storage, aber schön ist was
+anderes, weil wenn ich die Dinger verschicke, ne ne das wäre schon praktisch wenn das UNIQ
+ID nicht wäre, haben die vielleicht was eingebaut?
+Jawoll schön und wie generiert er das?
+UUID und wo kommt das her?
+Anja Kowalska, ah hier das ist das Package, External Resources und woher weiß ich jetzt
+welche Library das hier ist?
+Gar nicht.
+Ah hier, NPM Installer, ich will wissen was das für ein Package ist, taugt das was?
+Okay es hat 11,8K Sterne, das kann schon mal nicht so schlecht sein, okay das verwenden
+wir jetzt, NPM Installer, auf gehts BAM, NEIN, ähm etwas falsche, wo hat er das jetzt installiert?
+Edit One Package, wo genau hat er jetzt das Package geedit?
+Hab ich jetzt in meinem Heimatverzeichnis irgendeine Package chasen oder so?
+Genau das ist das was ich wollte unbedingt, ja so siehts aus, okay NPM Installer, nein
+NPM Installer, ah ja, so jetzt aber, gut, RUN DEV, okay, der Browser ist wieder Zugang,
+na gut, warum, Localhost 3000, okay also was muss man da jetzt importen, import V4 SUUID
+V4, alles klar wird gemacht, BAM, hat gefunzt und jetzt SUUID V4, log, log, okay scheint
+zu funzen Leute, okay das verwenden wir jetzt als ID, muss man das sieden oder macht es
+wirklich das immer korrekt, ja anscheinend passt das, na gut, also dann machen wir das
+jetzt ein bisschen anders, wir nehmen für unsere To Do's als ID, ich lösch das mal,
+wo hab ich hier ID, ID kommt weg und wir nehmen für unsere ID's lieber den Kram hier, zack,
+wisst ihr was ich jetzt nochmal ausprobieren, wie hoch die Chance ist, dass der, also manche
+Implementierungen die auf random oder gerade auch auf Time Seeds basieren sind halt ein
+bisschen kacke, dass wenn du zu schnell ID's generierst, dass es dann doppelt rauskommt,
+aber ey ich meine wenn die Library 12.000 Sterne hat, wir glauben jetzt einfach mal,
+dass sie das ordentlich machen, easy, was soll schon schief gehen, so hat er das jetzt gespeichert,
+zeig mal hier, Application, Application Local Storage To Do's, ID, warum ist da immer
+noch eine ID mit 4 drinne, weg damit, was soll das hier, jetzt haben wir die richtige
+ID, jetzt passt das, jetzt haben wir Sachen mit ordentlicher ID drinne, Poggers, so muss
+das sein, so muss das sein, das ist doch schon mal gleich viel besser als doppelte, so und
+jetzt haben wir auch nicht das Problem, dass wenn ich jetzt hier irgendwas anlege und ich
+dann die Seite reloade, dass er dann Sachen doppeln löscht, genau, sehr gut, da haben
+wir das doch schon mal gefixt, behoben, easy, alles klar, so hätten wir das schon mal,
+wo sind wir eigentlich jetzt ursprünglich stehen geblieben bei der ganzen Geschichte,
+wobei, nee wir haben es doch hingekriegt, guck mal, die Sachen stehen jetzt oben, passt doch,
+das sieht doch jetzt richtig gut aus, nicht, dass man es sinnvoll verwenden würde, aber
+von der Idee her ist doch eigentlich ganz nice, so und jetzt wollten wir noch erstelldatum
+rein machen, nachdem man das sortieren kann, also machen wir sowas wie, was ist die richtige
+JavaScript Schreibweise dafür, wie machen das die coolen JavaScript Leute, Created at
+oder Created at oder Created at oder, wie ist da, wie ist da die korrekte Schreibweise
+bei, bei, bei den JavaScript 5 hats, einfach nur Created, ok, man spart sichs einfach,
+dann umgeht das Problem, das ist auch ne gute Idee, ok, date, now, wie krieg ich ein Timestamp,
+wie krieg ich ein Timestamp seit 1900, irgendetwas, weil ich will wahrscheinlich nicht date now
+haben, weil date now ist ja im Zweifelsfall Zeit, wobei ist das schlimm, wenn das Zeitzonen
+abhängig ist, eigentlich nicht, oder doch, ja Timestamp seit 1970 ist besser, js datetime
+1970, wie geht das, die Zeit vergangen könntest du auch als UID nehmen, das stimmt, das ist
+ne gute Idee, da würden wir zwei Fliegen mit einer Klappe erschlagen, ich muss grad mal
+kurz was checken, node, date, Punkt now, Moment, das sind doch Sekunden, hä, ich dachte das
+gibt nen Zeitobjekt zurück, das gibt wirklich einfach nur Sekunden zurück, Millisekunden,
+ich glaub es sind sogar Millisekunden seit 1970, anscheinend, MSI, convert, ja, das sind
+tatsächlich Millisekunden, das könnte man, ich mein, ich geh mal davon aus, dass keiner
+es schafft in der gleichen Millisekunde zwei To Do's anzulegen, oder, ich mein, man traut
+den Leuten ja viel zu, aber, warte was, man nimmt Timestamps vergangen seit 1970, ja,
+man nimmt Timestamps seit 1970, also Sekunden oder Millisekunden vergangen seit 1970, seit
+1.1.1970, das ist Unix-Time nennt sich das, Unix-Time ist quasi 1.1.1970, Unix-Zeit zählt
+die vergangenen Sekunden seit Donnerstag dem ersten Januar 1970, UTC, warum 1970, weil
+man sich das so ausgedacht hat, weil man das so festgelegt hat, ich weiß nicht ob das
+einen tieferen Sinn hat, dass es jetzt genau 1970 ist und nicht 1975 oder so, oder 1969,
+ok Created Date Time Now haben wir jetzt auch, so das ist die Default To Do's, da brauch
+ich hier noch Created, so, wunderbar und jetzt haben wir sogar was nachdem man das ganze
+sortieren kann, man könnte jetzt natürlich auch mal irgendwie so ne Funktion machen,
+so was wie Create To Do, und der übergibt man dann quasi Text, der muss man ja nur Text
+übergeben, das ist ja easy, dann kann ich mir nämlich den ganzen Spaß hier sparen,
+ok, 1969++, ja das geht auch, so, Return, Text, Chat hat irgendjemand nen Plan ob das
+funktioniert in JavaScript, wenn Text leerer String ist oder Null, dann soll Any Primers
+reingeschrieben werden, geht das so, mal gucken ob das funktioniert, so und jetzt muss ich
+sagen hier Create To Do und jetzt hier an der Stelle auch wieder Create To Do, bloß
+dann mit dem, äh, Title, wobei Any Primers ist es dumm das so reinzuschreiben, das kommt
+da recht unerwartet, so, so, hey funktioniert, die Funktion nicht im JSON Pass, hä, doch
+ist sie drin, ne ist sie nicht, doch ist sie, ok das ist ein bisschen dumm umgebrochen,
+ah Moment, warte mal jetzt bin ich verwirrt, JSON Pass, ne das muss nicht ins JSON Pass
+sein, warte mal jetzt bin ich, hä, Moment was hab ich denn da vorher gemacht, was war
+mein Default, ach ich hab das JSON String Fight noch, ok, ähm, kann ich das hier einfach
+rausnehmen, ergibt das da noch Sinn, ja aber ich bin mir nicht sicher ob das funktioniert
+wenn ich das, wenn ich das rausnehme, weil wenn es das hier nicht gibt, moin Tromm, wenn
+es das hier nicht gibt, dann brauch ich irgendein Default To Do, also wenn es Get Item nicht
+gibt, dann brauch ich ein leeres Array, so, und dann musste ich danach checken, if leeres
+Array, wisst ihr was, easy, wir machen den JSON String um ihn danach wieder zu passen,
+so ist das richtig, so jetzt gucken wir uns das nicht weiter an, mal alles löschen, gucken
+ob es funktioniert, ja, ne, passt, ok das ist auch noch ein Bug, ist ja auch egal, das
+ignorier ich jetzt einfach, so Any Primers Fragezeichen, seit wann programmierst du,
+boah, schon lange seit, also angefangen hab ich mit C-Sharp 2002 oder so, aber Javascript
+ist jetzt nicht unbedingt so mein Steckenpferd, kann man doch glaube ich kurz zu sagen, uns
+Welt hab ich vor zwei Tagen angefangen, deswegen mach ich auch ne To Do App, weil wir ja wissen,
+To Do Apps sind quasi die Hello Worlds der Webentwicklung, so auf uns das jetzt was wir
+hier gebaut haben, machen wir mal neues Tab auf, öffnen das und wir sehen es ist kaputt,
+ich hab's verkackt, es ist kaputt, bam, unrecoverable error, weil To Do's Filter is not a Function
+RIP, warum nicht, was hab ich kaputt gemacht, warum geht es jetzt nicht, ne das liegt nicht
+am Incognito Tab, warum hab ich's jetzt kaputt, was hab ich zerstört, aha, ok jetzt wird's
+aber richtig hässlich, aber jetzt funktioniert's, sehr gut, exellent, das ist ja wirklich eines
+der hässlichsten Dinge aller Zeiten, wisst ihr was, einfach easy, kommt mal, bam, jetzt
+erkennt es keiner mehr, jetzt ist alles super beautiful, ich hab aber durch das ganze hin
+und her jetzt schon wieder komplett verdrängt, wo ich eigentlich gerade dabei war, achso
+ja der Bug, achja sortieren nach Created, genau, sortieren nach Created, ok jetzt müsste, wenn
+ich das nach Created sortieren müsste das nach oben kommen, warum ist eigentlich Javascript
+sort so kacke, so ich will's sortieren nach Created und dann nach dann nicht dann, ne umgedreht
+oder, ne, ne, so rum ist richtig, so rum ist richtig, ne, ne passt, wie sortier ich denn
+jetzt nach DateTime, sort DateTime, warum gibt es nicht, sag mal, gibt es nicht irgendeine
+gescheite Javascript Library mit so paar Extention Sachen, wo man zum Beispiel ordentliche Suche
+hat, wo ich dann sowas hier machen kann, sort, buy und dann irgendwie einfach nur angeben
+kann to do's, Created oder sowas, weil das ist ja wirklich abartig, guckt euch das mal
+an, simplest answer, new date, be date, minus new, what, ahhh Javascript please, Created,
+es funktioniert, es funktioniert, aber schön ist was anderes und ich will jetzt anders
+rum machen, ich will a, mach b, dass die neuen zuerst kommen oder die alten zuerst, die alten
+zuerst, die neuen zuerst oder die alten zuerst, die neuen zuerst oder, die neuen zuerst, guckt
+euch, das hier ist das neueste, wenn ich das jetzt schließe, und wieder oben, und jetzt
+wieder oben, ok, Funst, alles gut, boah, das ist ja sowas von hässlich hier, neu zuletzt,
+ja ist so, ein wenig neu zuletzt, ne, neu ist als erstes hier jetzt, also das hier ist
+quasi das neueste, oder auch nicht, das zweitneueste, ne so ganz funktioniert das noch nicht oder,
+ok sag, bäm, bäm, bäm, bäm, bäm, neu, so, man könnte tatsächlich noch nen sortbutton
+einbauen, so jetzt mach ich das zu und jetzt sollte es wieder oben hingehen, ja, so und
+jetzt mach ich alle zu und dann sollte trotzdem, egal in welcher reinfolge ich das anchecke,
+neu wieder oben sein, ja funktioniert, der user einstellt, das ist ja schön und gut,
+wenn der user das einstellen kann, ähm, ich hab aber keine Ahnung wo ich den button hin
+machen würde für, müssen wir eh mal schauen, ich schreib das mal bei features hin, sort
+nach, äh, erstelltatum, äh, ask und desk, so, rechts neben dem keks mit dem pfeil nach
+oben oder unten, ne ich finde an die stelle passt das nicht so ganz, an den, hier machen
+wir den share button, ja java script stels, unter keks tutu würd ich eine liste mit buttons
+machen für verschiedene einstellungen, das ist tatsächlich ne ganz gute idee, man könnte
+nämlich hier drunter, genau wisst ihr was wir machen, jetzt hab ich ne idee, hero icons,
+wir machen da zwei sachen drunter, äh, book, gibts sowas, book, also wir machen einmal
+ne leiste, dass man tutus quasi, dass man so verschiedene notizbücher, tutu bücher anlegen
+kann, so default und eins, zwei, drei und sowas, also haben wir hier diff, so, dann sagen
+wir class, text, cray 200, ne was haben wir da immer, was haben wir für nen text, cray
+100, ok, cray 100, so, da machen wir jetzt noch, da machen wir jetzt noch nen border drumherum,
+zwei, das sieht richtig, ih, moment, das ist falsch, den border machen wir, äh, ach ne,
+class, flex, so, genau, so, ähm, hier machen wir nen border drum, da machen wir nen pinken
+border drum, wie bei dem anderen, also sagen wir irgendwie, äh, ring pink 600, das ist
+wenns aktiv ist, aber vielleicht nochmal mit rounded oder so, so, da kommt noch nen text
+rein, haben wir hier einfach nen text, ne, p, äh, nochmal flex, null, so, äh, p, und
+das ist jetzt irgendwie default oder so, so, default, so, da kanns jetzt, da kanns jetzt
+verschiedene dinger anlegen, verschiedene notizbücher quasi, d.h. wir brauchen noch
+nen add button, das werden wir aber heut garantiert nicht alles implementieren, äh, wobei eigentlich
+kann ich das mal komplett copypasten und dann das svg rein, zwei buttons sind schon inkonsistentes
+styling, warum ist doch gar nicht inkonsistent, wir haben den button, das ist unser add button
+und das ist der bücher add button, so, der unten hat bg color, stimmt, vielleicht sollten
+wir dann bg color dahinter machen, was brauchen wir, margin, ich kann mir das immer nicht
+merken, ist margin das außen oder das innen, das ist padding, ne, margin, margin will ich
+haben, ne, so, ein component svg, stimmt, eigentlich hatten wir uns heute auf die Fahne
+geschrieben, wir machen noch paar components, weil wir haben mit diesem, mit dem rumgebastelt
+von 130 zeilen sind wir jetzt schon mal 185 und ich blicke langsam auch nicht mehr durch,
+wenn ich ehrlich bin, das wird mir schon bisschen zu sehr unübersichtlich, ja, wir machen,
+wir machen components draus, das sollten wir wirklich machen, das machen wir jetzt, das
+ist, da kann ich ein bisschen brain abschalten bei, ich mein hübsch, ist das jetzt denn
+unbedingt, also schön ist was anderes, aber wisst ihr, wie das von der Idee halt gedacht
+ist, man kann hier so verschiedene Bücher anlegen und mit dem plus button adden, sowas,
+so und, aber, ne, wir müssen, wir müssen da glaube ich wirklich, Leute, wir müssen
+da Hintergrundfarben machen, wir müssen da, wir müssen da wirklich Hintergrundfarben
+machen, allerdings nicht pink, wir brauchen noch eine normale Buttonfarbe, irgendwie ein
+helleres blau oder so, wir brauchen noch eine extra Buttonfarbe, weil aktuell haben wir
+zwar ein, quasi so Action Button, aber wir brauchen ja noch so normale, normale Buttons,
+die man als Buttons erkennt, gradient, ne, das sieht doof aus, ich glaube, das muss
+einer, da machen wir keinen Ring da drum herum, sondern, sagen, bg, ne, das sieht, das sieht,
+das sieht auch scheiße aus, ne, das sieht auch richtig, das sieht auch richtig dumm
+aus, ne, das sieht auch dumm aus, ja, vielleicht, ja, das ist gar nicht so übel dafür, oder,
+das passt doch eigentlich ganz gut zu pink, so, aber wir müssen auf jeden Fall noch hier,
+also das da unten, das mache ich erst mal weg, das ist mir jetzt zu viel, zu viel Kram
+auf einmal, also wir brauchen auf jeden Fall noch ein bisschen, ne, wir brauchen keine
+Margin, wir brauchen noch ein Padding, das Ding ein bisschen größer mit, so, das sieht
+doch tatsächlich sogar ganz hübsch aus, vielleicht sollten wir noch sagen, Hond Bolt, oder sowas,
+ja, das sieht doch eigentlich ganz gut aus, oder, ja, manchmal sind ein paar Abstände
+nicht schlecht, Pointer, Hand wollen wir haben, ne, Cursor, Cursor Hand, Hand, ne, Pointer
+ist es, nicht Hand, guck mal, jetzt kriegen wir auch was, so, Pointer, ne, User Select
+muss aus, Select, Select, nein, genau, jetzt kann ich ja so viel draufklicken wie ich will,
+es passiert nichts, wir müssen uns eh noch ein paar, wir müssen uns eh noch ein paar
+gescheite, paar gescheite Hover Styles für solche Buttons überlegen, wie wäre es denn
+zum Beispiel Hover, Scale, 100, 25, oh, viel zu fett, 100, 110 oder so, ich glaube wenn
+wir da noch sagen Transition, dann ist das gar nicht so kacke, oder, gibt es noch 105
+vielleicht, das ist gar nicht mal so mies, guck mal, das ist gar nicht mal so mies, ja,
+wir machen noch, wir machen, ne, bei dem Default machen wir noch ein, das ist Pogge, Poggie,
+nicht Puppge, Poggie ist das, was machen wir, Margin, ich wäre hier noch zum richtigen
+Webnative, Cloudnative, Web-Developer hier, ja, das kann man doch, das kann man doch
+sich durchaus angucken jetzt, guck mal, unten drunter mit dem Pink, der Leiste, sieht das
+gar nicht mal kacke aus, wieso wird die Procrast Bar komisch, an der Procrast Bar passiert
+überhaupt nichts, wenn ich über den, ach so, Moment, doch, Zack, ist das ein Anzeigefehler,
+ne, der Button, der Button hovert über die Procrast Bar, ich glaube da stimmt irgendwas
+nicht, wir können es mal versuchen nachzustellen, indem ich, indem ich es mehr skalieren lasse,
+machen wir 150, da soll es ja besonders auffällig sein, ich habe keine Ahnung, was das für
+ein Bug ist, vielleicht ist es wirklich ein Render Bug oder so, oder machen wir es noch
+mal größer, machen wir es mal 200, ne, gibt es nicht, was gibt es denn da noch, 200,
+was ist denn das größte, 150, ach 150 ist das größte, aber wenn 150 das größte ist,
+dass das nicht reicht, warte mal, man konnte doch so einen One Way machen, war das jetzt
+Scale, ne, Moment, Transition minus Height, ok, ich habe keine Ahnung, wie ich das mache,
+kann ich da jetzt eigene Werte reinschreiben, dafür bin ich zu tailwind noobish, wow, also
+ich habe keine Ahnung, was das für Schmerzen hat, ehrlich gesagt, mit der Procrast Bar,
+das sieht mir aus wie irgendein Anti-Alasing Fehler oder so, aber ich lasse es jetzt auf
+100, 110 war das, 110, das sah noch wirklich ganz gut aus, oder 105, 105, was hatten wir
+davor, ich habe es schon wieder vergessen, 105, ok, man macht immer ewig mit sowas rum,
+obwohl das das Unsinnigste überhaupt ist, ist das dein eigener Server, ja, das ist irgendeine
+Triple Core Hetzner Cloud Kiste, wo ihr euch übrigens noch bis zum, ach so meinst du mit
+eigener Kiste, ne, das ist Hetzner Cloud, wo ihr euch übrigens noch bis zum 31.12.,
+also nicht mal lange Zeit, 21 Euro Startgutschein gesichern könnt und denkt dran, dass ihr
+Code Max21, also mit 4 eingebt, beim Einlösen, POG, POGG, so, was hatte ich gesagt, machen
+wir als nächstes, ach wir wollten versuchen ein paar Sachen in den Komponenten auszulagern,
+weil das langsam etwas, etwas Paynes Champig wird, wenn ich mir das hier so angucke, ok,
+probieren wir das mal, ja, bin ich gespannt, wo macht man Komponenten überhaupt rein, in
+welchen Ordner gehen Komponenten rein, unter Roots ja wahrscheinlich nicht, äh, wo gehen
+dann Komponenten rein überhaupt, Moment, wir gucken uns einfach mal, wir gucken uns
+einfach mal, ähm, das Testprojekt an, Q-Chat, Q-Chat App, Source, Lip, unter Lip, i, doch
+Dark Steam, unter Lip, Source, Lip, Roots, ok, unter Lip, da wäre ich jetzt nicht drauf
+gekommen, aber ok, also Source, New Folder, Lip, so und da legen wir jetzt mal unten drunter
+an todo.swelt, ok, dann probieren wir das, dann machen wir doch mal jetzt eine todo Komponente,
+das heißt da drin brauchen wir auf jeden Fall, bisschen JavaScript und brauchen HTML Zeug,
+wir machen jetzt einfach mal nur mal zum testen was, test, test, gucken ob das so funktioniert
+mit Komponenten, wenn das ein Cloud Server ist, wieso kannst du dann über Localhost
+aufrufen, achso, das hier läuft bei mir lokal, aber ihr könnt euch die Seite angucken hier
+drunter, ich deploye übrigens mal, schnell mal, schnell mal deployen, bam und zack, neue
+Version ist da, übrigens Firefox hat das Problem nicht, packst du das auf Shithub,
+ja kann ich direkt hier danach machen, ich glaube ich bin nicht mal eingeloggt, ich bin
+nicht mal eingeloggt, dann geht das von hier aus nicht, aber ihr dürft mich ruhig, wenn
+ich bis zum nächsten Stream nicht gemacht habe, dürft ihr mich nerven, dürft ihr sagen
+das, du darfst jetzt nicht weitermachen, ihr könnt das auch klippen, du darfst jetzt deinen
+Stream nicht weitermachen und du musst, geht nach pushen, was soll das werden, das ist
+ne App wo ichs Welt übe, das ist nichts was man am Ende irgendwie benutzen sollte, weil
+to do Apps gibt es im Dutzend billiger von App Stores bis allen möglichen Sachen, aber
+wie wir alle wissen sind to do Apps quasi die Hello Worlds der Webentwicklung, so also
+machen wir mal eine to do Komponente, wie importiert man den Krämpel denn jetzt, put not find
+a declaration, who cares, also import und dann to do, boah, autocomplete alter, pock,
+so einfach geht das und jetzt kann ich das hier drin verwenden oder wie, to do, oh, nee,
+nee, so funktioniert das schonmal nicht, das sollte eigentlich test, test, test jetzt gerendert
+werden, groß, ahhh, groß schreiben, custom components schreibt man groß, die App hat
+ein Bug, wenn man die Checkbox vom ersten Element anklickt, wird die vom letzten angehackt,
+was, oh, nein das stimmt doch überhaupt nicht, das stimmt nicht, das sieht nur so aus, der
+sortiert alle Sachen die dann sind nach unten, das sieht nur so aus wenn die Sachen überall
+gleich sind, guck, aber, aber er buggt, er buggt wirklich ein bisschen rum, er buggt wirklich
+ein bisschen rum, das stimmt so nicht, er stimmt, stimmt, warum denn überhaupt, warum
+buggt er da so rum, jebaited, aber vielleicht können wir das lösen, wenn wir da wirklich
+paar komponenten draus machen, dass man da besser durchblickt, muss noch eine animation
+rein, du meinst für das, für das anhaken, der checkbox, nein wir haben ja schon unsere
+progress bar, hier oben sollten wir vielleicht noch ein bisschen, noch ein bisschen mehr
+abstand machen oder wenn wir gerade dabei sind, progress, hier, nee, das ist der button,
+marching button, bottom to, hier, es ist nicht marching, es ist padding, oder, ich verwechsel
+das immer, so, so ist ok, da ist der abstand gleich, wie wenn die to do's gespeichert in
+deinem local storage im browser, aber ich werde das so machen, dass du dir das, dass
+du das sharen kannst, du kannst das einfach als base 16 exportieren, jemand anderem schicken
+und dann lädst du das gleiche wieder, ok, also das mit to do rendern hat aber funktioniert,
+ok, wie können wir jetzt die to do's zu so einer component, component machen, also, was
+haben wir letztens gelernt, ich habe mir das tutorial erst letztens durchgeklickt, wir
+brauchen export, kons, nee wie ging das, export, kons, das ist das was man setzen kann außerhalb
+von anderen komponenten, so, so ein to do braucht einen text, nee das stimmt so nicht,
+du konntest schon mal gar nicht, ok, ich muss das tutorial gucken, ich muss das, ich weiß
+immer wie das funktioniert, so, tutorial, props, export, ah, nicht konntest, let, also, so
+ein to do hat einen text und so ein to do hat ein state ob dann oder nicht, so ein to
+do hat created im prinzip das was ich als javascript dinger da angebe, meine idee war
+folgende, also das würde ich aber so nicht machen wenn du ein backend hast, also meine
+idee war folgende, das ist ja eine app die läuft rein kleinzeitig, also das passiert
+alles im browser nachdem die seite ausgeliefert ist, so und man hat hier bei local storage,
+ja Quatsch hier, bei local storage steht halt der krempel drinnen, das ist einfach das
+jason als string von den to dos, guck text, titel, bla bla bla, so und was ich mir gedacht
+habe ist folgendes, wir könnten das so machen, nachdem das ja nur lokalbadir im browser drin
+ist, man könnte das ja so machen, dass man einen button macht sharen, so und dann klickt
+man dann drauf und dann bekommt man einen link der ungefähr so aussieht, so und wenn
+man diesen link da nimmt und jemand schickt, also in diesem link stecken dann halt base
+64 all encoded, ich mein das ist bestimmt keine schöne variante aber was anderes fällt
+man nicht ein ohne backend, da stecken halt all encoded base 64 der kram drinne und wenn
+die seite damit aufgerufen wird, füllt sie das halt initial einmal und legt vielleicht
+hier auch ein neues imported buch oder sowas an und so könnte man to dos quasi austauschen
+als snapshot, sobald man wieder was editiert, editiert sich das natürlich nicht auf magische
+art und weise beim anderen, so und um das ein bisschen zu verkleinern könnte man das
+noch gzipen vorher, quasi zippen, base 64 verpacken, all encoden und auf gehts gib ihm,
+hat man ein backend erübrigen sich alle probleme, also was braucht denn so ein to do als komponente,
+ist dann created, was haben wir dann hier noch drinne, id, id, id, ok, eigentlich Leute
+was sagt ihr, eigentlich müssten wir noch nen button als komponente createn oder, wieso
+hast du kein backend, weil ich keins brauche, weil ich das alles lokal im browser speichere
+und der sinn ist ja, dass ich swelt lerne und nicht, dass ich jetzt irgendeine asp.net
+core craftql anwendung mache, backendless ist das neue serverless, genau, wo kein backend
+ist, kann es backend auch keine probleme machen oder ausfallen, 100 prozent hoch verfügbarkeit
+leute, uptime 100 prozent, wobei das stimmt ja nicht, ich brauche mir noch nen webserver
+das ganze auszuliefern, aber das könnte man wirklich sehr, sehr ausfallsicher machen,
+man könnte das beispielsweise verteilen lassen über netlify oder sonst was, oder aber man
+würde das beispielsweise mit, keine ahnung, an 3 verschiedenen standorten sich server
+mieten und es darüber ausliefern lassen, irgendwie sowas, das könntest du echt ziemlich ausfallsicher
+machen, sind sweltkomponenten dann datenstrukturen, wie du gerade definierst oder ui-komponenten,
+das sind alles ui-komponenten, es geht nur hier um frontendgeschichten, der also sinn
+und zweck von so einer sweltkomponent ist, dass ich anstatt, anstatt sowas hier zu machen,
+schreiben kann, so, das ist der sinnvolle so einer sweltkomponent und dann bräuchte ich
+natürlich noch hier einen state, den ich übergebe, übrigens mir ist gerade was eingefallen,
+es geht noch viel einfacher, wie wir das hier machen, wir übergeben einfach gar nichts,
+wir übergeben einfach ein to do element von unserem, als javascript element, den rest
+kann ich hier drinnen rendern, überhaupt kein ding, wie sieht es mit excel aus, oh Gott,
+excel export werde ich bestimmen, leute, das ist nicht dafür gedacht, dass es wirklich
+jemand verwendet, ja, also wir brauchen jetzt keine super krassen features, falls wirklich
+jemand das, ich meine, leute, ich habe mir hier schon backup als file, excel, vielleicht
+gibt es javascript xls exporter, gibt es bestimmt, js xls export, excellent export, bester name,
+das muss ich eigentlich fast schon einbinden, excellent export, exquisite exportieren hier,
+excellent export, excellent, javascript to export excel or csv, leute, es ist soweit,
+wir machen einen excel export, excellent export, jetzt ist es soweit, ja, es gibt kein cross
+side scripting, ich habe kein backend, wo irgendwas cross side gescriptet wird, es
+gibt cross side, existiert nicht, wenn du als erstes großes projekt eine app machen
+würdest, würdest du damit, achso, du willst eine app bauen, also die sache ist die, ich
+habe von react nicht viel plan, aber ich habe von flutter auch nicht viel plan, ich würde
+wahrscheinlich react native nehmen, weil ich noch mehr ahnung von javascript habe, als
+von flutter und dart, achso, wenn du export mit base64 machst, da gibt es auch nicht
+viel, was ich da cross side scripten könnte, da müsstest du irgendwas finden, da müsstest
+du irgendeinen bug im browser finden, der json pass dazu veranlasst, irgendwelche dinger
+auszuführen, die es nicht ausführen sollte, das halte ich für recht unwahrscheinlich,
+ja, also wenn du eine sprache lernen willst, die noch mehr bereiche hat, dann muss es
+ja auf jeden fall react native sein und javascript, weil flutter ist dart und dart hat keinerlei
+ansatz, also absolut gar keinen einsatzzweck neben flutter, leute fällt euch neben flutter
+irgendwas ein wofür man dart verwenden sollte, das war klar, das war klar, dass irgendwas
+in der richtung kommt, ne also gibt nix, wir können uns marcel scorpion prostitution dart
+channel angucken, ja, genau, der hat ahnung von dart, das stimmt, der ist big brain was
+dart angeht, wie sag ich das logo von dart, dart lang logo, naja, dann muss ich sagen,
+das beste an go ist eh das maskottchen, also go hat ein gutes maskottchen, das muss man
+schonmal sagen, gibt es auch in allen möglichen abwandlungen, rust logo ist die krabbe, ne,
+quatsch nicht das rust, das andere rust, ja das ist die krabbe ist das maskottchen hier,
+dart hat, dart lang, das sieht aus als hat es irgendeinen twitter mitarbeiter entwickelt,
+was zum, what, ich wills gar nicht genau wissen, hat c++, c++ hat kein logo, also kein maskottchen,
+c++ hat dieses standard, hat c++ ein maskottchen, ein scheißhaufen, ja das würde passen, das
+ist ein ziemlich gutes maskottchen für c++, gebe ich hinzu, also genau so stelle ich mir
+das c++ maskottchen vor, ja, so wir machen jetzt noch leute, konzentraten, also wir wollen
+ein to do component bauen, eigentlich bräuchte man aber noch eine, also zumindest bräuchte
+man ja noch eine image component, aber ist egal, wir kopieren uns das mal raus, das diff,
+so das hier wird jetzt unsere to do component, remove to do, oh ne, jetzt muss ich gucken
+wie ich events werfen kann, wisst ihr was noch besser wäre, wir müssen keine events
+werfen, wie schert man jetzt korrekterweise ins welt, nen objekt, also sagen wir hier
+diese to do liste, wie schert man das übers welt korrekt über mehrere components, mit
+nem store glaub ich, die problem ist ich hab im tutorial die sache mit stores übersprungen,
+das wird das welt store, aha, oh import count from stores, ja das ist eingebaut, das ist
+eingebaut, aber das hab ich übersprungen im tutorial, weil ich mir gedacht hab das, leute,
+warum machen wir das nicht einfach, wenn ich das hier, moment, wie macht man globale variablen
+in javascript, glaube, ne war, war oder, war, wie macht man globale variablen, ist das war,
+das testen wir jetzt, could not find, nein, nein, nein, nein globale variablen, kein wundern
+dass du das nicht finden kannst, ich glaub das ist nicht the way das zu machen ins welt,
+ne, das funktioniert nicht, to do list is not defined, pass mal auf, ich hab die big
+one, ja, was, ok, äh, wie share ich das denn jetzt, so, aha, ne, ne, ne, ne, ne, ne, ne,
+NEIN, NEIN, NEIN, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE, NE,
+use writable stores ok meine intention war schon korrekt import count from stores.js
+stores.js import writable from store alles klar so store.js brauchen wir jetzt wo legt
+man das an wahrscheinlich hier store.js wobei eigentlich sollte man das oben drüber egal
+so store.js import writable from swell store const was wollen wir denn store ein to do
+ja das ist ein java javascript objekt da muss man bestimmt sowas machen const count to dos
+ok und jetzt importiert man das mit import count monkaS ich habe keine ahnung was ich
+hier treibe aber einfach mal tutorial geskippt nur fai fat leute tun dies doch das ist kein
+javascript objekt ihr habt recht chat das ist ein array und jetzt import count stores warum
+stores wie war das mit dem import noch mal außerdem ist es nicht count das ist to dos
+fail to resolve import stores.js da ist es doch nicht todes to dos
+fail to was
+hä wie fail to resolve wie man muss man mal lib
+es heißt nicht stores es heißt ah guck mal da store.js und ich sollte es eigentlich stores
+nennen ah da kommen wir das sache schon eher ah cannot set property of undefined source
+count is count value subscribe hä ah wie kann ich den store einfach auslesen hat nicht
+letztens einer was gesagt von einfach ein dollar davor machen das war doch beim progress
+auch so progress guck mal einfach ein dollar davor machen hat er gesagt
+was genau hat er jetzt für schmerzen das problem ist bestimmt dass jetzt to dos doppelt
+dass es das jetzt doppelt gibt ne internal server error ich probiere was das ist bestimmt
+so ich nenne es mal to dos hä was hat er denn für schmerzen jetzt read is self accepting
+was wer accepte da self irgendwas hä ist es vielleicht so was ist denn der unterschied
+zwischen mit klammern oder ohne klammern.slash stores.js ist doch da ok was genau hat
+er denn jetzt für schmerzen 500 von ich weiß nicht mal von wo so ich breche das einfach
+mal am start das nochmal neu stores does not provide an export named default ist mir noch
+egal soll man das mal ausblühen wie es hier drinstehen hat mit der null was juckt es mich
+ob die irgendwas mit default exportieren also das problem ist nicht der import das geht
+jetzt weil ich es eben wenn ich es hier importiere ist das gleiche problem ne da ist jetzt doller
+auf export named default ja wo ist denn das problem klammern ne das macht auch kein unterschied
+oder ah keck wait hatte ich das net die ganze zeit so und hab es erst nachher geändert
+ah ja alter java script please da soll nochmal einer durchblicken so und jetzt kann ich das
+hier ausgeben doller to do's jawoll aber da ist ja nichts drin render render ich das
+hier irgendwie to do ja so render ich das hier irgendwie mal testen ja ich render das
+also hier oben sollte es jetzt eigentlich stehen ok stores to do's set 1234 aha es
+funktioniert es funktioniert sehr schön so das heißt ich ersetze meine to do's jetzt
+die ich hier habe durch import to do's moment was wollte ich überhaupt machen ich ich bin
+verwirrt warum wollte ich das überhaupt noch mal machen ah ich wollte das machen dass ich
+remove to do hier drinnen benutzen kann aber das ist doch bescheuert dann ist ja die dann
+ist ja die komponente komplett verheiratet mit der oben drüber nee ich muss das ist
+eigentlich schwachsinn was ich hier mache das ding das ding müsste ein event werfen
+bitte to do on click das müsste ein on click removed event werfen einfach ok ok ok also
+also wie war das jetzt export led to do den shit kann ich wieder rausschmeißen und hier
+kann ich auch wieder rausschmeißen falls ich schon importiert habe nee 12 euro was to do's
+ist not defined ja ich weiß ich weiß ok also jetzt wenn ich das to do hier rendern will dann
+müsste ich hier ein to do ok wir wir wir kommentieren das mal aus ja so wir kommentieren
+jetzt mal aus da sollte jetzt nichts passieren genau so und jetzt rendern wir das to do und
+sagen ihm to do ist quasi das da was wir hier haben hey wie es einfach mal funzt guckt euch
+das mal an wie es einfach funktioniert also was dann nicht funktioniert ist das mit dem
+remove weil das nicht subscribed ist in irgendeiner art und weise zu dem event hier oben jetzt so
+jetzt muss ich gucken wie kann ich scrollbar oft kann hier auch raus scrollbar jetzt sieht
+man doch mal wie schön das ist wenn man das modular hat jetzt sind die styles auch nur da
+wo man sie braucht so und jetzt ist die frage wie werfe ich events das was geklickt wurde
+zum beispiel das stand auch im tutorial aber ich glaube das habe ich auch geskippt mit
+der aussage wenn ich es brauche dann weiß ich wenn ich es brauche und habe es geskippt
+events händel maus events ja das weiß ich wie es funktioniert auch klar ich muss gucken wie
+man das aus einer komponente wirft ich muss quasi das was unter wie es mit ist muss ich
+machen dispatch dispatch brauche ich components kann also dispatch events to do so they must
+create an event dispatcher click say hallo tommy hallo ja ok on message man konnte das doch
+also was muss ich jetzt machen ein dispatcher ok das ist aber schon ganz schön ganz schön
+durch die brust ins auge wieder kann man nicht einfach sagen vorwarnen dass das ging doch
+glaube ich auch unlike components events don't bubble if you want to listen event on some
+deeply nested component the intermediate must forward event in this case you have to say
+create to listening to message and create an end but that's a lot of code right so it
+gives an idea forward all message events ane das brauche ich nicht das ist wenn ich das
+weitergeben will das will ich ja nicht ich bin ja jetzt an der komponente die quasi sagt
+ich wurde geklickt ok dann ich dann mache ich jetzt einfach so einen komischen event
+dispatcher meinetwegen event dispatcher message wenn man nicht so ganz sicher was ich hier
+mache dispatch delete oder so kein keine keine options on delete ich habe wirklich keine
+ahnung was ich hier mache ich hoffe einfach dass das funktioniert ok remove wie wirft
+man das event jetzt zurück alter component event ich blicke mal ich das jetzt jetzt
+einfach mit und die lied so das heißt aber auch ich könnte dispatch die lied direkt
+machen aus der geschichte hier oder da bräuchte ich das nicht ok es schmeißt schon mal keine
+sinnvoll ist keine unsinnigen fehler das ist schon mal gut so und jetzt bekomme ich hier
+einen event und die lied alter auto complete ich glaube es nicht kommen high iq software
+hier und die lied auto complete und die lied so remove to do ob das jetzt klappt
+wäre auch zu schön gewesen warum funktioniert das jetzt nicht wird denn das und die lied
+wird wenigstens geworfen und die lied log 123 ok das und die lied wird geworfen aber
+das mit dem delete funktioniert nicht remove to do ach die id brauche ich die id brauche
+ich ok wir wir sparen uns das ding wieder jetzt immer noch das geht aus irgendwelchen
+krüpp oh ok anscheinend braucht man das warum warum geht warum geht das nicht warum das
+verstehe ich nicht warum geht das nicht und vor allem warum fällt das warum fällt das
+ohne warum geht das nur mit so einem zwischen mit so einem zwischen event und nicht direkt
+ok das ist doof aber ja gut kann ich mit leben sehr schön gut ja guck mal jetzt ist das ganze
+weil es sofort ausgeführt wird wie weil es sofort ist doch ok wenn es sofort ausgeführt
+wird oder was meinste da das verstehe jetzt nicht so aber da sieht man jetzt schon mal
+den vorteil davon wenn man das modular macht wie übersichtlich das ganze sein kann guck
+mal unsere unsere haupt ich meine das ist immer noch eklig aber die eigentliche seite
+ist jetzt hier drauf geschrumpft probier das mal ok jetzt jetzt jetzt wird es highly
+highly advanced massive iq also lambda stellt ok das muss mir jetzt einer erklären warum
+geht das und das andere nicht ach so wenn ich das so schreibe dann führt er das beim
+rendern direkt aus oder was ach so ok ja aber dann aber dann sag doch mal leute dann ist
+das hier dann ist das hier wahrscheinlich die schönere variante oder ja wenn sogar
+jemand sich neu ist im chat melde und sagt ja dann kann ich von ausgehen das ist wirklich
+die schönere variante ja nice ok poc und die lied aber eigentlich theoretisch bräuchten
+wir jetzt noch eine extra komponente für die ganzen eikens weil er würde das auch weg
+fallen aber jetzt brauchen wir noch wir brauchen ja noch on was ist das für ein event bind
+check dann ne das ist kein problem der setzt das to do direkt auf dann dann ist dann ist
+kein problem jetzt ist natürlich die frage wenn ich das in der sub komponent auf dann
+setze klappt dann das reactiv zeug hier oben drauf noch na gut können wir einfach ausprobieren
+so nein das funktioniert dann nicht mehr guckt mal wobei hat das jemals funktioniert hat
+er sich jemals habe ich noch nie ausprobiert chat wo können wir hier testen wir haben es
+ja hier online wir können ich habe sogar noch eine alte version geladen an die brauche
+ich nicht to do punkt keckwe punkt services ja guck mal der hat sich gemerkt was dann
+ist das funktioniert jetzt nicht mehr wenn man das in der in der child komponent irgendwie
+auf dann setzt warum nicht das ist ja ziemlich blöd
+beincheckt das ist jetzt nicht mehr reactiv was ist das für ein müll wie soll ich das
+jetzt ordentlich machen das ist jetzt nicht mehr reactiv weil ich es in der child komponent
+verwende ja aber das ist doch kacke da muss ich ja aber das macht es doch dann viel komplizierter
+dann ist es doch wieder besser ich lasse das alles im index drinne
+ja das ist ja blöd wenn er sich das jetzt nicht mehr merkt das ist richtig bescheuert
+das welt reaktiv objekte komponent parent vor was auch immer das reaktiv reaktiv statement
+es war ein tristand wenn es baut schalke eben schalt bein was
+das muss irgendwie schöner gehen ok vielleicht muss ich jetzt doch vielleicht muss es jetzt
+doch in den store sein leute wobei ne store ist auch egal ich übergebe es hier ja als
+als eins ja das ist das das ist ja müll da habe ich jetzt da habe ich jetzt wirklich
+keine sinnvolle antwort drauf wenn es wenn es reaktiv die zeugte aber warum funktioniert
+es denn nicht mehr ja da bin ich jetzt überfragt das ist irgendwelche
+zwelt internen geschichten wir gucken uns einfach mal zwelt jetzt geht ab die haben
+noch eine to do ab die haben noch eine eigene to do ab drinne da gucken wir uns jetzt einfach
+mal ab ab wie die das gemacht haben wobei ne wir können es doch hier angucken noch
+hier cd repos zwelt und dann haben wir doch hier cute cute chat app das ist das demo
+projekt counter so wo sind denn die ganzen to do's about index to do's hier type das
+ist ja ok das ist typescript stels wo rendern die das each to do ja das ist genau das was
+ich auch mache witzigerweise ich habe da noch bis heute nicht reingeguckt aber gut es gibt
+ja nur eine was ist das denn hier für big brain zeug transition scale local was ist
+das animate flip das irgendwelche ne das ist doch auch tail ist es auch tailwind oder gachirol
+ne wo kommt wo kommt denn das her das eingebaute animations kram animate vielleicht ist es
+eingebaut das welt animations kram aber dann ist es garantiert keine css geschichten sondern
+irgendwelche javascript sachen ja kommt man die haben auch keine to do komponenten kommt euch
+das irgendwie bekannt vor das ist genau das das ist genau das was wir machen ja die haben keine
+to do komponenten na super da kann ich mir jetzt auch nichts abgucken aber das ist ja hängen geblieben
+warum ich weiß gar nicht nach was ich da jetzt suchen soll wenn ich ehrlich bin muss man das
+irgendwie muss das irgendwie reaktiv da vorschreiben ok das ist ok ich weiß aber nicht zu swelt pop parent
+reaktiv prop update from parent was spreading pops nested triggers komponent binding ok tutorial
+stellts auf gehts bind value pin just as you can bend to properties of dom and you can bind to
+component props ja ich will aber das umgedrehte haben weil das was ich hier übergebe ist ja
+schon das to do oder muss ich dann sagen nee nee das ergibt keinen sinn feind feind
+nee
+ich das kommt ja aus dem parent und übergebe ich an an die an an die child component so und
+wenn ich darin jetzt hier den state update dann kriegt das parent das nicht mit ausprobieren
+ob es das wirklich nicht mitkriegt das bekommt das nicht mit das ist kacke ok da habe ich
+jetzt keine lösung für keine sinn keine sinnige das nicht das event forward ich meine ich könnte
+sicherlich den event werfen das würde das das das würde schon funktionieren ich könnte so was
+sagen wie und checkt oder so und checkt so dann muss ich jetzt aber sagen und
+checkt
+nee das ist ja hier das ist ja to-way data binding das ist ja viel das
+ist ja noch viel besser als den event zu werfen jetzt müsste ich und checkt und
+und und und uncheckt händeln das ist doch richtig das doch richtig bescheuert ok und
+checkt geht sowas ok probieren wir mal aus was jetzt passiert wenn ich hier noch sage
+und die liet und und checkt und da muss ich jetzt brauchen jetzt extra wobei ich könnte
+ich könnte direkt sagen hier du dann gleich ja nicht nicht gleich zu das ist halt kacke
+sondern checkt status irgendwie nö wird das überhaupt wird das überhaupt geworfen console
+log nö ach nee da musste man auch wieder was machen da muss man jetzt wieder den da machen
+das funktioniert und ok und checkt gibt es als event anscheinend gar nicht ja da bin
+ich jetzt wirklich überfragt wie würde man das denn jetzt machen also es gibt keine events
+was gibt es denn hier für on
+und change nee change und change ok und checkt was hältst du von custom mechanischen keyboards ich
+habe noch nie ein custom keyboard gehabt ich habe hier ein logitech mechanisches keyboard auf der
+bei ducky one skyline die kontext api jetzt wird es aber das ist relativ basic geschichte
+das komme ich mir gleich an so und jetzt sollte er zumindest jawoll ok ok das funktioniert
+und checkt und jetzt kann ich hier sagen und und checkt und wenn ich wo kriege ich den status
+hier state da müssen wir jetzt auch sagen ob das oft oft oder on ist
+ach du scheiße was denn das sehe ich da nicht einfach ob es oft oder on ist
+alter javascript type checkt warum steht den event alter warum steht in diesen event properties
+nicht drinnen ob es jetzt an oder aus ist ok checkbox mozilla zeigt mal her was gibt
+es dafür events change ja super taget value event tagt das ist ja abartig
+also also kann ich ja quasi sagen hier taget zeigt man ja wo ist es denn taget ist null wird
+er immer schlimmer ja taget checkt ok also kann ich das dann hier
+drinnen umbiegen taget checkt so und hier bekomme ich dann raus ob true oder false von
+so log warum ist das jetzt ein custom event moment gibt es da gibt es da zwei da zwei
+was zum geier alter was ist das wieder für javascript gedöns
+nee nee nee nee nee nee document get element by ad damit fangen wir hier erst gar nicht
+an detail ok dispatch ich muss das muss ich jetzt hier noch mal kurz in der hilfe angucken
+bindings events so event detail ja klar das kann ich machen
+das input Leute hört mal doch mal auf die doko fortzulesen und irgendwelche sachen raus
+zu pasten nein das ist überhaupt nicht das problem das ist überhaupt gar nicht das problem
+das problem ist ich habe eine child component die eigentlich genau das gemacht hat was in
+der doko drin steht das problem ist jetzt dass ich den state in in der parent component brauche
+um dass das dort sich dinger automatisch aktualisieren wenn ich das direkt in der parent component
+drin stehen habe ist es kein problem aber wenn ich bein mache hier auf das to do in der
+child component dann geht es nicht und ich habe keine ahnung wie ich den state darauf
+kriege handle message machen die einfach handle message hier event details text also ich meine
+ich kann also das ist das event was detail was details oder detail so und jetzt haben
+wir hier wieder event custom event target null was jetzt blick ich dann mal durch ok
+jetzt blicke ich wirklich nicht mehr durch und es ist auch nicht so als gäbe es da irgendwie
+zwei sachen also das problem ist folgendes guck mal ich hatte hier sowas
+moment ich bin zu weit
+so ich hatte hier sowas bind checked to do dann so dadurch das ist ja jetzt so to
+way data binding so dadurch dass ich das in der child component dass ich das angeklickt habe hat
+er automatisch hier oben dieses reactive ding ausgeführt also sobald sich ein to do geändert
+hat in to do's hatte dieses reactive ding ausgeführt was unter anderem halt die sachen
+im local storage gespeichert hat funktioniert wunderbar jetzt wenn ich das to do beinde in der
+child component ich habe das jetzt ausgelagert von index ich habe jetzt sowas hier das ist
+schwachsinn ich habe jetzt sowas hier gemacht so und wenn ich jetzt hier klicke ist es nicht
+mehr reactive im parent obwohl ich gesagt habe ein check so bein reactiv welt parent child ein
+parent store vom child meinetwegen ich will einfach nur wissen wie es funktioniert vielleicht brauche
+ich irgendwie es ist er rief wahrscheinlich hast du irgendeine ahnung das nächste was ich
+gesagt habe ist man will nehmen jetzt ein event aber das ist eigentlich dann voll durch die
+brust ins auge das durch irgendein event zu schleusen wenn es doch two way data binding gibt
+ist
+Bind, Reactive, Parent Child, Svelte, Svelte, na das Problem ist, also normalerweise, wenn
+ich das hier anklicke, die Checkbox, dann setzt er das To Do auf Done.
+Soweit klar? So und wenn er das To Do auf Done setzt, dann
+läuft hier oben dieses Reactive Ding, weil sich To Do geändert hat und er schreibt es
+in Local Storage. Das läuft nicht mehr.
+Seitdem ich so eine Child Component draus gemacht hab aus meinem To Do und es da drinnen
+bindet und da bin ich jetzt echt, ich mein klar, ich könnte das wie gesagt über irgendwelche
+Events schleusen, aber das kann doch nicht Sinn und Zweck der Sache sein.
+Wenn es Two Way Data Binding gibt, ich hab ne Idee, was wir nochmal probieren könnten
+ist, updated der das überhaupt im Parent oder nicht?
+Wir machen jetzt mal was, was man normalerweise nicht macht, aber einfach Set Intervall, dass
+ich mir das ausgeben lasse, was in To Do drinnen steht, alle Sekunde, so To Do's, ok, so man
+sieht die To Do's stehen auf False, so und jetzt sagen wir mal hier alles auf True und
+die Dinger stehen auf True, aber das klappt nicht, ja das, da finde ich aber meinen Fall
+nicht drin wieder in dem hier, das ist wenn du ein Child Property irgendwie Binden willst,
+aber ich übergebe ja das To Do an das Child und ich will nicht im Parent mich an ein Child
+Dings Binden, sondern ich will einfach gar nichts machen.
+Ich will ihm das To Do übergeben und der Rest soll automatisch funktionieren, weil
+so hat es ja auch funktioniert, wenn es im Parent drin steht, also da finde ich jetzt
+nicht den Zusammenhang so richtig dazwischen.
+So der aktualisiert das hier auch drin in To Do's, aber was ich nicht verstehe, guck
+mal, der aktualisiert das, aber warum läuft denn jetzt das Reactive Zeugs nicht, wenn
+das hier auf, ich meine es funktioniert ja offensichtlich, glaube das Bind fehlt, wo,
+meinst du hier direkt Bind To Do sowas, meinst du das muss so gemacht werden, meinst du das
+muss so gemacht werden, easy, ok das war glaube ich jetzt zu einfach, das war glaube ich jetzt
+zu einfach, achso, ja das ist ja easy, ok das habe ich aus dem Beispiel nicht extrahieren
+können, dass das so gemeint ist, ja dann ist doch, ok dann ist ja easy, ok jetzt zack,
+am, Funst, genauso muss das sein, chat jetzt tut man nicht so als hätt ihr es verstanden,
+die Zoomer ist wieder hier, die ganzen Zoomer, wobei ihr seid wahrscheinlich genauso Boomer
+wie ich, ja das ist ja easy, ja so ist doch viel besser, ok, dann kann ich mir dieses
+oncheckt und das ganze geduldens sparen, so und jetzt, nachdem wir das jetzt haben, jetzt
+eigentlich wäre es doch auch noch gut, wenn wir uns irgendwie so eine Art Image-Image-Component
+bauen oder, weil naja, das mit den Bildern ist auch nicht so schön, gibt es nicht schon
+fertige Zwelt-Hero-Icons, welchen Windows-Manager ich benutze, achso, ne ne, das ist keine Windows-Kiste,
+das ist Linux, ich hab Windows am Start und ich hab auf, ich zeig dir mal wie es ist,
+ich hab auf dem zweiten Desktop, ich hab drei Desktops auf, auf dem ersten Desktop ist
+mein Windows, auf dem dritten Desktop ist hier mein Cloud-Gedöns, wo wir die Sache
+drauf laufen haben und auf dem mittleren Desktop ist eine Forever Workstation im Fullscreen,
+die Linux laufen hat, ich weiß, das sieht schön seamless aus, ne, es ist aber ein Linux
+und es ist echt angenehm zu benutzen, es ist einfacher Linux in Windows zu virtualisieren
+als Windows in Linux, Acts getropped wieder hier, zeig mal hier, Svel, Svel Hero-Icons
+NPM, zeig mir, gibt es da irgendwas mit gescheiten Download-Zahlen, 25 Sterne, 25 Sterne, 12 Sterne,
+ok das Ding ist halbwegs aktuell, das können wir gleich nehmen, NPM, Svel Hero-Icons und
+dann sagt man was, add this to your white config.js, was, i, ich muss zusätzliche
+Configs machen, ne ne ne ne, ja i3 für Windows wäre richtig, Poggers, was machen die da,
+Boah, nee, das ist mir zu umständlich.
+Du, tu, tu, v.a. muss man da noch den komischen Dinger rumfuddeln, nee, nee.
+Ich meine, es wäre schon cooler, wenn wir hier sowas hätten, wie, sagen wir mal, Icon.
+Icon. Und was ist denn das jetzt überhaupt für ein Icon?
+Steht das da irgendwo noch? Nee, das ist das SVG. Also, keine Ahnung,
+wenn ich sowas sagen könnte, wie Icon Trash z.B., das wäre natürlich viel praktischer
+als so ein Ding hier. Aber man kann ja alles haben.
+Es ist auf jeden Fall schon mal deutlich, deutlich schöner anzugucken, wenn wir das
+To-Do als extra Komponente haben. So, ich glaube, mehr müssen wir gar nicht
+machen. Das tut es jetzt erst mal, das To-Do als extra Komponente, den Rest können wir
+so lassen. Da müssen wir nichts mehr großartig auslagern,
+ist eigentlich alles ganz gut passend. So, als nächstes, was ist das?
+Ah, das ist der Add-Knopf. Ja, sag mal, ich glaube, es macht doch jeder
+Spaß. Die ersten zwei Komponenten, die jeder sich in so einem, in jedem Projekt zusammenbaut,
+ist Button und Icon, oder? Ich glaube, wie zwei Dinger wird sich jeder
+als erstes Mal zusammenbauen. Moin. Duvel 420. So, was haben wir sonst noch
+jetzt? Die Progress Bar könnten wir tatsächlich eine eigene, ja, die Progress Bar würde sich
+tatsächlich anbieten, dass wir sowas hier machen können.
+Nicht Progress und dann Value, sowas. Ja, ja, das ist gut, das machen wir jetzt.
+Da können wir nämlich noch mal ein bisschen üben. Also, ich kopiere das jetzt einfach.
+Gibt es sowas wie Duplicate? Copy? Oh, egal. Progress. So, Export Value. Der
+ganze andere Krempel kann eigentlich weg. Brauchen wir hier nicht. So, die Progress
+Bar kommt da rein. Sonst? Ich glaube, mehr brauchen wir eigentlich
+gar nicht. Michael 50 Billion, das ist immer schön
+zu sehen, wenn Du da bist. So, Value. Moment, was ist das? Warum ist das
+ein Store? Ah, das ist ein Store wegen dem Kram hier.
+Das ist sogar noch besser, wenn wir das auslagern, weil dann haben wir den Mist nicht in der
+Hauptkomponente. Leute, wie macht man das eigentlich?
+Export immer oben oder immer unten? Mein Imports sind oben, das verstehe ich.
+Import immer unten? Gibt es da irgendwie so eine schlüssige JavaScript-Logik?
+Export direkt nach Import. Leute, mein Visual Studio Code ist gecrasht.
+Ich verstehe immer noch nicht, warum das hier manchmal crasht.
+Hatten wir gestern auch schon. Hier sind wir.
+Das ist irgendwas anderes. Ah, das ist die Beispielanwendung.
+Ja, Elektron im Einsatz. Elektron live. So, Process is not defined.
+Die ganzen Imports hier brauchen wir noch. So, und jetzt sagen wir nämlich anstatt Progress
+hier, sagen wir einfach nur, Progress, äh, wait a minute, wo setze ich den Progress überhaupt?
+Ah, Zack, jetzt, jetzt, Progress set. Ach so, das setze ich ja hier drin.
+Dann muss ich das, okay. Ich meine, das kann ich auch alles in die Komponente auslagern
+eigentlich. Was läuft da für Musik? Das ist irgendeine
+Nintendo-Playlist. Irgendeine, so, also wir können das da wegmachen
+und sagen, Progress, hat er das jetzt automatisch importiert eigentlich? Ist er so schlau?
+Boah, guckt mal hier. Massive big brain. Block was left open. Ach so.
+Progress is not defined. Ja, ja, ich weiß, ich weiß.
+Progress is not defined. So, jetzt passiert natürlich nichts.
+So, dann geben wir unsere Progress rein und sagen ihm, wir wollen, wir wollen nicht wirklich
+value. Wie machen wir das jetzt, wie kriegen wir
+den Wert, wie kriegen wir den Wert? Ich meine, ich kann ja von hier das nicht
+direkt in die Komponent schreiben. Kann ich jetzt sowas hier machen?
+Let progress, das ist zwar nicht schön, aber das müsste ja erstmal funktionieren.
+Nee, nee, es funktioniert nicht. Warum nicht? Weil es value heißt und nicht
+progress. Value heißt das. Ohje.
+Value is not a store, but it's a subscribe method. Ach so.
+Okay, Moment, jetzt. Moment, ich blicke nicht mal durch.
+Das jetzt, das jetzt ist wieder zu viel Svelte-Magic. Ich setze das value hier doch.
+Hä? Wenn ich das rausnehme, aber da ist es nicht
+mehr animiert. Jetzt ist es nicht mehr animiert.
+Und jetzt? Ja, nee, das gefällt mir auch nicht so.
+Nee, das ist kein, das ist kein Store. Das ist einfach ganz normale Variable, aber
+das ist nicht schön gemacht. Na, der progress updaten sich.
+Warte mal, wenn du sagst Stores sind überall verfügbar.
+Das heißt, das ja im Endeffekt auch. Wenn ich. Hä, das wäre jetzt nee.
+Aber das ist doch jetzt nicht im parent verfügbar auf einmal.
+Kann ich das? Kann ich das exportieren? Echt?
+Okay. Ja, aber.
+Ich kann doch jetzt. Hä?
+Ich kann doch jetzt nicht einfach im, im, im, das da das gleiche nochmal machen im.
+Um drüber. Das habe ich doch schon mal angelegt.
+Nee, das kann so doch nicht funktionieren. Ich meine, ich müsste wahrscheinlich jetzt
+sowas hier machen. So, aber das ist alles, das geht, das geht
+auf jeden Fall, das geht auf jeden Fall besser. Ich müsste jetzt hier sowas sagen.
+Und dann müsste ich hier progress nehmen. Guck, jetzt ist es animiert, jetzt funktioniert
+es. Aber das ist sehr, sehr umständlich gemacht
+jetzt. Das muss ich mich auch ein bisschen mit beschäftigen, wie das funktioniert.
+Import, progress, from to do so. Ach so.
+Also quasi. OK, OK, das muss ich jetzt ausprobieren.
+Also ich mache jetzt das hier. Value können wir uns also schenken.
+Da bin ich mal gespannt, ob das jetzt funktioniert.
+OK, also export. Nee.
+Einfach hier export davor schreiben oder was? So, so und jetzt import, progress, from,
+was? Dollar lip slash progress.
+So was da. Ernsthaft?
+Das geht jetzt? Nee, Moment. Moment, das heißt doppelt.
+Ich habe jetzt progress, progress und hier. Also muss ich, was muss ich denn jetzt machen?
+Sowas? Alter, davon habe ich echt keinen Plan.
+JavaScript, lull. OK, das kann ich aber nicht doppelt progress
+nennen, da versteht ja kein Mensch mehr was. Progress ist not a valid SSR component.
+Was? Import, progress, progress. Oh Gott, ich blicke nicht mal durch was zum.
+And why? Does not provide an export named progress. Muss ich da sagen, let anstatt konst jetzt?
+Nee. Alter.
+Das ist Monarchs, da blicke ich nicht durch das mit.
+Das ist mir zu hoch. Das ist, das ist, das ist mir zu hoch.
+Das ist script magic, Alter. Blicke noch irgendjemand durch.
+Ich nicht. OK, das, das gibt es nicht.
+Aber warum nicht? Oder vielleicht doch als Konst oder gar nicht?
+Einfach so? Nee, nee, nee, so funktioniert das schon mal nicht.
+Aber warum sagt er mir, dass es. Das not provide export, aber das heißt doch
+genauso, dass sie bettet, dass sie bettet, darf das vielleicht ich denn es einfach pro
+darf das vielleicht nicht gleich heißen. Wenn es wenn es klein und groß.
+Das soll provide an export named pro. Wir kommentieren das mal aus, weil man nie
+weiß, was Sache ist. Oh, oh, er erkennt auch nicht, was es ist.
+Ob ich das hier mit dem export gemacht export let to do und es ist nicht so, dass man irgendwie
+so machen muss. Ich habe also da hört es bei mir bei JavaScript
+Sachen auf. Es ist nicht, dass man es irgendwie so machen
+muss, oder? Nochmal irgendwie, nee, das ist schon, ist
+schon richtig so. Das not provide an export named pro.
+Vielleicht irgendwas, weil ich oben was mit module machen muss oder so.
+Nee, jetzt, jetzt hört es bei mir auf JavaScript, Stells.
+Du kannst nur. Ich ich will das Ergebnis exportieren.
+Ich will diese, ich will das, was in dieser Variable drin ist, exportieren.
+Da habe ich echt keinen Plan von. Ok, module exports, Pog.
+Das ist genau das, was man sich an Weihnachten vorstellt.
+Export Function, stop all. Nee, ich mache hier export, export let,
+nicht export Function. Du könntest das in eine Store JS.
+Ja, das habe ich ja schon gemacht, aber dann, dann ist das andere ja fast einfacher, weil
+ich will, ich will ja kein extra. Guck mal, wenn ich hier eine Komponente habe,
+die alles enthalten soll für diese progress bar, warum sollte ich dann in irgendeine externen
+Store Datei irgendeinen Mist reinschreiben? Das module script ist das Magic, ich weiß
+nicht, wovon du sprichst, keine Ahnung. Hier das da oder was?
+Aber dann funktionieren die anderen Sachen doch nicht.
+Ok, wo hat er jetzt noch was von progress? Hier, value, value gibt es nicht.
+Und das Funktion jetzt oder wie? Ok, das soll jetzt funktionieren, also das
+heißt, ich sag jetzt hier importier, pro, pro ist jetzt set, percent, ach jetzt rennt
+er das gar nicht, weil ich das auskommentiert habe, ok, pro, hey, das Funktion, was hat
+er hier eigentlich für Schmerzen jetzt? Export Kunst kann ich jetzt machen, weil ich
+es nirgendwo anders beschreibe oder wie, Neusätze. Ach du scheiße Leute, chat, Monarch S hoch
+10, wer soll denn das checken man? Boah, das sind echt wir gewesen jetzt, nein,
+das ist nicht schlimmer als C++, das ist garantiert nicht schlimmer als C++, aber das ist schon
+ein bisschen verwirrend jetzt im Endeffekt, weil jetzt habe ich hier oben diese reactivity
+Geschichte und hier unten den progress, super. Woher weiß ich jetzt, dass ich hier oben gucken
+muss, dass ich weiß, was da reinkommt. Das ist nicht so schön, ich weiß nicht, also
+irgendwie, keine Ahnung, so wirklich schick finde ich das jetzt nicht. Also, weiß nicht,
+so wahnsinnig überzeugend tut mich das jetzt grad nicht, aber ich meine es ist schon mal
+schön zu sehen, ist wieder kaputt, warum ist jetzt kaputt? Irgendwas kurz broken. Könntest
+du, ja, also ich habe hier auf GitHub zwar nicht so ganz aktuell, aber halbwegs aktuell,
+bisschen von meiner config oder das meiste von meiner config, die statusleiste ist drinnen,
+die shellconfig ist drinnen, ich glaube die vimrc ist auch halbwegs aktuell, ja, da ist
+nicht viel drinnen in der aktuell, ja genau, ich habe ja mein ganzes aufgebohrtes vimzeug
+weggeschmissen, das t-max zeug ist drinnen, irgendwelche Startscripts und die configs
+für i3 sind drinnen, genau, ja, ne, aber das hat mich jetzt wirklich so echt die letzten
+Nerven gekostet, das finde ich auch nicht schön lesbar, muss ich ehrlich sagen. Ich fände
+es viel schicker, ich meine sowas, ne das unten reinschreiben ist auch blöd, ich meine,
+was ich machen könnte, ich habe eine Idee, was ich machen könnte ist auch sowas hier,
+wie ging das, Dollar Percent gleich so irgendwie, ne Dollar Doppelpunkt Percent gleich so Unexpected
+Token, dann ist es nicht gleich, ne Moment, zu viele Klammern, ne zu wenige Klammern,
+so Percent sollte sich jetzt ja updaten, automatisch, so da könnte ich das hier nämlich wegschmeißen,
+würde sagen Percent, geht jetzt hier unten rein als Let als Value, mal gucken, mal gucken
+ob das Sinn ergibt, was ich hier baue, ja ja, Bind, ne, ne Value, ne das geht jetzt
+hierfür wieder nicht, ne, kann ich nicht sagen Value Percent oder so, oder doch, ne, Request
+in Module does not provide an Export Name Pro, weil ich, ah weil ich sie oben noch stehen
+hab, ne das funktioniert dann von der Logik her nicht, Value Percent, ne ich glaube, das
+funktioniert nicht so, wie ich mir das jetzt gedacht hab, ne egal, keine Ahnung, das, es
+gibt ja auch kein Value hier, Bind, das erkennt er jetzt gar nicht, jetzt, jetzt, weil das
+wäre natürlich schicker, das wäre natürlich die schönere Variante, wenn ich das direkt
+so aktualisieren könnte, sobald sich die To Do's ändern, ich mein das ist auf jeden
+Fall lesbarer, weil dann wüsste man an der Stelle hier was reinkommt und der meckert
+auch nicht, wenn man was übergibt, was es gar nicht gibt, Bind Percent, ne, das gibt
+es ja in der Child Component gar nicht, wüsste schon Value sein, vielleicht, ne, aber der
+kann das ja auch gar nicht checken, der müsste jetzt irgendwie checken, ne das kann nicht
+funktionieren, der müsste jetzt ja irgendwie checken, dass ich nen Set machen will auf
+nen Store, als Bind, das checkt der doch bestimmt nicht, ne, das, das, Checkt der das hier,
+dass es nen Export gibt, ne das funktioniert überhaupt nicht, das muss man dann ohne diese
+Sache hier machen, Value, hier, Percent, ok jetzt vorbei Leute, jetzt blicken wir mal
+ein bisschen durch, Bind, Bind, ne, ne, ok, vergiss es, vergiss es, das mach ich jetzt
+nicht, das mach ich jetzt nicht mehr, reicht mir für heute, das ist echt genug, es ist
+22 Uhr, genug Progress, Action, Alter, Value is not a store with a subscribe method, warum
+nicht, Anzeige ist raus, morgen dann Backend Kobol, ja, genau, morgen dann Backend Kobol,
+so siehts aus, ne, ok, ne, das guck ich mir einmal an, boah genug ey, aber wir haben doch
+relativ viel cooles Zeug gemacht, ich kann jetzt die letzte Version nicht mehr pushen,
+weil die gerade broken ist, aber ist doch, ist doch ganz nice, da lernt man was, also
+ich muss sagen, ich könnte mir durchaus vorstellen, mal auch ein bisschen für was ernsthafteres
+Feld im Frontend einzusetzen, das macht einen wirklich gut durchdachten Eindruck, die Probleme
+die ich habe sind im Prinzip jetzt hauptsächlich, weil ich selbst noch nicht gecheckt habe,
+wie es funktioniert, das sind halt so Sachen, die musst du dir mal angucken und dann weißt
+du auch nach einer Zeit, wieso der beste Weg ist, was zu machen, welche Konsole hat
+dich am meisten geprägt Super Nintendo, ganz klar, es ist immer die erste Konsole, behaupte
+ich mal, also ich denke mal bei den meisten ist es die erste Konsole, so, irgendwas sollte
+ich mir doch hier noch angucken, vorhin einer geschrieben, achso to do, keqw, services, warum
+geht das immer noch nicht, ist das irgendwie broken oder so, to do,.keqw, so, wisst ihr
+das, hä, warum lädt denn das im Chrome nicht, der Server ist ab, müsste alles funktionieren,
+funktioniert doch, alles da, bestimmt Windows DNS Cache oder irgendwie sowas bescheuertes,
+so, also Server löschen, zack, jetzt gehts down, weg und Load Balancer weg, weil wenn
+ich das vergesse, kosts Geld und das will ich nicht, du wirst immer benachrichtigt wenn
+dein Toast fertig ist, lass mich raten, du hast das mit einer Steckdose gemacht, mit
+einer Steckdose wo du gucken kannst ungefähr was das verbraucht, was dran steckt und wenn
+das dann halt wieder fällt für länger als 5 Sekunden, dann weißt du der Toast ist fertig,
+vermute ich jetzt einfach mal, wenn nicht, würds mich interessieren wie du das gemacht
+hast, aber mit der Steckdose ist das am einfachsten, zu viel gelabert heute, guck dir mal, ich
+war heute, allen Ernstens, allen Ernstes, war ich jetzt 5, 6 Stunden online heute, das
+ist für meine Verhältnisse enorm viel, halber Arbeitstag, ne ist für mich schon fast ganzer
+Arbeitstag, tja, guck mal ob irgendjemand on ist, den ich folge, der das bräuchte gehostet
+zu werden, aber sieht nicht so aus, ne, ok Leute ich geh jetzt ins Bett, wir sehen uns
+morgen früh, auf Wachestream, bis denn, machts gut, see you.

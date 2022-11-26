@@ -1,0 +1,1010 @@
+Also was wir uns heute widmen werden ist folgendes, Windows stellt ganz gern, wobei ich bin mir
+nicht ganz sicher ob es Windows ist oder ob es einfach nur kack Windows Anwendungen sind,
+z.B. wenn man Modern Warfare startet stellt sich die Anwendung immer auf 100% z.B. wenn
+man Skype oder Teams verwendet stellt das laufend am Mikrofon rum, deswegen habe ich mir gedacht
+wir basteln was, was man im Hintergrund laufen lassen kann und das Audio immer richtig einstellt,
+also je nachdem wie man es haben will. Ich habe mir schon kurz ein bisschen was angeguckt vorher
+wie das unter Windows geht und ich kann euch sagen es ist nicht normal, es ist absolut der
+übelste Api Wirrwahl, eines der schlimmsten die ich bisher gesehen habe unter Windows Alter.
+Das ganze nennt sich Windows Core Audio Library, das hört sich so an als hat es schon mal einen
+ganz guten Namen, es hat übrigens nichts mit UWP oder so zu tun, auch wenn es ein bisschen
+danach klingt, es gibt es erst seit Windows 7, es ist auch egal, Windows 7 ist das kleinste
+was wir supporten, das reicht schon, aber es ist eklig, es ist echt eklig, das kann ich
+euch sagen. Gummi Bear Games hat Subscribed, 2 Monate, Dankeschön, excellent Subscription,
+huge. Mein Emote Board funktioniert nicht, Moment, ich habe die Auflösung falsch eingestellt,
+jetzt ist es besser, excellent. So, der Sibaro, was sagt der Sibaro, kannst du für eine i3
+Konfig mal eine Rhythmie schreiben wie man die einfügen muss? Punkt Konfig, i3 Konfig,
+wieso? Es gibt 2-3 Orte wo man die hinlegen kann, was soll ich denn schreiben? Ach so,
+die Status Bar, so wie ich die habe, ja dazu brauchst du ja noch das Programm was die Status
+Bar macht, also i3 Status RS brauchst du noch dazu, dass das funktioniert. So, ich zeige
+euch jetzt schon mal grob was euch heute erwartet, es wird Windows, AP, also eklicher geht es
+kaum, passt mal auf, also das erste was natürlich ein guter Programmierer macht, als wenn er
+ein Problem hat ist, er sucht auf Stack Overflow danach, das heißt das werden wir jetzt auch
+machen. So, also wir suchen so was wie Change Volumixer AP Windows Stack Overflow. So, und
+das was wir finden ist dieses Beispiel hier, weil das habe ich mir vorher schon mal angeguckt,
+ich mache mal kurz mal, die Musik ist MonkaS, ich mache mal kurz den Dark Reader aus, ja
+machen wir auch mal den Dark Reader aus, es ist Früh am Tag, da wird es mal Dark Reader,
+also genau das wollen wir machen, Controlling Volumixer, also sprich das da, was wir hier
+haben, auch übrigens, ich hoffe es sieht keiner meine Hacks, die ich im Hintergrund laufen
+habe, ich meine irgendwie muss ich ja auch mal den Aimbot hier verstecken langsam, Wallhack,
+Aimbot, das gibt es da sonst noch alles, Trackingbot, Tradebot, alles hier, Main Window, ja zumindest
+also dieses Ding hier, das ist halt die Windows 7 Variante, Not Leaked, Chat ist drüber,
+du denkst, dass es Not Leaked war, vielleicht war es ja auch Absicht, vielleicht war es
+ja auch Absicht, ich sehe jetzt in der Vorschau, dass der Chat gleich weg ist und jetzt blende
+ich es aus und ihr habt nichts gesehen, also ich schiebe es mal hier in die Mitte, also
+das hier ist der Windows Mixer, den kennen wir ja alle, den kann man übrigens auch breiter
+machen, es macht nur irgendwie keiner und es ist lustigerweise egal, wie sehr man ihn
+verschiebt, immer unten rechts und immer wieder klein, also man kann ja auf die Idee
+kommen können, dass Microsoft so clever ist und sich merkt, wie groß man das Mixer Fenster
+gemacht hat, wir haben 69 Zuschauer, exellent, wie groß und wo man das Mixer Fenster haben
+will, aber Microsoft hat sich gedacht, juckt uns nicht, ist uns vollkommen egal, du kannst
+das Fenster so schieben wie du willst, aber danach wird es wieder resettet, also das ist
+der Windows Mixer hier, das ist eine Frage, die einer gestellt hat vor sieben Jahren,
+das ist also schon ein bisschen älter, es hat sich Windows API technisch, Sieg, macht
+voll nervös, ja Audioeinstellungen sind generell Monarch S unter Windows, guck mal, Monarch
+S hat auch Transparency, so und also das wollen wir einstellen, so, das Problem dabei ist,
+dass Microsoft sich gedacht hat, es ist eine gute Idee, dafür keine moderne API anzubieten,
+also mit modern eigentlich nicht was funktioniert, sondern irgendwas, was sich halbwegs normal
+bedienen lässt, so und deswegen funktioniert das ganze folgendermaßen, das ganze nennt
+sich Windows Core Audio API, so und wenn man da danach sucht, wird es schon mal ganz ekelig,
+dann wird es schon mal ganz ekelig, übrigens eine der weiteren Sachen, die mit UWP nicht
+funktioniert, so und da gibt es hier zig Milliarden Interfaces, da gibt es ja sowas
+tolles wie iAudio Endpoint Format Control und was wir brauchen werden ist ein iSimple
+iAudio Volume Interface, also was die sich dabei bei Microsoft wieder gedacht haben,
+Ear Trumpet, das kann man machen, ja man kann fertige Sachen nehmen, das kenne ich übrigens
+noch gar nicht, die Sache ist bloß die, wenn man fertige Sachen nimmt, lernt man nichts,
+das ist übrigens Open Source Ear Trumpet, ich hab Mist erzählt, natürlich kenne ich
+das, das ist Open Source, das kann man sich auf GitHub angucken wie es funktioniert, ja,
+das ist im Prinzip der Windows Mixer nur in besser, aber wenn man was fertiges nimmt,
+da lernt man nichts, wir wollen ja was lernen, wir sind ja Stonks IQ, so und das hier sind
+so ganz tolle Interfaces und Sachen, wo sich Microsoft gedacht hat, genau so muss man das
+machen, ja, so dass man zum Beispiel auch den IKS Jack Description 2 Interface, genau
+das wollte ich auch schon immer öffnen, also ganz tolle, ganz tolle, ganz tolle, ganz
+tolle API, die sich der Microsoft gedacht hat, dass das eine gute Idee ist und um euch
+mal ein, Moment, ich hab es doch gerade, what the fuck, Windows, so und Microsoft hat sich
+halt gedacht, ja, das ist zu einfach, wenn wir da einfach ein paar API Aufrufe anbieten
+so wie Set Global Volume oder Set Application Volume by ID oder sowas, das ist zu einfach,
+so, deswegen hat sich Microsoft gesagt, das macht man damit, das habe ich euch ja gerade
+schon gezeigt und hier ist ein, alter was ist hier los, hier, was macht der Darkreader
+für komische Dinger, der Darkreader soll mal hier nicht rum nerven und aufhören zu
+Dark zu readern, wenn ich nicht will, oder habe ich Stack Overflow vielleicht auf Dark
+stehen, falls das überhaupt geht, hat Stack Overflow einen Darkseam, vielleicht haben
+wir auch irgendwie eine Hexer auf dem Recher, da müssen wir gleich mal gucken, ja, Twitchchat
+hat mich gehackt, guck hier, ja, ich sehe es schon, Microsoft Photos, das ist eindeutig,
+der Twitchchat, so und hier gibt es ein Beispielprogramm, das habe ich mir im Vorfeld schon angeguckt
+und ich muss euch sagen, auf den ersten Blick, man checkt nichts, das hier sieht ja noch
+relativ simpel aus, ne, so nach dem Motto, ok, er sucht nach Firefox, listet sich alle
+Anwendungen auf, sucht dann die Anwendung raus, die Firefox heißt und sagt dann Muted
+bzw. setzt das Volume auf 50%, das klingt logisch, aber ihr seht hier schon wie lang
+das Programm ist, der logische Teil endet genau jetzt, das logisch endet genau jetzt,
+so und jetzt kommt Microsoft Big Brain API zum Tragen und zwar hier, ja, wenn man sich
+sowas schönes schon anguckt, tippt mir hier, man braucht nämlich den EMM Device Enumerator,
+ja, dann, dann braucht man den Default Audio Endpoint natürlich mit diesem ganz klar,
+dass man hier E-Render und E-Multimedia braucht, dann müssen wir irgendwelche Interface-IDs
+uns raussuchen, nämlich den IEID iAudioSessionManager2, den müssen wir dann irgendwie uns eine Referenz
+zu holen mit einem absolut selbsterklärenden API Aufruf, man müsste dann nämlich sagen,
+wenn wir hier, das Default Audio Interface ist bei mir übrigens nicht Speaker, sondern
+mein optischer Audio Ausgang, so und dann sagt man hier Activate, warum auch immer Activate,
+was auch immer es dann heißt, ja, da übergeben wir dann die ID für das Interface des Audio
+Session Manager 2s, dann müssen wir auch irgendwelche Obscuren, siehst du, ich bin schon wieder
+kurz vorm abkratzen, wenn ich das sehe, ok, es wartet mal kurz, exellent, da sind wir
+wieder, so, da muss man irgendwelche Obscuren-Parameter übergeben, Null, Null-Pointer und dann kriegt
+man ein Object zurück, was man dann wiederum zu einem iAudioSessionManager2 casten kann,
+alles klar so weit, so, das machen wir dann noch ein paar Mal und in jedem Fall kriegen
+wir dann Sachen zum Steuern des Windows-Mixers raus und das müssen wir alles wieder aufräumen,
+das ist gute alte Windows-Crap-RP, was wir hier haben, i3-Status-Rust, ja, richtig sehbar
+auch, so, wunderbar, so machen wir das, genauso werden wir das machen und damit wir schon
+anfangen können, copypasten wir uns mal, ach ja, übrigens, wer sich jetzt gefragt hat,
+woher diese iAudioSessionManager2 Interfaces überhaupt kommen, es gibt nicht irgendwie
+ein paar Sachen, die man einbinden kann, dass man die Sachen, dass man das verwenden kann
+von Microsoft, ne, ne, die muss man selber definieren, glücklicherweise hat dieser Typ
+hier in dem Beispiel schon ein paar Sachen definiert, ansonsten dürfte man sich nämlich
+komplett durch die Windows-API-Dokumentation kämpfen, zum Beispiel hier importiert er
+das iAudioSessionManager2 Interface, was natürlich ganz selbsterklärend diese interne ID hat
+also, ich glaub, die kennt jeder, der schon mal Windows verwendet hat, der weiß genau
+das 77AA99A01BD6484F8BC72C65C9A9B64, das iAudioSessionManager2 Interface ist, kann
+jeder, oder, chat, Hand aufs Herz mal ehrlich, wer kann's nicht, die braucht man jeden Tag,
+genau, ja, P-Invoke, da könnte man auch gucken, aber die Dinger sind wahrscheinlich, wir
+gucken mal, ob's da gibt, die Dinger sind wahrscheinlich so obscure und sonst wie, dass
+die wahrscheinlich gar nicht da draufstehen, Dark Reader, fuck mich dat ab, geh aus, so,
+wisst ihr, die Dinger sind so abgedreht, die stehen noch nicht mal hier drinnen, Dark Reader
+geht nervlich rum, Alter, irgendjemand hat gerade gefragt, was programmiert wird, ich
+versuche was, ich versuche, ich weiß ja nicht, ob das funktioniert, ich versuche, über
+die Windows API, Programme, die immer ihre Lautstärke ändern, wie z.B. Modern Warfare
+beim Starten stellt sich immer wieder auf 100% zurück, oder mein Mikrofon, was permanent
+von Skype und Teams umgestellt wird, dass ich im Hintergrund checke, ob gewisse Anwendungen
+gestartet sind, und wenn gewisse Anwendungen gestartet sind, dann stellt es mein Audio-Settings
+auf einen vorher definierten Stand ein, also sprich, es stellt Modern Warfare auf 13%
+Lautstärke, und es stellt mein Mikrofon auf 71% Lautstärke, werden da Seitenelemente
+neu geladen, ja, ich glaube, es werden Seitenelemente neu geladen, wenn Chrome den Tab inaktiv macht,
+oder sonst was, was auch immer das Ding für Schmerzen hat, nur Konsole oder mit GUI, na,
+erstmal Konsole, weil man ja schauen muss, wie es funktioniert, danach vielleicht mit
+GUI, wobei ich sagen muss, ich wüsste nicht, wozu man da ein GUI braucht, man muss zwei
+Parameter einstellen, Lautstärke vom Game und Lautstärke vom Mikrofon, das werde ich
+erstmal Hardcoden, um zu gucken, wie es funktioniert, danach ist es wahrscheinlich sogar einfacher,
+man macht eine Konfig-Datei mit zwei Zeilen, anstatt da irgendwie GUI drumherum zu bauen.
+Es gibt eine Library für Audio-Sachen, ja, aber ich will erstmal gucken, wie man das
+selbst macht, und danach verwenden wir vielleicht sogar die Library, weil es einfacher ist,
+und nicht so fehleranfällig, aber ihr habt es jetzt gesehen, solche absoluten Big-Brain-Sachen
+müssen wir machen.
+Ich habe übrigens mein Chat-Log-Tool in weißer Voraussicht mal direkt gestartet, dass ich
+nichts vergesse, dass ich nichts vergesse, jetzt muss ich es nur nochmal leer machen,
+dass ich nichts übersehe.
+Ja, habe ich schon gesehen.
+Ja, hatten wir schon, genau, Sound-Changer, ja, volume-Changer, nicht Sound-Changer, volume-Changer.
+So, also wir kopieren uns mal dieses, also so wie das jeder guter Programmierer macht,
+kopieren wir uns erstmal das Beispiel von Stack Overflow, so fangen alle Programme an.
+Ja, und dann kopiert man sich einfach aus ein paar weiteren Threads noch ein paar Sachen
+dabei, und dann ist es fertig, easy.
+Okay, was haben wir hier, Console-App 13, kann man die löschen oder recyceln oder wiederverwenden
+für irgendwas?
+What?
+Ah, EGIT, ich weiß was das war, das war unser Versuch mit WinUI, mit WinUI, Preview 2 oder
+so, ne ne, jetzt die Musik wieder leise.
+So, also machen wir mal ein neues Projekt, eine.NET Core Console Application, die den
+tollen Namen kriegt, Console-App 14, dass ich es auch ja wieder finde danach.
+Äh, Patrick sagt, es gibt halt save, nur eine Person, die sich schafft, kann alle anderen
+kopieren den Code weiter, ja, ist klar, alles schon skeet, alle copy-pasten nur schon skeet.
+Kann man auch mit.NET Core einen Task-Manager machen, ja, geht sogar ziemlich gut, also
+wenn du sowas hier machen willst, das geht ziemlich gut, ja, das geht ziemlich gut, sowas
+hier mit.NET Core zu machen, man könnte sowas modernes machen mit WinUI, wenn es dann irgendwann
+mal benutzbar ist, mit UWP nicht, so ohne weiteres, weil UWP hat keinen Zugriff auf
+diese Information, ne gut, Cross-Platform nicht, nein, Cross-Platform nicht, Task-Manager
+Cross-Platform ist schwierig, weil die eigentliche Sache, wie man Task-Information abruft, ist
+halt sehr plattformspezifisch, also unter.NET, um es mal ganz kurz zu zeigen, wie man
+das machen will, unter.NET ist es ziemlich einfach, sowas wie eine Task-Liste zu bekommen,
+da gibt es hier nämlich schon was fertiges, nennt sich Process, ist eingebaut im Framework,
+kann man nicht einfach sagen, Process, Moment, man konnte doch alle, get-processes, Alter,
+man muss hier leckt, was ist hier los, what the fuck, das leckt ja huge, so und jetzt kann
+man sich alle, die Namen aller laufenden Prozesse ausgeben lassen zum Beispiel, guckt hier,
+das ist alles, was läuft, bei mir, das ist ganz praktisch, weil der Kram schon eingebaut
+ist, das werden wir heute übrigens auch noch brauchen, so aber wir wollten uns ja das Testprogramm
+mal copy-pasten, excellent, so waren wir das, so also, wo gehts los, oh, hab ich irgendwas
+nicht mit, oh ich hab die Hälfte nicht mit copy-pastet, wartet mal kurz, hab ich irgendwas
+nicht mit copy-pastet, müssen wir das ganze noch mal machen, so jetzt aber, what, warum
+kopiert das die Hälfte nicht mit, ok, machen wirs mal von oben nach unten, ah, von oben
+nach unten gehts, excellent, selbstverständlich, warum solls ja auch von oben nach unten und
+nach oben nicht funktionieren, ist ja logisch, so, also, firefox, das können wir doch gleich
+mal ausprobieren, wir haben dann firefox hier drauf, da gehen wir jetzt mal auf youtube
+und machen irgendwas an, so, irgendwas, ist vollkommen egal was, machen hier mal die Musik
+aus und da sollte jetzt firefox, wenn ich den Beispielcode richtig verstehe, sollte da
+firefox muten und danach auf 50% setzen, das können wir ja gleich mal ausprobieren, so
+firefox steht auf 30%, ok, schauen wir mal, hat gemutet, excellent, hat funktioniert,
+hat er gesehen, wenn man jetzt hier auf firefox mixer guckt, ist er auch bei 50%, ungemuted,
+jetzt er wieder unmuted, also sprich, die Beispielanwendung scheint zu funktionieren,
+das ist auch schon mal was, weil es funktionieren nicht immer alle Beispielanwendungen, easykiller
+fragt warum das so ein Krampf ist, stackoverflow zu copy-pastet, vielleicht wollen sie nicht,
+dass man so viel copy-pastet, weiß nicht, wir sind fertig für heute, easy, funktioniert,
+ich denke auch auf copy-pastet, so, wir werden jetzt ein bisschen aufräumen, weil wir fangen
+jetzt erstmal nicht mit set volume oder sonst was an, sondern das erste, was wir machen
+ist, einfach nur mal alle Anwendungen auflisten, die Audioausgabe gerade machen und das sind
+aktuell welche, wo es keine Namen für gibt, außer irgendwie eine audio-sav-dll, was auch
+immer, also sprich, der Code ist schon mal ein bisschen unglücklich, weil die Namen
+der Anwendungen nicht bei allen Sachen drinstehen, bei firefox hat es aber funktioniert, wartet
+mal, firefox geht glaube ich, probieren wir mal aus, firefox, machen wir da irgendwas
+dran, ah guckt, firefox geht, das heißt, das Beispiel ist nicht komplett, wir kriegen
+nicht die notwendigen Informationen raus, um feststellen zu können, welche Anwendung dahinter
+steckt und ich gehe mal davon aus, das liegt daran, weil die windows apis für die Soundgeschichten
+einfach schon genauso eklig sind seit windows 7 und sich seit windows 7 nichts mehr, ich
+meine, guckt euch das an, das sieht absolut, das sieht aus wie hingekotzt, also das liegt
+jetzt nicht an dem, der das Beispiel gemacht hat, sondern dass Microsoft wieder sich sowas
+ekliges ausgedacht hat und ich vermute einfach mal, dass es ein paar neuere interface-Versionen
+gibt, davon, das habe ich hier nämlich auch schon glaube drin gesehen, hier holt er sich
+den Namen der Anwendung raus und das funktioniert für firefox, allerdings für chrome, wie wir
+gesehen haben, funktioniert das nicht, sonst würde ja hier bei anwendung die audio machen,
+wenn wir hier chrome drin stehen, das heißt, wir müssen jetzt erstmal gucken, ob es hier
+nicht ein interface gibt, was zum beispiel noch die Prozess-ID oder sowas hat, weil Prozess-ID
+ist gut, wenn ich die Prozess-ID von der jeweiligen Anwendung rauskriege, dann kann ich mir alle
+möglichen Sachen holen, also sprich, welcher fahrt, welche Argumente, theoretisch sogar
+welches Icon das Ding verwendet, aber dazu brauche ich erstmal die Prozess-ID und ich
+glaube, ich habe hier schon was gesehen, in den Kommentaren vorhin, wo drinnen stand,
+dass man ein anderes interface verwenden kann, nämlich, wo ist es denn, hier, guck genau,
+we could also use the Prozess-ID instead of app name und natürlich mit dem absolut logisch
+klingenden Interface I-Audio-Session-Control 2, aktuell verwenden wir noch I-Audio-Session-Control,
+wenn wir die Prozess-ID haben wollen, müssen wir natürlich selbstverständlich I-Audio-Session-Control
+2 verwenden, klar, also, probieren wir das mal aus und das funktioniert nicht, weil es
+I-Audio-Session-Control 2 nicht gibt, das heißt, wir müssen uns jetzt irgendwo im Internet
+die Definition von I-Audio-Session-Control 2 raussuchen, das sagt übrigens Microsoft,
+wie das ganze aussieht, das ist ein Beispiel C++, was auch immer, das heißt, wir müssen
+jetzt mal ein Beispiel raussuchen, wo irgendjemand den Kram schon mal definiert hat für uns,
+was ist denn das, iOS-Developer, iOS-Developer und da gibt's, what the fuck, ok, wo gibt's
+denn eine Definition für I-Audio-Session-Control 2, wisst ihr was, wir machen jetzt mal Big
+Brain, wir suchen einfach auf, ah, guck mal hier, csharp-hot-examples.com, choose my name,
+ich wüsste das jetzt auch nicht, nur weil ich wusste, was da drinsteht, ok, I-Audio-Session-Control
+2 und leider ist es oft so, wenn man irgendwelche Windows-API programmieren will, dass das
+wildes Gesuche und zusammengecopy-paste ist, ah, guck mal hier, audiomanager.js, jetzt
+geht's, jetzt wird's Big Brain hier, wo ist die Definition, hier, bam, das brauchen wir,
+I-Audio-Session-Control 2, genau das, so wir schmeißen jetzt mal ein paar Sachen raus,
+also diese ganze Volume-Geschichte brauchen wir nicht, das hab ich ja gerade entfernt,
+das brauchen wir auch, oder, geht das überhaupt noch, das können wir auch rausschmeißen,
+das machen wir dann nachher wieder, wenn's daran geht, wirklich die Lautstärke zu setzen,
+das Application-Volume kann auch raus, oh, wo hab ich, wo hab ich jetzt, wo hab ich jetzt
+was zu viel gelöscht, ach hier, exellent, hier hab ich was zu viel gelöscht, ah, jetzt
+funktioniert's, so, dann machen wir mal weiter mit unserem copy-paste-driven-programming-style,
+wir kopieren uns den Grammi einfach mal rüber, und das ist jetzt I-Audio-Session-Control 2,
+das erste ist not-implemented, ah, yes, exellent, natürlich, warum auch immer, und das nächste,
+get-process-id, das ist das, was wir brauchen, set-ducking-preference, ich hab ehrlich gesagt
+keinen Plastenschimmer, wofür der ganze Gramm ist, den ich hier sehe, aber process-id brauchen
+wir, so, das heißt, anstatt dass wir jetzt hier I-Audio-Session-Control uns holen, holen
+wir uns I-Audio-Session-Control 2, bam, und da gucken wir uns mal an, ah, nee, could not
+convert, okay, dann, wir casten, wir casten das einfach mal, easy, das lässt sich bestimmt
+casten, war-temp, man muss jetzt auch gleich mit guten Namen anfangen, S-I-Audio-Session-Control
+2, übrigens, chat, falls es den Anschein erweckt, ich wüsste, was ich mache, ich hab
+keinen Plastenschimmer, was ich mache, gucken wir mal, ob das jetzt schon mal crasht oder
+nicht crasht, es crasht nicht, das ist schon mal ein gutes Zeichen, für das es prinzipiell
+geht, was wir hier machen, so, was haben wir jetzt hier, get-process-id, geht nicht, ja,
+gut, einfach get-process-id aufrufen, das kann ja so nicht funktionieren, wäre nur einfach
+logisch, dass es funktioniert, okay, wir kriegen den Rückgabewert, kriegen wir als Referenz
+und nicht etwa als Return-Code von dem Funktions-Aufruf, also ist wahrscheinlich der Return-Wert
+von diesem Funktions-Aufruf irgendein Error-Code, den wir natürlich nicht checken werden, Control
+2, nee, Quatsch, ID, so, ID, so, schauen wir mal, ob wir jetzt die Prozess-ID kriegen,
+ah, das sieht doch schon besser aus, guck mal, hier kriegen wir eine Prozess-ID, 6052,
+2052, was auch immer, exellent, genau, es funktioniert, mit der Prozess-ID kann man
+jetzt schon was anfangen und ich zeige euch auch, was man mit einer Prozess-ID anfangen
+kann, man kann jetzt nämlich zum Beispiel sagen, process, get-process-by-ID und da stopfen
+wir die Prozess-ID rein und wenn wir Glück haben, läuft es jetzt ohne Fehler durch, okay,
+es crasht nicht, das ist schon mal schön und jetzt können wir uns sowas ausgeben lassen
+wie Prozess-Name und da würde ich jetzt erwarten taucht sowas wie Chrome drin auf, Vmware,
+Chrome, OBS, Web-Application 11, damit kann man jetzt zum Beispiel schon was anfangen,
+also der Name stimmt hier nicht, aber wir können jetzt anstatt den Name zu returnen einfach,
+das können wir uns hier nämlich schenken, wir returnen jetzt einfach den Prozess-Name
+und schon funktioniert es, so, so, das ist doch schon mal besser, jetzt kriegen wir hier
+nämlich den Namen der Anwendung raus, so sollte das Ganze auch sein, damit kann man jetzt
+schon ein bisschen was anfangen, noch schöner war Window-Name, das stimmt, ich vermute aber
+mal, dass das hier unter der Haube wahrscheinlich sowas wie Window-Name ist, probieren wir mal,
+Main-Window-Title, ja, nee, Name, was haben wir sonst noch so, Prozess-Name, Machine-Name,
+okay, das ist der Name von meinem Desktop-Rechner oder, ah nee, da ist Punkt, alles klar, Windows-Logik,
+wir bleiben bei Process-Name, ja, das werden wir wahrscheinlich auch machen, nee, werden
+wir nicht machen, wir machen uns eine eigene Klasse für und schauen wir mal, ich hab noch
+keine Ahnung, wie der Kram überhaupt funktioniert, nee, Prozess-Name ist schon ganz gut, weil
+wenn ich dann das Spiel starte, vielleicht hat das gar kein Titel, ne, könntest du
+auch direkt, ähm, Windig-Abonnier-Twitch-Pribe, excellent-Subscription, der Chat-IQ ist heute
+eh schon so hoch wie lange nicht mehr, übrigens, falls ich Subs übersehe, flamet mich mal
+ein bisschen, okay, also das funktioniert schon mal, das heißt, wir kriegen jetzt den Prozess-Name,
+alles gut, dann räumen wir den Kram mal ein bisschen auf, ähm, also erstmal schmeißen
+wir natürlich alle Kommentare raus, weil Code mit Kommentaren ist ja nur wirklich overrated,
+wir wissen ja, dass sich guter Code selbst dokumentiert, da brauchen wir keine Kommentare,
+so, ähm, dann, in die Kommentare lassen wir drin, das war bescheuert, die Kommentare
+rauszuschweißen, ähm, Kommentare, lul, Windows-RP-Code liest sich am besten von allem ohne Kommentare,
+das ist schon so kompliziert, da macht's, da machen es weniger Kommentare sogar noch
+besser, so, also was machen wir denn jetzt, ähm, wir machen uns, ich hab ne Idee, ich
+hab ne Idee, was wir jetzt machen, wir machen uns mal ne eigene Klasse, wo die ganzen Informationen
+reinkommen, die wir brauchen, nachdem ich ehrlich gesagt keinen Plassen-Schimmer habe,
+mit was ich hier überhaupt hantiere, hab ich auch nicht so ne große Ahnung, wie ich die
+Klasse nennen soll, deswegen nenne ich die einfach Mixer-Entry oder sowas, ich weiß
+nicht, was es wirklich ist, also sprich, hier so ein Eintrag davon, quasi so, und das Ding
+hat nen, das Ding hat nen Name, vielleicht, vielleicht, das kann Null sein, das weiß
+man nicht so genau, denn die Klasse CACW, das machen wir dann zum Schluss, so, dann hat
+das Ding eine, äh, Process-ID, ok, und jetzt returnen wir keine Strings, sondern Mixer-Entries,
+so, da kommen wir der Sache doch schon näher, so, und anstatt, dass wir jetzt hier so ne
+komische Big-Brain-Yield-Return-Geschichte machen, adden wir einfach hier immer ein Mixer-Entry,
+der bekommt nen Name, der bekommt nen Name, und zwar ist das Process dort Name, Process-Name
+und da bekommt ne ID, und das ist, ähm, ID, so, damit kann man jetzt schon ein bisschen
+mehr anfangen, achso, ich muss es noch zurückgeben, damit kann man jetzt schon ein bisschen mehr
+anfangen, allerdings, äh, müssen wir das ein bisschen in Main ändern, so, und zwar
+haben wir jetzt einmal hier den Name, und das ist hier unsere Spezialklasse, dort Name,
+und ähm, ne ID, mach mal Leerzeichen, und das ist unsere, mein Visual Studio laggt,
+wie sau, was ist denn da los, übrigens die Frage, warum kein Rider kam vorher, weil
+ich unter Windows eigentlich fast immer Visual Studio verwende, aber wenn ich heute nur noch
+Windows verwende, verwende ich eigentlich nur Rider, gibt ja auch keine anderen Alternativen,
+so wirklich, ne, so, guck mal, funktioniert, wir machen jetzt nochmal hier so nen Trenn-Strich
+dazwischen, das wir sehen, bei den unterschiedlichen Sachen, also, wir haben folgende Anwendung,
+machen gerade Audio-Ausgabe, VMWare, mit der, mit der Process-ID, ähm, Web-Application-11,
+mit der Process-ID, wer sich fragt, was Web-Application-11 ist, das ist BigBrain-Benahmung für unter
+anderem das hier, also das Programm, was hier die Bilder und Sound-Overlays macht,
+das ist Web-Application-11, ich bin ja bekannter für meine Anwendung, so zu benennen, dass
+man sie sich gut merken kann, dementsprechend Web-Application-11, und hier haben wir zur
+Abwechslung mal Console-App 14, haha, choose my name, doch, das wäre richtig C++ da eine,
+ja, gut, so, damit können wir doch jetzt schon mal arbeiten, da haben wir doch jetzt schon,
+wir haben den Name, und wir haben eine Process-ID, so, als nächstes, ähm, Name Eidl-ID 0, ja,
+das ist irgendeine Windows-interne Geschichte, was auch immer uns Windows damit sagen möchte,
+keine Ahnung, vielleicht ist das der Prozess-Scheduler oder sowas, keine Ahnung, ID 0 spricht irgendwie
+für Display-Manager, naja, komm mal, Web-Application-11 und Console-App 14, da weiß man wenigstens
+noch was es ist, ja, was ein iAudio-Session-Manager 2 ist, mit diesem komischen Zeug da, das weiß
+keiner, außerdem, meine Sache ist auch nicht public und Microsoft released ihre Sachen
+public und möchte, dass andere Leute sie verwenden können, das ist ja der große Unterschied,
+mir ist es egal, ob andere Leute mein Kram verwenden können, aber Microsoft will, dass
+andere Leute ihren Kram verwenden können, so, Mixer-Entry, Enumerate-Applications, das
+ist doch schon mal schön, was richtig cool wäre, ähm, Not Impel 2, ich glaube nicht,
+dass es ein Microsoft-Ding ist, hier, ich vermute mal, das ist was von demjenigen, von
+dem wir das Copy-Pasted haben, und zwar möchte der ja, dass, ähm, quasi die, ich weiß nicht,
+ob da irgendein Struct unten drunter ist, dass die Abstände, wo die einzelnen Speicher-Bereiche
+beginnen, dass die an der richtigen Stelle sind, so, und wenn er die erste Funktion
+nicht braucht, allerdings die nächste Funktion, quasi, irgendwie ein paar Bites später startet,
+definiert er hier halt was, was den ersten Slot belegt, den er halt nicht braucht.
+So, was ist eigentlich PreserveSig?
+Indicates, dass, was, ageResult, das ist in irgendeiner Windows-Rückgabe Wertgedöns,
+was takes place during COM-Interop-Calls should be suppressed, was, was, was macht das?
+Indicates, also, dass das ageResult, oder Rückgabe Wert, die Signaturtransformation,
+dass, während, die während dem COM-Interop auftreten, unterdrückt wird.
+What?
+Okay, just, just Windows-Things, ich hab, weiß nicht, wirklich keine Ahnung, was uns
+das sagen soll.
+Wir lassen es jetzt aber mal da drinnen, weil es im Beispiel drinnen ist, und es funktioniert.
+Und ich könnte wetten, wenn wir das wegmachen, geht's nicht, ich mach das mal weg, mal gucken,
+ob es dann kaputt geht.
+Nee, geht immer noch, ach yes, das funktioniert immer noch.
+Ich lass es, ich lass es einfach mal da.
+So, was jetzt richtig cool wäre natürlich, wenn wir diese, wenn wir das hier irgendwie
+schaffen, dass man hier letztendlich sagen kann, public void set volume, das wäre natürlich
+richtig pro, wenn das funktioniert, weil da wäre das in der Handhabung ziemlich einfach
+unterm Strich.
+Set volume, gut, das Ganze kriegt einen, kriegt das denn?
+Float, Floats sind immer sehr beliebt dafür, weil man das von 0 bis 1 machen kann, so für
+Prozent.
+Komm, scheiße, wir machen ein Int, ist doch wurscht, ich weiß gar nicht, wie es weitergeht.
+Das wäre natürlich cool, wenn man das hier macht, also wenn wir das schaffen, das hier
+irgendwie zu implementieren, weil dann könnte ich an der Stelle nämlich einfach sagen,
+machen wir mal so ein Beispiel, also sprich, wenn der, wenn der Name, dann sagen wir was,
+keine Ahnung, Chrome enthält, ach hier, wenn der Name Chrome enthält, dann sagen wir
+set volume auf, keine Ahnung, 15%, so das wäre natürlich pro, wenn das funktionieren
+würde.
+Ich meine, es funktioniert jetzt nicht, weil wir haben nichts implementiert hier, aber
+von der Idee her wäre das natürlich nice, wenn man das so hinkriegen würde.
+So, ähm, die große Preisfrage ist jetzt natürlich nur, wie setzt man die Lautstärke
+von der Anwendung, das probieren wir mal aus, das gucken wir uns hier ab, das steht doch
+hier irgendwo drinnen, dark reader, wartet mal kurz, ich muss das disablen, da geht mir
+gerade voll auf den Kick, set dark reader, so, ähm, wo hatten wir es denn, set application
+volume, name float level, name brauchen wir nicht, name haben wir hier, äh, name haben
+wir hier selbst drinnen, set application volume, get volume object, ok, i simple audio volume,
+ah, siehst du, sogar Microsoft lacht uns aus, wie einfach das ist, also wenn i simple
+audio volume uns nicht sagen soll, dass wir absolute Kacknoobs sind, i simple audio volume,
+get volume object, was ist denn hier los schon wieder, what the fuck, Moment, das ist doch
+genau das gleiche wie unten, get volume object, das ist genau das gleiche wie hier, i simple
+audio volume, wo kriegt er das her, der casted i audio session control 2 zu i simple audio
+volume, das probieren wir jetzt aus, vielleicht ist es viel einfacher als ich denke, die Musik
+ist mir zu anstrengend, ich brauche, ich brauche irgendwas anderes, relaxing Nintendo music,
+ah, perfekt, ah, yes, excellent, das ist doch viel entspannender, so, also was mal, i audio
+session, i audio session control, casted dazu i simple audio volume, ok, wir probieren jetzt
+einfach mal aus, ob das funktioniert, also, control s i simple audio volume, scheint zu
+funktionieren, was du mit den 55.000 Kanalpunkten anfangen sollst, ja, ausgeben, ich weiß gar
+nicht, kann man da Belohnungen verwalten, ich gucke mal, ob es da noch mehrere Sachen
+gibt, die man da einstellen kann, Belohnungen verwalten, ok, ich gucke mal, was es da so
+für Möglichkeiten gibt, was man damit machen kann, Nachricht hervorheben, zufälliges
+Abo-Emote entsperren, Nachrichten nur Abo-Modus senden, ich habe nie nur Sub-Only-Mode an,
+individuelle Belohnungen erstellen, aha, hier gibt es noch jede Menge andere Sachen, welchen
+Held soll ich spielen, das bringt es jetzt hier nicht wirklich, du darfst einen Charakter
+oder Gegenstand im Spiel benennen, ja, das bringt es auch nicht wirklich, wir können
+sagen, du darfst dir den nächsten Klassennamen aussuchen, ich spiele 5 Minuten lang mit
+dem Controller rückwärts, what the fuck, nein, das passt bei mir alles gerade nicht,
+was wird gebastelt, ich versuche mich gerade ein bisschen durch die Windows Audio-RP zu
+kämpfen, sodass ich hinbekomme, dass ich automatisch bestimmte Anwendungen immer hardcoded
+auf einen gewissen Audiowert setzen kann, z.B. wenn man Modern Warfare startet, dann setzt
+sich das immer auf 100% Lautstärke, das soll auf 13% Lautstärke, mein Mikrofon soll auf
+71% Lautstärke, hey Max, für wann planst du den Flutter Dart Stream, habe ich noch keine
+genaue Idee, hier ist ein Vorschlag für Stream-Belohnungen, Punktebelohnungen für IRL-Streamer, lass mich
+einen Schluck Wasser trinken, was eine bescheuerte Belohnung, ich trinke was ich will, ich glaube,
+es geht los, lass mich einen Schluck Wasser trinken, was gibt es noch, ich setze mich
+gerade hin, lass mich dabben, nein, außerdem sieht mich keiner, wenn ich dabbe, lass mich
+sit-ups machen, oh ja, das hättet ihr gerne, 2500, die Belohnung ist geil, für 2500 wirst
+du timeoutet, soll ich die Belohnung hinzufügen, ich weiß nicht wo das eine Belohnung sein
+soll, aber gut, eine Umfrage hinzufügen, lass einen anderen Nutzer für 5 Minuten lang
+sperren, WTF, nee, schlage vor, wen wir am Ende des Streams raiden, das ist ganz gut,
+naja, gut, weiter, weiter im Text, ich muss wieder ein paar ordentliche Belohnungen, für
+70k gibt es dann C++, nee, ich weiß, das haben manche Leute ja fast schon, also wo sind
+wir stehen geblieben, also wir haben das jetzt als iSimpleAudioVolume gecastet, das brauchen
+auch bessere, so und damit kann ich jetzt set volume, ok, was hat das für bescheuerte
+Parameter, was, Event-Kontext, für 10k Facecam, der Chat, ja, nee, nee, nee, sowas gibts
+nicht, da meint der Chat noch, er könnte hier komplett über die Schränke schlagen,
+man darf dem Chat nicht zu viel frei halten lassen, sonst drehen sie durch, so, also
+weiter im Text, wir kriegen jetzt hier ein iSimpleAudioVolume, was auch immer uns das
+genau sagen soll, ich habe eine Idee, wisst ihr was wir machen, wir sagen jetzt einfach,
+mal gucken ob das funktioniert, wir sagen jetzt einfach, wir machen einen Konstruktor,
+der nämlich ein iSimpleAudioVolume bekommt und dann merken wir uns den und dann können
+wir das relativ einfach ändern, so, internal, so set volume, ok, dann müssen wir den Konstruktor
+noch füttern damit und zwar mit ctls iSimpleAudioVolume, ok, mal gucken ob es funktioniert, exzellent
+scheint zu funktionieren und jetzt setzen wir mal das Audio, mal schauen ob das einfach
+funktioniert, da bin ich jetzt ja mal gespannt, volume, set, volume, ok, also, wir setzen
+jetzt mal das volume von chrome, da steht aktuell auf 25% und wir setzen jetzt das volume
+auf 50%, what the fuck, was, was muss ich da als Parameter angehen, das muss ich abgucken,
+what, empty, gut, ok, wenn der Beispieltexter sagt, dann machen wir das so, exzellent, ach
+ne, das geht ja nicht, so, ob das jetzt funktioniert, also, der chrome sollte, der chrome sollte
+sich gleich umschalten hier, ne, also hier ist der chrome jetzt bei 25% und ich setze
+ihn jetzt auf 50%, die Frage ist, das muss ich auch noch herausstellen, was ist mit 50%
+gemeint, ist es 50% vom maximal möglichen volume oder ist es 50% vom aktuell eingestellten
+master volume, chrome gleich chromium, ja, so, gucken ob es funktioniert, oh, monk, monke
+es, geht nicht, findet er den chromeprozess, ja, muss er, den muss er finden, den muss
+er finden, weil er ist ja hier reingegangen und ist hier gecrashed, das heißt, das hier
+hat funktioniert, klar, schick her, schick, irgendwie github, link, sonst was, ja, schick
+mal her, stimmt, choose my name, ja klar, ist ja logisch, das muss weg, ich release das
+ganze Jahr, ich release das ganze Jahr, ja klar, das muss weg, hey, es hat funktioniert,
+guck mal, es ist 50%, es hat funktioniert, auf was stand chrome vorher, 30, ne, es hat
+funktioniert, 25, auf 25 stand es, ok, machen wir mal null, dann sollte chrome jetzt sich
+muten, hey, das funktioniert, ich bin begeistert, so, und jetzt, und jetzt machen wir mal 100%,
+aber 100% dürfte ja dann jetzt von dieser logik, 100% würde in diesem Fall 30% bedeuten,
+ok, mein volume ist, also mein master volume ist auf 30%, das heißt, wenn ich jetzt 100%
+mache, sollte mein chrome auf 30% gehen, ja, ja, hört sich auch schon so an, sehr gut,
+wir machen es vielleicht nicht mit chrome, sondern wir machen es mit dem firefox, dass
+ich an meinem hintergrundmusik nichts rumstellen muss, machen wir, machen wir irgendwas, irgendwas,
+oh ja, genau, was auch immer, hauptsache, ich brauche ja nichts abspielen, sondern ich
+will ja einfach sehen, ob sich im mixer was ändert, so, um zu gucken, was ist denn das
+aktuelle volume von firefox, 15, ok, 15, lassen uns das mal ausgeben, das heißt, wir machen
+das jetzt nicht für chrome, sondern wir machen das für firefox, und jetzt, anstatt das volume
+zu setzen, geben wir das volume mal aus, get, get master volume, war, out, vol, wat, war,
+nee, umgedreht, out, war, so rum, so, mal gucken, was das volume ist, also von der logik
+her müsste mein volume beim firefox jetzt 50 sein, ne, also 30% master volume, und die
+hälfte von 30%, hier 15, müssten dann heißen, es ist gerade 50% vom maximal möglichen volume,
+so, also da müsste jetzt eigentlich 50 rauskommen, ja, kommt auch, ok, es kommt nicht 50 raus,
+es kommt 49, äh, 999997 raus, das geht aber als 50 durch, das ist ok, das ist ja quasi
+50, der rest ist floating point, geschiss, so, die frage, die sich mir stellt, und die
+ganze sache jetzt natürlich noch viel komplizierter macht, als ich das eigentlich gedacht habe,
+ist folgende, wenn ich jetzt sagen möchte, ich glaube das ist echt kompliziert, was
+ich vorher komplizierter als gedacht habe, also die sache ist ja die, ich möchte jetzt
+sagen können, ok, mein chrome soll auf 25%, allerdings sind die 25% hier auf die Gesamtlautstärke
+bezogen, und hier ist es dynamisch abhängig zur aktuell eingestellten master volume lautstärke,
+also sprich ich muss das jetzt noch umrechnen von, in dem fall firefox, ich muss das jetzt
+noch umrechnen, also sprich 15% im windows mixer entsprechen 50% in meiner anwendung,
+das heißt ich muss irgendwie noch rausbekommen, auf wieviel mein master volume steht, kann
+man mir so weit folgen, oder stimmt das überhaupt was ich erzähle, ich muss übelst husten,
+was ist denn heute los, also was ich sagen will ist, ich kann hier über die windows api
+es nur relativ einstellen zur master volume, allerdings im windows mixer, nachdem jetzt
+meine settings sind, ist es von 100%, das heißt ich muss es umrechnen, was ist 25%
+oder was sind 15% im windows mixer für dynamisches volume, gerade, exzellent, das heißt um das
+machen zu können, müsste ich erstmal rausbekommen, wie laut ist mein lautsprecher eingestellt,
+dass ich dann sagen kann, ok mein ziel, also ich will sagen, meine ziellautstärke für
+firefox sind 15% von der gesamtlautstärke, 15% von der gesamtlautstärke kann ich hier
+nicht einstellen, was ich einstellen kann sind 50% von dem 30% master volume, was dann
+15% gesamtlautstärke sind, das kann ich machen, das heißt ich muss das master volume noch
+rauskriegen und das dann irgendwie umrechnen, aber erstmal muss ich gucken, wie man das
+master volume rauskriegt, wie bekommt man das master volume raus, muss man bestimmt,
+ah exzellent, kann man bestimmt hier machen, guck mal, hier gibt es speakers, gibt es hier,
+speakers, kann man auch bestimmt sagen, speakers, speakers, activate, nee ok, mehr kann man
+nicht sagen, activate, also mein ziel ist jetzt, ich muss rausbekommen, wie laut meine
+lautsprecher eingestellt sind, in dem fall hat mein audio ausgang, audio endpoint, ok
+fahren wir mal google, audio, windows core audio, audio volume, speaker, finding current
+volume level of speaker output, exzellent, aha da haben wir wieder mal so eine big brain,
+das ist jetzt c++, hör mal auf, gehst du fort, also wer übrigens denkt normales c++
+ist schon hässlich, hat noch kein windows api c++ gesehen, da wird es dann nämlich
+richtig abartig, guckt euch das mal an, das ist wirklich schon körperverletzung hier,
+wenn man sich das anguckt, das ist auch toll, ein void pointer pointer referenz, ach du
+scheiße, was ist denn das, ok eine referenz zu audio endpoint volume, audio endpoint volume
+brauchen wir, also das ist eine referenz zu audio endpoint volume und die wird gecasted
+zu einem void pointer, der auf einen pointer pointet, exzellent und dann das ganze gemischt
+mit so tollen bezeichnungen wie clsctx all, microsoft please alter, i audio endpoint volume,
+das klingt doch gut oder, das klingt doch was nach dem was ich haben will, i audio endpoint
+volume interface, volume controls on audio stream or from audio endpoint device, ok speaker,
+speaker sind ein audio endpoint device, das heißt was ich jetzt brauche ist die definition
+von i audio endpoint volume, das ist das schmerz den kram zu programmieren, ok, wir copy pasten
+uns den kram echt irgendwie zusammen, wo ist das interface, ich brauch ne interface, ok
+project, archived ist mir doch egal ob das archived ist oder nicht, aha wo ist das interface,
+exzellent interface, copy paste beste, du hattest die copy und paste sogar angekündigt, naja
+das war doch klar, ok, die brauchen wir eh nicht diese ganzen betonen hier, die schmeißen
+wir raus, blickt da jemand aus dem chat durch, ich denke nicht, ich blick hier auch nicht
+durch, ich hab absolut keine ahnung was ich da mache, aber es funktioniert, das ist ja
+das erstaunliche dabei, so also jetzt haben wir hier ein i audio endpoint volume, sag
+mal woher wissen die leute eigentlich was das ding für ne id haben muss, wie kommt
+man da drauf, also irgendwo muss das doch stehen, ups ich such jetzt mal danach vielleicht
+findet man dann die offizielle microsoft doko irgendwo, oh warte mal irgendeine wollte mir
+noch vorn seinen volume helper schicken oder, ne den gab es doch nicht, also ich finde diese
+sache nur ein beispiel, wo steht denn bei microsoft das man diese id braucht, ich mein irgendwo
+muss man es doch her wissen, gibt es kein fertiges nougat package, doch bestimmt, will
+aber wissen wie es funktioniert, das kann doch nicht sein, dass sich das leute einfach
+über jahre hinweg irgendwo zusammengesucht haben und niemand weiß wo es offiziell steht,
+das ist so typische microsoft crap geschichte wieder, ne es gibt es nicht, was am volume
+mixer gemacht wird, wir stellen bestimmte anwendungen hardcoded auf einen gewissen audio volume
+wert ein, weil sich zum beispiel wenn sich modern warfare startet stellt sich das immer
+auf 100% und ich will es auf 13% haben und mein mikrofon wird auch von teams und skype
+immer umgestellt, das soll auf 71%, sind halt capi sind sie sharpie, aber wo ist denn für
+die capi, die das hier, das man das hier braucht, wo steht das denn, ich hab da jetzt nichts
+gewonnen bei microsoft, also machen wir weiter, wir haben jetzt ein audio endpoint volume,
+wir machen jetzt mal was ganz gewagtes, wir nehmen jetzt einfach mal speaker und nehmen
+die einzige methode von speaker, nämlich activate und versuchen quasi anhand dieses
+beispiels hier da ein audio endpoint volume raus zu bekommen, im c++ verwendet man doch
+header files, ja das ist ja schön und gut, aber da muss es wenigstens irgendwelche header
+files geben wo das drin steht, ich hab gesucht nach dieser zahl, microsoft.com und hab nix
+gefunden, irgendwo muss es doch stehen, wahrscheinlich in irgendwelchen sdk's die es zum unterladen
+gibt und es steht da seit 15 jahren drinne, bloß es hat noch keiner indiziert online
+oder so, ok wie funktioniert der kram denn hier jetzt, also activate ref iid iaudio session
+manager 2, ok wir machen jetzt genau das gleiche nur für iaudio endpoint volume, so iii ach
+du große, meine güte, ok, eeid, keck, triple u, ok ref, eed, audio endpoint volume, na audio
+endpoint, ja doch, eed, e audio endpoint volume, das ist anstrengend.
+ok null, ich mach jetzt einfach genau das gleiche wie oben, ich mach exakt das gleiche
+wie oben, ohne dass ich wüsste was die parameter alle machen, so out, o, ja ne, o nicht, b,
+genau so, so brauchen wir das, perfekt, so und b, casten wir jetzt zu 1, ok, ee, vol,
+ne, vol hammer glaube ich schon, volume gleich, b, mal gucken ob es crasht, es crasht nicht,
+das ist schonmal gutes zeichen das es nicht crasht, ok volume, ee wenn das jetzt funktioniert
+dann weiß ich mir echt den arsch, na, get master volume level haben wir und get master
+volume level skala, ok wir schauen mal in der microsoft dokumentation was der unterschied
+ist, ne, ich würd das gerne verschieben darf ich aber nicht, wenn die metoden namen zu
+lang für die webseite sind ne, also hier, get channel volume level, ne master volume
+level brauchen wir, indecibel und dann haben wir noch was anderes zu bieten skala, master
+volume level im prozent quasi, alles klar, deswegen sind wir bescheid oder, also, ee,
+so wollen wir hier sowas haben wie, get master volume level skala, was ist ich level, also
+von der idee her sollte da jetzt 30 rauskommen, von der idee her sollte da jetzt 30 rauskommen,
+schauen wir mal, also es sollte 30 rauskommen weil, mein master volume auf 30 prozent steht
+ee 30 guck mal hier, moment, das funktioniert ja tatsächlich, ich hätte nie im leben gedacht
+dass der scheiß so funktioniert, ich hab keine ahnung warum es funktioniert leute also das
+dürft ihr mich nicht fragen aber es funktioniert, excellent chat, irgendwie hab ich das gefühl
+ich brauch ne pause, ich kann mir den kram nicht mehr länger angucken, das ist ja so
+massiv eklig, oh mal kurz, wer hat sich den kack ausgedacht, meine güde, und dabei sind
+wir erstmal ne halbe stunde bei oder so ne, ok ich hab nix gesagt wir sind jetzt an der
+stunde dabei, das ist echt anstrengend, ja wir gucken uns jetzt 3 min lego harvest machine
+an und dann gehts weiter, excellent, die musik ist kokona, what the fuck, wtr fleude was
+ist denn jetzt los, alter, die lösung hat uns gehostet, huge, dankeschön, boah geil,
+1006er zuschauer, excellent ja, huge host, poggers, massive poggers, und jetzt gerade
+wollte ich pause gemacht, oder gerade wollte ich nix machen, ich weiß gar nicht was ich
+sagen soll ja, dankeschön für den host, massive, huge, big brain host, alter, ich
+hab auch nix, das sind ein paar leute ja, etf, das ja cool, ja vielleicht kennt mich
+da ein oder andere noch, ich hab früher auch mal auf youtube videos zu call of duty und
+battlefield gemacht, allerdings in letzter zeit dann doch eher ein bisschen weniger,
+Um nicht zu sagen, um nicht zu sagen gar nicht.
+Wo ist der Friseur?
+Der spielt komische Handyspiele.
+Der Friseur spielt komische Handyspiele und...
+...Asia grinding MMOs.
+Ja, schön, dass ihr alle am Start seid. Nice.
+Also mal ganz kurz zur Erklärung, was wir eigentlich machen für den einen oder anderen, den es vielleicht doch interessiert.
+Ich versuch grad was zu programmieren und zwar...
+Ihr kennt's ja alle, ne?
+Ne, ihr kennt's nicht. Ihr spielt ja auf der PS4 zum größten Teil, oder?
+Also es ist so...
+Wenn man auf dem PC Modern Warfare startet...
+...dann stellt sich die Lautstärke in Windows immer auf 100% von dem Spiel.
+So, und das geht mir so extrem auf den Keks, dass ich gerade am überlegen bin, ob man nicht was programmieren kann.
+Hiermit.
+Ähm, was automatisch beim Starten von Modern Warfare die Lautstärke auf einen vorher definierten Wert stellt.
+Und ich hab mir das relativ einfach vorgestellt.
+Allerdings, nur mal so, ich geh mal davon aus, den meisten wird's nicht sagen.
+Es sei euch aber gesagt, mir sagt es auch relativ wenig, weil ich einfach copy-paste.
+Weil ich keine Ahnung hab, wie man Windows-Audio-Arpies verwendet.
+Sieht dann so aus, wenn man versucht, Anwendungen unter Windows auf ein spezielles Volume zu setzen.
+Und das meiste hab ich mir ehrlich gesagt zusammen copy-pastet.
+Weil es wirklich extrem eklig unter Windows ist, sowas zu machen.
+Ja, aber ich bin begeistert, dass echt so viele Leute am Start sind. Cool.
+Ja, wir machen aber ganz normal weiter, ne?
+Die Sache war bloß gerade die, diese Windows-AP-Geschichten, bzw. das Zeug hier unter Windows zu programmieren, ist so dermaßen eklig...
+...dass ich gerade eigentlich ein bisschen Pause machen wollte.
+Und das heißt, ihr kommt genau rechtzeitig, Leute.
+Oder auch nicht, je nachdem, wie man's sieht.
+Geht das nicht easy mit VoiceMeter?
+Na ja, mit VoiceMeter kannst du viele Sachen machen, aber ich glaube, du kannst den VoiceMeter nicht...
+...hardcoded sagen, diese Anwendung bekommt diese Lautstärke.
+Ich glaube, das funktioniert nicht.
+Um euch mal zu zeigen, was ich meine, ist Folgendes.
+Also sprich, wenn man sich jetzt einloggt...
+...weil ich glaube, die meisten von euch spielen PS4, oder? Vermute ich jetzt einfach mal.
+Der behält die Einstellung. Nee, das Problem am Modern Warfare auf Windows ist, ich zeig's euch mal.
+Also, wenn ihr Modern Warfare unter Windows startet, dann passiert Folgendes.
+Ah, okay, ein paar spielen PC.
+Also, wenn das Spiel dann irgendwann mal startet, weil das ist ja bekannt dafür, dass gerade Modern Warfare ein...
+...absolut bug-freies und hochoptimiertes Spiel ist.
+So, und wenn man jetzt hier rausgeht und in den Windows-Volume-Mixer guckt, wird man feststellen...
+...das Spiel stellt sich immer auf 100%, immer.
+Man kann da nichts dagegen machen, es stellt sich immer auf 100%.
+So, und was ich jetzt gerade probiere, ist einzustellen, dass sich Modern Warfare von selbst runterstellt auf so ungefähr 13%.
+Und selbst wenn ich das hier mache, und die meisten Anwendungen, da funktioniert das.
+Bei allen anderen, oder sagen wir mal, eigentlich alle Anwendungen, außer Modern Warfare.
+Wenn ich die einmal einstelle, und dann beende, und dann beende, und sie wieder starte, dann haben die sich das gemerkt.
+Allerdings nicht Modern Warfare, wie ihr gleich sehen werdet. Wenn ich Modern Warfare nochmal starte, dann ist es wieder auf 100%.
+Und das ist totaler Müll, und das versuche ich gerade zu fixen.
+Wenn Infinity Ward da schon keinen Bock drauf hat, das zu fixen, dann mache ich das selbst.
+Modern Problems require modern solutions. Ja, was willst du machen?
+Guck, hier, steht wieder auf 100%. Jede andere Anwendung, guckt euch Firefox an.
+Firefox, 15%, ich mache Firefox aus, ich mache Firefox an.
+Stell es, keine Ahnung, ich mache auf YouTube irgendwas, irgendwas machen wir auf YouTube an.
+Das Audio abspielt, es ist vollkommen egal was.
+Guck mal, den Mixer rein, zack, Firefox, 15%.
+Jede Anwendung, egal wie klein, wie schlecht, egal, egal, egal, egal, egal, egal.
+Jede Anwendung, egal wie klein, wie schlecht, wie sonst was.
+Stell es sich wieder richtig ein, bzw. Windows kann sie richtig einstellen.
+Nicht so Modern Warfare. Ich vermute, ich habe nichts dazu gefunden, warum das so ist.
+Ich vermute, dass es eben eine Anti-Cheat-Maßnahme ist.
+Dass sich quasi die Anwendung jedes Mal minimal ändert, dass Windows sie nicht mehr erkennt und nicht richtig einstellen kann.
+Aber es ist nur bei Modern Warfare so.
+Ich bin ein Oldschooler, das könnte man so sagen, überlegt euch mal, ich bin jetzt 35 mittlerweile.
+Bekommst du einen Wack-Bun?
+Ich habe mir das Game nicht mal gekauft, im Prinzip bunnen die sich selbst dadurch.
+Und das machen wir hier gerade. Mit Firefox funktioniert das Ganze auch schon.
+Also sprich, ich kann Firefox einstellen. Das heißt, ich kann theoretisch auch Modern Warfare einstellen.
+Gibt es eigentlich in Zwischenzeiten einen Baby-Keks?
+Ich mag keine Kinder und ich mag... Ich dachte, ich mag keine Kinder.
+Ich mag keine Kinder und ich mag keine Kinder.
+Ich mag keine Kinder und ich mag keine Kinder.
+Und ich mag... Ich dachte ja früher immer nur, ich mag keine Kinder.
+Aber ich bin mittlerweile, und dafür habe ich ein paar Jahre gebraucht, bis ich das kapiert habe.
+Ich bin mittlerweile zu dem Schluss gekommen. Ich mag keine Menschen.
+Das sind nicht nur Kinder, die ich nicht mag. Ich mag keine... Außer den Chat natürlich.
+Den Chat, der Chat ist... Den Chat mag ich.
+Außer den Twitch-Chat. Der Twitch-Chat, ja der ist okay. Der Twitch-Chat ist... Der Twitch-Chat geht.
+Der Twitch-Chat ist hier.
+Moment, wo ist das passende E-Mode? Hier.
+Genau sehbar, das meine ich. White Paper Blanket.
+Das brauche ich übrigens. Übrigens mal als Beispiel.
+Es sind jetzt ja relativ viele Leute gerade dazu gekommen.
+Was ich so normalerweise in dem Stream mache. Vielleicht interessiert sich der eine oder andere ein bisschen für Technik-Sachen.
+Ich mache gerade mal ein bisschen Werbung für mich, weil wenn ich jetzt mal dann...
+So die letzten Videos, die wir... Oder die letzten Themen, die wir so gestreamt haben.
+Also wir machen nicht immer Programmier-Streams. Wir machen aber zum größten Teil mache ich hier auf Twitch Technik-Grams.
+Wogegen ich auf YouTube...
+Oh, der eine oder andere kennt es ja vielleicht auf YouTube auch noch.
+Auf YouTube habe ich ja hauptsächlich Gaming, Laberstell, sonst was gemacht.
+Und auf Twitch mache ich was komplett anderes. Ich mache hauptsächlich Technik-Geschichten.
+Also entweder programmieren wir was, wir gucken uns neue Linux-Geschichten an.
+Wir haben uns zum Beispiel zusammen angeguckt, das Sony-Event.
+Vor zwei Tagen.
+Chat, was sagt ihr zum Sony-Event? Nachdem jetzt ja auch hier einige Playstation 4-Spiele am Start sind.
+Was haltet ihr von der neuen Playstation 4?
+Also meine persönliche Meinung dazu ist, erstens, sie sieht aus wie eine Fritz-Box.
+Eine Fritz-Box mit weißen Seiten.
+Aber der Stream, der Sony-Stream war so ein bisschen... War so.
+Zum größten Teil war der Sony-Stream Resident-Sleeper extrem.
+Dann ein paar Sachen wie beispielsweise Sackboy Adventures fand ich cool.
+Aber im Großen und Ganzen war der Stream eher so.
+Ja, also das war also... Ich weiß nicht, also ich denke mal da kommt noch ein bisschen was.
+Ja, so Sachen treiben wir hier. Ab und zu gucken wir uns auch mal verschiedene Software an.
+Vereinzelt kaufen wir auch mal Technik-Sachen im Stream ein.
+Jeden Sonntagmorgen bin ich auch am Start. So zwei, drei Stunden zum Aufwachen.
+Wo wir alles Mögliche uns angucken.
+Ihr könnt ja mal durchgucken, ob das etwas ist, was euch gefällt.
+Ist auf jeden Fall schön, dass so viele Leute jetzt mal vorbeigeguckt haben.
+Ich bin mir auch im Klaren drüber, dass die Themen jetzt nicht unbedingt jeden ansprechen.
+Aber ich freue mich über jeden, der da bleibt, der vielleicht ab und zu mal reinguckt.
+Das ist auf jeden Fall...
+Sehr nice.
+Und eine Sache, die wir auch hier im Stream programmiert haben, die tatsächlich ganz cool ist, was ihr vielleicht auch schon gesehen habt.
+Also nur mal für den Fall der Fälle, dass auch wenn man nicht so sehr dazu Bezug hat, dass da mal ein paar ganz coole Sachen bei rauskommen können.
+Diese ganzen Overlay-Geschichten hier und der Sound.
+Das haben wir auch im Stream selbst programmiert.
+Wir haben uns hier im Stream so ein, ja quasi so ein Stream Deck Light gebastelt.
+Was man im Browser bedienen kann, auch am zweiten Rechner im Browser, über ein Tablet im Browser.
+Und das kann Overlay-Bildchen anzeigen oder Overlay-Sounds abspielen.
+Und das ist was, wo ich glaube, dass das relativ viele Streamer gebrauchen können.
+Unter anderem haben wir natürlich auch das beste Emote schlechthin.
+Und für den aktuellen Zeitpunkt angemessen natürlich auch den hier.
+So Sachen machen wir hier im Stream.
+So, ich glaube, jetzt habe ich mich lang genug ausgeruht, jetzt können wir weitermachen.
+Danny braucht so eins, ich dachte, Danny hat einen Stream Deck.
+Das Tolle übrigens ist, wie ihr hier seht, diese Bildchen, ich sehe sie erstens selbst,
+man kann sie eins verschieben, also man kann sich überlegen, wo man es anordnen will,
+man kann es größer Kleider machen und es kann GIFs, ganz wichtig, es kann GIFs.
+Und das Beste ist, es ist ein Overlay, was absolut nichts beeinflusst, also sprich, doch PNG kann es auch, PNG kann es auch, ja PNG kann es auch.
+Man kann durchklicken, wie ihr seht.
+Man kann durchklicken und es beeinflusst die Maus nicht, also man kann das auch in Spielen als Overlay verwenden.
+Genau, der Chat, der Chat hat das natürlich programmiert, was sonst.
+Und das Beste ist eigentlich, dass man es auf dem Tablet verwenden kann.
+Und es steuern, weil ich brauche den Browser hier nicht, um es zu steuern.
+IPS. Ja, und das allerbeste Feature von diesem, von meinem Memeboard ist, das allerbeste Feature ist,
+dass wir eine japanische Text-to-Speech-Engine haben, die kann man eigentlich auch auf dem Tablet verwenden,
+aber das allerbeste Feature von diesem, von meinem Memeboard ist, das allerbeste Feature ist, dass wir eine japanische Text-to-Speech-Engine haben, die zum Beispiel sowas hier sagen kann.
+Also die wichtigsten Sachen oder auch ganz, ganz wichtig gerade für die ganzen Call of Duty Fans.
+Call of Duty Fans.
+Und um nicht zu vergessen, der legendäre, wo hab ich's, wo ist es, ja, falls ihr noch
+einer kennt. Das ist glaube ich irgendein High Rise Modern Warfare 2 Sniper Clip.
+MonkaS. Genau, Mummy, Camera. Ja. Genau, den Brauma.
+Excellent. Ist das auf Github? Ja, eine uralt Version ist auf Github. Allerdings ist das
+Problem, dass ich schon ewig nicht mal gepusht habe. Hier, da, ups, da war's. Dass ich schon
+ewig nicht mal gepusht, vor allem die beste Commit Message überhaupt, dass ich schon ewig
+nicht mal gepusht habe und die Version, die da drauf ist, nichts mit der Version zu tun
+hat, die ich hier selbst habe. Also keine Voice, kein sonst was, kein GIF Support und
+nix. Ich müsste die aktuelle Version mal wieder pushen, aber die ist so eklig programmiert,
+die will ich eigentlich keinem zumuten. Pains Champ. Was, es gibt drei Forks? Ernsthaft?
+Es gibt tatsächlich drei Forks, warum gibt's drei Forks? Dreckiger dann, auskenn, Fuchs,
+okay. Gut zu wissen, es gibt drei Forks, warum auch immer. Wann kommt das nächste Gartenvideo?
+Es gab schon ein paar Gartenvideos, allerdings hat sich der YouTube-Algorithmus immer gedacht,
+Gartenvideos haben wir einmal promoted, danach juckt es keinen mehr. DevOps unter zwei Jahren
+keine Pushes, ja das stimmt. Pepehands. Ja, ich hab's halt einfach nur für mich zusammengebastelt.
+Tja, der Danny hat ja seine Motivation jetzt mit Streaming und Zeug wiedergefunden. Also
+bei mir ist es halt so, ich hab für YouTube aktuell echt kaum Motivation. Mein letztes
+YouTube-Video ist zwei Monate her und ich hab extra in dem Video erzählt, so nach dem Motto,
+ja, wir können neue Clips einschicken und dann hab ich vielleicht wieder Motivation,
+hatte ich aber nicht, hatte ich nicht. Dafür muss man echt sagen, in letzter Zeit Chat,
+der Chat ist mein Zeuge, ja. In letzter Zeit auf Twitch war ich echt relativ oft am Start.
+Euch mal an hier, alle paar Tage mal, da kann man sich nicht beschweren. Streams in on fleek,
+genau. Das ist immer Chebat. Wenn ich sag, bald kommen mehr Videos, dann ist das hier eindeutig.
+Okay, also wir machen mal weiter. Wo ist das Internet Security-Video, welches? Welches? Ich
+hab ein paar. Meinst du das hier? Ich glaub, meinst du das hier? Oder meinst du das mit der
+Fritzbox? Das da? Eins davon wirst du wahrscheinlich meinen. Ich habe zu dem Thema schon ein paar Videos
+gemacht. Zock, zock, also ab und zu mal vereinzelt. Warzone haben wir schon zweimal glaube ich gespielt
+On stream ich ich komme ja auch selbst erst wieder rein ich habe ja im vergleich zu den meisten anderen ich habe erst vor drei wochen zwei oder vor zwei wochen
+Zwei oder drei wochen erst wieder angefangen war son zu spielen und ich habe vorher aus ein bisschen per so weg sei
+Quasi drei jahre auf pc nix gespielt
+Und so langsam aber sicher läuft's wieder
+Weil es jetzt nicht so dass das jedes game den win ist
+Allerdings zumindest fast jedes game top 10
+Und auch ein paar wins
+Verwendest du eigentlich Wim oder Emacs wenn du auf linux arbeitest ja ich verwende ich verwende zum größten teil Wim wenn ich auf der
+Kommando zeile was mache
+Aber hauptsächlich halt wenn ich mich auf server einlogger auf der kommando zeile was macht
+Emacs habe ich zwar verwendet verwende ich nicht mehr meistens verwende ich mittlerweile nur linux tatsächlich visual studio code mittlerweile
+Ich habe gedacht man fragen logging tool ist abgekackt aber ist nicht abgekackt
+So
+Aber
+Ja Wim kann man prinzipiell nur empfehlen zu lernen wenn man auch ein bisschen remote of serveren unterwegs ist
+Ja el mostafa so sieht es aus manche sachen merkt man sich einfach aus auswendig so wir machen wir weiter
+Wo sind wir stehen geblieben
+Wir können den sound von firefox einstellen nur mal zum beweis dass das ganze funktioniert
+Weil ich so nicht gesehen habe so
+firefox sound steht aktuell auf one drive
+also one drive geh weg
+Also firefox steht aktuell auf 15 15 prozent gesamtvolume
+Aber wenn ich das ausführe dann steht firefox danach auf
+30 prozent gesamtvolume
+Hotkey guide please
+Hä? Für was?
+Für was hotkeys?
+Manchmal wäre ich aus dem twitch chat echt nicht schlauer
+So ich muss mich gerade mal konzentrieren wo sind wir stehen geblieben big brain moment
+Chat wo sind wir stehen geblieben
+Knäher bär wie machst du das mit dem instant voll im fullscreen einfach desktop wechseln
+Knäher bär du bist doch so oft dabei was ist doch schon oft gesehen
+Die einpländung die einpländung funktionieren gar nicht über irgendwelche obr
+Geschichten das ist was was ich selbst programmiert habe ich kann es zwar auch mit hotkeys machen
+Aber ich mache das meiste über den zweiten browser mit dem web interface ja
+Dem web interface ja omega low easy as fuck get rekt
+Ach bei dir geht das nicht vor mw15 ich glaube ich habe auch noch vor mw14 oder was habe ich
+15 tatsächlich ok ja da weiß ich auch nicht warum es nicht funktioniert
+Babykeks das wird sie nix das hat auch nicht geben
+Ja hier wie saß dings hier schallchen wie sah es dann eigentlich aus
+Also hast du das jetzt schon geschickt oder oder nicht habe ich vielleicht übersehen
+Chat wo sind wir stehen geblieben jetzt
+Ach ja ich weiß wieder ich weiß wieder was wir machen wollen genau also wir haben es jetzt ja geschafft den firefox auf 15 prozent volume zu setzen
+Bei der gelegenheit können wir gleich mal ausprobieren ob das mit modern warfare auch funktioniert
+Das testen wir noch mal ob das mit modern warfare auch funktioniert da sehen wir überhaupt ob da kram
+Theoretisch möglich ist was ich hier vor habe
+Ja crashy fluffy genau das wollten wir machen main audio auslesen
+Wir lassen es einfach im hintergrund laufen
+Genau wir lassen es einfach im hintergrund laufen und gucken jetzt mal ob wir den prozess überhaupt hier auslesen können
+Modern warfare so heißt es prozess id 167 8 8 easy
+So das heißt wir stellen es mir modern
+Wie wie schreiben das modern warfare zusammen hat man das geschrieben so von der idee her modern warfare stellt sich ja immer auf 100 prozent
+Sollte modern warfare jetzt sich auf die hälfte stellen
+Wenn das funktioniert
+Funktioniert aber nicht
+exzellent
+Warum von der Idee her ist es immer auf 100 prozent
+Funktioniert aber nicht exzellent warum funktioniert es nicht
+Vielleicht weil das hier gar nicht greift man breakpoint hin
+Geht auch greift
+Es heißt gar nicht modern warfare es hat sich beendet
+Warum hat sich das kann es sein dass das game denkt es ist ein cheat was ich laufen habe
+Das wäre natürlich ziemlich monka es wenn es das denkt
+Anti cheat wenn es jetzt echt anti cheat ist und das nicht funktioniert
+Dann ist es ein cheat was ich laufen habe
+Das wäre natürlich ziemlich monka es wenn es das denkt
+Anti cheat ey wenn es jetzt echt anti cheat ist und das nicht funktioniert
+Safe mode no
+Wack wack
+Direkt in die hälfte
+Direkt in die hälfte direkt in die hälfte direkt in die hälfte
+Okay mal gucken mal gucken ob ich mal gucken ob das wirklich als anti cheat erkennt
+Da bin ich echt gespannt erkennt es als anti cheat
+Oder aber es funktioniert nicht
+Aber es funktioniert nicht
+Warum funktioniert das nicht was ist das denn für ein schwachsinn ok wir setzen auf null
+set volume
+Ach so es funktioniert nicht weil ich es hardcoded setze
+Null
+Battlefield 3 war deine zeit euer battlefield 3 das stimmt battlefield 3 war echt
+Ziemlich nice es soll ja demnächst in remaster kommen
+Aber ich bin immer noch der ansicht battlefield 3 braucht kein remaster
+Nach battlefield 3 hatte ich ehrlich gesagt nicht mehr so viel bock das stimmt
+So mal gucken ob es jetzt funktioniert hat jetzt geht's kommt mal jetzt haben wir den sound ausgeschaltet
+So jetzt jetzt schalten wir den sound auf 50 prozent von modern warfare
+Ja funktioniert auch ok alles gut funktioniert doch man muss es man muss es bloß richtig machen dann funktioniert es auch
+Blut
+Man muss es nur richtig machen
+so 0.1
+So und jetzt sollte modern warfare ganz leise eingestellt sein
+Set volume was macht das da
+Null jetzt sollte der sound aus sein wenn es funktioniert
+Ach das game ist wieder
+What the fuck?
+Kann das sein
+Kann das sein dass das game sich allgemein beendet oder ist das wirklich eine anti cheat geschichte warum sich das beendet
+Das anti cheat hat das game eine lock glaubst du selbst nicht dass das ein lock hat
+Meint ihr das ist eine anti cheat oder das game spackt einfach nur rum
+Ich habe die idee wir gehen einfach wir gehen einfach mal in
+In privates match rein und lassen das laufen und dann gucken wir ob es abstürzt wir machen einfach privates match und gucken ob es abkackt
+Wo macht man die ordnung
+lene
+Ja es gut
+Custom Game Genau das, das wollte ich schon immer spielen
+Team Deathmatch Hackney hat alle eine, exellent Ok, das Game ist ziemlich laut, wie man vielleicht
+hört und jetzt müsste der Sound vom Game eigentlich ausgeschaltet werden
+Ok, mal gucken ob das ausgeschaltet wird Sound aus und Game läuft noch
+Ja Flo96 man weiß, weiß nie
+Alter, das ist Anti-Cheat
+Ich glaub's nicht Alter, das Game erkennt das als Anti-Cheat, wollt ihr mich verarschen
+Das Game ist so kaputt, dass die Audio-Settings total abgefuckt sind und nicht
+funktionieren und da kann ich es noch nicht mal selber fixen oder was
+Was ist das für ein Scheiß
+Warum Infinity Ward, warum, wahrscheinlich bin ich jetzt auch gleich noch gebannt oder so was
+Vielleicht sollte ich das besser lassen
+Nein
+Die sehen, dass du irgendwas mit dem Process machst, ja wahrscheinlich sehen die das
+Doch T-Bulus, das geht auch
+Wobei das teilweise auch broken ist, weil das nicht abhängig zur Master Volume Lautstärke
+ist die In-Game-Settings und Mines ist abhängig zur Master Volume Lautstärke
+Wir machen, wir machen Fullscreen Border lass mal
+Multiplayer Private Match
+Vielleicht schalten wir es mal nicht aus, sondern machen es auf 1 oder 05
+Infinity Ward is watching you, ja anscheinend
+Okay mal gucken ob es jetzt funktioniert
+Ja hat funktioniert
+Mixer, es hat auch gesetzt auf 15%
+Setzen wir uns auf 100%
+Hat auch funktioniert
+Lag das daran, dass das Game Fullscreen ist vielleicht
+Lag das daran, dass das Game Fullscreen ist, ich meine auszuschließen ist bei dem Spiel
+nichts
+Ihr hört das Sound, das Sound, ne
+Ich kann, oder es liegt daran, dass ich den Sound nicht auf 0 setzen darf, das kann auch
+sein
+Sound auf, wieso, jetzt crashts nicht
+Sound auf 0, Sound auf 1
+Gleich wird D-Ranked
+Also das funktioniert, Lautstärke, Setzen vom Spiel klappt
+Ja, okay, das lag an Fullscreen
+Das lag an Fullscreen
+Erstmal ne Runde hier
+Ja, passt
+Warum lag das am Fullscreen, das Game versteht echt keiner
+Okay, also sprich Soundsettings einstellen funktioniert, aber ohne Fullscreen-Spiele
+sacken doch
+Ja frag mich nicht warum es nicht funktioniert, ich kann ja auch nichts dran ändern, ich hab
+den Kram ja nicht programmiert hier
+Ich frag mich eh warum das Game 200GB groß sein muss, aber das ist alles das Thema
+Warum ist die Bahn zu spät, warum ist Modern Warfare so groß, 2 Sachen die werden wir nie
+ergründen können
+Gleich ist D-Ranked, ja, gleich, gleich, gleich bin ich wirklich D-Ranked
+Erster Strike, danach Account weg
+Okay, also Leute, wo sind wir stehen geblieben, also wir setzen das Volume von Modern Warfare,
+das funktioniert
+Da bin ich schon mal zufrieden, dass das funktioniert
+So, und die Sache ist die, jetzt kommt Trick 17
+Das Problem ist jetzt, dass ich Modern Warfare will ich auf 13 setzen
+Das ist ich 13 von meiner Gesamtlautstärke
+Das ist so die Standardlautstärke, die ich immer hab und das ist in dem Spiel laut genug
+13% Gesamtlautstärke bei ca. 30% Gesamtsound, also das Spiel ist fucking laut
+Oder du bist auf Twitch gebannt, weil du cheats für ein Spielcode ist
+Oi, ja, das wär richtig, oi
+Klärbär, warum hast du eigentlich kein Abo, ist das ausgelaufen
+Was, Klärbär, du bist so oft da, so oft da und hast das Abo auslaufen lassen, ich gifte
+dir eins
+Geschenk Abo verteilen
+Pogos, so muss das sein
+5 Monate, huge
+Ja, du bist so oft bei, ich seh dich so oft auch im Chat aktiv und sowas
+Da muss das mal sein, ja
+Das beste ist, ich krieg davon 2,50 Euro wieder, also mich kostet das Abo eigentlich
+plus 2,50, also im Prinzip bezahle ich Twitch dafür, dass ich dir ein Abo schenken darf
+Wenn man es mal genau nimmt, also eigentlich geb ich Twitch Geld, dass ich dir ein Abo
+schenke
+Das ist eigentlich total wir, wenn man sich mal überlegt, total verkehrte Welt, ja
+So, also, wie gesagt, das Problem ist jetzt, dass ich Modern Warfare auf 13% einstellen
+will, allerdings 13% von der Gesamtlautstärke und ich über die Windows API plus prozentual
+zur aktuellen Master-Lautstärke setzen kann, deswegen müssen wir jetzt absolut next level
+big brain shit machen
+Hier bekommen wir raus, Moment, wo waren wir, wo sind wir stehen geblieben, das ist so hässlich
+Hier bekommen wir raus, auf welchem Level mein Mastervolum steht, mein Mastervolum steht
+auf 30%, das stimmt auch hier, Mastervolum, sieht man hier, Mastervolum steht auf 30%,
+das heißt, ich muss jetzt ausrechnen, wie viel bei 30% Mastervolum 13% von 100% Gesamtlautstärke
+sind
+Quickmaps, wer weiß, wie es geht
+Lusus97, Twitch Prime, excellent subscription, danke schön, Massive IQ für den Chat wieder,
+Massive IQ Boost, die Stonks, die IQ Stonks gehen hoch, Dreisatz, nee, so einfach ist
+an der Stelle nicht
+Pokemon Soundtrack, ja
+Ich hoffe, das Game läuft nicht ab, das soll weiter laufen im Hintergrund
+Also, ich hab so eine grobe Idee, wie man das eventuell machen könnte
+Also, wir haben, wir haben 30% Gesamtvolum, ich muss mir das nochmal anzeigen lassen,
+wir machen jetzt was anderes, ich stell das jetzt auf 15%, das ist die Hälfte, so wir
+wissen, dass wir 30% Gesamtvolum haben, so 50%, ok, 50% von, es hat sich wieder beendet,
+oh man, scheiß Game, Alter, das ist Anti-Cheat-Erkennung, fuck, das sackt, warum erkennen die sowas
+als Anti-Cheat, die sollen mich in Ruhe lassen oder ihr Game ordentlich programmieren, dann
+muss ichs nicht selber machen, wir machen das jetzt trotzdem, also, wir machen das mit
+dem Firefox wieder, Firefox, weil der Firefox da crashed wenigstens nicht, also mein Ziel
+ist es, den Firefox, oh, so, also jetzt die Lautstärke irgendwas hier verändert, ne,
+ne, also, mein Ziel ist es, den Firefox auf, sagen wir mal, 13% einzustellen, also sprich,
+wir haben 30% Gesamtvolum, 30%, ok, das les ich dann, das hardcronen wir jetzt mal und
+sagen, hier, Mastervolum ist 30%, ok, so, das heißt, wenn das Mastervolum 30% ist, oder
+sagen wir mal 15%, ne, also, was ich ausrechnen will, ist folgendes, es sind 15%, es sind
+15% von 100% maximaler Lautstärke, wie der Firefox eingestellt ist vom Maximalvolum,
+allerdings muss ich jetzt wissen, wieviel 15% maximaler Lautstärke in Prozent sind
+von 30% des Ganzen, also 50, im Prinzip soll da sowas wie 50 oder so rauskommen, so, also,
+muss ich sagen, 30, 13 mal 100 minus Master, oh, das ist exzellent, quick maths, also,
+ich würd sagen, wir können sowas hier machen, wo sind wir denn, Mastervolum, hardcronen wir
+mal, also, ich würd sagen, wir machen sowas wie 30 durch, big brain, 30 durch und dann
+das aktuelle Volum, und dann gucken wir mal, ob das stimmt, also, von der Idee her, sollte
+er mir jetzt ausgeben, 50, ne, sollte er mir ausgeben, 15, stimmt das, ne, ne, das stimmt
+nicht, was ich da gemacht hab, aber ich hab mich auch verschieben, ich soll da Master
+nicht voll, Master muss da rein, 3, 3, ah, ist das vielleicht kein float, 3, wait a minute,
+ist das verkehrt, was ich da mache, ich bin zu low brain dafür, quick maths, ah, 3, ja
+richtig, lull, ich darf den ja auch nicht setzen, den Kram, alter, ich bin ja auch bescheuert,
+guck mal, ja, 15, das stimmt, ist richtig, was ich gemacht hab, 15, guckt hier, 15,
+sehr gut, big, big brain, quick maths, also, gut, wir wissen jetzt, dass wir 15, 15% big
+brain, ja, was face reveal bei einer Million Abos hab ich da grad so durch den Chat durchgehen
+sehen, Max steht das noch mit dem face reveal bei einer Million Abonnenten auf YouTube, ja,
+aber nachdem ich keine Videos mache auf YouTube werde ich auch nie eine Million Abos bekommen
+oder willst du jetzt den followbot anschmeißen, legit subscriber natürlich, legit subscriber
+und nicht irgendwie so blödsinn da, auf Twitch eine Million, ja, dann, dann ist, dann mach
+ich double face reveal, wenn ich auf Twitch eine Million hab, dann mach ich face und foos
+reveal in einem Video, damit alles revealed, alter, ähm, übrigens, mir ist gerade eingefallen,
+es ist total blödsinn, was ich hier ausrechne, was soll ich eigentlich mit den 15% haben,
+was will ich damit eigentlich, master mal wohl, ist das wirklich so, man darf nicht
+vergessen, das sind alles irgendwelche float Geschichten, was, ah, excellent, siehst du,
+der Chat ist, der Chat ist halt einfach high IQ, ja, ist eigentlich auch viel logischer,
+virgin check, Poki W, oh, oh, oh, oh, das ist eine schlechte Idee, Pekaknostik, ich mach
+mal mit, das ist eine schlechte Idee, ganz schlechte Idee, oh Leute, ich bin voll brain
+afk gerade, ich weiß gar nicht, was ich jetzt machen wollte, ähm, ich will setzen, ach,
+scheiß drauf, es funktioniert doch eh nicht, weil modern warfar den Kack als cheat erkennt,
+das ist so fail, alter, dieses Kackgame, warum erkennt es das als cheats, das ist, das ist,
+ah, au, jetzt hab ich auch noch Adinaska an der Stelle, wo ich blauen Fleck hab, ah,
+Pepehands hier, ach, das ist doch Müll, warum geht das mit dem Game nicht, das ärgert
+mich jetzt, das funktioniert, das funktioniert so gut, ja, das funktioniert so gut, ich meine,
+es sieht mega hässlich aus, aber es ist halt, Windows-APD ist halt mega hässlich, aber
+es geht nicht, weil das Spiel es als Anti-Cheat erkennt, mach doch mal einen eigenen Linux
+Rise, mein i3 ist gerised genug, der reicht, der ist so gerised, mein i3, da kann es ja
+kaum noch mehr, mehr reißen, ja, ja, aber richtig, jetzt wissen wir wenigstens, wie
+die Windows-APD funktioniert, die Windows-Audio-APD, ja, Windows-Audio-APD braucht man immer,
+kannst du jetzt direkt in deinen Lebenslauf reinschreiben, ich hab den Stream von Max
+zur Windows-Audio-APD geguckt, feelsbadman, das ärgert mich richtig, dass das Spiel das
+als Cheat erkennt, Kack-Game, alter, Wood-Face, ich meine, man könnte das bestimmt noch
+ein bisschen trickreicher machen, indem man verschleiert, was die Anwendung im Hintergrund
+treibt oder so, aber die werden schon den Grund haben, warum sie sowas als Anti-Cheat
+erkennen, oder nee, umgedreht, die haben keinen Grund, warum sie sowas als Anti-Cheat erkennen,
+die haben ja Anti-Cheat halt so gebaut, dass das mit reinfällt, kannst du mir eventuell
+beim Wechsel einer Schriftart helfen für i3, ja, kann ich Sebaro, das ist ganz einfach,
+Schriftart wechseln in i3 macht man so, Font, so, easy, das war's, mehr muss man nicht machen,
+machen ein Bug-Report, genau, also, wo kann man Modern Warfare Bug-Reports, geht das überhaupt,
+Bug-Reporting, was ist denn das für eine hässliche Seite, Igitt, hast du gelesen, was ich geschrieben
+habe, nee, hast du Ed Wupplos davor geschrieben, da wird's bei mir nämlich hervorgehoben,
+was hast du denn geschrieben, ah, hier, es wird, aber komischerweise nur ab und zu erkannt
+oder wenn die App etwas länger läuft, probier doch mal schnell zu setzen, um die App zu
+beenden, die App beende sich direkt wieder, die App beende sich direkt wieder, ich denke
+auch, dass sie nur testweise kurz immer gucken, wenn was ist, aber es ist halt nicht reproduzierbar,
+100 Cent, exellent, Bits, die Seite ist mal richtig hässlich zum Bug-Reporten, was haben
+sie sich da überlegt bei Activision, sie sieht aus wie eine Seite, die der Praktikant
+in der Mittagspause auf dem Klo zusammen gewusstet hat, ey, was ist das hier, und es liegt nicht
+an meinem Darkreader, weil mein Darkreader ist aus, und ich könnte mir vorstellen, wenn
+ich meinen Darkreader anmache, sieht die Seite sogar mit Darkreader besser aus, die Seite
+sieht mit Darkreader besser aus als im Originalen, guckt euch das mal an, so lächerlich, oder,
+die Seite mit Darkreader sieht besser aus als die Originalseite, na toll, habt ihr gut
+gemacht Activision, perfekt, der Knäherbär, ja ich sehe jetzt keinen Sinn drin, den Dacrosse
+da nicht weiterzumachen, wenn es mit Modern Warfare eh nicht geht, das ist echt kacke,
+ihr Trumpet, können wir mal ausprobieren, ob es das kann, aber wahrscheinlich kann
+es das auch nicht, ihr Trumpet, get, dass sie mich immer dazu verleiten wollen mich zu
+registrieren, welcome to your Trumpet, ja, Volumixer, oh, what the, was zum geil ist das
+für eine Anwendung, what the fuck, was ist das, wollen die mich verarschen, Massive Quality
+Software, das ist übrigens falsch, das ist hier, das ist richtig, das ist richtig hier,
+gleich mal gucken ob es hier die Lautstärke Einstellung richtig macht, UVP Apps, ich glaube
+das ist gar keine UVP App, das ist eher, das ist eher eine WPF, ok, schauen wir mal ob
+das das kann, ich glaube nicht, dass es das hinbekommt, warum steht das jetzt auf 83,
+ach so, weil es 83 von 30 sind, no, ah, MW 100%, ok, mal schauen, stellen wir es mal
+auf 30% ein, wenn es mit ihr Trumpet geht, dann liegt das daran, dass sie das whitelisted
+haben, ok, jetzt bin ich mal gespannt ob ihr Trumper das hinkriegt, aber anscheinend kann
+man da eh nichts groß, Windows Legacy, ah, das ist der alte, ok, ok, die Anwendung gefällt
+mir insofern schon mal, die ist aufs nötigste beschränkt, so schauen wir mal, ob es das
+hinbekommt jetzt, ne 100%, kanns nicht, crap, kack Game, da brauche ich die Anwendung hier
+auch nicht, wozu, ah, Exit, exellent, weg, wo ist das Door, Remove, ihr, ah, Anwendung,
+weg, ehm, hallo, ich hab dich beendet Game, Spiel, falls du es nicht mitbekommen hast,
+ich hab dich beendet, ja, ich denke auch, dass ich das anders machen müsste mit der Prozess
+ID, als über den offensichtlichsten Weg, weil die halt sowas scannen werden, was richtig
+bescheuert ist, Spiel, ich hab dich beendet, Spiel hat mehr Rechte, Spiel will sie nicht
+beenden lassen, Spiel mag nicht, Spiel hat keinen Bock, ok, Warzone, Modern Warfare, wo
+ist das Spiel, hier, bam, yes, ja wenigstens darf ich es über den Taskmanager beenden,
+ich weiß auch nicht, was mit dem Gamechamp ist, Spielt Max jetzt Warzone, nö, Max geht
+gleich wahrscheinlich, demnächst irgendwann auf, weil das was er vorher hatte nicht funktioniert
+hat, weil das Spiel meine Software als Cheat erkennt, dabei sind wir gar nicht so die
+richtigen Hacker-Mans und haben Cheats gebastelt, wir wollten einfach nur die Lautstärke von
+Modern Warfare anpassen, sonst nix, einfach nur die Lautstärke anpassen, aber das ist
+nicht erlaubt, Cheat baited, ja, P-Poset, P-Poset, das brauch ich noch als Bild, das
+ist ganz wichtig, das hab ich noch gar nicht drinne, P-Poset, aber als, braucht das als
+Parents, P-Poset.
+So, safe, P-Poset, P-Poset.
+So, ja Leute, leider funktioniert es nicht, ich kann da nichts ändern, sagt, wobei der
+P-Poset gefällt mir nicht, da müssen wir einen anderen suchen, P-Poset, was mit dem
+hier, oder mit dem hier, der ist besser, der gefällt mir besser, P-Poset 2, der gefällt
+mir besser, P-Poset 2, ja, exzellent, schön, niedrige Auflösung, dass man nix erkennt,
+so muss das sein, zack, zack, zack, zack, zack, zack, zack, zack, alles zu, alles dicht,
+hier noch ein P-Poset, aber haben wir noch kein P-Poset drin, den brauchen wir unbedingt
+noch, P-Poset, ganz wichtig, exzellent, der ist P-Poset, ja, perfekt, den brauchen wir
+nur noch, P-Poset, P-Pofet, jetzt haben wir sie alle, irgendwas hat sich ja mein Audio
+settings geändert, ok Leute, ja leider konnten wir nicht das machen, was wir machen wollten,
+weil Modern Warfare keinen Bock hat, gut, gibt es irgendjemanden, den ich hausten kann,
+zeig ich mal, ja, irgendjemand, der es gebrauchen kann, durchsuchen, du folgst, irgendjemand,
+der es gebrauchen kann, der nicht so viele hat, oh, nee, es hat glaube ich keiner on,
+naja, wurscht, ja, hat nicht so funktioniert, wie ich mir das ganze vorgestellt habe, ich
+gehe jetzt erstmal auf, vielleicht spiele ich nachher noch eine Runde Bosser und das
+kann sein, aber rechnet man eher nicht mit, müssen wir mal schauen, also Leute, bis dann,
+machts gut, C U.

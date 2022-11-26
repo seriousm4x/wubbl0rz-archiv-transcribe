@@ -1,0 +1,4040 @@
+1
+00:02:00,000 --> 00:02:19,360
+Also was wir uns heute widmen werden ist folgendes, Windows stellt ganz gern, wobei ich bin mir
+
+2
+00:02:19,360 --> 00:02:25,840
+nicht ganz sicher ob es Windows ist oder ob es einfach nur kack Windows Anwendungen sind,
+
+3
+00:02:25,840 --> 00:02:32,120
+z.B. wenn man Modern Warfare startet stellt sich die Anwendung immer auf 100% z.B. wenn
+
+4
+00:02:32,120 --> 00:02:37,560
+man Skype oder Teams verwendet stellt das laufend am Mikrofon rum, deswegen habe ich mir gedacht
+
+5
+00:02:37,560 --> 00:02:45,760
+wir basteln was, was man im Hintergrund laufen lassen kann und das Audio immer richtig einstellt,
+
+6
+00:02:45,760 --> 00:02:52,240
+also je nachdem wie man es haben will. Ich habe mir schon kurz ein bisschen was angeguckt vorher
+
+7
+00:02:52,240 --> 00:02:57,400
+wie das unter Windows geht und ich kann euch sagen es ist nicht normal, es ist absolut der
+
+8
+00:02:57,400 --> 00:03:03,440
+übelste Api Wirrwahl, eines der schlimmsten die ich bisher gesehen habe unter Windows Alter.
+
+9
+00:03:03,440 --> 00:03:11,400
+Das ganze nennt sich Windows Core Audio Library, das hört sich so an als hat es schon mal einen
+
+10
+00:03:11,400 --> 00:03:17,520
+ganz guten Namen, es hat übrigens nichts mit UWP oder so zu tun, auch wenn es ein bisschen
+
+11
+00:03:17,520 --> 00:03:22,520
+danach klingt, es gibt es erst seit Windows 7, es ist auch egal, Windows 7 ist das kleinste
+
+12
+00:03:22,520 --> 00:03:27,000
+was wir supporten, das reicht schon, aber es ist eklig, es ist echt eklig, das kann ich
+
+13
+00:03:27,000 --> 00:03:33,440
+euch sagen. Gummi Bear Games hat Subscribed, 2 Monate, Dankeschön, excellent Subscription,
+
+14
+00:03:33,440 --> 00:03:45,640
+huge. Mein Emote Board funktioniert nicht, Moment, ich habe die Auflösung falsch eingestellt,
+
+15
+00:03:45,640 --> 00:04:05,480
+jetzt ist es besser, excellent. So, der Sibaro, was sagt der Sibaro, kannst du für eine i3
+
+16
+00:04:05,480 --> 00:04:14,360
+Konfig mal eine Rhythmie schreiben wie man die einfügen muss? Punkt Konfig, i3 Konfig,
+
+17
+00:04:14,360 --> 00:04:23,840
+wieso? Es gibt 2-3 Orte wo man die hinlegen kann, was soll ich denn schreiben? Ach so,
+
+18
+00:04:23,840 --> 00:04:28,760
+die Status Bar, so wie ich die habe, ja dazu brauchst du ja noch das Programm was die Status
+
+19
+00:04:28,760 --> 00:04:34,600
+Bar macht, also i3 Status RS brauchst du noch dazu, dass das funktioniert. So, ich zeige
+
+20
+00:04:34,600 --> 00:04:41,280
+euch jetzt schon mal grob was euch heute erwartet, es wird Windows, AP, also eklicher geht es
+
+21
+00:04:41,280 --> 00:04:45,080
+kaum, passt mal auf, also das erste was natürlich ein guter Programmierer macht, als wenn er
+
+22
+00:04:45,080 --> 00:04:50,920
+ein Problem hat ist, er sucht auf Stack Overflow danach, das heißt das werden wir jetzt auch
+
+23
+00:04:50,920 --> 00:05:01,920
+machen. So, also wir suchen so was wie Change Volumixer AP Windows Stack Overflow. So, und
+
+24
+00:05:01,920 --> 00:05:05,120
+das was wir finden ist dieses Beispiel hier, weil das habe ich mir vorher schon mal angeguckt,
+
+25
+00:05:05,120 --> 00:05:22,160
+ich mache mal kurz mal, die Musik ist MonkaS, ich mache mal kurz den Dark Reader aus, ja
+
+26
+00:05:22,160 --> 00:05:25,960
+machen wir auch mal den Dark Reader aus, es ist Früh am Tag, da wird es mal Dark Reader,
+
+27
+00:05:25,960 --> 00:05:31,800
+also genau das wollen wir machen, Controlling Volumixer, also sprich das da, was wir hier
+
+28
+00:05:31,800 --> 00:05:36,640
+haben, auch übrigens, ich hoffe es sieht keiner meine Hacks, die ich im Hintergrund laufen
+
+29
+00:05:36,640 --> 00:05:43,240
+habe, ich meine irgendwie muss ich ja auch mal den Aimbot hier verstecken langsam, Wallhack,
+
+30
+00:05:43,240 --> 00:05:53,680
+Aimbot, das gibt es da sonst noch alles, Trackingbot, Tradebot, alles hier, Main Window, ja zumindest
+
+31
+00:05:53,680 --> 00:05:59,720
+also dieses Ding hier, das ist halt die Windows 7 Variante, Not Leaked, Chat ist drüber,
+
+32
+00:05:59,720 --> 00:06:05,880
+du denkst, dass es Not Leaked war, vielleicht war es ja auch Absicht, vielleicht war es
+
+33
+00:06:05,880 --> 00:06:10,840
+ja auch Absicht, ich sehe jetzt in der Vorschau, dass der Chat gleich weg ist und jetzt blende
+
+34
+00:06:10,840 --> 00:06:24,600
+ich es aus und ihr habt nichts gesehen, also ich schiebe es mal hier in die Mitte, also
+
+35
+00:06:24,600 --> 00:06:28,140
+das hier ist der Windows Mixer, den kennen wir ja alle, den kann man übrigens auch breiter
+
+36
+00:06:28,140 --> 00:06:32,320
+machen, es macht nur irgendwie keiner und es ist lustigerweise egal, wie sehr man ihn
+
+37
+00:06:32,320 --> 00:06:37,080
+verschiebt, immer unten rechts und immer wieder klein, also man kann ja auf die Idee
+
+38
+00:06:37,080 --> 00:06:41,320
+kommen können, dass Microsoft so clever ist und sich merkt, wie groß man das Mixer Fenster
+
+39
+00:06:41,320 --> 00:06:46,480
+gemacht hat, wir haben 69 Zuschauer, exellent, wie groß und wo man das Mixer Fenster haben
+
+40
+00:06:46,480 --> 00:06:53,760
+will, aber Microsoft hat sich gedacht, juckt uns nicht, ist uns vollkommen egal, du kannst
+
+41
+00:06:53,760 --> 00:06:57,600
+das Fenster so schieben wie du willst, aber danach wird es wieder resettet, also das ist
+
+42
+00:06:57,600 --> 00:07:00,960
+der Windows Mixer hier, das ist eine Frage, die einer gestellt hat vor sieben Jahren,
+
+43
+00:07:00,960 --> 00:07:08,600
+das ist also schon ein bisschen älter, es hat sich Windows API technisch, Sieg, macht
+
+44
+00:07:08,600 --> 00:07:21,000
+voll nervös, ja Audioeinstellungen sind generell Monarch S unter Windows, guck mal, Monarch
+
+45
+00:07:21,000 --> 00:07:29,640
+S hat auch Transparency, so und also das wollen wir einstellen, so, das Problem dabei ist,
+
+46
+00:07:29,640 --> 00:07:38,160
+dass Microsoft sich gedacht hat, es ist eine gute Idee, dafür keine moderne API anzubieten,
+
+47
+00:07:38,160 --> 00:07:43,220
+also mit modern eigentlich nicht was funktioniert, sondern irgendwas, was sich halbwegs normal
+
+48
+00:07:43,220 --> 00:07:48,460
+bedienen lässt, so und deswegen funktioniert das ganze folgendermaßen, das ganze nennt
+
+49
+00:07:48,460 --> 00:07:55,840
+sich Windows Core Audio API, so und wenn man da danach sucht, wird es schon mal ganz ekelig,
+
+50
+00:07:55,840 --> 00:07:59,560
+dann wird es schon mal ganz ekelig, übrigens eine der weiteren Sachen, die mit UWP nicht
+
+51
+00:07:59,560 --> 00:08:04,480
+funktioniert, so und da gibt es hier zig Milliarden Interfaces, da gibt es ja sowas
+
+52
+00:08:04,480 --> 00:08:11,800
+tolles wie iAudio Endpoint Format Control und was wir brauchen werden ist ein iSimple
+
+53
+00:08:11,800 --> 00:08:19,160
+iAudio Volume Interface, also was die sich dabei bei Microsoft wieder gedacht haben,
+
+54
+00:08:19,160 --> 00:08:23,440
+Ear Trumpet, das kann man machen, ja man kann fertige Sachen nehmen, das kenne ich übrigens
+
+55
+00:08:23,440 --> 00:08:31,960
+noch gar nicht, die Sache ist bloß die, wenn man fertige Sachen nimmt, lernt man nichts,
+
+56
+00:08:31,960 --> 00:08:35,200
+das ist übrigens Open Source Ear Trumpet, ich hab Mist erzählt, natürlich kenne ich
+
+57
+00:08:35,200 --> 00:08:41,360
+das, das ist Open Source, das kann man sich auf GitHub angucken wie es funktioniert, ja,
+
+58
+00:08:41,360 --> 00:08:48,880
+das ist im Prinzip der Windows Mixer nur in besser, aber wenn man was fertiges nimmt,
+
+59
+00:08:48,880 --> 00:08:58,480
+da lernt man nichts, wir wollen ja was lernen, wir sind ja Stonks IQ, so und das hier sind
+
+60
+00:08:58,480 --> 00:09:03,000
+so ganz tolle Interfaces und Sachen, wo sich Microsoft gedacht hat, genau so muss man das
+
+61
+00:09:03,000 --> 00:09:09,480
+machen, ja, so dass man zum Beispiel auch den IKS Jack Description 2 Interface, genau
+
+62
+00:09:09,480 --> 00:09:14,120
+das wollte ich auch schon immer öffnen, also ganz tolle, ganz tolle, ganz tolle, ganz
+
+63
+00:09:14,120 --> 00:09:19,640
+tolle API, die sich der Microsoft gedacht hat, dass das eine gute Idee ist und um euch
+
+64
+00:09:19,640 --> 00:09:32,680
+mal ein, Moment, ich hab es doch gerade, what the fuck, Windows, so und Microsoft hat sich
+
+65
+00:09:32,680 --> 00:09:37,800
+halt gedacht, ja, das ist zu einfach, wenn wir da einfach ein paar API Aufrufe anbieten
+
+66
+00:09:37,800 --> 00:09:44,320
+so wie Set Global Volume oder Set Application Volume by ID oder sowas, das ist zu einfach,
+
+67
+00:09:44,320 --> 00:09:50,160
+so, deswegen hat sich Microsoft gesagt, das macht man damit, das habe ich euch ja gerade
+
+68
+00:09:50,160 --> 00:10:04,600
+schon gezeigt und hier ist ein, alter was ist hier los, hier, was macht der Darkreader
+
+69
+00:10:04,600 --> 00:10:11,840
+für komische Dinger, der Darkreader soll mal hier nicht rum nerven und aufhören zu
+
+70
+00:10:11,840 --> 00:10:19,040
+Dark zu readern, wenn ich nicht will, oder habe ich Stack Overflow vielleicht auf Dark
+
+71
+00:10:19,040 --> 00:10:24,240
+stehen, falls das überhaupt geht, hat Stack Overflow einen Darkseam, vielleicht haben
+
+72
+00:10:24,240 --> 00:10:29,040
+wir auch irgendwie eine Hexer auf dem Recher, da müssen wir gleich mal gucken, ja, Twitchchat
+
+73
+00:10:29,040 --> 00:10:39,560
+hat mich gehackt, guck hier, ja, ich sehe es schon, Microsoft Photos, das ist eindeutig,
+
+74
+00:10:39,560 --> 00:10:55,160
+der Twitchchat, so und hier gibt es ein Beispielprogramm, das habe ich mir im Vorfeld schon angeguckt
+
+75
+00:10:55,160 --> 00:11:01,720
+und ich muss euch sagen, auf den ersten Blick, man checkt nichts, das hier sieht ja noch
+
+76
+00:11:01,720 --> 00:11:06,880
+relativ simpel aus, ne, so nach dem Motto, ok, er sucht nach Firefox, listet sich alle
+
+77
+00:11:06,880 --> 00:11:12,920
+Anwendungen auf, sucht dann die Anwendung raus, die Firefox heißt und sagt dann Muted
+
+78
+00:11:12,920 --> 00:11:18,640
+bzw. setzt das Volume auf 50%, das klingt logisch, aber ihr seht hier schon wie lang
+
+79
+00:11:18,640 --> 00:11:28,000
+das Programm ist, der logische Teil endet genau jetzt, das logisch endet genau jetzt,
+
+80
+00:11:28,000 --> 00:11:35,040
+so und jetzt kommt Microsoft Big Brain API zum Tragen und zwar hier, ja, wenn man sich
+
+81
+00:11:35,040 --> 00:11:39,680
+sowas schönes schon anguckt, tippt mir hier, man braucht nämlich den EMM Device Enumerator,
+
+82
+00:11:39,680 --> 00:11:46,600
+ja, dann, dann braucht man den Default Audio Endpoint natürlich mit diesem ganz klar,
+
+83
+00:11:46,600 --> 00:11:52,680
+dass man hier E-Render und E-Multimedia braucht, dann müssen wir irgendwelche Interface-IDs
+
+84
+00:11:52,680 --> 00:12:03,440
+uns raussuchen, nämlich den IEID iAudioSessionManager2, den müssen wir dann irgendwie uns eine Referenz
+
+85
+00:12:03,440 --> 00:12:10,280
+zu holen mit einem absolut selbsterklärenden API Aufruf, man müsste dann nämlich sagen,
+
+86
+00:12:10,280 --> 00:12:14,240
+wenn wir hier, das Default Audio Interface ist bei mir übrigens nicht Speaker, sondern
+
+87
+00:12:14,240 --> 00:12:21,600
+mein optischer Audio Ausgang, so und dann sagt man hier Activate, warum auch immer Activate,
+
+88
+00:12:21,600 --> 00:12:28,960
+was auch immer es dann heißt, ja, da übergeben wir dann die ID für das Interface des Audio
+
+89
+00:12:28,960 --> 00:12:37,200
+Session Manager 2s, dann müssen wir auch irgendwelche Obscuren, siehst du, ich bin schon wieder
+
+90
+00:12:37,200 --> 00:13:00,640
+kurz vorm abkratzen, wenn ich das sehe, ok, es wartet mal kurz, exellent, da sind wir
+
+91
+00:13:00,640 --> 00:13:08,080
+wieder, so, da muss man irgendwelche Obscuren-Parameter übergeben, Null, Null-Pointer und dann kriegt
+
+92
+00:13:08,080 --> 00:13:15,720
+man ein Object zurück, was man dann wiederum zu einem iAudioSessionManager2 casten kann,
+
+93
+00:13:15,720 --> 00:13:19,400
+alles klar so weit, so, das machen wir dann noch ein paar Mal und in jedem Fall kriegen
+
+94
+00:13:19,400 --> 00:13:26,320
+wir dann Sachen zum Steuern des Windows-Mixers raus und das müssen wir alles wieder aufräumen,
+
+95
+00:13:26,320 --> 00:13:33,480
+das ist gute alte Windows-Crap-RP, was wir hier haben, i3-Status-Rust, ja, richtig sehbar
+
+96
+00:13:33,480 --> 00:13:42,400
+auch, so, wunderbar, so machen wir das, genauso werden wir das machen und damit wir schon
+
+97
+00:13:42,400 --> 00:13:47,840
+anfangen können, copypasten wir uns mal, ach ja, übrigens, wer sich jetzt gefragt hat,
+
+98
+00:13:47,840 --> 00:13:53,600
+woher diese iAudioSessionManager2 Interfaces überhaupt kommen, es gibt nicht irgendwie
+
+99
+00:13:53,600 --> 00:13:59,920
+ein paar Sachen, die man einbinden kann, dass man die Sachen, dass man das verwenden kann
+
+100
+00:13:59,920 --> 00:14:04,520
+von Microsoft, ne, ne, die muss man selber definieren, glücklicherweise hat dieser Typ
+
+101
+00:14:04,520 --> 00:14:09,520
+hier in dem Beispiel schon ein paar Sachen definiert, ansonsten dürfte man sich nämlich
+
+102
+00:14:09,520 --> 00:14:15,280
+komplett durch die Windows-API-Dokumentation kämpfen, zum Beispiel hier importiert er
+
+103
+00:14:15,280 --> 00:14:23,000
+das iAudioSessionManager2 Interface, was natürlich ganz selbsterklärend diese interne ID hat
+
+104
+00:14:23,000 --> 00:14:27,680
+also, ich glaub, die kennt jeder, der schon mal Windows verwendet hat, der weiß genau
+
+105
+00:14:27,680 --> 00:14:41,120
+das 77AA99A01BD6484F8BC72C65C9A9B64, das iAudioSessionManager2 Interface ist, kann
+
+106
+00:14:41,120 --> 00:14:47,000
+jeder, oder, chat, Hand aufs Herz mal ehrlich, wer kann's nicht, die braucht man jeden Tag,
+
+107
+00:14:47,000 --> 00:14:53,640
+genau, ja, P-Invoke, da könnte man auch gucken, aber die Dinger sind wahrscheinlich, wir
+
+108
+00:14:53,640 --> 00:14:57,720
+gucken mal, ob's da gibt, die Dinger sind wahrscheinlich so obscure und sonst wie, dass
+
+109
+00:14:57,720 --> 00:15:06,720
+die wahrscheinlich gar nicht da draufstehen, Dark Reader, fuck mich dat ab, geh aus, so,
+
+110
+00:15:06,720 --> 00:15:20,960
+wisst ihr, die Dinger sind so abgedreht, die stehen noch nicht mal hier drinnen, Dark Reader
+
+111
+00:15:20,960 --> 00:15:29,600
+geht nervlich rum, Alter, irgendjemand hat gerade gefragt, was programmiert wird, ich
+
+112
+00:15:29,600 --> 00:15:34,640
+versuche was, ich versuche, ich weiß ja nicht, ob das funktioniert, ich versuche, über
+
+113
+00:15:34,640 --> 00:15:39,640
+die Windows API, Programme, die immer ihre Lautstärke ändern, wie z.B. Modern Warfare
+
+114
+00:15:39,640 --> 00:15:43,640
+beim Starten stellt sich immer wieder auf 100% zurück, oder mein Mikrofon, was permanent
+
+115
+00:15:43,640 --> 00:15:48,520
+von Skype und Teams umgestellt wird, dass ich im Hintergrund checke, ob gewisse Anwendungen
+
+116
+00:15:48,520 --> 00:15:52,880
+gestartet sind, und wenn gewisse Anwendungen gestartet sind, dann stellt es mein Audio-Settings
+
+117
+00:15:52,880 --> 00:15:59,760
+auf einen vorher definierten Stand ein, also sprich, es stellt Modern Warfare auf 13%
+
+118
+00:15:59,760 --> 00:16:06,800
+Lautstärke, und es stellt mein Mikrofon auf 71% Lautstärke, werden da Seitenelemente
+
+119
+00:16:06,800 --> 00:16:14,320
+neu geladen, ja, ich glaube, es werden Seitenelemente neu geladen, wenn Chrome den Tab inaktiv macht,
+
+120
+00:16:14,320 --> 00:16:21,480
+oder sonst was, was auch immer das Ding für Schmerzen hat, nur Konsole oder mit GUI, na,
+
+121
+00:16:21,480 --> 00:16:25,400
+erstmal Konsole, weil man ja schauen muss, wie es funktioniert, danach vielleicht mit
+
+122
+00:16:25,400 --> 00:16:28,640
+GUI, wobei ich sagen muss, ich wüsste nicht, wozu man da ein GUI braucht, man muss zwei
+
+123
+00:16:28,640 --> 00:16:34,440
+Parameter einstellen, Lautstärke vom Game und Lautstärke vom Mikrofon, das werde ich
+
+124
+00:16:34,440 --> 00:16:38,440
+erstmal Hardcoden, um zu gucken, wie es funktioniert, danach ist es wahrscheinlich sogar einfacher,
+
+125
+00:16:38,440 --> 00:16:44,920
+man macht eine Konfig-Datei mit zwei Zeilen, anstatt da irgendwie GUI drumherum zu bauen.
+
+126
+00:16:44,920 --> 00:16:49,680
+Es gibt eine Library für Audio-Sachen, ja, aber ich will erstmal gucken, wie man das
+
+127
+00:16:49,680 --> 00:16:54,040
+selbst macht, und danach verwenden wir vielleicht sogar die Library, weil es einfacher ist,
+
+128
+00:16:54,040 --> 00:16:58,920
+und nicht so fehleranfällig, aber ihr habt es jetzt gesehen, solche absoluten Big-Brain-Sachen
+
+129
+00:16:58,920 --> 00:16:59,920
+müssen wir machen.
+
+130
+00:16:59,920 --> 00:17:05,680
+Ich habe übrigens mein Chat-Log-Tool in weißer Voraussicht mal direkt gestartet, dass ich
+
+131
+00:17:05,680 --> 00:17:14,120
+nichts vergesse, dass ich nichts vergesse, jetzt muss ich es nur nochmal leer machen,
+
+132
+00:17:14,120 --> 00:17:15,120
+dass ich nichts übersehe.
+
+133
+00:17:15,120 --> 00:17:19,920
+Ja, habe ich schon gesehen.
+
+134
+00:17:19,920 --> 00:17:36,320
+Ja, hatten wir schon, genau, Sound-Changer, ja, volume-Changer, nicht Sound-Changer, volume-Changer.
+
+135
+00:17:36,320 --> 00:17:43,160
+So, also wir kopieren uns mal dieses, also so wie das jeder guter Programmierer macht,
+
+136
+00:17:43,160 --> 00:17:47,640
+kopieren wir uns erstmal das Beispiel von Stack Overflow, so fangen alle Programme an.
+
+137
+00:17:47,640 --> 00:17:56,120
+Ja, und dann kopiert man sich einfach aus ein paar weiteren Threads noch ein paar Sachen
+
+138
+00:17:56,120 --> 00:18:00,320
+dabei, und dann ist es fertig, easy.
+
+139
+00:18:00,320 --> 00:18:06,720
+Okay, was haben wir hier, Console-App 13, kann man die löschen oder recyceln oder wiederverwenden
+
+140
+00:18:06,720 --> 00:18:07,720
+für irgendwas?
+
+141
+00:18:07,720 --> 00:18:08,720
+What?
+
+142
+00:18:08,720 --> 00:18:21,320
+Ah, EGIT, ich weiß was das war, das war unser Versuch mit WinUI, mit WinUI, Preview 2 oder
+
+143
+00:18:21,320 --> 00:18:27,040
+so, ne ne, jetzt die Musik wieder leise.
+
+144
+00:18:27,040 --> 00:18:42,920
+So, also machen wir mal ein neues Projekt, eine.NET Core Console Application, die den
+
+145
+00:18:42,920 --> 00:18:46,440
+tollen Namen kriegt, Console-App 14, dass ich es auch ja wieder finde danach.
+
+146
+00:18:46,440 --> 00:18:59,160
+Äh, Patrick sagt, es gibt halt save, nur eine Person, die sich schafft, kann alle anderen
+
+147
+00:18:59,160 --> 00:19:06,000
+kopieren den Code weiter, ja, ist klar, alles schon skeet, alle copy-pasten nur schon skeet.
+
+148
+00:19:06,000 --> 00:19:13,800
+Kann man auch mit.NET Core einen Task-Manager machen, ja, geht sogar ziemlich gut, also
+
+149
+00:19:13,800 --> 00:19:25,800
+wenn du sowas hier machen willst, das geht ziemlich gut, ja, das geht ziemlich gut, sowas
+
+150
+00:19:25,800 --> 00:19:33,760
+hier mit.NET Core zu machen, man könnte sowas modernes machen mit WinUI, wenn es dann irgendwann
+
+151
+00:19:33,760 --> 00:19:38,880
+mal benutzbar ist, mit UWP nicht, so ohne weiteres, weil UWP hat keinen Zugriff auf
+
+152
+00:19:38,880 --> 00:19:49,280
+diese Information, ne gut, Cross-Platform nicht, nein, Cross-Platform nicht, Task-Manager
+
+153
+00:19:49,280 --> 00:19:53,920
+Cross-Platform ist schwierig, weil die eigentliche Sache, wie man Task-Information abruft, ist
+
+154
+00:19:53,920 --> 00:19:58,840
+halt sehr plattformspezifisch, also unter.NET, um es mal ganz kurz zu zeigen, wie man
+
+155
+00:19:58,840 --> 00:20:06,120
+das machen will, unter.NET ist es ziemlich einfach, sowas wie eine Task-Liste zu bekommen,
+
+156
+00:20:06,120 --> 00:20:13,600
+da gibt es hier nämlich schon was fertiges, nennt sich Process, ist eingebaut im Framework,
+
+157
+00:20:13,600 --> 00:20:21,480
+kann man nicht einfach sagen, Process, Moment, man konnte doch alle, get-processes, Alter,
+
+158
+00:20:21,480 --> 00:20:28,880
+man muss hier leckt, was ist hier los, what the fuck, das leckt ja huge, so und jetzt kann
+
+159
+00:20:28,880 --> 00:20:38,680
+man sich alle, die Namen aller laufenden Prozesse ausgeben lassen zum Beispiel, guckt hier,
+
+160
+00:20:38,680 --> 00:20:43,960
+das ist alles, was läuft, bei mir, das ist ganz praktisch, weil der Kram schon eingebaut
+
+161
+00:20:43,960 --> 00:20:50,120
+ist, das werden wir heute übrigens auch noch brauchen, so aber wir wollten uns ja das Testprogramm
+
+162
+00:20:50,120 --> 00:21:09,160
+mal copy-pasten, excellent, so waren wir das, so also, wo gehts los, oh, hab ich irgendwas
+
+163
+00:21:09,160 --> 00:21:15,200
+nicht mit, oh ich hab die Hälfte nicht mit copy-pastet, wartet mal kurz, hab ich irgendwas
+
+164
+00:21:15,200 --> 00:21:27,760
+nicht mit copy-pastet, müssen wir das ganze noch mal machen, so jetzt aber, what, warum
+
+165
+00:21:27,760 --> 00:21:37,760
+kopiert das die Hälfte nicht mit, ok, machen wirs mal von oben nach unten, ah, von oben
+
+166
+00:21:37,760 --> 00:21:42,000
+nach unten gehts, excellent, selbstverständlich, warum solls ja auch von oben nach unten und
+
+167
+00:21:42,000 --> 00:21:49,280
+nach oben nicht funktionieren, ist ja logisch, so, also, firefox, das können wir doch gleich
+
+168
+00:21:49,280 --> 00:21:55,440
+mal ausprobieren, wir haben dann firefox hier drauf, da gehen wir jetzt mal auf youtube
+
+169
+00:21:55,440 --> 00:22:00,840
+und machen irgendwas an, so, irgendwas, ist vollkommen egal was, machen hier mal die Musik
+
+170
+00:22:00,840 --> 00:22:06,320
+aus und da sollte jetzt firefox, wenn ich den Beispielcode richtig verstehe, sollte da
+
+171
+00:22:06,320 --> 00:22:16,360
+firefox muten und danach auf 50% setzen, das können wir ja gleich mal ausprobieren, so
+
+172
+00:22:16,360 --> 00:22:28,200
+firefox steht auf 30%, ok, schauen wir mal, hat gemutet, excellent, hat funktioniert,
+
+173
+00:22:28,200 --> 00:22:38,480
+hat er gesehen, wenn man jetzt hier auf firefox mixer guckt, ist er auch bei 50%, ungemuted,
+
+174
+00:22:38,480 --> 00:22:43,400
+jetzt er wieder unmuted, also sprich, die Beispielanwendung scheint zu funktionieren,
+
+175
+00:22:43,400 --> 00:22:51,760
+das ist auch schon mal was, weil es funktionieren nicht immer alle Beispielanwendungen, easykiller
+
+176
+00:22:51,760 --> 00:22:55,920
+fragt warum das so ein Krampf ist, stackoverflow zu copy-pastet, vielleicht wollen sie nicht,
+
+177
+00:22:55,920 --> 00:23:01,960
+dass man so viel copy-pastet, weiß nicht, wir sind fertig für heute, easy, funktioniert,
+
+178
+00:23:01,960 --> 00:23:06,240
+ich denke auch auf copy-pastet, so, wir werden jetzt ein bisschen aufräumen, weil wir fangen
+
+179
+00:23:06,240 --> 00:23:11,960
+jetzt erstmal nicht mit set volume oder sonst was an, sondern das erste, was wir machen
+
+180
+00:23:11,960 --> 00:23:24,160
+ist, einfach nur mal alle Anwendungen auflisten, die Audioausgabe gerade machen und das sind
+
+181
+00:23:24,160 --> 00:23:33,120
+aktuell welche, wo es keine Namen für gibt, außer irgendwie eine audio-sav-dll, was auch
+
+182
+00:23:33,120 --> 00:23:40,160
+immer, also sprich, der Code ist schon mal ein bisschen unglücklich, weil die Namen
+
+183
+00:23:40,160 --> 00:23:45,320
+der Anwendungen nicht bei allen Sachen drinstehen, bei firefox hat es aber funktioniert, wartet
+
+184
+00:23:45,320 --> 00:23:49,840
+mal, firefox geht glaube ich, probieren wir mal aus, firefox, machen wir da irgendwas
+
+185
+00:23:49,840 --> 00:23:58,840
+dran, ah guckt, firefox geht, das heißt, das Beispiel ist nicht komplett, wir kriegen
+
+186
+00:23:58,840 --> 00:24:03,520
+nicht die notwendigen Informationen raus, um feststellen zu können, welche Anwendung dahinter
+
+187
+00:24:03,520 --> 00:24:11,240
+steckt und ich gehe mal davon aus, das liegt daran, weil die windows apis für die Soundgeschichten
+
+188
+00:24:11,240 --> 00:24:16,480
+einfach schon genauso eklig sind seit windows 7 und sich seit windows 7 nichts mehr, ich
+
+189
+00:24:16,480 --> 00:24:21,680
+meine, guckt euch das an, das sieht absolut, das sieht aus wie hingekotzt, also das liegt
+
+190
+00:24:21,680 --> 00:24:24,560
+jetzt nicht an dem, der das Beispiel gemacht hat, sondern dass Microsoft wieder sich sowas
+
+191
+00:24:24,560 --> 00:24:34,680
+ekliges ausgedacht hat und ich vermute einfach mal, dass es ein paar neuere interface-Versionen
+
+192
+00:24:34,680 --> 00:24:46,120
+gibt, davon, das habe ich hier nämlich auch schon glaube drin gesehen, hier holt er sich
+
+193
+00:24:46,120 --> 00:24:52,480
+den Namen der Anwendung raus und das funktioniert für firefox, allerdings für chrome, wie wir
+
+194
+00:24:52,480 --> 00:24:58,560
+gesehen haben, funktioniert das nicht, sonst würde ja hier bei anwendung die audio machen,
+
+195
+00:24:58,560 --> 00:25:06,240
+wenn wir hier chrome drin stehen, das heißt, wir müssen jetzt erstmal gucken, ob es hier
+
+196
+00:25:06,240 --> 00:25:14,120
+nicht ein interface gibt, was zum beispiel noch die Prozess-ID oder sowas hat, weil Prozess-ID
+
+197
+00:25:14,120 --> 00:25:18,800
+ist gut, wenn ich die Prozess-ID von der jeweiligen Anwendung rauskriege, dann kann ich mir alle
+
+198
+00:25:18,800 --> 00:25:25,520
+möglichen Sachen holen, also sprich, welcher fahrt, welche Argumente, theoretisch sogar
+
+199
+00:25:25,520 --> 00:25:30,120
+welches Icon das Ding verwendet, aber dazu brauche ich erstmal die Prozess-ID und ich
+
+200
+00:25:30,120 --> 00:25:35,800
+glaube, ich habe hier schon was gesehen, in den Kommentaren vorhin, wo drinnen stand,
+
+201
+00:25:35,800 --> 00:25:43,360
+dass man ein anderes interface verwenden kann, nämlich, wo ist es denn, hier, guck genau,
+
+202
+00:25:43,360 --> 00:25:51,400
+we could also use the Prozess-ID instead of app name und natürlich mit dem absolut logisch
+
+203
+00:25:51,400 --> 00:26:00,200
+klingenden Interface I-Audio-Session-Control 2, aktuell verwenden wir noch I-Audio-Session-Control,
+
+204
+00:26:00,200 --> 00:26:05,760
+wenn wir die Prozess-ID haben wollen, müssen wir natürlich selbstverständlich I-Audio-Session-Control
+
+205
+00:26:05,760 --> 00:26:14,600
+2 verwenden, klar, also, probieren wir das mal aus und das funktioniert nicht, weil es
+
+206
+00:26:14,600 --> 00:26:20,880
+I-Audio-Session-Control 2 nicht gibt, das heißt, wir müssen uns jetzt irgendwo im Internet
+
+207
+00:26:20,880 --> 00:26:29,840
+die Definition von I-Audio-Session-Control 2 raussuchen, das sagt übrigens Microsoft,
+
+208
+00:26:29,840 --> 00:26:40,320
+wie das ganze aussieht, das ist ein Beispiel C++, was auch immer, das heißt, wir müssen
+
+209
+00:26:40,320 --> 00:26:45,960
+jetzt mal ein Beispiel raussuchen, wo irgendjemand den Kram schon mal definiert hat für uns,
+
+210
+00:26:45,960 --> 00:27:00,360
+was ist denn das, iOS-Developer, iOS-Developer und da gibt's, what the fuck, ok, wo gibt's
+
+211
+00:27:00,360 --> 00:27:06,760
+denn eine Definition für I-Audio-Session-Control 2, wisst ihr was, wir machen jetzt mal Big
+
+212
+00:27:06,760 --> 00:27:18,800
+Brain, wir suchen einfach auf, ah, guck mal hier, csharp-hot-examples.com, choose my name,
+
+213
+00:27:18,800 --> 00:27:26,520
+ich wüsste das jetzt auch nicht, nur weil ich wusste, was da drinsteht, ok, I-Audio-Session-Control
+
+214
+00:27:26,520 --> 00:27:32,120
+2 und leider ist es oft so, wenn man irgendwelche Windows-API programmieren will, dass das
+
+215
+00:27:32,120 --> 00:27:39,040
+wildes Gesuche und zusammengecopy-paste ist, ah, guck mal hier, audiomanager.js, jetzt
+
+216
+00:27:39,040 --> 00:27:49,840
+geht's, jetzt wird's Big Brain hier, wo ist die Definition, hier, bam, das brauchen wir,
+
+217
+00:27:49,840 --> 00:27:57,720
+I-Audio-Session-Control 2, genau das, so wir schmeißen jetzt mal ein paar Sachen raus,
+
+218
+00:27:57,720 --> 00:28:03,440
+also diese ganze Volume-Geschichte brauchen wir nicht, das hab ich ja gerade entfernt,
+
+219
+00:28:03,440 --> 00:28:12,080
+das brauchen wir auch, oder, geht das überhaupt noch, das können wir auch rausschmeißen,
+
+220
+00:28:12,080 --> 00:28:19,360
+das machen wir dann nachher wieder, wenn's daran geht, wirklich die Lautstärke zu setzen,
+
+221
+00:28:19,360 --> 00:28:29,880
+das Application-Volume kann auch raus, oh, wo hab ich, wo hab ich jetzt, wo hab ich jetzt
+
+222
+00:28:29,880 --> 00:28:39,200
+was zu viel gelöscht, ach hier, exellent, hier hab ich was zu viel gelöscht, ah, jetzt
+
+223
+00:28:39,200 --> 00:28:46,440
+funktioniert's, so, dann machen wir mal weiter mit unserem copy-paste-driven-programming-style,
+
+224
+00:28:46,440 --> 00:28:52,080
+wir kopieren uns den Grammi einfach mal rüber, und das ist jetzt I-Audio-Session-Control 2,
+
+225
+00:28:52,080 --> 00:28:59,600
+das erste ist not-implemented, ah, yes, exellent, natürlich, warum auch immer, und das nächste,
+
+226
+00:28:59,600 --> 00:29:06,640
+get-process-id, das ist das, was wir brauchen, set-ducking-preference, ich hab ehrlich gesagt
+
+227
+00:29:06,640 --> 00:29:10,920
+keinen Plastenschimmer, wofür der ganze Gramm ist, den ich hier sehe, aber process-id brauchen
+
+228
+00:29:10,920 --> 00:29:18,880
+wir, so, das heißt, anstatt dass wir jetzt hier I-Audio-Session-Control uns holen, holen
+
+229
+00:29:18,880 --> 00:29:25,280
+wir uns I-Audio-Session-Control 2, bam, und da gucken wir uns mal an, ah, nee, could not
+
+230
+00:29:25,280 --> 00:29:31,680
+convert, okay, dann, wir casten, wir casten das einfach mal, easy, das lässt sich bestimmt
+
+231
+00:29:31,680 --> 00:29:42,560
+casten, war-temp, man muss jetzt auch gleich mit guten Namen anfangen, S-I-Audio-Session-Control
+
+232
+00:29:42,560 --> 00:29:47,000
+2, übrigens, chat, falls es den Anschein erweckt, ich wüsste, was ich mache, ich hab
+
+233
+00:29:47,000 --> 00:29:51,280
+keinen Plastenschimmer, was ich mache, gucken wir mal, ob das jetzt schon mal crasht oder
+
+234
+00:29:51,280 --> 00:29:55,880
+nicht crasht, es crasht nicht, das ist schon mal ein gutes Zeichen, für das es prinzipiell
+
+235
+00:29:55,880 --> 00:30:11,760
+geht, was wir hier machen, so, was haben wir jetzt hier, get-process-id, geht nicht, ja,
+
+236
+00:30:11,760 --> 00:30:18,280
+gut, einfach get-process-id aufrufen, das kann ja so nicht funktionieren, wäre nur einfach
+
+237
+00:30:18,280 --> 00:30:24,560
+logisch, dass es funktioniert, okay, wir kriegen den Rückgabewert, kriegen wir als Referenz
+
+238
+00:30:24,560 --> 00:30:37,640
+und nicht etwa als Return-Code von dem Funktions-Aufruf, also ist wahrscheinlich der Return-Wert
+
+239
+00:30:37,640 --> 00:30:47,240
+von diesem Funktions-Aufruf irgendein Error-Code, den wir natürlich nicht checken werden, Control
+
+240
+00:30:47,240 --> 00:30:57,600
+2, nee, Quatsch, ID, so, ID, so, schauen wir mal, ob wir jetzt die Prozess-ID kriegen,
+
+241
+00:30:57,600 --> 00:31:04,880
+ah, das sieht doch schon besser aus, guck mal, hier kriegen wir eine Prozess-ID, 6052,
+
+242
+00:31:04,880 --> 00:31:14,080
+2052, was auch immer, exellent, genau, es funktioniert, mit der Prozess-ID kann man
+
+243
+00:31:14,080 --> 00:31:17,280
+jetzt schon was anfangen und ich zeige euch auch, was man mit einer Prozess-ID anfangen
+
+244
+00:31:17,280 --> 00:31:26,480
+kann, man kann jetzt nämlich zum Beispiel sagen, process, get-process-by-ID und da stopfen
+
+245
+00:31:26,480 --> 00:31:34,000
+wir die Prozess-ID rein und wenn wir Glück haben, läuft es jetzt ohne Fehler durch, okay,
+
+246
+00:31:34,000 --> 00:31:38,960
+es crasht nicht, das ist schon mal schön und jetzt können wir uns sowas ausgeben lassen
+
+247
+00:31:38,960 --> 00:31:48,000
+wie Prozess-Name und da würde ich jetzt erwarten taucht sowas wie Chrome drin auf, Vmware,
+
+248
+00:31:48,000 --> 00:31:58,680
+Chrome, OBS, Web-Application 11, damit kann man jetzt zum Beispiel schon was anfangen,
+
+249
+00:31:58,680 --> 00:32:04,920
+also der Name stimmt hier nicht, aber wir können jetzt anstatt den Name zu returnen einfach,
+
+250
+00:32:04,920 --> 00:32:10,000
+das können wir uns hier nämlich schenken, wir returnen jetzt einfach den Prozess-Name
+
+251
+00:32:10,000 --> 00:32:18,720
+und schon funktioniert es, so, so, das ist doch schon mal besser, jetzt kriegen wir hier
+
+252
+00:32:18,720 --> 00:32:24,040
+nämlich den Namen der Anwendung raus, so sollte das Ganze auch sein, damit kann man jetzt
+
+253
+00:32:24,040 --> 00:32:31,040
+schon ein bisschen was anfangen, noch schöner war Window-Name, das stimmt, ich vermute aber
+
+254
+00:32:31,040 --> 00:32:37,480
+mal, dass das hier unter der Haube wahrscheinlich sowas wie Window-Name ist, probieren wir mal,
+
+255
+00:32:37,480 --> 00:32:55,880
+Main-Window-Title, ja, nee, Name, was haben wir sonst noch so, Prozess-Name, Machine-Name,
+
+256
+00:32:55,880 --> 00:33:03,400
+okay, das ist der Name von meinem Desktop-Rechner oder, ah nee, da ist Punkt, alles klar, Windows-Logik,
+
+257
+00:33:03,400 --> 00:33:11,320
+wir bleiben bei Process-Name, ja, das werden wir wahrscheinlich auch machen, nee, werden
+
+258
+00:33:11,320 --> 00:33:14,880
+wir nicht machen, wir machen uns eine eigene Klasse für und schauen wir mal, ich hab noch
+
+259
+00:33:14,880 --> 00:33:22,880
+keine Ahnung, wie der Kram überhaupt funktioniert, nee, Prozess-Name ist schon ganz gut, weil
+
+260
+00:33:22,880 --> 00:33:28,160
+wenn ich dann das Spiel starte, vielleicht hat das gar kein Titel, ne, könntest du
+
+261
+00:33:28,160 --> 00:33:34,440
+auch direkt, ähm, Windig-Abonnier-Twitch-Pribe, excellent-Subscription, der Chat-IQ ist heute
+
+262
+00:33:34,440 --> 00:33:39,360
+eh schon so hoch wie lange nicht mehr, übrigens, falls ich Subs übersehe, flamet mich mal
+
+263
+00:33:39,360 --> 00:33:50,680
+ein bisschen, okay, also das funktioniert schon mal, das heißt, wir kriegen jetzt den Prozess-Name,
+
+264
+00:33:50,680 --> 00:33:56,520
+alles gut, dann räumen wir den Kram mal ein bisschen auf, ähm, also erstmal schmeißen
+
+265
+00:33:56,520 --> 00:34:01,880
+wir natürlich alle Kommentare raus, weil Code mit Kommentaren ist ja nur wirklich overrated,
+
+266
+00:34:01,880 --> 00:34:05,640
+wir wissen ja, dass sich guter Code selbst dokumentiert, da brauchen wir keine Kommentare,
+
+267
+00:34:05,640 --> 00:34:16,840
+so, ähm, dann, in die Kommentare lassen wir drin, das war bescheuert, die Kommentare
+
+268
+00:34:16,840 --> 00:34:34,400
+rauszuschweißen, ähm, Kommentare, lul, Windows-RP-Code liest sich am besten von allem ohne Kommentare,
+
+269
+00:34:34,400 --> 00:34:38,240
+das ist schon so kompliziert, da macht's, da machen es weniger Kommentare sogar noch
+
+270
+00:34:38,240 --> 00:34:45,360
+besser, so, also was machen wir denn jetzt, ähm, wir machen uns, ich hab ne Idee, ich
+
+271
+00:34:45,360 --> 00:34:50,560
+hab ne Idee, was wir jetzt machen, wir machen uns mal ne eigene Klasse, wo die ganzen Informationen
+
+272
+00:34:50,560 --> 00:34:55,600
+reinkommen, die wir brauchen, nachdem ich ehrlich gesagt keinen Plassen-Schimmer habe,
+
+273
+00:34:55,600 --> 00:34:59,760
+mit was ich hier überhaupt hantiere, hab ich auch nicht so ne große Ahnung, wie ich die
+
+274
+00:34:59,760 --> 00:35:05,640
+Klasse nennen soll, deswegen nenne ich die einfach Mixer-Entry oder sowas, ich weiß
+
+275
+00:35:05,640 --> 00:35:12,440
+nicht, was es wirklich ist, also sprich, hier so ein Eintrag davon, quasi so, und das Ding
+
+276
+00:35:12,440 --> 00:35:18,520
+hat nen, das Ding hat nen Name, vielleicht, vielleicht, das kann Null sein, das weiß
+
+277
+00:35:18,520 --> 00:35:24,760
+man nicht so genau, denn die Klasse CACW, das machen wir dann zum Schluss, so, dann hat
+
+278
+00:35:24,760 --> 00:35:42,400
+das Ding eine, äh, Process-ID, ok, und jetzt returnen wir keine Strings, sondern Mixer-Entries,
+
+279
+00:35:42,400 --> 00:35:46,280
+so, da kommen wir der Sache doch schon näher, so, und anstatt, dass wir jetzt hier so ne
+
+280
+00:35:46,280 --> 00:35:56,320
+komische Big-Brain-Yield-Return-Geschichte machen, adden wir einfach hier immer ein Mixer-Entry,
+
+281
+00:35:56,320 --> 00:36:06,600
+der bekommt nen Name, der bekommt nen Name, und zwar ist das Process dort Name, Process-Name
+
+282
+00:36:06,600 --> 00:36:14,880
+und da bekommt ne ID, und das ist, ähm, ID, so, damit kann man jetzt schon ein bisschen
+
+283
+00:36:14,880 --> 00:36:24,040
+mehr anfangen, achso, ich muss es noch zurückgeben, damit kann man jetzt schon ein bisschen mehr
+
+284
+00:36:24,040 --> 00:36:31,000
+anfangen, allerdings, äh, müssen wir das ein bisschen in Main ändern, so, und zwar
+
+285
+00:36:31,000 --> 00:36:38,200
+haben wir jetzt einmal hier den Name, und das ist hier unsere Spezialklasse, dort Name,
+
+286
+00:36:38,200 --> 00:36:44,760
+und ähm, ne ID, mach mal Leerzeichen, und das ist unsere, mein Visual Studio laggt,
+
+287
+00:36:44,760 --> 00:36:51,480
+wie sau, was ist denn da los, übrigens die Frage, warum kein Rider kam vorher, weil
+
+288
+00:36:51,480 --> 00:36:54,200
+ich unter Windows eigentlich fast immer Visual Studio verwende, aber wenn ich heute nur noch
+
+289
+00:36:54,200 --> 00:37:01,200
+Windows verwende, verwende ich eigentlich nur Rider, gibt ja auch keine anderen Alternativen,
+
+290
+00:37:01,200 --> 00:37:06,120
+so wirklich, ne, so, guck mal, funktioniert, wir machen jetzt nochmal hier so nen Trenn-Strich
+
+291
+00:37:06,120 --> 00:37:11,040
+dazwischen, das wir sehen, bei den unterschiedlichen Sachen, also, wir haben folgende Anwendung,
+
+292
+00:37:11,040 --> 00:37:19,680
+machen gerade Audio-Ausgabe, VMWare, mit der, mit der Process-ID, ähm, Web-Application-11,
+
+293
+00:37:19,680 --> 00:37:26,800
+mit der Process-ID, wer sich fragt, was Web-Application-11 ist, das ist BigBrain-Benahmung für unter
+
+294
+00:37:26,800 --> 00:37:36,760
+anderem das hier, also das Programm, was hier die Bilder und Sound-Overlays macht,
+
+295
+00:37:36,760 --> 00:37:46,240
+das ist Web-Application-11, ich bin ja bekannter für meine Anwendung, so zu benennen, dass
+
+296
+00:37:46,240 --> 00:37:51,120
+man sie sich gut merken kann, dementsprechend Web-Application-11, und hier haben wir zur
+
+297
+00:37:51,120 --> 00:38:04,280
+Abwechslung mal Console-App 14, haha, choose my name, doch, das wäre richtig C++ da eine,
+
+298
+00:38:04,280 --> 00:38:12,280
+ja, gut, so, damit können wir doch jetzt schon mal arbeiten, da haben wir doch jetzt schon,
+
+299
+00:38:12,280 --> 00:38:32,720
+wir haben den Name, und wir haben eine Process-ID, so, als nächstes, ähm, Name Eidl-ID 0, ja,
+
+300
+00:38:32,720 --> 00:38:37,960
+das ist irgendeine Windows-interne Geschichte, was auch immer uns Windows damit sagen möchte,
+
+301
+00:38:37,960 --> 00:38:48,440
+keine Ahnung, vielleicht ist das der Prozess-Scheduler oder sowas, keine Ahnung, ID 0 spricht irgendwie
+
+302
+00:38:48,440 --> 00:38:58,640
+für Display-Manager, naja, komm mal, Web-Application-11 und Console-App 14, da weiß man wenigstens
+
+303
+00:38:58,640 --> 00:39:07,440
+noch was es ist, ja, was ein iAudio-Session-Manager 2 ist, mit diesem komischen Zeug da, das weiß
+
+304
+00:39:07,440 --> 00:39:13,360
+keiner, außerdem, meine Sache ist auch nicht public und Microsoft released ihre Sachen
+
+305
+00:39:13,360 --> 00:39:17,600
+public und möchte, dass andere Leute sie verwenden können, das ist ja der große Unterschied,
+
+306
+00:39:17,600 --> 00:39:21,600
+mir ist es egal, ob andere Leute mein Kram verwenden können, aber Microsoft will, dass
+
+307
+00:39:21,600 --> 00:39:27,360
+andere Leute ihren Kram verwenden können, so, Mixer-Entry, Enumerate-Applications, das
+
+308
+00:39:27,360 --> 00:39:34,240
+ist doch schon mal schön, was richtig cool wäre, ähm, Not Impel 2, ich glaube nicht,
+
+309
+00:39:34,240 --> 00:39:39,880
+dass es ein Microsoft-Ding ist, hier, ich vermute mal, das ist was von demjenigen, von
+
+310
+00:39:39,880 --> 00:39:50,280
+dem wir das Copy-Pasted haben, und zwar möchte der ja, dass, ähm, quasi die, ich weiß nicht,
+
+311
+00:39:50,280 --> 00:39:57,840
+ob da irgendein Struct unten drunter ist, dass die Abstände, wo die einzelnen Speicher-Bereiche
+
+312
+00:39:57,840 --> 00:40:02,000
+beginnen, dass die an der richtigen Stelle sind, so, und wenn er die erste Funktion
+
+313
+00:40:02,000 --> 00:40:07,040
+nicht braucht, allerdings die nächste Funktion, quasi, irgendwie ein paar Bites später startet,
+
+314
+00:40:07,040 --> 00:40:13,200
+definiert er hier halt was, was den ersten Slot belegt, den er halt nicht braucht.
+
+315
+00:40:13,200 --> 00:40:18,720
+So, was ist eigentlich PreserveSig?
+
+316
+00:40:18,720 --> 00:40:26,600
+Indicates, dass, was, ageResult, das ist in irgendeiner Windows-Rückgabe Wertgedöns,
+
+317
+00:40:26,600 --> 00:40:39,160
+was takes place during COM-Interop-Calls should be suppressed, was, was, was macht das?
+
+318
+00:40:39,160 --> 00:40:50,440
+Indicates, also, dass das ageResult, oder Rückgabe Wert, die Signaturtransformation,
+
+319
+00:40:50,440 --> 00:40:57,200
+dass, während, die während dem COM-Interop auftreten, unterdrückt wird.
+
+320
+00:40:57,200 --> 00:40:58,200
+What?
+
+321
+00:40:58,200 --> 00:41:04,800
+Okay, just, just Windows-Things, ich hab, weiß nicht, wirklich keine Ahnung, was uns
+
+322
+00:41:04,800 --> 00:41:05,800
+das sagen soll.
+
+323
+00:41:05,800 --> 00:41:10,240
+Wir lassen es jetzt aber mal da drinnen, weil es im Beispiel drinnen ist, und es funktioniert.
+
+324
+00:41:10,240 --> 00:41:14,000
+Und ich könnte wetten, wenn wir das wegmachen, geht's nicht, ich mach das mal weg, mal gucken,
+
+325
+00:41:14,000 --> 00:41:15,000
+ob es dann kaputt geht.
+
+326
+00:41:15,000 --> 00:41:20,000
+Nee, geht immer noch, ach yes, das funktioniert immer noch.
+
+327
+00:41:20,000 --> 00:41:22,080
+Ich lass es, ich lass es einfach mal da.
+
+328
+00:41:22,080 --> 00:41:29,560
+So, was jetzt richtig cool wäre natürlich, wenn wir diese, wenn wir das hier irgendwie
+
+329
+00:41:29,560 --> 00:41:36,920
+schaffen, dass man hier letztendlich sagen kann, public void set volume, das wäre natürlich
+
+330
+00:41:36,920 --> 00:41:41,400
+richtig pro, wenn das funktioniert, weil da wäre das in der Handhabung ziemlich einfach
+
+331
+00:41:41,400 --> 00:41:42,400
+unterm Strich.
+
+332
+00:41:42,400 --> 00:41:48,000
+Set volume, gut, das Ganze kriegt einen, kriegt das denn?
+
+333
+00:41:48,000 --> 00:41:57,440
+Float, Floats sind immer sehr beliebt dafür, weil man das von 0 bis 1 machen kann, so für
+
+334
+00:41:57,440 --> 00:41:58,440
+Prozent.
+
+335
+00:41:58,440 --> 00:42:04,760
+Komm, scheiße, wir machen ein Int, ist doch wurscht, ich weiß gar nicht, wie es weitergeht.
+
+336
+00:42:04,760 --> 00:42:08,080
+Das wäre natürlich cool, wenn man das hier macht, also wenn wir das schaffen, das hier
+
+337
+00:42:08,080 --> 00:42:11,400
+irgendwie zu implementieren, weil dann könnte ich an der Stelle nämlich einfach sagen,
+
+338
+00:42:11,400 --> 00:42:28,520
+machen wir mal so ein Beispiel, also sprich, wenn der, wenn der Name, dann sagen wir was,
+
+339
+00:42:28,520 --> 00:42:40,600
+keine Ahnung, Chrome enthält, ach hier, wenn der Name Chrome enthält, dann sagen wir
+
+340
+00:42:40,600 --> 00:42:48,120
+set volume auf, keine Ahnung, 15%, so das wäre natürlich pro, wenn das funktionieren
+
+341
+00:42:48,120 --> 00:42:49,120
+würde.
+
+342
+00:42:49,120 --> 00:42:53,000
+Ich meine, es funktioniert jetzt nicht, weil wir haben nichts implementiert hier, aber
+
+343
+00:42:53,000 --> 00:42:56,320
+von der Idee her wäre das natürlich nice, wenn man das so hinkriegen würde.
+
+344
+00:42:56,320 --> 00:43:05,800
+So, ähm, die große Preisfrage ist jetzt natürlich nur, wie setzt man die Lautstärke
+
+345
+00:43:05,800 --> 00:43:13,520
+von der Anwendung, das probieren wir mal aus, das gucken wir uns hier ab, das steht doch
+
+346
+00:43:13,520 --> 00:43:20,520
+hier irgendwo drinnen, dark reader, wartet mal kurz, ich muss das disablen, da geht mir
+
+347
+00:43:20,520 --> 00:43:28,760
+gerade voll auf den Kick, set dark reader, so, ähm, wo hatten wir es denn, set application
+
+348
+00:43:28,760 --> 00:43:37,240
+volume, name float level, name brauchen wir nicht, name haben wir hier, äh, name haben
+
+349
+00:43:37,240 --> 00:43:46,360
+wir hier selbst drinnen, set application volume, get volume object, ok, i simple audio volume,
+
+350
+00:43:46,360 --> 00:43:53,920
+ah, siehst du, sogar Microsoft lacht uns aus, wie einfach das ist, also wenn i simple
+
+351
+00:43:53,920 --> 00:44:01,920
+audio volume uns nicht sagen soll, dass wir absolute Kacknoobs sind, i simple audio volume,
+
+352
+00:44:01,920 --> 00:44:13,120
+get volume object, was ist denn hier los schon wieder, what the fuck, Moment, das ist doch
+
+353
+00:44:13,120 --> 00:44:23,880
+genau das gleiche wie unten, get volume object, das ist genau das gleiche wie hier, i simple
+
+354
+00:44:23,880 --> 00:44:34,520
+audio volume, wo kriegt er das her, der casted i audio session control 2 zu i simple audio
+
+355
+00:44:34,520 --> 00:44:41,600
+volume, das probieren wir jetzt aus, vielleicht ist es viel einfacher als ich denke, die Musik
+
+356
+00:44:41,600 --> 00:44:50,480
+ist mir zu anstrengend, ich brauche, ich brauche irgendwas anderes, relaxing Nintendo music,
+
+357
+00:44:50,480 --> 00:45:15,360
+ah, perfekt, ah, yes, excellent, das ist doch viel entspannender, so, also was mal, i audio
+
+358
+00:45:15,360 --> 00:45:21,800
+session, i audio session control, casted dazu i simple audio volume, ok, wir probieren jetzt
+
+359
+00:45:21,800 --> 00:45:31,720
+einfach mal aus, ob das funktioniert, also, control s i simple audio volume, scheint zu
+
+360
+00:45:31,720 --> 00:45:43,000
+funktionieren, was du mit den 55.000 Kanalpunkten anfangen sollst, ja, ausgeben, ich weiß gar
+
+361
+00:45:43,000 --> 00:45:47,080
+nicht, kann man da Belohnungen verwalten, ich gucke mal, ob es da noch mehrere Sachen
+
+362
+00:45:47,080 --> 00:45:54,360
+gibt, die man da einstellen kann, Belohnungen verwalten, ok, ich gucke mal, was es da so
+
+363
+00:45:54,360 --> 00:46:02,240
+für Möglichkeiten gibt, was man damit machen kann, Nachricht hervorheben, zufälliges
+
+364
+00:46:02,240 --> 00:46:22,800
+Abo-Emote entsperren, Nachrichten nur Abo-Modus senden, ich habe nie nur Sub-Only-Mode an,
+
+365
+00:46:22,800 --> 00:46:31,560
+individuelle Belohnungen erstellen, aha, hier gibt es noch jede Menge andere Sachen, welchen
+
+366
+00:46:31,560 --> 00:46:43,200
+Held soll ich spielen, das bringt es jetzt hier nicht wirklich, du darfst einen Charakter
+
+367
+00:46:43,200 --> 00:46:49,160
+oder Gegenstand im Spiel benennen, ja, das bringt es auch nicht wirklich, wir können
+
+368
+00:46:49,160 --> 00:46:58,440
+sagen, du darfst dir den nächsten Klassennamen aussuchen, ich spiele 5 Minuten lang mit
+
+369
+00:46:58,440 --> 00:47:04,160
+dem Controller rückwärts, what the fuck, nein, das passt bei mir alles gerade nicht,
+
+370
+00:47:04,160 --> 00:47:11,720
+was wird gebastelt, ich versuche mich gerade ein bisschen durch die Windows Audio-RP zu
+
+371
+00:47:11,720 --> 00:47:19,320
+kämpfen, sodass ich hinbekomme, dass ich automatisch bestimmte Anwendungen immer hardcoded
+
+372
+00:47:19,320 --> 00:47:24,040
+auf einen gewissen Audiowert setzen kann, z.B. wenn man Modern Warfare startet, dann setzt
+
+373
+00:47:24,040 --> 00:47:28,800
+sich das immer auf 100% Lautstärke, das soll auf 13% Lautstärke, mein Mikrofon soll auf
+
+374
+00:47:28,800 --> 00:47:36,360
+71% Lautstärke, hey Max, für wann planst du den Flutter Dart Stream, habe ich noch keine
+
+375
+00:47:36,360 --> 00:47:54,600
+genaue Idee, hier ist ein Vorschlag für Stream-Belohnungen, Punktebelohnungen für IRL-Streamer, lass mich
+
+376
+00:47:54,600 --> 00:48:00,480
+einen Schluck Wasser trinken, was eine bescheuerte Belohnung, ich trinke was ich will, ich glaube,
+
+377
+00:48:00,480 --> 00:48:08,360
+es geht los, lass mich einen Schluck Wasser trinken, was gibt es noch, ich setze mich
+
+378
+00:48:08,360 --> 00:48:18,200
+gerade hin, lass mich dabben, nein, außerdem sieht mich keiner, wenn ich dabbe, lass mich
+
+379
+00:48:18,200 --> 00:48:30,720
+sit-ups machen, oh ja, das hättet ihr gerne, 2500, die Belohnung ist geil, für 2500 wirst
+
+380
+00:48:30,720 --> 00:48:44,240
+du timeoutet, soll ich die Belohnung hinzufügen, ich weiß nicht wo das eine Belohnung sein
+
+381
+00:48:44,240 --> 00:49:08,840
+soll, aber gut, eine Umfrage hinzufügen, lass einen anderen Nutzer für 5 Minuten lang
+
+382
+00:49:08,840 --> 00:49:19,560
+sperren, WTF, nee, schlage vor, wen wir am Ende des Streams raiden, das ist ganz gut,
+
+383
+00:49:19,560 --> 00:49:26,640
+naja, gut, weiter, weiter im Text, ich muss wieder ein paar ordentliche Belohnungen, für
+
+384
+00:49:26,640 --> 00:49:34,840
+70k gibt es dann C++, nee, ich weiß, das haben manche Leute ja fast schon, also wo sind
+
+385
+00:49:34,840 --> 00:49:41,920
+wir stehen geblieben, also wir haben das jetzt als iSimpleAudioVolume gecastet, das brauchen
+
+386
+00:49:41,920 --> 00:49:56,440
+auch bessere, so und damit kann ich jetzt set volume, ok, was hat das für bescheuerte
+
+387
+00:49:56,440 --> 00:50:18,600
+Parameter, was, Event-Kontext, für 10k Facecam, der Chat, ja, nee, nee, nee, sowas gibts
+
+388
+00:50:18,600 --> 00:50:26,400
+nicht, da meint der Chat noch, er könnte hier komplett über die Schränke schlagen,
+
+389
+00:50:26,400 --> 00:50:39,440
+man darf dem Chat nicht zu viel frei halten lassen, sonst drehen sie durch, so, also
+
+390
+00:50:39,440 --> 00:50:44,840
+weiter im Text, wir kriegen jetzt hier ein iSimpleAudioVolume, was auch immer uns das
+
+391
+00:50:44,840 --> 00:50:50,000
+genau sagen soll, ich habe eine Idee, wisst ihr was wir machen, wir sagen jetzt einfach,
+
+392
+00:50:50,000 --> 00:50:56,280
+mal gucken ob das funktioniert, wir sagen jetzt einfach, wir machen einen Konstruktor,
+
+393
+00:50:56,280 --> 00:51:10,640
+der nämlich ein iSimpleAudioVolume bekommt und dann merken wir uns den und dann können
+
+394
+00:51:10,640 --> 00:51:32,040
+wir das relativ einfach ändern, so, internal, so set volume, ok, dann müssen wir den Konstruktor
+
+395
+00:51:32,040 --> 00:51:44,680
+noch füttern damit und zwar mit ctls iSimpleAudioVolume, ok, mal gucken ob es funktioniert, exzellent
+
+396
+00:51:44,680 --> 00:51:49,880
+scheint zu funktionieren und jetzt setzen wir mal das Audio, mal schauen ob das einfach
+
+397
+00:51:49,880 --> 00:51:59,320
+funktioniert, da bin ich jetzt ja mal gespannt, volume, set, volume, ok, also, wir setzen
+
+398
+00:51:59,320 --> 00:52:09,600
+jetzt mal das volume von chrome, da steht aktuell auf 25% und wir setzen jetzt das volume
+
+399
+00:52:09,600 --> 00:52:30,600
+auf 50%, what the fuck, was, was muss ich da als Parameter angehen, das muss ich abgucken,
+
+400
+00:52:30,600 --> 00:52:44,120
+what, empty, gut, ok, wenn der Beispieltexter sagt, dann machen wir das so, exzellent, ach
+
+401
+00:52:44,120 --> 00:52:56,880
+ne, das geht ja nicht, so, ob das jetzt funktioniert, also, der chrome sollte, der chrome sollte
+
+402
+00:52:56,880 --> 00:53:01,520
+sich gleich umschalten hier, ne, also hier ist der chrome jetzt bei 25% und ich setze
+
+403
+00:53:01,520 --> 00:53:07,280
+ihn jetzt auf 50%, die Frage ist, das muss ich auch noch herausstellen, was ist mit 50%
+
+404
+00:53:07,280 --> 00:53:14,280
+gemeint, ist es 50% vom maximal möglichen volume oder ist es 50% vom aktuell eingestellten
+
+405
+00:53:14,280 --> 00:53:29,200
+master volume, chrome gleich chromium, ja, so, gucken ob es funktioniert, oh, monk, monke
+
+406
+00:53:29,200 --> 00:53:53,160
+es, geht nicht, findet er den chromeprozess, ja, muss er, den muss er finden, den muss
+
+407
+00:53:53,160 --> 00:53:58,160
+er finden, weil er ist ja hier reingegangen und ist hier gecrashed, das heißt, das hier
+
+408
+00:53:58,160 --> 00:54:09,880
+hat funktioniert, klar, schick her, schick, irgendwie github, link, sonst was, ja, schick
+
+409
+00:54:09,880 --> 00:54:17,960
+mal her, stimmt, choose my name, ja klar, ist ja logisch, das muss weg, ich release das
+
+410
+00:54:17,960 --> 00:54:24,080
+ganze Jahr, ich release das ganze Jahr, ja klar, das muss weg, hey, es hat funktioniert,
+
+411
+00:54:24,080 --> 00:54:44,360
+guck mal, es ist 50%, es hat funktioniert, auf was stand chrome vorher, 30, ne, es hat
+
+412
+00:54:44,360 --> 00:54:55,440
+funktioniert, 25, auf 25 stand es, ok, machen wir mal null, dann sollte chrome jetzt sich
+
+413
+00:54:55,440 --> 00:55:05,560
+muten, hey, das funktioniert, ich bin begeistert, so, und jetzt, und jetzt machen wir mal 100%,
+
+414
+00:55:05,560 --> 00:55:12,040
+aber 100% dürfte ja dann jetzt von dieser logik, 100% würde in diesem Fall 30% bedeuten,
+
+415
+00:55:12,040 --> 00:55:18,120
+ok, mein volume ist, also mein master volume ist auf 30%, das heißt, wenn ich jetzt 100%
+
+416
+00:55:18,120 --> 00:55:32,320
+mache, sollte mein chrome auf 30% gehen, ja, ja, hört sich auch schon so an, sehr gut,
+
+417
+00:55:32,320 --> 00:55:35,240
+wir machen es vielleicht nicht mit chrome, sondern wir machen es mit dem firefox, dass
+
+418
+00:55:35,240 --> 00:55:42,240
+ich an meinem hintergrundmusik nichts rumstellen muss, machen wir, machen wir irgendwas, irgendwas,
+
+419
+00:55:42,240 --> 00:55:46,520
+oh ja, genau, was auch immer, hauptsache, ich brauche ja nichts abspielen, sondern ich
+
+420
+00:55:46,520 --> 00:55:53,600
+will ja einfach sehen, ob sich im mixer was ändert, so, um zu gucken, was ist denn das
+
+421
+00:55:53,600 --> 00:56:06,000
+aktuelle volume von firefox, 15, ok, 15, lassen uns das mal ausgeben, das heißt, wir machen
+
+422
+00:56:06,000 --> 00:56:10,520
+das jetzt nicht für chrome, sondern wir machen das für firefox, und jetzt, anstatt das volume
+
+423
+00:56:10,520 --> 00:56:21,400
+zu setzen, geben wir das volume mal aus, get, get master volume, war, out, vol, wat, war,
+
+424
+00:56:21,400 --> 00:56:28,560
+nee, umgedreht, out, war, so rum, so, mal gucken, was das volume ist, also von der logik
+
+425
+00:56:28,560 --> 00:56:41,680
+her müsste mein volume beim firefox jetzt 50 sein, ne, also 30% master volume, und die
+
+426
+00:56:41,680 --> 00:56:50,360
+hälfte von 30%, hier 15, müssten dann heißen, es ist gerade 50% vom maximal möglichen volume,
+
+427
+00:56:50,360 --> 00:56:56,920
+so, also da müsste jetzt eigentlich 50 rauskommen, ja, kommt auch, ok, es kommt nicht 50 raus,
+
+428
+00:56:56,920 --> 00:57:07,960
+es kommt 49, äh, 999997 raus, das geht aber als 50 durch, das ist ok, das ist ja quasi
+
+429
+00:57:07,960 --> 00:57:15,800
+50, der rest ist floating point, geschiss, so, die frage, die sich mir stellt, und die
+
+430
+00:57:15,800 --> 00:57:22,120
+ganze sache jetzt natürlich noch viel komplizierter macht, als ich das eigentlich gedacht habe,
+
+431
+00:57:22,120 --> 00:57:32,840
+ist folgende, wenn ich jetzt sagen möchte, ich glaube das ist echt kompliziert, was
+
+432
+00:57:32,840 --> 00:57:37,440
+ich vorher komplizierter als gedacht habe, also die sache ist ja die, ich möchte jetzt
+
+433
+00:57:37,440 --> 00:57:54,040
+sagen können, ok, mein chrome soll auf 25%, allerdings sind die 25% hier auf die Gesamtlautstärke
+
+434
+00:57:54,040 --> 00:58:04,560
+bezogen, und hier ist es dynamisch abhängig zur aktuell eingestellten master volume lautstärke,
+
+435
+00:58:04,560 --> 00:58:12,800
+also sprich ich muss das jetzt noch umrechnen von, in dem fall firefox, ich muss das jetzt
+
+436
+00:58:12,800 --> 00:58:21,760
+noch umrechnen, also sprich 15% im windows mixer entsprechen 50% in meiner anwendung,
+
+437
+00:58:21,760 --> 00:58:29,320
+das heißt ich muss irgendwie noch rausbekommen, auf wieviel mein master volume steht, kann
+
+438
+00:58:29,320 --> 00:58:34,320
+man mir so weit folgen, oder stimmt das überhaupt was ich erzähle, ich muss übelst husten,
+
+439
+00:58:34,320 --> 00:58:44,120
+was ist denn heute los, also was ich sagen will ist, ich kann hier über die windows api
+
+440
+00:58:44,120 --> 00:58:51,840
+es nur relativ einstellen zur master volume, allerdings im windows mixer, nachdem jetzt
+
+441
+00:58:51,840 --> 00:58:59,880
+meine settings sind, ist es von 100%, das heißt ich muss es umrechnen, was ist 25%
+
+442
+00:58:59,880 --> 00:59:08,360
+oder was sind 15% im windows mixer für dynamisches volume, gerade, exzellent, das heißt um das
+
+443
+00:59:08,360 --> 00:59:21,800
+machen zu können, müsste ich erstmal rausbekommen, wie laut ist mein lautsprecher eingestellt,
+
+444
+00:59:21,800 --> 00:59:26,440
+dass ich dann sagen kann, ok mein ziel, also ich will sagen, meine ziellautstärke für
+
+445
+00:59:26,440 --> 00:59:32,520
+firefox sind 15% von der gesamtlautstärke, 15% von der gesamtlautstärke kann ich hier
+
+446
+00:59:32,520 --> 00:59:39,840
+nicht einstellen, was ich einstellen kann sind 50% von dem 30% master volume, was dann
+
+447
+00:59:39,840 --> 00:59:45,600
+15% gesamtlautstärke sind, das kann ich machen, das heißt ich muss das master volume noch
+
+448
+00:59:45,600 --> 00:59:50,000
+rauskriegen und das dann irgendwie umrechnen, aber erstmal muss ich gucken, wie man das
+
+449
+00:59:50,000 --> 00:59:59,720
+master volume rauskriegt, wie bekommt man das master volume raus, muss man bestimmt,
+
+450
+00:59:59,720 --> 01:00:07,480
+ah exzellent, kann man bestimmt hier machen, guck mal, hier gibt es speakers, gibt es hier,
+
+451
+01:00:07,480 --> 01:00:17,240
+speakers, kann man auch bestimmt sagen, speakers, speakers, activate, nee ok, mehr kann man
+
+452
+01:00:17,240 --> 01:00:22,860
+nicht sagen, activate, also mein ziel ist jetzt, ich muss rausbekommen, wie laut meine
+
+453
+01:00:22,860 --> 01:00:36,080
+lautsprecher eingestellt sind, in dem fall hat mein audio ausgang, audio endpoint, ok
+
+454
+01:00:36,080 --> 01:00:58,640
+fahren wir mal google, audio, windows core audio, audio volume, speaker, finding current
+
+455
+01:00:58,640 --> 01:01:06,200
+volume level of speaker output, exzellent, aha da haben wir wieder mal so eine big brain,
+
+456
+01:01:06,200 --> 01:01:17,640
+das ist jetzt c++, hör mal auf, gehst du fort, also wer übrigens denkt normales c++
+
+457
+01:01:17,640 --> 01:01:22,080
+ist schon hässlich, hat noch kein windows api c++ gesehen, da wird es dann nämlich
+
+458
+01:01:22,080 --> 01:01:28,200
+richtig abartig, guckt euch das mal an, das ist wirklich schon körperverletzung hier,
+
+459
+01:01:28,200 --> 01:01:35,640
+wenn man sich das anguckt, das ist auch toll, ein void pointer pointer referenz, ach du
+
+460
+01:01:35,640 --> 01:01:44,760
+scheiße, was ist denn das, ok eine referenz zu audio endpoint volume, audio endpoint volume
+
+461
+01:01:44,760 --> 01:01:49,760
+brauchen wir, also das ist eine referenz zu audio endpoint volume und die wird gecasted
+
+462
+01:01:49,760 --> 01:01:58,160
+zu einem void pointer, der auf einen pointer pointet, exzellent und dann das ganze gemischt
+
+463
+01:01:58,160 --> 01:02:13,720
+mit so tollen bezeichnungen wie clsctx all, microsoft please alter, i audio endpoint volume,
+
+464
+01:02:13,720 --> 01:02:21,720
+das klingt doch gut oder, das klingt doch was nach dem was ich haben will, i audio endpoint
+
+465
+01:02:21,720 --> 01:02:34,360
+volume interface, volume controls on audio stream or from audio endpoint device, ok speaker,
+
+466
+01:02:34,360 --> 01:02:42,080
+speaker sind ein audio endpoint device, das heißt was ich jetzt brauche ist die definition
+
+467
+01:02:42,080 --> 01:02:58,480
+von i audio endpoint volume, das ist das schmerz den kram zu programmieren, ok, wir copy pasten
+
+468
+01:02:58,480 --> 01:03:13,920
+uns den kram echt irgendwie zusammen, wo ist das interface, ich brauch ne interface, ok
+
+469
+01:03:13,920 --> 01:03:23,600
+project, archived ist mir doch egal ob das archived ist oder nicht, aha wo ist das interface,
+
+470
+01:03:23,600 --> 01:03:42,160
+exzellent interface, copy paste beste, du hattest die copy und paste sogar angekündigt, naja
+
+471
+01:03:42,160 --> 01:03:49,880
+das war doch klar, ok, die brauchen wir eh nicht diese ganzen betonen hier, die schmeißen
+
+472
+01:03:49,880 --> 01:03:56,040
+wir raus, blickt da jemand aus dem chat durch, ich denke nicht, ich blick hier auch nicht
+
+473
+01:03:56,040 --> 01:04:06,160
+durch, ich hab absolut keine ahnung was ich da mache, aber es funktioniert, das ist ja
+
+474
+01:04:06,160 --> 01:04:20,840
+das erstaunliche dabei, so also jetzt haben wir hier ein i audio endpoint volume, sag
+
+475
+01:04:20,840 --> 01:04:26,480
+mal woher wissen die leute eigentlich was das ding für ne id haben muss, wie kommt
+
+476
+01:04:26,480 --> 01:04:31,980
+man da drauf, also irgendwo muss das doch stehen, ups ich such jetzt mal danach vielleicht
+
+477
+01:04:31,980 --> 01:04:40,520
+findet man dann die offizielle microsoft doko irgendwo, oh warte mal irgendeine wollte mir
+
+478
+01:04:40,520 --> 01:05:07,600
+noch vorn seinen volume helper schicken oder, ne den gab es doch nicht, also ich finde diese
+
+479
+01:05:07,600 --> 01:05:13,140
+sache nur ein beispiel, wo steht denn bei microsoft das man diese id braucht, ich mein irgendwo
+
+480
+01:05:13,140 --> 01:05:19,680
+muss man es doch her wissen, gibt es kein fertiges nougat package, doch bestimmt, will
+
+481
+01:05:19,680 --> 01:05:27,640
+aber wissen wie es funktioniert, das kann doch nicht sein, dass sich das leute einfach
+
+482
+01:05:27,640 --> 01:05:34,320
+über jahre hinweg irgendwo zusammengesucht haben und niemand weiß wo es offiziell steht,
+
+483
+01:05:34,320 --> 01:05:45,720
+das ist so typische microsoft crap geschichte wieder, ne es gibt es nicht, was am volume
+
+484
+01:05:45,720 --> 01:05:51,760
+mixer gemacht wird, wir stellen bestimmte anwendungen hardcoded auf einen gewissen audio volume
+
+485
+01:05:51,760 --> 01:05:55,720
+wert ein, weil sich zum beispiel wenn sich modern warfare startet stellt sich das immer
+
+486
+01:05:55,720 --> 01:06:00,920
+auf 100% und ich will es auf 13% haben und mein mikrofon wird auch von teams und skype
+
+487
+01:06:00,920 --> 01:06:07,960
+immer umgestellt, das soll auf 71%, sind halt capi sind sie sharpie, aber wo ist denn für
+
+488
+01:06:07,960 --> 01:06:17,680
+die capi, die das hier, das man das hier braucht, wo steht das denn, ich hab da jetzt nichts
+
+489
+01:06:17,680 --> 01:06:24,000
+gewonnen bei microsoft, also machen wir weiter, wir haben jetzt ein audio endpoint volume,
+
+490
+01:06:24,000 --> 01:06:30,000
+wir machen jetzt mal was ganz gewagtes, wir nehmen jetzt einfach mal speaker und nehmen
+
+491
+01:06:30,000 --> 01:06:36,320
+die einzige methode von speaker, nämlich activate und versuchen quasi anhand dieses
+
+492
+01:06:36,320 --> 01:06:43,280
+beispiels hier da ein audio endpoint volume raus zu bekommen, im c++ verwendet man doch
+
+493
+01:06:43,280 --> 01:06:46,840
+header files, ja das ist ja schön und gut, aber da muss es wenigstens irgendwelche header
+
+494
+01:06:46,840 --> 01:06:52,960
+files geben wo das drin steht, ich hab gesucht nach dieser zahl, microsoft.com und hab nix
+
+495
+01:06:52,960 --> 01:07:02,440
+gefunden, irgendwo muss es doch stehen, wahrscheinlich in irgendwelchen sdk's die es zum unterladen
+
+496
+01:07:02,440 --> 01:07:07,280
+gibt und es steht da seit 15 jahren drinne, bloß es hat noch keiner indiziert online
+
+497
+01:07:07,280 --> 01:07:23,120
+oder so, ok wie funktioniert der kram denn hier jetzt, also activate ref iid iaudio session
+
+498
+01:07:23,120 --> 01:07:36,400
+manager 2, ok wir machen jetzt genau das gleiche nur für iaudio endpoint volume, so iii ach
+
+499
+01:07:36,400 --> 01:07:55,640
+du große, meine güte, ok, eeid, keck, triple u, ok ref, eed, audio endpoint volume, na audio
+
+500
+01:07:55,640 --> 01:08:06,240
+endpoint, ja doch, eed, e audio endpoint volume, das ist anstrengend.
+
+501
+01:08:06,240 --> 01:08:12,680
+ok null, ich mach jetzt einfach genau das gleiche wie oben, ich mach exakt das gleiche
+
+502
+01:08:12,680 --> 01:08:24,640
+wie oben, ohne dass ich wüsste was die parameter alle machen, so out, o, ja ne, o nicht, b,
+
+503
+01:08:24,640 --> 01:08:39,400
+genau so, so brauchen wir das, perfekt, so und b, casten wir jetzt zu 1, ok, ee, vol,
+
+504
+01:08:39,400 --> 01:08:57,040
+ne, vol hammer glaube ich schon, volume gleich, b, mal gucken ob es crasht, es crasht nicht,
+
+505
+01:08:57,040 --> 01:09:08,200
+das ist schonmal gutes zeichen das es nicht crasht, ok volume, ee wenn das jetzt funktioniert
+
+506
+01:09:08,200 --> 01:09:15,960
+dann weiß ich mir echt den arsch, na, get master volume level haben wir und get master
+
+507
+01:09:15,960 --> 01:09:23,600
+volume level skala, ok wir schauen mal in der microsoft dokumentation was der unterschied
+
+508
+01:09:23,600 --> 01:09:34,640
+ist, ne, ich würd das gerne verschieben darf ich aber nicht, wenn die metoden namen zu
+
+509
+01:09:34,640 --> 01:09:45,200
+lang für die webseite sind ne, also hier, get channel volume level, ne master volume
+
+510
+01:09:45,200 --> 01:09:53,520
+level brauchen wir, indecibel und dann haben wir noch was anderes zu bieten skala, master
+
+511
+01:09:53,520 --> 01:10:03,600
+volume level im prozent quasi, alles klar, deswegen sind wir bescheid oder, also, ee,
+
+512
+01:10:03,600 --> 01:10:21,280
+so wollen wir hier sowas haben wie, get master volume level skala, was ist ich level, also
+
+513
+01:10:21,280 --> 01:10:30,160
+von der idee her sollte da jetzt 30 rauskommen, von der idee her sollte da jetzt 30 rauskommen,
+
+514
+01:10:30,160 --> 01:10:35,440
+schauen wir mal, also es sollte 30 rauskommen weil, mein master volume auf 30 prozent steht
+
+515
+01:10:35,440 --> 01:10:55,280
+ee 30 guck mal hier, moment, das funktioniert ja tatsächlich, ich hätte nie im leben gedacht
+
+516
+01:10:55,280 --> 01:11:03,560
+dass der scheiß so funktioniert, ich hab keine ahnung warum es funktioniert leute also das
+
+517
+01:11:03,560 --> 01:11:16,120
+dürft ihr mich nicht fragen aber es funktioniert, excellent chat, irgendwie hab ich das gefühl
+
+518
+01:11:16,120 --> 01:11:19,240
+ich brauch ne pause, ich kann mir den kram nicht mehr länger angucken, das ist ja so
+
+519
+01:11:19,240 --> 01:11:37,120
+massiv eklig, oh mal kurz, wer hat sich den kack ausgedacht, meine güde, und dabei sind
+
+520
+01:11:37,120 --> 01:11:41,720
+wir erstmal ne halbe stunde bei oder so ne, ok ich hab nix gesagt wir sind jetzt an der
+
+521
+01:11:41,720 --> 01:12:10,240
+stunde dabei, das ist echt anstrengend, ja wir gucken uns jetzt 3 min lego harvest machine
+
+522
+01:12:10,240 --> 01:12:31,960
+an und dann gehts weiter, excellent, die musik ist kokona, what the fuck, wtr fleude was
+
+523
+01:12:31,960 --> 01:12:40,400
+ist denn jetzt los, alter, die lösung hat uns gehostet, huge, dankeschön, boah geil,
+
+524
+01:12:40,400 --> 01:12:49,520
+1006er zuschauer, excellent ja, huge host, poggers, massive poggers, und jetzt gerade
+
+525
+01:12:49,520 --> 01:12:54,560
+wollte ich pause gemacht, oder gerade wollte ich nix machen, ich weiß gar nicht was ich
+
+526
+01:12:54,560 --> 01:13:01,840
+sagen soll ja, dankeschön für den host, massive, huge, big brain host, alter, ich
+
+527
+01:13:01,840 --> 01:13:11,000
+hab auch nix, das sind ein paar leute ja, etf, das ja cool, ja vielleicht kennt mich
+
+528
+01:13:11,000 --> 01:13:14,500
+da ein oder andere noch, ich hab früher auch mal auf youtube videos zu call of duty und
+
+529
+01:13:14,500 --> 01:13:21,360
+battlefield gemacht, allerdings in letzter zeit dann doch eher ein bisschen weniger,
+
+530
+01:13:21,360 --> 01:13:23,360
+Um nicht zu sagen, um nicht zu sagen gar nicht.
+
+531
+01:13:26,860 --> 01:13:27,860
+Wo ist der Friseur?
+
+532
+01:13:29,860 --> 01:13:31,360
+Der spielt komische Handyspiele.
+
+533
+01:13:32,860 --> 01:13:34,860
+Der Friseur spielt komische Handyspiele und...
+
+534
+01:13:38,860 --> 01:13:40,860
+...Asia grinding MMOs.
+
+535
+01:13:45,860 --> 01:13:47,860
+Ja, schön, dass ihr alle am Start seid. Nice.
+
+536
+01:13:47,860 --> 01:13:54,860
+Also mal ganz kurz zur Erklärung, was wir eigentlich machen für den einen oder anderen, den es vielleicht doch interessiert.
+
+537
+01:13:57,360 --> 01:13:59,360
+Ich versuch grad was zu programmieren und zwar...
+
+538
+01:14:00,860 --> 01:14:02,360
+Ihr kennt's ja alle, ne?
+
+539
+01:14:02,360 --> 01:14:06,360
+Ne, ihr kennt's nicht. Ihr spielt ja auf der PS4 zum größten Teil, oder?
+
+540
+01:14:06,360 --> 01:14:07,860
+Also es ist so...
+
+541
+01:14:10,860 --> 01:14:13,860
+Wenn man auf dem PC Modern Warfare startet...
+
+542
+01:14:13,860 --> 01:14:19,860
+...dann stellt sich die Lautstärke in Windows immer auf 100% von dem Spiel.
+
+543
+01:14:21,860 --> 01:14:26,860
+So, und das geht mir so extrem auf den Keks, dass ich gerade am überlegen bin, ob man nicht was programmieren kann.
+
+544
+01:14:26,860 --> 01:14:27,860
+Hiermit.
+
+545
+01:14:28,860 --> 01:14:35,860
+Ähm, was automatisch beim Starten von Modern Warfare die Lautstärke auf einen vorher definierten Wert stellt.
+
+546
+01:14:36,860 --> 01:14:38,860
+Und ich hab mir das relativ einfach vorgestellt.
+
+547
+01:14:38,860 --> 01:14:43,860
+Allerdings, nur mal so, ich geh mal davon aus, den meisten wird's nicht sagen.
+
+548
+01:14:43,860 --> 01:14:48,860
+Es sei euch aber gesagt, mir sagt es auch relativ wenig, weil ich einfach copy-paste.
+
+549
+01:14:48,860 --> 01:14:51,860
+Weil ich keine Ahnung hab, wie man Windows-Audio-Arpies verwendet.
+
+550
+01:14:53,860 --> 01:15:01,860
+Sieht dann so aus, wenn man versucht, Anwendungen unter Windows auf ein spezielles Volume zu setzen.
+
+551
+01:15:02,860 --> 01:15:05,860
+Und das meiste hab ich mir ehrlich gesagt zusammen copy-pastet.
+
+552
+01:15:05,860 --> 01:15:09,860
+Weil es wirklich extrem eklig unter Windows ist, sowas zu machen.
+
+553
+01:15:13,860 --> 01:15:17,860
+Ja, aber ich bin begeistert, dass echt so viele Leute am Start sind. Cool.
+
+554
+01:15:20,860 --> 01:15:22,860
+Ja, wir machen aber ganz normal weiter, ne?
+
+555
+01:15:23,860 --> 01:15:31,860
+Die Sache war bloß gerade die, diese Windows-AP-Geschichten, bzw. das Zeug hier unter Windows zu programmieren, ist so dermaßen eklig...
+
+556
+01:15:31,860 --> 01:15:35,860
+...dass ich gerade eigentlich ein bisschen Pause machen wollte.
+
+557
+01:15:37,860 --> 01:15:39,860
+Und das heißt, ihr kommt genau rechtzeitig, Leute.
+
+558
+01:15:42,860 --> 01:15:44,860
+Oder auch nicht, je nachdem, wie man's sieht.
+
+559
+01:15:48,860 --> 01:15:50,860
+Geht das nicht easy mit VoiceMeter?
+
+560
+01:15:50,860 --> 01:15:56,860
+Na ja, mit VoiceMeter kannst du viele Sachen machen, aber ich glaube, du kannst den VoiceMeter nicht...
+
+561
+01:15:56,860 --> 01:16:01,860
+...hardcoded sagen, diese Anwendung bekommt diese Lautstärke.
+
+562
+01:16:04,860 --> 01:16:06,860
+Ich glaube, das funktioniert nicht.
+
+563
+01:16:08,860 --> 01:16:10,860
+Um euch mal zu zeigen, was ich meine, ist Folgendes.
+
+564
+01:16:11,860 --> 01:16:13,860
+Also sprich, wenn man sich jetzt einloggt...
+
+565
+01:16:15,860 --> 01:16:19,860
+...weil ich glaube, die meisten von euch spielen PS4, oder? Vermute ich jetzt einfach mal.
+
+566
+01:16:19,860 --> 01:16:23,860
+Der behält die Einstellung. Nee, das Problem am Modern Warfare auf Windows ist, ich zeig's euch mal.
+
+567
+01:16:24,860 --> 01:16:28,860
+Also, wenn ihr Modern Warfare unter Windows startet, dann passiert Folgendes.
+
+568
+01:16:31,860 --> 01:16:33,860
+Ah, okay, ein paar spielen PC.
+
+569
+01:16:36,860 --> 01:16:41,860
+Also, wenn das Spiel dann irgendwann mal startet, weil das ist ja bekannt dafür, dass gerade Modern Warfare ein...
+
+570
+01:16:41,860 --> 01:16:44,860
+...absolut bug-freies und hochoptimiertes Spiel ist.
+
+571
+01:16:44,860 --> 01:16:49,860
+So, und wenn man jetzt hier rausgeht und in den Windows-Volume-Mixer guckt, wird man feststellen...
+
+572
+01:16:50,860 --> 01:16:54,860
+...das Spiel stellt sich immer auf 100%, immer.
+
+573
+01:16:55,860 --> 01:16:58,860
+Man kann da nichts dagegen machen, es stellt sich immer auf 100%.
+
+574
+01:16:59,860 --> 01:17:09,860
+So, und was ich jetzt gerade probiere, ist einzustellen, dass sich Modern Warfare von selbst runterstellt auf so ungefähr 13%.
+
+575
+01:17:09,860 --> 01:17:13,860
+Und selbst wenn ich das hier mache, und die meisten Anwendungen, da funktioniert das.
+
+576
+01:17:14,860 --> 01:17:18,860
+Bei allen anderen, oder sagen wir mal, eigentlich alle Anwendungen, außer Modern Warfare.
+
+577
+01:17:19,860 --> 01:17:29,860
+Wenn ich die einmal einstelle, und dann beende, und dann beende, und sie wieder starte, dann haben die sich das gemerkt.
+
+578
+01:17:29,860 --> 01:17:39,860
+Allerdings nicht Modern Warfare, wie ihr gleich sehen werdet. Wenn ich Modern Warfare nochmal starte, dann ist es wieder auf 100%.
+
+579
+01:17:40,860 --> 01:17:43,860
+Und das ist totaler Müll, und das versuche ich gerade zu fixen.
+
+580
+01:17:44,860 --> 01:17:47,860
+Wenn Infinity Ward da schon keinen Bock drauf hat, das zu fixen, dann mache ich das selbst.
+
+581
+01:17:50,860 --> 01:17:53,860
+Modern Problems require modern solutions. Ja, was willst du machen?
+
+582
+01:17:53,860 --> 01:17:58,860
+Guck, hier, steht wieder auf 100%. Jede andere Anwendung, guckt euch Firefox an.
+
+583
+01:17:59,860 --> 01:18:03,860
+Firefox, 15%, ich mache Firefox aus, ich mache Firefox an.
+
+584
+01:18:04,860 --> 01:18:07,860
+Stell es, keine Ahnung, ich mache auf YouTube irgendwas, irgendwas machen wir auf YouTube an.
+
+585
+01:18:08,860 --> 01:18:10,860
+Das Audio abspielt, es ist vollkommen egal was.
+
+586
+01:18:11,860 --> 01:18:14,860
+Guck mal, den Mixer rein, zack, Firefox, 15%.
+
+587
+01:18:15,860 --> 01:18:20,860
+Jede Anwendung, egal wie klein, wie schlecht, egal, egal, egal, egal, egal, egal.
+
+588
+01:18:20,860 --> 01:18:24,860
+Jede Anwendung, egal wie klein, wie schlecht, wie sonst was.
+
+589
+01:18:25,860 --> 01:18:28,860
+Stell es sich wieder richtig ein, bzw. Windows kann sie richtig einstellen.
+
+590
+01:18:29,860 --> 01:18:33,860
+Nicht so Modern Warfare. Ich vermute, ich habe nichts dazu gefunden, warum das so ist.
+
+591
+01:18:34,860 --> 01:18:37,860
+Ich vermute, dass es eben eine Anti-Cheat-Maßnahme ist.
+
+592
+01:18:38,860 --> 01:18:45,860
+Dass sich quasi die Anwendung jedes Mal minimal ändert, dass Windows sie nicht mehr erkennt und nicht richtig einstellen kann.
+
+593
+01:18:45,860 --> 01:18:49,860
+Aber es ist nur bei Modern Warfare so.
+
+594
+01:18:50,860 --> 01:18:55,860
+Ich bin ein Oldschooler, das könnte man so sagen, überlegt euch mal, ich bin jetzt 35 mittlerweile.
+
+595
+01:18:56,860 --> 01:18:58,860
+Bekommst du einen Wack-Bun?
+
+596
+01:19:01,860 --> 01:19:06,860
+Ich habe mir das Game nicht mal gekauft, im Prinzip bunnen die sich selbst dadurch.
+
+597
+01:19:06,860 --> 01:19:10,860
+Und das machen wir hier gerade. Mit Firefox funktioniert das Ganze auch schon.
+
+598
+01:19:11,860 --> 01:19:15,860
+Also sprich, ich kann Firefox einstellen. Das heißt, ich kann theoretisch auch Modern Warfare einstellen.
+
+599
+01:19:16,860 --> 01:19:19,860
+Gibt es eigentlich in Zwischenzeiten einen Baby-Keks?
+
+600
+01:19:22,860 --> 01:19:26,860
+Ich mag keine Kinder und ich mag... Ich dachte, ich mag keine Kinder.
+
+601
+01:19:27,860 --> 01:19:30,860
+Ich mag keine Kinder und ich mag keine Kinder.
+
+602
+01:19:31,860 --> 01:19:34,860
+Ich mag keine Kinder und ich mag keine Kinder.
+
+603
+01:19:34,860 --> 01:19:37,860
+Und ich mag... Ich dachte ja früher immer nur, ich mag keine Kinder.
+
+604
+01:19:38,860 --> 01:19:42,860
+Aber ich bin mittlerweile, und dafür habe ich ein paar Jahre gebraucht, bis ich das kapiert habe.
+
+605
+01:19:43,860 --> 01:19:46,860
+Ich bin mittlerweile zu dem Schluss gekommen. Ich mag keine Menschen.
+
+606
+01:19:47,860 --> 01:19:51,860
+Das sind nicht nur Kinder, die ich nicht mag. Ich mag keine... Außer den Chat natürlich.
+
+607
+01:19:52,860 --> 01:19:55,860
+Den Chat, der Chat ist... Den Chat mag ich.
+
+608
+01:19:56,860 --> 01:20:00,860
+Außer den Twitch-Chat. Der Twitch-Chat, ja der ist okay. Der Twitch-Chat ist... Der Twitch-Chat geht.
+
+609
+01:20:00,860 --> 01:20:03,860
+Der Twitch-Chat ist hier.
+
+610
+01:20:04,860 --> 01:20:07,860
+Moment, wo ist das passende E-Mode? Hier.
+
+611
+01:20:08,860 --> 01:20:12,860
+Genau sehbar, das meine ich. White Paper Blanket.
+
+612
+01:20:14,860 --> 01:20:17,860
+Das brauche ich übrigens. Übrigens mal als Beispiel.
+
+613
+01:20:18,860 --> 01:20:21,860
+Es sind jetzt ja relativ viele Leute gerade dazu gekommen.
+
+614
+01:20:22,860 --> 01:20:27,860
+Was ich so normalerweise in dem Stream mache. Vielleicht interessiert sich der eine oder andere ein bisschen für Technik-Sachen.
+
+615
+01:20:27,860 --> 01:20:30,860
+Ich mache gerade mal ein bisschen Werbung für mich, weil wenn ich jetzt mal dann...
+
+616
+01:20:31,860 --> 01:20:34,860
+So die letzten Videos, die wir... Oder die letzten Themen, die wir so gestreamt haben.
+
+617
+01:20:35,860 --> 01:20:40,860
+Also wir machen nicht immer Programmier-Streams. Wir machen aber zum größten Teil mache ich hier auf Twitch Technik-Grams.
+
+618
+01:20:41,860 --> 01:20:43,860
+Wogegen ich auf YouTube...
+
+619
+01:20:44,860 --> 01:20:47,860
+Oh, der eine oder andere kennt es ja vielleicht auf YouTube auch noch.
+
+620
+01:20:48,860 --> 01:20:53,860
+Auf YouTube habe ich ja hauptsächlich Gaming, Laberstell, sonst was gemacht.
+
+621
+01:20:53,860 --> 01:20:59,860
+Und auf Twitch mache ich was komplett anderes. Ich mache hauptsächlich Technik-Geschichten.
+
+622
+01:21:00,860 --> 01:21:03,860
+Also entweder programmieren wir was, wir gucken uns neue Linux-Geschichten an.
+
+623
+01:21:04,860 --> 01:21:07,860
+Wir haben uns zum Beispiel zusammen angeguckt, das Sony-Event.
+
+624
+01:21:09,860 --> 01:21:11,860
+Vor zwei Tagen.
+
+625
+01:21:12,860 --> 01:21:17,860
+Chat, was sagt ihr zum Sony-Event? Nachdem jetzt ja auch hier einige Playstation 4-Spiele am Start sind.
+
+626
+01:21:18,860 --> 01:21:20,860
+Was haltet ihr von der neuen Playstation 4?
+
+627
+01:21:20,860 --> 01:21:26,860
+Also meine persönliche Meinung dazu ist, erstens, sie sieht aus wie eine Fritz-Box.
+
+628
+01:21:27,860 --> 01:21:30,860
+Eine Fritz-Box mit weißen Seiten.
+
+629
+01:21:31,860 --> 01:21:35,860
+Aber der Stream, der Sony-Stream war so ein bisschen... War so.
+
+630
+01:21:36,860 --> 01:21:40,860
+Zum größten Teil war der Sony-Stream Resident-Sleeper extrem.
+
+631
+01:21:41,860 --> 01:21:44,860
+Dann ein paar Sachen wie beispielsweise Sackboy Adventures fand ich cool.
+
+632
+01:21:44,860 --> 01:21:49,860
+Aber im Großen und Ganzen war der Stream eher so.
+
+633
+01:21:51,860 --> 01:21:55,860
+Ja, also das war also... Ich weiß nicht, also ich denke mal da kommt noch ein bisschen was.
+
+634
+01:21:56,860 --> 01:22:01,860
+Ja, so Sachen treiben wir hier. Ab und zu gucken wir uns auch mal verschiedene Software an.
+
+635
+01:22:02,860 --> 01:22:05,860
+Vereinzelt kaufen wir auch mal Technik-Sachen im Stream ein.
+
+636
+01:22:06,860 --> 01:22:11,860
+Jeden Sonntagmorgen bin ich auch am Start. So zwei, drei Stunden zum Aufwachen.
+
+637
+01:22:11,860 --> 01:22:13,860
+Wo wir alles Mögliche uns angucken.
+
+638
+01:22:14,860 --> 01:22:17,860
+Ihr könnt ja mal durchgucken, ob das etwas ist, was euch gefällt.
+
+639
+01:22:18,860 --> 01:22:20,860
+Ist auf jeden Fall schön, dass so viele Leute jetzt mal vorbeigeguckt haben.
+
+640
+01:22:21,860 --> 01:22:26,860
+Ich bin mir auch im Klaren drüber, dass die Themen jetzt nicht unbedingt jeden ansprechen.
+
+641
+01:22:27,860 --> 01:22:32,860
+Aber ich freue mich über jeden, der da bleibt, der vielleicht ab und zu mal reinguckt.
+
+642
+01:22:33,860 --> 01:22:35,860
+Das ist auf jeden Fall...
+
+643
+01:22:36,860 --> 01:22:37,860
+Sehr nice.
+
+644
+01:22:37,860 --> 01:22:42,860
+Und eine Sache, die wir auch hier im Stream programmiert haben, die tatsächlich ganz cool ist, was ihr vielleicht auch schon gesehen habt.
+
+645
+01:22:43,860 --> 01:22:49,860
+Also nur mal für den Fall der Fälle, dass auch wenn man nicht so sehr dazu Bezug hat, dass da mal ein paar ganz coole Sachen bei rauskommen können.
+
+646
+01:22:50,860 --> 01:22:53,860
+Diese ganzen Overlay-Geschichten hier und der Sound.
+
+647
+01:22:54,860 --> 01:22:56,860
+Das haben wir auch im Stream selbst programmiert.
+
+648
+01:22:59,860 --> 01:23:04,860
+Wir haben uns hier im Stream so ein, ja quasi so ein Stream Deck Light gebastelt.
+
+649
+01:23:04,860 --> 01:23:09,860
+Was man im Browser bedienen kann, auch am zweiten Rechner im Browser, über ein Tablet im Browser.
+
+650
+01:23:10,860 --> 01:23:13,860
+Und das kann Overlay-Bildchen anzeigen oder Overlay-Sounds abspielen.
+
+651
+01:23:18,860 --> 01:23:21,860
+Und das ist was, wo ich glaube, dass das relativ viele Streamer gebrauchen können.
+
+652
+01:23:22,860 --> 01:23:24,860
+Unter anderem haben wir natürlich auch das beste Emote schlechthin.
+
+653
+01:23:24,860 --> 01:23:27,860
+Und für den aktuellen Zeitpunkt angemessen natürlich auch den hier.
+
+654
+01:23:30,860 --> 01:23:31,860
+So Sachen machen wir hier im Stream.
+
+655
+01:23:32,860 --> 01:23:35,860
+So, ich glaube, jetzt habe ich mich lang genug ausgeruht, jetzt können wir weitermachen.
+
+656
+01:23:36,860 --> 01:23:38,860
+Danny braucht so eins, ich dachte, Danny hat einen Stream Deck.
+
+657
+01:23:42,860 --> 01:23:46,860
+Das Tolle übrigens ist, wie ihr hier seht, diese Bildchen, ich sehe sie erstens selbst,
+
+658
+01:23:46,860 --> 01:23:53,860
+man kann sie eins verschieben, also man kann sich überlegen, wo man es anordnen will,
+
+659
+01:23:54,860 --> 01:23:57,860
+man kann es größer Kleider machen und es kann GIFs, ganz wichtig, es kann GIFs.
+
+660
+01:23:58,860 --> 01:24:06,860
+Und das Beste ist, es ist ein Overlay, was absolut nichts beeinflusst, also sprich, doch PNG kann es auch, PNG kann es auch, ja PNG kann es auch.
+
+661
+01:24:07,860 --> 01:24:08,860
+Man kann durchklicken, wie ihr seht.
+
+662
+01:24:08,860 --> 01:24:15,860
+Man kann durchklicken und es beeinflusst die Maus nicht, also man kann das auch in Spielen als Overlay verwenden.
+
+663
+01:24:16,860 --> 01:24:19,860
+Genau, der Chat, der Chat hat das natürlich programmiert, was sonst.
+
+664
+01:24:21,860 --> 01:24:23,860
+Und das Beste ist eigentlich, dass man es auf dem Tablet verwenden kann.
+
+665
+01:24:26,860 --> 01:24:29,860
+Und es steuern, weil ich brauche den Browser hier nicht, um es zu steuern.
+
+666
+01:24:29,860 --> 01:24:39,860
+IPS. Ja, und das allerbeste Feature von diesem, von meinem Memeboard ist, das allerbeste Feature ist,
+
+667
+01:24:40,860 --> 01:24:50,860
+dass wir eine japanische Text-to-Speech-Engine haben, die kann man eigentlich auch auf dem Tablet verwenden,
+
+668
+01:24:50,860 --> 01:25:00,860
+aber das allerbeste Feature von diesem, von meinem Memeboard ist, das allerbeste Feature ist, dass wir eine japanische Text-to-Speech-Engine haben, die zum Beispiel sowas hier sagen kann.
+
+669
+01:25:07,860 --> 01:25:12,860
+Also die wichtigsten Sachen oder auch ganz, ganz wichtig gerade für die ganzen Call of Duty Fans.
+
+670
+01:25:12,860 --> 01:25:13,860
+Call of Duty Fans.
+
+671
+01:25:13,860 --> 01:25:36,940
+Und um nicht zu vergessen, der legendäre, wo hab ich's, wo ist es, ja, falls ihr noch
+
+672
+01:25:36,940 --> 01:25:43,900
+einer kennt. Das ist glaube ich irgendein High Rise Modern Warfare 2 Sniper Clip.
+
+673
+01:25:43,900 --> 01:26:12,260
+MonkaS. Genau, Mummy, Camera. Ja. Genau, den Brauma.
+
+674
+01:26:12,260 --> 01:26:23,060
+Excellent. Ist das auf Github? Ja, eine uralt Version ist auf Github. Allerdings ist das
+
+675
+01:26:23,060 --> 01:26:29,980
+Problem, dass ich schon ewig nicht mal gepusht habe. Hier, da, ups, da war's. Dass ich schon
+
+676
+01:26:29,980 --> 01:26:34,340
+ewig nicht mal gepusht, vor allem die beste Commit Message überhaupt, dass ich schon ewig
+
+677
+01:26:34,340 --> 01:26:39,100
+nicht mal gepusht habe und die Version, die da drauf ist, nichts mit der Version zu tun
+
+678
+01:26:39,100 --> 01:26:45,780
+hat, die ich hier selbst habe. Also keine Voice, kein sonst was, kein GIF Support und
+
+679
+01:26:45,780 --> 01:26:50,460
+nix. Ich müsste die aktuelle Version mal wieder pushen, aber die ist so eklig programmiert,
+
+680
+01:26:50,460 --> 01:27:02,460
+die will ich eigentlich keinem zumuten. Pains Champ. Was, es gibt drei Forks? Ernsthaft?
+
+681
+01:27:02,460 --> 01:27:07,980
+Es gibt tatsächlich drei Forks, warum gibt's drei Forks? Dreckiger dann, auskenn, Fuchs,
+
+682
+01:27:07,980 --> 01:27:21,820
+okay. Gut zu wissen, es gibt drei Forks, warum auch immer. Wann kommt das nächste Gartenvideo?
+
+683
+01:27:21,820 --> 01:27:26,940
+Es gab schon ein paar Gartenvideos, allerdings hat sich der YouTube-Algorithmus immer gedacht,
+
+684
+01:27:26,940 --> 01:27:37,140
+Gartenvideos haben wir einmal promoted, danach juckt es keinen mehr. DevOps unter zwei Jahren
+
+685
+01:27:37,140 --> 01:27:48,100
+keine Pushes, ja das stimmt. Pepehands. Ja, ich hab's halt einfach nur für mich zusammengebastelt.
+
+686
+01:27:48,100 --> 01:27:56,820
+Tja, der Danny hat ja seine Motivation jetzt mit Streaming und Zeug wiedergefunden. Also
+
+687
+01:27:56,820 --> 01:28:02,820
+bei mir ist es halt so, ich hab für YouTube aktuell echt kaum Motivation. Mein letztes
+
+688
+01:28:02,820 --> 01:28:07,220
+YouTube-Video ist zwei Monate her und ich hab extra in dem Video erzählt, so nach dem Motto,
+
+689
+01:28:07,220 --> 01:28:10,660
+ja, wir können neue Clips einschicken und dann hab ich vielleicht wieder Motivation,
+
+690
+01:28:10,660 --> 01:28:16,740
+hatte ich aber nicht, hatte ich nicht. Dafür muss man echt sagen, in letzter Zeit Chat,
+
+691
+01:28:16,740 --> 01:28:24,500
+der Chat ist mein Zeuge, ja. In letzter Zeit auf Twitch war ich echt relativ oft am Start.
+
+692
+01:28:24,500 --> 01:28:34,380
+Euch mal an hier, alle paar Tage mal, da kann man sich nicht beschweren. Streams in on fleek,
+
+693
+01:28:34,380 --> 01:28:56,140
+genau. Das ist immer Chebat. Wenn ich sag, bald kommen mehr Videos, dann ist das hier eindeutig.
+
+694
+01:28:56,140 --> 01:29:02,780
+Okay, also wir machen mal weiter. Wo ist das Internet Security-Video, welches? Welches? Ich
+
+695
+01:29:02,780 --> 01:29:23,300
+hab ein paar. Meinst du das hier? Ich glaub, meinst du das hier? Oder meinst du das mit der
+
+696
+01:29:23,300 --> 01:29:37,260
+Fritzbox? Das da? Eins davon wirst du wahrscheinlich meinen. Ich habe zu dem Thema schon ein paar Videos
+
+697
+01:29:37,260 --> 01:29:47,180
+gemacht. Zock, zock, also ab und zu mal vereinzelt. Warzone haben wir schon zweimal glaube ich gespielt
+
+698
+01:29:47,180 --> 01:29:54,660
+On stream ich ich komme ja auch selbst erst wieder rein ich habe ja im vergleich zu den meisten anderen ich habe erst vor drei wochen zwei oder vor zwei wochen
+
+699
+01:29:54,980 --> 01:29:59,940
+Zwei oder drei wochen erst wieder angefangen war son zu spielen und ich habe vorher aus ein bisschen per so weg sei
+
+700
+01:30:00,260 --> 01:30:02,980
+Quasi drei jahre auf pc nix gespielt
+
+701
+01:30:08,060 --> 01:30:10,060
+Und so langsam aber sicher läuft's wieder
+
+702
+01:30:12,940 --> 01:30:15,900
+Weil es jetzt nicht so dass das jedes game den win ist
+
+703
+01:30:15,900 --> 01:30:19,060
+Allerdings zumindest fast jedes game top 10
+
+704
+01:30:20,580 --> 01:30:22,500
+Und auch ein paar wins
+
+705
+01:30:22,500 --> 01:30:29,020
+Verwendest du eigentlich Wim oder Emacs wenn du auf linux arbeitest ja ich verwende ich verwende zum größten teil Wim wenn ich auf der
+
+706
+01:30:29,020 --> 01:30:31,020
+Kommando zeile was mache
+
+707
+01:30:31,180 --> 01:30:36,220
+Aber hauptsächlich halt wenn ich mich auf server einlogger auf der kommando zeile was macht
+
+708
+01:30:36,220 --> 01:30:44,100
+Emacs habe ich zwar verwendet verwende ich nicht mehr meistens verwende ich mittlerweile nur linux tatsächlich visual studio code mittlerweile
+
+709
+01:30:49,980 --> 01:30:53,460
+Ich habe gedacht man fragen logging tool ist abgekackt aber ist nicht abgekackt
+
+710
+01:30:59,100 --> 01:31:01,100
+So
+
+711
+01:31:01,380 --> 01:31:02,740
+Aber
+
+712
+01:31:02,740 --> 01:31:08,340
+Ja Wim kann man prinzipiell nur empfehlen zu lernen wenn man auch ein bisschen remote of serveren unterwegs ist
+
+713
+01:31:08,860 --> 01:31:14,820
+Ja el mostafa so sieht es aus manche sachen merkt man sich einfach aus auswendig so wir machen wir weiter
+
+714
+01:31:15,860 --> 01:31:17,860
+Wo sind wir stehen geblieben
+
+715
+01:31:19,740 --> 01:31:24,540
+Wir können den sound von firefox einstellen nur mal zum beweis dass das ganze funktioniert
+
+716
+01:31:25,260 --> 01:31:27,260
+Weil ich so nicht gesehen habe so
+
+717
+01:31:28,060 --> 01:31:31,300
+firefox sound steht aktuell auf one drive
+
+718
+01:31:31,300 --> 01:31:33,300
+also one drive geh weg
+
+719
+01:31:37,220 --> 01:31:42,900
+Also firefox steht aktuell auf 15 15 prozent gesamtvolume
+
+720
+01:31:43,940 --> 01:31:48,020
+Aber wenn ich das ausführe dann steht firefox danach auf
+
+721
+01:31:51,740 --> 01:31:53,740
+30 prozent gesamtvolume
+
+722
+01:31:55,220 --> 01:31:57,220
+Hotkey guide please
+
+723
+01:31:57,220 --> 01:31:59,740
+Hä? Für was?
+
+724
+01:32:02,380 --> 01:32:04,380
+Für was hotkeys?
+
+725
+01:32:08,300 --> 01:32:10,380
+Manchmal wäre ich aus dem twitch chat echt nicht schlauer
+
+726
+01:32:15,500 --> 01:32:23,340
+So ich muss mich gerade mal konzentrieren wo sind wir stehen geblieben big brain moment
+
+727
+01:32:23,340 --> 01:32:25,340
+Chat wo sind wir stehen geblieben
+
+728
+01:32:28,940 --> 01:32:34,220
+Knäher bär wie machst du das mit dem instant voll im fullscreen einfach desktop wechseln
+
+729
+01:32:39,660 --> 01:32:43,020
+Knäher bär du bist doch so oft dabei was ist doch schon oft gesehen
+
+730
+01:32:47,020 --> 01:32:51,740
+Die einpländung die einpländung funktionieren gar nicht über irgendwelche obr
+
+731
+01:32:51,740 --> 01:32:55,900
+Geschichten das ist was was ich selbst programmiert habe ich kann es zwar auch mit hotkeys machen
+
+732
+01:32:56,300 --> 01:33:01,260
+Aber ich mache das meiste über den zweiten browser mit dem web interface ja
+
+733
+01:33:01,260 --> 01:33:10,220
+Dem web interface ja omega low easy as fuck get rekt
+
+734
+01:33:16,620 --> 01:33:21,660
+Ach bei dir geht das nicht vor mw15 ich glaube ich habe auch noch vor mw14 oder was habe ich
+
+735
+01:33:21,660 --> 01:33:33,820
+15 tatsächlich ok ja da weiß ich auch nicht warum es nicht funktioniert
+
+736
+01:33:38,700 --> 01:33:41,220
+Babykeks das wird sie nix das hat auch nicht geben
+
+737
+01:33:42,740 --> 01:33:46,780
+Ja hier wie saß dings hier schallchen wie sah es dann eigentlich aus
+
+738
+01:33:46,780 --> 01:33:52,060
+Also hast du das jetzt schon geschickt oder oder nicht habe ich vielleicht übersehen
+
+739
+01:34:00,060 --> 01:34:02,300
+Chat wo sind wir stehen geblieben jetzt
+
+740
+01:34:03,740 --> 01:34:11,780
+Ach ja ich weiß wieder ich weiß wieder was wir machen wollen genau also wir haben es jetzt ja geschafft den firefox auf 15 prozent volume zu setzen
+
+741
+01:34:11,780 --> 01:34:17,060
+Bei der gelegenheit können wir gleich mal ausprobieren ob das mit modern warfare auch funktioniert
+
+742
+01:34:17,540 --> 01:34:21,340
+Das testen wir noch mal ob das mit modern warfare auch funktioniert da sehen wir überhaupt ob da kram
+
+743
+01:34:22,020 --> 01:34:24,020
+Theoretisch möglich ist was ich hier vor habe
+
+744
+01:34:25,980 --> 01:34:29,820
+Ja crashy fluffy genau das wollten wir machen main audio auslesen
+
+745
+01:34:31,900 --> 01:34:33,900
+Wir lassen es einfach im hintergrund laufen
+
+746
+01:34:33,900 --> 01:34:38,660
+Genau wir lassen es einfach im hintergrund laufen und gucken jetzt mal ob wir den prozess überhaupt hier auslesen können
+
+747
+01:34:40,100 --> 01:34:45,860
+Modern warfare so heißt es prozess id 167 8 8 easy
+
+748
+01:34:52,140 --> 01:34:55,340
+So das heißt wir stellen es mir modern
+
+749
+01:34:55,340 --> 01:35:03,900
+Wie wie schreiben das modern warfare zusammen hat man das geschrieben so von der idee her modern warfare stellt sich ja immer auf 100 prozent
+
+750
+01:35:04,460 --> 01:35:08,060
+Sollte modern warfare jetzt sich auf die hälfte stellen
+
+751
+01:35:09,580 --> 01:35:11,580
+Wenn das funktioniert
+
+752
+01:35:14,100 --> 01:35:15,620
+Funktioniert aber nicht
+
+753
+01:35:15,620 --> 01:35:16,820
+exzellent
+
+754
+01:35:16,820 --> 01:35:18,820
+Warum von der Idee her ist es immer auf 100 prozent
+
+755
+01:35:18,820 --> 01:35:26,020
+Funktioniert aber nicht exzellent warum funktioniert es nicht
+
+756
+01:35:31,580 --> 01:35:34,980
+Vielleicht weil das hier gar nicht greift man breakpoint hin
+
+757
+01:35:38,220 --> 01:35:40,220
+Geht auch greift
+
+758
+01:35:40,220 --> 01:35:45,020
+Es heißt gar nicht modern warfare es hat sich beendet
+
+759
+01:35:46,020 --> 01:35:49,780
+Warum hat sich das kann es sein dass das game denkt es ist ein cheat was ich laufen habe
+
+760
+01:35:51,060 --> 01:35:53,580
+Das wäre natürlich ziemlich monka es wenn es das denkt
+
+761
+01:35:54,900 --> 01:35:58,020
+Anti cheat wenn es jetzt echt anti cheat ist und das nicht funktioniert
+
+762
+01:35:58,620 --> 01:36:00,620
+Dann ist es ein cheat was ich laufen habe
+
+763
+01:36:01,580 --> 01:36:03,900
+Das wäre natürlich ziemlich monka es wenn es das denkt
+
+764
+01:36:03,900 --> 01:36:08,900
+Anti cheat ey wenn es jetzt echt anti cheat ist und das nicht funktioniert
+
+765
+01:36:10,380 --> 01:36:12,380
+Safe mode no
+
+766
+01:36:12,860 --> 01:36:14,860
+Wack wack
+
+767
+01:36:26,860 --> 01:36:28,860
+Direkt in die hälfte
+
+768
+01:36:28,860 --> 01:36:35,140
+Direkt in die hälfte direkt in die hälfte direkt in die hälfte
+
+769
+01:36:40,180 --> 01:36:46,380
+Okay mal gucken mal gucken ob ich mal gucken ob das wirklich als anti cheat erkennt
+
+770
+01:36:48,660 --> 01:36:51,220
+Da bin ich echt gespannt erkennt es als anti cheat
+
+771
+01:36:51,220 --> 01:36:56,380
+Oder aber es funktioniert nicht
+
+772
+01:37:00,060 --> 01:37:02,060
+Aber es funktioniert nicht
+
+773
+01:37:03,340 --> 01:37:07,300
+Warum funktioniert das nicht was ist das denn für ein schwachsinn ok wir setzen auf null
+
+774
+01:37:08,340 --> 01:37:10,060
+set volume
+
+775
+01:37:10,060 --> 01:37:12,820
+Ach so es funktioniert nicht weil ich es hardcoded setze
+
+776
+01:37:12,820 --> 01:37:14,820
+Null
+
+777
+01:37:19,180 --> 01:37:23,220
+Battlefield 3 war deine zeit euer battlefield 3 das stimmt battlefield 3 war echt
+
+778
+01:37:24,900 --> 01:37:27,940
+Ziemlich nice es soll ja demnächst in remaster kommen
+
+779
+01:37:29,100 --> 01:37:32,380
+Aber ich bin immer noch der ansicht battlefield 3 braucht kein remaster
+
+780
+01:37:35,100 --> 01:37:38,340
+Nach battlefield 3 hatte ich ehrlich gesagt nicht mehr so viel bock das stimmt
+
+781
+01:37:38,340 --> 01:37:42,540
+So mal gucken ob es jetzt funktioniert hat jetzt geht's kommt mal jetzt haben wir den sound ausgeschaltet
+
+782
+01:37:44,060 --> 01:37:48,500
+So jetzt jetzt schalten wir den sound auf 50 prozent von modern warfare
+
+783
+01:37:50,420 --> 01:37:56,420
+Ja funktioniert auch ok alles gut funktioniert doch man muss es man muss es bloß richtig machen dann funktioniert es auch
+
+784
+01:38:00,500 --> 01:38:02,500
+Blut
+
+785
+01:38:03,460 --> 01:38:05,460
+Man muss es nur richtig machen
+
+786
+01:38:05,460 --> 01:38:08,060
+so 0.1
+
+787
+01:38:12,140 --> 01:38:14,980
+So und jetzt sollte modern warfare ganz leise eingestellt sein
+
+788
+01:38:18,060 --> 01:38:20,060
+Set volume was macht das da
+
+789
+01:38:24,900 --> 01:38:28,220
+Null jetzt sollte der sound aus sein wenn es funktioniert
+
+790
+01:38:30,820 --> 01:38:32,420
+Ach das game ist wieder
+
+791
+01:38:32,420 --> 01:38:36,420
+What the fuck?
+
+792
+01:38:37,180 --> 01:38:38,860
+Kann das sein
+
+793
+01:38:38,860 --> 01:38:45,580
+Kann das sein dass das game sich allgemein beendet oder ist das wirklich eine anti cheat geschichte warum sich das beendet
+
+794
+01:38:46,620 --> 01:38:51,900
+Das anti cheat hat das game eine lock glaubst du selbst nicht dass das ein lock hat
+
+795
+01:38:51,900 --> 01:38:57,340
+Meint ihr das ist eine anti cheat oder das game spackt einfach nur rum
+
+796
+01:39:07,260 --> 01:39:13,460
+Ich habe die idee wir gehen einfach wir gehen einfach mal in
+
+797
+01:39:13,460 --> 01:39:22,320
+In privates match rein und lassen das laufen und dann gucken wir ob es abstürzt wir machen einfach privates match und gucken ob es abkackt
+
+798
+01:39:31,900 --> 01:39:33,900
+Wo macht man die ordnung
+
+799
+01:39:33,900 --> 01:39:43,040
+lene
+
+800
+01:39:51,040 --> 01:39:53,040
+Ja es gut
+
+801
+01:39:53,040 --> 01:40:00,880
+Custom Game Genau das, das wollte ich schon immer spielen
+
+802
+01:40:00,880 --> 01:40:08,160
+Team Deathmatch Hackney hat alle eine, exellent Ok, das Game ist ziemlich laut, wie man vielleicht
+
+803
+01:40:08,160 --> 01:40:12,440
+hört und jetzt müsste der Sound vom Game eigentlich ausgeschaltet werden
+
+804
+01:40:12,440 --> 01:40:20,280
+Ok, mal gucken ob das ausgeschaltet wird Sound aus und Game läuft noch
+
+805
+01:40:20,280 --> 01:40:26,360
+Ja Flo96 man weiß, weiß nie
+
+806
+01:40:26,360 --> 01:40:36,360
+Alter, das ist Anti-Cheat
+
+807
+01:40:36,360 --> 01:40:45,400
+Ich glaub's nicht Alter, das Game erkennt das als Anti-Cheat, wollt ihr mich verarschen
+
+808
+01:40:45,400 --> 01:40:50,800
+Das Game ist so kaputt, dass die Audio-Settings total abgefuckt sind und nicht
+
+809
+01:40:50,800 --> 01:40:55,880
+funktionieren und da kann ich es noch nicht mal selber fixen oder was
+
+810
+01:40:55,880 --> 01:40:58,800
+Was ist das für ein Scheiß
+
+811
+01:40:58,800 --> 01:41:12,480
+Warum Infinity Ward, warum, wahrscheinlich bin ich jetzt auch gleich noch gebannt oder so was
+
+812
+01:41:12,480 --> 01:41:17,400
+Vielleicht sollte ich das besser lassen
+
+813
+01:41:17,400 --> 01:41:22,800
+Nein
+
+814
+01:41:22,800 --> 01:41:30,560
+Die sehen, dass du irgendwas mit dem Process machst, ja wahrscheinlich sehen die das
+
+815
+01:41:30,560 --> 01:41:36,720
+Doch T-Bulus, das geht auch
+
+816
+01:41:36,720 --> 01:41:45,600
+Wobei das teilweise auch broken ist, weil das nicht abhängig zur Master Volume Lautstärke
+
+817
+01:41:45,600 --> 01:41:49,600
+ist die In-Game-Settings und Mines ist abhängig zur Master Volume Lautstärke
+
+818
+01:41:49,600 --> 01:42:02,000
+Wir machen, wir machen Fullscreen Border lass mal
+
+819
+01:42:02,000 --> 01:42:09,000
+Multiplayer Private Match
+
+820
+01:42:09,000 --> 01:42:18,600
+Vielleicht schalten wir es mal nicht aus, sondern machen es auf 1 oder 05
+
+821
+01:42:18,600 --> 01:42:26,800
+Infinity Ward is watching you, ja anscheinend
+
+822
+01:42:26,800 --> 01:42:33,400
+Okay mal gucken ob es jetzt funktioniert
+
+823
+01:42:33,400 --> 01:42:37,600
+Ja hat funktioniert
+
+824
+01:42:37,600 --> 01:42:43,520
+Mixer, es hat auch gesetzt auf 15%
+
+825
+01:42:43,520 --> 01:42:44,880
+Setzen wir uns auf 100%
+
+826
+01:42:44,880 --> 01:42:50,320
+Hat auch funktioniert
+
+827
+01:42:50,320 --> 01:42:54,600
+Lag das daran, dass das Game Fullscreen ist vielleicht
+
+828
+01:42:54,600 --> 01:42:58,360
+Lag das daran, dass das Game Fullscreen ist, ich meine auszuschließen ist bei dem Spiel
+
+829
+01:42:58,360 --> 01:42:59,360
+nichts
+
+830
+01:42:59,360 --> 01:43:04,160
+Ihr hört das Sound, das Sound, ne
+
+831
+01:43:04,160 --> 01:43:07,840
+Ich kann, oder es liegt daran, dass ich den Sound nicht auf 0 setzen darf, das kann auch
+
+832
+01:43:07,840 --> 01:43:08,840
+sein
+
+833
+01:43:08,840 --> 01:43:12,280
+Sound auf, wieso, jetzt crashts nicht
+
+834
+01:43:12,280 --> 01:43:20,200
+Sound auf 0, Sound auf 1
+
+835
+01:43:20,200 --> 01:43:30,520
+Gleich wird D-Ranked
+
+836
+01:43:30,520 --> 01:43:32,920
+Also das funktioniert, Lautstärke, Setzen vom Spiel klappt
+
+837
+01:43:32,920 --> 01:43:37,800
+Ja, okay, das lag an Fullscreen
+
+838
+01:43:37,800 --> 01:43:40,400
+Das lag an Fullscreen
+
+839
+01:43:40,400 --> 01:43:44,800
+Erstmal ne Runde hier
+
+840
+01:43:44,800 --> 01:43:47,200
+Ja, passt
+
+841
+01:43:47,200 --> 01:43:52,640
+Warum lag das am Fullscreen, das Game versteht echt keiner
+
+842
+01:43:52,640 --> 01:44:06,400
+Okay, also sprich Soundsettings einstellen funktioniert, aber ohne Fullscreen-Spiele
+
+843
+01:44:06,400 --> 01:44:07,400
+sacken doch
+
+844
+01:44:07,400 --> 01:44:09,680
+Ja frag mich nicht warum es nicht funktioniert, ich kann ja auch nichts dran ändern, ich hab
+
+845
+01:44:09,680 --> 01:44:11,200
+den Kram ja nicht programmiert hier
+
+846
+01:44:11,200 --> 01:44:17,000
+Ich frag mich eh warum das Game 200GB groß sein muss, aber das ist alles das Thema
+
+847
+01:44:17,000 --> 01:44:22,800
+Warum ist die Bahn zu spät, warum ist Modern Warfare so groß, 2 Sachen die werden wir nie
+
+848
+01:44:22,800 --> 01:44:23,800
+ergründen können
+
+849
+01:44:23,800 --> 01:44:33,720
+Gleich ist D-Ranked, ja, gleich, gleich, gleich bin ich wirklich D-Ranked
+
+850
+01:44:33,720 --> 01:44:36,560
+Erster Strike, danach Account weg
+
+851
+01:44:36,560 --> 01:44:45,640
+Okay, also Leute, wo sind wir stehen geblieben, also wir setzen das Volume von Modern Warfare,
+
+852
+01:44:45,640 --> 01:44:46,640
+das funktioniert
+
+853
+01:44:46,640 --> 01:44:49,160
+Da bin ich schon mal zufrieden, dass das funktioniert
+
+854
+01:44:49,160 --> 01:44:52,600
+So, und die Sache ist die, jetzt kommt Trick 17
+
+855
+01:44:52,600 --> 01:44:59,320
+Das Problem ist jetzt, dass ich Modern Warfare will ich auf 13 setzen
+
+856
+01:44:59,320 --> 01:45:03,800
+Das ist ich 13 von meiner Gesamtlautstärke
+
+857
+01:45:03,800 --> 01:45:10,520
+Das ist so die Standardlautstärke, die ich immer hab und das ist in dem Spiel laut genug
+
+858
+01:45:10,520 --> 01:45:20,680
+13% Gesamtlautstärke bei ca. 30% Gesamtsound, also das Spiel ist fucking laut
+
+859
+01:45:20,680 --> 01:45:26,680
+Oder du bist auf Twitch gebannt, weil du cheats für ein Spielcode ist
+
+860
+01:45:26,680 --> 01:45:28,680
+Oi, ja, das wär richtig, oi
+
+861
+01:45:28,680 --> 01:45:32,320
+Klärbär, warum hast du eigentlich kein Abo, ist das ausgelaufen
+
+862
+01:45:32,320 --> 01:45:42,440
+Was, Klärbär, du bist so oft da, so oft da und hast das Abo auslaufen lassen, ich gifte
+
+863
+01:45:42,440 --> 01:45:43,440
+dir eins
+
+864
+01:45:43,440 --> 01:45:54,480
+Geschenk Abo verteilen
+
+865
+01:45:54,480 --> 01:46:09,640
+Pogos, so muss das sein
+
+866
+01:46:09,640 --> 01:46:14,800
+5 Monate, huge
+
+867
+01:46:14,800 --> 01:46:19,600
+Ja, du bist so oft bei, ich seh dich so oft auch im Chat aktiv und sowas
+
+868
+01:46:19,600 --> 01:46:23,120
+Da muss das mal sein, ja
+
+869
+01:46:23,120 --> 01:46:30,760
+Das beste ist, ich krieg davon 2,50 Euro wieder, also mich kostet das Abo eigentlich
+
+870
+01:46:30,760 --> 01:46:36,280
+plus 2,50, also im Prinzip bezahle ich Twitch dafür, dass ich dir ein Abo schenken darf
+
+871
+01:46:36,280 --> 01:46:40,640
+Wenn man es mal genau nimmt, also eigentlich geb ich Twitch Geld, dass ich dir ein Abo
+
+872
+01:46:40,640 --> 01:46:41,640
+schenke
+
+873
+01:46:41,640 --> 01:46:51,880
+Das ist eigentlich total wir, wenn man sich mal überlegt, total verkehrte Welt, ja
+
+874
+01:46:51,880 --> 01:46:57,200
+So, also, wie gesagt, das Problem ist jetzt, dass ich Modern Warfare auf 13% einstellen
+
+875
+01:46:57,200 --> 01:47:05,440
+will, allerdings 13% von der Gesamtlautstärke und ich über die Windows API plus prozentual
+
+876
+01:47:05,440 --> 01:47:10,920
+zur aktuellen Master-Lautstärke setzen kann, deswegen müssen wir jetzt absolut next level
+
+877
+01:47:10,920 --> 01:47:13,320
+big brain shit machen
+
+878
+01:47:13,320 --> 01:47:19,160
+Hier bekommen wir raus, Moment, wo waren wir, wo sind wir stehen geblieben, das ist so hässlich
+
+879
+01:47:19,160 --> 01:47:24,920
+Hier bekommen wir raus, auf welchem Level mein Mastervolum steht, mein Mastervolum steht
+
+880
+01:47:24,920 --> 01:47:31,040
+auf 30%, das stimmt auch hier, Mastervolum, sieht man hier, Mastervolum steht auf 30%,
+
+881
+01:47:31,040 --> 01:47:43,480
+das heißt, ich muss jetzt ausrechnen, wie viel bei 30% Mastervolum 13% von 100% Gesamtlautstärke
+
+882
+01:47:43,480 --> 01:47:46,480
+sind
+
+883
+01:47:46,480 --> 01:47:51,240
+Quickmaps, wer weiß, wie es geht
+
+884
+01:47:51,240 --> 01:48:04,680
+Lusus97, Twitch Prime, excellent subscription, danke schön, Massive IQ für den Chat wieder,
+
+885
+01:48:04,680 --> 01:48:10,320
+Massive IQ Boost, die Stonks, die IQ Stonks gehen hoch, Dreisatz, nee, so einfach ist
+
+886
+01:48:10,320 --> 01:48:21,360
+an der Stelle nicht
+
+887
+01:48:21,360 --> 01:48:22,360
+Pokemon Soundtrack, ja
+
+888
+01:48:22,360 --> 01:48:30,800
+Ich hoffe, das Game läuft nicht ab, das soll weiter laufen im Hintergrund
+
+889
+01:48:30,800 --> 01:48:47,640
+Also, ich hab so eine grobe Idee, wie man das eventuell machen könnte
+
+890
+01:48:47,640 --> 01:49:06,120
+Also, wir haben, wir haben 30% Gesamtvolum, ich muss mir das nochmal anzeigen lassen,
+
+891
+01:49:06,120 --> 01:49:11,280
+wir machen jetzt was anderes, ich stell das jetzt auf 15%, das ist die Hälfte, so wir
+
+892
+01:49:11,280 --> 01:49:23,240
+wissen, dass wir 30% Gesamtvolum haben, so 50%, ok, 50% von, es hat sich wieder beendet,
+
+893
+01:49:23,240 --> 01:49:41,520
+oh man, scheiß Game, Alter, das ist Anti-Cheat-Erkennung, fuck, das sackt, warum erkennen die sowas
+
+894
+01:49:41,520 --> 01:49:45,680
+als Anti-Cheat, die sollen mich in Ruhe lassen oder ihr Game ordentlich programmieren, dann
+
+895
+01:49:45,680 --> 01:50:00,280
+muss ichs nicht selber machen, wir machen das jetzt trotzdem, also, wir machen das mit
+
+896
+01:50:00,280 --> 01:50:08,680
+dem Firefox wieder, Firefox, weil der Firefox da crashed wenigstens nicht, also mein Ziel
+
+897
+01:50:08,680 --> 01:50:26,360
+ist es, den Firefox, oh, so, also jetzt die Lautstärke irgendwas hier verändert, ne,
+
+898
+01:50:26,360 --> 01:50:32,360
+ne, also, mein Ziel ist es, den Firefox auf, sagen wir mal, 13% einzustellen, also sprich,
+
+899
+01:50:32,360 --> 01:50:39,840
+wir haben 30% Gesamtvolum, 30%, ok, das les ich dann, das hardcronen wir jetzt mal und
+
+900
+01:50:39,840 --> 01:50:56,680
+sagen, hier, Mastervolum ist 30%, ok, so, das heißt, wenn das Mastervolum 30% ist, oder
+
+901
+01:50:56,680 --> 01:51:05,840
+sagen wir mal 15%, ne, also, was ich ausrechnen will, ist folgendes, es sind 15%, es sind
+
+902
+01:51:05,840 --> 01:51:16,280
+15% von 100% maximaler Lautstärke, wie der Firefox eingestellt ist vom Maximalvolum,
+
+903
+01:51:16,280 --> 01:51:23,040
+allerdings muss ich jetzt wissen, wieviel 15% maximaler Lautstärke in Prozent sind
+
+904
+01:51:23,040 --> 01:51:31,720
+von 30% des Ganzen, also 50, im Prinzip soll da sowas wie 50 oder so rauskommen, so, also,
+
+905
+01:51:31,720 --> 01:51:46,320
+muss ich sagen, 30, 13 mal 100 minus Master, oh, das ist exzellent, quick maths, also,
+
+906
+01:51:46,320 --> 01:52:00,480
+ich würd sagen, wir können sowas hier machen, wo sind wir denn, Mastervolum, hardcronen wir
+
+907
+01:52:00,480 --> 01:52:19,320
+mal, also, ich würd sagen, wir machen sowas wie 30 durch, big brain, 30 durch und dann
+
+908
+01:52:19,320 --> 01:52:24,160
+das aktuelle Volum, und dann gucken wir mal, ob das stimmt, also, von der Idee her, sollte
+
+909
+01:52:24,160 --> 01:52:40,440
+er mir jetzt ausgeben, 50, ne, sollte er mir ausgeben, 15, stimmt das, ne, ne, das stimmt
+
+910
+01:52:40,440 --> 01:52:45,680
+nicht, was ich da gemacht hab, aber ich hab mich auch verschieben, ich soll da Master
+
+911
+01:52:45,680 --> 01:53:14,040
+nicht voll, Master muss da rein, 3, 3, ah, ist das vielleicht kein float, 3, wait a minute,
+
+912
+01:53:14,040 --> 01:53:22,400
+ist das verkehrt, was ich da mache, ich bin zu low brain dafür, quick maths, ah, 3, ja
+
+913
+01:53:22,400 --> 01:53:28,680
+richtig, lull, ich darf den ja auch nicht setzen, den Kram, alter, ich bin ja auch bescheuert,
+
+914
+01:53:28,680 --> 01:53:40,880
+guck mal, ja, 15, das stimmt, ist richtig, was ich gemacht hab, 15, guckt hier, 15,
+
+915
+01:53:40,880 --> 01:53:57,600
+sehr gut, big, big brain, quick maths, also, gut, wir wissen jetzt, dass wir 15, 15% big
+
+916
+01:53:57,600 --> 01:54:10,520
+brain, ja, was face reveal bei einer Million Abos hab ich da grad so durch den Chat durchgehen
+
+917
+01:54:10,520 --> 01:54:17,440
+sehen, Max steht das noch mit dem face reveal bei einer Million Abonnenten auf YouTube, ja,
+
+918
+01:54:17,440 --> 01:54:21,280
+aber nachdem ich keine Videos mache auf YouTube werde ich auch nie eine Million Abos bekommen
+
+919
+01:54:21,280 --> 01:54:31,360
+oder willst du jetzt den followbot anschmeißen, legit subscriber natürlich, legit subscriber
+
+920
+01:54:31,360 --> 01:54:45,360
+und nicht irgendwie so blödsinn da, auf Twitch eine Million, ja, dann, dann ist, dann mach
+
+921
+01:54:45,360 --> 01:54:49,920
+ich double face reveal, wenn ich auf Twitch eine Million hab, dann mach ich face und foos
+
+922
+01:54:49,920 --> 01:55:03,200
+reveal in einem Video, damit alles revealed, alter, ähm, übrigens, mir ist gerade eingefallen,
+
+923
+01:55:03,200 --> 01:55:07,120
+es ist total blödsinn, was ich hier ausrechne, was soll ich eigentlich mit den 15% haben,
+
+924
+01:55:07,120 --> 01:55:26,720
+was will ich damit eigentlich, master mal wohl, ist das wirklich so, man darf nicht
+
+925
+01:55:26,720 --> 01:55:40,800
+vergessen, das sind alles irgendwelche float Geschichten, was, ah, excellent, siehst du,
+
+926
+01:55:40,800 --> 01:55:49,840
+der Chat ist, der Chat ist halt einfach high IQ, ja, ist eigentlich auch viel logischer,
+
+927
+01:55:49,840 --> 01:55:54,520
+virgin check, Poki W, oh, oh, oh, oh, das ist eine schlechte Idee, Pekaknostik, ich mach
+
+928
+01:55:54,520 --> 01:56:11,840
+mal mit, das ist eine schlechte Idee, ganz schlechte Idee, oh Leute, ich bin voll brain
+
+929
+01:56:11,840 --> 01:56:24,440
+afk gerade, ich weiß gar nicht, was ich jetzt machen wollte, ähm, ich will setzen, ach,
+
+930
+01:56:24,440 --> 01:56:28,960
+scheiß drauf, es funktioniert doch eh nicht, weil modern warfar den Kack als cheat erkennt,
+
+931
+01:56:28,960 --> 01:56:37,720
+das ist so fail, alter, dieses Kackgame, warum erkennt es das als cheats, das ist, das ist,
+
+932
+01:56:37,720 --> 01:56:48,640
+ah, au, jetzt hab ich auch noch Adinaska an der Stelle, wo ich blauen Fleck hab, ah,
+
+933
+01:56:48,640 --> 01:57:01,280
+Pepehands hier, ach, das ist doch Müll, warum geht das mit dem Game nicht, das ärgert
+
+934
+01:57:01,280 --> 01:57:06,160
+mich jetzt, das funktioniert, das funktioniert so gut, ja, das funktioniert so gut, ich meine,
+
+935
+01:57:06,160 --> 01:57:09,760
+es sieht mega hässlich aus, aber es ist halt, Windows-APD ist halt mega hässlich, aber
+
+936
+01:57:09,760 --> 01:57:18,560
+es geht nicht, weil das Spiel es als Anti-Cheat erkennt, mach doch mal einen eigenen Linux
+
+937
+01:57:18,560 --> 01:57:24,840
+Rise, mein i3 ist gerised genug, der reicht, der ist so gerised, mein i3, da kann es ja
+
+938
+01:57:24,840 --> 01:57:36,280
+kaum noch mehr, mehr reißen, ja, ja, aber richtig, jetzt wissen wir wenigstens, wie
+
+939
+01:57:36,280 --> 01:57:41,320
+die Windows-APD funktioniert, die Windows-Audio-APD, ja, Windows-Audio-APD braucht man immer,
+
+940
+01:57:41,320 --> 01:57:45,720
+kannst du jetzt direkt in deinen Lebenslauf reinschreiben, ich hab den Stream von Max
+
+941
+01:57:45,720 --> 01:57:54,720
+zur Windows-Audio-APD geguckt, feelsbadman, das ärgert mich richtig, dass das Spiel das
+
+942
+01:57:54,720 --> 01:58:07,040
+als Cheat erkennt, Kack-Game, alter, Wood-Face, ich meine, man könnte das bestimmt noch
+
+943
+01:58:07,040 --> 01:58:11,320
+ein bisschen trickreicher machen, indem man verschleiert, was die Anwendung im Hintergrund
+
+944
+01:58:11,320 --> 01:58:15,640
+treibt oder so, aber die werden schon den Grund haben, warum sie sowas als Anti-Cheat
+
+945
+01:58:15,640 --> 01:58:20,760
+erkennen, oder nee, umgedreht, die haben keinen Grund, warum sie sowas als Anti-Cheat erkennen,
+
+946
+01:58:20,760 --> 01:58:27,360
+die haben ja Anti-Cheat halt so gebaut, dass das mit reinfällt, kannst du mir eventuell
+
+947
+01:58:27,360 --> 01:58:31,840
+beim Wechsel einer Schriftart helfen für i3, ja, kann ich Sebaro, das ist ganz einfach,
+
+948
+01:58:31,840 --> 01:58:39,760
+Schriftart wechseln in i3 macht man so, Font, so, easy, das war's, mehr muss man nicht machen,
+
+949
+01:58:39,760 --> 01:58:50,680
+machen ein Bug-Report, genau, also, wo kann man Modern Warfare Bug-Reports, geht das überhaupt,
+
+950
+01:58:50,680 --> 01:59:04,720
+Bug-Reporting, was ist denn das für eine hässliche Seite, Igitt, hast du gelesen, was ich geschrieben
+
+951
+01:59:04,720 --> 01:59:09,120
+habe, nee, hast du Ed Wupplos davor geschrieben, da wird's bei mir nämlich hervorgehoben,
+
+952
+01:59:09,120 --> 01:59:18,120
+was hast du denn geschrieben, ah, hier, es wird, aber komischerweise nur ab und zu erkannt
+
+953
+01:59:18,120 --> 01:59:21,360
+oder wenn die App etwas länger läuft, probier doch mal schnell zu setzen, um die App zu
+
+954
+01:59:21,360 --> 01:59:26,520
+beenden, die App beende sich direkt wieder, die App beende sich direkt wieder, ich denke
+
+955
+01:59:26,520 --> 01:59:34,000
+auch, dass sie nur testweise kurz immer gucken, wenn was ist, aber es ist halt nicht reproduzierbar,
+
+956
+01:59:34,000 --> 01:59:51,040
+100 Cent, exellent, Bits, die Seite ist mal richtig hässlich zum Bug-Reporten, was haben
+
+957
+01:59:51,040 --> 01:59:59,920
+sie sich da überlegt bei Activision, sie sieht aus wie eine Seite, die der Praktikant
+
+958
+01:59:59,920 --> 02:00:05,520
+in der Mittagspause auf dem Klo zusammen gewusstet hat, ey, was ist das hier, und es liegt nicht
+
+959
+02:00:05,520 --> 02:00:10,000
+an meinem Darkreader, weil mein Darkreader ist aus, und ich könnte mir vorstellen, wenn
+
+960
+02:00:10,000 --> 02:00:15,600
+ich meinen Darkreader anmache, sieht die Seite sogar mit Darkreader besser aus, die Seite
+
+961
+02:00:15,600 --> 02:00:26,480
+sieht mit Darkreader besser aus als im Originalen, guckt euch das mal an, so lächerlich, oder,
+
+962
+02:00:26,480 --> 02:00:30,000
+die Seite mit Darkreader sieht besser aus als die Originalseite, na toll, habt ihr gut
+
+963
+02:00:30,000 --> 02:00:53,560
+gemacht Activision, perfekt, der Knäherbär, ja ich sehe jetzt keinen Sinn drin, den Dacrosse
+
+964
+02:00:53,560 --> 02:00:59,280
+da nicht weiterzumachen, wenn es mit Modern Warfare eh nicht geht, das ist echt kacke,
+
+965
+02:00:59,280 --> 02:01:06,720
+ihr Trumpet, können wir mal ausprobieren, ob es das kann, aber wahrscheinlich kann
+
+966
+02:01:06,720 --> 02:01:24,200
+es das auch nicht, ihr Trumpet, get, dass sie mich immer dazu verleiten wollen mich zu
+
+967
+02:01:24,200 --> 02:01:45,760
+registrieren, welcome to your Trumpet, ja, Volumixer, oh, what the, was zum geil ist das
+
+968
+02:01:45,760 --> 02:02:04,960
+für eine Anwendung, what the fuck, was ist das, wollen die mich verarschen, Massive Quality
+
+969
+02:02:04,960 --> 02:02:18,160
+Software, das ist übrigens falsch, das ist hier, das ist richtig, das ist richtig hier,
+
+970
+02:02:18,160 --> 02:02:34,120
+gleich mal gucken ob es hier die Lautstärke Einstellung richtig macht, UVP Apps, ich glaube
+
+971
+02:02:34,120 --> 02:02:42,680
+das ist gar keine UVP App, das ist eher, das ist eher eine WPF, ok, schauen wir mal ob
+
+972
+02:02:42,680 --> 02:02:50,760
+das das kann, ich glaube nicht, dass es das hinbekommt, warum steht das jetzt auf 83,
+
+973
+02:02:50,760 --> 02:03:06,960
+ach so, weil es 83 von 30 sind, no, ah, MW 100%, ok, mal schauen, stellen wir es mal
+
+974
+02:03:06,960 --> 02:03:14,120
+auf 30% ein, wenn es mit ihr Trumpet geht, dann liegt das daran, dass sie das whitelisted
+
+975
+02:03:14,120 --> 02:03:26,840
+haben, ok, jetzt bin ich mal gespannt ob ihr Trumper das hinkriegt, aber anscheinend kann
+
+976
+02:03:26,840 --> 02:03:50,920
+man da eh nichts groß, Windows Legacy, ah, das ist der alte, ok, ok, die Anwendung gefällt
+
+977
+02:03:50,920 --> 02:03:58,140
+mir insofern schon mal, die ist aufs nötigste beschränkt, so schauen wir mal, ob es das
+
+978
+02:03:58,140 --> 02:04:11,720
+hinbekommt jetzt, ne 100%, kanns nicht, crap, kack Game, da brauche ich die Anwendung hier
+
+979
+02:04:11,720 --> 02:04:26,640
+auch nicht, wozu, ah, Exit, exellent, weg, wo ist das Door, Remove, ihr, ah, Anwendung,
+
+980
+02:04:26,640 --> 02:04:37,240
+weg, ehm, hallo, ich hab dich beendet Game, Spiel, falls du es nicht mitbekommen hast,
+
+981
+02:04:37,240 --> 02:04:45,360
+ich hab dich beendet, ja, ich denke auch, dass ich das anders machen müsste mit der Prozess
+
+982
+02:04:45,360 --> 02:04:52,160
+ID, als über den offensichtlichsten Weg, weil die halt sowas scannen werden, was richtig
+
+983
+02:04:52,160 --> 02:05:02,360
+bescheuert ist, Spiel, ich hab dich beendet, Spiel hat mehr Rechte, Spiel will sie nicht
+
+984
+02:05:02,360 --> 02:05:12,600
+beenden lassen, Spiel mag nicht, Spiel hat keinen Bock, ok, Warzone, Modern Warfare, wo
+
+985
+02:05:12,600 --> 02:05:19,680
+ist das Spiel, hier, bam, yes, ja wenigstens darf ich es über den Taskmanager beenden,
+
+986
+02:05:19,680 --> 02:05:35,120
+ich weiß auch nicht, was mit dem Gamechamp ist, Spielt Max jetzt Warzone, nö, Max geht
+
+987
+02:05:35,120 --> 02:05:39,560
+gleich wahrscheinlich, demnächst irgendwann auf, weil das was er vorher hatte nicht funktioniert
+
+988
+02:05:39,560 --> 02:05:46,800
+hat, weil das Spiel meine Software als Cheat erkennt, dabei sind wir gar nicht so die
+
+989
+02:05:46,800 --> 02:05:51,440
+richtigen Hacker-Mans und haben Cheats gebastelt, wir wollten einfach nur die Lautstärke von
+
+990
+02:05:51,440 --> 02:05:59,120
+Modern Warfare anpassen, sonst nix, einfach nur die Lautstärke anpassen, aber das ist
+
+991
+02:05:59,120 --> 02:06:11,840
+nicht erlaubt, Cheat baited, ja, P-Poset, P-Poset, das brauch ich noch als Bild, das
+
+992
+02:06:11,840 --> 02:06:22,600
+ist ganz wichtig, das hab ich noch gar nicht drinne, P-Poset, aber als, braucht das als
+
+993
+02:06:22,600 --> 02:06:43,000
+Parents, P-Poset.
+
+994
+02:06:43,000 --> 02:07:06,880
+So, safe, P-Poset, P-Poset.
+
+995
+02:07:06,880 --> 02:07:36,720
+So, ja Leute, leider funktioniert es nicht, ich kann da nichts ändern, sagt, wobei der
+
+996
+02:07:36,720 --> 02:07:44,680
+P-Poset gefällt mir nicht, da müssen wir einen anderen suchen, P-Poset, was mit dem
+
+997
+02:07:44,680 --> 02:07:58,360
+hier, oder mit dem hier, der ist besser, der gefällt mir besser, P-Poset 2, der gefällt
+
+998
+02:07:58,360 --> 02:08:06,600
+mir besser, P-Poset 2, ja, exzellent, schön, niedrige Auflösung, dass man nix erkennt,
+
+999
+02:08:06,600 --> 02:08:23,440
+so muss das sein, zack, zack, zack, zack, zack, zack, zack, zack, alles zu, alles dicht,
+
+1000
+02:08:23,440 --> 02:08:27,400
+hier noch ein P-Poset, aber haben wir noch kein P-Poset drin, den brauchen wir unbedingt
+
+1001
+02:08:27,400 --> 02:08:44,360
+noch, P-Poset, ganz wichtig, exzellent, der ist P-Poset, ja, perfekt, den brauchen wir
+
+1002
+02:08:44,360 --> 02:09:13,280
+nur noch, P-Poset, P-Pofet, jetzt haben wir sie alle, irgendwas hat sich ja mein Audio
+
+1003
+02:09:13,280 --> 02:09:27,480
+settings geändert, ok Leute, ja leider konnten wir nicht das machen, was wir machen wollten,
+
+1004
+02:09:27,480 --> 02:09:33,640
+weil Modern Warfare keinen Bock hat, gut, gibt es irgendjemanden, den ich hausten kann,
+
+1005
+02:09:33,640 --> 02:09:42,280
+zeig ich mal, ja, irgendjemand, der es gebrauchen kann, durchsuchen, du folgst, irgendjemand,
+
+1006
+02:09:42,280 --> 02:10:03,560
+der es gebrauchen kann, der nicht so viele hat, oh, nee, es hat glaube ich keiner on,
+
+1007
+02:10:03,560 --> 02:10:20,280
+naja, wurscht, ja, hat nicht so funktioniert, wie ich mir das ganze vorgestellt habe, ich
+
+1008
+02:10:20,280 --> 02:10:25,480
+gehe jetzt erstmal auf, vielleicht spiele ich nachher noch eine Runde Bosser und das
+
+1009
+02:10:25,480 --> 02:10:40,400
+kann sein, aber rechnet man eher nicht mit, müssen wir mal schauen, also Leute, bis dann,
+
+1010
+02:10:40,400 --> 02:10:55,960
+machts gut, C U.
+

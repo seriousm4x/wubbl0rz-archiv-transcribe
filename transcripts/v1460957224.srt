@@ -1,0 +1,3696 @@
+1
+00:01:30,000 --> 00:01:53,000
+Moin Leute, heute wird Ikea-Krampel Custom-Firmware flashed und habt ihr es gesehen, Julian BAM
+
+2
+00:01:53,000 --> 00:01:54,000
+wurde gehackt.
+
+3
+00:01:54,000 --> 00:02:05,800
+Ich verfolge den Channel nicht, aber ich finde es immer bedenklich, wenn so große Channels
+
+4
+00:02:05,800 --> 00:02:09,320
+mit angeblich Triple-Factor-Authentifizierung übernommen werden.
+
+5
+00:02:09,320 --> 00:02:16,640
+Ich weiß nicht was war, ehrlich gesagt, wie, ich tippe mal drauf, wer hat sich irgendein
+
+6
+00:02:16,640 --> 00:02:21,880
+Virus, Trojaner, was auch immer eingefangen, der dann im Prinzip das alles über seinen
+
+7
+00:02:21,880 --> 00:02:26,760
+Rechner gemacht hat, wo er angemeldet war, vermute ich jetzt einfach mal, keine Ahnung,
+
+8
+00:02:26,760 --> 00:02:27,760
+weiß es nicht.
+
+9
+00:02:27,760 --> 00:02:36,000
+Und das ist aber immer ein bisschen bedenklich, weil es besteht ja immer noch die Möglichkeit,
+
+10
+00:02:36,000 --> 00:02:42,560
+dass es Schwächen in der 2-3-Factor-Authentifizierung gibt von irgendwelchen Anbietern.
+
+11
+00:02:42,560 --> 00:02:49,440
+Ich meine, da gucken 30.000 Leute drauf, die schlau sind, schlauer als wir alle zusammen,
+
+12
+00:02:49,440 --> 00:02:53,640
+die sich um so Sachen wie Google-Anmeldungen und sonst was kümmern, na gut, 30.000 vielleicht
+
+13
+00:02:53,640 --> 00:02:59,240
+ein bisschen übertrieben, übertrieben, lass es mal 50 sein oder so, aber das ist schon
+
+14
+00:02:59,240 --> 00:03:00,240
+gut durchdacht.
+
+15
+00:03:00,240 --> 00:03:07,160
+Also die Wahrscheinlichkeit, dass er sich auf seinem Rechner was eingefangen hat, wahrscheinlich
+
+16
+00:03:07,160 --> 00:03:13,280
+ist aber keine Ahnung, was da war.
+
+17
+00:03:13,280 --> 00:03:18,440
+Sabun für den IQ-Boost, das ist eine gute Entscheidung, du bist eh in der Abo-Falle,
+
+18
+00:03:18,440 --> 00:03:19,440
+Sabun ist vorbei.
+
+19
+00:03:19,440 --> 00:03:27,680
+SMS, 2-Factor-Authentifizierung, ja gut, das kommt ja manchmal vor, dass findige Leute,
+
+20
+00:03:27,680 --> 00:03:36,200
+die deine Nummer wissen, beim Anbieter anrufen und sagen, was weiß ich, ist Handy verloren,
+
+21
+00:03:36,200 --> 00:03:39,480
+neue Adresse und so was und der Anbieter ist dann so blöd und schickt dir eine SIM-Karte
+
+22
+00:03:39,480 --> 00:03:44,280
+und so was, ja, deswegen verrate ich auch keine meine Handy-Nummer und außerdem ist
+
+23
+00:03:44,280 --> 00:03:49,360
+es am besten, man macht 2-Factor-Authentifizierung dann, wie anders, SMS finde ich ein bisschen
+
+24
+00:03:49,360 --> 00:03:54,000
+oldschool, da ist tatsächlich irgendeine Authenticator-App irgendwie besser.
+
+25
+00:03:54,000 --> 00:04:02,360
+Du kannst das so abfangen, ist ja noch schlimmer, ist ja noch schlimmer.
+
+26
+00:04:02,360 --> 00:04:17,160
+Ich muss erstmal kurz hydrate stain, Leute, bevor ich anfange.
+
+27
+00:04:17,160 --> 00:04:28,520
+Passt das mal zusammen, also ich hab einen, pass mal auf, ich hab einen Ikea Windrick
+
+28
+00:04:28,520 --> 00:04:33,800
+Ning gekauft, ich hoffe, ich sprich das richtig aus, weil schwedisch ist nicht unbedingt
+
+29
+00:04:33,800 --> 00:04:46,040
+jetzt gerade, ich bin nicht unbedingt schwedisch native speaker, Windrick Ning und dort bauen
+
+30
+00:04:46,040 --> 00:04:54,360
+wir heute einen ESP32 ein oder einen ESP8266, ich weiß es noch nicht genau, mal gucken
+
+31
+00:04:54,360 --> 00:05:03,800
+ob der ESP32 da reinpasst, der D1-Mini ist ein bisschen größer und dann schließen wir
+
+32
+00:05:03,800 --> 00:05:09,760
+den da an und lesen mit dem ESP32 die Werte aus, weil der normale Sensor, der hat nur
+
+33
+00:05:09,760 --> 00:05:14,320
+so eine LED-Anzeige und zusätzlich, das können wir vielleicht auch noch mit in das
+
+34
+00:05:14,320 --> 00:05:26,760
+heute reinschreiben und zusätzlich schließen wir noch einen Bosch BME660, 680, weiß es
+
+35
+00:05:26,760 --> 00:05:35,320
+gerade aus dem Kopf nicht, einen Sensor an, der Gas, Luftdruck, Temperatur und Luftfeuchtigkeit
+
+36
+00:05:35,320 --> 00:05:41,320
+mit ausliest, das heißt dann haben wir einen rundum Luftqualitätssensor, der mehr kann
+
+37
+00:05:41,320 --> 00:05:45,200
+als das Standard Ikea-Ding und per WLAN in die Heimautomatisierung eingebunden werden
+
+38
+00:05:45,200 --> 00:05:51,120
+kann, so das machen wir heute, was ist denn ein guter Fenstersensor, den man einfach
+
+39
+00:05:51,120 --> 00:05:55,520
+auslesen kann, ich vergesse manchmal ein Fenster zuzumachen, da würde ich dir tatsächlich
+
+40
+00:05:55,520 --> 00:06:00,320
+keine WLAN-Geräte empfehlen, weil WLAN-Geräte brauchen viel zu viel Strom, in der Regel,
+
+41
+00:06:00,320 --> 00:06:06,440
+Ausnahme besteht in die Regel, aber die Aqara-Dinger, wie auch immer man sie ausspricht, sind ganz
+
+42
+00:06:06,440 --> 00:06:13,840
+gut, also die da Dinger, wenn man jetzt frisch einsteigt, ist das kein schlechtes System,
+
+43
+00:06:13,840 --> 00:06:20,960
+die da zum Beispiel, nicht Temperatur, Door-Window-Sensor, die sind auch günstig, weiß gar nicht was
+
+44
+00:06:20,960 --> 00:06:30,720
+der Campbell gerade bei Amazon kostet, bei AliExpress kriegst du es oftmals sehr günstig,
+
+45
+00:06:30,720 --> 00:06:39,920
+für unter 10 Euro das Stück, musst du mal gucken, die gibt es in unterschiedlichen Ausführungen,
+
+46
+00:06:39,920 --> 00:06:44,760
+musst du mal ein bisschen schauen, aber die sind nicht schlecht, damit die funktionieren,
+
+47
+00:06:44,760 --> 00:06:51,000
+wir können mal bei AliExpress kurz gucken, bei AliExpress mache ich, AliExpress mache
+
+48
+00:06:51,000 --> 00:06:58,320
+ich nicht auf meinem Desktop auf, hallo Leute übrigens, moin, oh nein jetzt habe ich AliExpress
+
+49
+00:06:58,320 --> 00:07:23,600
+auch noch Benachrichtigungen zugelassen, ne ist dir das Hörschen für Ficken, nicht
+
+50
+00:07:23,600 --> 00:07:31,520
+dass ich nach Damenhörschen für Ficken gesucht hätte, aber ok, zu geil, die China-Chinesen
+
+51
+00:07:31,520 --> 00:07:45,600
+man, die haben keine Ahnung, was sie da eintragen, Hörschen für Ficken, so, guck mal, hier,
+
+52
+00:07:45,600 --> 00:07:54,040
+nächste, 21 Euro, 4 Stück, guck mal, das ist schön günstig, du musst aber gucken, dass
+
+53
+00:07:54,040 --> 00:08:04,880
+es die ZigBee-Variante ist, da muss man schauen, aber, ist das ZigBee, ist das ZigBee, ja,
+
+54
+00:08:04,880 --> 00:08:09,640
+die sind gut, du brauchst aber noch irgendeinen ZigBee-Stick, aber ZigBee-Stick kannst du
+
+55
+00:08:09,640 --> 00:08:14,040
+eh gebrauchen für so ziemlich alles an Sensoren, das ist eine gute Kombination, weil die Dinge
+
+56
+00:08:14,040 --> 00:08:21,840
+halten auch lang, da hast du 2-3 Jahre Batterielaufzeit, also Ikea-Dings ist da, du brauchst aber noch
+
+57
+00:08:21,840 --> 00:08:27,360
+einen Stick, entweder nimmst du einen ganz billigen ZigBee-Stick, oh wie heißen diese
+
+58
+00:08:27,360 --> 00:08:32,560
+ganz billigen C, sind die das, die die Leute auf YouTube verwenden, den würde ich dir
+
+59
+00:08:32,560 --> 00:08:36,880
+aber nicht empfehlen, das ist wirklich nur wenn es billig as fuck sein muss, ein guter
+
+60
+00:08:36,880 --> 00:08:43,880
+ZigBee-Stick ist zum Beispiel KonBee, KonBee 2-Stick, da braucht man keinen Account, das
+
+61
+00:08:43,880 --> 00:08:53,280
+ist alles offline, ja, hol dir so ein und damit kannst du nahezu alle ZigBee-Geräte,
+
+62
+00:08:53,280 --> 00:08:57,600
+die es gibt betreiben und dann holst du dir ein paar, holst du dir Acara-Sensoren oder
+
+63
+00:08:57,600 --> 00:09:02,520
+Aquara-Sensoren, ich weiß bis heute nicht, wie man den Krempel richtig ausspricht, am
+
+64
+00:09:02,520 --> 00:09:09,160
+besten, am besten halt über AliExpress, da kriegst du wie gesagt für unter 10€, 21,21
+
+65
+00:09:09,160 --> 00:09:14,920
+durch 4 sind 5,25€, also günstiger kriegst du den Kram nicht, wichtig ist halt, dass
+
+66
+00:09:14,920 --> 00:09:20,960
+es die ZigBee-Variante ist, achso für AliExpress, ja für AliExpress brauchst du einen Account
+
+67
+00:09:20,960 --> 00:09:30,520
+zum Bestellen, du kannst den Kram auch bei Amazon kaufen, da gibt es auch manchmal günstige
+
+68
+00:09:30,520 --> 00:09:36,880
+Angebote, aber hier guck mal, hier bezahlst du 15€ aktuell für einen Sensor und du bezahlst
+
+69
+00:09:36,880 --> 00:09:42,560
+bei AliExpress China-Chinese bezahlst du 5€, also du kriegst quasi 3 Sensoren für den
+
+70
+00:09:42,560 --> 00:09:56,480
+Preis von einem, also allein schon aus dem, aus dem Gesichtspunkt, ähm, nicht das nicht,
+
+71
+00:09:56,480 --> 00:10:01,280
+ja und die sehen hier relativ groß ein, die sind furzklein, die Dinger, die sind so lang
+
+72
+00:10:01,280 --> 00:10:05,960
+wie mein Daumen und so, die sind so groß, so lang und so dick wie mein Daumen, da ist
+
+73
+00:10:05,960 --> 00:10:06,960
+nicht viel dran.
+
+74
+00:10:06,960 --> 00:10:15,120
+Kannst auch den Sonoffstick kaufen, ich empfehle den Konbi-Stick, weil den hab ich auch und
+
+75
+00:10:15,120 --> 00:10:16,120
+der funktioniert wunderbar.
+
+76
+00:10:16,120 --> 00:10:26,040
+Genau, guck mal, wieviel gibt es denn hier, wieviel sind das, wieviel Stück, erkennt
+
+77
+00:10:26,040 --> 00:10:32,560
+sich jemand, soll ich das jetzt zählen oder was, 3 Pieces, jebaited man, hier sind irgendwie
+
+78
+00:10:32,560 --> 00:10:44,440
+8 Dinger drauf und da unten steht 3 Pieces, 4 Pieces, 2 Pieces, 3 Pieces, jebaited, musste,
+
+79
+00:10:44,440 --> 00:10:52,280
+musste mal gucken, kaufst du die billigsten, billigsten und dann hast du für 100€ dein
+
+80
+00:10:52,280 --> 00:10:57,040
+gesamtes Haus mit ausgestattet und hast gleichzeitig noch einen guten Zigbee-Stick, den du für
+
+81
+00:10:57,040 --> 00:11:01,040
+alle anderen Sachen verwenden kannst, so will ichs machen.
+
+82
+00:11:01,040 --> 00:11:07,000
+Auf Wish gibt es die billige, auf Wish gibt es alles billiger, plus dass es nicht ankommt
+
+83
+00:11:07,000 --> 00:11:11,680
+oder nicht, dass es was drauf steht, bei AliExpress hast du den großen Vorteil, du hast AliExpress
+
+84
+00:11:11,680 --> 00:11:15,920
+auch auf deiner Seite, weil das ist ja nur, das AliExpress ist ja eigentlich nur ein großer
+
+85
+00:11:15,920 --> 00:11:16,920
+Marketplace.
+
+86
+00:11:16,920 --> 00:11:23,920
+Und die sind da relativ coolant, wenn du sagst, mir wurde Mist geliefert, nichts geliefert,
+
+87
+00:11:23,920 --> 00:11:26,920
+sonst was, dann schicken die dir einfach die Kohle wieder und gut ist.
+
+88
+00:11:26,920 --> 00:11:35,920
+Wie leise ist die Musik, ja?
+
+89
+00:11:35,920 --> 00:11:42,800
+Ja, besser.
+
+90
+00:11:42,800 --> 00:12:08,920
+Mein Angebot war 22 für, echt, warte mal.
+
+91
+00:12:08,920 --> 00:12:26,840
+Ach, siehst du, ich hab mich jebaiten lassen, 4, 4 und das sind nur 2, keck wait, Alter.
+
+92
+00:12:26,840 --> 00:12:32,360
+You got jebaited, das ist immer noch billiger als bei Amazon, aber du kannst, gerade bei
+
+93
+00:12:32,360 --> 00:12:38,360
+dem Akara Zeug, kannst du manchmal auch bei Banggood gucken, was nichts hier irgendwie
+
+94
+00:12:38,360 --> 00:12:58,200
+mit zu tun hat oder so, Akara Door Sensor, die haben manchmal auch günstig, nur aktuell
+
+95
+00:12:58,200 --> 00:13:03,760
+nicht so, ich hab gelesen, dass es Probleme gibt mit den Schiffen hin und zurück aus
+
+96
+00:13:03,760 --> 00:13:08,600
+China und dass deswegen jetzt teurer ist, musst du gucken, aber das ist immer noch billiger
+
+97
+00:13:08,600 --> 00:13:13,160
+als mit Z-Wave anzufangen und es ist billiger als das meiste andere Zeug, kann man sich
+
+98
+00:13:13,160 --> 00:13:14,160
+eigentlich nicht beschweren.
+
+99
+00:13:14,160 --> 00:13:20,320
+Der Label-Champ, der ist noch nicht fertig, der Label-Champ, da gehts demnächst weiter,
+
+100
+00:13:20,320 --> 00:13:33,840
+heute machen wir erstmal Windrickning, Windrickning Modding.
+
+101
+00:13:33,840 --> 00:13:55,680
+Das können wir irgendwann mal angucken, wenn es uns langweilig ist, mach das mal auf.
+
+102
+00:13:55,680 --> 00:14:06,080
+Von 2014, ok, das war schon ein bisschen älter, klingt wie ein merkwürdiges Windows Tool,
+
+103
+00:14:06,080 --> 00:14:17,840
+ja das ist aber schwedisch, Windrickning heißt das, Windrichtung auf Deutsch, hier Ikea Windrickning
+
+104
+00:14:17,840 --> 00:14:18,840
+heißt Windrichtung.
+
+105
+00:14:18,840 --> 00:14:28,440
+Wofür Kastenfirmen unterstützt das Ding SIG B2M QTT, nö, das Ding hat keinerlei Funkverbindung,
+
+106
+00:14:28,440 --> 00:14:32,720
+das einzige, ich schließe das mal kurz an, dass ihr das seht, so, ich schließe das mal
+
+107
+00:14:32,720 --> 00:14:33,720
+kurz an.
+
+108
+00:14:33,720 --> 00:14:40,560
+Da kommen jetzt mal wieder meine 50 China-Chinesen-USB-Kabel zum Einsatz, ich hab mir irgendwann
+
+109
+00:14:40,560 --> 00:14:45,280
+mal ein 50er Park China-Chinesen-USB-Kabel gekauft und das war eine sehr gute Idee, weil
+
+110
+00:14:45,280 --> 00:14:51,320
+jetzt hab ich immer genug USB-Kabel und ich war damals schon glücklicherweise vorausschauend
+
+111
+00:14:51,320 --> 00:14:54,680
+genug mir die mit Mikro-USB und USB-C zu kaufen.
+
+112
+00:14:54,680 --> 00:15:09,440
+So, ich schließe das mal an, das einzige was dieser Sensor kann ist, ganz schön wackelig,
+
+113
+00:15:09,440 --> 00:15:24,240
+ich hoffe ich hab's hier irgendwie halb kaputt gemacht, also das einzige was dieser, so, das
+
+114
+00:15:24,240 --> 00:15:31,760
+einzige was dieser Sensor kann ist leuchten, wenn er an ist, ich mach mal kurz, dass ihr
+
+115
+00:15:31,760 --> 00:15:43,400
+das besser seht, mach ich mal kurz hier die Lampe aus, so, das einzige was der kann ist
+
+116
+00:15:43,400 --> 00:15:48,680
+leuchten, der hat keinen WLAN, der hat keinen Zigbee, der hat keinen Z-Wave, der hat keinen
+
+117
+00:15:48,680 --> 00:15:54,560
+Low-Energy-Bluetooth, der hat keine SIM-Karte, der hat nix, der hat keinerlei Funk-Anbindung
+
+118
+00:15:54,560 --> 00:16:02,160
+an dieser Sensor, aber das coole ist, dass Ikea nett war, Ikea hat die Pins innen drinne
+
+119
+00:16:02,160 --> 00:16:06,720
+alle dargelassen und hat nix versucht irgendwie zu verschlimmbessern, das heißt wir haben
+
+120
+00:16:06,720 --> 00:16:12,240
+alle Pins und kommen easy dran, zumindest hab ich das gesehen in einem Video, das werden
+
+121
+00:16:12,240 --> 00:16:14,240
+wir jetzt ausprobieren, ob das alles so funktioniert.
+
+122
+00:16:14,240 --> 00:16:22,200
+Heute kein Battlefield 2042 Update, Leute, ich hab das, ich hab das Update gesehen zu
+
+123
+00:16:22,200 --> 00:16:26,840
+Battlefield 2042, ich muss echt, ich muss richtig cack, cack, dribble you und guckt
+
+124
+00:16:26,840 --> 00:16:41,080
+euch das mal an, ähm, patch notes, mega Update, da ist überhaupt nix, notes, ok, Battlefield
+
+125
+00:16:41,080 --> 00:16:46,320
+com, wir gucken mal auf Twitter, da ist das verlinkt, so, wisst ihr was das Schlimme
+
+126
+00:16:46,320 --> 00:16:55,440
+ist, ihr wisst ja was das Schlimme hier ist, dass sie das Update 4.0 nennen, das erweckt
+
+127
+00:16:55,440 --> 00:17:01,000
+den anschein, als ist dieses Spiel schon mal irgendwann bei 1.0 gewesen, wann soll denn
+
+128
+00:17:01,000 --> 00:17:13,440
+1.0 bitteschön stattgefunden haben bei Battlefield 2042, wenn das 4.0 ist, das ist, das ist
+
+129
+00:17:13,440 --> 00:17:18,600
+0.73 wahrscheinlich, ja, unten drunter steht lustigerweise 0.4, sie sind sich da selbst
+
+130
+00:17:18,600 --> 00:17:23,360
+nicht so ganz einig, wie das Ding jetzt heißt, also intern heißt es wahrscheinlich 0.4 und
+
+131
+00:17:23,360 --> 00:17:30,040
+die Marketing Abteilung hat 4.0 draus gemacht, aber es ändert sich ja auch nix, es ist ein
+
+132
+00:17:30,040 --> 00:17:35,360
+bisschen balancing tweaks und jetzt ist VoIP drin, ja super, es ist VoIP jetzt zu dem Zeitpunkt
+
+133
+00:17:35,360 --> 00:17:42,200
+drin, wo keine Sau mehr drauf spielen spielt, top, perfekt, so muss, oh, das ist Hovercraft,
+
+134
+00:17:42,200 --> 00:17:47,800
+so muss das sein, Steam, schauen wir mal, ob das was bringt, oh ja, es gucken sich tatsächlich
+
+135
+00:17:47,800 --> 00:17:55,560
+400 Leute mehr das Spiel aktuell an, Massive, Alter, das wird's wahrscheinlich, guck mal,
+
+136
+00:17:55,560 --> 00:18:06,520
+das wird's wahrscheinlich mega rausreißen hier, Alter, uiuiui, neue Höhenfliege aber,
+
+137
+00:18:06,520 --> 00:18:15,960
+ist das gerade eine VM, nö, das ist Windows, das ist ganz normal Windows hier, Woman of
+
+138
+00:18:15,960 --> 00:18:23,280
+History, take the quiz, meine Taskleiste ist heute aber äußerst divers muss man sagen,
+
+139
+00:18:23,280 --> 00:18:37,840
+so, das hier ist eine VM, das hier ist eine VM, guck, das, die Ledungskiste ist eine VM
+
+140
+00:18:37,840 --> 00:18:46,640
+und das Windows Ding ist unten drunter, native, natürlich fühlen sich alle verarscht, der
+
+141
+00:18:46,640 --> 00:18:51,840
+einzige Grund, warum die dieses Spiel überhaupt noch weiter supporten und so große Reden schwingen
+
+142
+00:18:51,840 --> 00:18:57,880
+ist, dass die Leute, also dass sie das eben das Mindeste liefern, dass sie nicht bei den
+
+143
+00:18:57,880 --> 00:19:05,880
+Amis von irgendwelchen Sammelklagen betroffen werden oder so, die liefern 4 Spezialisten
+
+144
+00:19:05,880 --> 00:19:12,600
+und 4 Maps, weil sie das versprochen haben, sonst nichts, also nichts nennenswertes zumindest,
+
+145
+00:19:12,600 --> 00:19:17,640
+vielleicht mit den ein oder anderen geilen Skin oder so, das ist so eine Shitshow, das
+
+146
+00:19:17,640 --> 00:19:25,280
+ist so, was zu virtualisieren vor allem bei Workstation, oh ne, da heute fangen wir nicht
+
+147
+00:19:25,280 --> 00:19:29,680
+wieder mit dem Thema an, weil es sagt, weil sich ganz kurz gesagt, weil sich Linux unter
+
+148
+00:19:29,680 --> 00:19:34,880
+Windows besser virtualisieren lässt als Windows unter Linux, ohne durch zig Reifen springen
+
+149
+00:19:34,880 --> 00:19:39,400
+zu müssen, womit ich das umschalte mit Windows Boardmitteln, guck mal, du kannst doch bei
+
+150
+00:19:39,400 --> 00:19:45,200
+Windows mittlerweile, kannst du noch verschiedene Desktops anlegen, das macht übrigens dieses
+
+151
+00:19:45,200 --> 00:19:53,680
+Symbol hier unten, wenn ich weiß, was das macht, dafür ist das da und dann kannst du
+
+152
+00:19:53,680 --> 00:19:59,880
+Control Windows rechte Pfeiltaste drücken und linke Pfeiltaste und die Desktops durch
+
+153
+00:19:59,880 --> 00:20:06,240
+switchen und ich hab auf dem zweiten Desktop einfach Linux und ich schalte dann zwischen
+
+154
+00:20:06,240 --> 00:20:30,160
+dem ersten Desktop und dem zweiten Desktop um, das ist eigentlich ziemlich, Windows Taste
+
+155
+00:20:30,160 --> 00:20:34,320
+und Tab, ne das funktioniert nicht, Windows Taste und Tab ist Taste, du kannst es dann
+
+156
+00:20:34,320 --> 00:20:45,520
+hier mit der Maus machen ja aber, aber das ist nicht so schön ne, also besser ist Control
+
+157
+00:20:45,520 --> 00:20:59,920
+Windows rechts links, ja weirdchamp ne, wirechamp, ja beste Entscheidung ist nicht zu kaufen,
+
+158
+00:20:59,920 --> 00:21:04,320
+hast du noch Android auf dem, ja ja ja, ich hab das jetzt eigentlich komplett fertig eingerichtet
+
+159
+00:21:04,320 --> 00:21:08,400
+aber ich muss jetzt meinen alten Server noch ausstecken und hab mich nicht dazu durchringen
+
+160
+00:21:08,400 --> 00:21:15,280
+können bisher, vor allem bei Workstation, welche Version, ich glaub 16 ist das noch,
+
+161
+00:21:15,280 --> 00:21:24,840
+was sind die aktuelle, ist egal, ist egal, hier Control, ich benutze das seit 5 Jahren
+
+162
+00:21:24,840 --> 00:21:31,480
+oder so, so, das heißt die letzten zig vor immer Version funktionieren einfach, ist
+
+163
+00:21:31,480 --> 00:21:39,160
+egal ob du die neu start oder eine ein bisschen älter ist, Windows Taste plus V, das ist
+
+164
+00:21:39,160 --> 00:21:44,720
+die Clipboard Historie, ja klar, das ist tatsächlich eines der sinnvollsten Funktionen die sie
+
+165
+00:21:44,720 --> 00:21:53,400
+jetzt eingeführt haben, dass sowas dabei ist, endlich mal einer der hier die Emote
+
+166
+00:21:53,400 --> 00:22:03,760
+Vielfalt benutzt, was doch, natürlich funktioniert das, 100 Pro funktioniert das mit deinem Ryzen,
+
+167
+00:22:03,760 --> 00:22:07,920
+garantiert funktioniert, doch das war klar, warum soll vor allem bei Workstation mit deinem
+
+168
+00:22:07,920 --> 00:22:18,560
+Ryzen nicht funktionieren, warum soll das nicht gehen, klar funktioniert das, echt,
+
+169
+00:22:18,560 --> 00:22:21,440
+halt die 16er Version mit, ja dann nehmen wir halt irgendeine andere Version, warum hat
+
+170
+00:22:21,440 --> 00:22:35,280
+die 16er Version mit Ryzen Probleme, Kekwade, ich benutze Ruffy Clip oder wie das heißt,
+
+171
+00:22:35,280 --> 00:22:41,120
+ja ihr könnt in Google suchen was ihr wollt, plus nicht in Chat schreiben hier, ja wenn
+
+172
+00:22:41,120 --> 00:22:51,360
+du in Bios die Virtualisierungsfunktion eingeschaltet hast, ja keine Ahnung, Schelze von Nikso
+
+173
+00:22:51,360 --> 00:22:58,560
+S habe ich noch nicht ausprobiert, also es wäre sehr merkwürdig, weil gerade im Server
+
+174
+00:22:58,560 --> 00:23:07,560
+Bereich auf Epic Basis ist ja Virtualisierungs eines der Dinger schlechthin, na gut, so also
+
+175
+00:23:07,560 --> 00:23:14,240
+wir kommen uns jetzt mal das Teil hier an, also ihr seht ja, aktuell ist es der Meinung,
+
+176
+00:23:14,240 --> 00:23:19,080
+wir haben hier super, super nice grüne Luft und so, übrigens ich muss euch was zeigen
+
+177
+00:23:19,080 --> 00:23:22,320
+Leute, ich weiß bloß nicht wie ich das machen soll, ich bin mir nicht ganz sicher, wartet
+
+178
+00:23:22,320 --> 00:23:28,640
+mal, ich muss mal kurz hier, warte mal, ich muss mal schnell den, ja ja, den muss man
+
+179
+00:23:28,640 --> 00:23:37,520
+mal kurz raus machen, na auf, das ist jetzt China-Chinesen Zeug, das ist jetzt wieder
+
+180
+00:23:37,520 --> 00:23:45,560
+Müll, so, ich muss euch mal kurz was zeigen, aber dazu muss ich erstmal das Kabel hier
+
+181
+00:23:45,560 --> 00:23:51,120
+weg machen, da muss ich das Ding nochmal schnell richtig einstellen, dass das hier, so, ich
+
+182
+00:23:51,120 --> 00:23:56,840
+muss euch mal kurz was zeigen, keine Ahnung ob das funktioniert, Achtung, Achtung, ansonsten
+
+183
+00:23:56,840 --> 00:24:01,160
+muss ich mein T-Shirt ausziehen, das will ich jetzt aber nicht, aber ihr seht das eh
+
+184
+00:24:01,160 --> 00:24:12,040
+nicht, pass mal auf hier, guck mal, guck mal, Moment, Moment, Moment, seht ihr das?
+
+185
+00:24:12,040 --> 00:24:31,840
+Ne, Moment, Moment, ihr seht das nicht, ne, fuck, ähm, ich will jetzt mein Hemd nicht
+
+186
+00:24:31,840 --> 00:24:52,960
+ausziehen, aber ich ziehe jetzt mein Hemd aus, ich muss euch das zeigen, bestes T-Shirt,
+
+187
+00:24:52,960 --> 00:25:18,640
+MonkaS, MonkaS, ich weiß nicht genau warum, warum ich mir, ich mein ich bin, ich bin 37,
+
+188
+00:25:18,640 --> 00:25:26,880
+warum kaufe ich mir ein MonkaS-Shirt, ich weiß es nicht, aber ich finde es nice, gehst
+
+189
+00:25:26,880 --> 00:25:29,960
+du aus dem Haus mit dem, ja, aber meistens habe ich auch ein Hemd drüber, das siehst
+
+190
+00:25:29,960 --> 00:25:37,240
+du nicht, wirklich keine habe ich gerade so vor der Kamera gestanden, also nicht vor der
+
+191
+00:25:37,240 --> 00:25:55,600
+Kamera gestanden, so hier vom Tisch gestanden, keiner hat es gesehen, so ich muss jetzt mal
+
+192
+00:25:55,600 --> 00:26:09,760
+schnell was trinken und dann geht es los, also, was haben wir hier am Start, wir haben
+
+193
+00:26:09,760 --> 00:26:16,920
+einmal eine Ikea Windrickning am Start, pass mal auf, wir müssen erstmal kurz gucken ob
+
+194
+00:26:16,920 --> 00:26:39,080
+ich das richtig ausspreche, Alter, geh fort Microsoft man, Windrick, Ikea Wind, Achtung,
+
+195
+00:26:39,080 --> 00:26:50,600
+Windricknings, Windricknings, Windricknings, so falsch war ich gar nicht, schon nicht schlecht
+
+196
+00:26:50,600 --> 00:27:07,680
+gewesen, ja, also, einmal hier den Sensor, den machen wir dann gleich auf und gucken
+
+197
+00:27:07,680 --> 00:27:11,360
+da mal rein, also ich habe mir das im Vorfeld schon eingeschaut, wahrscheinlich ist das
+
+198
+00:27:11,360 --> 00:27:17,680
+so, hier unten ist ein Lüfter drin, hier ist der Luftqualitätssensor drin, hier oben
+
+199
+00:27:17,680 --> 00:27:21,760
+ist ziemlich viel Platz, ne, hier oben ist der Luftqualitätssensor drin, hier oben ist
+
+200
+00:27:21,760 --> 00:27:28,480
+relativ viel Platz, dass ich die Luft gescheit durch analysieren kann und hier unten müsste
+
+201
+00:27:28,480 --> 00:27:35,840
+noch Platz sein für den Controller, aufkriegen wir das hoffe ich mal irgendwie gleich damit
+
+202
+00:27:35,840 --> 00:27:55,600
+irgendwie mal schauen, so, dann habe ich noch ein ESP32, ne, ne das ist kein ESP32, ESP866,
+
+203
+00:27:55,600 --> 00:28:02,280
+aber ich würde es lieber mit dem ESP32 machen, da habe ich noch mehr von, vielleicht machen
+
+204
+00:28:02,280 --> 00:28:10,440
+wir das mit dem ESP32, wir testen mal, ich habe hier einen, wir testen mal ob das besser
+
+205
+00:28:10,440 --> 00:28:15,280
+reinpasst, schauen wir mal, also ich würde lieber den nehmen, die sehen jetzt auf den
+
+206
+00:28:15,280 --> 00:28:19,320
+ersten Blick, ich mache das mal kurz auf, die Controller sehen jetzt auf den ersten
+
+207
+00:28:19,320 --> 00:28:26,120
+Blick relativ gleich aus, aber das Ding hier, die Header brauchen wir nicht, ich gebe die
+
+208
+00:28:26,120 --> 00:28:39,640
+Header-Lahn, hier, die Dinger sehen auf den relativ gleich aus, aber, außer dass sie ein
+
+209
+00:28:39,640 --> 00:28:52,080
+bisschen unterschiedlich groß sind, aber der da ist billiger, der da ist billiger, dafür
+
+210
+00:28:52,080 --> 00:28:57,360
+ist der da deutlich leistungsfähiger, was ziemlich egal ist für diesen Anwendungszweck,
+
+211
+00:28:57,360 --> 00:29:06,440
+aber man darf nicht vergessen, wie weit wir mittlerweile 2022 sind mit Technik, ich meine
+
+212
+00:29:06,440 --> 00:29:14,160
+stellt euch mal vor, in so einem Teil hier, also der eigentliche Chip ist ja hier drunter,
+
+213
+00:29:14,160 --> 00:29:19,400
+das ist die Abdeckung, das hier ist die WLAN, das ist die Antenne hier unten, das schwarze,
+
+214
+00:29:19,400 --> 00:29:27,160
+da muss ich mal vorstellen, in so einem kleinen Chip ist ein 240MHz Dual Core, eigentlich
+
+215
+00:29:27,160 --> 00:29:35,760
+sogar ein Triple Core, es ist ein 240MHz Dual Core drinnen und ein 8MHz Low Power Prozessor,
+
+216
+00:29:35,760 --> 00:29:48,720
+also eigentlich hat das Ding 3 CPUs drauf, zig GPIO Pins, 4MB Flash, ich glaube 150K
+
+217
+00:29:48,720 --> 00:29:55,840
+RAM oder sonst was, aber allein schon 240MHz Dual Core, ich muss euch mal vorstellen, so
+
+218
+00:29:55,840 --> 00:30:01,440
+ein kleines Scheißding für 4,50€, kann man sich nicht beschweren, natürlich kann man
+
+219
+00:30:01,440 --> 00:30:16,520
+das nicht mit einem Pentium 2 vergleichen, und das ungekühlt und billig, es gibt garantiert
+
+220
+00:30:16,520 --> 00:30:26,480
+schon Doom auf dem ESP, das ist kein Ding, der hier, der ESP866 ist ein bisschen verbreitet,
+
+221
+00:30:26,480 --> 00:30:32,160
+also sie sind beide saumäßig verbreitet, das sind so die Go To China Chinesen Controller
+
+222
+00:30:32,160 --> 00:30:40,200
+und Chips eigentlich der letzten 5-6 Jahre, davor haben die Leute gerne Arduino verwendet,
+
+223
+00:30:40,200 --> 00:30:45,680
+aber so die letzten 5-6 Jahre sind eigentlich überall durch die Bank weg, an vielen Stellen
+
+224
+00:30:45,680 --> 00:30:51,360
+sowohl im Bastel Hobbybereich als auch viele professionelle Produkte die rauskommen, gerade
+
+225
+00:30:51,360 --> 00:30:58,880
+aus China, haben diese 2 Sachen drinnen, im Prinzip hauptsächlich früher den ESP866,
+
+226
+00:30:58,880 --> 00:31:09,360
+mittlerweile eher auch den ESP32, manche haben schon die ganz neuen ESP32C123 mit drinnen,
+
+227
+00:31:09,360 --> 00:31:18,760
+aber das ist wirklich nice, da fällt einem immer wieder auf, wie weit wir mit der Technik
+
+228
+00:31:18,760 --> 00:31:25,720
+mittlerweile schon sind, dass in so einem kleinen Furzding ein 240MHz Dual Core ist,
+
+229
+00:31:25,720 --> 00:31:30,320
+der kann sogar Raytracing, der kann theoretisch alles berechnen, was es gibt, weil da läuft
+
+230
+00:31:30,320 --> 00:31:39,280
+vollständig C, C++ drauf, aber er erhält nicht sonderlich schnell manche Sachen, ja
+
+231
+00:31:39,280 --> 00:31:51,400
+Der hier ist ein Ticken älter und ein großer Vorteil von beiden, von beiden ist, dass die
+
+232
+00:31:51,400 --> 00:31:55,120
+erstens Arduino kompatibel sind, das heißt man kann alle möglichen Arduino Libraries
+
+233
+00:31:55,120 --> 00:32:02,800
+zum größten, das heißt aber 99% der Arduino Libraries kannst du verwenden und das herstellereigene
+
+234
+00:32:02,800 --> 00:32:09,160
+Entwicklungskit ist auch relativ gut, obwohl es China Chinesen Zeug ist, du hast mittlerweile
+
+235
+00:32:09,160 --> 00:32:15,040
+eine Plattform I.O. Integration und kannst jeder Noob, der ein bisschen Ahnung davon
+
+236
+00:32:15,040 --> 00:32:18,160
+hat, aber wirklich, du musst damit noch nichts großartig gemacht haben mit Microcontroller
+
+237
+00:32:18,160 --> 00:32:25,120
+Kram, jeder Noob kann sich Visual Studio Code installieren, Plattform I.O. installieren
+
+238
+00:32:25,120 --> 00:32:28,680
+und über den Assistent sein erstes Programm dafür anlegen, geflasht und das ist auch
+
+239
+00:32:28,680 --> 00:32:35,040
+ein Vorteil gegenüber älteren Boards oder anderen Chips, du kriegst diese Boards immer
+
+240
+00:32:35,040 --> 00:32:40,600
+im handelsüblichen Micro-USB, das heißt du kannst den Krempel an PC anschließen und
+
+241
+00:32:40,600 --> 00:32:46,560
+direkt über den PC flaschen, das heißt du brauchst keinen Serial-USB Adapter oder
+
+242
+00:32:46,560 --> 00:32:51,360
+irgendwie so ein Blödsinn, das brauchst du zwar normalerweise für den ESP schon, aber
+
+243
+00:32:51,360 --> 00:32:57,280
+es gibt eigentlich keine Entwicklungs- oder keine so normalen Boards, die kein USB haben.
+
+244
+00:32:57,280 --> 00:33:04,120
+Die Dinger sind sogar relativ stromsparend, also man muss das ein bisschen relativieren,
+
+245
+00:33:04,120 --> 00:33:11,040
+also die Dinger sind an sich immer stromsparend, wenn man das mal mit einem Raspberry Pi oder
+
+246
+00:33:11,040 --> 00:33:20,800
+so vergleicht, also wenn die Dinger 150, 200 Mikroampere brauchen bei 5 Volt, dann ist
+
+247
+00:33:20,800 --> 00:33:25,320
+das schon viel, das brauchen die wenn das WLAN voll pullert, ansonsten brauchen die
+
+248
+00:33:25,320 --> 00:33:35,880
+irgendwie 80, 90, könnt ihr ja ausrechnen, 5 Volt mal 0,2, dann habt ihr das ganze in
+
+249
+00:33:35,880 --> 00:33:44,280
+Watt, also das braucht irgendwie, keine Ahnung, halbes Watt oder irgendwie sowas, die Dinger
+
+250
+00:33:44,280 --> 00:33:49,520
+brauchen nicht wirklich viel, also deutlich sparsamer auch als Raspberry Pi, vor allem
+
+251
+00:33:49,520 --> 00:33:55,680
+Sparsamer als Raspberry Pi 4, Vergleich mit dem Desktop PC müssen wir das gar nicht machen,
+
+252
+00:33:55,680 --> 00:34:00,600
+aber, was man nicht denken darf, ist, dass man damit jetzt irgendwelche batteriebetriebenen
+
+253
+00:34:00,600 --> 00:34:08,080
+Sachen machen kann, weil, wenn man so eine Batterie drinne hat, so ein ganz normal Lithium-Ionen-Akku,
+
+254
+00:34:08,080 --> 00:34:28,240
+was haben die 3,7 Volt oder so, oder 4,2 Volt vollgeladen haben die glaube ich, das passt
+
+255
+00:34:28,240 --> 00:34:34,840
+schon von der Stromversorgung her, aber die verbrauchen trotzdem zu viel, da hält da eine
+
+256
+00:34:34,840 --> 00:34:38,960
+die auch bloß eine Woche oder so, also für so ultra low power Batteriebetrieb sind die
+
+257
+00:34:38,960 --> 00:34:49,960
+Boards nicht gut, es gibt aber Boards, weil der ESP32 oder der ESP266 an sich, die verbrauchen
+
+258
+00:34:49,960 --> 00:34:56,280
+ziemlich wenig, aber die Zusatz-Hardware auf den Boards, ja manche schalten den USB, den
+
+259
+00:34:56,280 --> 00:35:01,440
+Spannungswander nicht ab, das geht immer über den Spannungswander drüber, manche versorgen
+
+260
+00:35:01,440 --> 00:35:09,040
+diesen USB, auf Serial geht es permanent mit Strom, es gibt Boards, die kommen auf, im Deep
+
+261
+00:35:09,040 --> 00:35:15,440
+Sleep, wo man gemerkt hat, man macht dann Sleep, lässt sich nicht permanent rödeln,
+
+262
+00:35:15,440 --> 00:35:21,880
+die kommen auf ungefähr, glaube ich, 10 micro Ampere im Deep Sleep und das ist dann schon
+
+263
+00:35:21,880 --> 00:35:26,840
+nice, da kannst du, wenn du 3-4 mal am Tag aufwachst, um neue Daten zu schicken, den Sensor
+
+264
+00:35:26,840 --> 00:35:30,800
+auch 2-3 Jahre laufen lassen irgendwo am Arsch der Welt, das funktioniert dann, da braucht
+
+265
+00:35:30,800 --> 00:35:36,720
+man aber spezielle Boards, die sind ein bisschen teurer, aber nicht viel, so, jetzt mal nur
+
+266
+00:35:36,720 --> 00:35:43,840
+so ganz kurz Exkurs über ESP32 und ESP266 und diese 2 Boards, die ihr hier seht, das
+
+267
+00:35:43,840 --> 00:35:54,440
+sind beides mit die beliebtesten, das ist ein ESP266 D1 Mini und das ist ein ESP32 D1 Mini,
+
+268
+00:35:54,440 --> 00:35:58,480
+es ist kein Original D1 Mini, es ist ein Nachbau, aber das ist China-Chinesen Zeug, der im
+
+269
+00:35:58,480 --> 00:36:08,600
+Prinzip eh immer und die funktionieren, NodeMCUs sind die anderen relativ verbreiteten Entwicklungsboards,
+
+270
+00:36:08,600 --> 00:36:16,280
+ja, gut, passt, so viel ESP32 Gelaber, machen wir mal die Header weg, die brauchen wir heute
+
+271
+00:36:16,280 --> 00:36:20,160
+eh nicht, so und jetzt gucken wir uns mal, achso, ja und eins habe ich auch noch, habe
+
+272
+00:36:20,160 --> 00:36:24,360
+ich ganz vergessen zu zeigen, ich habe noch ein, das liegt bei mir bestimmt schon seit
+
+273
+00:36:24,360 --> 00:36:36,400
+3 Jahren rum, lange auf jeden Fall, habe ich noch nie verwendet, das ist ein, wobei 3 Jahre
+
+274
+00:36:36,400 --> 00:36:44,400
+ist ein bisschen übertrieben, ein Jahr oder so liegt das hier rum, das ist ein BME 680
+
+275
+00:36:44,400 --> 00:36:51,160
+oder 680, das ist ein Sensor, der sieht zwar so klein und unscheinbar aus, was ist denn
+
+276
+00:36:51,160 --> 00:36:58,440
+das da eigentlich für einen Anschluss nehmen, hat jemand einen Plan, was das da für einen
+
+277
+00:36:58,440 --> 00:37:09,480
+Anschluss ist hier neben, guckt mal, was ist denn das, das schauen wir gleich mal, es steht
+
+278
+00:37:09,480 --> 00:37:16,400
+ja auch oben, was er macht, guckt mal, Luftdruck, Luftfeuchtigkeit, Temperatur und Gas, ne,
+
+279
+00:37:16,400 --> 00:37:21,840
+ne, das ist kein Mikro-USB, wir gucken, wir gucken gerade mal, was das, was das, was das
+
+280
+00:37:21,840 --> 00:37:26,800
+baut, keine Ahnung, weiß ich nicht, das ist irgendwie ein Other Fruit, die sind normalerweise
+
+281
+00:37:26,800 --> 00:37:30,280
+viel zu teuer, ich weiß auch nicht, warum ich mir das Ding mal irgendwann gekauft habe,
+
+282
+00:37:30,280 --> 00:37:38,360
+BME 680, ja, übrigens der Sensor ist fast mit das teuerste an dem ganzen Projekt, was
+
+283
+00:37:38,360 --> 00:37:42,520
+sind das hier neben für Anschlüsse, Finn, Dankeschön, das Motor kommt drauf, kein
+
+284
+00:37:42,520 --> 00:38:10,120
+ESP Home, was sind, was sind das für Connector, was, Stämmer Cute, ne, ne, wir löten das
+
+285
+00:38:10,120 --> 00:38:23,560
+schon dran, ach so, ok, das braucht nur wirklich niemand, also, ich meine, irgendwann muss
+
+286
+00:38:23,560 --> 00:38:29,520
+ich mein Lötkolm ja mal lohnen, den ich gekauft habe, ja, ich würde mir heute wahrscheinlich
+
+287
+00:38:29,520 --> 00:38:35,200
+auch nicht mehr das Ding für den Preis kaufen, aber egal, besser als weiter in der Tüte
+
+288
+00:38:35,200 --> 00:38:41,720
+liegen lassen und jetzt würde ich sagen, machen wir das Teil mal auf und gucken, wie das von
+
+289
+00:38:41,720 --> 00:38:48,960
+innen so aussieht, also Ziel ist folgendes, hier oben wahrscheinlich den Sensor rein,
+
+290
+00:38:48,960 --> 00:38:57,880
+hier unten eins der beiden Boards, ich vermute mal, der könnte bissi groß sein, der ESP32,
+
+291
+00:38:57,880 --> 00:39:05,840
+müssen wir mal gucken, schauen wir mal gleich, also so rum passt der gerade so, aber ich weiß,
+
+292
+00:39:05,840 --> 00:39:11,200
+mal schauen, wie viel Platz da hinten ist und hier unten das Board rein, so, fertig,
+
+293
+00:39:11,200 --> 00:39:17,280
+das ganze verbinden wir dann hier mit ein paar Kabels, schauen wir mal und wir löten
+
+294
+00:39:17,280 --> 00:39:22,920
+das ganze zusammen und lassen das auf, gucken erstmal, ob es funktioniert und dann machen
+
+295
+00:39:22,920 --> 00:39:30,280
+wir es zu. Willst du das Innenleben komplett austauschen? Nein, das ist doch gerade der
+
+296
+00:39:30,280 --> 00:39:38,360
+Sinn davon, das ist ein relativ günstiger Partikelsensor mit, ich glaube, 2,5 Nanometer,
+
+297
+00:39:38,360 --> 00:39:47,680
+ist es Nanometer, Mikrometer, Durchmesser, Partikelgröße, das ist relativ günstig für
+
+298
+00:39:47,680 --> 00:39:51,400
+den Sensor, der da drin ist, ich will das nicht aus, es bleibt alles so wie es ist, es kommt
+
+299
+00:39:51,400 --> 00:39:58,840
+nur zusätzlich, liegt im Namensschild, fuck, wo, wo es liegt? Oh ja, ich sehe es, Monka
+
+300
+00:39:58,840 --> 00:40:08,560
+League, alter, Wupp League, nee, nee, der hat die Partikelsache nicht, der hier ist nur
+
+301
+00:40:08,560 --> 00:40:16,400
+für Luftfeuchtigkeit, Luftdruck, Gas und Luftfeuchtigkeit, Temperatur und der Sensor
+
+302
+00:40:16,400 --> 00:40:22,560
+hier drin ist, der bleibt als Partikelsensor, so, also ihr seht, das sind halt ganz normale
+
+303
+00:40:22,560 --> 00:40:34,080
+Schraubsorn, muss ich mal gucken, ob wir das so auf, der da vielleicht, ja, gucken wir
+
+304
+00:40:34,080 --> 00:40:41,840
+mal, ich leg das mal ein bisschen so hin, weil, so, gucken wir mal rein, ich bin mal
+
+305
+00:40:41,840 --> 00:40:57,000
+gespannt, Windregning, da, erste Schraub, ich mag das immer nicht, wenn man nicht sieht,
+
+306
+00:40:57,000 --> 00:41:08,960
+wo man schraubt, kannst du ein Smart Mirror bauen, ja, ich habe gesehen, dass da Kappa
+
+307
+00:41:08,960 --> 00:41:17,040
+dahinter steht, aber, ich antworte jetzt trotzdem mal, ernst drauf, weil, Smart Mirror, ihr
+
+308
+00:41:17,040 --> 00:41:21,400
+wisst, dass ich Smart Home technisch, ja, also ich bastel so ziemlich alles, was es
+
+309
+00:41:21,400 --> 00:41:26,080
+gibt, was ich für sinnvoll halte, ich halte Smart Mirrors nicht für sinnvoll, deswegen
+
+310
+00:41:26,080 --> 00:41:31,480
+habe ich weder dran gedacht, im Stream mal sowas zu bauen, noch für mich privat, ich
+
+311
+00:41:31,480 --> 00:41:39,760
+finde Smart Mirrors ist total overrated, mag irgendwie so einen Wow-Effekt haben, vielleicht
+
+312
+00:41:39,760 --> 00:41:44,800
+auch zum zeigen oder so, aber die Nützlichkeit hält sich meiner Meinung nach in Grenzen,
+
+313
+00:41:44,800 --> 00:41:51,080
+weil, ich mein, wozu braucht man ein Smart Mirror, dass man sich das Wetter anzeigen
+
+314
+00:41:51,080 --> 00:41:54,480
+lassen kann oder was, kann mir doch keiner erzählen, dass man nicht morgens eh aufs
+
+315
+00:41:54,480 --> 00:42:00,480
+Handy guckt, ich brauch doch in meinem Spiegel keine Wetteranzeige für heute, und wenn ich
+
+316
+00:42:00,480 --> 00:42:04,880
+das richtig gut gemacht hab, dann hab ich eh ein Home Automation Dashboard im Flur hängen,
+
+317
+00:42:04,880 --> 00:42:08,600
+wo ich da einfach mal drauf gucken kann, oder ich hab eh mal ein Smart, ich versteh den
+
+318
+00:42:08,600 --> 00:42:10,640
+Sinn von Smart Mirrors ehrlich gesagt nicht.
+
+319
+00:42:10,640 --> 00:42:18,400
+So, guck mal, easy, also Ikea will, dass man die mottet, ich sags euch, Ikea will, dass
+
+320
+00:42:18,400 --> 00:42:23,280
+man die mottet, so einfach wie das aufgeht, können sich da China-Chinesen Sachen mal
+
+321
+00:42:23,280 --> 00:42:30,360
+wirklich was von abschneiden, ok, guck mal, hier haben wir den Kram, also, wir haben,
+
+322
+00:42:30,360 --> 00:42:36,740
+das find ich nice bei diesem Ikea Ding, die Schweden waren so nett und haben alle Pins
+
+323
+00:42:36,740 --> 00:42:42,720
+beschriftet drauf gelassen in einer Größe, wo man easy Sachen dran löten kann, die wollen,
+
+324
+00:42:42,720 --> 00:42:49,360
+dass das gemottet wird, changed my mind, die wollen, dass das gemottet wird, ich mein,
+
+325
+00:42:49,360 --> 00:42:57,000
+die haben hier oben sogar extra, guckt mal, beschriftete, ups, das rockelt, beschriftete
+
+326
+00:42:57,000 --> 00:43:14,720
+Pins für Ground, für 5 Volt, für SDA, Clock und alles, das ist, die wollen das, theoretisch
+
+327
+00:43:14,720 --> 00:43:21,560
+kann man sogar noch einen eigenen Lüfter hier unten dran anschließen und sowas, die wollen
+
+328
+00:43:21,560 --> 00:43:26,240
+das, so, jetzt müssen wir mal gucken, wie wir den Kram hier rein, also ich hab mir das
+
+329
+00:43:26,240 --> 00:43:30,160
+so gedacht, das hab ich nämlich auch in einem Video gesehen, auf YouTube, ich hab mir gedacht,
+
+330
+00:43:30,160 --> 00:43:36,760
+wir machen den Luftfeuchtigkeitssensor, Luftdruck und Gassensor, den machen wir hier oben rein,
+
+331
+00:43:36,760 --> 00:43:49,080
+weil hier ist der eigentliche Sensor für die Nanopartikel oder Luftpartikel, das heißt,
+
+332
+00:43:49,080 --> 00:44:03,400
+ich mache den ESP nicht hier drüber, weil der Luftflow sonst beeinträchtigt wird, mal
+
+333
+00:44:03,400 --> 00:44:13,040
+gucken, ob der hier reinpasst, aber Leute, das kann ich so nicht machen, da ist der Lüfter
+
+334
+00:44:13,040 --> 00:44:27,440
+dicht, guck mal, ich krieg den kaum wieder raus, ich glaube, wir müssen den ESP32 nehmen,
+
+335
+00:44:27,440 --> 00:44:36,760
+weil guckt mal, hier unten ist ein Lüfter, irgendwo, ja, hier unten ist ein Lüfter und
+
+336
+00:44:36,760 --> 00:44:43,960
+wenn ich den Komplette zumach, ist, glaube ich, nicht so sinnvoll, deswegen mach ich lieber,
+
+337
+00:44:43,960 --> 00:44:57,800
+vielleicht, guck mal, vielleicht kriegt man den sogar hier neben irgendwie hin, aber
+
+338
+00:44:57,800 --> 00:45:08,720
+ich glaube, da ist kein Platz, aber das wäre mir natürlich am liebsten, dann würde ich
+
+339
+00:45:08,720 --> 00:45:11,920
+den Krempel irgendwie hier neben hin kriegen, aber ich glaube, da sind, wisst ihr was, vielleicht
+
+340
+00:45:11,920 --> 00:45:19,880
+kriegen wir den so hin, guck mal, so ist doch viel besser, so machen wir das, so, und jetzt
+
+341
+00:45:19,880 --> 00:45:39,280
+geht es noch zu, wartet mal, Alter, ah ne, das geht nicht zu, Mist, da unten muss ja das
+
+342
+00:45:39,280 --> 00:45:48,200
+USB durch, hier muss das USB durch, das geht nicht, die Einheit mit dem Lüfter kannst
+
+343
+00:45:48,200 --> 00:45:53,720
+du raus, der Lüfter geht nach vorne raus, echt, ich meine, eher wo der was ansaugt,
+
+344
+00:45:53,720 --> 00:45:59,840
+meinste, hier geht, hinten bläst er das raus, ja gut, dann könnte man dann auch den anderen
+
+345
+00:45:59,840 --> 00:46:09,760
+drunter stecken, mal schauen, ich persönlich würde ja lieber den ESP32 nehmen, mal checken,
+
+346
+00:46:09,760 --> 00:46:16,280
+ob das noch zugeht mit dem ESP32 drin, müsste aber eigentlich, ja wunderbar, kein Problem,
+
+347
+00:46:16,280 --> 00:46:22,440
+ja, dann flashen wir den nochmal, die kriegt man echt schlecht wieder raus, dann flashen
+
+348
+00:46:22,440 --> 00:46:29,480
+wir den mal, ich nehme den ESP32, erstens habe ich da mehr von, und ansonsten eigentlich
+
+349
+00:46:29,480 --> 00:46:33,920
+ist es Overkill, eigentlich ist es Overkill, ich nehme, na, ich nehme den, scheiß drauf,
+
+350
+00:46:33,920 --> 00:46:43,800
+die kann ich für 2 Euro oder so das Stück nachkaufen, ich nehme den kleinen, kannst
+
+351
+00:46:43,800 --> 00:46:47,920
+du einen VTuber Avatar im Stream entwickeln, nee, weil ich kenne mich mit sowas nicht aus
+
+352
+00:46:47,920 --> 00:46:54,320
+und ich bin sehr ungeschickt was so Artist Sachen angeht, aber ich suche schon lange
+
+353
+00:46:54,320 --> 00:46:59,160
+jemand der sowas machen kann, weil ich will auch einen VTuber, ich will auch einen VTuber
+
+354
+00:46:59,160 --> 00:47:05,240
+Avatar haben, aber nicht einfach so ein Avatar wie die ganzen, wie die ganzen VTuber Girls,
+
+355
+00:47:05,240 --> 00:47:08,920
+ich will einen Kekshunder sprich, das heißt es muss jemand sein der ordentlich Blender
+
+356
+00:47:08,920 --> 00:47:14,600
+3D Models machen kann und sowas, nee hier oben, ich meine man könnte es hier oben an
+
+357
+00:47:14,600 --> 00:47:21,560
+die Seite machen, ja, ich meine es passt hier relativ gut oben an die Seite, weil einfach
+
+358
+00:47:21,560 --> 00:47:26,600
+mit Heißkleber festmachen oder so, aber hier oben muss ja schon der Sensor rein, ich heiß
+
+359
+00:47:26,600 --> 00:47:32,400
+klebere den Sensor hier oben fest und der kommt unten rein, jetzt muss ich nur mal kurz gucken
+
+360
+00:47:32,400 --> 00:47:40,120
+wie man die Kabel hier hin macht, also so geht es zu, kriege ich denn jetzt die, ich muss
+
+361
+00:47:40,120 --> 00:47:46,440
+Kabel, also naja doch, Leute mir kann keiner erzählen, mir kann langsam echt keiner mehr
+
+362
+00:47:46,440 --> 00:47:51,240
+erzählen Ikea will nicht dass man das modet, guck mal, die haben sogar, die haben sogar
+
+363
+00:47:51,240 --> 00:47:58,280
+eine Führung für Kabel hier neben rein gemacht, wo du die Kabel durch machen kannst, ohne
+
+364
+00:47:58,280 --> 00:48:04,440
+dass du sie abquetschen musst, das ist doch, das kann ich mir nicht erzählen, dass das
+
+365
+00:48:04,440 --> 00:48:14,760
+Ikea rein zufällig gemacht hat, die wollen dass man den Kram modet er, ist das meine
+
+366
+00:48:14,760 --> 00:48:20,720
+Original Stimme, Sekunde, da fällt mir gerade was auf, ich glaube mal ein Mikrofon übersteuert
+
+367
+00:48:20,720 --> 00:48:26,960
+und keiner sagt was, weil ich musste ja wieder Teams telefonieren, den ganzen Tag und Teams
+
+368
+00:48:26,960 --> 00:48:36,480
+stellt gerne, naja nicht wirklich großartig, aber Teams stellt gerne an meinen Mikrofon
+
+369
+00:48:36,480 --> 00:48:42,240
+Settings rum, Pfeiferbeauftragung, das kannst du vergessen, hast du den Avatar von JV Peak
+
+370
+00:48:42,240 --> 00:48:47,600
+gesehen, der ist, nee, da würde mich mal interessieren wo der den gemacht hat.
+
+371
+00:48:47,600 --> 00:49:03,480
+Sorry Leute, falls ich heute irgendwelche Subscribers oder so übersehe, aber ich blick da nicht
+
+372
+00:49:03,480 --> 00:49:08,280
+durch, wenn ich hier am basteln bin und noch Chat gucke und dann ab und zu noch überlegen
+
+373
+00:49:08,280 --> 00:49:12,000
+muss und es kann sein, dass ich die ein oder anderen Subscriptions übersehe, aber trotzdem
+
+374
+00:49:12,000 --> 00:49:17,680
+danke schonmal für alle Subs, die es heute gegeben hat bis jetzt, es ist übrigens immer
+
+375
+00:49:17,680 --> 00:49:24,640
+noch kostenlos mit einem Prime Account, kann man einmal im Monat einen Streamer seiner Wahl,
+
+376
+00:49:24,640 --> 00:49:29,320
+die Wahl darf natürlich auch gerne auf mich fallen, kostenlos unterstützen und quasi 2,50
+
+377
+00:49:29,320 --> 00:49:40,040
+Euro an Besos überweisen, übrigens guck mal da, ich hab endlich mir einen Fluxstift gekauft,
+
+378
+00:49:40,040 --> 00:49:48,120
+der Mini Fluxer, da können wir jetzt hier für Huge Loot Action Fluxen, guck mal hier,
+
+379
+00:49:48,120 --> 00:50:02,160
+der Fluxer und jetzt ist alles hier schön gefluxed, Gachibas Flux, was ein Satz alter,
+
+380
+00:50:02,160 --> 00:50:17,760
+Fluxchamp, das ist Flussmittel fürs Lootsen, Albi danke für den Sub, Technik danke, nutzt
+
+381
+00:50:17,760 --> 00:50:24,120
+du dann einen Computer für die Arbeit, ja und nicht nur einen, alle beide und ein Notebook,
+
+382
+00:50:24,120 --> 00:50:32,000
+was hier hinten liegt, gut also wie fangen wir das, wie gehen wir das denn jetzt am besten
+
+383
+00:50:32,000 --> 00:50:36,640
+an, wie gehen wir das am besten an, also erstmal müssen wir gucken, was brauchen wir denn hier
+
+384
+00:50:36,640 --> 00:50:43,280
+für Anschlüsse, kann man das vielleicht raus machen, das wäre natürlich äußerst praktisch,
+
+385
+00:50:43,280 --> 00:50:49,960
+wenn ich das löten könnte und raus machen wollte, hab aber Schiss, wenn ich das abmache,
+
+386
+00:50:49,960 --> 00:51:01,320
+ne das lass ich mal besser, das lass ich mal, dass ich das wieder reinkriege Scheiße, das
+
+387
+00:51:01,320 --> 00:51:11,800
+macht nämlich ein bisschen fragilen Eindruck hier die Kabels da, so also ich vermute mal,
+
+388
+00:51:11,800 --> 00:51:19,840
+wir brauchen 5 Volt, also von der Idee her, ich denke mal so machen wir das, wir brauchen
+
+389
+00:51:19,840 --> 00:51:35,320
+ein Kabel unten hier unten da, 5 Volt, einmal Ground und dann, was brauchen wir denn überhaupt
+
+390
+00:51:35,320 --> 00:51:48,840
+für diesen Sensor, ich glaube 2 Stück davon, ne, da müssen wir erstmal gucken, wie man
+
+391
+00:51:48,840 --> 00:51:57,360
+das Zeug anschließt, das gucken wir jetzt mal bei denen bei TASMOTA, WinIkea, WinDrickNingTASMOTA,
+
+392
+00:51:57,360 --> 00:52:08,240
+die haben da ne schöne Anleitung dazu, was bei mir Max115 sagt, bei ihm auf der Arbeit
+
+393
+00:52:08,240 --> 00:52:12,280
+wird ihm ein Laptop in die Hand gedrückt, andere Sachen darf man nicht nutzen, VPN haben
+
+394
+00:52:12,280 --> 00:52:20,360
+wir auch nicht, wir haben extra VMs, VPN haben wir auch nicht mehr, wir haben extra VMs,
+
+395
+00:52:20,360 --> 00:52:32,160
+die man für sowas benutzen kann, glücklicherweise mittlerweile auch ordentlich bedienbar, hast
+
+396
+00:52:32,160 --> 00:52:37,600
+du mal Bock ein Linux from scratch zu machen, nö, es gibt so paar gewisse Sachen, da hab
+
+397
+00:52:37,600 --> 00:52:41,640
+ich, das reizt mich nicht, genauso wie nochmal Chrome von Hand kompilieren, da hab ich auch
+
+398
+00:52:41,640 --> 00:52:46,480
+kein Bock drauf, jetzt Sachen die kann man machen, die muss man aber nicht machen, so
+
+399
+00:52:46,480 --> 00:52:51,000
+was haben wir hier sonst, disassembly, gut, das haben wir uns gerade angeguckt, you will
+
+400
+00:52:51,000 --> 00:52:59,800
+need soldering, ok, was, ok, lass mal kurz just for fun gucken, was empfehlen die für
+
+401
+00:52:59,800 --> 00:53:08,800
+ein Lötkolben, muss tool, das klingt nach billigstem China-Chinese-Crab, alter, oh nein,
+
+402
+00:53:08,800 --> 00:53:21,680
+wenn ich das schon sehe, das kommt mir nicht ins Haus, so, wires, ESP-Board, ja ja, haben
+
+403
+00:53:21,680 --> 00:53:28,080
+wir alle, Spannungswandler, wozu brauchen wir einen Spannungswandler, der ESP, der D1
+
+404
+00:53:28,080 --> 00:53:35,200
+Mini kann 5 Volt als Input, ah, der verwendet kein D1 Mini, der verwendet ein ESP M3, hast
+
+405
+00:53:35,200 --> 00:53:39,000
+mal Bock auf einen C++ Stream, wir haben doch schon ein paar Arduino-Sachen hier, bzw.
+
+406
+00:53:39,000 --> 00:53:44,280
+ESPs programmiert mit C++, bin ich ja immer halb durchgedreht, weil C++ so ein Ultra-Crab
+
+407
+00:53:44,280 --> 00:53:51,800
+ist, man, äh, C++, es wird jedem Standard sogar noch wirrer, ok, also, was muss man
+
+408
+00:53:51,800 --> 00:53:58,000
+machen, unplug, unplug two connectors, ne, gut, das ist optional, das muss man nicht
+
+409
+00:53:58,000 --> 00:54:13,560
+machen, ach, da muss man dran, ich dachte, man kann da direkt dran, chat, warum, das
+
+410
+00:54:13,560 --> 00:54:20,920
+müssen wir jetzt mal einer erklären, das verstehe ich jetzt nicht, warum, warum soll
+
+411
+00:54:20,920 --> 00:54:27,160
+man an die Pads da oben, warum soll man nicht an die runden Pads, sondern an diese Pads,
+
+412
+00:54:27,160 --> 00:54:34,520
+also warum soll man an diese Pads da oben und nicht an die da drunter, doch im Prinzip
+
+413
+00:54:34,520 --> 00:54:43,760
+genau das gleiche, hm, keine Ahnung, Geschmackssache würde ich sagen, oder, die haben die, ja,
+
+414
+00:54:43,760 --> 00:54:51,440
+haben die gleiche Bezeichnung, guck, die haben, äh, Ground 5 Volt, Ground 5 Volt, Clock,
+
+415
+00:54:51,440 --> 00:54:59,440
+S, ESPR und Reset, das ist genau der gleiche, sogar in der gleichen Reihenfolge, vielleicht,
+
+416
+00:54:59,440 --> 00:55:04,240
+vielleicht kommt man hier besser dran, das heißt, man kann die auch mixen miteinander,
+
+417
+00:55:04,240 --> 00:55:16,640
+ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne,
+
+418
+00:55:16,640 --> 00:55:32,840
+ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne, ne,
+
+419
+00:55:32,840 --> 00:55:42,240
+ist wenn du ein web server haben willst mit ssl dann ist eh vorbei was ich persönlich
+
+420
+00:55:42,240 --> 00:55:57,760
+ganz cool finde greif was ein geben von wenen an passen wir dann ok weiter also verzinden
+
+421
+00:55:57,760 --> 00:56:05,400
+ja ja bla bla wo muss er was dran ist so so schlau bin ich auch so schlau bin ich auch
+
+422
+00:56:05,400 --> 00:56:10,240
+also bis dahin krieg ich noch hin dass ich kraut und 5 volt brauche warum schreibst du
+
+423
+00:56:10,240 --> 00:56:14,080
+immer eine einzelne die machen wir aus rufzeichen 1 im chat da habe ich das mal irgendwann versucht
+
+424
+00:56:14,080 --> 00:56:22,080
+zu erklären und reset wozu brauchen wir reset aber reset und weil man braucht reset braucht
+
+425
+00:56:22,080 --> 00:56:37,400
+kein reset was das ist der pin used to receive data from
+
+426
+00:56:37,400 --> 00:56:54,360
+warum verwenden ein reset zum daten empfangen das hätte jetzt komplett falsch gemacht
+
+427
+00:56:54,360 --> 00:57:04,800
+ich hätte gedacht man braucht hier glock und und dings das da und sonst was hättet ihr
+
+428
+00:57:04,800 --> 00:57:11,120
+damit gerechnet dass reset der daten pin ist wobei es ist rest das ist nicht reset ok aber
+
+429
+00:57:11,120 --> 00:57:40,880
+da hätte ich gedacht ja dann ist easy dann ist dann ist easy warum reset
+
+430
+00:57:40,880 --> 00:57:53,280
+4 extra wires ach hier die da ja ok ja das können wir machen so wie schließt man wie
+
+431
+00:57:53,280 --> 00:58:10,160
+schließt man das ding an bme 680 wirtschamp also was braucht man da man muss an ok das
+
+432
+00:58:10,160 --> 00:58:24,800
+ist kann man da jeden pin verwenden für i2c was ist denn der die ich glaube bei das motor
+
+433
+00:58:24,800 --> 00:58:31,240
+kann man jeden pin dafür das motor i2c wie konfiguriert man das habe ich noch nicht
+
+434
+00:58:31,240 --> 00:58:42,200
+gemacht ja ich glaube man kann also ich glaube man kann mehr oder weniger den pin auswählen
+
+435
+00:58:42,200 --> 00:58:49,440
+dann in den in den settings wobei haben die das hier nicht einfach irgendwo drinnen stehen
+
+436
+00:58:49,440 --> 00:59:15,600
+wie man das motor settings macht das motor configuration ok das motor i2c konfig man
+
+437
+00:59:15,600 --> 00:59:31,480
+spricht das i2c aus ok ich nicht ok man kann man kann die gpi aus auswählen wie man wie
+
+438
+00:59:31,480 --> 00:59:43,840
+man lustig ist ich will ich will bloß sicherstellen dass ich nicht dass ich nicht das doppelt
+
+439
+00:59:43,840 --> 00:59:54,000
+machen muss und wieder ablöten muss und so was hier das da suche ich ok das kann man
+
+440
+00:59:54,000 --> 01:00:02,240
+also einstellen dann ist ja alles gut das motor bme 680 was braucht man dafür settings
+
+441
+01:00:02,240 --> 01:00:15,840
+für einfach so hier guckt easy einfach so ok dann nehme ich einfach auch die gleichen
+
+442
+01:00:15,840 --> 01:00:22,360
+gpio pins ein gutes gut das heißt was für gpio ausnehmen wir am besten welche auf der
+
+443
+01:00:22,360 --> 01:00:29,320
+gleichen seite und am besten auf der seite wo auch 5 volt ist also irgendwelche pins
+
+444
+01:00:29,320 --> 01:00:40,920
+unten also nehmen wir pin d4 d3 d2 wir schauen noch mal kurz in die pin belegung rein nicht
+
+445
+01:00:40,920 --> 01:00:46,920
+dass es irgendwelche reserved sachen sind für reset oder flash oder sowas die 1 mini
+
+446
+01:00:46,920 --> 01:01:08,320
+dsp 2866 pin out also da dran wollen wir d3 ist für flash ach guck mal d1 und d2 sind
+
+447
+01:01:08,320 --> 01:01:19,440
+schon starrmäßig scl erst jahr das ist ja alles gut dann ist alles gut ihr reicht doch
+
+448
+01:01:19,440 --> 01:01:31,400
+dann nehmen wir d4 d4 d2 und d1 das reicht doch mehr brauche ich nicht d4 d2 d1 easy da
+
+449
+01:01:31,400 --> 01:01:38,240
+machen wir das doch mal dann da machen das doch mal dann löten wir erstmal was dran also
+
+450
+01:01:38,240 --> 01:01:45,840
+wir machen ich würde vorschlagen wir machen folgendes wir flaschen den hier mit das motor
+
+451
+01:01:45,840 --> 01:01:58,680
+dann schließen wir den sensor an gucken ob das funktioniert oder wir löten den krempel
+
+452
+01:01:58,680 --> 01:02:04,480
+hier zuerst dran dann habe ich das hinter mir wir machen das lass mal lass mal kurz überlegen
+
+453
+01:02:04,480 --> 01:02:07,920
+wie machen wir das am besten also wir brauchen auf jeden fall was hatten das ding hier überhaupt
+
+454
+01:02:07,920 --> 01:02:16,440
+für für anschlüsse lass mal kurz lass mal kurz schauen v in 3,3 volt die 3,3 volt brauche
+
+455
+01:02:16,440 --> 01:02:24,280
+ich vom esp das ist wahrscheinlich 3,3 volt sensor gehe ich mal von aus da muss ich mal
+
+456
+01:02:24,280 --> 01:02:40,800
+schauen was ist denn das bme 680 ist das ein 3,3 volt sensor oder ist das ein verkrafteter
+
+457
+01:02:40,800 --> 01:02:53,840
+5 volt ach guck mal da ah easy for your convenience we've picked and placed sensor on a pcb 3.3
+
+458
+01:02:53,840 --> 01:03:00,640
+regulator and some level shifting so it can be easily used for your favorite 3,3 ok denn
+
+459
+01:03:00,640 --> 01:03:11,200
+das heißt ich brauche leider mal das das heißt ich kann das einfach v in mit an die
+
+460
+01:03:11,200 --> 01:03:23,920
+5 volt packen und gut ist das ist auch gut das ist ja gut da muss ich mir gar keine Gedanken
+
+461
+01:03:23,920 --> 01:03:28,560
+drüber machen so das heißt wir brauchen ein schwarzes kabel für ground das man dann am
+
+462
+01:03:28,560 --> 01:03:36,560
+endeffekt auch die sachen wieder findet wir brauchen ein rotes kabel für 5 volt und dann
+
+463
+01:03:36,560 --> 01:03:40,960
+chat ihr dürft euch aussuchen was was was nehmen wir wir haben noch wir haben noch drei
+
+464
+01:03:40,960 --> 01:03:49,720
+sachen zur auswahl daten vom luftsensor brauchen wir ein kabel und zwei kabel für datenübertragung
+
+465
+01:03:49,720 --> 01:03:57,320
+von dem ding was was wollen wir nehmen wir haben blau,purple,grau,grün,gelb,braun und
+
+466
+01:03:57,320 --> 01:04:10,640
+orange zur auswahl ihr dürft euch aussuchen gelb,lila,grau ok na rot haben wir schon rot
+
+467
+01:04:10,640 --> 01:04:25,840
+und schwarz haben wir schon orange na gut das wir haben jetzt zur auswahl gelb,lila,grau
+
+468
+01:04:25,840 --> 01:04:36,360
+und orange orange wir machen das so wir machen wir machen gelb wir machen gelb lila grau
+
+469
+01:04:36,360 --> 01:04:47,240
+genau so exellent ok also schauen wir uns das ganze mal an wir brauchen viel kabel braucht
+
+470
+01:04:47,240 --> 01:05:00,280
+man hier drin ja nicht machen wir hier kurz mal ab weil ich hab doch hier irgendwo den
+
+471
+01:05:00,280 --> 01:05:05,600
+so viel kabels brauchen wir nicht das reicht ja schon reicht ja schon dicke im endeffekt
+
+472
+01:05:05,600 --> 01:05:09,360
+guck mal das will ikea doch dass man das hier durch macht oder kann mir keiner was erzählen
+
+473
+01:05:09,360 --> 01:05:14,240
+dass sie das nicht wollen easy wir machen die kabel vielleicht ein bisschen länger sodass
+
+474
+01:05:14,240 --> 01:05:24,880
+dass wir auf jeden fall dass wir auf jeden fall genug haben müssen sie ja nicht übertreiben
+
+475
+01:05:24,880 --> 01:05:32,440
+jetzt so also das hier ist das board das board das muss auf jeden fall die kabel runter also
+
+476
+01:05:32,440 --> 01:05:45,640
+das heißt im endeffekt wir brauchen auf jeden fall mehr ground kabels machen wir mal ab
+
+477
+01:05:45,640 --> 01:05:53,440
+brauchen wir zwei stück brauchen zwei stück davon also wir brauchen einmal eins wobei
+
+478
+01:05:53,440 --> 01:06:09,640
+kann man das jetzt habe ich guck war das so rum ja also wir müssen einmal hier vom runter
+
+479
+01:06:09,640 --> 01:06:19,960
+dahin beziehungsweise zweimal einmal noch zum klauen von dem sensor dann brauchen wir
+
+480
+01:06:19,960 --> 01:06:29,600
+fünf volt runter zum esp der esp kommt dann da so so rum rein einmal runter dann brauchen
+
+481
+01:06:29,600 --> 01:06:35,440
+wir hier noch fünf volt v in aber das mache ich eh hier oben dran das passt dann das ist
+
+482
+01:06:35,440 --> 01:06:51,520
+nicht so wild zweimal datenkabels so das ist nicht lang ja das müsste eins gehen was
+
+483
+01:06:51,520 --> 01:06:59,600
+ich habe ich habe mich auf den chat was wer war vivo aktiv keine ahnung so ich muss jetzt
+
+484
+01:06:59,600 --> 01:07:05,440
+mal meinen lötkolben irgendwo auspacken wir haben etwas etwas wenig platz hier oben müssen
+
+485
+01:07:05,440 --> 01:07:11,320
+wir mal schauen wie wir das jetzt hinkriegen weil hier neben hier neben ist auch nicht
+
+486
+01:07:11,320 --> 01:07:17,800
+viel platz jetzt die steckdose direkt neben dran muss man ein bisschen bisschen platz
+
+487
+01:07:17,800 --> 01:07:44,080
+machen ok auf gehts der lötchamp wo ist er hier ok stellen wir mal hier hin dass es
+
+488
+01:07:44,080 --> 01:07:50,480
+nicht im weg ist ja ich habe hier nicht sonderlich üppig viel platz in dem setup aber man muss
+
+489
+01:07:50,480 --> 01:07:59,920
+das hier alles sehen man kann das ding morden ja ich habe letztens ein video gesehen auf
+
+490
+01:07:59,920 --> 01:08:07,600
+youtube dazu ich glaube ich habe gewackelt ich habe ein video auf youtube gesehen deswegen
+
+491
+01:08:07,600 --> 01:08:17,000
+habe ich mir auch gedacht wir machen das jetzt ok ich will jetzt erstmal eine zweimal zweimal
+
+492
+01:08:17,000 --> 01:08:28,640
+ground brauchen wir zweimal ground das müsste ich eigentlich ganz gut hier dran kriegen
+
+493
+01:08:28,640 --> 01:08:32,880
+als erstes mache ich mal ein bisschen löten übrigens wisst ihr was das gute an dieser
+
+494
+01:08:32,880 --> 01:08:50,880
+lötstation ist die heizt relativ schnell guck mal ich mache jetzt an so und jetzt zack
+
+495
+01:08:50,880 --> 01:09:00,040
+und wir haben gleich 360 370 grad easy fertig geheizt das geht sehr zackig so wir machen
+
+496
+01:09:00,040 --> 01:09:04,680
+tatsächlich erstmal eine runde lötzchen ein bisschen auf die pins dazu brauche ich
+
+497
+01:09:04,680 --> 01:09:15,240
+eine runde lötzchen komm her so jetzt wird es ein bisschen kompliziert weil ich sehe
+
+498
+01:09:15,240 --> 01:09:21,360
+immer nicht richtig wenn ich am streben bin und ich hier was versuche zu machen weil eigentlich
+
+499
+01:09:21,360 --> 01:09:26,400
+müsste ich hier unten was sehen was ich ja nicht mache aber vielleicht haben wir glück
+
+500
+01:09:26,400 --> 01:09:33,760
+vielleicht können wir das hiermit machen falls man das mal vielleicht vielleicht kriege
+
+501
+01:09:33,760 --> 01:09:48,040
+ich das wirklich ab wie macht man leute chat kennt jemand von euch diese connectors gibt
+
+502
+01:09:48,040 --> 01:09:53,120
+es da irgendeinen trick muss man aber im schraubenzieher irgendwas machen oder an irgendeine richtung
+
+503
+01:09:53,120 --> 01:10:00,320
+ziehen oder so dass das besonders leicht raus geht irgendwie kippen oder ok der ist schon
+
+504
+01:10:00,320 --> 01:10:16,280
+mal ab easy und der da
+
+505
+01:10:16,280 --> 01:10:28,040
+also den hier habe ich nicht gecheckt ok easy einfach einfach rohe gewalt und gutes
+
+506
+01:10:28,040 --> 01:10:31,720
+weil so ist es deutlich angenehmer gerade vielleicht kann ich das sogar hier hinlegen
+
+507
+01:10:31,720 --> 01:10:36,160
+dann ist weil hier unten ist ja dieses teil drunter dann dann ist es ein bisschen fester
+
+508
+01:10:36,160 --> 01:10:47,360
+ok jetzt machen wir erstmal bisschen bisschen lötzchen auf die pets mal schauen ob ich
+
+509
+01:10:47,360 --> 01:10:54,400
+das gescheit sehe und dass ihr was seht ich hoffe mal also ich mache jetzt erstmal ein
+
+510
+01:10:54,400 --> 01:11:07,400
+bisschen lötzchen hier unten auf die pets drauf
+
+511
+01:11:07,400 --> 01:11:14,760
+schön wir könnten wir könnten es eigentlich jetzt noch eine runde eine runde fluchsen
+
+512
+01:11:14,760 --> 01:11:28,160
+was ist mit dem fluchser los warum geht der nicht
+
+513
+01:11:28,160 --> 01:11:29,800
+warum fluchser fluchser nicht richtig
+
+514
+01:11:29,800 --> 01:11:37,040
+jetzt fluchser fluchser weiß ich ob ihr das seht
+
+515
+01:11:37,040 --> 01:11:49,040
+aber richtig schön der dicke fluchst drauf jetzt gut
+
+516
+01:11:49,040 --> 01:11:52,760
+warum nimmst du nicht die größeren pets wie im tutorial ja wie nimmt er jetzt die
+
+517
+01:11:52,760 --> 01:11:56,520
+jetzt ich habe mir das tutorials die bilder gar nicht mal geguckt macht er das jetzt auch
+
+518
+01:11:56,520 --> 01:12:01,920
+an die größeren pets das wollte ich ja eigentlich ursprünglich aber aus irgendwelchen gründen
+
+519
+01:12:01,920 --> 01:12:07,400
+dachte ich die nehmen die kleinen pets nimmt er auch das große weil wenn er die großen
+
+520
+01:12:07,400 --> 01:12:13,200
+pets nimmt ach der nimmt auch ja dann ist weil mir sind die großen pets auch deutlich
+
+521
+01:12:13,200 --> 01:12:18,520
+lieber was für was ist der flugstift dass das lötzchen besser fließt
+
+522
+01:12:18,520 --> 01:12:33,160
+braucht man nicht wirklich geht ohne leute guckt mal guckt vergleicht
+
+523
+01:12:33,160 --> 01:12:39,960
+es mal mit der anleitung bei ihm sind die dinger komplett naggisch die kontakte hier
+
+524
+01:12:39,960 --> 01:12:52,520
+ne und bei meinem hat ikea netterweise bei meinem hat ikea netterweise schon vorverzint
+
+525
+01:12:52,520 --> 01:12:59,160
+die pets alle seht ihr das also jetzt mal ehrlich ikea will dass man sich den kram
+
+526
+01:12:59,160 --> 01:13:04,600
+zum modden kauft die haben alle pins drauf die haben alle pins beschriffte drauf und
+
+527
+01:13:04,600 --> 01:13:12,640
+die haben die pins sogar schon vor ververzint
+
+528
+01:13:12,640 --> 01:13:17,240
+willst du den ans home netz anschließen naja home netz ans wlan ans wlan ja wir machen
+
+529
+01:13:17,240 --> 01:13:25,400
+trotzdem noch noch noch noch ein klecks noch ein klecks drauf ohne ohne irgendwie die wartet
+
+530
+01:13:25,400 --> 01:13:31,800
+mal nur so rum ein klecks drauf ohne die plastikfüßchen hier irgendwie
+
+531
+01:13:31,800 --> 01:13:37,760
+so was brauchen wir denn reset brauchen wir
+
+532
+01:13:37,760 --> 01:14:02,880
+jetzt haben wir ansonsten noch reset 5 volt 5 volt round sehr schön next da brauchen wir
+
+533
+01:14:02,880 --> 01:14:15,920
+die kabels gucken wir mal machen wir mal nach möglichkeit nicht so viel ab ah das ups das
+
+534
+01:14:15,920 --> 01:14:33,360
+war wahrscheinlich fast schon fast schon ein bisschen viel
+
+535
+01:14:33,360 --> 01:14:41,520
+brauchen wir nicht viel so ground und brauchen wir einmal für ein esp war bestehend da einmal
+
+536
+01:14:41,520 --> 01:14:46,760
+für ein esp so diesmal mache ich nicht den fehler wie das letzte mal diesmal mache ich
+
+537
+01:14:46,760 --> 01:14:49,920
+nicht den fehler wie das letzte mal letztes mal habe ich den fehler gemacht alles da dran
+
+538
+01:14:49,920 --> 01:14:53,680
+zu löten bevor ich es an esp gelötet habe ich mache es jetzt anders rum ich löte die
+
+539
+01:14:53,680 --> 01:15:16,440
+kann erst an esp und dann mache ich es an den kram dran ist mehr feifert
+
+540
+01:15:16,440 --> 01:15:23,480
+übrig gebliebenes lötzchen vorne dran machen so schauen wir mal wir wollen pin 5 volt was
+
+541
+01:15:23,480 --> 01:15:33,920
+hatten wir gesagt 5 volt ground d4 d2 d1 d3 haben wir ausgelassen
+
+542
+01:15:33,920 --> 01:15:42,560
+planst du auch den luftreiniger smart zu machen ich habe kein luftreiniger ne ne wir
+
+543
+01:15:42,560 --> 01:15:50,240
+könnten jetzt mal was testen und zwar benutzt das normalerweise nicht so oft aber in dem
+
+544
+01:15:50,240 --> 01:15:58,640
+fall bringt es vielleicht was weiß ich ob ihr das jetzt besser seht ich sehe es auf
+
+545
+01:15:58,640 --> 01:16:04,080
+jeden fall besser von oben jetzt muss ich mich nämlich nicht davor setzen immer fort
+
+546
+01:16:04,080 --> 01:16:24,000
+kann man nämlich hier oben schön 5 volt 5 volt jawohl sehr schick round round so was
+
+547
+01:16:24,000 --> 01:16:53,720
+haben wir gesagt 5 volt ground 5 volt d4 d2 d1 so und jetzt kabel champ so 5 volt wir
+
+548
+01:16:53,720 --> 01:17:01,720
+brauchen noch ein rotes kabel für aber guck mal dass das ungefähr gleich lang ist so
+
+549
+01:17:01,720 --> 01:17:07,240
+wahrscheinlich dass viel viel zu lang aber in ordnung man wurscht haben wir genug platz
+
+550
+01:17:07,240 --> 01:17:18,640
+drin ist ja nicht so als hätten wir da irgendwie zu wenig platz in dem gehäuse na geil
+
+551
+01:17:18,640 --> 01:17:39,960
+gut also 5 volt 5 volt kabels
+
+552
+01:17:39,960 --> 01:17:54,360
+was geht auch relativ easy was geht easy du meinst den luftreiniger ich habe nicht vor
+
+553
+01:17:54,360 --> 01:17:59,320
+mir den luftreiniger zu kaufen du meinst starkwind starkwind ist der ikea luftreiniger
+
+554
+01:17:59,320 --> 01:18:06,400
+ja aber starkwind wollte ich mir gar nicht kaufen ikea benahmung sind eh die besten
+
+555
+01:18:06,400 --> 01:18:21,160
+alle oder starkwind ok was nehmen wir jetzt wir nehmen den gelben merkt euch das mal jett
+
+556
+01:18:21,160 --> 01:18:27,240
+wir nehmen den gelben für den anschluss an den luftsensor das heißt der luftsensor
+
+557
+01:18:27,240 --> 01:18:31,600
+das geht dann nur dass ich das jetzt mir mal kurz im kopf überlege so das kommt dann
+
+558
+01:18:31,600 --> 01:18:40,960
+da unten rein und der anschluss ist oben da muss aber nicht sonderlich lange sein generell
+
+559
+01:18:40,960 --> 01:18:44,760
+ist die kabels viel zu lang die kann ich jetzt die hälfte abschneiden cacquade braucht
+
+560
+01:18:44,760 --> 01:18:54,440
+keiner so lange kabel hier aber besser bisschen mehr spielraum als zu wenig da ich mir jetzt
+
+561
+01:18:54,440 --> 01:19:11,640
+mal so gelb anschluss luftsensor genau
+
+562
+01:19:11,640 --> 01:19:19,000
+chat merkt sich das starkwind ist von haus aus schmart schmart ist das genau von haus
+
+563
+01:19:19,000 --> 01:19:25,600
+aus schmart vornuftig was vornuftig ok das ist ein luftfilter von ikea klingt auf jedenfall
+
+564
+01:19:25,600 --> 01:19:43,120
+sehr ikea mäßig ja vornuftig also hier sensor so dann brauchen wir noch was haben wir gesagt
+
+565
+01:19:43,120 --> 01:20:00,800
+koppel
+
+566
+01:20:00,800 --> 01:20:13,240
+waren wir heute der abisulier champ hat nicht funktioniert warum jetzt aber jetzt aber
+
+567
+01:20:13,240 --> 01:20:31,640
+hat er jetzt nicht das ist nicht schön das gefällt mir nicht das gefällt mir nicht das
+
+568
+01:20:31,640 --> 01:20:46,160
+machen wir noch ab das machen wir noch ab jetzt ist ok jetzt auch ja ja jetzt ist gut so und
+
+569
+01:20:46,160 --> 01:20:59,240
+als letztes noch ein krauen und dann gucken wir mal wie das funktioniert da bin ich bin mal
+
+570
+01:20:59,240 --> 01:21:02,360
+gespannt ob das funktioniert wir müssen es gleich noch flaschen das ding das hätte ich
+
+571
+01:21:02,360 --> 01:21:07,580
+eigentlich als erstes machen sollen zu flaschen aber ich ziemlich war ich zu zu zu ppega im
+
+572
+01:21:07,580 --> 01:21:13,720
+kopf dass ich es geflasht habe dass ich nicht geflasht habe das wäre deutlich sinnvoller
+
+573
+01:21:13,720 --> 01:21:22,040
+gewesen übrigens wie ist das bei euch stört euch das wenn ihr diese lötsachen einatmet
+
+574
+01:21:22,040 --> 01:21:27,320
+oder nicht also dass das schlimmste der gefühle das höchste der gefühle was ich davon schon mal
+
+575
+01:21:27,320 --> 01:21:37,720
+hatte ist kopf weh aber auf dauer ist es wahrscheinlich wirklich wirklich nicht sonderlich
+
+576
+01:21:37,720 --> 01:22:04,520
+gesund das ist nicht schön das ist nicht schön das gefällt mir nicht ja besser ok gut wir
+
+577
+01:22:04,520 --> 01:22:11,560
+haben alle kabels dran der rauch nervt ja man kommt in das motor drauf gleich wenn das
+
+578
+01:22:11,560 --> 01:22:19,640
+wenn das alles angeschlossen ist ja ich habe ich habe mir für sowas mal ein usb lüfter
+
+579
+01:22:19,640 --> 01:22:31,400
+gekauft den ich daneben stellen kann naja gut bevor wir weitermachen chat das ist eine
+
+580
+01:22:31,400 --> 01:22:36,160
+sehr gute sehr gute idee flaschen wir erst mal weil bevor ich habe garantiert keinen
+
+581
+01:22:36,160 --> 01:22:41,360
+bock mehr den krempel als ein pc anzustöpseln wenn ich das eingebaut habe wir flaschen
+
+582
+01:22:41,360 --> 01:22:51,960
+es erst mal schnell flaschchamp und zwar tesmo taser haben wir doch irgendwo ok es
+
+583
+01:22:51,960 --> 01:23:03,480
+gibt es eine neues update tesmo taser schitt schitt tesmo taser gut den tesmo taser können
+
+584
+01:23:03,480 --> 01:23:08,680
+wir gar nicht verwenden wir brauchen das motor all sensors ich weiß gar nicht ob der tesmo
+
+585
+01:23:08,680 --> 01:23:17,840
+taser das tesmo taisen kann ich habe es gar nicht darüber installiert aber was habe ich
+
+586
+01:23:17,840 --> 01:23:32,680
+das denn zählt pip install tasmo nee installiert man das ich meine man kann es mit dem esp
+
+587
+01:23:32,680 --> 01:23:39,640
+tool einfach flaschen ja das geht auch stimmt wir können es ja über die neue webseite
+
+588
+01:23:39,640 --> 01:23:44,680
+machen die haben doch jetzt so eine tasmotar webserie die haben doch jetzt so eine webseite
+
+589
+01:23:44,680 --> 01:23:50,440
+für usb gedöns na web usb stimmt stimmt ja ihr habt recht wir brauchen das gar nicht
+
+590
+01:23:50,440 --> 01:24:06,680
+mehr machen wenn ich nur wüsste wo die ist web flasch ja ja flasch flasching from your
+
+591
+01:24:06,680 --> 01:24:27,840
+web browser äh wo ist der link tasmotar web installer hier das suche ich genau haben
+
+592
+01:24:27,840 --> 01:24:35,840
+die all sensors ich brauche all sensors unofficial all sensors das brauche ich weil nur da ist
+
+593
+01:24:35,840 --> 01:24:45,480
+ein windregning dabei das ist by the way kann das firefox auch wahrscheinlich haben wir
+
+594
+01:24:45,480 --> 01:25:05,680
+mal chrome auf install ok usb gib ihm usb ich habe keinen freien usb was kann ich denn
+
+595
+01:25:05,680 --> 01:25:17,960
+hier raus machen das da äh moment leute ich habe keinen freien usb ich muss mal kurz gucken
+
+596
+01:25:17,960 --> 01:25:25,840
+wo ist denn mein mikrofon dran das kann ich nämlich dann raus machen ja das da ok das
+
+597
+01:25:25,840 --> 01:25:36,560
+ist das normale mikrofon also nicht das was ich jetzt hier habe connect to virtual machine
+
+598
+01:25:36,560 --> 01:25:44,160
+poggers remember jawoll da schauen wir mal ob das jetzt mit dem mit dem flaschen funktioniert
+
+599
+01:25:44,160 --> 01:25:49,320
+über übers web interface das habe ich noch nicht gemacht all sensors brauchen wir das
+
+600
+01:25:49,320 --> 01:26:03,920
+habe ich im vorfeld schon gesehen connect geht es jetzt wahrscheinlich der hier schauen
+
+601
+01:26:03,920 --> 01:26:12,640
+wir mal tty usb alles klar ja dann ist es be no port selected weiß ich habe den raus
+
+602
+01:26:12,640 --> 01:26:25,000
+gewählt usb connect tatsächlich das sind wir das sind wir leute install install das
+
+603
+01:26:25,000 --> 01:26:32,960
+motor all sensors jawoll erase device next install ich habe noch nie über den browser
+
+604
+01:26:32,960 --> 01:26:45,000
+geflasht prog prog g gibt auch auf git ein mqtt connectivity ja ich weiß aber wir nehmen
+
+605
+01:26:45,000 --> 01:26:50,200
+das motor das ist mit abstand am einfachsten wenn es denn dann mal drauf ist so ich mache
+
+606
+01:26:50,200 --> 01:26:55,840
+schon mal mein ipad ich zucke schon mal mein ipad dass ich den sensor wlan technisch einrichten
+
+607
+01:26:55,840 --> 01:27:01,280
+kann da dürft ihr dann aber nicht zugucken weil ich will mein wlan password nicht on
+
+608
+01:27:01,280 --> 01:27:10,520
+stream leaken warum nicht wir machen auch nix ich kenne euch also ihr werdet die letzten
+
+609
+01:27:10,520 --> 01:27:14,320
+die was machen wenn ich mein wlan password liege beziehungsweise wenn ich irgendwelche
+
+610
+01:27:14,320 --> 01:27:19,280
+account account password da liege ihr werdet die letzten die was macht ne ich weiß ich
+
+611
+01:27:19,280 --> 01:27:29,400
+weiß ja ja ich erinnere mich noch daran als ich mal aus versehen was war das denn was
+
+612
+01:27:29,400 --> 01:27:38,920
+ich da geleakt habe 10 minute mail oder irgendwie sowas wo ich dann gleich wo ich dann gleich
+
+613
+01:27:38,920 --> 01:27:51,360
+subscriptions hatte zum bracer newsletter und und was weiß ich sonstige dinger ich erinnere
+
+614
+01:27:51,360 --> 01:27:59,160
+mich noch chat ok das motor ah guck mal wir haben ein tas motor gerät gefunden das ist
+
+615
+01:27:59,160 --> 01:28:05,760
+schon mal gut next nein nein nein wir scannen hier nix nix vor wifi das mache ich selbst
+
+616
+01:28:05,760 --> 01:28:21,040
+ok
+
+617
+01:28:21,040 --> 01:28:27,240
+alles klar so dann schließe ich das mal hier an und wir schauen mal ob ich das gescheit
+
+618
+01:28:27,240 --> 01:28:42,560
+konfiguriert kriegen ihr seht habt geplinkt das motor access point da ist er warum warum
+
+619
+01:28:42,560 --> 01:28:48,080
+startet das ding warum startet das ding jetzt keine wifi konfig soll das jetzt nicht eigentlich
+
+620
+01:28:48,080 --> 01:28:56,400
+wifi konfig starten beziehungsweise auf die muss jetzt von hand auf die webseite das ist
+
+621
+01:28:56,400 --> 01:29:05,360
+doch komisch das ist irgendwas mit dem webflasher der vielleicht was anders macht meine ahnung
+
+622
+01:29:05,360 --> 01:29:20,280
+und hier und eins ne funktioniert alles gut also key pass das seht ihr jetzt nicht und
+
+623
+01:29:20,280 --> 01:29:37,480
+ich liege jetzt auch keine passwörter so also das muss jetzt mal kurz eingeben user
+
+624
+01:29:37,480 --> 01:30:00,960
+passwort alles klar safe not now und jetzt muss ich in meinen router gucken ob der kram
+
+625
+01:30:00,960 --> 01:30:19,840
+eine ip hat und dann geht's weiter das motor hat eine leases irgendwas mit 60 60 113 das
+
+626
+01:30:19,840 --> 01:30:49,000
+klingt doch gut ping ok so bei so bei empfang alles klar so geht das motor jetzt auf
+
+627
+01:30:49,000 --> 01:31:01,160
+öffnen da sind wir nice ok das motor kram ist drauf wir können weitermachen ip liegt
+
+628
+01:31:01,160 --> 01:31:12,840
+oh nein jetzt ist aber jetzt vorbei leute ich habe meine ip geliegt shit ich muss euch
+
+629
+01:31:12,840 --> 01:31:18,640
+übrigens wirklich mal kurz ausmachen muss ntp server und zeug eingeben das problem ist
+
+630
+01:31:18,640 --> 01:31:24,840
+nicht die ntp server die ich nicht will dass ihr seht sondern eventuelle wifi settings und
+
+631
+01:31:24,840 --> 01:31:29,000
+gedöns ich weiß nicht genau was passiert wenn ich die konsolen wenn ich die konsolen
+
+632
+01:31:29,000 --> 01:31:35,240
+ansicht aufmache weiß jetzt aus dem kopf kann ich müssen wir mal schauen konsole geht
+
+633
+01:31:35,240 --> 01:31:44,040
+auch gerade nicht auf ihr seid jetzt ihr seid jetzt kurz unter euch chat oder oder ihr sagt
+
+634
+01:31:44,040 --> 01:31:48,640
+ihr guckt nicht hin wenn ich den chat wenn ich wenn ich das fenster aufmache da kann
+
+635
+01:31:48,640 --> 01:31:57,880
+ich euch doch bestimmt trauen wenn ihr sagt ihr guckt mich hin
+
+636
+01:31:57,880 --> 01:32:05,880
+ja ja ich weiß ich weiß immer dem chat kamer prinzipiell was was blind vertrauen das ist
+
+637
+01:32:05,880 --> 01:32:16,960
+ja allseits bekannt das weiß man ja so ich bin aber auch schon fertig es ist eh nicht
+
+638
+01:32:16,960 --> 01:32:21,080
+schlimm ist was man da kurz was man da sieht aber man muss ja nicht mehr liegen als sein
+
+639
+01:32:21,080 --> 01:32:31,320
+muss so fertig also wir haben es geflasht es ist alles da wir können das theoretisch schon
+
+640
+01:32:31,320 --> 01:32:43,560
+einstellen generic braucht man hier glaube ich generic 18 save sollte es eigentlich neu
+
+641
+01:32:43,560 --> 01:32:48,600
+starten ja ja ihr dürft wieder gucken ihr dürft die augen aufmachen schätz alles gut
+
+642
+01:32:48,600 --> 01:32:55,660
+und figure module so und hier können wir den kram dann einstellen ach hier ist ach so ok
+
+643
+01:32:55,660 --> 01:33:09,840
+was hatten wir noch mal also d4 ist wenn windrick ning ist d4 und dann machen wir so das d1
+
+644
+01:33:09,840 --> 01:33:26,280
+und d2 wieder die eins und jetzt also die eins ist scl machen wir so die eins ist scl
+
+645
+01:33:26,280 --> 01:33:43,680
+ist scl sda so main menu gut jetzt haben wir alles konfiguriert am sensor was wir konfigurieren
+
+646
+01:33:43,680 --> 01:33:47,640
+müssen das heißt im endeffekt wenn ich es jetzt anlöte sollte es eigentlich sofort
+
+647
+01:33:47,640 --> 01:33:57,160
+funktionieren wofür steht scl und sda boah das eine ist glaube ich clock oder so ich
+
+648
+01:33:57,160 --> 01:34:10,840
+weiß gar nicht das eine ist ich glaube das eine ist clock und das andere ist data also
+
+649
+01:34:10,840 --> 01:34:21,000
+ich glaube scl ist clock und das andere ist data oder so ach serial clock ok ja ja genau
+
+650
+01:34:21,000 --> 01:34:24,000
+was machst du eigentlich beruflich was hast du gelernt ich habe mal fachinformatiker system
+
+651
+01:34:24,000 --> 01:34:32,320
+integration gelernt 2007 das ist schon ein bisschen her ich bin ja auch alt nicht wie
+
+652
+01:34:32,320 --> 01:34:40,920
+die ganzen zoomer im chat ja was ich auf der arbeit mache das kannst du dir auf youtube
+
+653
+01:34:40,920 --> 01:34:48,080
+angucken da habe ich irgendwelche videos zum thema gemacht kannst du entweder das lange
+
+654
+01:34:48,080 --> 01:34:54,560
+video mit dem noel angucken wo wir uns drüber ausgelassen haben oder du guckst dir mein
+
+655
+01:34:54,560 --> 01:35:04,920
+video an wo ich aus irgendwelchen gründen für eine gute idee hielt dass oder muss los
+
+656
+01:35:04,920 --> 01:35:14,120
+wie ihm rein zu hauen na gut wolltest du nicht ein video mit meinem chef das wollte nicht
+
+657
+01:35:14,120 --> 01:35:18,600
+video mit meinem chef mein ich wollte ich video mit meinem stazubi gemacht ja mit einem anderen
+
+658
+01:35:18,600 --> 01:35:22,400
+aus der firma der bei der hotline früher gearbeitet hat und irgendwelche horror stories erzählen
+
+659
+01:35:22,400 --> 01:35:28,280
+kann ja das wollte ich machen ich habe noch ein bettel viel drei gameplay von meinem
+
+660
+01:35:28,280 --> 01:35:41,800
+chef von vor zehn jahren oder so auf musik hat er mir irgendwann mal gegeben ok so jetzt
+
+661
+01:35:41,800 --> 01:35:53,240
+muss man erst mal anlöten leute ja auf auf es ist 21 uhr 50 minuten zeit das muss man
+
+662
+01:35:53,240 --> 01:35:57,560
+jetzt mal machen also löten kann wieder an stellsding hier weg so also das war es ja
+
+663
+01:35:57,560 --> 01:36:08,160
+eigentlich also wir haben den kram hier alles ordentlich dran ist ok dann mache ich mal
+
+664
+01:36:08,160 --> 01:36:16,520
+kurz den dinge zum festhalten wieder weg das ist total useless zum größten teil gut
+
+665
+01:36:16,520 --> 01:36:25,400
+also wie kriegen wir denn jetzt diesen krempel hier dran also wir brauchen wir brauchen fünf
+
+666
+01:36:25,400 --> 01:36:30,520
+volt und wir brauchen ground das ist erstmal das wichtigste wir schließen erstmal den
+
+667
+01:36:30,520 --> 01:36:46,040
+air quality sensor an erstmal nur den air quality sensor dann mal schauen was weggeflogen
+
+668
+01:36:46,040 --> 01:37:02,760
+gerade mal kurz die kabels ein bisschen verlöt zinnen das erhält oder es ist aber sehr
+
+669
+01:37:02,760 --> 01:37:10,960
+minimalistisch das kabel was ich da ab isoliert habe aber sollte reichen ok also kabel ground
+
+670
+01:37:10,960 --> 01:37:21,480
+ist der da wir machen 5 volt dran weil wir fangen auf der rechten seite an also 5 volt
+
+671
+01:37:21,480 --> 01:37:44,640
+so 5 volt kabel dran das habe ich natürlich gewohnt seriously max alter so das ist nicht
+
+672
+01:37:44,640 --> 01:38:04,400
+der laktrad ne so das hier ist ground ah das funktioniert die kabel sind nicht schlecht
+
+673
+01:38:04,400 --> 01:38:12,480
+so ground haben wir dran und jetzt brauchen wir noch gelb hatten wir gesagt gelb ist das
+
+674
+01:38:12,480 --> 01:38:17,680
+kabel oh das ist nicht schön geworden max max so geht das aber nicht das muss ich nochmal
+
+675
+01:38:17,680 --> 01:38:23,880
+neu machen das sagt das habe ich nicht richtig gesehen
+
+676
+01:38:23,880 --> 01:38:32,040
+die kunde das muss ich nochmal neu machen das ist müll wobei das brauchen wir eigentlich
+
+677
+01:38:32,040 --> 01:38:37,360
+jetzt auch erstmal nicht mein konne ist klassisch schön dass du hier den wish her gefunden
+
+678
+01:38:37,360 --> 01:38:42,680
+hast das muss ich auch mal schnell ordentlich machen seht ihr eigentlich meinen kopf wenn
+
+679
+01:38:42,680 --> 01:39:00,400
+ich so mache neke jetzt sagt er nein nein lull dabei ist alles sichtbar ah das ist schön
+
+680
+01:39:00,400 --> 01:39:10,160
+fest pock pock das wir machen das nochmal bisschen ordentlicher ich hoffe dass der kram
+
+681
+01:39:10,160 --> 01:39:20,400
+auch hält später ja das ist schön das ist schön so und jetzt hier nochmal den gelben
+
+682
+01:39:20,400 --> 01:39:50,320
+dran nein kapp ja jetzt ist schön fest alles klar so also und d4 haben wir gesagt auf oder
+
+683
+01:39:50,320 --> 01:40:02,040
+den rest was auch immer rest der da oh den habe ich gar nicht abisoliert mal mal kurz
+
+684
+01:40:02,040 --> 01:40:07,800
+so und dann schalten wir ein und dann sollte direkt der luftqualitäts sensor funktionieren
+
+685
+01:40:07,800 --> 01:40:26,760
+sobald ich das usb kabel dran stecke soweit zumindest in der theorie auch gleich funktioniert
+
+686
+01:40:26,760 --> 01:40:39,040
+alles ah das sieht gut aus das sieht richtig gut aus da ist das habe ich das habe ich gut
+
+687
+01:40:39,040 --> 01:40:48,840
+hingekriegt guck mal kann man sich kann man sich nicht nicht beschweren ok so schließen
+
+688
+01:40:48,840 --> 01:41:00,040
+wir mal an und gucken ob es funktioniert schauen wir mal bin bin gespannt bin bin gespannt
+
+689
+01:41:00,040 --> 01:41:06,400
+ob es funktioniert wenn ich das richtig gemacht habe dann sollte jetzt nämlich auch der sensor
+
+690
+01:41:06,400 --> 01:41:24,960
+angehen wenn ich das ikea teil einstöpsel also da gucken wir mal ikea stöpseler alles
+
+691
+01:41:24,960 --> 01:41:35,000
+richtig dran 5 volt ground letzte möglichkeit zu checken 5 volt ground ja alles klar bamm
+
+692
+01:41:35,000 --> 01:41:42,400
+es hat geplinkt sachen die plinken und nicht rauchen sind schon mal immer gut woop woop
+
+693
+01:41:42,400 --> 01:41:51,640
+smoke ja da sind wir leute bamm habe ich nicht mit wind dricken eingestellt config module
+
+694
+01:41:51,640 --> 01:42:00,040
+gpio 4 sind wir noch gpio 4 oder nicht gpio 4 d4 ah ich habe ist ne ne ist doch richtig
+
+695
+01:42:00,040 --> 01:42:18,960
+d4 ist wind regnen ich muss wahrscheinlich noch config oh oh ne template config template
+
+696
+01:42:18,960 --> 01:42:28,000
+muss ich machen wait wait a minute bin ich mal mal muss man das jetzt über config module
+
+697
+01:42:28,000 --> 01:42:44,160
+machen oder config config template ich bin ich bin moment wie macht wie machten der
+
+698
+01:42:44,160 --> 01:43:07,560
+du das jetzt module parameters ja habe ich gemacht ein
+
+699
+01:43:07,560 --> 01:43:17,600
+wo ist das problem
+
+700
+01:43:17,600 --> 01:43:29,320
+habe das mehr oder weniger so wie der dude eingestellt safe drücken keine ahnung vielleicht
+
+701
+01:43:29,320 --> 01:43:38,640
+bringt der müsste eigentlich mir die werte vom luftqualitäts sensor anzeigen vielleicht
+
+702
+01:43:38,640 --> 01:43:46,680
+geht leute null der sensor sogar nicht dran ich habe den sensor abgesteckt dass er da
+
+703
+01:43:46,680 --> 01:44:03,760
+nichts anzeichnet sei relativ klar ab aufwickeln weg damit ich hoffe das geht jetzt wenn ich
+
+704
+01:44:03,760 --> 01:44:21,840
+das dranschließe also so so und so so jetzt sind wir dran also ich habe doch alles also
+
+705
+01:44:21,840 --> 01:44:35,480
+controller ist dran auf d4 ist der gelbe und der gelbe ist auf rest das ist eigentlich
+
+706
+01:44:35,480 --> 01:44:54,520
+alles richtig an eigentlich alles ok ja guck mal mal jetzt funktioniert die hat ja ha wind
+
+707
+01:44:54,520 --> 01:45:15,720
+dringend pm 2,5 um micrometers in einem kubikmeter luft ne also 48 mikrogramm partikel in einem
+
+708
+01:45:15,720 --> 01:45:29,480
+kubikmeter luft interpretiere ich das hier richtig ja ist das gut oder schlecht
+
+709
+01:45:29,480 --> 01:45:39,840
+ich habe keine ahnung ich weiß es nicht wir können das mal ausprobieren ich meine die
+
+710
+01:45:39,840 --> 01:45:45,760
+luft hier drin ist nicht gut ich habe hier gelöt stinkt die ganze zeit ich ich puste
+
+711
+01:45:45,760 --> 01:46:03,520
+mal was da passiert macht das irgendwas juckt ihn das soll ich mal rein purzen ich bin mir
+
+712
+01:46:03,520 --> 01:46:30,320
+gar nicht sicher ob das permanent misst oder oder es aus oder der hat es gerade ausgeschaltet
+
+713
+01:46:30,320 --> 01:46:44,400
+warte einen minuten der bringt mir auch bis sie oft was ist da los was ist da los was ist
+
+714
+01:46:44,400 --> 01:46:57,080
+da los meine kurzschlüsse habe ich auch kapituliert ist alles alles sehr nice und ordentlich das
+
+715
+01:46:57,080 --> 01:47:00,520
+ist der einzige problem
+
+716
+01:47:00,520 --> 01:47:08,780
+550
+
+717
+01:47:08,780 --> 01:47:27,500
+Sag mal, das Ding schallt sich doch aus und ein, oder?
+
+718
+01:47:27,500 --> 01:47:31,340
+Sehe ich das falsch oder überträgt das einfach nur Daten die ganze Zeit?
+
+719
+01:47:31,340 --> 01:47:39,780
+Ja wie kann ich denn das jetzt kann ich irgendwie bisschen bisschen staub machen oder irgendwas
+
+720
+01:47:39,780 --> 01:48:05,980
+das ist ich habe keine ahnung was ich da ich das testen kann ob das funktioniert kärze
+
+721
+01:48:05,980 --> 01:48:14,220
+oder streich das ist eine super idee ich habe ein feuerzeug hier irgendwo ja bin bei der
+
+722
+01:48:14,220 --> 01:48:21,340
+war ich bin nicht raucher das ist nur zum nur für schrumpffläuche nur für schrumpffläuche
+
+723
+01:48:21,340 --> 01:48:42,060
+no cup bringt das was wenn ich mit dem feuerzeug irgendwie so irgendwie mache also keine ahnung
+
+724
+01:48:42,060 --> 01:49:08,140
+feuerzeug bringt ja nichts oder doch doch guckt mal ein bisschen was gebracht
+
+725
+01:49:08,140 --> 01:49:18,140
+ein bisschen was gebracht haben desinfektionsmittel gute idee ich könnte ja ich könnte ja gas
+
+726
+01:49:18,140 --> 01:49:22,980
+ey leute wir können den gassensor testen guck mal jetzt ist wieder runtergegangen das lager
+
+727
+01:49:22,980 --> 01:49:27,180
+wir können den gassensor testen wenn ich einfach hier drauf drücke da kommt ein bisschen
+
+728
+01:49:27,180 --> 01:49:42,500
+gas raus oder ja ist das klappt das bei feuerzeug noch dass
+
+729
+01:49:42,500 --> 01:49:50,140
+dann gas raus kommt wenn man da einfach da drauf drückt ich bin kein feuerzeug experte
+
+730
+01:49:50,140 --> 01:49:58,020
+gut guck mal jetzt gehts wieder runter das hat tatsächlich das hat reproduzierbar funktioniert
+
+731
+01:49:58,020 --> 01:49:59,580
+mit dem feuerzeug ich mein ich hab hier noch so eins
+
+732
+01:49:59,580 --> 01:50:20,580
+ich glaub das andere mal das andere macht mehr mehr partikel
+
+733
+01:50:20,580 --> 01:50:34,540
+das andere macht mehr partikel wegen diesem komischen feuer
+
+734
+01:50:34,540 --> 01:50:40,500
+was auch immer ich glaube ich glaube dem schon dass das funktioniert sehr schön gut also
+
+735
+01:50:40,500 --> 01:50:45,460
+das funktioniert da bin ich happy bist du raucher nein no cup ich hab die feuerzeuge
+
+736
+01:50:45,460 --> 01:50:51,500
+nur zum schrumpfschlauch für schrumpfschläuche und soll ich euch mal die geilste erfindung
+
+737
+01:50:51,500 --> 01:50:57,740
+für guck mal 65 geht hoch die geilste erfindung für leute die kein bock haben zu löten aber
+
+738
+01:50:57,740 --> 01:51:25,140
+mehrere sachen verbinden müssen zeigen ich hols mal kurz
+
+739
+01:51:25,140 --> 01:51:32,860
+guck mal ich hab jetzt nur einen mittelgroßen geholt das ist eine kombination eine kombination
+
+740
+01:51:32,860 --> 01:51:40,700
+aus schrumpfschlauch mit lötzin und auto und kleber die das wasserdicht zu macht funktioniert
+
+741
+01:51:40,700 --> 01:51:44,580
+folgendermaßen ich bräuchte mal ein kabel was ein bisschen dicker ist
+
+742
+01:51:44,580 --> 01:51:56,220
+aber gerade hier keins egal ich dann zeige ich dann zeige ich euch das jetzt mal damit
+
+743
+01:51:56,220 --> 01:51:57,220
+es ist ja wurscht
+
+744
+01:51:57,220 --> 01:52:04,780
+ich hab doch eben noch mehr von diesem kraut mit dem schwarzen kabel abgemacht oder
+
+745
+01:52:04,780 --> 01:52:13,380
+ja also von der idee funktioniert das folgendermaßen einfach hier ein bisschen von dem von dem
+
+746
+01:52:13,380 --> 01:52:20,460
+schwarzen kabel man nimmt das ist jetzt zu dünn das das funktioniert das nicht richtig
+
+747
+01:52:20,460 --> 01:52:35,980
+so man nimmt das isoliert das isoliert das ab ordentlich so an beiden seiten und dann
+
+748
+01:52:35,980 --> 01:52:49,300
+nimmt man das und dann nimmt man das kann das jetzt nicht
+
+749
+01:52:49,300 --> 01:52:57,460
+gescheit zeigen das ist ja toll man nimmt das und steckt das hier rein von beiden seiten
+
+750
+01:52:57,460 --> 01:53:05,620
+zack dass es in die mitte geht und das auch so in die mitte und dann nimmt man feuerzeug
+
+751
+01:53:05,620 --> 01:53:19,140
+dann nimmt man feuerzeug und schmilzt das in der mitte easy und dann schmilzt das lötzin
+
+752
+01:53:19,140 --> 01:53:24,580
+und dann kann man den rest noch schrumpfen hier das funktioniert es nicht richtig weil
+
+753
+01:53:24,580 --> 01:53:28,180
+die kabel die kabel sind zu dünn aber ihr könnt euch glaube ich vorstellen ungefähr
+
+754
+01:53:28,180 --> 01:53:42,060
+wie es funktioniert und das ist halt richtig richtig nice und ihr habt jetzt ein komplett
+
+755
+01:53:42,060 --> 01:53:46,100
+verlötetes ich weiß nicht ob man das gescheit erkennt ich muss mal aufbauen das ist noch
+
+756
+01:53:46,100 --> 01:53:53,300
+ein bisschen heiß ihr habt jetzt ein komplett verlötetes kabel wasserdicht durch das kleber
+
+757
+01:53:53,300 --> 01:54:02,500
+an der seite und geschrumpft schlauch zusammen ist das dien konform keine ahnung es ist praktisch
+
+758
+01:54:02,500 --> 01:54:13,500
+es ist praktisch konform das ist das ist wirklich mega nice dieses zeug nur mal so nebenbei
+
+759
+01:54:13,500 --> 01:54:18,820
+gezeigt ja die dinger sind wirklich die kosten auch nur ein apple und ein eyeball bei amazon
+
+760
+01:54:18,820 --> 01:54:27,460
+so ein set weiß ich hatte mal plan wie das heißt schrumpfverbinder oder irgendwas lötverbinder
+
+761
+01:54:27,460 --> 01:54:42,340
+oder irgendwie so in der richtung weiß ich nicht wie das zumindest praktisch ok hat es
+
+762
+01:54:42,340 --> 01:54:50,860
+jetzt mit dem sensor alles funktioniert er läuft noch er misst noch warum geht der aus
+
+763
+01:54:50,860 --> 01:54:58,460
+nach einer zeit wisst ihr woran ich glaube dass das liegt glaube das liegt am china chinesen
+
+764
+01:54:58,460 --> 01:55:06,100
+usb kabel so dumm es klingt ich glaube es liegt am china chinesen usb kabel wüsste
+
+765
+01:55:06,100 --> 01:55:18,900
+nicht warum der warum der regelmäßig ausgehen sollte ehrlich gesagt gibt er gibt wenig sinn
+
+766
+01:55:18,900 --> 01:55:32,300
+ok gut also erstmal kurz ein bisschen platz machen hier so jetzt müssen wir noch den
+
+767
+01:55:32,300 --> 01:55:39,100
+da dran löten das ist der sensor für gas das können wir gleich testen der sensor für
+
+768
+01:55:39,100 --> 01:56:08,860
+gas für luftdruck luftfeuchtigkeit und temperatur gucken wir mal
+
+769
+01:56:08,860 --> 01:56:16,780
+gut löten wir das mal dran müssen wir mal kurz gucken welche haben wir gesagt die da
+
+770
+01:56:16,780 --> 01:56:21,980
+hat sich irgendjemand gemerkt was sdl ist und was sda ist ich weiß wir können es einfach
+
+771
+01:56:21,980 --> 01:56:28,740
+umstellen das ist kein ding so wir brauchen noch einmal ground und einmal 5 volt dafür
+
+772
+01:56:28,740 --> 01:56:38,300
+merke ich gerade habe ich schon wieder verdrängt was wärme schrumpfender stoßverbinder quasi
+
+773
+01:56:38,300 --> 01:56:59,980
+der gachi bassverbinder ok das da das da jetzt habe ich das natürlich
+
+774
+01:56:59,980 --> 01:57:11,700
+hier dran gemacht das war ziemlich ich brauche nämlich noch was und zwar das hätte ich mal
+
+775
+01:57:11,700 --> 01:57:17,340
+ordentlich aufwickeln sollen mensch das denn hier ach jetzt weiß ich aber was da vorhin
+
+776
+01:57:17,340 --> 01:57:27,980
+geflogen ist diese diese zusammenhaltdinger sind darunter geflogen ich brauche ein kurzes
+
+777
+01:57:27,980 --> 01:57:34,900
+ein sehr kurzes schwarzes kabel noch es muss wirklich nicht lang sein weil das geht im
+
+778
+01:57:34,900 --> 01:57:50,820
+endeffekt nur von hier nach hier nicht nicht weit so gut ich löte es dann direkt hier
+
+779
+01:57:50,820 --> 01:58:10,020
+dran und an den sensor was das so an den sensor dann brauchen wir noch ein rotes für 5 volt
+
+780
+01:58:10,020 --> 01:58:15,020
+auch nicht so lang auch so das reicht dann schauen wir mal ob das mit dem sensor auch
+
+781
+01:58:15,020 --> 01:58:24,700
+so easy funktioniert und einfach und einfach tut mal gespannt was das mit dem feuerzeug
+
+782
+01:58:24,700 --> 01:58:29,580
+funktioniert hast du eigentlich schon mal mit skala programmiert nein ich hatte mal
+
+783
+01:58:29,580 --> 01:58:34,540
+die ehre nicht wirklich großartig was damit zu machen aber wir hatten mal eine software
+
+784
+01:58:34,540 --> 01:58:40,460
+in erlangen ein bisschen erlangen kram zu lesen und das war absolute zumutung das ganze
+
+785
+01:58:40,460 --> 01:58:46,900
+besteht nur aus klammern diese programmier sprache man richtig richtig hyper pepega kram
+
+786
+01:58:46,900 --> 01:58:53,740
+ist das soll wieder einschalten also wer sich wer sich erlangen ausgedacht hat ist
+
+787
+01:58:53,740 --> 01:59:02,700
+mir auch komplettes rätsel der muss der steht auf jeden fall auf klammern der typ also erlangen
+
+788
+01:59:02,700 --> 01:59:14,580
+ist was für die für absolute klammer fans habe hier zu wenig platz erlangen da stehen
+
+789
+01:59:14,580 --> 01:59:38,380
+wirklich die ganze leute muss stehen da auf klammern wie sonst was war sehr clever und
+
+790
+01:59:38,380 --> 01:59:42,420
+ich frag mich bis heute war was die an klammern so geil finden eigentlich mich mich nervt
+
+791
+01:59:42,420 --> 01:59:55,940
+das wenn ich um jeden aus so klammern machen muss aber gut die erlangen fans finden das
+
+792
+01:59:55,940 --> 02:00:06,060
+nice so wie man das jetzt am besten also das muss irgendwie noch hier dran mal schauen
+
+793
+02:00:06,060 --> 02:00:12,740
+ob ich das da noch dran krieg ohne dass ich ohne dass ich verkacke wir machen erst mal
+
+794
+02:00:12,740 --> 02:00:22,780
+den da dran in der hoffnung es fällt nicht ab keg weight nein das hat ziemlich gut funktioniert
+
+795
+02:00:22,780 --> 02:00:31,140
+alles alles noch dicht alles noch dran alles noch gut hier wird es jetzt ein bisschen ekliger
+
+796
+02:00:31,140 --> 02:00:47,220
+hinzukommen monka es alter da komme ich nicht hin
+
+797
+02:00:47,220 --> 02:01:03,180
+präge präge leute präge ich glaube präge war erfolgreich ich glaube es hat funktioniert
+
+798
+02:01:03,180 --> 02:01:20,300
+ja ja ja aber ziemlich gut ziemlich ziemlich stabiler ganze kram macht jedoch den nähe
+
+799
+02:01:20,300 --> 02:01:26,620
+ich habe kein bock das jetzt abzumachen ok jetzt brauchen wir hier noch ein bisschen
+
+800
+02:01:26,620 --> 02:01:30,220
+lütze drauf alter mein stich ist zu klein man ich bekomme anfälle guckt euch das mal
+
+801
+02:01:30,220 --> 02:01:52,380
+so also wir brauchen in was ist denn hier überhaupt was sind das kennt ihr das sind
+
+802
+02:01:52,380 --> 02:02:03,220
+die doppelt vorhanden die pins fau in doppelt kron doppelt oder wie oder was oder hä die
+
+803
+02:02:03,220 --> 02:02:28,020
+sieht so aus na gut oder auch nicht zum teufel ist das st 0 cs was was wollen die von mir
+
+804
+02:02:28,020 --> 02:02:37,660
+das muss das muss ich mir jetzt mal beim hersteller angucken was das was das sein soll gibt es
+
+805
+02:02:37,660 --> 02:02:43,260
+darüber wie präzise der ekea ich habe keine ahnung welche welche pins sind denn hier
+
+806
+02:02:43,260 --> 02:02:58,540
+bitteschön was das ist wahrscheinlich 5 voll oder wie oder was haben die irgendwo in den
+
+807
+02:02:58,540 --> 02:03:23,260
+pinnen ich meine seriously was ist davon was das ist was anderes als das also ich habe
+
+808
+02:03:23,260 --> 02:03:29,260
+jetzt fau in und grauen schon einmal ja und dann brauche ich was brauche ich sonst noch
+
+809
+02:03:29,260 --> 02:03:59,180
+spi oder eiskursi ach das ist alles mögliche also brauche ich st 0 wahrscheinlich und s
+
+810
+02:03:59,180 --> 02:04:15,420
+c oder ja wo schließe ich denn da jetzt was antran was ist denn jetzt was ich bin verwirrt
+
+811
+02:04:15,420 --> 02:04:29,980
+weil was ist jetzt haben wir nicht in den pinn diagramm oder sowas für nups pdf data
+
+812
+02:04:29,980 --> 02:04:50,780
+schied data schied vom sensor wiring so was
+
+813
+02:04:50,780 --> 02:05:13,140
+c s ist clock signal also das heißt ich brauche
+
+814
+02:05:13,140 --> 02:05:20,940
+ich brauche im endeffekt c s das geht auf scl und was was was brauche ich sonst noch
+
+815
+02:05:20,940 --> 02:05:47,580
+s c s und dann ich schippselekt ja jetzt bin ich bin ich echt verwirrt wiring ja da kriegen
+
+816
+02:05:47,580 --> 02:06:13,940
+wir es gezeigt also ja ja kriege ich das mal in groß please ja ich muss fallen ground
+
+817
+02:06:13,940 --> 02:06:37,300
+s s dings s ok also also da wo sdi steht und da wo sck steht sck ist scl ok alles klar
+
+818
+02:06:37,300 --> 02:06:48,420
+da war das mal also ich brauche uns jetzt habe ich ausgeschaltet oft gehe wieder an
+
+819
+02:06:48,420 --> 02:07:12,660
+geht jam so also neben ground ist ja das neben ground und
+
+820
+02:07:12,660 --> 02:07:29,540
+dann in der mitte ok tja dann keine ahnung das habe ich so noch nicht gesehen so jetzt
+
+821
+02:07:29,540 --> 02:07:37,660
+haben wir den krempe jetzt brauchen wir die signal dinger und vorher machen wir aber
+
+822
+02:07:37,660 --> 02:07:51,060
+ground dran ground und 5 volt ok ground und 5 volt dran also v in tja da bräuchte ich
+
+823
+02:07:51,060 --> 02:07:59,220
+jetzt da mal meine dritte hand oder wenn es auch nur wenn es auch nur das ding hier ist
+
+824
+02:07:59,220 --> 02:08:07,620
+soll mir auch recht sein hauptsache das bewegt sich jetzt nicht immer deswegen hier so hingestellt
+
+825
+02:08:07,620 --> 02:08:19,180
+oder da vielleicht dann man so reicht es mir ja schon hauptsache hauptsache es hält ok
+
+826
+02:08:19,180 --> 02:08:47,420
+also das ist jetzt v in gut v in hält ziemlich gut dann haben wir als nächstes jetzt ich
+
+827
+02:08:47,420 --> 02:08:51,660
+sollte mal ein stück knete besorgen das machen die ganzen ami channels immer die haben alle
+
+828
+02:08:51,660 --> 02:09:17,060
+so ein stück knete ok das ist dran
+
+829
+02:09:17,060 --> 02:09:28,980
+ja eiskursie will ich das verbinden genau so passt also das ist dran auch relativ fest
+
+830
+02:09:28,980 --> 02:09:33,620
+und relativ gut so und jetzt kommt jetzt kommen die datenleitung dran die muss noch schnell
+
+831
+02:09:33,620 --> 02:09:38,100
+ein bisschen abisolieren und dann sehen wir sofort ob es funktioniert ich bin wirklich
+
+832
+02:09:38,100 --> 02:09:52,700
+mal sehr gespannt da lutz denn hin da bin wirklich mal sehr gespannt ob das gleich einfach
+
+833
+02:09:52,700 --> 02:10:11,860
+funktionieren wird na auf komm her bin ich wirklich gespannt ok also ich nehme ich hab
+
+834
+02:10:11,860 --> 02:10:23,380
+jetzt vergessen wie rum ich das wie rum ich das gemacht habe die eins keine ahnung ich
+
+835
+02:10:23,380 --> 02:10:26,460
+kann ich kann sie dann ich kann sie wieder umdrehen also ich mache es jetzt so die zwei
+
+836
+02:10:26,460 --> 02:10:41,140
+weiß jemand wo ich glock drauf habe ich mache jetzt die zwei mache ich jetzt auf auf das
+
+837
+02:10:41,140 --> 02:10:53,420
+auf scl schon ob das funktioniert
+
+838
+02:10:53,420 --> 02:11:07,820
+so achso ich habe euch gar nicht im fullscreen aber ihr verpasst eigentlich auch nichts muss
+
+839
+02:11:07,820 --> 02:11:19,700
+man noch ein kabel dran machen so jetzt als letztes den da denn ich will
+
+840
+02:11:19,700 --> 02:11:42,500
+das nicht richtig dran ist kaum kaum denkt man dass man fertig ist bis man nicht fertig
+
+841
+02:11:42,500 --> 02:11:57,900
+geht ja auch nichts jetzt ist gut jetzt ist gut ok ich schalte mal an und wir gucken ob
+
+842
+02:11:57,900 --> 02:12:04,460
+es funktioniert easy nach möglichkeit nicht über den china chinesen usb weil das irgendwie
+
+843
+02:12:04,460 --> 02:12:17,460
+rumspackt wie es aussieht ja aber noch eines doch besser kein china chinesen usb das muss
+
+844
+02:12:17,460 --> 02:12:26,660
+funktionieren so also ich habe jetzt vielleicht vielleicht muss ich die sache noch rumdrehen
+
+845
+02:12:26,660 --> 02:12:34,900
+vielleicht habe ich glock vertauscht also ich habe die zwei jetzt auf glock mal gucken
+
+846
+02:12:34,900 --> 02:12:42,660
+wenn ich tausche ich die zwei dinger und dann funktioniert es dann gut mal gucke der sensor
+
+847
+02:12:42,660 --> 02:12:58,420
+leuchtet schon mal chat meines funktioniert nope konfig module was habe ich da d2a ich
+
+848
+02:12:58,420 --> 02:13:12,220
+habe es so war ich habe es genau falsche rum ist auch egal sagt einfach getauscht gucken
+
+849
+02:13:12,220 --> 02:13:33,820
+wir mal mein zack fertig geht easy obs falsches fall der knopf ja was willst du da mehr uns
+
+850
+02:13:33,820 --> 02:13:46,140
+die kreml noch schnell einbauen also wir haben jetzt zur auswahl temperature x daubt dass
+
+851
+02:13:46,140 --> 02:13:51,380
+wir gerade 30 grad ok ok das pendelt sich ein das brach näher das brauche ein bisschen
+
+852
+02:13:51,380 --> 02:13:56,660
+vielleicht vielleicht ist es vom lötkolben noch ein bisschen warm das pendelt sich jetzt
+
+853
+02:13:56,660 --> 02:14:07,500
+gerade gerade ein ne ne das pendelt sich das pendelt sich ein alles gut also gas haben
+
+854
+02:14:07,500 --> 02:14:16,980
+wir noch das testen wir jetzt ob gas funktioniert leute ob der gas sensor tut gucken wir mal
+
+855
+02:14:16,980 --> 02:14:27,020
+mal gucken was wir hier haben wir haben hier ein neuer zeug weiß nicht der hängt da ein
+
+856
+02:14:27,020 --> 02:14:38,020
+bisschen blöd aber ok der gas sensor weiß nicht wo ist der sensor überhaupt hier oder
+
+857
+02:14:38,020 --> 02:15:02,620
+hat ihr geguckt ist das gas hochgegangen gerade ist hoch oder ist das co2 sensor dann ist vielleicht
+
+858
+02:15:02,620 --> 02:15:09,340
+co2 ich weiß nicht was das für man kann ich kann einfach mal pusten ich kann einfach mal
+
+859
+02:15:09,340 --> 02:15:16,940
+pusten also da also wenn ich puste geht auf jeden fall die luftfeuchtigkeit hoch und die
+
+860
+02:15:16,940 --> 02:15:35,260
+temperatur wobei die temperatur ist schon oben ja das das geht also wenn ich es richtig
+
+861
+02:15:35,260 --> 02:15:50,340
+richtig krass pustchamp mache jetzt geht es ordentlich hoch luftfeuchtigkeit ne ja guck
+
+862
+02:15:50,340 --> 02:16:00,700
+mal luftfeuchtigkeit ich genau ich blase gerade ja ja geht geht drauf funktioniert ja gut
+
+863
+02:16:00,700 --> 02:16:12,860
+dann mache ich das doch mal schnell zusammen gachi roll du du du du du du du du du du du
+
+864
+02:16:12,860 --> 02:16:17,220
+mal gucken wie man das jetzt ja am besten reinkriegen lödkolben kann weg sind fertig
+
+865
+02:16:17,220 --> 02:16:37,940
+muss man nichts mal machen bis zumindest bisschen mehr platz hier ist ok also jetzt bauen wir
+
+866
+02:16:37,940 --> 02:16:43,980
+den kram zusammen gut der sensor habe ich gesagt kommt oben rein auf jeden fall sinnvoll
+
+867
+02:16:43,980 --> 02:16:51,940
+den oben rein zu machen und der hier der esp kommt unten rein irgendwelchen könnten gar
+
+868
+02:16:51,940 --> 02:17:10,380
+nicht gescheit passen will was ich sehr merkwürdig finde aber in dem usb anschluss lull was zum
+
+869
+02:17:10,380 --> 02:17:18,100
+ah leute ich muss noch was anderes machen der hat schrauben und ich will nicht dass
+
+870
+02:17:18,100 --> 02:17:24,780
+der esp sich kurz schließt da ist da muss irgendwas dazwischen stecken ich habe doch
+
+871
+02:17:24,780 --> 02:17:29,820
+hier bestimmt ich habe doch hier noch so ein bisschen antistatik kram oder so ja komm
+
+872
+02:17:29,820 --> 02:17:45,580
+mehr massif heilig secure antistatik folie dengan die luftöffnung ach was heilig secure
+
+873
+02:17:45,580 --> 02:18:08,660
+antistatik stellts so gut so der kram ist oben drin aber das irgendwie busy guck mal
+
+874
+02:18:08,660 --> 02:18:14,780
+ich hab viel zu lange kabel keck wait alter guckt euch das an viel zu lange kabels aber
+
+875
+02:18:14,780 --> 02:18:20,780
+letztendlich ist auch wurscht das können wir einfach hier rein machen ich glaube nicht
+
+876
+02:18:20,780 --> 02:18:43,660
+dass großartig stört habe ich überhaupt richtig rum ein ja ok
+
+877
+02:18:51,780 --> 02:19:00,580
+so windregning schauen wir mal ich mach nur mal ich mach nur mal kurz zwei zwei schrauben
+
+878
+02:19:00,580 --> 02:19:04,420
+zu ich habe eine schraube ich habe eine schraube verloren
+
+879
+02:19:04,420 --> 02:19:21,340
+ach falscher vielleicht mache ich das morgen auch mal off stream ein bisschen
+
+880
+02:19:21,340 --> 02:19:34,820
+ordentlicher mit den kabellängen die sind nämlich viel zu lang na
+
+881
+02:19:34,820 --> 02:19:48,780
+denn hier warum geht das nicht zu
+
+882
+02:19:48,780 --> 02:20:06,460
+gut so ist zu ich mache es dann ich mache es gleich noch richtig zu wir schließen es
+
+883
+02:20:06,460 --> 02:20:17,460
+jetzt erst noch mal an aber nicht besseren usbc hier irgendwo ja wir haben das raspberry
+
+884
+02:20:17,460 --> 02:20:27,060
+pie netz teil ist doch gut das nehmen wir jetzt dafür das raspberry pie netz teil das
+
+885
+02:20:27,060 --> 02:20:42,900
+sollte nur was der hell das sollte nur mehr als ausreichend sein so windregning geht an
+
+886
+02:20:42,900 --> 02:21:01,060
+er pinkt auch schon mal gut zack da haben wir es da ist er
+
+887
+02:21:01,060 --> 02:21:18,740
+luftqualität gelb um nicht zu sagen die meine luftqualität sagt so was haben was haben die
+
+888
+02:21:18,740 --> 02:21:34,860
+denn hier noch für ne da das gleiche wie ich was hat er denn hier iacu core was ist
+
+889
+02:21:34,860 --> 02:22:00,860
+denn das iacu iacu core was misst das ding co2 und tv ok was was was alles klar ihr wisst
+
+890
+02:22:00,860 --> 02:22:17,380
+auch bescheid oder bettaschen sun tv oc ne ich kann das fenster nicht aufmachen ich hab
+
+891
+02:22:17,380 --> 02:22:19,900
+fliegengitter also ich kann das fenster aufmachen aber ich kann es nicht raus machen ich hab
+
+892
+02:22:19,900 --> 02:22:31,260
+fliegengitter ist das sinnvoll noch so nen sensor wie der da hat wenn der wenn der windregning
+
+893
+02:22:31,260 --> 02:22:49,140
+schon dinge hat wie viel kosten so ein ding ich bin ja immer fan von möglichst viel in
+
+894
+02:22:49,140 --> 02:23:02,580
+die sachen rein zu stopfen wenn man schon mal dabei ist irak sensor hat er grad gesucht
+
+895
+02:23:02,580 --> 02:23:19,900
+lull ne sowas gibt es hier nicht ja mit dem anderen kann ich aber auch erstmal leben so
+
+896
+02:23:19,900 --> 02:23:33,500
+also unser tasmotor ist der meinung meine luft ist nicht gut weil ich 5 und 2 ich mein
+
+897
+02:23:33,500 --> 02:23:48,460
+ich kann mal das oh das fenster auf wir können wir können mal das fenster aufmachen weil
+
+898
+02:23:48,460 --> 02:23:59,980
+ich den rollern unter hab und zeugs hier liegen hab vorm fenster tja aber was ich machen kann
+
+899
+02:23:59,980 --> 02:24:06,340
+ist ich kanns mal eine andere ecke ich kanns ja ein bisschen weiter weg wo wir nicht so
+
+900
+02:24:06,340 --> 02:24:20,020
+krass gelötet haben stellen und dann gucken wir mal runter geht oder so dass jetzt irgendwie
+
+901
+02:24:20,020 --> 02:24:45,740
+besser wird ja guck mal es geht runter seht ihr pock champ massive pock ne jetzt gehts
+
+902
+02:24:45,740 --> 02:25:00,180
+wieder hoch was wurde bis jetzt an dem ding umgesetzt alles alles eingebauen ok leute
+
+903
+02:25:00,180 --> 02:25:07,620
+wisst ihr was ich mach die kamera aus und wir machen das fenster mal auf ich muss das
+
+904
+02:25:07,620 --> 02:25:28,140
+noch mal kurz freiräumen konnte nicht jetzt musst du was breathing bodies was ist was
+
+905
+02:25:28,140 --> 02:25:44,580
+ist breathing bodies was für ein ding klingt irgendwie unanständig breathing bodies was
+
+906
+02:26:28,140 --> 02:26:36,660
+so schauen wir mal jetzt müsste es runter gehen ich habs fenster auf steht jetzt steht
+
+907
+02:26:36,660 --> 02:26:52,100
+jetzt ziemlich direkt am offenen fenster geht auch ziemlich runter windere knigen ich dreh
+
+908
+02:26:52,100 --> 02:27:19,900
+es mal ein bisschen rum was auch ansauen kann ja guck mal guck mal viel besser ja
+
+909
+02:27:19,900 --> 02:27:33,660
+seht ihr es funktioniert es wird auch kühler die luftfeuchtigkeit sinkt die artikel gehen
+
+910
+02:27:33,660 --> 02:27:56,020
+runter funktioniert kann man nix sagen
+
+911
+02:27:56,020 --> 02:28:10,300
+das ding auf dem ekea basiert ganz einfach weil es billiger ist als selbst bauen du hast
+
+912
+02:28:10,300 --> 02:28:14,660
+ein ordentliches case dabei du hast ordentlich led vorn ran der sensor ist billiger als wenn
+
+913
+02:28:14,660 --> 02:28:23,220
+du dir den so kaufst ja ist gar nicht schlecht es ist eigentlich ziemlich gute idee gut dass
+
+914
+02:28:23,220 --> 02:28:26,340
+es ist also ich habe das ja bin ja selbst nicht auf die idee kommen ich habe ein youtube video
+
+915
+02:28:26,340 --> 02:28:32,540
+darüber gesehen haben wir gar zu können auch mal ausprobieren weiß sehr schön leute es
+
+916
+02:28:32,540 --> 02:28:42,260
+ist 22 uhr welchem tutorial ja das ist quasi so die offizielle seite mit also weiß ich
+
+917
+02:28:42,260 --> 02:28:48,940
+wie offiziell der ist aber die haben für alle tas motor gerätes settings genau ihr wisst
+
+918
+02:28:48,940 --> 02:29:01,340
+da schon spät ist ja ausgeschaltet übrigens gerade hat euch der stream gefallen ich hoffe
+
+919
+02:29:01,340 --> 02:29:23,500
+mal ob mal schnell er kriege
+
+920
+02:29:23,500 --> 02:29:36,300
+ich bin müde habt ihr lust so was das ist nice richtig poggers ja schön dass euch gefallen
+
+921
+02:29:36,300 --> 02:29:51,460
+hat ich muss jetzt ins bett weil ihr wisst schon spät deswegen jetzt bis denn macht's
+
+922
+02:29:51,460 --> 02:30:15,860
+gut zu
+
+923
+02:30:15,860 --> 02:30:28,660
+gehen
+
+924
+02:30:58,660 --> 02:31:05,980
+Das war's für heute. Bis zum nächsten Mal.
+

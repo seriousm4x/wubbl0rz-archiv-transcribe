@@ -1,0 +1,852 @@
+Boah, instant, instant jemand da hier, bam, in your face, ich hab extra bis 17 Uhr gewartet,
+was ist das hier, warte mal, ich hör mich doppelt, moment, da stimmt was nicht,
+warum hör ich mich doppelt, hört ihr mich auch doppelt, the fuck, moment, warum hör ich mich doppelt,
+das sollte eigentlich nicht, also eigentlich ist doppelt hören, ist, das ist nicht so gedacht, alles gut, hä, okay, hä, warum hör ich mich, ach, oh, bin ich doof, null,
+ich hab, ich hab noch den Stream von gestern auf dem zweiten PC im Tab offen und da hat sich jetzt halt neu gestartet,
+als ich online gegangen bin, das hat er halt dann nicht mehr gemuted und, ja, okay, jetzt hör ich mich auch nicht mehr selber, jetzt ist alles gut.
+Heute machen wir OBS-Integration, ich muss das Ganze erst mal auf Twitter posten und wir nähern uns, so langsam aber sicher,
+dann so einer Version, die ich mal releasen werde, aber OBS-Integration muss sein, falls man sich das nicht anzeigen lassen will,
+das will wahrscheinlich auch nicht jeder, so, gut, mal kurz refreshen, refresh store, bugged, sehr schön, also was wir heute machen, folgendes,
+und zwar, wir haben gestern probiert, das Tool in OBS zu integrieren, das hat jemand im Chat gefragt, ob das geht,
+und da hab ich natürlich ganz großartig erzählt, ja, so, hab kein Problem, ne, guckste hier, machst du Window-Capture und dann hast du's,
+das Problem ist, das funktioniert nicht, und ich, also, ne, wenn man, wenn man Display-Capture macht, ist eigentlich überhaupt kein Ding,
+wenn man Display-Capture macht, dann ist das kein Ding, dann seht ihr das alle und OBS kann das auch aufnehmen,
+aber, was euch, ich muss noch mal auf Twitter posten, das ist die ultimative Meming-Experience jetzt, wenn das in OBS drin ist,
+also, ich mein, man sieht, also, den Zweck an sich erfüllt, ja, also, das, wofür ich's ursprünglich haben wollte, macht's halt, Dinge anzeigen,
+als Overlay, dass ich sie selbst sehe, jetzt ist natürlich die Frage gestern aufgekommen, was ist denn, wenn ich das nur in OBS anzeigen will,
+ich mein, klar, natürlich, dann kann ich das mit den OBS-Shortcuts machen, das funktioniert auch, aber es wär natürlich viel geiler,
+wenn das hier auch integriert ist, weil OBS-Shortcuts haben kein so geiles Web-Interface wie mein Tool,
+und wenn man das dann irgendwann mal noch mit Elgato Stream Deck und RGB-Tastaturen und alles integrieren in Zukunft,
+dann ist das wirklich die ultimative Memegasm-Experience, so, das muss jetzt gesagt werden, ich poste das Ganze mal auf Twitter,
+so, wir sind am Start, so, was, äh, freue mich, dass es weitergeht, nice,
+was Pligge 2.0 durchprogrammieren angeht, aber höre dir gerne zu und find's unterhaltsam,
+ja, das ist nice, wenn das auch Leute interessiert, die sich nicht fürs Programmieren interessieren,
+hab ich da natürlich keine Schmerzen, das ist ja gut, also, falls du irgendwas wissen willst, schieß los, ja,
+weil ich kann mir vorstellen, wenn man einfach so rein anmacht und das nicht verfolgt hat,
+dann ist es ein bisschen schwierig durchzublicken, so, gut, ähm,
+äh, meine komischen Comments kann ich rausschmeißen, also, und ich hab mir jetzt folgendes überlegt,
+ich zeige euch doch mal, was nicht funktioniert, also, es ist ja immer ganz interessant,
+wenn man sich erstmal anguckt, was nicht geht und was wir dann machen, was funktioniert,
+so, also, zum Beispiel, wenn ich jetzt hier OBS aufmache, ich mach das mal ein bisschen kleiner,
+weil eigentlich brauchen wir die Vorschau nicht wirklich, um es zu sehen, dafür sehen wir den Rest,
+so, ich kann jetzt, ich blende jetzt hier was ein, das ist ja dann ein eigenes Fenster,
+zwar ein unsichtbares Fenster, aber ein Fenster, und ich dachte eigentlich,
+ich kann einfach sagen, Window Capture, so, und dann passiert das, dann Capture das nicht,
+obwohl es, obwohl es hier unten ausgewählt ist, das Capture nicht,
+die Konsole und so kann ich Capture, aber das Bild kann ich nicht Capture,
+das ist natürlich ganz schön kacke, dass es nicht funktioniert,
+das heißt, ähm, man muss Display Capture machen, dass das Ganze klappt,
+und man will ja vielleicht nicht unbedingt Display Capture machen, und nicht immer Display Capture,
+deswegen machen wir eine, machen wir ein OBS, machen wir ein OBS-Vorschau für das Ganze,
+und das, soweit ich mir das überlegt habe, müsste das relativ einfach sein, relativ einfach,
+und zwar können wir das folgendermaßen machen, ich mache mal das Webinterface auf, äh,
+Moment, jaja, genau, ich mache mal das Webinterface auf, oh, wir haben zwei Theme-Buttons,
+warum haben wir das? Wahrscheinlich weil ich das gestern eingebaut habe, lull, gut, ähm,
+ah ja, ich habe übrigens gestern noch ein bisschen rumgebaut, dass das rotatet wieder,
+dass das gerade rotatet jetzt, passt mal auf, für alle die gestern dabei waren,
+die werden dann auch wissen, dass das Zahnrad nicht so ganz rund rotiert ist,
+ich zeige euch jetzt mal, wie krass das jetzt rotatet, Moment, Reload, äh,
+warum rotatet es denn jetzt nicht rund? Ich hatte es noch gestern eingestellt, dass es rund rotatet,
+meine Fresse, ey, the struggle is real, gut, was auch immer, das ist jetzt nicht unsere Priorität,
+dass es nicht mehr Eier hat beim Drehen, so, und ich habe mir gedacht, wir können folgendes machen,
+ähm, haben wir hier mal ein bisschen Platz, das ist natürlich auch gestern dank dem Sirius
+Max voll responsive, dieses Ding hier, so, und, ähm, wir machen jetzt einen Browser-Preview,
+Fenster für OBS, ah ja, das Problem übrigens mit OBS ist, sobald, das ist wohl irgendwie so,
+ich habe mal ein bisschen nachgeguckt, also ich habe hier gestern mal ein bisschen gesucht nach
+irgendwie OBS-WPF-Transparency und so, das sieht man hier schon, die schreiben halt, ähm, geht nicht,
+also die oft, und das sagt der Ober-OBS-Typ, wenn es der Ober-OBS-Typ sagt, dann ist das so,
+also anscheinend geht das nicht, sobald man Transparenz anschaltet, und ich meine, wir brauchen
+offensichtlich Transparenz, wenn das nicht Transparenz wäre, würdet ihr jetzt hier ein Fenster drum herum
+sehen um das Bild, was natürlich nicht der Zweck der Sache ist, äh, der nackte Zeus schreibt auch gerade,
+geiler Name übrigens, schreibt auch irgendwie sowas in der Richtung, das Problem mit OBS hatte ich,
+eigenes Overlay-Tool, da lief eine Animation durch, das, OBS hat nur schwarz gesehen, genau, genau,
+das ist das Problem, sobald man Transparenz anschaltet, das sagt Balls, ah, richtig Balls,
+ArtCore Balls sagt das, deswegen machen wir jetzt Trick 17, und das müsste wunderbar funktionieren,
+wenn das Ganze in OBS zu integrieren, und zwar wir machen eine, eine Browser, Browser Preview,
+also sprich, wir machen so eine Seite, die automatisch geupdatet wird, aber nichts, außer das aktuelle Bild enthält,
+und dann, sagen wir in OBS hier, ähm, Browser Source, ich mach exemplarisch jetzt das hier,
+aber das geht nicht, ich sag's euch gleich, also nicht wundern, so, und dann fügen wir das hier hinzu,
+so, und dann zeigt er das hier als, als Browser an, und halt nur mit dem Bild und transparent,
+das müsste funktionieren, das probieren wir jetzt mal aus, und damit fangen wir auch an,
+weil OBS-Integration muss, es kann ja sein, dass ich irgendwas eben, eben exklusiv Fullscreen spielen will,
+oder selbst nicht sehen will, oder es nur in OBS integrieren will, allerdings dann vom Smartphone aus,
+ähm, übers Webinterface die Sachen anzeigen möchte, kann ja alles sein, das heißt OBS-Integration
+ohne, dass man Full-Display-Capture machen muss, ist Pflicht, ja, und das Schöne ist, dadurch geht dann auch
+Fullscreen-Game und alles, allerdings bei Fullscreen-Game sieht man es dann selbst nicht mehr,
+aber die Leute im OBS sehen es, und auf dem zweiten Monitor, oder auf dem Tablet, oder auf dem Smartphone
+sehe ich es dann auch hier immer noch angezeigt, grün umrandet, was gerade aktiv ist, das heißt,
+ich kann es nicht vergessen, was ich persönlich viel besser finde als bei Stream Deck,
+bei Stream Deck-Integrationen machen wir in Zukunft auch noch, so, also ich habe mir das folgendermaßen
+überlegt, wir machen einfach, äh, wir machen hier auch mal ein Menü, auch mal ein Button für irgendwie, äh, Open Preview,
+oder Preview for OBS, seid mal kreativ, fallen euch irgendwie schönere Funktionsnummer ein,
+Open Preview, aber einfach so, ja, irgendwie so, ja, ok, klingt schon mal besser, kacke.
+So, und dann, ähm, machen wir da drin nichts anderes, wie einfach ein neues Browser-Fenster auf,
+und nichts anderes Open Web Preview, oh, das ist, das gefällt mir, ja, das ist schön, das mal,
+siehste, deswegen mag ich das hier so auf Twitch zusammen zu machen, ich meine, ich bin alleine
+viel viel schneller, also wenn ich wirklich irgendwas zustande kriegen will, dann stream ich das nicht,
+aber, ähm, deswegen finde ich das geil, wenn man das, wenn man das streamt, die Leute gucken zu,
+dann hat man immer, ich wäre jetzt nicht auf Open Web Preview gekommen, obwohl es eigentlich total logisch ist,
+ähm, was wollte ich jetzt machen, genau, äh, Open Web Preview, zack, so,
+und da machen wir jetzt, bei dem Buttonklick, sagen wir jetzt, das habe ich schon mal nachgeguckt,
+wie das geht, man kann jetzt sagen, Window, Open, dann sagt man jetzt die Uhr, die man öffnen will,
+also quasi, Preview HTML, die gibt es noch nicht, die müssen wir gleich anlegen,
+und das Ganze, Target, und das ist jetzt seit HTML 0001, so nach dem Motto, wenn man das hier angibt,
+dann macht das eben, wenn man es richtig schreibt, macht das eben neuen Tab oder neuen Fenster auf,
+so, können wir gleich mal ausprobieren, zack, wisst ihr, neuer Tab auf mit dem Preview,
+die Seite gibt es noch nicht, aber, soweit von der Idee, wir brauchen noch ein gescheites Icon,
+was nennt man da, Get Emotions, Objects, beste, was nehmen wir für ein schönes Bildchen für Vorschau,
+ein Fernseh, komm, wir nehmen ein Fernseh, das ist doch ganz hübsch, für eine Vorschau,
+oder gibt es hier noch irgendwas schöne, was, eben erst mal ein Fernseher, das tut es schon,
+die Toilette, das muss halt thematisch irgendwas dazu tun haben, so, da, ok, wenn wir da drauf gehen,
+geht jetzt die OBS Vorschau auf, natürlich gibt es die OBS Vorschau noch nicht, wie man sieht,
+offensichtlich, deswegen müssen wir die jetzt mal anlegen, Review HTML, zack, und wenn ich jetzt drauf klicke,
+gibt es schon mal keinen Fehler mehr, ja, piss dich alle, so, so, den ganzen Schmodder hier,
+brauchen wir alles nicht, alles weg, gucken wir mal, ob es prinzipiell funktioniert,
+ah, es funktioniert, ok, also das Reload ist, so, und hier machen wir jetzt keine View App,
+oder sowas in der Richtung, hey, komm mal da, Patrick, moin, alles klar, in der Schweiz,
+und hat jemand beim Primedale zugeschlagen, überlege mir die 500GB, ach, ist das heute,
+Moment, Moment, Amazon, Details leaked, was leaked, ach, ich bin hier gar nicht eingeloggt,
+gebated, gebated, gebated, hat mir hier keiner geglaubt, ähm, wo ist das denn,
+ok, was gibt es denn da heute, was, Patrick, warum lädt dich denn die Polizei vor,
+boah, ich will das gar nicht wissen, denkt noch irgendeiner, ich hätte mit irgendwie was zu tun,
+gebated, so, was gibt es denn heute, Primedale, jetzt irgendwas gescheitert,
+oh, das Sebaro ist auch da, was gibt es denn da, 4.615, meine Güte, äh,
+bis zu 40% reduziert Fritzboxen, früher auch genannt die rote Pest aus Berlin,
+allerdings, mittlerweile sind die Dinge, ich hoffe, jetzt guckt keiner von AVM zu, mittlerweile sind die Dinge echt ein Übel,
+ja, Patrick, das hast du verdient, wenn du 130 gefahren bist, obwohl du 180 erlaubt bist,
+da kann ich jetzt leider nichts anderes sagen, so, wo ist denn die SSD,
+kann man Primedale irgendwie suchen, oder so, SSD, ach, hier, guck mal da, oh, oh, das, Moment, Moment, Moment,
+das hier ist ja eh gebated, das hier ist ultra gebated, ist ja das immer, Moment, ich muss mir das jetzt mal merken,
+was gebated ist, also, ne, diese unverbindliche Preisempfehlung, Anzeigen, ist ja immer der mega gebated,
+so, also das hier ist eigentlich das interessante, und dann ist es gar nicht mehr so viel, ne, das, sie sparen, das stimmt überhaupt nicht,
+normalerweise kostet die SSD bei Amazon, lass doch, komm, wir gucken jetzt mal hier aus, Spaß, das ist eine 860 Evo, so,
+pass mal auf, 860 Evo kostet normalerweise 100 Euro, ja, von wegen, sie sparen 100 Euro, man spart 10 Euro,
+es ist, ich mein, es ist okay, es ist Kohle, ja, aber es ist nicht die Hälfte, so wie es hier aussieht, was halt der mega gebated,
+ach, die, ach, Muffi, ich glaub, das macht nichts, ich mein, die theoretisch längere Lebenszeit, die du da bei einer Pro oder bei einer Evo hast,
+das macht doch eigentlich keinen Unterschied, so, Preview, gut, okay, dann binden wir den Cramp jetzt mal ein,
+hier machen wir jetzt keine View-App oder sowas, hier machen wir mal ganz billiges, Raw, Raw, Java-Skript,
+so, Preview, so, dann machen wir einen Skript, hauen wir da unten rein, inline, Java-Skript, oh komm, egal,
+so, Skript, sagen wir, kopieren wir uns mal, wie man sich hier zu unserem Server verbindet, das müssen wir nicht nochmal machen,
+ah, und jetzt sagen wir hier, onUpdate, so, sprich, sobald es neue Bildchen gibt, dann, sobald es neue Bildchen gibt, zeigen wir uns das erstmal an,
+das prinzipiell funktioniert, was ich da mache, starten muss man die ganzen Scheiß noch, so, ja, scheint so, ja, ja, funktioniert, nice,
+das ist der Sebaro-Raffling, eigentlich müsste ich, eigentlich müsste ich zum Prime-Day auch mal Rafflings in Massen generieren,
+und dann, dann, und das da, der Nightbot dann spammt, Moment, ach, das ist mein Raffling, oh, das Sebaro hier mit dem Big-Prain-Play,
+nicht sein Raffling, mein Raffling auch noch, ja Leute, guckt euch das mal alle an, guckt euch, guckt euch das mal alle an, was das Sebaro da, was das Sebaro da gepaustet hat, guckt euch das mal alle an,
+und, ich brauche noch einen, und, ja, und, so, ja, vor allem, easy, ich habe echt gedacht, dass Sebaro hat sein Raffling gespammt, ja, easy money, man weiß ja nie, so, okay,
+hier machen wir mal weiter, okay, wenn es neue Memes gibt, dann, dann suchen wir uns, wir machen das jetzt ganz billig, ganz, ganz kurz und knackig,
+dann suchen wir uns, ähm, äh, äh, wie macht man das in JavaScript, first, ne, ähm, doch first, ist es first, find, find, ja, das, das musst du ja in nie,
+warum heißen diese Funktion eigentlich in jeder Programmiersprache anders, select hast du bei dem einen, filter hast du bei dem anderen, where hast du bei dem nächsten, dann hast du, dann hast du noch irgendwie, map und find und first und single und,
+baah, oftmals machen sie das gleiche Kram, so, wir suchen jetzt das erste Bildchen, was wir anzeigen wollen, das erste Bildchen, was, ähm, active ist und was, ähm, type nicht text to speech ist,
+weil text to speech interessiert uns hier beim Anzeigen nicht, so, gucken wir mal, ob das funktioniert, funktioniert, okay, ähm, so, dann gucken wir, wenn das gesetzt, äh, die Makros sind komisch, diese Templates in Visual Studio Code,
+okay, ähm, hi, I'm nix, nix, nix, nix, kann ich die aussprayen, aber willkommen im Stream, übrigens noch mal danke für die ganzen Follows, die es gestern und die letzten Tage gegeben hat,
+ich hab überhaupt nicht reingeguckt, während ich online war, ich hab, äh, halt gestern reingeguckt und ich hab gestern irgendwie 20, 20 Follows oder so gekriegt, ich mein, beim Programmier Stream muss man sagen, beim Battlefield Stream, da gibt's immer mehr, aber, bei den Programmier Streams, da gibt's normalerweise nicht so viel, das ist sehr nice, hyper nice ist das, so, und das ist halt auch schrecklich, immer wenn ich, wenn ich, ich lass mich so leicht ablenken, ich kopiere jetzt glaub ich zum fünften Mal diese, diese Zeile hier irgendwie, ne,
+frag mich nicht warum, ich lass mich so leicht ablenken, so, ähm, so, und jetzt suchen wir noch, ähm, das Element, the raw JavaScript in your face, preview, das heißt wir nehmen jetzt unser div und sagen, div inner html, ne, gut, gucken wir mal ob's prinzipiell funktioniert,
+also, jetzt, sobald ich jetzt hier ne Meme anzeige, steht der Sahl auf der Seite, ja, passt, so, und else, wenn ich jetzt wieder verstecke, dann ist es leer, das sollte, ja, easy, ganz einfach, ok, das geht schneller als ich gedacht hab,
+und dann haben wir gleich OBS-Integration, yeah, GoPro, GoPro, so, ähm, dann müssen wir jetzt erstmal sagen, wir wollen ein Image-Element, ich muss zwar immer kotzen bei JavaScript, aber dadurch, dass ich jetzt hier die letzten paar Wochen ja auch mit euch zusammen mit JavaScript gebastelt hab, so langsam aber sicher klappt das schon ein bisschen besser,
+source, achso, aber wie gegen Template Strings nochmal ein Ding, Backticks, genau, Backticks, wie auch immer, wisst ihr, wisst ihr dieses JavaScript Gremium oder wie auch immer genau die heißen, die haben sichergestellt, dass kein Sonderzeichen, sei es noch so abgedreht, in JavaScript nicht für irgendwas verwendet wird,
+also ich warte noch auf, so, dass das irgendwas bedeutet, ja, was kippt, so, das kann man dann aufrufen irgendwann und es gibt dann, ähm, das ist der, das ist der Fisch, ne, das ist der, wenn ich ehrlich bin, sieht es aus wie der Spermien-Operator oder so, weil man mal, weil man mal kreativ ist, das ist nicht der Fisch-Operator, so, und ähm, was auch immer der macht, keine Ahnung,
+da warte ich noch drauf, bis das, bis das kommt in meinem JavaScript, ich weiß, dass das Ding tilde heißt, tilde ist Home Directory, das ist wichtig, das braucht man, so, ähm,
+Moment, Template Strings, also, ähm, Source is, Dings hier, Meme, Name plus Image, ne, Images, so, bam, zack, Moment, Lul zeigt da an, Lul zeigt da, guckt mal, seht ihr, wie schnell der Scheiß ist, das rendert im Browser exakt genauso schnell wie auf dem Desktop,
+also, ich muss sagen, diese Signal-R-Geschichte ist wirklich, warum zeigt der MonkaS da nicht an, ok, das zeigt, ah, die Size stimmt nicht, oh, ah, richtig MonkaS, MonkaGiga, HyperMonka, so, ähm, das heißt, wir müssen jetzt hier noch angeben, 100% vom Browser-Fan,
+100% vom Browser-Fan, da kann man es dann auch einstellen, je nachdem, wie groß das ist, ah, besser, wenn ich jetzt groß mache, ah, sehr schön, ich, und ich fürchte fast, das war's schon für OBS-Integration,
+also guck, wenn ich das jetzt aktiv hab, das macht das Vorschaufenster auf, es ist exakt das gleiche Bild, äh, funktioniert auch mit, ok, das dreht sich weiter, wohin ging das BPF Zeug ausgeht, moin Eax, aber, hm, aber prinzipiell funktioniert's,
+und das testet jetzt mein OBS, ob's geht, und dann ging das ganze viel schneller, als ich gedacht hab, äh, ach ja, übrigens, ähm, also, ich hab gestern noch mal ein bisschen Track and Drop ausprobiert,
+ich hab ne Idee, wie wir relativ einfach Bilder track und dropen können, die man nicht lokal haben muss, das probieren wir gleich noch mal aus, weil das OBS-Integration ging jetzt doch ziemlich schnell, muss ich sagen,
+ähm, ok, gucken wir mal in OBS, ob das jetzt funktioniert, Paladins Eax, Paladins, ja, es gibt doch nix zum Spielen, wir können, Eax, wir spielen Dings hier, vielleicht aus 5 Beta, im August, es ist nicht mal lange hin,
+wobei, gibt's da eigentlich, gibt's da eigentlich, Date, ha, Beta Start Date, ok, jaja, ok, das ist wieder so ne Seite, die dich mit Text erschlägt, aber nirgendwo was steht,
+ah, 3. August, ah nice, ok, wir, wir spielen am 3. August dann die Black Ops 3 Beta und stellen danach wahrscheinlich fest, dass wir das Spiel nicht mögen und es nicht kaufen,
+aber letztendlich bin ich ja froh, dass man das immer Beta irgendwie noch sehen kann und es ist ja irgendwo auch klar, wenn die Beta schon so massiv sackt, aus allen Gründen sollte das so sein, dass man dann nicht warten muss so nach dem Motto, das sagen ja immer viele Leute, ihr kennt das ja so nach dem Motto,
+Beta sackt massiv, ja, es ist komplett scheiße durchdachten Game und dann sag ich Leute, ja Max, das ist aber doch nur Beta und in Beta und bis das Spiel dann rauskommt, dann ist das bestimmt alles super und jetzt mal ehrlich gesagt, war das bei irgendeinem Game schon mal so, dass die Beta massivst scheiße war und das Spiel danach mega geil, das geht gar nicht, also wenn so grundlegende Fail Sachen drin sind, dann ändert sich das nicht mehr,
+so, aber jetzt gucken wir mal, ob unsere Vorschau-Geschichte geht,
+Damn, funktioniert, easy as fuck, oh, it's me, me müssen wir noch rein machen, das probieren wir jetzt mal aus,
+nein, das, das, das da, wo gibt es denn den hier in groß, den da, den brauchen wir, it's, intransparent please, ich brauch's intransparent,
+transparent, transparent, gibt's irgendwie nicht, ach nice, schon einer gepostet, ja, das ist die kleine Variante, ich hätte gern die große,
+haben wir hier irgendwelche Photoshop Künstler am Start, die das freistellen können, das brauchen wir unbedingt, was ist das denn,
+was ist der größte, ja, aber 112 auf 12 ist doof, meine Bildbearbeitungskills, das verschieben wir auch später,
+ja, aber das OBS-Integration funktioniert, das war total einfach, kann man nämlich wieder löschen,
+gut, das heißt OBS-Preview haben wir schon mal, das ist eine wichtige Geschichte, jetzt kann man nämlich auch Fullscreen spielen
+und trotzdem das Memboard verwenden, weil man es in OBS drin hat, so, was machen wir denn als nächstes, so, das haben wir fertig,
+das passt, Preview geht auf, Teamzeug funktioniert noch, Button hier oben macht nichts beim draufklicken, das ist aber Absicht, ach so,
+was macht eigentlich das Preview, wenn ich Text-to-Speech abspiele, nichts, so, nichts, nichts, gut, funktioniert, funktioniert, gut,
+so viel Coggers, Moin Chris, ok, wunderbar, Funst alles, hast du Paladins überhaupt mal probiert,
+ne, ne, ne, hab ich nicht, ich hab irgendwann mal das andere Game von denen gespielt vor 5 Minuten, diese Mobile-Geschichte vor 4 Jahren oder so,
+aber OBS, nicht OBS, fuck, Paladins hab ich nicht ausprobiert, ne, spielt es noch Overwatch, nein, das halte ich nervlich nicht durch,
+es ist mega sophisticated die Software hier, oder meinst du Gimp, best, most sophisticated Software ist ja immer noch Steam,
+Steam ist wirklich mindblown, ok, machen wir mal weiter, Nuln hat das, das ist eine gute Idee, ja, das können wir machen,
+das dürfte sogar relativ einfach gehen, das probieren wir mal aus, ob das funktioniert, ich glaube das müsste relativ einfach gehen,
+machen wir hier einfach noch eine weitere Checkbox rein, für irgendwie, ja, mach mal, mach mal Pull-Request auf, und dann gucken wir uns das Rage-Video von Linus an,
+ob er sich darüber aufregt, wie schlecht das ist, wenn er dann auf irgendeiner Konferenz wieder gefragt wird, so wie er sich über Nvidia aufgeregt hat,
+so Nvidia, der hatte halt keine Probleme mit, letztendlich was sollen sie auch machen, ne, was sollen sie machen,
+kommst du halt nicht halt vorbei, so, Kontextmenü, blablabla, warum ist das Icon schon wieder so komisch eingerückt hier,
+ach nee, passt, ok, machen wir hier noch ein Kontextmenü-Eintrag hin, das wir aber, das Vorletztes irgendwie nennen wir, keine Ahnung,
+mir fällt grad nichts Gescheites zu ein, bin grad unkreativ über den Krempel nennen, so, und dann schalten wir das einfach an und aus,
+soll ich lautstärken, ok, irgendwelche schreienden Kinder in der Musik, ob das sein muss, ja, Patrick, das kenn ich, der flamt Leute teilweise übertrieben,
+ach die Finnen, die machen das, ich weiß nicht, irgendwie sind die Finnen alle Flamer, das muss aber wohl auch, da hab ich mal irgendwas drüber gelesen,
+es muss wohl auch ein bisschen an der finnischen Sprache liegen, dass die quasi auch in anderen Sprachen so viele Kraftausdrücke verwenden,
+so, machen wir hier irgendwie mal ne, äh, irgendwie out, so was hier, dann setzen wir das,
+wat, hab ich mich verdrückt, achso, ja, wenn man es falsch schreibt, muss man sich nicht wundern, dass es nicht funktioniert,
+jetzt Trick 17, für den Switch, ganz einfach, zack, sowas hier, bäm, also ne, wir setzen es immer auf den umgedrehten Wert,
+so, und jetzt können wir in, hier oben drin, können wir jetzt sagen, irgendwie gleich, return, äh, ne, Quatsch, if, return,
+das ist jetzt zwar, da muss man mal Gedanken drüber machen, ob das die schönste Lösung ist, aber das sollte jetzt erstmal so funktionieren,
+disable output, bäm, oh, ähm, ich glaube, da hab ich irgendwie ne, achso, ja klar, ha, ja, das, das, ach, Moment,
+ne, ne, so funktioniert das gar nicht, weil, das funktioniert nicht, weil ich ja hier drinne quasi das übers Webinterface aufrufe,
+es ist ja nicht so, dass es zuerst ans Webinterface geht, das muss ich auch nochmal ändern, das ist bescheuert,
+dass es immer durch dieses GUI-Ding durchgeht, ähm, ich sag ja am Ende dann hier, äh, Webinterface, ne, also, was halt, irgendwie bescheuert ist,
+glaub, das ist dann doch nicht so einfach, da muss ich mir erstmal ein bisschen Gedanken drüber machen, wie wir das machen,
+also ich mein, man kann, man kann letztendlich, man kann das hier einfach überspringen, wo die, wo die Ausgaben gesetzt werden,
+allerdings setze ich ja, glaub ich, auch hier drin, irgendwelche Dinge auf Active, ich mal kurz gucken, ja, na, das ist, ach, wobei,
+ne, das, das müsste sogar funktionieren, das müsste eigentlich sogar klappen, aber wenn wir das hier überspringen,
+ne, das, das, okay, an der Stelle klappt das nicht, weil hier mach ich den ganzen Mist, wie Fenster verstecken und sonst was,
+und auch Zeug aktivieren und so, ah, das ist doof, das ist blöd, ha, das war doch nicht so einfach, wir, wir können das,
+wir müssten das eigentlich hier irgendwie reinpacken, also irgendwie da, und dann an der Stelle, wo es angezeigt wird,
+also quasi, so von der Idee her, das da müssten wir irgendwie überspringen, muss mal gucken, ob das funktioniert,
+aber das ist nicht der Weisheitsletzter Schluss, zumal es allgemein schon nicht sonderlich clever ist,
+dass ich das alles immer durch das, durch das WPF UI durchlaufen lasse, okay, und jetzt probieren wir mal aus, ha, funktioniert,
+okay, funktioniert, das ist zwar nicht schön, aber die Idee fand ich gut, deswegen hab ich es jetzt erstmal eingebaut, dass das,
+dass man es ausschalten kann, also sprich, falls man jetzt wirklich einen Fullscreen, Fullscreen Game oder sowas am Start hat,
+dass man das dann nur noch über OBS verwenden kann, also ne, probieren wir es jetzt nochmal aus, ob das funktioniert,
+machen wir hier Browser hinzufügen, also sprich, ihr solltet jetzt das Bild sehen, allerdings ich nicht,
+so, und ich mach das auch übers Webinterface, dass man sieht, dass es an ist, so, ihr solltet es jetzt sehen, allerdings ich nicht,
+ist das so, ah ne, Moment, ha, ne, ne, das kann nicht sein, Moment, ich hab, ja, ich hab was vergessen, lull, Moment, wartet mal,
+ich glaub ich hab nicht gespeichert, so, jetzt, jetzt gehts, ha, ha, ha, er wusste gerade noch richtig, na, super,
+so, jetzt seht ihr es aber, ne, jetzt seht ihr es und ich seh es nicht, aber die, ah, das wird abgeschnitten, das sackt,
+ich seh es gerade, aber wird das abgeschnitten, ah gut, das liegt an dem, das liegt jetzt aber am OBS Fenster, dass das verkehrt ist,
+machen wir jetzt irgendwie keine Ahnung, machen wir es mal irgendwie höher als breit oder so, so, das liegt jetzt am OBS Fenster,
+bis 10 Zeroes Marks, aber jetzt funktionierts, kann man es hier einfach mal rund machen, beste,
+beste, warum war immer das so kleines, aber von der Idee her funktionierts, sehr schön,
+aber das mal wieder weg, machen wir mal aus und wieder an, aber wunderbar, also tut, das geht vom Screenshot Tool,
+können wir eigentlich mal löschen, Sebaro, dann mach ich ja erstmal nicht weiter, dann mach ich wieder weiter, wenn ich BDO spiele,
+solange ich kein BDO spiele, mach ich dann eh weiter, du könntest das Git mit dem Git vom Meme Tool übersetzen,
+besser, ja das ist aber nicht das, ne ne ne Tommy, das ist vom falschen, das ist nicht das richtige,
+Git repo, das da ist das richtige hier, aber es gibt bloß ein fertiges Programm von vor einer Woche,
+das sieht noch komplett anders aus, das können wir eigentlich auch gleich nochmal machen,
+wir können nochmal eine neue Version fertig machen, mit allem 3DHCore waren wir das mal schnell,
+ich lade das jetzt mal hoch, weil ich lade das besser nach, ich mach das nach im Stream, da ist dann alles dabei, was wir heute machen,
+nächste Sache, OBS Integration funktioniert, wunderbar, gibt es nichts zu meckern, klappt,
+was ich jetzt noch gerne machen würde ist, also ich würde noch ein paar Sachen gerne machen,
+und zwar OBS habe ich mal aufgeschrieben, OBS habe ich mal abgehakt, irgendwann müssen wir nochmal einen gescheiten Installer basteln, mit Update und sowas in der Richtung,
+ich wollte noch einbauen, dass man Bilder tracken droppen kann, die man nicht lokal haben muss,
+Tommy fragt, hatte eine Idee ob ich eine JavaScript Library über C-Sharp steuern kann, über das Webinterface halt, denkst du das geht?
+Das muss ich mir jetzt genauer erklären, das verstehe ich gerade nicht so genau,
+eine JavaScript Library über C-Sharp, das mache ich ja letztendlich wenn du es so willst, also sprich ich zeige jetzt ein Bild an,
+und das wird hier highlighted, das Bild anzeigen ist in C-Sharp und das Updaten ist im Browser über JavaScript und umgedreht,
+das kannst du dir einfach angucken auf GitHub wie es gemacht ist, so ok, genau Bilder reintroppen von einer anderen Seite,
+probieren wir das mal aus, also gehen wir jetzt mal zum Beispiel auf GitHub und nehmen wir mal die Katze, meine alte Katze,
+wenn man das reintracken droppt geht das nicht, sollte aber eigentlich funktionieren, geht aber nicht, geht aber nicht,
+so, das probieren wir jetzt mal anzupassen, dass das funktioniert und ich glaube das ist relativ einfach,
+weil aktuell sage ich ja, ich will dieses aufwarten, also wenn man Bilder reintracken droppt sieht das so aus,
+so sieht das eigentliche Track and Drop Interface aus, für die die es nicht gesehen haben,
+und das soll auch aufplocken, wenn ich das vom Browser reinziehe und ich gehe mal davon aus,
+dass ich hier einfach nicht nur hier nach Files gucken darf, sondern überall gucken muss.
+Gucken wir mal was passiert, wenn ich das jetzt reintracken droppe, Files ja guckt, Files steht hier an der vierten Stelle,
+das heißt ich muss jetzt nicht gucken ob das erste Element Files ist, sondern ob irgendwo hier drinnen Files steht,
+und dann sollte das Track and Drop eigentlich funktionieren von allen Quellen, ich glaube das war es schon,
+ihr seht es löst auch aus, zack und die Katze ist drin, kannst du die auch im Browser renamen,
+ne das funktioniert noch nicht, löschen geht auch noch nicht, das ist das nächste was wir uns angucken,
+dass das löschen funktioniert, und den Bildnahme müsste hier unten auch nicht unbedingt angezeigt werden,
+so was war die Frage, muss ich mal kurz gucken, Machine Learning Library, die es leider nicht für C Sharp gibt,
+sondern nur für JavaScript, ja gut, in JavaScript gibt es generell mehr Zeug,
+würde man Daten von C Sharp parsen und zu JavaScript schicken, dort bearbeiten, das funktioniert theoretisch,
+du musst mal gucken, man kann mittlerweile auch schon, du kannst Node.js in.NET laufen lassen mittlerweile,
+musst du mal gucken, du kannst, das geht, das habe ich letztens irgendwie gesehen, nicht das da,
+was ganz offizielles von Microsoft gibt es jetzt, dass man irgendwie, genau, das musste man ein bisschen suchen,
+das habe ich letztens irgendwo gesehen, man kann jetzt Node.js direkt in.NET laufen lassen,
+und dann ist die Kommunikation viel einfacher von.NET zu Node und Node und.NET und zurück und sowas,
+musst mal suchen, Eats Meme für Max, oh nice, sehr schön, das brauchen wir,
+dann sehen wir doch jetzt gleich, ob das Dreckentrop wieder funktioniert, Eats, ne, das ist nicht richtig freigestellt,
+Fail, funktioniert nicht, nicht transparent, klappt nicht, oder?
+Ich meine, hier funktioniert es ja irgendwie mit dem Hintergrund, aber ich verstehe nicht, warum es hier funktioniert,
+lustigerweise, hier scheint es ja zu gehen, ist der Hintergrund nicht schwarz, das muss man jetzt verstehen,
+das ist JavaScript, gedürzt, gedürzt, ah ja, ne, keine Ahnung,
+warum das nicht funktioniert, achso, ja genau, das sind Bitmaps, dann ist es kein Wunder,
+naja, weil Dreckentrop von einem Browser in den anderen, weil anscheinend übertragen die das als Bitmap,
+das ist natürlich doof, aber gut, da kann ich wenig dagegen machen, da müssten wir das höchstens,
+da müssten wir uns die Uhren holen und das downloaden oder so und dann uploaden, das würde funktionieren,
+müssen wir mal gucken, ob wir das rauskriegen, ja, eats, das funktioniert, gucken wir mal,
+das Ganze nochmal starten, ja, ok, dann ist es doch nicht so einfach, wie ich mir das gedacht habe,
+der Dreckentrop ist als Bitmap, was total beschissen ist, ja, dann müssen wir uns das Ganze nochmal
+ein bisschen im Detail angucken, was er eigentlich für ein Problem hat, ok, dann gucken wir uns doch jetzt mal an,
+dann gucken wir uns das jetzt doch, hat irgendjemand eine Idee, wie man das gescheit macht,
+also, weil das Dreckentrop von hier darüber klappt halt nicht, weil das dann als BMP überträgt,
+gucken wir doch mal, was er uns alles, was er uns hier noch für Informationen gibt,
+so, wir wollen es nicht wirklich uploaden, sondern wir gucken jetzt mal, wenn Event-Trop ist,
+was er dann hier drinne stehen hat, gucken wir mal, Files, Items und Types, wenn das Dreckentrop wird,
+ok, kann man das irgendwo umstellen, nein, glaube ich nicht, ich kann ja da nichts ändern,
+wie die ihre Dreckentrop-Dinger hin und her, also, einmal hat es Files und dann hat es Text-HTML,
+Text-Urlist, Text-Plane, wir gucken uns mal Text-Plane an, wenn wir Glück haben, steht in Text-Plane
+oder in der Urliste die Adresse drinne zum Bild, gucken wir mal, das ist in Types, Data Transfer,
+ok, boah, jetzt kommt JavaScript in Items, so, gucken wir mal, was der uns jetzt ausspuckt,
+Swing, Swing-Text-Plane, blaaah, ok, if, Debug with Console-Log in 2K18, null, Type, so,
+gehen wir uns mal in Text-Plane aus, obbei, nee, wie funktioniert das überhaupt, Moment,
+Kind, ok, Mozilla API-Dokumentation angucken, da, kenn ich, das habe ich schon mal gesehen,
+Type-S-String-Invoke-Specify-Callback, also, sowas hier in der Richtung, Get-S, nee, Get-S,
+JavaScript, Callback, Callback, oh, das ist so eklig, Callback, und jetzt, oh, der kam
+mal weg, Callback, so, und dann mal gucken, was da drinne steht, ha, nice, da steht die
+Karte, das ist natürlich cool, das ist natürlich hyper nice, da können wir uns nämlich das
+jetzt runterladen, was, es gibt mittlerweile sogar Programming bei Twitch als Stream, das
+gibt es schon eine Weile, das Problem ist, mit der Programming-Kategorie, das ist, du
+hast in Creative schon kaum Leute, die gucken, bzw. doch, das stimmt nicht, du hast schon
+genug Leute, die gucken, aber du hast wenig neue Leute, die es finden, über Creative,
+und Programming ist noch mal eine nicht richtig gelistete Unterkategorie von Creative, das
+heißt, da findet sich wirklich keine Sau, wer, würde das gehen, mit JavaScript das Bild
+64 zu konvertieren und dann zu einem PNG degrudieren, nee, dann hast du ja die Transparenzinformation
+wahrscheinlich immer noch nicht, oder, also falls die Transparenzinformation drinne sind,
+würde das bestimmt irgendwie funktionieren, aber, nee, nee, wir müssen irgendwie die
+Original-URL rauskriegen, echt, Depot X, also ich habe immer das Gefühl, wenn ich das in
+Programming hoste, dann kriegt es kaum jemand mit, ok, also, das heißt, das funktioniert
+doch jetzt, wir können das jetzt runterladen und dann hochladen, probieren wir nochmal
+testweisen ein paar andere Sachen aus, was ist zum Beispiel, wenn man das von Google
+rüber zieht jetzt, das funktioniert natürlich nicht richtig, aber das wundert mich ja auch
+nicht, dass die Google Links nicht richtig sind, ist ja, das wundert mich nicht, die
+Google Links, ach so, Moment, das ist der Link, aha, ok, Moment, das müssen wir anders
+machen, wir haben zur Auswahl gehabt Text plane, was hatten wir noch zur Auswahl, wartet
+mal, was hatten wir denn zur Auswahl, GitHub, ja, wir können auch das GitHub Bild nehmen,
+ist auch ok, String, Text plane, Text Uri-List, was ist denn Text Uri-List, ja, das bringt
+uns ja nicht, ich will ja einstielen, ok, dann checke ich jetzt nicht genau, ich meine,
+es ist, er überträgt es immer als Image-BMP, dann funktioniert das Track and Drop direkt
+aus Google nicht, wenn man das Bild allerdings so offen hat, dann funktioniert es schon,
+gucken wir nochmal, was bei Text HTML rauskommt, aber wahrscheinlich auch nichts Gescheites,
+ne, damit kann ich nichts anfangen, da müsste man das ja parsen und wissen, wie die Seite
+aussieht, ne, ne, ne, ne, ok, dann geht es halt nur mit Bildern direkt, aber das ist auch
+ok, worum geht es denn, Bilder hier rein Track and Dropen und, also von einem anderen Programm
+Bilder rein Track and Dropen, die man nicht lokal hat und sie dann lokal Upload, um sie
+zu verwenden, so, glaub, das habe ich jetzt ganz gut umschrieben, äh, also, wenn man
+es nicht richtig schreibt, dann ist es auch kein Wunder, das muss doch gehen, das ist
+immer die Weiterleitung auf diese scheiß Seite, äh, ja, dann weiß ich nicht so richtig,
+genau, das ist richtig, das ist die Frage, was da eigentlich der Track and Drop wird,
+keine Ahnung, halt, ne, das da wird da Track and Drop, also direkt Bild Track and Dropen
+funktioniert, dann kriegt man die Url raus, irgendwie von Google Bildersuche Track and
+Dropen kannst du vergessen, aber gut, ich mein, man kann nicht alles haben, ja, vielleicht
+fällt uns da noch irgendwas ein, ich mein, natürlich kann man dann einfach so machen
+und es reinziehen und das müsste dann funktionieren, ja, das funktioniert, das geht, was haben
+wir, was haben wir noch, was haben wir denn sonst noch für Auswahl, Files, warten wir,
+wir gucken mal, wir gucken mal, was wir sonst noch zur Auswahl haben, Files, ne, das ist
+das Bitmap, das brauchen wir nicht, das haben wir ja hier schon, das Müll, ja gut, Pech,
+Google musst du direkt links rausnehmen, ja, das ist schon, das ist aber doof, also was,
+ok, was, was genau war jetzt diese, was war das hier nochmal ausgegeben, ja, das ist Crap,
+gehen wir nochmal auf GitHub, gehen wir nochmal auf die Katze auf GitHub, da machen wir das
+mal nicht über Google, machen wir das mal hier mit der Katze, ja, das ist ok, das ist
+ok, das funktioniert, ok, dann geht das halt nicht von Google, aber gut, ich meine, da
+war trotzdem doof, ok, dann gucken wir uns das jetzt nochmal an, dann haben wir hier einmal
+zur Auswahl, das da, das ist jetzt, so, dann haben wir, also, wir kriegen die Url raus
+bei ein paar Uri-Lists, was haben wir da, Text, Text plane, was kriegen wir da raus,
+auch die, wat, auch die Liste, ok, machen wir noch Text HTML zur Auswahl, was sind da
+drinne, ok, ja, das HTML Element, das bringt uns jetzt allerdings nichts, ich hab ja gehofft,
+man kriegt das Bild irgendwie als Base64 oder irgendwie, oder als Data-Url oder sowas,
+aber ich mein, so ist es ja eigentlich noch besser, dann können wir das direkt runterladen,
+können wir das direkt hier eigentlich downloaden, oder wie machen wir, aber wie würden wir
+das jetzt am besten machen, also mal angenommen, ich hab das jetzt hier reingezogen, so, und
+jetzt krieg ich, all die Musik, so, naja, aus dem HTML den Bild-Link raus kopieren ist
+nachher, weil das HTML ja immer anders ist, aber so, ich mein, so ist ok, und Visa, mein,
+Visa, das ist jetzt nochmal aus, wenn ich es über Google reingezogen hab, ok, das ist
+halt der Link auf die, nicht auf das Bild, sondern auf die Seite, was passiert eigentlich,
+wenn ich das hier in die Bildersuche ziehe, naja, das Eats, Clap, Twitch, ok, die machen
+Google-Magic mit ihrem eigenen Zeug, keine Ahnung, kannst du nicht direkt das Bild bekommen,
+ohne einen Download zu starten, ich muss es doch runterladen, um es dann wieder bei mir
+zu laden, oder was meinste, das ist kacke, das sackt alles massiv, ok, was haben wir
+jetzt hier, ich hab hier ein paar Types, so zur Auswahl gehabt, da muss ich mir glaub
+ich nochmal in Ruhe Gedanken drüber machen, weil das BMP will ich nicht haben, warum,
+warum eigentlich das BMP, was ist das für ein Kacke, ja, ne, ich krieg das Bild nicht
+aus, ich krieg nur den Link, ich krieg es doch, ich krieg es als BMP, was mir bei transparenten
+Bildern ja nix bringt, und ich krieg es als Link, ok, wir probieren es jetzt mal Down
+zu laden, wir gucken einfach mal, ob das funktioniert, ich hab es übrigens umgestellt auf Fetch,
+das ganze hier, heute Morgen noch, ok, probieren wir das mal aus, wohin lädt man das eigentlich
+runter, wenn man das mit dem Browser runter lädt, keine Ahnung, das gefällt mir alles
+noch nicht so, wisst ihr was, da mach ich mir in Ruhe Gedanken drüber, wie man das am
+besten machen, dass man hier Bilder reinziehen kann, so, wo hat man hier angefangen jetzt,
+so, ja, da muss ich mir erstmal in Ruhe Gedanken drüber machen, das track and drop BMP liegt
+an Windows, das kann gut sein, das kann, das ist durchaus möglich, das mit dem track and
+drop aus dem anderen Process, da muss ich mir in Ruhe Gedanken zumachen, das fällt mir
+jetzt grad nix gescheites ein, wie wir das machen, so, eine Sache, die ich auch noch
+gerne einbauen würde, ist halt, dass man die Dinger hier einmal umbenennen kann, wobei
+eigentlich hauptsächlich erstmal, dass man die löschen kann, also wenn ich jetzt zum
+Beispiel hier ihn hier löschen will, dann geht das nicht, und es gab mal vor ein paar
+Jahren, das kann aber Chrome nicht, gab es bei Mozilla was cooles, gibt es aber nicht
+mehr, es gab mal ein Kontextmenü API bei Mozilla, wo man das Rechtklick Kontextmenü
+erweitern konnte, das hat aber Chrome nie unterstützt, was natürlich cool wäre, da
+könnte ich hier rechts draufklicken und sagen löschen, das heißt jetzt müssen wir
+da irgendwas eigenes bauen, und ich würde vorschlagen, dass wir sowas machen wie, wenn,
+da muss ich mir aber überlegen, da brauchen wir wieder die CSS-Profis aus dem Chat, ich
+würde vorschlagen, wenn ich hier drüber hover mit der Maus, dann gibt es hier oben
+rechts einen X oder so, ja genau, genau Nullen hat sowas in der Richtung, und dann geht es
+weg, müssen wir mal gucken, wie wir das jetzt am besten machen, also erstmal würde ich
+sagen, machen wir da oben rechts einen X hin, und zwar das ist das in das Diff, in das
+Diff hier, oder? Ja, ja ok, das ist das richtige Diff, warum ist hier so komisch eingerückt?
+So, dann machen wir da nochmal einen X rein, und das müssen wir uns erstmal richtig anordnen,
+also wir machen da gleich einen ordentlichen X, wir nehmen wieder den Emoji X, beste, Objects
+Delete, Emojis für alles, alles gut, die haben doch bestimmt irgendwie einen Crossmark,
+jawoll, das dann nehmen wir jetzt, beste, in welcher Kategorie ist das? Hä, wir nehmen
+Emojis, die sind überall vorhanden, außer dort wo sie nicht vorhanden sind, angeblich
+hat das jetzt gefunden, aber nur wo, ah da, das ist Kategorie Symbols, ist da noch mehr
+in der Richtung, ah wir haben noch einen Kraus, aber das rote finde ich eigentlich ganz gut,
+so, ja, so das waren wir dann auch durchsichtig und sowas in der Richtung, nennen wir das
+Ding mal irgendwie, das ich, die Lied, keine Ahnung, irgendwie gucken wir mal wie wir das
+jetzt machen am besten, es hat auch eben schon einer was im Chat gepostet, ich muss
+mal kleiner mal durchlesen, so, wir machen das Ganze erstmal ein ticken durchsichtiger,
+ah, so und das heißt, oh wie machen wir das jetzt gescheit in CSS, also ich will, was
+Position Absolute Top Right Null, ja gut, das ist klar, aber ich will, also da komme ich,
+das, das, was, ne Moment, ja fast, also das funktioniert, das haben wir ja woanders auch
+schon gemacht, nicht absolut, absolut nicht, warte mal, ich bin verwirrt, warte mal, warte
+mal, wie, wie funktioniert der Kram jetzt nochmal, Top Right, wir wollen es schon absolut
+haben, wir wollen es absolut in diesem Container haben, oder, ja, ja Leute, jetzt Backseat
+programmt man jetzt nicht so, ich muss mir da erstmal kurz Gedanken drüber machen,
+fragt gerade jemand per, hat mich gerade jemand gefragt, wie das funktioniert, dass die Seite
+sich im Browser aktualisiert, während man speichert im Visual Studio Code, das liegt
+daran, ich habe da folgendes Plugin installiert, Live Server nennt sich das Ganze, das ist
+ein Visual Studio Plugin, was quasi ein Web Server startet mit dem Verzeichnis, wo du
+gerade drinnen bist mit Visual Studio, und der bastelt da ein paar Java Script Hacks rein,
+das heißt, wenn man über diese Seite jetzt seinen Content aufmacht, hat das automatisch
+dann nen Reload drinnen, wenn man speichert. So, also, wie, warte mal, wie haben wir das
+hier auch gemacht, Position, Position Fixed, wir wollen Position, ich bin verwirrt, wie
+ist das jetzt, Position Absolut ist doch eigentlich das Richtige, ja genau, und jetzt sagen wir
+hier, right, ach fuck, ach jetzt ist es da, Moment, no, jeff, ich bin verwirrt, okay,
+warte mal, warte mal, warte mal, Moment, kann halt zu schwierig sein, das auf die rechte
+Seite zu kriegen, kann ich hier float right, oder so meine krassen Frontend Skits, so geht
+das nicht, right, ich hab da doch irgendwie, das hab ich doch gestern schonmal gemacht,
+sowas in der Richtung, oh jetzt ist es da, warum ist es denn jetzt da, the fuck, war Text
+allein, oh Text, Text allein ist auch eine gute Idee, ist ja auch kein Text, hm, okay,
+also ich mein, die, die, die, äh, ähm, also die kack Variante wäre sowas hier, so, warum
+jetzt noch so ein Ding drum herum, WTF, warum jetzt noch so ein Ding drum herum, du musst
+es, ach nee, nee, hier, ähm, ähm, Clipper, du musst es nicht klonen, du kannst einfach
+GS Viertel oder irgendwie sowas schicken, hallo, Milasra, ähm, wo kommt denn dieses
+komische, dieses komische, dieser komische Border her, na ja, überschreiben wir den irgendwie
+Border, wie macht man den jetzt aus, ist immer noch da, wo kommt der Border her, Border, ja,
+Border Fünf, warum hat, mach Track and Drop in Mülleimer, okay, einfach nur Border Null,
+nee, reicht nicht, reicht nicht, warte mal, hab ich überhaupt richtig ausgewählt, Class
+Elite, das ist richtig, ne, Class Elite, okay, warum, warum kann ich das jetzt nicht überschreiben
+mit dem Border Null Pixel, hä, warum kann ich das, warum ist, wo ist das Problem, alter
+CSS, was ist das für ein Kack, ach kriegste ja die Krise, ey, ich krieg's doch nicht
+mal auf die Reihe gebacken, gescheites Ding oben rechts zu positionieren, meine Güte,
+ich Kack Noob, ey, ich bin so ein Kack Noob, warum kann, warum kann ich eigentlich so schlecht
+CSS und JavaScript, dazu fällt mir eins plus noch ein Null 3D, oh nice, wir haben Code
+Pen gekriegt, easy, easy backseat Programming, guck mal, was war, wie man das richtig macht,
+aha, aha, also man setzt, man setzt die, das Element außen drum herum setzt man auf
+Relative, okay, das probieren wir jetzt mal aus, das Element außen drum herum ist, so
+das hat eigentlich, kann ich, kann ich sowas, kann ich, kann ich, kann ich diff im diff
+machen, geht das, soll ich irgendwie sowas hier machen, dass, also, dass ich jetzt das
+darin setze, Class, oder muss ich das auch wirklich anders komplett außen drum herum
+machen, okay, probieren wir mal aus, da, ich copy paste das jetzt mal und schauen wir mal,
+ob das funktioniert, so, dann brauchen wir noch die Box, jetzt bin ich mal gespannt,
+ja, stimmt, ich muss das, ich glaube, der, der, der, der Box hat Recht, man muss das
+ein bisschen spezifischer machen, ha, fast, okay, die Class Box muss dann doch an das
+diff oben drüber, äh, fast, nein, das funktioniert auch nicht, achso, ne, das liegt da am Hintergrund,
+das funktioniert doch, jetzt muss bloß noch der Hintergrund weg, okay, das funktioniert
+doch, jetzt muss, äh, nein, nicht so ganz, oder, so, so ist das richtig, und jetzt ist
+auch, ne, das, Moment, das ist immer noch da, wie krieg ich diesen hässlichen, wie krieg
+ich diesen hässlichen, da, Ding, weg, border, ich mein, ich kanns doch hier im, im Browser
+kann ichs doch auch löschen, Alter, was ist das, was ist das für Rausch, das ist doch
+keine Musik da im Hintergrund, ey, das ist doch, was ist das, das hört sich an, wie wenn
+der Fernseher früher, ne, na gut, jetzt gehts wieder, also, ich mein, ich kanns überschreiben,
+okay, warte mal, wir probieren das mal aus, dann jetzt diff, dann sagen wir, border, man
+muss das irgendwie spezifischer machen, ne, fuck, wie geht denn das, dank, dark mode, ach,
+ich bin, ich bin da zu dumm für, ich bin da nicht in der Lage zu, so, einfache, CSS-Dinger,
+vor allem, warum hat das, war dieses hässliche Teil da jetzt so ein Ding, das, das nervt mich,
+ey, was ist denn das, kann man, man kann sowas hier machen, ne, dann ist weg, bam, aber ich
+hab mir sagen lassen, das macht man nicht, ich hab mir sagen lassen, das macht man nicht,
+was ich auch verstehen kann, aber, das funktioniert, was, replace mal den light mode items diff mit
+light mode, dark mode brauch ich, du meinst den dark mode, oder, doch, doch, ich kann
+das border löschen, aber dann ist hier wieder da, das ist dieses hässliche, alter, wisst
+ihr, die Musik geht mir immer auf den Sack, was ist das denn, ich mein, da hat sich da
+irgendeiner gedacht, ich nehm hier zwei Töne und mach Rauschen rein, und das ist dann geil,
+oder was, border none geht auch, jelkswitz, aber pro, big, fuck, ich wollte jetzt sagen
+big brain, aber es funktioniert ja immer noch nicht, lofi hip hop, alter, das hör ich auch
+immer ganz gern, der streben radio, den da, ist auch immer entspannend, so, border radius
+null, nein, nein, nein, border radius brauchen wir nicht, such mal nach items diff und pack
+einen dazwischen, was ist das da, das da, mein css ist halt auch schon sehr eklig, ne,
+es ist weg, warum, warum ist es weg, was macht es, ich hab keine Ahnung, was es macht, aber
+es funktioniert, ok, nice, alter, ok, sehr, sehr, sehr, sehr nice, brauch ich das jetzt
+noch, brauch ich diese box jetzt überhaupt noch, ja, css selektors, ja, das ist magic
+pur, ich glaub das css muss ich allgemein nochmal, nochmal neu ordentlicher machen,
+so, so, jetzt, oh, jetzt brauchen wir gleich nochmal eure krassen css skills und zwar,
+jetzt wollen wir das ja nur an hover anzeigen, wir wollen das x ja nur wenn wir drüber hovern,
+lass mich, lass mich mal selbst ausprobieren, lass mich mal selbst ausprobieren, ob ich
+da, ob ich draufkomme, so, und zwar, nein, das highlighting geht jetzt nicht mehr, das
+geht nicht, jetzt haben wir es kaputt gemacht, wir haben es kaputt gemacht, jetzt geht das
+highlighting nicht mehr, muss ich jetzt, muss ich jetzt da irgendwie, da auch so was dazwischen
+machen, ne, oh, jetzt haben wir es kaputt gemacht, ai, ai, ai, ai, ok, der Sache können
+wir uns dann gleich widmen, schwierig, dass du mit tippst, du kannst es, wenn du willst,
+kannst du es auf github angucken, mein abenteuerliches css, wenn ich das hier weg mache, geht das
+logischerweise, weil dann hab ich ja wieder ne, so, egal, ich will jetzt erstmal, dass
+es on hover funktioniert, also sprich, so quasi, dass ich, dass ich sag, quasi jetzt
+hier, visible, und hör mal, so, visible hidden, oh, the fuck, achso, Moment, das ist auch
+irgendwie on hover, ging das so, genau, da kann ich dann sagen, visible nicht hidden,
+was denn, das ging da von nicht hidden, visible, ha, das funktioniert nicht, Moment, ich will
+ja auch, ich will ja auch on, Moment, Moment, ich will ja auch, dass es visible wird, ich
+will ja auch, dass es visible wird, wenn ich über diesem, wenn ich über delete box drüber
+bin, also quasi, will ich jetzt, will ich jetzt, ok, lass mal überlegen, ich will
+jetzt, oh, oh, oh, jetzt wirds special, delete box, delete, so, so, ich glaube, ich glaube,
+das funktioniert, was ich vor hab, wartet mal, visible hidden, und jetzt, oh, jetzt kommt,
+jetzt kommt magic, Achtung, jetzt sag ich delete box, hover, geht sowas, geht sowas,
+geht das, poggers, poggers, alter, nein, hier, Koggers ist das schon, ach, ach, ach, ach,
+ach, krasser Scheiß, ey, krasser Scheiß, wobei, das Ding, Kacknamen hat, mit delete box,
+das heißt es ist nicht lieb was, das heißt
+Dreambox, weil es das ja eigentlich auch ist
+das ist das Dip, wo hier alles drin ist
+ups
+was zum teufel macht das CSS da, wat, was zum, was macht das da, Jack, was, ich hab irgendwas komisches copy pasted
+ok, so und was ich jetzt gerne hätte ist, ich hätte noch so einen Übergang, hat jemand gefragt was das Tool macht
+ah ja genau, was wird das hier eigentlich gemacht, ich kenne nämlich nur noch was, das ist ein Tool für Streamer, du kannst mal ausrufen zeichnen Meme Tool machen, da habe ich irgendwie auch eine kurze Erklärung
+da kannst du vom zweiten Rechner aus Overlay Bildchen einplenden und auch danach suchen hier sowas hier, du kannst es per Shortcuts machen, du siehst es aktualisiert sich hier live im Webinterface, also siehst du nicht, weil ich gerade das kaputt gemacht habe
+du kannst über Shortcuts, kannst du es bedienen, Overlay und du siehst es halt selbst, das ist der Vorteil gegenüber OBS, OBS Shortcuts, wir haben allerdings auch eine OBS Integration, dass du es quasi triggern kannst über das Webinterface vom Tablet oder vom zweiten Rechner aus oder so
+und es in OBS angezeigt wird und nicht hier als Overlay wo du es selbst siehst
+ja warte mal, eben hat auch jemand was geschrieben, wie man das andere wieder fixen kann
+ok, was Dark Mode Items müsste es sein, ok, das mache ich jetzt mal, hier das da, Alter, ich blicke meinen CSS nicht mehr durch, das ist mir voll zu hoch
+warte mal, der Radius, der kommt...
+DivActive, warte mal, der kriegt jetzt einfach nicht mehr Border Radius, ich bin verwirrt was CSS angeht
+ich meine, das hier ist halt...
+das ist doch hier blitzig, eigentlich will ich das doch haben, ich will doch, dass es auf alle wirkt
+das ist halt das X Mist, ne, komm scheiß drauf, ich will jetzt erstmal gucken, ob wir das mit dem X hinkriegen
+benutzt du für den Webserver eine Windows API oder eigene NIP, weder noch, das ist ASP.NET Core, das ist dabei mehr oder weniger
+Dark Mode, achso, warte mal, warte mal, Dark Mode Items
+Dark Mode Items, Div, achso, achso, dann bezieht sich das auf die...
+ja so ist das sehr, sehr nice, allerdings ist das bestimmt viel umständlicher als es eigentlich sein müsste
+aber es funktioniert sehr, sehr nice, so ist das schön, ok, wunderbar, jetzt können wir nämlich das machen, was wir eigentlich vorhatten
+und zwar, jetzt sagen wir hier nochmal, dass das nicht nur visible ist, sondern, dass das auch noch ein bisschen durchsichtig ist
+wie sowas da, ja, jetzt haben wir noch Font Size, machen wir nochmal ein bisschen hoch, Font Size, bisschen fetteres X, BÄM
+auf fetteres X, zack, so, das sieht kacke aus, wir hatten doch eben noch ein anderes X gefunden
+was genau das machen soll, Legendary Snake, du kannst mit Shortcuts transparent Bilder overlayen, sowohl, dass du es selbst siehst, als auch mit OBS Integration, dass du es nicht selbst siehst
+es hat GIF Support, ja, und das beste ist, dass es halt keinen Einfluss hat auf die Anwendung dahinter, also sprich, das reißt dich auch nicht aus dem Spiel raus, nur weil du das Overlay einplendest
+das einzige, wo es natürlich nicht funktioniert, ist in exklusiv, exklusiv X ist eine gute Idee, exklusiv Fullscreen-Spiel, das funktioniert natürlich nicht
+aber, damit kann man leben, und wenn man damit nicht leben kann, nimmt man halt die OBS Integration, gibt plus das Gescheites eigentlich
+ach, das sieht doch ein, so schlimm sieht das doch gar nicht aus, weil es je nach Emoji-Font eh anders aussieht
+ok, jetzt hätte ich noch eine Sache gerne, wenn man hier drüber geht, wie macht man das jetzt am besten, dass das so ganz kurz einfaded, so dieses X, also quasi sowas wie Transition oder sowas
+wie sowas wie Transition, mal kurz gucken, fade in CSS, Transition, aha, da muss man eine eigene Animation machen, das ist natürlich
+ach, das hier, das will ich haben, genau
+ja, sowas hier, also aber nicht auf Klick, sondern sowas hier
+mal gucken, ob das funktioniert, wenn ich das einfach da dran haue
+nicht wirklich, weil CSS-Skills sind halt so schlecht
+was ist denn Target? Was genau sagt uns Target hinten dran? Was ist denn Target? Das ist das, wie es dann werden soll oder was?
+ne, hä, was ist denn Target bei CSS? Target-Selektor, Highlight-Active-Hardware
+achso, das ist das, wo ich mit der Maus drüber bin oder sowas, ne, ne, ne, das machen wir nicht
+hover is in, eats, eats in on hover
+was zum Teufel machen die da? wow, das sieht geil aus
+ja, Transition, Background-Color, achja, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso
+ich nehm' noch eine angeben, also Mistress density två 0, ja funktioniert, sehr nice
+Ja das ist doch schick, aber ganz kurz nur
+Ja so ist, guck mal das ist doch nice
+Da gehts dir hier drüber und dann fade das so ein
+Das ist doch massiv poggers
+Stimmt visible kann man raus machen, weil
+Ja so ist das schön
+Das ist das gefällt mir das ist das hat recht das das hat was so und jetzt müssen wir nur
+gucken dass wir das irgendwie was man das anklicken können
+Ja das ist doch nice guck jetzt geht man hier hin das fade ein und man kann das man kann das
+anklicken so und dann kann man das anklicken und dann wollen wir es löschen also sprich
+funktioniert das eigentlich so und da kann man jetzt hier dran dann was finden und klick
+gleich so soweit von der idee hier man kommt die spracherkennung dazu ja da kann zumindest
+schon text to speech wenn man spracherkennung wäre natürlich noch geiler dann sagst du dann
+omega null und dann mit bisschen random faktor zeigt er dann irgendwas passendes hier dazu das
+wäre natürlich das wäre natürlich also was was dazu kommt auf jeden fall noch habe ich
+extra schon mal schon mal notiert von der weile ist eine möglichkeit mit twitch chat also twitch
+chat interaktion also sprich wenn der twitch chat innerhalb von so und so einer zeit in den
+mod gesperrt gesperrt hat dann macht es das auch kurz an oder irgendwie so was habe ich
+schon überlegt so was in der richtung könnte man auch machen
+bin ich der einzige der immer misstrauisch wird wenn sein rechner auf einmal hier symbol ans
+nvidia macht da dinger habt das gesehen nvidia macht dinger im hintergrund warum so jetzt
+basteln so zack so und jetzt müssen wir natürlich den irgendwas zum solver schicken das es gelöscht
+wird es gibt gut und einfach zu nutzen bibliotheken für spracherkennung also welche dann also ich
+habe mal wir haben wir für bilderkennung haben wir mal die die die kostenlose diese microsoft
+things cloud geschichte verwendet weil wenn man das selbst macht dann muss man wahrscheinlich
+das dann noch lernen lassen und solche dinger ist dann wieder diesen akt für den das benutzen
+so ja gut dann machen wir jetzt einfach hier haben wir das hier drüber noch mal neue neue
+Methode auf server seite die liet wobei das können wir jetzt jetzt jetzt hier drüber
+oder machen wir das über htp aufruf eigentlich ist es egal überlegen was was schöner wäre
+das hier geht dann über signal eher weil es einfach schneller sein soll könnte es genauso
+gut über htp machen aber es ist klickt es aber es ist nicht die lite die lite das ist
+der erste auf der server seite wenn das hier request delete sowas ist für das meme so und
+da müssen wir das jetzt einbauen hier irgendwo wo haben wir es denn da brauchen wir hier noch
+eine wie habe ich es genannt die quest delete genau ich gebe jetzt nur mal den fad aus was
+er löschen würde gucken aber dass jetzt ob das funktionieren würde so aber ich muss
+noch das click weg machen wenn ich hier drauf klicke dass das untere nicht klickt ja also
+er würde das er würde das löschen er würde das löschen ok das ist schon mal nicht schlecht
+wo sie noch gucken wie ich den beibringen dass er den klick nicht macht den anderen
+ich meine er macht logischerweise den klick das liegt hier in der reinfolge nicht moin
+der apfel x3 das steht natürlich jetzt an der reinfolge liegt das jetzt weil hier sagt
+der klick hier sagt der klick für select und hier sagt der klick klick für löschen
+genau so ist es allerdings habe ich keine ahnung wie ich das mache ich meine ok wir
+machen hier einfach jetzt noch das event rein und dann geben wir uns das mal aus warum ist
+der letzte select wieder kaputt
+ne ne so funktioniert das nicht achso bei delete memes ja stimmt ich muss das irgendwie
+machen wir können das mal probieren wir können sowas machen wie event ich glaube nicht dass
+er macht jubel stimmt in den magic im hintergrund kann man irgendwie sowas sagen wie ne ne ne
+das ist das ist das ist nicht das ist nicht schön das muss irgendwie anders gehen das
+gefällt also mich ja irgendwie um zu passen ich kann es noch mal probieren was event stop
+tatsächlich fack man das funktioniert krasse shit gebetet das ist sehr sehr nice so jetzt
+kann ich das nämlich löschen jetzt sage ich jetzt einfach hier meine meme was ich aus
+dem repo geholt habe und nicht einfach den fad nehmen weil sonst könnte man irgendwie
+was sonst wo löschen wir nehmen das wo wir wissen dass das legit ist was da drin steht
+das habe ich gerade ausprobiert ich habe die die text so speech die eingebaute text
+so speech in wenn aus habe ich mal haben sogar hier eingebaut die ist aber gewöhnungsbedürftig
+am liebsten hätte ich noch so richtig richtig weep text so speech da habe ich ein paar
+sachen gefunden aber das ist alles nicht nicht schön zu bedienen wir hätten da echt so
+eine richtig krasse weepstimme gebraucht wie so eine anime grill stürmer die dann irgendwas
+vorliest das wäre der renner geworden sage ich euch der renner ja ja ja so gelöschen
+wir das mal löschen wir mal die ganze festplatte jetzt weil wir uns irgendwie vertan haben
+so und jetzt kopieren wir es wieder hin da ist es wieder da ist wieder weg oh ah moment
+ah das funktioniert nicht wenn es im kehr das funktioniert natürlich nicht wenn es
+im zugriff ist weil es gerade angezeigt wird da müssen wir noch was machen da müssen
+wir jetzt wahrscheinlich irgendwie sagen dass er den krempel cashen soll dass das probieren
+es noch mal schnell danach muss man was essen ich habe übelst hunger es geht hier garantiert
+irgendwo drinnen dass man hier irgendwie beim beim laden vom bitmap dass man dann irgendwie
+sagen kann cashing oder sowas cash options was haben wir da so zu bieten unload ja das
+brauche wir das brauche wir das brauche wir cash options und load was haben wir und demand
+ist von disk und laut hoffentlich gibt er das feine handel frei danach hier setzen wir
+das auch cash options unload so bin ich mal gespannt ob es funktioniert anzeigen warum
+ist das used warum ist das bild used ich habe doch gesagt ist so was ist das wo ist das
+problem google das ist eine möglichkeit dass für das selbst aus memory ja das ist aber
+dumm unload das muss ok moment das muss man anders setzen mit dem unload das funktioniert
+so nicht wie ich das mache ok mal gucken ob das moment aber mit mit mit mit gifs
+wird das mit gifs wartet mal mit gifs funktioniert es auch nicht aber mit gifs machen wir das
+ja schon stack overflow beste source bitmap image source begin init bla bla bla pass unload
+init end source machen wir es mal so stack overflow weiß Bescheid stack overflow hat
+erfunden bam schreckt funktioniert sehr nice
+da ist es wieder ja das ist cool da bauen wir das noch für das gif ein benennen wir
+hier genau so wenn ich anders heißen sehr nice stack overflow beste leute ich sag euch
+beste klimaanlage ausmachen ist zu kühl muss man credits geben ja ich habe es jetzt hier
+gezeigt die haben bestimmt irgendwie terms of service dass das ok ist sonst wäre es
+ja nicht zu gebrauchen es gibt bestimmt irgendwie so eine stack overflow dass es ok ist es zu
+nehmen es sei denn es wird was anderes geschrieben oder so weil ansonsten wird man die komplette
+seite in frage stellen warum es die überhaupt gibt so leute also ich würde mal sagen für
+heute ist es ok jetzt müssen wir gerade mal amazon gucken weil wir gucken ob ich mir
+noch was was was kaufe ich muss ich habe nämlich heute noch nicht einmal drauf geguckt ich
+wollte mal gucken ob es beim prime der irgendwas gescheites gibt irgendwas gescheites gibt
+so also haben wir denn hier amazon geräte ich war mal ein bisschen größer ja guck mal
+amazon ist auch nicht so wirklich geile responsive so wir machen jetzt erstmal elektronik elektronik
+und foto gibt es hier gibt es irgendwas gescheites alles crap brauche ich nicht so leute wisst
+ihr was ich hole mir mal ganz kurz was zu futtern und dann gucken wir noch mal kurz amazon
+durch weil das wollte ich eben machen dann können wir das auch kurz zusammen machen
+und dann pushe ich den restlichen kram auf auf github ich bin gleich wieder da zwei minuten
+ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin
+gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin gleich wieder
+da zwei minuten ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten
+ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin
+4k fernseher für 269 euro da bin ich mal gespannt was das für einer ist
+was ist das? ich glaube der fernseher suckt aber wobei der ist relativ klein ok aber trotzdem also ein 4k fernseher für 569 euro das ist nicht übel
+skat in 2k18 lul vga und skat
+omega lul ich muss das drehen schneller machen das reicht das ist nicht schnell genug drehen
+rotation speed moment fuck
+wo stellt man die rotation nochmal ein
+rotation muss schneller sein so ist besser
+also ne brauch man nicht aber auch alles nicht alles alles müll
+da gibt es wieder den komischen stelsbomber router hier wo ich nicht weiß warum man sich sowas kauft
+das ist eine maus die nicht sonderlich bequem aussieht mit einem fetten roten knut das ist die 360 quickscope headshot taste
+ok jetzt muss ich mal gucken wie nennen sie diese tast wie nennen sie denn die tast die bei gaming zubehör hat das hat immer geile geile namen für einfache dinger
+wie heißt das wie heißt der button ich will wissen wie der button heißt
+extrem tunable ultra durable voll tödlicher voll voll tödlicher voll voll tödlicher was voll tödlich voll tödlicher roter button
+die technik die ihnen zum sieg verhelft wie heißt der button ich will wissen wie dieser button heißt
+leistungsstärke q software das ist der mega krab habe ich ja auch am laufen das ist der dass diese software ist grausam ja die tastatur finde ich gut aber die q software von korsair
+der dpi wechsel ach sowas ist das ist ja langweilig das hatte die das hatte die g502 ja die da genau die hatte das auch die hatte ich davor
+die hatte hier diesen sniper button der sieht bei logitech nicht so super fancy aus wie bei korsair jetzt aber das lustige ist die maus war mir viel zu schwer die logitech maus
+deswegen habe ich jetzt eine g403 ohne sniper button also man könnte man könnte ja einfach auch die die seitentaste auf dpi change legen das geht ja auch aber das ist dann halt kein extra sniper button
+kingston hat jetzt auch mäuse ok gamebots war es wares dass das das stand früher stand das für sicherheits runtergeladener sicherheitskopien
+gaming zubehör wird ja ist ja ein schlimmer als das andere der stuhl sieht ich finde der stuhl sieht jetzt schon unbequemer aus
+plastik headset zumindest was was nach ohrpolstein aussieht wo man das nicht sofort vom kopf reißen will der rest sieht mir auch sehr plastikmäßig aus router den kein mensch braucht noch das ist die abgegradete version davon oder was
+mit lensflare effekt ich muss ja sagen mein exes point sieht irgendwie besser aus das ist das ist übrigens total also ne ich zeige euch mal mein exes point weil das fancy sind ja die antennen hier
+so den habe ich den da guck mal der sieht so voll normal aus der exes point und der sieht finde ich schon sehr fancy aus ja einfach rund mit nem kreis drauf aber der ist richtig gut der exes point der ist wirklich top kann man nichts sagen
+bis in garten wählen und dann auch von einem ordentlichen hersteller sieht aus wie ein feiermelder ja stimmt moment und es gibt jetzt sogar noch den nighthawk 9000 für nur 300 euro die ich finde ja muss man jetzt ja mal so sehen
+da gucken wir mal wartet mal ich finde der router sieht umso teurer wird umso schlechter sieht er aus guckt mal das ist ja das ist das einsteigermodell für nur 120 euro ich finde der geht noch irgendwie
+der geht noch ja danach kommt das nächste modell das sieht schon mal richtig kacke aus und jetzt kommt das modell für 300 das sieht mal mega scheiße aus ich weiß auch nicht so geht es wird ja immer schlimmer aber das ist doch die
+wisst ihr weil die antennen auch besser werden wenn um die antennen noch mal plastik drumherum ist naja gut wenn das was sein muss razor glaube ich man ja auf das ding da habe ich sogar mal ein video zugemacht
+das ding war ich mal relativ scharf drauf bevor das dann rausgekommen ist was der hat einen 10g sfp plus port ernsthaft nur einen warte mal welcher der hier
+mal einen
+einen
+ja warum mit alles in der welt brauche ich denn einen
+wo ist denn davon dessen einen warum denn nur einen port
+übrigens für den preis kriegt man schon was was um um welchen besseres zum beispiel wie fast kostet man kann sich eine mikrotik
+mikrotik
+das kann man sich kaufen das sieht zwar nicht so fancy aus der da
+ich finde es jetzt nicht wie das das das teil heißt einfach umlängen besser günstiger braucht wahrscheinlich sogar noch weniger strom
+aber wie hieß denn das ding
+sfp plus hatte der ich finde es jetzt nicht mehr keine ahnung aber zumindest ist das
+in allen in allen belangen und ich meine man kann sich einfach eine billige was wenn man jetzt in dsl modem oder so braucht kann man sich dann
+noch eine günstige fritzbox vorstellen das ist alle mal besser als dieses teil hier so und und halt auch viel mehr ich meine warum warum ein fsp plus warum warum einen das ist total beknackt einer also normalerweise willst du mindestens zwei haben mindestens
+also mal eigentlich also zwei aus dem grund mindestens ein für euren rechner und ein für eure vorher nass oder sowas weil ich meine was bringt es dir denn wenn du deinen rechner mit 10 g anschließt aber du kannst nichts anderes anschließen was auch 10 g kann das ist total unsinnig irgendwie
+ja und das mit dem verteilen bringt halt auch nichts weil die gegenseite ja nur einen gigabit kann dann müsstest du da quasi dir von von quasi guck mal du kannst du könntest jetzt über alle ports irgendwie drüber drüber schieben mit gigabit kann das ding wenigstens 2,5 kann das ding wenigstens 2,5 g kann das 5 g
+kann das irgendwas gescheites noch auch guck mal es gibt noch mehr von der von der sorte
+das sieht echt einer hässlicher aus als der andere aber 2,5 kann er nicht oder warum nicht der kann nichts kann er nicht zwar 2,5 und 5 noch also es ist es ist mega sinnlos das ist echt mega sinnlos einen 10 g port einen einen 2 kann ich verstehen aber eigentlich brauchst du also eigentlich brauchst du 4
+also das geht ja immer doppelte also das geht ja 1,1 1 habe ich noch nie gesehen irgendwo eigentlich brauchst du 4 weil dann kannst du auch noch mehr dran anschließen also zum beispiel man sagt jetzt ok wenn man 4 hat weil 3 würden auch reichen aber 3 gibt es halt mehr regelmäßig es gibt dann meistens 2,4,12 was auch immer wenn du 4 stück hast kannst du deinen NAS anschließen deinen rechner anschließen plus einen weiteren gigabit switch zum beispiel anschließen
+was das was was dann was bringt weil dann hast du noch mal einen 10 g ablink mit dabei das bringt dann was aber einer ist das ist weil ich weiß nicht wer das designt hat
+und außerdem sieht es mega kacke aus das ding egal gucken wir uns mal weiter an die tolle gaming hardware das wars schon ne oder Seite 1 vor 9 ne moment ok die gaming hardware ist schon vorbei
+mehr gibt es echt nicht mehr gaming hardware ist ja doof ok was haben wir beim prime day noch zu bieten
+ein stuhl der mal aussieht wie ein stuhl auch nicht schlecht könnte sogar was sein da könnte vielleicht was gutes dabei sein müssen wir mal gucken
+das zumindest ein ganz guter hersteller die machen ganz gutes zeug der machen auch ganz gutes zeug wenn man sowas braucht
+premium dvd mit dvd in 2k18 einen mp3 player der so groß ist wie ein smartphone wo man sich dann fragt warum nimmt man dann lieber einen mp3 player anstatt ein smartphone
+habt ihr dann habt ihr dann eine gute idee für also also wann greife ich denn zu einem mp3 player der so groß ist wie ein smartphone mit touch screen anstatt ein smartphone mitzunehmen
+wann mache ich das bessere analog in dem mobilen musikdingen erkommen also wenn es mir auf qualität von irgendwelchen digital analog konverter irgendwelche verstärker oder sonst was ankommt
+ok dann ja das lasse ich mir noch irgendwie gefallen aber für die meisten leute haben noch nicht mal den passenden kopfhörer dafür aber selbst wenn unterwegs mit irgendeinem in-ear
+und dann auch über bluetooth also ok ja ja ok es gibt es gibt tatsächlich paar sinnvolle bekündungen ja wenn man smartphone nicht mitnehmen will dass man wenn was verliert ok ja das
+hat mich nur mal interessiert wobei es ist doch kleiner doch einen ticken kleiner als ein smartphone hervorragend klingende mp3 player superplay ok also wenn ich ja ihr habt mich überzeugt wenn ich mir das so angucke im chat das hat tatsächlich seine daseinsberechtigung anscheinend
+da hat kein wlan ernsthaft gibt es gibt geräte ohne wlan
+wlan chips kosten irgendwie 50 cent oder so wir müssen natürlich noch ganz ganz wichtig wenn wir schon dabei sind müssen wir uns natürlich auch noch irgendwie das öl backen oder so
+wir sind müssen wir uns natürlich auch noch irgendwie das öl backen gold hdmi kabel kaufen also für nur moment das ist ja jetzt für nur 120 euro für den usb für den hdmi kabel nur 120 es ist ja wie geschenkt
+313 euro das ist ja immer besser die haben die haben sogar die haben sogar gold die haben sogar goldene strom kabel bestimmt goldene strom kabel
+eigentlich wollte ich was essen das steht jetzt hier neben mir vor sich hin
+was haben wir sonst noch schönes
+naja wo der sieht sieht ist auf retro auf retro gemacht also es ist nicht es ist nicht vintage ist also nicht echt echt alt es ist nur so sieht so aus haben die auch irgendwas wo ich sagen würde
+oh geil dass das will ich haben das auch ganz nice was die bauen in der regel ok mehr gibt es nicht das haben wir noch
+noch mehr crap brauchen wir alles nicht ja ich muss jetzt mal gucken gibt es gibt es für meinen heim automatisierungszeug gibt es seawave zeugs heute günstiger alles noch zu teuer viel zu teuer
+ich habe mir ich habe mir fenster sensor gekauft sieben fenster sensor habe ich mir geholt bei aliexpress für zehn dollar das stück so aus kostet hochgeladen
+ich lade das mal nicht masto ich lade das mal in einem extra extra branche branche hoch weil ich will ich will mir das noch mal angucken was wir heute gemacht haben ich bin damit ein paar sachen nicht so nicht so zufrieden
+was weiß ich
+beste kommet message test über beste namen ja
+branche test zwei ist es von heute drinne moment also ich dachte eigentlich
+was ich brauche kein username ich habe kies warum brauche ich nicht username da fuck
+outdated jebaited overrated ok da gehen wir halt mal username ein
+den muss ich erst mal raussuchen warte mal kurz
+github
+wollen jetzt ja keine passwörter niken
+die sind ja ok deswegen spack das spack das rum github ist anscheinend gerade am abspacken
+ich wusste gar nicht dass github immer noch auf ruby läuft das ist unicorn wie heißt das unicorn ruby webserver ist das das logo von
+github ist dauernd microsoft please ja jetzt haben sie ihren kompletten asia kram am start steht sogar da komplette azur ist am start
+geht aber nicht ja also ihr könnt euch gleich angucken ich der hat das gepusht hoffentlich angenommen hier gucken wir mal ja bestimmt twitter account
+twitter github excited to share
+ha service unavailable ja das haben wir auch schon mitgekriegt gerade ja gut da kann man nichts machen ja sie schreiben es auch gerade dass sie nicht da sind ok gucken wir mal amazon weiter
+immer noch alles zu teuer wie gesagt fenster sensor habe ich mir für die kommt für das komplette haus geholt erster stock erdgeschoss und keller 10 dollar das stück
+als es beim angebot war auf aliexpress und das ist ein riesen guck mal hier ein fenster sensor 33 euro und im kern ist das überall der gleiche miss ja
+korser k95 moment sie echt im angebot wo wo echt jetzt warum haben wir die nicht bei gaming zubehör gesehen die k5 das habe ich hier die ist die ist die ist gut ja die da in prime
+ja das ist nicht übel ich weiß nicht mal was ich dafür bezahlt habe ich muss mal kurz nachgucken
+kurz nach
+ich gucke mal kurz nach was ich für die tastatur bezahlt habe und zwar
+und zwar habe ich da bezahlt 195 ja das kann man machen also ich habe 195 bezahlt das ist die gleiche tastatur die ich gerade hier habe die ist nicht übel allerdings die mit den
+ja das ist genau die also die kann man sich holen die ist nicht übel die tast die tasten sie dann extrem leichtgängig und also ich bin da nicht so 100 prozentig mit dem layout zufrieden
+jetzt im nachhinein ich habe mir zwei mechanische gekauft einmal die hier und eine ziemlich klassische
+eine ziemlich klassische vom vom layout her das ding habe ich mir noch noch eine geholt und ich muss sagen wenn man wenn man hier noch eine handballen auflage dran macht von vom layout her gefällt die mir besser fühlt die die die man merkt auch den unterschied dass die
+ich finde die tasten fühlen sich ein ticken größer an was wahrscheinlich blödsinn ist allerdings wirken die tasten hochwertiger was was sie auch sind aber die kann man sich kaufen die ist also das gesamtpaket ist wirklich gut also vor allem auch mit der mit dem makro zeuchen dem rgb kram wenn man da drauf steht die q software ist kacke gut kann ich alles haben
+kann ich in primeday in primeday suchen oder so
+gibt es nichts okay
+4 bis 5 vms max 1000 euro für 4 bis 5 vms das ist doch das ist doch nix was denn für vms was willst du damit machen
+die von hp die wie heißen diese mini server micro server ja alles noch sogar die sind ganz gut
+die sind ganz gut und von dell hatten die nicht auch sowas
+ne das meine ich nicht also die hp die hp dinger sind also wenn man einfach was fertiges haben will sind die hp dinger nicht verkehrt ja und wenn man halt sagen wir so man kann sich natürlich auch in was in rektbauweise kaufen
+das sind aber die bisschen fetteren schon falls du inspiration brauchst was du server du kaufen willst gibt es zwei gute subreddits und zwar einmal home server und einmal home lab
+da kannst du gucken was andere leute daheim bauen sag mal finde ich das neue reddit irgendwie gewöhnungsbedürftig
+da siehst du halt das leute so komische dinger was ich daheim haben das natürlich ein bisschen overkill home server ist die bessere variante
+einfach mal gucken was die anderen leute so bauen das sind das sind das sind all die ganz fetten kissen also generation 6 wahrscheinlich nicht aber das da brauchst du halt ach nee das ist ein tower ok
+na das sind so die dinger die man so im rechenzentrum hängen hat ich sag euch rz hardware data center hardware ist das hässlichste auf der welt die dinger sind alle so dermaßen beschissen aus
+aber die müssen ja auch nicht schön aussehen
+ja die dings hier die dell was irgendwie einer schreibt gerade im chat ist auch nicht verkehrt aber das frisst halt strom also ich würde mir mal so ein hp so diesen hp diesen kleinen mini server angucken oder aber je nachdem warte mal hast du geschrieben was du machen willst
+windows server mit ad windows client windows client vm ist kacke virtualisiertes windows ist scheiße ist immer lahm
+und das ist also ernsthaft jetzt also kein windows gebäsche auch ein virtualisiertes linux mit grafische oberfläche islam das einzige wie das gut funktioniert ist vor allem wenn wir workstation auf dem desktop laufen und selbst da ist windows teilweise ein bisschen eklig
+also wenn man wenn man den desktop betriebssystem virtualisiert auf dem server und dann darauf zu greift das ist in der regel immer scheiße zu bedienen es gibt ein paar es gibt ein paar dinger mit denen es besser funktioniert microsoft hat jetzt auch so
+für für hyper vi so so geschichten mit 3d beschleunigung in der virtualisierung drin da brauchst du aber in video quadro karten und geschätzt für das funktioniert nicht richtig
+linux vms kannst du für linux vms würde ich mir einfach ein paar linux container hinhauen beziehungsweise ein paar lxd lxd container das sieht dann sind container sehen aber so aus wie komplette vms die brauchen nichts zusätzlich an ressourcen also für für ein paar für eine windows server mit ad beziehungsweise ein paar linux vms brauchst du keinen fetten server es ist overkill
+cs go server ts3 das braucht alles nicht viel das braucht alles nicht viel also ich würde dir ich würde wirklich vorschlagen unabhängig von windows windows ad kannst du damit vergessen aber wenn du einfach nur ein bisschen erfahrung sammeln willst und mal gucken was geht und damit geht erstaunlich viel kauf dir den aktuellen raspberry pi
+das hat zwar keine iow großartig die gigabit schnittstelle ist auch nicht wirklich gigabit aber für den ts server und den cs server also mich wird es wundern wenn es ich also gut ob ob cs auf auf arm läuft weiß ich nicht ich würde es mal vermuten aber für zum üben also man muss man nicht wirklich viel kohle ausgeben
+ansonsten ich hab
+so was ja
+ich zeig euch mal was ich hab
+ist es
+das könnte es sein
+das das ist es glaube ich
+genau das habe ich das wird das ist aber auch schon wieder ein bisschen älter mit 2 x 10 g sfp plus controller pc express on board und cpu das kostet auch so in dem dreh aber wenn du noch platten und gehäuse mit kaufen willst bist du da drüber
+wieso ich keinen kogas habe hier kogas
+ne epic haben wir nicht keine ahnung wie das sich selber mäßig schlägt was auch noch eine variante ist wenn du was kleines haben willst in irgendwie so intel nuke geschichten
+also man muss sich echt überlegen ob man sich eine fette kiste daheim hinstellen wenn man das verbrauchen auch strom vor allem wenn du da noch ein paar platten drin hast die auch nicht immer nur im standby sind das kostet halt auf dauer schon ganz gut was sowas ist auch noch eine variante wenn man nicht immer nur was kleines brauche
+also ich würde mit dem raspberry anfangen ja und falls halt steam und cs go und so auf dem raspberry nicht läuft würde ich mir vielleicht mal sowas angucken desktop virtualisierung ist natürlich auch eine sache und dann
+dann würde ich richtung hp micro links vom server gucken welches board das gerade war ich glaube ich glaube das hier ich bin mir dann immer ganz sicher ich glaube das hier aber das ist auch schon ein
+bisschen älter also da müsste ich mal gucken ob es jetzt etwas neueres gibt das ist ja auch schon ein jahr oder ein wann habe ich das video gemacht ja eineinhalb jahre ist das auch schon wieder alt und es war damals auch nicht taufrisch also also das ist fest nicht kennt hier das ist mein sieht jetzt ein bisschen anders hier steht noch was das ist mein mein reck daheim
+mit dem billigen damals noch billigen tp link access point drauf ich zeige es jetzt mal also falls falls jetzt leute hier sind halt noch nicht kennen vom video übrigens haben viele geguckt hier guck mal 110k aufrufe porgas alter porgas so hier sieht man es ein bisschen ja hier sieht man es von vorne hier oben steht da steht da selber drauf das hier ist
+soll ich das überhaupt erzählen oder wisst ihr das alles schon weil ich meine wenn ihr alle das video geguckt haben muss ich muss ich kann ich bis jetzt auch sparen wenn es euch interessiert ich kann auch gerne was zu erzählen jetzt
+dass ihr baro kennt das weiß ich also ja da kann ich erzählen was man sieht ist das jetzt auf 1080
+also man sieht hier folgendes aber kurz gucken dass ich einen guten gute einstellung finde
+den server oben drauf hat man gesehen sieht man nachher im detail noch mal wieder dann ein ziemlich stark geknicktes glasfaser kabel also was man hier sieht ist wie gesagt oben drauf den server den wollte ich mal ursprünglich hier unten einbauen fangen wir von oben nach unten an der server steht oben drauf dann zudem sage ich dann am ende noch was
+mein 10g switch wo man hier dabei sind von wegen also der hatte glaube ich 400 euro gekostet aber der hat halt auch 12 fsp plus port plus 4 10g kupfer port das ist halt mal eine ganz andere hausnummer als dieser nur 100 euro billigere net gear
+das ist ein switch der hat ein paar layer 3 funktionen die sind natürlich nicht so superschnell seine fritzbox könnte man wahrscheinlich aber trotzdem drüber laufen lassen aber das würde ich nicht damit machen dafür ist nicht gedacht
+10 12 fsp plus port mit 10 gigabit und das ding braucht halt ein bisschen strom aber es ist relativ sparsam die wenn man das mal vergleicht mit so mit den etablierten größen aus dem rechenzentrum wo die halt gar nicht auf lüfter lautstärke und stromverbrauch achten ist das gut das braucht 20 watt so irgendwie in dem dreh das ist also echt ok für so ein switch
+da geht das ganze runter auf so einen patchpanel was man übrigens auch mit usb gibt da wusste ich bis zu dem zeitpunkt gar nicht warum hast du da fiber in der weile weil ich 10 das hier ist 10 10 gigabit an den server dran
+der server hat bloß hat bloß sp also hat bloß glasfaser port das heißt muss dran strom gedöns dann noch so ein besen teil dass es ein bisschen ordentlicher aussieht hier unten steht noch ein alter tp link switch drinnen und das unity media kabel modem hier dahinter steht dann irgendwo noch die die telekom fritzbox und die
+dvbc empfänger sieht man jetzt nicht richtig fernseh empfang dinger und hier unten ist eine usb die sieht man hier glaube ich ganz gut das ist das einmal power usb mit glaube acht anschlüssen 600 va 360 va irgendwas es hält nicht übertrieben lang aber es reicht dass sich der server runterfahren kann sollte es zu wenig werden
+ja die 10 gigabit muss ich genau muss ich auch noch was zu sagen also die 10 gigabit die braucht man nicht der einzige grund warum ich einen 10 gigabit aufbau habe ist weil es geht weil es geht und weil ich 10 gigabit haben wollte das hat keinen tieferen sinn dahinter
+dahinter braucht man eigentlich nicht ich habe in meinem desktop eine 10 g anschluss zwar der grund warum ich mir dieses mainboard gekauft habe der ist jetzt auch hier oben dran allerdings kupfer ja aber es ist gar nicht so teuer ne also 10 g im privaten bereich ist vor allem mit
+den mikrotik switchen jetzt und den mikrotik routern es ist erschwinglich es ist kein ding da gibste gibste 150 euro für einen switch aus gibste nochmal keine ahnung 50 euro für jeweils ein paar netzwerkarten aus und dann brauchst du noch ein paar module also sagen wir mal so mit 400 euro bist du dabei mit 400 euro bist du dabei ganz gut dabei im heimbereich
+mit 10 g mittlerweile schon und wir nicht alle rz hardware kaufen sondern ordentlich neues was auch leise ist und für daheim sich eignet so dann guckt man aber auf den sauber drauf sieht man gerade einen neuen schwarzstromverbrauch also der haut schon ein bisschen oder 97 der haut schon ein bisschen rein es wird ein bisschen weniger wenn die platten sich ausschalten also sind so 70 würde ich sagen 70 mit den platten aus
+max welches notebook ist das beste keine ahnung kenne ich mich nicht mit aus so im server selbst ist eine 4he kiste warum ist das eine 4he kiste weil das rack ziemlich kurz ist sonst hätte es nicht reingepasst also sprich wenn man diesen faktor haben will in 2he muss der länger sein weil ich meine das netzteil muss irgendwo rein wenn man das netzteil längs legt wird der server länger wenn man das netzteil
+hoch kann stellt dann wird er nach oben höher und nach oben habe ich mehr platz als nach hinten deswegen das ist ein ganz kurzes rack das ist wirklich ganz ganz gut du hast im rz hast du direkt ein bisschen meter und sowas das hier ist glaube ich 35 cm oder das ist nichts 40 cm ist das rack glaube ich das ist nichts
+nee die fritzbox bleibt davor muss ich ja nicht total übertreiben wie heißen die günstigen switches also was was sich anbietet also ich finde es gibt zwei sachen die sich die sich die sich gut eignen für die günstigen switches
+also ich finde es gibt zwei sachen die sich die sich die sich gut eignen für für die
+das ist mein switch wenn man ein bisschen mehr ambitionen hat daheim was man machen will kann man den hier nehmen den gibt es auch meistens also der ist gerade ziemlich teuer ich habe da 400 noch etwas für bezahlt
+das ist das eine allerdings deutlich günstiger wenn man einfach nur den 10g switch haben will nehmen wir den mikrotik cs
+du musst aber mikrotik gucken ich kann mit die haben ab die haben ganz grausame produkten haben ja also da geht es los die das ganz gut wenn man anguckt was das kostet da sind wir schon deutlich deutlich deutlich drunter wenn man sich überlegt man kauft sich so einen so einen switch
+dann hast du 24 gigabit port zwei fsp plus port also für den preis kannst du absolut nicht sagen da kommen auch zwei fsp plus module dabei die eigenen eigenbau sind aber auch günstig von denen du musst mal gucken was es was es so gibt die haben irgendeinen neuen habe ich letztens gesehen müssen wir mal kurz gucken einen neuen router hatten die
+hatten irgendeinen neuen und der war echt gut für das preis leistungsmäßig der war echt richtig nice kann man irgendwie suchen auf der seite wir wollen fsp plus ports haben
+oder was mit der musik los
+wir wollen keine gute wir wollen wir wollen die router switch kombi wollen wir haben von denen und der ist richtig gut gewesen habe ich letztens erst gesehen
+der da ich bilde mir eines gab noch einen anderen habe ich letztens den jetzt nämlich auch schon ein bisschen länger
+der da
+ich finde es jetzt nicht mehr
+kann deine netzwerkkarte mit fsp plus eigentlich auch getaggte vilans ich habe keine ahnung
+das ist ja nichts das ist ja eine das muss ja die netzwerkkarte nicht können du musst
+ja nicht wirklich netzwerkkarte können ja ist wieder wie wie der moritz sagt dass
+eigentlich von der netzwerkkarte ziemlich unabhängig kann sein dass es da irgendwelche offload
+geschichten gibt aber ich wüsste jetzt nicht wofür wir für so viel entdeckt setzen irgendwie wahnsinnig was offloaden
+muss ja und selbst wenn man das nicht auf kleinen seite macht was man in der regel eigentlich nie macht der switch
+kann es aber das eigentlich auch das mindeste jetzt können alle switch außer diese billigen consumer dinger die ganz billigen so genau
+können wir noch mal in den server kurz reingucken da sieht es mittlerweile ein bisschen anders da aus wie gesagt
+selbst gebaut also das ist ich habe mir das gehäuse gekauft das das bord gekauft und halt den kram ich wollte sowas mal selbst für
+für mein zeug halt zusammenbauen man sieht wie klein das bord ist eigentlich deswegen ist es halt auch eine 4 hee kiste weil das das netzteil hochkant
+drinne ist ein on board hast du auch noch ein on board host adapter für
+sas platten beziehungsweise für für äh wie heißt sata und gedürtzeitser
+was hältst du von seinen ordentlichen qnup mit nass virtualisierung nass mit virtualisierung kann man auch machen ist auch nicht schlecht
+so und man sieht eine abenteuerliche netzwerkarte fällt euch die netzwerkarte auf leute fällt euch diese netzwerkarte auf ist sie nicht hier irgendwie falsch
+sie nicht irgendwie falsch normalerweise ist die netzwerkarte doch nicht so oder so
+so aber das ist absicht da ist ein adapter drinne passt mal auf m2 auf pc express
+ihr wusstet gar nicht dass es sowas überhaupt gibt das da aber nicht von aliexpress sowas ist da drinne
+m2 auf pc express und da ist die netzwerkarte drin mittlerweile nicht mehr mittlerweile ist die netzwerkarte im ganz normal pc express drinne
+das war das habe ich damals so gemacht weil ich bisschen experimentieren wollte mit grafikkarten in vms durchreichen und sowas
+weil ich habe ich hatte noch eine oder ich habe noch eine 980 ti hier die jetzt halt durch die 1080ti abgelöst wurde im desktop
+da habe ich mir gedacht das ist ja schande wenn das ding rumliegt lass mal da ein bisschen mit basteln genau also die vlan tags werden beim switch port gesetzt und können auch wieder verschwinden
+sprich das ist egal das ist port basiert wenn man das auf switch seite macht du musst eigentlich kleintmäßig nix taggen
+musst du nur wenn du quasi dort einen hypervisor oder irgendwie sowas drauf laufen lässt der quasi die vms in mehreren vlans hat und sowas
+weil am switch kannst du logischerweise pro port nur einen vlan vergeben weil der kann halt nur sagen ok dieser port kommt in dieses vlan rein
+wenn du halt mehrere sachen haben willst drüber musst du selbst taggen und dann am switch die dinger erlauben aber für den desktop braucht man das nicht
+also auf dieser kiste habe ich ubuntu server drauf beste serverdistribution ich bin wirklich also auf dem desktop das ist witzig
+bei den meisten leuten ist komplett umgedreht auf dem desktop mag ich ubuntu überhaupt nicht desktop ist man mancharo linux beste aber auf dem server
+ich mag die ubuntu serverdistribution mir gefällt das irgendwie ich finde das viel angenehmer zu bedienen als irgendwelche beispielsweise red hat basierte
+geschichten es ist jetzt persönlicher geschmack es hat jeder so seins ja rett hat habe ich auf der arbeit einen ganzen tag dann kann ich hier daheim auch
+ubuntu nehmen nämlich das was mir besser gefällt sie ist ein bisschen laut oder
+trank port ist was andere also man muss aufpassen von hersteller zu hersteller unterschiedlich trank port ist im prinzip einfach nur ein port der
+wo du quasi mehrere vlan drüber erlauben kannst wenn man es so will also eigentlich ist der trunk port
+der port der nix großartig tag trank port heißt eigentlich wenn du trunk port einstellst sagst du eigentlich nur ok das ist ein trunk port da drüber dürfen jetzt
+vlan 1 2 3 4 5 6 das ist quasi eher so eine vlan firewall oder sowas wenn man es so will wenn du trunk port hast musst du selber taggen
+auf klein also auf anderer seite weil dein trank port hat ja keine ahnung was du was du haben willst
+trunk port machst du zwischen zwei switches zum beispiel dass da halt einfach alles drüber gehen darf das heißt ein nicht getagter port ist das eigentlich
+ja ubuntu server beste max holst du das neue black ops ich werde mal die beta spielen
+moin captain prozeit so wir wollten noch amazon weiter gucken was haben wir denn hier ssd und gedöns da bin ich mal gespannt ich bin ich bin einer minute mit schwörder
+die katz vor der tür ging es ab ich weiß nicht ob ihr sie gehört habt
+so also wir gucken jetzt noch mal kurz hier und dann dann gehe ich auf kopfhörer oder kann ich flame was haben wir hier zu bieten
+das sind doch ganz normale da gibt es nicht so viel zu flame ich dachte gaming kopfhörer oder sowas so was haben wir hier computer und zubehör da bin ich mal gespannt was haben wir da alles schönes zu bieten
+das einzige mal wo es amazon verkackt hat das darf ich aber nicht so laut sagen ich habe mir ein paar ssd bestellt ein paar micro sd karten also 128g bestellt 16g und 32g oder 64g ich weiß es gar nicht mehr genau ist aber auch egal
+jetzt gucken und da hat es zum einzigen mal amazon richtig verkackt indem sie mir einfach einen 15er pack geschickt haben und ich habe auch nichts gesagt
+ne 32g war es jetzt habe ich hier 15 oder 20 32 64 ne 64 sind es 64g krass 20 15 bis 20 weiß ich ob es 15 oder 20er pack war wahrscheinlich 20er pack micro sd karten anzeige ist raus ja aber ich gehe mal davon aus amazon wird es verkraften
+mit mit sd adapter das immer dabei also hier guckt wenn der wenn ihr guckt die haben immer eine in der ist immer eine in der packung mit drinne wenn sd auf also micro sd auf sd es ist es ist eigentlich immer ein adapter mit dabei was war bisher das beste angebot ich weiß nicht die ssd war ganz ok aber die war jetzt nicht
+das ist ja auch wieder fake dieses 10 euro billiger dieses 190 stimmt überhaupt nicht so
+warum hat es so dälen 500g
+ja das ist auch kein großer unterschied ich habe überlegt ob ich ich habe jetzt aktuell in meinem server plus 64 64g fürs system platten drinne zwei ssd ich wollte die mal bisschen upgraden ich habe noch eine alte samsung 500g ich gucke gerade ob ich mir eine zweite holen soll aber gucken
+boah 400 gigabyte micro sd krasser scheiß
+könnte sein dass du in hanau wohnst fast fast nicht ganz also ich wohne zwischen zwischen frankfurt und hanau
+kommst du da jetzt drauf steht das hier irgendwo in der nähe bei nicht ganz aber so hundertprozentig genau ist das ja auch nicht
+die dinger sind teilweise gar nicht so schlecht allerdings nicht mit diesem gerät sondern wenn man die platten da raus nimmt falls sich das lohnt
+also das kann sich lohnen wenn man sich so ein ding kauft und die und da noch ordentlich platte drin ist und ausbaut kann sich das lohnen man das kostet 100 150
+primeday guck mal mal gibt es gibt festplatten gibt keine festplatten
+da wird sicherlich keine iron wolf drin sein ne wahrscheinlich nicht also ich habe in meinem server habe ich dreimal 10t iron wolf aber das gerade vorher davon hatten
+240g m2 das war es auch schon irgendwie ist da nichts dabei oder nichts dabei aber ich jetzt sagen würde ja gamingzube hatten wir schon momentan wird es nicht alles schon mal
+da sonst was das powerbank das buttons nice das buttons das buttons kann man sich immer kaufen das lohnt sich weil man kann also nicht weil man das buttons als das buttons
+damit sondern weil man mit das buttons auch weil man das buttons auch für alle andere dinger verwenden kann also die es gibt einen auf ein projekt was quasi dieses die sachen die die das button schicken
+übers wlan quasi abfängt und man kann halt quasi dann einstellen was man damit triggern will also sprich wenn ich jetzt wenn ich jetzt sage ok für was ich halt für alles wo man einen schalter braucht
+ich glaube ich habe irgendwie ein host automatisierungssystem und brauche schalter so für irgendwas ein auszuschalten oder irgendwie was weiß ich rolle den runter zu machen oder irgendwas dann kann ich mir auch einen 1.99 1.99 dash button kaufen
+zum beispiel den durex den durex dash button kann ich mir dann kaufen und dann geht der rolle runter passend dazu und er bestellt kein durex irgendwie ist da nichts dabei habt ihr denn was gekauft
+habt ihr irgendwas gekauft
+das ist das erste vibrator oder sowas ist hier so mit sauger
+durex dabei alles grab was monitor monitor wo gibt es die monitor ok
+übrigens monitor also ein monitor auf den ich ja zur zeit so schiele ist
+ist das der
+ich glaube der ist das das ist der ein das ist der monitor mit einem lüfter monitor mit einem aktiven lüfter ohne scheiß leute das habt ihr auch nicht gesehen aber das ist der erste 4k 144
+monitor mit g-sync und hdr das ist so krass op also das ist der wahnsinn allerdings wenn man sich den untersten ips panel aber wenn man sich den preis anguckt dann ist das halt nicht so geil
+da fällt es mir eigentlich glaube ich müsste mal wieder asus anschreiben weil damals war es so wir wollten wir wollten ja was zusammen auf youtube machen mit asus wollte ich mal mit asus schon vor einer weile und also schon vor einer ganz weile
+und damals habe ich nichts gefunden bei dem was was ich was ich haben will und jetzt hätte ich was jetzt hätte ich was
+wie schreibt man die das kann man machen die bauen keine schlechten kopfhörer
+man sieht sofort guten kopfhörer das irgendwie an also nein man sieht ihn nicht an dass sie gut sind aber man sieht ihn an dass sie nicht kompletter crap sind da sieht man einfach die sind definitiv nicht kompletter crap
+so leute irgendwie gibt es auf amazon nichts ich hoffe euch hat es gefallen wir machen den schluss schön dass ihr dabei wart ich danke für alle follows gab heute wieder jede menge
+ich guck mal ich sehe ja ich sehe leider immer nur die letzten hier in streamlabs das ist irgendwie ganz schön fail
+das ist nicht dreck der mir folgt
+gut bis zum nächsten mal

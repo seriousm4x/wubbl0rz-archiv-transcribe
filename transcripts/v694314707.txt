@@ -1,0 +1,1349 @@
+So Leute da bin ich, ich bin gerade eben erst ein Rechner wieder und gleich Stream angemacht.
+Das heißt ich habe jetzt nichts großartig getrunken, ich habe nichts großartig gegessen.
+Jetzt muss ich jetzt mal nebenbei machen und da erkläre ich euch mal was wir heute vor
+haben und zwar im letzten Stream oder besser gesagt in einem, in einem der letzten Streams,
+ich weiß nicht mal wann, ich glaube es könnte der letzte gewesen sein, bin ich ganz sicher.
+Da hat zumindest einer gefragt, wie man sowas hier macht, gut wir nehmen ein Ubuntu Server,
+wir machen kein DVD, wir machen Ubuntu draus. Hat einer sowas hier gefragt, wie man ein Cloud
+Server installiert mit voll verschlüsselter Festplatte und das ganze dann auch wieder
+entschlüsseln kann. Also er meint damit nicht entschlüsseln, sondern er meint damit freigeben.
+Ja es ist ja folgendermaßen, wenn ich einen Linux Server installiere, der komplett verschlüsselt
+ist, dann muss ich beim booten ein Passwort eingeben. Ohne Passwort beim booten kann die
+Festplatte nicht entschlüsselt werden und dann das Betriebssystem nicht gestartet werden.
+Ist ja irgendwo klar, wenn das ganze Ding verschlüsselt ist. Äh was auch immer. Und das waren wir
+heute. Ich weiß nicht wer es gefragt hat. Es könnte der Skillkiller gewesen sein, als
+ich den Namen gerade sehe, aber ich bin mir nicht ganz sicher. Ich weiß, ich hätte mir
+aufschreiben sollen wer es gefragt hat, ich habe keine Ahnung wer es gefragt hat. Und
+da habe ich mir gedacht, das ist eine gute Idee. Das können wir heute mal im Stream machen.
+Weil das ist gar nicht so einfach, wie es auf den ersten Blick aussehen mag. Ja. Denn,
+nämlich dazu sagen. Ich muss mal kurz hier was schreiben. Du hast, hast du wirklich gefragt
+oder gebadest du mich jetzt? Weil man weiß ja beim Chat, beim Twitch Chat weiß man, weiß
+man ja nie. So, ähm, zumindest. Wir machen es ein bisschen komplizierter, als es bei
+den meisten Cloud Anbietern ist. Ich weiß, jetzt kommt jeder, ich habe gefragt. Nein,
+ich war es. Ich, excellent Chat. Ich, ich erstmal kurz ein Stück Pizza Leute. Der Chat.
+Äh Pizza mit Waspela. Angeblich Pepperoni Wurst, aber das ist stinknormales Salami.
+Also ich sehe da, ich sag mal Salami offiziell ist es Pepperoni Wurst, Peper Fett, Sardellen
+und Pilze. Es könnte aber auch, ne, ha, ich hab's durchschaut. Es ist Salami, Pepperoni
+Wurst, Sardellen und Pilze. Excellent. Ich weiß, viele mögen Sardellen auf der Pizza,
+richtig? Chat, bei euch gibt's nur French Pizza oder
+wie? Ich weiß gar nicht, ob die sowas haben. Das Beste. Sardellen, Sardellen auf der Pizza,
+das Ganze wird nur noch getoppt, das Ganze wird nur noch getoppt durch Bacon, Hähnchen,
+Soß Hollandaise Pizza. Das toppt das Ganze noch. Das Ding ist aber halt salzig wie Sau,
+deswegen muss ich jetzt erstmal hier 250 jährigen Rotweiner beitrinken. Ah exquisite, ah yes.
+Werdig zu sein ist es einfach nur Wasser mit Saft.
+Verastugierige Pilze. Die einzige Pilze, die ich nicht mag, ist das zum Trinken. Pilze
+sind exzellent. Machen wir die Festplatte noch im Raid 1? Das können wir machen, weil
+ich mir da nicht sicher bin, ob das der Installer out of the box kann. Ne, das machen wir nicht,
+das kostet extra. Ich erzähle euch jetzt erstmal was wir genau vorhaben und dann erzähle
+ich euch, wie ich es machen würde. Und dann sage ich euch auch noch, dass ich das nicht
+im Stream mache, wie ich es machen würde, weil ich will die wirklich Low-Budget-High-Brain-Variante,
+also ich will kein extra Volume machen. Oh super Joe. Also da, hallo ich habe ein Anliegen
+und zwar schleichen hier Leute rum, wohnst du in der WG oder? Die die Temperatur des
+Kühlschranks immer verstellen. Wie kann ich am günstigsten den Regler bzw. die Temperatur
+bewachen als kleines IoT-Projekt? Da habe ich mir noch keine Gedanken drüber gemacht
+Super Joe. Also wir werden das ganze übrigens heute einmal mit Digital Ocean machen und
+mit Hetzner Cloud oder je nachdem wie ihr wollt, mal gucken. Hoffentlich Terraform,
+das stelle ich mir schwierig vor mit Terraform, weil wir müssen über die Serverkonsole was
+machen. Also lasst mal überlegen, wie kann man das machen? Ja, das ist auch das erste
+woran ich gedacht habe, allerdings überlege ich mir gerade, wie man das mit der Stromversorgung
+macht. Naja, wenn der Kühlschrank in der Küche steht, ist es ja kein Problem USB-Strom
+anzuschließen oder? Mit Batterie geht es theoretisch auch, aber es ist nicht wirklich
+schön. Hast du Strom in der Nähe für USB oder ist alles belegt? Also die einfachste
+Variante wäre folgendes, DS Temperature Sensor, das da, so ein Ding, das wäre das
+mit Abstand einfachste. So ein Ding wäre mit Abstand am einfachsten. Das hier vorne ist
+ein Temperatursensor, das Ding ist wasserdicht, zugelassen bis, frag mich nicht, minus 50
+plus 50, keine Ahnung, müssen wir mal schauen, bis wann hin der Sensor, aber das ist glaube
+ich kein Großart. Hier, hier, minus 55 plus 125 Grad. Ich behaupte mal, das reicht für
+deinen Kühlschrank, um das ganze auszuprobieren. Und die Dinger sind auch sehr günstig. Kaufst
+der, würde ich bei Amazon kaufen, da kannst du auch Prime bestellen, brauchst keinen Versand,
+kannst du auch gleich einen Fünferpack kaufen, falls du noch mehr machen willst. Fünferpack,
+einer Pack, was auch immer, bezahlste 2 bis 10 Euro für. So einen habe ich auch im Fischteich
+hinten hängen, die Dinger funktionieren relativ gut. Die sind bis zu 2 Meter lang, jetzt mal
+gucken wir nach dir, wie lang das hier ist, Kabellänge 100 Zentimeter. Und was du damit
+machst, ist folgendes, das ist total simpel, einfach an die Pins von einem ESP32, oder
+von einem ESP62 Pappen. Das ist total, also das ist ja wirklich simpel. So und dann musst
+du nur noch gucken, dass du von deinem ESP32 regelmäßig die Werte irgendwo hin schickst.
+Doch, doch, den Fischteich gibt es noch, den Fischteich gibt es noch. Ich habe das bei
+mir im Fischteich hinten hängen, damit ich gucken kann, wenn es so kalt wird, dass ich
+zudecken muss, nicht das Gefriertene am Platz nehmen, das Becken. Deswegen habe ich hinten
+auch sowas liegen, aber mit Batterie. Ja wie gesagt, das ist relativ simpel, ESP32, ESP
+66, Sensor dran, in den Kühlschrank gesteckt, wenn du irgendwie eine Öffnung hast da drin.
+Und dann musst du gucken, dass du die Werte irgendwo hin schickst. Am besten wäre natürlich
+über irgendwie MQTT, HTTP, ist eigentlich vollkommen egal, vielleicht noch mit einem
+schönen Grafana Frontend zum auswerten, dann hast du sowas ähnliches, wie ich für meine
+Heizung, hast du dann für den Kühlschrank. Ja ich habe hier Wassertemperatur und sowas
+könntest du dir auch für deinen Kühlschrank machen. Musst du halt gucken, dass das Ding
+einmal die Minute oder so oder alle, eigentlich wenn es am Strom dran ist, ist es egal, kannst
+du auch alle 5 Sekunden, das sind ja alle 5 Sekunden, dass du das überträgst und gut
+ist. Wenn du willst, können wir sowas mal im Stream machen. Wer wollte das noch mal hier?
+Schreibe ich ihm auf, jetzt können wir im Stream machen, das ist eigentlich kein großartiges
+Problem. Da platzen die Fische, hier wenn das friert, da platzen nicht die Fische, die
+sind unten irgendwie, die juckt das nicht, da platzt das Becken, die Fische platzen nicht.
+Ich schreibe mir jetzt auch immer mal auf, wer das Ganze vorgeschlagen hat. Alle 100
+Millisekunden, das kommt, ich weiß nicht, wie der Sensor das verkraftet, keine Ahnung,
+es gibt ja ein paar Sensoren, die mögen das nicht so, wenn sie permanent abgefragt werden,
+keine Ahnung, wie es mit dem ist. So, zumindest das Fisch, ja die Fisch-KI, die ist bei Minusgraden
+letztlich vorbei. Also so würde ich das machen. Sonst noch Fragen, Super Joe 741. Gartensensor
+mit Temperatur, gibt es auch, gibt es auch. So, also, was wir heute machen, ist folgendes,
+heute ist richtig der Hackermann-Action. Aber ist das Kabel nicht hinderlich, wenn man das
+durch die Dichtung legt? Irgendwie musst du ja einen Temperatursensor, irgendwie musst
+du ja einen Temperatursensor in den Kühlschrank kriegen. Oder hast du Stromanschluss im Kühlschrank?
+Na, also vielleicht kannst du dir irgendwas von den Lampen abzapfen oder so, keine Ahnung,
+ich hab mir noch nie Gedanken über eine Stromversorgung im Kühlschrank gemacht und ich bin mir auch
+nicht sicher, wie gut WLAN aus dem Kühlschrank rauskommt. Müsste gehen, müsste gehen, wahrscheinlich
+jetzt nicht das allergeilste Signal, aber müsste wahrscheinlich gehen. Wenn du in irgendeiner
+Art und Weise eine Möglichkeit hast, eine Stromversorgung im Kühlschrank zu machen,
+dann wäre das die bessere Variante vielleicht. Und wenn du es wirklich in Kühlschrank machen
+willst, dann ist halt die Frage, ob man es nicht mit Akku macht, dann wird es aber etwas
+komplizierter mit Akku. Weil mit Akku bedeutet das, du kannst kein normales 0-15-ESP32-ESP866-Board
+nehmen, sondern du brauchst eins, mit Low Power Deep Sleep, also die meisten verbrauchen viel
+zu viel Strom im Deep Sleep für Akkubetrieb, also dann musst du dir einen Fire Beetle ESP32
+oder sowas holen, der ist ein bisschen teurer, nicht viel, aber ein bisschen teurer. Und
+dann musst du dich mit Deep Sleep auseinandersetzen, dann müsstest du es so machen, dass das alle
+Stunde einmal aufwacht oder ab alle zwei Stunden einmal aufwacht und dann den Status schickt.
+Weil das ist nicht so schön, also mit Stromversorgung ist es deutlich einfacher. Ja, das kommt
+auch noch zu, also mit Stromversorgung ist es deutlich einfacher. Vielleicht ist es
+besser, vielleicht ist es besser, wenn du ein dünnes USB-Kabel durch den Kühlschrank
+machst, keine Ahnung. Allerdings, die Sensoren sind dafür ausgelegt, auch im Wasser zu hängen,
+deswegen ist das nicht so das Problem. So, also, während ich jetzt hier nochmal mein
+nächstes Pizzastück futtere, erkläre ich euch, was wir heute vorhaben. Genau, Strom
+vom Licht abgreifen, habe ich mir auch schon gesagt, ich weiß nicht, was das ist. Was
+Kühlschranklicht hat, 12 Volt, ich habe ehrlich gesagt legit keinen Plassen Schimmer, das
+könnte man sicherlich irgendwie machen, aber ich weiß nicht, ob ich da einmal mit Kühlschrank
+herum wussten würde, ehrlich gesagt. So, also zumindest, zumindest was wir heute vorhaben,
+grob beschrieben hat das ja hier das Skiller, ich habe Skillkiller, Skillkiller hat das ja
+letztens geschrieben, also er besteht zumindest darauf, dass er das war. Hoffen wir mal, dass
+das stimmt, sonst wurden wir hier mit der Hardcore. So, und er hat das letzte Mal nämlich
+im Stream gefragt, wie man das machen kann, dass man ein Ubuntu Server Remote installiert
+auf der Cloud, in der Cloud hat er gefragt, ich habe das hier nicht richtig kopiert, mit
+Vollverschlüsselung von der Festplatte. So, und wenn die Festplatte voll verschlüsselt
+wird, dann wie man das ganze freigeben kann, ohne dass man sich jedes Mal über die Konsole
+verbinden muss. Das ist erstaunlich kompliziert, ich hätte das selbst nicht gedacht, dass
+das so kompliziert ist. Prinzipiell ist es einfach sowas zu machen, also wenn man einen
+eigenen Server hat, ist das überhaupt kein Problem, dann installiert man da, was weiß
+ich, irgendein x-beliebiges Ubuntu über USB Stick, wählt im Installer Encryption aus
+und installiert einen SSH Server zum freigeben und gut ist. Haben wir sogar schon mal im Stream
+gemacht, ist ziemlich einfach, aber die Sache ist die, einfach mal so einen Ubuntu ISO einlegen
+und installieren, machen die meisten Cloud Anbieter nicht mit. Digital Ocean und Hetzner
+ist da, also gerade Digital Ocean ist da eigentlich besser, da kann man relativ viel machen. Hetzner
+hat ziemlich viele ISOs, ich zeige euch das ganze mal. Wir legen jetzt einfach mal irgendeinen
+Server an, also entweder, wo wollen wir hin Leute? Wo soll unsere Kiste stehen? Nuremberg,
+Falkenstein oder Helsinki, wo wollen wir hin? Die Finn, die Finn brauchen Geld, oder? Oder
+wie sieht es in Finnland aktuell so aus? Nach Burgstehude, das wäre es noch. Wir machen
+jetzt, bei Montana Black gibt es jetzt einen Server hier. Moment, ah, Moment, wie schaltet
+man den Crap nochmal aus? Sekunde. Okay, also, wir nehmen den Server in Burgstehude, okay?
+Ich hoffe, dass die Webseite kackt nicht ab. Ich hoffe, die Webseite kackt jetzt nicht
+ab, weil das irgendwas checkt oder so. Richtige Hacker-Mans wieder am Start, ne? Also Server
+in Burgstehude, da nehmen wir Ubuntu 20.04. So, und die Sache ist jetzt die, ich zeige
+euch das mal, wir installieren das ganze. Also, die Kosten dieses Streams sind durch
+Prime-Sub schon gut abgedeckt, weil man sieht hier, der billigste Server kostet 289 im Monat
+beziehungsweise 0,5 Cent die Stunde. Vielleicht geht jetzt auch jemand von Hetzer los, installiert
+den Burgstehude und den Server. Na, mal abfahren. Warum nicht? Gebrauchen könnte ich das ja
+bestimmt immer. So, will ich mal mein Essasaki aussorten? Jetzt zeige ich euch mal, warum
+das in der Cloud schwieriger ist, als man eigentlich so meinen mag. So, erstellen wir
+den Server mal. Das ist quasi eine VM, ja. Das ist quasi eine VM. Oh, es ist doch nicht
+in Burgstehude, fuck, you baited. Moment, mal ist es das, was ich denke, ich weiß nicht,
+was du denkst. Was denkst du denn? Big brain Gedanken vom Chat? IP League, OMG IP League.
+Ja, naja, grüner Grauser, wir machen das jetzt selbst, weil das ja die Cloud-Anbieter
+nicht anbieten, logischerweise. Die können ja nicht für dich deinen Server mit deinem
+Key verschlüsseln. Das machen wir jetzt von Hand. Um jetzt mal das, was ich am Anfang
+sagen wollte, den Gedankengang zu vollenden. Exzellent, Satz. Das Problem ist, dass die
+meisten Cloud-Anbieter, die haben ein paar Betriebssysteme zur Auswahl und Custom-ISOs
+ist jetzt nicht so viel. Also Custom-ISOs geht bei den meisten Cloud-Anbietern gar nicht,
+also ich kann nicht einfach hier einen, wie gesagt, bei den meisten Ausnahmen gibt es,
+ich kann hier nicht einfach einen ISO-Image mit einem aktuellen Ubuntu hochladen und
+das dann über die Konsole installieren, geschweigele die Konsole kann das auch nicht mounten und
+sonst wie. So, bei Hetzna ist es ein bisschen besser. Hetzna hat jede Menge Sachen zur
+Auswahl, also man könnte jetzt hier drüber zum Beispiel sich einen Ubuntu 20.04 von
+Hand installieren, aber das wollen wir ja nicht. Die Challenge bei der ganzen Sache
+ist ja, um die es hier ja ging, ist, dass wir oder das ist das, was ich mir noch so
+auferlegt habe und dass es ein bisschen komplizierter wird und auch irgendwie ein bisschen interessanter
+wird und vielleicht auch übertragbar ist auf mehr Cloud-Anbietern, dass wir keinen
+Rescue-Mode verwenden und keine ISO-Images vom Provider, sondern wir wollen komplett
+selbst installieren. Komplett. So und das ist ein bisschen komplizierter, weil wir haben
+zwar ein Betriebssystem, worauf wir uns connecten können, ich zeige euch das mal, äh, vielleicht
+muss ich erstmal, oh Chat, Chat, ich muss euch mal kurz ausblenden, ich muss mal was
+gucken. Nicht, dass ich aus Versehen Sachen leake, das wollen wir ja nicht, na. Monka
+leake. Wir gucken einfach nicht hin. Exzellent. Siehste, siehste, gut, dass ich euch ausgemacht
+habe, gut, dass ich euch ausgemacht habe, weil ich gerade einfach mal mein Passport
+geleakt habe. Und zwar im Clipboard-Manager. Lull. Das heißt, ich muss jetzt erstmal den
+Kram wieder ausschalten. Ich dachte mir nämlich schon, da habe ich nicht aufgepasst. Das
+wollte ich jetzt gerade mal die History löschen vor meinem Clipboard-Manager. Und dann kann
+ich euch wieder anmachen. Na ja, ihr kennt ja das Login-User, ihr kennt ja das User,
+den Usernamen nicht dazu, also der unmittelbar passiert weder nichts, außerdem wisst ihr
+eh, außerdem wisst ihr eh, dass man Passport 123456 ist, also das ist jetzt so schwierig,
+na. Wie gesagt, Passport ist eh 123456. Root, Root ist das Passport. Ok, ich kann euch,
+ich kann euch wieder einschalten, ist gut, ich mache euch wieder an. So, sehr schön.
+Ah, jetzt ist das Passport nicht mehr, nicht mehr leaked. Passport entleaked. Vielleicht
+ist auch der Name der Katze und hier hat das Passport, hat er nicht gespeichert. Wunderbar.
+So, können wir das Ganze mal anmachen. So, natürlich durch das Ganze hin und her bin
+ich jetzt eh, gerade voll vom Faden abgekommen. Also genau, ich wollte mich einloggen auf
+der Kiste. So, und damit ich euch jetzt mal kurz bevor wir anfangen verdeutlichen kann,
+warum das Ganze nicht so einfach ist, wenn wir uns da jetzt mal verbinden auf den Hetzner
+Server, by the way, ohne Passport nur mit meinem SSH Key, das heißt ihr habt da, good
+luck, ja. Ich frage mich nur, wie man beim booten den Encryption Key eingibt. Ja, das
+war mal alles jetzt im Stream. Wie gesagt, das eigentliche ist gar nicht so schwierig,
+problem schwierig ist das Betriebssystem zu installieren. So, also was wir, das einzige,
+was wir verwenden können ist das vorgefertigt installierte Betriebssystem vom Provider.
+Das heißt, irgendwie müssen wir es jetzt schaffen dort ein eigenes Ubuntu Image drauf
+zu bekommen. Nein, das stimmt noch gar nicht. Wir müssen dort den Ubuntu Installer gelauncht
+bekommen und damit dann das Provider Betriebssystem überschreiben und im Installer machen wir
+dann die Vollverschlüsselung von der Platte mit einem Custom Key und wenn wir das drauf
+haben, dann machen wir Unlock PSSH. So, und dementsprechend ist das relativ kompliziert.
+Platte ist nämlich die. Wir haben eine Festplatte, das war's. Wir haben keine Möglichkeit ISUS
+zu mounten. Wir haben keine, also die Custom ISUS zu mounten, die erhalten bleiben bei
+einem Reboot. Der Provider kann absolut nichts mit Festplatten anfangen. Man muss allerdings
+sagen, die Provider machen das meistens von sich aus schon. Ist das vom Provider überhaupt
+überlaubt, dass man das vorinstalliert überschreibt? Klar, warum nicht. Die bieten das ja sogar
+selbst an in dem Fall, aber wir benutzen das ja nicht. So, jetzt heißt, jetzt muss man,
+ich hab mir das im Vorfeld natürlich schon ein bisschen überlegt. Also ich bin jetzt
+jetzt da komplett planlos, planlos am Start. Es gibt zwei Varianten. Warum muss es denn
+unbedingt ohne ISO sein? Wie willst du sonst dein Betriebssystem installieren? Oder was
+meinste? Also wir gehen jetzt ja mal von aus, der Provider bietet nicht das an, was wir
+haben wollen und wir wollen das selbst installieren. In dem Fall bei Hetzner ist es ganz gut.
+Hetzner hat 30.000 Sachen zur Auswahl, da ist es kein Problem. Aber wir gehen jetzt
+mal von aus, sagen wir mal, wir wollen die neuste Ubuntu Beta probieren. 20.10, nur mal
+theoretisch und 20.10 wird von Hetzner nicht angeboten. Jetzt ist die Frage, wie kriegen
+wir 20.10 bei Hetzner drauf? Man kann keine Custom ISUS hochladen, geht nicht. Über die
+Konsole, die es hier gibt, die brauchen wir übrigens gleich, über die Konsole kann man
+auch kein Custom ISO mounten. Macht das einen großen Unterschied zwischen Ubuntu und Debian?
+Nö, nur dass mir persönlich Ubuntu besser gefällt. Aber Ubuntu ist mehr oder weniger
+ein Debian. Einzige was mir bei Ubuntu auf den Keks geht, ist die Sache mit der Jaml
+Netzwerk-Config. Ja Leute, wie oft noch IP liegt. Goodluck, Herr Pfannen. So, also wie
+ich es machen würde, wenn ich sowas selbst betreiben müsste, dann würde ich ein bisschen
+Geld in die Hand nehmen, mit Custom Volume dranhängen, das Custom Volume verschlüsseln
+und dort meine sensiblen Daten drauflegen. So würde ich das in der Cloud machen, ich
+würde gar keine Vollverschlüsselung vom System machen. Kostet aber extra, kostet aber
+extra, also ein bisschen was. Ich weiß nicht was es hier kostet. 10 GB kostet 46 Cent
+im Monat. Vielleicht will das jemand nicht haben, ich weiß es nicht. Aber so würde
+ich es machen, wenn ich es wirklich auch betreiben müsste und möchte, dass das easy zu verwalten
+ist. Hat nämlich noch den Vorteil, hat natürlich den Vorteil, dass man hier auch unabhängig
+Backup machen kann. Sowas ist eigentlich die schönere Variante, aber das machen wir ja
+heute nicht. Das machen wir heute nicht. Das Einzige, was ich mache, ich esse noch mal
+ein Video. So und jetzt könnt ihr euch aussuchen, mit was wir es zuerst machen wollen. Wollen
+wir zuerst eine Digital Ocean vor allem machen? Oder wollen wir es gleich bei Hetzner machen?
+Ich kann euch sagen, folgende Schwierigkeitsverteilung. Digital Ocean relativ einfach, Hetzner ziemlich
+kompliziert, weil die nicht mitspielen wie ich will. Prinzipiell, wenn ich auf einer
+Cloud Kiste was eigenes installieren möchte, würde ich das immer hiermit probieren. Weiß
+ich, ob ihr das kennt? Netboot XYZ, immer die Hardcore Variante. Okay, he doesn't know,
+he lacks critical information. Nein, in dem Fall nicht. In dem Fall habe ich mir da schon
+mal Gedanken darüber gemacht. Wenn ich net installen was machen würde, würde ich immer
+das hier nehmen. Das ist ein Boot, oder es ist nicht wirklich ein Bootloader. Es ist
+ein Boot Image, was weitere Images laden kann. Also das, ich kann Netzwerkboot machen, Netboot
+XYZ und in dem Menü habe ich dann zur Auswahl, was ich installieren würde. Ich zeige euch
+mal wie das Ganze aussieht, aber ich kann euch gleich sagen, wir können das leider
+bei Hetzner Cloud nicht verwenden, weil, und jetzt passt mal auf, wenn mir irgendeiner
+von euch erklärt, wie das Netzwerk technisch funktioniert, dann bin ich beeindruckt, Chet.
+Ihr müsst mir das mal erklären. Ich weiß, wie es funktioniert mittlerweile, also IP
+Adresse ist folgende. Das ist meine IP. Was mich schon mal wundert ist, Slash 32. Das
+ist das erste, was mich gewundert hat. So, das ist meine Public IP. Die funktioniert
+hier auch offensichtlich, weil ich bin hier auf dem Server drauf. Oh, ich muss mal kurz
+das wichtigste erst mal installieren. Sekunde, gleich, ganz wichtig. Das muss jetzt mal kurz
+sein. Ja, auf, mach. Angeblich ist eine SSD drin. Ah, yes. So, jetzt müssen wir erst mal
+den Zug drüber fahren lassen. Ist da eine Festplatte drin? Dann ist mal digital ausschneidende
+SSD drin. Gut, so, jetzt haben wir eine Runde Monka DB Monka DB. Ich hab ein Stück von meiner
+Pizza wieder gegessen. Jetzt kann man weitermachen. Chet, wer mir erklärt, wie das funktioniert,
+der gewinnt einen Sub. Und wenn er schon einen Sub hat, überlege ich mir irgendwas anderes.
+Keine Ahnung. Ich weiß es nicht. Aber, wer mir erklären kann, wie das funktioniert, der
+ist echt Big Brain. Der gewinnt den Big Brain Award für den Stream. Meine IP vom Server
+ist das hier. Subnetz slash 32. Schon mal komisch. Mein Gateway ist das da. Wie funktioniert
+das Netzwerk technisch? Wie kann ich mit dieser IP dieses Gateway verwenden? Und, wohlgemerkt,
+es funktioniert. Wie geht das? Er gibt eigentlich keinen Sinn. Für alle, die sich jetzt fragen,
+was will der Max von mir, diese IP-Adresse mit diesem Netz, also nein, diese IP-Adresse
+in diesem Netz liegt nicht im Netz vom Gateway. Das ist quasi so, wie wenn ihr daheim 192.168.0.1
+hättet als IP von eurem Rechner und euer Router hätte eine ganz andere IP. Euer Router
+hätte 10.5.5.5. War ganz billig gesagt. Also sprich, ihr kommt überhaupt nicht zu eurem
+Gateway. Wie funktioniert das? Wer kann mir erklären, wie das funktioniert? Das ist nicht
+duelst der Gleit. Es ist übelst, es ist übelst, es sind auch keine VLANs. Nutt, nee auch nicht.
+Es ist ein Feature, was ich so noch bei keinem anderen Anbieter gesehen habe. Die werden
+behält sein per Nutt umgeleitet. Kann ja sein, kann ja sein, aber Fakt ist, netzwerktechnisch
+ist es so, ich habe diese IP anliegen auf meinem Interface und das als Gateway. So,
+ich sehe, ihr habt genauso wenig Ahnung wie ich auch am Anfang. Ich werde euch zeigen,
+wie das funktioniert. Zwar. Oh nee, wo waren die Leases von DHCP? Ach du Scheiße. Wird
+irgendwie über die Mac geroutet? Nee. List, Leases, ich kann mir nicht merken, wo der Kram
+ist. Ja. Valib, DHCP, Leases, nee. Ach fuck, ich habe vergessen, wo die Leases sind. Nein.
+Ubuntu, Leases, File, DHCPd, nee DHCPcd. Deadlift, du hast noch Zeit, du hast noch Zeit. Schau
+doch mal in Interfaces nach, wie die Kiste konfiguriert ist. DHCP, komplett DHCP. Ich
+bin jetzt total hängen geblieben. Wo steht das Scheiß dann? Also, wenn ich das File finde,
+kann ich euch zeigen, ich habe vergessen, wo die Leases stehen. Ich kann es euch aber
+erklären. Total bescheuert, wo steht denn der Kram?
+Netzwerkmanager braucht keiner. Nein, nein, nein, das ist nicht Netzwerkmanager. Okay.
+Okay, es ist ziemlich kacke, ich finde nicht mehr, wo der ganze Kram steht. Ich hätte
+schwören können, es steht unter Valib, DHCP, aber irgendwie steht da nichts. Zumindest,
+es funktioniert folgendermaßen, es ist doof, dass ich euch das nicht zeigen kann. Nein,
+es ist kein Netzwerkmanager, es ist auch kein Resolve-Con. Wo stand der Scheiß dann? Äh.
+Ja, genau, da gucke ich doch die ganze Zeit schon. Es ist auch nicht Bridge-Mode. Ich
+wollte euch das jetzt im DHCP-File zeigen, weil da habe ich gestern auch gefunden. Und
+man erkennt, man denkt sich erstmal, what the fuck ist das? Okay, warte mal, da hast
+eigentlich recht. Wir suchen einfach mal danach. Wir suchen mal nach, ich weiß, dass ich das
+selbst festlegen kann. Ich will euch zeigen, warum das überhaupt funktioniert. Ich weiß,
+wie ich das anders machen kann. Wo wo ich dann dieses kacke File liess. Weil ihr seht
+ja auch, das ganze geht über DHCP. Oder in dem Fall hier über System D, Gedöns. Und
+das Dumme ist, ich habe es ja gestern gefunden. Es hieß irgendwas mit Lease. Fuck, wo ist
+das denn? Ja, das haben wir alles schon ausprobiert. Ja, und da ist es nicht. Zumindest, die benutzen
+ich, ich erkläre, ich erzähle euch jetzt einfach, wo es ist. Ich erzähle euch jetzt
+einfach, da ist einfach nichts drin. Normalerweise liegt der Scheiß immer da. Ich erzähle euch
+jetzt einfach, was die machen. Ich weiß, dass ich gestern nach dem DNS-Sauber gesucht
+habe, den man per DHCP kriegt. Es nervt mich jetzt, dass ich euch das nicht zeigen kann,
+weil das sowas abgedreht ist. Ich weiß aber, nach was ich creppen kann. Ich weiß aber,
+dass ich euch das nicht zeigen kann. Ja, da. Irgendwo hier, da sind wir richtig. Hier sind
+wir richtig irgendwo. Irgendwo hier. Zumindest, was die verwenden ist, was die verwenden ist,
+was ganz furchtbar ausgefallen ist, was ich so noch nirgendswo gesehen habe. Die verwenden
+ein ganz abgedrehtes Feature, was ich noch nirgendswo gesehen habe. Oder habe ich mir
+das mit einem anderen Befehl angeguckt gestern. Und zwar verwenden die folgendes. Passt mal
+auf. RFC3442 static route DHCP. Hab ich im Leben noch nicht gehört. Verwendet keiner,
+den ich kenne. Also, wenn es interessiert, das hier ist das RFC-Dokument dazu. Und zwar,
+was die machen, ist folgendes. Die pushen per DHCP neben der externen IP, also neben
+der hier, pushen die eine statische Route, die außerhalb von dem Netz hier liegt, die
+alle anderen Routen überschreibt als die Fault Gateway. Hab ich noch nirgendswo anders gesehen.
+Hab ich noch nirgendswo gesehen. Es wird alles per DHCP konfiguriert, aber mit einer Option,
+die niemand verwendet, den ich je gesehen habe bisher. Deswegen ist es doof, dass ich euch
+mein Lease-File nicht zeigen kann. Ich habe es gestern gefunden, jetzt finde ich es gerade
+aus irgendwelchen Gründen gerade nicht. Also Massive Big Brain, was die da treiben. So,
+und deswegen funktioniert die Geschichte mit Netboot nicht, weil Netboot, ich zeige euch
+mal wie das eigentlich aussieht mit Netboot. Netboot wird gestartet entweder über ein
+Crop oder ein USB Stick oder sonst was und bootet dann in so ein Menü hier und von dort
+kann man auswählen, was man noch als nächstes installieren will. So, und die Sache ist die
+Netboot kann keine DHCP RFC 3442 Static Routes, Routes, Huts, was auch immer. Genau, RFC, vielleicht
+habe ich da gestern reingeguckt, kann das sein, in die kleinen Conf. Ja, also so ein Kram verwenden
+die hier. Im Leben noch nicht gesehen und keine Ahnung was mit denen los ist. Zumindest Netboot
+kann das ganze nicht. Ich zeige euch mal wie das mit Netboot aussieht, weil Netboot ist
+eigentlich eine absolute Big Brain Geschichte. Wir nehmen jetzt mal hier das aktuelle Netboot
+ISO, das kann ich jedem nur empfehlen, der mal einen Server neu installieren möchte,
+mit Netzwerk install, Netboot, das ist das einfachste was es gibt, das kann man über
+PXE machen, das kann man teilweise aus dem PXE, IPXE von der Netzwerkkarte starten,
+das kann man über ein Crop selber starten, man kann seinen Crop überschreiben und Netboot
+rein machen. Ich zeige euch mal kurz wie das aussieht, wenn man es dann verwendet. Wir
+starten jetzt mal in der Testweise in der VM, wo man das sieht. Und dann starten wir es
+einfach nur, dass ihr es mal gesehen habt, wie das ganze ausschaut. Das ist nämlich
+meine erste Anlaufstelle, immer wenn ich in der Cloud irgendwas selbst installieren will,
+einfach Netboot drauf machen und gut essen. Äh, ein Printer raus, close. Also Leute, ihr
+habt alle falsch gelegen mit wie die es angeblich machen, die machen es komplett über DHCP,
+aber auf die abgedrehteste Art und Weise, wie man es per DHCP machen kann. So, Netboot,
+hallo? Oh, ok, warum war immer das jetzt hängen? So, wenn man Netboot übers Netzwerk bootet,
+dann sieht das normalerweise so aus. Guckt, Netboot, bla bla bla. Das könnte man auch
+bei Hetzner in der Cloud machen. Configuring TCP IP, Network, bla bla bla. Genauso würde
+das bei Hetzner auch machen, das funktioniert auch bis hierhin. Bis hierhin funktioniert
+es. Ähm, was nicht mehr funktioniert ist der nächste Schritt, nämlich, dass der sich
+zu Netboot XYZ verbindet und dieses Bootmenü hier holt. Das geht in der Hetzner Cloud
+nicht, weil IPXE, zumindest das was Netboot XYZ verwendet, unterstützt kein, ich muss
+abgucken, weil ich schon wieder vergessen habe wie es heißt, unterstützt leider kein
+RFC3442 classless static routes über DHCP. Exzellent, alles klar. Ich hoffe man konnte
+mir folgen chat. Da haben sich bei Hetzner gedacht, Big Brain, gute Idee das so zu machen,
+das heißt die einfachste Variante, das hier funktioniert nicht. Guckt man nämlich wie
+einfach das ist, den Netboot XYZ. Jetzt einfach hinsagt, Linux Network installs, Ubuntu 20.04
+install, er lädt das neuste Ubuntu ISO runter im RAM, bootet das ganze Ding und der Installer
+läuft. So einfach könnte es sein, nur, dass es bei Hetzner nicht funktioniert. Also ihr
+sehts wie schön das Tool ist. Ich kann euch nur empfehlen das zu verwenden, wenn ihr mal
+irgendwo anders seid als bei Hetzner. Control habt ihr den Ubuntu Installer, total easy.
+Leider geht das nicht. So und da habe ich mir gestern echt lange Gedanken zu gemacht,
+wie man das, wie man Hetzner austricksen kann, dass man einen eigenen Custom Ubuntu ISO installieren
+kann. So und jetzt haltet euch fest, ich bin auf folgende Idee gekommen. Wie findet er
+dann, wie findet der dann den Router, wenn der Server nicht im selben Netz steht. Ich
+vermute mal, so wie das normalerweise auch funktioniert, der wird einfach in ein Uprequest
+schicken, who has, was auch immer, ohne Netmask und der Router antwortet. Wenn man es genau
+wissen will, muss man sich mal die RFC durchlesen, ich hab das nicht gemacht, ich hab ehrlich
+gesagt keine Ahnung, wie es genau funktioniert. So und ich hab mir jetzt folgendes überlegt,
+was wir ausprobieren werden. Und zwar, jetzt big brain, big brain, mal gucken, ob das alles
+so funktioniert. Was wir machen werden ist folgendes. Wohlgemerkt nochmal, was das Ganze
+so schwierig macht ist, ich kann kein Custom ISO hochladen bei Hetzner, ich kann da kein
+USB Stick oder so dranhängen, ich kann kein Custom ISO in der Konsole auswählen. Das
+einzige, was ich habe ist eine Disk, eine Festplatte, SDA, mehr hab ich nicht auf dem System und
+ich muss es jetzt irgendwie schaffen, den Ubuntu Installer, da sieht man nämlich, dass
+sich da die Katzbüssel in der Schwanz beißt, sagt man das oder so, oder die Henne, die
+Huhn und das Ei, das einzige Laufwerk, wo ich was drauf speichern kann, ist meine Festplatte.
+So, wenn ich jetzt allerdings den Ubuntu Installer von meiner Festplatte aus starte, dann kann
+ich ja im Ubuntu Installer die Festplatte nicht überschreiben, weil da liegt ja das
+ISO drauf. Versteht man das Problem, was es gibt bei der ganzen Geschichte? Ich kann
+euch auch gleich zeigen, die Lösung ist nicht so schwierig. Das heißt, was wir jetzt machen
+muss ist, was wir jetzt machen muss ist, richtig, nee, nee, nicht partitionieren, ich will im
+Ubuntu Installer komplett sagen können, use komplette Platte, mach dein Encryption Magic
+und fertig. Also, die Festplatte wird komplett gewiped vom Installer oder komplett neu partitioniert.
+Das heißt, was ich jetzt probieren werde ist folgendes. Ich lade mir das Ubuntu Installer
+ISO runter auf die Festplatte. So, also das gibt's hier. Ja doch, choose my name, so ungefähr
+machen wir das, so ungefähr machen wir das. Wir werden das im RAM machen, aber wie gesagt,
+es ist nicht so einfach, wie es auf den ersten Blick aussieht. Also, wir laden uns jetzt
+das ISO runter. Das ist das Server Install Image, der Klassik Installer vom Ubuntu Server.
+Wir laden das runter. So, und die Schwierigkeit ist jetzt, wir müssen den Server dazu bringen,
+von diesem ISO zu starten. Das ISO liegt aber auf unserer Festplatte. Das heißt, wir müssen
+jetzt erstmal im Grub einen neuen Bootloader-Eintrag machen, der auf dieses ISO zeigt. Ich hab
+mir das zum Copy Pasten im Vorfeld schon fertig gemacht. Ja, das will ich, das wollte ich
+jetzt nicht im Stream. Oh, fuck. Falsches ISO. Ja, ARM und AMD 64 liegt sich ja auch
+so ähnlich. Guck mal, da ist noch kaum Unterschied. Lest das mal hier. ARM 64, AMD 64, sieht doch
+wirklich fast gleich aus. So, das heißt, wir müssen jetzt einen neuen Grub-Eintrag machen
+von Hand. Dann müssen wir den Server neu starten. Dann müssen wir das im Grub auswählen, dass
+wir von diesem ISO starten wollen. Schön ins Hut verzeichnen, ja, da ist es im Grub
+später einfacher zu finden. Dass wir von diesem ISO starten wollen. Wenn wir dann von
+diesem ISO gebootet sind, dann kommen wir in den Ubuntu Installer. Das Problem dabei
+ist, dass der Ubuntu Installer slash-cd-rom erwartet, wo seine Daten liegen. Und das Server
+hat kein fucking slash-cd-rom. Und da ist auch nichts dran, was du als slash-cd-rom
+mounten kannst. Das heißt, wir müssen dann, während der Installer, also wir laden das
+ISO über Grub in den RAM, und dann tauschen wir on the fly, während, ich hab mir das gestern
+schon angeguckt, ja, aber das ist echt Big-Brain-Methode. Und andere Cloud-Anbieter wie Hetzler brauchen
+das garantiert auch nicht so kompliziert. Wir tauschen dann on the fly, während der Installer
+booted von hier in RAM. Dann tauschen wir on the fly das Installer ISO aus, nämlich wir
+dann mounten das von der Platte und downloaden und kopieren uns das in die RAM-Disk und mounten
+das ISO in der RAM-Disk und das slash-cd-rom, dass der Installer denkt, wir haben eine CD
+oder einen USB-Stick eingesteckt. Und dann müssen wir noch die Netzwerk-Config von Hand
+machen, weil die Netzwerk-Config im Installer auch nicht funktioniert. Ich hoffe, man hat
+alles verstanden, oder? Ah, yes, excellent. Marz2009, nein, und zwar verwenden die etwas,
+das sich RFC3442 Classless Static Roots nennt für DHCP. Was das macht ist, wenn du deine
+DHCP-Adresse abrufst, pusht das eine IP als dein Gateway, der auch außerhalb von deinem
+Netz liegen kann und der überschreibt alle anderen Default-Routes. Das geht normalerweise
+gar nicht. Das geht wahrscheinlich nur, wenn Support eingebaut ist in dem jeweiligen DHCP-Kline
+und im Betriebssystem. Und ist anscheinend. Ich kenne keinen anderen Hostler, ich kenne
+niemand, der diese Sache sonst verwendet. Das Einzige, was ich dazu gefunden habe, ist,
+dass es das gibt, aber niemand empfiehlt es zu verwenden. Wie gesagt, mit Digital Ocean
+ist das deutlich einfacher. Das nächste Mal machen wir das noch in der Magenta Cloud.
+Ich wollte schon immer mal Magenta Cloud benutzen. Also, ich hoffe, ich habe das jetzt gut genug
+erklärt. Das werden wir jetzt ausprobieren. So, was ich gemacht habe ist, ich habe mir
+jetzt schon mal das aktuelle Ubuntu ISO runtergeladen. Das nennen wir jetzt mal um. Einfach nur in
+Ubuntu ISO. Oder wie die coolen Leute sagen. Würde das bei Windows einfacher funktionieren?
+Ganz ehrlich, ich hätte keinen Platz im Schema, wie ich das mit Windows machen sollte. Ne,
+ich glaube das komplette Gegenteil wäre der Fall. Ich würde Windows, weil mir die Kenntnisse
+dafür fehlen, so auf diese Art und Weise nicht installiert bekommen.
+Ich hoffe, die Musik ist nicht zu laut. Ups. So, also, wir sind immer noch auf unserer
+Hetzner Kiste. Jetzt legen wir mal los. Ich habe mir das, ich wusste, bis der Zug vorbei
+ist, der lässt sich nicht abbrechen. Ich habe mir das aktuelle Ubuntu ISO hier hinkopiert.
+Wir können gucken, was haben wir? Okay. Wir haben eine Festplatte. SDA1, die hat unser
+root-Fallsystem auf der ersten Partition. Und dann haben wir noch auf SDA1 haben wir
+noch ein BIOS-Boot-Partition und EFI-Boot-Partition. Also, warum auch immer das 14 und 15 ist,
+wahrscheinlich weil das ganz hinten ist, was auch immer. Zumindest hier liegt das ISO
+letztendlich drauf unter slashroot-ubuntu.iso. Hey Max, kam gerade rein. Was hast du bis
+jetzt gemacht? Ich habe eine VM angelegt in der Hetzner Cloud und bin gerade drauf eingeloggt.
+Du hast noch nichts verpasst. Und ich habe einen Ubuntu Installer ISO runtergeladen hier
+nach slashroot. Also, nee, nicht nach slashroot, nach slash, also nach root. So, und jetzt
+kommt der Big Brain Move, Leute. Haltet euch fest. Da habe ich gestern echt ein bisschen
+danach gesucht, wie das Ganze funktioniert. Und zwar, man kann Custom-Crup Entries machen
+und zwar unter etc-crup-d-40-custom. Da steht noch nix drin. Crup ist der Boot-Manager.
+Ich zeige euch mal, wie das Ganze normalerweise aussieht. Vielleicht haben es die ein oder
+andere nicht gesehen. Ich reboote mal. Normalerweise sieht das Ganze so aus. Ups, ich war zu langsam.
+So, so sieht das normalerweise aus hier. So sieht das normalerweise aus. Das ist der
+Boot-Manager. Da kann man beispielsweise auch irgendein Rescue-CD starten und sowas. Rescue-Mode
+von Ubuntu. Und hier kann man jetzt, hier fügen wir jetzt einen extra Eintrag hinzu,
+über den wir das ISO booten können. Aber erst mal das normale Ubuntu wieder starten,
+dass man weitermachen kann. Das heißt, wir manipulieren jetzt den Bootloader von dem
+Ding, dass wir einen eigenen Eintrag bekommen. Scheint zu gehen. Bist du einer dieser 4Chan-Hacker?
+Ja, wer braucht schon 4Chan? Ich bin ja Twitch-Hacker-Mans. Viel, viel Advanced da mittlerweile. Twitch-Streamer
+sind die wahren Hacker-Mans. 3Chan, 5Chan. Gibt es auch 5Chan, wenn es 5Head gibt? So,
+ok. Also, hier liegt mein ISO. Und jetzt kommt der big brain move. Etc-crop-40-custom. Und
+da müssen wir jetzt einen eigenen Boot-Menü-Eintrag machen. So, und zwar menu-entry. Ich kann
+das übrigens copy-paste. Ich muss das eigentlich gar nicht schreiben. Menu-entry-ubuntu-install.
+Ich copy-paste die einzelnen Zeilen und sag dann was zu. Das ist wie das Ding den Boot-Manager
+heißt. So. Dann müssen wir folgendes reinschreiben. Das da. Ich rücke mal ein bisschen ein. Was
+das macht ist, das ist ein bisschen, das ist schonmal Emacs. Ja, habe ich nur eine ganze
+Weile benutzt. Das ist eine Abkürzung. Und zwar, der sagt ihm jetzt, er soll unter dem
+aktuellen Filesystem, was hier eingehängt ist, ein Ubuntu ISO nehmen. Und das später
+als Root verwenden, wenn er davon bootet. Das kann man auch alles von Hand machen. Wenn
+man das von Hand macht, müsste man hier sowas machen wie set-root. Und dann müsste man ihm
+sagen Festplatte 0, Partition 1 und sowas in der Richtung. Ja, das macht das hier für
+einen. So. Natürlich kann man das ISO nicht direkt verwenden, sondern, wie das unter Linux
+üblich ist, wenn man ein ISO mounten will, das geht ja, kann ich auch so auf der Kommandozeile
+machen. Also sprich, ich kann ein ISO einhängen unter irgendeinem Pfad. Dann geht das über
+ein sogenanntes Loopback Device. Das heißt, das ist das nächste was ich machen muss.
+Dieses Ubuntu ISO, was der da gefunden hat, soll er als mit, what the fuck, Loopback Device
+einhängen. Und jetzt kommt die Magic. Jetzt kommt die Magic. Da habe ich gestern ein bisschen
+gebraucht, bis ich das raus gekriegt habe. Also. Trick 17. Was der jetzt macht ist, der
+mountet sich das Ubuntu. Wohlgemerkt, wir reden hier nicht von vollständigen Linux,
+wir reden hier von einem Bootmanager. Von einem Bootmanager, der eigentlich nur dafür
+da ist Sachen zu booten. So. Chat, muss ich nicht erklären was das macht, oder? Ist vollkommen
+selbstverständlich, glaube ich. Muss man nicht erklären, oder? Eigentlich, eigentlich
+voll klar. Kann ich Link posten? Ja. So. Was das macht, ist folgendes. Der hier sucht
+das Ubuntu ISO. Der hier mountet das Ubuntu ISO. Was das hier sagt ist, das ist der Startparameter,
+was er machen soll. Das hier ist die Anweisung für den Bootloader, was er machen soll. Und
+zwar, er soll auf das Loopback Device gehen, das ist dort wo mein ISO eingehängt ist.
+Was? Kekega? Oh, das ist dumm, das will ich nicht. Nein, das will ich nicht. Da bleiben
+wir beim Original. Da bleiben wir beim Original, Pepega. Ich habe für euch schon Pogo reingemacht.
+So. Das heißt, er geht jetzt auf das ISO. Dort im Ordner install gibt es einen vmlinux,
+das ist quasi der Mini-Kernel zum starten. Weiß nicht, ob man das so richtig beschreiben
+kann. So, und jetzt geben wir folgende Bootoptionen ein. Das hier ist erstmal wurscht. Das hier
+ist das wichtige, dass er das Linux, was in diesem ISO drinnen steckt, in RAM lädt. Das
+ist ein Ubuntu-spezifischer Bootparameter. Und das ist, dass er dann auch wirklich bootet.
+Das haben wir jetzt im CRUB hinzugefügt. Jetzt müssen wir noch den CRUB updaten. Und
+jetzt kann ich rebooten. Jetzt passt mal auf, was da passiert. Wenn ich jetzt in die Konsole
+gucke, dann war ich zu langsam, da muss ich nochmal neu starten. Jetzt haben wir hier
+einen Eintrag Ubuntu install. Mit dem ganzen Zeug, was wir hier eben eingetragen haben.
+Und diesen Eintrag kann ich jetzt starten. Und es sieht erstmal genauso aus, aber ihr
+werdet feststellen, es ist was anderes. Und zwar, es ist der Ubuntu Installer. Das heißt,
+wir haben ein ISO auf meiner Festplatte liegen. Das ISO haben wir über den CRUB gemountet
+und das Ubuntu in diesem ISO in RAM gebootet. Also gebootet und das komplette in RAM geladen.
+Das ist mal big brain, oder? So, jetzt haben wir nur ein Problem. Ich werde euch das Problem
+mal zeigen und dann was man dagegen macht. Language, Englisch, alles gut. Wir sind nicht
+in Kokona. Wir sind in Europe. Germany. Ist ja wie Netboot für Arme, genau. Das Problem
+ist nur, dass Netboot nicht geht. Wegen RFC, Blablub, Static, was auch immer, Routing,
+keine Ahnung. Lokal, ich zeige euch jetzt erstmal, wo das Problem ist. Detect Keyboard
+Layout, jawoll, wir wollen deutsches Keyboard haben. Wir haben kein Baguette Keyboard, alles
+klar, passt. So, und jetzt gibt es ein Problem. Jetzt versucht er nämlich auf den USB Stick
+bzw. auf das CD Laufwerk zuzugreifen. Es ist egal, ob es ein CD Laufwerk oder ein USB
+Stick ist. Und zwar sucht er jetzt die Dateien zum installieren. Die Dateien zum installieren
+findet er nicht, weil der Ubuntu Installer auf das ISO scheißt. Das ist ihm egal. Und
+wir können das ISO von der Platte auch nicht verwenden, weil wir die Platte jetzt gleich
+platt machen wollen. Das heißt, jetzt kommt der nächste Big Brain Schritt. Wir gehen in
+die Installer Konsole. What the fuck? Alter, Nvidia. Wo kann man das hier umlegen? Keyboard
+Shortcuts. Photocraft the Scene. Ja, genau. Kann man das löschen? Nein, weg. Ah ja, und
+F1 muss ich auch löschen. So, warum hijackt das einfach mal in die Shortcuts? So, jetzt
+kommt Big Brain Schritt Nummer 2. Wir gehen in die Installer Konsole. Da ist man normalerweise
+auch relativ selten unterwegs. So, und was wir jetzt machen ist, wir wissen ja, dass
+wir das ISO auf der Festplatte liegen haben. Wir können die Festplatte aber nicht verwenden,
+weil wir die Festplatte gleich mit dem Installer überschreiben wollen. Das bedeutet, ich
+muss mir jetzt mal temporär die Festplatte mounten und das ISO in RAM kopieren und danach
+das ISO, was im RAM liegt, und das Slash CD-ROM mounten, dass der Installer weitergeht.
+Soweit klar? So, ich weiß, ich hab DEV SDA, das ist meine Platte, die im System drin ist
+und die mounten wir jetzt einfach mal. Gehen wir mal Slash MNT, gucken wir hin und sehen,
+das ist unser normal installiertes Ubuntu auf der Festplatte. Was wir haben, wir sehen
+auch hier unser Ubuntu ISO. Das heißt, wir kopieren jetzt das Ubuntu ISO in die RAM-Disk.
+Also, jetzt haben wir die Ubuntu ISO auf unser Installer-System in RAM kopiert. Wir können
+mal gucken, wie viel freien RAM wir haben, also das passt schon. Jetzt, nächstes Schritt
+ist eigentlich noch eine Runde mehr Big Brain, weil unter Slash CD-ROM erwartet, wie man
+hier sieht, der Installer erwartet unter Slash CD-ROM das, was gemountet ist, um die Installation
+von dort machen zu können. Das heißt, das muss ich jetzt von Hand machen. So, und das
+heißt, jetzt mounte ich das ISO aus dem RAM, was ich mir gerade kopiert hab, ach übrigens
+by the way, ich muss die alte Festplatte wieder unmounten, weil sonst geht der Installer ja
+später nicht drüber und kann sie neu formatieren. Das heißt, jetzt mounte ich das ISO auf Slash
+CD-ROM. So, und nachdem man den ISO nicht so einfach mounten kann, das wäre nämlich
+auch zu einfach, und unmounten schon mal gar nicht, äh, mounten. Oh, Moment. Man kann
+den ISO ohne Parameter mounten, ist das neu? Huge! Man muss keine, man muss kein Geschiss
+mehr angeben für ISOs, ja das ist ja geil. Also, bis zur letzten Ubuntu-Version musste
+man noch ein riesenlanges Geschwubbel hinten angeben, und zwar, hier sowas musste man sonst
+immer machen, mount, minus O, loopback, read only, minus T, ISO 9660 und dann das ISO-File,
+das muss man anscheinend gar nicht mehr, ok, gut zu wissen. So, Installer, retry. Äh,
+ach so, jaja, jaja, continue. So, hat funktioniert. Slash CD-ROM ist gemountet, nein, ist nicht,
+hä? Moment. Also ich weiß, dass es funktioniert, weil ich hab's ausprobiert, ich glaube ich
+bin nur beim falschen Schritt gerade. Äh, es kann sein, dass man den Kram doch mit angeben
+muss, ich probier's mal an, mount, CD-ROM. Hä? What the? Ok, ok, ok. Mount, gehen wir
+den Installer. Load Installer Components for Media, wow, wow, wow. Ich bin mir jetzt nicht
+sicher, ob ich das in der richtigen Reihenfolge gemacht hab. Ah, jetzt funktioniert's, ok.
+Äh, jetzt kann er aufs CD-Laufwerk zugreifen, und zwar, das ging nur, weil wir das selbst
+gemountet haben unter Slash CD-ROM. So, was nicht funktioniert ist, der Installer geht
+jetzt, ich kann schon mal spoilern, beim nächsten Schritt geht der Installer nochmal kaputt,
+und zwar, weil das Netzwerk nicht konfiguriert werden kann. Das Netzwerk kann nicht konfiguriert
+werden, weil Hetzner diese komische Geschichte mit, äh, wie hieß es, dateless, RFC-Rooting
+Videos macht. Deswegen müssen wir jetzt an der Stelle sagen, do not configure network.
+Es bringt auch nix für den Installer, das Netzwerk irgendwie von Hand zu konfigurieren
+oder so. Ähm, nicht dateless, classless hieß es, äh, funktioniert nicht. Ah, der Bildschirmarbeiter,
+nice. Warst du auch schon mal bei Hetzner in Books the Hude im Rechenzentrum? So, also
+wir sagen jetzt erstmal, wir wollen das Netzwerk nicht konfigurieren. So. Äh, wie nennen
+wir den Server? Cute, Cute-Server. So, neuer Name für User, aber Max. So, jetzt vergebe
+ich mal ein Passwort, das werde ich euch nicht zeigen, weil das brauche ich nachher zum Einloggen
+und das ist auch ausreichend lang. So, jetzt macht er erstmal seine Magic und installiert
+ein bisschen und jetzt fragt er mich gleich, wie ich die Festplatte formatieren will und
+die Festplatte partitionieren will und jetzt kommt der eigentliche Schritt, wenn man das
+ganze verschlüsseln will. Wie gesagt, die ganze Vorarbeit hier war jetzt nur nötig,
+weil ich erstens nicht das ISO mounten wollte, was Hetzner anbietet und weil, ähm, weil
+ich ein eigenes ISO verwenden wollte, was von der Festplatte geladen wird ohne Zusatzvolumen.
+Das heißt, jetzt kommt die eigentliche Geschichte, wenn man den Server verschlüsseln will. Man
+muss im Installer das hier auswählen, Use Entire Disk and Setup Encrypted LVM. Jetzt
+sieht man auch, warum es wichtig war, dass ich das ISO umkopiert habe, weil wäre das
+ISO noch gemountet von der Festplatte, dann könnte ich jetzt ja an der Stelle nicht die
+Festplatte komplett neu partitionieren und neu einrichten lassen und komplett verschlüsseln,
+weil dann das ISO ja noch drauf liegen würde. Was wir jetzt ja gemacht haben ist, wir haben
+nur von der Festplatte gebootet das ISO, ähm, und dann das ISO ersetzt durch einen ISO im
+RAM und darüber installieren wir jetzt. So, also, Use Entire Disk. Musst du dann nicht
+die DHCP-Geschichte noch rüber kopieren. Doch, das mache ich nach der Installation,
+der macht ja eh nicht viel, der macht ja eh nicht viel. So. Ähm, wir lassen ihn erstmal
+seine Installer, seine Installer-Magic machen. So. Und nachdem wir jetzt das Ubuntu installieren,
+ohne Netzwerkverbindung, macht er ein paar Sachen nicht. Ist das ein VPS, ist die Hetzner
+Cloud? Ja, das ist im Prinzip, das ist im Prinzip eine, eine VM in der Cloud, ja. So,
+Encryption Passphrase, Excellent Password 123456. Da nehmt ihr natürlich irgendwas gescheites,
+weil ansonsten könnt ihr euch das gleich sparen. Yes. Das ist sowas hier. Das ist ne, ich würde
+sagen KVM, VM ist das. So, jetzt fragt er uns wieviel Speicherplatz darf er verwenden
+von der Festplatte alles. Und jetzt darf er neu installieren. So, nachdem wir jetzt den
+Ubuntu Installer laufen lassen haben, ähm, äh, QEMO und KVM ist mehr oder weniger das,
+also nein, ist es nicht das gleiche, aber KVM verwendet Treiber von QEMO. Also, wenn
+du QEMO siehst, ist es zu 99% KVM. Ähm, so, nachdem wir den Ubuntu Installer jetzt laufen
+lassen haben, ohne Netzwerkverbindung, macht das ein paar Sachen nicht, die wir dann gleich
+anschließend von Hand machen müssen. Äh, muss man bei Festplattenverschlüsselung dann
+jedes Mal beim Boot das Passwort eingeben oder kann man das automatisieren? Naja, wenn
+du das automatisieren könntest, dann könntest du dir das mit dem Passwort ja sparen. Ah,
+also. Wo ist der Sinn der Verschlüsselung, wenn das Passwort im Klartext quasi lesbar
+dran steht? Du musst dich aber nicht, und das machen wir danach noch, du musst dich nicht
+danach per Konsole verbinden, sondern das kannst du auch über SSH machen. Das ist ja grad
+der Knackpunkt dabei, warum man das, äh, recht bequem sogar machen kann. So. Write
+Changes to Disk, yes. So, und wir müssen dann abschließend noch ein paar Sachen machen,
+weil, wie gesagt, wir installieren das jetzt ja von der Disk, ohne Netzwerkverbindung,
+wenn man Netzwerkverbindung hat, macht Ubuntu ein bisschen Magic, mehr Magic während der
+Installation und man muss ein paar Sachen nicht von Hand machen. Und wir dürfen nicht
+vergessen, das ISO, das ISO-File, was wir jetzt im RAM liegen haben, am Ende der Installation
+noch mal auf das fertig installierte System zu kopieren, weil, wohlgemerkt, wir haben
+ja immer noch kein USB-Stick dran hängen und wir haben grad keine Netzwerkverbindung,
+das bedeutet, ich kann mit Abt danach keine Software nachinstallieren, weil ich keine
+Internetverbindung hab, die richtig funktioniert, erstmal, und, ähm, kein ISO habe, von dem
+ich nachinstallieren kann. Das heißt, ich müsste dann erstmal von Hand über die Serverkonsole
+eine Abt-Sources-List eintippen, da hab ich keinen Bock drauf. Deswegen machen wir das
+anders und kopieren das ISO drauf. Speichelst du auf dem Server die Penta-Nuke von Rambo?
+Ne, die hab ich hier noch irgendwo, die kommt nicht auf den Server, das ist zu kritisch,
+zu kritisches Material. Ich hab auch noch die, ähm, Quad-Nuke, wo, ich hab's vergessen,
+die wem geklaut hat. War das der Cheater? Was spricht denn für das Setup anstelle einer
+Hetzner ISO? Weil, es muss so unterscheiden. Gegen eine Hetzner ISO und von dort manuelles
+Setup spricht gar nichts. Sofern Hetzner das Betriebssystem anbietet, was man installieren
+will. Wir haben das jetzt ja hier für den theoretischen Fall mal gemacht, dass man beispielsweise
+in Ubuntu, Beta, keine Ahnung, 20.10 installieren will, was sie noch nicht haben. Ähm, und
+Hetzner ISO selbst, was die für einen installieren, können wir nicht verwenden, weil wenn wir
+das Hetzner ISO verwenden, können wir ja keine Vollverschlüsselung von der Systemplatte
+machen, weil es schon fertig installiert wird. So, Configure Package Manager, kann da nichts
+machen, großartig. Select den Install Software, funktioniert auch nicht, weil, äh, keine
+Internetverbindung. Das heißt, bleibt mir nichts anderes übrig, wie den Bootloader
+zu installieren. Und das ist jetzt der kritische Punkt. Wenn das fehlt, schlägt, bootet das
+ganze Ding später nicht. Das heißt, da muss man jetzt ein bisschen, okay, ist schon fertig.
+So, und jetzt wichtig, bevor, bevor wir das neu starten, bevor wir das neu starten, gehen
+wir nochmal auf die Konsole und sehen, hier, guck, unter slash target ist unser neues
+Betriebssystem eingehängt. Wir kopieren jetzt die Ubuntu ISO nochmal nach slash target.
+Du kannst das ISO doch einbinden oder manuell, nein, kann ich nicht. Hetzner erlaubt keine
+Custom ISOs. Die haben ein vorgefertigtes Set an ISOs, die sie zur Verfügung stellen,
+wenn das nicht dabei ist, was du haben möchtest, hast du gelitten. Und dann bleibt dir nichts
+anderes übrig, als das, um so Umwege zu machen. So, jetzt haben wir das Ubuntu ISO nochmal
+rüber kopiert, weil das brauchen wir gleich zum installieren. Gehen wir zurück, Installer
+ist fertig, yes, achso, er installiert noch Crap, okay, davor machen, sonst kann er nicht
+booten. System ist set to OTC, ja, alles klar, mach. Jetzt legt er die Crap-Einträge an,
+dass das System auch booten kann. Das heißt auch, dass der Server nicht 24-7 aktiv ist.
+Lasst mich nicht fragen, was die Leute damit machen, keine Ahnung. Ich mach das jetzt
+für die Installation, danach schmeißt das Ding wieder weg. Aber klar, doch natürlich
+bringt die Vollverschlüsselung, was auch wenn der Server aktiv ist. Weil spätestens
+wenn du einmal Stromlos machst, ist das Ding unwiederbringlich kaputt, als sei denn du
+hast das Passwort. So, Installation complete, continue. So, das heißt jetzt müssen wir
+ein bisschen Post-Jam machen und gucken, ob es bootet. Ähm, Matze, das ist einfach so
+historisch, denke ich, die sind meistens installant drin. By the way, ich weiß, dass
+es nicht funktioniert. Doch, es funktioniert, man sieht es bloß nicht. Ich muss jetzt ein
+paar Mal hier spammen, in den Crap gehen und damit hat nämlich die Hetzener Remote-Konsole
+irgendwelche Probleme. Quiet und Splash raus machen, dann bootet es auch. Guck da. So,
+und wir sehen, vollverschlüsselte Festplatte, please unlock disk. Das heißt, das System
+bootet nicht weiter, bis ich das Passwort eingetippt habe. Der nächste Schritt ist jetzt,
+dass wir erstmal gucken, dass der Crap, dass es standardmäßig ordentlich rebooted und
+danach, wie wir das ganze Remote entschlüsseln können. Weil niemand möchte sich zum Reboot
+sein des Servers erstmal auf, bei Hetzener verbinden, auf die Management-Konsole verbinden
+und da ein Passwort eintippen. Quiet ist, dass er nichts ausgibt und Splash ist, dass
+er ein Bootlogo anzeigt. So, also, unlock 123456, Big Brain, Passwort. Oder unlock die Festplatte,
+wo das System startet und irgendwann ist der Server da. Zack, Q-Server. So, jetzt müssen
+wir uns hier einmal einloggen, weil wir haben noch keine Netzwerkverbindung. Jetzt müssen
+wir uns wieder einmal einloggen, weil wir haben noch keine Netzwerkverbindung. Guck,
+ist down. Das heißt, ich muss mir jetzt einmal einen DHCP-Client nehmen und, ähm, ja, sudo
+und eine Netzwerkverbindung ziehen. Und ziehe da, äh, und ziehe da, wir haben ein IP.
+Das heißt, ich gehe jetzt rüber und log mich auch da drauf. Ach so, ha, ich hab's
+noch großartig erzählt, Leute. Ich hab's noch großartig erzählt, was wir machen müssen.
+Bei der Minimal-Installation ist kein SSH-Server dabei. Die haben doch Custom-ISOs, ist das
+da nicht dabei? Doch, 20.04 ist dabei. Die Custom-ISO ist, also, in dem Fall könntest
+du das, das ist das, was ich am Anfang gesagt hab, das könntest du auch bei Hetzer machen.
+Über das, über das Custom-O und doch, doch. Wobei du ein paar Sachen trotzdem von Hand
+machen musst, weil die Installation auch mit dem Custom-ISO nicht problemlos durchläuft.
+Es war ja grad der Witz, das nicht da drüber zu machen, falls das im Betriebssystem nicht
+angeboten wird. Könnte die Installation ersetzt werden von jemanden ohne deinem Wissen, sodass
+du das Passwort eingibst und dieses abgegriffen wird? Nein. Oder? Doch. Oder? Ich glaube schon,
+weil der SSH-Server, den du benutzt zum Anlocken später, der liegt ja unverschlüsselt drauf.
+Und da könnte sich jemand wahrscheinlich den Private Key kopieren vom SSH-Server, dann
+würdest du nicht merken, dass er das ausgetauscht hat. Doch, wahrscheinlich würde das funktionieren,
+bin ich mir jetzt aber nicht ganz sicher ehrlich gesagt. Aber viel wichtiger ist erstmal,
+dass er keinen Zugriff auf deine Daten hat. Ja, austricksen könnte dich da einer. Da
+müsste er aber erstmal Zugriff zum Server bekommen, also sprich, der müsste dort ins
+Rechenzentrum oder der Provider müsste das machen. So, jetzt ist das Problem, es ist
+kein SSH-Server, also sprich, der Server ist oben, hat auch eine IP, aber ich kann mich
+nicht darauf verbinden, weil ich keinen SSH habe. So, und ihr werdet sehen, wenn ich versuche
+Abt-Update zu machen, sagt er, oh fuck, funktioniert nicht, weil keine Sources angegeben sind.
+Guck, etc, Abt-Sources, da steht nur das CD-ROM drin, keine Internet-Sources. Das heißt,
+deswegen ist der Grund, warum ich mir das ISO hier nochmal hinkopiert habe. Das heißt,
+ich kann jetzt das ISO nochmal mounten, und zwar nach Media-CD-ROM, und jetzt kann ich
+einen Abt-Install-SS, nee, Open-SSH-Server machen, und nachdem das drin ist, dann kann
+ich mich auch einloggen. Der hat sich jetzt die DHCP-Config aus dem Herzennetz gezogen,
+doch, doch, funktioniert. Kein Problem, dass das funktioniert. Das funktioniert ganz normal
+jetzt. So, und nun komme ich da auch per SSH drauf. Ja, äh, also, nachdem ich mal alles
+gelöscht habe hier, komme ich da auch drauf. So, alle, übrigens nicht per Route, sondern
+per Max mit dem User, den ich während der Installation angelegt habe, wenn ich das Passwort
+richtig eingib. Und jetzt bin ich auf meinem Server drauf. Das heißt, das nächste, was
+ich jetzt machen muss, ist, ich will ja, ich will ja, dass ich hier Abt-Update und Geduldens
+machen kann. Das heißt, ich unmounte erstmal wieder das ISO. Das ISO brauchen wir jetzt
+nicht mehr. Das ISO war nur, war nur notwendig, damit ich ähm, den SSH nachinstallieren kann.
+Irgendwoher muss er das ganze ja bekommen. Wann kommt man wieder YouTube-Content? Eventuell
+das Wochenende. Ich habe eine Idee für ein Video, aber ihr kennt mich, kann durchaus
+sein, dass es nicht kommt. So, was ich jetzt machen muss, ist, eine ordentliche Sources-List
+eintragen. Ja, gut. Aber es hat irgendwie Ei. Wir schmeißen das CD-Laufwerk raus und suchen
+uns eine Sources-List, und zwar am besten die offizielle Sources-List, dass ich dann
+auch mit Abt-Sachen nachinstallieren kann. Zack. Monka. Eww. Set. Paste. Weiß ich, was
+ich jetzt hier für Schmerzen gerade wieder hatte. Aber weg damit. So, und jetzt kann
+ich sagen, Abt-Update und zack. Es ist da. Es funktioniert. Was ist denn Sudo als Admin?
+Das ist, dass er sich 15 Minuten speichert, dass du Sudo werden kannst. Also, du kannst
+15 Minuten lang glaube ich, oder standardmäßig 15 Minuten werden. Du kannst sicher 15 Minuten
+lang Sudo werden, und dass du jedes Mal das Passwort eingeben musst. So, Abt-Update.
+Also, wir sehen Ubuntu Server integriert. Eine Sache sollten wir jetzt noch machen,
+dass das ein richtiger echter Ubuntu Server ist. Und zwar, wir sollten das Ding hier mal
+installieren. Das ist nämlich das, was Ubuntu normalerweise auch während der Installation
+nach, während der Installation macht, wenn man eine Netzwerkverbindung hat. Der sagt
+nämlich, okay, es ist ein SSH Server und ein Basic Ubuntu Server. Das macht der unter
+der Haube. Das seht ihr nicht. Das könnt ihr, doch, klar seht ihr das. Das könnt ihr
+im Installer auswählen. Aber das macht der nur, wenn er eine Netzwerkverbindung hat.
+Und hatte er nicht, deswegen müssen wir das jetzt von Hand machen. Und wir werden sehen,
+er installiert noch einige Sachen nach. Das ist jetzt wirklich schon ganz minimal, minimalst
+der Minimalsysteme, die der uns da von der CD installiert hat.
+So und wir suchen jetzt mal den Hetzner Guide. Dass er dann nämlich nach dem Boot sich automatisch
+was zieht.
+Und zwar müssen wir das hier machen, nachdem wir installiert haben, dass er sich nach jedem
+Reboot eine DHCP Adresse zieht.
+Was ist mit Remote Unlock im Titel gemeint? Also wir haben die Festplatte verschlüsselt.
+Das heißt, du musst jetzt jedes Mal beim Rebooten das Passwort eingeben von deiner
+Festplatte, dass das Betriebssystem gestartet werden kann. Und das Passwort musst du aktuell
+noch eingeben über die Hetzner Konsole. Und das ist ziemlich unpraktikabel. Deswegen
+werden wir es jetzt so machen, dass du das auch Remote Unlocken kannst mit einem Passwort,
+ohne die Hetzner Konsole zu verwenden.
+Heute wieder Progress, fast. So in der Richtung. So, jetzt ist gleich der Ubuntu Server ein
+richtig echter Ubuntu Server. Geht auch ZFS als Root Verschlüsselung für ein VPS mit
+Remote Unlock. Ja. Das ist mit Remote Unlocking kompatibel, das habe ich selbst schon gemacht.
+Das haben wir sogar schon mal im Stream gemacht. Das haben wir vor 2 oder 3 Jahren, ewig her
+haben wir das mal im Stream gemacht. ZFS Encryption Unlocking. Da war das noch Beta.
+So, erstmal ein paar wichtige Tools. Ist schon alles installiert. Ok, also wir haben jetzt
+den Ubuntu Server. Die Hetzner Server Konsole ist glaube ich VNC. So, also wir haben jetzt
+eine Custom Ubuntu Server Installation gemacht. SSH installiert, User angelegt. Kannst du
+eine Bit.tfs ausprobieren? Ja, aber jetzt nicht hier drauf. So, was jetzt noch fehlt
+ist, also wir machen jetzt erstmal ein Reboot und testen, ob alles funktioniert. Wir machen
+Update und dann gucken wir, ob alles funktioniert. So, danach machen wir ein Reboot und dann
+könnt ihr sehen, dass alles funktioniert außer man muss halt immer noch das Passwort eingeben
+beim Rebooten. Und das werden wir jetzt lösen. Nach dem Reboot. Erstmal machen wir ein Update
+und gucken, dass alles funktioniert und dass ihr seht, dass das ein vollwertiger, stinknormaler
+Ubuntu Server ist, den wir installiert haben. Auf dem jetzt auch alles funktioniert, was
+man so erwarten würde. Der macht jetzt ein bisschen Kernel Update, ein bisschen Paket Update
+und alle möglichen Sachen, die er so braucht. Dann machen wir hier noch das mit der Netzwerk
+Config und dann ist die Installation fertig. Da müssen wir uns nur noch darum kümmern,
+dass wir das Remote anlocken können per SSH. Das machen wir nach dem Reboot. Und ich warte
+jetzt eigentlich nur, bis der Kram fertig ist. Nun wir das mit neun Monaten. Exzellenz
+Subscription, Dankeschön. Schockt keinen mehr, verständlich. Chat ist schon abgehärtet.
+Startet eigentlich SSH bevor die Festplatte verschlüsselt wurde? Entschlüsselt wurde?
+Nein, normalerweise nicht. Deswegen installieren wir jetzt noch einen zusätzlichen SSH Server,
+der vor dem Entschlüsseln der Festplatte gestartet wird, nur für das Entschlüsseln der Festplatte
+läuft. Also im Prinzip ein SSH Server, der nur dafür da ist, dass ich ein Passwort eingeben
+kann über SSH. Oh, der könnte mal seine Updates, auf ne eigene Partition, nö. Der kommt in,
+der kommt, ja doch, doch, auf seine eigene Partition natürlich. Auf der Boot, Boot Partition,
+die ist ja unverschlüsselt. Genau, ein SSH Server im Inet, ja, ja, genau. So machen wir
+das jetzt. Wenn der denn irgendwann mal fertig mit Updates ist, wohlgemerkt. Ich werd schon
+mal ne andere Sache zwischendurch machen und zwar SSH Copy, ich kopier schon mal mein Public
+Key drauf, dass ich nicht in Zukunft so viel Passwörter eingeben muss. So. Oh, ich hab
+mich vertippt. Gut, Key ist added. Sehr schön. Jetzt aktivier ich nur noch die Netzwerk-Config,
+dass er sich immer ne neue IP zieht. So und übrigens den, wer braucht IPv6, lul. Da wär
+ich jetzt wieder geflamed für, aber wir lassen das jetzt mal weg. Sollte ich einfach DHCP
+IPv4 holen und gut ist. So und wenn wir jetzt rebooten, ENS3 stimmt, ja, ENS3 stimmt. Wenn
+wir jetzt rebooten, haben wir nen vollwertigen Ubuntu Server. Einzige kleine Schönheitsfehler
+jetzt halt noch, dass wir, oder dass er von uns beim Booten über die Konsole nen Passwort
+haben will und das sackt. Oh, ich hab noch was vergessen, das müssen wir gleich machen.
+Ich hab noch vergessen, dass der hier Splash und Quiet rausnehmen soll, das muss ich gleich
+noch machen. So, jetzt sagt er uns, ok, tja, unlock immer deine Festplatte, das mach ich
+und das werden wir jetzt gleich machen, dass wir das nicht mehr mit den Remote-Konsole
+machen müssen. Aber vorher muss ich den Crap mal anpassen. So, da sind wir wieder. Ich
+kann mich einloggen ohne Passwort, aber für Zudu brauch ich immer noch ein Passwort.
+Moment, ich hab mich wieder vertippt. Etc, Defaults, Crap. Und da kann man jetzt anpassen,
+dass der standardmäßig nicht Quiet und nicht Splash macht, also sprich, dass der Text ausgibt
+beim Booten, dass er auch kein Boot-Bild anzeigt, sondern Text, was er gerade macht. Update,
+Crap. So, jetzt passt das. Gut, und nun machen wir das, was ich gerade angekündigt hab, wir
+sorgen dafür, dass man den Remote über SSH entsperren kann. Und das ist im Prinzip ziemlich
+easy mittlerweile, man muss kaum noch was von Hand machen, man muss das hier installieren.
+Wir installieren erstmal Bash-Auto-Vervollständigungen, weil ich keinen Bock hab, alles von Hand zu
+tippen. So, Abt-Install. So, das Ding müssen wir installieren. Das ist ein SSH-Server,
+der quasi ganz vereinfacht gesprochen, man kann nicht sagen, im Boot-Manager läuft,
+das stimmt nicht, der aber quasi gestartet wird, noch bevor das eigentliche Betriebssystem
+gestartet wird. Das ist quasi so ein Mini-Linux-Kernel, der vom Bootloader gestartet wird, der dann
+das eigentliche Linux startet, der unter anderem Festplattenentschlüsselung macht und dort
+kommt jetzt dieser SSH-Server rein. Und den brauch ich zu nichts anderem, außer für meine
+verschlüsselte Festplatte zu unlocken. Ja, das funktioniert aber auch nur, solange die
+Boot-Partition, weil ich es gerade im Chat seh, solange die Boot-Partition unverschlüsselt
+ist. Aber das ist das normale Setup. Das ist das normale Setup. Wenn man wirklich alles
+verschlüsselt, inklusive der Boot-Partition, dann muss man den Passwort von Hand eintippen.
+Das geht gar nicht anders. Weil dann kann ja nichts mehr starten. Wobei mich nicht wundern
+würde, wenn es dann nicht auch irgendwelche Tricks gäbe. Es geht alles irgendwie, ja.
+So, und jetzt kommt der Schritt, wo vielleicht ein paar Probleme hatten, weil ich hab im
+Chat vorhin welche gesehen, die haben gesagt, sie wussten nicht, wie man den Server-Remote
+locken soll. Also, ihr müsst einmal das da installieren. Und jetzt müsst ihr nach ETC
+da hingehen. Und da muss jetzt eine gültige Authorized-Key-File rein. Nämlich den Authorized-Key-File,
+zu dem ihr halt einen Private-Key habt. Und Choose My Name hat recht, er zickt rum, aber
+das kann man relativ einfach beheben. So, und ich kopiere dort jetzt mein Authorized-Key-File
+rein, was ich hier bei meinem User liegen hab. Also dort, wo schon mal ein Key drin ist.
+Und danach sag ich nochmal Update, nee, Update, was Update, RCD, minus K, minus U, minus
+all? Nee, ach du Scheiße. Update in Ubuntu. Update in, ok. Fast. So, minus K, minus U all.
+Nein, minus, minus, minus U, minus K all, minus U, minus K all, fast richtig. Äh nee,
+auf unterschiedlichen Ports muss der nicht lauschen, weil der beendet sich, bevor der
+andere gestartet wird. Der hat aber tatsächlich Probleme, weil es die gleiche IP ist, das
+wirst du gleich sehen. So, was der jetzt macht ist, der baut ein neues Mini-Linux zusammen,
+was vom Bootloader gebootet wird, was Festplattenentschlüsselung macht, was SSH macht und was dann das eigentliche
+Linux bootet. Minus K ist, dass er das für alle Kernel-Versionen, die installiert sind,
+macht und minus U ist, dass er es updatet. Also U muss man machen, was er machen soll,
+also sprich er soll es updaten, minus K, dass er es für alle installierten Kernel-Versionen
+macht. Man könnte ja auch das nur für das letzte machen wollen oder so, wenn man Angst
+hat, man macht was kaputt. Ja, so und wenn er jetzt damit fertig ist, was jetzt nicht
+mehr allzu lange dauern kann, dann kann ich rebooten, wegen Fingerpedia, man könnte unterschiedliche
+Ports machen, ja. Aber das ist nicht schlimm, das lässt sich relativ easy beheben mit dem
+Gemäckere. So und jetzt haben wir den, wenn ich jetzt reboote, dann werdet ihr sehen,
+erstens der Crop, jetzt sieht man was, weil ich den Splash-Screen ausgeschaltet habe.
+Habe ich übrigens ein Update-Crop gemacht, das machen wir vielleicht nochmal. Hi Happen,
+10 Monate, dankeschön, exzellent. Big Brain-Subscription hier. Der IQ vom Chat ist mal wieder massiv
+auf dem aufsteigenden Weg hier. So und ihr werdet sehen, dass der Crop jetzt was ausgibt
+und dass der mich weiterhin nach einem Passwort auf der Konsole fragt, aber dass der auch
+einen SSH-Server startet. Passt mal auf. Seht ihr es? Da hat jetzt ein SSH-Server gestartet
+und per DHCP eine IP geholt und ich hab übrigens was vergessen. Ich hab was vergessen, es funktioniert
+gar nicht. Oder vielleicht doch, mal gucken. SSH, nein es funktioniert nicht. Ich hab was
+vergessen. Hat irgendjemand eine Idee was ich vergessen hab? Ich weiß das ist so eine
+Oberlehrer-Frage. Wo lernt man sowas, wenn man das ein paar Jahre macht? Man kann übrigens
+immer noch anlocken hier drüber. Guck, also anlocken über Konsole geht immer noch. Ich
+hab was vergessen. Hat irgendjemand einen Plan was ich vergessen hab? Wahrscheinlich
+nicht. Ich werd's euch verraten und zwar das DHCP und der SSH-Server, der jetzt fürs
+Anlocken zuständig ist beim Booten, der kann diese extra Würste, was Hetzner beim DHCP
+macht, auch nicht. Deswegen müssen wir dem erstmal beibringen, dass das Ganze funktioniert.
+Und das macht man folgendes, da hab ich gestern einen guten Forumseintrag gefunden, der das
+schon gemacht hat. Und zwar muss man dafür ein eigenes Startscript einbinden. Das ist
+jetzt alles nur Hetznerspezifisch, was ich hier mach. Also, wenn ihr das selbst machen
+wollt, einfach einen Server verschlüsseln, ist das easy as fuck. ISO rein, Ubuntu installieren,
+Installer auswählen, Encryption installieren lassen, Job hier drauf, fertig. So, das ist
+jetzt alles nur Hetznerspezifisch, weil die so komische Netzwerkgeschichten machen. So,
+man braucht noch ein kleines Startscript, dass der nämlich diese tolle Config von Hetzner
+einfügt, dass man sich überhaupt per Netzwerk verbinden kann. Toll, ne? So, das heißt,
+ich geh jetzt, ich leg das File jetzt mal an. Wenn ich finde, wo das hin muss. Genau,
+das ist richtig. Das lernt man, wenn man es mal braucht. Ich hab das gebraucht mit Remot
+anlocken und seitdem hab ich mir als Umgefall gemerkt, wie es geht. Startup Script. Übrigens
+bei Vim immer SetPaste machen, dann spackt er auch nicht rum, wenn man reincopypastet.
+So. Jetzt müssen wir nochmal alles updaten und jetzt fügt er diese Startup Script ein
+beim Booten und was das macht, ist folgendes, das hier oben ist erstmal egal. Der startet
+Netzwerk. Der startet Netzwerk und dann fügt er diese Customrouten hinzu, die Hetzner braucht,
+dass es funktioniert. Ohne funktioniert es bei Hetzner nicht. Das ist eine rein Hetzner
+spezifische Geschichte. Ich hab das auch noch nie bei irgendeinem anderen Anbieter gesehen
+und auch noch nie selbst benutzt diese Taktik. OV hab ich noch nicht verwendet, ne. Ich find's
+aber über Azure schon echt kompliziert teilweise. Du musst in Azure auch, wenn du VMs in Azure
+machst, wohlgemerkt, musst du auch auswählen, teilweise bis zum Standort vom Server Rack,
+also bis zum Rechenzentrum für welches Server Rack, wie du Hochverfügbarkeit machen willst.
+Das finde ich auch unnötig kompliziert, wie das in Azure gemacht ist. So. Und jetzt,
+by the way, jetzt sollte es funktionieren, wenn ich es richtig gemacht hab. Reboot. Gucken
+wir mal. Pause jampen. Leute, pause jampen. Hold it. Hold it. Pause jamp. Gucken wir,
+ob es funktioniert. Starting drop here. Okay, mal gucken, mal gucken, mal gucken, mal gucken,
+mal gucken, ob ich es anpingen kann. Das ist schlecht. Das sollte jetzt eigentlich funktionieren.
+Wonka Smoke. Ich hab garantiert irgendwas vergessen und ich weiß nicht, was. Fehlt
+ihm die Ausführungsberechtigung? Na eigentlich. Den nicht, oder? Oh, dem fehlt die Ausführungsberechtigung.
+Ha. Lul. Big brain chat. Chat ist wieder. Siehste, das geht nur durch die ganzen Prime
+Subs. Ohne Prime Subs wäre der Chat low brain. Aber durch die ganzen Subs ist er high IQ und
+kann mir sowas verraten. Ups. Richtig, dem fehlen die Ausführungsberechtigungen. Also
+machen wir das Ganze nochmal. So, Moment, wo sind wir hier? 775, oder was hat der hier?
+755. Static roots. Hab ich sonst noch irgendeinen Schritt vergessen? Guck nochmal drüber.
+Guck mal hier, die haben auch Probleme damit. Doch, man braucht es immer noch. Update. Der
+braucht nochmal Update, ja. Die Skripts, die hier liegen, die liegen einfach nur rum
+und warten darauf eingebunden zu werden. Das einfachste der Sache zu umgehen ist natürlich
+Chmod 777 slash. Chmod 777 minus R slash. Da hat man die Probleme alle nicht. Ist Vodafone
+nicht. So, Chat, und jetzt sollte es funktionieren. Bless RNG, ach nee, das geht ja nicht mehr.
+Was ist ein guter Ersatz für Bless RNG? Pray RNG, keine Ahnung. Ey, funktioniert deine Stream
+Archive Seite nicht mehr? Das müssen wir mal den Sebaro fragen, die ist ja nicht von mir.
+Archive. Das ist das alte Archive, was die ganze Zeit funktioniert hat. Das ist normal,
+was das kaputt ist, das haben sie noch nicht fertig programmiert. Aber hier, das ist Google
+Drive Archive, funktioniert noch. So, und jetzt Chat, Chat. Give Energy, Give Energy,
+sonst kann ich nicht rebooten. Ich gifte mir selbst auch mal. Ich warte, kein Pok, Energy
+muss gegiftet werden, sehr gut, sehr gut, okay. Und jetzt können wir die Poks holen,
+jetzt können wir die Poks holen. Das sieht schon besser aus. Ha! Funktioniert. Ach so,
+ja, und das ist das jetzt, was Choose my Name angesprochen hat. Der meckert jetzt, weil
+der SSH Server sich geändert hat. Wir haben den SSH Server im laufenden Ubuntu, jetzt
+dürfte er pokken, Leute, jetzt dürfte er pokken, ist okay. Ihr habt lang genug geholtet, jetzt
+dürfte er pokken, jetzt ist er laufend. Unter der gleichen IP ist der SSH Server vom Ubuntu
+und der SSH Server vom Boot Manager, bin ich gesagt. So, die einfachste Variante ist so,
+Strict Hostkey Checking, no. Dann scheißt er nämlich. Ach so, und auch nicht als Max,
+sondern als Root. Das ist keine allzu schöne Variante, das ist richtig, weil dann erkennt
+man nicht, dass sich das Ganze geändert hat, aber hierfür soll es jetzt mal tun, Root.
+So, und wir sind auf unserem Ubuntu Server drauf, aber nicht etwa im Betriebssystem
+an sich, sondern in einem ganz kleinen Minimal-Environment, in dem ich eigentlich nichts anderes machen
+kann, außer Unlock, äh, nee, Crypt, Crypt Root Unlock kann ich ausführen. Man fragt
+da mich nach dem Passwort, ich geb das jetzt mal ein und switch schnell rüber und ihr
+seht, er hat Unlocked und Booted. Das heißt, die Remote-Konsole brauchen wir ab jetzt nicht
+mehr. Und schon haben wir einen Ubuntu Server, komplett selbst installiert, mit Root, also
+Full Encryption, kann man dort den Anmeldenname auch ändern, äh, ich glaube nicht, ich bin
+mir aber ehrlich gesagt nicht sicher, keine Ahnung. Man kann das Ganze noch viel schöner
+machen, also ich hat es bei mir auf dem Server immer so, dass man sich gar nicht mehr bei
+Busybox einloggen muss, sondern, dass man direkt das Unlock-Script aufgeploppt kriegt
+und einfach nur ein Passwort eingeben muss. Aber, so, also wir haben komplett Encrypted
+in Ubuntu Server, mit Remote-Unlogging. So, und wie man das jetzt normalerweise macht,
+zeige ich euch mal, mal angenommen, ihr, ähm, achso, eine Sache sollten wir übrigens noch
+machen. Eine, eine, eine Sache sollten wir, ah nee, müssen wir ja gar nicht. Müssen wir
+ja gar nicht, passt. Was wird mit dem Server gemacht? Äh, Stream. Im Stream demonstrieren,
+wie man sowas machen kann. Ähm, kannst du das zeigen? Nein, das kann ich aus dem Kopf
+nicht zeigen. Das weiß ich aus dem Kopf nicht, wie es funktioniert. Das ist ein bisschen
+komplizierter. Da muss man irgendeinen Force SSH-Command anlegen in der Config und das
+ist ein bisschen komplizierter gewesen. Aber in der Busybox kann man ja eh nichts machen,
+ohne Festplatte zu anloggen. So, und wie, was man jetzt macht, ist folgendes, also mal angenommen,
+man hat hier irgendwie mal wieder ein Upgrade gemacht und ein kernel-Update gemacht, man
+muss rebooten, dann macht man das wie gehabt. Übrigens, eine Sache, die ich auch immer,
+immer gerne installiere, ist, ich weiß, das ist uralt, aber das installiere ich immer
+gerne und was das macht, ist folgendes, finde ich unglaublich praktisch, wenn ihr Reboot
+eingebt, dann sagt der, Moment, bist du dir sicher, dass du rebooten willst? Der reboote
+da nicht einfach. Obwohl man root ist, der reboote nicht einfach. Und dann musst du
+den Server-Name eingeben, in dem Fall hier Qt-Server und ähm, wenn ich es falsch eingebe,
+geht es übrigens auch nicht. Wenn ich eingebe Qt-Server, dann rebooted er. So, also ich
+habe jetzt Updates gemacht, kernel-Update dabei gewesen, ich reboote jetzt, Server geht
+aus, rebooted, dann kann ich in der Zwischenzeit meinen Ping absetzen und gucken, wann ist
+denn der Server wieder da? Ich hoffe, das Ding antwortet auf Ping. Ja, so, Server ist
+wieder da, dann mache ich mein SSH und komme in mein Unlock-Ding, unlocke, werde wieder
+rausgeschmissen, warte, bis der Server vollständig gebootet ist und verbinde mich drauf und da
+sind wir. Custom installierte Subundoserver ISO, Full Encrypted, inklusive Systemplatte
+und Remote-Unlocken. Also viel bequemer geht es nicht mehr. Ähm, Kellmor, das geht theoretisch,
+das müsste theoretisch gehen, wenn du irgendeinen, irgendeinen, du könntest ja irgendeinen
+Boot-Skript basteln, ja, du könntest irgendeinen Boot-Skript basteln, was sich ausführt, dann
+müsstest du nur gucken, wie du Looks dazu überredet kriegst, das Zeug dann irgendwie
+anzunehmen. Also ich hab ehrlich gesagt keine Ahnung, wie man das machen könnte, machbar
+bestimmt, dass sich der Server noch selbst irgendwie anlockt. Eigentlich eine richtig
+coole Idee, muss man sagen, dass man quasi so einen Master-Server hat und solange der
+online ist und mit irgendwas speziell antwortet, entlocken sich die Server selbst, irgendwie
+so, ja, könnte man bestimmt was machen. Ja, das müsste ich mir mal tiefer, tiefgreifender
+Gedanken machen. So, das war jetzt die mit Abstand komplizierteste Sache, die ich jemals
+machen musste, um so ein System zu bekommen. Also ich hab bei keinem anderen Provider und
+bei keiner anderen Cloud-VM-Geschichte bisher so Probleme gehabt, das System hier einzurichten
+wie bei Hetzner. Wenn ihr wollt, können wir mal Digital Ocean auch noch mal kurz was
+machen, dass ihr seht, dass es auch viel einfacher geht. Wollen wir noch schnell mal Digital
+Ocean machen? Kann man nicht Lux-FIFO-Zeugs entschlüsseln? Doch, irgendwie kann man, ja,
+doch kann man. Du müsstest dann quasi das Passwort von einem anderen Server abfragen
+oder irgendwelche Magic machen, dass der das bekommt und dann kannst du das Pipen nach
+Unlock-FIFO-Dings, ich weiß es aus dem Kopf nicht. Das müsste schon irgendwie gehen.
+Doch, ich glaub schon, dass Hetzner das benutzt. Die machen aber halt leider komische Netzwerk-Geschichten.
+Moin, Tanser. Würdest du allgemein Digital Ocean gegenüber Hetznern bevorzugen? Eigentlich
+nicht. Ich mag Digital Ocean zwar, erstens weil es total einfach ist und weil die Kisten,
+man kann nicht sagen besser funktionieren, aber qualitativ finde ich, sind die Digital
+Ocean Kisten besser. Da sind überall SSDs drunter und die fühlen sich ein bisschen,
+das geht alles ein bisschen schneller auf Digital Ocean, ja. Aber Digital Ocean kostet
+eine ganze Ecke mehr, gerade bei Kisten mit viel RAM und viel CPU. Und ich muss ja einmal
+im Monat das ASCII-Quarium an, weil ich weiß, dass die Aufmerksamkeit der Leute nicht so
+hoch ist im Jahr 2020. Das ist dann so ein bisschen zum beruhigen. Wo bin ich jetzt stehengeblieben?
+Genau, aber gerade bei Servern, die viel RAM haben und die auch viel CPUs haben, ist Hetzner
+kosten nur die Hälfte von Digital Ocean. Also ich muss ja einmal im Monat Routing-Informationen
+von OpenStreetView pre-processen und da brauche ich sowas hierfür. Das reicht gar nicht
+dafür. Ich brauche etwas noch Fetteres. Und das geht. Ich glaube, das geht aktuell nur
+nicht, weil ich noch kein Kontingent erhöht habe. Das geht erst nach der ersten Abrechnung.
+Also ich brauche da 96G RAM, 96G RAM, hier Pricing, Hetzner Cloud. Na Dedicated ist doof,
+Dedicated geht ja nicht stundenweise. Es gibt hier auch mehr RAM, aber nur wenn man sein
+Kontingent aufgesch... Find ich blöd? Ich hab doch letztens extra mal nachgeguckt. Hä?
+Die haben doch letztens... Ach hier. Das da. So ein Ding. Gibt's ja nicht. So ein Ding
+bräuchte ich da zum Beispiel. Das kann man hier wahrscheinlich nicht... Da muss ich wahrscheinlich
+mein Limit irgendwie erhöhen. Wie dem auch sei, so eine Kiste brauche ich einmal im Monat.
+Bisher nehme ich immer die hier. Och wo ist die Musik hin? Bisher nehme ich immer die
+hier. Find ich auch was mit 96G? Bisher nehme ich immer die hier und die kosten halt das
+doppelte wie bei Hetzner. Hier kostet es im Monat 960 Dollar. Im Monat. Das klingt jetzt
+viel, aber das ist nicht wild, weil was mich interessiert ist die stündliche Abrechnung.
+Und das ist für mich auch der riesen Vorteil so Cloud-Gedöns zu verwenden. Du kannst dir
+da brutal heftige Kisten mieten. Wenn du die nur kurz brauchst, ist das recht günstig.
+Ich miete mir einmal im Monat für zwei Stunden sowas hier. Zum Preprocessen von Open Street
+für Routing-Informationen. Das braucht RAM-as-fuck, also 90GB plus, ist super parallelisierbar
+und ordentlich SSD im Zweifelfall scheint an, schadet auch nichts. Zum Einlesen der
+ganzen Daten. Also ich pre-processe das ungefähr in eineinhalb Stunden, wohingegen ich bei
+mir daheim ewig brauchen würde, weil ich eben nicht annähernd so viel RAM drinne hab.
+Kannst du bei Punkt 3 nicht aus Detikate aussehen, weißt du, dann musst du mal ausprobieren.
+Nö, wo denn? Ich glaube das kann man normalerweise schon, wenn man... Ach hier, ich bin so doof,
+ich hab's nicht gesehen. Ja, aber das mein ich, mein Limit ist zu gering. Mein Limit
+ist zu gering, ich muss erst einmal im Monat bezahlen. Ich muss erst einmal im Monat bezahlen
+hier. Ähm, dass das funktioniert. So und das ist mir zu wenig RAM. Zumindest worauf
+ich raus wollte ist, das ist halt so mein Anwendungszweck was solche Cloud-Geschichten
+angeht unter anderem. Und dafür lohnt sich das. Wozu sowas kaufen ist komplett sinnlos
+für wenn man das 2 Stunden im Monat braucht. Und der Download und das Ziehen der Daten
+ist auch mega schnell. 8TB Transfer reicht locker. So. Ja Leute, wollen wir noch mal schnell
+in Digital Ocean reingucken, dass ihr seht, dass es nicht so kompliziert sein muss wie
+bei Hetzner. Was kann man eigentlich mit Cephs machen, verteilte Storage. Das ist im Stream,
+das ist ne gute Idee. Da, sehr gut. Nicht J, nicht J, JS. Alter. CephJS, das gibt's
+bestimmt. Moment, das muss ich jetzt suchen. CephJS. Scheiß gibt's tatsächlich. CephFS.
+Also bei mir sagen die, ich kann jetzt leider nicht in meine Abrechnung rein, bei mir sagen
+die, ich muss hier das Limit erhöhen. Irgendwo in meinem Account kann ich das Limit erhöhen,
+aber ich kann erst das Limit erhöhen, nachdem ich Monats Abrechnung einmal bezahlt habe.
+Das ist so ne Vorkehrung von denen wahrscheinlich, dass Leute nicht hergehen und im Monat die
+fetteste Kiste mieten und danach nicht bezahlen.
+Also Jett mit Digital Ocean nochmal mal. Okay, das treibe ich mir auch mal auf. Titan,
+Toaster, treibe ich mir auch mal auf. Wir können ja nicht genug Themen für den Stream
+haben, wir haben schon ein paar Sachen. Also mal das Ganze mit Digital Ocean nochmal. Was
+man immer nicht vergessen darf bei dieser ganzen Cloud-Geschichte ist folgendes, wenn
+wir jetzt hier fertig sind. Wenn wir jetzt hier fertig sind. Ach ja, bevor ich das jetzt
+weg mache, wollt ihr noch irgendwas sehen? Auf der Ubuntu-Hetsna-Kiste. Wollen wir mal
+Suspension machen? Wir machen mal Suspension-CPU. So, mal zum Vergleich. C-Matrix, oh ja, das
+brauchen wir unbedingt. C-Matrix ist das Allerwichtigste. Hast du dir einen Skript gemacht, um die Routing-Daten
+zu brechen oder mietest du die Kiste selbst und startest das oder machst du das? Ich
+miete die Kiste, installiere Docker und nehme den offiziellen OpenStreet-StreetMaps-Routing-Docker-Container
+und lasse den pre-processen. Okay, das Wichtigste, was man auf so einem Server laufen lassen
+muss, verstehe ich. Übrigens, angeblich soll es ja einen vierten Teil von Matrix geben.
+Kannst du bitte einen Trace-Route machen? Wir können mal gucken, wie schnell wir am
+Google-DNS sind von Hetsna. Geht ziemlich zackig. Trace-Pass-Pass. Ich kann mir nicht
+merken, ist es Trace-Route oder Trace-Pass? Ist es Trace-Route? Machen wir mal Hollywood.
+Das mache ich jetzt auf dem Server nicht. Trace-Route. 8888. Ups. Der sollte relativ
+kurz sein. Ich bin da schon vorbeigelaufen am Rack von Hetsna. Das war kein eigenes
+Rack. Die hatten eine eigene Ecke. Weil ich mir jetzt im Nachhinein, wenn ich da so drüber
+nachdenke, gar nicht sicher bin, ob es Hetsna war oder ob es damals sogar die Telekom war.
+Es kann sein, dass ich euch jetzt Scheiße erzähle und ich doch noch nicht am Hetsna-Rack
+vorbeigelaufen bin. Im Dezix. Da, wo die ihre Ehe-Route. Das könnte sein, dass das
+die Telekom war mit der eigenen Ecke. Ah. Das ist auch schon ein paar Jahre her. Ich
+kann mich nicht mal so richtig daran erinnern. KillerCarnickel404, Twitch Prime. Dankeschön.
+Das ist ja quasi. Excellent Subscription. Dankeschön. So, also wir sehen, wir sind
+relativ schnell bei Google. Geht doch sehr zackig. Warum berechnest du Daten von Omstreetview?
+Weil wir ein kleines Projekt am Laufen gerade haben für eine Web-Anwendung, wo sich Handwerker
+eine praktische Route berechnen lassen können, wie sie ihre Kunden abfahren. Du sagst dann
+quasi Frau Müller hat einen Termin, Frau Krabbe hat einen Termin. Hieß der Typ nicht Herbert
+Krabbe oder so? Ich habe euch doch die Anwendung mal gezeigt. Der hat so einen random generierten
+Namen. Du wählst die Kunden aus, die du besuchen willst und dann lässt du dir eine Route berechnen,
+wie du die möglichst optimal anfahren kannst. Und dafür brauche ich Routing-Informationen.
+MTR. Gibt es MTR unter Ubuntu? Und ist dieses MTR auch das MTR, was ich meine? Ne, das ist
+eine GUI-Anwendung. Moment. Ne, das ist eine GUI-Anwendung. Das ist ja von Arsch. Ne, das
+bringt mir überhaupt nichts. MTR GUI ist ja overrated auf dem Server. Gibt es da auch
+ein CLI? Guck mal. Ne, MTR Tiny gibt es. Was ist das denn? MTR? Tiny? MTR? Aha, guck
+mal da. Exzellent. Da macht mehrere Trace-Routes. Machst du gewisse Standardschritte? Ja. Ich
+hab. Auch hab ich nicht. Siehst du mal. Es ist halt absolut minimal gedönnt, was der installiert
+hat. Das Pre-Process muss man machen, dass man damit Routing betreiben kann. Ja, also
+was ich für Standardschritte mache, nachdem ich, also wenn ich das System voran installiere,
+ist eigentlich folgendes. Moment, muss erst mal fertig werden. Ja. Okay, jetzt macht ihr
+irgendwelche Man-Pages aktualisieren. Das dauert mir schon viel zu lang. Also ich zeige
+euch gleich, was ich standardmäßig immer mache. So, also ich installiere immer, installiere
+immer das, obwohl ich gemerkt nur Bundtube habe, aber auf der Arbeit mit Red Hat ist es
+was anderes. T-Max, Wim, H-Top. Irgendwas vergessen. D-Stat. Ach ja, und falls es nicht
+drauf ist, Bash-Completion. Aber das ist meistens schon drauf. So, die Sachen installiere ich
+meistens und die Stat ist noch nicht drauf. Die Stat ist ja auch mittlerweile outdated.
+Ehm, OnKS. Die Stat ist ganz gut, um sich den IO anzeigen zu lassen. Das ist ganz angenehm.
+Dom-PC. Angeschön, sieben Monate. Hypersubscriber hier. Also das finde ich an T-Stat ganz praktisch
+und H-Top ist eh die bessere Alternative, um sich anzeigen zu lassen, was auf dem Server
+alles los ist. LLServe ist auch praktisch, ja. F-User, ganze Affe. Also gibt ein paar Sachen.
+Das sind eigentlich so die Standard-Sachen, die ich immer installiere. T-Max, hat jemand
+gefragt, was das ist? T-Max ist quasi so ein Fenstermanager fürs Terminal. Also das ist
+das, was du hier unten bei mir auch gerade siehst. Ich kann es auch auf dem Server anmachen.
+Na, da kannst du so Sachen machen, wie unterschiedliche Tabs auf, dein Terminal splitten, ähm,
+du kannst hier unten beispielsweise einen H-Top laufen lassen und hier oben, hier oben
+ein Susbench. Ah, da kannst du nämlich unten gucken, was das für Auslastungen verursacht
+und oben siehst du was und dann kannst du verschiedene Tabs auch wechseln, vor und
+zurück. Das ist quasi ein Fenstermanager fürs Terminal. Und das ist, äh, nützlich.
+Das ist quasi I3 für Arme, wenn man kein I3 hat, ja. Richtig. Jetzt ist der Server
+voll ausgelastet. Wir können übrigens mal gucken, was da drin ist. Äh, ein CPU-Kern.
+Ähm, dann machen wir, äh, Proc, CPU-Info. Gucken wir rein, was ist denn da unten drunter
+bei Hetzner? Da kann man das Fenster hier groß machen beispielsweise, da sieht man dann
+wieder alles. Ähm, da ist drinnen InterXeon. Welchen erkennt man nicht genau, das haben
+die wahrscheinlich in KVM, äh, überschrieben oder ausgeschaltet, aber einer, der Meltdown
+Spectre und Spectre Frau 2 anfällig ist. Exzellent, aber das Ubuntu, äh, vor allem
+in der VM ist das jetzt nicht so wild. Wobei eigentlich ist es überall wild, aber ich
+gehe mal davon aus, dass es gepatcht. Ähm, einer, der AVX hat, einer, der wahrscheinlich,
+der wahrscheinlich Hardware Encryption hat. Das sehe ich jetzt hier allerdings nicht.
+Der AES hat ja, also eine relativ moderne CPU. Jo. Scheint halbwegs moderne CPU zu sein.
+Äh, in der VM ist schlecht. Wenn, wenn das unten drunter nicht gepatcht ist bei denen,
+würde es sucken, ja. Da gibt's, da kannst du dir eh nicht sicher sein. So. Gibt's
+sonst irgendwas, was man, was ihr wissen wollt auf der Ubuntu Kiste? Installierst du auf
+dem Server auch immer TMAX? Wenn ja, bringt es dir auf deinem TMAX in einer Session bis
+nächste Session. Lass dich ja nicht gezielt. Äh, doch, doch installiere ich immer. Also.
+Äh, doch, lassen sie. Du musst einfach den Escape zweimal drücken. Guck. Das ist ja,
+ich kann ja nächste Session hier gerade steuern. Äh, wobei ich mir jetzt gerade angewöhnt
+hab, für, oder angewöhnt will, für mein lokales TMAX-Steuerung A zu verwenden, dass
+ich auf dem Server-Steuerung B für das TMAX verwenden kann. Woran erkennst du, ob die
+CPU Hardware-Encryption kann? Ich guck nach den Flags und wenn da AES drinne steht, interpretier
+ich da jetzt einfach mal rein, dass die Hardware-Encryption kann. Aber hundertprozentig sicher bin ich
+mir nicht, ob das Flag das bedeutet. Da müssen wir erstmal nachgucken. Äh, weiß ich jetzt
+aus dem Kopf nicht. Ich würde aber vermuten, das ist es. So. Dann machen wir das Ganze
+jetzt nochmal in Digital-Ocean und ihr werdet sehen, das dauert fünf Minuten und dann geht
+alles. Viel angenehmer als bei Hetzner. Können das nicht oft auch die Festplatten direkt?
+Es geht nicht um Encryption. Ach doch, eine Sache machen wir noch. Crypt Setup Benchmark.
+Wir müssen mal gucken, wie schnell das Ding fair und entschlüsselt. Gut, dass wir drüber
+sprechen. Da sehen wir nämlich auch, ob das AES Encryption hat. Ähm, es geht ja nicht
+um IO, es geht ja nicht um Festplattenverschlüsselung. Wenn deine CPU Encryption Crypto-Extension
+hast, dann kannst du beispielsweise auch einen SSL Load Balancer machen, der halt viel schneller
+ist, als ohne. Also man braucht das nicht nur für die Festplatte, man braucht das für
+alles mögliche, wo Encrypted wird und Decrypted wird. Wird wahrscheinlich Hardware Accelerated
+sein, ja. So, wunderbar. Sonst noch Fragen zu Ubuntu? Ich gucke mal kurz in mein Board,
+weil ich habe bestimmt jede Menge Fragen übersehen. Und dann werde ich euch zeigen, wie easy es
+mit Digital Ocean ist, das Ganze zu machen. Also, gab es überhaupt Fälle, wo Spectre
+Meld darin ausgewiesen ist, weiß ich aus dem Kopf nicht. Ja. Wie gesagt, mache ich immer.
+Ich habe auf meinem kleinen Teamaxe laufen, auf dem Server Teamaxe laufen. Du musst einfach
+doppelt Escape drücken dafür, dass man es steuern kann. Ähm, also Steuerung B, Steuerung
+B, dann geht es an den Server. Oder du legst den Shortcut von deinem lokalen Teamaxe um.
+Was ist das für Musik, irgendeine Chillstep Playlist auf YouTube? Ja, das war. Habe ich
+mich getäuscht oder hat die Ubuntu die Open-VM-Tools installiert? Kann durchaus sein, ja. Das ist
+wahrscheinlich die Fault. Warum Maps? Ah, das ist eine gute Frage. Warum Maps berechnen?
+Reicht das nicht Google Maps? Google Maps ist teuer, wenn man über das Freikontingent
+kommt. Und was wir als Routing brauchen, können wir mit Google Maps nicht so einfach machen.
+Wir brauchen, ähm, quasi mehrere Fahrzeuge mit Zeitfenstern, wann die Leute kommen. Und
+das kann Google Maps standardmäßig nicht. Das ist quasi mehrfach Traveling Seltsam ein
+Problem mit Time-Window. Also das kann Google Maps so out of the box nicht. Das geht bestimmt
+um fünf Ecken. Ganz bestimmt. Aber wir verwenden dafür eine andere Software, die das macht
+und die benutzt als Routing-Information OpenStreetMap und die kann das schon eingebaut. Weil selbst
+programmieren bin ich dazu Low-Brain-Führer. Hab ich schon. Was war nochmal Quite und Splash?
+Na, dass er Ausgabe macht beim Booten und dass er keinen Boot-Logo anzeigt. Das hatten
+wir vorher schon. Tops haben wir vorher auch schon. Warum sind da so viele CAC-Ws auf einmal
+im Chat? Ja, wie gesagt, KVM gehe ich ganz stark von aus. Hab ich schon gemacht. Haben
+wir jetzt ja auch gemacht. Das ist aber unglücklich, dass das rein vom Stromleiste rausziehen passiert.
+Deswegen haben ordentlich die Rate-Controller-Buffer-Batterien drinne. Aber schon ASM 6 Nachspurt? Nein,
+hab ich noch nicht gemacht. Einzige Assembler, was ich in letzter Zeit mal angefasst habe,
+war der vom ESP32-Ultra-Low-Power-CPU-Ding. Und diesem 8MHz-Ding. Wie hast du die Elektrotechnik
+beigebracht? Gar nicht. Ich sacke übelst in Elektrotechnik. Und im Zweifelsfall, wenn
+ich selbst irgendwelche Sachen baue, dann ist erstmal MonkaSmoke angesagt. So. Und Mist,
+falls du noch da bist, erklär mir doch jetzt mal, wie du das mit Terraform machen willst,
+was ich heute gemacht habe. Wird über die Konsole und dem ISO gemountet und sonst was.
+Ich will nicht ausschließen, dass es nicht irgendwie hackstormmäßig geht, aber das will
+keiner maintainen. Lohnt es sich KVM-Verschlüsselung? Ähm, das ist ein bisschen zu allgemein gefragt,
+was genau hatten wir schon gar nicht. Doch, an Silvester wahrscheinlich wieder. Ich drehe
+das ein bisschen. Ok, dann installieren. Ach, das ist noch vom letzten Stream, ne? Will
+man bis auf Gaming gerne komplett auf Linus umsteigen. Ja, dann viel Spaß. Da musst du
+immer Dual Booten. Die meisten Sachen, gerade Multiplayer-Geschichten mit Anti-Cheat kannst
+du knicken. So, jetzt machen wir das Ganze nochmal im Schnelldurchgang auf Terraform.
+Äh, was laber ich von Scheiß? Lowbrain. Wir machen das jetzt im Schnelldurchgang auf
+Digital Ocean. Dann seht ihr mal einen ganz anderen Weg, wie man das machen kann. Und
+wir machen auch nicht alles. Also das Entschlüsseln und so machen wir nicht, nur das Installieren.
+Ich zeige euch mal, wie das geht. Viel einfacher mit Digital Ocean. Viel, viel einfacher.
+Und, ähm, ganz anderer Weg, wie wir es bei Hetzner gemacht haben. Also ich erstelle mal
+einen Digital... Achso, übrigens, by the way, wenn wir fertig sind mit Hetzner, keiner
+mehr eine Frage hat zu der Hetzner-Geschichte, dann lösche ich das Ding jetzt. Weil, das
+darf man bei der ganzen Cloud-Thematik nie vergessen. Sonst wird's nämlich teuer. Letzte
+Chance, irgendwas auf dem Hetzner selber zu gucken. Leute, ich geh mal kurz was zu trinken
+holen. Und dann löschen wir die Hetzner-Kiste.
+Okay, dann löschen wir die Hetzner-Kiste.
+So, also, weder da hab ich irgendwas übersehen im Chat. Nee, sieht nicht so aus. Gut. Also,
+dann schmeißen wir das Ding weg. Zack, bumm. Fertig, sauber weg. Und ihr seht, RIP. Dann
+machen wir jetzt mal was auf Digital Ocean. Wir werden sehen, viel einfacher, viel angenehmer.
+Gleiche Voraussetzung wie bei Hetzner. 2004, Basic, in Frankfurt, mein erster Saki, blablub,
+das war das Create. So, das ist noch kein Unterschied. Das ist eigentlich mehr oder
+weniger genau das gleiche. Nur in Blau. Und Achtung Leute, aufpassen, gleich wieder
+IP Leak. Leak, schau wieder. Heute wird ja nur noch geleakt. Ups, hat er das nicht copy-pasted.
+So, gehen wir auf die Kiste drauf. Und jetzt fahren wir auf einen ganz anderen Weg. Ähm,
+wir sehen, wir sind auf einer Ubuntu-Kiste drauf bei Digital Ocean. Übrigens, das ist
+auch eine Sache. Ähm, ich sag ja immer, man muss sich überlegen. Also, Cloud-Hype hin
+oder her. Man muss sich immer legen, was passt für die jeweilige Anwendung und Architektur,
+die man haben möchte. Aber für sowas ist die ganze Cloud-Geschichte echt cool. Einfach
+mal auf Knopfdruck eine Kiste erzeugen, Minuten oder Stundenweise bezahlen und wieder wegschmeißen.
+Wunderbar. Du hast ein Pepega-Board in Elektronen geschrieben. Na dann. Ja, Moment. Kann das
+auch Overlays? Also Windows, Windows-Overlays und bedienbar über den anderen Rechner.
+So, jetzt haben wir die Digital-Ocean-Geschichte. Und jetzt machen wir es uns viel, viel einfacher.
+Nämlich jetzt gehen wir auf netboot.xyz. Ähm, nehmen wir uns hier den Guide für Digital
+Ocean und sagen, ok, was brauchen wir hier? Diesen ganzen Guide brauchen wir nicht. Das
+hier ist das Interessante. Das brauchen wir. Wim-etc-crop, das ist genau das gleiche, was
+ich beim anderen auch gemacht habe. Nur, dass ich jetzt netboot verwenden kann. Hups. Set
+paste. Und dann sehen wir, wie easy as fuck das ist, wenn die einem nicht so einen Strich
+durch die Rechnung machen, wie bei Hetzner. So, dann gehen wir nach slashboot, laden uns
+ähm netbot. Nein, nicht netbot, netboot. Laden uns das jeweilige passende Image runter
+für netboot. Und ihr werdet lachen, das war's schon. Richtige Festplatte auswählen. Das
+war's schon. Mehr muss man nicht machen bei Digital Ocean. Update Crop. Achso, eine Sache
+sollte man auch machen. Man sollte in der default, default scrub, sollte man einstellen,
+dass der ähm, den dritten Eintrag lädt, damit er auch das Richtige bootet. Äh, was machst
+du? Also was wir heute schon gemacht haben ist, wir haben uns bei Hetzner eine VM gemietet
+oder eine Cloud-Kiste, unter der Haube ist es eine KVM-VM, ähm, haben dort custom Ubuntu
+installiert mit, äh, komplett Vollverschlüsselung inklusive Unlock über SSH. Und wir haben keine
+Sachen von Hetzner dafür benutzt. Wir haben alles, äh, quasi custom ISO, custom install
+gemacht. Ohne Rescue Mode von Hetzner, ohne ISO von Hetzner. War ein bisschen trickreich,
+ja. So, und jetzt wollen wir das Ganze mit Digital Ocean und wollte ich mal zeigen, dass
+es viel einfacher sein kann. So, wenn wir jetzt rebooten, moin, Luke Kuh, Leo Kuh, ich
+weiß, du bist öfters da und ich kann es nie aussprechen. So, wenn wir hier jetzt ein
+Reboot machen, äh, wir gehen erstmal in die Konsole, in die Konsole von, von dem TROPLET,
+da heißen sie TROPLET, das ist im Prinzip eine VM. So, und wenn ich jetzt reboote, werden
+wir sehen, zack, wir landen im CRUB. Oder auch nicht. Warum sind wir nicht im CRUB gelandet,
+oder? Was hab ich falsch gemacht? Moment, warum sind wir nicht im CRUB gelandet? Äh,
+ahnung, Menu, Timeout 5, Quiet Splash, mach mal weg. Warum sind wir nicht im CRUB gelandet?
+Wir müssten, wir müssten eigentlich im CRUB landen. Ja, Update CRUB hab ich gemacht.
+Mal Escape hemmern. Ah, da sind wir, guck, hier. Habt ihr gesehen, hat funktioniert.
+Dann macht das Netboot. Ähm, Digital Ocean verwendet kein DHCP, das heißt, ich muss
+jetzt selbst konfigurieren, was auch kein Problem ist. Ich sag einfach Netzwerk 0, IP kann
+ich hier unten abtippen, 64, 109, 101, 109, 55, Subnetmar, 255, 255, 255, 192.0, Gatefave,
+was? Oh. Äh, ich glaub, ich hab mich grad irgendwie verteppt, kann das sein? Äh, ja,
+ich hab mich... Rich Pepega Style, Alter. Äh, wie startet man das jetzt neu? Äh, kann
+ich, kann ich hier irgendwie Ctrl Alt? Ne, warte mal, wie startet man neu? Das muss ich
+so selten machen, hier, off. Turn off, bam. Wir lassen, wir lassen es einfach mal ausschalten,
+umgutes. Das ist ein Nachteil bei Digital Ocean, die brauchen teilweise mega lang, bis
+eine VM ausgeschaltet ist. Ich hab mich ein bisschen verteppt, aber ihr habt gesehen,
+dass es prinzipiell bis jetzt deutlich einfacher als bei Hetzner war. Neuen Standard empfunden,
+Alter. Alter, Surfer, geh aus. IPv5 erfunden, nebenbei. Sag mal, hallo? Ausgehen? Ja, ich
+ausgehen. Moment, der braucht genaue Beobachtung. Dann geht er aus. Pass auf, pass auf, gleich
+geht er aus. Dann muss ich ihn einfach nur post-champen. Einfach nur post-champen, dann
+geht's schneller. Hast du mal ein Freeway ESP probiert? Nur in Form von Open Sense und
+PF-Sense. Noch nie als Hauptbetriebssystem-Aufpensäuber. Ja, jetzt guck, guck, man muss ihn post-champen
+und schon geht er aus. Kennst du das IPv4++? Nein, das kenn ich nicht. Okay, jetzt nicht
+vertippen, nicht vertippen. Max, nicht vertippen. Ich weiß nicht, ob du was verpasst hast, ich
+weiß nicht, wann du weg bist. Max, nicht vertippen. Kannst du gerade mal erzählen, was dein gesamter
+Plan ist? Also wir haben das ja eigentlich schon gemacht bei Hetzner und zwar Custom
+ISO, manuelle Setup, Ubuntu Server, komplette Festplatten, Vollverschlüsselung mit eigenem
+Passwort, inklusive Entsperren über SSH. Okay, also jetzt nicht vertippen. 4, 6, 1,
+0, 1, 1, 0, 9, 5, 5, 2, 5, 2, 5, 2, 5, 2, 9, 9, Max ruhig langsam, langsam, 1, 9, 2,
+Punkt 0. Gateway 4, 6, 1, 0, 1, 1, 0, 2, 1, DNS 8, 8, 8, fertig. Und zack, guck, geht
+so einfach. Hätte es bei Hetzner auch sein können. Und jetzt kann ich einfach sagen,
+okay, Linux Network installs, Ubuntu und schon läuft das Scheiß. Liest ihr mal, oh nee,
+das wird zu viel installen. Wenn ich geflame sehen will, guck ich mir die alten Posts von
+Linus Torwart auf der Linus-Mailing-Neste an, dann ist genug geflame. So, guck, zack,
+so einfach kann es gehen. Habt ihr gesehen, wie easy das sein kann, wenn, und das alles
+nur, weil Hetzner komische Netzwerkgeschichten macht. Die neuen sind etwas weniger vulgär.
+Er flamet immer noch gerne rum, aber die sind nicht mal ganz so heftig. So, mal gucken,
+wie gut das jetzt hier durchläuft. Schauen wir mal. Oh, oh nee, Kurago, wo ist denn Kurago?
+Nein, nicht Zentralamerika, meine Güte, ich kann da tippen. Ich bin Europe. So, Europe.
+Germany. Weiter. Yes. Y ist ein Öki da. Was, was? Oh. Yes. Ich glaub, die Autotastaturerkennung
+spackt ein bisschen rum über die Konsole. Ich weiß auch, dass es Kurasau heißt und
+nicht Kurakau. Linus mag keine Nvidia, ja. Auch zurecht, was er da erzählt hat. Ich muss
+kurz den Timeout abwarten. Ich wählt Keyboard von Hand aus. No. Ganz einfach. German. German
+und dann no dead keys. So, und ihr seht überhaupt kein Problem mit der Installation. Einzige,
+was nicht funktioniert, ist DRCP, weil was hat Linus denn so zu Nvidia erzählt? Der hat
+gesagt, fuck you Nvidia, wenn ich das richtig im Kopf hab. Aber die Finden sind oft so.
+Also ich hab das jetzt schon öfters gelesen, dass wenn Finden Englisch reden, dass Finden
+wohl an sich relativ viel fluchen und wenn Finden Englisch reden, fluchen sie halt auch
+in Englisch. Ich weiß nur, dass die Finden immer Teufel sagen, oder? Die sagen immer
+Perkille. Heißt es nicht Teufel? Oder zum Teufel? Irgendwie sowas auf Finish. So, jetzt
+müssen wir den ganzen Spawner nochmal von Hand eintragen. Lp-Adresse 46.101.109.55.
+Zmask nein, ausnahmsweise nicht. 192.0. Gateway 192.1. Nameserver Google. Ihr seht, wie einfach
+es funktionieren kann, ne? View to Chat. Keine Domain. Germany Mirror. Ubuntu Archive Deutschland.
+Kein Proxy. Wie easy das sein kann, ne? Bei Hetzen haben wir noch ne Stunde für rumgemacht.
+Hier machst du einfach Netboot bei Digital Ocean und es funktioniert. Also ich denke,
+ich muss das jetzt nicht nochmal alles neu demonstrieren, sondern man sieht, dass es
+deutlich einfacher funktioniert in dem Fall. Ja, Proxmox geht genauso. Es geht jedes x-beliebige
+ISO, was Netboot kann. Total easy. Und theoretisch kann man Netboot auch auf ne Custom-Ul machen
+und dann irgendein eigenes File laden lassen. Ja, das ist alles hier über Digital Ocean.
+Es ist total einfach im Vergleich zu dem rumgefuddelt, was wir da bei Hetzen machen mussten. Und
+es lag einzig und allein daran gar nicht, dass es so ein großer Unterschied ist, sondern
+das Hetzen hat so ne merkwürdige DHCP-Config verwendet. Oder was? Ja, die IP-Vergabe ist
+ein. Endlich Henna Montana Linux in Digital Ocean. Wir können mal gucken, was bietet Netboot
+denn an. Warte, ich starte mal während das installiert. Wir gucken mal schnell, was die
+anbieten. Ich hab mir doch hier so ne Netboot-Geschichte gemacht. Gucken wir mal. Gucken wir mal, was
+Netboot alles anbietet. Hetzena ist halt schön günstig. Hetzena bezahlt ein Drittel bis
+die Hälfte zu Digital Ocean für fette Kisten. Du kannst dich nicht beschweren, ansonsten
+es funktioniert eigentlich ganz gut. So, Linux Network installs. Was haben wir da zu bieten?
+Was kann die denn? LPN, Anarchy, Arch Linux, BlackArch, CentOS, Container Linux, das ist
+immer Debian, Devo. Das ist dieses ganz besonders freie Debian, glaube ich. Fedora, Gentoo,
+WP-Fire, irgendwelche Kubernetes-Geschichten, Kali Linux hätten wir auch am Start. Krassen
+Hexor unter uns. OpenSuse, TinyCalling, das ist im Prinzip alles Mögliche dabei. Scientific
+ist ja quasi ein Red Hat. Ich hatte auch bis jetzt noch nie Probleme bei Hetzena. Ich
+hab da aber nicht viel laufen gehabt. So, man kann BSDs. Was haben wir für Live-CDs
+zu bieten? Devos World, Debian, Fedora. Also man muss sagen, die haben bei Netboot fast
+alles dabei, was es irgendwie so gibt. Da kann man sich nicht beschweren. Wo man keine
+Custom-Ul auswählen. Die Konsole hat sich disconnected. Was habe ich denn da für eine
+Kiste genommen? Ich habe eine viel zu fette Kiste genommen dafür. 8G Memory 160. Ich habe
+nicht die kleinste ausgewählt. Ich bezahle jetzt viel zu viel, also 5 Cent mehr oder so.
+Aber ich habe ja heute ein paar Subs gekriegt. Da ist das Ganze erträglich. Da werde ich
+die 5 Cent verkraften. Ja, aber Leute, so großartig weiter muss ich das jetzt eigentlich gar nicht
+zeigen. Man sieht, wie easy es on DigitalOcean ist und dank der Netzwerk-Config ist es halt
+auf Hetzen ein bisschen komplizierter. Gibt es noch irgendwas, das ich ausprobieren soll?
+Also theoretisch habe ich noch eine Stunde Zeit. Oder wollt ihr irgendwas wissen? Gibt
+es irgendwas wichtiges noch? Also Technik-Geschichten, Linux-Fragen, Netzwerketöne. Ihr könnt mich
+alles fragen, was ihr wollt. Wir haben jetzt noch eine Stunde Zeit. Morgen Geil, Mittagessen.
+FeelsBatman. Aber das wäre gar nicht so schlimm, weil das hier. Cobalt-Stream, na jetzt nicht.
+Jetzt machen wir einen Cobalt-Stream. Cobalt-Stream machen wir an Weihnachten irgendwann. Bist du
+eigentlich immer noch komplett im Home-House? Ja. Cisco Meraki hört sich an wie ein Crossover
+aus einer Automarke und Cisco. Nee, habe ich noch nichts gehört. Per Mac-Adresse, weiß
+ich jetzt nicht, was das genau in dem Kontext bedeuten soll. Schonmal mit Zev gearbeitet,
+aber ganz am Rande. Wir haben eine Zev-Installation bei uns auf der Arbeit. Ja, das war's. Habe
+ich aber nicht viel mitgemacht. Schreibt man ein Betriebssystem mit HTML? Du könntest
+heute wahrscheinlich weite Bereiche tatsächlich in JavaScript und im Browser basteln. Ich
+meine, für die ganz Low-Level-Boot-Geschichten brauchst du noch was anderes, aber man könnte
+heute bestimmt ziemlich weit. Guck dir Chrome OS an, da ist auch einfach viel Web-Geschiss
+dabei. Nutzt du eigentlich so moderne Linux-Command-Line-Tools, die leben wie BAT oder FD? Teilweise, aber nicht
+so viel wie andere, weil ich erstens schon an vieles gewöhnt bin und zweitens es dann
+doof ist, wenn man sich zu sehr daran gewöhnt ist, dass auf irgendwelche Surfer nicht drauf
+ist. Was ich verwende ist das da. Exa als LS-Ersatz. Das ist einfach hübscher und zeigt
+auch mehr an und finde ich auch übersichtlicher. Also das ist bei mir ein Alias auf Exa. LS,
+das verwende ich. FZF verwende ich, habe ich jetzt hier nicht drauf, verwende ich auch
+manchmal. FZF, wer das nicht kennt, das ist sehr praktisch. Ein Fuzzy-Finder, also sprich,
+damit kann man, ich zeige es euch gleich einmal, damit kann man, wenn man jetzt Dateien sucht,
+wenn man jetzt Dateien sucht, kann ich beispielsweise sagen, ok, Monka 5.1 und dann sucht er mir
+die Dateien quasi, während ich tippe. Also FZF ist sehr praktisch. Das benutze ich. Eigentlich
+Exa und FZF, das sind die zwei einzigen, die ich glaube ich, so neu, New Style Commandline
+Tools. Weil wir können den Next-Lot-Ordner mal löschen, vom letzten Mal. Und den Docker-Ordner
+können wir auch vom letzten Mal löschen. Ach ja, und ich habe RM durch Trash ersetzt,
+dass es erstmal in Papierkorb kommt. Ansonsten, ansonsten eigentlich ziemlich old school. Ich
+bin immer noch hin und her gerichtet zwischen IF-Config und IP-Add. IP-Add ist eindeutig
+das Neue, ja. Aber ich bin einfach so gewöhnt an IF-Config. Genauso wie ich auch immer
+noch root-n mache, anstatt IP-Row und solche Sachen. No, du hast gar nicht, nee. Nutzt
+eigentlich Digital-Ocean-KVM? Ja, gehe ich ganz stark davon aus, dass es auch ein KVM
+darunter ist. Eigentlich alle, die viel Linux virtualisieren, benutzen KVM. Kennst du einen
+guten Hoster für ASP-Internet-Anwendungen? Ähm, ehrlich gesagt nicht. Aber was spricht
+denn dagegen, sich bei, wo wir gerade heute uns Hetzner angeguckt haben, sich bei Hetzner
+Cloud die billigste Kiste zu mieten? Klar, du kannst es bei Azure hosten, relativ easy,
+aber das ist teuer. Also generell, äh, ich vergesse immer, wie diese Google Cloud-Plattform
+heißt. Also Azure und AWS und, und, äh, G, äh, Gez, äh, ich hab keine, ich vergesse
+mit dem Namen von der Google Cloud. GCP, genau. Das ist alles recht teuer. Du hast da allerdings
+den Vorteil, dass, ähm, dass es bei vielen Sachen Free-Kontingents gibt, wo es dich nix
+kostet. Vielleicht bringt dir das dann, bringt dir das dann was. Was immer geht, was immer
+geht zum Hosten, ist das hier. Das ist so der, der, der Oldschool-Klassiker. Wenn da einfach
+nur irgendwelche, ich, ich weiß gar nicht, ob die ASP.NET Core machen. Okay, anscheinend
+nicht. Das ist so der Klassiker, die gibt, die gibt es schon jahrelang. Da ist, das ist
+auch ziemlich easy. Ähm, aber es ist sicherlich nicht verkehrt, sich eine billige Hetzner
+vor einem zu kaufen und es darauf zu hosten. Oder, warum suchst du denn einen Hoster und
+möchtest das nicht auf, äh, einer Cloud-Kiste hosten? Eine Hoster für Core-Anwendung ist
+im Prinzip das Gleiche. Also wir haben so gemacht, die, die Geschichte, wo ich jetzt
+hier schon ein paar Mal erwähnt hab, diese, äh, Routenberechnung, also die, diese Routen-Optimierungssoftware
+für Handwerker, die wir da jetzt zusammengestrickt haben in der Beta. Das ist auch eine ASP.NET
+Core-Anwendung und die läuft auch bei Hetzner auf einer Kiste. Und, ähm, aktuell haben
+wir es, das Setup so, so easy wie möglich gemacht. Eine Instanz pro Kunde, gibt ja auch
+nur ein Beta-Kunde aktuell. Ähm, äh, eine Instanz pro Kunde und da vorne ein Cutty-Reverse-Proxy,
+der SSL macht. Fertig. Das ist so die aller billigste Variante. Oh, und das nächste ist,
+dass wir die Anwendung wahrscheinlich noch in den Container packen, weil, ähm, ich auch
+GitHub Actions und Gedöns, äh, automatische Builds machen will. Also Hetzner ist das günstigste,
+also eines der günstigsten, was du findest. Die hier, wenn du dir das anguckst, das kostet,
+das kostet auch nur einen Bruchteil von Digital Ocean, also wenn du dich in den Server anlegst,
+nimmst du, nimmst keine Ahnung, nimm mal ein aktuelles Ubuntu 20.04 und du nimmst
+das kleinste. Ich vermute mal, ihr wollt ja einfach nur was hosten, um mal so bisschen,
+so Proof of Concept oder bisschen Demo oder so. Ihr wollt wahrscheinlich nix hosten mit
+richtig Dampf dahinter. Dann müsst man sich vielleicht was anderes überlegen. Aber da
+kannst du hier nicht viel falsch machen mit der kleinsten Kiste. Eine CPU, 2G RAM, 20G SSD,
+relativ viel Traffic und, äh, 2,89 im Monat oder 0,5 Cent die Stunde. Und auch die anderen Preise
+sind relativ fair. Wenn's fetter sein soll, kann man sich überlegen, ob er bei denen nicht
+vielleicht richtig Hardware sich holt oder dann vielleicht doch woanders upgradet. Ja,
+das muss man dann mal gucken. Aber wenn ihr nur was kleines haben wollt, ist Hetzner top.
+Also unsere Geschichte läuft aktuell, glaub ich, auf ungefähr zwei CPUs. Ich glaube,
+unsere Geschichte läuft aktuell auf irgendwie sowas hier in der Richtung,
+ungefähr in dieser Größenordnung für fünf Euro im Monat. Man bezahlt bei AWS,
+Google und so erst mal den Namen, ziemlich, gerade bei Azure, ziemlich fett mit. Und die
+haben halt auch einen ziemlich guten, einen ziemlich guten Ruf, das wissen die. Und Managementleute
+sind halt lieber bereit zu sagen, wir gehen zu Azure als wir gehen zu Hetzner Cloud. Dazu kommt,
+dass Azure ja neben wir hosten VMs extrem viel andere Services bietet. Von hosted Datenbanken
+bis Function as a Service bis Managed Kubernetes und alles Mögliche. Also Azure hat Gott und die
+Welt zum Hosten. Und das in Kombination hast du jetzt hier natürlich nicht. Hier kriegst du
+VMs, musst du den Kram selber machen. Und das kann sich dann schon lohnen. Aber du bezahlst
+erst mal richtig viel den Namen. Du bezahlst natürlich auch gute Standorte, Service Techniker
+und alle möglichen Sachen. Das ist schon gut das Zeug und das tut halt auch und ist ab in der
+Regel. Dass Azure mal irgendwo was down ist, kommt vor, aber ist doch relativ selten. Aber
+wenn es was kleines sein soll, behaupte ich mal, fährst du mit so einem Hetzner Server wahrscheinlich
+besser. Genau Machine Learning Zeug. Also Azure hat sehr viel mehr als einfach nur VMs. Ich
+hatte ja die Ehre, letztens eine einwöchige Azure DevOps Schulung machen zu dürfen. Oh,
+der Installer ist kaputt. Ah, jetzt ist er fast fertig. So habe ich irgendwas übersehen.
+Wie habt ihr das mit der Datenschutzerklärung gemacht? Die haben irgendwas unterschrieben,
+frag mich nicht, das habe ich nicht gemacht. Der hat mit denen irgendwas ausgemacht, was
+sie dann unterschrieben haben. Keine Ahnung. Aber aktuell ist das auch noch kein Problem,
+weil wir verwenden keine Live-Kundendaten. Also ich verwende halb Random-Kundendaten.
+Das einzige, was bei unseren Test-Kundendaten echt ist, sind, dass es echt existierende
+Adressen sind. Das ist aber auch alles. Ist das nicht öffentlich? Nein. Da kann aktuell
+gerade ein Beta-Kunde drauf und später kann da auch nur derjenige drauf, für den es eingerichtet
+ist. Jeder kriegt eine eigene Domain und nur dort hat er Zugangsdaten. Deswegen sage ich
+ja, wir machen pro Kunde eine eigene Instanz, dann gibt es gar nicht das Problem, dass irgendjemand
+was sehen könnte von dem anderen. Ja, das stimmt, da kann man theoretisch Geld sparen,
+wobei ich finde, es hält sich in Grenzen. Ich muss immerhin den ganzen Server selbst
+kaufen und so eine Co-Location ist jetzt auch nicht so wahnsinnig billig. Aber du musst
+dich um wirklich jeden Scheiß selber kümmern, selbst wenn da mal was kaputt geht. Für 50
+Euro im Monat kriegst du ja auch schon was ordentliches. Bestimmt nicht so was fettes,
+ja, aber dafür musst du dich um nichts kümmern. Das ist halt eine Geschmacksfrage. Hast du
+die letzte Headset Notebalancer schon? Nein, die habe ich noch nicht ausprobiert. Könntest
+du mal eine Ansible Einführung machen und etwas in die Richtung empfehlen? Können wir
+uns tatsächlich mal angucken, weil ich bin selbst nicht der allergrößte Ansible Pro.
+Ich kann ein bisschen Playbooks lesen und auch schreiben, aber ich bin nicht der allergrößte
+Ansible Pro. Das können wir uns wirklich mal zusammen angucken. Die Headset Notebalancer
+habe ich mir noch nicht angeguckt, wie gesagt. Ich verwende das auch nicht großartig normalerweise.
+Oh, das ist Beta und die kosten auch nicht mal was. Das ist ein schönes. Sticky Sessions
+bedeutet, bevor wir uns die Erklärung von der Headset angucken ist, damit ist gemeint,
+dass ein Client immer auf dem gleichen Backendserver rauskommt. Also wenn ihr jetzt beispielsweise
+fünf Server habt mit eurer Anwendung drauf und ein Notebalancer davor und es connectet
+sich ein Client das erste Mal, dann stellt der Notebalancer sicher, dass der Client jedes
+Mal danach auf dem gleichen Server rauskommt. Was wichtig sein kann, wenn es irgendwelche
+Sessions, Dates oder sonst was gibt. Das versuchen sie hiermit zu beschreiben. Nee,
+habe ich noch nicht angeguckt. Ja, guck mal, die Digital Ocean VM ist auch fertig zu sehen.
+Also ihr habt gesehen, es ist deutlich einfacher als bei Headset Note, dank dem Letzmerkzeug,
+aber unterm Strich nimmt sich das alles nichts. Ist zum Beispiel der Shop-Anwendung oder so
+gut, dass der Kunde nicht ausgelockt wird. Ja, kommt ein bisschen auf die Anwendung an,
+aber ja, zum Beispiel, genau. Für Sessions ist das zum Beispiel sehr praktisch. Ansonsten
+müsste es irgendwie so einen Shared-State haben in der Datenbank oder sonst wo. Oder
+die Server müssten sich untereinander Session-Informationen sinken. Das gibt es ja auch. Gibt es ja auch
+so Varianten, dass man untereinander Session-Infos abgleicht. Aber im Prinzip ist es dafür sinnvoll
+ohne größeren Aufwand seine Anwendung ein bisschen besser skalieren zu können und trotzdem,
+dass sie funktioniert.
+Ja, so, es startet. Es möchte ein Passwort haben. Jetzt sind wir wieder bei der gleichen
+Geschichte, wie wir bei Hetzner auch schon waren. Aber es ist im Prinzip ab jetzt genau
+das gleiche. Also genau das gleiche, wie wir vorher gemacht haben, mit Remote-Unlocken
+und sowas. Das muss ich jetzt nicht nochmal machen, aber nach gesinnten Installationen
+ist halt deutlich einfacher. So, erstmal den ganzen Kram wieder löschen, weil sonst muss
+ich Geld bezahlen. So, keine Droplets mehr da. Ne, das Bild ist nicht hängen geblieben.
+Das Bild läuft noch. Lautpolensi HA-Proxy. Ja, HA-Proxy ist nicht schlecht. HA-Proxy haben
+wir auch. Es gibt eine schöne Sache, habe ich letztens gefunden. HA-Proxy Web-Interface.
+Habe ich letztens hier, das da. Letztens gefunden auf GitHub. Macht echt einen ganz guten Eindruck,
+wenn man keinen Bock hat auf Konfig-Dateien und VRP-Schwenken und so. Kann man hiermit
+wohl Sachen machen. Habe ich noch nicht ausprobiert. Letztens erst gefunden. Kann wohl nicht nur
+HA-Proxy, kann auch Keep Alive und Nginx. Keine Ahnung, ob es was taugt. Das habe ich.
+Du kannst ja mal probieren und berichten, ob es was taugt. Was macht denn meine Heizung
+gerade? Die sollte eigentlich aus sein, weil es ist 28 Grad. Meine Heizung ist aus. Okay,
+passt alles. Da bin ich ja zufrieden. Nils, it, drei Monate. Excellent Subscription,
+Dankeschön. Huge Sub. Gut Leute, ich würde sagen, wir haben das geschafft, was geplant
+war. Kisten sind installiert, Kisten können Remod unlocked werden. Ich hoffe, euch hat
+es was gebracht, weil immerhin heute war ja Educational Content wieder angesagt. Wollt
+mir eine Webcam vor der Tür platzieren, das dann auf einem Tablet streben, hab noch ein
+altes iPad. Hast du eine bessere Idee? Nö, das ist doch gut. Ich habe selbst im Flur
+zwei Amazon Fire HD 10s hängen als Dashboard für Heimautomatisierung und Video. Video
+von den Security, also von den Kameras. Mach ich selber so. Cool, das war wirklich interessant.
+War sehr lehrreich. Oh, excellent Chat. Ah, yes. Zeige euch nochmal meinen Desktop, weil
+ich weiß, die Leute mögen meinen Desktop so. Monka Toss Bild am Desktop, das glaube ich
+nicht, aber nicht. Also einzige, was hier auf dem Desktop ist, dass wirklich Monka,
+dass wahrscheinlich das Monka Toss selber hier irgendwo drauf ist. Ansonsten habe ich
+hier keine Monka Toss Bilder. Oh, oh, oh, oh, oh. Anzeige ist raus. Ich habe noch Blast
+RNG auf dem Desktop. Das hebe ich auch mal auf, weil das gibt es ja nirgendwo mehr.
+Ich weiß nicht, ich muss den Chat fragen. Ach so Blast RNG, der Typ, der wurde gebannt,
+weil er seine, ich habe keine Ahnung. Daube hat seine Freundin verkloppt, aber ich bin
+mir echt nicht sicher, deswegen behaupte ich, ich sage gar nichts. Ich weiß es nicht. Ich
+habe keine Ahnung. Stimmt nicht, was ich sage. Ich habe echt keine Ahnung. Ich weiß nur,
+dass er gebannt wurde.
+Macht es gut. Wir sehen uns im nächsten Stream. Bis dann. CU.

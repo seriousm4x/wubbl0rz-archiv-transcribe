@@ -1,0 +1,3593 @@
+WEBVTT
+
+00:00.000 --> 00:19.800
+so, Stream ist live, ups, geil, hab ich die erste Sekunde selbst geklippt, das ist natürlich
+
+00:19.800 --> 00:34.840
+ja seine Folge, wer ist das?
+
+00:49.800 --> 01:18.160
+ich muss mal den Chat pop-outen, auf dem zweiten Bildschirm, oder button dafür, ah, da, ist er nice, ultra nice, hyper nice
+
+01:19.800 --> 01:49.360
+so, jetzt muss ich erstmal warten, bis Twitch das kapiert hat, kapiert hat, dass der Stream wirklich am Start ist, hat sich schon der erste drüber beschwert jetzt, dass ich die Streams nicht auf Twitter angekündigt hab, also, ach, das geht, aber gar nicht, du musst die Streams auf Twitter angekündigen
+
+01:49.360 --> 02:05.360
+ja, ich weiß nicht, ehrlich gesagt, ich weiß nicht so genau, man muss ja sagen, das betrifft nicht so viel, das interessiert wahrscheinlich nicht so viel
+
+02:05.360 --> 02:28.360
+so, wir machen heute weiter, da wo wir gestern aufgehört haben, allerdings kann ich mir heute nicht die ganze Zeit wieder die Hardcore-Sampler-Geschichte geben, das ist zu viel
+
+02:28.360 --> 02:40.360
+so, wir probieren heute mal aus, wie das mit Datenübertragung aussieht und basteln natürlich auch an der Stelle oben noch ein bisschen weiter
+
+02:40.360 --> 03:00.360
+so, wer neu dabei ist, wer gestern nicht dabei war, vielleicht soll ich nochmal kurz erklären, was wir machen, oder waren gestern alle dabei, ich warte erstmal, bis der Stream richtig an ist, erstmal muss Kirby die Klappe halten, machen wir unsere Chillsong-Musik an
+
+03:00.360 --> 03:22.360
+oh, wie Pepehands, nochmal erklären, weil ganz nice, und zwar, ähm, dann erzähl ich das jetzt schnell, mal Chrome aufmachen, ich hab mich gefragt, wie sprechen Japaner eigentlich Google Chrome aus
+
+03:22.360 --> 03:35.360
+die hängen ja, die hängen an alles ja so komische Laute hinten dran, das ist dann wahrscheinlich krumme, oder irgendwie so, krumme, ich hab keine Ahnung, wie sprechen das, weiß das jemand
+
+03:35.360 --> 04:00.360
+warum hab ich hier das ganze Zeug für ein Garten, 6 oder 12 paar Damen-Thermosorten, sehr interessant ja, jetzt kommts raus, exposed
+
+04:00.360 --> 04:20.360
+gut, also, dann erklär ich das nochmal kurz, und zwar, ich hab hier so einen kleinen Controller, Mikro-Controller am Start, der ist nicht wirklich Mikro, das ist ein Development Board, also das da ist der eigentliche
+
+04:20.360 --> 04:35.360
+nein, das ist noch nicht mal eine CPU, das ist so ein integriertes Ding halt, da ist alles möglich drin, Relan, Bluetooth, 3 CPU-Kerne, ein Low-Power-CPU-Kern und 2 240MHz-Kerne
+
+04:35.360 --> 04:52.360
+und ich versuche eine Box zu bauen mit dem Controller drin, die die Bodenfeuchtigkeit misst und mir das ganze dann zurück überträgt nach Hause an meine Heimautomatisierung
+
+04:52.360 --> 05:07.360
+der Knackpunkt an der ganzen Geschichte ist allerdings, und das ist wirklich ein großer Knackpunkt, so ungefähr, ich muss die Daten so ungefähr 1,5 Kilometer übertragen
+
+05:07.360 --> 05:27.360
+und 1,5 Kilometer machst du nicht mit Bluetooth und machst du auch nicht mit W-Lan, machst du eigentlich außer mit Mobilfunk, sonst mit relativ wenig Sachen ja, und da haben wir gestern dran rumgebaut
+
+05:27.360 --> 05:42.360
+und was wir gestern gemacht haben ist, wir haben es geschafft mit dem Low-Power-Prozessor, der auf dem ESP32-Controller drauf ist, regelmäßig den Bodenfeuchtigkeitssensor abzufragen
+
+05:42.360 --> 05:57.360
+Ja, Nicky, Richtfunk ist was, ich erzähle gleich, wie man das immer macht, ich meine, es steht auch im Titel drin, wie das Ganze funktioniert und wir haben es geschafft, den Low-Power-Prozessor abzufragen, während der Hauptcontroller schläft
+
+05:57.360 --> 06:12.360
+und ihn dann aufzuwecken, wenn der was gemessen hat, über oder unter einem gewissen Wert, den wir, was wir haben wollen, dann weckt er die Haupt-CPU auf und die Haupt-CPU kann dann Sachen übertragen
+
+06:12.360 --> 06:31.360
+und heute kümmern wir uns mal ein bisschen um das Übertragen, also sprich, wie kann ich denn Daten übertragen, so 1,5 Kilometer weit, so und ich habe im Chat schon gelesen, Satellitenschüssel, Richtfunk, naja, nicht so ganz, weil wir dürfen nicht vergessen
+
+06:31.360 --> 06:43.360
+der Kram muss klein sein, also das muss in eine kleine Box passen, so, keine Ahnung, 20 mal 20 Zentimeter oder so, oder 15 mal 50 oder 8 mal 8 Zentimeter, kleine Box, so kleiner umso besser
+
+06:43.360 --> 07:03.360
+und es darf nicht viel Strom verbrauchen, das kommt ja noch dazu, ich meine, wir hatten es gestern davon, was ist die logische Schlussfolgerung draus, wenn Sachen nicht viel Strom verbrauchen dürfen, es ist in der Regel saumäßig langsam
+
+07:03.360 --> 07:20.360
+und das ist es, das ist es hier natürlich auch, ich habe was vergessen zu sagen, genau, lange Strecken übertragen mit möglichst wenig Strom, da ist die Schlussfolgerung eigentlich immer draus, die Datenübertragung ist ziemlich langsam
+
+07:20.360 --> 07:45.360
+also da reden wir von ein paar Bits pro Sekunde, langsamer als Modem ist das ganze, deutlich langsamer als ein Modem, das ganze machen wir mit LoRa, LoRa ist eine Funktechnologie, die genau darauf ausgelegt ist, quasi mit relativ wenig Energie, also mit relativ wenig Stromverbrauch
+
+07:45.360 --> 08:05.360
+also wir reden da so von, wenn es sendet, so 100, 150 milliampere, das ist nicht wirklich viel, milli wohlgemerkt und dementsprechend ist es halt langsam, aber ich meine für einen Sensor reicht es genug
+
+08:05.360 --> 08:24.360
+wie heißen die Dinger, mit denen man ganz früh ins Internet ging, du meinst ein Akustikkoppler, sowas hier meinst du, sowas meinst du ne, Flow 96, ja das ist ja schon richtig antik
+
+08:24.360 --> 08:45.360
+was brauchst du für einen Datendurchsatz, naja, sag mal mal so, ein Byte reicht, 8 Bit, 8 Bit vollkommen, und wohlgemerkt 8 Bit, nicht etwa jetzt pro Sekunde oder so
+
+08:45.360 --> 09:06.360
+sag mal mal, sag mal mal 1, 2 Byte, alle 4 Stunden oder so, also ich brauch nicht viel, ich brauch wirklich nicht viel, ich mein der Sensor, man siehts ja hier irgendwo, hier hab ich ja den mal ausgegeben vom Sensor
+
+09:06.360 --> 09:23.360
+der Sensor misst Werte von ungefähr, also wenn wir das mit dem Analog-Digital-Converter auslesen, den Sensor, dann misst der Sensor Werte von 1720 bis 3800
+
+09:23.360 --> 09:48.360
+und die Werte müssen wir übertragen, ja, wobei da reicht ein Byte, doch, warte mal, ja es reicht nicht, aber 2 Byte reichen, weil 2 Byte sind 65000, irgendetwas
+
+09:48.360 --> 10:11.360
+65000, 535, 36, ha, ja, ich kap die Ausrede, ich fang bei 0 an, dann sind es 65000, 535
+
+10:11.360 --> 10:24.360
+einfach UKW-Sender, das geht nicht so gut durch Gebäude durch, wenn du da, also ich hab es ehrlich gesagt nicht ausprobiert, aber ich vermute mal, das wird nicht so gut
+
+10:24.360 --> 10:41.360
+durch Gebäude, wobei, keine Ahnung, ehrlich gesagt ist es vielleicht auch eine Sache, ich denke aber mal da wird es der Stromverbrauch und die Sichtlinie halt, also die vielen Gebäude auf dem Weg, wird es wahrscheinlich ein bisschen problematischer machen
+
+10:41.360 --> 10:57.360
+Wie gesagt, wir machen das mit LoRa, das funktioniert auch, ich hab das schon ausprobiert, ich bin quasi mit einem Sender im Rucksack dorthin gelaufen und hatte den Empfänger hier bei mir im Arbeitszimmer auf dem Schrank liegen und es hat funktioniert
+
+10:57.360 --> 11:13.360
+Man braucht keine Amateurfunklizenz, LoRa ist in Deutschland, also in Europa generell auf 433 Mhz oder auf 868 Mhz, in beiden, in beiden Frequenzen darf man eigentlich mehr oder weniger machen, was man will
+
+11:13.360 --> 11:27.360
+Auf 868 Mhz muss man ein bisschen aufpassen, aber man darf glaube ich 30 Sekunden oder eine Minute irgendwie pro Stunde senden, was dicke ausreicht, so lange will ich das Ding ja auch gar nicht anlassen
+
+11:27.360 --> 11:46.360
+So, machen wir weiter, wo fangen wir denn jetzt am besten an, mal kurz überlegen, ja achja, was mir gerade noch einfällt, bevor wir anfangen, kennt irgendjemand eine ordentliche Steckdosenleiste
+
+11:46.360 --> 12:02.360
+Moment, da kommt noch was, nicht einfach eine ordentliche Steckdosenleiste, die man gescheit flashen kann und die man in Deutschland relativ zügig kaufen kann
+
+12:02.360 --> 12:18.360
+Hat das übrigens schon mal jemand geguckt hier, die Serie, und wenn ja wie fandet ihr es, gibt es eigentlich irgendwie Steckdosen, gibt es noch eine Steckdosenleiste, die man das Motor flashen kann
+
+12:18.360 --> 12:33.360
+Das da hier, das sieht da so aus, als kann man das flashen, Joywell, klingt schon mal übel, das ist noch China Hersteller, das Motor taugt nicht, sehr schön, ganz schön teuer
+
+12:33.360 --> 12:59.360
+Reine 30 Euro, das ist eigentlich viel zu teuer, hast du Chernobyl geschaut, nein, bisschen teuer oder, mal kurz gucken hier drüben, bei Amazon, was ich da letztens für die Steckdosenleiste gekauft habe
+
+12:59.360 --> 13:14.360
+Das war nur ein Bruchteil davon, ja, hier, 29 Euro und das waren 8 Stecker plus 4 USB, die ich mir letztens geholt habe, also null, sind die noch irgendwie ganz, sind die noch irgendwie bei 40 Euro, da kannst du die ganze Jahr selbst bauen
+
+13:14.360 --> 13:30.360
+Ich mein okay, man kann sie flashen, allerdings kann man die meisten China Dinger flashen
+
+13:30.360 --> 13:46.360
+Seit wann können Steckdosenleisten mehr als an und aus, das können Steckdosenleisten dann, wenn du da das Motor drauf flashen kannst, weiß nicht ob du das schon mal gesehen hast
+
+13:46.360 --> 14:01.360
+Also sprich, alle, also die meisten China Dinger, die es so gibt, basieren eben auf diesem ESP866, das ist quasi so der kleine Puder von dem Controller, den wir gerade programmieren
+
+14:01.360 --> 14:19.360
+Und fast alle China Sachen basieren eben auf diesem ESP866 Controller und das Motor ist super, hat auch richtig viele Sterne auf GitHub, ist ein super Custom Firmware für also ziemlich alle Geräte, die es gibt in dieser Richtung
+
+14:19.360 --> 14:32.360
+Sieht ungefähr so aus, ja, genau ungefähr so sieht das aus, ja, so ungefähr sieht das dann auch aus, wenn man eine Steckdosenleiste damit flasht, man hat eine Webinterface, was man halt hier
+
+14:32.360 --> 14:49.360
+Ich mein, wir sind ja im Jahr 2019, während auch Steckdosenleisten geflashed, selbstverständlich, dann hast du eine Webinterface, kannst da halt hier die einzelnen Sachen ein und ausschalten und die kommt halt ein bisschen drauf an, wie gut das Motor die jeweilige Steckdosenleiste unterstützt
+
+14:49.360 --> 15:03.360
+Aber das Schöne ist, das Ganze kann natürlich sich ins WLAN hängen und kann einem an die Heimautomatisierung direkt quasi Status Sachen schicken, eventuell Stromverbrauch, wenn die Steckdosenleiste das auslesen kann
+
+15:03.360 --> 15:20.360
+Oder halt noch viel besser, man kann von seiner Heimautomatisierung quasi jede einzelne Steckdose schalten bei so einer Steckdosenleiste, wobei die viel zu teuer ist hier, weiß gar nicht was da los ist
+
+15:20.360 --> 15:37.360
+Es gibt schon seit Jahrzehnten quasi IP Steckdosenleisten fürs Rechenzentrum, ist im Prinzip auch sowas, allerdings viel, viel teurer, weil halt für Rechenzentrum Einsatz gedacht
+
+15:37.360 --> 15:53.360
+Lieber ein Samsung Kühlschrank mit Reddit App, wie gesagt Leute, ich hab's ja, ich hab's schon vor Jahren im Video gesagt, das ist ein Trend, der wird nicht einfach so vorbeigehen und da müssen wir alle so ein bisschen drauf achten, dass wir es nicht zu sehr übertreiben
+
+15:53.360 --> 16:10.360
+Also mit dieser ganzen IoT Geschichte, das war klar, dass das kommt und es war sowas von klar, dass die Hersteller versuchen wieder ihr eigenes Ding zu basteln, deswegen ist es besonders wichtig, dass man guckt, wenn man sich was kauft für Smart Home, Automatisierung
+
+16:10.360 --> 16:27.360
+Dass man sich entweder was kauft, was von Haus aus offen ist oder was man flashen kann, ganze proprietäre Scheiße geht einem eher auf den Sack, als dass es hilft, zumal da bist du dann quasi wieder auf so Herstellerkladen angewiesen, was Updates angeht und sowas
+
+16:27.360 --> 16:41.360
+Nicht übertreiben und er sagt, die Steckdosenleisten flashen, ich finde Steckdosenleisten flashen ist nicht übertrieben, lass mal überlegen, was wäre denn übertrieben, es ist ehrlich gesagt nicht viel, nicht viel übertrieben
+
+16:41.360 --> 16:59.360
+Ja, Dings Alexa in der ganzen Wohnung verteilen finde ich übertrieben, ich weiß, dass viele sehen das genau umgedreht, die verteilen sich Alexa in der ganzen Wohnung und dass ich meine Steckdosenleiste flashe, finden sie bescheuert
+
+16:59.360 --> 17:13.360
+Jetzt mal eine dumme Frage, wozu Steckdosenleiste flashen? Ja, dass ich die Steckdosenleiste remote schalten kann, weil wenn man jetzt mal das Ding nimmt, man davon abgesehen, dass das mal locker 15 Euro zu teuer ist
+
+17:13.360 --> 17:29.360
+Und das flash ich, dann kann, also umgedreht von Haus aus, kannst du das halt nur mit der offiziellen China App machen, über die China Cloud die Steckdosenleiste schalten, wenn das flasht, kannst du lokal im Netzwerk die Steckdosen schalten
+
+17:29.360 --> 17:43.360
+Ohne China Cloud, ohne China Firmware, die was weiß ich alles heim schickt, mir geht es viel eher darum, nicht, dass die China Software wirklich was heim schickt, weil dann könnte ich die immer noch im Netzwerk schicken, in ein eigenes Netz stecken, wo das nicht funktionieren würde
+
+17:43.360 --> 17:47.360
+Sondern, dass ich die nicht ordentlich schalten kann, außer mit der offiziellen App
+
+17:47.360 --> 18:07.360
+Und genau, so sieht halt das Webinterface davon aus, da gibt man dann seine hier Achmet, gibt man dann seinen WLAN ein und das kann man dann mit seiner Heimautomatisierungslösung verbinden, ist halt komplett offen
+
+18:07.360 --> 18:27.360
+Äh, wer übrigens was sucht, der, also was man in die, ähm, in die, nicht die Steckdose, in den Lichtschalter, in die Schalter, unter den Putz in die Schalter einbauen kann, der sollte sich mal das da angucken, Shelly1
+
+18:27.360 --> 18:39.360
+Die haben eine ziemlich blöde Domain, Shelly.cloud, die hauptsächliche, ähm, Seller ist, dass es ohne Cloud funktioniert, also das ist mal, das ist mal echt Next Level Big Brain, oder?
+
+18:39.360 --> 18:49.360
+Man, man macht ein Produkt, dessen Hauptverkaufsargument ist, es benötigt keine Cloud, und was nimmt man als Adresse? Shelly.cloud
+
+18:49.360 --> 18:57.360
+Was ist, das ist wirklich Massive, Massive Big Brain, äh, da gibt's nix
+
+19:01.360 --> 19:03.360
+Ja, richtig Pfeifett
+
+19:03.360 --> 19:29.360
+Choose my name sagt, ich finde die Talks von CCC zu IOT-Schwächen immer sehr lustig. Ja, ich auch, und die meisten Sachen, und die meisten Leute, die damit Probleme haben, sind eben gerade die, die irgendein vorkonfiguriertes Zeug von denen im Hersteller nehmen. Ich will nicht sagen, dass man sein eigenes Zeug nicht auferkacken kann, aber da ist man wenigstens selber dran schuld
+
+19:29.360 --> 19:35.360
+Seehofer will er Zugriff auf Alexa, will er das echt? Ach
+
+19:35.360 --> 19:39.360
+Er zählt viel, wenn der Tag lang ist
+
+19:43.360 --> 19:47.360
+Ja, es gibt Apps für Steckdosenleisten
+
+19:47.360 --> 20:07.360
+Ja, die kannst du, also das kommt ein bisschen, das kommt natürlich ein bisschen auf die, auf die Steckdosenleiste und die Software dafür an, aber wenn man die hier mit der offiziellen App einzeln schalten kann, also wie gesagt, die ist viel zu teuer, da will ich ne günstigere suchen, und man die flashen kann mit zum Beispiel das Motor, dann kannst du jede einzelne Steckdose kannst du, kannst du schalten, ja
+
+20:07.360 --> 20:17.360
+Neko-chan sagte, ich würde mir niemals so einen Smart-TV ins Wohnzimmer stellen, ich hab einen, allerdings benutze ich die Smart-Funktion nicht
+
+20:17.360 --> 20:21.360
+Ist auch schon irgendwie bescheuert, ich hab nen, nen, nen, Sony?
+
+20:21.360 --> 20:29.360
+Ein Sony-Fernseher und der hat ja nen Android, also das Embedded Android-Dings, ne, ne, Android-TV drauf
+
+20:29.360 --> 20:33.360
+Allerdings darf das Ding nicht ins Netzwerk und nicht ins WLAN
+
+20:33.360 --> 20:35.360
+Darf nirgends wohin
+
+20:35.360 --> 20:51.360
+Also nur nicht mal eingerichtet, es ist nicht so, dass es geplockt ist oder so, dass es nur nicht mal eingerichtet
+
+20:51.360 --> 20:55.360
+Was darf, ist mein Nvidia-Shield, die dran hängt
+
+20:55.360 --> 21:01.360
+Naja, okay, ähm, also, ich hab hier, ich hab hier, ich hab hier, ich hab hier, ich hab hier, ich hab hier, ich hab hier
+
+21:01.360 --> 21:07.360
+Naja, okay, ähm, wie sind wir jetzt eigentlich?
+
+21:07.360 --> 21:09.360
+Guck mal, die haben neue Sachen
+
+21:09.360 --> 21:11.360
+Haben sie ein neues
+
+21:11.360 --> 21:15.360
+Das Shelly-Energy-Meter, ach doch, das ist ganz interessant
+
+21:21.360 --> 21:27.360
+Ach, ich hab euch ja noch gar nicht meine krasse Konstruktion im Keller gezeigt
+
+21:27.360 --> 21:30.360
+Weiß gar nicht, ob ich euch das, ob ich da irgendwie Follows von hab
+
+21:30.360 --> 21:36.360
+Ich hab im Keller zum Strom auslesen, hab ich was schönes gebastelt
+
+21:36.360 --> 21:44.360
+Auch mit dem ESP866, und zwar, ähm, wir haben da noch so einen uralt Stromzähler
+
+21:44.360 --> 21:46.360
+Sowas hier
+
+21:46.360 --> 21:49.360
+Sowas, was man mal vor 5000 Jahren hatte
+
+21:49.360 --> 21:52.360
+Kennt vielleicht noch der eine oder andere
+
+21:52.360 --> 22:00.360
+Sowas haben wir, ups, sowas haben wir noch im Keller hängen
+
+22:00.360 --> 22:04.360
+Das ist richtig MonkaS
+
+22:04.360 --> 22:10.360
+Na gut, also, zumindest, das Ding hier vorne dreht sich halt, und dann läuft ab und zu so ein roter Strich vorbei
+
+22:10.360 --> 22:15.360
+Und wenn ein roter Strich vorbei läuft, ist halt eine Einheit, äh, um
+
+22:15.360 --> 22:20.360
+Und wie viel, was eine Einheit ist, steht hier quasi neben, irgendwo dann irgendwie auf dem Zähler drauf
+
+22:20.360 --> 22:26.360
+So, und, ähm, man hat keine Chance hier irgendwie was digital abzugreifen
+
+22:26.360 --> 22:30.360
+Weil, ich mein, ehrlich gesagt, sieht das Ding in irgendeiner Weise digital aus
+
+22:30.360 --> 22:35.360
+Das sieht aus wie 1905
+
+22:35.360 --> 22:39.360
+So, und da hab ich, ähm
+
+22:39.360 --> 22:43.360
+Ja, das zählt als veraltet
+
+22:43.360 --> 22:52.360
+Die sind aktuell, die sind aktuell ganz scharf drauf, den Leuten, ähm, neue Stromzähler zu verkaufen
+
+22:52.360 --> 23:00.360
+Beziehungsweise zu installieren, wo sie sich nicht gegen wehren können
+
+23:00.360 --> 23:05.360
+Ich hab schon gehört, dass angeblich manche Stadtwerke versuchen, quasi WLAN Zugang zu bekommen
+
+23:05.360 --> 23:09.360
+Bei den Leuten, dass die ihre Stromzähler in die Datenheim schicken können
+
+23:09.360 --> 23:14.360
+Also, wenn mich mal wirklich ernsthaft von den Stadtwerken jemand fragt, ob sie WLAN Zugang kriegen
+
+23:14.360 --> 23:19.360
+Bei mir, dass sie ihre Stromsachen verschicken können, dann muss ich echt auslachen, äh
+
+23:19.360 --> 23:24.360
+Bimpistisch, Alter, staubs geht los, äh
+
+23:24.360 --> 23:31.360
+Sind die noch, sind die noch ganz, sind die noch irgendwie ganz, ganz bei Trost, oder was?
+
+23:31.360 --> 23:38.360
+Ach ja, genau, ähm, das stimmt, der Flow 96, oder was hat der Flow 96 gesagt?
+
+23:38.360 --> 23:41.360
+Ja, mit Plinken, genau, so einen haben wir nämlich auch
+
+23:41.360 --> 23:47.360
+Also, es ist nämlich so, dass, also wir haben, der Hauptzähler, der eigentlich, der einzig offizielle Zähler, den wir haben, ist der
+
+23:47.360 --> 23:50.360
+Im Keller, so, so ein uralt Ding
+
+23:50.360 --> 23:56.360
+Und, ähm, ich hab für den ersten Stock hier, hab ich noch einen, noch einen extra Zähler
+
+23:56.360 --> 23:59.360
+Der ist schon ein bisschen moderner, der hat so eine LED, die blinkt
+
+23:59.360 --> 24:04.360
+So, und jetzt, jetzt pass mal auf, jetzt hab ich was richtig Nices gebaut
+
+24:04.360 --> 24:08.360
+Und zwar, hier sieht man es ja, hier läuft dann ab und zu so ein Strich durch, ne, und der Strich ist dann durch
+
+24:08.360 --> 24:14.360
+Genau, hier steht eine Kilowattstunde, ist also 600 mal der Strich
+
+24:14.360 --> 24:18.360
+Das ist aber noch ganz alter, das sieht ja aus wie aus einem U-Boot, oder so
+
+24:22.360 --> 24:26.360
+Naja, zumindest hab ich mir, hab ich mir was gebaut, wie man das auslesen kann
+
+24:26.360 --> 24:32.360
+Und zwar, hab ich mir einen Linesensor gekauft
+
+24:32.360 --> 24:37.360
+Wie ist das Ding? IR Linesensor, genau, den da
+
+24:37.360 --> 24:40.360
+Also, sieht fast genauso aus, nicht ganz so
+
+24:40.360 --> 24:43.360
+Sowas hab ich mir hier gekauft, der ist eigentlich dafür da
+
+24:43.360 --> 24:50.360
+Pass mal auf, das ist, das ist absolut next level, äh, huge, huge brain, ähm, Bild
+
+24:50.360 --> 24:53.360
+Ich zeig euch mal, wofür ein Linesensor überhaupt da ist
+
+24:53.360 --> 24:57.360
+Was der, wofür, was für ein Linesensor, was der macht
+
+24:57.360 --> 25:00.360
+Das ist auch ein Video von, wann ist das? 1970?
+
+25:00.360 --> 25:02.360
+Ah, 2012
+
+25:04.360 --> 25:07.360
+Ja, guck, also ein Linesensor macht sowas hier eigentlich
+
+25:07.360 --> 25:14.360
+Das kann man, da kann man halt Linien verfolgen lassen zum Beispiel, wenn man Roboter baut oder sowas
+
+25:18.360 --> 25:22.360
+So, und was ich jetzt gemacht hab, ich hab mir so ein Linesensor geholt
+
+25:22.360 --> 25:25.360
+Hab mir mit dem 3D Drucker ein Gehäuse ausgedruckt
+
+25:25.360 --> 25:30.360
+Und, ähm, hab den Linesensor mit nem ESP
+
+25:31.360 --> 25:34.360
+Mit nem, kann ich mal zeigen welcher
+
+25:34.360 --> 25:37.360
+So nem kleinen Ding hier, so nem kleinen Controller
+
+25:37.360 --> 25:42.360
+Hab ich den Sensor auf den, auf den Zähler gepappt
+
+25:44.360 --> 25:46.360
+Mit nem bisschen Klebeband
+
+25:48.360 --> 25:51.360
+Und der hängt hier schräg drauf, der Linesensor
+
+25:51.360 --> 25:56.360
+Also das Ding, genauso ungefähr in der Position, wie das jetzt ist
+
+25:57.360 --> 26:00.360
+Ähm, ein Video über den 3D Drucker wäre was
+
+26:00.360 --> 26:03.360
+Ja, muss ich mal gucken, also dies ist eigentlich relativ unspektakulär
+
+26:03.360 --> 26:08.360
+Man lädt sich nen Sketch runter, nee nen Model runter, sliced das, lädt es hoch
+
+26:08.360 --> 26:11.360
+Und guckt dem Ding dann 5 Stunden beim Drucken zu
+
+26:12.360 --> 26:14.360
+So, und
+
+26:15.360 --> 26:17.360
+Der sitzt dann quasi mit den LEDs da drauf
+
+26:17.360 --> 26:20.360
+So hier schräg, so, hier so ungefähr in der Ecke sitzt der
+
+26:20.360 --> 26:25.360
+Und wenn dann diese, diese schwarze, dieser schwarze Strich vorbeikommt
+
+26:25.360 --> 26:29.360
+Man muss den hier unten, äh, man muss den hier ein bisschen die Empfindlichkeit einstellen
+
+26:30.360 --> 26:33.360
+Und wenn dann der schwarze Strich vorbeikommt
+
+26:34.360 --> 26:38.360
+Dann registriert das dieser Linesensor, weil der halt denkt, oh die Line ist weg
+
+26:38.360 --> 26:41.360
+Also das ist dann quasi inverted, muss man sich das denken
+
+26:41.360 --> 26:45.360
+Das erkennt die ganze Zeit, ihr habt den Roboter gerade gesehen, der der Linie nachgefahren ist, ne
+
+26:45.360 --> 26:48.360
+Der sieht die ganze Zeit, wir sind auf der Linie, wir sind auf der Linie, wir sind auf der Linie
+
+26:48.360 --> 26:52.360
+So, und dann kommt der schwarze Strich und dann sagt der Sensor auf einmal, oh wir sind nicht mehr auf der Linie
+
+26:53.360 --> 26:56.360
+Ja, und, und dann kriegst du nen Signal
+
+27:02.360 --> 27:05.360
+So, und ich find das ist übelst, das ist übelst Next Level Shit, ja
+
+27:07.360 --> 27:09.360
+Und so, so, so mess ich grad meinen Strom unten
+
+27:10.360 --> 27:12.360
+Im Keller, ich lass den, ich lass den Sensor mitzählen
+
+27:12.360 --> 27:16.360
+Ja, und ähm, dann hab ich noch für, für
+
+27:16.360 --> 27:20.360
+Oben, also für den ersten Stock
+
+27:21.360 --> 27:23.360
+Also jetzt, wo ich auch grad sitze im Endeffekt
+
+27:23.360 --> 27:28.360
+Dort hab ich noch was anderes, ist auch, ist auch am, die ist auch am gleichen Controller dran
+
+27:28.360 --> 27:32.360
+Das schöne an diesen, an diesen Dingern ist, erstens der ist mini, er ist klein
+
+27:32.360 --> 27:38.360
+Und er hat, ähm, genug GPIOs für so alles was man braucht
+
+27:38.360 --> 27:44.360
+Du hast irgendwie acht GPIOs, du hast nen analog-digital-Converter und seriell und, und gedönst
+
+27:44.360 --> 27:46.360
+Also das ist, das ist wirklich ganz schön
+
+27:46.360 --> 27:51.360
+Und das Schöne ist halt, das passt auch alles in den Schaltschrank unten rein, da hast du keine Kabel raushängen oder so
+
+27:51.360 --> 27:57.360
+Ähm, und oben hab ich einen etwas neueren, für den ersten Stock haben wir hier einen etwas neueren Stromzähler
+
+27:57.360 --> 28:00.360
+Nämlich so einen hier
+
+28:05.360 --> 28:08.360
+Ja, der sieht ungefähr so aus wie der
+
+28:08.360 --> 28:13.360
+Gucken, vielleicht gibt's da auch einen mit LED
+
+28:15.360 --> 28:19.360
+Guck mal, hier siehst du auch die Leute, die die Dinger nachgebastelt haben
+
+28:21.360 --> 28:24.360
+Die haben ja richtig Progress heute schon im Stream gemacht
+
+28:24.360 --> 28:29.360
+Ja, ungefähr so, und der Stromzähler hat so eine LED an der Stelle
+
+28:29.360 --> 28:40.360
+Und dort hab ich nen, sowas hier drauf gepappt
+
+28:41.360 --> 28:47.360
+Also sprich, das ist ein Sensor, der erkennt Licht, je nachdem wie hell was ist
+
+28:47.360 --> 28:49.360
+Und, ähm
+
+28:54.360 --> 28:57.360
+Ja, so, so ungefähr sieht das Ding aus
+
+28:57.360 --> 29:00.360
+Und den hab ich einfach über die LED gehängt
+
+29:00.360 --> 29:06.360
+Und wenn die LED blinkt, dann krieg ich einfach nen Signal auf dem Sensor, weil das halt kurz licht
+
+29:06.360 --> 29:10.360
+Und dann kann ich das zählen, so, und die Sachen stimmen ziemlich genau
+
+29:10.360 --> 29:13.360
+Ich hab das jetzt nach ein paar, ich hab das jetzt schon ein paar Wochen laufen
+
+29:13.360 --> 29:21.360
+Und, äh, hab mal nachgeschaut, also das kommt ziemlich gut hin, was die Dinger als Verbrauchmessung, was unten der Zähler zählt
+
+29:21.360 --> 29:26.360
+Also ich find, das ist schon echt, das ist schon ein Übel, ne?
+
+29:32.360 --> 29:35.360
+Tja, wo sind wir jetzt hier stehen geblieben?
+
+29:35.360 --> 29:38.360
+Ganz, ganz viele Sampler gedürnt
+
+29:40.360 --> 29:43.360
+Magst du in Fachinformatik, dann machst du aber viel Elektronik
+
+29:43.360 --> 29:45.360
+Äh, ich mach im Prinzip das, was mich interessiert
+
+29:45.360 --> 29:48.360
+Ist auch scheißegal, das ist übrigens ne Sache, ne?
+
+29:48.360 --> 29:51.360
+Sollte eigentlich jeder machen
+
+29:51.360 --> 29:54.360
+Scheiß drauf, über den Teller heranschauen schadet keinem
+
+29:54.360 --> 29:59.360
+Und außerdem, umso mehr man weiß, umso besser
+
+30:01.360 --> 30:04.360
+Zumal man Spaß macht, ne?
+
+30:06.360 --> 30:11.360
+So, ähm, aber jetzt mal zurück
+
+30:13.360 --> 30:15.360
+Zu programmieren
+
+30:15.360 --> 30:19.360
+Ich würde sagen, wir machen mal kurz nen neuen
+
+30:19.360 --> 30:21.360
+Wir machen mal
+
+30:21.360 --> 30:23.360
+Ein neues Projekt auf
+
+30:23.360 --> 30:28.360
+Weil ich will hier nicht so viel dran rumbasteln, weil das ist jetzt in einem Zustand, das funktioniert
+
+30:28.360 --> 30:32.360
+Wir könnten übrigens das mal eine Runde Git committen, würd ich sagen
+
+30:35.360 --> 30:37.360
+Das ist auf jeden Fall nicht verkehrt
+
+30:37.360 --> 30:41.360
+Weil, wer weiß, was ich hier noch drinnen ändere, ich weiß, dass der
+
+30:41.360 --> 30:45.360
+Äh, hallo, ich will diesen Ordner öffnen
+
+30:45.360 --> 30:47.360
+Open in Explorer, so rum
+
+30:47.360 --> 30:49.360
+Ich muss nämlich gucken, wo das Ganze liegt
+
+30:49.360 --> 30:52.360
+Blablabla, Documents, Blablabla, Project, Streamtest, okay
+
+30:52.360 --> 30:56.360
+Da, wie das, äh, das committen wir grad mal ne Runde
+
+30:57.360 --> 30:59.360
+Ins Git
+
+30:59.360 --> 31:02.360
+Oder, wie es die coolen Leute sagen, ins Shit
+
+31:03.360 --> 31:05.360
+Ins Shit, sagen die coolen Leute, ja
+
+31:05.360 --> 31:08.360
+Was übrigens komplett der Blödsinn ist
+
+31:08.360 --> 31:12.360
+Aber es gibt auch Leute, die sagen Gyra oder Emerson oder so
+
+31:12.360 --> 31:16.360
+Es gibt halt welche, die müssen das besonders geil aussprechen
+
+31:16.360 --> 31:20.360
+Äh, vielleicht sollten wir noch ein paar Sachen mal
+
+31:27.360 --> 31:31.360
+Vielleicht sollten wir noch mal ein paar Sachen ins Git Ignore schreiben
+
+31:31.360 --> 31:34.360
+Nämlich im Prinzip alles
+
+31:34.360 --> 31:37.360
+Alles, was wir als Code ist, will ich nicht committen
+
+31:37.360 --> 31:41.360
+Und alles, wo sind die Binaries drinne?
+
+31:43.360 --> 31:46.360
+Wo sind die Binaries drinne?
+
+31:46.360 --> 31:48.360
+Ja
+
+31:48.360 --> 31:51.360
+Ah ne, committe da auch nicht, okay
+
+31:52.360 --> 31:54.360
+Ah, dann ist es eigentlich in Ordnung
+
+31:54.360 --> 31:57.360
+Okay, Git Init
+
+31:57.360 --> 32:00.360
+Git Status
+
+32:00.360 --> 32:03.360
+Ja, hält sich doch in Grenzen
+
+32:03.360 --> 32:05.360
+Include, was ist denn in Include?
+
+32:05.360 --> 32:08.360
+Nix, na gut, dann können wir committen
+
+32:10.360 --> 32:13.360
+Ach ne, ist ja ein neues Repo
+
+32:21.360 --> 32:24.360
+Einfach nur, falls sich jetzt irgendwas ändert, dass ich weiß, dass
+
+32:24.360 --> 32:27.360
+Ich hab nen Zustand, nämlich weiß, dass es funktioniert
+
+32:27.360 --> 32:30.360
+So, jetzt machen wir mal ein neues Projekt und jetzt probieren wir mal
+
+32:30.360 --> 32:33.360
+Äh, was, äh, über Laura zu schicken
+
+32:33.360 --> 32:36.360
+Ich mein, wir können jetzt keine 1,5 Kilometer
+
+32:36.360 --> 32:39.360
+Im Stream hier übertragen
+
+32:42.360 --> 32:45.360
+Ähm, sondern nur ungefähr, keine Ahnung
+
+32:46.360 --> 32:49.360
+Von hier bis, bis in Hof
+
+32:50.360 --> 32:53.360
+Aber wir wissen schon, ob es funktioniert, ja?
+
+32:53.360 --> 32:56.360
+Und ich hab, wie gesagt, ich hab die Entfernung schon ausprobiert
+
+32:56.360 --> 32:59.360
+Ich weiß, dass es prinzipiell funktioniert, somit keine Ahnung
+
+32:59.360 --> 33:03.360
+Ein paar Bit, ein paar Bit, äh, alle 5 Sekunden
+
+33:05.360 --> 33:08.360
+Ich werde hier zwar davon gehadet, aber ich nutze SVN
+
+33:08.360 --> 33:11.360
+Flow 96, ich bin in der Ansicht, das soll jeder verwenden, was er will
+
+33:11.360 --> 33:14.360
+Und das, was am besten zu der jeweiligen Geschichte passt
+
+33:14.360 --> 33:19.360
+Wenn, wenn du dich, wenn du mit SVN zufrieden bist, dann
+
+33:20.360 --> 33:22.360
+Wozu, ja?
+
+33:22.360 --> 33:24.360
+Wenn das funktioniert
+
+33:24.360 --> 33:26.360
+So, äh, was mach ich denn hier?
+
+33:26.360 --> 33:29.360
+Neues Projekt anlegen will ich
+
+33:29.360 --> 33:31.360
+Neues Projekt, äh
+
+33:31.360 --> 33:33.360
+Dora Tests
+
+33:33.360 --> 33:36.360
+Die haben immer noch ein Node MCU
+
+33:36.360 --> 33:38.360
+32 Board
+
+33:38.360 --> 33:40.360
+Sack
+
+33:40.360 --> 33:44.360
+Gut, was wir als erstes machen, oh scheiße, ich muss den Kram ja noch verkabeln
+
+33:44.360 --> 33:46.360
+Oh, da hab ich jetzt Bock drauf
+
+33:46.360 --> 33:50.360
+Also, das, das Verkabeln ist tatsächlich, also die, die Jumperkabel, die
+
+33:50.360 --> 33:52.360
+Wie, wie, wie heißen die Dinger eigentlich?
+
+33:52.360 --> 33:55.360
+Diese Dupontkabel, Dupontkabel
+
+33:55.360 --> 33:58.360
+Wie spricht man das eigentlich richtig aus?
+
+33:58.360 --> 34:00.360
+Dupont
+
+34:02.360 --> 34:04.360
+Kabel
+
+34:06.360 --> 34:08.360
+Dupor-Kabel
+
+34:08.360 --> 34:11.360
+Wenn es Französisch ist, ist es bestimmt Dupor-Kabel oder so
+
+34:11.360 --> 34:15.360
+Oder, oder wenn es Französisch ist, ist es Dupol oder so
+
+34:15.360 --> 34:17.360
+Dupol-Kabel, ich kann
+
+34:17.360 --> 34:21.360
+Ja, man kann ja einfach Jumperkabel sagen, das ist, äh, viel, viel einfacher
+
+34:21.360 --> 34:25.360
+Ich würd sagen, es heißt Dupont
+
+34:28.360 --> 34:30.360
+Ja, das Verkabeln wird noch ein bisschen eklig
+
+34:30.360 --> 34:33.360
+Da muss ich mir nämlich mal, also Node MCU
+
+34:33.360 --> 34:37.360
+Ein Bild suchen, wie die Pins hier belegt sind
+
+34:37.360 --> 34:40.360
+Also, ich weiß, wo ich den ganzen Krempel anschließen muss
+
+34:40.360 --> 34:43.360
+Und zwar, ich hab ja hier ein Modul
+
+34:43.360 --> 34:46.360
+Ein Lora-Modul
+
+34:46.360 --> 34:50.360
+Nicht, kein, kein fertiges Board, also ich hab wirklich das hier, ich hab das nackte Modul hier
+
+34:50.360 --> 34:54.360
+Das sieht auch genau so aus, nur, dass ich ein RF
+
+34:54.360 --> 34:57.360
+Ja, genau, genau das Modul hab ich hier, genau das
+
+34:57.360 --> 35:02.360
+Und das ist, das ist nicht groß, ne, das ist, das sieht hier so groß aus, das ist, ähm
+
+35:02.360 --> 35:07.360
+Kleiner als, bisschen, ja ungefähr wie mein Daumennagel, also es ist nicht groß
+
+35:07.360 --> 35:09.360
+Dupont
+
+35:09.360 --> 35:27.360
+Dupont könnte auch sein
+
+35:27.360 --> 35:31.360
+Hehehehe, das ist eine sehr coole Aussprache von Jira
+
+35:31.360 --> 35:34.360
+Jira
+
+35:34.360 --> 35:38.360
+Ähm, genau, und ich hab jetzt
+
+35:38.360 --> 35:40.360
+Hier überall
+
+35:40.360 --> 35:42.360
+Seht's jetzt nicht, aber ich hab das Modul hier erlegen
+
+35:42.360 --> 35:46.360
+Ich hab mir hier überall Pins dran gelötet
+
+35:46.360 --> 35:48.360
+Man braucht nicht alles, man braucht nur
+
+35:48.360 --> 35:52.360
+Mal gucken, ob wir hier eins mit Beschriftung finden, genau, hier findet man eins mit Beschriftung
+
+35:52.360 --> 35:55.360
+Wir brauchen nur, ähm
+
+35:55.360 --> 35:59.360
+Einen der Crown Pins anzulöten
+
+35:59.360 --> 36:01.360
+Äh, hier fehlt was, oder?
+
+36:01.360 --> 36:08.360
+Sagt man noch, fehlt, fehlt hier nicht irgendwie so? So die Hälfte irgendwie?
+
+36:08.360 --> 36:14.360
+Oder ist es die super, super advancede, äh, China-Sparmaßnahme von Chips jetzt?
+
+36:14.360 --> 36:19.360
+Dass die Löcher zum Löten keine Löcher mehr sind, sondern nur noch Halbkreise
+
+36:19.360 --> 36:24.360
+Gut, wie dem auch sei, also meins hat, äh, komplette, komplette Anschlüsse
+
+36:24.360 --> 36:26.360
+Ähm
+
+36:26.360 --> 36:29.360
+Und wir brauchen von diesen Pins, brauchen wir nicht alles
+
+36:29.360 --> 36:32.360
+Wir brauchen einen der Crown Anschlüsse
+
+36:32.360 --> 36:34.360
+Hier ist die Antenne dran
+
+36:34.360 --> 36:36.360
+Die Antenne ist bei mir gerade absolut advanced
+
+36:36.360 --> 36:40.360
+Das ist ein, äh, ungefähr neun Zentimeter langes Kabel, was ich dran gelötet hab
+
+36:40.360 --> 36:43.360
+Einfach stinknormales Kabel
+
+36:43.360 --> 36:45.360
+Beste Antenne
+
+36:45.360 --> 36:47.360
+Dann brauchen wir 3,3 Volt
+
+36:47.360 --> 36:50.360
+Dann brauchen wir
+
+36:50.360 --> 36:53.360
+Die, äh, Datenübertragungs Pins
+
+36:53.360 --> 36:55.360
+Und das war's
+
+36:55.360 --> 36:57.360
+Also insgesamt acht Anschlüsse oder so
+
+36:57.360 --> 37:00.360
+So und ich muss den Mist jetzt, ich muss den Mist jetzt verkabeln hier nebenbei
+
+37:00.360 --> 37:02.360
+Ähm
+
+37:02.360 --> 37:05.360
+Also, Crown kommt
+
+37:05.360 --> 37:07.360
+Oben
+
+37:07.360 --> 37:10.360
+Rechts hin
+
+37:12.360 --> 37:14.360
+Okay
+
+37:14.360 --> 37:17.360
+Dann haben wir, äh,
+
+37:17.360 --> 37:19.360
+Ich hasse so, gefuddelt, ja
+
+37:19.360 --> 37:23.360
+Vor allem, wenn's mehr als drei, drei Kabel zu stecken sind, krieg ich schon immer Anfälle
+
+37:23.360 --> 37:28.360
+Weil da musst du immer ganz genau gucken, dass du nicht aus Versehen Mist anschließt, weil das kann auch mal nach hinten losgehen
+
+37:28.360 --> 37:31.360
+So, dann fangen wir jetzt an
+
+37:33.360 --> 37:36.360
+Das ist übrigens das falsche Modul, was ich euch hier zeige
+
+37:36.360 --> 37:38.360
+Von der Beschriftung her
+
+37:38.360 --> 37:41.360
+Genau, die treffen's von der Beschriftung her eher
+
+37:41.360 --> 37:44.360
+Ist egal, ich schließ den grade jetzt mal schnell an
+
+37:44.360 --> 37:48.360
+Dann haben wir Mosi-Miso-Dings-Anschluss
+
+37:48.360 --> 37:51.360
+MSS-Anschluss
+
+37:51.360 --> 37:54.360
+Dann haben wir
+
+37:54.360 --> 37:57.360
+Was ist das hier?
+
+38:00.360 --> 38:03.360
+Reset
+
+38:03.360 --> 38:06.360
+SCK
+
+38:06.360 --> 38:10.360
+Reset machen wir an 25
+
+38:15.360 --> 38:18.360
+Hallo
+
+38:18.360 --> 38:21.360
+Umgefrickel, äh
+
+38:22.360 --> 38:25.360
+Umgefrickel
+
+38:25.360 --> 38:28.360
+E
+
+38:30.360 --> 38:33.360
+Die Null, hier dran
+
+38:33.360 --> 38:36.360
+Okay, so, schauen wir mal, ob ich den Kram jetzt richtig verkabelt hab
+
+38:39.360 --> 38:42.360
+Über was für eine Schnittstelle kommuniziert das, um ehrlich zu sein, bin ich mir da nicht
+
+38:42.360 --> 38:45.360
+Äh, ach doch, hier, äh, SPI
+
+38:45.360 --> 38:48.360
+14
+
+38:48.360 --> 38:51.360
+Hab grad den Anfang gelesen, hab gesagt, was soll das sein, SPI, ignorieren wir mal das V
+
+38:51.360 --> 38:54.360
+Also ich hab's jetzt so angeschlossen
+
+38:54.360 --> 38:57.360
+Äh, hier ist ein Kabel dran, da, da, da
+
+38:57.360 --> 39:00.360
+Äh, da
+
+39:00.360 --> 39:03.360
+25, äh, wo, wo ist denn 25
+
+39:05.360 --> 39:08.360
+Da ist ein Kabel dran für Reset
+
+39:08.360 --> 39:11.360
+Okay
+
+39:11.360 --> 39:14.360
+Ähm, probieren wir das mal aus
+
+39:14.360 --> 39:17.360
+Empfänger, wir müssen uns mal auf meinen Empfänger verbinden
+
+39:18.360 --> 39:21.360
+Ja, Telnet, absolut Highend-Programme heute hier
+
+39:21.360 --> 39:24.360
+Das ist mein
+
+39:28.360 --> 39:31.360
+LoRa-Empfänger
+
+39:31.360 --> 39:34.360
+Der empfängt halt gerade nichts
+
+39:34.360 --> 39:37.360
+Der empfängt nichts
+
+39:37.360 --> 39:40.360
+So, dann probieren wir das Ganze mal aus
+
+39:40.360 --> 39:43.360
+Ja, Serious Max
+
+39:43.360 --> 39:46.360
+Ich müsste eigentlich so viel Projekte hier noch fertig machen
+
+39:46.360 --> 39:49.360
+Also wohl Stream, als auch hier bei mir daheim an sich
+
+39:49.360 --> 39:52.360
+Das, das werd ich alles nie hinkriegen, ja
+
+39:52.360 --> 39:55.360
+Da müsste ich mal ein halbes Jahr Urlaub nehmen
+
+39:58.360 --> 40:01.360
+Mit dem, was du machst, kann ich nichts anfangen, finde ich Streams aber mega cool
+
+40:01.360 --> 40:04.360
+Es ist, es ist cool, wenn dir das gefällt, obwohl du nichts damit anfangen kannst
+
+40:04.360 --> 40:07.360
+Das ist nice, vielleicht lernst du ja noch etwas
+
+40:07.360 --> 40:10.360
+Vielleicht interessiert es dich ja doch irgendwann
+
+40:10.360 --> 40:13.360
+Oder interessiert dich jetzt schon und du sagst, vielleicht ist jetzt was dabei
+
+40:13.360 --> 40:16.360
+So, okay, wir brauchen erstmal unsere LoRa-Library, die wir
+
+40:16.360 --> 40:19.360
+Einbinden können
+
+40:19.360 --> 40:22.360
+Libraries
+
+40:22.360 --> 40:25.360
+LoRa
+
+40:25.360 --> 40:28.360
+Install
+
+40:28.360 --> 40:31.360
+Test
+
+40:31.360 --> 40:34.360
+Oh
+
+40:34.360 --> 40:37.360
+Oh
+
+40:37.360 --> 40:40.360
+Include
+
+40:40.360 --> 40:43.360
+Hallo
+
+40:43.360 --> 40:46.360
+Hallo
+
+40:46.360 --> 40:49.360
+Ein bisschen Include
+
+40:49.360 --> 40:52.360
+Ob ich jetzt im falschen Projekt installiert gerade
+
+40:52.360 --> 41:05.360
+Oder ist das Ding einfach nur lahm
+
+41:05.360 --> 41:09.360
+Okay, wir sollten nicht allzu viel auf Visual Studio geben
+
+41:09.360 --> 41:12.360
+Weil es funktioniert
+
+41:12.360 --> 41:15.360
+Ich mach das mal kurz zu und wieder auf, das spackt bestimmt
+
+41:15.360 --> 41:18.360
+Irgendwie rum gerade
+
+41:18.360 --> 41:21.360
+Ah, jetzt funktioniert
+
+41:21.360 --> 41:24.360
+Okay
+
+41:24.360 --> 41:27.360
+Was auch immer, ich glaube jetzt erkennt es alles oder
+
+41:27.360 --> 41:30.360
+Ja, okay, warum weiß man nicht
+
+41:30.360 --> 41:33.360
+Äh
+
+41:33.360 --> 41:36.360
+Speed für unsere serielle Schnittstelle noch anpassen
+
+41:36.360 --> 41:39.360
+So
+
+41:39.360 --> 41:42.360
+Und jetzt mal kurz gucken ob
+
+41:42.360 --> 41:45.360
+Prinzipiell das Ding lebt und was ausgibt
+
+41:45.360 --> 41:48.360
+Weil es könnte ja auch sein
+
+41:48.360 --> 41:51.360
+Weil es könnte ja auch sein, dass ich das so falsch
+
+41:51.360 --> 41:54.360
+Verkabelt habe
+
+41:54.360 --> 42:03.360
+Dass es jetzt kaputt ist oder so, weiß ja nie
+
+42:03.360 --> 42:06.360
+Ich hätte mal eine Frage, für was ist CMD er gut
+
+42:06.360 --> 42:09.360
+Ist das ein CMD Ersatz oder kann der mehr
+
+42:09.360 --> 42:16.360
+Also ist ein CMD Ersatz der, wer hätte das gedacht tatsächlich mehr kann
+
+42:16.360 --> 42:18.360
+Alter
+
+42:18.360 --> 42:22.360
+Kann ich mal irgendwie richtig tippen jetzt
+
+42:22.360 --> 42:26.360
+Okay, Test, Test, Test, Test funktioniert sehr schön
+
+42:26.360 --> 42:29.360
+Allerdings
+
+42:29.360 --> 42:33.360
+Microsoft hat jetzt eine neue Konsole habe ich gelesen
+
+42:33.360 --> 42:36.360
+Oder sind dabei gerade eine neue Konsole
+
+42:36.360 --> 42:41.360
+Neue Standardkonsole in Anwendung für Windows zu entwickeln
+
+42:41.360 --> 42:44.360
+Habe ich letztens irgendwas gelesen
+
+42:44.360 --> 42:47.360
+New Console for Windows, it's open source
+
+42:47.360 --> 42:49.360
+Das müssen wir uns angucken
+
+42:49.360 --> 42:52.360
+Das müssen wir uns angucken
+
+42:52.360 --> 42:54.360
+Habt ihr das schon mal aus
+
+42:54.360 --> 42:57.360
+45K Sterne
+
+42:57.360 --> 43:01.360
+Da sieht man mal
+
+43:01.360 --> 43:05.360
+Dann sieht man mal was die Leute, wie scheiße CMD ist
+
+43:05.360 --> 43:08.360
+Wenn Microsoft einfach nur
+
+43:08.360 --> 43:11.360
+Ein neues Terminal Programm rausbringen muss
+
+43:11.360 --> 43:15.360
+Und es bringt, gibt einfach mal 45.000 Sterne
+
+43:29.360 --> 43:33.360
+No binaries yet, very early Alphas
+
+43:33.360 --> 43:42.360
+Also sowas wie Pubke quasi, so wie Pubke seit 5 Jahren
+
+43:42.360 --> 43:45.360
+Okay, es gibt es doch nicht zum Download
+
+43:45.360 --> 43:49.360
+Also selbst kompilieren tue ich mir jetzt die neue Windows Konsole nicht
+
+43:49.360 --> 43:53.360
+Aber ich bin mal gespannt, was dabei rauskommt
+
+43:53.360 --> 43:57.360
+Pubke ist eSports ready, ja das ist genauso eSports ready wie Overwatch
+
+43:57.360 --> 44:00.360
+Wobei Pubke eSport ist ja noch, noch schlimmer
+
+44:00.360 --> 44:02.360
+Ich hab mal in ein Turnier geguckt
+
+44:02.360 --> 44:07.360
+Da hat Dings mitgespielt, Eska, den kennen vielleicht die eine oder andere noch von Overwatch
+
+44:07.360 --> 44:13.360
+Und das war, ey Pubke eSport, das war das größte Campen überhaupt
+
+44:13.360 --> 44:16.360
+Am Ende hat ein Team gewonnen, was die ganze Runde nichts gemacht hat
+
+44:16.360 --> 44:19.360
+Einfach nur schön in der Grube gelegen
+
+44:19.360 --> 44:22.360
+Und am Ende die letzten zwei verbliebenen gebashed
+
+44:22.360 --> 44:24.360
+So, GG
+
+44:24.360 --> 44:27.360
+Nice, easy clap
+
+44:27.360 --> 44:30.360
+Kein Problem, also so war zumindest das erste
+
+44:30.360 --> 44:34.360
+Und einzige Pubketurnier, oder Turniermatch was ich mir angeguckt hab
+
+44:40.360 --> 44:44.360
+Okay, dann probieren wir jetzt mal ob das hier funktioniert
+
+44:44.360 --> 44:47.360
+Ähm, nein das muss ich da drinnen lassen
+
+44:47.360 --> 44:53.360
+Also wir versuchen jetzt mal was per Lora zu übertragen an meinen Empfänger
+
+44:53.360 --> 45:01.360
+Der hier unten quasi vor der Tür steht
+
+45:01.360 --> 45:03.360
+Also am Hauseingang steht ja
+
+45:03.360 --> 45:09.360
+Wir sehen ja auch gleich schon wie gut die Empfangsstärke ist
+
+45:09.360 --> 45:15.360
+Bei Overwatch eSport, ey ich hab mir jetzt immer noch komplett unverständlich
+
+45:15.360 --> 45:20.360
+Warum 70.000 Leute Overwatch League gucken
+
+45:20.360 --> 45:25.360
+Da sind wahrscheinlich mehr Leute als Overwatch im ranked online hat
+
+45:25.360 --> 45:28.360
+Insgesamt
+
+45:28.360 --> 45:30.360
+Im Monat
+
+45:30.360 --> 45:35.360
+Also, Unic Players
+
+45:35.360 --> 45:37.360
+Als Bots
+
+45:37.360 --> 45:39.360
+Okay, ähm
+
+45:39.360 --> 45:42.360
+So jetzt muss wir uns mal von der Library angucken
+
+45:42.360 --> 45:45.360
+Ah da haben wir doch die Lora, das haben wir doch schon
+
+45:45.360 --> 45:48.360
+Genau wie das funktioniert hat
+
+45:48.360 --> 45:50.360
+Examples
+
+45:50.360 --> 45:52.360
+Examples
+
+45:52.360 --> 45:54.360
+Sender
+
+45:58.360 --> 46:01.360
+Beginn, beginn, beginn, okay
+
+46:01.360 --> 46:04.360
+Das ist jetzt relativ simpel, allerdings stimmt die Frequenz nicht
+
+46:04.360 --> 46:08.360
+Wir brauchen, ähm, wir brauchen 800
+
+46:08.360 --> 46:12.360
+886, äh ne 868 Mhz
+
+46:12.360 --> 46:17.360
+868 brauchen wir
+
+46:17.360 --> 46:22.360
+Failed, und dann machen wir keine Endlosschleife, das ist total beknackt
+
+46:22.360 --> 46:25.360
+Sondern wir restarten nach einem Delay
+
+46:25.360 --> 46:28.360
+Also eine Endlosschleife einbauen, ich weiß nicht, das machen ganz viele
+
+46:28.360 --> 46:30.360
+In irgendwelchen Beispielprogrammen
+
+46:30.360 --> 46:34.360
+Das hatte den Nachteil, du siehst in der Debug Ausgabe nichts und es passiert auch nichts
+
+46:34.360 --> 46:39.360
+Obwohl das Ding in der Endlosschleife hängt
+
+46:39.360 --> 46:49.360
+Was hältst du von WSL, Windows Subsystem für Linux, ich freu mich
+
+46:49.360 --> 46:54.360
+Äh, ich weiß nicht was die Version 2 bringt, ich hoffe man kann dann auch ordentlich auf Datalsysteme und Sachen zugreifen
+
+46:54.360 --> 46:59.360
+Weil du konntest ja beispielsweise keine, ich glaub Summer Mounts gingen nicht richtig
+
+46:59.360 --> 47:03.360
+Ähm, ich persönlich bevorzuge eine Linux VM
+
+47:03.360 --> 47:06.360
+Für das Zeug, aber
+
+47:06.360 --> 47:10.360
+Für Sachen die man halt unbedingt unter Windows machen muss
+
+47:10.360 --> 47:13.360
+Ist das schon eine ganz coole Geschichte
+
+47:13.360 --> 47:16.360
+Es geht auf jeden Fall in die richtige Richtung
+
+47:16.360 --> 47:20.360
+Also seit der neue Microsoft Chef am Start ist
+
+47:20.360 --> 47:23.360
+Macht Microsoft eh viele sinnvolle Sachen
+
+47:23.360 --> 47:28.360
+Ich mein, überlegt euch mal zu Zeiten von Stühle, Werf, Ballmer
+
+47:28.360 --> 47:30.360
+Ähm
+
+47:30.360 --> 47:33.360
+Hätte man das da jemals für möglich gehalten
+
+47:33.360 --> 47:36.360
+Dass Microsoft der größte Open Source
+
+47:36.360 --> 47:37.360
+Ähm
+
+47:37.360 --> 47:40.360
+Lieferant ist das falsche Begriff für
+
+47:40.360 --> 47:44.360
+Größte Open Source Contributor, wobei das ja quasi sowas wie ein Lieferant
+
+47:44.360 --> 47:47.360
+Der, der sich am meisten an Open Source Projekten auf GitHub beteiligt
+
+47:47.360 --> 47:50.360
+Und die größten Open Source Projekte auf GitHub hat
+
+47:50.360 --> 47:53.360
+Hätte man das zu Ballmers Zeiten wirklich vermutet, das ich glaube nicht
+
+47:56.360 --> 47:57.360
+So
+
+47:57.360 --> 48:01.360
+Ok, wir müssen nochmal unsere Pins richtig verteilen
+
+48:01.360 --> 48:04.360
+Pins, also
+
+48:09.360 --> 48:12.360
+Das, das definen wir mal
+
+48:12.360 --> 48:15.360
+Was wir für, was wir für Pins brauchen
+
+48:15.360 --> 48:18.360
+Ähm, wir brauchen
+
+48:18.360 --> 48:22.360
+Reset habe ich gesagt auf 25, ne
+
+48:22.360 --> 48:25.360
+Wir haben IO
+
+48:25.360 --> 48:27.360
+Auf 2
+
+48:27.360 --> 48:30.360
+Wobei das auf 2 glaube ich ziemlich bescheuert
+
+48:30.360 --> 48:33.360
+Ist, weil
+
+48:33.360 --> 48:36.360
+Weil die LED die eingebaut ist schon auf 2 ist
+
+48:37.360 --> 48:39.360
+Naja, mal schauen
+
+48:39.360 --> 48:42.360
+So, ist auf 2
+
+48:42.360 --> 48:45.360
+Ähm, dann habe ich noch
+
+48:49.360 --> 48:51.360
+Ich glaube das wars
+
+48:51.360 --> 48:53.360
+Die Default Settings müssten für den Rest eigentlich passen
+
+48:53.360 --> 48:56.360
+So, was wir dann noch mal
+
+48:56.360 --> 48:59.360
+Anlegen können ist ähm
+
+48:59.360 --> 49:02.360
+Die Frequenz nehmen wir hier
+
+49:02.360 --> 49:05.360
+Vielleicht wollen wir die ja mal später ändern
+
+49:05.360 --> 49:08.360
+Dann brauchen wir noch die Bandbreite, da nehmen wir
+
+49:08.360 --> 49:11.360
+Ähm
+
+49:13.360 --> 49:16.360
+Bandbreite nehmen wir die hier
+
+49:16.360 --> 49:19.360
+Und das
+
+49:19.360 --> 49:22.360
+Spreading Factor nehmen wir mal 7
+
+49:22.360 --> 49:29.360
+Ok
+
+49:29.360 --> 49:32.360
+Version 2 von WSL soll
+
+49:32.360 --> 49:35.360
+Echte VM sein, ok
+
+49:35.360 --> 49:38.360
+Eine echte, eine echte Linux VM
+
+49:38.360 --> 49:41.360
+Ja, aber da kann ich mir doch auch gleich für immer Workstation mit der Linux VM nehmen, oder?
+
+49:41.360 --> 49:44.360
+Ich, äh, gut, ich meine die Vorteile von WSL
+
+49:44.360 --> 49:47.360
+Mit der Windows Integration müssten ja schon da bleiben
+
+49:47.360 --> 49:50.360
+Dafür wird Google immer unfreundlicher
+
+49:50.360 --> 49:53.360
+Open Source gegenüber
+
+49:53.360 --> 49:56.360
+Ja, Google, was mit Google los ist, verstehe ich eh nicht so genau
+
+49:56.360 --> 49:59.360
+Also, naja, was heißt verstehen, ich kann es mir schon ganz gut
+
+49:59.360 --> 50:02.360
+Schon ganz gut überlegen
+
+50:02.360 --> 50:05.360
+Aber mir geht es auf den Sack
+
+50:05.360 --> 50:08.360
+Vor allem, dass Google
+
+50:08.360 --> 50:11.360
+An vielen Stellen immer mehr nervt
+
+50:11.360 --> 50:14.360
+Das ist so ein bisschen wie Facebook
+
+50:14.360 --> 50:17.360
+Facebook ist zwar nach wie vor so das größte
+
+50:17.360 --> 50:20.360
+Social Network und sowas, was es gibt, aber ich kenne niemand
+
+50:20.360 --> 50:23.360
+Und das habe ich schon 5000 mal im Stream gesagt, auch in Videos
+
+50:23.360 --> 50:26.360
+Ich kenne niemand, der gerne Facebook verwendet
+
+50:26.360 --> 50:29.360
+Das ist sogar so schlimm, dass
+
+50:29.360 --> 50:32.360
+Jüngere Leute heutzutage sagen, Facebook ist
+
+50:32.360 --> 50:35.360
+Quasi tote Plattform für sie
+
+50:35.360 --> 50:38.360
+Was hat der, warum, was stört er sich am If
+
+50:38.360 --> 50:41.360
+Achso, hier, er denkt
+
+50:41.360 --> 50:44.360
+Das ist eine Quasi-Plattform
+
+50:44.360 --> 50:47.360
+Schon geil, oder?
+
+50:47.360 --> 50:50.360
+Und niemand benutzt
+
+50:50.360 --> 50:53.360
+Gerne Facebook
+
+50:53.360 --> 50:56.360
+So, und in diese Richtung habe ich das Gefühl, geht Google
+
+50:56.360 --> 50:59.360
+Auch langsam, es gibt keine Alternative zu YouTube
+
+50:59.360 --> 51:02.360
+Es gibt keine richtige Alternative zu Google Mail, es gibt keine richtige Alternative
+
+51:02.360 --> 51:05.360
+Zur Google Suche, wobei das stimmt nicht so ganz
+
+51:05.360 --> 51:08.360
+Ich verwende immer öfters in letzter Zeit
+
+51:08.360 --> 51:11.360
+Google Go anstatt Google, aber im Prinzip
+
+51:11.360 --> 51:14.360
+Von der Grundidee her
+
+51:14.360 --> 51:17.360
+Es gibt da wenig Alternativen zu
+
+51:17.360 --> 51:20.360
+Zu den großen Google Produkten und Google
+
+51:20.360 --> 51:23.360
+Hat ja in letzter Zeit auch ein paar Sachen wieder gerissen
+
+51:23.360 --> 51:26.360
+Ich weiß nicht, ob euch diese Nest-Thermostate
+
+51:26.360 --> 51:29.360
+Was sagen
+
+51:29.360 --> 51:32.360
+Die Dinger hier
+
+51:32.360 --> 51:35.360
+Also ich habe keins, ich habe mich damals dagegen entschieden
+
+51:35.360 --> 51:38.360
+Zu verwenden, nämlich, weil es von Google ist
+
+51:38.360 --> 51:41.360
+Und mir von Anfang an klar war, sobald Google
+
+51:41.360 --> 51:44.360
+Kein Bock mehr auf den Scheiß hat
+
+51:44.360 --> 51:47.360
+Bist du weg vom Fenster
+
+51:47.360 --> 51:50.360
+Und dreimal dürft ihr raten, Chat, was meint ihr
+
+51:50.360 --> 51:53.360
+Was ist vor ungefähr zwei Monaten passiert
+
+51:56.360 --> 51:59.360
+Mit Nest
+
+51:59.360 --> 52:02.360
+Nest-Thermostaten
+
+52:02.360 --> 52:05.360
+Ich war nicht weg vom Fenster, ich habe ja keins
+
+52:05.360 --> 52:08.360
+Software-Support eingestellt, ja so ungefähr
+
+52:08.360 --> 52:11.360
+Google hat gesagt, also man konnte diese Nest-Dinger
+
+52:11.360 --> 52:14.360
+Über eine
+
+52:14.360 --> 52:17.360
+Api, das war so eine Hybrid-Geschichte
+
+52:17.360 --> 52:20.360
+Das lief zwar alles bei denen, allerdings
+
+52:20.360 --> 52:23.360
+Konntest du es trotzdem in eigene Software und in eigene
+
+52:23.360 --> 52:26.360
+Heimautomatik sehr gut einbinden, weil es eine
+
+52:26.360 --> 52:29.360
+Weil es eine eigene Api hat zum ansprechen
+
+52:29.360 --> 52:32.360
+Es war natürlich schon teilweise affig
+
+52:32.360 --> 52:35.360
+Ich habe es gelesen, dass Leute gesagt haben
+
+52:35.360 --> 52:38.360
+Mein Nest-Thermostat geht nicht, es ist minus 20 Grad draußen
+
+52:38.360 --> 52:41.360
+Und meine Heizung heizt nicht
+
+52:41.360 --> 52:44.360
+Weil mein Thermostat keine Verbindung zur Cloud hat
+
+52:44.360 --> 52:47.360
+So und
+
+52:47.360 --> 52:50.360
+Vor zwei Monaten hat Google gesagt
+
+52:50.360 --> 52:53.360
+Fickt euch, wir stellen die Nest-Api ein
+
+52:53.360 --> 52:56.360
+Und jetzt geht Nest nur noch über Google Assistant
+
+52:56.360 --> 52:59.360
+Die Freude, die Freude bei den Leuten war natürlich
+
+52:59.360 --> 53:02.360
+Wieder riesengroß
+
+53:02.360 --> 53:05.360
+Jetzt haben sich im Prinzip alle darüber aufgeregt, dass sie damals Nest gekauft haben
+
+53:05.360 --> 53:08.360
+Und ich habe mir
+
+53:08.360 --> 53:11.360
+Damals schon gedacht, den Scheiß holst du dir nicht
+
+53:11.360 --> 53:14.360
+Bei mir läuft das anders
+
+53:14.360 --> 53:17.360
+Ich habe einen Raspberry Pi Zero
+
+53:17.360 --> 53:20.360
+Mit, also unten an meiner
+
+53:20.360 --> 53:23.360
+Heizung, da kann ich auslesen und theoretisch auch
+
+53:23.360 --> 53:26.360
+Einfach drüber schalten
+
+53:26.360 --> 53:29.360
+Den Betriebsmodus und sowas
+
+53:29.360 --> 53:32.360
+Und ich habe an manchen Heizungen, wo es drauf ankommt
+
+53:32.360 --> 53:35.360
+Den C-Wave-Thermostat direkt am Heizkörper dran
+
+53:35.360 --> 53:38.360
+Anstatt zu einem Drehding
+
+53:38.360 --> 53:41.360
+Ich habe damals schon so genau die Daseinsberechtigung
+
+53:41.360 --> 53:44.360
+Von Nest-Thermostaten nicht verstanden
+
+53:44.360 --> 53:47.360
+Aber Google hat jetzt einfach mal alle, die Nest verwendet haben
+
+53:47.360 --> 53:50.360
+Auf herkömmliche Art und Weise instant
+
+53:50.360 --> 53:53.360
+Die haben einfach gesagt
+
+53:53.360 --> 53:56.360
+Nö Leute, Nest-RP
+
+53:56.360 --> 53:59.360
+Wer braucht schon die Nest-RP
+
+53:59.360 --> 54:02.360
+Tja
+
+54:02.360 --> 54:05.360
+Das ist auch schon geil
+
+54:05.360 --> 54:08.360
+Wie sich das anhört
+
+54:08.360 --> 54:11.360
+Google stellt Works with Nest ein
+
+54:11.360 --> 54:14.360
+Also sprich, dieses Produkt hieß ursprünglich
+
+54:14.360 --> 54:17.360
+Works with Nest
+
+54:17.360 --> 54:20.360
+Und jetzt stellen sie die Works with Nest-RP ein
+
+54:20.360 --> 54:23.360
+Also jetzt müsste das Ding eigentlich heißen
+
+54:23.360 --> 54:26.360
+Doesn't work with Nest oder sowas
+
+54:26.360 --> 54:29.360
+Der Name ist schon wieder hängen geblieben
+
+54:32.360 --> 54:35.360
+Das stimmt schon
+
+54:38.360 --> 54:41.360
+Google hat auch ein paar gescheite Sachen
+
+54:41.360 --> 54:44.360
+Chrome ist wirklich nicht übel, kann man nicht sagen
+
+54:44.360 --> 54:47.360
+Aber in manchen Sachen sind sie einfach nervig geworden
+
+54:47.360 --> 54:50.360
+Link zum Streamerschiff
+
+54:50.360 --> 54:53.360
+Wubblowers.tv
+
+54:53.360 --> 54:56.360
+Oder maxfps.tv geht auch
+
+54:56.360 --> 54:59.360
+In manchen Bereichen
+
+54:59.360 --> 55:02.360
+Ist einfach nervig geworden
+
+55:02.360 --> 55:05.360
+Es ist ja nicht so, als wären die anderen besser
+
+55:05.360 --> 55:08.360
+Auf YouTube gibt es neuesten Doppelwerbung
+
+55:08.360 --> 55:11.360
+Vor den Videos und auf Twitch gibt es
+
+55:11.360 --> 55:14.360
+Amazon gibt es
+
+55:14.360 --> 55:17.360
+Auch bei jeder Video-Switch-Werbung
+
+55:17.360 --> 55:20.360
+Alle drehen sie durch
+
+55:20.360 --> 55:23.360
+Deswegen ist es doppelt wichtig
+
+55:23.360 --> 55:26.360
+Dass man
+
+55:26.360 --> 55:29.360
+Wenn man Smart-Home-Geschichten macht
+
+55:29.360 --> 55:32.360
+Sich Zeug kauft, was offen ist
+
+55:32.360 --> 55:35.360
+Oder was man mit Open Source betreiben kann
+
+55:35.360 --> 55:38.360
+Dass man flashen kann
+
+55:38.360 --> 55:41.360
+Dann hat man die Probleme
+
+55:41.360 --> 55:44.360
+Nämlich alle nicht
+
+55:44.360 --> 55:47.360
+Okay
+
+55:47.360 --> 55:50.360
+Reset
+
+55:50.360 --> 55:53.360
+Das wollen wir setzen
+
+55:53.360 --> 55:56.360
+Und das wollen wir auf zwei
+
+55:56.360 --> 55:59.360
+Wobei das ist schon auf zwei gesetzt
+
+55:59.360 --> 56:02.360
+Aber das andere müssen wir setzen
+
+56:02.360 --> 56:05.360
+Starting failed
+
+56:05.360 --> 56:08.360
+Gucken wir mal, ob ich richtig verkabelt habe
+
+56:08.360 --> 56:11.360
+Gucken wir mal, ob ich richtig verkabelt habe
+
+56:11.360 --> 56:14.360
+Ach so, wenn ich richtig verkabelt habe, sehe ich überhaupt nichts
+
+56:14.360 --> 56:17.360
+Das ist natürlich eine sehr clevere Entscheidung gewesen
+
+56:17.360 --> 56:20.360
+Print
+
+56:20.360 --> 56:23.360
+In it
+
+56:23.360 --> 56:26.360
+Also sprich, wenn es abkackt, restart
+
+56:26.360 --> 56:29.360
+Ansonsten, wenn es hier weiter kommt, ist es okay
+
+56:29.360 --> 56:32.360
+Okay
+
+56:32.360 --> 56:35.360
+Okay, anscheinend habe ich
+
+56:35.360 --> 56:38.360
+Den Krempel schon mal richtig verkabelt
+
+56:38.360 --> 56:41.360
+Das ist doch schon mal
+
+56:41.360 --> 56:44.360
+Nicht schlecht
+
+56:44.360 --> 56:47.360
+Also er erkennt das Modul
+
+56:47.360 --> 56:50.360
+Und wie gesagt, man konnte da ein bisschen was kaputt machen
+
+56:50.360 --> 56:53.360
+Oder man konnte sich da ein bisschen vertun
+
+56:53.360 --> 56:56.360
+Weil das ist dann wirklich das nackte Modul
+
+56:56.360 --> 56:59.360
+Ungefähr so groß ist wie ein Daumennagel
+
+56:59.360 --> 57:02.360
+Was auch nicht den normalen Pin-Abstand hat
+
+57:02.360 --> 57:05.360
+Sondern viel kleiner
+
+57:05.360 --> 57:08.360
+Deswegen musste ich so machen
+
+57:08.360 --> 57:11.360
+Pin oben, Pin unten, Pin oben, Pin unten, Pin oben
+
+57:11.360 --> 57:14.360
+Pin unten, dass die Kabel überhaupt ranpassen
+
+57:14.360 --> 57:17.360
+Pin unten, dass die Kabel überhaupt ranpassen
+
+57:17.360 --> 57:20.360
+Das Problem an Twitch ist, es gibt keine Alternative
+
+57:20.360 --> 57:23.360
+Ist bei Youtube doch im Prinzip genauso
+
+57:23.360 --> 57:26.360
+Ist bei Google Mail im Prinzip ähnlich
+
+57:26.360 --> 57:29.360
+Ist bei Youtube ähnlich, ist bei Twitch ähnlich, ist bei Amazon ähnlich
+
+57:29.360 --> 57:32.360
+Das ist halt das Problem, wenn es halt nur
+
+57:32.360 --> 57:35.360
+In einem Bereich eine Sache gibt
+
+57:35.360 --> 57:38.360
+Ich meine, es hat auch Vorteile
+
+57:38.360 --> 57:41.360
+Ich meine, letztendlich kannst du dich als Content Creator auf Youtube sicher fühlen
+
+57:41.360 --> 57:44.360
+Sofern man
+
+57:44.360 --> 57:47.360
+Youtube da
+
+57:47.360 --> 57:50.360
+Für sicher hält
+
+57:50.360 --> 57:53.360
+Youtube passt schon
+
+57:53.360 --> 57:56.360
+Aber es ist halt die einzige Plattform, das heißt ich muss mich umsonst nichts kümmern
+
+57:56.360 --> 57:59.360
+Also ich muss nicht auf 20 Plattformen aktiv sein
+
+57:59.360 --> 58:02.360
+Oder auch nicht auf 2 oder auf 3, sonst kann ich mich ganz auf eine Plattform konzentrieren
+
+58:02.360 --> 58:05.360
+Aber es ist halt ein bisschen doof
+
+58:05.360 --> 58:08.360
+Wenn es halt nur diese eine Plattform gibt
+
+58:08.360 --> 58:11.360
+Für Zuschauer im Endeffekt
+
+58:11.360 --> 58:14.360
+Wenn beispielsweise Youtube
+
+58:14.360 --> 58:17.360
+Algorithmus der Meinung ist, du willst jetzt nur einen Haftbefehl gucken
+
+58:17.360 --> 58:20.360
+Und wenn du dann auch nur ein Video anklickst
+
+58:20.360 --> 58:23.360
+Weil du dir denkst, ey was ist das eigentlich für ein Mistwasch empfohlen kriege
+
+58:23.360 --> 58:26.360
+Bäm, nächstes Video Haftbefehl
+
+58:26.360 --> 58:29.360
+Goethe Straße, Louis Vuitton Store
+
+58:29.360 --> 58:32.360
+Zahl die Kollektion bar, fick auf Sponsor
+
+58:32.360 --> 58:35.360
+Musste dir da die ganze Zeit anhören
+
+58:35.360 --> 58:38.360
+Ja und dann hast du Pech, wenn der Youtube Algorithmus meint
+
+58:38.360 --> 58:41.360
+Du willst das sehen, dann musst du das sehen
+
+58:41.360 --> 58:44.360
+Allerdings, wenn du ein paar andere Sachen sehen willst
+
+58:44.360 --> 58:47.360
+Die die App nicht empfehlen, hast du auch wieder Pech
+
+58:47.360 --> 58:50.360
+Und das sind nur die Sachen, die quasi die Logik dahinter
+
+58:50.360 --> 58:53.360
+Macht, was einem auf den Keks geht
+
+58:53.360 --> 58:56.360
+Die Apps sind absolute Zumutung von Youtube
+
+58:59.360 --> 59:02.360
+Max kennt sich ja aus mit dem Contentcreate auf Youtube
+
+59:02.360 --> 59:05.360
+Ey es hat immer nur 280.000 Abos gereicht
+
+59:05.360 --> 59:08.360
+Vor paar Jahren
+
+59:08.360 --> 59:11.360
+Ansonsten, in letzter Zeit mache ich das so wenig
+
+59:11.360 --> 59:14.360
+Ich bin doch nicht mal stinkig, dass ich nur noch De-Abos kriege
+
+59:14.360 --> 59:17.360
+Weil ich kriege ja keine, keine Dis-Abos
+
+59:17.360 --> 59:20.360
+Nennen wir es mal, wo die Leute sagen, oh der Spaß, den deaboniere ich
+
+59:20.360 --> 59:23.360
+Weil ich kriege einfach diese Standard Flow
+
+59:23.360 --> 59:26.360
+Aus De-Abos, die man kriegt
+
+59:26.360 --> 59:29.360
+Aus inaktiven Accounts, aus geschlossenen Accounts
+
+59:29.360 --> 59:32.360
+Aus Youtube deabonniert Leute
+
+59:32.360 --> 59:35.360
+Und ja, mit Sicherheit wird auch der eine oder andere sagen, ey der Max
+
+59:35.360 --> 59:38.360
+Der ist ein Spaß, der lädt nichts hoch
+
+59:38.360 --> 59:41.360
+Und das abboh ich jetzt
+
+59:41.360 --> 59:44.360
+Ich unterteile die Abos immer in Dis-Abos und De-Abos
+
+59:44.360 --> 59:47.360
+De-Abos sind quasi so die
+
+59:47.360 --> 59:50.360
+Sachen, wo du nichts dagegen machen kannst
+
+59:50.360 --> 59:53.360
+Und Dis-Abos sind quasi die Leute, die sagen
+
+59:53.360 --> 59:56.360
+Das will ich immer, die aktiv sagen, das will ich immer gucken
+
+59:56.360 --> 59:59.360
+Gegen Dis-Abos kann man im Prinzip was machen
+
+59:59.360 --> 01:00:02.360
+Gegen De-Abos nicht so wirklich
+
+01:00:02.360 --> 01:00:05.360
+Achja, und
+
+01:00:05.360 --> 01:00:08.360
+Was mich auch auf Youtube halt nervt, das habe ich gestern schon gesagt
+
+01:00:08.360 --> 01:00:11.360
+Dass es mittlerweile Doppelpack-Videos gibt und sowas
+
+01:00:18.360 --> 01:00:21.360
+Haftbefehl macht Werbung
+
+01:00:21.360 --> 01:00:24.360
+Für eine Zahnpleaching-Firma
+
+01:00:24.360 --> 01:00:27.360
+Was?
+
+01:00:27.360 --> 01:00:30.360
+Weil, warum? Ja gut, weil
+
+01:00:30.360 --> 01:00:33.360
+Haftbefehl, das kann ja machen, was er will
+
+01:00:36.360 --> 01:00:39.360
+So, wir wollten übrigens, wir wollten Daten übertragen
+
+01:00:39.360 --> 01:00:42.360
+Anstatt rumlabern
+
+01:00:42.360 --> 01:00:45.360
+Ok, also wir haben unser LoRa-Modul initialisiert
+
+01:00:45.360 --> 01:00:48.360
+Jetzt können wir mal eine Nachricht schicken
+
+01:00:48.360 --> 01:00:51.360
+Closed Session by inactivity
+
+01:00:54.360 --> 01:00:57.360
+Ok, mein LoRa-Empfänger empfängt noch nichts
+
+01:00:57.360 --> 01:01:00.360
+Dann können wir jetzt gleich mal ändern
+
+01:01:03.360 --> 01:01:06.360
+Also wir erstellen ein LoRa-Package
+
+01:01:08.360 --> 01:01:11.360
+Und da schreiben wir rein
+
+01:01:12.360 --> 01:01:15.360
+Keine Ahnung, was schreiben wir da rein
+
+01:01:15.360 --> 01:01:18.360
+Und KS
+
+01:01:18.360 --> 01:01:21.360
+Und dann senden wir das Packet
+
+01:01:21.360 --> 01:01:24.360
+Noch ein bisschen Debug-Ausgabe
+
+01:01:28.360 --> 01:01:31.360
+Noch ein bisschen Debug-Ausgabe
+
+01:01:31.360 --> 01:01:34.360
+So dass wir einfach wissen, dass es funktioniert
+
+01:01:34.360 --> 01:01:37.360
+Und jetzt gucken wir mal, ob was ankommt
+
+01:01:37.360 --> 01:01:40.360
+Ich bin da recht zuversichtlich, weil das Modul erkennt er
+
+01:01:40.360 --> 01:01:43.360
+Das heißt, das sollte passen
+
+01:01:43.360 --> 01:01:46.360
+Oh, Leute, ist keine so gute Idee
+
+01:01:46.360 --> 01:01:49.360
+Ich habe kein Delay drinnen
+
+01:01:49.360 --> 01:01:52.360
+Aber ich empfange was
+
+01:01:56.360 --> 01:01:59.360
+Ich empfange was
+
+01:01:59.360 --> 01:02:02.360
+Und zwar MonkaS empfange ich
+
+01:02:02.360 --> 01:02:05.360
+Also Datenübertragung funktioniert
+
+01:02:05.360 --> 01:02:08.360
+Ich sollte hier unbedingt mal ein Delay reinmachen
+
+01:02:08.360 --> 01:02:11.360
+Weil ich haue hier gerade im Millisekunden-Takt
+
+01:02:11.360 --> 01:02:14.360
+Funkmessages raus, das muss nicht unbedingt sein
+
+01:02:14.360 --> 01:02:17.360
+MonkaS
+
+01:02:17.360 --> 01:02:20.360
+MonkaS
+
+01:02:21.360 --> 01:02:24.360
+Dazu kann ich nur sagen
+
+01:02:24.360 --> 01:02:27.360
+Wo ist es?
+
+01:02:27.360 --> 01:02:30.360
+MonkaS
+
+01:02:30.360 --> 01:02:33.360
+MonkaS
+
+01:02:33.360 --> 01:02:36.360
+Oh
+
+01:02:36.360 --> 01:02:39.360
+Oh my god
+
+01:02:39.360 --> 01:02:42.360
+Warum habe ich diese ganzen Mist-Sounds eigentlich noch drinnen?
+
+01:02:42.360 --> 01:02:45.360
+So, gucken wir nochmal
+
+01:02:48.360 --> 01:02:51.360
+Der Delay ist die Übertragungsrate
+
+01:02:54.360 --> 01:02:57.360
+Ist mein USB-Port gerade verreckt, oder was?
+
+01:02:57.360 --> 01:03:00.360
+Ich glaube, ich muss noch mal einstöpseln
+
+01:03:00.360 --> 01:03:09.360
+Diddle diddle diddle
+
+01:03:31.360 --> 01:03:34.360
+Inchibated Zone
+
+01:03:34.360 --> 01:03:37.360
+Den habe ich noch nicht drinne
+
+01:03:37.360 --> 01:03:39.360
+Okay
+
+01:03:39.360 --> 01:03:42.360
+Ja, aber das funktioniert, also die Datenübertragung funktioniert
+
+01:03:42.360 --> 01:03:45.360
+Wir haben eigentlich auch einen ganz passablen Empfang
+
+01:03:45.360 --> 01:03:48.360
+Aber wir haben auch eine ganz passablen Empfang
+
+01:03:48.360 --> 01:03:51.360
+Wir haben eigentlich auch eine ganz passablen Empfang
+
+01:03:51.360 --> 01:03:54.360
+Die Datenübertragungsrate
+
+01:03:54.360 --> 01:03:57.360
+Jetzt muss ich mal einen Modus machen
+
+01:03:57.360 --> 01:04:02.340
+auch ein ganz passablen empfangen wenn man sich überlegt das ganze geht jetzt durch
+
+01:04:02.340 --> 01:04:14.420
+drei wende durch das interessante ist eigentlich hier das da das ist signal zu rauschen also
+
+01:04:14.420 --> 01:04:24.540
+signal noise ratio die ist mit 9,25 eigentlich relativ gut aber gut ich mein das ding soll
+
+01:04:24.540 --> 01:04:28.960
+in wirklichkeit 1,5 kilometer überbrücken und jetzt steht es bei mir an der haustür
+
+01:04:28.960 --> 01:04:34.200
+das sind zwar nur ein paar wende aber es werden auf jeden fall noch erheblich mehr wende werden
+
+01:04:34.200 --> 01:04:46.800
+gibt es eigentlich eine ms wobblos nie gibt es nicht hat ja an weihnachten mal ein bisschen
+
+01:04:46.800 --> 01:04:57.920
+ein bisschen erzählt da ist da ist nix weiter weiter draus geworden aus der geschichte der
+
+01:04:57.920 --> 01:05:19.760
+eine oder andere kann sich vielleicht noch erinnern so ok die datenübertragung funktioniert
+
+01:05:19.760 --> 01:05:23.680
+das doch schon mal ganz gut ich sehe schon wir haben 21.15 ich muss spätestens 22.00
+
+01:05:23.680 --> 01:05:29.280
+spenden weil ich muss morgen wieder aufstehen aber wisst ihr was gut ist ich habe ich muss
+
+01:05:29.280 --> 01:05:38.480
+morgen arbeiten und am mittwoch ist feiertag freitag habe ich urlaub das heißt ich bin
+
+01:05:38.480 --> 01:05:48.100
+dann donnerstag freitag samstag sonntag montag am start und wenn ich bock hab auf gestreme
+
+01:05:48.100 --> 01:05:56.080
+wird gestreamt und bei mir ist ja meistens ein gutes zeichen wenn ich zwei tage in folge
+
+01:05:56.080 --> 01:06:01.440
+geschafft habe zu streamen ist es meistens auch stehen die chancen ganz gut dass ich
+
+01:06:01.440 --> 01:06:13.480
+auch die nächsten tage schaffe zu streben 6 9 stunden streben das kriege ich nicht mal
+
+01:06:13.480 --> 01:06:19.080
+hin ok also datenübertragung funktioniert das ist eigentlich ziemlich simpel muss man
+
+01:06:19.080 --> 01:06:27.000
+doch mal sagen oder achso vielleicht sollten wir jetzt noch mal ausgeben ich habe eine
+
+01:06:27.000 --> 01:06:31.680
+idee wir gucken wir machen mal einen counter wir verschicken mal nicht laufen monkaS wir
+
+01:06:31.680 --> 01:06:42.520
+machen mal einen counter den wir hochzählen in jeder in jeder message dann sehen wir nämlich
+
+01:06:42.520 --> 01:06:55.640
+auch schöner ob das ob das ganze funktioniert ne wir machen das anders wir machen sending
+
+01:06:55.640 --> 01:07:09.760
+dann sagen wir print line oder print und dann schreiben wir was wir senden dann sagen
+
+01:07:09.760 --> 01:07:21.280
+wir ok mal gucken ob es jetzt funktioniert donnerstag freitag monkaX es haben nicht alle
+
+01:07:21.280 --> 01:07:27.120
+es haben nicht alle feiertag ok sending ein guck mal ob es ankommt ja guckt hier der counter
+
+01:07:27.120 --> 01:07:37.680
+kommt hier an 1 2 3 4 5 und der empfang ist eigentlich ganz ok also laura skaliert halt
+
+01:07:37.680 --> 01:07:45.880
+auch extrem damit was man hier einstellt wenn man hier 12 einstellt ohne niedrigere bandbreite
+
+01:07:45.880 --> 01:07:50.840
+ist das viel langsamer beim übertragen also viel viel viel viel viel langsamer so kein
+
+01:07:50.840 --> 01:08:01.360
+ahnung ein byte alle 5 sekunden aber es geht halt es geht halt kilometerweit planst du das
+
+01:08:01.360 --> 01:08:07.920
+ttn für laura zu nutzen ja habe ich vor ich will mir aber dazu will ich mir erstmal ordentlich
+
+01:08:07.920 --> 01:08:14.640
+antenne holen ich will mir ein gateway unter das dach machen oder ans dach je nachdem weil
+
+01:08:14.640 --> 01:08:22.240
+bei uns in in der hier in in der ecke gibt es kein kein laura zugang kein laura kein
+
+01:08:22.240 --> 01:08:26.800
+ttn zugang und diesen gateway können wir im endeffekt alle benutzen dann und für mich
+
+01:08:26.800 --> 01:08:30.400
+ist auch nicht schlecht weil wenn ich das da quasi aufs dach mal habe ich da noch deutlich
+
+01:08:30.400 --> 01:08:38.840
+besseren empfang weil es ist wie bei allen funkgeschichten höhe von von von sender beziehungsweise
+
+01:08:38.840 --> 01:08:45.200
+empfänger macht unglaublich viel aus was ist für ein dach für einen feiertag pockers
+
+01:08:45.200 --> 01:08:52.320
+tag genau ich habe keine ahnung irgendwas christliches wie fast alle feiertage die wir
+
+01:08:52.320 --> 01:09:02.720
+haben den christlichen irgendwas wohndeichnam ok ich habe keine ahnung ehrlich gesagt ich
+
+01:09:02.720 --> 01:09:03.720
+war seit
+
+01:09:03.720 --> 01:09:11.920
+ich bin jetzt 34 ich war seit
+
+01:09:11.920 --> 01:09:19.480
+25 jahre in der kirche oder so ich habe auch nicht vor wieder hinzugehen
+
+01:09:19.480 --> 01:09:27.560
+war eigentlich nur in der kirche wo ich dings kommunionunterricht hatte das hat man damals
+
+01:09:27.560 --> 01:09:30.200
+so noch gemacht wenn die eltern ein bisschen gläubig waren
+
+01:09:30.200 --> 01:09:38.000
+bin ich damals hin damals haben wir unsere betreuerin übelst geschockt die ist die ist
+
+01:09:38.000 --> 01:09:44.160
+zusammengebrochen am ende also jetzt wirklich das bild kann man sich das vor vorstellen
+
+01:09:44.160 --> 01:09:48.440
+nach der ersten quasi unterrichtstunde ist die zusammengebrochen und es musste eine andere
+
+01:09:48.440 --> 01:09:55.800
+machen die das war zu viel das war zu viel die gruppe aus aus top wie viel waren wir
+
+01:09:55.800 --> 01:10:02.480
+irgendwie acht leute oder so in dieser unterrichtsgruppe und für uns war das halt im prinzip zwei
+
+01:10:02.480 --> 01:10:07.120
+stunden am stück scheiße machen aber das hat die nicht verkraftet da kann ich mich
+
+01:10:07.120 --> 01:10:20.000
+noch dran erinnern die war fertig mit den nerven danach
+
+01:10:20.000 --> 01:10:25.440
+so ok also unser counter counted wunderbar und verschickt über laura daten und es kommt
+
+01:10:25.440 --> 01:10:31.480
+an mit ganz passablen empfang
+
+01:10:31.480 --> 01:10:37.680
+du warst wohl nicht zufällig in meiner kroppe nee wahrscheinlich nicht ich kann mich kann
+
+01:10:37.680 --> 01:10:52.320
+mich an keinen florian erinnern den wir in der kroppe hatten
+
+01:10:52.320 --> 01:10:57.160
+das aber schon ewig her seitdem bin ich da nie wieder hin ich bin ja da eh nur hin weil
+
+01:10:57.160 --> 01:11:04.640
+es geld gegeben hat also der einzige ich mein freiwillig warum sollte man freiwillig kommunionsunterricht
+
+01:11:04.640 --> 01:11:08.800
+oder warum sollte man freiwillig dahin gehen ich habe das damals einzig und allein hatte
+
+01:11:08.800 --> 01:11:18.400
+das monetäre gründe und fast jeden den ich kenne sagt er ist dahin wegen der kohle genauso
+
+01:11:18.400 --> 01:11:27.760
+wie der flow 96 ich habe was ich habe mir von dem firmungsgeld damals ein ipad gekauft
+
+01:11:27.760 --> 01:11:33.960
+nur gut ich weiß gar nicht was ich mir davon gekauft habe also ich habe ich habe über
+
+01:11:33.960 --> 01:11:39.240
+1000 mark gekriegt und das ist in dem alter ist das für ein unglaublich viel geld
+
+01:11:39.240 --> 01:11:52.960
+heute kauft man sich für 3000 ein klo euro ist eigentlich übelst wie soll man wie soll
+
+01:11:52.960 --> 01:12:09.280
+man es nennen übelst abgehoben oder sich für 3000 euro den klo zu kaufen die stempeln
+
+01:12:09.280 --> 01:12:27.880
+mussten wir nicht pavillion werden ok aber aus dem verstehen geblieben ein bisschen abgeschriffen
+
+01:12:27.880 --> 01:12:32.400
+ja wir haben unsere laura datenübertragung gecheckt was wir uns also to do für die nächsten
+
+01:12:32.400 --> 01:12:36.600
+streben ist ich mache ich mache noch nicht aus was wir uns mal angucken müssen ist wie
+
+01:12:36.600 --> 01:12:42.240
+man es verschlüsseln kann weil ich will das ganze natürlich verschlüsseln wenn ich irgendwann
+
+01:12:42.240 --> 01:12:46.800
+mal tnn verwende ist kein ding dann ist das auch alles selbst so ich muss mal gucken wie
+
+01:12:46.800 --> 01:12:54.760
+man sp 32 wie man weil das ding hat ein hartes hat hardware hardware is einer drauf mit der
+
+01:12:54.760 --> 01:13:00.160
+man sachen verschlüsseln kann und auch wenn ich nur meine sensorwerte übertrage vielleicht
+
+01:13:00.160 --> 01:13:09.280
+will ich sie ja trotzdem verschlüsseln warum is und kein rsa weil ich einfach auf beiden
+
+01:13:09.280 --> 01:13:17.480
+seiten den schlüssel hinterlege und gut ist prüf sum machen wir auch prüf sum sind glaube
+
+01:13:17.480 --> 01:13:24.560
+ich super simpel allerdings müsste ich die glaube ich auf client und auf sende einschalten
+
+01:13:24.560 --> 01:13:30.880
+achja genau wir müssen noch ein paar optionen setzen also die die bandbreite müssen wir
+
+01:13:30.880 --> 01:13:38.160
+erst mal die bandbreite müssen wir erst mal setzen das ist jetzt aktuell die fault bandbreite
+
+01:13:38.160 --> 01:13:42.840
+müssen wir setzen wir müssen die oft ich mich schon verschrieben hat weil der du da ein
+
+01:13:42.840 --> 01:13:50.560
+großes r drin hat wir müssen den sprenning factor setzen das ist wie lang jedes einzelne
+
+01:13:50.560 --> 01:14:03.080
+mit übertragen wird und wir setzen mal die leistung beim senden hoch und zwar auf 20
+
+01:14:03.080 --> 01:14:14.480
+bamm da gucken wir mal ob unsere werte noch ein bisschen besser noch besser werden läuft
+
+01:14:14.480 --> 01:14:20.680
+eigentlich wolf ssl auf dem esp ich habe keine ahnung was wolf ssl ist ne die werte erinnern
+
+01:14:20.680 --> 01:14:40.080
+sich erinnern sich in null was was ist wolf ssl ist das ein fork von open ssl ne wird
+
+01:14:40.080 --> 01:14:47.000
+wahrscheinlich auf dem esp nicht laufen man braucht aber auch gar keine keine ssl library
+
+01:14:47.000 --> 01:15:00.520
+oder sowas ne extra ne weil es ist schon eine dabei so und so könnte man eigentlich hiermit
+
+01:15:00.520 --> 01:15:06.000
+könnte eigentlich was verschlüsseln und das ist auch ein open source projekt auf github
+
+01:15:06.000 --> 01:15:11.680
+also es ist gar nicht mal so dass man keine ahnung hat was das was wie das wie das funktioniert
+
+01:15:11.680 --> 01:15:17.400
+oder man könnte nachgucken wenn man da sache nicht traut ja hiermit habe ich aber noch nie
+
+01:15:17.400 --> 01:15:25.440
+gemacht muss man das nächste mal angucken maximale sendeleistung ja wohl mehr als 20
+
+01:15:25.440 --> 01:15:31.760
+geht leider nicht aber allerdings man sieht auch das hat jetzt nicht allzu viel gebracht
+
+01:15:31.760 --> 01:15:48.320
+die ssnr sind ticken besser geworden aber die war vorher schon ziemlich gut
+
+01:15:48.320 --> 01:15:52.720
+ach ja ich wollte noch den batterieverbrauch abfragen da habe ich nämlich was schönes
+
+01:15:52.720 --> 01:15:59.600
+gefunden das probieren wir jetzt einmal aus es gibt also der esp also die kleine variante
+
+01:15:59.600 --> 01:16:04.520
+von dem controller den ich verwende da ist es ziemlich einfach die betriebsspannung
+
+01:16:04.520 --> 01:16:12.560
+quasi abzufragen einfach esp get vcc das gibt es allerdings beim esp 32 nicht hat sich
+
+01:16:12.560 --> 01:16:17.560
+der hersteller nämlich gedacht ja das ist das ist ja total unnütz warum möchte irgendjemand
+
+01:16:17.560 --> 01:16:22.920
+die spannung abfragen also man hat jetzt bloß die möglichkeit man kann ein kabel nehmen
+
+01:16:22.920 --> 01:16:31.160
+man nimmt einfach einen kabel von 3,3 volt auf den adc und guckt einfach wie viel reinkommt
+
+01:16:31.160 --> 01:16:39.240
+dann brauchen wir ein extra kabel oder man nimmt habe ich nämlich vorhin gefunden eine
+
+01:16:39.240 --> 01:16:51.720
+undokumentierte funktion und dann gucken wir mal ob der kram funktioniert
+
+01:16:51.720 --> 01:17:11.040
+warum sollte das nicht gehen
+
+01:17:11.040 --> 01:17:15.000
+weil die referenzspannung gleich zellspannung gleich analoge eingang ist also immer maximal
+
+01:17:15.000 --> 01:17:38.320
+3,3 volt da stehen zwar am pin dran aber da wird nix großartig rum geregelt also sprich
+
+01:17:38.320 --> 01:17:43.080
+wenn das wenn das irgendwie runter fällt irgendwann mal auf 2,7 kurz bevor er ausgeht müsste ich
+
+01:17:43.080 --> 01:17:52.840
+eigentlich am 3,3 volt pin müsste ich 2,7 haben aber muss ich ehrlich sagen ich kenne
+
+01:17:52.840 --> 01:18:03.680
+mich damit nicht ganz ganz so gut aus undokumentierte funktion ja wie ging das denn jetzt nochmal
+
+01:18:03.680 --> 01:18:14.680
+hier ich kann mich noch daran erinnern das habe ich vorhin nämlich gefunden irgendwas
+
+01:18:14.680 --> 01:18:23.000
+mit vdd 33 hieß das und dann irgendwas mit mit puss oder so ich habe es auf reddit gefunden
+
+01:18:23.000 --> 01:18:30.160
+gucken wir doch mal nach ich gucke jetzt einfach mal schnell meine history dann finde ich das
+
+01:18:30.160 --> 01:18:47.840
+wieder ist ja schön wenn man sich den kram alles speichert hier ich habe es und undokumentierte
+
+01:18:47.840 --> 01:19:07.440
+funktion vom von in der firme ja herzlichen glückwunsch jenky wer fällt mir dazu jetzt
+
+01:19:07.440 --> 01:19:27.160
+auch nicht ein aber mist ein adc nicht zur referenz also wenn du 7,2 volt als versorgen
+
+01:19:27.160 --> 01:19:36.400
+hast ja wahrscheinlich klingt furchtbar logisch was du sagst schuss 19 irgendeine referenz
+
+01:19:36.400 --> 01:19:48.520
+brauchste ja aber ich habe einen pin das steht a ref dran vielleicht ist das die referenz
+
+01:19:48.520 --> 01:19:59.720
+spannung die man verwenden kann ich weiß es ehrlich gesagt nicht keine ahnung wir gucken
+
+01:19:59.720 --> 01:20:07.040
+erst mal was was das hier was hier rompü get vd 33 was was das was das sagt ok machen wir
+
+01:20:07.040 --> 01:20:12.360
+mal eine extra funktion wollte read battery ich nenne es mal battery weil im prinzip am
+
+01:20:12.360 --> 01:20:27.400
+ende ist es eine batterie machen man int draus und mal gucken was das ding zurückliest was
+
+01:20:27.400 --> 01:20:34.000
+das ding zurück gibt ich habe gelesen man muss man muss auf jeden fall wlan wlan oder
+
+01:20:34.000 --> 01:20:42.960
+bluetooth einschalten dass diese funktion was ordentliches zurück gibt schaue man mal
+
+01:20:42.960 --> 01:20:51.280
+was da rauskommt rest machen wir mal auf hier ach komm lass mal drin sonst muss ich das
+
+01:20:51.280 --> 01:21:08.120
+delay neu schrauben mal gucken was er misst ohne bluetooth an
+
+01:21:08.120 --> 01:21:14.600
+also susch 19 das klingt wirklich logisch was du sagst warum ist auto gefrickel auto
+
+01:21:14.600 --> 01:21:25.200
+ist doch vollkommen legitim das ding ist genauso statisch typisiert wie es immer ist nur dass
+
+01:21:25.200 --> 01:21:31.000
+man den typ nicht hinschreiben muss und wenn man wissen will kann man zweifelsfall einfach
+
+01:21:31.000 --> 01:21:42.680
+die maus drüber machen da weiß man ist ein int ok ich messe hier angeblich gerade 351
+
+01:21:42.680 --> 01:21:59.560
+oder was auch immer könnte das 3,5 sein könnte das 3,5 volt sein man würde ungefähr passen
+
+01:21:59.560 --> 01:22:08.160
+bisschen mehr als 3,3 ich kann es jetzt leider nicht an die batterie anschließen weil da
+
+01:22:08.160 --> 01:22:27.560
+sehen wir hier nichts mehr die sind sehr genau mit 3,3 volt ich könnte jetzt ich könnte
+
+01:22:27.560 --> 01:22:33.640
+jetzt ja mal ein multimeter holen und es dran halten und gucken was für eine spannung
+
+01:22:33.640 --> 01:22:38.200
+das machen wir jetzt mal leute ich hole jetzt mal ein multimeter raus und ich gucke mal was
+
+01:22:38.200 --> 01:22:48.320
+für eine spannung auf dem 3,3 volt pin ist gucken wir mal vorher muss ich aber mal das
+
+01:22:48.320 --> 01:23:00.400
+ganze laura zeug hier auskommentieren weil ich dazu das laura modul teilweise abstöpseln
+
+01:23:00.400 --> 01:23:12.840
+muss ok multimeter wo ist es wo hat sich es hingestellts labeldrucker irgendwo in der
+
+01:23:12.840 --> 01:23:20.000
+nähe vom labeldrucker ist es das weiß ich das liegt immer irgendwo in der nähe wo habe
+
+01:23:20.000 --> 01:23:39.800
+ich das denen da ist das kabel guckt raus da muss es sein ja ja ok ja ja mal gucken mal
+
+01:23:39.800 --> 01:23:50.640
+gucken was es sagt ok weg noch ein kabel dran ich habe auch extra schon die in weißer voraussicht
+
+01:23:50.640 --> 01:23:57.080
+nicht die standard prüf prüf prüf spitzen bei multimeter dran sondern die für pins die
+
+01:23:57.080 --> 01:24:02.920
+man so dran klipsen kann und ich hoffe ich kill jetzt mein modul nicht damit ich stöpsel
+
+01:24:02.920 --> 01:24:07.600
+mein modul mal ab bevor ich das multimeter dran mache so und dann schauen wir mal erst
+
+01:24:07.600 --> 01:24:18.040
+mal muss ich das ding einstellen auf 600 milli ne 6 volt stellen wir mal ein dann stöpseln
+
+01:24:18.040 --> 01:24:22.680
+wir das mal hier um den richtigen ich sehe es jetzt leider nicht das muss man als nächstes
+
+01:24:22.680 --> 01:24:28.240
+holen noch einen usb multimeter dass man die wert sieht den ich messe so dann ziehen wir
+
+01:24:28.240 --> 01:24:41.400
+mal hier ground ab und wir ziehen wo ist der 3,3 volt pin und wir ziehen 3,3 volt ab und
+
+01:24:41.400 --> 01:24:49.480
+jetzt machen wir mal das multimeter dran und schauen was passiert hat ein multimeter keine
+
+01:24:49.480 --> 01:24:59.040
+serielle schrittstelle ich finde es ja toll so dass dann dass die leute jetzt schon im chat
+
+01:24:59.040 --> 01:25:01.560
+schreiben hat ein multimeter kein rs 232 können einfach sagen serielle schrittstelle dass
+
+01:25:01.560 --> 01:25:06.600
+jeder was weiß was gemeint ist aber das ist nicht wahnsinnig genug ne hat es nicht das
+
+01:25:06.600 --> 01:25:14.160
+ist ein ganz das ist kein es ist kein super billiges aber es ist jetzt auch kein sonderlich
+
+01:25:14.160 --> 01:25:22.160
+gutes ja also es ist nicht so schlimm wie china kacke aber es ist jetzt auch kein wie
+
+01:25:22.160 --> 01:25:26.600
+heißen die dinger fluke oder so die richtig guten ne das weiß bestimmt flo oder wie ist
+
+01:25:26.600 --> 01:25:40.800
+die heißt nicht fluke fluke oder so die richtig guten oder hersteller flunke flunke genau
+
+01:25:40.800 --> 01:25:50.360
+flunke was ok so ich hab mal multimeter angeklipsert angeklipsert so schauen wir mal was da rauskommt
+
+01:25:50.360 --> 01:25:55.640
+ich mach das jetzt mal nicht runterfallen nicht runterfallen nicht runterfallen was
+
+01:25:55.640 --> 01:26:03.400
+was rum gebastelt hier so mal anschließen mal gucken was passiert hier rum kennt ihr
+
+01:26:03.400 --> 01:26:10.840
+das usb stöpsel aus prinzip immer immer falsch rum hast du usb anschluss immer jetzt
+
+01:26:10.840 --> 01:26:13.920
+habe ich schon dreimal getreten finde immer noch nicht die richtige reine richtung vom
+
+01:26:13.920 --> 01:26:25.760
+usb anschluss jetzt so wir haben auf drei ich mach mal die serielle schrittstelle an
+
+01:26:25.760 --> 01:26:52.280
+dass wir was sehen also ich mess gerade 3,269 volt auf dem 3,3 volt pin fluke nicht funke
+
+01:26:52.280 --> 01:26:57.200
+ja ich wusste nur das ungefähr wie der kram heißt also das passt mit dem wert nicht so
+
+01:26:57.200 --> 01:27:07.040
+ganz allerdings ist die sache ja auch die eigentlich müsste ja gut je nachdem wo es
+
+01:27:07.040 --> 01:27:14.120
+misst ne also input ist 5 volt usb allerdings der esp 32 selber läuft halt ausschließlich
+
+01:27:14.120 --> 01:27:19.200
+mit 3,3 volt das heißt eigentlich müsste ich da jetzt mal eine batterie dran stöpseln
+
+01:27:19.200 --> 01:27:38.880
+und wir müssten die mit einer batterie müsste man das mit einer batterie laufen lassen
+
+01:27:38.880 --> 01:27:50.880
+was die sagen du sollst einen spannungsteiler machen und über den adc pin gehen auf 1,1
+
+01:27:50.880 --> 01:27:55.800
+volt gesetzt das könnte ich machen aber ich habe da ich kann ja in die box gar kein bord
+
+01:27:55.800 --> 01:28:10.320
+rein stecken ok also wir machen mal ne batterie dran wo hab ich denn hier mal ne batterie hier
+
+01:28:10.320 --> 01:28:26.560
+hab ich ne batterie das ist ne 3,7 volt 2000 milliampere stunden lithium things akku würd
+
+01:28:26.560 --> 01:28:34.280
+ich mal sagen allerdings ist der voll geladen also der hat wahrscheinlich input irgendwas
+
+01:28:34.280 --> 01:28:47.360
+um 4,2 oder so ja die widerstelle mussten die können ich höchstens irgendwie kann
+
+01:28:47.360 --> 01:28:54.680
+ich nicht mal richtig dran löten miss doch die batterie ja ja das könnte ich mal machen
+
+01:28:54.680 --> 01:29:01.360
+ich könnte ich messe erstmal ich messe erstmal mit dem multimeter mess ich mal die batterie
+
+01:29:01.360 --> 01:29:05.840
+und dann gucken wir was da 3,3 volt raus kommt also ich denke mal wenn die batterie halt
+
+01:29:05.840 --> 01:29:13.160
+mehr hat dann wird es das schon nicht auf dem 3,3 volt oder auf den gpio pins raushauen
+
+01:29:13.160 --> 01:29:22.040
+weil es einfach sensoren kaputt machen würde ok ich stöpsel das mal wieder aus was ein
+
+01:29:22.040 --> 01:29:29.640
+gefuddelt ok machen wir das mal wieder weg jetzt gucken wir mal was der akku was der akku
+
+01:29:29.640 --> 01:29:34.160
+hat gucken ob ich das mit diesen prüf mit diesen komischen prüf oh fuck komischen prüf
+
+01:29:34.160 --> 01:29:37.440
+dingern hier überhaupt hinkriegen oder ob ich dann die normalen prüf spitzen nehmen
+
+01:29:37.440 --> 01:29:44.080
+muss nein ich muss die normalen prüf spitzen nehmen ja fuck der komm ich an den akku nicht
+
+01:29:44.080 --> 01:29:55.240
+dran wo ist denn hier die normale hier hier sind die normalen prüf spitzen mit denen
+
+01:29:55.240 --> 01:30:01.760
+können wir das einmal ausprobieren das hatte ich heute eigentlich gar nicht vor hier irgendwelche
+
+01:30:01.760 --> 01:30:08.760
+wir wollen informatiker zeug machen und kein elektroniker zeug oh jetzt hab ich die batterie
+
+01:30:08.760 --> 01:30:19.000
+weggeschmissen mit dem kabel grad zack batterie komm her so halten wirs mal an die batterie
+
+01:30:19.000 --> 01:30:31.040
+dran das hat so einen kleinen kack stecker da kommst du überhaupt richtig dran zweifelsfall
+
+01:30:31.040 --> 01:30:54.320
+vorsicht jetzt noch in kurzschluss mit den dingern und die ganze batterie verreckt ja
+
+01:30:54.320 --> 01:31:05.640
+also 4,179 volt hat die batterie haben wir das auch ausprobiert
+
+01:31:05.640 --> 01:31:28.520
+also die ist voll geladen das ding ist bis zum anschlag ok ich stöpsel den krams grad
+
+01:31:28.520 --> 01:31:31.520
+mal wieder an was machen wir jetzt was hatte ich jetzt eigentlich vor genau wir stöpseln
+
+01:31:31.520 --> 01:31:41.600
+ich lasse mir jetzt das hier mal auslesen ich lasse mir das jetzt auslesen wie kann
+
+01:31:41.600 --> 01:32:01.440
+ich mir das jetzt schicken lassen ich hab halt nur ein 3,3 volt pin ich kann das ans
+
+01:32:01.440 --> 01:32:13.680
+kabel halten das passt der controller brennt nicht durch weil der hat nen batterie eingang
+
+01:32:13.680 --> 01:32:19.040
+mit nem spannungsregler davor übrigens können wir das komplett vergessen was ich grad erzählt
+
+01:32:19.040 --> 01:32:24.480
+hab weil der controller mit dem ich das hier grade mache ist der der kein batterieanschluss
+
+01:32:24.480 --> 01:32:30.440
+hat ja der hat schon nen regler am batterie eingang drinnen der ist zugelassen bis glaube
+
+01:32:30.440 --> 01:32:53.480
+ich maximal 4,5 oder so guck da der hält das auf jeden fall aus ich hab das auch schon
+
+01:32:53.480 --> 01:33:03.640
+drangehängt da passiert nichts aber das können wir jetzt ja gar nicht ausprobieren aber was
+
+01:33:03.640 --> 01:33:15.840
+wir machen können ist wir können mal nen kabel achja übrigens vollkommener Mist den ich
+
+01:33:15.840 --> 01:33:21.760
+hier eigentlich grad erzählt hab weil die haben ja gesagt man soll plutus vorher einschalten
+
+01:33:21.760 --> 01:33:30.400
+bevor man das liest also mal plutus start und plutus stopp und gucken wir was dann zurück
+
+01:33:30.400 --> 01:33:53.600
+kommt 6000 ach was mach ich da blödsinn
+
+01:33:53.600 --> 01:34:13.200
+6547 ja gut die sache ist jetzt es ist halt absolut keine ahnung was dieser wert am jetzt
+
+01:34:13.200 --> 01:34:17.520
+genau sagen soll vielleicht muss man das nur noch durch irgendwas teilen oder sonst
+
+01:34:17.520 --> 01:34:23.200
+wie ich hab doch auf reddit irgendwas gefunden vorher wo irgendeiner erzählt hat er hat
+
+01:34:23.200 --> 01:34:30.440
+was rausgekriegt am besten am liebsten wäre mir es wenn man das einfach intern direkt
+
+01:34:30.440 --> 01:34:53.640
+auslesen könnte achja guck mal hier haben wir doch schon was internal reading 2798 ne
+
+01:34:53.640 --> 01:35:00.400
+da sind wir ein bisschen weit von weg von meinem internal reading aber durch zwei teilen
+
+01:35:00.400 --> 01:35:15.960
+und gucken was rauskommt ob das irgendwie plausibel ist
+
+01:35:15.960 --> 01:35:28.240
+das sieht ziemlich brauchbar aus das das ist ziemlich genau das was ich mit meinem
+
+01:35:28.240 --> 01:35:40.520
+multimeter vorhin gemessen hab ich mein das kann jetzt auch nur zufällig sein ne
+
+01:35:40.520 --> 01:35:45.560
+das kann jetzt auch so malen nach zahlen wir teilen das einfach so lang bis wir rauskriegen
+
+01:35:45.560 --> 01:35:57.640
+was man was man was man haben will das müsste man jetzt mal müsste man jetzt mal ausprobieren
+
+01:35:57.640 --> 01:36:09.320
+mit einer batterie ich werde das mal ausprobieren noch durch 69 teilen ja ich muss jetzt erst
+
+01:36:09.320 --> 01:36:24.120
+den anderen controller holen die batterie anschließen oder kann man die dinger auch
+
+01:36:24.120 --> 01:36:38.520
+direkt über den pin power keine ahnung ich will ich will ihn nicht kaputt machen ich
+
+01:36:38.520 --> 01:36:45.960
+werde es mal ausprobieren ich muss jetzt den anderen controller holen dass wir das
+
+01:36:45.960 --> 01:36:51.000
+mit der batterie ausprobieren können und ich muss die batterie erstmal ein bisschen
+
+01:36:51.000 --> 01:37:03.800
+entladen naja scheiß drauf ich werde mal wieder den laura controller anstöpseln eins
+
+01:37:03.800 --> 01:37:07.760
+habe ich mittlerweile gelernt nachdem ich ein paar sachen kaputt gemacht habe immer crown
+
+01:37:07.760 --> 01:37:19.920
+zuerst anschließen weil sonst manchmal irgendwie rip und das an den richtigen pin dran und
+
+01:37:19.920 --> 01:37:43.200
+mal gucken ob es wieder funktioniert ich nee ne kochan so viel also ich habe gar nicht
+
+01:37:43.200 --> 01:37:47.520
+so viel kaputt gemacht eine sache kann in letzter zeit wo ich mich dran erinnern kann
+
+01:37:47.520 --> 01:37:56.960
+ich zerstört habe ist so ein halter für eine batterie gewesen das ist aber nicht nur
+
+01:37:56.960 --> 01:38:03.880
+ein halter das war komplettes komplettes lade ladeprogramm da drauf und zwar auf das
+
+01:38:03.880 --> 01:38:18.080
+auch ein aliexpress ding gewesen aliexpress was war das für ein ding aber ich sag zeig's
+
+01:38:18.080 --> 01:38:28.360
+euch mal ja so ein teil plus halt der da ja das teil eins davon habe ich geschrottet
+
+01:38:28.360 --> 01:38:38.760
+weil ich die batterie falsch rum reingemacht habe das ist halt billig china kram die haben
+
+01:38:38.760 --> 01:38:52.560
+da ja auch nichts eingebaut dass das irgendwie davor schützen würde ne ist übrigens viel
+
+01:38:52.560 --> 01:38:59.400
+zu teuer kost bei aliexpress 2 euro dafür ist es nicht schlimm der batterie hat es
+
+01:38:59.400 --> 01:39:08.920
+nichts gemacht und ich habe mir einen 10er pack gekauft für jeweils für 2 euro und
+
+01:39:08.920 --> 01:39:16.080
+die dinger sind wirklich ganz praktisch auch auch also ich habe mir die dinger habe ich
+
+01:39:16.080 --> 01:39:23.560
+mir eigentlich gekauft als raspberry usv weil raspberry piles ja ganz gerne mal dazu
+
+01:39:23.560 --> 01:39:28.680
+neigen wenn du ihnen den strom abziehst dass sie kaputt gehen ich allerdings ab und zu
+
+01:39:28.680 --> 01:39:35.600
+mal meine raspberry piles abziehen muss oder ab und zu auch mal vielleicht der strom nicht
+
+01:39:35.600 --> 01:39:41.560
+immer 100 prozentig da ist wie auch immer habe ich jetzt jedem raspberry pile sofern
+
+01:39:41.560 --> 01:39:51.520
+es möglich war vom standort her eine mini usv damit verpasst funktioniert eigentlich
+
+01:39:51.520 --> 01:40:02.720
+ganz gut einfach batterie rein keine normale batterie das muss so eine dicke 18 650 sein
+
+01:40:02.720 --> 01:40:08.040
+und dann stöpselst du den raspberry einfach hier auf den usb anschluss ran und das wird
+
+01:40:08.040 --> 01:40:13.320
+versorgt und das schöne an dem module ist die haben da auch einen lade einen lade chip
+
+01:40:13.320 --> 01:40:19.680
+oder wie auch immer man das genau nennt drauf also sprich der kann gleichzeitig laden und
+
+01:40:19.680 --> 01:40:26.680
+entladen und erkennt auch wie bei einer usv wenn quasi der input weg ist und betreibt
+
+01:40:26.680 --> 01:40:30.880
+es dann aus der batterie er hält wie lange noch kommt drauf an was du auf deine raspberry
+
+01:40:30.880 --> 01:40:40.400
+machst können wir doch mal ausrechnen ganz einfach also so ne so ne so ne batterie hat
+
+01:40:40.400 --> 01:40:46.520
+ungefähr sagen wir mal 2000 milliampere stunden was hatten so ne was haben die so standardmäßig
+
+01:40:46.520 --> 01:40:53.040
+2000 900 das erscheint jetzt schon fast ein bisschen viel aber doch sagen wir mal 3000
+
+01:40:53.040 --> 01:41:01.120
+milliampere stunden haben die 3000 milliampere stunden hat die batterie dein raspberry läuft
+
+01:41:01.120 --> 01:41:08.000
+halt durchgehend das lebt gar nicht und dein raspberry wird so so irgendwas idel keine
+
+01:41:08.000 --> 01:41:19.960
+ahnung 300 milliampere oder so verbrauchen oder so ungefähr in dem dreh sleep sleep
+
+01:41:19.960 --> 01:41:29.160
+gibt es nicht machen wir mal eins sleep time null execution zwei oder was kann man da eintragen
+
+01:41:29.160 --> 01:41:45.920
+20 sleep time null execution of code null eins macht keinen unterschied dauerhaft dauerhaft
+
+01:41:45.920 --> 01:41:51.640
+an das hier dürfte auch keinen unterschied machen genau also ein raspberry dürfte so
+
+01:41:51.640 --> 01:42:02.880
+ungefähr acht stunden damit laufen na 50 ne ne ne ne also 50 hatten raspberry auf nie
+
+01:42:02.880 --> 01:42:14.200
+und nimmer noch nicht mal ein zero ich mein wir könnten es jetzt ausprobieren weil ich
+
+01:42:14.200 --> 01:42:24.360
+hab mir so ein schönes usb so ein usb strommesser gekauft auch so ein china ding aber das ist
+
+01:42:24.360 --> 01:42:40.320
+wirklich praktisch so ein ding hier das da so ein gelb ich mach mir da auch keine gedanken
+
+01:42:40.320 --> 01:42:47.360
+also normalerweise würde ich mir alles was irgendwie elektronik also wo bisschen mehr
+
+01:42:47.360 --> 01:42:50.600
+spannung ein bisschen mehr strom drüber geht würde ich mir ein paar china sachen immer
+
+01:42:50.600 --> 01:42:55.480
+vorsichtig sein also ich würde mir beispielsweise auch keine china relays in meine hier mein
+
+01:42:55.480 --> 01:42:59.640
+lichtschalter oder so einbauen aber bei diesen fünf volt und maximal 500 milliampere die
+
+01:42:59.640 --> 01:43:07.520
+so einen usb anschluss hat drauf geschissen und das ding ist wirklich praktisch das stöpselst
+
+01:43:07.520 --> 01:43:13.080
+dann usb anschluss ein stöpselst auf der anderen seite hat alle möglichen anschlüsse
+
+01:43:13.080 --> 01:43:21.200
+mikro usb usb c sonst was eingang ausgang und da siehst du direkt was für eine spannung
+
+01:43:21.200 --> 01:43:25.720
+du drauf hast also das sollten immer irgendwas um 5 volt sein bei usb und du siehst auch
+
+01:43:25.720 --> 01:43:31.920
+genau was das ding braucht was dran hängt und du kannst es auch umschalten was auch
+
+01:43:31.920 --> 01:43:38.760
+nicht welche langzeit grafen das wirklich sehr praktisch das ist echt cool das heißt
+
+01:43:38.760 --> 01:43:42.880
+ich könnte das jetzt einstöpseln und ich könnte mal den raspberry dran hängen und
+
+01:43:42.880 --> 01:43:47.320
+wir könnten mal gucken was der idol verbraucht kann ich euch gleich sagen machen wir mal
+
+01:43:47.320 --> 01:43:55.520
+machen wir mal ich habe hier was ist denn das für einer das ist ein ob das noch ein zweier
+
+01:43:55.520 --> 01:44:04.560
+den ich hier liegen habe das ist auch ein raspberry 2 ok gucken wir mal was ein raspberry 2 verbraucht
+
+01:44:04.560 --> 01:44:09.960
+im idol ich musste mal gucken ob ich die sd karte auch rausgenommen habe ja schauen wir
+
+01:44:09.960 --> 01:44:28.360
+mal was das ding idol so verbraucht sage ich gleich hier anschließen weil ich kann es
+
+01:44:28.360 --> 01:44:38.120
+wieder nicht einstöpseln weil usb anschluss zu fett dann stöpsel ich sie hier ein so
+
+01:44:38.120 --> 01:44:51.400
+den raspberry dran so raspberry geht an verkackt natürlich den boot weil keine sd karte drin
+
+01:44:51.400 --> 01:45:02.680
+ist und verbraucht gerade 68 milliampere das ist aber jetzt halt null der ist der konnte
+
+01:45:02.680 --> 01:45:21.080
+ich mal booten ich könnte mal einen zero anschließen ist egal ist jetzt wurscht also
+
+01:45:21.080 --> 01:45:27.480
+der raspberry braucht wenn er wirklich komplett idol ist im boot hängt also sprich da sind
+
+01:45:27.480 --> 01:45:32.200
+wahrscheinlich auch die ganzen gpio sache noch nicht initialisiert und nichts drauf
+
+01:45:32.200 --> 01:45:36.760
+braucht ja schon 68 milliampere also im betrieb irgendwas zwischen irgendjemand hat gerade
+
+01:45:36.760 --> 01:45:40.680
+geschrieben 100 bis 300 das das kommt eigentlich hin ich denke mal dass es wahrscheinlich bis
+
+01:45:40.680 --> 01:45:45.660
+zu 500 oder so rauf geht sogar oder noch mehr wenn wenn er was macht also ich denke wenn
+
+01:45:45.660 --> 01:45:51.640
+ein dreier ordentlich was laufen hat auf allen vier kern wirst du wahrscheinlich auch wahrscheinlich
+
+01:45:51.640 --> 01:45:59.240
+sogar noch ein bisschen mehr brauchen max wird maximal zeit geträgt er ist ok weil ich muss
+
+01:45:59.240 --> 01:46:06.560
+eh gleich auf so mal ab machen das ganze ding aber das schöne ist ich habe die ganzen mist
+
+01:46:06.560 --> 01:46:11.560
+hier mittlerweile rumliegen das heißt wir können können sowas ohne probleme immer mal
+
+01:46:11.560 --> 01:46:17.040
+zwischendurch ausprobieren mein ziel ist es ja irgendwie wenn wir hier noch mehr so technik
+
+01:46:17.040 --> 01:46:22.680
+streams machen dass ich es mal irgendwie schaffe mir geräte zu holen die man schön per usb
+
+01:46:22.680 --> 01:46:29.520
+auslesen kann das geht das übrigens das ist das ist ganz ganz meta das ist so ein usb
+
+01:46:29.520 --> 01:46:34.880
+ding was man selbst offiziell nur per smartphone ab auslesen kann aber ich habe auf github
+
+01:46:34.880 --> 01:46:40.840
+schon ein projekt gefunden wo man das usb strom gerät über usb auslesen kann das ist
+
+01:46:40.840 --> 01:46:53.080
+ein usb seption irgendwo naja aber gehen wir mal von aus ich denke das ist ein halbwegs
+
+01:46:53.080 --> 01:46:58.640
+realistischer wert dass dein raspberry ungefähr 300 milliampere verbraucht dann hast du mit
+
+01:46:58.640 --> 01:47:04.720
+einer voll geladenen batterie da drinne hast du ungefähr acht stunden dauer das ist doch
+
+01:47:04.720 --> 01:47:19.120
+echt ist doch in ordnung damit kommt man aus
+
+01:47:19.120 --> 01:47:25.840
+hä ne warum das macht das ding schon alles ja das macht das alles das kannst du usb
+
+01:47:25.840 --> 01:47:32.640
+anschließen da kommen schon fünf voll raus da musst du nix machen da kommt alles raus
+
+01:47:32.640 --> 01:47:36.720
+was du für usb brauchst ist da schon alles drauf und du kannst auch direkt du kannst
+
+01:47:36.720 --> 01:47:41.960
+nehmen kannst du 3 3,3 volt abgreifen dreimal und hier neben die was man jetzt hier nicht
+
+01:47:41.960 --> 01:47:50.600
+sieht noch mal noch mal fünf was für die zellen lebensdauer jetzt kann jetzt kann
+
+01:47:50.600 --> 01:47:54.200
+ich dir gerade nicht mehr folgen irgendwie ich habe doch gar keinen einfluss drauf was
+
+01:47:54.200 --> 01:48:01.760
+das ding macht das ist doch ist doch von den chinesen schon fertig so gebaut und ich gehe
+
+01:48:01.760 --> 01:48:05.680
+auch mal davon aus dass das ding die zelle rechts also die den akku rechtzeitig abschalten
+
+01:48:05.680 --> 01:48:10.760
+wird zumal wahrscheinlich die das ding sich selbst abschaltet bei keine ahnung noch 15
+
+01:48:10.760 --> 01:48:19.080
+prozent oder so keine ahnung also was ich ganz cool finde ist also was ich cool finden
+
+01:48:19.080 --> 01:48:29.840
+würde wenn das hier stimmt stimmt ach das meinst du ja das ist das ist richtig flor
+
+01:48:29.840 --> 01:48:34.280
+ja klar ja ja ok jetzt weiß ich was du meinst ok stimmt da ist unsere rechnung natürlich
+
+01:48:34.280 --> 01:48:43.920
+nicht nicht allzu optimal das stimmt ja aber selbst selbst wenn das nur nur so viel übrig
+
+01:48:43.920 --> 01:48:48.240
+bleiben würde läuft immer noch eine stunde also wie dem auch sei für den raspberry als
+
+01:48:48.240 --> 01:48:54.280
+usb ist es mehr als ausreichend dieses ding mit einer batterie drinnen nicht mehr als
+
+01:48:54.280 --> 01:49:02.480
+ausreichend ja ok jetzt habe ich gecheckt was du meinst nicht dass man das einbauen
+
+01:49:02.480 --> 01:49:07.440
+soll sondern dass man das einfach nicht so rechnen kann weil wir ein bisschen bisschen
+
+01:49:07.440 --> 01:49:20.800
+unterwegs sachen verlieren der war schlecht der war schlecht er war genauso schlecht wie
+
+01:49:20.800 --> 01:49:41.880
+das usb nehmen den usa liegt aber ich finde schon mal ich finde es eigentlich ganz gut
+
+01:49:41.880 --> 01:49:48.000
+dass wir ungefähr so was hier auslesen wie ich mit meinem multimeter gerade gemessen
+
+01:49:48.000 --> 01:49:53.840
+habe das macht mich recht zuversichtlich dass das ich weil ich habe jetzt einfach random
+
+01:49:53.840 --> 01:50:15.480
+durch zwei geteilt warum auch immer aber vielleicht bringt das ja was ich stoppe den jetzt hier
+
+01:50:15.480 --> 01:50:42.600
+immer vom publishing 2 confirmed aber es stimmt schon man muss man muss bluetooth starten
+
+01:50:42.600 --> 01:50:49.960
+sonst funktioniert das ganze nicht aber was auch immer drauf geschissen es probiere ich
+
+01:50:49.960 --> 01:50:56.360
+dann probieren wir mal in einem anderen streben weiter aus und dann nehme ich auch ein bord
+
+01:50:56.360 --> 01:51:04.000
+wo ich eine batterie anschließen kann und ich mache die batterie auch mal ein bisschen
+
+01:51:04.000 --> 01:51:11.200
+leer macht die batterie mal ein bisschen leer so dass dann keine ahnung nur noch drei volt
+
+01:51:11.200 --> 01:51:28.320
+rauskommen oder so
+
+01:51:28.320 --> 01:51:34.840
+ja flo mag alles sein ich habe da nicht so den nicht so den plan von ich gehe zumindest
+
+01:51:34.840 --> 01:51:39.800
+mal davon aus dass diese geschichte mit der batterie hier aber so ist dass es für den
+
+01:51:39.800 --> 01:51:48.080
+raspberry locker als usb reicht und ob das hier jetzt so wirklich genau ist und ob das
+
+01:51:48.080 --> 01:51:52.400
+auch nur annähernd hinkommt ist eigentlich gar nicht so wichtig solange es irgendwie
+
+01:51:52.400 --> 01:51:58.960
+halbwegs so bisschen hinkommt weil dann erkenne ich auch dass die batterie leer wird und ich
+
+01:51:58.960 --> 01:52:04.960
+mal einfach tauschen muss aber ich habe da einen anderen ansatz wenn ich was nicht so
+
+01:52:04.960 --> 01:52:11.680
+genau checken da gucke ich entweder nach bis ich checken oder wenn es was einfaches ist
+
+01:52:11.680 --> 01:52:16.280
+dann probiere ich einfach ein paar mal aus mit unterschiedlichen bedingungen und dann
+
+01:52:16.280 --> 01:52:21.600
+weiß ich ob stimmt oder nicht ich werde es jetzt nämlich so machen ich werde einfach
+
+01:52:21.600 --> 01:52:25.920
+zu überprüfen ob das hier stimmt ich nehme jetzt einfach mal eine batterie die hier fast
+
+01:52:25.920 --> 01:52:31.280
+entladen ist oder so was gerade noch mit funktioniert englisch mal dran dann nehme ich hier den
+
+01:52:31.280 --> 01:52:39.720
+einen akku ein bisschen entladen und man vollen akku und guck einfach was das ding ausspuckt
+
+01:52:39.720 --> 01:52:42.760
+und dann genau und dann teilen wir im zweifelsfall das immer durch die richtigen zahlen bis
+
+01:52:42.760 --> 01:52:50.400
+das richtige rauskommt sagen wir nicht random wozu brauchst eine usb für den raspberry dass
+
+01:52:50.400 --> 01:52:55.520
+er nicht kaputt geht wobei der raspberry nicht kaputt geht sondern die sd karte und die sd
+
+01:52:55.520 --> 01:52:59.680
+karte geht auch nicht kaputt sondern die sd karte wird nur kaputt gemacht also datalsystem
+
+01:52:59.680 --> 01:53:10.080
+mäßig kaputt gemacht man muss sie dann neu flaschen und das passiert beim raspberry tatsächlich
+
+01:53:10.080 --> 01:53:15.200
+ziemlich häufig also ich hatte schon öfters als ich jetzt irgendwie mit fingern abzählen
+
+01:53:15.200 --> 01:53:26.040
+kann eine sd karte oder ein paar sd karten waren auch schon komplett kaputt das zertifiziert
+
+01:53:26.040 --> 01:53:30.160
+ja das wird kaputt also die sind also die raspberries sind bekannt dafür vor allem die
+
+01:53:30.160 --> 01:53:36.040
+zeros dass wenn du einfach strom abziehst dass der ist die sd karte oder dass das fallsystem
+
+01:53:36.040 --> 01:53:45.960
+auf der sd karte schrottet das kannst du überall lesen und deswegen dachte ich mir ist so eine
+
+01:53:45.960 --> 01:53:55.760
+mini usb für den raspberry gar nicht verkehrt ja etikett das kann auch passieren also ich
+
+01:53:55.760 --> 01:53:59.280
+wie gesagt ich hatte auch eins zwei diese waren schon komplett schrott aber die waren
+
+01:53:59.280 --> 01:54:07.680
+auch die sd karten waren auch schrott mittlerweile kann man aber glaube ich sogar den raspberry
+
+01:54:07.680 --> 01:54:14.320
+auch von usb booten das war bei den älteren ja immer ein bisschen größere akt aber es
+
+01:54:14.320 --> 01:54:18.760
+halt die frage ob man das will ich meine letztendlich willst du was kompaktes haben was da nicht
+
+01:54:18.760 --> 01:54:22.720
+auch noch irgendwie eine externe usb oder eine externe ssd oder so rumstehen hat dann
+
+01:54:22.720 --> 01:54:28.960
+aber man die selbst so eine kleine ssd ist halt dreimal so groß wie der raspberry so
+
+01:54:28.960 --> 01:54:33.520
+rein von der fläche her und du könntest man könnte halt einen ordentlichen usb stick nehmen
+
+01:54:33.520 --> 01:54:39.240
+aber ob der usb stick jetzt so viel besser ist als eine ordentliche sd karte also wisst
+
+01:54:39.240 --> 01:54:45.160
+ihr so in so in so nur nach 15 usb stick ob der so viel besser ist als so nur nach 15
+
+01:54:45.160 --> 01:54:51.920
+sd karte keine ahnung man könnte sich natürlich so eine so eine ssd als usb stick nehmen gibt
+
+01:54:51.920 --> 01:54:57.440
+es ja mittlerweile auch ein paar das wird auf jeden fall was bringen aber dann bezahlst
+
+01:54:57.440 --> 01:55:01.960
+du 60 euro noch mal obendrauf gibt es übrigens neue ich muss mal schnell was gucken bevor
+
+01:55:01.960 --> 01:55:15.400
+ich jetzt oft gehe gibt es eigentlich ordentliche mal wieder ordentliche kits wo nur das wichtigste
+
+01:55:15.400 --> 01:55:25.640
+drin ist ich mein 80 euro ist viel zu teuer das ist mir auch noch ein ticken zu teuer
+
+01:55:25.640 --> 01:55:40.520
+aber das geht ja noch irgendwo ein terabyte sd karte so taugt das kit lasst mal gucken
+
+01:55:40.520 --> 01:55:46.760
+weil ich bräuchte noch eins zwei raspberries ich bräuchte nämlich mal ein neun für meinen
+
+01:55:46.760 --> 01:55:54.040
+3d drucker also für für octopie und ich bräuchte für mein geplantes laura ttn gateway bräuchte
+
+01:55:54.040 --> 01:56:00.560
+ich noch einen was ist hier in dem kit alles drinnen ein dreier ist doch ein dreier genau
+
+01:56:00.560 --> 01:56:07.640
+also ein dreier raspberry ist drinne das offizielle netzteil das offizielle gehäuse ja und wahrscheinlich
+
+01:56:07.640 --> 01:56:18.880
+die offizielle sd karte wobei das halt china kram ist mit einem ami auf das ist nicht
+
+01:56:18.880 --> 01:56:25.120
+einfach mit einem richtigen ordentlichen stecker ohne adapter ach nee das ist immer so ne ach
+
+01:56:25.120 --> 01:56:30.600
+das netzteil war immer so stimmt stimmt sind einfach beides dabei das gehäuse braucht
+
+01:56:30.600 --> 01:56:38.480
+es nicht aber ich finde die raspberry gehäuse ganz nett wobei das ist das doofe gehäuse
+
+01:56:38.480 --> 01:56:54.200
+wo keine gpi aus rauskommen oder sie haben mehrere deckel dabei hallo max la bestia das
+
+01:56:54.200 --> 01:57:00.960
+aber ich finde das set zieht sogar halbwegs brauchbar aus das ist nur das nötigste netzteil
+
+01:57:00.960 --> 01:57:12.800
+sd karte raspberry pie gehäuse warum kostet warum kostet denn das weiße warum kostet
+
+01:57:12.800 --> 01:57:23.840
+denn das weiße sieben euro mehr und hier kostet das weiße auch plus 53 und hier kostet das
+
+01:57:23.840 --> 01:57:38.280
+schwarz jetzt 55 die verwirren mich ach so das sind zwei unterschiedliche dinger ok
+
+01:57:38.280 --> 01:57:49.600
+was auch immer das ist absolut massive big brain aber 50 euro geht ich mein der nackte
+
+01:57:49.600 --> 01:57:59.000
+raspberry was kosten der 30 oder so 25 30 hier irgendwie so und das geht das geht auch
+
+01:57:59.000 --> 01:58:11.880
+noch günstiger wie hieß dieser shop diesmal relativ günstig hatten die hatten es relativ
+
+01:58:11.880 --> 01:58:30.880
+günstig daher und die was da der raspberry aktuell kostet kann man das irgendwie auf
+
+01:58:30.880 --> 01:58:52.160
+euro umstellen 36 ok da ist auf amazon sogar günstiger und hier ok ach moment das ist
+
+01:58:52.160 --> 01:59:06.680
+da kann man sich das tatsächlich bei amazon holen das ist ok und sag mal mal so 20 euro
+
+01:59:06.680 --> 01:59:16.560
+für das gehäuse das netzteil und sd karte das ist ok ja das geht schon also 50 euro
+
+01:59:16.560 --> 01:59:24.560
+für das set ist in ordnung ja ich könnte mir das gehäuse selbst trocknen das ist richtig
+
+01:59:24.560 --> 01:59:29.440
+aber es gibt kein kit mit netzteil und raspberry da nehme ich halt das gehäuse mit da ist
+
+01:59:29.440 --> 01:59:34.000
+auch noch eine sd karte dabei wobei ich habe es ja schon mal erzählt ne sd karten mangel
+
+01:59:34.000 --> 01:59:40.520
+habe ich halt echt nicht nachdem mir amazon mal fälschlicherweise so ein karton mit ssd
+
+01:59:40.520 --> 01:59:46.080
+karten geschickt hat mit ssd mit sd karten geschickt hat hatte irgendwie drei bestellt
+
+01:59:46.080 --> 01:59:56.080
+dann habe ich irgendwie 20 gekriegt das ist genug oder 25 ist genug auf jeden fall 32
+
+01:59:56.080 --> 02:00:04.400
+g ja aber wisst ihr ich habe da auch wirklich kein schlechtes gewissen ich bestelle so viel
+
+02:00:04.400 --> 02:00:12.960
+zeug bei amazon und amazon wird von 20 sd karten nicht ahm achja und ne sache die ich
+
+02:00:12.960 --> 02:00:20.280
+auch mal unbedingt gucken wollte das mache ich jetzt auch schnell bevor ich off gehe
+
+02:00:20.280 --> 02:00:23.720
+kannst du noch mal ein video streamen oder ein video zu deinem neuen server machen also
+
+02:00:23.720 --> 02:00:28.880
+neu die habe ich noch nicht alle aufgebaut aber falls du diese große kiste meinst die
+
+02:00:28.880 --> 02:00:33.120
+ich mal im video gezeigt habe die ist die wird mittlerweile gerade abgelöst durch kleinere
+
+02:00:33.120 --> 02:00:44.040
+stromsparendere zwei kisten gibt es sowas hier eigentlich weil ich habe aktuell einfach
+
+02:00:44.040 --> 02:00:56.160
+nur diese jede menge davon das problem ist dass ich am liebsten eigentlich nur rot schwarz
+
+02:00:56.160 --> 02:01:03.240
+hätte hauptsächlich weil rot schwarz brauchste immer und die anderen brauche ich viel weniger
+
+02:01:03.240 --> 02:01:10.240
+ich hätte gerne diese kabel so im verhältnis sagen wir mal 22 zu eins irgendwie ne also
+
+02:01:10.240 --> 02:01:20.000
+zwei schwarze zwei rote auf ein blaues und auf ein gelbes und so achte mit dem editing
+
+02:01:20.000 --> 02:01:24.720
+schwarz oder mit dem editing rot oder so deswegen habe ich mir ja vielleicht gibt es vielleicht
+
+02:01:24.720 --> 02:01:31.680
+gibt es die dinger ja einfarbig wir gucken mal bei unserem china mann unseres vertrauens
+
+02:01:31.680 --> 02:01:32.600
+ob die sowas haben
+
+02:01:32.600 --> 02:01:55.200
+war nur in der anzeige ist raus warum soll ich da mitglied werden um zu suchen dann doch
+
+02:01:55.200 --> 02:02:02.520
+ganz dicht alter aliexpress was geht mit euch ab
+
+02:02:02.520 --> 02:02:10.960
+warum soll ich mich einlocken um zu suchen muss man doch sonst nie
+
+02:02:10.960 --> 02:02:24.840
+hat seit wann muss man sich einlocken auf aliexpress zu suchen
+
+02:02:24.840 --> 02:02:44.240
+drehen die chinesen stehen komplett komplett durch jetzt
+
+02:02:44.240 --> 02:02:45.720
+was ist mit aliexpress los
+
+02:02:45.720 --> 02:02:54.720
+gut dann gucken wir halt dann gucken wir halt bei dem in der unseres vertrauens ich finde
+
+02:02:54.720 --> 02:03:16.720
+auch die adresse irgendwie banggood klingt irgendwie schon
+
+02:03:16.720 --> 02:03:34.760
+haben die sowas vielleicht den neuen schwarzen das nicht
+
+02:03:34.760 --> 02:03:53.160
+haben wir irgendwie nicht
+
+02:03:53.160 --> 02:04:01.040
+die will ich nicht ich will wirklich die ordentlichen die female to male
+
+02:04:01.040 --> 02:04:08.080
+die pond die pond wie auch immer kabel rot schwarz und dann ab und zu ein paar blau
+
+02:04:08.080 --> 02:04:11.440
+und auch keine ahnung weiß drauf na gut
+
+02:04:11.440 --> 02:04:24.680
+ja wie gesagt aliexpress ist der china mann meines vertrauens und banggood ist der der
+
+02:04:24.680 --> 02:04:29.760
+inder meines vertrauens also solange es nicht darum geht es an die steckdose anzuschließen
+
+02:04:29.760 --> 02:04:30.760
+wohl gemerkt
+
+02:04:30.760 --> 02:04:35.600
+so leute ich muss ich muss jetzt ins bett ich muss morgen früh wieder um 5 uhr 30 aufstehen
+
+02:04:35.600 --> 02:04:40.040
+allerdings nur noch dienstag mittwoch arbeiten nächste woche oder diese woche und dann habe
+
+02:04:40.040 --> 02:04:47.240
+ich wieder zeit und nachdem das streben in die letzten tage so gut funktioniert hat hoffe
+
+02:04:47.240 --> 02:04:52.080
+ich mal dass das die nächste woche weil man sagt nächste woche diese woche auch gut funktionieren
+
+02:04:52.080 --> 02:05:09.240
+wird ja danke für die follows und
+
+02:05:09.240 --> 02:05:31.000
+wir machen jetzt schluss ich sag mal machts gut bis zum nächsten mal tschüss bis denn
+
+02:05:31.000 --> 02:05:42.040
+zu
+
+02:06:01.000 --> 02:06:03.000
+Und das war's für heute.
+
+02:06:03.000 --> 02:06:05.000
+Vielen Dank für's Zuschauen.
+
+02:06:05.000 --> 02:06:32.000
+Das war's für heute.
+
+02:06:32.000 --> 02:06:41.000
+Das war's für heute. Vielen Dank für's Zuschauen.
+

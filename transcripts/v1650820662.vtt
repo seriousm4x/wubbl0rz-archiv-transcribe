@@ -1,0 +1,4448 @@
+WEBVTT
+
+00:00.000 --> 00:27.640
+So, da sind wir, bisschen spät heute, mal gucken wie lange wir dafür brauchen.
+
+00:27.640 --> 00:36.840
+Bis das Stream richtig angelaufen ist, muss ich mal kurz gucken, ob sich wieder irgendwelche
+
+00:36.840 --> 00:42.120
+China-Chinesen per Mail gemeldet haben, dass, dass ich ihre China-Klinken-Stecker
+
+00:42.120 --> 00:46.680
+promoten soll. Das sind da teilweise Anfragen dabei, hängt's ja auch so, mein ich das ernst.
+
+00:46.680 --> 00:52.920
+Letztens hat wirklich einer angefragt, ob ich ihr Klinken-Stecker-Kabel promoten will,
+
+00:52.920 --> 01:02.200
+warum will das überhaupt jemand promoten? Ein kostenloses glückliches Audiokabel,
+
+01:02.200 --> 01:08.400
+steht wirklich so im Titel der Mail, ein kostenloses glückliches Audiokabel soll
+
+01:08.400 --> 01:16.320
+ich promoten. Auch geil, weiß man sofort Bescheid. Starte mal ein cooles, was denn zum Beispiel?
+
+01:16.320 --> 01:24.440
+Was ist für dich ein cooles Raspberry-Pie-Projekt? Wir haben schon einige Raspberry-Pie-Sachen hier
+
+01:24.440 --> 01:29.160
+im Stream gemacht, aber was wäre denn für dich jetzt ein cooles Raspberry-Pie-Projekt?
+
+01:29.160 --> 01:34.920
+Wir haben schon alles mögliche gemacht, wir haben vom Raspberry-Pie bis zum ESP32 Zeug
+
+01:34.920 --> 01:43.160
+zusammen gelötet und Zeug gebastelt. So, ne, das kann ich dir da jetzt nix sagen,
+
+01:43.160 --> 01:47.880
+weil das ist bei mir immer so, ich mach das halt, wenn ich selbst irgendwas brauche oder wenn ich
+
+01:47.880 --> 01:52.320
+selbst irgendwas machen will. Also mir fallen die Sachen nicht ein, ich sag, ich mach ein Stream,
+
+01:52.320 --> 01:58.760
+sondern ich brauch irgendwas hier für daheim und dann stream ich das. Keine Ahnung.
+
+01:58.760 --> 02:14.200
+Heute beschäftigen wir uns etwas mit AWS IoT, dem AWS, nein, nicht dem iOS, dem AWS IoT SDK
+
+02:14.200 --> 02:18.880
+oder wie man das heißt. Ich erzähl euch gleich was zu. Ich muss nämlich Sachen,
+
+02:18.880 --> 02:24.400
+die mein Auto verschickt oder besser gesagt Sachen, die Fiat Autos verschicken per MQTT und ja,
+
+02:24.400 --> 02:31.480
+Fiat Autos haben wohl, so wie ich das richtig gesehen hab, MQTT Messages, die schicken sie
+
+02:31.480 --> 02:35.840
+an den Amazon MQTT Broker und die kann man abfragen. Da kann man zum Beispiel sehen,
+
+02:35.840 --> 02:40.640
+ob das Auto in spezielle Zonen gefahren ist oder nicht. Das ist natürlich ganz praktisch
+
+02:40.640 --> 02:45.640
+zur Benachrichtigung bekommen. Und jetzt gucken wir mal, ob wir das ausgelesen bekommen. Ich
+
+02:45.640 --> 02:50.200
+hab's mir nur grob angeguckt, Leute, ich hab ehrlich gesagt nichts gecheckt, was da überhaupt
+
+02:50.200 --> 03:01.240
+abgeht. Und die Amazon Doku ist wieder total pepega und nicht hilfreich. Oh Leute,
+
+03:01.240 --> 03:11.560
+The Man and Man ist auch am Start. Fast schon Opferskater Name. Können nur Eingeweihte lesen.
+
+03:11.560 --> 03:19.440
+Es hat sich heute schon jemand beschwert unter meinem Video. Ich weiß nicht,
+
+03:19.440 --> 03:22.760
+ob jemand mein Video von heute geguckt hat, die von denen, die schon da sind. Ich habe
+
+03:22.760 --> 03:27.000
+ein Video hochgeladen, da ich 17 Kilo abgenommen habe, seit Anfang des Jahres und es hat sich
+
+03:27.000 --> 03:30.960
+schon jemand auf dem Video wieder beschwert. Ich soll doch nicht sagen, dass alle dicke
+
+03:30.960 --> 03:34.800
+Leute faul sind. Es gibt doch auch Leute, die Krankheiten haben und so was. Da ging es
+
+03:34.800 --> 03:38.160
+überhaupt nicht rum. Ich weiß nicht, was die Leute immer in diese Videos rein interpretieren.
+
+03:38.160 --> 03:45.400
+Ich habe von mir gesprochen. Das sollte doch wohl auch schon am Titel klar sein. Aber wieder war
+
+03:45.400 --> 03:57.920
+klar, dass es wieder irgendwelche Leute falsch verstehen wollen. Das ist mir leichter fällt,
+
+03:57.920 --> 04:04.960
+Kabel zu verlegen. Wie gesagt, heutzutage gibt es teilweise Leute, die warten nur drauf,
+
+04:04.960 --> 04:08.720
+dass sie getriggert sein können. Auf Twitter ist es ganz schlimm. Auf Twitter ist quasi
+
+04:08.720 --> 04:21.080
+das Land der Getriggerten. Das ist unser eigenes Bundesland. Triggersburg ist auf Twitter. Wobei,
+
+04:21.080 --> 04:25.920
+das ist ja nicht nur auf Twitter. Nicht nur in Deutschland, das ist ja weltweit so. Die
+
+04:25.920 --> 04:34.520
+sind auf Twitter. Das ist ganz schlimm, die Leute. Seit Ende Februar 17 Kilo. Von 108,5
+
+04:34.520 --> 04:40.800
+runter jetzt auf 91 Komma. Irgendwas schwankt immer ein bisschen. Je nachdem, ob ich schon
+
+04:40.800 --> 04:46.440
+eine Hose an habe oder nicht. Oder ob ich auf dem Klo war oder nicht. Es schwankt immer
+
+04:46.440 --> 04:57.360
+so zwischen 91,4 oder so und 92,4. Also irgendwie in dem Dreh. Wie groß bist du denn? Ich bin
+
+04:57.360 --> 05:14.080
+1,74. 174 Zentimeter. 69 Zuschauer, Leute. Gatschi-Buzz. Da habe ich ja gar nichts großartig
+
+05:14.080 --> 05:18.240
+dagegen. Leute, ich habe ja keine Schmerzen, wenn sich Leute mit irgendwas beschweren. Man
+
+05:18.240 --> 05:23.520
+muss ja nicht selbst betroffen sein unbedingt. Also ich kann ja auch irgendwas doof finden,
+
+05:23.520 --> 05:28.160
+wenn ich mich in andere rein versetze. Aber die Leute, die quasi nur darauf warten, dass
+
+05:28.160 --> 05:31.400
+sie getriggert sein können, da frage ich mich auch immer, ob die nichts besseres zu tun
+
+05:31.400 --> 05:37.720
+haben. Zumal man den Eindruck hat, diese Leute wollen jegliche Aussagen immer falsch verstehen.
+
+05:37.720 --> 05:45.960
+Jemand sagt was leicht unüberlegtes und schon gehen sie davon aus, dass der meint das ganz
+
+05:45.960 --> 05:54.040
+böse und ist voller Unmensch und ganz schrecklich. Aber die übertreiben es alle ein bisschen.
+
+05:54.040 --> 05:58.840
+Das ist nicht mehr normal. Die sollen sich alle mal wieder, also im Ernst, die Leute,
+
+05:58.840 --> 06:02.400
+die sie immer so krass getriggert sind, die sollen sich mal eine Sache mal, ich finde
+
+06:02.400 --> 06:05.760
+das geht immer ein bisschen unter. Kann ich vielleicht am Anfang des Streams jetzt mal
+
+06:05.760 --> 06:08.360
+sagen. Ich will ja eigentlich mich gar nicht so sehr über diese Themen auslassen. Eine
+
+06:08.360 --> 06:13.960
+Sache muss man echt sagen. Wir leben doch aktuell wirklich in äußerst angenehmen Zeiten.
+
+06:13.960 --> 06:21.640
+Ja, also gerade was persönliche Entfaltung angeht. Es wird immer so getan, als ist das
+
+06:21.640 --> 06:25.760
+so schlimm und das hört sich halt immer so an wie so schlimm wie noch nie. Das stimmt
+
+06:25.760 --> 06:28.560
+überhaupt nicht. Die Leute sollen sich mal angucken, wie die Welt vor 150 Jahren oder
+
+06:28.560 --> 06:35.200
+so gewesen ist. Das war richtig krass, was da abgegangen ist. Die Zeiten heute sind absolut
+
+06:35.200 --> 06:40.480
+top. Du kannst dich persönlich so gut entfalten wie ich. Vor 150 Jahren haben die Schwule
+
+06:40.480 --> 06:46.600
+noch lobotomiert und so komische Dinge getrieben. Also du kannst dich heute komplett super persönlich
+
+06:46.600 --> 06:55.200
+entfalten. Ich bin 38, ich sitze vor dem Rechner, Sache 0W, KekW, Proggers, Spock, rede in Twitch-Emotes
+
+06:55.200 --> 07:00.200
+und spiele Games, programmiere irgendwie was und ich muss mir von keinem anhören heutzutage.
+
+07:00.200 --> 07:04.200
+Na, wie wärs da mal mit Hausbauen? Na, wie wärs da mal mit Kinderkriegen? Also langsam
+
+07:04.200 --> 07:08.120
+bist du aber zu alt dafür. Na, so wird das aber nix. Ohne Scheiß, das musste ich mir
+
+07:08.120 --> 07:11.920
+vielleicht noch ein bisschen früher von meinem Opa anhören, aber ganz im Ernst, es juckt
+
+07:11.920 --> 07:16.680
+einfach keinen mehr. Du kannst dich heute persönlich entfalten so gut wie noch nie.
+
+07:16.680 --> 07:21.800
+Und dementsprechend, die sollen man nicht alle so tun, als ist das heute so schrecklich
+
+07:21.800 --> 07:27.020
+überall auf der Welt. Also da muss man sich mal, also die Zeiten früher waren deutlich
+
+07:27.020 --> 07:30.680
+deutlich schlimmer. Muss man sich auch mal zu schätzen wissen, dass es einem heute eigentlich
+
+07:30.680 --> 07:40.280
+relativ gut geht und dass die Welt in vielen Belangen vorwärtsgekommen ist. Ja, und das,
+
+07:40.280 --> 07:47.120
+was so quasi Mainstream ist heute, dass das schon ganz schön vorwärtsgekommen ist. Dankeschön.
+
+07:47.120 --> 07:54.960
+101 Milliarden, Dankeschön. Pog Bits. Du kannst sogar nach Katar zur WM fliegen. Tja,
+
+07:54.960 --> 07:58.880
+ja siehst du mal, es gibt ja durchaus Länder, da ist es ja, da ist es auch heute noch ziemlich
+
+07:58.880 --> 08:08.640
+heftig. Da geht es teilweise richtig ab. Ich habe heute News gelesen, weiß unangenehmes
+
+08:08.640 --> 08:13.960
+Thema, aber passt da. Unangenehmes Thema, im Iran oder so, haben sie jetzt irgendeinen
+
+08:13.960 --> 08:21.920
+Rapper zum Tode verurteilt, weil er es gewagt hat online, irgendwelche Rap-Geschichten als
+
+08:21.920 --> 08:26.960
+Support zu den Protesten zu posten. Ja, in Nordkorea werden Leute mit der Flak abgeschossen,
+
+08:26.960 --> 08:31.280
+also ich finde man muss auch mal wirklich zu schätzen wissen, wie gut es einem hier geht
+
+08:31.280 --> 08:37.360
+und dass wir wirklich die letzten 100, 150 Jahre auch, zumindest bei uns, wirklich sehr
+
+08:37.360 --> 08:41.320
+weit vorwärtsgekommen sind. Man sollte das nicht immer so schwarz sehen, klar, es gibt
+
+08:41.320 --> 08:45.480
+immer noch genug Bereiche, wo alles vielleicht nicht so hundertprozentig ist, wie es sein
+
+08:45.480 --> 08:49.760
+sollte, kann man ja auch sagen, aber heute habe ich echt den Eindruck, gerade auf Twitter,
+
+08:49.760 --> 08:55.440
+die Leute weinen sich da in den Schlaf, wie schlecht die Welt ist, dabei ist es wirklich
+
+08:55.440 --> 09:00.840
+in den besten Zeiten, die es je gegeben hat, gerade für persönliche Entfaltung und drum
+
+09:00.840 --> 09:07.960
+herum, als dies je gegeben hat. Naja, aber gut, getriggert sein und schwarz malen, darf
+
+09:07.960 --> 09:14.160
+man das überhaupt noch sagen? Alle schwarz malen ist ja irgendwie so ein Hobby, was die
+
+09:14.160 --> 09:19.280
+Leute auf Twitter haben. Weiß nicht, was mit denen los ist. Gerade auf Twitter flippen
+
+09:19.280 --> 09:23.640
+sie alle, flippen sie alle aus. Gut, aber wir widmen uns heute mal anderen etwas erfreulicheren
+
+09:23.640 --> 09:31.880
+Sachen, nämlich AWS IoT Core. Das ist eine wilde Aneinanderreihung von unaussprechlichen
+
+09:31.880 --> 09:38.440
+Sachen, oder? Ihr müsst euch mal den Titel heute angucken, das checkt doch niemand. MQTT,
+
+09:38.440 --> 09:42.960
+das heißt offiziell so. Also MQTT kennen wir ja alle, das ist nur für besonders cute
+
+09:42.960 --> 09:50.120
+Leute. Das ist ein Message Broker, Message Bus, wie auch immer, was sagen die eigentlich
+
+09:50.120 --> 09:56.800
+selbst, was es ist. Ein offenes Netzwerk-Portokoll für Maschine zu Maschine-Kommunikation. Alles
+
+09:56.800 --> 10:03.520
+klar, jetzt wisst ihr hoffentlich Bescheid. Ein Message Queue. Ein Message Queuing Telemetrie-Transport.
+
+10:03.520 --> 10:14.760
+Man kann da mit Nachrichten austauschen. Man kann beispielsweise von einer Lampe im W-Lan
+
+10:14.760 --> 10:19.440
+eine Nachricht schicken, ich wurde gerade angeschaltet, oder eine Nachricht empfangen, du schaltest
+
+10:19.440 --> 10:28.280
+dich ein und sowas. Es ist eigentlich so ein Message Broker. MQTT AWS IoT Core, was für
+
+10:28.280 --> 10:36.600
+eine Aneinanderreihung von merkwürdigen Dingern. Also AWS ist der Amazon Cloud Plattform. Ich
+
+10:36.600 --> 10:44.020
+bin mir ehrlich gesagt gar nicht sicher, für was AWS genau steht. Ich glaube irgendwas
+
+10:44.020 --> 10:50.960
+mit Amazon und Service. Aber was W ist, weiß ich gerade nicht. Wir sind ja hier nicht bei
+
+10:50.960 --> 10:58.080
+indischen, äh, outgesourceten Leuten in Containern. Web? Ah, Web ist es. Ok, Amazon Web Services
+
+10:58.080 --> 11:05.800
+sind es, wusste ich nicht. IoT kennen wir und Core, warum auch immer Core, keine Ahnung.
+
+11:05.800 --> 11:11.280
+Das Internet of Things. Warum auch immer Core, weiß ich nicht. Zumindest benutzt Fiat das,
+
+11:11.280 --> 11:14.880
+deswegen müssen wir uns das heute angucken. Übrigens für den Fall der Fälle, dass ihr
+
+11:14.880 --> 11:20.440
+es nicht mitbekommen habt, sowas wie AMP, ist das nicht eine MQTT Implementierung sogar?
+
+11:20.440 --> 11:29.440
+Nee, ist es nicht. Ja, aber dann wahrscheinlich sowas ähnliches. Also MQTT wird im, kennst
+
+11:29.440 --> 11:41.200
+du Odo? Odo war die Jeans, die mich gescampt hat. Nee, wie hießen die? Hier, die Jeans,
+
+11:41.200 --> 11:46.640
+die haben mich gescampt bei Kickstarter, Odo. Odo Jeans. Die haben gesagt, sie verkaufen
+
+11:46.640 --> 11:52.920
+oder sie stellen eine selbst reinigende Hose her mit Silberpartikel. Und die Hose hat Silberpartikel
+
+11:52.920 --> 11:57.520
+drin und deswegen muss, ist die, ist die, ist, guck, deswegen ist es so, deswegen ist
+
+11:57.520 --> 12:03.720
+die dreckabweisend. Odo. Und ich hab gebacked eine Jeans und zwei T-Shirts oder irgendwie
+
+12:03.720 --> 12:09.420
+was, ich glaub 180 Euro oder so, also irgendeins dieser Tiers. Und die sind dann einfach abgehauen
+
+12:09.420 --> 12:19.400
+mit dem Geld, haben mich übelst gescampt bei Kickstarter. Irgendwie, irgendwie eins, irgendwie
+
+12:19.400 --> 12:23.960
+irgendwas von diesen, diesen, entweder eins von diesen drei Tiers war es glaube ich. Ja,
+
+12:23.960 --> 12:29.820
+klar kenne ich die. Warte mal. Entweder ist mein Ohr gerade auf der rechten Seite kaputt
+
+12:29.820 --> 12:36.120
+gegangen oder mein Headset. Chat, was mein dir, was wird sein? Gerade mal kurz, ich muss
+
+12:36.120 --> 12:45.400
+mal kurz muten. Okay, jetzt geht's wieder. War anscheinend doch nicht mein Ohr, sondern
+
+12:45.400 --> 13:00.520
+das Headset. Safe Ohr, Safe Call. Das Ohr wird's gewesen sein. Ja, also wie gesagt,
+
+13:00.520 --> 13:08.560
+kein Odo. Oder ne, du meinst Odo mit zwei O. Open Source, ERP und CRM. Nö, das kenne
+
+13:08.560 --> 13:15.040
+ich nicht. Irgendwelches Projektmanagement Zeug, MonkaS, geh weg. Ne, sagt mir nix.
+
+13:15.040 --> 13:28.240
+Ja, das ist wirklich auch so gemacht, dass es keiner versteht. Also sowas wie WhatsApp
+
+13:28.240 --> 13:36.480
+für Maschinen. Ich weiß, Cap, aber das würde ich noch nicht mal für ein Azubi in der ersten
+
+13:36.480 --> 13:56.400
+Woche gelten lassen, den Vergleich. Hive MQ klingt auch ein bisschen nach irgendeiner
+
+13:56.400 --> 14:13.720
+Kürze die Implementierung. Moin, Xetor. Voller Weep-Modus. Muss mal kurz die VM anmachen
+
+14:13.720 --> 14:18.640
+und eine Runde Package Updates fahren, weil die habe ich jetzt schon eine Weile nicht
+
+14:18.640 --> 14:46.760
+mehr angehabt, Leute. Wir haben schon eine Weile kein Technologies. What? Ist wieder
+
+14:46.760 --> 14:51.240
+das Log-File hier am... ist wieder das Log... VMW hat teilweise schon ein paar ziemlich
+
+14:51.240 --> 14:55.240
+doofe Bugs. Das habe ich schon öfters mal gehabt, dass irgendwelche Log-Files hängen
+
+14:55.240 --> 15:00.080
+geblieben sind und jetzt, jetzt, pass auf, jetzt geht's wieder. Guckt, easy. Jetzt funkt
+
+15:00.080 --> 15:07.880
+es einfach. Nach dem Sinn. Muss ich verstehen. Dann machen wir Package Updates. Übrigens
+
+15:07.880 --> 15:13.600
+für alle die sich mitbekommen haben, easy, ja, für alle die sich mitbekommen haben, seit
+
+15:13.600 --> 15:25.400
+vorgestern gibt es.NET 7. Da, ein, was, ein... Also manchmal ist die Google-Suche ziemlich
+
+15:25.400 --> 15:30.120
+hängen geblieben. Eigentlich sollte da jetzt der erste Blog-Post sein, nicht einbiegen
+
+15:30.120 --> 15:36.520
+auf die Zielgeraden und auch nicht Release-Candidates, sondern, dass es released wurde. Wurde nämlich
+
+15:36.520 --> 15:44.040
+vor zwei Tagen. Hier, da. Okay, nee, vor vier Tagen sogar schon..NET ist raus und wir müssen
+
+15:44.040 --> 15:52.400
+uns in einem der nächsten Streams mal in Ruhe die neuen... C-Sharp 11 ist es glaube. Ja,
+
+15:52.400 --> 16:01.960
+es sieht auch sogar da. Die neuen C-Sharp 11 Features angucken. Nicht heute. Es gibt
+
+16:01.960 --> 16:05.880
+diesmal auch gar nicht so viele, aber es gibt ein paar Sachen, da freue ich mich wirklich
+
+16:05.880 --> 16:10.960
+drauf. Es wurde wirklich auch mal Zeit. Zum Beispiel ein Feature, was wahrscheinlich
+
+16:10.960 --> 16:17.760
+alle Python-Hackermans sehr mögen werden, falls sie mal C-Sharp verwenden ist. Die haben
+
+16:17.760 --> 16:26.640
+es jetzt endlich geschafft... Nein, das nicht. Die haben es endlich mal geschafft Raw-String-Literals
+
+16:26.640 --> 16:32.400
+einzubauen. Man kann jetzt sowas hier machen in C-Sharp 11. Guckt mal. Kommt das irgendwelchen
+
+16:32.400 --> 16:41.280
+Python-Hackermans irgendwie bekannt vor? Habt ihr das schon mal gesehen? Man könnte jetzt
+
+16:41.280 --> 16:46.440
+sagen, das haben die eins zu eins abgeguckt, aber das stimmt nicht. Die haben es tatsächlich
+
+16:46.440 --> 16:56.080
+noch ein bisschen verbessert. Aesthetic Interfaces ist auch eine sehr nice Geschichte. Ähm, ja,
+
+16:56.080 --> 17:00.680
+ich sag gleich noch was, was ich auch geil finde. Wobei, ich sag... Also Ninja Magnum
+
+17:00.680 --> 17:05.080
+sagt ja gerade Aesthetic Interfaces, was ich persönlich auch extrem cool finde. Bin mal
+
+17:05.080 --> 17:10.920
+gespannt, wie sehr sich das durchsetzen wird, ob das eher so, ja, ungern gesehen ist oder
+
+17:10.920 --> 17:19.400
+ob das die Leute häufig verwenden ist. File, äh, wie nennt sich das? File-Access? Nee,
+
+17:19.400 --> 17:23.360
+File... Ich zeig's euch gleich, steht hier bestimmt im Readme drin. Du kannst jetzt
+
+17:23.360 --> 17:30.040
+deine Klassen als nur aus diesem File zugreifbar markieren. Das ist für irgendwelche Factory-Klassen
+
+17:30.040 --> 17:35.240
+und sowas ist das richtig, richtig nice. Da kann man das zum ersten Mal ordentlich kapseln,
+
+17:35.240 --> 17:39.640
+wenn man das denn will oder wenn man sich denkt, es mir eh egal, ist auch egal. Na dann,
+
+17:39.640 --> 17:43.680
+ist wurscht. Aber das finde ich ganz gut. Das ist so ein bisschen sowas, was man in C++
+
+17:43.680 --> 17:50.280
+beispielsweise schon recht lange machen kann. In C++ kann man nur in C++, ey, also, dass
+
+17:50.280 --> 17:55.880
+ich mal C++ da loben muss bzw. C++ da in dem Fall hervorhebe ist, heißt schon was. In
+
+17:55.880 --> 18:01.760
+C++ kannst du beispielsweise bei Klassen sagen, äh, Friend und dann kann eine andere Klasse
+
+18:01.760 --> 18:07.200
+auf Private-Sachen zugreifen, weil sie eine Friend-Klasse ist. Der Name ist ziemlich beknackt,
+
+18:07.200 --> 18:13.420
+aber so ähnlich könnte man das mit diesem File-Accessor-Dings machen. Zeig ich euch
+
+18:13.420 --> 18:22.800
+gleich. Ist aber weirdchamp, warum? Zumindest das da ist sehr nice. Raw String Literals
+
+18:22.800 --> 18:26.240
+und wisst ihr was das Beste ist? Sie haben das noch ein bisschen verbessert. Müsst ihr
+
+18:26.240 --> 18:30.880
+mich mal korrigieren, ob das in Python mittlerweile auch funktioniert, aber ich hoffe, sie haben
+
+18:30.880 --> 18:42.720
+da ein Beispiel drinne. Sie haben das verbessert und zwar, das sind alles ziemliche Pepega-Beispiele.
+
+18:42.720 --> 18:54.640
+Wie? Das wichtigste zeigen die gar nicht. Das wichtigste zeigen die gar nicht. Geiler
+
+18:54.640 --> 19:01.120
+Block Microsoft, ggEats. Also wir nehmen mal das Beispiel hier von Microsoft. Ich zeige
+
+19:01.120 --> 19:09.360
+euch nur mal so trocken, trocken, trocken Beispiele, ja. Äh, C sharp. Also, das ist
+
+19:09.360 --> 19:15.440
+das Microsoft-Beispiel. Was man jetzt machen kann ist folgendes. Wenn hier drei Quotes
+
+19:15.440 --> 19:19.240
+sind, beziehungsweise man muss glaube ich nicht mal drei Quotes machen, man muss einfach
+
+19:19.240 --> 19:24.440
+so viele Quotes machen in Reihenfolge wieder halt abschließend kommen. Was man machen
+
+19:24.440 --> 19:30.160
+kann ist, wenn man jetzt hier drinne eine Variable einsetzen will, also gehen wir mal
+
+19:30.160 --> 19:37.480
+davon aus, man hätte hier drinne irgendein JSON, irgendein JSON-Objekt. So, 0w ist, ja
+
+19:37.480 --> 19:43.560
+und jetzt möchte man hier irgendeine Variable einsetzen. Heckel war oder so. Da geht das
+
+19:43.560 --> 19:48.000
+ja natürlich nicht, weil du es es capen musst. Und normalerweise escapet man in C sharp das
+
+19:48.000 --> 19:54.360
+ganze ja so. Du machst da ein Template-String draus. Das funktioniert an der Stelle aber
+
+19:54.360 --> 20:02.120
+nicht, weil JSON, bzw. JSON hat geschweifte Klammer auf und die Escape-Sequenz zum Variablen
+
+20:02.120 --> 20:07.920
+einsetzen ist auch geschweifte Klammer auf. Deswegen haben sie ein neues Feature eingebaut,
+
+20:07.920 --> 20:16.960
+man kann einfach doppelt ausrufen, äh doppelt, doppelt Dollar machen und dann muss man quasi
+
+20:16.960 --> 20:23.680
+so viele Dollars wie man hat, muss man hier drinne zum öffnen, für die Escape-Sequenz
+
+20:23.680 --> 20:28.840
+zum Variablen einsetzen machen. Das heißt, die JSON-Dinger sind ganz normal String und
+
+20:28.840 --> 20:33.360
+das hier ist Variablen einsetzen. Und man kann auch, ich glaube man kann theoretisch
+
+20:33.360 --> 20:37.800
+beliebig viele machen. Also man muss quasi das machen, so wie es halt natürlich nicht
+
+20:37.800 --> 20:41.600
+vorkommt in dem String. Finde ich eigentlich eine ganz coole Sache. Wird man nicht so oft
+
+20:41.600 --> 21:01.920
+brauchen, aber wenn man es braucht, ist es enorm praktisch. Gucken wir mal die anderen
+
+21:01.920 --> 21:14.200
+Sachen schnell durch. Abstracting over Static-Members, ja das ist auch eine richtig coole Geschichte.
+
+21:14.200 --> 21:22.520
+Bisher war es so, Interfaces konnten, okay also fangen wir mal ganz vorne an. Früher,
+
+21:22.520 --> 21:28.800
+ganz früher konnten Interfaces eigentlich bloß Methodendefinitionen haben. Irgendwann
+
+21:28.800 --> 21:31.960
+später und es kann sein, dass ich falsch liege und das von Anfang an schon da drinne
+
+21:31.960 --> 21:39.520
+war, gingen Properties auch. Und irgendwann kamen sie dann auf die Idee, man könnte Default-Interfaces
+
+21:39.520 --> 21:45.560
+machen. Also quasi Interfaces dürfen jetzt Default-Implementierungen haben. Da kann man
+
+21:45.560 --> 21:48.520
+sich jetzt drüber streiten, ob das was Gutes ist oder nicht, aber das gibt es auch seit
+
+21:48.520 --> 21:53.080
+ein paar Versionen. Aber eine Sache, die mir persönlich auch schon immer gefehlt hat,
+
+21:53.080 --> 21:59.040
+ist, dass man in einem Interface sagen kann, dass da auch Static-Members, also dass da
+
+21:59.040 --> 22:05.000
+auch Static-Geschichten drinne implementiert werden müssen. Das ist zum Beispiel ganz
+
+22:05.000 --> 22:10.240
+gut, wenn man irgendeinen Parser hat oder irgendwas oder ein Plugin zum Beispiel. Stell
+
+22:10.240 --> 22:16.920
+euch mal vor, ihr wollt irgendwie eure Anwendung, wollt ihr Plugins einbauen und ihr habt dann
+
+22:16.920 --> 22:27.800
+sowas wie ein Interface-i-Plugin. Das muss, ihr möchtet eigentlich, dass euer Plugin
+
+22:27.800 --> 22:34.080
+eine statische Create-Methode hat oder irgendwas in der Richtung. Das ist ja ganz gut, gerade
+
+22:34.080 --> 22:38.160
+wenn man das ganze Async machen will, weil Constructor kann nicht Async sein und so,
+
+22:38.160 --> 22:42.880
+ist das ganz sinnvoll. Aber das ging bisher nicht, weil du konntest bisher nicht sagen,
+
+22:42.880 --> 22:48.320
+dass eine Klasse Static-Sachen implementieren muss. Was geht jetzt mit dem Interface? Das
+
+22:48.320 --> 22:52.400
+finde ich ganz cool. Die haben diesmal noch ganz, ganz viel abgedrehtes Zeug gemacht mit
+
+22:52.400 --> 22:59.600
+diesem Feature. Beispielsweise kannst du zum ersten Mal in C-Sharp 11 jetzt beispielsweise
+
+22:59.600 --> 23:05.360
+eine Number, also eine allgemeingültiges Number-Interface verwenden. Ich hoffe, das
+
+23:05.360 --> 23:12.120
+kommt noch unten drunter. Also du kannst jetzt beispielsweise eine Generic-Funktion bauen,
+
+23:12.120 --> 23:20.240
+die für alle numerischen Typen funktioniert. Von Int, bis Float, bis Double, bis Bites,
+
+23:20.240 --> 23:27.240
+sonst was. Weil es jetzt sowas wie ein Number gibt. Mal gucken, ob das noch kommt. Also
+
+23:27.240 --> 23:34.280
+das ist auf jeden Fall eine coole Geschichte. Static-Interfaces oder Static-Members in Interfaces.
+
+23:34.280 --> 23:54.480
+Das ist ein komisches Beispiel, aber im Endeffekt heißt das nicht eigentlich ein Number normaler?
+
+23:54.480 --> 24:05.000
+Achso, hier haben sie. Das gucken wir uns aber alles mal in einem nächsten Stream an.
+
+24:05.000 --> 24:08.920
+Ich will da heute nochmal drüber scrollen. Da muss ich am Vorfeld ein paar gute Beispiele
+
+24:08.920 --> 24:24.200
+überlegen. So, List-Patterns haben wir da noch. Da ein Flieger, moin. Ok, List-Patterns
+
+24:24.200 --> 24:29.960
+haben wir da noch. Das ist tatsächlich auch ganz cool. Ich weiß, ich hab's letztens auch
+
+24:29.960 --> 24:34.200
+in irgendeinem Video gehört, ich glaub das Video hab ich hier sogar noch offen, das wollte
+
+24:34.200 --> 24:39.160
+ich mir mit euch auch mal fertig angucken. Dass die Sharp so ein bisschen die Richtung
+
+24:39.160 --> 24:46.080
+fehlt, beziehungsweise dass die sehr wild aus allen Sachen implementieren. Ja, das ist
+
+24:46.080 --> 24:49.720
+so. Es sind auch ein paar Sachen reingekommen die letzten Jahre über, wo man das Gefühl
+
+24:49.720 --> 24:58.280
+hat, das hat Microsoft einfach eingebaut, weil sie das selbst braucht und ihre Jason-Implementierung
+
+24:58.280 --> 25:04.000
+war lange Zeit Schrott bzw. nicht richtig vorhanden. Die neue ist besser, aber im Prinzip
+
+25:04.000 --> 25:11.440
+immer noch schlechter als Jason.net, aber schneller. Also, dass man überhaupt noch
+
+25:11.440 --> 25:16.440
+Third-Party-Libraries für Jason-Zeug braucht, wenn man ein bisschen advancederes Zeug machen
+
+25:16.440 --> 25:22.320
+will, ist schon pains-champ. Naja, gut, aber wie gesagt, es geht in die richtige Richtung.
+
+25:22.320 --> 25:26.480
+Insgesamt kamen ein paar Sachen rein, wo man sich drüber streiten kann, aber insgesamt,
+
+25:26.480 --> 25:32.520
+so die Gesamtansicht der Sachen, muss ich sagen, finde ich eigentlich ganz gut was Microsoft
+
+25:32.520 --> 25:38.240
+da reinbringt, zum größten Teil zumindest. Und diese ganze Pattern-Matching-Geschichte
+
+25:38.240 --> 25:45.640
+sorgt zwar zum einen für, dass manche Sachen ein bisschen doppeldeutiger sind. Zum Beispiel
+
+25:45.640 --> 25:51.640
+kann man jetzt sowas machen wie is 0 oder gleich gleich 0, wobei das je nach Kontext
+
+25:51.640 --> 25:56.640
+mal das eine geht, mal das andere, mal beides. Ja, in dem if geht zum Beispiel beides, hier
+
+25:56.640 --> 26:01.080
+in so einem Switch, dann geht da nur das eine. Gut, aber insgesamt ist es tatsächlich ganz
+
+26:01.080 --> 26:07.200
+sinnvoll, was sie machen und List-Patterns finde ich auch cool. Du kannst jetzt zum Beispiel
+
+26:07.200 --> 26:11.440
+Strings splitten oder Arrays splitten, dann sagst du, ich will den ersten Buchstaben
+
+26:11.440 --> 26:16.120
+und eine Variable, wo der Rest drinne steht. Du kannst auch sagen First, Second und Rest.
+
+26:16.120 --> 26:21.480
+Das ist wirklich nice. Braucht man wahrscheinlich auch nicht oft, aber wenn man es braucht,
+
+26:21.480 --> 26:29.640
+ist es sehr praktisch, dass man Strings und Arrays und generell Enumerables jetzt ordentlich
+
+26:29.640 --> 26:36.120
+splitten kann. Das finde ich sehr, weil ich weiß gar nicht, ob das für alle, ich kann
+
+26:36.120 --> 26:44.120
+das dann aussprechen, für alle Enumerables gilt oder nur wirklich für alles, was List
+
+26:44.120 --> 26:48.880
+ist. Vielleicht auch alles, was List ist, weil List nur Index. Weiß ich nicht, müssen wir
+
+26:48.880 --> 26:57.040
+mal nachgucken, aber das ist eine coole Geschichte. Moins sags. Required Members, ja Required
+
+26:57.040 --> 27:08.760
+Members ist auch eine coole Sache. Die haben ja vor ein paar Versionen Record-Types eingeführt.
+
+27:08.760 --> 27:18.120
+Also sprich, dass man Klassen hat, die sich ein bisschen wie Structs verhalten, wo dann
+
+27:18.120 --> 27:23.480
+zum Beispiel überschrieben wurde, Equals und ein ordentliches Console-Print eingebaut
+
+27:23.480 --> 27:28.680
+hat und sowas. War eigentlich ganz nice. Ein bisschen doof war es allerdings, nur dass
+
+27:28.680 --> 27:33.760
+du teilweise immer noch riesenlange Constructor bauen musstest, wenn du sicherstellen wolltest,
+
+27:33.760 --> 27:39.040
+dass jedes Feld, was drinstehen hat, was du drinstehen haben willst. Stellt euch vor,
+
+27:39.040 --> 27:44.120
+ihr habt sowas wie First Name, Last Name, Middle Name, Age und sowas und ihr sagt halt,
+
+27:44.120 --> 27:50.200
+ok, das ist nur gültig, wenn mindestens bei First Name was eingetragen ist. Das konntet
+
+27:50.200 --> 27:53.840
+ihr bisher nicht machen, ihr müsst einen Constructor anlegen, wo das drinsteht. Und
+
+27:53.840 --> 27:58.600
+jetzt gibt es Required und das finde ich eigentlich eine coole Geschichte, dass man jetzt kompakt
+
+27:58.600 --> 28:05.400
+solche Datenklassen schreiben kann und ohne einen Constructor hier der Kram quasi zwingend
+
+28:05.400 --> 28:19.720
+erforderlich ist, wenn man es anlegt. Das finde ich praktisch. Und ich meine, ich verstehe
+
+28:19.720 --> 28:24.280
+die Kritik schon, die es da gibt, dass die Sharp jetzt viele Sachen halbherzig und doppelt
+
+28:24.280 --> 28:30.360
+gemoppelt hat, ist irgendwie auch. Aber ich hoffe, dass sie das alles noch ein bisschen
+
+28:30.360 --> 28:36.000
+runder machen die nächsten Jahre über. Microsoft legt ja ein beachtliches Tempo vor, da kann
+
+28:36.000 --> 28:42.080
+sich Java durchaus mal eine Scheibe von abschneiden. Und dass Sprachen, die komplett neu rauskommen,
+
+28:42.080 --> 28:47.680
+jetzt vielleicht keine Altlasten mehr haben, die sie noch bis heute supporten müssen, ist
+
+28:47.680 --> 28:50.760
+halt so. Die können halt Sachen anders machen, die haben das gleiche Problem dann in 5 bis
+
+28:50.760 --> 28:55.800
+10 Jahren, falls es die da überhaupt noch gibt. Was ich denke, was Microsoft tatsächlich
+
+28:55.800 --> 29:03.120
+mal öfters machen könnte, da bin ich ja wahrscheinlich einer der wenigen, der das sagt, ich bin der
+
+29:03.120 --> 29:06.960
+Meinung, die könnten mal ein paar alten Sachen rausschmeißen. Beispielsweise die ganzen
+
+29:06.960 --> 29:10.840
+normalen Collections, die nicht Generic sind oder sowas, brauchste doch heute gar nicht
+
+29:10.840 --> 29:16.800
+mehr. Wozu? Wozu brauche ich noch eine Arraylist? Könnten sie rausschmeißen. Weil ich meine,
+
+29:16.800 --> 29:19.680
+ich kann im Zweifel zwar immer eine List of Objects machen, da kann ich das Gleiche mit
+
+29:19.680 --> 29:25.040
+anstellen. Solche Geschichten. Und man könnte durchaus auch mal überlegen, ob man nicht
+
+29:25.040 --> 29:33.800
+vielleicht ein paar Sprachkonstrukte entfernt, die man gar nicht mehr verwenden soll. Also
+
+29:33.800 --> 29:37.680
+da gibt es so ein paar Sachen, das könnte man durchaus machen. Man könnte es ja sagen,
+
+29:37.680 --> 29:47.200
+man macht das zu einer LTS Version und dann halt das immer irgendwie maximal alle 5 Jahre
+
+29:47.200 --> 29:54.720
+oder so. Ganz ehrlich, da sind Sachen drin, die sind seit C Sharp 1 drin und das muss eigentlich
+
+29:54.720 --> 30:00.720
+gar nicht mehr drin sein. Okay, ich gebe zu, es ist doof für Leute, die halt wirklich
+
+30:00.720 --> 30:09.480
+Legacy-Codebases haben, die zurückgehen bis C Sharp 1, LTS, Long-Term-Support gibt es
+
+30:09.480 --> 30:14.720
+bei.NET auch. Das sind dann immer Versionen, die, ich weiß gar nicht wie lange, 2, 3 Jahre
+
+30:14.720 --> 30:21.480
+oder so supportet werden. Ich glaube,.NET 6 war LTS,.NET 7 ist wieder kein LTS und
+
+30:21.480 --> 30:26.760
+.NET 8 ist dann wahrscheinlich wieder, ich weiß den Zyklus da nicht genau, wie das Microsoft
+
+30:26.760 --> 30:31.840
+macht. Also das ist natürlich ein bisschen doof dann für Leute, die noch in der Codebase
+
+30:31.840 --> 30:39.920
+haben, die auf C Sharp 1 Dingern basiert. Also die hängen wahrscheinlich hier auf.NET
+
+30:39.920 --> 30:47.720
+Framework fest. Also ich glaube gar nicht, dass es so ein großes Problem wäre. Man könnte,
+
+30:47.720 --> 30:52.320
+wenn man das wirklich machen will, vielleicht sogar irgendeinen Flag einführen, so schallt
+
+30:52.320 --> 30:57.200
+den alten Shit aus. Aber ja, also ein bisschen, ein bisschen aufräumen könnten sie wirklich
+
+30:57.200 --> 31:06.280
+mal und ein paar alte Sachen rausschmeißen könnten sie auch. Ja, das war es im Großen
+
+31:06.280 --> 31:12.000
+und Ganzen auch. Und jetzt, finde ich, fehlt einiges jetzt noch hier drinnen. Gab durchaus,
+
+31:12.000 --> 31:17.280
+durchaus noch mehr interessante Sachen. Das ist C Sharp 11, aber das gucken wir uns da
+
+31:17.280 --> 31:23.760
+mal in einem anderen Stream an. Generics S in Version 2. Ja, genau. Deswegen könnte
+
+31:23.760 --> 31:27.400
+man theoretisch alles andere rausschmeißen, weil ganz ehrlich, wer hat noch irgendeine
+
+31:27.400 --> 31:34.640
+C Sharp 1 Codebase? Oh, habe ich hier noch einen? Dogger laufen, Dogger, stopp. Ich hab
+
+31:34.640 --> 31:43.120
+noch einen O-Proker laufen. Lul, was macht denn der hier? Hier mal aus. So, ich mach
+
+31:43.120 --> 31:53.920
+mal ein Update. Da gibt es bestimmt wieder was. Ja, da kommt einiges jetzt. Bäm. Na gut,
+
+31:53.920 --> 31:56.640
+dass ich das jetzt angeschmissen habe. Ich hoffe, der Stream leckt jetzt nicht, weil
+
+31:56.640 --> 32:10.160
+ich so viel update auf einmal. So, Yam und Abt hätte jetzt erst angefangen, Sachen
+
+32:10.160 --> 32:16.600
+zu laden. Das mag ich an Pac-Man, das ist immer sehr, sehr zackig. Und es geht schnell.
+
+32:16.600 --> 32:21.240
+Ihr werdet sehen, das ist ratzfatz fertig. Ich meine, es muss immerhin 1,4 Gig runterladen.
+
+32:21.240 --> 32:34.080
+Guck, gleich ist alles runtergeladen. Und dann gibt es Update. Ist auch schön, dass
+
+32:34.080 --> 32:38.720
+man das parallel machen kann. Ich weiß gar nicht, ob man Yam oder Abt mittlerweile dazu
+
+32:38.720 --> 32:43.360
+überreden kann, Downloads parallel zu machen. Ich weiß nicht, ob das geht. Also, die Folgen
+
+32:43.360 --> 32:46.240
+misse ich jetzt auf jeden Fall. Das weiß ich jetzt immer nur eins zur gleichen Zeit.
+
+32:46.240 --> 33:04.240
+So, hoffen wir mal, die Updates laufen durch. Abt nur mit Rapper. Wenn es der Rapper kann,
+
+33:04.240 --> 33:11.120
+warum kann das Abt nicht selbst? Startet es dann mehrfach Abt unter der Haube? So, dann
+
+33:11.120 --> 33:18.160
+Upgrade mal. Gib ihm. Ja, wir müssen mal ein Upgrade machen, mal schauen, ob es irgendwie
+
+33:18.160 --> 33:24.480
+für Ryder oder andere Geschichten Updates gibt. Ist das die VM, die du updatest? Ja,
+
+33:24.480 --> 33:34.560
+das ist die VM, die ich update. Was? Failed? Ach so, weil die Tools gerade updaten. Okay,
+
+33:34.560 --> 33:46.240
+das ist in Ordnung. Dann darf das Failed sein. Erinnert ihr euch noch? Hier, mscripten, c++,
+
+33:46.240 --> 33:56.720
+FFmpeg, Browser, Experimente, die wir gemacht haben. Das lief erstaunlich gut. Okay, Update.
+
+33:56.720 --> 34:03.600
+Sonst noch was, check for Updates. Update available, nee, Gibayden, ich mach doch gerade das Update
+
+34:03.600 --> 34:26.560
+schon. So, und dann Rebooten wir mal. Update Champ, ja. Wenn das durch ist, dann Rebooten
+
+34:26.560 --> 34:45.040
+wir mal. Und dann geht's los. Oh, mein Ram ist fast voll. Was ist denn da los? Leute,
+
+34:45.040 --> 34:51.040
+mein Ram. Ah, jetzt ist er wieder, jetzt ist er wieder frei. Er war, er war fast voll.
+
+34:51.040 --> 34:59.120
+Gucken wir mal, ob wir Kernel-Update machen müssen. Irgendwas ist das immer noch aktuell.
+
+34:59.120 --> 35:12.160
+Das haben wir hier. LTS, LTS-Kernel, wunderbar. Nochmal hier den ganzen Krempel-Update. Na,
+
+35:12.160 --> 35:18.960
+dann geht's. Wieso früh prüfst du deinen freien Ram? Ich wollte wissen, ob's Ram oder
+
+35:18.960 --> 35:45.840
+Festplatte ist. Anhand des Symbols da oben wusste ich nicht, was es ist. So. Was? Aqua?
+
+35:45.840 --> 35:56.920
+Was? Update Champ. Ja, wir bauen einen Package-Manager. Einfach nur, weil es mir zu langsam ist. So.
+
+35:56.920 --> 36:02.320
+Auf Updaten. Ach, das neue JetBrains-Tool. Ich weiß gar nicht, was es ist. Was ist das
+
+36:02.320 --> 36:08.120
+eigentlich? Aqua. Powerful Tool for Test Automation. Wir machen keine Tests. Wir programmieren
+
+36:08.120 --> 36:14.200
+beim ersten Mal schon immer perfekt. Also, es ist komplett verschenkte Mühe von JetBrains,
+
+36:14.200 --> 36:21.560
+dass sie das programmiert haben. Tests sind einfach nur bloated, so sieht's aus. Hinause
+
+36:21.560 --> 36:27.560
+wie Kommentare. Wer fehlerfrei programmiert, braucht keine Tests und keine Kommentare.
+
+36:27.560 --> 36:33.080
+Weil, wenn's fehlerfrei ist, dann muss es auch kein anderer lesen und verstehen, weil
+
+36:33.080 --> 36:40.560
+es geht ja. Ist doch ganz klar, oder? Einfach keine Fehler programmieren und das ist viel
+
+36:40.560 --> 36:48.520
+einfacher. Außerdem dokumentiert sich selbst. Korrekt. Wie kann man Gerätstreiber auf Hilung
+
+36:48.520 --> 36:54.120
+installieren ohne Package-Manager? Du musst im Zweifel... Sie kommt drauf an, was es denn
+
+36:54.120 --> 37:00.480
+genau ist. Du musst wahrscheinlich irgendwelche Kernel-Module selbst bauen dann. Ich hab ein
+
+37:00.480 --> 37:05.720
+doofes, proprietäres Hilungsaufbau im Nass und der hat keine Treiber für mein... Guck
+
+37:05.720 --> 37:11.800
+mal, ein Zigbee-Adapter. Ach du Scheiße. Da hast du wahrscheinlich gelitten. Wenn der
+
+37:11.800 --> 37:16.160
+Kernel-Module braucht, dann brauchst du nämlich Kernel-Header und musst den Kram selbst kompilieren.
+
+37:16.160 --> 37:20.160
+Das ist nicht so schön. Würde ich mal gucken, ob das vielleicht schon jemand gemacht hat.
+
+37:20.160 --> 37:27.560
+Gerade wenn es in Cyanology ist. Passt das vielleicht? Moin. Guck mal, Krieger ist am
+
+37:27.560 --> 37:33.480
+Start. Ja, also, wenn es in Cyanology ist, hast du ganz gute Chancen. So, jetzt können
+
+37:33.480 --> 37:46.080
+wir mal rebooten und hoffen, dass das funktioniert. Ja, Krieger, du wirst kaum glauben, wer mich
+
+37:46.080 --> 38:01.960
+vorhin seit Jahren angeschrieben hat. Jemand, den wir beide kennen. Also, was ich damit nicht
+
+38:01.960 --> 38:04.960
+sagen will, ist, dass er mich hätte früher anschreiben lassen sollen, weil das hätte
+
+38:04.960 --> 38:18.040
+ich auch machen können. Ihr kennt mich ja, was soziale Interaktion angeht. Doch, korrekt.
+
+38:18.040 --> 38:25.640
+Doch, der Grafum hat mich angeschrieben. Ne, wir hatten ewig keinen Kontakt. Ich glaub,
+
+38:25.640 --> 38:40.160
+warum ist hier mein... Leute, mein VM-Wertzeug ist kaputt. Oh, oh, oh, oh. Wir haben es kaputt
+
+38:40.160 --> 38:56.440
+gemacht. Doch, der Torst hat mich vorhin angeschrieben. Das ist äußerst überrascht. VM-Tools. So.
+
+38:56.440 --> 39:01.720
+Ah, jetzt. Exzellent. Alles klar. Warum es das nicht automatisch gemacht hat, verstehe
+
+39:01.720 --> 39:12.760
+ich nicht. Ist das vielleicht nicht Autostart oder so? Ne, wir haben schon ewig nicht mehr
+
+39:12.760 --> 39:17.680
+gequatscht, deswegen. Hat mich auch gewundert. Ich mein, ich hätte mich natürlich auch
+
+39:17.680 --> 39:22.440
+mal melden können, aber ihr wisst so soziale Sachen und das klappt bei mir eh nie. Enabled,
+
+39:22.440 --> 39:29.120
+doch. Ist eigentlich eingeschaltet. Na gut. Gut, Leute, wir haben es geschafft. Wir können
+
+39:29.120 --> 39:37.040
+es machen. Außer, dass mein Hintergrund gebrochen ist. Jetzt. Wallpaper. Jetzt ist er richtig.
+
+39:37.040 --> 39:48.160
+Bing-Image of the day. So, erstmal alles zumachen hier. So, alles zumachen. So, Fiat. Uconnect.
+
+39:48.160 --> 39:53.320
+Wir müssen uns einen Fake-Account machen, Leute. Sonst klappt das. Klappt das nicht.
+
+39:53.320 --> 39:58.920
+Massive-Fake-Fake-Account. Ich zeige euch jetzt erstmal, was wir heute abtappen...
+
+39:58.920 --> 40:10.560
+abzapfen wollen, war Fiat. Und wir brauchen erstmal einen 10-Minute-Mail-Account. Meinst
+
+40:10.560 --> 40:25.000
+du... Meinst du Kabum oder meinst du mich? Also wir haben uns auf der Gamescom irgendwann
+
+40:25.000 --> 40:35.840
+mal ganz kurz gesehen so vor. Frag mich nicht. 7 Jahre oder so ist schon ewig her. Fake-Account
+
+40:35.840 --> 40:48.360
+registrieren. So. Wählen sie ihre Präferenzen. Deutsch. Was ist mit meinem Firefox los? Habt
+
+40:48.360 --> 41:04.200
+ihr das gerade gesehen? Habt ihr auch so einen Firefox-Geklitsch gehabt gerade? Was ist das?
+
+41:04.200 --> 41:29.800
+Was ist... Was ist das? Das hier... Das Jahr des Linux-Desktops. Ja, so sieht's aus.
+
+41:29.800 --> 41:39.080
+Also bei sowas denke ich mir auch immer. Was haben sie da schon wieder gemacht? Warum
+
+41:39.080 --> 41:47.200
+klitscht der Background durch? Warte mal. I3... So, jetzt ist die typische Linux-Frage.
+
+41:47.200 --> 41:53.840
+Was meint ihr woran es liegt? Ist es ein Problem vom Firefox? Ist es ein Problem von I3? Ist
+
+41:53.840 --> 42:00.360
+es ein Problem von X? Ist es ein Problem von den VM-Wertreibern? Ist es ein Problem vom
+
+42:00.360 --> 42:10.480
+Kernel? Nach was soll ich suchen? VM-Tools-Bug hatte ich auch mal. Musste VM-Tools downcranen.
+
+42:10.480 --> 42:28.240
+Ach ja, wirklich. Ein VM-Tools-Bug. VM-Tools-Firefox-Background-Glitch. Suchen wir mal. Ok, hat Chrome das gleiche Problem?
+
+42:28.240 --> 42:33.280
+Lass mal kurz gucken. Machen wir hier mal die Seite auf in Chrome und gucken ob Chrome
+
+42:33.280 --> 42:44.240
+das gleiche Problem hat? Nein. Chrome... Nur Firefox hat das Problem. Chrome juckt's
+
+42:44.240 --> 42:55.240
+überhaupt nicht. Wir haben uns nur ganz kurz gesehen auf der Gamescom. So irgendwie 30
+
+42:55.240 --> 43:10.960
+Sekunden oder so. Vielleicht ging das unter. Also irgendwie ist es kaputt. Tja, so und
+
+43:10.960 --> 43:25.840
+der Chat meint es liegt an VM-Wertools. Downcrate, VM... VM-Wert? Wie heißt denn der Kram? VM-Wertools...
+
+43:25.840 --> 43:41.200
+Ach, Open VM-Tools. Ok. Downcrate, Open VM-Tools. Jaja, run as root. Auf was soll ich ihn downcranen?
+
+43:41.200 --> 43:54.640
+1205? Das hatte es auch mit Chrome. Proceed Installation. Yep. Nope. Ok, schauen wir mal
+
+43:54.640 --> 44:12.320
+ob das Problem jetzt weg ist, wenn ich reboote. Das Jahr des Linux-Desktops ist jetzt. Ok,
+
+44:12.320 --> 44:21.400
+schauen wir mal. Firefox. Na, immer noch. Daran lag's nicht. Was ist denn das für ein
+
+44:21.400 --> 44:28.920
+Shit, man? Wo klitscht mein Background einfach durch? Ok, also an VM-Wertools... an VM-Wertools
+
+44:28.920 --> 44:37.360
+liegt's nicht. Nee, jetzt ist... jetzt passiert das nicht mehr. Doch, doch, passiert immer
+
+44:37.360 --> 44:42.680
+noch. Was ein Mist, ich hoffe wir können trotzdem gescheit, gescheit arbeiten heute.
+
+44:42.680 --> 44:51.400
+Jetzt habe ich einen geklitschten Browser. Na, geil. Ach, was könnte ich ihn da suchen?
+
+44:51.400 --> 45:15.200
+Firefox-Backgrounds-E3-Clitch-Image oder sowas. How do I work around Firefox rendering? Fuck.
+
+45:15.200 --> 45:33.760
+Linux-Clitches. This is a show Windows tabs from last time. Was? Close change? Das ist
+
+45:33.760 --> 45:52.240
+ja nervig. Alter, what the fuck? Da kriege ich ja Zustände bei. Ok. Linux-Firefox-Background-Clitch.
+
+45:52.240 --> 46:08.920
+Was ist da vielleicht? Firefox-Window is transferred flashing right after... Quatsch. Ok, vielleicht
+
+46:08.920 --> 46:13.080
+sollten wir mal suchen nach letztem Jahr oder eigentlich letztem Monat. Lange ist das ja
+
+46:13.080 --> 46:31.080
+noch nicht her. Jetzt dauert die Zeit im Update. Ubuntu-Clitch. Strange-Visual-Effects. Alter,
+
+46:31.080 --> 46:35.360
+ist das nervig. What the? Da kriege ich ja Zustände, da kann ich hier nichts drin machen.
+
+46:35.360 --> 46:41.040
+Guckt euch das mal an. Das ist ja ultranervig. Ich mein, ich könnte einfach Chrome verwenden
+
+46:41.040 --> 46:46.120
+und dann sagen, scheiß drauf geht. Dann funktioniert es einfach. Aber das kann es jetzt ja nicht
+
+46:46.120 --> 46:51.880
+sein. Du hattest das mit Chrome? Also mit Chrome habe ich nix, guck. Chrome ist kein
+
+46:51.880 --> 46:58.720
+Ding. Chrome funktioniert. Wohingegen Firefox... Du siehst ja auch, es hört ja auch direkt
+
+46:58.720 --> 47:11.440
+auf beim Firefox. Das ist Firefox. Das ist Firefox-Problem. Background. Suchen wir mal
+
+47:11.440 --> 47:28.600
+da. Background. Firefox neu installieren. Nee, ich hab gerade ein Upgrade gemacht. Teil
+
+47:28.600 --> 47:39.480
+Background on clipped layer appears incorrectly. Das könnte was damit zu tun haben. A layer
+
+47:39.480 --> 47:43.000
+contains a background picture. As soon as the layer is being clipped, background doesn't
+
+47:43.000 --> 48:05.440
+appear. Nee, das ist irgendwie ein CSS-Problem. EE6 ist okay. 20 Jahre. Vor 20 Jahren. Seriously.
+
+48:05.440 --> 48:10.200
+Unconfirmed. Hätte man sich gedacht, in 20 Jahren hätte es vielleicht mal ein bisschen
+
+48:10.200 --> 48:18.600
+was neueres sein können. Kifke, danke schön für den Sub. Probier mal Hardware in Firefox
+
+48:18.600 --> 48:32.360
+auszumachen. Wie denn? About. Config. Und dann? Hardware. Wie mache ich denn das? Das
+
+48:32.360 --> 48:50.560
+besser? Nee. In den normalen Settings. Hardware. Und wo? Warte mal, was ist, wenn ich Light
+
+48:50.560 --> 49:03.440
+nehme? Oh, mein Auge. Okay, nee, ist immer noch das gleiche mit Light nehmen. Viel besser.
+
+49:03.440 --> 49:26.200
+Welchen? Welchen? Wo? Wo? Das da. Okay. Und das soll was bringen? History. Hey, das funktioniert.
+
+49:26.200 --> 49:35.320
+Wir haben es gefixt, easy. Hardware Acceleration aus. Nee, wer hätte sich das auch denken
+
+49:35.320 --> 49:41.080
+können? Hardware Acceleration aus. Und der Browser fühlt sich jetzt ehrlich gesagt auch
+
+49:41.080 --> 49:46.080
+nicht wirklich langsamer an, gell, also. Aber Hauptsache die Hardware Acceleration ist aus.
+
+49:46.080 --> 50:04.520
+Nice, gut. Alles, alles gut, alles gefixt. Nice, GG Eats. So, nicht verstehen, was das
+
+50:04.520 --> 50:09.800
+jetzt wieder für komisches Zeug gewesen ist. So, also, auf geht's. Ich möchte eine andere
+
+50:09.800 --> 50:13.640
+E-Mail Adresse, ja, möchte ich haben. So, hier, in die Zwischenablage kopieren. Also
+
+50:13.640 --> 50:21.360
+wir registrieren uns jetzt mal bei Fiat und dann zeige ich euch, was wir heute abzapfen
+
+50:21.360 --> 50:32.880
+wollen. Vorname, Max, 0W, E-Mail Adresse, weiter. Kennwort, tja, nee, da muss ich mir
+
+50:32.880 --> 50:39.800
+jetzt was anderes, da muss ich mir jetzt irgendwas ausdenken. Omega-Keckel oder so, wobei ehrlich
+
+50:39.800 --> 50:58.800
+gesagt, eigentlich ist es egal, weil ich mache den Account danach eh wieder zu. Aber weis,
+
+50:58.800 --> 51:24.360
+wir machen, wir, wir. Also, nein, ich will keine Angebote haben, alles. Zum Dashboard
+
+51:24.360 --> 51:32.520
+wechseln. Nice, safe, jawoll. So, Seite neu laden. Jetzt müssen wir warten, bis da eine
+
+51:32.520 --> 51:38.960
+Bestätigung von Fiat kommt, aber ich glaube, Fiat schickt keine Bestätigung an Fake-E-Mail-Adressen,
+
+51:38.960 --> 51:43.040
+die sind zu schlau, die sind zu high IQ dafür. So, ich zeige euch aber mal jetzt, was wir
+
+51:43.040 --> 51:53.440
+heute abgreifen wollen. Und zwar folgendes, guckt mal, der macht MQTT. MQTT, da, guckt
+
+51:53.440 --> 52:05.920
+mal, was der hier macht. Request Response. Also, Amazon macht MQTT, äh, nicht Amazon,
+
+52:05.920 --> 52:11.320
+Fiat macht MQTT über Amazon. Und da werden solche Sachen verschickt, wie zum Beispiel
+
+52:11.320 --> 52:18.240
+Auto ist fertig geladen oder aber Auto ist jetzt in einem speziellen Gebiet angekommen,
+
+52:18.240 --> 52:23.760
+Auto fährt über 100 Stundenkilometer und solche Geschichten. Also, aus irgendwelchen
+
+52:23.760 --> 52:29.880
+Gründen ist Fiat der Meinung, dass das über den, über AWS, IOT, MQTT gehen muss. Was
+
+52:29.880 --> 52:34.400
+den Vorteil hat, ich will mich da nicht beschweren, was den Vorteil hat, dass wir es abgreifen
+
+52:34.400 --> 52:41.480
+können. Anderweilig hätten wir gelitten. Jetzt ist nur die große Preisfrage, wie um
+
+52:41.480 --> 52:54.800
+alles in der Welt benutzt man diesen Kram. Request. Headers. Ich meine, hier können
+
+52:54.800 --> 53:01.480
+wir irgendwie zumindest ja schon mal ein paar Credentials rausholen. Wir machen jetzt ein
+
+53:01.480 --> 53:11.600
+neues Projekt. Hier können wir schon mal gleich ein paar Credentials rausholen, um
+
+53:11.600 --> 53:19.280
+darauf zuzugreifen. Ist das da eigentlich allencoded, was man sieht, oder ist das schon
+
+53:19.280 --> 53:28.000
+wieder alldecoded, was da im Firefox drin steht? Wahrscheinlich, wahrscheinlich encoded. Ja,
+
+53:28.000 --> 53:31.640
+also das ist das, was wir jetzt mal probieren. Und ich habe wirklich keine Ahnung, wie ich
+
+53:31.640 --> 53:37.520
+da am besten mit anfange. Wir machen erstmal ein neues Projekt. Repos. Mkdir. Oh, wir müssen
+
+53:37.520 --> 53:49.040
+noch hier neue.NET Version updaten. Zack, gib ihm. Auf runterladen ins Eimatverzeichnis
+
+53:49.040 --> 54:01.080
+packen. Ja, wunderbar. Oder hat er jetzt das andere.NET auch schon geupdatet über die
+
+54:01.080 --> 54:04.680
+Packages? Nee, das ist noch bei 6.0. Das wird wahrscheinlich auch bleiben bei 6.0, bis es
+
+54:04.680 --> 54:19.040
+kein LTS mehr ist. Mkdir. AWS. MQTT. Test. So. New Console. Gut, und dann machen wir
+
+54:19.040 --> 54:23.360
+die auf. Und dann probieren wir mal, ob wir es irgendwie ausgelesen bekommen. Ich habe
+
+54:23.360 --> 54:29.960
+da, ich habe da so meine Zweifel, dass das so einfach funktioniert. Repos. AWS. MQTT.
+
+54:29.960 --> 54:46.920
+Test. Bäm. Öffnen. Trust. Any Trustors. Gut. Not fully supported, das interessiert
+
+54:46.920 --> 54:54.440
+mich nicht. Gut. So, wir klauen uns mal kurz die Zugangsdaten von hier, wir reloaden nochmal,
+
+54:54.440 --> 55:09.280
+dann holen wir uns die Zugangsdaten raus. Request, response, response. Ähm. Moment,
+
+55:09.280 --> 55:15.920
+wie bekomme ich denn überhaupt die Zugangsdaten hier jetzt gescheit, gescheit raus, um es
+
+55:15.920 --> 55:21.040
+auszuprobieren? Ansonsten müsste ich mich ja erst mit dem anderen einloggen. Hier,
+
+55:21.040 --> 55:37.400
+credentials. X. Oh nee, ich glaube, ich muss, ich glaube, ich muss den, den Fiat Champ starten.
+
+55:37.400 --> 55:48.040
+Cookies. Secret Key. Kriegen wir nicht irgendwie die Amazon-Authentifizierung raus? Ich habe
+
+55:48.040 --> 56:05.440
+jetzt kein Bock, das andere zu starten hier. Login. Cookie. Boah, nee. Ich glaube, ich
+
+56:05.440 --> 56:12.040
+muss das andere starten und wir müssen uns ein paar Zugangsdaten generieren. Okay. Open
+
+56:12.040 --> 56:17.240
+Fiat Champ. Da steht alles in der Url drin, da habe ich aber nicht den Secret, das nicht
+
+56:17.240 --> 56:28.560
+das Secret gesehen. Das macht ja nichts. Wir können das, wir können das ja hier. Wir können
+
+56:28.560 --> 56:49.440
+uns ja hier was generieren. Was ist das? Was haben wir denn hier gebaut? Das war irgendwas,
+
+56:49.440 --> 56:53.920
+was wir hier im Stream ausprobiert haben. Ich brauche, ich brauche nur ein paar Zugangsdaten,
+
+56:53.920 --> 57:02.840
+also der Krämpel kann er eigentlich komplett, komplett weg. Ich will jetzt auch nicht pullen,
+
+57:02.840 --> 57:06.960
+weil da sind ein paar Dinger drin, die ich jetzt gerade noch gar nicht gebrauchen habe.
+
+57:06.960 --> 57:13.840
+Was ist das hier? Alles weg. Braucht einfach nur ein Login. Jaja, alles weg. Tracker, weg.
+
+57:13.840 --> 57:22.680
+Jaja, weg, weg, weg. Braucht alles. Ich brauche einfach nur ein Login. So, CD, wo sind wir
+
+57:22.680 --> 57:40.840
+hier? Da, alles klar. Export. Achso, ich benutze die Fake API. Das ist natürlich noch besser.
+
+57:40.840 --> 57:47.320
+Die Fake API bringt mir jetzt aber nichts um. Ich brauche AWS Zugangsdaten, die müssen
+
+57:47.320 --> 57:56.120
+doch hier irgendwo drinne stehen. Wurscht. Leute, ihr müsst mal kurz weggucken. Ich exportiere
+
+57:56.120 --> 58:08.160
+mal kurz mein Passwort in eine Environment Variable rein. Export, null, pw gleich. Wie
+
+58:08.160 --> 58:17.280
+gesagt, das ist nicht mein Passwort, das ist ein Fake Account, den ich angelegt habe. Aber
+
+58:17.280 --> 58:24.640
+man weiß ja nie. Bin schon drin. Jaja, ich weiß, ihr seid immer sofort, sofort überall
+
+58:24.640 --> 58:53.400
+drinne, Chat. Gatschi-Buzz. Okay, sind wieder da. So, export. Geil, jetzt habe ich gleich
+
+58:53.400 --> 58:59.440
+mal das Passwort geleakt, Keck. Na gut, ist egal, es ist eh ein Fake Account. Kann man
+
+58:59.440 --> 59:10.400
+eigentlich, kann man eigentlich mal eine blöde Frage? Gatschi-Buzz, Gatschi-Buzz. Kann man
+
+59:10.400 --> 59:25.960
+eigentlich sein Account wieder, wieder löschen? Geht das eigentlich? Wie closed man denn sein
+
+59:25.960 --> 59:47.600
+Account? Ändern? Geht das nicht? Kann man sein Account nicht
+
+59:47.600 --> 59:57.040
+mal löschen oder was? Einmal Account, immer Account. Ne, wo war das? Wo war Account deaktivieren?
+
+59:57.040 --> 01:00:23.000
+Ach hier, hier, Konto deaktivieren. Deaktivieren. Hä? Warum soll ich dir Pin vergeben? Warum
+
+01:00:23.000 --> 01:00:31.600
+soll ich dir Pin vergeben, um einen Account zu deaktivieren, man? Ja? Na, weil, weil ihr
+
+01:00:31.600 --> 01:00:52.920
+seid. Okay, massive. Ihre erste Frage, Omega-Keck. Blub, blub, blub. Weiter. Ja, geil. Dankeschön,
+
+01:00:52.920 --> 01:01:05.080
+dass die Pin aktualisiert wurde. Bin ich froh drüber, Fiat. Konto deaktivieren, ja. Ich
+
+01:01:05.080 --> 01:01:10.400
+musste Pin einrichten, um es zu löschen, um dann die Pin eingeben zu können. Eine geiles
+
+01:01:10.400 --> 01:01:19.000
+Sicherheitsfeature. Ihr Konto wurde deaktiviert. Jawoll. Wir haben uns, wir haben uns selbst,
+
+01:01:19.000 --> 01:01:26.480
+wir haben uns selbst wieder ausgesperrt. Nice. Okay, ich sehe schon in der Shell als Environment
+
+01:01:26.480 --> 01:01:30.240
+Variabel, ist das eine blöde Idee. Ich muss mir einen neuen Account machen und hier irgendwie
+
+01:01:30.240 --> 01:01:42.920
+eine Datei anlegen oder so. Sonst wird das, glaube ich, nichts. Okay, Wim, blub.txt ist
+
+01:01:42.920 --> 01:01:47.160
+vollkommen egal. Irgendeine Datei, wo das Passwort drinsteht. So, ein neuer Account.
+
+01:01:47.160 --> 01:02:03.600
+Next try, next try. Neues Passwort muss ich mir ausdenken. Okay, nice. Neues Passwort
+
+01:02:03.600 --> 01:02:08.880
+ist Space Export. Nope, bringt nichts, weil ich es aus irgendwelchen Gründen geschafft
+
+01:02:08.880 --> 01:02:16.280
+habe, dass es trotzdem in History steht. Ich weiß gar nicht, was ich dafür gemacht habe,
+
+01:02:16.280 --> 01:02:22.040
+aber ich habe es, ich habe es geschafft. Wie du siehst, ist das hier schon mit einem
+
+01:02:22.040 --> 01:02:29.160
+Leerzeichen davor. Guck. Das geht, ich wusste ja auch nicht. Ich habe extra Leerzeichen
+
+01:02:29.160 --> 01:02:36.800
+davor gemacht. Es steht aus irgendwelchen Gründen trotzdem in der History. Ich wusste
+
+01:02:36.800 --> 01:02:43.040
+auch nicht, dass das geht. Okay, nächster Fan-Account bei 4 und auf geht's. Nein, nein,
+
+01:02:43.040 --> 01:02:57.880
+was ist da? Da, Moment hier, registrieren. Was letzte Sprache? Cute Chat. Nachname brauchen
+
+01:02:57.880 --> 01:03:03.520
+wir nicht hier, beste Nachname. Okay, Kennwort. Ich habe mir eins ausgedacht. Das dürft ihr
+
+01:03:03.520 --> 01:03:24.920
+nicht wissen, Leute. Mega geheim. Ich habe mich vertippt. Weiter. Nein. Wollen wir nicht.
+
+01:03:24.920 --> 01:03:33.280
+Ne, mein End-File. Ja, das könnte man auch machen. Das ist eine gute Idee. Das ist tatsächlich
+
+01:03:33.280 --> 01:03:39.160
+eine gute Idee. Wir brauchen kein End-File. Wir brauchen schlicht und ergreifend ein File,
+
+01:03:39.160 --> 01:03:43.080
+was wir dann sourcen können und dann ist gut. Ich meine, im Prinzip kommt noch das gleiche
+
+01:03:43.080 --> 01:03:53.840
+raus. Safe. Okay, nice. Ihr müsst noch mal kurz weggucken, Chat. Ihr müsst noch mal nicht
+
+01:03:53.840 --> 01:04:22.360
+hingucken. Augen zu. Versprochen. Wo ist mein Passwort hier? Okay. Source. Alles klar,
+
+01:04:22.360 --> 01:04:34.560
+so. Ich glaube, ich habe es geschafft. Ohne was zu leaken. Blub TXT steht das Ganze jetzt
+
+01:04:34.560 --> 01:04:46.160
+drinne. Also, legen wir mal los. Export. Also, Fiat User. Fiat User ist der da. Ich muss
+
+01:04:46.160 --> 01:04:50.560
+jetzt ein paar Environment Variablen füllen, damit mein Addon funktioniert. Weil eigentlich
+
+01:04:50.560 --> 01:04:55.760
+ist es ein Home Assistant Addon und Home Assistant setzt so ein paar Variablen zum Start. Fiat
+
+01:04:55.760 --> 01:05:05.760
+Passwort gibt es nicht. Fiat Passwort ist 0PW. Steht das drinne. Debug kommt auf false,
+
+01:05:05.760 --> 01:05:11.040
+weil ansonsten steht das Passwort im Klartext drinne. Fake AP kommt auf false. Ich brauche
+
+01:05:11.040 --> 01:05:19.400
+den ganzen Kram hier heute nicht. Ich brauche das einzig und alleine. Run. Ich brauche
+
+01:05:19.400 --> 01:05:32.720
+das einzig und alleine, dass ich ein Passwort bekomme für Fiat AWS. Ja, ist schön, wenn
+
+01:05:32.720 --> 01:05:42.240
+der sich MQTT nicht verbinden kann. Soll mir recht sein. Okay. Fiat Client. Vehicle Location.
+
+01:05:42.240 --> 01:05:52.640
+Ja, genau. Hier. Login. Es sollte eigentlich ein bisschen mehr ausgeben als das. Siehste
+
+01:05:52.640 --> 01:05:58.680
+mal, glücklicherweise, weil ich so schlauer habe, hier das Passwort ausgedingst. Okay,
+
+01:05:58.680 --> 01:06:02.160
+anscheinend braucht es einen MQTT Server, dass es funktioniert. Alles klar. Also schalten
+
+01:06:02.160 --> 01:06:12.760
+ein MQTT Server an. Oh ne, dass die VM auch lockt. Okay. VMs HA. Heute heute wills, aber
+
+01:06:12.760 --> 01:06:35.400
+nicht. HA. Jubantu. Wo ist das Lockfile? Okay, Start. Ist anstrengend. Okay, so jetzt
+
+01:06:35.400 --> 01:06:50.040
+haben wir ein MQTT Server am Start. Geht jetzt weiter. Okay, gut. Fetching completed. Das
+
+01:06:50.040 --> 01:07:07.480
+erscheint mir ein bisschen sehr schnell. Mensch, da will ich mich doch heute eigentlich
+
+01:07:07.480 --> 01:07:31.320
+gar nicht mit auseinandersetzen. Now fetching data. Login. Cannot get home assistant config.
+
+01:07:31.320 --> 01:07:47.040
+Warum nicht? Kann er doch offensichtlich. Ich meine, das ist irgendeine Fake Adresse.
+
+01:07:47.040 --> 01:07:55.840
+Okay, schauen wir mal. Irgendwas scheint hier grad nicht. Login. Wo mach ich denn das Login?
+
+01:07:55.840 --> 01:08:06.560
+Login and keep session alive. Okay. Ach, ich kack noob. Moment, ist das noch der? Use
+
+01:08:06.560 --> 01:08:27.760
+fake api. Use fake api is a false. Also eigentlich, null. Eigentlich sollte der jetzt was machen.
+
+01:08:27.760 --> 01:08:41.880
+Ja, geht doch. Geht doch. Geht doch. Alles klar. Okay, also hier macht der Login. Login.
+
+01:08:41.880 --> 01:09:03.520
+Das Login funktioniert nicht, oder? Login. Ach, das ist Debug log. Ach, deswegen gibt
+
+01:09:03.520 --> 01:09:07.080
+er nichts aus. Okay, ich hab das tatsächlich ordentlich gemacht, weil normalerweise will
+
+01:09:07.080 --> 01:09:13.840
+ich das auch gar nicht. So, also. Wo bekomme ich denn jetzt hier meine Amazon Credentials?
+
+01:09:13.840 --> 01:09:29.800
+Hier, das da. CW login info. Das will ich haben. Ne. Das da will ich haben. Glaube,
+
+01:09:29.800 --> 01:09:41.960
+da kommt jetzt was. Das sind nämlich die Credentials, die ich brauche von Amazon. Jawoll. Das brauchen
+
+01:09:41.960 --> 01:09:47.600
+wir. Das brauchen wir. Alles gut. So, jetzt können wir nämlich unserem anderen Kram
+
+01:09:47.600 --> 01:09:55.200
+weiter machen. Excellent. Ja, wenn ihr in sein wollt, tippt, tippt gerne, tippt das
+
+01:09:55.200 --> 01:10:00.200
+gerne ab. Wer da Bock drauf hat, ist eh im Fake Account. Tippt, tippt ab. Juckt mich
+
+01:10:00.200 --> 01:10:06.880
+nicht. So, also, wie können wir jetzt auf Amazon MQTT zugreifen? Dazu müssen wir uns
+
+01:10:06.880 --> 01:10:19.440
+mal den Netzwerkrequest angucken. MQTT. Okay. OCR. Ich unterschätze immer, wie high IQ
+
+01:10:19.440 --> 01:10:27.400
+der Chat ist. Aber dann mach OCR. Gibt's bestimmt schon Machine Learning OCR für Twitch Chat.
+
+01:10:27.400 --> 01:10:31.520
+Die jegliches Passwort liegt instant mitschneiden, sich gleich einloggen und Passwort ändern.
+
+01:10:31.520 --> 01:10:39.400
+Kannst du mal auf die IDE switchen. Ja, hier, tipp. Okay, also wie sieht denn so ein Request
+
+01:10:39.400 --> 01:10:43.920
+aus? Was machen die hier für einen Request hin? Es ist auf jeden Fall ein Websocket Request.
+
+01:10:43.920 --> 01:11:02.440
+WSS, Websocket. Aha, guckt mal, hier haben wir schon die URL, die wir brauchen. Das ist
+
+01:11:02.440 --> 01:11:06.320
+die URL. Ich bin mir nicht sicher, ob die URL immer gleich bleibt. Das werden wir jetzt
+
+01:11:06.320 --> 01:11:11.360
+gleich mal ausprobieren. Einfach refreshen und gucken, ob die gleich bleibt. Ich glaube,
+
+01:11:11.360 --> 01:11:15.000
+die müsste gleich bleiben. Das sieht aus wie so eine Ressource, die halt angelegt wurde
+
+01:11:15.000 --> 01:11:41.880
+in AWS. Aha, wxpxjb. Aha, wx. Ja, das ist die gleiche. Ja, 5 ckb, 5 ckg1, 5 ckg1. Okay,
+
+01:11:41.880 --> 01:11:50.080
+das ist die richtige Domain. So, und wie connectet man sich jetzt zu dem Amazon MQTT Ding? Wie
+
+01:11:50.080 --> 01:12:09.640
+funzt das denn? Da müssen wir mal Google suchen. AWS MQTT C-Sharp. AWS IoT with.NET Core.
+
+01:12:09.640 --> 01:12:17.480
+Das klingt doch schon mal gut. Connecto AWS MQTT. Ist der Groverflow regelt. Block how
+
+01:12:17.480 --> 01:12:24.120
+to implement AWS IoT. Wir machen mal was blödes. Wir gucken mal, ob es da nicht schon vielleicht
+
+01:12:24.120 --> 01:12:37.960
+den NuGet Packages für gibt. AWS IoT oder sowas. Ja, das sind die offiziellen. Ich meine,
+
+01:12:37.960 --> 01:12:50.520
+wir können das mal installieren und gucken, ob dann da irgendwas passiert. Vielleicht
+
+01:12:50.520 --> 01:12:58.200
+gibt es das ja auch schon fertig. Direkt von Amazon. Da würde ich mich jetzt nicht beschweren.
+
+01:12:58.200 --> 01:13:16.880
+Request Signer. AWS Amazon MQTT. Was ist das? NuGet? Oh, NuGet Package only. Was ist das?
+
+01:13:16.880 --> 01:13:26.440
+Create a signed URL to connect to AWS IoT via MQTT over Websockets. What? So, wir haben
+
+01:13:26.440 --> 01:13:30.440
+jetzt AWS Zeug installiert und dann suchen wir jetzt mal nach MQTT. Das heißt natürlich
+
+01:13:30.440 --> 01:13:47.280
+nicht so. AWS Client oder sowas. HTTP Client. Data Client oder so. Amazon IoT Data Client.
+
+01:13:47.280 --> 01:13:56.840
+Das soll mal einer durchblicken. Was kann man? Okay, kann man damit das irgendwas MQTT?
+
+01:13:56.840 --> 01:14:02.040
+Gibt es irgendjemand, der bei AWS Geschichten durchblickt? Also immer, wenn ich damit in
+
+01:14:02.040 --> 01:14:12.480
+Kontakt komme, muss ich sagen, checke ich gar nichts. Service World Proxy Host. Was
+
+01:14:12.480 --> 01:14:28.120
+hat das jetzt mit MQTT zu tun? MQTT Endpoint. Created Amazon IoT Data Client. Ja, wo? Wo
+
+01:14:28.120 --> 01:14:46.760
+ist das? Ach hier, Service World. Ist das so einfach? Sekunde, ist das so einfach? Und
+
+01:14:46.760 --> 01:14:50.360
+dann machen wir mal hier unsere World. Das wird bestimmt nicht so einfach funktionieren.
+
+01:14:50.360 --> 01:15:08.800
+Service World. Okay, wenn ich return. Client. Oh, was? Was ist denn das alles? Gibt es
+
+01:15:08.800 --> 01:15:13.440
+da nicht sowas wie Subscribe? Ich meine, ich will ja nichts publishen, ich will ja nur was
+
+01:15:13.440 --> 01:15:25.320
+subscriben. Publish. Delete. Retained. List Messages. List. List named shadows for thing.
+
+01:15:25.320 --> 01:15:31.280
+Async. Okay, Amazon ist einfach zu high IQ für mich. Ich weiß nicht, was die mir sagen
+
+01:15:31.280 --> 01:15:46.000
+wollen. Yes, of course. Alles klar. Okay, wir haben jetzt schon mal Namen. AWS MQTT Subscribe.
+
+01:15:46.000 --> 01:15:54.280
+Subscribed to Topics. Jawoll. I'm using the Amazon Data, but I've tried. I'm not. Code
+
+01:15:54.280 --> 01:16:04.080
+to Publish. Moment, hat das Amazon allen Ernstes geschafft, in ihr SDK ein MQTT Client einzubauen,
+
+01:16:04.080 --> 01:16:09.600
+der nur Publischen kann und nicht Subscriben? Das Elementarste kann das Ding nicht oder
+
+01:16:09.600 --> 01:16:17.880
+was? From what I can tell, there is no way to do this with Amazon own SDK. Wollt ihr
+
+01:16:17.880 --> 01:16:23.800
+mich veräppeln? Das Python SDK von Amazon und das JavaScript SDK von Amazon können
+
+01:16:23.800 --> 01:16:29.320
+das. Das habe ich sogar in den Docs gesehen. Ernsthaft? Die haben es geschafft? Warum
+
+01:16:29.320 --> 01:16:34.480
+baut man das überhaupt? Warum veröffentlicht man sowas überhaupt, wenn das Elementarste
+
+01:16:34.480 --> 01:16:51.520
+nicht da drinnen ist? Ich bin verwirrt. Zu low IQ bin ich wahrscheinlich dafür. War
+
+01:16:51.520 --> 01:16:56.400
+ich im Scope? Ja, die wurden wahrscheinlich auch pro Co Zeilen bezahlt und haben es gedacht,
+
+01:16:56.400 --> 01:17:01.440
+wir machen jetzt erst mal 50.000 Zeilen und dann machen wir noch mal 50.000 Zeilen für
+
+01:17:01.440 --> 01:17:06.200
+Subscribed. Wir suchen mal nach letztem Jahr. Ich glaube, allzu lang sollte das noch nicht
+
+01:17:06.200 --> 01:17:17.120
+her sein. Das scheint echt nicht zu funktionieren oder ist eines dieser Dinger hier Publish?
+
+01:17:17.120 --> 01:17:36.080
+Wir gucken mal Github. Amazon IOT Client class didn't have subscribed functionality. Okay,
+
+01:17:36.080 --> 01:17:44.840
+es ist open. Amazon IOT Client library can get shadow things. Was zum Teufel sind shadow
+
+01:17:44.840 --> 01:17:53.120
+things? Ich habe keine Ahnung. Update shadow, delete shadow, publish message. Aha, nicht
+
+01:17:53.120 --> 01:18:00.160
+publish shadow. Einfach so. But this class didn't have functionality to subscribe. Ja,
+
+01:18:00.160 --> 01:18:10.000
+das ist aber genau das, was ich brauche. And also didn't have functionality to connect via
+
+01:18:10.000 --> 01:18:26.280
+Websockets. Wir wollen aber Websockets connecten. Rage Shadow Legends. Okay, was schreibt was
+
+01:18:26.280 --> 01:18:33.600
+sagt Amazon? Wir geben dem mal einen Daumen hoch. Bin ich überhaupt eingeloggt? Ne. Agree,
+
+01:18:33.600 --> 01:18:49.560
+chat. Die agreeen sich. Aber Amazon ist late. Ja, gut. Kann man ja auch mal nicht erwarten,
+
+01:18:49.560 --> 01:18:58.040
+dass da einer von Amazon drauf reagiert. Easy, nice support. Gut, also, die offizielle Amazon
+
+01:18:58.040 --> 01:19:04.120
+library können wir für offizielles Amazonsholz schon immer nicht verwenden, weil sich Amazon
+
+01:19:04.120 --> 01:19:10.560
+gedacht hat, no pass. Wer braucht denn schon Websocket und wer braucht denn schon subscribe
+
+01:19:10.560 --> 01:19:16.360
+bei einem MQTT Server? Small Indie Company, die können sich zusammen tun mit Blizzard.
+
+01:19:16.360 --> 01:19:23.440
+Genau. So, also, das funktioniert schon mal nicht. Ich kriege das garantiert nicht alleine
+
+01:19:23.440 --> 01:19:28.520
+zusammen gewurstet hier. Also, ich brauche irgendein Beispiel. Die müssen noch ein Beispiel
+
+01:19:28.520 --> 01:19:39.960
+dafür haben. AWS IoT Websockets. C sharp. Example. Oh, was ist das denn? Was ist denn
+
+01:19:39.960 --> 01:19:54.360
+das? AWS Samples, AWS IoT Core dot net app MQTT over Websockets. Was ein geiler Name.
+
+01:19:54.360 --> 01:20:08.240
+AWS IoT Core dot net app MQTT over Websocket SICK V4. Way to dank. Sprich das zehnmal hintereinander
+
+01:20:08.240 --> 01:20:18.600
+fehlerfrei aus. Was haben wir denn hier? Dot net Core Console Applications. AWS IoT MQTT
+
+01:20:18.600 --> 01:20:30.400
+over Websockets. Das klingt doch schon mal ziemlich genau nach dem, was ich machen will.
+
+01:20:30.400 --> 01:20:38.160
+Was machen die denn hier drinnen? Cloud Connector. Okay, die verwenden keine Amazon Library Systemal
+
+01:20:38.160 --> 01:20:48.720
+Amazon will ihren eigenen Shit nicht verwenden. Cloud Config. Aha, aha, aha. Subscribe. Gut,
+
+01:20:48.720 --> 01:20:54.880
+das ist das, was ich machen will. Jetzt müssen wir nur noch verstehen, was sie hier machen.
+
+01:20:54.880 --> 01:21:00.560
+Dazu klonen wir uns mal dieses Repo. Gehen wir mal hier hin. Wir machen noch einen fünften
+
+01:21:00.560 --> 01:21:13.880
+Desktop auf. CD. Repos. Git. Clone. Bam. Jawoll. Jetzt öffnen wir das. Open. Repos.
+
+01:21:13.880 --> 01:21:27.520
+Wie hieß das Ding? AWS. Dot net Core Console App. Ja, ich glaube das hier. Trust and Open.
+
+01:21:27.520 --> 01:21:34.600
+New Window. Fünfter Desktop. So, und jetzt gucken wir uns mal an, was denn da Amazon
+
+01:21:34.600 --> 01:21:46.000
+so drinnen treibt. Alles klar. So, der Einstieg ist ziemlich übersichtlich. Cloud Connection
+
+01:21:46.000 --> 01:21:56.160
+Config. Instance. Cloud Connector. Cloud Connector. New Cloud. Was? Okay. Also ich
+
+01:21:56.160 --> 01:22:02.240
+fürchte, wir müssen uns den Cloud Connector angucken. IMQTT Klein. Da kommen wir der Sache
+
+01:22:02.240 --> 01:22:10.120
+schon näher, Chat. Benutzen die Dings? Das kommt mir bekannt vor. Benutzen die MQTT net?
+
+01:22:10.120 --> 01:22:20.440
+Die verwenden tatsächlich mal eine Library, wo ich schon mal benutzt habe. Die benutzen
+
+01:22:20.440 --> 01:22:28.800
+das MQTT net. Okay, das heißt, die benutzten eine fertige MQTT Library und wie sagen sie
+
+01:22:28.800 --> 01:22:32.560
+dem, dass der WebSockets verwenden soll? Wir gucken mal, was für Versionen die benutzen
+
+01:22:32.560 --> 01:22:56.480
+hier drinnen. Es ist uraltes Zeug. Dot net Core 2.2. MQTT net. Oh, 2.8.5. Die sind
+
+01:22:56.480 --> 01:22:59.480
+bei der Library schon ein bisschen weiter mittlerweile. Wahrscheinlich wird das Beispiel
+
+01:22:59.480 --> 01:23:04.440
+so gar nicht mehr funktionieren. Aber zumindest das alte Beispiel geht so auf jeden Fall noch.
+
+01:23:04.440 --> 01:23:14.560
+So, was machen die denn hier drin jetzt? Cloud Connector. Okay, AWS MQTT Connection. Host.
+
+01:23:14.560 --> 01:23:26.160
+Host ist wahrscheinlich hier unser Ding hier. Region ist EU West 1, höchstwahrscheinlich.
+
+01:23:26.160 --> 01:23:37.240
+Access Key, Secret Key. Das haben wir hier auch. Access Key, Secret Key. Ups, ist weg.
+
+01:23:37.240 --> 01:23:46.600
+Okay, hier kommt die Magic. Was machen die hier? Signed Request Ural. AWS Signed Request
+
+01:23:46.600 --> 01:23:52.960
+Ural. Okay, das müssen wir uns gleich angucken. MQT Factory. Und dann bauen die eine ganz
+
+01:23:52.960 --> 01:23:59.640
+normale MQTT Verbindung mit MQTT net als Library auf. Okay, das einzige was ich von dem ganzen
+
+01:23:59.640 --> 01:24:03.440
+Ding checke ist der Part, weil das habe ich auch schon gemacht. Und das ist relativ simpel.
+
+01:24:03.440 --> 01:24:09.960
+MQTT Klein anlegen, sagen wo er sich hin verbinden soll und connecten. Die Magic ist wahrscheinlich
+
+01:24:09.960 --> 01:24:23.400
+hier drin, was da passiert. Das gucken wir uns gleich an. Sag Websockets. Websockets Bild.
+
+01:24:23.400 --> 01:24:31.840
+Okay, das ist easy. Also hier ist die ganze Magic drinne. Schauen wir mal da rein. AWS
+
+01:24:31.840 --> 01:24:39.120
+Connection. Okay, Sign Request Ural. Das ist auch übersichtlich. Okay, guckt hier baut
+
+01:24:39.120 --> 01:24:45.960
+da die Ural zusammen. Websockets. Secure Websockets. Also das ist quasi das Gegenstück zu HTTPS
+
+01:24:45.960 --> 01:24:53.040
+für Websockets. WSS Host 443 MQTT. Guckt mal hier, das ist genau das was wir hier auch
+
+01:24:53.040 --> 01:25:04.320
+rausgefunden haben. Host 443. Steht jetzt implizit nur dabei. Slash MQTT. Und jetzt
+
+01:25:04.320 --> 01:25:13.520
+macht er einen AWS Signer for Request Parameter Auth. Sehr gute Namenswahl Amazon. Sample
+
+01:25:13.520 --> 01:25:22.880
+AWS for Signer Demonstrating How to Sign Requests Using Query String Parameters. Obviously.
+
+01:25:22.880 --> 01:25:36.960
+Alles klar oder? Logisch Chat oder? Also Cringe wer es nicht versteht. Header. Compute Signature.
+
+01:25:36.960 --> 01:25:43.520
+Okay, also wenn ich das, ich versuche das mal halbwegs zu checken. Damit man mit AWS
+
+01:25:43.520 --> 01:25:48.280
+kommunizieren kann, das habe ich ja auch schon gemacht. Nachdem man mit, also sie sieht man
+
+01:25:48.280 --> 01:25:54.240
+ja auch hier in dem Teil hier. Also wenn man mit Amazon kommunizieren will, muss man jeden
+
+01:25:54.240 --> 01:26:04.680
+Request signen. Das bedeutet, man muss die Header und den Body Content haschen und dann
+
+01:26:04.680 --> 01:26:11.480
+irgendwie den Signature Hash da irgendwie noch embedden. Und Header braucht man irgendwie
+
+01:26:11.480 --> 01:26:16.480
+dann auch den passenden Key und die passende Authentifizierung und das ganze Zeug. Also
+
+01:26:16.480 --> 01:26:22.560
+das habe ich schon gemacht. Aber mit Request Parameter habe ich das AWS halt. Ich weiß
+
+01:26:22.560 --> 01:26:26.960
+nicht ganz im Ernst. Also ich habe Google, die Google Cloud Geschichten habe ich noch
+
+01:26:26.960 --> 01:26:29.760
+nicht so viel verwendet. Das einzige, was ich davon schon öfters verwendet habe ist
+
+01:26:29.760 --> 01:26:35.520
+Google Maps. Also AP technisch. Das geht ja am Rande so als Google Cloud Service durch.
+
+01:26:35.520 --> 01:26:42.920
+Und relativ viel Azure auf der Arbeit. Ich muss ganz ehrlich sagen, alle Azure Features,
+
+01:26:42.920 --> 01:26:49.760
+die ich bisher verwendet habe, waren zwar oftmals etwas verworren. Habt ihr mal Logs gequereed
+
+01:26:49.760 --> 01:26:57.680
+oder nicht Logs, dieses doch Logs. Analytik Workspace heißt glaube ich bei Azure. Workspace
+
+01:26:57.680 --> 01:27:01.680
+Queries gemacht, das ist schon nicht sonderlich intuitiv und die Graphen sind auch ziemlich
+
+01:27:01.680 --> 01:27:07.440
+ja Müll. Aber irgendwie ist es logisch in sich. Und die ganzen Azure Geschichten, die
+
+01:27:07.440 --> 01:27:12.280
+ich bisher programmiertechnisch angesprochen habe, die waren irgendwie verständlich. Aber
+
+01:27:12.280 --> 01:27:17.480
+jedes Mal, wenn ich was mit AWS machen muss, blicke ich nicht durch. So was machen die
+
+01:27:17.480 --> 01:27:30.040
+hier denn jetzt schönes? Also die setzen irgendwie erstmal ihre Service-Uhrl bei Amazon, die Request-Methode,
+
+01:27:30.040 --> 01:27:41.880
+die Region und die Url, also unseren komischen Endpoint hier. So und dann machen sie irgendein
+
+01:27:41.880 --> 01:27:58.480
+Signature. Dann holen sie sich die, was passiert hier? Ah, dann holen sie sich die Url von
+
+01:27:58.480 --> 01:28:08.200
+hier oben, die zusammengebaute Url und hängen den Query-String an, der hier drinne generiert
+
+01:28:08.200 --> 01:28:15.000
+wurde. Eventuell die Docs lesen, ja die sind genauso gut wie die Amazon Libraries, die
+
+01:28:15.000 --> 01:28:22.000
+die Hälfte nicht können von dem, was sie anbieten. Ich meine, ich will nicht bezweifeln,
+
+01:28:22.000 --> 01:28:26.040
+dass in den Docs drinne steht, wie man irgendwelche Prüf-Summen berechnet, aber eigentlich will
+
+01:28:26.040 --> 01:28:32.440
+ich das nicht selbst machen. Es gibt eine AWS-IoT-Client Library, die witzigerweise
+
+01:28:32.440 --> 01:28:37.000
+weder Websockets kann, noch subscriben kann. Was auch geil ist, wo man sich dann fragt,
+
+01:28:37.000 --> 01:28:42.320
+was ist die Existenzberechtigung dieser Amazon Libraries. Okay und dann hängt das alles
+
+01:28:42.320 --> 01:28:47.080
+als Query-Parameter an. Gut, das heißt, das eigentliche, was wir wissen wollen, ist hier
+
+01:28:47.080 --> 01:29:00.920
+drinne, Compute-Signature. Ach du Scheiße. Okay, Chat, Kommando zurück, Kommando zurück.
+
+01:29:00.920 --> 01:29:06.000
+Moin Ziegenkäse, Kommando zurück. Wir müssen es ja gar nicht verstehen. Wir müssen es
+
+01:29:06.000 --> 01:29:17.640
+ja einfach nur benutzen können. Wir müssen es nicht verstehen. Wir benutzen das jetzt
+
+01:29:17.640 --> 01:29:31.080
+einfach. Okay, also AWS-IoT-Core. Ich komme immer noch nicht auf den Namen klar. AWS-IoT-Core.net
+
+01:29:31.080 --> 01:29:37.840
+ab MQTT-Over-Websockets. Wir werden nicht drumherum kommen, hier reinzugucken gleich noch,
+
+01:29:37.840 --> 01:29:44.600
+aber es erschreckt mich schon ein bisschen ab, wenn ich mir das so hier anschaue. So,
+
+01:29:44.600 --> 01:29:59.120
+.net-Console-App-AWS-Websockets-AWS-IoT-Websockets. No,.net-Run. Warum habe ich da eigentlich
+
+01:29:59.120 --> 01:30:07.560
+so ein komisches Kill hinten dran? Ah, weil es letztens mal hängen blieb beim Build. Verstehe.
+
+01:30:07.560 --> 01:30:12.280
+Missing Framework. Ja klar, misse ich den Framework. Wahrscheinlich, weil das ist ja
+
+01:30:12.280 --> 01:30:22.080
+noch.net Core 2. Das muss ich erstmal upgraden. Wir upgraden erstmal hier. Auf.net 7. Bam,
+
+01:30:22.080 --> 01:30:28.320
+hoffen, dass es da noch funktioniert. Auf C-Sharp 11. Zack, gib ihm. Rückwärts-Kompatibilität
+
+01:30:28.320 --> 01:30:40.840
+und Pogge. Okay, das scheint zu funktionieren. Run. Okay, Exceptions werfen darf er, da habe
+
+01:30:40.840 --> 01:30:45.960
+ich kein Problem mit. Unable to connect to server, ja, das ist mir auch klar. So, diesen
+
+01:30:45.960 --> 01:30:52.200
+ganzen Müll von Amazon. Alter, meine Idee leckt. Schmeißen wir hier mal raus, das brauchen
+
+01:30:52.200 --> 01:30:56.920
+wir alles nicht. Das brauchen wir. Das brauchen wir nicht. Also, hier tragen wir jetzt mal
+
+01:30:56.920 --> 01:31:02.960
+unsere Zugangsdaten ein. Wo trägt man hier Zugangsdaten ein? New Cloud Connector. Cloud
+
+01:31:02.960 --> 01:31:21.200
+Connection Config Instance. What? Read Settings, Region, Host, Access Key. Ach so. Nee, das
+
+01:31:21.200 --> 01:31:31.800
+ist, können wir jetzt nicht gleich hier diese, können wir das nicht gleich verwenden? Lass
+
+01:31:31.800 --> 01:31:37.200
+doch mal diesen Blödsinn hier weg, das brauchen wir doch überhaupt nicht. Also, weg damit.
+
+01:31:37.200 --> 01:31:56.240
+Das da kommt dann hier rein. Das legen wir dann bei uns im Programm an. Okay, komm wir
+
+01:31:56.240 --> 01:32:15.560
+nennen es AWS MQTT Connection, dann muss man nichts anpassen. Okay. Das kommt weg, das brauchen
+
+01:32:15.560 --> 01:32:19.320
+wir gar nicht mehr. Wir müssen das erstmal ein bisschen versimplifizieren, dass ich auch
+
+01:32:19.320 --> 01:32:29.280
+durchblicke. So, Host. Host ist das da. Nur das da vermute ich mal stark, weil das MQTT
+
+01:32:29.280 --> 01:32:46.960
+hängt da ja selbst dran. Region. Region ist EU West 1. Access Key. Access Key ist das
+
+01:32:46.960 --> 01:32:53.720
+da. Es kann sein, dass ich das neu generieren muss, weil das nicht lange genug gültig ist,
+
+01:32:53.720 --> 01:32:57.480
+kann schon sein. Wir müssen erstmal da hinkommen, dass er überhaupt ein Request abschickt.
+
+01:32:57.480 --> 01:33:06.800
+Secret Key. Und wir haben noch nur ein Token. Leute, ist das url-encoded? Muss ich das erst
+
+01:33:06.800 --> 01:33:25.880
+url-decode, dass ich es danach wieder encode kann? Oh, mal. Url-decode. Cyberchef. Eigentlich
+
+01:33:25.880 --> 01:33:42.400
+url-decode. Decode. Ist das schon decode? Da ist einfach ein Leerzeichen drin. Hä? Wieso
+
+01:33:42.400 --> 01:33:53.320
+ist Wupplos nicht bei Ich bin zu dick. Ist da ein Leerzeichen drin? Access Key kann man
+
+01:33:53.320 --> 01:34:04.880
+so verwenden. Meinst du, den muss ich nicht url-decode oder sowas? Meinst du, das da
+
+01:34:04.880 --> 01:34:14.360
+geht so? Wirklich? Was mache ich mit dem Token? Ist das schon Base64? Vielleicht, ja. Könnte
+
+01:34:14.360 --> 01:34:23.800
+tatsächlich Base64 sein. Token will der nicht haben, so wie es aussieht. Token mag der nicht.
+
+01:34:23.800 --> 01:34:31.680
+Okay. So, mal schauen, was jetzt passiert, wenn ich das so eingebe. Wahrscheinlich Fehler,
+
+01:34:31.680 --> 01:34:38.680
+weil, geht nicht. Aha, aber das ist ein anderer Fehler, wie vorhin. Okay, wir kommen jetzt
+
+01:34:38.680 --> 01:34:44.320
+schon mal bei einem der richtigen Server raus, würde ich sagen, aber wir dürfen nicht darauf
+
+01:34:44.320 --> 01:34:58.360
+zugreifen. Ja, das ergibt ja durchaus Sinn. Wir müssen jetzt mal die Requests miteinander
+
+01:34:58.360 --> 01:35:04.000
+vergleichen, die da gemacht werden. Wie kann ich denn hier die Requests mir anzeigen, oder
+
+01:35:04.000 --> 01:35:18.520
+die Request-Url mir anzeigen lassen? Connect-Signed-Request-Url, hier. Die brauchen wir. Request-Url,
+
+01:35:18.520 --> 01:35:25.000
+gib mal her. Und die vergleichen wir dann mal, hier, da, guck mal. Jaja, das ist viel zu
+
+01:35:25.000 --> 01:35:31.400
+kurz. So, die müssen wir nämlich vergleichen, wir nehmen jetzt mit dem, was hier im Browser
+
+01:35:31.400 --> 01:35:42.320
+drinne ist. Also, machen wir hier mal auf. Z-Wrap. Und jetzt haben wir das hier, guck
+
+01:35:42.320 --> 01:35:53.920
+mal, das ist doch viel, das ist doch viel mehr. Request. Irgendjemand im Plan, wie ich den
+
+01:35:53.920 --> 01:36:12.360
+Request kopieren kann? Raw-Request? Nee. Copy-Request? Copy as Curl, ja, meinetwegen. Jaja, perfekt,
+
+01:36:12.360 --> 01:36:24.560
+so will ich das haben. 1KS. Alter, das ist broken. So, also Curl kann weg, das interessiert
+
+01:36:24.560 --> 01:36:32.920
+mich schnell. Okay, also was ist denn jetzt hier der Unterschied? Oh, meine Augen, mann.
+
+01:36:32.920 --> 01:36:44.760
+Sind dann die Keys? Okay, Asia, 3EBNY6. Okay, die Credentials, die Credentials. Das sieht
+
+01:36:44.760 --> 01:36:51.680
+gut aus, sieht gut aus, prinzipiell. IOT-Gateway, IOT-Gateway, das schreibt ihr hier auch so
+
+01:36:51.680 --> 01:36:56.120
+rein, guckt mal. IOT-Gateway, AWS-Request. Das sieht gut aus, guck mal, das sieht ein
+
+01:36:56.120 --> 01:37:03.080
+bisschen, das sieht alles gut aus. Date sieht auch gut aus. Die Credentials, ja, das ist
+
+01:37:03.080 --> 01:37:08.840
+wahrscheinlich temporär immer ein bisschen was anderes. Amazon-Date, Amazon-Date, also
+
+01:37:08.840 --> 01:37:23.160
+bis hierhin ist auch Assigned-Header, ja, ja, ja. Signature. Signature. Algorithm ist da
+
+01:37:23.160 --> 01:37:29.960
+auch drin. Das ist doch jetzt erfolgreich angemeldet. Das da unten ist erfolgreich angemeldet,
+
+01:37:29.960 --> 01:37:36.760
+das da oben nicht. Das Security-Token fehlt, ja, tatsächlich. Also brauchen wir doch das
+
+01:37:36.760 --> 01:37:49.320
+Security-Token. Wo kriegen wir das Security-Token her? Von hier. Security-Token. Aber dieses
+
+01:37:49.320 --> 01:38:01.400
+Amazon-Zeug, das hat kein Security-Token. Guckt mal. AWS-Connection hat kein Token.
+
+01:38:01.400 --> 01:38:16.120
+Dann fügen wir das doch einfach ein. String-Token. Was meinst du, Drachenflieger? War das kaputte
+
+01:38:16.120 --> 01:38:22.560
+Autokorrektur oder ist das irgendein Wort, was da drin vorkommt? So, dann müssen wir
+
+01:38:22.560 --> 01:38:27.480
+nämlich das noch hier übergeben an diese Compute-Signature. Das muss ja da noch rein.
+
+01:38:27.480 --> 01:38:40.400
+Also, this-Token. Das gibt's natürlich schonet. Und hier brauchen wir dann noch Token. Ich
+
+01:38:40.400 --> 01:38:45.200
+mach da mal ein Add davor. Alter, ist das lang. Ich trau' dem alles nicht, dass das
+
+01:38:45.200 --> 01:38:54.000
+richtig ist, was hier drin steht. So, Token. Und jetzt braucht das hier noch als Parameter
+
+01:38:54.000 --> 01:39:00.760
+das Token. Und jetzt müssen wir uns doch den Kram angucken. Jetzt müssen wir uns doch angucken,
+
+01:39:00.760 --> 01:39:04.880
+was der hier drin macht. Weil einfach nur das Token als Parameter hinzufügen, wird
+
+01:39:04.880 --> 01:39:26.640
+uns ja wahrscheinlich nichts bringen. MonkaW. Was passiert hier drin? Neues Date. Header-Contains-Host.
+
+01:39:26.640 --> 01:39:31.560
+Okay, die fügen bei den Headern den Host ein. Wahrscheinlich, weil der mitgehashed werden
+
+01:39:31.560 --> 01:39:39.000
+muss. Date-Stamp. Ich mein, das muss uns alles nicht interessieren. Das scheint ja zu funktionieren.
+
+01:39:39.000 --> 01:39:50.120
+Was? Canonicalized? Progress-Englisch? Canonicalized? Wie spricht man das aus? Sekunde. Bisschen
+
+01:39:50.120 --> 01:40:02.880
+Bildungs-FPS machen. Annunciation. Nicht mal Google will das aussprechen. Canonicalization.
+
+01:40:02.880 --> 01:40:10.520
+Ernsthaft? Irgendein billiges Text-to-Speech zeigt man jetzt, wie man das ausspricht. Na
+
+01:40:10.520 --> 01:40:18.520
+geil. Da hat die Welt drauf gewartet. Canonicalization. Canonicalization. Alles klar. Wieder was gelernt.
+
+01:40:18.520 --> 01:40:32.760
+Also wie... Canonicalization das jetzt? Was soll das überhaupt bedeuten? Canonicalization?
+
+01:40:32.760 --> 01:40:43.920
+Canonicalized? Boah. Wörter. Englische. Headers need to be expressed in the query. Reform
+
+01:40:43.920 --> 01:40:59.880
+query parameters to require. What the fuck, Alter? Die splitten die query-Parameter am
+
+01:40:59.880 --> 01:41:05.520
+und. Schiffskalz. Das klingt wirklich... Ich hab keine Ahnung, was Amazoner macht.
+
+01:41:05.520 --> 01:41:22.680
+Die splitten die query-Parameter an einem und. Und dann an einem klein? Ah! Die machen
+
+01:41:22.680 --> 01:41:30.200
+sich nen Dictionary aus. Key-Value. In dem Dictionary steht später drin. Query-Parameter-Name
+
+01:41:30.200 --> 01:41:35.800
+und Query-Parameter-Value. Boah, das ist aber Sixhead-Time. So, und hier werden irgendwelche
+
+01:41:35.800 --> 01:41:40.720
+Queries hinzugefügt. Leute, von der Theorie her, ja, sollte es nicht einfach reichen,
+
+01:41:40.720 --> 01:41:51.760
+wenn ich sowas hier mache? Wie nennt sich das hierbei bei den X-Amazon-X-Amazon-Security-Talken?
+
+01:41:51.760 --> 01:42:03.440
+Pass mal auf, wenn das alles ist, dann muss ich zocken. Reicht das jetzt? Probieren wir
+
+01:42:03.440 --> 01:42:18.760
+mal aus, gucken, was passiert. Nope. Er hängt es nicht an. Das Talken hängt er nicht an.
+
+01:42:18.760 --> 01:42:31.280
+Also da muss es schon mal nett hin. Muss das Talken überhaupt mitgehashed werden oder
+
+01:42:31.280 --> 01:42:37.840
+nicht? Okay, machen wir das mal weg. Wahrscheinlich muss das Talken gar nicht mitgehashed werden.
+
+01:42:37.840 --> 01:42:46.280
+Alter. Chat, Chat. Also entweder bin ich blöd oder ich hab echt mal ne Schwierigkeit,
+
+01:42:46.280 --> 01:42:51.800
+was Amazon hier mir sagen möchte. Hier bauen sie nochmal irgendwelche Query-Parameter wieder
+
+01:42:51.800 --> 01:43:01.600
+zusammen. Du hattest das Talken auch in Anführungszeichen drinne, wirklich? Ist doch richtig so. Und
+
+01:43:01.600 --> 01:43:17.040
+das ist ja auch kein String. Canonical Request? Was zum... Was zum... Was machen die hier?
+
+01:43:17.040 --> 01:43:33.880
+Oh, KS, Alter. Ey, ich hab keine Ahnung. Auth-Parameter. Auth-String. Okay, was gibt
+
+01:43:33.880 --> 01:43:38.600
+der dann zurück? Auth-String, hier, das da. Das ist letztendlich... Okay, okay. Wisst
+
+01:43:38.600 --> 01:43:45.160
+ihr, wir machen jetzt was ganz, ganz Simples. Signature. Wir hängen das einfach hier dran.
+
+01:43:45.160 --> 01:44:04.440
+Wir hängen das einfach hier dran. Und gucken mal, was passiert. Ja. Ne. Das da. Wir hängen
+
+01:44:04.440 --> 01:44:10.600
+das einfach hier dran. Talken. Und mal gucken, was passiert. Vielleicht musst du das Talken
+
+01:44:10.600 --> 01:44:20.080
+Canonicalisieren. Ja, wahrscheinlich. Wahrscheinlich. Fuck. 4-0-3. Gut, wir wissen jetzt ja auch nicht,
+
+01:44:20.080 --> 01:44:27.040
+woran meine Credentials noch gelten. Ich muss mir mal neue Credentials holen. Und zwar...
+
+01:44:27.040 --> 01:44:33.720
+Warum hab ich eigentlich hier was offen, was ich gar nicht brauche? Hier muss ich neue
+
+01:44:33.720 --> 01:44:45.960
+Credentials holen. Lass mal Daily Scrum machen, Chat. Auf geht's. Daily Scrum. Sonst wird
+
+01:44:45.960 --> 01:44:59.280
+das nix hier. Ich seh's schon. Okay, noch einmal. Tauschen das mal aus. Ist natürlich doof,
+
+01:44:59.280 --> 01:45:02.680
+dass ich das jetzt jedes Mal copy-pasten muss. Das wäre deutlich besser gewesen. Ich hätte
+
+01:45:02.680 --> 01:45:21.200
+das in das andere eingebaut. So. Fuck. Server Return Status Code 4-0-3. Ja, woran könnte
+
+01:45:21.200 --> 01:45:30.240
+das denn liegen? Also, das können wir schon mal zumachen. Lass mal die Requests vergleichen.
+
+01:45:30.240 --> 01:45:48.400
+So. Das sieht doch jetzt eigentlich schon mal ganz gut aus. Signature. Das sieht doch jetzt
+
+01:45:48.400 --> 01:45:52.880
+eigentlich schon mal gar nicht so verkehrt aus. Also, dieses ganze Zeug hier Websockets
+
+01:45:52.880 --> 01:46:06.360
+und so, das brauchen wir alles nicht. Einmal weg. Dass es ungefähr hinkommt. So. Also,
+
+01:46:06.360 --> 01:46:10.000
+das sieht von der Idee her noch schon mal gar nicht so verkehrt aus. Also, das ist was
+
+01:46:10.000 --> 01:46:14.720
+geht. Das ist das, was der Browser macht. Und das ist das, was ich mache. Das im Browser
+
+01:46:14.720 --> 01:46:20.600
+ist ein bisschen länger, so wie es aussieht. Aber das kann sein. Also, wenn das Base 4-16
+
+01:46:20.600 --> 01:46:29.240
+encoded ist, kann die Länge immer ein bisschen variieren. Aber guck mal, das Token hier sieht
+
+01:46:29.240 --> 01:46:34.760
+doch ganz anders aus. Ich muss das Token url-encoden, Leute. Das habe ich, glaube ich, noch gar
+
+01:46:34.760 --> 01:46:46.200
+nicht gemacht. Habe ich das Token url-encoded? Nein. HTTP-Helper, hieß das dann, glaube
+
+01:46:46.200 --> 01:47:03.240
+ich, um url-encoded. Okay. Alles klar. Url-encoded. Verbinden. Moment. Was? Das geht? Lol. Wie
+
+01:47:03.240 --> 01:47:13.160
+jetzt? Also Leute, ich habe absolut nicht den plassesten Hauch eines Schimmers, was ich
+
+01:47:13.160 --> 01:47:23.120
+eigentlich gerade gemacht habe. Ich habe irgendwas in dem Amazon Source Code copypastet. Ach du
+
+01:47:23.120 --> 01:47:29.440
+Scheiße, man. Okay, Amazon Security Token muss man da hinten dranhängen. Alles klar.
+
+01:47:29.440 --> 01:47:37.080
+Jetzt ist es nice. Kurze Zusammenfassung, was wir machen. Ja, sage ich dir. Also, guck mal.
+
+01:47:37.080 --> 01:47:48.120
+Microsoft verwendet MQTT zum Austausch von Messages, also das Auto, das Auto schickt
+
+01:47:48.120 --> 01:47:55.080
+über MQTT Messages, wie zum Beispiel Aufladen ist fertig oder das Auto ist in spezielle Regionen
+
+01:47:55.080 --> 01:47:59.880
+gefahren, das Auto fährt über 100 Stundenkilometer und sowas. Also das Auto verschickt, also
+
+01:47:59.880 --> 01:48:04.840
+da ist eine SIM-Karte drinne, das ist im Preis mit drinne, was man bei dem Preis auch wirklich
+
+01:48:04.840 --> 01:48:10.640
+erwarten kann. Da ist eine SIM-Karte drinne und das Auto verschickt bei speziellen Events
+
+01:48:10.640 --> 01:48:18.200
+über MQTT Messages an Fiat. Zum Glück ist es MQTT, weil deswegen können wir den Kram
+
+01:48:18.200 --> 01:48:23.760
+abgreifen. Das heißt, Fiat selbst hat ja eine App und in der App bekommt man dann Notifications
+
+01:48:23.760 --> 01:48:28.200
+angezeigt. Aber diese Notifications in der App interessieren mich nicht. Was mich interessiert
+
+01:48:28.200 --> 01:48:35.920
+ist, dass ich das abgreifen kann. So, und die benutzen AWS. AWS, wie heißt das? MQTT
+
+01:48:35.920 --> 01:48:48.640
+von AWS IoT Core, also sprich die IoT Geschichte von Amazon Cloud Service. Okay, Connection
+
+01:48:48.640 --> 01:48:53.680
+hat funktioniert. Das war deutlich einfacher, als ich mir das vorgestellt habe. Ich meine,
+
+01:48:53.680 --> 01:49:00.240
+ich würde gerne den Kram hier irgendwie vereinfachen und noch ein bisschen verschlanken. Alternativ
+
+01:49:00.240 --> 01:49:03.280
+kann ich auch einfach sagen, ich gucke es mir einfach nie wieder an und es funktioniert
+
+01:49:03.280 --> 01:49:08.160
+und steckt das in irgendeine Subklasse, drei Ordner tief rein, dass ich es mir nie wieder
+
+01:49:08.160 --> 01:49:14.640
+angucken muss. Also, okay, das scheint ja mal zu funktionieren an der Stelle. Easy, easy.
+
+01:49:14.640 --> 01:49:20.000
+Connection successful. Jetzt müssen wir noch gucken, ob wir da irgendwas subscriben können.
+
+01:49:20.000 --> 01:49:33.880
+Wie subscribt man dann jetzt? Was subscriben die denn hier? Request, response, response,
+
+01:49:33.880 --> 01:49:41.040
+channels, guck mal. Zu sowas kann man bestimmt subscriben. Was auch immer das davor für
+
+01:49:41.040 --> 01:50:02.600
+ein komisches Binary Gedöns ist, aber. Sind das hier? Sind das Keep Alive Messages alle
+
+01:50:02.600 --> 01:50:10.880
+fünf Minuten? Was meint ihr? Sind das Keep Alive Messages? Das sieht nach Keep Alive Messages
+
+01:50:10.880 --> 01:50:19.320
+aus. Können wir den Kram irgendwie vielleicht mal in Bytes anzeigen anstatt in komischem
+
+01:50:19.320 --> 01:50:35.760
+ASCII Kram? Raw Data. Wenn ich das so kopiere. Kann man oder in Hex, vielleicht in Hex kann
+
+01:50:35.760 --> 01:50:52.640
+man das in Hex anzeigen lassen. Das im Browser irgendwie kann man. Nee, das geht so direkt
+
+01:50:52.640 --> 01:51:06.680
+wahrscheinlich nicht. Ich meine, wir können Hex Dump. In der Hoffnung, man kann das Copy
+
+01:51:06.680 --> 01:51:28.360
+machen. Also was haben wir? 9 0 C 3. Und das hier ist das New Line, das brauchen wir nicht.
+
+01:51:28.360 --> 01:51:33.400
+Also das hier, das passt schon. Das sind zwei. Das sind zwei Bytes. C das. Okay, ist das
+
+01:51:33.400 --> 01:51:57.240
+irgendein MQTT Standard? MQTT Keep Alive Messages oder sowas? MQTT Keep Alive Message. Okay,
+
+01:51:57.240 --> 01:52:04.000
+ich weiß nicht, was das sein soll, was die sich hier schicken, aber okay. Irgendwelche
+
+01:52:04.000 --> 01:52:10.440
+Bytes. Alles klar. Kriegen wir vielleicht unseren MQTT Client dazu überredet, dass
+
+01:52:10.440 --> 01:52:22.680
+der ein bisschen mehr Debug Infos macht? Moin Niklas 09763. Wir versuchen mal zu Subscriben.
+
+01:52:22.680 --> 01:52:33.960
+Nee, wir versuchen nicht zu Subscriben. Wir sagen einfach mal. Ja, wir warten einfach
+
+01:52:33.960 --> 01:52:45.120
+mal. Task. Warum warten wir nicht ganz klassisch hier? Press key to exit. Console Read Line.
+
+01:52:45.120 --> 01:52:56.400
+Und jetzt müssen wir mal gucken. Moin Le Fate IT Connection Successful. Jetzt müssen wir
+
+01:52:56.400 --> 01:53:03.800
+mal gucken, ob wir diesem Ding irgendwie ein bisschen Logging entloggen können. Take Viagra
+
+01:53:03.800 --> 01:53:09.440
+Die Hard Tank, 15 Monate Massive Subscription, diesem MQTT Client, ob wir dem irgendwie den
+
+01:53:09.440 --> 01:53:15.720
+ein bisschen ein bisschen mehr loggen lassen können. Dass wir wissen, was passiert. Wenn
+
+01:53:15.720 --> 01:53:23.440
+ich mich recht entsinne, kann man hier irgendwie Logger eintragen. Irgendwo hier. Hier. MQTT
+
+01:53:23.440 --> 01:53:34.060
+Logger. Und wir müssen die Library noch upgraden, Klei. Dass es überhaupt lauffähig ist. Okay,
+
+01:53:34.060 --> 01:53:50.440
+wir müssen hier den Logger reinpacken. IMQTT Netlogger. Oh meine Güte. MQTT Logger. So
+
+01:53:50.440 --> 01:54:04.840
+vielleicht. Logger. Und dann so. Und dann kann man irgendwie sagen hier, wenn es eine
+
+01:54:04.840 --> 01:54:22.040
+Blog Message Published. AX. Trace Message. Message. Ich hoffe, dass das bringt jetzt was. Ich
+
+01:54:22.040 --> 01:54:30.000
+hoffe, das sagt mir jetzt, was er macht. Ey guck mal, mach doch. TX Connect, Username,
+
+01:54:30.000 --> 01:54:42.360
+Password, Blah Blah Blah. Connect, Ak. Das sind Keepalive Messages. Ich bin tatsächlich
+
+01:54:42.360 --> 01:54:50.040
+verbunden mit Amazon. Mit dem Amazon, mit dem Fiat Amazon MQTT Broker. Und das schickt
+
+01:54:50.040 --> 01:54:54.000
+sich jetzt Keepalive Messages hin und her. Moin, mit welchem OS arbeitest du gerade?
+
+01:54:54.000 --> 01:55:04.400
+Das hier ist Manjaro mit E3 WM. Man darf eigentlich nicht Archlinux sagen, weil die Archlinux-Fans
+
+01:55:04.400 --> 01:55:10.120
+sagen selbstverständlich, Arch ist kein. Und mal gucken, ob wir da irgendwas drauf
+
+01:55:10.120 --> 01:55:24.520
+Publischen können. Weiß nicht, ob die das mögen. Guck mal, was passiert. Was passiert,
+
+01:55:24.520 --> 01:55:33.040
+eigentlich, wenn man versucht, was zu Publischen. Ich überleg gerade, ob wir das wie machen
+
+01:55:33.040 --> 01:55:41.400
+wir das denn jetzt gescheiterweise. Na gut, wir können einfach so machen. Cloud Connector,
+
+01:55:41.400 --> 01:55:56.560
+Publish, Message. Message, Keckl, Topic, Keckw. Oh ne, das geht nicht. Exception was thrown.
+
+01:55:56.560 --> 01:56:08.960
+Wir dürfen nichts Publischen, Leute. Das ist schon verdächtig, funktioniert nicht. Okay,
+
+01:56:08.960 --> 01:56:19.560
+dürfen wir was Subscriben? Subscribe to Topic, Topic Keckl. Wahrscheinlich auch nicht. Ne,
+
+01:56:19.560 --> 01:56:25.440
+wir dürfen wahrscheinlich nur Subscriben zu irgendwas von diesem, irgendwas von diesem
+
+01:56:25.440 --> 01:56:38.320
+Krempel hier. Channels, Updates oder so. Ah, vielleicht dürfen wir. Hast schon recht.
+
+01:56:38.320 --> 01:56:44.720
+Stell dir mal vor, bei Amazon im Monitoring Team gucken die so irgendwie ihre Logs durch
+
+01:56:44.720 --> 01:56:50.360
+und auf einmal steht Keckw drin oder sowas. Ich denk so hoch, wo kommt denn das her? Nicht
+
+01:56:50.360 --> 01:56:56.160
+bei Amazon, bei Fiat, bei Fiat. Subscribe to Channel. Mal gucken, ob er jetzt immer
+
+01:56:56.160 --> 01:57:08.000
+noch abkackt. Nein, er kackt nicht mehr ab. Das ist schon mal interessant. Er kackt nicht
+
+01:57:08.000 --> 01:57:14.200
+mehr ab. Das heißt, man darf dahin tatsächlich Sachen, dahin Subscriben. Vielleicht darf
+
+01:57:14.200 --> 01:57:25.240
+man dahin auch Sachen Publischen. Keckl. Dahin. Jawoll. War Topic. Ja, machen wir da mal
+
+01:57:25.240 --> 01:57:40.520
+ein Bachjapel rein, dass man das irgendwie noch halbwegs lesen kann. Ne. Wir dürfen
+
+01:57:40.520 --> 01:57:46.080
+nix. Wir dürfen nix Publischen. Das hat Amazon, nicht Amazon, das hat Fiat tatsächlich ganz
+
+01:57:46.080 --> 01:57:53.320
+gut gemacht. Ok. Können wir uns, können wir uns nicht beim Bug Bounty Programm melden?
+
+01:57:53.320 --> 01:58:04.760
+Also hier, das funktioniert. Ok, man kann das Subscriben. Das Boscox Bild als Base64
+
+01:58:04.760 --> 01:58:13.760
+Code Publischen. Ne, ne. Ich will doch einfach nur von meinem Auto Sachen abfragen. Ok, nice.
+
+01:58:13.760 --> 01:58:19.120
+Das funktioniert. Also ich kann es jetzt nicht wirklich ausprobieren, weil es wird ja hier
+
+01:58:19.120 --> 01:58:27.480
+nix regelmäßig geschickt auf diesem Channel, außer Keep Alive Messages. Wobei doch. Ich
+
+01:58:27.480 --> 01:58:30.840
+könnte meinen Browser refreshen. Vielleicht bringt das ja was. Vielleicht, vielleicht
+
+01:58:30.840 --> 01:58:53.040
+Publisht der dann da was drauf. Hat er jetzt Publisht? Subscriben? Ne. Ne. Oh, die Katze
+
+01:58:53.040 --> 01:59:17.320
+ist an der Tür. Sekunde, Leute. Der Chat, der, jetzt rennt sie weg. Soll ich sagen,
+
+01:59:17.320 --> 01:59:23.360
+die, der Chat muss, musste ich jetzt mal brummen hören. Ne, auf dem Sofa geh ich jetzt nicht
+
+01:59:23.360 --> 01:59:32.200
+mit dir hin. Guck mich nicht so an. Ja. Sitzt du auf dem Sofa. Die Katze ist an der Tür,
+
+01:59:32.200 --> 01:59:36.720
+ja, da musst du hin. Kannst du nicht mal Raute Subscri... Ah ja, doch, können wir machen
+
+01:59:36.720 --> 01:59:42.000
+und gucken, ob das funktioniert. Also wer das nicht kennt, hier erklär's mal kurz.
+
+01:59:42.000 --> 01:59:47.640
+Bei MQTT gibt es so ein Wildcard Topic. Das ist diese Raute, das subscribt eigentlich
+
+01:59:47.640 --> 01:59:56.080
+alles. Das geht nicht, das ist nicht erlaubt anscheinend. Chico will wieder raus. Ja Chico,
+
+01:59:56.080 --> 02:00:06.200
+ja was denn jetzt? Rein oder raus? Was ist denn? Komm mal her. Komm mal her. Komm mal her.
+
+02:00:06.200 --> 02:00:16.160
+Komm mal her. Chico. Chat, passt mal auf. Hört ihr was? Chico, Chico. Ne, mir hört
+
+02:00:16.160 --> 02:00:37.360
+sie nicht brumm. Ok, Chico will wieder raus. So, jetzt ist sie wieder raus. Sie wollte eigentlich
+
+02:00:37.360 --> 02:00:41.200
+sich nur mal angucken, was hier drin ist. So, abgeht. War anscheinend nicht spannend
+
+02:00:41.200 --> 02:00:45.360
+genug, jetzt ist sie wieder weg. Gut, also, das funktioniert nicht, aber vielleicht haben
+
+02:00:45.360 --> 02:00:55.920
+wir Glück, es funktioniert sowas hier in der Richtung eventuell. Ja, das funktioniert
+
+02:00:55.920 --> 02:01:05.120
+tatsächlich. Chat, mir fällt gerade auf. Aber ne, hier spätestens im Debug müsste
+
+02:01:05.120 --> 02:01:11.200
+ich eigentlich die Messages sehen. Was wird denn heute tolles gemacht? Also, ich hab hier
+
+02:01:11.200 --> 02:01:23.160
+einen Fiat und mein Auto verschickt über MQTT, über einen AWS MQTT Broker Statusnachrichten
+
+02:01:23.160 --> 02:01:29.640
+und die will ich abgreifen und dann bau ich das Ganze in meinen Home Assistant Addon ein,
+
+02:01:29.640 --> 02:01:37.880
+dass das alle verwenden können. Da kann man sich dann zum Beispiel darüber informieren
+
+02:01:37.880 --> 02:01:43.000
+lassen, wenn das Auto in spezielle Gebiete fährt. Das heißt, man könnte zum Beispiel
+
+02:01:43.000 --> 02:01:50.640
+seinen Hauseingang als Gebiet definieren und wenn das Auto in dieses Gebiet fährt,
+
+02:01:50.640 --> 02:01:58.000
+also zum Hauseingang hin, dann schickt der MQTT eine Message, die greife ich ab und daraufhin
+
+02:01:58.000 --> 02:02:02.240
+könnte ich mit meiner Heimautomatisierung das Hoftor aufmachen, zum Beispiel. Das wäre
+
+02:02:02.240 --> 02:02:08.640
+so ein Anwendungsszenario, wobei ich dafür, ehrlich gesagt, Knöpfe bevorzuge. Aber das
+
+02:02:08.640 --> 02:02:11.560
+würde funktionieren, aber man kann damit alles Mögliche machen, mitbekommen, wann er
+
+02:02:11.560 --> 02:02:19.080
+fertig geladen hat und solche Geschichten zum Beispiel. Easy, ja. Jetzt müsste ich ihn
+
+02:02:19.080 --> 02:02:27.000
+irgendwie mal dazu überreden können, mal ein paar Messages zu machen. Kann man vielleicht
+
+02:02:27.000 --> 02:02:44.320
+hier irgendwie rumklicken? Wie könnten wir hier MQTT Messages generieren? Sie haben keine
+
+02:02:44.320 --> 02:02:57.160
+Fahrzeuge, ich weiß. Können wir hier irgendwie... Kann ich vielleicht hier Wildcard-mäßig
+
+02:02:57.160 --> 02:03:05.080
+lauschen, ob da was kommt? Was macht einen Plus bei MQTT? Bedeutet das auch irgendwas?
+
+02:03:05.080 --> 02:03:14.880
+Ist das irgendeine Wildcard? Ah, hier darf man auch subscriben. Man darf alles subscriben
+
+02:03:14.880 --> 02:03:23.440
+unterhalb von seinem User-Account anscheinend. Anscheinend ist das meine User-ID. Und wie
+
+02:03:23.440 --> 02:03:26.800
+solltest du bitte abgreifen können, ohne dass das eine Sicherheitslücke darstellt?
+
+02:03:26.800 --> 02:03:39.160
+Das ist mein Account und ich muss mich einloggen mit Account Credentials. Aber darf man auch
+
+02:03:39.160 --> 02:03:47.960
+deinen Channel subscriben? Nee. Da bin ich mir ziemlich sicher, das geht nicht. Man weiß
+
+02:03:47.960 --> 02:03:51.720
+noch nicht mal die ID von jemand anderem. Wenn ich jetzt versuche hier drauf zu subscriben,
+
+02:03:51.720 --> 02:03:59.200
+geht das nicht. Nee. Also wird wahrscheinlich erstens schwierig die ID von jemand anderem
+
+02:03:59.200 --> 02:04:08.160
+zu erraten. Und ansonsten wirst du es wahrscheinlich auch nicht dürfen. Ach du meinst den Twitch-Channel?
+
+02:04:08.160 --> 02:04:19.640
+Ja Primus dürfen selbstverständlich meinen Channel subscriben. Weil man ja mit einem
+
+02:04:19.640 --> 02:04:27.880
+Prime-Sub den Streamer seiner Wahl einmal kostenlos im Monat unterstützen kann. Ansonsten
+
+02:04:27.880 --> 02:04:34.840
+überweisst du es direkt an Bezos. Also dein Fiat-Account erstellt auch einen AWS-Account
+
+02:04:34.840 --> 02:04:40.560
+im Hintergrund. Nee, das funktioniert anders. Ich erstelle mir also, soweit ich das verstanden
+
+02:04:40.560 --> 02:04:46.480
+habe, ein bisschen undurchsichtig der Login-Prozess. Man erstellt sich einen Fiat-Account. So mit
+
+02:04:46.480 --> 02:04:52.920
+diesem Fiat-Account loggt man sich dann bei Fiat ein. Dort kann man sich dann ein Authentifizierungstoken
+
+02:04:52.920 --> 02:05:01.440
+ausstellen lassen für temporäre AWS-Credentials. Und mit diesen temporären Amazon-AWS-Credentials
+
+02:05:01.440 --> 02:05:07.720
+kann man sich dann bei Fiat-Services, die Fiat bei AWS hostet, anmelden wie zum Beispiel
+
+02:05:07.720 --> 02:05:13.520
+diesem MQTT-Broker. Also du musst dich zwangsläufig einmal einloggen mit deinem Fiat-Account vorher.
+
+02:05:13.520 --> 02:05:18.600
+Und die Credentials gelten wahrscheinlich auch bloß für 1-2 Stunden hier. Das sind
+
+02:05:18.600 --> 02:05:25.560
+alles temporäre Credentials, die an mein Account geknüpft sind. Also Fiat unterstützt
+
+02:05:25.560 --> 02:05:31.720
+AWS, nein nein, Fiat hostet einige ihrer Services anscheinend auf AWS. Die unterstützen das
+
+02:05:31.720 --> 02:05:37.760
+nicht, die benutzen das intern selbst für ihre App und für ihre Webseite bzw. das ist
+
+02:05:37.760 --> 02:05:45.840
+unter der Haube ja die gleiche API. Es ist ziemlich blöd, dass ich keine Nachricht,
+
+02:05:45.840 --> 02:05:57.000
+keine Messages generiert kriege, um zu überprüfen, ob der MQTT-Broker funktioniert. Und du kannst
+
+02:05:57.000 --> 02:06:03.720
+offiziell so einen SSO-Talken beantragen. Ne, offiziell ist da nichts. Ich hab den Anmeldeprozess,
+
+02:06:03.720 --> 02:06:11.200
+von denen ihre Webseite nachgebaut. Wenn du dir genau angucken willst, wie es funktioniert,
+
+02:06:11.200 --> 02:06:20.720
+kannst du es hier anschauen. Das wird später nur für Fiat funktionieren. Tja. Ja und nein,
+
+02:06:20.720 --> 02:06:26.960
+also mein Home Assistant-Addon unterstützt aktuell Fiat und Jeep. Das funktioniert,
+
+02:06:26.960 --> 02:06:32.160
+die verwenden die gleichen AP-Keys und alles. RAM wird auch unterstützt, das ist hier so
+
+02:06:32.160 --> 02:06:39.840
+ein Ami-Ding, RAM-Trucks. So ein Ami-Teil, so ein Teil, guck hier, da stehen sie drauf.
+
+02:06:39.840 --> 02:06:47.080
+Freedom, Freedom Car. So, Dodge und Alfa Romeo müsste theoretisch auch funktionieren,
+
+02:06:47.080 --> 02:06:52.120
+aber hab ich noch keinen gehabt, der das testet. Ja, bestimmt ein bisschen andere Credentials.
+
+02:06:52.120 --> 02:07:04.600
+Purifier, Dankeschön. Gucken, vielleicht wird's ja noch mehr. Ja, also ich hab dir
+
+02:07:04.600 --> 02:07:11.480
+ihre App-Anmeldung nachgebaut. Ich bekomme die gleichen Zugangsdaten, die auch die App bekommt.
+
+02:07:11.480 --> 02:07:17.960
+So, also wenn du genau wissen willst, wie das funktioniert, kannst du dir das angucken,
+
+02:07:17.960 --> 02:07:31.200
+hier auf GitHub. Da kannst du dir den Anmeldeprozess angucken, wie das funktioniert. Login. Was der
+
+02:07:31.200 --> 02:07:37.400
+hier wie macht, das ist ziemlich durch die Brust ins Auge, damit das funktioniert. Also es ist,
+
+02:07:37.400 --> 02:07:41.880
+glaube ich, der komplizierteste Anmeldeprozess, den ich jemals irgendwo gesehen habe, aber es
+
+02:07:41.880 --> 02:07:53.280
+funktioniert. Und dann bekommt man von AWS Sachen halt nur über sein Auto. Ich kann ja nicht für
+
+02:07:53.280 --> 02:07:57.480
+andere Autos was abfragen, dann würde ich mich gleich beim Amazon-Bug-Bounty-Programm melden
+
+02:07:57.480 --> 02:08:04.920
+und sagen, guck mal, ich hab da was gefunden. Nee, nur für mein Auto, das ist eigentlich alles in
+
+02:08:04.920 --> 02:08:12.080
+Ordnung soweit. Es ist doof, dass ich nicht subscriben kann, weil... Also doch,
+
+02:08:12.080 --> 02:08:16.120
+subscriben kann ich, aber es ist doof, dass ich nichts... Keine Messages, keine Messages.
+
+02:08:16.120 --> 02:08:24.840
+Hatte er eben was hier gemacht, als ich mich connected hab?
+
+02:08:24.840 --> 02:08:35.520
+Was, wenn ich mich connecte? Nee, das war zufälligerweise Keep Alive. Ich glaube...
+
+02:08:35.520 --> 02:08:47.640
+Ah, nee. War jetzt einfach soweit. Tja, Leute, ich kann es jetzt abschließend gar nicht testen,
+
+02:08:47.640 --> 02:08:57.080
+weil ich sehe halt nur, dass ich Keep Alive Sachen habe. Ja, Keep Alive. Aber ich kann halt keine
+
+02:08:57.080 --> 02:09:02.440
+MQTT-Messages generieren und ich kann jetzt auch nicht das Auto irgendwie an- oder ausschalten,
+
+02:09:02.440 --> 02:09:08.080
+wo das MQTT-Messages vielleicht wacht, weil das ist in Failgecount und der hat natürlich kein Auto.
+
+02:09:08.080 --> 02:09:14.600
+Nee, alle fünf Minuten ist Keep Alive. Bei mir ist alle 15 Sekunden, das ist wahrscheinlich,
+
+02:09:14.600 --> 02:09:25.560
+was man mitgibt. Tja, was, was könnte eine MQTT-Message generieren? Irgendwelche...
+
+02:09:25.560 --> 02:09:41.880
+Ah nee, bin ich ja schon. APK weiter Reverse-Enginieren. Das APK haben wir letztens auch
+
+02:09:41.880 --> 02:09:49.840
+schon untersucht mit einem Man-in-the-Middle-Proxy und haben ein paar Sachen rausgekriegt. Das baue
+
+02:09:49.840 --> 02:09:53.800
+ich auch noch in das Plugin ein. Tja, Leute, ich habe keine Ahnung, wie man denen da jetzt
+
+02:09:53.800 --> 02:09:59.440
+vielleicht ein paar Messages generieren lassen könnte. Nachdem ich keine Autos habe, können
+
+02:09:59.440 --> 02:10:12.400
+meine Autos auch keine MQTT-Messages generieren? Update Timestamp. Vielleicht kann ich ihn,
+
+02:10:12.400 --> 02:10:22.400
+wenn ich irgendwelche PIN, wenn ich die PIN ändere vielleicht. Aktuelles Passwort, okay.
+
+02:10:22.400 --> 02:10:34.440
+Ein extra, ein extra Auto für den Stream kaufen. Exzellente Idee, Chet. Moment, ich will das
+
+02:10:34.440 --> 02:10:41.200
+Passwort doch gar nicht ändern. Ich will die Sicherheits-PIN anlegen, okay. PIN erstellen.
+
+02:10:41.200 --> 02:10:52.320
+Mal gucken, ob da jetzt erste Frage, erste Antwort, erste Frage, zweite Antwort.
+
+02:10:52.320 --> 02:11:19.040
+Vielleicht macht er da eine MQTT-Message jetzt. No. Nee. Tja, das kann ich jetzt nur mit dem
+
+02:11:19.040 --> 02:11:23.080
+Auto ausprobieren. Ich fürchte, da sind wir auch an der Grenze jetzt angekommen, was wir
+
+02:11:23.080 --> 02:11:29.680
+hier ausprobieren können. Den Rest muss ich mit meinem Account ausprobieren. Und mein
+
+02:11:29.680 --> 02:11:40.480
+Account, der hat ein Auto drauf, aber damit melde ich mich hier im Stream nicht an. Kann
+
+02:11:40.480 --> 02:11:49.240
+das sein, dass das hier schlicht und ergreifend Subscribes sind? Das ist keine Message, sondern
+
+02:11:49.240 --> 02:11:56.840
+einfach ein Bitte-subscribe-mich zu diesem Channel? Wahrscheinlich. Antworten bekommen
+
+02:11:56.840 --> 02:12:04.320
+wir nämlich gar nicht. Wir bekommen bloß Keep Alive. Okay, wir gucken nochmal, was
+
+02:12:04.320 --> 02:12:13.320
+das hier in Hex ist. Alles klar, Hexdump. Excellent, alles klar, jetzt weiß ich Bescheid. Was ist
+
+02:12:13.320 --> 02:12:39.400
+Minus C für ASCII? Okay, vergess es. Alles klar, ich hab keine Ahnung. Das sind irgendwelche
+
+02:12:39.400 --> 02:12:48.800
+Dings. Ja, können wir jetzt nur raten. Ja, Chat, mehr kann ich jetzt wahrscheinlich gar
+
+02:12:48.800 --> 02:12:55.440
+nicht machen. Ich muss sagen, ich hätte nicht gedacht, wirklich niemals, dass wir einfach
+
+02:12:55.440 --> 02:13:00.960
+ein bisschen Amazon Zeug copypasten können von GitHub und anpassen, ohne halbwegs zu verstehen,
+
+02:13:00.960 --> 02:13:08.160
+was wir machen und dann geht's. Bau doch noch eine Aufzeichnung der Messages für die Auswertung.
+
+02:13:08.160 --> 02:13:12.680
+Es gibt keine Messages, ich bekomme ja nur Ping, ich bekomme nur Keep Alive, Keep Alive
+
+02:13:12.680 --> 02:13:18.320
+Dinger, da gibt's ja nichts zu. Oder meinst du in dem Addon dann irgendeine History? Ja,
+
+02:13:18.320 --> 02:13:23.240
+ja, das kann ich machen, das ist relativ einfach. Mach ich einen Sensor, die letzten zehn Messages
+
+02:13:23.240 --> 02:13:32.080
+oder so. Das kann ich machen. Letzten zehn Messages werden dann exportiert. Aber es
+
+02:13:32.080 --> 02:13:40.800
+funktioniert. Leute, ich hab bis vorhin keine Ahnung gehabt, wie man Amazon IoT, nein MQTT-AWS-IoT-Core
+
+02:13:40.800 --> 02:13:47.280
+verwendet und ich habe eigentlich ehrlich gesagt immer noch nicht mehr Ahnung, aber es funktioniert.
+
+02:13:47.280 --> 02:13:54.560
+Das ist schon mal gut. Schon mal nice. Wir können uns noch ein paar Videos angucken,
+
+02:13:54.560 --> 02:14:04.760
+bevor ich penne gehe. Ich lösche erstmal meinen Account wieder. Das ist schon ganz schön versteckt
+
+02:14:04.760 --> 02:14:19.320
+hier unten oder? Konto deaktivieren, Konto deaktivieren. Verstetigen. Und ja, deaktiviert.
+
+02:14:19.320 --> 02:14:30.880
+Was passiert denn? Kann ich mich noch verbinden? Okay, ich kann mich noch verbinden, obwohl der
+
+02:14:30.880 --> 02:14:36.440
+Account weg ist. Nice. Mal nachher ausprobieren. Wahrscheinlich warten wir jetzt bis die
+
+02:14:36.440 --> 02:14:53.720
+Incredentials expiren. Könntest du erklären, wie deine App mit Home Assistant kommunizieren wird?
+
+02:14:53.720 --> 02:15:04.200
+Die könnte nicht schon, die kommuniziert schon. Ja. Auch über MQTT. Du kannst das ausprobieren,
+
+02:15:04.200 --> 02:15:07.320
+wenn du es ausprobieren willst. Wenn du ein Fiat mit Uconnect hast, kannst du es ausprobieren.
+
+02:15:07.320 --> 02:15:12.840
+Gibt es schon seit 2-3 Monaten sogar. Hat zwar noch nicht alles, was ich einbauen will,
+
+02:15:12.840 --> 02:15:17.280
+aber grundsätzlich funktioniert alles wunderbar. Du kannst Sachen auslesen von deinem Auto,
+
+02:15:17.280 --> 02:15:21.720
+inklusive Reifendruck. Du kannst Licht an und aus machen, Batterienladung, Standort. Kannst
+
+02:15:21.720 --> 02:15:32.160
+du alles abfragen schon. Der Fiat-Champ, ja. Das kommuniziert per MQTT mit Home Assistant.
+
+02:15:32.160 --> 02:15:40.280
+Du brauchst einen eingerichteten Broker. Entweder das offizielle MQTT Addon oder einen
+
+02:15:40.280 --> 02:15:46.320
+externen MQTT Broker. Das Einzige, was du im Vorfeld gemacht haben musst, ist die MQTT
+
+02:15:46.320 --> 02:15:52.840
+Integration in Home Assistant einrichten, sonst funktioniert es nicht. Das Einzige,
+
+02:15:52.840 --> 02:16:08.600
+was du zu Fiat MQTT finden konntest... Das ist... Ups. Wollte ich jetzt aber einstellen.
+
+02:16:08.600 --> 02:16:22.600
+Ich wollte dein Zeug kopieren. Copy Address. Nee, das ist vom IO Broker Adapter der MQTT.
+
+02:16:22.600 --> 02:16:30.560
+Das ist was anderes. Das ist die Kommunikation vom IO Broker irgendwie. Das hat nichts mit
+
+02:16:30.560 --> 02:16:42.840
+dem Fiat MQTT über AWS zu tun. Ja, so kommuniziert das mit Home Assistant. Das exportiert alle
+
+02:16:42.840 --> 02:16:50.200
+Werte nach Home Assistant. Du brauchst einen Home Assistant mit eingerichteten MQTT Broker,
+
+02:16:50.200 --> 02:16:54.120
+das 99% der Leute haben, die Home Assistant verwenden. Und dann musst du gucken, dass
+
+02:16:54.120 --> 02:17:00.560
+dein Auto neu genug ist. Also sprich, wenn dein Auto mit einem dieser Seiten funktioniert,
+
+02:17:00.560 --> 02:17:04.520
+dann stehen deine Chancen ganz gut. Also Fiat funktioniert und Jeep funktioniert auch.
+
+02:17:04.520 --> 02:17:12.520
+RAM müsste mittlerweile auch funktionieren. Da habe ich extra AP Keys rausgefunden für
+
+02:17:12.520 --> 02:17:20.960
+RAM Trucks. Guckt hier. RAM Trucks. Ah ne, das habe ich hier noch gar nicht drin. Ich
+
+02:17:20.960 --> 02:17:28.880
+sollte mal einen Pull machen. Wir haben hier schon ein bisschen ältere Versionen. Guck
+
+02:17:28.880 --> 02:17:42.680
+für RAM Trucks. Gibt es hier extra ULs und extra AP Keys, damit es funktioniert? Weiß
+
+02:17:42.680 --> 02:17:49.800
+ich nicht, ob es RAM oder RAM Trucks heißt. Ist irgend so ein Ami Ding, was da total beliebt
+
+02:17:49.800 --> 02:18:11.240
+ist? Was genau ist Home Assistant? Eine Smart Home Zentrale. Github. 56.000 Sterne auf Github.
+
+02:18:11.240 --> 02:18:39.080
+Was war? Läuft Home Assistant bei dir als Docker? Ne, in AVM. Und wie machst du das
+
+02:18:39.080 --> 02:18:45.080
+mit den Backups, damit du nicht alles verlierst? Ich mache das ganz einfach. Ich habe eine
+
+02:18:45.080 --> 02:18:51.840
+externe Festplatte dran und darauf kopiere ich ab und zu mal Zeug. Fertig. Nicht nur
+
+02:18:51.840 --> 02:19:07.720
+Home Assistant, alles Mögliche. Könntest du mal schauen, ob jemand schon mal was für
+
+02:19:07.720 --> 02:19:23.760
+Tesla gemacht hat? Ja, gibt es. Gibt es. Tesla Mate. Gibt es schon. Das ist deutlich
+
+02:19:23.760 --> 02:19:38.240
+advanceder als das, was ich für Fiat gebaut habe. Das liegt aber auch daran, dass Tesla
+
+02:19:38.240 --> 02:20:01.120
+das Abgreifen viel einfacher macht. Für Tesla gibt es schon was. Was ist der Standard
+
+02:20:01.120 --> 02:20:22.440
+unter Linux, um Volumes zu mounten? FS-Tab? FS-Tab? Ja, das da. ETC FS-Tab. Ist so der
+
+02:20:22.440 --> 02:20:30.040
+Standardweg Sachen zu mounten. Trigg das da ein und beim Booten wird es gemountet. Du
+
+02:20:30.040 --> 02:20:34.960
+kannst da noch einstellen, ob er Filers zum Check machen soll, ob er Booten anhalten soll,
+
+02:20:34.960 --> 02:20:44.120
+wenn die Platte Probleme hat. Ne, ich meine das Directory MNT. Also ich benutze MNT immer,
+
+02:20:44.120 --> 02:20:49.760
+wenn ich mal schnell was mounten muss. Ansonsten ist ja nicht die Frage, wo du mountest, sondern
+
+02:20:49.760 --> 02:20:57.600
+also was du mountest, wo es hin soll. Also wenn du beispielsweise eine zweite SSD hast
+
+02:20:57.600 --> 02:21:02.840
+für User, dann machst du halt Slash Home. Kannst du Slash Home auch auf einer anderen
+
+02:21:02.840 --> 02:21:07.160
+SSD oder auf einer anderen Partition mounten oder sowas. Ist übrigens gar nicht so blöd.
+
+02:21:07.160 --> 02:21:12.920
+Wir haben auf der Arbeit eine VM für alle Admins und dort haben wir Slash Home auch
+
+02:21:12.920 --> 02:21:17.880
+auf einer eigenen SSD gemountet, dass wir Backups machen können und dass wenn man das
+
+02:21:17.880 --> 02:21:30.000
+Ding mal neu erzeugt, dass dann die Home-Verzeichnisse noch da sind. Oh, jetzt wird es aber hier
+
+02:21:30.000 --> 02:21:37.600
+richtig high IQ. Was ist das? Temporary Mounted File. Ja, genau dafür nehme ich es auch.
+
+02:21:37.600 --> 02:21:42.280
+Aber man muss sich da nicht so genau dran halten. Mounte dahin, wo es dir irgendwie als sinnvoll
+
+02:21:42.280 --> 02:21:47.600
+erscheint. Du kannst ja in deinem Heimatverzeichnis einen Mount-Ordner machen. Du kannst allerdings
+
+02:21:47.600 --> 02:22:00.720
+standardmäßig nur als Root-User mounten und unmounten. Es gibt ein paar Ausnahmen,
+
+02:22:00.720 --> 02:22:15.400
+aber in der Regel ist es so. Es gibt ein neues JavaScript-Framework, habe ich gelernt, bei
+
+02:22:15.400 --> 02:22:21.720
+YouTube. Sehr überraschend, oder? Hätte ich mir gar nicht denken können, dass es ein
+
+02:22:21.720 --> 02:22:30.240
+neues JavaScript-Framework gibt. Gibt es so selten. Ich verstehe zwar überhaupt nichts,
+
+02:22:30.240 --> 02:22:33.080
+aber ich wollte mich bedanken. Ich habe damals natürlich immer deine Videos geschaut und
+
+02:22:33.080 --> 02:22:36.920
+hat mir sehr geholfen beim Einschlafen. Ich weiß, ich weiß, schreiben viele. Ich gucke
+
+02:22:36.920 --> 02:22:41.520
+auch gerne YouTube-Videos zum Einschlafen. Aber schön, dass du deinen Weg her gefunden
+
+02:22:41.520 --> 02:22:46.200
+hast. Ich weiß, ich guckst du denn heute immer noch ab und zu mal? Ich mache ja ab und zu
+
+02:22:46.200 --> 02:22:57.000
+immer noch Videos. Heute erst wieder. Das ist übrigens auch eines der Gründe, warum
+
+02:22:57.000 --> 02:23:01.600
+ich auf Twitch anders heiße als auf YouTube. Weil der Content auf YouTube und hier kann
+
+02:23:01.600 --> 02:23:06.520
+es ja nicht wirklich vergleichen. Hier machen wir irgendwelchen High IQ Broggers-Shit und
+
+02:23:06.520 --> 02:23:13.440
+auf YouTube halt was anderes. Deswegen ist der Chat auch so massive, 500 EQ. Nur die
+
+02:23:13.440 --> 02:23:17.240
+Leute, die es geschafft haben zu checken, dass ich das hier bin von YouTube oder nur
+
+02:23:17.240 --> 02:23:25.320
+über Twitch gekommen sind, blicken da noch durch. Ja, das war nice. YouTube-Normies-Cringe,
+
+02:23:25.320 --> 02:23:30.240
+genau. Wollen wir uns doch irgendwas angucken? Was haben wir denn hier noch zu bieten? Ach,
+
+02:23:30.240 --> 02:23:38.000
+wir wollten doch das kurz gesagt Video gucken, genau. Fünf Gründe, warum es die Sharp Moogs
+
+02:23:38.000 --> 02:23:42.840
+ist, hätten wir auch noch. Dann könnten wir auch noch in Software- und Spieleentwicklung
+
+02:23:42.840 --> 02:23:50.920
+bleiben in der Kategorie. Wir lassen uns jetzt erstmal von Fireship erklären, was es wieder
+
+02:23:50.920 --> 02:24:06.120
+für tolle JavaScript-Frameworks gibt. Solid. Solid.js. Alles klar. Ich stelle mal wieder
+
+02:24:06.120 --> 02:24:10.800
+auf Just Chatting um. Wir sind ja mit Programmierzeug fertig. Ich hätte gerne noch probiert, ob
+
+02:24:10.800 --> 02:24:18.040
+das Subscriben funktioniert. Leider können wir sie ausprobieren, weil ich keine Messages
+
+02:24:18.040 --> 02:24:30.360
+erzeugen kann. Just Chatting. Ok. Es ist kaputt. Mein Kategorieumstellen klappt nicht. Kurz
+
+02:24:30.360 --> 02:24:38.560
+den Chat reloaden, vielleicht funktioniert es dann. Dankeschön für den Sub. Grizzly89.
+
+02:24:38.560 --> 02:24:52.560
+Just Chatting. Nö. Ich glaube Twitch hat gerade Probleme. Ah, hier. Just Chatting.
+
+02:24:52.560 --> 02:25:06.240
+Jetzt geht's. Ok. Nice. Ok, lassen wir uns mal von... Lassen wir uns mal von Fireship
+
+02:25:06.240 --> 02:25:25.360
+erklären, was abgeht. Zveldkit hat Zveldkit. Was ist das? Ist das Quick? Leute, ist das
+
+02:25:25.360 --> 02:25:42.200
+Quick? Warte, warte, warte, was? Quick. Start. Ok. Seriously, der Name ist kacke. Versuch
+
+02:25:42.200 --> 02:25:49.760
+mal nach Start zu googeln. Solche Namen sind immer richtig doof. Go hat auch das Problem
+
+02:25:49.760 --> 02:25:56.200
+am Anfang gehabt. Was meint ihr, warum jeder zu Go Go Lang sagt und nicht Go? Weil niemand
+
+02:25:56.200 --> 02:26:02.080
+Go googeln konnte. Also Google hat eine nicht googelbare Sprache erschaffen. Also Start
+
+02:26:02.080 --> 02:26:17.160
+ist ein ziemlich blöder Name. Was hat er denn jetzt versperrt?
+
+02:26:17.160 --> 02:26:46.520
+Haben die das jetzt nicht extra letztens erst geändert in React? Hatte React das? Nee,
+
+02:26:46.520 --> 02:26:58.760
+nicht React. Next? Nuxt? Nest? Wie heißt dieses React-Ding? Next, oder? Next. Next
+
+02:26:58.760 --> 02:27:03.400
+ist React. Hatte das? Haben die das nicht als letztens in React geändert, dass die jetzt
+
+02:27:03.400 --> 02:27:11.080
+auch so eine andere Fallstruktur haben? So wie Zveldkit? Oder war das so Zveldkit?
+
+02:27:11.080 --> 02:27:27.480
+Ja, genau, sag ich doch, die haben das doch in letztens erst geändert. Ok, das ist doof
+
+02:27:27.480 --> 02:27:31.520
+zu durchsuchen, das stimmt.
+
+02:27:31.520 --> 02:27:52.000
+Warum braucht man jetzt genau nochmal das neue Framework? Also wann sollte ich das jetzt
+
+02:27:52.000 --> 02:27:57.880
+verwenden, wenn ich Solid.js verwende? Und wann verwende ich Solid.js? Was sind die
+
+02:27:57.880 --> 02:28:13.080
+krassen tollen Sachen von Solid.js? Solid.js, was kann das tolles? Reactive Javascript Library,
+
+02:28:13.080 --> 02:28:35.520
+ja ja, schon klar. Zveld ist smaller, but Solid is much more sophisticated. Aha, Example.
+
+02:28:35.520 --> 02:28:51.480
+Ach, die haben sogar FireShip verlinkt, das ist natürlich sehr... I, es ist JSX. Ok,
+
+02:28:51.480 --> 02:28:56.960
+dann habe ich schon wieder keinen Bock drauf. Ich mag JSX nicht.
+
+02:28:56.960 --> 02:29:25.440
+Oh ja, da schreit schon JSX hier unten, diese komischen...
+
+02:29:25.440 --> 02:29:36.520
+Wir machen HTML in Javascript gedünst. Ich meine, man muss sagen, dass das unter der
+
+02:29:36.520 --> 02:29:44.880
+Haube Vue.js und Zveld natürlich auch machen, so mit HTML in Javascript und sowas, aber
+
+02:29:44.880 --> 02:29:46.400
+da muss ich mich selbst nicht damit rumschlagen.
+
+02:29:46.400 --> 02:30:09.240
+Ok Leute, ich bin schon ausgestiegen, was zum... was, hä?
+
+02:30:09.240 --> 02:30:37.600
+Wie, die Animation von der Katze funktioniert überhaupt nicht, was ist das für ein Problem?
+
+02:30:37.600 --> 02:30:51.840
+Warum funktioniert die Katze-Animation nicht? Mein Dashboard ist nicht blazingly fast, das
+
+02:30:51.840 --> 02:30:55.080
+ist broken. Ok, ich lösche das wieder.
+
+02:30:55.080 --> 02:31:20.280
+Ich brauche die, ich brauche das Emote hier, kurz, das da, das da.
+
+02:31:20.280 --> 02:31:41.200
+So, so komme ich mir gerade vor.
+
+02:31:41.200 --> 02:32:09.240
+Es könnte auch sein, dass einfach zu spät ist, aber ich höre die Worte, aber ich kann sie
+
+02:32:09.240 --> 02:32:14.880
+nicht aufnehmen gerade.
+
+02:32:14.880 --> 02:32:43.440
+Ist das denn in Rust programmiert, dass es wenigstens blazingly fast ist?
+
+02:32:43.440 --> 02:33:09.120
+Vor ein paar Jahren haben sie die ganzen Shadowdom-Geschichten angepriesen, weil das ja viel
+
+02:33:09.120 --> 02:33:14.920
+geiler ist, als direkt HTML zu manipulieren und das dann erst zu diffen und heute ist
+
+02:33:14.920 --> 02:33:16.680
+das wieder ganz, ganz out.
+
+02:33:16.680 --> 02:33:28.680
+Ok, ich habe keinen Plan, ob ich jemals Solid, nein, Start verwenden werde, wahrscheinlich
+
+02:33:28.680 --> 02:33:29.680
+nicht.
+
+02:33:29.680 --> 02:33:38.680
+Dice refuse to accept defeat. Ob die das refusing oder nicht ist vollkommen egal, sie haben reingeschossen.
+
+02:33:38.680 --> 02:33:43.840
+Es ist auch egal, ob sie sagen, ja, wir haben reingeschossen oder nicht, es ist offensichtlich,
+
+02:33:43.840 --> 02:33:44.840
+dass sie reingeschossen haben.
+
+02:33:44.840 --> 02:33:58.400
+Du hältst nichts von Server-Site-Rendering. Warum? Ganz viel im Internet ist Server-Site-Rendert
+
+02:33:58.400 --> 02:34:04.040
+oder teilweise sogar statisch. Ist statischer Content eigentlich streng genommen Server-Site
+
+02:34:04.040 --> 02:34:07.880
+gerendert? Eigentlich nicht, weil das gibt ja nichts zu rendern, oder?
+
+02:34:07.880 --> 02:34:22.920
+Die Technologie hinter Mario Kart.
+
+02:34:22.920 --> 02:34:25.120
+Dieses Video wurde gesponsort von...
+
+02:34:25.120 --> 02:34:31.920
+Wow, wow, wow. Den gucke ich immer gerne. Und ich habe ihn noch nicht gesehen. Ok, lasst
+
+02:34:31.920 --> 02:34:38.480
+mal uns erklären, was Nintendo bei Mario Kart gemacht hat.
+
+02:34:38.480 --> 02:34:44.120
+Man kann es sich heute sehr schwer vorstellen, aber Super Mario Kart hat damals die Köpfe
+
+02:34:44.120 --> 02:34:45.120
+der Spieler verdreht.
+
+02:34:45.120 --> 02:34:46.120
+Das stimmt.
+
+02:34:46.120 --> 02:34:47.960
+Klar, gab es vorher bereits Spiele, die irgendwie...
+
+02:34:47.960 --> 02:34:52.200
+Ich kann mich noch dran erinnern, als das erste Mario Kart rausgekommen ist. Ich habe
+
+02:34:52.200 --> 02:34:58.320
+erst mal gar nicht gewusst, wie man das gescheit steuern sollte. So als quasi Side-Scroller
+
+02:34:58.320 --> 02:35:04.480
+oder Top-Down. Das war das einzige, was ich gekannt habe, war Side-Scroller oder Top-Down.
+
+02:35:04.480 --> 02:35:09.320
+Also quasi entweder Super Mario World oder A Link to the Past. Also entweder von oben
+
+02:35:09.320 --> 02:35:15.840
+oder von der Seite. Aber Mario Kart hat mich damals wirklich... Das stimmt schon. Da wusste
+
+02:35:15.840 --> 02:35:16.840
+ich erst mal nicht...
+
+02:35:16.840 --> 02:35:23.640
+Da wusste ich erst mal nicht, was abgeht, ja.
+
+02:35:23.640 --> 02:35:37.920
+Und dann stellt sich doch die Frage, wie genau hat das Team von Nintendo das damals geschafft?
+
+02:35:37.920 --> 02:35:40.200
+Genau darum geht es heute. Werden wir technisch.
+
+02:35:40.200 --> 02:35:53.840
+Weißt du, was ich gut finde? Entweder Captured er in irgendeiner Art und Weise von einem
+
+02:35:53.840 --> 02:35:57.640
+CRT, beziehungsweise nicht von einem CRT, kann es ja nicht Captured. Wobei, ihr könnt
+
+02:35:57.640 --> 02:36:02.600
+es theoretisch schon abfilmen, aber das ist nicht abgefilmt. Er Captured aber auf jeden
+
+02:36:02.600 --> 02:36:11.600
+Fall über einen alten... irgendwas Altes, weil das sieht so CRT... CRT-mäßig aus hier
+
+02:36:11.600 --> 02:36:12.600
+alles.
+
+02:36:12.600 --> 02:36:15.000
+Wir fangen direkt mit dem wichtigsten...
+
+02:36:15.000 --> 02:36:17.080
+Also, Röhrenbildschirm.
+
+02:36:17.080 --> 02:36:21.040
+Interessant ist ein Thema an. Es kann sein, dass dieses Segment anfangs etwas trocken
+
+02:36:21.040 --> 02:36:24.200
+wirkt, aber glaub mir, es lohnt sich.
+
+02:36:24.200 --> 02:36:25.200
+Scanlines, genau.
+
+02:36:25.200 --> 02:36:28.240
+Denn Modeserven wird ständig missverstanden, aber es kommt daher, weil viele Limitationen
+
+02:36:28.240 --> 02:36:29.240
+des Super Nintendo...
+
+02:36:29.240 --> 02:36:33.840
+Also das Einzige, was ich weiß, so ungefähr grob, was Modeserven ist, ich weiß, dass der
+
+02:36:33.840 --> 02:36:40.280
+Super Nintendo... oder generell... ja, der Super Nintendo, weiß nicht, wie es beim NES
+
+02:36:40.280 --> 02:36:46.600
+war, wahrscheinlich ähnlich. Du konntest das Ding umschalten in verschiedene Modes und
+
+02:36:46.600 --> 02:36:51.640
+die haben dann irgendwie unterschiedliche Auflösungen und unterschiedliche Farbpaletten
+
+02:36:51.640 --> 02:36:56.000
+oder sowas oder unterschiedliche Farbtiefen oder irgendwie so in der Richtung. Und es
+
+02:36:56.000 --> 02:37:04.000
+gab auch irgendwie Unterschiede, in welchem Mode du wie scrollen kannst und sowas. Also
+
+02:37:04.000 --> 02:37:10.200
+du konntest dann quasi irgendwie... eine Worldmap hast du dann in einem anderen Mode gemacht
+
+02:37:10.200 --> 02:37:14.280
+wie beispielsweise irgendwie das Sidescroller-Level oder sowas. Aber sonst bin ich jetzt
+
+02:37:14.280 --> 02:37:17.840
+nicht so sonderlich... hab ich nicht sonderlich viel Ahnung, wie das Super Nintendo funktioniert
+
+02:37:17.840 --> 02:37:18.840
+hat.
+
+02:37:18.840 --> 02:37:24.960
+...unbekannt sind und vor allem heutzutage komplett verrückt wirken. Halt sowas wie,
+
+02:37:24.960 --> 02:37:29.600
+dass das Rotieren von Sprites komplett unmöglich ist. Grundsätzlich empfehle ich diesbezüglich
+
+02:37:29.600 --> 02:37:32.040
+das Technikvideo zu Yoshi's Island, da dieses Video hier...
+
+02:37:32.040 --> 02:37:36.600
+Na gut, Yoshi's Island zählt ja nicht so wirklich. Ich geh mal davon aus, dass sagt er auch gleich.
+
+02:37:36.600 --> 02:37:42.560
+Yoshi's Island zählt ja nicht so wirklich, weil Yoshi's Island so ein Minimal-3D-Chip
+
+02:37:42.560 --> 02:37:49.320
+mit auf der Cartridge drauf hatte. Das war ja eines der wenigen Spiele, die diesen Super
+
+02:37:49.320 --> 02:37:58.600
+FX-Chip drauf hatten. Ich glaub, Starfox hatte das noch? Starfox, Yoshi's Island. Ich weiß
+
+02:37:58.600 --> 02:37:59.960
+nicht, was es sonst noch hatte.
+
+02:37:59.960 --> 02:38:18.440
+...nicht so viele, hä? Ja. Ja. Dinger, von denen ich noch nie was gehört hab? Doom?
+
+02:38:18.440 --> 02:38:36.320
+Fucking Doom. Super Mario World, also Yoshi's Island, Wintergold und Starfox. Also es hielt
+
+02:38:36.320 --> 02:38:40.280
+sich wirklich sehr in Grenzen, wie viele Games das hatten.
+
+02:38:40.280 --> 02:38:46.520
+...größtenteils darauf aufgebaut. Dennoch eine kurze Zusammenfassung, was Mode 7 überhaupt
+
+02:38:46.520 --> 02:38:51.040
+ist. Der Super Nintendo kann bis zu vier verschiedene Hintergrundlayer nutzen, je nachdem welcher
+
+02:38:51.040 --> 02:38:56.880
+Grafikmodus genutzt wird. Jeder der acht Grafikmodi hat eigene Vor- und Nachteile. Mode 0 kann
+
+02:38:56.880 --> 02:39:03.480
+zum Beispiel alle vier Layer nutzen, aber nur wenige Farben darstellen. Mode 2 kann
+
+02:39:03.480 --> 02:39:07.360
+Teillinien des Hintergrundes horizontal und vertikal verschieben, dafür aber nur zwei
+
+02:39:07.360 --> 02:39:11.120
+Hintergründe nutzen, da am Speicher der anderen zwei Hintergründe hinterlegt wird, wie die
+
+02:39:11.120 --> 02:39:15.440
+Linien vertikal und horizontal verschoben werden. Es gibt also viele Basisfeatures,
+
+02:39:15.440 --> 02:39:20.640
+die je nach Modus an- und ausgeschaltet werden und ein paar spezielle Pro-Modus, die etwas
+
+02:39:20.640 --> 02:39:25.720
+besonderer sind. Mode 7 ist also einer dieser Modi und hat wohl die meisten Limitationen.
+
+02:39:25.720 --> 02:39:28.880
+Das Teil-Set ist nicht so groß und es gibt nur ein einziges Hintergrundlayer.
+
+02:39:28.880 --> 02:39:35.240
+Wisst ihr was ich immer wieder cool finde? Dass erstens so vieles unmöglich war auf diesen
+
+02:39:35.240 --> 02:39:40.840
+alten Plattformen und sie trotzdem irgendwas hingetrickst haben, dass es funktioniert hat.
+
+02:39:40.840 --> 02:39:48.080
+Aber was ich viel beeindruckender finde ist, dass sie es oftmals genutzt haben um was Gutes
+
+02:39:48.080 --> 02:39:54.800
+draus zu machen. Also die hatten irgendwelche Dinge die nicht gingen und sie haben ihr Game
+
+02:39:54.800 --> 02:40:01.920
+so aufgebaut, dass es so wirkt, als wäre das Absicht, obwohl es eigentlich keine Absicht
+
+02:40:01.920 --> 02:40:06.120
+war oder was heißt Absicht? Es war dann schon Absicht, aber man hat es eigentlich nur so
+
+02:40:06.120 --> 02:40:10.480
+gemacht, weil es die Hardware nicht konnte und niemand hat sich Gedanken dabei gemacht,
+
+02:40:10.480 --> 02:40:16.920
+so nach dem Motto, wie? Das ist so, weil es die Hardware nicht konnte. Die mussten wirklich
+
+02:40:16.920 --> 02:40:26.000
+die Limits sinnvoll in die Spiele integrieren und heute kann ja quasi jedes Handy, was?
+
+02:40:26.000 --> 02:40:31.960
+Handy? Handy ist viel zu viel. Handy ist ja schon um was weiß ich 500 Mal leistungsfähiger
+
+02:40:31.960 --> 02:40:45.800
+als ein Super Nintendo. Heute kann irgendwie jeder Toaster oder jeder Alarmwecker in der
+
+02:40:45.800 --> 02:40:52.080
+Küche theoretisch mehr. Ja, was den Modus größtenteils für die meisten Sachen überflüssig
+
+02:40:52.080 --> 02:40:57.160
+macht. Dafür gibt es aber einen wichtigen Vorteil. Diese eine Layer kann frei bewegt,
+
+02:40:57.160 --> 02:41:03.200
+rotiert und verzerrt werden, also zumindest seitlich, so wie z.B. in Photoshop. Jede Strecke
+
+02:41:03.200 --> 02:41:07.640
+in Mario Kart ist also eigentlich ein ganz normales Level von oben betrachtet. Jeder,
+
+02:41:07.640 --> 02:41:11.640
+der mit Photoshop rumgespielt hat, würde jetzt vielleicht denken, oh, ist das 3D einfach
+
+02:41:11.640 --> 02:41:17.400
+nur die Eckpunkte verzerren und boom, hätte man einen 3D Effekt. Aber nein, wie gesagt,
+
+02:41:17.400 --> 02:41:20.640
+man kann das Ganze nur seitlich verzerren und selbst wenn es möglich wäre, könnte
+
+02:41:20.640 --> 02:41:24.840
+man dadurch schwer Tiefe... Es sieht aber jetzt, ohne Scheiß, wenn man
+
+02:41:24.840 --> 02:41:31.720
+das so skaliert, dann sieht das tatsächlich schon ein bisschen aus wie eine Mario Kart
+
+02:41:31.720 --> 02:41:34.160
+Strecke....erzeugen, bzw. sich in die Tiefe rein
+
+02:41:34.160 --> 02:41:40.120
+bewegen, weil wie soll das gehen? Wir brauchen also einen anderen Weg und dieser ist verrückt.
+
+02:41:40.120 --> 02:41:44.400
+Also wirklich, die Kreativität, um Probleme zu umgehen, die die Teams von Nintendo damals
+
+02:41:44.400 --> 02:41:48.920
+bewiesen haben, ist einfach genial. Um also gefakte Tiefe zu ermöglichen, brauchen wir
+
+02:41:48.920 --> 02:41:53.480
+einen weiteren Trick und zwar HDMI. Wieder als Auffrischung, ein Fernseher erzeugt ein
+
+02:41:53.480 --> 02:42:01.000
+Bild, in dem es pro vertikaler Linie die Bildpunkte von links nach rechts durchgeht. Dank HDMI
+
+02:42:01.000 --> 02:42:05.400
+weiß das Nintendo, auf welcher Bildlinie gerade gerendert wird und kann so speziellen
+
+02:42:05.400 --> 02:42:09.480
+Programmcode ausführen, wenn eine bestimmte Bildlinie erreicht wurde. Bedeutet, man kann
+
+02:42:09.480 --> 02:42:13.800
+zum Beispiel den Hintergrund verschieben, wenn man an einer bestimmten Bildlinie angekommen
+
+02:42:13.800 --> 02:42:18.120
+ist. Ich habe mal einen kleinen HDMI Simulator programmiert, um das zu verdeutlichen. Die
+
+02:42:18.120 --> 02:42:21.800
+schwarze Linie zeigt an, welche Bildlinie gerade gerendert wird. Wenn man jetzt zum
+
+02:42:21.800 --> 02:42:26.200
+Beispiel den Hintergrundlayer leicht verschiebt, entsteht so ein typischer Vabereffekt, den
+
+02:42:26.200 --> 02:42:29.720
+man aus vielen Super Nintendo Spielen kennt. Laden wir jetzt mal eine Mario Kart Strecke
+
+02:42:29.720 --> 02:42:34.040
+in den Hintergrundlayer und nutzen alle Mode 7 Features. So können wir ihn bewegen und
+
+02:42:34.040 --> 02:42:38.280
+rotieren, wodurch diverse Effekte entstehen. Alter, Hyper Six Head. Es ist ein wenig trippy,
+
+02:42:38.280 --> 02:42:41.800
+aber das ist nicht das, was wir wollen. Massive Fire IQ. Holen wir also das letzte Feature
+
+02:42:41.800 --> 02:42:46.880
+von Mode 7 mal aus und ja, skalieren wir den Layer, während ein Bild Linie für Linie
+
+02:42:46.880 --> 02:42:52.880
+gezeichnet wird, sieht es genauso aus wie Super Mario Kart. Also, also, okay, okay, okay.
+
+02:42:52.880 --> 02:42:58.520
+Die skalieren, also die, die schalten, die gehen auf Mode 7, skalieren und, und dingsen
+
+02:42:58.520 --> 02:43:05.400
+da den Hintergrund, aber zusätzlich gucken sie, an welcher, auf welcher Linie der Fernseher
+
+02:43:05.400 --> 02:43:09.920
+gerade das Bild zeichnet und dann verschieben sie den, verschieben sie den Hintergrund,
+
+02:43:09.920 --> 02:43:18.400
+sodass es quasi aussieht, als würde man da reinfahren in die Strecke, so, so. Und das
+
+02:43:18.400 --> 02:43:22.760
+haben die programmiert in Assembler oder was damals noch, wobei ich glaube, vieles war
+
+02:43:22.760 --> 02:43:33.640
+schon in C auf dem Super Nintendo. Alter, WTF. Der Fake 3D Effekt ist also nicht Mode 7 allein,
+
+02:43:33.640 --> 02:43:39.320
+sondern die Kombination aus Mode 7 und HDMA. Beide Techniken sind wichtig, um diesen Effekt
+
+02:43:39.320 --> 02:43:42.760
+darstellen zu können, aber ich glaube, Mode 7 hat einfach einen besseren Klang und ist
+
+02:43:42.760 --> 02:43:47.280
+grundsätzlich einfacher zu erklären, deswegen wird HDMA immer ausgelassen, um sich also
+
+02:43:47.280 --> 02:43:51.480
+in 3D rumbesiegen zu können. Klingt simpel, ja, super, ob, obvius simpel. Machen wir im
+
+02:43:51.480 --> 02:43:57.640
+nächsten Stream, Leute, easy. Der, der Super Nintendo hat einen C-Compiler, aber war viel
+
+02:43:57.640 --> 02:44:05.560
+mehr ASM. Was war denn das für ein C-Standard? Bestimmt C65 oder so. Nee, das war noch gar
+
+02:44:05.560 --> 02:44:16.880
+kein Standard, oder? C89 war wahrscheinlich gerade der Shit da. Pre-Standard C. Muss man
+
+02:44:16.880 --> 02:44:21.400
+dann nur noch den Layer verschieben und rotieren, wodurch dann ein recht guter 3D-Effekt rüberkommt.
+
+02:44:21.400 --> 02:44:29.360
+Das ist wirklich richtig sick, das ist wirklich, das ist wirklich richtig clever. Guckt euch
+
+02:44:29.360 --> 02:44:35.760
+das mal an hier. Big Brain Nintendo Programmierer. Wie so viel, wie so ein Effekt kosten würde,
+
+02:44:35.760 --> 02:44:40.400
+wenn man echte Polygonen darstellt. Aber ja, jedes Spiel, das diese Art von 3D-Effekt auf
+
+02:44:40.400 --> 02:44:45.360
+den Super Nintendo nutzt, hat es genau so gelöst und ist damit wieder eine weitere Sache, die
+
+02:44:45.360 --> 02:44:50.360
+ohne HDMA einfach nicht möglich gewesen wäre. Würde behaupten, dass HDMA so ziemlich das
+
+02:44:50.360 --> 02:44:54.920
+wichtigste grafische Feature von Super Nintendo ist und ich bin deswegen irritiert, warum
+
+02:44:54.920 --> 02:45:08.120
+kaum jemand mal darüber spricht. Asasha Next Level High IQ Nintendo Gramm. Mode 7 ist also
+
+02:45:08.120 --> 02:45:12.200
+ein besonderer Modus mit gewissen Limitationen, die wir uns kurz nochmal anschauen müssen.
+
+02:45:12.200 --> 02:45:17.160
+So sind in dem Modus nur zwei Layer verfügbar. Ein Hintergrund-Layer, den man frei bewegen,
+
+02:45:17.160 --> 02:45:21.560
+rotieren und skalieren kann und der Sprite-Layer. Hintergrund-Layer sind statisch und können
+
+02:45:21.560 --> 02:45:25.960
+nur pro Teil verändert werden. Ich muss ja sagen, A Link to the Past ist bis heute immer
+
+02:45:25.960 --> 02:45:29.640
+noch eines meiner Lieblingsspiele. Nicht, dass ich das jetzt jeden Monat mal spielen muss
+
+02:45:29.640 --> 02:45:38.360
+oder jedes Jahr, aber ich mag das. Link wahrscheinlich daran, weil es mein erstes Zelda-Game war.
+
+02:45:38.360 --> 02:45:44.840
+Aber es ist im Prinzip immer noch mein Lieblings Zelda-Game. Schlossene Tür, eine offene Tür
+
+02:45:44.840 --> 02:45:49.140
+werden soll, dann wird die ganze Kachel ausgetauscht. Es ist nicht möglich, einzelne Kacheln zu
+
+02:45:49.140 --> 02:45:54.760
+bewegen, nur den kompletten Layer. Sprite-Layer hingegen sind dynamische einzelne Objekte,
+
+02:45:54.760 --> 02:45:58.720
+die über den Bildschirm flüssig bewegt werden können. Sie bestehen aus kleinen Tiles, die
+
+02:45:58.720 --> 02:46:03.680
+zu einem Objekt zusammengesteckt werden. Der Super Nintendo kann 128 dieser Sprite-Tiles
+
+02:46:03.680 --> 02:46:26.760
+gleichzeitig... Wenn man Sprites nicht rotieren kann, dann muss es quasi für jede Sache,
+
+02:46:26.760 --> 02:46:37.200
+wie man hier sieht, ein extra Sprite geben, oder? Also, die können dann nicht irgendwie
+
+02:46:37.200 --> 02:46:43.080
+Toad einfach ein bisschen nach rechts kippen oder so, wenn er in die Kurve geht. Das muss
+
+02:46:43.080 --> 02:46:51.560
+dann ein eigener Sprite für Toad ist in der Kurve sein, oder wie? Das ist aber ganz schön
+
+02:46:51.560 --> 02:47:06.960
+viel. Denk logisch.
+
+02:47:06.960 --> 02:47:36.880
+Ach so! Und ich habe mich schon immer gefragt,
+
+02:47:36.880 --> 02:47:42.520
+warum ist der Hintergrund schwarz an der Stelle? Aber klar, das ist das, was ich am Anfang
+
+02:47:42.520 --> 02:47:47.520
+gesagt habe. Guck mal, die haben die Limitierung so gut in die Games integriert, dass du dir
+
+02:47:47.520 --> 02:47:53.480
+denkst, das muss so sein. Also, das ist Absicht. Aber die haben einfach festgestellt, fuck,
+
+02:47:53.480 --> 02:47:59.600
+wir können da nichts anderes anzeigen. Aber die haben es so gebaut, dass es so gut passt,
+
+02:47:59.600 --> 02:48:15.960
+dass du denkst, es ist Absicht. Ja, ich dachte auch, es sollte dunkel sein. Aber ich hab mich
+
+02:48:15.960 --> 02:48:23.960
+immer gefragt, warum wechselt der Hintergrund da nicht? Was weiß ich, in welcher Phase
+
+02:48:23.960 --> 02:48:30.360
+man ist, zum Beispiel. Wie gesagt, ich dachte auch, es soll so sein. Aber es soll ja auch
+
+02:48:30.360 --> 02:48:35.720
+so sein, weil es ging nicht anders. Und sie haben es dann halt so gebaut. Und hell und
+
+02:48:35.720 --> 02:48:42.880
+dunkel, hell und dunkel kann es werden, weil das sind nur Farben. Und wenn du Farben skalierst,
+
+02:48:42.880 --> 02:48:46.800
+also wenn du die Pixel skalierst mit Farben, macht es keinen Unterschied. Also es ist egal,
+
+02:48:46.800 --> 02:48:51.360
+ob ich einen blauen Pixel, ob ich, ob ich groß skaliere, den blauen Pixel oder kleine
+
+02:48:51.360 --> 02:48:55.280
+blaue Pixel oder was auch immer. Das ist halt einfach ein blauer Hintergrund. Den kannst
+
+02:48:55.280 --> 02:49:12.520
+du skalieren. Ah, ok, das ist ja richtig clever. Das ist mir nie aufgefallen, dass es eine
+
+02:49:12.520 --> 02:49:29.760
+andere Farbe hat. Ah.
+
+02:49:29.760 --> 02:49:58.880
+Obviously. Also Cringe, wer das nicht weiß.
+
+02:49:58.880 --> 02:50:03.920
+So viele Sprites, dass keine mehr für die Spieler, Items, Hindernisse etc. übrig
+
+02:50:03.920 --> 02:50:09.200
+wären. Wie wurde das also gelöst? Natürlich mit dem wohl wichtigsten Trick der Konsole,
+
+02:50:09.200 --> 02:50:14.320
+HDMI. Dank HDMI kann der Superintendent den Hintergrundlayer-Modus switchen, sobald
+
+02:50:14.320 --> 02:50:19.560
+eine bestimmte Bildzeile gerendert wird. Das Interface und der Streckenhintergrund werden
+
+02:50:19.560 --> 02:50:24.320
+in einem Modus gerendert, der mehrere Hintergründe unterstützt. Und sobald die Ansicht der Strecke
+
+02:50:24.320 --> 02:50:31.840
+gemalt wird, wird auf Mode 7 geswitcht. Und kommen wir noch mal ganz kurz.
+
+02:50:31.840 --> 02:50:44.120
+Moment. Das heißt, das hier oben ist nicht Teil der Strecke. Das hier oben ist quasi
+
+02:50:44.120 --> 02:50:50.320
+ein Hintergrund, der gemalt wird, der eigentlich gar nichts mit der Strecke zu tun hat. Also
+
+02:50:50.320 --> 02:50:56.080
+sprich die malen hier oben den Hintergrund auf den Bildschirm. Inklusive, äh, ja halt
+
+02:50:56.080 --> 02:51:08.520
+ihrem, ihrem GUI. Und hier fängt die Strecke erst an und ab hier ist es dann Mode 7. Und
+
+02:51:08.520 --> 02:51:16.600
+das da, das hier, das Overlay ist wahrscheinlich, ja. Das ist aber schon sehr high IQ. Unmöglich,
+
+02:51:16.600 --> 02:51:26.320
+dass das alles ohne Agile Cloud-Native-Devops-Methoden geht. Keine Daily-Scrubs gehabt. Wobei, das
+
+02:51:26.320 --> 02:51:31.840
+ist, das war eine andere Zeit. Gibt ja genug Talks, damals von id Software, wo die Doom
+
+02:51:31.840 --> 02:51:35.520
+entwickelt haben und Quake, die haben mir erzählt, die hatten sogar eine eigene Vorrichtung
+
+02:51:35.520 --> 02:51:43.480
+auf dem Klo, damit sie weiter programmieren konnten. Die waren agil, ohne agil zu sein.
+
+02:51:43.480 --> 02:52:00.280
+Die haben agil geschissen und programmiert. Aber mussten fertig werden. Und es gab keine
+
+02:52:00.280 --> 02:52:06.840
+umgebung
+
+02:52:30.280 --> 02:52:32.280
+nicht unmöglich da
+
+02:52:32.440 --> 02:52:39.480
+selben layer wie morten werden da müssen sich ja mit bewegen und rotieren wenn sich das ist das ist das ist äußerst äußerst clever
+
+02:52:39.480 --> 02:52:46.540
+ja aber das ist eben der trick die balken sind einfach sprites und da kaum andere sprites gerettet werden müssen in den kampf kommt das
+
+02:52:46.540 --> 02:52:47.560
+über nintendo
+
+02:52:47.560 --> 02:52:54.060
+mqtt war schon ja wir sind fertig funktioniert limit und letzter fun fact roy nutzt den selben boss kampf wie morten nur können sich die wende
+
+02:52:54.060 --> 02:53:00.160
+bewegen hier hat das team limitation kreativ genutzt um den boss kampf interessanter zu machen denn logisch die wende sind jetzt ja
+
+02:53:00.160 --> 02:53:04.000
+auch sprites dass sie sich im mod 7 bereich befinden und
+
+02:53:05.000 --> 02:53:09.600
+aber das witzige ist flüssig über den bildschirm bewegen dass das lustig ist
+
+02:53:10.240 --> 02:53:16.480
+umfallen könnte die wand also nicht du kannst die sprite also wenn das sprites du kannst den bewegen
+
+02:53:17.120 --> 02:53:22.520
+du kannst den aber nicht rotieren also umfallen wäre nicht möglich bei der wand
+
+02:53:23.360 --> 02:53:29.200
+also dass die quasi so macht so irgendwie das geht nicht aber links und rechts verschieben das geht
+
+02:53:29.200 --> 02:53:36.520
+als hintergrund layer die man nur komplett bewegen kann oder halt die einzelnen teils austauschen muss und genau deswegen können sich diese wende
+
+02:53:36.520 --> 02:53:40.280
+aufeinander zu bewegen und das flüssig es ist ein gutes beispiel wie
+
+02:53:40.720 --> 02:53:42.720
+limitationen kreativ machen
+
+02:53:43.720 --> 02:53:46.480
+dass das was ich am anfang gesagt habe das siehst du mal wie
+
+02:53:46.960 --> 02:53:53.560
+wie die das dafür benutzt haben dass es sich am ende so anfühlt als gehört es genauso wenn man sein spiel für eine spezielle hardware
+
+02:53:53.560 --> 02:54:00.400
+optimiert und genau deswegen rede ich so gerne über alte spiele weil sie häufig das unmögliche auf einer hardware doch möglich gemacht haben
+
+02:54:09.960 --> 02:54:17.480
+ok der super nintendo umgeht also echtes 3d mit cleveren tricks löst ebenfalls das sprite limit mit cleveren tricks und dennoch ist es
+
+02:54:17.480 --> 02:54:21.320
+ernüchternd zu wissen dass der super nintendo allein das ganze einfach nicht hinbekommen könnte
+
+02:54:21.320 --> 02:54:27.200
+um das zu verstehen schauen wir uns kurz an was im hintergrund noch gemacht werden muss die umgebung wird also gelöst
+
+02:54:27.200 --> 02:54:31.400
+in dem der mode 7 layer rotiert bewegt und dann skaliert wird damit tiefe entsteht
+
+02:54:31.480 --> 02:54:37.000
+während die eigene figure also einfach am bildschirm klebt müssen die anderen fahrer wir sehr sehr viel
+
+02:54:37.200 --> 02:54:43.760
+mathematik ihre aktuelle position auf dem bildschirm. ich meine der super nintendo hat eine richtig schrotz cpu aus heutigen maßstäben ja
+
+02:54:43.760 --> 02:54:48.760
+ja es war
+
+02:54:54.160 --> 02:54:56.160
+ja
+
+02:54:59.200 --> 02:55:02.600
+sagenhafte 3,57 megahertz
+
+02:55:02.600 --> 02:55:11.560
+das kann man sich heute gar nicht vorstellen ist bei nintendo heute noch so
+
+02:55:14.360 --> 02:55:17.440
+ja es gibt zwei sachen ordentliche hardware
+
+02:55:19.080 --> 02:55:25.120
+also ordentlich leistungsfähige hardware und eine sache die nintendo auch nicht hinbekommt ist
+
+02:55:25.880 --> 02:55:28.600
+ordentlichen online modus in games
+
+02:55:28.600 --> 02:55:30.600
+ja
+
+02:55:31.840 --> 02:55:38.360
+da kommste dir vor wie auf der auf der aller allerersten xbox wenn du dir die nintendo online sachen anguckst
+
+02:55:40.640 --> 02:55:42.640
+wenn es überhaupt online zeug hat
+
+02:55:45.560 --> 02:55:53.440
+wie viel ram hat er hoi 128 kilobyte ram und 64 kilobyte grafikspeicher
+
+02:55:53.440 --> 02:56:01.960
+ja aber immerhin zwei naja gpu kann man nicht wirklich sagen
+
+02:56:01.960 --> 02:56:21.280
+picture ppu nicht gpu ppu also quasi sli von 1989 ne wann kam der ns raus 91
+
+02:56:21.280 --> 02:56:23.280
+ja
+
+02:56:30.480 --> 02:56:35.840
+hotel so fantasia hat ja auch super super grafik für super nintendo ja
+
+02:56:38.640 --> 02:56:43.160
+ist halt schon andere zeit
+
+02:56:43.160 --> 02:56:54.720
+rechnen interessant ist da im einzelspieler modus der kartenbildschirm weil wir dadurch wissen was
+
+02:56:54.720 --> 02:56:59.240
+das spiel alles beachten muss das spiel beachtet immer die aktuelle position der figure und auch
+
+02:56:59.240 --> 02:57:04.160
+die aktuelle rotation die nicht nur links und rechts ist und sich halt um 360 grad drehen kann
+
+02:57:04.160 --> 02:57:09.200
+mit der positionen rotation des spielers kann dann so berechnet werden wo sich eine figure auf dem
+
+02:57:09.200 --> 02:57:15.120
+bildschirm befinden würde und wie weit sie entfernt ist oder das ganze auch mit 50 fps impar darf man
+
+02:57:15.120 --> 02:57:21.680
+nicht vergessen das game läuft in 50 fps oder 60 ntsc besonders wichtig denn der super nintendo
+
+02:57:21.680 --> 02:57:26.520
+kann ja keine sprites flüssig skalieren deswegen gibt es mehrere sprites pro figure in verschiedenen
+
+02:57:26.520 --> 02:57:34.960
+größen die je nach distanz durchgetauscht werden du scheiße die haben stimmt wenn du den kram nicht
+
+02:57:34.960 --> 02:57:40.200
+skalieren kannst brauchst du wirklich alles das ist wirklich das ist ja noch schlimmer als ich mir
+
+02:57:40.200 --> 02:57:44.680
+das vorhin gedacht habe ich habe ja freund nur gesagt wenn taut in der kurve ist ist halt mit
+
+02:57:44.680 --> 02:57:51.160
+rotieren nix aber ne natürlich ist ja auch mit verkleiner nix das heißt die haben alles die
+
+02:57:51.160 --> 02:57:57.080
+haben jeden jeden fahrer wie viel fahrer hatten denn das erste mario kart 8 oder so glaube gel was
+
+02:57:57.080 --> 02:58:04.720
+hattest du im ersten mal du hattest mario du hattest luigi du hattest taut du hattest den koopa du hattest
+
+02:58:04.720 --> 02:58:12.880
+bowser du hattest donkey kong oder nicht diesen diesen donkey kong vorgänger hattest du peach
+
+02:58:12.880 --> 02:58:18.640
+und joshie hattest du noch peach ich glaube das war es ich glaube das gab es ja acht stück und
+
+02:58:18.640 --> 02:58:23.720
+wie musste alle acht fahrer musstest du quasi in allen wecheln und in allen auflösungen haben
+
+02:58:23.720 --> 02:58:33.520
+da nice ja und theoretisch wenn ich weiter überlege wie ist das mit den ach nee nee nee die frage
+
+02:58:33.520 --> 02:58:37.680
+zeichen wo du drüber fährst die sind ja auf der strecke die skalieren damit mit mod 7 dann
+
+02:58:37.680 --> 02:58:47.320
+automatisch aber gab es da mal schon lucky to der dich rein und raus aus der strecke ja den gab
+
+02:58:47.320 --> 02:58:56.080
+schon der muss auf jeden fall skaliert werden und alles was sonst noch so auf der strecke
+
+02:58:56.080 --> 02:59:01.960
+röhren und so auch röhren auf der strecke und so muss es alles mehrfach geben in allen detail
+
+02:59:05.960 --> 02:59:12.640
+der vorteil von den cartridges hast speicher wie blöken die super interno games sind sind mini
+
+02:59:12.640 --> 02:59:20.320
+die sind die die super interno games die haben so gut wie nix muss man gucken wie groß so ein rom
+
+02:59:20.320 --> 02:59:31.160
+ist da passt nix drauf nix nicht viel ans durchgetauscht werden auch hier vermute ich dass diese
+
+02:59:31.160 --> 02:59:36.800
+limitation kreativ machte denn der blitz und so ein so ein so ein so ein game hatte hatte
+
+02:59:36.800 --> 02:59:44.400
+irgendwas keine ahnung 2 mb oder so ja gut im vergleich zum ram von der konsole hatten die
+
+02:59:44.400 --> 02:59:51.720
+viel speicher so ein game war irgendwie 2 mb groß und die konsole hat halt 128 kilobyte ram ja
+
+02:59:51.720 --> 03:00:01.120
+das stimmt schon aber viel speicher ist es nicht deswegen so sachen wie orchester soundtracks oder
+
+03:00:01.120 --> 03:00:10.720
+videos und so das kamen dann erst bei einer playstation mit cds g styles
+
+03:00:10.720 --> 03:00:15.680
+dankeschön für den sub jetzt lassen die fahrer klein werden durch sie das sprite für eine hohe
+
+03:00:15.680 --> 03:00:20.480
+distanz einfach immer nutzen wenn ihr beim charakter auswahlbildschirm gerückt haltet
+
+03:00:20.480 --> 03:00:24.960
+und dann a drückt könnt ihr permanent in der mini form spielen echt wusste ich mal nur so
+
+03:00:24.960 --> 03:00:29.360
+angemerkt aber vielleicht wusste ich das damals nicht nur alle fahrer in verschiedenen grüßen
+
+03:00:29.360 --> 03:00:34.240
+gezeichnet wurden und dann das waren so dinge leute das waren so typische dinger die man sich
+
+03:00:34.240 --> 03:00:39.040
+damals auf dem schulhof erzählt hat so nach dem motto wusstest du schon wenn du mario kahn im
+
+03:00:39.040 --> 03:00:44.040
+startmenu y drückst dann kannst du den fahrer klein machen und sowas oder was damals in diesem
+
+03:00:44.040 --> 03:00:49.520
+nintendo magazin ist im club nintendo magazin drin stand was könnt ihr permanent in der mini
+
+03:00:49.520 --> 03:00:55.120
+form spielen einfach mal nur so angemerkt aber ja das bedeutet dass nicht nur alle fahrer in
+
+03:00:55.120 --> 03:00:59.280
+verschiedenen grüßen gezeichnet wurden und dann auch noch in mehreren blickrichtungen auch die
+
+03:00:59.280 --> 03:01:04.920
+hindernisse existierende mehr gabs damals auch noch eine bittung gespart wegen limitierten
+
+03:01:04.920 --> 03:01:10.600
+videospeicher was die frage meines kindheits ich erklärt warum die thumbs ein immer anstarren aber
+
+03:01:10.600 --> 03:01:18.200
+auch die ach so moment nur dass jetzt richtig gecheckt hat nur hat man sich hier die ansichten
+
+03:01:18.200 --> 03:01:25.080
+für verschiedene blickrichtungen gespart wegen limitierten videospeicher ok das ist mir nie
+
+03:01:25.080 --> 03:01:31.120
+aufgefallen das ist mir ehrlich gesagt nie aufgefallen ich glaube damit hat nintendo auch
+
+03:01:31.120 --> 03:01:42.800
+gerechnet aber ok gut gut zu wissen was die frage meines kindheits ich erklärt warum die
+
+03:01:42.800 --> 03:01:48.720
+thumbs ein immer anstarren ich glaube das mir nie aufgefallen haben mehrere größen und auch die balance im versus modus alles
+
+03:01:48.720 --> 03:01:53.960
+wird permanent berechnet wo es sich befindet da konnte auch bananen auf der strecke liegen und so je nach
+
+03:01:53.960 --> 03:01:58.600
+distanz und dann kommen auch noch so sachen hinzu wie die grünen panzer die von wenden abbrechen
+
+03:01:58.600 --> 03:02:03.760
+können items die durch die gegenfliegen die kagi der fahrer und so viel mehr das ist wirklich
+
+03:02:03.760 --> 03:02:10.400
+wirklich schlau und aufwendig also konnte einfach zusatzchips an die cartridge eines spiels
+
+03:02:10.400 --> 03:02:16.360
+klatschen und bämme mehr power bämme super mario kart pro 3 sp 1 chip ein matte ko prozessor der
+
+03:02:16.360 --> 03:02:22.720
+eben genau für diese problematik da ist matte formen schnell und effektiv lösen ohne diesen chip
+
+03:02:22.720 --> 03:02:28.040
+ist halt maximal sowas wie f 0 möglich das quickmaps macht der basic war der chip hindernisse keine
+
+03:02:28.040 --> 03:02:33.400
+items einfach nur weil ist ja das stimmt f 0 war wirklich sehr basic du hattest glaube ich am
+
+03:02:33.400 --> 03:02:43.280
+ende wie viel strecken hatte f 0 hatte ich so viel 12 oder so 16 maximal und vieles davon
+
+03:02:43.280 --> 03:02:48.120
+waren ja wiederverwendete strecken die ein bisschen angepasst waren also gleich in hintergründen war
+
+03:02:48.120 --> 03:02:53.640
+ein bisschen tag war ein bisschen nacht und und da war auch nicht viel los bei f 0 es gab bei f 0 gab
+
+03:02:53.640 --> 03:02:59.960
+es vier vier autos der rest war alles solche 0815 immer das gleiche auto es gab quasi fünf autos
+
+03:02:59.960 --> 03:03:05.200
+die vier spielbaren autos und diese anderen dinger die einfach so rumgefahren sind mit der
+
+03:03:05.200 --> 03:03:10.000
+ursprünglichen power der konsole die sp1 wurde in 15 spielen verwendet unter anderem auch in
+
+03:03:10.000 --> 03:03:14.120
+pilot rings pilot rings hat aber auch etwas interessantes diesbezüglich denn es gibt
+
+03:03:14.120 --> 03:03:19.480
+cartridges auf denen das flugzeug im demo modus ganz normal landet und es gibt cartridges auf
+
+03:03:19.480 --> 03:03:24.720
+denen das flugzeug crash bevor es bei der landebahn ist der programmcode des spiels ist eins zu eins
+
+03:03:24.720 --> 03:03:29.960
+zwischen diesen cartridges jedoch nicht der dsb1 schipp während viele pilot rings cartridges den
+
+03:03:29.960 --> 03:03:35.680
+dsb1 schipp verbaut haben nutzen ein paar den dsb1 b schipp eine verbesserte version die ein
+
+03:03:35.680 --> 03:03:40.920
+paar bugs gefixt hat dummerweise wohl die demo und viele bugs gefecht angepasst und weil die
+
+03:03:40.920 --> 03:03:46.880
+mathematischen berechnungen von dsb1 und dsb1 b sich minimal unterscheiden die neue version
+
+03:03:46.880 --> 03:03:51.960
+korrekter ist funktioniert die demo nicht mehr korrekt es ist garantiert nur so eine kleinigkeit
+
+03:03:51.960 --> 03:03:56.320
+die anders ist aber da die demo so lange geht werden sich viele dieser kleinigkeiten ansammeln
+
+03:03:56.320 --> 03:04:02.160
+und das flugzeug kommt vom kurs ab es gibt enorm viele dieser extra schipps denke der bekannteste
+
+03:04:02.160 --> 03:04:07.400
+ist da der superfx schipp der das 3d in starfox möglich macht also das hatte das hatte viele
+
+03:04:07.400 --> 03:04:15.120
+nintendo games hatten solche zusatzdinger drauf fast jedes bekannte spiel nutzt ein dieser schipps
+
+03:04:15.120 --> 03:04:21.280
+um den super nintendo ein wenig kräftiger zu machen es gibt situationen da braucht man einfach
+
+03:04:21.280 --> 03:04:25.520
+pure hardware power sei es nun fürs zocken oder für die arbeit jedoch habe ich hab bald
+
+03:04:25.520 --> 03:04:29.040
+wenn es auf dem super nintendo nicht gehabt und ich kann nie gespielt an sich ranzukommen
+
+03:04:29.040 --> 03:04:33.320
+da man vielleicht zum beispiel gerade unterwegs ist nur ein tablet dabei hat oder die alte mühle
+
+03:04:33.320 --> 03:04:37.480
+zu hause bereits in flammen aufgeht wenn man einmal kreise seltene einander sagt egal wir gucken
+
+03:04:37.480 --> 03:04:41.880
+uns jetzt sehr laut an ich mag seine videos wir lassen uns jetzt eine runde shadow hat was
+
+03:04:41.880 --> 03:04:46.760
+verkaufen ist ein vollwertiger peter klaut und mit dem neuen powerpaket habe genug leistung um
+
+03:04:46.760 --> 03:04:51.040
+selbst moderne spiele in 4k zu genießen und dank ray tracing unterstützungen sehen die spiele
+
+03:04:51.040 --> 03:04:55.760
+nicht nur besser aus auch eure 3d render profitieren davon ich zum beispiel lasse meine intros
+
+03:04:55.760 --> 03:04:59.640
+animationen nur noch über shadow rendern damit ich währenddessen wichtige andere sachen erledigen
+
+03:04:59.640 --> 03:05:07.960
+kann ohne dass man eigentlich hpc in die idee videos zu rendern in der cloud da wäre ich jetzt
+
+03:05:07.960 --> 03:05:11.920
+noch gar nicht drauf gekommen geht halt nicht richtig weil ich habe das source material dort
+
+03:05:11.920 --> 03:05:18.400
+nicht was bei 3d rendern weniger das problem ist glaube ich da ist das source material nicht so
+
+03:05:18.400 --> 03:05:23.880
+groß und mit mehr power kommen auch mehr frames denn die extra leistung ermöglicht es mehr spiele
+
+03:05:23.880 --> 03:05:29.080
+mit stabilen 144 herz zu laufen wodurch das für mich unmögliche passiert ist ich konnte spiele
+
+03:05:29.080 --> 03:05:33.560
+mit maus und tastatur spielen und habe keine verzögerung mehr gespürt ich bin selbst super
+
+03:05:33.560 --> 03:05:37.360
+empfindlich wirklich habe klaut gaming lange verschmiert da ich das für unmöglich hielt aber
+
+03:05:37.360 --> 03:05:41.280
+shadow hat mir das gegenteil bewiesen und logisch auch videos rennen jetzt sehr viel schneller
+
+03:05:41.280 --> 03:05:46.000
+wodurch ich jetzt mal öfter in 4k rendern werde in zukunft das muss ich das source material in die
+
+03:05:46.000 --> 03:05:52.360
+klaut hochladen das ist doch also weiß nicht ist jetzt offiziell verfügbar für alle neu
+
+03:05:52.360 --> 03:05:56.760
+und bestandskunden nach meiner erfahrung lohnt es sich auch wenn das normale paket für vieles
+
+03:05:56.760 --> 03:06:00.320
+bereits ausreicht legt einfach auf den link in der video beschreibung um euch über das
+
+03:06:00.320 --> 03:06:08.120
+angebot zu informieren und nun zurück zum video vor fast genau einem jahr habe ja ich gucke seine
+
+03:06:08.120 --> 03:06:11.520
+videos gern und wir sollten ja auch mal die channel supporten wo wir hier sachen angucken
+
+03:06:11.520 --> 03:06:18.680
+also wenn euch das video gefallen hat wir hat keine refflink gibt kein refflink sonst
+
+03:06:18.680 --> 03:06:24.480
+gesagt einfach mal an den refflink anklicken ihr irgendwelche fragen habt bezüglich der
+
+03:06:24.480 --> 03:06:29.120
+technik von super mario kart und darum soll es gleich gehen aber vorher sei gesagt dass
+
+03:06:29.120 --> 03:06:34.000
+ich aufhören werde auf twitter die fragen für diese videos zusammen wir werden in zukunft ein
+
+03:06:34.000 --> 03:06:49.800
+twitter oder jeder mitmachen kann aber ja zu den fragen für spieler modus erklärt uns wahrscheinlich
+
+03:06:49.800 --> 03:06:53.720
+warum es kein vier spieler modus gibt jetzt oder weil ich kann mich nicht daran erinnern dass
+
+03:06:53.720 --> 03:06:59.480
+das ding für spieler modus hatte sweet fragt ob theoretisch ein vier spieler modus möglich
+
+03:06:59.480 --> 03:07:03.960
+gewesen ist die antwort ist nein aber ich finde es dennoch spannend sich mal anzusehen warum
+
+03:07:03.960 --> 03:07:08.960
+die antwort nein ist zuallererst das kontroller problem der super nintendo hat nur zwei kontroller
+
+03:07:08.960 --> 03:07:13.320
+ports wodurch vier spieler direkt schwer werden ich denke viele von euch müssen jetzt an sowas
+
+03:07:13.320 --> 03:07:18.400
+wie secret of mana denken genau daran habe ich gedacht dass drei spieler unterstützt wir
+
+03:07:18.400 --> 03:07:24.240
+eines mal genau daran habe ich gedacht das aber wusstet ihr dass diese multiplayer adapter alle
+
+03:07:24.240 --> 03:07:29.440
+third party sind nicht hat nie ein derartiges gerät veröffentlicht und genau deswegen wäre
+
+03:07:29.440 --> 03:07:35.280
+das wusste ich dachte das war was offizielles die hardware von anderen entwicklern benötigt aber
+
+03:07:35.280 --> 03:07:40.160
+natürlich stoßen wir auch auf technische grenzen dass der bildschirm immer gesplittet ist auch im
+
+03:07:40.160 --> 03:07:44.960
+einzelspieler ist in gewisser weise eine design limitation alle sprites und alle berechnungen
+
+03:07:44.960 --> 03:07:50.680
+wo sich figuren auf dem bildschirm befinden sind auf dieses halbe bildformat ausgelegt das spiel
+
+03:07:50.680 --> 03:07:55.280
+musste also von anfang an auf zwei spieler ausgelegt werden damit zwei spieler überhaupt
+
+03:07:55.280 --> 03:08:00.960
+möglich sind alles andere wäre enormer mehraufwand in der damaligen zeit gewesen würde man also vier
+
+03:08:00.960 --> 03:08:04.280
+spieler unterstützen dann wäre auch der einzelspieler mit sehr hoher wahrscheinlichkeit
+
+03:08:04.280 --> 03:08:09.960
+im vier spieler format was denke ich absolut nicht das ist was man gerne hätte aber das
+
+03:08:09.960 --> 03:08:15.600
+wohl größte problem ist das sprite limit bei dem mario kart eh schon das unmögliche möglich macht
+
+03:08:15.600 --> 03:08:22.280
+der mario kart zeigt mehr sprites an als der super nintendo eigentlich schaffen sollte oam ist kurz
+
+03:08:22.280 --> 03:08:27.800
+für object attribute memory und enthält die daten aller aktiven sprites daher an welchen
+
+03:08:27.800 --> 03:08:32.760
+positionen welche sprites sich befindet und paar attribute zum beispiel ob das sprite gespiegelt
+
+03:08:32.760 --> 03:08:36.680
+werden soll die ansicht eines einzigen spielerbildschirms also zum beispiel der
+
+03:08:36.680 --> 03:08:41.960
+obere bereich füllt bereits den oam und es wäre unmöglich die karte oder den bildschirm des
+
+03:08:41.960 --> 03:08:47.360
+zweiten spielers anzuzeigen um also das problem zu umgehen müsste man während ein bild gerendert
+
+03:08:47.360 --> 03:08:53.320
+wird dynamisch den oam austauschen dass die datenslots vom oberen bildschirm von den sprites des
+
+03:08:53.320 --> 03:09:06.400
+unteren bildschirms überschrieben werden es ist spät leute moment was
+
+03:09:06.400 --> 03:09:17.840
+also der super nintendo kann ich genug sprites anzeigen und jetzt müssen die quasi während
+
+03:09:17.840 --> 03:09:24.920
+sie am rendern sind quasi nachladen oder wie
+
+03:09:29.680 --> 03:09:35.520
+wenn ihr jetzt an htma denkt dann natürlich guter call aber das alleine reicht nicht die
+
+03:09:35.520 --> 03:09:40.800
+frage ist ja was ab einer bestimmten bildschirmlinie denn überhaupt passieren soll und dazu gibt es
+
+03:09:40.800 --> 03:09:46.560
+auch noch ein weiteres problem der super nintendo kann nur in den oam datenschreiben wenn keine
+
+03:09:46.560 --> 03:09:51.120
+bildlinie gerendert wird möglicherweise gibt es einen kurzen zeitraum in den nichts gerendert
+
+03:09:51.120 --> 03:09:55.160
+wert und zwar wenn der fernseher den letzten bildpunkt unten rechts rendert und zurück nach
+
+03:09:55.160 --> 03:09:59.640
+oben links wandert das nennt man blanking es ist immer dann wenn gerade keine bildsteile gerendert
+
+03:09:59.640 --> 03:10:04.680
+wird ja gute alte crt ist die sowas noch gemacht haben super nintendo sozusagen diese zeit nutzt
+
+03:10:04.680 --> 03:10:10.000
+um nachzudenken das gute ist dass super nintendo diese blanking phasen auch selbst provozieren
+
+03:10:10.000 --> 03:10:14.760
+kann währenddessen ein bild gezeichnet wird um also das breit damit zu umgehen indem man
+
+03:10:14.760 --> 03:10:19.960
+dynamisch den oam umschreibt während ein bild erzeugt wird braucht man genug bilds sein in den
+
+03:10:19.960 --> 03:10:31.040
+nichts gerendert werden kann dass das bild dann also schwarz bleibt ja ernsthaft deswegen hat
+
+03:10:31.040 --> 03:10:37.080
+es einen schwarzen balken in der mitte sagt diese dicke schwarze linie zwischen den oberen und
+
+03:10:37.080 --> 03:10:42.400
+unteren bildschirm ist absolut keine designentscheidung in diesen paar zeilen wird tatsächlich kein
+
+03:10:42.400 --> 03:10:48.800
+einziger bildpunkt gerendert damit der super nintendo ich dachte immer dass es ist einfach
+
+03:10:48.800 --> 03:10:58.160
+halt da weil es ab weil es da sein soll ich habe mir da nie was drüber gedacht oem modifizieren
+
+03:10:58.160 --> 03:11:03.680
+kann während des erzeugen eines bildes dank htma wird also ab einer bestimmten bildlinie das
+
+03:11:03.680 --> 03:11:08.240
+rendern unterbrochen damit gearbeitet werden kann und wie man an den grünen eventpunkten
+
+03:11:08.240 --> 03:11:14.480
+sieht auch gerade so aus damit alle oem einträge umgeschrieben werden am unteren bildschirmrand
+
+03:11:14.480 --> 03:11:21.800
+gibt es noch eine weitere das ist ja geil der schwarze balken in der mitte ist dafür da dass
+
+03:11:21.800 --> 03:11:29.560
+sie nachladen können im endeffekt das da wäre ich nie drauf gekommen da wäre ich wirklich nie
+
+03:11:29.560 --> 03:11:34.920
+drauf gekommen das heißt wenn die ein bisschen schneller werden mit ihren berechnungen wäre
+
+03:11:34.920 --> 03:11:40.920
+der schwarze balken kleiner gewesen schwarze linie hier wird alles wieder zurückgeschrieben
+
+03:11:40.920 --> 03:11:46.960
+hdq bildschirm wieder angezeigt werden kann wenn also ein spiel mal oben oder unten mehr schwarz
+
+03:11:46.960 --> 03:11:51.640
+anzeigt als andere spiele dann ist es gutmöglich dass dieses spiel mehr zeit benötigt um
+
+03:11:51.640 --> 03:11:55.480
+mehr operationen auszuführen die in der ansonstigen blanken zeit nicht schaffbar
+
+03:11:55.480 --> 03:12:00.280
+werden und genau deswegen würden vier spieler nicht klappen es ist zwar möglich einige punkte
+
+03:12:00.280 --> 03:12:05.160
+in einer bildlinie zu blanken da aber immer von links nach rechts gerendert wird müsste man
+
+03:12:05.160 --> 03:12:10.240
+blanken phasen haben die zwischen spieler eins und zwei immer switchen und das klappt nicht
+
+03:12:10.240 --> 03:12:14.840
+deswegen wäre auch ein vertikaler split bei super mario kart unmöglich dass das spiel
+
+03:12:14.840 --> 03:12:20.440
+horizontal gesplittet ist und es diesen schwarzen balken gibt liegt komplett daran wie der super
+
+03:12:20.440 --> 03:12:25.160
+nintendo und wie fernseher funktionieren und davon mal abgesehen glaube ich nicht dass der
+
+03:12:25.160 --> 03:12:30.880
+dsp one chip genug leistung hat um vier ansichten gleichzeitig zu berechnen aber das ist bei den
+
+03:12:30.880 --> 03:12:44.240
+ganzen anderen problemen schon fast nebensächlich titus und dragon lp möchten wissen wie das ist
+
+03:12:44.240 --> 03:12:50.920
+richtig wenn das 3 kilobyte mehr ram gehabt hätte dann bräuchte man es wahrscheinlich nicht ob man
+
+03:12:50.920 --> 03:12:55.600
+gerade über eine münze fährt von der strecke fällt oder gegen hindernisse fährt wahrscheinlich
+
+03:12:55.600 --> 03:13:02.120
+anhand von den koordinaten oder so von nintendo wird sicher gewesen sein dass sie auf einer
+
+03:13:02.120 --> 03:13:06.720
+2d konsole doch in 3d arbeiten mussten oder zumindest ein wenig es wurden bereits viele
+
+03:13:06.720 --> 03:13:10.680
+dinge so angepackt wie man sie auch später in echten 3d spiel gemacht hat so hat die spieler
+
+03:13:10.680 --> 03:13:14.640
+figure zum beispiel eine variable die immer angeht auf was für ein untergrund sie sich
+
+03:13:14.640 --> 03:13:18.560
+befindet dies beeinflusst mehrere dinge zum beispiel welches geräusch kommen wenn man
+
+03:13:18.560 --> 03:13:23.400
+driftet ob das kart über holprigen boden fährt und dadurch hoch und runter rüttelt auch sowas ob
+
+03:13:23.400 --> 03:13:28.040
+sich der spieler gerade auf einem itemfeld befindet und dieses benutzt oder unbenutzt ist befindet
+
+03:13:28.040 --> 03:13:32.640
+sich in dieser variable für den aktuellen untergrund und klar auch ob man über eine
+
+03:13:32.640 --> 03:13:37.880
+münze fährt ist hier zu finden wenn man über eine münze fährt ändert sich der wert zu 1a was man
+
+03:13:37.880 --> 03:13:41.200
+nur mitbekommt wenn man das ganze frame für frame durchgeht dass zum beispiel auf einer
+
+03:13:41.200 --> 03:13:46.320
+normalen straße der untergrund wert im freund danach wieder auf 4 0 zurück und wenn da 1a steht
+
+03:13:46.320 --> 03:13:50.720
+dann spielt er die die münze aufgesammelt animation ab oder wenn dieser wert also auf
+
+03:13:50.720 --> 03:14:00.320
+1a geht checkt das spiel wie der x und wie funktioniert das löschen der münzen auf dem boden
+
+03:14:00.320 --> 03:14:07.240
+dachte sie den bestandteil von der karte oder nee die tauschen wahrscheinlich dann einfach
+
+03:14:07.240 --> 03:14:14.600
+die stelle wo die münze ist aus durch noch mehr graue pixel spieler auf welcher münze man sich
+
+03:14:14.600 --> 03:14:19.560
+befindet um das entsprechende teil des untergrundes anzupassen und die aktionen auszuführen
+
+03:14:19.560 --> 03:14:25.760
+das ganze nicht ganz so anders als ein 2d spiel immerhin würde mark hat auch top down ohne
+
+03:14:25.760 --> 03:14:30.400
+probleme funktionieren dennoch gibt es eine z-achse dieses beispiel bestimmt ob man über
+
+03:14:30.400 --> 03:14:34.920
+hindernisse hinweg kommt oder nicht ich schätze hier gibt es eine einfache abfrage von wenn z
+
+03:14:34.920 --> 03:14:40.200
+wert über zahl x dann werden hindernisse item sprunglinien und sowas ignoriert bei der
+
+03:14:40.200 --> 03:14:44.240
+koalition ist es grundsätzlich ebenfalls nicht anders als bei traditionellen 2d spielen die
+
+03:14:44.240 --> 03:14:48.560
+art wie sich das kart verhält bei einer koalition macht es nur so interessant wenn man zum beispiel
+
+03:14:48.560 --> 03:14:57.680
+gegen das je nach winkel stößt sich das anders weg von der barriere spiel ob man von links oder
+
+03:14:57.680 --> 03:15:01.960
+rechts gegen die wand gefahren ist und wird dementsprechend weggestoßen es scheint intern
+
+03:15:01.960 --> 03:15:06.280
+irgendwo ein timer zu geben der angibt dass man beim ersten aufprall stark zurückgestoßen wird
+
+03:15:06.280 --> 03:15:12.400
+und mein zweiten mal nur leicht und so dann ja das ist ja auch clever weil beim ersten aufprall ist
+
+03:15:12.400 --> 03:15:16.720
+es die leute normalerweise halt aus der fahrt und dann muss es halt stärker sein beim zweiten mal
+
+03:15:16.720 --> 03:15:20.560
+sind sie noch nicht so schnell wahrscheinlich haben die sich bei nintendo gedacht das reicht
+
+03:15:20.560 --> 03:15:25.600
+schon in 95 prozent erfällen das ist ein seltsam komplexes verhalten für ein super nintendo spiel
+
+03:15:25.600 --> 03:15:31.360
+wie man gegen die wand fährt sehr stark beeinflusst wie man abprallt auch interessant ist wie der
+
+03:15:31.360 --> 03:15:36.600
+spiel tiefer zeug mit objekten unterhalb der strecke in den geist guck mal da das ist ja
+
+03:15:36.600 --> 03:15:42.600
+natürlich die können ja schlecht auf die karte gemalt sein weil die kannst ja nicht rein skalieren
+
+03:15:42.600 --> 03:15:46.440
+die dinger werden zum beispiel diese fehle verwendet damit es so wirkt als wenn die
+
+03:15:46.440 --> 03:15:51.160
+holzplanken wie ein steg aufgebaut sind die illusion funktioniert perfekt und es gibt der
+
+03:15:51.160 --> 03:15:57.200
+strecke ein gewisses gefühl von höhe das siehst du auch weil die sich mitdrehen können vor und
+
+03:15:57.200 --> 03:16:01.760
+hinterhintergrund layern gerendert werden indem man ihre priorität anpasst diese fehle sind
+
+03:16:01.760 --> 03:16:06.440
+also auf der niedrigsten priorität und werden daher unterhalb des hintergrund layers gerendert
+
+03:16:06.440 --> 03:16:10.760
+wenn fahrer also von der strecke fliegen indem sie halt auf einen teil gehen wo sich nichts
+
+03:16:10.760 --> 03:16:15.360
+befindet und das spiel daher dann weiß hier muss jetzt runterfallen verändert sich ihre
+
+03:16:15.360 --> 03:16:20.000
+priorität auch temporär auf die niedrigste damit sie hinter der strecke verschwinden es sind all
+
+03:16:20.000 --> 03:16:25.160
+diese tricks die dafür sorgen ein eigentlich 2d spiel so wirken zu lassen als wäre das ist
+
+03:16:25.160 --> 03:16:29.280
+schon das ist schon wirklich richtig high IQ was nintendo da fabriziert hat und zum ende
+
+03:16:29.280 --> 03:16:34.600
+noch fragen die keine eigene überschrift benötigen crazy and möchte wissen ob das spiel den
+
+03:16:34.600 --> 03:16:39.360
+super nintendo ans limit brachte auch wenn das immer schwer zu sagen ist da es garantiert immer
+
+03:16:39.360 --> 03:16:43.160
+wege gibt etwas besser zu machen wurden hier extrem viele tricks verwendet damit das spiel
+
+03:16:43.160 --> 03:16:49.800
+so stabil läuft wird behaupten da 60 fps bei ntsc die sp1 chip hat man hier nahezu das maximale
+
+03:16:49.800 --> 03:16:54.200
+rausgeholt alles andere wäre bei einer produktion die auch irgendwann mal fertig werden muss totaler
+
+03:16:54.200 --> 03:16:59.040
+wahnsinn jakob deff und lukas möchten wissen ob die computer gegner immer simuliert werden
+
+03:16:59.040 --> 03:17:05.360
+auch wenn sie nicht im blickfeld sind anders als bei spätere malkarteien ist die k.i. mega basic
+
+03:17:05.360 --> 03:17:09.880
+sie sammelt keine items sie regiert auf absolut gar nicht sie kann kaum vom fad abgeworfen werden
+
+03:17:09.880 --> 03:17:14.920
+sie fährt stumpf ihren fad ab und das war es das was man auf der karte sieht ist so ziemlich das
+
+03:17:14.920 --> 03:17:19.560
+was man auch bekommt und da die karte permanent geupdatet wird inklusive rotation und hin und
+
+03:17:19.560 --> 03:17:25.360
+wieder das schleudern wegen items wird die k.i. immer laufen egal wo der spieler gerade ist matthias
+
+03:17:25.360 --> 03:17:30.480
+albers möchte wissen ob man mit den superfx chip auch 3d fahrer machen könnte ich denke er nicht
+
+03:17:30.480 --> 03:17:35.040
+der superfx chip ist zu langsam um selbst super low poli fahrer zu rendern immerhin bräuchte man
+
+03:17:35.040 --> 03:17:39.880
+acht davon was möglich gewesen wäre ist die figuren wir dem chip zu skalieren so wie es zum
+
+03:17:39.880 --> 03:17:45.240
+beispiel der inoffizielle nachfolge macht hat marocca super circuit das spiel aber mit 60 fps
+
+03:17:45.240 --> 03:17:51.960
+läuft während polygone undenkbar gewesen egal mit welchen chip damals und wir sind durch das
+
+03:17:51.960 --> 03:17:56.880
+dauerte jetzt länger zu produzieren als ich eigentlich geplant habe wirklich wirklich super
+
+03:17:56.880 --> 03:18:03.240
+super video also war vieles drinne wo ich keine blassen schimmer von hatte mich interessiert zu
+
+03:18:03.240 --> 03:18:08.280
+alte alte games vielen dank an meinen sponsor shadow die keinen druck machten und sagten ich
+
+03:18:08.280 --> 03:18:12.360
+soll lieber länger daran arbeiten anstatt ein schlechtes video abs liefern und auch vielen
+
+03:18:12.360 --> 03:18:17.760
+dank an meine patreons die prox sponsor auf dieses video warteten als nächstes kommt sonic frontiers
+
+03:18:17.760 --> 03:18:23.000
+dran aber bis dahin danke ich meinen patreons und vor allem top patreons namens säbel vom germany
+
+03:18:23.000 --> 03:18:30.520
+strakur captain objosel akino kiritani rapture shadow lupina magical let's all ist klar aber
+
+03:18:30.520 --> 03:18:35.600
+wirklich super video also wenn euch das gefallen hat könnt ihr bei ihm vorbeigucken auch mal
+
+03:18:35.600 --> 03:18:42.520
+subscriben da hat er keine raffling sonst hätte sogar mal gepostet jetzt ja aber wirklich sehr
+
+03:18:42.520 --> 03:18:48.760
+sehr spannend prog oh nee das ist der kubernetes daheim typ das gucken wir uns morgen früh an
+
+03:18:48.760 --> 03:18:55.480
+das wird wieder schlimm aber noch zwei neue kubernetes cluster daheim oder was was passiert
+
+03:18:55.480 --> 03:19:14.760
+ok leute gepennt wir sehen uns morgen früh wieder so wie immer 8 30 bis 9 30 irgendwann
+
+03:19:14.760 --> 03:19:29.160
+ist der nc u macht gut
+

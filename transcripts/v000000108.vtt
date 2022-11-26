@@ -1,0 +1,5927 @@
+WEBVTT
+
+00:00.000 --> 00:21.220
+Hello? Schon jemand da? Lol.
+
+00:21.220 --> 00:25.220
+Oh tatsächlich schon jemand da
+
+00:25.220 --> 00:50.220
+So schnell habe ich ja gar nicht damit gerechnet, dass jemand da ist. Alter warum sind so viele Leute instant da?
+
+00:50.220 --> 00:59.220
+So, jetzt kann ich euch mal gleich an meinem neuen Schreibtisch teilhaben lassen. Pass mal auf.
+
+00:59.220 --> 01:13.220
+Hört ihr das? Hört ihr das? Hä? Hört man das? Höhenverstellbar! Yeah!
+
+01:13.220 --> 01:25.220
+Ich hoffe man hört das. Wer ist das Schreibtisch? Der fährt hoch und runter Jasper, genau.
+
+01:25.220 --> 01:30.220
+Äh Büffel, ja das ist voll von Arsch. Deswegen spielen wir heute, ne wir können gar nicht mehr.
+
+01:30.220 --> 01:38.220
+Läuft die Beta eigentlich noch? Läuft die Beta noch? Aber ich will heute eh keinen, keinen Cop mehr spielen.
+
+01:38.220 --> 01:46.220
+Ich habe jetzt die Nase voll, ich habe jetzt, keine Ahnung, 11, 12, 10, 10, 11, 12 Stunden oder so Beta gespielt.
+
+01:46.220 --> 01:52.220
+Das ist quasi mehr als die letzten drei Call of Duty zusammen.
+
+01:52.220 --> 02:01.220
+Heute machen wir mal ein bisschen was Technisches wieder, denn in letzter Zeit haben viele Leute gesagt, sie wünschen sich mehr technische Streams.
+
+02:01.220 --> 02:11.220
+Deswegen basteln wir heute wieder ein bisschen Linux Technisch rum. Und zwar, was wir heute machen ist,
+
+02:11.220 --> 02:31.220
+das letzte Mal, im letzten Stream haben wir uns ja, wo ist es, haben wir uns das neue Ubuntu angeguckt und festgestellt,
+
+02:31.220 --> 02:42.220
+dass das neue Ubuntu mit Wayland und SwayWayM nicht wirklich gut funktioniert. Drücken wir es mal so aus.
+
+02:42.220 --> 02:46.220
+Wir konnten nicht ordentlich Copy Pasten, das Resizing von den Fenstern war kaputt.
+
+02:46.220 --> 02:54.220
+Es ging eigentlich mehr nicht als das ging. Ich glaube so kann man das ganz gut zusammenfassen.
+
+02:54.220 --> 03:04.220
+Und heute werde ich mal mit euch zusammen eine neue Linux VM einrichten, also das könnte auch ein Rechner sein.
+
+03:04.220 --> 03:09.220
+Ich hätte sogar ein Rechner hier unten noch stehen, wo ich das drauf machen könnte, aber dann wird es mit der Übertragung schwer.
+
+03:09.220 --> 03:18.220
+Deswegen, ich versuche mal das mit euch zusammen so einzurichten, wie ich meinen normalen Linux Desktop auch eingerichtet habe.
+
+03:18.220 --> 03:24.220
+Von Null an, inklusive Installation, Zeugs installieren, Konfigurationsdateien anpassen und sonst was.
+
+03:24.220 --> 03:31.220
+So wie es mir persönlich gefällt. Ich meine, ich habe jetzt zwei Tätel geschrieben, perfekt einrichten,
+
+03:31.220 --> 03:37.220
+aber das ist natürlich damit gemeint, perfekt einrichten für mich.
+
+03:37.220 --> 03:45.220
+Und irgendjemand hat gerade im Chat gefragt, ob ich mal Jaro verwende. Ich meine, davon abgesehen, dass wir im Titel stehen.
+
+03:45.220 --> 03:51.220
+Ach nee, die Frage von Matt war, du benutzt man Jaro. Ich dachte, du hast ein pures Arch Linux.
+
+03:51.220 --> 03:59.220
+Nee, mittlerweile habe ich mich da auf man Jaro als Desktop Distribution eingeschossen.
+
+03:59.220 --> 04:07.220
+Einfach, weil es einem ein bisschen was abnimmt. Und was ich mag bei man Jaro ist, dass die nochmal so ein Zwischenrepo haben.
+
+04:07.220 --> 04:16.220
+Dass man quasi nicht so die schlimmsten Sachen abbekommt.
+
+04:16.220 --> 04:23.220
+Also sprich, bei Arch Linux ist es ja oftmals so, ich meine, man muss halt immer den Spagat finden.
+
+04:23.220 --> 04:29.220
+Zwischen quasi alt getestet stable und neu, neueste Features und halt ungetestet neu.
+
+04:29.220 --> 04:40.220
+Und ich finde, so komplett Arch Linux, am besten dann auch irgendwie diesen Testing Branch oder so, das ist mir dann doch ein bisschen zu unstable alles.
+
+04:40.220 --> 04:46.220
+Und deswegen finde ich das eigentlich mit man Jaro ganz gut, dass die nochmal so ein Repo dazwischen haben,
+
+04:46.220 --> 04:51.220
+wo das Zeug dann 1-2 Wochen rumgammelt und dann kann man es benutzen.
+
+04:51.220 --> 04:55.220
+Und 1-2 Wochen hinterher zu sein von Versionen ist ja nichts, wenn man sich überlegt,
+
+04:55.220 --> 05:00.220
+Ubuntu ist standardmäßig schon immer mal ein halbes Jahr, mindestens hinterher.
+
+05:00.220 --> 05:06.220
+Und manche Versionen von Sachen, die da drin sind, wurden ja schon ewig nicht mehr aktualisiert.
+
+05:06.220 --> 05:16.220
+Also da ist man mit einem man Jaro und ein paar User-Packages und so ist man wirklich super aktuell.
+
+05:16.220 --> 05:20.220
+Ja, Patrick, auf Server würde ich jetzt Arch Linux nicht unbedingt verwenden.
+
+05:20.220 --> 05:25.220
+Da werden mir jetzt wahrscheinlich einige widersprechen und sagen, doch Max, das muss sein.
+
+05:25.220 --> 05:29.220
+Aber auf Servern habe ich am liebsten tatsächlich Ubuntu Server.
+
+05:29.220 --> 05:35.220
+Auf der Arbeit haben wir CentOS bzw. Red Hat, aber das ist halt so Enterprise-Business-Täusch.
+
+05:35.220 --> 05:40.220
+Da haben ganz viele Leute Susi oder Red Hat ist da eigentlich das verbreitetste.
+
+05:40.220 --> 05:48.220
+Manche haben auch noch Debian, wobei ich bin auf Servern Fan von Ubuntu Server.
+
+05:48.220 --> 05:52.220
+Also meine Lieblingskombination, um das jetzt gleich am Anfang nochmal zu sagen,
+
+05:52.220 --> 05:57.220
+ist auf dem Desktop man Jaro und auf dem Server Ubuntu Server. Fertig.
+
+05:57.220 --> 06:00.220
+Das ist so meine Lieblingskombination. Es hat jeder so sein.
+
+06:00.220 --> 06:03.220
+Und das ist ja auch das Schöne an Linux, es kann jeder.
+
+06:03.220 --> 06:05.220
+Also es muss nicht jeder das Gleiche verwenden.
+
+06:05.220 --> 06:11.220
+Es kann sich jeder das raussuchen, was er will, was ihm für seine Sachen am besten gefällt.
+
+06:11.220 --> 06:13.220
+Es spricht ja überhaupt nichts dagegen.
+
+06:13.220 --> 06:21.220
+Bevor wir anfangen geben, gab es noch eine Frage, ob ich mein Jaro für Anfänger empfehlen würde.
+
+06:21.220 --> 06:27.220
+Also wenn man ein bisschen ambitioniert ist, also wenn man nicht einfach nur einen stupiden Windows-Ersatz sucht,
+
+06:27.220 --> 06:30.220
+was ich eh generell keinem empfehlen kann.
+
+06:30.220 --> 06:39.220
+Wir laden uns übrigens jetzt schon mal die ISO runter, sonst laber ich hier ja ewig, bevor wir anfangen können.
+
+06:39.220 --> 06:45.220
+Wir nehmen dieses Minimal Image, also sprich hier die Architect ISO.
+
+06:45.220 --> 06:49.220
+Da ist nichts dabei. Das ist ganz raw.
+
+06:49.220 --> 06:53.220
+Wir können ja mal gucken, wie groß das System nach der Installation dann ist.
+
+06:53.220 --> 06:56.220
+Da ist kaum was dran.
+
+06:56.220 --> 07:01.220
+Oh, ich hoffe beim Download kackt jetzt nicht das Stream irgendwie ab.
+
+07:01.220 --> 07:03.220
+Hallo, Download?
+
+07:03.220 --> 07:09.220
+Aus DouseForge ist ja mal wieder Ausgeburt des High-Speeds.
+
+07:14.220 --> 07:15.220
+Hallo?
+
+07:16.220 --> 07:18.220
+DouseForge.
+
+07:19.220 --> 07:22.220
+Ah, hat nur drei Stunden gedauert.
+
+07:22.220 --> 07:25.220
+Das ist die größte Kackseite, er.
+
+07:25.220 --> 07:27.220
+Was wollte ich jetzt noch sagen?
+
+07:27.220 --> 07:29.220
+Ja, also ich denke, mein Jaro ist was für Einsteiger.
+
+07:29.220 --> 07:35.220
+Man muss vielleicht jetzt nicht unbedingt hier das ehemalige Netinstall bzw. das ganz rohe nehmen.
+
+07:35.220 --> 07:41.220
+Man kann sich eine GNOME-Edition nehmen oder eine KDE-Edition oder was ich empfehlen würde von den XFCE-Editionen.
+
+07:41.220 --> 07:45.220
+Es gibt auch ein paar Community-Versionen mit unterschiedlich vorinstallierten Sachen.
+
+07:45.220 --> 07:49.220
+Hier Cinnamon, Deepin, i3. Guck mal, es gibt sogar eine fertige i3-Installation.
+
+07:49.220 --> 07:52.220
+LXDE, alles Mögliche gibt es eigentlich.
+
+07:52.220 --> 07:54.220
+Wobei, es ist gar nicht so schwer.
+
+07:54.220 --> 07:56.220
+Es gibt relativ viele Anleitungen.
+
+07:56.220 --> 08:02.220
+Es gibt das Archwiki, was die beste Informationsquelle für Linux überhaupt ist.
+
+08:02.220 --> 08:04.220
+Kann ich das mal runterladen jetzt?
+
+08:06.220 --> 08:08.220
+Warum ist das so langsam?
+
+08:09.220 --> 08:10.220
+Hallo?
+
+08:11.220 --> 08:14.220
+Ja, komm, DouseForge, kriegt sich ein.
+
+08:14.220 --> 08:16.220
+Wir laden hier aus Köln.
+
+08:16.220 --> 08:24.220
+Oh, das ist so schnell, so schnell.
+
+08:27.220 --> 08:30.220
+Ach, bei mir funktioniert das i3 auf der Form, ohne Probleme.
+
+08:30.220 --> 08:33.220
+Oh, das ist so schnell, DouseForge, gerade.
+
+08:37.220 --> 08:38.220
+Joa.
+
+08:38.220 --> 08:41.220
+Also, das kann man schon für Einsteiger empfehlen.
+
+08:41.220 --> 08:48.220
+Man muss sich halt, wie gesagt, man darf halt nicht damit rangehen, so nach dem Motto, das ist Windows-Ersatz und das muss 1 zu 1 funktionieren.
+
+08:48.220 --> 08:50.220
+Das klappt bei keiner Linux-Distribution.
+
+08:50.220 --> 08:57.220
+Es gibt welche, die sind in der Bedienung so vorkonfiguriert, dass es quasi für Windows-Benutzer besonders einfach ist.
+
+08:57.220 --> 09:06.220
+Aber ich finde, das ist gar nicht mal so gut, weil viele Leute wechseln dann oder versuchen, sich mal an Linux auf dem Desktop.
+
+09:06.220 --> 09:09.220
+Und Linux auf dem Desktop hat nun mal schon Ecken und Kanten.
+
+09:09.220 --> 09:11.220
+Ja, das kann man auch nicht wegdiskutieren.
+
+09:11.220 --> 09:16.220
+Viele Sachen funktionieren jetzt nicht so intuitiv und auch nicht so einfach.
+
+09:16.220 --> 09:20.220
+Und wenn man Angst vor der Kommando-Zeile hat, geht es eh schon mal gar nicht.
+
+09:20.220 --> 09:27.220
+Das heißt, wenn man jetzt noch eine Distribution hat, die auch noch sehr Windows-ähnlich ist und die Leute gehen dann damit rein mit der Einstellung hier.
+
+09:27.220 --> 09:29.220
+Guck mal, das ist ja wie Windows.
+
+09:29.220 --> 09:31.220
+Es ist halt nicht wie Windows.
+
+09:31.220 --> 09:37.220
+Und ich glaube, das sorgt bei mehr Leuten für Enttäuschung, wenn sie mit der Einstellung reingehen.
+
+09:37.220 --> 09:39.220
+Das ist ja wie Windows.
+
+09:39.220 --> 09:45.220
+Und dann ist es eben nicht wie Windows, als es ist von Anfang an klar, man muss sich damit beschäftigen und es ist nicht Windows.
+
+09:45.220 --> 09:47.220
+Es ist überhaupt nicht Windows.
+
+09:47.220 --> 09:49.220
+Es hat absolut null mit Windows zu tun.
+
+09:49.220 --> 09:53.220
+Das heißt, man sollte auch die Leute nicht vorgaukeln, es wäre Windows.
+
+09:53.220 --> 09:55.220
+So.
+
+09:55.220 --> 09:57.220
+Ja, das ist schon krass, ne?
+
+09:57.220 --> 09:59.220
+72 Leute schauen Max zu, wie er es ausforscht.
+
+09:59.220 --> 10:03.220
+Aber ihr habt es doch gerade gesehen, die Seite ist ja abartig langsam gewesen.
+
+10:03.220 --> 10:05.220
+Ähm.
+
+10:05.220 --> 10:09.220
+Oh, Serious Max, du hast recht, ich muss OBS Dark Mode umstellen.
+
+10:09.220 --> 10:11.220
+Ganz wichtig.
+
+10:11.220 --> 10:13.220
+Wo ging das überhaupt noch mal?
+
+10:13.220 --> 10:17.220
+Ja, ich klicke lieber nicht in meinen Settings rum, sonst sieht man da irgendwie noch meinen Stream-Key oder so.
+
+10:17.220 --> 10:21.220
+Ich lasse es mal bleiben, ist sicher, ist sicher.
+
+10:21.220 --> 10:23.220
+Ähm.
+
+10:23.220 --> 10:27.220
+So, jetzt haben wir runtergeladen.
+
+10:27.220 --> 10:29.220
+Und dann starten wir mal.
+
+10:29.220 --> 10:33.220
+Legen wir uns mal eine VM an.
+
+10:33.220 --> 10:35.220
+Übrigens, vor allem bei Workstay...
+
+10:35.220 --> 10:37.220
+Oh, es gibt eine neue Version.
+
+10:37.220 --> 10:41.220
+Vor allem bei Workstation Pro 14 habe ich nicht.
+
+10:41.220 --> 10:43.220
+Das ist 12 noch.
+
+10:43.220 --> 10:47.220
+Also sprich die Version davor, 13 gab es gar nicht.
+
+10:47.220 --> 10:51.220
+So, habe ich noch irgendeine Frage übersehen?
+
+10:51.220 --> 10:53.220
+Also, das könnte auch sein...
+
+10:53.220 --> 10:57.220
+Das könnte jetzt auch ein ganz normaler Rechner sein, auf dem ich das installiere, ja?
+
+10:57.220 --> 11:03.220
+Also, dass ich das in einer VM mache, ist aus Geschwindigkeitsgründen und halt, weil es einfacher zu zeigen ist.
+
+11:03.220 --> 11:09.220
+Ist die Musik übrigens okay, so lautstärke wie ich rede und Musik im Hintergrund, müsste eigentlich ganz gut passen.
+
+11:09.220 --> 11:11.220
+So.
+
+11:11.220 --> 11:15.220
+Es hat vorher einer gefragt, wann es mit dem Screenshot Tool weitergeht.
+
+11:15.220 --> 11:21.220
+Da machen wir weiter, wenn es das nächste Winners Update kommt.
+
+11:21.220 --> 11:27.220
+Da machen wir quasi am...
+
+11:27.220 --> 11:29.220
+Was habe ich eigentlich für Zeug?
+
+11:29.220 --> 11:31.220
+Gebookmarked.
+
+11:31.220 --> 11:33.220
+Ah, irgendwelche Musiksachen.
+
+11:33.220 --> 11:35.220
+Ähm...
+
+11:35.220 --> 11:37.220
+Ja.
+
+11:37.220 --> 11:43.220
+Also, wenn das Fall Creators Update kommt...
+
+11:43.220 --> 11:47.220
+Die machen da immer ne Panik, ey.
+
+11:47.220 --> 11:51.220
+Der Update, gau. Oh mein Gott, der Update, gau.
+
+11:51.220 --> 11:55.220
+Die machen da immer ein Panik bei den Leuten, ey. Das ist Wahnsinn.
+
+11:55.220 --> 11:57.220
+Release Date.
+
+11:57.220 --> 11:59.220
+Wann kommt denn das?
+
+11:59.220 --> 12:01.220
+15. Oktober.
+
+12:01.220 --> 12:03.220
+Oh, danke für die Donation.
+
+12:03.220 --> 12:05.220
+Gleich mal gucken.
+
+12:05.220 --> 12:07.220
+Huhu Boss.
+
+12:07.220 --> 12:09.220
+Ein Euro, was geht?
+
+12:09.220 --> 12:11.220
+Manjaro installieren geht.
+
+12:11.220 --> 12:13.220
+Gleich, zumindest.
+
+12:13.220 --> 12:15.220
+Ähm...
+
+12:15.220 --> 12:19.220
+Steht's denn? 15. Oktober oder irgendwie sowas? Kam das doch? Stand doch da.
+
+12:19.220 --> 12:21.220
+Ich find's jetzt bloß nicht.
+
+12:21.220 --> 12:25.220
+Zumindest dann machen wir weiter mit dem Screenshot Tool.
+
+12:25.220 --> 12:27.220
+Wenn das raus ist.
+
+12:27.220 --> 12:33.220
+Weil wir machen aus unserem Screenshot Tool eine Winners App.
+
+12:33.220 --> 12:37.220
+Und das geht ein bisschen einfacher. Ah, 17. Oktober, da ist es.
+
+12:37.220 --> 12:39.220
+17. Oktober kommt das Ganze raus.
+
+12:39.220 --> 12:43.220
+Also sprich ungefähr zwei Wochen machen wir weiter mit dem Screenshot Tool.
+
+12:43.220 --> 12:45.220
+Wir machen daraus eine Winners App.
+
+12:45.220 --> 12:49.220
+Ähm, also wir schmeißen Winners Forms mal komplett über Bord.
+
+12:49.220 --> 12:51.220
+Und machen eine moderne Winners App draus.
+
+12:51.220 --> 12:57.220
+Und können die dann auch richtig schön designen mit ähm...
+
+12:57.220 --> 12:59.220
+Ah, wie heißt, ich hab's vergessen. Fluent Design.
+
+12:59.220 --> 13:01.220
+Das ist jetzt ja neu.
+
+13:01.220 --> 13:03.220
+Beim Creators Update, beim Fall Creators Update.
+
+13:03.220 --> 13:05.220
+So.
+
+13:05.220 --> 13:07.220
+Aber fangen wir jetzt erst mal mit Dealungs an.
+
+13:07.220 --> 13:09.220
+Falls ich Fragen übersehen habe, schreibt sie einfach nochmal.
+
+13:09.220 --> 13:13.220
+Und denkt dran, Ed Wupplos schreiben, dass ich das sehe.
+
+13:13.220 --> 13:15.220
+So.
+
+13:15.220 --> 13:17.220
+Ähm.
+
+13:17.220 --> 13:19.220
+Erst mal auf VM anlegen.
+
+13:19.220 --> 13:23.220
+Ja, Workstation 12. Was anderes bleibt nicht übrig.
+
+13:23.220 --> 13:25.220
+Installerdisk.
+
+13:25.220 --> 13:29.220
+Wollen wir die Manjaro.
+
+13:29.220 --> 13:31.220
+Manjaro, ISO, Linux.
+
+13:31.220 --> 13:33.220
+Das ist ein...
+
+13:33.220 --> 13:35.220
+Haben die hier was zur Auswahl, was passt?
+
+13:35.220 --> 13:39.220
+Ich mein, letztendlich ist es E-Works, was man da auswählt.
+
+13:39.220 --> 13:41.220
+Zum größten Teil.
+
+13:41.220 --> 13:45.220
+Haben die hier irgend so ein Preset schon für Arch Linux?
+
+13:45.220 --> 13:47.220
+Nee.
+
+13:47.220 --> 13:49.220
+Wie?
+
+13:49.220 --> 13:51.220
+Was ist mit dem Viererkörnel? Gibt's nicht. Die neigt.
+
+13:57.220 --> 13:59.220
+Ja, ich nehm einfach so eins.
+
+13:59.220 --> 14:01.220
+Ich nehm einfach Ubuntu 64 Bit.
+
+14:01.220 --> 14:03.220
+Es ist eh vollkommen egal, was man da nimmt.
+
+14:03.220 --> 14:05.220
+Ähm.
+
+14:05.220 --> 14:09.220
+Es ist zwar kein Ubuntu, es ist Manjaro.
+
+14:09.220 --> 14:11.220
+So, CPUs.
+
+14:11.220 --> 14:13.220
+Kerne kriegts mal zwei.
+
+14:13.220 --> 14:15.220
+Bisschen, bisschen Power braucht das schon.
+
+14:17.220 --> 14:19.220
+ScaryLaggy, du wartest auch seit fünf Minuten auf Salesforce.
+
+14:19.220 --> 14:21.220
+Ja.
+
+14:21.220 --> 14:25.220
+Salesforce war übrigens auch letzte Woche dreimal kaputt.
+
+14:25.220 --> 14:27.220
+Weiß ich was die da machen?
+
+14:27.220 --> 14:29.220
+So.
+
+14:29.220 --> 14:31.220
+Wir hauen hier mal richtig rauf. 8 GB kriegt das Ding RAM.
+
+14:31.220 --> 14:33.220
+Nicht das was wir brauchen würden.
+
+14:33.220 --> 14:35.220
+Das kommt wahrscheinlich mit 512 MB aus oder so, ne?
+
+14:35.220 --> 14:37.220
+Aber warum nicht?
+
+14:37.220 --> 14:39.220
+Ich hab genug.
+
+14:39.220 --> 14:41.220
+Hier RAM.
+
+14:41.220 --> 14:43.220
+60 GB. Können wir da vor allem ordentlich RAM geben?
+
+14:43.220 --> 14:45.220
+Dann flutscht das auch.
+
+14:45.220 --> 14:47.220
+Ähm.
+
+14:47.220 --> 14:49.220
+Wir wollen Bridge Networking.
+
+14:51.220 --> 14:53.220
+Also der Unterschied vielleicht mal zur Erklärung für Leute,
+
+14:53.220 --> 14:55.220
+die sich die VMs erstellen.
+
+14:55.220 --> 14:57.220
+Ähm.
+
+14:57.220 --> 14:59.220
+Das ist bei VirtualBox auch ähnlich, was es hier für Netzwerke gibt.
+
+14:59.220 --> 15:01.220
+Und ein paar Leute sehen, die sind ein bisschen verwirrt,
+
+15:01.220 --> 15:03.220
+was man da machen kann.
+
+15:03.220 --> 15:05.220
+Eigentlich ist es total simpel.
+
+15:05.220 --> 15:07.220
+Für seine VM-Netzwerkoption, was man auswählen kann.
+
+15:07.220 --> 15:09.220
+Also das da unten ist ja klar, ne?
+
+15:09.220 --> 15:11.220
+Gar kein Netzwerk.
+
+15:11.220 --> 15:13.220
+Host-Only bedeutet, dass du mit der VM nicht nach außen kannst.
+
+15:13.220 --> 15:17.220
+Nutt bedeutet, dass du nach außen hin die IP von deinem Rechner nimmst,
+
+15:17.220 --> 15:19.220
+auf dem die VM läuft.
+
+15:19.220 --> 15:21.220
+Und Bridge Networking ist quasi wie,
+
+15:21.220 --> 15:23.220
+als wäre das ein eigener Rechner im Netzwerk.
+
+15:25.220 --> 15:27.220
+So.
+
+15:27.220 --> 15:29.220
+Ein eigener IP zugewiesen vom DHCP und alles.
+
+15:29.220 --> 15:31.220
+So wollen wir das haben.
+
+15:35.220 --> 15:37.220
+Also wenn man irgendwas betreibt, wo man drauf zukauft,
+
+15:37.220 --> 15:39.220
+greifen will von anderen Rechnern, sollte man nicht das hier nehmen.
+
+15:39.220 --> 15:41.220
+Dann wird es komplizierter.
+
+15:41.220 --> 15:43.220
+Ähm.
+
+15:43.220 --> 15:45.220
+Was willst du jetzt programmieren und machst du es jetzt als Tutorial?
+
+15:45.220 --> 15:47.220
+Ähm. Ich will programmieren.
+
+15:47.220 --> 15:49.220
+Wir machen vielleicht die ein oder anderen Shell-Skrips zwischendurch.
+
+15:51.220 --> 15:53.220
+Hauptsächlich geht es darum, dass wir uns
+
+15:53.220 --> 15:55.220
+eine ganz rohes
+
+15:55.220 --> 15:57.220
+Manjaro Linux installieren, ohne was dabei.
+
+15:57.220 --> 15:59.220
+Ich habe die Architekt ISO übrigens selbst noch nicht verwendet.
+
+16:01.220 --> 16:03.220
+Und darauf dann
+
+16:03.220 --> 16:05.220
+uns einen E3 einrichten.
+
+16:05.220 --> 16:07.220
+Und
+
+16:07.220 --> 16:09.220
+den Desktop halt so machen, wie ich ihn
+
+16:09.220 --> 16:11.220
+gerne habe.
+
+16:11.220 --> 16:13.220
+Dazu werden wir auch die ein oder anderen Shell-Skripte brauchen.
+
+16:13.220 --> 16:15.220
+Deswegen ist Programming gar nicht so falsch.
+
+16:15.220 --> 16:17.220
+Ich habe den Stream nicht auf Twitter angekündigt.
+
+16:17.220 --> 16:19.220
+Soll ich das machen?
+
+16:19.220 --> 16:21.220
+Wie viel Platz haben wir eigentlich noch?
+
+16:21.220 --> 16:23.220
+Boah, ich hasse das Startmenü.
+
+16:23.220 --> 16:25.220
+Ich muss das unbedingt mal auf dem Account hier umstellen.
+
+16:25.220 --> 16:27.220
+Da siehst du gar nichts.
+
+16:41.220 --> 16:43.220
+Wir haben noch genug.
+
+16:43.220 --> 16:45.220
+Ich muss mal
+
+16:45.220 --> 16:47.220
+wieder mal ganzen Videoaufnahmen hier verschieben.
+
+16:47.220 --> 16:49.220
+Auf die andere Platte.
+
+16:53.220 --> 16:55.220
+Geben wir dem mal 40GB.
+
+16:55.220 --> 16:57.220
+Und als Single Disk
+
+16:57.220 --> 16:59.220
+Multidisk braucht keiner.
+
+16:59.220 --> 17:01.220
+Echt ist scheißegal.
+
+17:03.220 --> 17:05.220
+Anlegen.
+
+17:05.220 --> 17:07.220
+Dann schmeißen wir nochmal Soundkarte raus.
+
+17:07.220 --> 17:09.220
+Brauchen wir nicht. Drucker brauchen wir auch nicht.
+
+17:09.220 --> 17:11.220
+Rest behalten wir so.
+
+17:11.220 --> 17:17.220
+Close.
+
+17:23.220 --> 17:25.220
+Lassen wir mal an. Schadet nichts.
+
+17:25.220 --> 17:27.220
+Okay, auf gehts.
+
+17:27.220 --> 17:29.220
+Ich bin mal gespannt, wie das Architekt ISO
+
+17:29.220 --> 17:31.220
+funktioniert.
+
+17:31.220 --> 17:33.220
+Das letzte Mal, wo ich...
+
+17:33.220 --> 17:35.220
+Nein.
+
+17:35.220 --> 17:37.220
+Ja, ich bin auch fertig.
+
+17:37.220 --> 17:39.220
+Das letzte Mal, wo ich
+
+17:39.220 --> 17:41.220
+Manjaro installiert habe, das ist schon ein bisschen her.
+
+17:43.220 --> 17:45.220
+Haben wir mal hier
+
+17:45.220 --> 17:47.220
+Exklusiv Mode. Wo ging das nochmal her?
+
+17:47.220 --> 17:49.220
+Exklusiv Mode. Da nervt uns die Leiste nicht.
+
+17:49.220 --> 17:51.220
+Das letzte Mal, wo ich Manjaro
+
+17:51.220 --> 17:53.220
+installiert habe, ist schon eine ganze Weile her.
+
+17:53.220 --> 17:55.220
+Das war noch net install.
+
+17:55.220 --> 17:57.220
+Das sind alles SSDs hier,
+
+17:57.220 --> 17:59.220
+Bauherr.
+
+17:59.220 --> 18:01.220
+Also die...
+
+18:01.220 --> 18:03.220
+Nein, nein, das sind nicht alles SSD. Zwei Sachen sind
+
+18:03.220 --> 18:05.220
+SSD. Zwei Platten sind SSD.
+
+18:05.220 --> 18:07.220
+Und die...
+
+18:07.220 --> 18:09.220
+Andere...
+
+18:09.220 --> 18:11.220
+Das eine andere ist eine Festplatte.
+
+18:11.220 --> 18:13.220
+Also...
+
+18:13.220 --> 18:15.220
+SSDs habe ich im Rechner. Zwei Terabyte
+
+18:15.220 --> 18:17.220
+und 512 Gigabyte.
+
+18:19.220 --> 18:21.220
+So.
+
+18:21.220 --> 18:23.220
+13.45 Uhr, das stimmt sogar.
+
+18:23.220 --> 18:25.220
+Timezone.
+
+18:25.220 --> 18:27.220
+Europe, Berlin.
+
+18:27.220 --> 18:29.220
+Wie gesagt,
+
+18:29.220 --> 18:31.220
+ich habe das Architekt ISO selbst noch nicht verwendet.
+
+18:31.220 --> 18:33.220
+Vielleicht müssen wir uns auch den einen oder anderen Guide angucken.
+
+18:33.220 --> 18:35.220
+Deutsche Tastatur
+
+18:35.220 --> 18:37.220
+ist immer gut.
+
+18:37.220 --> 18:39.220
+Auch wenn ich mittlerweile auf der
+
+18:39.220 --> 18:41.220
+deutschen Tastatur weiß, wo alle englischen Klappes sind.
+
+18:45.220 --> 18:47.220
+So. Wir haben das letzte Mal
+
+18:47.220 --> 18:49.220
+Ubuntu installiert und danach noch
+
+18:49.220 --> 18:51.220
+ein Fedora. Ich kann euch jetzt schon sagen,
+
+18:51.220 --> 18:53.220
+der Manjaro Architekt Installer
+
+18:53.220 --> 18:55.220
+wird eine ganze Ecke hässlicher sein.
+
+18:55.220 --> 18:57.220
+Aber hier geht es ja auch darum,
+
+18:57.220 --> 18:59.220
+ein ganz minimales
+
+18:59.220 --> 19:03.220
+Rohes System zu installieren.
+
+19:03.220 --> 19:05.220
+Anscheinend ist das auch
+
+19:05.220 --> 19:07.220
+Text basiert.
+
+19:07.220 --> 19:09.220
+Kann man den Text gut lesen?
+
+19:09.220 --> 19:11.220
+War so eine Frage. Kann man den Text gut lesen?
+
+19:11.220 --> 19:13.220
+Ich kann jetzt nicht viel an
+
+19:13.220 --> 19:15.220
+Schriftgröße verstellen. Ich hoffe, das passt.
+
+19:17.220 --> 19:19.220
+Zwei Terabyte SSD, frage mich da,
+
+19:19.220 --> 19:21.220
+wie es mit der Langlebigkeit ausgeht. Warum?
+
+19:21.220 --> 19:23.220
+Passt schon.
+
+19:23.220 --> 19:25.220
+SSD kaputt schreiben geht eh nicht.
+
+19:25.220 --> 19:27.220
+Der SSD kaputt schreiben
+
+19:27.220 --> 19:29.220
+ist eh so eine theoretische Sache.
+
+19:31.220 --> 19:33.220
+Patrik schreibt es gerade, er hat recht.
+
+19:33.220 --> 19:35.220
+Das ist, alle die sich einreden,
+
+19:35.220 --> 19:37.220
+so, ho, meine SSD, wenn ich die verwende,
+
+19:37.220 --> 19:39.220
+geht sie kaputt. Nee.
+
+19:39.220 --> 19:41.220
+Die geht nicht einfach so kaputt.
+
+19:41.220 --> 19:43.220
+Nur weil man drauf schreibt.
+
+19:43.220 --> 19:45.220
+Da wird ein bisschen viel Panik gemacht.
+
+19:45.220 --> 19:47.220
+Meine erste SSD
+
+19:47.220 --> 19:49.220
+ist eine 250 GB SSD gewesen
+
+19:49.220 --> 19:51.220
+von Samsung.
+
+19:51.220 --> 19:53.220
+Aus dem Jahr, ich sage jetzt einfach mal
+
+19:53.220 --> 19:55.220
+2010
+
+19:55.220 --> 19:57.220
+oder so, ist schon ewig her.
+
+19:57.220 --> 19:59.220
+Und die hat absolut keine Probleme.
+
+19:59.220 --> 20:01.220
+Die hat, wenn ich
+
+20:01.220 --> 20:03.220
+mit diesem Samsung Tool
+
+20:03.220 --> 20:05.220
+auf die Haltbarkeit gucke, ist die noch bei
+
+20:05.220 --> 20:07.220
+98% oder so.
+
+20:07.220 --> 20:09.220
+Das juckt die gar nicht. Das ist der vollkommen
+
+20:09.220 --> 20:11.220
+egal.
+
+20:17.220 --> 20:19.220
+So, was sollen wir machen?
+
+20:19.220 --> 20:21.220
+Setup sollen wir eingeben. Das ist ja fast wie unter Windows
+
+20:21.220 --> 20:25.220
+0.
+
+20:25.220 --> 20:27.220
+Und es flutscht.
+
+20:27.220 --> 20:29.220
+Was geht jetzt?
+
+20:31.220 --> 20:33.220
+Select language. Englisch.
+
+20:41.220 --> 20:43.220
+Macht das Installer? Downloader?
+
+20:45.220 --> 20:47.220
+Prepare installation. Set virtual
+
+20:47.220 --> 20:49.220
+console. Was? Keymap.
+
+20:49.220 --> 20:51.220
+Nein, nein, nein.
+
+20:51.220 --> 20:53.220
+Keymap wollen wir
+
+20:53.220 --> 20:55.220
+deutsch haben.
+
+20:55.220 --> 20:57.220
+Das ist immer ein bisschen
+
+20:57.220 --> 20:59.220
+das da wollen wir haben.
+
+20:59.220 --> 21:01.220
+Ich finde, da tun sie sich unter Linux
+
+21:01.220 --> 21:03.220
+immer noch ziemlich schwer.
+
+21:03.220 --> 21:05.220
+Die Kombination, die mir persönlich
+
+21:05.220 --> 21:07.220
+am besten gefällt ist
+
+21:07.220 --> 21:09.220
+Sprache, also language settings,
+
+21:09.220 --> 21:11.220
+Englisch, Tastatur,
+
+21:11.220 --> 21:13.220
+Keymap, also Tastatur layout,
+
+21:13.220 --> 21:15.220
+Deutsch
+
+21:15.220 --> 21:17.220
+und Zeit, Währung
+
+21:17.220 --> 21:19.220
+und sonst was Formate, halt
+
+21:19.220 --> 21:21.220
+das, was die ganze Welt außer die USA
+
+21:21.220 --> 21:23.220
+verwendet. Und das
+
+21:23.220 --> 21:25.220
+gibt's oftmals so in den default
+
+21:25.220 --> 21:27.220
+Settings nicht. So,
+
+21:27.220 --> 21:29.220
+was will der Installer von mir jetzt?
+
+21:29.220 --> 21:31.220
+List devices.
+
+21:31.220 --> 21:33.220
+Ich hab eine Festplatte. Wer hätte sich das gedacht?
+
+21:33.220 --> 21:35.220
+Ich hab ja auch nur eine drangehängt.
+
+21:35.220 --> 21:37.220
+Partition disk.
+
+21:37.220 --> 21:39.220
+Eine Festplatte?
+
+21:39.220 --> 21:41.220
+Okay, ja.
+
+21:41.220 --> 21:43.220
+Automatic ist gut.
+
+21:43.220 --> 21:45.220
+Mach, was du willst.
+
+21:45.220 --> 21:47.220
+Yes.
+
+21:47.220 --> 21:49.220
+Okay,
+
+21:49.220 --> 21:51.220
+der hat eine Bootpartition
+
+21:51.220 --> 21:53.220
+angelegt. Oh, noch mal eine Donation.
+
+21:53.220 --> 21:55.220
+Danke. Reingucken, was hier los ist.
+
+21:57.220 --> 21:59.220
+Der Robin,
+
+21:59.220 --> 22:01.220
+ein Euro.
+
+22:01.220 --> 22:03.220
+Gentoo,
+
+22:03.220 --> 22:05.220
+ist klar Robin, ist klar.
+
+22:05.220 --> 22:07.220
+Soll ich eine halbe Stunde hier rumkompilieren
+
+22:07.220 --> 22:09.220
+für irgendwas? Mach, wobei,
+
+22:09.220 --> 22:11.220
+machen wir auch. Wir
+
+22:11.220 --> 22:13.220
+kompilieren auch rum. Also insofern
+
+22:13.220 --> 22:15.220
+...
+
+22:15.220 --> 22:17.220
+So,
+
+22:17.220 --> 22:19.220
+danke für den Euro.
+
+22:19.220 --> 22:21.220
+Festplatten sind partitioniert.
+
+22:21.220 --> 22:23.220
+Also der Installer ist schon
+
+22:23.220 --> 22:25.220
+dezent hässlich.
+
+22:25.220 --> 22:27.220
+Logical Volume
+
+22:27.220 --> 22:29.220
+Management juckt mich nicht.
+
+22:29.220 --> 22:31.220
+Mount Partitions.
+
+22:31.220 --> 22:33.220
+Okay, jetzt bin
+
+22:33.220 --> 22:35.220
+ich mal gespannt, was der von mir will.
+
+22:35.220 --> 22:37.220
+Hier haben wir partitioniert, automatisch.
+
+22:37.220 --> 22:39.220
+Ich mein, der hat quasi
+
+22:39.220 --> 22:41.220
+eine Bootpartition angelegt und
+
+22:41.220 --> 22:43.220
+eine für den Rest. Mal gucken, was
+
+22:43.220 --> 22:45.220
+jetzt bei Mount Partitions kommt. Important.
+
+22:55.220 --> 22:57.220
+What?
+
+22:57.220 --> 22:59.220
+Was will der Installer von mir jetzt?
+
+23:01.220 --> 23:03.220
+Ja, stelle es sicher, die richtige
+
+23:03.220 --> 23:05.220
+Auswahl zu treffen. Woher soll ich denn wissen, was die richtige
+
+23:05.220 --> 23:07.220
+Auswahl ist? Installer, warum
+
+23:07.220 --> 23:09.220
+machst du das nicht für mich?
+
+23:09.220 --> 23:11.220
+Okay, guck mal, was der genau von mir will.
+
+23:11.220 --> 23:13.220
+Select Root Partition.
+
+23:13.220 --> 23:15.220
+Die da, logischerweise.
+
+23:15.220 --> 23:17.220
+Das andere ist unsere Bootpartition.
+
+23:19.220 --> 23:21.220
+X4
+
+23:23.220 --> 23:25.220
+Data on
+
+23:25.220 --> 23:27.220
+SDA2 will be lost. Ja.
+
+23:27.220 --> 23:29.220
+Ist eh nichts drauf.
+
+23:31.220 --> 23:33.220
+Mount Options
+
+23:33.220 --> 23:35.220
+für X4. Boah, die
+
+23:35.220 --> 23:37.220
+weiß ich jetzt beim besten Willen nicht auswendig, was ich
+
+23:37.220 --> 23:39.220
+dafür Mount Options nehmen soll. Ich lasse einfach
+
+23:39.220 --> 23:41.220
+mal default.
+
+23:41.220 --> 23:43.220
+Das wird schon passen.
+
+23:43.220 --> 23:45.220
+Ja.
+
+23:45.220 --> 23:47.220
+Boah.
+
+23:49.220 --> 23:51.220
+Select Swap Partition.
+
+23:51.220 --> 23:53.220
+Brauchen wir Swap?
+
+23:53.220 --> 23:55.220
+Wir brauchen
+
+23:55.220 --> 23:57.220
+keinen Swap. Ich habe 8 GB
+
+23:57.220 --> 23:59.220
+RAM. Da brauchen wir keinen Swap.
+
+23:59.220 --> 24:01.220
+Also Swap ist quasi
+
+24:01.220 --> 24:03.220
+für Leute, die nur Windows verwenden.
+
+24:03.220 --> 24:05.220
+Swap ist quasi Auslagerungsdatei.
+
+24:05.220 --> 24:07.220
+Das, was man unter Windows
+
+24:07.220 --> 24:09.220
+auch hat. Unter Linux ist es
+
+24:09.220 --> 24:11.220
+historisch so, dass es oftmals
+
+24:11.220 --> 24:13.220
+eine eigene Partition ist.
+
+24:15.220 --> 24:17.220
+So, Hälfte des
+
+24:17.220 --> 24:19.220
+RAMs, Doppelte des RAMs, je nachdem wieviel RAM
+
+24:19.220 --> 24:21.220
+man hat. Aber
+
+24:21.220 --> 24:23.220
+bei 8 GB RAM
+
+24:23.220 --> 24:25.220
+brauche ich wahrscheinlich keinen Swap.
+
+24:25.220 --> 24:27.220
+Ja.
+
+24:33.220 --> 24:35.220
+So, jetzt muss ich jetzt
+
+24:35.220 --> 24:37.220
+noch die Boot Partition auswählen oder nicht?
+
+24:39.220 --> 24:41.220
+Keine Ahnung.
+
+24:41.220 --> 24:43.220
+Select Edition in any
+
+24:43.220 --> 24:45.220
+Order.
+
+24:45.220 --> 24:47.220
+Okay.
+
+24:51.220 --> 24:53.220
+Boot Partition, ja.
+
+24:53.220 --> 24:55.220
+Ja.
+
+24:55.220 --> 24:57.220
+Gleich Boot.
+
+24:57.220 --> 24:59.220
+Ich hoffe, das ist so gedacht,
+
+24:59.220 --> 25:01.220
+wie ich das hier mache. Keine Ahnung.
+
+25:01.220 --> 25:03.220
+Der Installer ist ein bisschen kryptisch.
+
+25:03.220 --> 25:05.220
+Wow. Successful. Okay. Hat
+
+25:05.220 --> 25:07.220
+anscheinend funktioniert.
+
+25:11.220 --> 25:13.220
+Ah, jetzt soll ich die Paketquellen
+
+25:13.220 --> 25:15.220
+auswählen.
+
+25:17.220 --> 25:19.220
+Okay.
+
+25:19.220 --> 25:21.220
+Jetzt wird er wahrscheinlich erstmal testen, welche
+
+25:21.220 --> 25:23.220
+Paketquellen wie schnell sind.
+
+25:23.220 --> 25:25.220
+Ich hoffe, das geht halbwegs
+
+25:25.220 --> 25:27.220
+zackig, sonst muss ich abbrechen zwischendurch.
+
+25:27.220 --> 25:29.220
+Also da
+
+25:29.220 --> 25:31.220
+testet jetzt quasi alles Server, wo er Pakete
+
+25:31.220 --> 25:33.220
+drauf liegen hat, wie die Verbindung von mir dahin ist,
+
+25:33.220 --> 25:35.220
+dass ich dann die für mich Schnellsten
+
+25:35.220 --> 25:37.220
+raussuchen kann.
+
+25:37.220 --> 25:39.220
+Und ich hätte schon fast vermutet, dass China
+
+25:39.220 --> 25:41.220
+vielleicht nicht der Schnellste ist.
+
+25:41.220 --> 25:43.220
+So,
+
+25:43.220 --> 25:45.220
+ich
+
+25:45.220 --> 25:47.220
+scrolle mal kurz
+
+25:47.220 --> 25:49.220
+Chat durch, dass ich nichts übersehe.
+
+25:53.220 --> 25:55.220
+Irgendein Lappen, ich glaube,
+
+25:55.220 --> 25:57.220
+du wirst gleich
+
+25:57.220 --> 25:59.220
+der Sache besser folgen können, wenn ich das
+
+25:59.220 --> 26:01.220
+installiert habe.
+
+26:01.220 --> 26:03.220
+Weil der Installer ist für mich auch
+
+26:03.220 --> 26:05.220
+ziemlich kryptisch. Ich weiß überhaupt nicht, was der
+
+26:05.220 --> 26:07.220
+eigentlich von mir will.
+
+26:07.220 --> 26:09.220
+Okay.
+
+26:09.220 --> 26:11.220
+Ich weiß überhaupt nicht, was der eigentlich von mir will.
+
+26:17.220 --> 26:19.220
+Alsberger, ich hab letztens gesehen, dass du beim Fabian
+
+26:19.220 --> 26:21.220
+irgendwelche Leute gebannt hast, deswegen wirst du jetzt
+
+26:21.220 --> 26:23.220
+nicht einfach so mod.
+
+26:23.220 --> 26:25.220
+Boah, das gibt's hier nicht.
+
+26:27.220 --> 26:29.220
+Max, du bist
+
+26:29.220 --> 26:31.220
+Software Engineer, richtig.
+
+26:31.220 --> 26:33.220
+Ich tue mir selbst schwer
+
+26:33.220 --> 26:35.220
+zu sagen, was ich bin.
+
+26:35.220 --> 26:37.220
+Also was ich mal gelernt habe, ist,
+
+26:37.220 --> 26:39.220
+aber das ist schon wirklich eine ganze Weile her,
+
+26:39.220 --> 26:41.220
+ist Fachinformatiker
+
+26:41.220 --> 26:43.220
+in Systemintegration.
+
+26:43.220 --> 26:45.220
+Aber ich sag seit Jahren ja auch schon immer, wenn es darum
+
+26:45.220 --> 26:47.220
+geht, dass, vor allem wenn Leute
+
+26:47.220 --> 26:49.220
+fragen, was sie nehmen sollen, Anwendungsentwicklung,
+
+26:49.220 --> 26:51.220
+Systemintegration, was auch immer,
+
+26:51.220 --> 26:53.220
+das wächst eh alles immer weiter
+
+26:53.220 --> 26:55.220
+zusammen.
+
+26:55.220 --> 26:57.220
+Also,
+
+26:57.220 --> 26:59.220
+ob man das überhaupt noch
+
+26:59.220 --> 27:01.220
+unterscheiden muss, halte ich eh für fragwürdig.
+
+27:01.220 --> 27:03.220
+Also das habe ich mal
+
+27:03.220 --> 27:05.220
+gelernt. Aktuell kümmere ich mich eigentlich
+
+27:05.220 --> 27:07.220
+hauptsächlich
+
+27:07.220 --> 27:09.220
+um
+
+27:09.220 --> 27:11.220
+ja, wie nennt man das?
+
+27:11.220 --> 27:13.220
+Also ich kümmere mich um unsere Softwareverwaltung,
+
+27:13.220 --> 27:15.220
+um unsere Software
+
+27:15.220 --> 27:17.220
+Repos.
+
+27:17.220 --> 27:19.220
+Wie nennt man das?
+
+27:19.220 --> 27:21.220
+Repo Manager,
+
+27:21.220 --> 27:23.220
+keine Ahnung.
+
+27:23.220 --> 27:25.220
+Also ich
+
+27:25.220 --> 27:27.220
+gucke mir quasi Änderungen an, die Leute
+
+27:27.220 --> 27:29.220
+machen, die reichen sie dann ein
+
+27:29.220 --> 27:31.220
+als Änderungen und dann sage ich dann
+
+27:31.220 --> 27:33.220
+das sieht gut aus, das sieht nicht so gut aus,
+
+27:33.220 --> 27:35.220
+an der Stelle würde ich das nochmal ändern,
+
+27:35.220 --> 27:37.220
+was auch immer, dann suche ich mir vielleicht
+
+27:37.220 --> 27:39.220
+noch ein paar Leute raus, die sich mit diesem
+
+27:39.220 --> 27:41.220
+speziellen Code-Teil
+
+27:41.220 --> 27:43.220
+auskennen und fragen die dazu
+
+27:43.220 --> 27:45.220
+und sagen hier, review das mal, guck dir das
+
+27:45.220 --> 27:47.220
+mal an und dann merge ich
+
+27:47.220 --> 27:49.220
+das Ganze und dann mache ich dann irgendwann mal
+
+27:49.220 --> 27:51.220
+einen neuen Release Tag und dann mache ich dann irgendwann mal
+
+27:51.220 --> 27:53.220
+einen neuen Release Branch und dann mache ich dann irgendwann mal
+
+27:53.220 --> 27:55.220
+ein paar Fixes in den alten Release rein.
+
+27:55.220 --> 27:57.220
+Ich kümmere mich eigentlich um unsere Software
+
+27:57.220 --> 27:59.220
+Repos. Ich glaube so kann man das am besten
+
+27:59.220 --> 28:01.220
+umschreiben. Das ist das, was ich hauptsächlich auf der Arbeit
+
+28:01.220 --> 28:03.220
+habe. Warte mal, ich bitte, die Repos sind schon
+
+28:03.220 --> 28:05.220
+komplett fertig.
+
+28:05.220 --> 28:07.220
+Rated.
+
+28:07.220 --> 28:09.220
+Also Germany ist gut,
+
+28:09.220 --> 28:11.220
+Franz nehmen wir aus Prinzip nicht
+
+28:11.220 --> 28:13.220
+und einen belgischen Mirror
+
+28:13.220 --> 28:15.220
+können wir auch noch nehmen und
+
+28:15.220 --> 28:17.220
+Australia nehmen wir natürlich auch.
+
+28:21.220 --> 28:23.220
+Was ist jetzt Installer? Refresh
+
+28:23.220 --> 28:25.220
+auch gut.
+
+28:25.220 --> 28:27.220
+Ja, das trifft's.
+
+28:27.220 --> 28:29.220
+Florian, das trifft's. Gittler.
+
+28:29.220 --> 28:31.220
+Wir hatten mal einen zu mir gesagt,
+
+28:31.220 --> 28:33.220
+wir hatten mal einen im College, der hat gemeint,
+
+28:33.220 --> 28:35.220
+ich bin der Git Master.
+
+28:35.220 --> 28:37.220
+Und wir als aussprechender
+
+28:37.220 --> 28:39.220
+Git Master.
+
+28:39.220 --> 28:41.220
+Back.
+
+28:41.220 --> 28:43.220
+Ein Git Tutorial
+
+28:43.220 --> 28:45.220
+wollte ich ja auch mal machen.
+
+28:45.220 --> 28:47.220
+Leute, ich weiß,
+
+28:47.220 --> 28:49.220
+dass das nicht Australia ist.
+
+28:49.220 --> 28:51.220
+Manchen Leuten muss man das
+
+28:51.220 --> 28:53.220
+wirklich alles genau erklären.
+
+28:53.220 --> 28:55.220
+Insgesamt ein Desktop System wollen wir nicht haben, wir wollen
+
+28:55.220 --> 28:57.220
+ein CLI System haben. Also
+
+28:57.220 --> 28:59.220
+nur Zeit, weil wir wollen das alles selbst machen.
+
+29:01.220 --> 29:03.220
+Install Base Packages.
+
+29:03.220 --> 29:05.220
+Go, go.
+
+29:05.220 --> 29:07.220
+Das wollen wir auf jeden Fall
+
+29:07.220 --> 29:09.220
+haben, den französischen Joghurt.
+
+29:09.220 --> 29:11.220
+Das ist ein Paket Manager.
+
+29:11.220 --> 29:13.220
+Jaurt, wie man das
+
+29:13.220 --> 29:15.220
+ausspricht. Das heißt, habe ich mir mal
+
+29:15.220 --> 29:17.220
+sagen lassen, das heißt der französische Joghurt.
+
+29:17.220 --> 29:19.220
+Und wir nehmen
+
+29:19.220 --> 29:21.220
+einen halbwegs aktuellen
+
+29:21.220 --> 29:23.220
+Kernel.
+
+29:23.220 --> 29:25.220
+Den nehmen wir nicht, ich glaube,
+
+29:25.220 --> 29:27.220
+der ist in dem...
+
+29:27.220 --> 29:29.220
+Das ist doch testing, oder?
+
+29:29.220 --> 29:31.220
+Wir nehmen mal den da.
+
+29:33.220 --> 29:35.220
+Okay.
+
+29:35.220 --> 29:37.220
+Was wollen wir sonst noch haben? Kernel headers
+
+29:37.220 --> 29:39.220
+kann man immer mal installieren.
+
+29:41.220 --> 29:43.220
+Rest brauchen wir eigentlich nicht.
+
+29:45.220 --> 29:47.220
+Falls das jetzt so aussieht,
+
+29:47.220 --> 29:49.220
+als weiß ich, was ich hier
+
+29:49.220 --> 29:51.220
+mache, ich weiß das auch
+
+29:51.220 --> 29:53.220
+nur zur Hälfte. Ich bin den
+
+29:53.220 --> 29:55.220
+Garo installer, so ein bisschen koptisch.
+
+29:55.220 --> 29:57.220
+Döner Bruder, welche
+
+29:57.220 --> 29:59.220
+Programmiersprachen kannst du alle?
+
+29:59.220 --> 30:01.220
+Da muss ich jetzt mal überlegen, weil
+
+30:01.220 --> 30:03.220
+das sind schon ein paar. Also meine
+
+30:03.220 --> 30:05.220
+Lieblingssprache mit Abstand
+
+30:05.220 --> 30:07.220
+ist C-Sharp.
+
+30:07.220 --> 30:09.220
+Leider komme ich
+
+30:09.220 --> 30:11.220
+relativ wenig dazu, was in C-Sharp zu
+
+30:11.220 --> 30:13.220
+machen, aber C-Sharp ist meine absolute Lieblingssprache.
+
+30:13.220 --> 30:15.220
+Was kann ich
+
+30:15.220 --> 30:17.220
+sonst noch? Ruby,
+
+30:17.220 --> 30:19.220
+JavaScript gezwungenermaßen.
+
+30:19.220 --> 30:21.220
+Ähm,
+
+30:21.220 --> 30:23.220
+lassen wir mal HTML und CSS als
+
+30:23.220 --> 30:25.220
+Programmiersprachen weg, auch wenn ich das normalerweise
+
+30:25.220 --> 30:27.220
+nicht so eng sehe. Es gibt ein paar
+
+30:27.220 --> 30:29.220
+CSS,
+
+30:29.220 --> 30:31.220
+wie nennt man das, so
+
+30:31.220 --> 30:33.220
+Makro-Sprachen drum herum.
+
+30:33.220 --> 30:35.220
+Das sind vollwertige Programmiersprachen,
+
+30:35.220 --> 30:37.220
+so SAS zum Beispiel oder sowas.
+
+30:37.220 --> 30:39.220
+Ruby, falls
+
+30:39.220 --> 30:41.220
+ich das schon aufgezählt habe, natürlich
+
+30:41.220 --> 30:43.220
+den üblichen Shellscript, also Bash.
+
+30:43.220 --> 30:45.220
+Kuvi,
+
+30:45.220 --> 30:47.220
+um
+
+30:47.220 --> 30:49.220
+bisschen
+
+30:49.220 --> 30:51.220
+C++,
+
+30:51.220 --> 30:53.220
+wobei ich nicht sagen würde, dass ich der C++
+
+30:53.220 --> 30:55.220
+Profi bin.
+
+30:55.220 --> 30:57.220
+C++ eigentlich hauptsächlich mit Qt
+
+30:57.220 --> 30:59.220
+als Framework.
+
+30:59.220 --> 31:01.220
+Rust, habe ich letztens mal
+
+31:01.220 --> 31:03.220
+was drin gemacht.
+
+31:05.220 --> 31:07.220
+Ach, kannst du eine Sprache, kannst du alle.
+
+31:07.220 --> 31:09.220
+Vor allem,
+
+31:09.220 --> 31:11.220
+also was ich, wo ich nicht wirklich gut
+
+31:11.220 --> 31:13.220
+drin bin, sind so funktionale
+
+31:13.220 --> 31:15.220
+Sachen, da habe ich einfach zu wenig mit
+
+31:15.220 --> 31:17.220
+gemacht. Also was wie Husker
+
+31:17.220 --> 31:19.220
+oder F-Sharp oder sowas,
+
+31:19.220 --> 31:21.220
+da ist mein Hirn einfach noch nicht verbogen
+
+31:21.220 --> 31:23.220
+genug für.
+
+31:25.220 --> 31:27.220
+Clive,
+
+31:27.220 --> 31:29.220
+Twitch 2, Node.js
+
+31:29.220 --> 31:31.220
+ist JavaScript.
+
+31:31.220 --> 31:33.220
+Go kann ich übrigens auch
+
+31:33.220 --> 31:35.220
+gar nicht, ich finde Go ist so eine mega
+
+31:35.220 --> 31:37.220
+hässliche Sprache. Die ist so
+
+31:37.220 --> 31:39.220
+hässlich. Ich weiß gar nicht,
+
+31:39.220 --> 31:43.220
+warum so viele Leute auf Go stehen.
+
+31:43.220 --> 31:45.220
+Ja, Node.js ist JavaScript.
+
+31:45.220 --> 31:47.220
+Node.js ist quasi die
+
+31:47.220 --> 31:49.220
+Chrome, oder wie heißt das jetzt?
+
+31:49.220 --> 31:51.220
+Pling? Wie heißt das Ding?
+
+31:51.220 --> 31:53.220
+Die, ich sage die Chrome
+
+31:53.220 --> 31:55.220
+JavaScript Engine quasi
+
+31:55.220 --> 31:57.220
+als eigenes Paket.
+
+31:57.220 --> 31:59.220
+Mit einer Event Loop dabei.
+
+31:59.220 --> 32:01.220
+Das ist Node.js.
+
+32:03.220 --> 32:05.220
+Install Freedriver.
+
+32:05.220 --> 32:07.220
+Ich weiß zwar nicht, was du da machst,
+
+32:07.220 --> 32:09.220
+Installer, aber mach einfach mal.
+
+32:09.220 --> 32:11.220
+Ja, wir wollen auf jeden Fall einen
+
+32:11.220 --> 32:13.220
+Crop haben, sonst können wir nicht booten.
+
+32:13.220 --> 32:15.220
+Wir wollen das,
+
+32:15.220 --> 32:17.220
+ok, installieren wir darauf.
+
+32:17.220 --> 32:19.220
+Also ich klicke eigentlich
+
+32:19.220 --> 32:21.220
+auch noch hauptsächlich weiter in dem Installer.
+
+32:23.220 --> 32:25.220
+Generate FS Tab.
+
+32:25.220 --> 32:27.220
+Wir wollen das
+
+32:27.220 --> 32:29.220
+am liebsten mit,
+
+32:29.220 --> 32:31.220
+eigentlich ist mir das wurscht.
+
+32:33.220 --> 32:35.220
+Set Hostname.
+
+32:35.220 --> 32:37.220
+Manjaro, ist ok.
+
+32:37.220 --> 32:39.220
+Set System Local.
+
+32:43.220 --> 32:45.220
+Guck, das meine ich.
+
+32:45.220 --> 32:47.220
+Das nervt mich jetzt.
+
+32:47.220 --> 32:49.220
+Ich würde hier gerne eine
+
+32:49.220 --> 32:51.220
+Auswahl haben. Sprache bitte
+
+32:51.220 --> 32:53.220
+Englisch, Tastatur bitte
+
+32:53.220 --> 32:55.220
+Deutsch und
+
+32:55.220 --> 32:57.220
+Zeitformat,
+
+32:57.220 --> 32:59.220
+Längenformate und sowas bitte
+
+32:59.220 --> 33:01.220
+halt das nicht
+
+33:01.220 --> 33:03.220
+US System, sondern das, was die restliche
+
+33:03.220 --> 33:05.220
+Welt verwendet. Aber das geht hier nicht.
+
+33:05.220 --> 33:07.220
+Deswegen nehmen wir jetzt hier einfach mal
+
+33:07.220 --> 33:09.220
+standardmäßig
+
+33:09.220 --> 33:11.220
+halt
+
+33:13.220 --> 33:15.220
+Englisch.
+
+33:15.220 --> 33:17.220
+Nehmen wir standardmäßig mal Deutsch.
+
+33:17.220 --> 33:19.220
+Dann ist auf jeden Fall die Tastatur richtig.
+
+33:19.220 --> 33:21.220
+Und
+
+33:21.220 --> 33:23.220
+danach stellen wir es dann halt um.
+
+33:23.220 --> 33:25.220
+Auf alles Englisch außer Tastatur
+
+33:25.220 --> 33:27.220
+Deutsch.
+
+33:29.220 --> 33:31.220
+Timezone ist, das hatten wir doch
+
+33:31.220 --> 33:33.220
+schon. Berlin.
+
+33:33.220 --> 33:35.220
+Ja. UTC ist
+
+33:35.220 --> 33:37.220
+auch ok.
+
+33:37.220 --> 33:39.220
+Lootpasswort, hochsicher
+
+33:39.220 --> 33:41.220
+123456
+
+33:41.220 --> 33:43.220
+123456
+
+33:43.220 --> 33:45.220
+Und ein neuer User, der heißt
+
+33:45.220 --> 33:47.220
+Test. Der kriegt
+
+33:47.220 --> 33:49.220
+erstmal
+
+33:49.220 --> 33:51.220
+eine Bash, obwohl wir später auf
+
+33:51.220 --> 33:53.220
+ZSH umsteigen werden.
+
+33:53.220 --> 33:55.220
+Ich bin mittlerweile
+
+33:55.220 --> 33:57.220
+ein großer Zish-Fan.
+
+33:57.220 --> 33:59.220
+Passwort für
+
+33:59.220 --> 34:01.220
+neuen User. Ich glaube, jetzt sollten wir
+
+34:01.220 --> 34:03.220
+mit dem Installer auch schon so langsam, aber sicher
+
+34:03.220 --> 34:05.220
+durch sein.
+
+34:05.220 --> 34:07.220
+Back.
+
+34:07.220 --> 34:09.220
+Insta-Custom-Packages.
+
+34:09.220 --> 34:11.220
+Ok, der Installer
+
+34:11.220 --> 34:13.220
+ist ganz wir zusammen geschustert.
+
+34:13.220 --> 34:15.220
+Ich hätte noch gerne die
+
+34:15.220 --> 34:17.220
+Vmware-Tools. Das wäre cool.
+
+34:17.220 --> 34:19.220
+Vmware-Tools.
+
+34:19.220 --> 34:21.220
+Die hätte ich noch
+
+34:21.220 --> 34:23.220
+gerne.
+
+34:23.220 --> 34:25.220
+Security
+
+34:25.220 --> 34:27.220
+und System
+
+34:27.220 --> 34:29.220
+Detweaks.
+
+34:29.220 --> 34:31.220
+Aha.
+
+34:31.220 --> 34:33.220
+Ich hab keine Ahnung, was der da
+
+34:33.220 --> 34:35.220
+macht.
+
+34:35.220 --> 34:37.220
+Aber wisst ihr was?
+
+34:37.220 --> 34:39.220
+Macht einfach
+
+34:39.220 --> 34:41.220
+mal. Ich klick das jetzt einfach mal
+
+34:41.220 --> 34:43.220
+durch.
+
+34:43.220 --> 34:45.220
+Wenn der Installer
+
+34:45.220 --> 34:47.220
+meint, das sollen wir machen, dann machen wir das.
+
+34:47.220 --> 34:49.220
+Perfekt.
+
+34:49.220 --> 34:51.220
+Machen wir alles.
+
+34:51.220 --> 34:53.220
+Easy.
+
+34:55.220 --> 34:57.220
+Back.
+
+34:57.220 --> 34:59.220
+Configuration-Files
+
+34:59.220 --> 35:01.220
+will ich mir eigentlich gar nicht angucken.
+
+35:03.220 --> 35:05.220
+Oh, wir sind fertig, würde ich mal sagen.
+
+35:05.220 --> 35:13.220
+Wir sind fertig.
+
+35:17.220 --> 35:19.220
+Wir sind fertig.
+
+35:21.220 --> 35:23.220
+Würde ich mal sagen.
+
+35:23.220 --> 35:27.220
+Wir sind fertig.
+
+35:31.220 --> 35:33.220
+Wir sind fertig.
+
+35:39.220 --> 35:41.220
+Das Ding ist installiert. Cool.
+
+35:41.220 --> 35:43.220
+Wenn ich jetzt neu starte, sollte das hoffentlich
+
+35:43.220 --> 35:45.220
+booten.
+
+35:47.220 --> 35:49.220
+Pakete installieren und so gedunst,
+
+35:49.220 --> 35:51.220
+machen wir dann gleich.
+
+35:51.220 --> 35:53.220
+So.
+
+35:59.220 --> 36:01.220
+Gut.
+
+36:01.220 --> 36:03.220
+Funktioniert.
+
+36:03.220 --> 36:05.220
+Bootet.
+
+36:05.220 --> 36:07.220
+So, mal gucken, ob ich jetzt in irgendeinem gescheiten
+
+36:07.220 --> 36:09.220
+Environment rauskomme.
+
+36:11.220 --> 36:13.220
+Oh.
+
+36:13.220 --> 36:15.220
+Oh.
+
+36:15.220 --> 36:19.220
+Keine Panik.
+
+36:23.220 --> 36:25.220
+Also ich wüsste jetzt nicht, was ich im Installer
+
+36:25.220 --> 36:27.220
+hätte da großartig anders machen sollen.
+
+36:27.220 --> 36:29.220
+Ich meine, ich habe alles
+
+36:29.220 --> 36:31.220
+durchgeklickt.
+
+36:31.220 --> 36:33.220
+Hat der Majaro Installer
+
+36:33.220 --> 36:35.220
+einen Bug oder so? Ich glaube nicht, dass ich da
+
+36:35.220 --> 36:37.220
+großartig was verkehrt gemacht habe. Da gab es nicht
+
+36:37.220 --> 36:39.220
+viel verkehrt zu machen.
+
+36:39.220 --> 36:41.220
+So.
+
+36:43.220 --> 36:45.220
+Beat Prod.
+
+36:45.220 --> 36:47.220
+Notwendiges Übel.
+
+36:47.220 --> 36:49.220
+System D.
+
+36:51.220 --> 36:53.220
+Wir starten nochmal neu. Vielleicht geht es
+
+36:53.220 --> 36:55.220
+dann. Was haben wir hier sonst noch für
+
+36:55.220 --> 36:57.220
+Optionen zur Auswahl?
+
+36:57.220 --> 36:59.220
+Eigentlich nur booten.
+
+36:59.220 --> 37:01.220
+Das sieht nicht gut aus. Was habe ich denn verkehrt
+
+37:01.220 --> 37:03.220
+gemacht beim Installer? Soviel kannst du da noch
+
+37:03.220 --> 37:05.220
+eigentlich gar nicht verkehrt machen.
+
+37:09.220 --> 37:11.220
+Hm.
+
+37:15.220 --> 37:17.220
+Ja, das ist eine gute Idee.
+
+37:19.220 --> 37:21.220
+Äh,
+
+37:21.220 --> 37:23.220
+das ist eine gute Idee.
+
+37:23.220 --> 37:25.220
+Ja, das ist eine gute Idee.
+
+37:29.220 --> 37:31.220
+Äh,
+
+37:31.220 --> 37:33.220
+Moment.
+
+37:33.220 --> 37:35.220
+Bitte, noch mehr Text.
+
+37:35.220 --> 37:37.220
+Wo steht denn hier?
+
+37:39.220 --> 37:41.220
+Wobei, der hat doch überhaupt keinen Quiet drin.
+
+37:41.220 --> 37:43.220
+Der hat keinen Quiet drin.
+
+37:43.220 --> 37:45.220
+Hat der Quiet drin?
+
+37:47.220 --> 37:49.220
+Wo steht denn das normalerweise?
+
+37:49.220 --> 37:53.220
+Ah.
+
+38:07.220 --> 38:09.220
+Okay.
+
+38:09.220 --> 38:11.220
+Okay.
+
+38:21.220 --> 38:23.220
+Was hat der denn für Schmerzen?
+
+38:23.220 --> 38:25.220
+Wo kackt der denn ab?
+
+38:31.220 --> 38:33.220
+Welco.
+
+38:33.220 --> 38:35.220
+Der kackt
+
+38:35.220 --> 38:37.220
+instant, ah. Ähm.
+
+38:37.220 --> 38:39.220
+Kann es sein, dass der
+
+38:39.220 --> 38:41.220
+Probleme hat mit
+
+38:41.220 --> 38:43.220
+mit meiner
+
+38:43.220 --> 38:45.220
+Vmware Hardware?
+
+38:47.220 --> 38:49.220
+Hat der Probleme mit meiner Vmware Hardware
+
+38:49.220 --> 38:51.220
+irgendwie?
+
+38:51.220 --> 38:53.220
+Dass der da rumspackt?
+
+38:53.220 --> 38:55.220
+Warum auch immer, man weiß es nicht.
+
+38:55.220 --> 38:57.220
+Dass das System vollkommen
+
+38:57.220 --> 38:59.220
+korrekt installiert ist.
+
+38:59.220 --> 39:01.220
+Und der Schmerzen hat hier
+
+39:01.220 --> 39:07.220
+irgendwie was mit meiner Vmware Hardware?
+
+39:09.220 --> 39:11.220
+Ich habe eine Idee.
+
+39:15.220 --> 39:17.220
+Äh, wir hängen mal die Platte ab.
+
+39:17.220 --> 39:21.220
+Das ist bestimmt, der hat bestimmt Schmerzen.
+
+39:23.220 --> 39:25.220
+Einmal Masata.
+
+39:27.220 --> 39:29.220
+Der hat irgendwelche Schmerzen mit
+
+39:29.220 --> 39:31.220
+meiner...
+
+39:31.220 --> 39:33.220
+Welches nehme ich denn davon jetzt?
+
+39:33.220 --> 39:35.220
+Das da.
+
+39:37.220 --> 39:39.220
+Und das System ist auch nicht wirklich groß.
+
+39:43.220 --> 39:45.220
+Also das habe ich mir jetzt einfacher vorgestellt.
+
+39:45.220 --> 39:47.220
+Vor allem, warum hat das
+
+39:47.220 --> 39:49.220
+Probleme mit meiner Vm?
+
+39:49.220 --> 39:51.220
+Das ist ja mal ganz richtig räudisch.
+
+39:55.220 --> 39:57.220
+Ah.
+
+39:57.220 --> 39:59.220
+Funktioniert.
+
+40:03.220 --> 40:05.220
+Funktioniert?
+
+40:05.220 --> 40:07.220
+Okay, das lag am
+
+40:07.220 --> 40:09.220
+Festplatten-Controller.
+
+40:09.220 --> 40:11.220
+Den ich mag.
+
+40:11.220 --> 40:13.220
+Warum auch immer.
+
+40:15.220 --> 40:17.220
+Kein Schimmer.
+
+40:17.220 --> 40:19.220
+Kein Schimmer.
+
+40:19.220 --> 40:21.220
+Warum den ich mag.
+
+40:21.220 --> 40:23.220
+Ist mir nicht ganz klar, aber
+
+40:23.220 --> 40:25.220
+wir lagen richtig.
+
+40:27.220 --> 40:29.220
+So, jetzt können wir das CD-Laufwerk wegmachen.
+
+40:29.220 --> 40:31.220
+CPU, zwei Kerne, ist alles in Ordnung.
+
+40:31.220 --> 40:33.220
+Passt wunderbar.
+
+40:37.220 --> 40:39.220
+Ah.
+
+40:39.220 --> 40:41.220
+Fangen wir uns mal ein.
+
+40:41.220 --> 40:43.220
+Gut.
+
+40:43.220 --> 40:45.220
+Also jetzt haben wir das Ding erst mal frisch installiert.
+
+40:45.220 --> 40:47.220
+Das heißt, hier ist nichts drauf.
+
+40:49.220 --> 40:51.220
+Ich reboot noch mal kurz.
+
+40:51.220 --> 40:53.220
+Weil ich habe jetzt da mein CD-Laufwerk
+
+40:53.220 --> 40:55.220
+abgehängt, das mag er nicht.
+
+41:03.220 --> 41:05.220
+Ja, jetzt geht's.
+
+41:05.220 --> 41:07.220
+Jetzt geht's.
+
+41:07.220 --> 41:09.220
+Weiß nicht, was der für Probleme mit dem Festplatten-Controller
+
+41:09.220 --> 41:11.220
+hatte, aber wenn man den umstellt auf
+
+41:11.220 --> 41:13.220
+SATA ist alles gut. Kann ich aber auch mitleben.
+
+41:15.220 --> 41:17.220
+Speed ist mit Sicherheit
+
+41:17.220 --> 41:19.220
+groß genug.
+
+41:19.220 --> 41:21.220
+Okay, also wir haben jetzt
+
+41:21.220 --> 41:23.220
+ein ganz kleines
+
+41:23.220 --> 41:25.220
+Minimalsystem hier.
+
+41:25.220 --> 41:27.220
+Also sprich, was ist belegt?
+
+41:27.220 --> 41:29.220
+Wir haben jetzt eins, jetzt ist das auch noch auf Deutsch,
+
+41:29.220 --> 41:31.220
+das muss ich gleich mal umstellen.
+
+41:31.220 --> 41:33.220
+Aber erst mal installieren wir eine grafische Oberfläche,
+
+41:33.220 --> 41:35.220
+dass man ordentlich was sieht. Obwohl, vorher
+
+41:35.220 --> 41:37.220
+machen wir noch eine wichtige Sache.
+
+41:37.220 --> 41:39.220
+Dass man hier mal ein bisschen mehr sieht,
+
+41:39.220 --> 41:41.220
+auch für euch, ist
+
+41:41.220 --> 41:43.220
+stellen wir hier mal um.
+
+41:43.220 --> 41:45.220
+Oh, ist noch nicht mal ein Wim drauf.
+
+41:45.220 --> 41:47.220
+Alter.
+
+41:47.220 --> 41:49.220
+Um auf
+
+41:51.220 --> 41:53.220
+auf
+
+41:53.220 --> 41:55.220
+oh ne, Wim.
+
+41:55.220 --> 41:57.220
+Please Wim.
+
+41:57.220 --> 41:59.220
+Auf
+
+41:59.220 --> 42:01.220
+1024x
+
+42:01.220 --> 42:03.220
+768
+
+42:03.220 --> 42:05.220
+mit 200 Spitzfarbe
+
+42:05.220 --> 42:07.220
+dabei. Komm mal weglassen.
+
+42:07.220 --> 42:09.220
+Dass man ein bisschen
+
+42:09.220 --> 42:11.220
+mehr sieht.
+
+42:11.220 --> 42:13.220
+Jetzt rebooten wir noch mal.
+
+42:13.220 --> 42:15.220
+Ach,
+
+42:15.220 --> 42:17.220
+ich hab vergessen
+
+42:17.220 --> 42:19.220
+Crop zu updaten.
+
+42:23.220 --> 42:25.220
+Ich muss schon mal Crop updaten,
+
+42:25.220 --> 42:27.220
+dann sieht man nämlich ein bisschen mehr.
+
+42:29.220 --> 42:31.220
+Group.
+
+42:33.220 --> 42:35.220
+Wie gut.
+
+42:35.220 --> 42:37.220
+So, und dann installieren wir als allererstes
+
+42:37.220 --> 42:39.220
+jetzt mal eine Grafische Oberfläche.
+
+42:39.220 --> 42:43.220
+Als allererstes mal eine Grafische Oberfläche.
+
+42:43.220 --> 42:45.220
+Wim vs. Nano Wim.
+
+42:45.220 --> 42:47.220
+Aus einem ganz
+
+42:47.220 --> 42:49.220
+einfachen Grund. Das ist auch
+
+42:49.220 --> 42:51.220
+mein Grund für Wim vs.
+
+42:51.220 --> 42:53.220
+Emacs. Weil ich bei der ganzen
+
+42:53.220 --> 42:55.220
+Frage Wim vs. Emacs
+
+42:55.220 --> 42:57.220
+will ich eigentlich
+
+42:57.220 --> 42:59.220
+steige ich nie drauf ein, welcher
+
+42:59.220 --> 43:01.220
+Editor an sich besser ist
+
+43:01.220 --> 43:03.220
+und mehr Features hat und sowas in der Richtung.
+
+43:03.220 --> 43:05.220
+Das kann jeder machen wie er will und ich verstehe
+
+43:05.220 --> 43:07.220
+jeden der Emacs lieber verwendet. Aber
+
+43:07.220 --> 43:09.220
+was der Vorteil von Wim ist, warum er ihn
+
+43:09.220 --> 43:11.220
+auf jeden Fall können sollte ist, er ist einfach
+
+43:11.220 --> 43:13.220
+überall drauf.
+
+43:17.220 --> 43:19.220
+Ok,
+
+43:19.220 --> 43:21.220
+das erste was wir machen ist wir installieren eine Grafische
+
+43:21.220 --> 43:23.220
+Oberfläche. Das ist wichtig. Ohne Grafische
+
+43:23.220 --> 43:25.220
+Oberfläche, sackt.
+
+43:25.220 --> 43:27.220
+Balls, sackt das.
+
+43:27.220 --> 43:29.220
+Das heißt
+
+43:29.220 --> 43:31.220
+jetzt müssen wir erstmal, wir machen
+
+43:31.220 --> 43:33.220
+erstmal ein Paketupdate. Wie ging das? So.
+
+43:33.220 --> 43:35.220
+Ah, ich hab
+
+43:35.220 --> 43:37.220
+keine Netzwerkverbindung.
+
+43:37.220 --> 43:39.220
+Weil er anscheinend standardmäßig
+
+43:39.220 --> 43:41.220
+nicht mal DHCP
+
+43:41.220 --> 43:43.220
+macht. Das ist auch sehr nett von ihm.
+
+43:43.220 --> 43:45.220
+DHCP
+
+43:45.220 --> 43:47.220
+Oh, PC Speaker.
+
+43:47.220 --> 43:49.220
+Igitt, das muss weg.
+
+43:49.220 --> 43:51.220
+PC Speaker muss Soundkarte
+
+43:51.220 --> 43:53.220
+raus, irgendwas. PC Speaker muss
+
+43:53.220 --> 43:55.220
+ausgeschaltet werden. Ganz, ganz
+
+43:55.220 --> 43:57.220
+wichtig, sonst krieg ich Anfälle.
+
+43:59.220 --> 44:01.220
+Oh, PC Speaker.
+
+44:01.220 --> 44:05.220
+Wartet mal Leute, wie ging das?
+
+44:07.220 --> 44:09.220
+PC Speaker.
+
+44:11.220 --> 44:13.220
+Ich, ich, genau.
+
+44:13.220 --> 44:15.220
+Das Kernel Modul muss weg.
+
+44:15.220 --> 44:17.220
+Das ist jetzt die Hardcore
+
+44:17.220 --> 44:19.220
+Variante, PC Speaker auszuschalten.
+
+44:21.220 --> 44:23.220
+Aber sonst haben wir Gepiepse. Ich hoffe ihr hört das Gepiepse nicht,
+
+44:23.220 --> 44:25.220
+aber zumindest ist Gepiepse nervig.
+
+44:27.220 --> 44:29.220
+Wir wollen, hallo,
+
+44:29.220 --> 44:31.220
+ich will was sehen. Wir schalten das jetzt aus.
+
+44:39.220 --> 44:41.220
+Guck, hier, das Gepiepse.
+
+44:41.220 --> 44:43.220
+Warum ist das
+
+44:43.220 --> 44:45.220
+standardmäßig immer noch ein Ding
+
+44:45.220 --> 44:47.220
+überhaupt?
+
+44:51.220 --> 44:53.220
+Das piepst nicht mehr, sehr schön.
+
+44:53.220 --> 44:55.220
+So, das ist die
+
+44:55.220 --> 44:57.220
+in your face Variante. Man entlädt
+
+44:57.220 --> 44:59.220
+einfach das Kernel
+
+44:59.220 --> 45:01.220
+Modul
+
+45:01.220 --> 45:03.220
+für den PC Speaker.
+
+45:03.220 --> 45:05.220
+Dann kann es nicht mehr piepsen.
+
+45:09.220 --> 45:11.220
+Wie ist das Ding?
+
+45:11.220 --> 45:13.220
+Oh, das ist
+
+45:13.220 --> 45:15.220
+eine gute Idee, Beat Pro. Das können wir
+
+45:15.220 --> 45:17.220
+machen, ja.
+
+45:19.220 --> 45:21.220
+Ist das standardmäßig dabei?
+
+45:21.220 --> 45:23.220
+Nee, ist es nicht.
+
+45:23.220 --> 45:25.220
+Das heißt, wir müssen
+
+45:25.220 --> 45:27.220
+jetzt erstmal ganz klassisch
+
+45:27.220 --> 45:29.220
+den da machen.
+
+45:29.220 --> 45:31.220
+DHC Client
+
+45:31.220 --> 45:33.220
+ENS 33
+
+45:33.220 --> 45:35.220
+und jetzt kriegen wir eine IP.
+
+45:35.220 --> 45:37.220
+Habe ich mich verschrieben?
+
+45:39.220 --> 45:41.220
+Was es heißt?
+
+45:41.220 --> 45:43.220
+DHCP...
+
+45:43.220 --> 45:45.220
+Warte, warum?
+
+45:49.220 --> 45:51.220
+DHCP
+
+45:51.220 --> 45:53.220
+HCP
+
+45:53.220 --> 45:55.220
+CD.
+
+45:55.220 --> 45:57.220
+Okay, dann starten wir
+
+45:57.220 --> 45:59.220
+nochmal neu und gucken, ob wir jetzt standardmäßig eine IP-Adresse
+
+45:59.220 --> 46:01.220
+kriegen.
+
+46:01.220 --> 46:03.220
+Und ob jetzt
+
+46:03.220 --> 46:05.220
+der PC Speaker auch standardmäßig aus ist.
+
+46:13.220 --> 46:15.220
+Okay, PC Speaker
+
+46:15.220 --> 46:17.220
+ist standardmäßig aus, es pieps nichts mehr.
+
+46:17.220 --> 46:19.220
+Und wir haben
+
+46:19.220 --> 46:21.220
+eine IP. Krass.
+
+46:21.220 --> 46:23.220
+Krasser Shit.
+
+46:23.220 --> 46:25.220
+Warum
+
+46:25.220 --> 46:27.220
+Archelux immer so komische Interface-Namen hat,
+
+46:27.220 --> 46:29.220
+das ist nicht nur Archelux, das ist standardmäßig mittlerweile.
+
+46:29.220 --> 46:31.220
+Man kann das ausschalten mit einer Option,
+
+46:31.220 --> 46:33.220
+dass es wieder ETH0 und so heißt.
+
+46:33.220 --> 46:35.220
+Das ist aber die
+
+46:35.220 --> 46:37.220
+neue Benamung.
+
+46:39.220 --> 46:41.220
+Hat den Vorteil, dass quasi ein Interface,
+
+46:41.220 --> 46:43.220
+was auf dem gleichen
+
+46:43.220 --> 46:45.220
+Interface, äh, nicht Interface,
+
+46:45.220 --> 46:47.220
+das ist eine Netzwerkkarte
+
+46:47.220 --> 46:49.220
+oder ein PCI-Gerät, was auf dem gleichen
+
+46:49.220 --> 46:51.220
+Slot, ne,
+
+46:51.220 --> 46:53.220
+PCI-ID steckt,
+
+46:53.220 --> 46:55.220
+im Endeffekt, den gleichen Name kriegt.
+
+46:55.220 --> 46:57.220
+Das ist ganz praktisch. Zum Beispiel,
+
+46:57.220 --> 46:59.220
+wenn man irgendwelche
+
+46:59.220 --> 47:01.220
+Netzwerkkarten hat, oder irgendwelche
+
+47:01.220 --> 47:03.220
+Fiber Channel Sun Interfaces,
+
+47:03.220 --> 47:05.220
+oder sowas, und das Ding geht kaputt,
+
+47:05.220 --> 47:07.220
+und man tauscht das aus,
+
+47:07.220 --> 47:09.220
+und das hat danach noch den gleichen Namen wie vorher.
+
+47:09.220 --> 47:11.220
+Das ist ganz praktisch.
+
+47:11.220 --> 47:13.220
+So, jetzt installieren wir erstmal
+
+47:13.220 --> 47:15.220
+eine grafische Oberfläche.
+
+47:15.220 --> 47:17.220
+Ne, erstmal mal ein Paketupdates.
+
+47:17.220 --> 47:19.220
+War das so?
+
+47:19.220 --> 47:21.220
+Ich kann mir die Pacman-Option
+
+47:21.220 --> 47:23.220
+nicht merken.
+
+47:23.220 --> 47:25.220
+Nein, äh, so?
+
+47:25.220 --> 47:27.220
+Ist schon alles aktuell, sehr schön.
+
+47:27.220 --> 47:29.220
+Das heißt, wir können jetzt einfach mal Pacman
+
+47:29.220 --> 47:31.220
+install xorg machen.
+
+47:35.220 --> 47:37.220
+Installieren wir alles,
+
+47:37.220 --> 47:39.220
+alles drauf, bam.
+
+47:39.220 --> 47:41.220
+Dann haben wir schon mal
+
+47:41.220 --> 47:43.220
+ein x drauf.
+
+47:47.220 --> 47:49.220
+Ähm,
+
+47:49.220 --> 47:51.220
+Beat Pro schreibt, das heißt DHCP
+
+47:51.220 --> 47:53.220
+CD, weil ja
+
+47:53.220 --> 47:55.220
+der DHCP Klein Demon ist.
+
+47:57.220 --> 47:59.220
+Ähm,
+
+47:59.220 --> 48:01.220
+stimmt.
+
+48:01.220 --> 48:03.220
+Stimmt.
+
+48:03.220 --> 48:05.220
+Ich lasse ja kein
+
+48:05.220 --> 48:07.220
+DHCP Demon laufen,
+
+48:07.220 --> 48:09.220
+wo andere Leute sich
+
+48:09.220 --> 48:11.220
+DHCP ziehen können,
+
+48:11.220 --> 48:13.220
+sondern ich lasse meinen DHCP
+
+48:13.220 --> 48:15.220
+Klein, um mir eine Adresse zu ziehen,
+
+48:15.220 --> 48:17.220
+als Demon läuft.
+
+48:17.220 --> 48:19.220
+Das ist sogar logisch.
+
+48:21.220 --> 48:23.220
+Der Josen ist am Start.
+
+48:27.220 --> 48:29.220
+Josen, ich hab was für dich.
+
+48:31.220 --> 48:33.220
+Ja, wenn du danach noch
+
+48:33.220 --> 48:37.220
+Windows-Fan bist, dann stimmt mit dir was nicht.
+
+48:37.220 --> 48:39.220
+Was sagste?
+
+48:39.220 --> 48:41.220
+Was sagste, Josen?
+
+48:47.220 --> 48:49.220
+Kann man danach noch Windows-Fan sein?
+
+48:49.220 --> 48:51.220
+Ist auf jeden Fall besser
+
+48:51.220 --> 48:53.220
+als Overwatch.
+
+48:57.220 --> 48:59.220
+Guck, hier gleich
+
+48:59.220 --> 49:01.220
+Mercy hier reingeflogen,
+
+49:01.220 --> 49:03.220
+wird der Fisch gerätzt.
+
+49:03.220 --> 49:05.220
+Man, ich will Exklusivmord.
+
+49:07.220 --> 49:09.220
+Ich will
+
+49:09.220 --> 49:11.220
+Exklusivmord.
+
+49:13.220 --> 49:15.220
+Ich will
+
+49:15.220 --> 49:17.220
+Exklusivmord.
+
+49:17.220 --> 49:19.220
+Oh.
+
+49:25.220 --> 49:27.220
+Wir müssen noch
+
+49:27.220 --> 49:27.940
+xinit
+
+49:35.140 --> 49:37.140
+more installieren.
+
+49:39.220 --> 49:41.220
+Dann haben wir eine grafische Oberfläche,
+
+49:41.220 --> 49:42.980
+die erst mal左右 hässliche aussieht.
+
+49:42.980 --> 49:49.220
+Aber wir sollten schon mal eine grafische oberfläche haben achtung leute
+
+49:49.220 --> 49:56.300
+Sollte das jetzt nicht starten
+
+49:56.300 --> 50:16.740
+Ne kann er gar nicht starten weil hat er nichts zum starten er weiß ja nicht was er starten soll
+
+50:16.740 --> 50:19.820
+Wo ist denn mein xinit standard ding was ich kopieren muss ach keine ahnung
+
+50:19.820 --> 50:26.860
+wir installieren mal den window manager wo ist mein xinitrc die man kopieren kann
+
+50:26.860 --> 50:34.860
+wo wo liegt die muss ich mal kurz gucken etc x11 liegt die ok
+
+50:34.860 --> 50:57.460
+xx start x fack wie ging das das ist auch prinzipiell richtig so und dann mussten
+
+50:57.460 --> 51:00.500
+die das ding muss einfach nur im moment ich hab das falsche kopieren das falsche kopieren
+
+51:00.500 --> 51:10.280
+aber ist da kein wimp drauf doch das ist das ist eigentlich weil wir haben sowas wie x
+
+51:10.280 --> 51:13.940
+term und x clock haben wir gar nicht drauf oder kein wunder dass das nicht funktioniert
+
+51:13.940 --> 51:18.900
+wir machen jetzt mal was ganz ganz habe ich mit x clock ist überhaupt irgendwas drauf
+
+51:18.900 --> 51:26.780
+kein wunder aber in x term sollten wir noch mal installieren das ist so ganz basic basic
+
+51:26.780 --> 51:41.540
+terminal
+
+51:41.540 --> 51:49.620
+wir haben eine grafische oberfläche krasser shit x äh äh patrick x term kommt gleich
+
+51:49.620 --> 51:55.500
+wieder runter so ich präsentiere euch die hässlichste grafische linux oberfläche die
+
+51:55.500 --> 51:59.940
+man sich so installieren kann also ihr seht ja ich habe eine maus und alles also es ist
+
+51:59.940 --> 52:03.420
+es ist eine grafische oberfläche auf jetzt aber jetzt komischerweise mit englischer tastatur
+
+52:03.420 --> 52:10.500
+aber auch ok es ist eine oberfläche ja das sieht aber absolut beschissen aus so jetzt
+
+52:10.500 --> 52:19.460
+installieren wir uns erstmal den wim zwar einen äh einen ich will den wim mit mit allem
+
+52:19.460 --> 52:35.500
+dabei haben einfach den gwim können wir da installieren na jawoll so pass mal auf zeige
+
+52:35.500 --> 52:40.940
+euch gleich nochmal was richtig geiles also eben eben hatten wir das ascii aquarium aber
+
+52:40.940 --> 52:51.460
+das kann man doch toppen das ascii aquarium falls ihr das überhaupt drauf habt moment
+
+52:51.460 --> 53:10.620
+ja ja ich weiß dass ich gut sein muss so passt auf willkommen im jahr 1995 guck mal
+
+53:10.620 --> 53:30.420
+hier fps unglaublich 3000 fps heftig oder x als nächstes habe ich nicht drauf x x
+
+53:30.420 --> 53:37.020
+ne habe ich nicht drauf wo ist denn das dabei mich nervt die englische tastatur jetzt schon
+
+53:37.020 --> 53:48.860
+ok den spaß den machen wir jetzt noch mal aber dann wir weil eigentlich wollten wir
+
+53:48.860 --> 54:02.020
+eine minimale installation machen mit so wenig wie egal scheiß drauf und das können wir
+
+54:02.020 --> 54:13.260
+jetzt noch toppen ach nee das überschreibt das dann beatport benutzt du auch wirklich
+
+54:13.260 --> 54:19.100
+i3wm ja nur ich benutze nur i3wm sowohl auf meiner liegungskiste auf meinem liegungsdesktop
+
+54:19.100 --> 54:27.420
+hier daheim als auch auf der arbeit nur i3wm ich benutze nichts anderes mehr so aber genug
+
+54:27.420 --> 54:35.820
+schwachsinn gemacht unsere grafische oberfläche funktioniert wimm haben wir auch installiert
+
+54:35.820 --> 54:42.740
+so jetzt haben wir hier unser unser x start script jetzt müssen wir ein bisschen aufräumen
+
+54:42.740 --> 54:57.420
+weil das nicht aussieht so und da wollen wir eigentlich am ende i3 ausführen i3 haben
+
+54:57.420 --> 55:00.580
+wir noch nicht installiert also das heißt wenn ich jetzt versuche zu starten dann geht
+
+55:00.580 --> 55:12.860
+es natürlich nicht jetzt installieren wir mal i3 installieren wir i3 oder installieren
+
+55:12.860 --> 55:18.460
+wir i3 mit mit fenster mit fensterrahmen also mit fenster abständen ich würde sagen wir
+
+55:18.460 --> 55:34.100
+installieren den gabs fork weil es irgendwie hübscher aussieht ja ja wir installieren
+
+55:34.100 --> 55:43.060
+den den den fork mit mit gabs sieht einfach hübscher aus ja übrigens ich habe jetzt
+
+55:43.060 --> 55:47.300
+ja das kommando hier ausgeführt und jetzt sagt er mir sie benötigen root recht um diese
+
+55:47.300 --> 55:54.020
+operation auszuführen so mal als als shortcut den ich auch immer vergesse ja man kann jetzt
+
+55:54.020 --> 55:57.980
+einfach habe ich glaube schon mal im letzten video gezeigt wo wir ubuntu entzählt haben
+
+55:57.980 --> 56:02.540
+man kann jetzt einfach schreiben sudo und dann macht man zwei ausrufezeichen hinten
+
+56:02.540 --> 56:11.180
+dran und das führt den letzten befehlen auch mal aus mit rootrechten und was ich ja persönlich
+
+56:11.180 --> 56:24.380
+gern habe ist ein alias also ein alias auf sudo und zwar als als underscore das heißt
+
+56:24.380 --> 56:29.740
+wenn ich jetzt quasi mich vertippe so hoch ich habe keine rootrechte mache ich einfach
+
+56:29.740 --> 56:42.260
+unterstrich ausrufezeichen ausrufezeichen und ach ja und es funktioniert das cool oder
+
+56:42.260 --> 56:53.100
+so jetzt haben wir i3 installiert und jetzt sollte das auch funktionieren bam perfekt
+
+56:53.100 --> 57:01.100
+muss die auflösung stimmt noch nicht so ganz würde ich sagen ja standard config generieren
+
+57:01.100 --> 57:07.420
+wir wollen die windows tasten verwenden ok also prinzipiell funktioniert unsere grafische
+
+57:07.420 --> 57:15.420
+oberfläche schon mal sieht zwar von der auflösung her noch total verkehrt aus so und um das
+
+57:15.420 --> 57:23.420
+zu beheben müssen wir jetzt die vmware tools starten bei probieren wir das mal aus vmware
+
+57:23.420 --> 57:32.500
+user ah moment nein geht ja nicht ich muss noch den x den den vmware x grafik driver
+
+57:32.500 --> 57:43.700
+installieren wie ist der kack xf86 video vmware übrigens wenn ihr euch fragt woher ich das
+
+57:43.700 --> 57:51.900
+weiß einfach mit der zeit aus erfahrung wie die pakete heißen unter anspielungs so ein
+
+57:51.900 --> 57:57.020
+system komplett vom scratch einzurichten würde ich jetzt nicht unbedingt kompletten anfänger
+
+57:57.020 --> 58:01.980
+empfehlen außer man möchte sehr viel tutorial lesen aber man lernt viel dabei und vieles
+
+58:01.980 --> 58:07.820
+ist schlicht und ergreifend auch nicht sonderlich logisch das muss man muss man halt wissen so
+
+58:07.820 --> 58:14.780
+wir wollen nämlich noch den xf86 video vmware treiber haben dass man achtung jetzt kann
+
+58:14.780 --> 58:21.900
+schon mein eigenen shortcut verwenden ist vmware eher zu empfehlen als virtual box oder
+
+58:21.900 --> 58:29.500
+ist das wumpe das egal wenn du geld hast finde ich vmware bisschen schöner als virtual
+
+58:29.500 --> 58:48.220
+box geht es genauso warum warum warum geht das jetzt nicht warum schaltet jetzt die
+
+58:48.220 --> 58:54.620
+auflösung nicht hoch hätte jetzt eigentlich erwartet hätte jetzt eigentlich erwartet
+
+58:54.620 --> 59:03.380
+dass er die auflösung hoch schaltet kannst du drei setzen sagen was ich da mache ja ich
+
+59:03.380 --> 59:09.060
+habe gerade mancharo linux installiert komplett mit dem minimalsten installer den es geht
+
+59:09.060 --> 59:16.180
+und mache jetzt einen desktop drauf einstich was ich nicht gerade verstehe ist warum er
+
+59:16.180 --> 59:23.620
+nicht die auflösung anpasst aber vielleicht machen wir einfach mal windows ein und starten
+
+59:23.620 --> 59:36.500
+das zeugs neu vmware tools sind installiert vielleicht sollte ich die vmware mouse auch
+
+59:36.500 --> 01:00:02.140
+mal installieren ich habe linux installiert ja aber die braucht man in dem fall eher nicht
+
+01:00:02.140 --> 01:00:13.260
+habe ich habe ich die open vm tools dabei habe ich installiert also ich hätte eigentlich
+
+01:00:13.260 --> 01:00:37.340
+erwartet ich hätte jetzt eigentlich erwartet dass das funktioniert
+
+01:00:37.340 --> 01:00:55.860
+hätte jetzt eigentlich erwartet dass der jetzt die auflösung umschaltet macht er
+
+01:00:55.860 --> 01:01:11.180
+aber nicht ich ich riebute mal man weiß ja nie war zur sicherheit das passt schon jaja
+
+01:01:11.180 --> 01:01:23.100
+hast du schon versucht die ferne neu zu starten was ist mit hyper wie das bei windows 10 pro
+
+01:01:23.100 --> 01:01:29.980
+dabei ist im vergleich zu feiern hyper wie ist für man kann damit zwar alles virtualisieren
+
+01:01:29.980 --> 01:01:37.140
+aber das ist eher für windows virtualisierung gedacht man kann da also für desktop virtualisierung
+
+01:01:37.140 --> 01:01:45.020
+ist das nicht so tolle du kannst glaube ich immer noch kein vm durchreichen kein usb durchreichen
+
+01:01:45.020 --> 01:02:08.900
+warum geht das nicht hätte erwartet dass der jetzt
+
+01:02:08.900 --> 01:02:25.980
+die auflösung anpasst gpu passt du habe ich schon mal probiert ja also ich kann mir auflösung
+
+01:02:25.980 --> 01:02:30.620
+ist kein problem probieren wir das mal von hand einzustellen auf x ran und wie ging das
+
+01:02:30.620 --> 01:02:42.860
+scheiß noch mal erst mal installieren uns eine ordentliche shell ja ja ich weiß dass
+
+01:02:42.860 --> 01:03:04.340
+schruttrechte brauche
+
+01:03:04.340 --> 01:03:20.860
+ich finde es immer noch merkwürdig dass der das nicht automatisch müsste das jetzt
+
+01:03:20.860 --> 01:03:32.020
+eigentlich automatisch machen weil wir die vm tools gestartet haben es ist komisch stimmt
+
+01:03:32.020 --> 01:03:58.580
+irgendwas nicht habe ich falsch gemacht kommt mal er erkennt auch gar nicht von meinem display
+
+01:03:58.580 --> 01:04:08.580
+den modus richtig das stimmt irgendwas net da ist irgendwas net net so wie es sein soll
+
+01:04:08.580 --> 01:04:28.620
+kann man hier prinzipiell umschalten ja ich sehe nix da der hat den des des planner richtig
+
+01:04:28.620 --> 01:04:44.460
+erkannt
+
+01:04:44.460 --> 01:04:51.100
+was habe ich vergessen irgendwas habe ich vergessen zu installieren hast du schon von
+
+01:04:51.100 --> 01:05:02.100
+2 als alternative zu 3 benutzt ja im letzten stream im letzten stream also mich nervt dass
+
+01:05:02.100 --> 01:05:06.980
+das jetzt hier nicht funktioniert mit dem bildschirm gerade wir schalten das ding noch
+
+01:05:06.980 --> 01:05:21.780
+mal aus schalten noch mal kurz aus und gucken wir mal in die grafik settings rein da irgendwie
+
+01:05:21.780 --> 01:05:35.660
+miss eingestellt habe display wir machen mal die 3d grafik aus gucken ob das was bringt
+
+01:05:35.660 --> 01:05:42.460
+er erkennt keine 16 zu 9 auflösung ja die sache ist die normalerweise muss der das automatisch
+
+01:05:42.460 --> 01:05:51.900
+machen wenn ich die vm tools starte normalerweise normalerweise startet sie die vm tools und
+
+01:05:51.900 --> 01:06:04.940
+er update die bildschirm auflösung automatisch das heißt ich habe irgendwas vergessen zu
+
+01:06:04.940 --> 01:06:12.140
+installieren um so auf den punkt zu bringen die frage ist was ne da macht das nicht da
+
+01:06:12.140 --> 01:06:17.540
+stimmt doch was da stimmt was net da muss das normalerweise jetzt automatisch machen
+
+01:06:17.540 --> 01:06:27.220
+ok dann stellen wir mal wenigstens erst mal installieren wir das config tool für man
+
+01:06:27.220 --> 01:06:36.820
+jaro nicht dass was unbedingt braucht aber ich mag das tool und dann stellen wir das
+
+01:06:36.820 --> 01:06:43.060
+jetzt erst mal auf englisch ein mit deutschen währungen und installiert auch ein bisschen
+
+01:06:43.060 --> 01:06:56.100
+zeug mit für grafische oberflächen vielleicht brauchen wir das nämlich so schriftarten
+
+01:06:56.100 --> 01:06:59.020
+und so müssen wir auch installieren ich habe jetzt eigentlich nicht gedacht dass wir uns
+
+01:06:59.020 --> 01:07:08.380
+so lange dran aufhalten müssen die auflösung und so richtig hinzukriegen so haben wir den
+
+01:07:08.380 --> 01:07:15.900
+letzten das ist ok sprachumgebung deutsch da wollen wir da wollen wir ganz normal englisch
+
+01:07:15.900 --> 01:07:34.020
+haben englisch als sprache formate wollen wir deutsch lassen perfekt so ist das gut
+
+01:07:34.020 --> 01:07:54.780
+tastatureinstellung machen wir auf deutsch auf german wo ist es denn german no net keys
+
+01:07:54.780 --> 01:08:17.100
+ok ist jetzt schon mal deutsch tastatureinstellung komisch das gehört zum einrichten die looks
+
+01:08:17.100 --> 01:08:30.340
+dazu stimmt schon irgendwo bisschen gefrickel muss sein ja oft du darfst schon die sprachpakete
+
+01:08:30.340 --> 01:08:41.700
+jetzt installieren aber fertig so starten wir nochmal neu also ich weiß jetzt nicht
+
+01:08:41.700 --> 01:08:45.260
+was ich vergessen habe zu installieren ehrlich gesagt da muss ich jetzt mal gleich ins art
+
+01:08:45.260 --> 01:08:59.740
+steinungs wiki reingucken start x ne und er schaltet uns verrecken nach nicht hoch bei
+
+01:08:59.740 --> 01:09:24.460
+der auflösung die open vm tools haben wir installiert als ist es weg auf englisch irgendwas
+
+01:09:24.460 --> 01:09:33.780
+hatte es wäre eine klare serious max wäre das einfache eine fertige version von von
+
+01:09:33.780 --> 01:09:40.900
+manchara zu installieren so jetzt installieren wir uns ein terminal das werden ordentliche
+
+01:09:40.900 --> 01:10:01.580
+terminal haben die schrift muss kotzen als font verwende ich am liebsten hack mein lieblings
+
+01:10:01.580 --> 01:10:09.620
+font und dann sieht es auch nicht mehr ganz so hässlich aus das müssen nur noch die
+
+01:10:09.620 --> 01:10:14.620
+auflösung hinkriegen aber da müssen wir mal ins wiki gucken kann es sein dass es daran
+
+01:10:14.620 --> 01:10:19.340
+liegt dass du in krab auto mit mein mit deiner auflösung überschrieben hast das habe ich
+
+01:10:19.340 --> 01:10:26.540
+normalerweise überall so aber ich stelle das noch mal zurück zurück auf auto normalerweise
+
+01:10:26.540 --> 01:10:31.260
+sollte das ab dem zeitpunkt oder irgendwas neues led eigentlich vollkommen egal sein
+
+01:10:31.260 --> 01:10:40.540
+aber anscheinend ist das nicht und wie lange braucht der für eine schriftfarbe fack verarschen
+
+01:10:40.540 --> 01:10:48.500
+time left hallo kannst du nicht mal ein bisschen schneller schrift drunter laden das das stellen
+
+01:10:48.500 --> 01:11:03.140
+jetzt noch mal um dass das wäre aber fail wenn das so ist stellen wir das hier noch
+
+01:11:03.140 --> 01:11:21.780
+mal um auf auto probieren mal aus und die geschwindigkeit von der font installation hier ist atemberaubend
+
+01:11:21.780 --> 01:11:33.780
+gerade super mirreur brechen wir mal abgucken ob er neuen kriegen wahrscheinlich nicht das
+
+01:11:33.780 --> 01:11:53.300
+ist langsam super mirra das werden wir danach installieren wir gucken uns mal meine i3 konfig
+
+01:11:53.300 --> 01:12:08.380
+an die menu das brauchen wir nämlich noch brauchen nämlich noch ein anwendungs launcher
+
+01:12:08.380 --> 01:12:32.420
+jetzt können wir nämlich auch anwendung starten dann installieren wir noch ein chrome
+
+01:12:32.420 --> 01:12:39.660
+das will er uns für schriftarten installieren das ist gut darfst du alle mit installieren
+
+01:12:39.660 --> 01:12:57.260
+alle schriftarten please weil sonst sieht chrome scheiße aus so und jetzt haben wir
+
+01:12:57.260 --> 01:13:05.500
+chrome drauf gehen wir mal auf desktop nummer zwei starten dann chrome das funktioniert
+
+01:13:05.500 --> 01:13:17.740
+so fernwehr gucken wir mal was man machen muss also die musik was da los install installing
+
+01:13:17.740 --> 01:13:23.420
+artstellung ist gest so was machen wir das artstellung ist das beste wirklich das beste
+
+01:13:23.420 --> 01:13:36.340
+was es gibt vm tools versus open tools so das haben wir alles gemacht das brauchen wir
+
+01:13:36.340 --> 01:13:46.060
+nicht eigentlich muss man nur open vm tools installieren und gut ist shared folders wollen
+
+01:13:46.060 --> 01:13:56.020
+wir nicht
+
+01:13:56.020 --> 01:14:17.140
+das vm tools d service machen wir mal probieren wir das mal aus ja ja bringen wir gar nichts
+
+01:14:17.140 --> 01:14:33.100
+aber wir können es mal enable zum starten schadet nichts was auch immer der macht schläg
+
+01:14:33.100 --> 01:14:36.460
+skalage den chat ich will das mit der auflösung jetzt erst mal hinkriegen weil das nervt mich
+
+01:14:36.460 --> 01:14:51.860
+gerade ist die auflösung nicht stimmt ja das machen wir doch hier das das da machen wir
+
+01:14:51.860 --> 01:15:06.300
+doch die fehlermeldung ist ok die juckt nicht also im prinzip machen wir genau das wie es
+
+01:15:06.300 --> 01:15:19.460
+gedacht ist es ist komisch weil ich mein das ist normalerweise sollte das jetzt sobald ich
+
+01:15:19.460 --> 01:15:23.380
+ins folgende tippe sollte der das konnte den kompletten bildschirm füllen das ordentlich
+
+01:15:23.380 --> 01:15:31.500
+skalieren und dann sieht es halt in full hd halt auch ganz gut aus was macht eigentlich
+
+01:15:31.500 --> 01:15:41.700
+der download alter was ist denn das hier was ist für ein mirror dann dann stellen wir erst
+
+01:15:41.700 --> 01:15:58.100
+mal ein paar andere font sein weil der font sieht ein bisschen falsch aus so haben wir
+
+01:15:58.100 --> 01:16:02.460
+in anderen ordentlichen monospaces font dabei ja der den können wir jetzt erst mal nehmen
+
+01:16:02.460 --> 01:16:09.900
+bis hack installiert ist da sieht nämlich schon ein bisschen besser aus jetzt und danach
+
+01:16:09.900 --> 01:16:16.820
+stellen wir unser terminal schön auf hexa modus um also sprich mit dunklem theme und sowas
+
+01:16:16.820 --> 01:16:22.100
+tommy linux kann kann super aussehen wenn man da die richtige kombination aus desktop
+
+01:16:22.100 --> 01:16:30.380
+programm seems icons und sowas hat das gefällt mir besser als zu dieses nur nach 15 uhrs
+
+01:16:30.380 --> 01:16:37.060
+x lock den alle haben ich meine das sieht dann wieder mega hässlich aus aber das ist auch
+
+01:16:37.060 --> 01:16:42.620
+low level scheiß ja kann keiner den noch irgendwie halbwegs bei sinnen ist verwendet
+
+01:16:42.620 --> 01:16:48.620
+verwendet x tommy sogar das schrift rendering sieht mittlerweile ziemlich gut aus wenn jetzt
+
+01:16:48.620 --> 01:16:53.700
+die auflösung noch funktionieren würde was was meckerte hier eigentlich was noch fehlt
+
+01:16:53.700 --> 01:17:07.340
+status command fehlt die drei status ja das installieren wir jetzt noch es hat vorhin
+
+01:17:07.340 --> 01:17:14.620
+einer gefragt was ich für ein knopf drücke um i3 zu verlassen schiff alt e schiff alt
+
+01:17:14.620 --> 01:17:35.100
+e nee wenn was war es jetzt schiff willows e für i3 verlassen so wenn das jetzt noch
+
+01:17:35.100 --> 01:17:39.180
+funktioniert ich starte gleich noch mal neu kann man eigentlich auf linux auch eine exe
+
+01:17:39.180 --> 01:17:45.500
+ausführen das ist vollkommen egal ob das eine exe ist oder nicht die dateiendung hat
+
+01:17:45.500 --> 01:17:54.700
+erst mal nichts zu sagen es ist die frage wie das ding kompiliert wurde und gegen welche
+
+01:17:54.700 --> 01:18:00.900
+libraries das versucht zu linken und wie die binary also wie die wie die funktions aufrufe
+
+01:18:00.900 --> 01:18:05.460
+sind ob das unter linux läuft also wenn du eine exe hast die unter windows kompiliert
+
+01:18:05.460 --> 01:18:12.140
+wurde für windows dann läuft die natürlich nicht unter linux umgedreht aber auch nicht
+
+01:18:12.140 --> 01:18:16.340
+es gibt ein paar krücken so was wie wein zum beispiel aber das ist wirklich eine krücke
+
+01:18:16.340 --> 01:18:19.620
+das ist nichts was ich ernsthaft verwenden würde so was macht eigentlich mein font download
+
+01:18:19.620 --> 01:18:25.980
+wo der sagt er ist abgekackt perfekt das hat er ewig gebraucht dann kackt der font download
+
+01:18:25.980 --> 01:18:36.180
+ab ich verarschen dann noch mal als den font download jetzt nicht starten wein ist scheiße
+
+01:18:36.180 --> 01:18:40.900
+würde das gar nicht mit anfangen gut dann behalten wir jetzt erst mal den font hier
+
+01:18:40.900 --> 01:18:47.820
+wir machen die nur einen ticken größer meine sieht auch ganz brauchbar aus aber später
+
+01:18:47.820 --> 01:19:14.500
+entziehen wir hack als font weil bester font so ja das machen wir genauso machen wir das
+
+01:19:14.500 --> 01:19:30.700
+rebooten wir mal erkennt von euch den overpass font nein den kenne ich nicht was unten in
+
+01:19:30.700 --> 01:19:34.180
+der tips und tricks sektion ist noch ein tipp zu deinen problemen was schreiben die denn
+
+01:19:34.180 --> 01:19:56.060
+ich habe keinen schimmer warum das nicht funktioniert was hat was hat er für ein problem warum warum
+
+01:19:56.060 --> 01:20:03.220
+schaltet es die auflöser nicht hoch das nervt mich jetzt aber eigentlich wollte ich
+
+01:20:03.220 --> 01:20:25.540
+da gar nicht so lange dran aufhalten x andere output so stellen wir jetzt mal irgendwie
+
+01:20:25.540 --> 01:20:32.340
+eine ordentliche auflösung an die halbwegs was mit der realität zu tun hat current maximum
+
+01:20:32.340 --> 01:20:45.500
+8k x 8k easy
+
+01:20:45.500 --> 01:21:12.460
+hat gemacht steht doch da hat ich jetzt verschrieben
+
+01:21:12.460 --> 01:21:27.820
+es noch mal ach nee das ist nicht mode gleich ist einfach nur mode so aber das soll trotzdem
+
+01:21:27.820 --> 01:21:40.500
+automatisch funktionieren das nervt mich das nervt mich echt ok gucken wir mal ins wiki
+
+01:21:40.500 --> 01:21:48.900
+in der tips und tricks section sagst du wo ist denn die tips und tricks section hier
+
+01:21:48.900 --> 01:22:11.300
+die 3d acceleration aber nicht habe ich vielleicht den falschen vm display treiber oder sowas
+
+01:22:11.300 --> 01:22:14.300
+Sony
+
+01:22:14.300 --> 01:22:22.000
+die wo die
+
+01:22:22.000 --> 01:22:33.640
+haben wir? oh ich hab noch donation gekriegt danke
+
+01:22:33.640 --> 01:22:39.140
+eigentlich wollte ich mit dem einrichten wir gehen null größer null da hast du vollkommen
+
+01:22:39.140 --> 01:22:42.120
+recht 50 euro meine güte danke patrick
+
+01:22:42.120 --> 01:22:55.620
+eine gute ahnung moment was? moment man muss irgendein random grafikpaket installieren
+
+01:22:55.620 --> 01:23:17.440
+dass das funktioniert wollt ihr mich verarschen? jetzt bin ich mal gespannt
+
+01:23:17.440 --> 01:23:28.840
+ja noch mal rebooten kann ja nix schaden
+
+01:23:28.840 --> 01:23:30.680
+eats 50 euro donation
+
+01:23:30.680 --> 01:23:40.640
+hat man das nicht schon mal am anfang? ich hab da so gar nix geändert am boot zeugs
+
+01:23:40.640 --> 01:23:44.000
+ich glaube das buggt irgendwie rum irgendwie mit der vmw hardware hat es probleme
+
+01:23:44.000 --> 01:23:49.280
+aber vielleicht geht es jetzt also vielleicht geht es jetzt nachdem ich das paket installiert
+
+01:23:49.280 --> 01:24:10.400
+hab so ha funktioniert man muss nen random grafikpaket installieren dass das funktioniert
+
+01:24:10.400 --> 01:24:17.200
+und mal ganz ehrlich warum ist dieses grafikpaket nicht abhängigkeit von vmware tools? wer hat
+
+01:24:17.200 --> 01:24:26.800
+sich das wieder ausgedacht? manjaro please was ist das? da steht auch noch for some reason
+
+01:24:26.800 --> 01:24:34.200
+ja for some reason was ist das leute? why? warum? ok jetzt können wir nämlich weitermachen
+
+01:24:34.200 --> 01:24:39.680
+mit der eigentlichen sache nämlich dem einrichten von unserem i3 also man sieht der i3 ist relativ
+
+01:24:39.680 --> 01:24:44.080
+hässlich standardmäßig ja um nicht zu sagen pot hässlich das erste was wir jetzt erstmal
+
+01:24:44.080 --> 01:24:50.840
+brauchen ist ein ordentliches terminal als erstes brauchen wir ein ordentliches terminal
+
+01:24:50.840 --> 01:24:58.000
+jetzt können wir nämlich anfangen so wo startet hier das terminal? ich will nämlich
+
+01:24:58.000 --> 01:25:17.360
+das xterm nicht mehr sehen jetzt können wir gucken ob es den hackfont noch gibt ob der
+
+01:25:17.360 --> 01:25:30.920
+wieder ein bisschen schneller ist ja lad du mal im hintergrund weiter runter so als erstes
+
+01:25:30.920 --> 01:25:36.320
+brauchen wir jetzt mal ein hintergrundbild wichtigste ohne hintergrundbild geht ja prinzipiell
+
+01:25:36.320 --> 01:25:41.520
+schon mal gar nichts starten wir dann chrome und suchen uns mal ein schönes hintergrundbild
+
+01:25:41.520 --> 01:25:49.840
+raus nämlich mal eins von irgendein mario hintergrund weil ja demnächst mario odyssey
+
+01:25:49.840 --> 01:26:11.240
+am start ist haben wir da einen schönen hintergrund irgendwas schönes buntes was nehmen wir da
+
+01:26:11.240 --> 01:26:33.200
+mal für den hintergrund die bilder seiten sind immer so scheiß langsam
+
+01:26:33.200 --> 01:26:39.080
+das bild sieht hässlich aus auch wenn es 1900 mal irgendwas ist das sieht auch hässlich
+
+01:26:39.080 --> 01:26:45.240
+aus warum kann der browser das nicht laden? das bild ist garantiert keine 3000 noch was
+
+01:26:45.240 --> 01:27:01.800
+boah ist das langsam diese bilder seiten immer ey ich zeige euch nochmal was cooles
+
+01:27:01.800 --> 01:27:06.840
+ihr kennt ja alle diese speedtest seiten und dafür gibt es ein praktisches kommando zeilentool
+
+01:27:06.840 --> 01:27:10.760
+da muss man gar nicht mehr im browser rumklicken oder sonst was da macht man jetzt einfach
+
+01:27:10.760 --> 01:27:32.760
+speedtest auf der konsole und der führt das aus das ist wirklich praktisch
+
+01:27:32.760 --> 01:27:48.360
+ich habe aber ganz schön viel upload heute also ich habe ja 140 ab das deckt sich ungefähr
+
+01:27:48.360 --> 01:27:52.160
+damit ja das das stream jetzt kurz geleckt hat verstehe ich
+
+01:27:52.160 --> 01:28:09.560
+oh diese seiten sind so schnell oh sind die schnell oh sind die schnell
+
+01:28:09.560 --> 01:28:14.160
+das ist ein hübscher hintergrund den nehmen wir
+
+01:28:14.160 --> 01:28:23.720
+wir machen dann auch eigenes icon theme und sowas also ein neues
+
+01:28:23.720 --> 01:28:30.800
+eigenen ordner für hintergrund ja das ist hübsch den nehmen wir als hintergrund oder
+
+01:28:30.800 --> 01:28:43.080
+nehmen wir lieber den der sieht auch cool aus aber da ist ein bisschen klein nehmen wir
+
+01:28:43.080 --> 01:28:49.400
+den anderen so hackfont leht immer noch unter weil der mirror scheiße ist setzten wir mal
+
+01:28:49.400 --> 01:28:59.000
+den hintergrund
+
+01:28:59.000 --> 01:29:03.200
+hintergrund war sehen die anwendung mit dem die defaults siehenscheiße aus guckt euch
+
+01:29:03.200 --> 01:29:17.880
+das mal sieht aus wie 2005 image ordner zack gif als hintergrund blies ja jetzt sieht es
+
+01:29:17.880 --> 01:29:25.600
+doch schon mal alles besser aus der download macht mich aggressiv der macht mich wirklich
+
+01:29:25.600 --> 01:29:31.600
+aggressiv was ist es für ein scheiß mirror ich will meinen lieblings font installiert
+
+01:29:31.600 --> 01:29:43.960
+haben so wie machen wir weiter was machen wir jetzt als nächstes es gibt also wir müssen
+
+01:29:43.960 --> 01:29:50.680
+unser terminal ordentlich einstellen hippo keine ahnung wahrscheinlich nichts er fragt
+
+01:29:50.680 --> 01:29:55.280
+was der unterschied zwischen nitrogen und fe ist kein kein schimmer so als müssen wir
+
+01:29:55.280 --> 01:30:03.880
+erst mal die anwendung ein bisschen hübscher machen und zwar installieren wir mal ordentliche
+
+01:30:03.880 --> 01:30:29.280
+themes installieren wir mal die standard standard gnome themes hier auch immer die genau heißen
+
+01:30:29.280 --> 01:30:37.880
+hier mal und das da also eins zwei und sechs deswegen mag ich den den die paket manager
+
+01:30:37.880 --> 01:30:42.840
+hier unter anstehen das ist total simpel einfach angucken was man haben will zack zack zack
+
+01:30:42.840 --> 01:30:48.080
+installiert gut ist das ist im vergleich zu diesem rum gerödelbar debian und bei rpm
+
+01:30:48.080 --> 01:30:55.160
+basierten paketen richtig gut so haben wir ein dunkles theme so muss das sein eikens
+
+01:30:55.160 --> 01:31:00.480
+die sehen alle scheiße aus da brauchen wir noch ein anderes eikens theme da nehmen wir
+
+01:31:00.480 --> 01:31:12.200
+mal hieß das pop eiken hießen die so das finde ich ganz hübsch das ist auch ein relativ
+
+01:31:12.200 --> 01:31:21.640
+neues auch gleich geht mit so muss das sein das warum ist das clone von github heute so
+
+01:31:21.640 --> 01:31:28.320
+abartig langsam was ist was ist hier los ich will meine schrift installieren können so
+
+01:31:28.320 --> 01:31:32.320
+jetzt müssen wir unser terminal noch unser terminal noch mal ordentlich anpassen dass
+
+01:31:32.320 --> 01:31:38.600
+das nicht so schwarz auf weiß aussieht weil das ist kacke und mein lieblings mein lieblings
+
+01:31:38.600 --> 01:31:59.920
+farbschema ist base 16 tomorrow night klonen wir uns das mal auf warum geht der dauerung
+
+01:31:59.920 --> 01:32:05.440
+nicht es regt mich so auf dass der dauerung nicht geht ich will meine ordentliche eine
+
+01:32:05.440 --> 01:32:15.080
+gute schrift installiert haben ich habe das ganz gerne in meinem in meinem heimatverzeichnis
+
+01:32:15.080 --> 01:32:19.560
+ich habe ganz gerne dauerung also die grundausstattung die ich brauche ist ein downloads ordner und
+
+01:32:19.560 --> 01:32:25.360
+repos ordner bei einem repo ordner werden alle git repos geklont die so brauche unter
+
+01:32:25.360 --> 01:32:40.200
+anderem halt auch das hier und jetzt sieht das ganze gleich nach viel mehr hexa aus
+
+01:32:40.200 --> 01:33:05.760
+richtige klonen ha scheiße aus so ist das gut jetzt ist der schönen schönen hexa farbe
+
+01:33:05.760 --> 01:33:16.240
+im terminal so mag ich das jetzt können wir gleich noch ein ordentliches ordentliches
+
+01:33:16.240 --> 01:33:21.280
+zsh theme und zeugs installieren dann haben wir eine ganz ordentliche arbeitsumgebung
+
+01:33:21.280 --> 01:33:38.040
+wo man weitermachen kann so bla bla bla klonen wir den kram hier
+
+01:33:38.040 --> 01:33:48.440
+das ist eine plugin sammlung für zsh das hat ganz gute default settings finde ich besser
+
+01:33:48.440 --> 01:33:56.400
+als oh my zsh weil da ziemlich viel bullshit mit dabei ist ohne grüne schrift ist nicht
+
+01:33:56.400 --> 01:34:02.560
+hexa das ist richtig mysterio aber grüne schrift auf schwarzem hintergrund tut so sehr in den
+
+01:34:02.560 --> 01:34:09.800
+augen weh das kann ich mir nicht geben der download da kriegst du ja zustände hier was
+
+01:34:09.800 --> 01:34:22.760
+ist das so wo habe ich verkopmpel paste ich bin ja auch doof ich hätte es mal machen
+
+01:34:22.760 --> 01:34:38.640
+sollen was da steht nämlich zuerst das starten zuerst das starten dann das hier machen dann
+
+01:34:38.640 --> 01:34:47.600
+die schelz wechseln dass ich standardmäßig mich damit einloggen und jetzt sieht es auch
+
+01:34:47.600 --> 01:34:52.480
+ganz gut aus zwar immer noch nicht perfekt und die farben stimmen auch nicht wirklich
+
+01:34:52.480 --> 01:35:21.200
+um ehrlich zu sein aber das haben wir gleich die die die die die die die die die die die
+
+01:35:21.200 --> 01:35:25.820
+das jetzt kirchen ich musste noch ein zusätzliches paket installieren irgendeinen grafik library
+
+01:35:25.820 --> 01:35:33.260
+aus irgendwelchen gründen ich weiß nicht warum manchmal wird man halt da einfach nicht
+
+01:35:33.260 --> 01:35:39.560
+laut raus das LT das fahrschema sieht sich richtig aus muss ich mal sagen probieren noch
+
+01:35:39.560 --> 01:35:47.880
+mal ein anderes aus das sieht nicht richtig aus dass mit dem fahrschema stimmt etwas
+
+01:35:47.880 --> 01:36:07.080
+Ne ne guck mal, das kann man gar nicht lesen.
+
+01:36:07.080 --> 01:36:25.040
+Ah, so wollen wir das haben, so ist das schick, so gefällt mir das, so sieht meine Shell
+
+01:36:25.040 --> 01:36:29.300
+überall aus, bis auf das Seam hier unten, das stimmt noch nicht so ganz, aber so kann
+
+01:36:29.300 --> 01:36:34.160
+ich mitleben, jetzt planten wir noch die Menübar aus und dann ist das Terminal mäßig
+
+01:36:34.160 --> 01:36:44.360
+schon, so wie ich das haben will, so will ich mein Terminal haben, quasi im Endeffekt.
+
+01:36:44.360 --> 01:36:51.040
+So, ich will auf einem Desktop ein Terminal im Vollbild haben und fertig, auf dem anderen
+
+01:36:51.040 --> 01:36:54.000
+mein Browser und das ist alles was ich brauche in 99% der Zeit.
+
+01:36:54.000 --> 01:37:06.880
+So, auch noch eine coole Sache, da soll ich euch auch noch gleich zeigen, während der
+
+01:37:06.880 --> 01:37:12.760
+ganze Krämpel, Alter wie mich das abfuckt, dass dieser kack Mirror nicht funktioniert,
+
+01:37:12.760 --> 01:37:14.440
+warum ist der Mirror eigentlich so lahm?
+
+01:37:14.440 --> 01:37:36.080
+Oh, ich hab noch nicht mal ein W-Gerät drauf, das ist wirklich so langsam, das geht ja mal
+
+01:37:36.080 --> 01:37:48.840
+gar nicht, was ist das, so Witz, ähm, Cryptoker, genau dazu wollte ich gerade was zeigen, er
+
+01:37:48.840 --> 01:37:53.560
+hat gerade geschrieben, man kann sich ja, oder indirekt hat er das geschrieben, es kann ja
+
+01:37:53.560 --> 01:37:59.200
+relativ einfach passieren, dass man aus Versehen jetzt quasi sein Heimatverzeichnis oder irgendwas
+
+01:37:59.200 --> 01:38:04.080
+löscht, weil man hier nicht aufpasst, weil ich sag mal so Rm-Rf, wenn man sich da einfach
+
+01:38:04.080 --> 01:38:09.760
+nur vertippt, ja, also zum Beispiel, ich möchte jetzt Downloads machen und hab hier ein Leer-Zeichen
+
+01:38:09.760 --> 01:38:14.040
+davor gemacht, sowas hier in der Richtung, dann löscht er Downloads und mein Route-Verzeichnis,
+
+01:38:14.040 --> 01:38:26.040
+wenn er Rechte für hat, das ist ganz schön kacke, ähm, und deswegen, was mir ganz gut
+
+01:38:26.040 --> 01:38:35.480
+gefällt, ist das hier, Trash-Cli, das kann man quasi als, sich als Alias für Rm anlegen
+
+01:38:35.480 --> 01:38:40.800
+und dann verschiebt es automatisch alles nur noch in einen theoretischen Papierkorb, den
+
+01:38:40.800 --> 01:38:44.080
+man ab und zu mal leeren muss, das finde ich ganz praktisch, da kann man nicht mehr aus
+
+01:38:44.080 --> 01:38:48.480
+Versehen irgendwelche Sachen löschen und, äh, also einmal Sachen löschen, die man
+
+01:38:48.480 --> 01:38:50.960
+nicht löschen will und zweitens Sachen, die man löschen will, aber danach wieder
+
+01:38:50.960 --> 01:38:57.640
+braucht, das finde ich ist eine ganz gute Funktion, ist auch nicht groß und, ähm, da
+
+01:38:57.640 --> 01:39:02.560
+gehen wir jetzt einfach mal hier in meine Shell-Config und legen uns hier mal irgendwie
+
+01:39:02.560 --> 01:39:13.040
+an Alias Rm gleich Trash, so, und nun, wenn ich jetzt hier Rm mache, sieht man schon,
+
+01:39:13.040 --> 01:39:18.720
+ähm, das ist jetzt gealiased auf Trash, das heißt, ich kann nicht mehr aus Versehen irgendwelche
+
+01:39:18.720 --> 01:39:26.800
+Sachen löschen, wie lange lädt denn der Scheiß hier übrigens noch runter, äh, was ist mit
+
+01:39:26.800 --> 01:39:35.440
+dem Terminal los, äh, wie weit ist er denn, also GitHub als Mirror heute ist abartig langsam,
+
+01:39:35.440 --> 01:39:44.200
+aber hardcore langsam, aber ich muss sagen, Terminal-mäßig gefällt mir das jetzt schon
+
+01:39:44.200 --> 01:39:53.520
+mal gut, damit kann ich arbeiten, fehlt bloß noch mein Lieblingsfont eigentlich, ja, wenn
+
+01:39:53.520 --> 01:40:00.360
+man sudo Rm macht, dann hat man geschissen, aber wenn ich sudo Rm mache, will ich in der
+
+01:40:00.360 --> 01:40:19.800
+Regel auch Rm machen, so, wie sieht die Schriftdaten im Chrome eigentlich aus, die sieht ok aus,
+
+01:40:19.800 --> 01:40:25.280
+die sieht vollkommen in Ordnung aus, da hat also die notwendigen Schriftdaten schon mit
+
+01:40:25.280 --> 01:40:44.520
+installiert, ja, so, ähm, während der ganze Krempel hier lädt, installieren wir noch ein
+
+01:40:44.520 --> 01:40:51.440
+paar andere Sachen, und zwar, ähm, diese Standard-mäßig, diese Status-Leiste hier
+
+01:40:51.440 --> 01:40:56.960
+unten, die sieht ganz schön kacke aus, das ist diese Standard-mäßige I3-Status, der
+
+01:40:56.960 --> 01:41:07.480
+hat hier so Dinger dabei, wie eine IPv6-Adresse, meine interne IP, Plattenplatz und sowas,
+
+01:41:07.480 --> 01:41:12.640
+das ist ganz nett, aber das sieht wirklich aus wie vor 1980, ähm, seit Neues verwende
+
+01:41:12.640 --> 01:41:18.760
+ich anstatt dieses Standard I3-Status, ich habe eine ganze Weile diese Standard-Status-Leiste
+
+01:41:18.760 --> 01:41:22.560
+hier verwendet, halt mit einem Custom-Script, dass es ein bisschen schöner aussieht, aber
+
+01:41:22.560 --> 01:41:27.440
+es gibt jetzt was Neues, habe ich gesehen, ähm, ist in Rust programmiert und hat richtig
+
+01:41:27.440 --> 01:41:36.000
+schöne Features und sieht super aus, aber vorher, ähm, vorher legen wir uns noch mal
+
+01:41:36.000 --> 01:41:45.360
+ein paar Alias an, oh, Alias, wir machen einmal ein Alias für editieren von meiner, von meiner
+
+01:41:45.360 --> 01:41:52.720
+Shell-Config, weil das brauche ich oft und einen Alias für, ähm, editieren von meiner
+
+01:41:52.720 --> 01:42:05.440
+I3-Config, weil das brauche ich auch oft, so, jetzt editieren wir nämlich mal meine I3-Config
+
+01:42:05.440 --> 01:42:09.080
+und sagen dem ersten Mal, wir wollen jetzt mal eine bisschen größere Schriftart haben,
+
+01:42:09.080 --> 01:42:16.000
+weil das sieht kacke aus, so, so ist das schon schöner, ähm, und dann wollen wir diese
+
+01:42:16.000 --> 01:42:21.400
+hässliche Leiste da unten weg machen und wir wollen, nee, vorher wollen wir noch die bar,
+
+01:42:21.400 --> 01:42:28.280
+wollen wir position, position top, falls das so ging, ja, perfekt, jetzt ist es oben, so
+
+01:42:28.280 --> 01:42:34.920
+gefällt mir das schon viel besser, ähm, dann wollen wir, muss ich jetzt mal nachgucken,
+
+01:42:34.920 --> 01:42:41.240
+I3-WM no-window-border, wir wollen nämlich noch hier die, die Titel-Leiste und den ganzen
+
+01:42:41.240 --> 01:42:57.560
+Mist wegmachen, whyno.idrei-config, weil das, ähm, die voll ist, I3 hat eine super Hilfe-Seite
+
+01:42:57.560 --> 01:43:05.960
+mit ganzen Optionen, new-window-none wollen wir haben, das klingt gut, new-window-none,
+
+01:43:05.960 --> 01:43:12.320
+so, wenn ich jetzt ein neues Fenster aufmache, dann hat es kein Fenster-Titel mehr, perfekt,
+
+01:43:12.320 --> 01:43:21.040
+perfekt, so, ähm, mal gucken, ob ich mittlerweile Hack installieren darf, wir installieren uns
+
+01:43:21.040 --> 01:43:25.480
+auch mal gleich einen T-Max, dann kann ich nämlich diese ganzen, oh, oh, es lädt, es
+
+01:43:25.480 --> 01:43:36.320
+lädt, es lädt, habt ihr das gesehen, es lädt, es lädt, es lädt, seit drei Stunden hat es
+
+01:43:36.320 --> 01:43:44.680
+jetzt gebraucht, äh, Trezl, du hast vorhin gefragt, was ich da mache, bist du noch da,
+
+01:43:44.680 --> 01:43:51.240
+wenn du noch da bist, dann erklär ich's dir nämlich mal kurz, oh nee, es hängt wieder,
+
+01:43:51.240 --> 01:44:00.680
+oh, GitHub, was machst du denn heute, haha, Chosen, kannst ja auch eine Lelungsform installieren,
+
+01:44:00.680 --> 01:44:10.760
+ja, Hippo, ich könnte schon aus einer anderen Quelle, ähm, bekommen, aber ich wollte das
+
+01:44:10.760 --> 01:44:14.760
+gerne über den Paketmanager installieren, verstehe auch nicht, warum das so ein Problem
+
+01:44:14.760 --> 01:44:19.080
+ist hier gerade, ich könnte auch im Build-Script einfach den, die Uhrl ändern, von wo er sich
+
+01:44:19.080 --> 01:44:27.920
+zieht, ja, was ich hier mache ist relativ simpel, ich hab' nen Minimal Manjaro Linux
+
+01:44:27.920 --> 01:44:33.840
+installiert in der VM und richte darauf jetzt quasi die Umgebung so ein, wie sie mir am
+
+01:44:33.840 --> 01:44:42.280
+besten gefällt und wie auch meine Linux-Desktops aussehen, wir müssen noch was ganz wichtiges
+
+01:44:42.280 --> 01:44:54.520
+machen, wir müssen nämlich Gaps aktivieren, was damit gemeint ist, ihr seht ja, wenn ich
+
+01:44:54.520 --> 01:45:01.200
+hier im Vollbild bin, sind die Fenster eng an eng, das ist zwar sehr speicherplatzsparend,
+
+01:45:01.200 --> 01:45:04.800
+aber ich finde das sieht nicht so hübsch aus, zumal es auch immer ein bisschen schwierig
+
+01:45:04.800 --> 01:45:08.080
+zu erkennen ist, wo hört ein Fenster auf, wo fängt das andere an und sowas, deswegen
+
+01:45:08.080 --> 01:45:27.880
+hab ich ganz gern noch Gaps dazwischen, Sample, der Typ hatte doch hier irgendwo ein Beispiel,
+
+01:45:27.880 --> 01:45:42.200
+wie man das mit Gaps macht, sowas machen Informatikers aus Freizeitbeschäftigung, ja, Larin sowas
+
+01:45:42.200 --> 01:45:47.080
+auf YouTube hochladen, ich glaub' das interessiert keinen wirklich, also zumindest nicht bei
+
+01:45:47.080 --> 01:45:52.520
+mir auf dem Channel, default Gaps, machen wir mal 2020, ich weiß, das ist viel zu viel,
+
+01:45:52.520 --> 01:45:56.120
+ha, da sieht man jetzt auch schon, was das macht, das ist zwar eklig, das wollen wir
+
+01:45:56.120 --> 01:46:24.480
+gar nicht so viele Gaps, hier machen wir mal 5-5 oder so, ist schon besser, undbei ich
+
+01:46:24.480 --> 01:46:28.640
+finde, das sieht jetzt nicht so gut aus, wegen dem Rot hier unten, wir machen noch mal ein
+
+01:46:28.640 --> 01:46:36.120
+anderes Hintergrundbild, komm Mario Galaxy 2 Wallpaper, den da, ha, der ist hübsch,
+
+01:46:36.120 --> 01:46:52.280
+der gefällt mir, gibt's den auch als, ja perfekt, Full HD, save image, haben wir den,
+
+01:46:52.280 --> 01:47:05.720
+ha, der sieht doch viel freundlicher aus, oder, der sieht doch viel freundlicher aus,
+
+01:47:05.720 --> 01:47:19.480
+ähm, Kriki bei Twitch, bleibt das doch drinnen, ich hab doch Watts eingeschaltet, ich hab
+
+01:47:19.480 --> 01:47:27.280
+doch Watts eingeschaltet, kannst du das im Nachhinein noch angucken, ist der, wie lahm
+
+01:47:27.280 --> 01:47:41.920
+sind heute bitte Github Downloads, what the fuck, und der will wieder nicht hier, ups,
+
+01:47:41.920 --> 01:47:53.280
+ich will nämlich die ganzen Fenster jetzt mal zumachen, ich mach das später, hier warte
+
+01:47:53.280 --> 01:47:56.720
+ich mal noch, warten wir noch bis das ganze installiert ist, weil das ist ja fast fertig
+
+01:47:56.720 --> 01:48:04.240
+mit runterladen, oh, ist das langsam, den können wir schon mal zumachen, und machen
+
+01:48:04.240 --> 01:48:08.960
+es mal hier auf, genau, so sieht das ganze dann standardmäßig aus, also sprich, keine
+
+01:48:08.960 --> 01:48:16.840
+Fensterrahmen mehr, und nix, ähm, die Scrollbar mach ich meistens auch aus, und dann finde
+
+01:48:16.840 --> 01:48:19.440
+ich, sieht das ganz hübsch aus, das einzige, was mich noch richtig stört, ist hier oben
+
+01:48:19.440 --> 01:48:31.120
+diese hässliche Leiste, lassen wir den hier mal in Ruhe runterladen, so, ähm, wir installieren
+
+01:48:31.120 --> 01:48:35.560
+jetzt mal eine andere Leiste, also das Ding, das Ding ist hässlich, und ich hab letztens
+
+01:48:35.560 --> 01:48:42.520
+was gefunden, einen kompletten, einen kompletten Ersatz für, ach Moment, ich hab das falsche
+
+01:48:42.520 --> 01:48:58.240
+Theme, ähm, erstmal umstellen, welches Profil er nehmen soll, soll ich mich das hier standardmäßig
+
+01:48:58.240 --> 01:49:12.560
+nehmen, weil das besser aussieht, nicht so hässlich wie das da, ja, ähm, ich hab nämlich
+
+01:49:12.560 --> 01:49:18.160
+was gefunden, nämlich einen Ersatz für i3 Status mit viel mehr Features, und da standardmäßig
+
+01:49:18.160 --> 01:49:24.720
+schon richtig gut aussieht, den nehmen wir jetzt, nachdem das Rust ist, kompiliert das
+
+01:49:24.720 --> 01:49:31.600
+jetzt ne Weile vor sich hin, wat, nein, ich will das gar nicht editieren, aber in der
+
+01:49:31.600 --> 01:49:36.000
+Zwischenzeit, während das ganze installiert und alles, können wir schon mal die Konfig-Dateien
+
+01:49:36.000 --> 01:49:43.480
+dafür anlegen, äh, glaubst du, dass COD jemals wieder modbar sein wird, ähm, gab es nicht
+
+01:49:43.480 --> 01:49:50.760
+für Black Ops 3 Mod Tools, ich hab irgendwas gelesen, was ist daraus eigentlich geworden,
+
+01:49:50.760 --> 01:49:59.680
+weiß jemand, was aus den Mod Tools für Black Ops 3 geworden ist, äh, übrigens, wir müssen
+
+01:49:59.680 --> 01:50:05.520
+unsere Icon-Themes noch umstellen, ach nee, das installiert ja immer noch seit 3 Stunden
+
+01:50:05.520 --> 01:50:14.600
+das Icon-Theme, und warum ist das so langsam hier, ja, weil GitHub generell scheiße langsam
+
+01:50:14.600 --> 01:50:19.080
+ist, warum ist GitHub so langsam, ich krieg Anfälle, wenn GitHub so langsam ist, dann
+
+01:50:19.080 --> 01:50:38.560
+dauert ja alles lang, ich werd bestimmt D-Dost, weil ich meine IP revealed hab grade, ähm,
+
+01:50:38.560 --> 01:50:43.480
+so sieht das nämlich standardmäßig dann aus, die, ich mach das mal an, die Leiste
+
+01:50:43.480 --> 01:50:54.440
+hier im Vergleich zu dieser hässlichen Leiste, das ist hier doch mal im Längen besser, laden
+
+01:50:54.440 --> 01:51:00.240
+wir uns das mal runter hier, oh man, GitHub Downloads, warum sind die so langsam grade,
+
+01:51:00.240 --> 01:51:09.880
+soll ich, ich glaub, guckt euch das mal an, ja, was ist mit GitHub los, oder legt das an
+
+01:51:09.880 --> 01:51:22.480
+der Telekom wieder, geht Hut, GitHub, hast du schon von Quattel hier 1944 ein Bild bekommen,
+
+01:51:22.480 --> 01:51:27.800
+ja hab ich, hab ich, das kann doch an der Telekom liegen, ja, aber ich kann jetzt auch
+
+01:51:27.800 --> 01:51:32.240
+mein Gateway nicht umstellen, wenn ich mein Gateway jetzt umstelle auf Unity Media, ist
+
+01:51:32.240 --> 01:51:51.520
+der Stream weg, toll, das ist der Witz hier grade, das muss an der Telekom liegen, Witz,
+
+01:51:51.520 --> 01:52:05.040
+den hier ist das, was könnt ich denn da machen, na Geld, wer von der VM umstellen bringt mir
+
+01:52:05.040 --> 01:52:09.080
+nix, ich hab ja einen Router hier drinnen und hinter dem kommen die beiden Internetanschlüsse,
+
+01:52:09.080 --> 01:52:13.400
+das heißt, ich müsste auf dem Router die Routen umstellen, ich könnte höchstens ne
+
+01:52:13.400 --> 01:52:26.440
+Customroute für GitHub rein machen, wenn ich rauskriege, welches Netz GitHub verwendet,
+
+01:52:26.440 --> 01:52:44.360
+vielleicht kriegen sie ja n Scheiß noch mal zusammen, laden wir mal die Config runter
+
+01:52:44.360 --> 01:52:57.240
+und dann installieren wir uns mal in T-MAX, das war ja nochmal ordentlich, wo ist es, hallo,
+
+01:52:57.240 --> 01:53:05.240
+T-MAX, wo ist es, warum seh ichs nicht, da ist es doch, vier, gut, weil, nun kann ich
+
+01:53:05.240 --> 01:53:12.800
+hier auch mehrere, mehrere Pains und mehrere Tabs und so aufmachen, ohne dass ich hier
+
+01:53:12.800 --> 01:53:23.320
+30 Terminals starten muss, Status, Rust, dann nehmen wir einfach nicht das von Git, weil
+
+01:53:23.320 --> 01:53:33.160
+das ist ja anscheinend langsam wie Sau, probieren wir noch einmal aus, na das geht jetzt eigentlich,
+
+01:53:33.160 --> 01:53:47.840
+vielleicht ist es jetzt schneller, äh, oh, Chauzen, ich dachte das ist schon Beta, das
+
+01:53:47.840 --> 01:54:13.080
+ist noch nicht Beta, das nervt mich, ich überleg grad wie ich dem jetzt beibringen
+
+01:54:13.080 --> 01:54:22.960
+könnte, dass der für Unity Media, dass der GitHub über Unity Media macht, kommt heute
+
+01:54:22.960 --> 01:54:26.080
+noch was außer programmieren, weiß ich nicht, ich will jetzt eigentlich noch zwei, drei
+
+01:54:26.080 --> 01:54:30.680
+Sachen machen, dann würde ich sagen, ist das nämlich benutzbar das System und eigentlich
+
+01:54:30.680 --> 01:54:41.680
+ganz schick, die Sache ist die, ich kann nicht, weil GitHub so langsam ist, Alter, ist doch
+
+01:54:41.680 --> 01:54:47.160
+der Witz hier, ich verarsche, hier leht er wenigstens runter, auch wenn er mega langsam
+
+01:54:47.160 --> 01:55:00.520
+ist, dann installieren wir mal das, vielleicht ist das nicht vom GitHub, doch, das ist auch
+
+01:55:00.520 --> 01:55:15.240
+von GitHub, haha, man, ja, ich benutze PFSense, ich überlege mal eine Custom Route für GitHub
+
+01:55:15.240 --> 01:55:18.440
+reinzuschreiben, was hat denn GitHub für Netz, mal gucken, ob ich das gebacken kriege,
+
+01:55:18.440 --> 01:55:44.040
+GitHub Network Route, muss ich jetzt aber vom zweiten Rechner aus machen, ok, ok, ok,
+
+01:55:44.040 --> 01:55:57.120
+so, ich versuche jetzt mal eine Custom Route zu machen für GitHub, was hat denn GitHub
+
+01:55:57.120 --> 01:56:21.920
+für Netz, was haben die für Netz, ok, ok, ok, ok, ok, ok, ok, ok, ok, ok, ok, ok, ok,
+
+01:56:21.920 --> 01:56:39.000
+was haben die für Netz, ich meine, ich kann einfach mal für diese zwei IPs mal die Route
+
+01:56:39.000 --> 01:56:46.680
+ändern, das kann ich mal machen bei mir auf PFSense, ja, wie kann man Songs wünschen,
+
+01:56:46.680 --> 01:56:54.280
+das kann ich gar nicht, wo ist der Unterschied zwischen Gateway und Route, Gateway ist das,
+
+01:56:54.280 --> 01:57:02.080
+was du einträgst als quasi, als Ziel, wenn, nee, als Ansprechpartner, wenn das Ziel nicht
+
+01:57:02.080 --> 01:57:07.840
+in deinem Netz liegt, das ist ein Gateway, und auf einem Router setzt man eine Route,
+
+01:57:07.840 --> 01:57:12.960
+anhand dessen er entscheidet, wo er die Pakete rausschickt, so will ich mal den Unterschied
+
+01:57:12.960 --> 01:57:23.000
+definieren, ah, die Downloads laufen über Amazon, ja, super, ich kann trotzdem probieren
+
+01:57:23.000 --> 01:57:46.680
+mal eine Customroute einzustellen, vielleicht geht es dann schneller, ich probiere es mal,
+
+01:57:46.680 --> 01:58:07.520
+ja, jawoll, aber nicht geht das jetzt, und add route, das hier auch über Unity Media,
+
+01:58:07.520 --> 01:58:18.440
+vielleicht mal gucken, ob das jetzt funktioniert, wir machen jetzt einmal, machen wir hier mal,
+
+01:58:18.440 --> 01:58:28.120
+machen jetzt hier mal Trace Route drauf, ist ja nicht installiert, fuck, warum nicht, gucken
+
+01:58:28.120 --> 01:58:38.120
+wir mal, Trace Route, ok, das geht eindeutig über die Telekom, jetzt aktiviere ich mal
+
+01:58:38.120 --> 01:58:47.160
+die zwei Routen, und dann gucken wir mal, was jetzt lang geht, über Unity Media geht
+
+01:58:47.160 --> 01:58:55.520
+es jetzt, ha, die Customrouten funktionieren, jetzt natürlich die Frage, ob das für Git
+
+01:58:55.520 --> 01:59:15.600
+Clones auch gilt, na gut, ich weiß jetzt halt nicht, welche Route der nimmt, ich müsste
+
+01:59:15.600 --> 01:59:21.960
+wahrscheinlich komplett Amazon oder so routen, der nimmt natürlich für Git Clones was anderes,
+
+01:59:21.960 --> 01:59:29.200
+die wenn ich auf GitHub komm gehe, was ja auch irgendwie logisch ist, ja, das bringt
+
+01:59:29.200 --> 01:59:54.560
+nichts, ich habe keine Ahnung, wie ich nur GitHub umrouten soll, echt kein Plan, kriegt
+
+01:59:54.560 --> 02:00:12.480
+man das irgendwie raus, oh, hier, zumindest hier hat er schon was installiert, ich habe
+
+02:00:12.480 --> 02:00:40.920
+keine Ahnung, was GitHub für Netzwerk hat, ha, GitHub's IP Addresses, ha, das brauchen
+
+02:00:40.920 --> 02:00:45.800
+wir doch, jawoll, das ist doch genau das, was wir gesucht haben, die trage ich jetzt mal
+
+02:00:45.800 --> 02:00:56.640
+als Customroute ein, das da, slash 22, ja, dann wird es auch funktionieren, das da, slash
+
+02:00:56.640 --> 02:01:07.120
+22 und das da, slash 22, so, das seht ihr jetzt nicht, das mache ich gerade auf dem
+
+02:01:07.120 --> 02:01:13.800
+zweiten Bildschirm, weil ich euch nicht mein Routerpasswort verraten will, so, Enable,
+
+02:01:13.800 --> 02:01:24.920
+jetzt bin ich mal gespannt, Trace Route, funktioniert immer noch, mal gucken, ob es jetzt schneller
+
+02:01:24.920 --> 02:01:37.640
+geht, jetzt bin ich mal gespannt, das muss jetzt schneller gehen, oder auch nicht, vielleicht
+
+02:01:37.640 --> 02:01:44.480
+ist es bei Unity Media auch langsam, fuck, scheiße, ey, was ist hier los, also jetzt
+
+02:01:44.480 --> 02:01:59.560
+müsste da eigentlich alles GitHub-Technische über Unity Media leiten, ha, keine Ahnung,
+
+02:01:59.560 --> 02:02:06.480
+so, jetzt installieren wir uns erstmal ein ordentliches Icon-Theme, wichtigste, dass die
+
+02:02:06.480 --> 02:02:24.040
+Optik stimmt, das da, das finde ich ganz hübsch, jetzt nämlich zumachen hier, wisst ihr was,
+
+02:02:24.040 --> 02:02:39.000
+ich schreibe immer schnell, Prick, doch, doch, doch, doch, ja, du hast recht, ich habe das
+
+02:02:39.000 --> 02:02:54.440
+nicht mitkopiert, aber ich habe die eins bei mir davor geschrieben im Fenster, ähm, oh,
+
+02:02:54.440 --> 02:03:05.400
+ups, VMWare, User, das müssen wir noch einstellen standardmäßig, dass er das macht, das müssen
+
+02:03:05.400 --> 02:03:10.760
+wir nämlich alles noch einstellen, passt das nämlich wieder, ähm, das ist ein, irgendjemand
+
+02:03:10.760 --> 02:03:16.000
+gefragt hat, das ist ein Terminal, das ist ein Clom Terminal, so, das heißt wir brauchen
+
+02:03:16.000 --> 02:03:28.840
+hier Restore für den Background und wir brauchen, wie heißt der andere Scheiß, VMWare, User,
+
+02:03:28.840 --> 02:03:35.720
+so wie Rapper oder so, wie ist das so, oh, VM mit Visual, oh, das muss ich ausschalten,
+
+02:03:35.720 --> 02:03:39.280
+das muss ich ausschalten, dann kriege ich Anfälle, wenn VM auf, auf, auf, auf Maus
+
+02:03:39.280 --> 02:03:44.800
+reagiert, dann kriege ich echt Anfälle, aber das habe ich richtig geschrieben.
+
+02:03:44.800 --> 02:04:14.320
+Gucken wir schnell ins Herz, hopp, hopp, yes, also anscheinend ist GitHub gerade egal, worüber
+
+02:04:14.320 --> 02:04:20.000
+ich gehe langsam wie Sau, weil das sollte jetzt eigentlich über Unity Media laufen
+
+02:04:20.000 --> 02:04:30.280
+und nicht mehr über die Telekom, das fuckt mich ab, mal gucken wie schnell der jetzt
+
+02:04:30.280 --> 02:04:45.720
+ist, so, und dann installieren wir noch einen LS-Ersatz, weil ich Farben mag, ups, geh weg,
+
+02:04:45.720 --> 02:04:51.840
+man das Clonen von den Repos geht doch schnell, aber, aber der Download ist halt lahm wie
+
+02:04:51.840 --> 02:05:02.320
+Sau, wobei, Moment, die Downloads sind jetzt ja gar nicht mehr über GitHub, diese Downloads
+
+02:05:02.320 --> 02:05:11.920
+sind jetzt von dem Rust-Repo, das ist wahrscheinlich auch einfach nur lahm, weil heut alles lahm
+
+02:05:11.920 --> 02:05:29.320
+ist, gucken wir jetzt nämlich mal, wie schnell der Hack installieren kann, ist immer noch
+
+02:05:29.320 --> 02:05:35.400
+langsam, nee, das ist einfach, das ist einfach lahm und das geht jetzt über Unity Media,
+
+02:05:35.400 --> 02:05:46.920
+das geht nicht mehr über die Telekom, das ist einfach gerade langsam, oder, oder irgendjemand
+
+02:05:46.920 --> 02:05:56.120
+im Netzwerk lädt 50 GB Porn, ja, das kann natürlich auch sein, wisst ihr was wir jetzt
+
+02:05:56.120 --> 02:06:18.200
+mal ausprobieren, was wir jetzt mal ausprobieren ist, von wo lädt er dann den Kram runter,
+
+02:06:18.200 --> 02:06:31.520
+ja, wie schnell ist denn das, wenn ich den Browser lade, auch langsam, ne, auch ganz
+
+02:06:31.520 --> 02:06:56.400
+schön lahm, zwar nicht ganz so langsam, aber lahm, wir wissen was das Ding für eine IP
+
+02:06:56.400 --> 02:07:15.440
+hat, so, das ist aber keine, das ist keine Url, die angeblich zu GitHub gehört, hier
+
+02:07:15.440 --> 02:07:21.600
+habe ich natürlich keine Route drauf gesetzt, meine Güte, da mache ich jetzt nochmal eine
+
+02:07:21.600 --> 02:07:35.800
+Custom Route für das Ding, weil Telekom heute wieder wahnsinnig schnell ist, so, gehen wir
+
+02:07:35.800 --> 02:07:53.320
+jetzt über Unity Media, jetzt gehen wir über Unity Media, hallo, und jetzt macht er, das
+
+02:07:53.320 --> 02:08:16.720
+ist jetzt eine andere Url wieder, ne, ja, Internet in 2K17, lull, kann ich nichts machen, da kann
+
+02:08:16.720 --> 02:08:28.520
+ich echt nichts machen jetzt, keine Chance, also wenn auch nicht mal die IP Ranges stimmen,
+
+02:08:28.520 --> 02:08:37.680
+die auf GitHub stehen, was GitHub für IP Ranges hat, ja, ne, und über Unity Media ist auch
+
+02:08:37.680 --> 02:09:02.480
+offensichtlich langsam, wie man hier sieht, klar, wie kann man das klären, ja, 0 Bits
+
+02:09:02.480 --> 02:09:11.400
+pro Sekunde, yeah, ist das schnell, High Speed, High Speed, guck, der kann sich auch nicht
+
+02:09:11.400 --> 02:09:22.200
+verbinden, ja, also aufgrund dieser ganz tollen Sache hier kann ich nichts installieren, das
+
+02:09:22.200 --> 02:09:27.680
+ist ja toll, aber letztendlich ist das schon mal gar nicht so schlecht, was wir jetzt hier
+
+02:09:27.680 --> 02:09:36.000
+am Start haben, wir haben ein ordentlich konfiguriertes, ein ordentlich konfiguriertes Desktop, mich
+
+02:09:36.000 --> 02:09:38.800
+stört halt noch diese Leiste, die wollte ich jetzt eigentlich schon noch gerne ersetzen,
+
+02:09:38.800 --> 02:09:59.280
+ich meine, hallo, was ist das hier, bam, B-Boot in your face, gucken wir, ob der jetzt komplett
+
+02:09:59.280 --> 02:10:03.800
+von alleine startet, oh, da muss ich noch ein Delay einbauen für den Hintergrund, weil
+
+02:10:03.800 --> 02:10:23.320
+das ziemlich kacke aussieht sonst, ne, da kann ich echt nichts machen gerade, das nervt
+
+02:10:23.320 --> 02:10:41.200
+mich jetzt echt, mach mal meine Custom Routen, deaktivier ich schon mal wieder, disable,
+
+02:10:41.200 --> 02:10:54.520
+ne, ich glaube auch nicht, dass es an GitHub liegt, das wird an irgendwas hier in der Nähe
+
+02:10:54.520 --> 02:11:02.760
+liegen, weil das ist über Unity Media und es ist über die Telekom langsam, ich lade
+
+02:11:02.760 --> 02:11:13.480
+den Font jetzt mal von meinem zweiten Rechner runter, von dem anderen hier, wir machen noch
+
+02:11:13.480 --> 02:11:21.960
+mal einen Speedtest, jetzt diesmal im Browser, haben wir nicht hier noch Downloads irgendwo
+
+02:11:21.960 --> 02:11:28.640
+in die History, ne, natürlich nicht, ich lade das jetzt mal bei mir auf dem zweiten Rechner
+
+02:11:28.640 --> 02:11:40.080
+runter, mal gucken wie schnell es da ist, es ist genauso langsam, sowohl über Unity Media
+
+02:11:40.080 --> 02:12:03.840
+als auch Flash in 2K17, ihr habt das gesehen, jetzt wird das Stream lecken gleich, aber
+
+02:12:03.840 --> 02:12:20.560
+an sich ist das kein Problem hier, Speed technisch, ich mach aus bevor das Stream leckt, aber man
+
+02:12:20.560 --> 02:12:25.480
+sieht daran liegt es nicht, das ist irgendwas auf, wahrscheinlich irgendwas in Frankfurt
+
+02:12:25.480 --> 02:12:29.680
+oder so, keine Ahnung, weil es ist über Unity Media langsam und es ist über die Telekom
+
+02:12:29.680 --> 02:12:38.520
+langsam, was schon echt merkwürdig ist, muss ich sagen, das ist schon komisch, kann man
+
+02:12:38.520 --> 02:12:56.280
+nichts machen, okay probieren wir nochmal den einen noch zu installieren, aber da kann
+
+02:12:56.280 --> 02:12:59.720
+ich jetzt wahrscheinlich nicht weitermachen, Skills sind ja nur noch die zwei Sachen die
+
+02:12:59.720 --> 02:13:08.200
+ich machen will hauptsächlich, ich will ja diese hässliche Bar oben austauschen und
+
+02:13:08.200 --> 02:13:24.440
+das Font, tja, ich stehe übrigens die ganze Zeit vorm Schreibtisch, muss mich jetzt mal
+
+02:13:24.440 --> 02:13:53.520
+hinsetzen, aber dann haben wir den ordentlich eingerichteten Desktop, ja, das Ta und so,
+
+02:13:53.520 --> 02:13:57.240
+das kann ich mir auch so alles runterladen, aber das nervt mich, dass das nicht funktioniert,
+
+02:13:57.240 --> 02:14:04.640
+außerdem bringt mir das Ta alleine ja nichts, die anderen Downloads sind ja auch kacke langsam,
+
+02:14:04.640 --> 02:14:29.880
+da stimmt irgendwas in Frankfurt nicht, ich könnte jetzt nochmal versuchen mein Gateway
+
+02:14:29.880 --> 02:14:34.040
+umzustellen, dass alles über Unity Media läuft außer das Stream, in der Hoffnung das
+
+02:14:34.040 --> 02:14:45.840
+Stream kackt nicht ab dabei, das probiere ich jetzt nochmal aus, so, das probiere ich
+
+02:14:45.840 --> 02:14:57.920
+nochmal aus, weil so kann ich ja nicht weitermachen, gucken wir mal ob das hier die Twitch IPs
+
+02:14:57.920 --> 02:15:10.000
+waren, Twitch IPs soll über Telekom Gateway und zwar immer, hoffentlich bricht das Stream
+
+02:15:10.000 --> 02:15:33.560
+jetzt nicht ab, noch läuft das Stream, noch läuft das Stream, ok, das hat dem Stream anscheinend
+
+02:15:33.560 --> 02:15:42.560
+nichts gemacht, das ist gut, dann stelle ich jetzt mein Default Gateway um in P of Sense
+
+02:15:42.560 --> 02:16:04.440
+auf Unity Media und dann hoffe ich, dass das Stream immer noch geht, wenn das Stream jetzt
+
+02:16:04.440 --> 02:16:24.720
+kackt, dann stelle ich das wieder um, ok, Ping geht noch, Stream läuft noch, Trace Route
+
+02:16:24.720 --> 02:16:33.440
+geht über Unity Media, also Default Gateway ist anders jetzt, ich habe es jetzt auf Unity
+
+02:16:33.440 --> 02:16:39.040
+Media umgestellt, das läuft jetzt alles über Unity Media und wenn es jetzt auch nicht geht,
+
+02:16:39.040 --> 02:16:42.480
+dann ist es schlicht und ergreifend ein Routing Problem, was auch immer, irgendwo in der Ecke
+
+02:16:42.480 --> 02:17:08.760
+hier von Deutschland, oh, oh, flutscht, flutscht, flutscht, flutscht, PogChamp, scheiß Telekom
+
+02:17:08.760 --> 02:17:24.920
+aber eins muss ich sagen, ich bin begeistert, wie ich es hingekriegt habe gerade, auf meinem
+
+02:17:24.920 --> 02:17:31.680
+P of Sense die Route umzustellen, den Gateway zu wechseln, ohne dass der Stream abbricht
+
+02:17:31.680 --> 02:17:44.880
+dabei, der kompiliert das nicht, Patrick, das ist nur ein Binding dafür, der kompiliert
+
+02:17:44.880 --> 02:17:55.640
+nicht die eigentliche Library, sondern nur die Rust Bindings dafür, ja, was ist ein
+
+02:17:55.640 --> 02:18:01.720
+Unicode Ding gewesen, ich weiß es gerade gar nicht aus dem Kopf, ok, cool, das heißt,
+
+02:18:01.720 --> 02:18:11.760
+wir können das Ganze fertig machen, cool ist das, Klohm Terminal auf und installieren
+
+02:18:11.760 --> 02:18:17.040
+und lassen jetzt mal Hack als Schrift, beste Schriftart, sag ich mal, Hack, immer so, dass
+
+02:18:17.040 --> 02:18:21.880
+man die Veränderungen sieht hier, so sieht Hack aus, ich finde, das ist die schönste
+
+02:18:21.880 --> 02:18:32.800
+Schriftart, ohne Mist, also die schönste Mono Space Schriftart, Hack, gefällt mir einfach,
+
+02:18:32.800 --> 02:18:45.200
+einfach schick aus, so, hier sieht man auch nochmal diesen RM Ersatz, den ich vorher installiert
+
+02:18:45.200 --> 02:18:49.960
+habe, ich habe jetzt die Datei hier gelöscht und jetzt ist es im Papierkorb, jetzt könnte
+
+02:18:49.960 --> 02:18:56.680
+ich dann quasi sagen Trash Empty und das schmeißt wirklich weg, Vierer Mono, das ist nicht so
+
+02:18:56.680 --> 02:19:02.800
+mein Fall, habe ich auch schon, also ich habe fast alle Fonts durch, die irgendwo als so
+
+02:19:02.800 --> 02:19:08.920
+hier Best, Sonstwars oder guter Programming-Font, Terminal-Font gehandelt werden, Anonymos Pro
+
+02:19:08.920 --> 02:19:14.280
+und Sourcecode Pro und Konsolas und Inkonsolata und alle möglichen Dinge hatte ich schon
+
+02:19:14.280 --> 02:19:21.040
+durch, und Hack gefällt mir am besten, ist aber Geschmackssache, wirklich Geschmackssache.
+
+02:19:21.040 --> 02:19:47.200
+Ah ok, so, cool, schon funktioniert der Download, ich bin begeistert, was installiere ich hier
+
+02:19:47.200 --> 02:19:52.320
+gerade nochmal, den i3 Status Ersatz, genau, jetzt tauschen wir nämlich nochmal diese hässliche
+
+02:19:52.320 --> 02:20:11.960
+Leiste da oben aus, die config benennen wir mal um in i3 status es, woops, oh ich habe
+
+02:20:11.960 --> 02:20:34.120
+das falsche runtergelassen, losch, ich will die example config haben von dem Typ, so sieht
+
+02:20:34.120 --> 02:20:41.920
+es schon besser aus, Sound nehmen wir raus, habe ich hier nicht, ne, werdet sehen, gleich
+
+02:20:41.920 --> 02:20:47.480
+sieht das ganze viel besser aus als diese hässliche Leiste da oben, editieren wir hier
+
+02:20:47.480 --> 02:20:51.720
+noch die config an der Stelle, dass er das richtige Kommando ausführt, nämlich i3 status
+
+02:20:51.720 --> 02:20:57.840
+Ers mit der config Datei, i3 status Ers.conf, ich hoffe ich habe mich nicht verschrieben
+
+02:20:57.840 --> 02:21:05.760
+jetzt, auch den ganzen Krampel installieren, kannst du was über Matrizen und Determinanten
+
+02:21:05.760 --> 02:21:06.760
+erzählen?
+
+02:21:06.760 --> 02:21:15.440
+Ne, also nicht hier, musst du den Dings fragen, den Wombu falls er aufsteißt, ich glaube nicht
+
+02:21:15.440 --> 02:21:43.920
+dass er da ist, aber den kannst du fragen zu sowas, hallo, ok, sehr schön, ok, ok, ich
+
+02:21:43.920 --> 02:22:08.320
+habe den font nicht installiert, aber sieht schon viel schicker aus jetzt, ne, bloß
+
+02:22:08.320 --> 02:22:29.800
+dass ich keine eigens habe, was sagt der mir hier was ich installieren soll, die Mac Adresse
+
+02:22:29.800 --> 02:22:41.160
+aus der Leiste weg, was soll ich für eigens installieren, den da, machen wir, installieren
+
+02:22:41.160 --> 02:23:02.440
+wir, den brauchen wir, dann sind die eigens auch da, das sieht doch schick aus, ja das
+
+02:23:02.440 --> 02:23:05.160
+ist jetzt noch so ein bisschen schwarz weiß, das gefällt mir nicht, das können wir aber
+
+02:23:05.160 --> 02:23:21.280
+noch alles einstellen, aber das sieht schon mal ein bisschen schöner aus, das ist rot,
+
+02:23:21.280 --> 02:23:33.200
+man kann da draufklicken, das ist nice, das gefällt mir, sehr schick, so, dann können
+
+02:23:33.200 --> 02:23:36.840
+wir unsere i3 Config noch einstellen, dass wir als Standard Schrift Hack verwenden wollen,
+
+02:23:36.840 --> 02:23:58.640
+ja, so gefällt mir das, so sieht das schick aus, so, was, damit kann man doch jetzt arbeiten,
+
+02:23:58.640 --> 02:24:13.640
+so, jetzt muss man noch den Prompt anpassen, zwar als Prompt habe ich am liebsten das da,
+
+02:24:13.640 --> 02:24:37.760
+wo ist es denn, Pure, den da, der gefällt mir optisch am besten, machen wir, ja vielleicht
+
+02:24:37.760 --> 02:24:43.840
+nochmal ordentlich einrücken das ganze, nochmal beenden, ja, so ist das schick, so gefällt
+
+02:24:43.840 --> 02:24:59.360
+mir das, so ist das, so ist das nice, so gefällt mir das schon, so kann man arbeiten, ja, so
+
+02:24:59.360 --> 02:25:09.080
+ist das schick, oben auch noch ordentliche Leiste jetzt, CPU-Auslastung, ne, Load, CPU-Auslastung,
+
+02:25:09.080 --> 02:25:19.680
+ne, Load, CPU-Auslastung, CPU-Auslastung, keine Ahnung, RAM-Auslastung, ah, RAM-Auslastung,
+
+02:25:19.680 --> 02:25:33.200
+CPU-Auslastung, Load, Datum, Festplattenbelegung, ah, ok, jetzt hab ich's, jetzt hab ich's, ja,
+
+02:25:33.200 --> 02:25:39.240
+Patrick machte auch, also wenn jetzt hier zum Beispiel Repos, gehen wir jetzt mal, machen
+
+02:25:39.240 --> 02:25:45.120
+wir hier mal einen Test, machen wir mal einen Git-Repo, siehst, der zeigt ja auch den ganzen
+
+02:25:45.120 --> 02:25:51.800
+Best an hier, man kann da auch verschiedene Sachen an- und ausschalten, also der zeigt
+
+02:25:51.800 --> 02:25:56.720
+hier auch Pfeile an, quasi wenn man hinten dran ist mit Comets und sowas, sehr praktisch,
+
+02:25:56.720 --> 02:26:07.280
+so, das können wir jetzt noch schönes machen, wir starten jetzt nochmal neu und gucken,
+
+02:26:07.280 --> 02:26:17.800
+ob alles so passt, was wir eingerichtet haben, ah, eine Sache, eine Sache hätt ich noch gerne,
+
+02:26:17.800 --> 02:26:46.560
+und zwar, dass er beim Booten, mir standardmäßig hier auf dem ersten Desktop einen Chrome startet,
+
+02:26:46.560 --> 02:26:54.600
+Chrome, ich kann den mal schreiben, macht er, gut, so, ich nenne es jetzt bloß noch eins
+
+02:26:54.600 --> 02:27:16.840
+und ich web, sehr gut, macht er, hau mal ganz unten rein, wobei, nee, geht doch gar nicht,
+
+02:27:16.840 --> 02:27:32.800
+die Config ist ein bisschen kryptisch von E3, haben wir mal Exit, den ganzen Mist pipen
+
+02:27:32.800 --> 02:27:43.320
+wir mal ins Nichts und als letztes stellen wir da noch ein, dass er standardmäßig direkt
+
+02:27:43.320 --> 02:27:54.040
+nach dem Login X startet, auf dem ersten Terminal, guck mal, da startet mir auch gleich standardmäßig
+
+02:27:54.040 --> 02:28:02.680
+den Chrome mit hier auf dem ersten Desktop, das ist sehr schick, hab ich jetzt was vergessen,
+
+02:28:02.680 --> 02:28:16.240
+achso, ich bin ja auch blöd, bringt da so gar nichts, so, jetzt stellen wir noch ein,
+
+02:28:16.240 --> 02:28:25.360
+dass er mir standardmäßig nach dem Login auf dem ersten Terminal gleich X startet,
+
+02:28:25.360 --> 02:28:36.680
+gibt es ja auch irgendwo im Arch Linux einen, genau, da easy, genau, das da wollen wir haben,
+
+02:28:36.680 --> 02:28:57.520
+ob wir pasten, das ist jetzt mal wie die Noobs, so, und jetzt würde ich erwarten, wenn ich
+
+02:28:57.520 --> 02:29:05.120
+jetzt reboote und ich logge mich ein, dass er direkt X startet und ich den Desktop hab
+
+02:29:05.120 --> 02:29:14.920
+mit dem Chrome drauf, so wie ich das haben will, wie hast du dein Github Problem gelöst,
+
+02:29:14.920 --> 02:29:24.360
+ich hab den Gateway umgestellt auf Unity Media, ohne dass das Stream abgekackt ist, das ist
+
+02:29:24.360 --> 02:29:35.880
+doch was, oder? Direkt beim Neustart, zack, auf dem Desktop mit dem Chrome auf, so muss
+
+02:29:35.880 --> 02:29:55.120
+das sein. Auch ihr könnt euch ein bisschen über Mathe-Sachen diskutieren, solange es
+
+02:29:55.120 --> 02:30:10.520
+jetzt nicht nur Mathe-Sachen geht.
+
+02:30:10.520 --> 02:30:27.960
+Noobs.
+
+02:30:27.960 --> 02:30:44.280
+sehr schick sehr schick gefällt
+
+02:30:58.960 --> 02:30:59.960
+das gefällt mir gut
+
+02:30:59.960 --> 02:31:18.680
+ja das sieht doch brauchbar aus alles also ich finde kann man eigentlich so lassen
+
+02:31:18.680 --> 02:31:30.840
+eine sache machen wir jetzt noch ins ls ersatz weil ich neuerdings bei ls
+
+02:31:30.840 --> 02:31:39.800
+einfach total auf farben in der ausgabe stehe und zwar den hier warum ganz einfach weil es geht
+
+02:31:39.800 --> 02:31:57.080
+ja meine uhrzeit stimmt hin und vorne nicht weiß ich was auf was er für schmerzen hat aber
+
+02:31:57.080 --> 02:32:08.160
+nur zeit stimmt nicht habe ich keine ntp laufen wobei vor allem ist immer so eine sache
+
+02:32:08.160 --> 02:32:15.440
+na ich habe kein ntp laufen aber es ist auf einer fm eigentlich auch gar nicht erforderlich so
+
+02:32:15.440 --> 02:32:23.040
+lange ich veränder tools laufen habe ja da denkt wirklich wir haben 18 uhr der stimmt der sache
+
+02:32:23.040 --> 02:32:33.440
+stimmt ich nicht so ganz zu wir gleich nochmal zeitzonen gucken was da was da sache ist intervall
+
+02:32:33.440 --> 02:32:48.240
+jede sekunde haben wir eine schöne uraanzeige die plus zwei stunden vorgeht wozu braucht man
+
+02:32:48.240 --> 02:32:54.200
+linux wenn man es braucht weiß man dass jetzt vielleicht antwortet nicht sonderlich viel
+
+02:32:54.200 --> 02:33:01.280
+bringt also wenn du was machen willst richtung netzwerk gibt es eigentlich nur eine alternative
+
+02:33:01.280 --> 02:33:10.000
+wenn du was machen willst richtung lieber meck jetzt mal für irgendwelche webentwicklung oder
+
+02:33:10.000 --> 02:33:15.000
+sowas wobei ich weiß es machen viele unter unter windows und wo es natürlich ganz klar
+
+02:33:15.000 --> 02:33:44.080
+und nicht mehr wegzudenken ist wenn du irgendwas haustest ja so lassen wir hier noch mal mein ls
+
+02:33:44.080 --> 02:33:49.440
+replacement installieren einfach weil ich es hübsch finde ja bsd für die netzwerke auch noch das
+
+02:33:49.440 --> 02:33:53.680
+stimmt da das nimmt sich in einigen bereichen in nichts also nur wenn man wenn man jetzt
+
+02:33:53.680 --> 02:34:01.040
+beispielsweise keine ahnung ihnen zfs storage zeugs bereitstellen will oder so kann man auch
+
+02:34:01.040 --> 02:34:13.440
+mal über bsd nachdenken was kannst du den chat fn2 nfh pixel unter die leiste schieben ja kann
+
+02:34:13.440 --> 02:34:33.720
+ich machen so gute idee mal gucken ob das so passt so gucken ob das jetzt so passt was
+
+02:34:33.720 --> 02:34:43.920
+ich da gemacht habe vor einer vorschau gucken das passt wie die faust das passt richtig gut
+
+02:34:43.920 --> 02:34:55.680
+so als hätte ich es ausgemessen kommen hier sogar die leister sogar hier anzeigen so nach
+
+02:34:55.680 --> 02:34:59.040
+dem motto hier wir haben jetzt ganz schön sind ganz schön ausgelastet gerade weil wir
+
+02:34:59.040 --> 02:35:03.880
+hier parallel kompilieren ordentliche laut ordentliche cpu auslastung also es hat sogar
+
+02:35:03.880 --> 02:35:09.280
+grafisch farbliche hervorhebungen was gerade so passiert auf dem system also diese status
+
+02:35:09.280 --> 02:35:15.000
+leiste finde ich echt cool es gibt mittlerweile eben paar tools in was die ziemlich gut sind
+
+02:35:15.000 --> 02:35:23.480
+warum gucken wir eigentlich gerade 133 leute zu wie ich den linux konfigurieren ich weiß
+
+02:35:23.480 --> 02:35:30.680
+ich finde das geil ich finde super dass euch das interessiert ja so stellen wir mal meine
+
+02:35:30.680 --> 02:35:41.240
+uhr noch ein wie macht man das am besten darf man darf man das überhaupt oder spack dann
+
+02:35:41.240 --> 02:35:56.040
+vor immer warum wenn man das macht normalerweise sollten die vm tools das machen eigentlich
+
+02:35:56.040 --> 02:36:07.000
+sollten die forever tools dafür sorgen dass die zeit stimmt vielleicht müssen wir das
+
+02:36:07.000 --> 02:36:11.040
+ding einfach noch mal ausschalten wir einschalten dass es funktioniert wer weiß warum das rum
+
+02:36:11.040 --> 02:36:19.240
+spackt wir setzen wir mit date übrigens noch mal eine zeit habe ich glaube ich seit jahren
+
+02:36:19.240 --> 02:36:26.120
+nicht mehr gemacht macht das ntp standardmäßig drehen gut ist ich glaube ich habe die letzten
+
+02:36:26.120 --> 02:36:33.840
+zehn jahre auf dem linux system von nebenan von hand eine zeit gesetzt ja ami minus minus
+
+02:36:33.840 --> 02:36:52.720
+set ok setzen wir das doch jetzt mal 16 uhr 4 ja ja eigentlich sollte die zeitzone passen
+
+02:36:52.720 --> 02:36:57.880
+ich habe das alles richtig eingestellt noch mal gucken ob man das hier man das überhaupt
+
+02:36:57.880 --> 02:37:10.520
+hier einstellen kann time und date machen wir mal hier nächsten ran ja europe berlin
+
+02:37:10.520 --> 02:37:19.480
+also eigentlich sollte das stimmen lassen wir immer ntp setzen kann ich übrigens nicht
+
+02:37:19.480 --> 02:37:31.920
+applyn weil ich das ding nicht mit root gerechnet gestartet habe darf ich darf ich nicht applyn
+
+02:37:31.920 --> 02:37:41.000
+weil weil halt darf ich nicht wahrscheinlich weil kein ntp installiert das normalerweise
+
+02:37:41.000 --> 02:37:53.240
+sollte das sollten das die veränder tools erledigen und der scheiß läuft sogar also
+
+02:37:53.240 --> 02:37:57.680
+normalerweise muss ich das gar nicht selbst machen mit der zeit geht heute noch ein bisschen
+
+02:37:57.680 --> 02:38:23.160
+battlefield 3 action keine ahnung
+
+02:38:23.160 --> 02:38:36.120
+hier gibt es auch ein schönes beispiel für wir wollen keine links haben auch keine blocks
+
+02:38:36.120 --> 02:38:46.000
+haben keine einordnissen keine blocks aber alles das finde ich ist ich finde das ist
+
+02:38:46.000 --> 02:38:52.560
+ein cooler ls ersatz zwar nur lokal bei sich weil auf dem server werde ich wahrscheinlich
+
+02:38:52.560 --> 02:38:56.000
+jetzt nicht irgendwelche tools installieren nur weil ich ein anderes schöner schöner
+
+02:38:56.000 --> 02:39:06.560
+gefärbtes ls haben will aber ich finde das ich finde das schick deswegen setze ich mir
+
+02:39:06.560 --> 02:39:23.080
+das jetzt gleich nochmal als alias auf ls jetzt haben wir nämlich ls bm und sieht schick
+
+02:39:23.080 --> 02:39:30.760
+aus ich finde das sieht wir brauchen jetzt noch eine ordentliche t-max konfig und sowas
+
+02:39:30.760 --> 02:39:37.440
+aber das machen wir heute nicht mehr ich finde das system sieht nicht schlecht aus jetzt
+
+02:39:37.440 --> 02:40:02.040
+da kann man wirklich mit leben da kann man echt mit leben also es ist finde das gut
+
+02:40:02.040 --> 02:40:20.000
+das ist echt schick diese status bar kann auch noch viel mehr sachen
+
+02:40:20.000 --> 02:40:28.360
+zeit kann es anzeigen speicherauslastung kann es anzeigen welche musik abgespielt
+
+02:40:28.360 --> 02:40:34.880
+kann es anzeigen machen wir ja gerade nicht das läuft von meinem host im browser laut
+
+02:40:34.880 --> 02:40:47.160
+kann es anzeigen cpu kann es anzeigen batteriestand kann es anzeigen wenn man notebook hat hat
+
+02:40:47.160 --> 02:40:54.080
+irgendwelche custom dinger anzeigen lassen neue paket updates gibt festplatten speicher
+
+02:40:54.080 --> 02:41:04.720
+temperatur welches fenster offen ist welche auflösung drinne ist das können wir noch
+
+02:41:04.720 --> 02:41:23.920
+einblenden netzwerkgeschwindigkeit könnte man nochmal einblenden
+
+02:41:23.920 --> 02:41:31.400
+das sieht hässlich aus das sieht echt hässlich aus was macht er da was versucht er da einzublenden
+
+02:41:31.400 --> 02:41:37.080
+kraft der versucht graf zu malen wie ausgelastet das ganze ist ok das ist jetzt vielleicht
+
+02:41:37.080 --> 02:41:47.840
+ein bisschen hardcore das finde das ist echt ganz cool das wieviel netzwerkmäßig gerade
+
+02:41:47.840 --> 02:41:52.240
+übertragen wird und sowas ich finde das ist cool und mit dem graf ist glaube ich auch
+
+02:41:52.240 --> 02:41:56.560
+nice wenn das sich jetzt ein bisschen aktualisiert hat da sieht man dann wieviel man überträgt
+
+02:41:56.560 --> 02:42:06.940
+und sowas geht obs auch bei linux ja wobei obs ja auch entscheidend darauf ankommt wenn
+
+02:42:06.940 --> 02:42:11.640
+man beispielsweise konsole streamen will und sowas dass man eine capture card hat die von
+
+02:42:11.640 --> 02:42:15.720
+linux unterstützt wird also obs ist das eine die eingabe geräte müssen natürlich auch
+
+02:42:15.720 --> 02:42:23.760
+laufen da kann sogar ein speedtest machen und hier
+
+02:42:23.760 --> 02:42:27.880
+oben in der leiste anzeigen wie schnell man gerade ist wie sinn wie sinnhaft das ist
+
+02:42:27.880 --> 02:42:32.000
+da jetzt mal dahingestellt hast du noch immer g2a partnerschaften nope habe ich nicht mehr
+
+02:42:32.000 --> 02:42:41.680
+schon ein jahr nicht mehr oder so eineinhalb jahre schon ganze weile nicht mehr also ich
+
+02:42:41.680 --> 02:42:44.520
+muss sagen ich bin jetzt eigentlich ziemlich zufrieden mit dem was wir hier eingerichtet
+
+02:42:44.520 --> 02:42:53.760
+haben das mit dem graf gefällt mir nicht das machen wir mal weg ich finde das wirklich
+
+02:42:53.760 --> 02:43:03.920
+schick auch ein ordentliches icon theme hier jetzt am start schön dunkel alles ich mag
+
+02:43:03.920 --> 02:43:07.520
+das ja eh das einzige was wir jetzt noch ein bisschen stylen können ist hier unsere team
+
+02:43:07.520 --> 02:43:21.360
+ax leiste oder was sagt ihr damit kann man auch wirklich arbeiten jetzt also das kommt
+
+02:43:21.360 --> 02:43:29.120
+jetzt so ziemlich nah dem wie ich mein desktop eingerichtet hab klar ich hab noch zig weitere
+
+02:43:29.120 --> 02:43:39.320
+alias noch zig weitere tools installiert team ax konfig zsh konfig wim konfig massen ja
+
+02:43:39.320 --> 02:43:46.960
+aber so von basic her ist das jetzt ziemlich genau so eingerichtet wie ich das hier auf
+
+02:43:46.960 --> 02:43:51.200
+dem desktop auf meinem linux desktop hab und wie sie auf der arbeit auf meinem notebook
+
+02:43:51.200 --> 02:44:08.280
+hab ich glaube nicht dass es gemütet wird nein ich glaube nicht dass gemütet wird oder
+
+02:44:08.280 --> 02:44:21.920
+leute was sagte doch schick was futtern ich habe hier seit ewig kein schönes stück kurren
+
+02:44:21.920 --> 02:44:32.320
+stehen noch nicht wir angefangen funktioniert chromecast auch ohne probleme wollen wir mal
+
+02:44:32.320 --> 02:44:43.680
+ausprobieren habe ich noch nie getestet unter linux kannst du eigentlich java ich hab noch
+
+02:44:43.680 --> 02:44:54.280
+nichts in java gemacht ich würde es aber hinkriegen ob das geht nicht aber das kann auch einer
+
+02:44:54.280 --> 02:45:02.280
+vermitteln also ich habe hier wieder schild im netz normalerweise müsste hier unten jetzt
+
+02:45:02.280 --> 02:45:16.440
+der broadcast der broadcast knopf sein ist er aber nicht jetzt wird man gleich mal sehen
+
+02:45:16.440 --> 02:45:24.440
+wie viel cpu last so einen full hd 60 fps video verursacht wenn man keinen hardware decoder
+
+02:45:24.440 --> 02:45:41.560
+hat seht ihr das das ding haut einfach mal meine komplette cpu leistung das haut jetzt
+
+02:45:41.560 --> 02:45:47.880
+einfach 80 prozent cpu leistung weg oder 80 bis 90 prozent cpu leistung für 1080p 60
+
+02:45:47.880 --> 02:46:00.720
+fps video und unter windows sind das ungefähr 5 bis 10 prozent weil halt grafikkarten decoder
+
+02:46:00.720 --> 02:46:09.320
+für das video also hardware gpu decoding für für videos geht natürlich in der vm nicht
+
+02:46:09.320 --> 02:46:16.720
+weil die vm halt eben die gpu nicht sieht und auch die auch das 3d was in der vm geht
+
+02:46:16.720 --> 02:46:23.160
+ist recht rudimentär es gibt manche benchmarks die laufen durch aber es funktioniert mehr
+
+02:46:23.160 --> 02:46:33.440
+schlecht als recht wisst ihr was auch sein kann warum chrome warum das nicht funktioniert
+
+02:46:33.440 --> 02:46:40.040
+mit chrome cast vielleicht weil ich chrome installen wenn ich ja mal den originalen google
+
+02:46:40.040 --> 02:46:46.760
+chrome installiere können wir noch mal ausprobieren ob es damit dann funktioniert
+
+02:46:46.760 --> 02:47:03.440
+ne patrick es geht nicht du kannst keine gpu weiter reichen auf desktop also sprich du
+
+02:47:03.440 --> 02:47:09.640
+kannst nicht in vm workstation gpu passthrough machen das geht nur mit den ganzen mit diesem
+
+02:47:09.640 --> 02:47:17.440
+ziemlich lowlevel hypervisor also sagen wir mit sowas wie xenca vm esx und sowas kannst
+
+02:47:17.440 --> 02:47:23.480
+du das machen aber mit virtualbox oder mit vm workstation oder sowas funktioniert das
+
+02:47:23.480 --> 02:47:40.080
+leider nicht das geht nicht und wenn das gehen würde hätte ich das schon gemacht
+
+02:47:53.480 --> 02:48:12.200
+machst du mal ein video zum thema sprachassistenten das fällt mir schwer weil ich benutze keine
+
+02:48:12.200 --> 02:48:22.800
+ich finde das schick wie auch die die leiste hier oben auf den status vom system reagiert
+
+02:48:22.800 --> 02:48:33.440
+warum fangen 4k und 8k videos an auf youtube zu ruckeln also wenn es buffert kriegt es
+
+02:48:33.440 --> 02:48:38.360
+eindeutig an der übertragungsrate von deinem internetanschluss wenn es ruckelt weil der
+
+02:48:38.360 --> 02:48:44.760
+rechner nicht mitkommt videos im browser ist auch eine sache die schon ein bisschen overhead
+
+02:48:44.760 --> 02:48:50.920
+hat im vergleich zu irgendwas wie einem vlc oder sowas aber das mittlerweile schon sehr
+
+02:48:50.920 --> 02:48:58.640
+gut optimiert ist und mein 8k man darf auch nicht mal vergessen wie viel was was ich nullen
+
+02:48:58.640 --> 02:49:09.000
+das hat an pixeln wir probieren mal wir gucken mal ob ein 8k wie ob ein 4k video hier überhaupt
+
+02:49:09.000 --> 02:49:21.880
+laufen würde in der vm ich gehe mal davon aus das wird nicht richtig laufen kosta rica
+
+02:49:21.880 --> 02:49:48.360
+da reichen die 2 cpu kerne nicht hier drinnen da krabbelt das fault hier noch mal doppelt
+
+02:49:48.360 --> 02:49:55.920
+so langsam kannst du jetzt programme nur noch über die konsole starten kannst du auch über
+
+02:49:55.920 --> 02:50:05.720
+die leiste arbeiten klar kann ich auch ich kann auch hier starten guckt kann ich kann
+
+02:50:05.720 --> 02:50:11.520
+auch hier sagen guck oder oder was soll ich denn mal starten firefox hier haben wir nicht
+
+02:50:11.520 --> 02:50:26.000
+drauf nein jetzt habe ich abgebrochen ich nupp auch mal also ich kann das hier auch ganz
+
+02:50:26.000 --> 02:50:34.000
+normal starten also was was ja gut was was was was hab ich denn zu starten ja gelex gears
+
+02:50:34.000 --> 02:50:40.960
+für mehr 3d kann ich alles auch über die leiste hier oben starten das hat sogar so
+
+02:50:40.960 --> 02:50:54.280
+wildcards wildcards suche also ich muss das nicht ausschreiben kennst du rofi ja ist
+
+02:50:54.280 --> 02:51:02.080
+richtig habe ich habe ich normalerweise benutzt normalerweise für als demenu ersatz brauche
+
+02:51:02.080 --> 02:51:05.440
+aber ein bisschen finde ich ein bisschen konfiguration dass es schick aussieht und genau das macht
+
+02:51:05.440 --> 02:51:20.200
+was ich will er rufe ist finde ich beste alternative dazu die leiste meinst cheat meinst du das
+
+02:51:20.200 --> 02:51:30.520
+hier oben oder meinst du dieses menü zum starten warum hast du dich für mancharo entschieden
+
+02:51:30.520 --> 02:51:38.040
+weil top aktuelle pakete nicht ganz so pleading edge wie ein reines archlinux und man profitiert
+
+02:51:38.040 --> 02:51:43.240
+auf dem desktop einfach am ehesten von neuesten features da will man ja auch immer das neu
+
+02:51:43.240 --> 02:51:50.520
+also ich zumindest will auf dem desktop immer das neueste haben du hast die größte pakete
+
+02:51:50.520 --> 02:51:58.920
+auswahl die man sich denken kann tach warum benutzt man nicht für vm proxmox kann man
+
+02:51:58.920 --> 02:52:04.840
+machen wenn man den linux host hat kann man das machen also wenn man quasi einen server
+
+02:52:04.840 --> 02:52:07.880
+hat mit dem man sonst nichts machen will dann kann man auch proxmox drauf installieren und
+
+02:52:07.880 --> 02:52:17.360
+quasi alles in vms packen proxmox ist nicht schlecht kann man verwenden mana wegen mache
+
+02:52:17.360 --> 02:52:23.680
+ich mache ich ganz vergessen ich mache es mir schon mal auf im tab kann ich nachher
+
+02:52:23.680 --> 02:52:51.120
+dann steamprofil sein kubuntu gefällt ja jeder wie er das mag jeder wie er das mag
+
+02:52:51.120 --> 02:52:57.840
+ich bin da recht wenig wie sagt man das so fanatisch was da irgendwie was anbelang ich
+
+02:52:57.840 --> 02:53:01.200
+denke es soll jeder das verwenden vor allem unter linux wo es eben auch eine große auswahl
+
+02:53:01.200 --> 02:53:11.200
+gibt soll jeder das verwenden was er am besten findet das sind zusätzliche programmer also
+
+02:53:11.200 --> 02:53:29.240
+cheat dass das hier oben ist demenu da gibt es aber auch alternativen zu das hier das
+
+02:53:29.240 --> 02:53:42.120
+ist die das ist hier oben der der launcher und das dann rechts ist die 3 status rast
+
+02:53:42.120 --> 02:53:50.520
+das muss man auch in seine i3 konfig eintragen dass man das verwenden will und dann sieht
+
+02:53:50.520 --> 02:54:11.520
+das so aus ja so kennst du redox os das ist das in rast ist das rast os wenn ja ist das
+
+02:54:11.520 --> 02:54:15.800
+richtig geil ich habe es noch nie ausprobiert aber was der typ da auf die beine gestellt
+
+02:54:15.800 --> 02:54:32.240
+hat vor allem wie gut dass ich auskennen muss das ist geil
+
+02:54:32.240 --> 02:54:57.080
+ja cool lewo das ist ich bin immer froh wenn leute meine videos gefällt ach du bist ja
+
+02:54:57.080 --> 02:55:14.880
+mit der domain das weiß ich natürlich noch
+
+02:55:14.880 --> 02:55:20.960
+was sagst du zum neuen firefox quantum pro well ich gut da kommt rast in firefox rein
+
+02:55:20.960 --> 02:55:28.720
+also teile die mit was programmiert sind ja war da wegen billig ist das ein angebot oder
+
+02:55:28.720 --> 02:55:36.280
+wie darf ich das verstehen nur noch homo was ist mit chrome kast ach stimmt ja wollten
+
+02:55:36.280 --> 02:55:50.400
+wir ausprobieren gucken ob chrome kast hallo warum darf ich kein chrome starten gucken wir
+
+02:55:50.400 --> 02:56:07.400
+mal ob chrome was gucken wir mal ob chrome kast vielleicht über den echten chrome funktioniert
+
+02:56:07.400 --> 02:56:23.240
+ja geht das aporette ne das ist nicht aporette das ist jones jones keine ahnung wer das ist
+
+02:56:23.240 --> 02:56:32.600
+aber das funktioniert kokt funktioniert als würde funktionieren ich könnte jetzt drüben
+
+02:56:32.600 --> 02:56:36.560
+auf dem schild tv abspielen das heißt es funktioniert nur über den original chrome
+
+02:56:36.560 --> 02:56:40.120
+nicht über chrome habe ich gerade festgestellt wusste ich auch nicht verwende ich aber auch
+
+02:56:40.120 --> 02:57:02.760
+nicht weg damit tinder habe ich nicht nee ich habe ich habe mal ein kollege der ging
+
+02:57:02.760 --> 02:57:08.640
+übelst ab der hat einen ganzen tag tindermedels durch nicht gestrafe wie nennt man das bei
+
+02:57:08.640 --> 02:57:16.400
+tinder durchgewirkt geswiped durchgeswiped daher kenne ich das aber ich habe das nicht
+
+02:57:16.400 --> 02:57:23.480
+aber firefox quantum finde ich ist eine geile sache da zahlt sich jetzt mal aus dass mozilla
+
+02:57:23.480 --> 02:57:29.280
+quasi auf rast gesetzt hat sich eine komplett neue technologie ausgedacht eine neue programmiersprache
+
+02:57:29.280 --> 02:57:33.920
+eine innovative programmiersprache und damit jetzt auch was gutes hingekriegt hat und das
+
+02:57:33.920 --> 02:57:41.680
+teilweise jetzt nach und nach in firefox aufgeht nein wollte ich nicht bietbrot wollte ich
+
+02:57:41.680 --> 02:57:50.080
+nicht wie findest du gnome nicht mein fall ich mag die drei so wie das jetzt eingerichtet
+
+02:57:50.080 --> 02:57:54.760
+ist die drei ich habe normalerweise hier oben ist noch ein paar eikens an den workspaces
+
+02:57:54.760 --> 02:58:03.200
+und sowas aber das ist ja alles nur kosmetik was ich brauche ist desktop 1 browser desktop
+
+02:58:03.200 --> 02:58:08.920
+2 terminal mit t-max versteht sich wenn er ordentlich t-max konfig dass sie nicht mehr
+
+02:58:08.920 --> 02:58:16.640
+so grün hässlich ist das brauche ich desktop 1 browser desktop 2 terminal und terminal
+
+02:58:16.640 --> 02:58:24.120
+dann meistens hier noch mit was weiß ich wie vielen tabs auf desktop 3 habe ich meistens
+
+02:58:24.120 --> 02:58:35.720
+instant messaging und so geht uns auf habe ich jetzt nichts installiert desktop 5 habe
+
+02:58:35.720 --> 02:58:41.040
+ich normalerweise immer irgendwelche remote geschichten offen also remote desktops und
+
+02:58:41.040 --> 02:58:47.000
+sowas zu irgendwelchen windows vms und blas sonst was was man so braucht auf vier habe
+
+02:58:47.000 --> 02:58:55.800
+ich meistens in den grafischen nito oder idee offen für das was ich gerade brauche ja und
+
+02:58:55.800 --> 02:59:08.800
+6 und 7 sind temp für alles mögliche ja mannabing so wie der patrick das sagt es gibt nichts
+
+02:59:08.800 --> 02:59:23.080
+was dein pc mehr beschleunigt gefühlt als eine ssd wenn du noch keine hast florian das
+
+02:59:23.080 --> 02:59:28.320
+kann ich nicht verstehen wie jemand mit weißem hintergrund im terminal arbeiten kann ich
+
+02:59:28.320 --> 02:59:41.760
+finde so diese farb kombination base 16 tomorrow night farbschema und dann dunkle 7 für den
+
+02:59:41.760 --> 02:59:54.280
+rest ist das beste was es so gibt habe ich irgendwelche fragen noch übersehen und was
+
+02:59:54.280 --> 03:00:05.840
+machst du dann wenn du das hast was meinst du denn im user ja heute mal kein oder wahrscheinlich
+
+03:00:05.840 --> 03:00:17.640
+war mal kein bettel treiber warum ich so ein was fern bin ich mag was das ist eine coole
+
+03:00:17.640 --> 03:00:26.960
+sprache die haben es geschafft quasi was zu bauen was saumäßig schnell ist aber gleichzeitig
+
+03:00:26.960 --> 03:00:32.040
+sicher also sicher in form von du kannst nicht auf sachen zugreifen die es schon nicht
+
+03:00:32.040 --> 03:00:38.640
+mehr gibt und sowas also quasi die probleme die c hat um schifft dafür ist natürlich
+
+03:00:38.640 --> 03:00:48.080
+rast programmieren auch etwas belastender als c der rast compiler meckert bei jedem
+
+03:00:48.080 --> 03:00:53.080
+scheiß also es geht dir richtig auf den sack also rast programmieren ist richtig arbeit
+
+03:00:53.080 --> 03:00:58.240
+rast programmieren ist richtig anstrengend dafür kannst du dir danach sicher sein das
+
+03:00:58.240 --> 03:01:12.280
+macht auch das was da steht hast du schon mal open sense benutzt ich habe ja auch sonst
+
+03:01:12.280 --> 03:01:24.880
+als router bei mir daheim max was ist deine meinung zu bitcoin hast du investiert wenn
+
+03:01:24.880 --> 03:01:36.120
+ja würdest du noch investieren habe ich nicht und habe ich auch nicht vor ja und cargo ist
+
+03:01:36.120 --> 03:01:48.040
+auch toll als paket manager das stimmt er war kaum ja vielleicht das weiße weiße hintergrund
+
+03:01:48.040 --> 03:02:03.800
+schrift das geht nicht was ist open sense open sense ist kann ich mal zeigen open sense
+
+03:02:03.800 --> 03:02:21.200
+ist eine bsd firewall distribution haben die paar bilder haben die paar schöne bilder
+
+03:02:21.200 --> 03:02:46.760
+auf ihrer seite screenshots haben dies immer nicht so so pf sens fork ist gut gefällt
+
+03:02:46.760 --> 03:03:06.240
+und alternativen auch alternativen zur open sense ja gut pf sens ganz klar daher kommt
+
+03:03:06.240 --> 03:03:15.520
+das ganze ich kenne mich leider bei bsd distribution nicht aus was es da sonst noch gibt für
+
+03:03:15.520 --> 03:03:21.280
+deluxe gibt es auch zig firewall distribution ja von so einem klassiker wie ip cop zu ip
+
+03:03:21.280 --> 03:03:27.600
+fire und da gibt es zig zig sachen aber ich finde das gesamtpaket und auch von so sagen
+
+03:03:27.600 --> 03:03:36.400
+wir mal so advancederen funktionen finde ich ist open sense toll ganz ohne addons allein
+
+03:03:36.400 --> 03:03:39.640
+schon dass man damit das machen kann was ich vorhin quasi am zweiten monitor was ich nicht
+
+03:03:39.640 --> 03:03:45.120
+gesehen habe machen konnte dass ich quasi mein gateway switche und routen setze und
+
+03:03:45.120 --> 03:03:48.760
+on the fly und ohne dass das stream abkackt und sowas das schon cool
+
+03:03:48.760 --> 03:04:17.480
+ne zentral sagt mir nix florian das habe ich schon nicht gehört
+
+03:04:17.480 --> 03:04:24.480
+morgen gibt es open sense installation stream na morgen muss ich arbeiten
+
+03:04:24.480 --> 03:04:37.520
+morgen schon mal nicht was hast du für eine route auf dem open sense läuft das ist nur
+
+03:04:37.520 --> 03:04:52.320
+vm das nur vm kvm vm auf meinem ubuntu server mit einer quad port intel netzwerkarte direkt
+
+03:04:52.320 --> 03:05:17.800
+durchgereicht
+
+03:05:17.800 --> 03:05:36.760
+wie findest du für dora also die paar minuten wo ich vor dora verwendet habe in letzter
+
+03:05:36.760 --> 03:05:50.680
+zeit war das ganz brauchbar ja er wirken es gibt ein paar fertige boxen für für pf
+
+03:05:50.680 --> 03:05:54.200
+sense beziehungsweise open sense habe ich aber nie ausprobiert
+
+03:05:54.200 --> 03:06:04.400
+ne cheat ich zeige meine meine router oberfläche nicht da ist eigentlich nix drauf was man
+
+03:06:04.400 --> 03:06:08.640
+jetzt nicht sehen dürfte aber ich bin mir nicht ganz sicher was auf den einzelnen seiten
+
+03:06:08.640 --> 03:06:14.560
+steht deswegen das zeige ich jetzt net also nicht dass da noch irgendwo passwörter stehen
+
+03:06:14.560 --> 03:06:18.680
+oder sowas was eigentlich auch nichts machen würde weil man von außen eh nicht dran kommt
+
+03:06:18.680 --> 03:06:24.840
+aber man muss es ja nicht übertreiben jetzt weiß ich keine ahnung ob es sich das lohnt
+
+03:06:24.840 --> 03:06:30.240
+habe ich nicht ausprobiert wenn man noch eine alte kiste hat mit genug netzwerk karten
+
+03:06:30.240 --> 03:06:37.320
+drin ist es sicherlich nicht schlecht aber ob es sich lohnt extra box für open sense
+
+03:06:37.320 --> 03:06:45.280
+zu kaufen kommt wahrscheinlich drauf an was man da was man da für eine hardware hatte
+
+03:06:45.280 --> 03:06:53.600
+ich meine es darf ja auch nicht strom fressen ohne ende wer günstige wer günstige netzwerk
+
+03:06:53.600 --> 03:07:04.600
+hardware herstellt ist mikrotik die haben günstige sachen von routern bis switches auch
+
+03:07:04.600 --> 03:07:13.760
+10 gigabit switches firewalls mit gut mit guter oberfläche halt ziemlich günstig oder
+
+03:07:13.760 --> 03:07:20.560
+wenn es ein bisschen teuer sein darf die jungs hier die haben auch gute sachen und von sysco
+
+03:07:20.560 --> 03:07:23.960
+und solchen sachen reden wir jetzt ja mal gar nicht da muss man ja dann schon in vierstelligen
+
+03:07:23.960 --> 03:07:32.200
+bereich irgendwas ausgeben und das ist bescheuert also ich würde sagen mikrotik ist so das
+
+03:07:32.200 --> 03:07:39.360
+günstigste halt auch oftmals nicht unbedingt die fetteste hardware drin ja danach ubiquiti
+
+03:07:39.360 --> 03:07:44.160
+finde ich auch gut als hardware netzwerk technisch sowohl router switches firewalls alles mögliche
+
+03:07:44.160 --> 03:07:51.040
+weil ich die ubiquiti firewall noch nie verwendet habe ja und die ganze enterprise geschichten
+
+03:07:51.040 --> 03:07:54.280
+halt wenn man vielleicht eine von der arbeit abgreifen kann weil die weggeschmissen wird
+
+03:07:54.280 --> 03:07:59.160
+oder so aber die sysco würde ich mir daheim generell nicht hinstellen das ist laut das
+
+03:07:59.160 --> 03:08:25.280
+braucht strom das ist wir zu bedienen wenn man nicht gerade der absolute sysco fan ist
+
+03:08:25.280 --> 03:08:29.960
+wir hatten eine pf sense appliance crashed jeden zweiten tag kann sein ich habe ich habe
+
+03:08:29.960 --> 03:08:35.760
+pf sense und open sense noch nie im so business umfeld gesehen beziehungsweise eingesetzt
+
+03:08:35.760 --> 03:08:43.400
+bei mir daheim funktioniert es wunderbar kann open sense jetzt wesentlich mehr als der standard
+
+03:08:43.400 --> 03:08:51.040
+fritzbox aber umlängen mehr also jetzt mal auf netzwerk funktion bezogen umlängen mehr
+
+03:08:51.040 --> 03:08:55.880
+das webfront erschlägt dich wenn du jemand bist der nur fritzbox gewohnt ist kannst du
+
+03:08:55.880 --> 03:09:02.680
+ziemlich alles machen was irgendwie geht netzwerk technisch zu die sperenzien wie eine fritzbox
+
+03:09:02.680 --> 03:09:07.880
+quasi eine deckstation in den usb fileserver und so was das kannst du damit natürlich
+
+03:09:07.880 --> 03:09:11.640
+nicht so ohne weiteres machen dafür ist noch nicht gedacht aber netzwerk funktionen her
+
+03:09:11.640 --> 03:09:33.640
+steckt es jede fritzbox immer um 3000 prozent in die tasche
+
+03:09:33.640 --> 03:09:43.000
+ich weiß es nicht ich weiß es nicht keine ahnung wo hast du die hast du die auf ebay
+
+03:09:43.000 --> 03:09:49.160
+gefunden cheat oder wo hast du das hast du das her gerade oder schick mir mal den link
+
+03:09:49.160 --> 03:09:52.400
+wo du das zu der netzwerk karte die du da hast dann kann ich dir sagen ob das meine
+
+03:09:52.400 --> 03:10:03.960
+ist kennst du leimteich sagt mir irgendwas kann ich aber gerade nicht zuordnen was das
+
+03:10:03.960 --> 03:10:12.200
+ist genau so ist es die fritzbox freunde benutzer freundlich zu bedienen sein die meisten leute
+
+03:10:12.200 --> 03:10:15.800
+brauchen ja den ganzen mist gar nicht den man bei pf sense oder open sense einstellen
+
+03:10:15.800 --> 03:10:22.720
+kann wenn ich mir den dialog zu kasse regeln angucke das da weiß der weiß den standard
+
+03:10:22.720 --> 03:10:29.120
+fritzbox benutzer gar nicht mal was da damit soll ich habe wir können mal wenn ihr wollt
+
+03:10:29.120 --> 03:10:37.600
+demnächst einen open sense oder oder wir richten uns ein guter ein stream machen wo ich noch
+
+03:10:37.600 --> 03:10:50.560
+mal gucken wie wir das ordentlich ordentlich machen mit vms
+
+03:10:50.560 --> 03:10:55.520
+ach an rate ja da verstehe ich den sinn von ich wofür man das braucht weil das ist ja
+
+03:10:55.520 --> 03:11:04.640
+im prinzip auch nur in linux mit ein bisschen zeug drauf und ich will nicht sagen fragwürdig
+
+03:11:04.640 --> 03:11:11.720
+in anführungsstrichen rate lösung mit einer bisschen anderen rate lösung also quasi
+
+03:11:11.720 --> 03:11:17.200
+gar kein rate sondern wir fassen einfach mehrere ordner zu einem großen verzeichnis
+
+03:11:17.200 --> 03:11:22.480
+zusammen oder mehrere laufwerke zu einem großen laufwerk zusammen spiegel ich weiß gar nicht
+
+03:11:22.480 --> 03:11:32.080
+ob android überhaupt dateien dateien doppelt vorhält nee cheat ich glaube das ist nicht
+
+03:11:32.080 --> 03:11:54.040
+meine netzwerk karte oder keine ahnung die sind alle so aus
+
+03:11:54.040 --> 03:12:07.560
+ich kann nachgucken wenn du willst ich kann nachgucken was ich für die netzwerk karte
+
+03:12:07.560 --> 03:12:20.920
+im saubertrennen hab warte mal ach nee kann ich nicht nee kann ich nicht ich hab public
+
+03:12:20.920 --> 03:12:25.520
+key ich hab key authentifizierung den key habe ich nicht auf dem zweiten rechner drauf
+
+03:12:25.520 --> 03:12:52.480
+nee kann ich jetzt nicht nachgucken aber irgendein teil 4 4 port war das
+
+03:12:52.480 --> 03:13:01.800
+ob ich das rauskriege was ich für netzwerk karte habe
+
+03:13:01.800 --> 03:13:31.720
+dafür ist es nee das sieht man ja nicht richtig
+
+03:13:31.720 --> 03:13:42.160
+nee kann ich gar nicht nachgucken
+
+03:13:42.160 --> 03:13:59.320
+das screenshot tool machen wir weiter wenn das neue windows update raus ist
+
+03:13:59.320 --> 03:14:09.800
+ja nilson der unity media router ist der allerletzte bullshit
+
+03:14:09.800 --> 03:14:17.080
+krieg i pacman ist das standard paket manager der halt dabei ist
+
+03:14:17.080 --> 03:14:26.880
+der halt der nur für die offiziellen repos funktioniert und ja ist für arch user repos
+
+03:14:26.880 --> 03:14:36.440
+paket manager also nicht offizielle repos die dabei sind sondern user repos
+
+03:14:36.440 --> 03:14:40.960
+aber yawod kann auch die normalen repos also eigentlich müsste man pacman gar nicht mehr
+
+03:14:40.960 --> 03:14:44.440
+verwenden wenn man yawod hat außer für upgrades
+
+03:14:44.440 --> 03:15:01.040
+upgraden spakt ja manchmal rum max nvidia oder amd
+
+03:15:01.040 --> 03:15:09.920
+bei grafikkarten nvidia bei cpus aktuell tendiere ich tatsächlich mal wieder zu einem
+
+03:15:09.920 --> 03:15:17.160
+amd rechner das wird sich dann aber zeigen ob ich das wirklich mache wenn nächste woche
+
+03:15:17.160 --> 03:15:25.040
+oder diese woche mehr details gibt es schon neue details zur neue internet plattform
+
+03:15:25.040 --> 03:15:30.880
+hier ist das den coffee lake oder so gibt es dazu schon neue sachen was die dinger so
+
+03:15:30.880 --> 03:15:46.000
+können
+
+03:15:46.000 --> 03:16:11.400
+ich will ja mal technische daten interessieren so kerne takt verbrauch
+
+03:16:11.400 --> 03:16:16.040
+wenn die wenn das hier wenn das hier eine gute plattform wird dann wird im neuen rechner
+
+03:16:16.040 --> 03:16:22.720
+halt auch wieder kein amd aber ich gehe mal davon aus intel hätte jetzt nicht aufgedreht
+
+03:16:22.720 --> 03:16:32.760
+wenn amd ihnen nicht mal nahe gekommen wäre programmieren gba emulator ja das macht man
+
+03:16:32.760 --> 03:16:47.640
+auch einfach mal so aus dem ermittel geschüttelt mannilson das guckst du mir gerade mal ums
+
+03:16:47.640 --> 03:16:57.680
+copy paste will nicht copy paste will nicht ok copy paste will nicht ok copy paste will
+
+03:16:57.680 --> 03:17:22.720
+nicht dann tippe ich das jetzt mal schnell ab
+
+03:17:22.720 --> 03:17:29.000
+wenn copy paste nicht funktioniert also copy paste funktioniert aber nicht desktop übertreifen
+
+03:17:29.000 --> 03:17:40.880
+gerade also nicht von zweitem rechner übers netzwerk in die vm auf dem 2 rechner copy paste das
+
+03:17:40.880 --> 03:17:44.160
+geht gerade nicht normalerweise funktioniert das aber warum auch immer hier das nicht funktioniert
+
+03:17:44.160 --> 03:17:54.640
+keine ahnung was interessiert dich bei einer cpu am meisten ich würde sagen was das ding
+
+03:17:54.640 --> 03:18:03.480
+für single thread performance hat neben dem wieviel kerne sie hat durch die kombination
+
+03:18:03.480 --> 03:18:08.960
+weil viele kerne allein bringt die halt für normalen desktop einsatz auch nix du brauchst
+
+03:18:08.960 --> 03:18:16.160
+halt auch schon für einzelne anwendung wums das heißt ordentliche kernanzahl aber trotzdem
+
+03:18:16.160 --> 03:18:43.120
+gute single thread performance ja
+
+03:18:43.120 --> 03:19:00.600
+6 kerne cpus ja das ist schön
+
+03:19:00.600 --> 03:19:15.640
+6 kerne cpu ab 182 dollar warum ist der basis takt so kacke im vergleich zu den anderen
+
+03:19:15.640 --> 03:19:33.840
+warum ist der basis takt von dem i3 mit vier kerne 1,2 gigahertz schneller als bei einem
+
+03:19:33.840 --> 03:19:49.280
+cpu ab 182 dollar warum ist der basis takt von dem i3 mit vier kerne 1,2 gigahertz schneller
+
+03:19:49.280 --> 03:20:03.480
+als bei einem cpu ab 182 dollar warum ist der basis takt von dem i3 mit vier kerne 1,2 gigahertz
+
+03:20:03.480 --> 03:20:10.480
+schneller als bei einem cpu ab 182 dollar warum ist der basis takt von dem i3 mit vier kerne
+
+03:20:10.480 --> 03:20:23.480
+1,2 gigahertz schneller als bei einem cpu ab 182 dollar warum ist der basis takt von dem
+
+03:20:23.480 --> 03:20:42.480
+i3 mit vier kerne 1,2 gigahertz schneller als bei einem cpu ab 182 dollar warum ist der
+
+03:20:42.480 --> 03:20:51.480
+basis takt von dem i3 mit vier kerne 1,2 gigahertz schneller als bei einem cpu ab 182 dollar
+
+03:20:51.480 --> 03:21:18.480
+warum ist der basis takt von dem i3 mit vier kerne 1,2 gigahertz schneller als bei einem
+
+03:21:18.480 --> 03:21:27.480
+Wir haben das Zeug eingerichtet, lässt sich wunderbar verwenden.
+
+03:21:27.480 --> 03:21:36.480
+Ja, wollt ihr noch irgendwas zu Linux und sonstige Sachen die damit was zu tun haben wissen?
+
+03:21:36.480 --> 03:21:57.480
+Ansonsten mach ich jetzt nämlich Schluss.
+
+03:21:57.480 --> 03:22:26.480
+Der Nightbot nervt, den muss ich mal sagen, dass er nicht von meinen Battlefields oder was spammen soll.
+
+03:22:26.480 --> 03:22:42.480
+Team Marks Workshop, ja, könnte man auch mal machen.
+
+03:22:42.480 --> 03:22:49.480
+Wie startest du das ASCII-Quarium? Ich geb einfach ASCII-Quarium ein.
+
+03:22:49.480 --> 03:22:54.480
+Und drücke Enter.
+
+03:22:54.480 --> 03:23:02.480
+Schaust du LOL-E-Sports? Ganz selten mal, wenn es irgendwie auf der Twitch-Startseite ist für ein paar Minuten.
+
+03:23:02.480 --> 03:23:06.480
+Regenwolf? Nee, hab ich nicht.
+
+03:23:06.480 --> 03:23:15.480
+Ich halte es auch für ein bisschen, ja, overrated nicht, weil es gibt viele Leute die danach gucken.
+
+03:23:15.480 --> 03:23:24.480
+Aber ich kenn genug Leute die sich super im Netzwerkbereich auskennen und kein einziges Cisco-Zertifikat haben.
+
+03:23:24.480 --> 03:23:30.480
+JavaScript oder TypeScript? TypeScript. Eindeutig.
+
+03:23:30.480 --> 03:23:36.480
+Achso, das ist nicht Standard, das kannst du aber installieren.
+
+03:23:36.480 --> 03:23:42.480
+Ja, kannst du einfach installieren ASCII-Quarium.
+
+03:23:42.480 --> 03:23:57.480
+Wann Destiny 2? Wahrscheinlich gar nicht.
+
+03:23:57.480 --> 03:24:05.480
+Wie weit ist das Discord-Gedöns? Noch nichts weiter gemacht.
+
+03:24:05.480 --> 03:24:17.480
+Also ich mein, ich hab mit dem Server gemacht, wo ich mit dem Friseur ab und zu mal rumgammle oder mit Eax oder mit dem Karsten oder so, aber ansonsten ist das noch nichts öffentlich da.
+
+03:24:17.480 --> 03:24:22.480
+Ich hoffe euch hat's gefallen. Wenn ihr wollt, können wir noch ein paar Streams in dieser Richtung machen.
+
+03:24:22.480 --> 03:24:39.480
+Gab's hier heute schon genug Fragen von Git, von T-Max, von PF-Sense zu irgendwelchen anderen Sachen, die ich zeigen, zeigen könnte.
+
+03:24:39.480 --> 03:24:44.480
+Nee, Pupp-Git soll ich nicht. Also jetzt, letzter Zeit nicht mehr.
+
+03:24:44.480 --> 03:24:51.480
+Es hat mich jetzt nicht so geschockt, ehrlich gesagt.
+
+03:24:51.480 --> 03:24:56.480
+Ich kann so diesen Battle-Royale-Hype nicht ganz nachvollziehen.
+
+03:24:56.480 --> 03:25:03.480
+Ich verstehe, warum es vielen Leuten gefällt. Ja, das ist spannend, das Game.
+
+03:25:03.480 --> 03:25:08.480
+Aber warum jetzt alle so auf dieses Battle-Royale-Zeug abgehen, verstehe ich auch nicht.
+
+03:25:08.480 --> 03:25:19.480
+Vor allem jetzt kommt Fortnite mit ihrem Pay2Win-Scheiße noch und bauen einfach mal auch sowas ein und auf einmal finden die Leute auch dieses komische Game geil.
+
+03:25:19.480 --> 03:25:36.480
+Ja, error403, frag halt mal. Probiert's mal aus. Kannst du mich aber fragen, vielleicht weiß ich's ja.
+
+03:25:36.480 --> 03:25:56.480
+Fortnite sagt, ja, glaube ich dir. Ich hab's nicht ausprobiert.
+
+03:25:56.480 --> 03:26:08.480
+Wie lang bin ich eigentlich schon online?
+
+03:26:08.480 --> 03:26:13.480
+Klappt QuickSync Astra mit OBS und Linux? Keine Ahnung.
+
+03:26:13.480 --> 03:26:22.480
+Aber was ich dir sagen kann ist, dass Intel bei solchen Sachen immer ziemlich weit vorne mit dabei ist, was Linux-Unterstützung angeht.
+
+03:26:22.480 --> 03:26:30.480
+Also ich würde mal vermuten, bei Intel sind die Chancen, dass es funktioniert noch am besten.
+
+03:26:30.480 --> 03:26:59.480
+Deine Meinung zu C-Sharp, beste Programmiersprache.
+
+03:26:59.480 --> 03:27:17.480
+Ja, NVM klappt gut unter Linux, das stimmt.
+
+03:27:17.480 --> 03:27:28.480
+Ja, das war die Architekt ISO aus der Version 17.17.04 oder so war das, glaube ich.
+
+03:27:28.480 --> 03:27:35.480
+Hast du mal Bock auf ein C++ Projekt? Ich hätte da was von dem Def nicht...
+
+03:27:35.480 --> 03:27:56.480
+Ich weiß, was du meinst, Max. Du meinst bestimmt das Audio-Rooting-Ding.
+
+03:27:56.480 --> 03:28:02.480
+Das hast du schon mal gefragt, kann das sein?
+
+03:28:02.480 --> 03:28:07.480
+Das Problem daran ist, es ist zwar C++, das wäre nicht so schlimm.
+
+03:28:07.480 --> 03:28:16.480
+Es ist Windows und es ist DirectShow und das ist was, das gebe ich mir nicht.
+
+03:28:16.480 --> 03:28:25.480
+Das gibt sich wahrscheinlich auch keiner, der nicht komplett verrückt werden will.
+
+03:28:25.480 --> 03:28:34.480
+Denkst du, dass sich H.265 gegen H.264 mal durchsetzen werden?
+
+03:28:34.480 --> 03:28:44.480
+Ja, ich denke mal, dass immer mehr Geräte rauskommen werden, die H.265 in Hardware können.
+
+03:28:44.480 --> 03:28:51.480
+Zumal es ja auch forciert wird von der Industrie, aber H.264 wird uns noch lange erhalten bleiben.
+
+03:28:51.480 --> 03:28:55.480
+Es ist ja auch gut genug für den aktuellen Standard-Technik.
+
+03:28:55.480 --> 03:29:02.480
+Klar, besser ist immer gut, aber es ist gut genug für das, was es machen soll.
+
+03:29:02.480 --> 03:29:10.480
+Darf man eigentlich H.265 zu Twitch streamen?
+
+03:29:10.480 --> 03:29:20.480
+Ist das erlaubt? Das muss ich jetzt mal nachgucken.
+
+03:29:20.480 --> 03:29:28.480
+Twitch, H.265.
+
+03:29:28.480 --> 03:29:35.480
+Ja, anscheinend nicht.
+
+03:29:35.480 --> 03:29:41.480
+Naja.
+
+03:29:41.480 --> 03:29:53.480
+Okay, ich hoffe, euch hat es gefallen. Ich glaube, ich bin jetzt mit allen Fragen soweit durch.
+
+03:29:53.480 --> 03:29:58.480
+Wir machen Schluss.
+
+03:29:58.480 --> 03:30:02.480
+Ich sage, ich hoffe, euch hat es gefallen. Wir machen noch mehr Streams in dieser Richtung.
+
+03:30:02.480 --> 03:30:10.480
+Wenn ihr Vorschläge habt, was man noch machen könnte, wie gesagt, Teamarkt, Skit hatten wir heute.
+
+03:30:10.480 --> 03:30:17.480
+Ihr könnt ja in einem der nächsten Streams schreiben.
+
+03:30:17.480 --> 03:30:24.480
+Und...
+
+03:30:24.480 --> 03:30:28.480
+Wo ist das denn jetzt?
+
+03:30:28.480 --> 03:30:32.480
+Ich würde sagen, dann machen wir jetzt Schluss.
+
+03:30:32.480 --> 03:30:34.480
+Macht's gut, tschüss.
+
+03:30:34.480 --> 03:30:40.480
+Danke für's Zuschauen.
+
+03:31:04.480 --> 03:31:09.480
+Vielen Dank für's Zuschauen.
+
+03:31:34.480 --> 03:31:39.480
+Vielen Dank für's Zuschauen.
+
+03:32:04.480 --> 03:32:09.480
+Vielen Dank für's Zuschauen.
+
+03:32:34.480 --> 03:32:57.480
+Vielen Dank für's Zuschauen.
+

@@ -1,0 +1,1793 @@
+So, jetzt schauen wir mal, ob wir jetzt Quality Options haben.
+Haben wir jetzt Quality Options?
+Tja Leute, dann stremen wohl zu viele Leute und ich krieg sie gerade auf Twitch nicht.
+Da kann ich leider jetzt nichts machen, außer ich werde Twitch-Partner endlich mal irgendwann.
+Dann krieg ich auch immer Quality Options.
+Aber solange ich kein Twitch-Partner bin, bin ich halt quasi extrem so dritter Klasse,
+was Quality Options angeht.
+Oh, ich pause nochmal kurz auf Twitch.
+Ey Leute, ich sage euch, ich hab quasi gestern den ganzen Tag rum probiert, hier den Gift-Player
+zum Laufen zu kriegen, also nicht den da, sondern den High-Speed, DirectX, FFmpeg, sonst
+als Gift-Player.
+Und was unglaublich schwierig war, also das Gegenteil von, warum geht Easy nicht, ah,
+das Fenster noch kleines.
+Also das Gegenteil von Easy, das ist ey Windows, es ist so undurchsichtiger Kack ey teilweise.
+Ich weiß gar nicht, wie man dafür überhaupt irgendwas ernstzunehmendes entwickeln kann
+manchmal.
+So, auf Twitch gepostet, äh, auf Twitter.
+Ich bin schon komplett, wie er im Kopf, äh, so machen wir mal hier unsere Chill-Steps,
+Chill-Steps-Sohle-Geschichte an.
+Mal gucken, wie lautstärk ist.
+Joa, joa, hoff mal den an, ach, das ist der, hoff an, der andere Icon, ey, ich mein Thumbnail.
+Leute, das Windows-Teuch hat mich so kaputt gemacht im Kopf, ey, ich kann überhaupt keine
+Wörter mehr aussprechen.
+Ich bin wirklich komplett, komplett hinüber, was das angeht.
+Also, ich hab hier das, das, das ekligste überhaupt produziert, ne, also man kann das,
+man kann das nicht mal mal lesen, was ich hier gebastelt hab letztendlich, das müssen
+wir jetzt aufräumen.
+Ich hab hier quasi 365 Zeilen, irgendeinen Schritt zusammen gebastelt, dass es schnell
+ist.
+Auf den ersten Akt, ich zeige euch jetzt gleich mal, was da alles dahinter steckt, ey, es
+ist der Wahnsinn.
+Und es macht aktuell nicht mehr, außer ne noch nicht animierten Papagei anzeigen.
+Mit 6000, na gut, das ist weil OBS im Hintergrund jetzt auch noch ein bisschen CPU braucht.
+Mit 6500 FPS, ne nicht animierten Papagei, aber, man, man merke, der Papagei ist transparent.
+Was meint ihr, was es für ein Akt war, diesen Scheiß transparent zu kriegen, das könnt
+ihr euch gar nicht vorstellen.
+Das ist wirklich, also was die sich bei Microsoft dabei gedacht haben, es ist mir vollkommen
+schleierhaft.
+Und es ist mir teilweise echt ein Rätsel, wie man, warum man dafür entwickelt.
+Ey, das ist, also ich zeig euch das jetzt mal.
+So, wir gehen da chat.
+Wart mal, ich glaub meinen.
+Ich muss mal kurz meinen Vorschau refreshen.
+Letzte, was ich sehe, ist der Kühne in der Heimachs geschrieben hat, ich glaube nicht,
+dass das das letzte war, dass er schon wieder irgendwie 6 Minuten her.
+So, sagt mal was.
+Ich weiß, dass mein Vorschaufenster geht.
+So, ah ja, genau, jetzt, jetzt, jetzt geht der Chat wieder, der Boy next door, ja genau.
+Jetzt haben, haben Gatschi besten.
+Okay, also ich zeig euch das mal, ey, das, das, das haltet ihr im Kopf nicht aus, also
+das ist so ungefähr, also wir räumen das jetzt auf, das ist wirklich ganz abartig,
+ne.
+Also das hier ist so ungefähr, was wir das letzte Mal auch hatten, bloß, dass es nicht
+skaliert war, aber das hab ich jetzt auch mittlerweile eingebaut, dass es, dass es hier
+schön skaliert und dass es nicht transparent war.
+Und ich sag euch Leute, Transparenz unter Windows, ey, sowas undurchsichtiges ist der
+Wahnsinn.
+Erstmal, wenn man danach sucht, findet man nichts Gescheites.
+Was man findet ist, sind in irgendwelchen Cheaterstellungsforen, ist kein Witz, ja,
+also wenn man hier irgendwie danach sucht, wenn man jetzt hier zum Beispiel sucht, keine
+Ahnung, Direct2D transparent overlay, wenn man irgendwie solche Dinge sucht, das erste,
+was man findet sind irgendwelche Cheatforen, ja, weil das natürlich auch für viele Cheats
+unerlässlich ist und das Schlimme ist, dass Microsoft dazu nichts Gescheites geschrieben
+hat, es gibt 20 Millionen Optionen, die du setzen kannst, hier beim Erstellen vom Fenster
+zum Beispiel, wo du nicht genau weißt, was der ganze Kram überhaupt macht.
+Es ist, es ist, es ist komplett hier, achso ja, das Ziel heute, das Ziel heute kann ich
+dir zeigen, also das Ziel generell ist, einen schnellen Giftplayer zu machen für mein Meme
+Tool, weil ich zeig dir das mal, also wenn man hier jetzt zum Beispiel draufklickt,
+hör mal, hör mal, klicken, zack, das braucht 2, 3 Sekunden oder vielleicht, na, so 1, 2
+Sekunden hier, bis das geladen ist und angezeigt wird, aber kleinere Gifts gehen schneller,
+aber man merkt, man merkt die Verzögerung, bei kleinen Gifts geht, hier hängt es schon
+wieder, weil ich den jetzt erstmal wieder groß machen muss, so, aber hier hängt es
+schon wieder, klick, so, und was wir machen, äh, Moment, was wollte ich jetzt sagen, ja
+genau, was wir machen, wir basteln einen eigenen Giftplayer, den ich anstatt hier meinem WPF
+Fenster verwenden kann.
+Alles in Ram laden macht er ja, wenn du hier nämlich im Hintergrund guckst, das Ding braucht,
+sobald du einen Gift aufmachst, 830 MB, weil er jeglichen Frame irgendwie in voller Auflösung,
+in voller Farbe, mit allem in Ram lädt, für jedes Bild, und so ein Gift ist dann unglaublich
+groß, vor allem in diesem komischen WPF Plugin, was ich verwende, und diese komischen WPF
+Library, die ich verwende, fürs Anzeigen von Gifts, und das ist Müll, und erstens will
+ich schneller haben, ja, und das darf auch gerne ein bisschen weniger Ram verbrauchen,
+deswegen haben wir das letzte Mal angefangen, was eigenes zu basteln, mit FFmpeg und Direct2D,
+man sieht schon, das braucht jetzt 85 MB, wir haben so ein bisschen, so ein paar kleinere
+Memory Leaks haben wir hier, ja, ein paar kleinere Memory Leaks haben wir, aber sagen
+wir mal so, das braucht halt 80 MB, und es ist gut, ja, und es geht halt mega schnell,
+guck, sobald man sie zack, Gift ist da, und der muss jetzt die ganze Anwendung noch starten,
+also das geht schon schneller, und die große Herausforderung, die es jetzt gab, das letzte
+Mal haben wir das eigentlich ganz gut hingekriegt, das Gift zu animieren, das Gift zu animieren
+ist auch kein Akt, das könnte ich jetzt auch wieder einfügen, da muss ich einfach hier,
+wie gesagt, wir müssen das alles aufräumen, das ist Überbleibsel von meinem Rumprobierer,
+ja, so, und hier lesen wir das Gift, irgendwo lesen wir das Gift, wo lesen wir das Gift?
+Back it, Moment, wo lesen wir das Gift, da lesen wir das Gift, hier lesen wir das Gift
+ein, also sprich, eigentlich um jetzt das Gift zu animieren, müsste ich jetzt bloß
+noch den Kram, ich kann es ja mal kurz zeigen, dass wir jetzt einen Stand haben, wo das Gift
+auch animiert läuft, machen wir mal hier unten hin, irgendwie so, zack, und jetzt machen
+wir einen Sleep von, keine Ahnung, machen wir 100 Millisekunden, dass es nicht zu schnell
+läuft, so, jetzt sollte das Gift, oder auch nicht, was auch immer, zumindest ist es kein
+großartiges Akt, das Gift zu animieren, ähm, ich weiß gar nicht warum, was hat er jetzt
+für Schmerzen, eh, egal, es ist total wirr, was ich hier gebaut habe, und das Schwierige
+war wirklich, die Transparenz hinzukriegen, also das jetzt zu animieren, das kriegen wir
+heute auch hin, also das Ziel ist heute, dass wir einen ordentlichen Giftplayer haben, nicht
+hier mein hingerotztes Zeug, der schnell funktioniert und animierte Gifts abspielt, wie gesagt,
+das Animieren ist nicht das Problem, das haben wir das letzte Mal schon gemacht, da kann
+man sich einfach den nächsten Frame aus FFmpeg ziehen und gut ist, das haben wir ja auch
+schon hin gebastelt, was wirklich schwierig war, und jetzt kommen wir mal wieder zurück
+zu dem, was ich eigentlich sagen wollte, es ist wirklich schwierig, ein transparentes
+Windows zu machen, unter Windows, ein transparentes Windows, auf dem man malen kann, und ich
+habe nur einen offiziellen Weg von Microsoft gefunden, alle anderen waren aus irgendwelchen
+Cheatforen, die irgendwelche Dinge abusen, die man nicht machen sollte, zum Beispiel,
+was ich ganz witzig fand, was ich rausgekriegt habe ist, ihr kennt doch dieses Nvidia Overlay,
+was ich jetzt aus irgendwelchen Gründen nicht einblenden darf, warum darf ich das denn nicht
+einblenden, all diese GeForce Experience, das Ding ist so kaputt, so, Moment, ich mach
+es mal an, Overlay, Overlay, zack, ja, besser hier, will kein Account, so, seht ihr das,
+seht ihr das Nvidia Overlay, wie benutzt ihr FFmpeg mit C-Sharp, mit einem automatisch
+generierten Binding, was es auf GitHub gibt, such mal nach, ich zeige es dir gleich, seht
+ihr das Nvidia Overlay, oder seht ihr das im Stream nicht, muss man auf meinem Vorschau
+Bildschirm gucken, ja, also man sieht das, man sieht das Nvidia Overlay, und da hab ich
+rausgefunden, ich zeig dir mal kurz die FFmpeg Bindings, die du brauchst, das hier brauchst
+du für FFmpeg von C-Sharp aus, den hier, FFmpeg autogen von Ruslan B, und dann musst du
+quasi im Prinzip C-Style FFmpeg machen halt, plus aus die Sharp raus, so, und ich hab rausgekriegt
+in diesen Cheat-Forum, die ich geguckt habe, was da teilweise für komische Hacks am Werke
+sind, um nicht erkannt zu werden, das ist teilweise ganz witzig, und zwar sie verwenden dieses
+Nvidia Overlay, was quasi kein Cheat, keine Cheat-Engine der Welt flaggen wird, weil es
+ja das Nvidia Overlay ist, und das ist ja was Legitimes, die hijacken das so ein bisschen,
+ja, also die crampen sich quasi das Nvidia Overlay und malen dann dort in das Nvidia
+Overlay ihr eigenes Zeug rein, das ist eigentlich eine richtig geile Idee, ich mein, so Dinger
+kann man alles machen, aber wir wollen ja gar nicht wie ein Cheat aussehen, weil wir
+sind ja kein Cheat, und, das heißt alles, was ich hier so gefunden habe in diesen komischen
+Hacks, hier also, die meisten, ohne Scheiß, die meisten Treffer zu wie man transparente
+Overlays macht, sind in diesem Cheat-Forum, nach irgendwie 500 Stück oder so, ja, das ist
+gar nicht wahr, danach kommt Stack-Overflow, aber es ist alles nicht sonderlich intuitiv,
+das heißt, ich denke mal, und der Sebaro, der nimmt ja die Videos auch wieder auf, das
+ist wahrscheinlich eine der wenigen Anleitungen, was wir heute im Stream machen, wenn nicht
+die einzige weltweit, die quasi nicht auf irgendeinem Cheat-Scheiß basiert, auf offiziellen
+Lösungen von Microsoft basiert und ein funktionierendes Beispiel hier im Stream hat, transparente
+Fenster, ja, und ja, gibt es Punktabzug, wenn der Player als Cheat erkannt wird, dann geht
+die Anzeige raus an den Anti-Cheat-Entwickler, also mehr als den offiziellen Microsoft-Weg
+befolgen, können wir nicht tun, können wir wirklich nicht machen, und der offizielle
+Microsoft-Weg ist, also, dass man hier so ein transparentes Fenster kriegt, der Witz
+ist ja, das Fenster muss nicht nur von der Farbe transparent sein, sondern man muss auch
+durchklicken können, das Ding wird safe detected, ey, ohne Scheiß, ich kann halt nichts dagegen
+machen, ähm, was soll ich tun jetzt endlich, ja, wenn die Funktionen, die in Windows eingebaut
+sind, vollkommen legitim sind, sogar Microsoft in Anleitungen verwendet, von irgendwelchen
+Anti-Cheat-Tools erkannt werden, weiß ich auch nicht, ja, aber gut, was willst du machen,
+ich meine, die Cheat-Entwickler können den ganzen gleich, können den gleichen Kram verwenden,
+und ich hoffe ja mal, dass das Anti-Cheat-Zeug nicht wild flaggt, sondern quasi schon mal
+gucken, zu welchen Programmen gehört das und sonst was, weil, ich meine, das Video-Overlay
+wird ja auch nicht geflaggt, lol, alter, so, und, ja, der einzige Weg, den ich gefunden
+habe, wie man das offiziell macht, ist ein Artikel von Microsoft, den muss ich jetzt
+mal finden, das war irgendwie, ähm, wofür machst du das, zum GIFs anzeigen als Overlay,
+zum Beispiel, guck mal, ähm, hier kann ich GIFs als Overlay anzeigen lassen, das funktioniert
+auch gut, das ist auf, das ist auf WPF-Basis, das klappt ganz gut, das Problem ist nur,
+dass, ähm, diese Library für WPF ziemlich lahm ist, bei großen GIFs wie dem hier zum
+Beispiel, guck mal, klickste, und jetzt ist es erst da, so, deswegen wollte ich selbst
+einen Overlay basteln, was, ähm, GIFs anzeigen kann, und das geht auch schon, guck mal da,
+zack, GIF da, und rendert so ungefähr mit 7000 FPS, wenn man es mal, wenn man es sich
+ein bisschen ein, einlaufen lässt, ja, so irgendwas, pfff, wenn man es sich ein bisschen einlaufen
+lässt, ja, wenn man es ein bisschen ein, wenn es ein bisschen gelaufen ist, dann hast du
+eben 7000 FPS, aber, ähm, es ist schon, es ist schon deutlich schneller, aber auch viel,
+viel weniger RAM, das andere brauch ich wie 800 MB RAM für so ein publisches GIF, und
+das hier ist mit komplettem Fenster und allem irgendwie bei 80.
+Dann soll sie mich halt als suspicious flaggen, wenn das Leute, wenn das, wenn das, äh, ganz
+viele verwenden, also viele, ich weiß nicht, was für die viele ist, 30, 40 Leute, ja,
+und irgendwann, wenn sie mal nachgucken, um was es da eigentlich geht, ansonsten sind
+sie auch, ansonsten sind die Anti-Cheat Hersteller auch nicht besser als irgendwelche Virenprogrammierer,
+wenn sie einfach blind da irgendwelche Sachen machen, vor allem, wenn sie halt viele Leute
+haben, und dann muss man halt auch mal einfach gucken, was dahinter steckt, ich mein, der
+ist ausgeholt, er ist offen auf GitHub, kann sich hier da angucken, so, und der einzige
+Weg, und jetzt, jetzt pass auf, jetzt Leute, jetzt wird's übelst abenteuerlich, den einzigen
+Weg, den ich gefunden habe, bei Microsoft, wie man das macht, ist, ha, ich, wie hießen
+diese Artikel, ähm, da war irgendwas von 2014, ich muss euch den mal zeigen, weil der Artikel
+selbst ist schon wieder übelst abgedreht, ey, ähm, kann man das irgendwie nicht, das
+kann man doch auf Seiten einstellen, Side, so, und ich hab, das ist ein Artikel, der ist
+von C++, ich hab den so ein bisschen, quasi, für, äh, sharpdx übersetzt, dass der damit
+funktioniert, ha, ok, allerdings in dieser komischen Artikel, ah, da kommen da Sachen
+doch schon näher, kann man nicht noch irgendwie nach Datum 2014 oder suchen, ok, dann suchen
+wir mal nach Microsoft, das da, das ist es glaube ich, ja, das ist es, das ist der einzige
+Artikel von Microsoft, den ich zu dem Thema gefunden habe, aber auch nicht auf Deutsch,
+ich hab das schon auf, wo stellt man hier die Sprache um, Sprache, Sprache, ich will
+das nicht auf Deutsch, wo stellt man hier, ah, da unten, English and all that, ok, so,
+das ist der einzige Artikel, den ich gefunden hab, und das ist schon, und das ist wohlgemerkt
+von 2014, und so macht es auch keine Cheat, kein Cheat, den ich bisher irgendwie da in
+diesem anderen Forum gesehen hab, macht es nach dem offiziellen Microsoft Weg, die machen
+alle so krumme Dinge, also irgendwie, NVIDIA Overlay hijacken, irgendwelche, irgendwelche
+Window, ähm, Window Manager Geschichten abgreifen und so, aber das ist der einzige
+Weg von Microsoft, den ich gefunden habe, transparentes Window auszumachen, wo man schnell
+reinzeichnen kann.
+Ja, stimmt, Lesezeit ist keine schlechte Idee, so, und jetzt nur so zu erklären, der Typ
+labert halt hier ein bisschen rum, so, und der Artikel ist halt in C, C++, was ist das,
+ich würde sagen, das ist eher C, da ist noch nicht mal was mit C++, ähm, also, die Beispiele,
+die sie da haben, sind in C, und ich hab das versucht, so ungefähr nachzubauen, was der
+Duta treibt, ja, und, ey, es ist wir, es ist, es ist mega wir, also die Essenz aus dem ganzen,
+ich zeig's euch mal, gleich bei mir im Code, ähm, stimmt, das sind Lambdas, das müssen
+C++ sein, ähm, so, und da zeigt der hier, blablabla, Window erstellen, blablabla, transparentes
+Window erstellen, ja, also, Bricht, das ist, Microsoft sagt selbst, so funktioniert's,
+also, ja, gut, kann sich nicht davor schützen, dass es irgendeinen Anti-Cheat-Typ fleckt,
+so, hier, guck, transparentes Window, blablabla, DirectX, blablabla, blablabla, ganz viel
+Blah, den ganzen Scheiß hab ich ausprobiert und in C Sharp, äh, Sharp DX zu übersetzen,
+ja, also, so, blablabla, dann steht hier zwischendrin irgendwas von der Direct Composition API, wenn
+du nach Direct Composition suchst, findest du ein Video von Microsoft im Jahr 2013, also,
+das ist wirklich der Abgrund, der Abgrund, wirklich, der komplette Abgrund, den ich, in
+den du hier schaust, Bob, von Windows, wieder, ähm, so, und am Ende zeigt der dir dann halt,
+wie geil er ist, er hat ein Fenster am Start mit einem grünen Kreis drauf, und letztendlich
+ist es ja das, was wir auch wollen, das Einzige, was wir danach noch machen müssen, ist, den
+Fensterrahmen weg, war es aber kein Ding, wichtig ist erstmal, dass man ein transparentes Fenster
+bekommt und dass man reinmalen kann, so, und jetzt zeige ich euch mal, wie das geht, weil
+wir wollen uns ja nicht diesen komischen Artikel von dem Typ angucken, sondern wie ich das gemacht
+hab, und Leute, es ist Magic pur, es ist wirklich Magic pur, ähm, ich kann, wie gesagt, ich
+kann euch gar nicht erklären, ich kann euch erklären, was ich gemacht hab, aber nicht
+warum das an manchen Stellen so aussieht, ähm, fangen wir erstmal oben an, ne, wir fangen,
+wir fangen beim interessanten Teil an, also das erste, was ich mach, wir räumen das jetzt
+gleich auf, das ist auch Ziel dieses Streams, ne ordentliche Giftplayer-Klasse zu machen
+und meine ganzen, ganzen Scheiße hier rauszuschmeißen, das Ding hat jetzt irgendwie 400 Zeilen
+gekocht, danach hat es wahrscheinlich noch 150, wenn wir fertig sind, ja, und das hier,
+diese Funktion ist das auch, was die ganzen Cheat-Tools immer verwenden, ich hab auch
+als probiert, das damit hinzukriegen, funktioniert, aber, und jetzt kommt der Hit, es ist langsamer
+als meine Lösung, Layered-Window mit, ähm, diesem, dieser Geschichte ist langsamer als
+das, was ich gebastelt hab, also ist die offizielle Microsoft-Lösung wahrscheinlich gar nicht
+mal so schlecht, aber wahrscheinlich nicht so flexibel, was, äh, natürlich wieder für,
+äh, Cheat-Geschichten schlecht ist, ja, also hier kannst du halt auch wirklich nur dein
+eigenes Fenster malen, alles andere kannst du vergessen, was halt bei den Cheat-Dingern
+nicht so ist, ne, aber wir wollen ja auch nicht cheaten, das ist wie gesagt die einzige
+offizielle Microsoft-Lösung, so, ähm, also wo gehts denn los, also als erstes müssen
+wir irgendwie DirectX-Gedöns erstellen, äh, das ist für mich zum größten Teil Magic,
+was diese Optionen hier machen, allerdings braucht man diese Option, sonst funktioniert
+es nicht, und, ganz wichtig, auch, auch wirklich sehr praktischer Tipp, wenn ihr mal DirectX-Zeug
+macht, wusste ich bis vor kurzem auch nicht, das Ding schmeißt laufend, wenn es sich an
+irgendwas stört, Fehler, und die Fehler sind halt überhaupt nicht aussagekräftig, da steht
+dann einfach nur ein DirectX-Error oder sowas, da, da kann man, ähm, da kann man, oh alter,
+wo war das denn jetzt versteckt, ich glaub hier irgendwo, da kann man hier in den Projekt-Settings
+unter Debug, kann man einstellen Enable Native Code Debugging, wenn man das eingestellt hat
+und an sein DirectX-Device hier die Option Debug dran steckt, dann, da wirds zwar ein
+bisschen langsamer bis man Debug wieder rausnimmt, aber dann wirft DirectX sinnvolle, und überraschend
+sinnvolle hab ich mich selbst gewundert, Fehlermeldungen, allerdings nicht auf die Konsole, sondern
+hier in dieses Output-Window, also wenn ihr mal irgendwas mit DirectX oder irgendwelche
+Windows-AP-Geschäfts macht, macht Native Code Debugging an und schaltet die Debuggeschichten
+hier für euer DirectX-Device ein, dann bekommt ihr zum größten Teil recht sinnvolle Fehlermeldungen,
+und so hab ich mich auch hier so ein bisschen ran getastet, zum Beispiel, ich hatte keine
+Ahnung, dass ich Flip-Discard verwenden muss für meine Swap-Chain anstatt Discard, weil
+ich weiß es nicht, weil nur das das supportete ist für dieses Szenario, weil man, ich weiß
+es nicht, aber Microsoft sagt das in der Fehlermeldung, so, ähm, ähm, achso, den Link, den Link kann
+ich dir geben, ja, du willst bestimmt jetzt deinen Cheat updaten, gibs zu, so, wo lernt
+man die Grundlagen von C, Youtube-Videos oder irgendwelche Bücher oder sonst was, wobei
+ich sagen würde, ich würde, also wenn du schon was programmieren kannst und was Low-Level-mäßiges
+machen willst, ist nicht verkehrt, mit, äh, sich das mal anzugucken, allerdings muss man
+sagen, einsteigen würde ich mit C auf keinen Fall, äh, Sebaru, ich hab probiert Quality-Settings
+zu kriegen, gar nicht funktioniert, so, ok, also, fangen wir mal an, die Magic kommt später,
+erst mal zur Erklärung, was am Anfang passiert, das ist relativ standard, DiamondX gedürzt,
+man erst, man erstellt eine Swap-Chain, eine Swap-Chain, das ist, DiamondX hat, also ich
+muss ja sagen, ich persönlich finde die OpenGL Sachen ein bisschen angenehmer benannt,
+vor allem wenn man sowas wie SDL oder irgendwie, äh, OpenTK oder sowas verwendet, das ist
+irgendwie ein bisschen griffiger, finde ich, als vieles DiamondX Zeug, wobei, das eigentlich
+nimmt sich nichts, dafür ist OpenGL viel, ähm, nerviger, weil man viel mehr selbst
+machen muss, ähm, naja, zumindest, als erstes muss man eine Swap-Chain-Description erstellen,
+damit man eine Swap-Chain erstellen kann, ähm, eine Swap-Chain ist im Prinzip eine,
+im Prinzip mehrere Buffer, die du, die du, die du austauschen kannst, das ist eigentlich
+alles was eine Swap-Chain ist, im Großen und Ganzen, du hast, du hast einen Buffer, da
+wird gerade, also das was da drinne ist wird angezeigt, und du hast in der Regel noch einen
+zweiten Buffer, da schreibst du dein Zeug rein, und wenn du fertig bist, dein, dein
+neues Bild reinzuschreiben, dann swapst du das Ganze, also sprich, den Buffer, den du
+gerade anzeigst, den schmeißt du weg, und zeigst deinen Buffer an, den du gerade reingeschrieben
+hast und swapst halt, ne, deswegen musst du auch hier einstellen, das Swap-Effekt, und
+in dem Fall muss, muss man, warum auch immer, weil Microsoft, muss man Flip-Discard verwenden,
+natürlich auch kein Hilfedext, warum, es gibt noch zig andere Varianten, das ist der
+Effekt, wenn man diese beiden Buffers switcht, also sprich, von dem Buffer, wo das angezeigte
+Bild ist, wenn ich dann switche zu dem Buffer, wo ich gerade reingerendert hab, ne, dann,
+aber in dem Fall muss ich Flip-Discard oder Flip-Sequential nehmen, weil das Microsoft
+gerne hätte, unterstützt wird aktuell generell wohl, so wie es aussieht, fast nur noch, Alpha-Mode
+pre-multiplied, da hab ich, ey, ohne Scheiß, da hab ich Stunden gebraucht für, bis ich
+gecheckt hab, aber das zeig ich euch gleich noch, zeig ich euch gleich noch, wie ich
+mein Gift transparent bekomme, also es gibt prinzipiell zwei verschiedene, Alpha-Modi,
+die DirectX, Direct2D und DirectX unterstützt, das ist einmal pre-multiplied und straight,
+der Unterschied ist im Prinzip relativ subtil auf den ersten Blick, weil die Anzahl der
+Bites sind die gleichen, also ein Pixel, ja, ein Pixel ist, besteht zum Beispiel, also
+man, ein, ein, genau, rot, ein roter Pixel, ja, ein roter Pixel sind erstmal drei Bites,
+erstmal drei Bites, und zwar die Bites 2, 5, 5, 0, 0, also hier, ne, erstes Bite 255,
+zweites Bite 0, drittes Bite 0, so, das ist erstmal ein roter Pixel, jetzt gibt's da
+zusätzlich noch ein viertes Bite, der sagt, ähm, wie transparent dieser Pixel ist, deswegen
+ist das normale, ist das sowas wie RGB, das hatte jeder schonmal gehört, und, ähm, RGB,
+das ist da quasi zwei, zwei Dinger, bringt's, falls ich irgendwelche Host Donations oder
+sonst was vergesse, spammt mich mal voll, weil ich hab wieder vergessen meine Alert-Dinger
+anzumachen, so, und, wenn man jetzt, das sind Alpha, äh, also, Alpha-Channel-Information,
+sprich, wie transparent der Pixel ist, 0 ist transparent, 255 ist komplett nicht transparent,
+also wenn ich sowas mache wie 100, dann ist das so halbtransparent, das muss natürlich
+das jeweilige Backend unterstützen, aber das ist eigentlich Standard heute, deswegen nennt
+sich das nicht mehr RGB, sondern RGBA, also sprich, rot, grün, blau, Transparenz, so,
+und intern, um die ganze Sache noch ein bisschen komplizierter zu machen, intern arbeitet DirectX
+bzw. Direct3D, äh, Direct2D, in dem Fall nicht mit RGBA, sondern mit BGRA, weil, wahrscheinlich
+weil's besser für das Speicherlayout von Grafikkarten ist oder so, ich weiß es nicht
+genau, ähm, zumindest intern verwenden sie das da, aber das macht im Prinzip keinen
+großen Unterschied, das ist im Prinzip einfach nur ein paar Sachen vertauscht, Alpha-Byte
+ist immer das letzte, so, und jetzt wollte ich ja erklären, was der Unterschied ist zwischen
+Pre-Multiplied und das braucht ihr immer, wenn ihr irgendwelche Grafikgeschichten macht,
+müsst ihr euch das merken, ähm, wie ist die Lage, sehr verwirrend ist die Lage, Windows
+Zeugs wieder am Start, also der Unterschied ist, den Hilfetext hier könnt ihr erstmal
+vergessen, also Pre-Multiplied, also fangen wir mal an, Straight, ja, jetzt, jetzt, äh,
+keine Feminism-Chokes oder sowas, also Straight bedeutet in dem Fall, die Pixel hier vorne
+stellen ganz klassisch Rot, Grün, Blau da, und nur der letzte, steht für die Transparenz
+von dem kompletten Pixel, so, Pre-Multiplied bedeutet, die Transparenz ist quasi hier
+vorne schon mit eingerechnet, ganz ehrlich, Vor- und Nachteile habe ich nicht so wirklich
+gecheckt, also ich weiß, im Hinterkopf ist mir schon lange klar, dass es das gibt, aber
+ich hatte damit noch nie Probleme, ähm, deswegen musste ich mir das heute erstmal angucken,
+was eigentlich auch der Unterschied ist, zumindest Pre-Multiplied bedeutet genau das, was da
+steht, nämlich, dass der Alpha-Wert schon eingerechnet ist in das normale RGB, das bedeutet
+Pre-Multiplied, so, und nachdem, und ich muss jetzt ein bisschen ausholen, sonst versteht
+man nämlich das eigentliche Problem bei der ganzen Sache gar nicht, nachdem jetzt quasi
+meine komplette Geschichte, die ich hier initialisiere am Anfang, zwingend dieses Format braucht
+für Pixel, also sprich, blau, grün, rot und Alpha-Channel und sein Alpha-Channel Pre-Multiplied
+haben will, also das geht einfach davon aus, das macht da keine Magic mehr oder so, also
+sprich, wenn der Pixel Pre-Multiplied nicht transparent ist, dann wird er einfach nicht
+transparent angezeigt, da kann mein Alpha-Channel noch so sehr auf Null stehen, das juckt ihn
+dann überhaupt nicht, ist dem vollkommen egal, und das heißt, ich kann meine normalen Bilder,
+sprich die einzelnen Frames vom GIF, nicht so einfach rendern, weil die sind nicht durchsichtig,
+und ihr seht ja, wenn man es hier anzeigt, hier sind sie durchsichtig, normalerweise
+hatte das immer weiß gerendert hier im Hintergrund, weil es nicht Pre-Multiplied war, so, aber
+noch mal ein Schritt zurück, wir müssen ja irgendwie diesen Inhalt, bevor wir Probleme
+überhaupt mit Transparenz oder sonstigen Dingern haben, wir müssen ja erstmal den ganzen Kram
+überhaupt in unser transparentes Fenster rein kriegen, und jetzt beginnt die Magic,
+also wir erstellen hier mal unsere Swap-Chain-Description, habe ich ja gerade erklärt, was die einzelnen
+Optionen machen, der Rest ist nicht so wichtig, Höhe, Breite noch, wie das Fenster halt ist,
+dann erstelle ich das DirectX-Device, muss ich sagen, ich nehme ja auch nochmal BGH-Support,
+das braucht man für Direct2D, wir wollen plus das neueste DirectX haben, weil wir halt krasse
+Checker sind und nur das neueste verwenden, geht wahrscheinlich mit älteren Sachen ganz
+genauso gut, so, dann speichern wir uns das hier in unserer Klasse, das DirectX-Device,
+dann kommt, jetzt kommt Magic, jetzt kommt übelste Magic, ich habe keine Ahnung, warum
+man das genau machen muss, jetzt braucht man irgendwie so ein DXGI-Device, danach muss man
+sich eine Factory erstellen von diesem DXGI-Device, danach kann ich mal eine Swap-Chain erstellen,
+das ist das, was ich vorhin erklärt habe, wo du deine Buffer switchen kannst mit, der
+braucht die Factory, die braucht das DXGI-Device und die Description, dass ihr weiß, was ihr
+für Settings haben soll, so, und jetzt, ich habe schon die Warnung hier reingeschrieben,
+jetzt kommt komplette Magic, weil, aktuell ist es so, ich habe ein Fenster erstellt, das
+ist transparent und hat keinen Hintergrund, das habe ich genauso gemacht, wie der Dude
+hier im Artikel, ich habe ein Fenster erstellt, was keinen Hintergrund hat, also kein, nein,
+was keine, was kein Bitmap quasi reserviert hat im Speicher von Windows, wo man überhaupt
+Content reinmalen könnte, also sprich, mit Windows-Bordmittel kann man in dieses Fenster
+nicht zeichnen, weil es keinen Buffer hat, gibt's nicht, ja, also, irgendwelche GDI-Dinger
+oder so von früher, das geht da nicht, das geht schreckt, nice, ähm, warum entwickelst
+du eigentlich nicht auf Linux, weil das, ähm, ziemlich Windows-Only hier ist, was ich gerade
+mache, deswegen mache ich es nicht unter Linux, weil das ist halt, gibt's halt unter
+Linux nicht, naja, zumindest, wo bin ich denn jetzt stehen geblieben, genau, absolute Magic,
+wie gesagt, das Fenster, das, auf das kann man nicht malen, auf dieses Fenster, mit,
+das ist genau das gleiche, wie der Typ hier im Artikel macht, plus, dass ich bei mir
+auch den Rahmen ausgeblendet hab, ähm, so, ja, mit Qt kannst du's machen, aber ich bringe
+mir in dem Fall auch nix, weil, ähm, das andere ist auch Windows-Only, das ist voll
+komisch, ja, ähm, und also mit Qt ist gar nicht so einfach, Qt ist ja erstmal standardmäßig,
+äh, also, du machst mit QML, ist es ja auch nicht großartig beschleunigt, das heißt,
+da müsste es mit OpenGL irgendwas passen, kein Nerv, wir sind eh relativ abhängig
+von Windows und dementsprechend, machen wir das jetzt mit DiamondX, dann ist es halt noch
+mehr Windows, na, also im Prinzip ist das das gleiche Fenster, wie der Typ im Artikel,
+ähm, so, und plus, dass ich den Rahmen ausgeblendet hab, ok, und jetzt kommt absolute Magic,
+ähm, nachdem wir ja, wie ich grad erklärt hab, hier nix reinmalen können auf klassische
+Art und Weise in dieses Fenster, müssen wir dem, was, wie heißt das eigentlich, korrekt,
+DWM, Desktop Window Manager wahrscheinlich, Dynamik Window Manager, ne, das ist das Linux-Ding,
+Windows, für was steht denn das hier überhaupt, der Desktop Window Manager, also sprich, das
+ist der Part von Windows, der dafür zuständig ist, ähm, so Sachen wie überlappende Fenster
+zu machen, halbtransparente, was ist denn ein halbtransparentes Fenster, gibt's sowas
+unter Windows 10, noch standardmäßig, kann man auf jeden Fall, auf jeden Fall machen,
+ja, also sprich, dass dieses Fenster über diesem Fenster ist, oder das, was haben wir
+denn hier, halbtransparentes, gibt's hier nichts, noch was halbtransparentes zum zeigen,
+zumindest ich, ich starte einfach jetzt mal mein Programm, ja, dass hier dieses Fenster
+da drüber ist, und dieses Fenster dafür, dafür ist dieser, dieser Desktop Window Manager
+zuständig, das heißt, nachdem unser Fenster jetzt kein Buffer hat, in dem wir malen können,
+müssen wir das Ganze quasi mit dem Desktop Window Manager in das Fenster malen, das ist
+das, was der Typ hier in seiner Anleitung beschreibt, wie das Ganze funktioniert, ach stimmt, der,
+der Calculator ist transparent, ja, richtig, oder auch, der, ich, ich gebe dir aber recht,
+der sollte eigentlich transparent sein, ich bilde mir auch an, dass der transparent ist,
+ich, ach, nee, weißt du was, warum das nicht transparent ist, weil ich Transparenz abgeschaltet
+hab, lull, ich hab Transparenz abgeschaltet, weil mir Transparenz auf den Keks gegangen
+ist, stimmt, ähm, der ist minimal transparent, ich glaube nicht, dass der transparent ist,
+hier ist nichts transparent, ich hab das abgeschaltet, aber guckt mal, hier unten die Taskleiste
+ist ein bisschen transparent, seht ihr's, da, ne, das macht alles der Desktop Window
+Manager, so, und mit dem müssen wir jetzt, mit, mit, mit Direct Composition, müssen wir
+in unser Fenster malen, wohlgemerkt, das hier ist immer noch ein transparentes Fenster,
+so, und ich hab keine Ahnung, was diese nächsten paar Dinger machen, aber sie funktionieren,
+die hab ich mir mehr oder weniger eins zu eins hier aus diesem C++ geschwuppelt, äh,
+ja, doch aus diesem C++ geschwuppelt, aus dem Artikel übersetzt nach Sharp DX, so, und
+was da jetzt passiert, ist folgendes, ähm, als erstes muss ich ein Direct Composition
+Device erstellen, aus meinem DXGI Device, warum, weiß nur Microsoft, ich hab keine
+Ahnung, muss man aber machen, als nächstes, und, ey, das ist, das ist die übelste Magic,
+also wirklich, ich weiß nicht, was da passiert, als nächstes muss ich, ähm, ein Target erstellen,
+ein, ein Direct Composition Target erstellen, ähm, was denn jetzt mit dem, irgendwie hör
+ich mich anders an, oder, äh, ich glaub, wartet mal, hatt ich grad einen Wackelkontakt
+oder so, ja, jetzt geht's wieder, vielleicht ist mein, vielleicht ist mein Gehirn auch
+einfach nur kaputt langsam, zumindest muss ich jetzt ein Direct Composition Target erstellen,
+von meinem Fenster, also von dem transparenten Fenster, den ihr nicht, das ist das, was man
+hier an der Stelle nicht sieht, ähm, ja, davon muss ich ein, ein, ein Direct Composition
+Target erstellen, mit Handle von meinem Windows Form, und dem muss ich das Direct Composition
+Device übergeben, danach muss ich, es wird, es wird immer abgedreht, ohne Scheiß, ich
+weiß, ich weiß wirklich nicht, was hier passiert, aber es funktioniert, danach muss
+ich ein Direct Composition Visual erstellen, wo ich dann das Composition Device reinstecke,
+weil das es wohl irgendwie braucht, und danach muss ich sagen, dieses Visual kriegt den Content
+von meiner Swap Chain, dann muss ich sagen, das Root Element ist dann das neue Visual,
+und dann muss ich das Ganze committen auf meinem Composition Device, und dann wird alles
+über den Desktop Window Manager, was ich hier in meiner normalen Direct X Swap Chain rendere,
+in meinen Fenster, beim Compositionen reingerendert, so, alter, ja, was auch immer, es ist komplett,
+hier, also es ist absolut für den Arsch, ja, dass das überhaupt so ein Riesenakt ist,
+aber zumindest ist es der einzige Artikel von Microsoft, den ich gefunden habe, der sich
+mit diesem Thema beschäftigt, und die sagen, so geht's, und es geht tatsächlich, und es
+ist schnell, es ist wirklich schnell, es ist schneller als dieses ganze Zeug, was man da
+zum Beispiel in irgendwelchen Cheat Foren findet, die auch Overlays machen wollen,
+das ist so um den Faktor 20% ungefähr schneller, also es ist schneller als Layered Windows
+mit Client-Area-Gedöns, also es ist wirklich schnell, das sieht man ja auch, Windows ist
+oft schwarze Magie, es ist wirklich komplett schwarze Magie, aber es funktioniert an der
+Stelle, und ich bin wirklich vordach, dass das Ganze funktioniert, weil es ist schnell,
+es ist transparent, und es funktioniert, man sieht hier, guck, ich kann hier durchklicken,
+eigentlich ist hier das Fenster, es ist Fenster drum herum, ich kann hier durchklicken, ohne
+Probleme hier, das einzige was verdeckt sind die Visual Studio Menüs, warum auch immer,
+aber damit kann ich leben, immerhin gibt es einen Artikel von Microsoft, das ist richtig,
+immerhin, immerhin, so, ja, und als nächstes zeige ich euch, was man machen muss, um das
+Bild transparent zu kriegen, weil wer gedacht hätte, damit ist die größte Hürde genommen,
+der hat sich wirklich getäuscht, aber vorher Leute, muss ich mal kurz aufs Klo, ich brauche
+mal einen Text hier, auf Klo, so, ich bin gleich wieder da, so, ich bin gleich wieder
+da.
+So, ich bin wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da, so,
+ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder da,
+so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder
+da, so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder
+da, so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder
+da, so, ich bin gleich wieder da, so, ich bin gleich wieder da, so, ich bin gleich wieder
+Gut, jetzt habe ich euch erklärt, wie man es schafft, quasi sein diode x Zeug in seinen
+Vendor zu rendern, das ist ja quasi das, was hier beschrieben ist, dazu gibt es immerhin
+noch einen Artikel, zu dem anderen, was ich euch jetzt zeige, wie ich das Bild überhaupt
+transparent gekriegt habe, gibt es keinen Artikel, aber ich vermute mal jeder, der sowas
+öfters macht, dem wird es wahrscheinlich halbwegs klar sein, wo das Problem gewesen
+ist. In der Pause, das 3DS, anvoxen mit dem Friseur, oh, das war noch Zeit, nein, das
+war noch, das ist schon ewig her, das war 2011 oder so. Poggers. Ok, weiter gehts. So,
+und jetzt kommt der nächste Knackpunkt, das Bild, was wir von unserem animierten GIF
+auslesen, also aktuell ist es nur das erste Bild, aber trifft für alle weiteren Bild
+natürlich auch zu, das hat einen Alpha Channel, also sprich, das hat eine Anzeige, das hat
+transparente Farbe, hier, außen drum, sieht man ja, weil das Bild ist transparent, aber
+das Ding wurde die ganze Zeit nicht transparent gerendert. Bis ich dann auf die glorreiche
+Idee gekommen bin, mir mal zu überlegen, warum das Ganze nicht funktioniert. Erstmal
+habe ich wild gesucht, Google und sonst was, so wie malt man ordentlich Bilder in Direct2D,
+aber ergibt zwar Anleitungen, aber so wirklich eine Beschreibung, wie ich transparente Bilder
+male, gibt es irgendwie nicht. Und das liegt einfach daran, dass Bilder, die den korrekten
+Alpha Channel haben, einfach standardmäßig transparent sind. Problem ist bloß, und deswegen,
+sonst nochmal zurückzukommen auf diese Geschichte hier, Problem ist nur, dass natürlich mein
+GIF, also der frame, der erste frame von diesem GIF, also das erste Bild von der GIF-Animation,
+das ist zwar im richtigen Farbformat, das sieht man ja auch, weil die Farben sind richtig,
+also sprich, das ist zwar im Format BGRA, allerdings, es ist Alpha Mode quasi straight
+und nicht pre-multiplied und deswegen hat ich die ganze Zeit hier, wo ich, ich hab mich
+kaputt gesucht, war der Hintergrund weiß und nicht transparent. Bis ich dann auf die
+glorreiche Idee gekommen bin, ich muss das Ganze einfach multiplied und dann gehts. Und
+wie man das macht, zeige ich euch jetzt mal schnell. Und danach fangen wir an, neue Sachen
+zu basteln bzw. das hier aufzuräumen und unser FFmpeg Zeug thread-sicher in eine eigene
+Klasse zu verpacken. So, also jetzt zeige ich euch, wie man das Ganze macht. Hier ist
+ganz viel Geschiss drin, was man eigentlich gar nicht mehr braucht. Ich hab übrigens
+meinen komischen FPS-Counter, hab ich weggeschmissen, wir machen das FPS hier in der Render-Loop
+drinne. Das ist im Prinzip noch das gleiche hässliche Kram vom letzten Mal, nix Neues
+dazu gekommen. FFmpeg, bla, GIF einlesen, weiteres Rennen hab ich übersprungen, wir
+lesen bloß den ersten, wir lesen bloß das erste Bild ein. Dann hab ich hier noch irgendwas,
+das brauchen wir gar nicht mehr, oder? Lol. Also, wie gesagt, der Code ist jetzt nicht
+wie 400 Zeilen lang, der ist danach wahrscheinlich noch 150 oder so. Den Scheiß können wir
+auch rausmachen, da wollte ich gucken, ob das auch im richtigen Farbformat ist. Prender,
+gibt es da noch? Der Prender, da bitt man Prender Tage, brauchen wir auch alles gar
+nicht mehr eigentlich. Ist eigentlich komplett overrated, den können wir schonmal löschen,
+der Prender. Der Name ist so geil, der ist mir nix eingefallen, der Prender, der Prender-Renderer.
+Ok, und jetzt kommt der Knackpunkt, wie kriegt man das Bild? Von straight zu pre-multiplied,
+und da gibt es was schönes, also entweder macht man das von Hand, das ist auch kein
+Ding, da muss man halt jeden Pixel mal dem Alpha-Value nehmen durch 255, dann hat man
+das ganze pre-multiplied. Aber, da gibt es schon was fertiges in DirectX, und zwar gibt
+es Effects. Und ein Effekt ist pre-multiply. Und pre-multiply funktioniert relativ einfach,
+kriegt man alles Effekt an, und als Input sagt man einfach hier dieses Bitmap. Und dann
+macht er das für ein, da wandelt er quasi den straight Alpha-Channel in pre-multiplied
+über alle Beis von jeweils den Pixel um. Und danach habe ich noch was gemacht, danach
+skaliere ich das Bild noch hoch auf die jeweilige Fensterbreite, mit dem richtigen Seitenverhältnis.
+Das ist gar nicht so kompliziert, das ist, hier kriege ich raus, Scale 1, Scale 2, warum
+heißt das so? Weil man weiß das nicht genau. Die Dinger können wir dann auch mal ordentlich
+nennen. Das ist der Effekt für die Transparenz, und das hier ist der Scale-Effekt. So, und
+ich gehe mal davon aus, dass er das halt ziemlich effizient in Hardware auf der Grafikkarte
+macht. Unten habe ich noch mal Scales. Die brauche ich aber wahrscheinlich nicht mehr.
+So. Und hier passiert jetzt das, was ich euch eben erklärt habe mit dem Bild. Der schreibt
+das Alpha, den Alpha-Channel um von straight zu pre-multiplied und skaliert das Ganze auf
+die, also in der passenden Seitenverhältnis auf das Fenster hoch. Das hat auch ewig gedauert,
+bis ich das raus gekriegt habe letztendlich. Das steht in keinem Guide und in sonst nichts
+drinne. Irgendwo. Kannste knicken. Aber es ist im Prinzip ganz logisch, wenn man sich
+das überlegt. Ich habe nämlich die ganze Zeit versucht, sowas hier zu machen. Ich wollte
+ihm nämlich sagen, alter mein Bitmap ist nicht pre-multiplied. Und wenn man das probiert,
+dann crash das Ganze, wie man hier sieht. Er macht nichts im Endeffekt. Weil eben in
+meiner Swap-Chain gar kein straight erlaubt ist. Und ich habe wirklich ewig rum probiert,
+bis ich dann mal so den Geistesblitz irgendwo hatte, ey wandel doch einfach mal dein straight
+in pre-multiplied um. Und seitdem funktioniert das Ganze und wird auch noch schön skaliert
+und ist dementsprechend, weil es wahrscheinlich auf der GPU läuft, auch relativ zackig. So.
+Und dann kommt im Prinzip das, was wir das letzte Mal auch gemacht haben. Das ist übrigens
+ganz wichtig, wenn man transparente Fenster malen will. Dann muss man hier sagen, man
+cleart den Background mit Null. Wenn man das nämlich nicht macht, wenn man zum Beispiel
+irgendwie sagt, keine Ahnung, color so blue oder so, dann ist der Hintergrund halt blau
+oder halt hellblau oder keine Ahnung. Indian Red oder sowas. Das will man ja nicht. Das
+heißt, man muss hier sagen, clear Null. Und dann ist es nämlich, dann ist das quasi
+halt durchsichtig, der Hintergrund. So. Und da ist ganz viel geschwummelt drin, was ich
+nicht brauche. Und das hier ist der eigentliche Kniff, wie man dann den ganzen Krempel rendert,
+wie man hier oben zusammengebastelt hat. Wir haben ja hier das Bild mit dem RGB-Werten
+vom GIF drinne. Dann haben wir hier die Effekte, die quasi das Premultiply und danach skalieren.
+Und hier kann man dann quasi sagen, mal das Bild, als Output nimmst du das Bild von den
+Effekten und dann kann man es auch ein bisschen verschieben. Das müssen wir übrigens gleich
+machen, weil das Bild ist, werden wir gleich sehen, wenn wir das Bild animieren, das Bild
+ist dann zwischenzeitlich ein bisschen abgeschnitten. Das ist da, das ist ein bisschen, nicht so
+praktisch. Das ist dann hier oben abgeschnitten und links und rechts ein bisschen abgeschnitten.
+Deswegen müssen wir hier sagen, dass wir das Ganze ein bisschen tiefer, tiefer setzen.
+Aber das machen wir dann, wenn es soweit ist. Guck, ich zeig's euch mal mit den FPS zum
+Beispiel. Wenn ich die direkt oben in der linken Ecke male, dann ist ein bisschen was
+abgeschnitten. Warum, bin ich mir noch nicht so ganz sicher. So. Und das war's im Prinzip
+schon. Und da hab ich gestern quasi fast den ganzen Tag noch dran rum probiert, bis ich
+das auf die Reihe gekriegt hab. Es ist wirklich, es sieht jetzt relativ simpel aus, aber es
+war wirklich übelst kompliziert. So, und jetzt werden wir den ganzen Scheiß ein bisschen
+aufräumen und einen ordentlichen GIF-Decoder-Buzzle mit FFM-Pack, der nicht hier quasi alles
+versorgt. Wir löschen erstmal alle möglichen Dinge, die wir nicht mehr brauchen, weil ich
+mein, offensichtlich, es läuft ja gerade. Es läuft ja gerade, also sprich, warum, also
+brauchen wir ja anscheinend von dem ganzen Kram nichts, der hier drinne steht. Ganzes
+Kommentar soll ich rauslöschen. So, meinen Magic-Hinweis kann ich auch löschen. Debug-Mode
+hab ich weg. Der ganze Mist hier oben kann auch weg. Das kann auch weg. Das brauchen
+wir aber auch alles nicht mehr. Das hier brauchen wir noch, sonst gehts nämlich nicht. So, siehste,
+allein durch das löschen sind wir jetzt schon mal 100 Zeilen Code weniger. Jetzt werden
+wir noch dieses ganze FFM-Pack Zeug auslagern und ich überleg grad, wo wir da am besten
+mit anfangen. Also erstmal sollten wir gucken, ob das hier unten schon halbwegs sinnig ist.
+Wir zählen am Anfang unsere FPS, ok. Wir skalieren. Copy-for-memory für das Bitmap,
+das müssen wir dann später in der Schleife machen. Also sprich, das müssen wir später
+müssen wir das hier machen, weil wir updaten ja pro Durchgang unser Bild. Ey, jetzt ist
+es nicht mal skaliert. Hab ich irgendwas zu viel gelöscht? Monkeys. Ach nee, ich mach
+das andere auch noch außerhalb von der Schleife. Ja, das ist kein Wunder, dass das jetzt noch
+nicht... Moment, was hab ich jetzt gemacht? Was hab ich jetzt gemacht? Ich hab doch gar
+nichts geändert. Warum ist das Bild jetzt kleiner? Ah, ich weiß warum. Weil ich die
+Größe gelöscht hab, was natürlich Blödsinn ist. Die sollte ich mal lieber da lassen.
+So. Jetzt wird er ordentlich gross. Ja gut, manchmal muss man sich auch nicht wundern,
+oder? Höhe, Breite. Alles gut. So, und ich würd sagen, wir fangen jetzt mal damit an,
+das ganze FFMPEG Zeug auszulagern in eine eigene Klasse. So, den Max-FPS-Counter können
+wir löschen, den brauchen wir nicht mehr. Wir counten das jetzt in der Schleife drin.
+Es ist relativ einfach, ja. Wir gucken, wann wir angefangen haben von der Zeit her. Dann
+gucken wir, was für eine Zeit jetzt ist, und dann gucken wir quasi, wenn jetzt größer
+ist als Startzeit plus eine Sekunde. Dann ist halt eine Sekunde rum. Dann gucken wir,
+wieviel FPS wir gezählt haben, schreiben sie in FPS und setzen die Frameset auf Null.
+Also, eigentlich recht einfach. Ja, TheraFox sagt hier nicht, dass es hier nicht nur Optimierungspotenzial
+gibt. Genau, so. Jetzt weiter im Text. Also, wir machen jetzt eine Klasse für den FFMPEG,
+für den GIF-Decoder, dass es hier ein bisschen aufgeräumt ist. So, das Ding nennen wir auch
+ganz billig. GIF-Decoder. Das ist noch übrig. What the fuck? Wir schreiben das jetzt einfach.
+GIF-Decoder. Do you want to check the file and replace it? Yes. Schreckt. Okay, also,
+wir machen jetzt einen GIF-Decoder, und was das Ding auf jeden Fall braucht, ist den Dateiname
+von der Datei, die wir wiedergeben wollen. Ich meine, wie soll das Ding was decoden können
+aus der Datei, wenn es nicht weiß, ob es decoden soll? Also, irgendwie logisch, wenn er nicht
+weiß, wo das GIF ist, kann er ja auch schlecht. Das seht ihr ja auch hier. Also, ich muss
+ja irgendwo das GIF angeben, wo es liegt. So, also, wir brauchen auf jeden Fall für
+unseren GIF-Decoder, brauchen wir den Pfad, wo das GIF liegt, und wir machen mal so eine
+Variable, die nennen wir irgendwie Loop, und die ist standardmäßig, keine Ahnung, was
+standardmäßig ist, also sprich, der soll das GIF in Endlosschleife basteln. Und wir
+werden es jetzt ganz am Anfang, wir werden am Anfang keines Leaps oder sonst was einbauen.
+Wir gucken einfach mal, wie schnell man das GIF, wie gesagt, mein Hirn ist schon komplett
+matsch heute, wie schnell man das GIF quasi rendern kann, wie oft wir das in der Sekunde
+hinkriegen in Endlosschleife, also in Animationsschleife, von Anfang bis Ende, von Ende bis Anfang,
+von Anfang bis Ende, also wie oft wir einfach das GIF loopen können pro Sekunde. Mal schauen.
+Genau, so, jetzt gruppieren wir uns mal den ganzen Krempel, den wir hier quasi in unserer
+Renderfunktion trennten, gruppieren wir uns jetzt erstmal in unseren GIF-Decoder, weil
+es sollte später so sein, dass die ganze Winno-Klasse, diese ganze Formklasse überhaupt nichts mehr
+von FFmpeg weiß und wissen muss. Das ist eigentlich Sinn und Zweck der Sache. Alles
+mit FFmpeg machen wir hier drin. Achso, unsave, das ganze muss unsave sein und das unsave
+können wir dann hier wieder raus machen, wenn wir fertig sind, weil unsave, weil Pointer
+und Gedöns, ne. So, dann brauchen wir jetzt den Initialisierungscode von hier, also Format-Context,
+wir kopieren uns das jetzt einfach mal rüber. Es kommt in Constructor von unserem GIF-Decoder
+rein, weil es ist ja im Prinzip ganz logisch, wenn das Ding angelegt wird, wenn irgendein
+GIF-Decoder anlegt, dann lese ich die Datei ein und lege so die Sachen an, die ich brauche,
+damit ich, wenn man play drückt oder wenn man abspielen will das GIF, dass schon alles
+geladen ist. So, dann nehmen wir das hier, das müssen wir ein bisschen anpassen, weil
+das ist jetzt kein hardcoded Fahrt mehr, sondern der Fahrt den ich übergebe. So viel Setup
+für eine von außen einfache Sache. Richtig. Richtig. Es sieht super simpel aus, ne, ein
+paar GIFs abzuspielen quasi als Overlay über allen anderen Fenstern. Wenn irgendeiner
+sagt, ey, zeig mal ein GIF an quasi als Overlay, dann denkt man doch, ey, das ist kein Akt.
+Wahrscheinlich gibt es auch ein paar Programme für, wie man das machen kann. Es gibt ja
+viele Programme, die quasi Top-Moused-Windows setzen können und auch noch manche Fenster
+transparent machen können und so. Aber das wirklich richtig zu machen, ordentlich und
+schnell zu machen, es ist tatsächlich gar nicht so ohne. Würde man gar nicht denken.
+So, wir kopieren uns unseren ganzen FFM-Pack-Code rüber, den wir schon das letzte Mal gebastelt
+haben, von dem wir wissen, dass er funktioniert. Hier lesen wir ein Dateiformat, also sprich,
+was es ist, wie viele Frames es hat, also wie viele FPS es hat, wie lang es ist und so
+was. Dann brauchen wir den Krempel hier noch. Mal gucken, bis wann wir alles in Constructor
+packen. Oder wann in die Play-Methode. Oder wie nennen wir sie? Decode nennen wir sie.
+Play. Play wäre für den Decoder ziemlich blöd. Find-Decoder, Decoder, Blah, Package. So,
+mehr brauchen wir erstmal nicht. Jetzt ist der Kram hier alles initialisiert. Packages
+und Stream werfe ich weg. Das machen wir später. Legen wir das neu an, weil das brauchen wir
+bloß in der Methode, wo wir dann auch unser GIF-Decode, die brauchen wir nicht global.
+So, und jetzt können wir eigentlich schon anfangen, das Ganze zu rendern. Stream. Äh,
+ups, hab ich den aus Versehen gelöscht. Hab ich aus Versehen gelöscht. Wollte ich
+gar nicht. Ich wollte Package löschen, Package und Frame löschen und nicht Stream. So, ok.
+Können wir das hier irgendwie ein bisschen schöner schreiben? So. So. So, ha, das sieht
+ganz gut aus. Ok, ich versuche immer so, die Sachen immer so, dass die logisch zusammengehören,
+so einen Block stehen zu lassen, eine Leerzeit dazwischen zu machen. Das ist ein bisschen
+persönliche Ansicht, wie es einem am besten gefällt. So, und jetzt braucht man als nächstes,
+also wir machen uns jetzt eine, ich zeige euch jetzt mal, wie man das Ganze thread-sicher
+macht. Ich hab dann nämlich schon so eine Idee, wie wir das machen. Das heißt, an der
+Stelle legen wir jetzt einen neuen GIF-Decoder an und übergeben dem mal einen hardcoded-Fart
+wieder. Und zwar, was nehmen wir denn mal? Komm, wir nehmen, wir nehmen, wir nehmen wieder
+den Papagei, der Papagei ist schon ok. Mit dem, mit dem Dateipfad im Constructor musst
+du für jede Datei einen eigenen Instanz erstellen. Ja, das will ich aber auch so. So, Decoder,
+so jetzt brauchen wir sowas wie, wir brauchen einen Task, damit wir das Ganze quasi in einem
+eigenen Thread laufen lassen können, das decoden. Müssen wir ja letztendlich, wir wollen ja
+unser, unser GUI Zeug nicht blocken, was nicht unbedingt sein muss. So, dann machen wir eine
+Methode, ich kann nicht rein, irgendwie decode, ne, ne, ne, wir nennen das alles, wir nennen
+das Start, aber wir machen, oh, ich hab eine Idee. Wir machen das jetzt richtig pro, wir
+machen das jetzt richtig pro, pass mal auf. Jetzt, jetzt zeig ich euch mal was, jetzt
+kommt hier wirklich high IQ Proggerskills an, Schatz. Also wir machen, wir machen eine Start-Methode,
+vorher sagen wir uns im Constructor auch Task, irgendwie New Task und dann brauchen wir noch
+eine Methode, die der Task ausführt und das wird die Methode decode, decode decode, werden
+wir jetzt gleich nochmal einfügen lassen. So, wunderbar und in Start machen wir nix
+anderes als das Task, äh, Start. Soweit, so gut, erstmal relativ einfach. So, und jetzt
+waren wir in Trick 17, jetzt waren wir in Trick 17. Ähm, ich, wir müssen, wir müssen
+danach nochmal gucken, ich hab nämlich im Hinterkopf, dass es irgendwie mit C-Sharp bzw. mit irgendwie
+einem der letzten.NET Updates was gab, um das noch schöner zu machen. Vielleicht weiß
+da ja einer was von euch und zwar, von der Idee her machen wir das jetzt so, wir haben
+ja hier einmal unseren, nennen wir es mal GUI Thread, also sprich das Ding, wo Diode
+X drinne läuft, haben wir hier unser Diode X Zeug und das hier, das Decode von dem GIF
+läuft in einem separaten Thread ab. Und jetzt ist es ja so, ich muss ja irgendwie, dieses
+Dis, ja ich mach das gerne. Es gibt Leute, die machen dann so Dinger hier wie, äh, Private,
+blub, gleich eins, so, so Dinger, ja. Also, so Dinger machen viele gerne. Aber ich mag
+ehrlich gesagt, äh, das lieber, wenn meine Klassen-Dinger quasi meine Instanzvariablen
+halt nicht Unterstrich haben und ich jedes Mal ein This davor schreibe. Das ist komplett
+Geschmackssache, kann jeder machen wie er will. Und, ähm, ein Task ist nicht zwangsläufig
+ein neuer Thread, das stimmt, aber in der Regel ist das ein neuer Thread und zwar im
+Standard Threadpool, den es halt so gibt. Und es sei denn, man macht den Task mit Long
+Running, dann ist es ein eigenständiger Thread. Ansonsten ist ein Task in der Regel aber ein
+anderer neuer Thread. Miint, ja, okay, man kann es natürlich immer noch weiter, weiter
+versauen, ja. Es ist aber Geschmackssache. In welchem Fall ist denn ein neuer Task, in
+welchem Fall ist denn ein Task kein neuer Thread? Mir fällt jetzt da gar nicht so viel
+ein, ehrlich gesagt. Ich muss jetzt mal Backup mit ein paar Beispielen. Der sagt ja auch
+sogar hier irgendwo, dass, ähm, das standardmäßig halt im Threadpool läuft, dass es Default
+ist. Guck. Was, wenn der Main Thread nicht blockiert ist, dann ist es... Achso, ja. Ist
+das so. Also ich dachte eigentlich, dass standardmäßig, wenn du einen Task anwirfst, dass das immer
+in den Standard Threadpool geworfen wird. Steht doch sogar da. Use Specific Work to Run
+on Threadpool and Return Task Object. Oder ist es ein Unterschied zwischen Task Run und
+New Task? Zumindest läuft es parallel. Wir blockieren nichts, das ist ja das Wichtige
+an der Stelle.
+Das stimmt natürlich, der nimmt irgendwas, was frei ist. Es geht aber hauptsächlich
+darum, quasi den Kram nicht zu blockieren und das erreichen wir auf jeden Fall. So,
+ähm, genau. Decode, bla, bla, start. So, und jetzt in unserer Decode Methode werden wir
+uns die einzelnen Bilder aus dem GIF rausholen. Jetzt war er Trick 17. Ich hatte nämlich
+gerade eine gute Idee. Und das kann sein, dass es, wie gesagt, in C-Sharp 7 oder in
+ein oder neuen.NET Versionen noch was Besseres gibt. Ich bild mir ein, dass ich irgendeinen
+Vortrag von der letzten Bild oder der vorletzten Bild gesehen hab, wo sie genau was zu diesem
+Thema erzählt haben. Ist das hier noch immer das Meme Board? Ja, es wird weiter verbessert.
+Und zwar aktuell hast du das Problem, wenn du auf GIFs drückst, hast du ja gerade das
+Klicken gehört, das dauert ewig. Wir basteln jetzt unser eigenes GIF Overlay, dass das
+schneller geht. Und das, das, das wird auch deutlich schneller gehen. Geht ja jetzt schon
+schneller. Viel, viel schneller. Braucht anstatt 58 MB nur 80 MB. Ähm, genau, wir machen
+jetzt, pass mal auf, jetzt kommt's hier, jetzt, äh, wir nehmen jetzt eine Blocking Collection
+und zwar von AV Frame. Wir nennen das Ganze Frames. So, Default Value. Das ist, das ist
+auch ein schönes neues, ich glaube, Sie schreiben sieben Feature. Du kannst jetzt sagen, ey,
+ähm, dieses Property hat nur einen Getter, also sprich, du kannst da nichts Neues reinschreiben.
+Ähm, also keine, keine neue Collection zuweisen, aber du kannst einmal zum Initialisieren hier
+was reinschreiben. Sonst müsstest du das halt hier im Constructor machen. So, ähm,
+und Blocking Collection hat eine ganz schöne Eigenschaft. Erstens, das Ding ist Red Sicher.
+Und das Zweite ist, es hält quasi, es blockiert die andere Seite, wenn nicht, wenn nicht genug
+Bilder da sind. Wir probieren das jetzt mal aus, mal gucken, ob das das ist, was wir haben
+wollen. Und ich denke aber mal, dass wir ziemlich schnell in der Lage sind, neue Giftbilder
+zu decoden und dass wir auch ziemlich schnell in der Lage sind, Sachen zu rendern. Und eine
+Sache müssen wir noch machen, man kann nämlich der Collection angeben, dass wir maximal
+100 Items queuen wollen. Weil, sonst hätten wir den Fall, ähm, mal genommen, wir hätten
+einen riesen GIF und unser GIF decoded viel, viel schneller als wir es rendern können,
+würde das hier quasi voll laufen mit neuen, neuen Bildern. Deswegen sagen wir, ey, 100
+Bilder im Voraus berechnen ist erstmal genug, es ist kaum ein GIF mit 100 Bildern finden,
+äh, mehr als 100 Bilder im Voraus berechnen ist genug, im Zweifelsfall dann block halt
+hier dein Decoding so lange, bis eins abgearbeitet ist. Und auf der anderen Seite sollte das hier
+leer sein, dann blockt das Rendern, was wir auch in einem separaten Task laufen lassen,
+blockt das Rendern vom DirectX. Sollte hier nichts drin sein. Und da müssen wir uns nicht
+um irgendwelche Fälle kümmern mit, es ist nichts da, es ist null drinne, es kackt ab
+oder sonst was in der Richtung. Es hängt dann einfach bis auf beiden Seiten irgendwie
+was drinne ist. So, und das heißt in unserem Decode lesen wir jetzt die einzelnen Bilder
+vom GIF aus und schreiben dann die Bilder in diese Collection rein. Soweit, soweit zu
+gut. Ähm, also von der Idee her haben wir dann sowas hier wie, an der Stelle brauchen
+wir hier Frame, so haben wir den Decoder, Decoder, Decoder, Frames, Take, so. Und an
+der Stelle ist es jetzt so, wenn hier nichts drinne ist in Frames, weil unser GIF Decoder
+angenommen zu lahm ist, dann würde es an der Stelle blockieren und nicht weiter rendern,
+bis das, ähm, bis was drinne ist. Das heißt, ohne es ist thread-sicher, das ist natürlich
+ultra praktisch, das heißt ich muss mich hier um nichts kümmern. Moin, du hast doch immer
+noch deinen Server zuhause, wie hast du den gegen Angriffe von außen abgesichert mit
+einer Firewall und TLS oder, ähm, es gibt keine Zugriffe von außen. Deswegen muss
+ich da auch nichts absichern. Das einzige, was es gibt, ist, ähm, ein OpenVPN. Das ist
+das einzige, was es gibt. Aber ansonsten, es gibt keine wirklichen Zugriffe von außen,
+deswegen muss ich ja auch nichts großartig absichern. Und mein Nextcloud und das ganze
+Zeug, das ist quasi nur intern verfügbar oder wenn man per VPN angemeldet ist. Also
+sprich, das funktioniert dann auch nur von meinen Geräten aus, wo ich auch ein VPN
+drauf installieren kann. Ansonsten, äh, fragst du, weil du selbst was absichern willst, also
+ich kann dir erzählen, wie ich das machen würde, wenn ich es von außen erreichbar
+würde. So, ähm, DecoderFramesTake, TakeFrame, das ist ein AV-Frame. So, und jetzt können
+wir den ganzen Krampel hier löschen. Den brauchen wir drüben in unserer Decode-Methode
+drin. Ähm, so, Frame, Frame, das muss den ganzen Krampel ersetzen. Die ganzen Pointers
+ersetzen durch Punkte. Und wir dürfen nicht vergessen, den Frame wieder aufzuräumen.
+Dann ist MemoryLeak des Todes angesagt. Okay, so weit so gut. Gucken wir mal, ob das jetzt
+prinzipiell funktioniert. Also, wir decoden den ganzen Krampel, blablabla, Frame, Packet.
+Also, müssen wir hier ein neues Packet pro Durchlauf anlegen. Sagen wir hier, Packet
+gleich new AV-Packet. Und sagen Frame gleich new AV-Frame. So, blablabla, Add. Achso, ja,
+genau, dann müssen wir Referenz übergeben. Und sagen Add Frame. So, und jetzt gucken
+wir mal, ob es funktioniert. Es sollte eigentlich jetzt immer noch der Vogel rauskommen. Macht
+er aber nicht. Okay, da habe ich einen, achso, ich muss das Ganze noch starten. Haha, haben
+wir noch nicht gestartet. Decoder, Start. Kann ja nicht funktionieren. Bam! Es nimmt,
+es nimmt Formen an, Leute. Es nimmt Formen an. Was wird denn das, wenn es fertig ist?
+Das wird ein Gift-Player, der schneller ist als der normale WPF-Gift-Player. Guck hier,
+klick, wie lang das braucht. Und meiner ist dann der High-Speed-Gift-Player mit 6000 FPS
+die Sekunde. Wie im Titel steht, der schnellste Gift-Player der Welt wird das. Also, Woosa,
+wäre cool, wenn du uns mal erzählen willst. Also, wenn ich von außen was verfügbar machen
+würde, das Beste, was du machst, ist natürlich erstmal VPN, da gibt es relativ wenig Probleme.
+Das nächste sind Client-Zertifikate, auch immer wunderbar. Allerdings möchtest du
+das oftmals von außen zugänglich machen, ohne dass der andere eine Zeremonie abziehen
+muss, dass er darauf zugreifen kann. Und da ist das einfachste, also erstmal brauchst
+du ein paar Zertifikate. Wenn du das Ganze verschlüsselt machen willst, da empfiehlt
+sich Let's Encrypt und ich würde nie meine Anwendung direkt Port weiterleiten oder direkt
+freigeben in der Firewall. Ich würde das Ganze immer über, wenn es HTTP ist, aber das meiste
+ist ja HTTP, würde ich das über den Reverse-Proxy laufen lassen, dann nehme ich meistens EngineX
+für, aber es gibt auch zig andere Sachen, die du da verwenden kannst. Ich verwende
+meistens EngineX für, EngineX und Let's Encrypt mit Zertport funktioniert auch wunderbar
+zusammen, dann hast du quasi einen EngineX zwischen deinem Dienst und zwischen außen.
+Das heißt, da kannst du auch wunderbar quasi hinter einer Domain auf mehreren Ports quasi
+Dinger laufen lassen oder quasi mehrere Subdomains intern auf unterschiedliche Dinger mappen
+oder sowas. Dann kannst du dir überlegen, ob du noch eine Authentifizierung machst über
+EngineX. Du könntest beispielsweise, wenn du sagst, ok, ich will es möglichst einfach
+haben, dann machst du halt einen EngineX als Reverse-Proxy dazwischen und holst dir Let's
+Encrypt-Zertifikate und dann machst du halt, wenn du willst, dass es simpel ist und du
+noch ein bisschen Authentifizierung hast, dann machst du dem EngineX einfach Basic Auth
+und dann musst du halt Passwort und Username irgendwie mit deinen Leuten austauschen, aber
+das ist das Einfachste, was du machen kannst und das ist dann aber schon relativ gut. Natürlich
+gibt es dann noch unendlich viele weitere advancede Varianten, du kannst hier sogar
+einen To-Fack der Authentifizierung basteln mit, gibt es auch so Keycloak oder irgendwie
+sowas, wo dann der EngineX einen Request dagegen macht, so nach dem Autodata-Typ und
+sowas. Aber die einfachste Variante dürfte wirklich sein, Let's Encrypt-EngineX oder
+irgendeiner anderen Reverse-Proxy und Basic Auth davor und gut ist. Läuft schon, es läuft
+mit einem Bild und ist transparent, Patrick. Also es ist schon deutlich besser als das
+letzte Mal und du hast das ganze Intro verpasst, wie sehr es mich genervt hat, ein transparentes
+Fenster und ein transparentes GIF selbst zu ändern. Riesenakt. Okay, Decoder-Start, zack,
+da ist er. Und sogar schön gescaled. Okay, jetzt müssen wir natürlich nur einstellen,
+dass mehr Frames abgerufen werden. Okay, kann ich noch ein bisschen was löschen von dem
+ganzen Krämpel hier, den ich da hab? Bla, bla, bla. Bla, bla, bla, kann ich davor noch
+irgendwas wegschmeißen? Nee, glaub ich nicht. Okay, Copy from Memory, Frame, Decoder-Start,
+Decoder-Start. Gut, das hier muss ich in der Schleife machen. Das Bitmap kann ich ja vorher
+schon anlegen, das ist kein Problem. Das muss ich in der Schleife machen und ich muss einmal
+pro Schleifendurchgang einen neuen Frame holen, also am Ende vom Durchgang. So, jetzt sollte
+eigentlich das GIF animiert sein und ist es auch, plus es ist viel zu schnell. Ich vermute
+mal, dass das ist. Wollen wir mal ein Sleep irgendwie dazwischen, 100 Millisekunden, da
+ist es. Bam, danach kackt es ab. Logischerweise kackt es danach ab, weil es gibt keinen Frame
+mehr, richtig so. Aber, Animation in Form an. Warum genau kackt das ab, Frame? Na eigentlich
+abkacken sollte es doch nicht. Der letzte Frame ist doch immer noch drin, oder? Jetzt
+muss ich mal überlegen, warum kackt das an der Stelle ab. Also, wir müssen den Frame
+eh auf jeden Fall wieder löschen, weil das haben wir in Memory Leak. Das wollen wir nicht.
+Also im Prinzip funktioniert es, aber wenn die Animation fertig ist, kackt er ab, weil
+wahrscheinlich hier der Kram nicht... wo kackt... was war? Paint kackt er ab? Das ist wahrscheinlich
+ein Bug, dass er bei Paint abkackt. Also wahrscheinlich hat er hier irgendwie Probleme mit dem Speicherbereich,
+wobei ist den Frame doch eigentlich... ach nee, ha, nee, Moment. Das sollte doch eigentlich
+hängen, wenn nichts mal drinnen ist. Also warum der abkackt ist mir jetzt nicht so ganz
+klar ehrlich gesagt.
+Hm. Warum kackt er ab? Kannst du mal erklären, was das Endpoint der Fernandam-Struktur ist?
+Das ist quasi die Managed-Variante von einem Pointer. Ja, alles gut. Sharks Development.
+Warum kackt er denn ab an der Stelle? Ich meine, es ist nicht schlimm, wir laden ja
+eh die Bilder dann nochmal neu, aber er sollte definitiv nicht abkacken, wenn keine Bilder...
+also von der Idee her sollte es folgendermaßen sein. Ah, ich weiß woran das liegt. Das Ding
+hier kackt ab. Wartet mal, ich hab ne Idee. Wir machen mal... die Coden mal wieder nur
+ein Frame. Siehste, jetzt kackts nämlich nicht ab. Das kackt gar nicht ab, das ist Fail.
+Das kackt in Wirklichkeit nämlich der Gift-Decoder ab, was ganz klar ist, weil er nicht weiter
+lesen kann. Ich muss hier nämlich gucken. If Error F of Mpeg. Ok, das muss ich mir
+jetzt mal abgucken von dem, was wir das letzte Mal gemacht haben. Das war an das EOF oder
+sowas, ne? Ja, genau. Sprich, wenn das File fertig gelesen ist, dann darf er nicht weitermachen.
+Da muss er machen Break. Ha, guckt, und jetzt kackt das Ganze auch nicht mehr ab. Das lag
+nämlich gar nicht an unserem Render, das lag am Decoder, der abgekackt ist und die Exception
+war nur an einer komplett Fail-Stelle. Memory Leaks werden wir gleich ordentlich produzieren,
+ich hab's im Gefühl. So, und jetzt müssen wir eine Möglichkeit finden, wie wir das
+Ganze resetten. Also der Witz ist jetzt ja, wir können, also wir haben jetzt ein relativ
+langes Leap drin, dass wir sehen, dass die Animation funktioniert, wir machen das Leap
+dann ein kleines Mal raus, wenn wir es geschafft haben, quasi eine endlos Gift-Schleife zu
+decoden. Also von der Idee her würde ich mal sagen, was übrigens auch toll fällt,
+wir haben 0 FPS. Wir müssen jetzt mal gucken, wie man mit FFmpeg quasi zurückspringt hier,
+weil wir lesen ja immer noch, wir haben ja hier irgendwo einen neuen, wir haben ja hier
+irgendwo einen Stream und wir lesen Frames, Frames, Frames, Frames, sondern irgendwann
+sind wir am Ende, End of File und jetzt müssen wir irgendwie FFmpeg ja wieder sagen, geh
+an den Anfang des Files zurück. Ich hab keine Ahnung, wie man das macht, da müssen wir
+mal versuchen. FFmpeg Reset File. Ja, das kann man auch machen, wir könnten auch einfach
+alle Frames zwischenspeichern, das geht auch. Aber ich will mal gucken, wie man resettet.
+How to Reset AV Format Context so it could be reused. Das ist schonmal gut. Ok, da hat
+keiner Antwort gekriegt. Wisst ihr was, wir sollen jetzt mal Stack Overflow dabei. FFmpeg
+Reset Start Time of File. AV Frame. Position. Man muss einfach nur gut suchen können. FFmpeg
+Position File Context. Reset. Seeking. Seek. Seek.
+Text. Have you come?
+Ihr seht jetzt gerade Stack Overflow Driven Programming in Aktion. Seeking with AV Seek
+Frame. I.O. Stream. Set. Wir kommen da Sache langsam näher.
+AV Seek Frame hatten wir das schon oder hast du gewusst? Ist doch. AV Seek Frame.
+Seek. Set.
+Das muss ja irgendwie funktionieren.
+Also, wenn wir hier EOF haben, dann müssen wir sagen, was AV Seek, AV Seek Frame, Kontext,
+was für einen Kontext brauchen wir denn an der Stelle, ahja, Format, ok, Format, Kontext,
+Stream Index, Stream Index ist 0, GIF hat nur 1 Stream, Timestamp, wo wir hin wollen,
+die Tote, Keyframe, Timestamp, 0, Inflax, 0, ob das jetzt funktioniert, ob das jetzt
+funktioniert, nee, ich glaube nicht, dass es funktioniert.
+Äh, Scheiße, das funktioniert, krass, übrigens, wir haben ein paar Memory Dex, aber, ich
+glaube, es funktioniert, ich bin echt überrascht jetzt, ne, guck mal, wir leaken ein bisschen
+Memory, so ein bisschen, ein bisschen, ein bisschen Memory liegen wir, das liegt aber
+daran, dass ich auch nichts frei gebe, ok, gucken wir mal, also, wir sagen, ok, das Packet
+brauchen wir nicht, Package freen können wir, Frame freen können wir nicht, also, FFMPack,
+Free Packet, Deprecated, drauf geschissen, jetzt leaken wir schon eine ganze Ecke weniger,
+Free Packet ist obsolete, Use Packet Unwraff, machen wir, Dust Dust 1717, äh, kennst du
+dich mit FFMPack aus, oder woher weißt du das alles, ok, wir liegen, wir liegen noch
+ein bisschen an anderen Stellen, wie es aussieht, wahrscheinlich in unserem DirectX, DirectX
+Krämpel, müssen wir mal gucken, ja, garantiert, garantiert, wir müssen hier noch aufräumen,
+wir müssen mal gucken, an welcher Stelle, so, und jetzt müssen wir hier am Ende, müssen
+wir noch sagen, FFMPack, wahrscheinlich auch Unwraff, Unwraff Frame, sondern jetzt sollten
+wir weniger leaken, achso, auch bin ich blöd, vielleicht sollten wir das davor machen, bevor
+wir uns den neuen holen, guck mal, wir liegen nicht mehr, weil das, äh, wir machen das
+mit Open, mit DirectX, weil es Windows Only ist, also, so, und jetzt nehmen wir mal das
+Lieb raus, mal gucken, was passiert, alter, ich sag doch, der schnellste Giftplayer der
+Welt, wisst ihr, dazu passt jetzt richtig gut,
+ich bin begeistert
+Nice, gut, mal in den normalen Modus wieder wechseln,
+warum ist die Musik gar nicht so leise, ich mein, guck mal, wir schaffen es jetzt,
+meine Platte ist wahrscheinlich auch voll am, oh ja, mein SSD ist ein bisschen am blinken,
+ich mein, guck mal, wir haben ja die Frames noch nicht mal gecached oder so, wir lesen
+das quasi immer neu ein, erstellen immer neue AP-Acte und wir rendern das quasi mit
+maximal 1200 FPS oder so, das ist doch schonmal sehr ordentlich, allerdings soll das Ganze
+natürlich nicht ganz so hektisch sein, aber nice, das funktioniert schonmal, und wir brauchen
+auch nur 90, 90, 90 MB RAM, warum steht denn so überhaupt auf Release, soll ich auf Release
+stehen, wow, es ist kaputt, warum geht das kaputt,
+warum geht das kaputt, wenn es auf Debug steht, aber auf Release geht es nicht kaputt, wie
+dem auch sei, wir wollen das ja eh nicht so schnell haben, aber kaputt gehen sollte es
+eigentlich nicht, das sollte eigentlich volle Pulle, wir unreffen bestimmt irgendwas, was
+schon kaputt ist oder so, Triggered a Breakpoint, ja welcher Breakpoint auch immer, jetzt ich
+meine es ist ja geil, wenn es eine Exception wirft, aber warum, Unref, ja Breakpoint, habe
+ich halt keine Ahnung, ok, wahrscheinlich machen wir hier irgendwie irgendwas blödes,
+beim Unref kackt er ab, kackt er beim Unref ab, das ergibt ja überhaupt keinen Sinn, habe
+ich das vielleicht in der falschen Reihenfolge irgendwie, ah V-Frame 3, ne ich dachte das
+ist das neue 3, Moment, das sind unterschiedliche Dinger,
+wartet mal kurz, so wieder da,
+ich brauche gar nicht Unref, liegt es denn, wir gucken mal ob es überhaupt am Unref liegt,
+ja ohne Unref geht es, allerdings ist mein Ram gleich voll, wenn es so weiter geht, Moment
+wie mache ich das denn jetzt, jetzt stoßen meine krassen C-Pointer Skills an die Grenzen,
+der möchte einen Pointer haben, also ein Pointer zu einem Pointer auf Frame, ich habe allerdings
+nur einen Pointer auf Frame zu bieten, was mache ich denn jetzt, Leute haben wir nicht
+irgendeinen der hier, der Patrick, der so eine krasse C-Owner, was mache ich denn jetzt,
+also das geht, ok mal probieren wir aus, und, und, ey das wäre lustig wenn das geht, aber
+das glaube ich nicht, ne, was a V-Frame, jetzt ist es richtig getippt, aber das ist dann
+immer noch kein Pointer zum Pointer oder, ha, ha, nein, nein, nein, nein, nein, nein,
+nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein,
+Ja, an der stelle
+Ich habe keine ahnung was ja interessant finde dass er das im release modus nicht macht
+also mit anruf hat sie im release modus funktioniert
+was ich interessant finde anruf ist doch eigentlich das richtige im release modus
+funktioniert er doch auch was hat er im debug mod für schmerzen damit er
+gut wisst ihr was wir machen wir native code debugging an aber schon
+doch
+ja das ist halt die frage ob der constructor das hier auch so macht
+kann man jetzt nicht reingucken aber wahrscheinlich ja aber hier
+irgendeine logik drinne die fail ist wisst ihr was wartet mal wir machen jetzt was anders
+wir rennen dann jetzt mal nichts wir rennen dann jetzt mal nichts
+gucken ob der ob der ob der decoder jetzt läuft
+ne guck mal der decoder kackt schon ab warum ach so ja weil 100 elemente voll sind
+ich fühle das ding mal hier drin
+kann ich mir nicht vorstellen dass man das hier irgendwie
+siehst du das richtig komplett startet in dem fall schon das ist einfach ein rapper
+um diese um halt die zähle library von ffm pack
+ja einfach ein pack ist zäge schwimmel
+you can use frame anwärm oder to clear der donation sound poggers
+1 euro 23 vom huru boss seine konungstiere sind immer interessant
+das ist wenn es dir gefällt sehr sehr nice
+da musst du das objekt auch pinnen weiß ich nicht ob ich das pinnen muss
+ich dachte pinnen muss ich nur wenn ich quasi irgendwelche managed zu native
+geschichten mache was ich jetzt an der stelle gar nicht mache ich mache unter
+haum im prinzip alles unsafe native
+natürlich ein beispiel wie das verwenden
+da machen wir das jetzt doch mal so also wir waren jetzt in frame
+das funktioniert
+interessant
+warum funktioniert das so und anders nicht ich meine das ist ok was machen
+die denn in dem konstrukt davon muss das muss man auch github autogrenen
+ffm pack und a v frame da muss man nachgucken die da unter hau unter der
+hau bing was anderes machen ja ich mache auch acht ach so ich mache
+ich das ist das package obendrüber ich mache nur ich mache nur 3 gerade das
+funktioniert und wir liegen auch nichts und no leaks probieren das jetzt noch
+mal anders rum
+warum hat er hier irgendwelche schmerzen mit ich meine das müsste die lokal von
+der funktion sein ok sind wir ja auch weiterhin
+ok das problem ist anscheinend nur wenn ich das andere das funktioniert auch
+ok das ist prinzipiell prinzipiell ist alles gut das problem tritt nur auf wenn
+ich das von der anderen seite aus mache das denn
+das ist entweder
+das ist irgendwie in der threading geschichte was ich mir eigentlich
+vorstellen kann oder die adressen stimmen einfach nicht
+allerdings merkwürdig
+ok warte mal ich brauche den frame hier brauche ich den danach brauche ich
+nicht mehr
+ich meine wir geben einfach den wir speichern uns einfach den pointer
+da drin das geht natürlich auch aber eigentlich will ich kein anzelf zeug
+rausgeben ok ich habe da alle die idee leute wir machen weil ich will
+eigentlich hier in meiner form kann anzelf zeug verwenden ich will das
+ganze anzelf zeug hier drin machen ich habe die idee wir machen jetzt noch
+public-class-frame der kriegt ein av-frame av-frame
+was hat er für schmerzen achso
+wir können es auch noch anders machen wir können dann in point of
+also ja wir reppen den camp noch mal in der eigenen frame klasse da müssen wir
+da keine anzelf zeug rausgehen irgendwie so probieren aus gerade das so von von
+der idee funktioniert was programmiert eigentlich programmieren in gif in gif
+viewer also der tut ganz schön schnell das gif das ist als ergänzung zu meinem
+overlay hier weil das wpf giftzeug so langsam ist guck wenn du hier drauf
+klickst hast den klick gehört wie lange das dauert das ist der schnellste gift
+player der welt hier da funktioniert er nur im release modus im debug modus nicht
+es macht mich echt fertig jetzt was das vielleicht liegt am debugger das liegt
+am debugger wenn er die bagger attached ist dann spackts rum wenn er die bagger
+nicht attached ist dann spackts nicht rum liegt es am native code die baggen
+ne also mit attach dem debugger spinns ok dann ist das ich glaube gar nicht dass
+mein coder irgendwie probleme hat aber aber wir machen das trotzdem mit der
+eigenen klasse
+so und dann kriegen wir jetzt hier in den av frame so überlegen wir mal das
+haben wir es machen also einen av frame probier das jetzt mal so frame
+suppose weil das ist eigentlich das was was ich ursprünglich ursprünglich
+vorhatte also ich wollte eh eine eine klasse dafür machen dass ich kein
+anzeif zeug rausgeben muss weil fix fix wie ging da kram noch mal so na fix da
+musste man quasi sagen es wird doch da dran liegen
+av frame steinchen pointer geschiss jetzt für schmerzen
+also anzeif nehmen aber nicht anzeif machen anzeif anzeif ja ja ich habe
+kein if kein kein kein debug ifs irgendwo drin also nicht dass ich nicht
+dass ich wüsste anzeif fix so das also was was was können wir in unserer frame
+klasse sinnvolles geben das ist eh was was ich noch machen wollte sondern
+properties brauchen wir wir brauchen in pointer data hier wird er mir
+wahrscheinlich wird er meck wieder meckern wenn ich sage frame data null
+das mag er wahrscheinlich nicht
+ne das muss anzeif sein also sprich brauchen wir hier nun jetzt
+get return das da brauchen wir was jetzt also anzeif moment ein rückung ein
+rückung anzeif anzeif so gut wenn ich mag wird gekastet klar easy cast easy
+life so dann brauchen wir noch in pitch brauchen wir noch frame line size war
+das so ok das müsste doch eigentlich jetzt schon reichen so und die blogging
+collection ist kein av frame mehr sondern nur dann frame
+und hier ist es ein new frame falls das jetzt klappt hat der freund was von fix
+geschrieben hat doch recht gehabt das package kann weiter anreffen ach so ja
+klar das gibt es ja nicht so weil frame ist jetzt ja einen ab breite breite
+dings da breite höhe brauchen wir noch ganz natürlich funktionieren
+witz und heights wisst ihr wo ich übels bock drauf hätte leute also nicht jetzt
+aber wo ich gerade gerade so bauchgefühl gerade so unbewusst dran
+gedacht hat wo ich übels bock drauf hätte das ist ich würde jetzt gerne mit
+dem fall mit mw2 spielen auf der 360 so ohne scheiß das ist mir grad so
+eingefallen aber liebsten würde ich mich jetzt einloggen xbox party chat alter
+war xbox party chat geil nicht diese verkackte scheiße da ja
+stunden aber den krams gespielt außerdem waren wir da noch jünger
+wobei es ist nicht so dass ich mir großartig alt vorkomme in der richtung
+aber das wäre also
+so witz viele witz und so viele heights noch mehr das ist jetzt einfach nur auf
+frame data das haben wir schon gewerbt ich bin mal gespannt ob der shit
+funktioniert er so jetzt muss es erst mal funktionieren und für memory liegen
+jetzt wie verrückt die memory liegen ordentlich 2 gigabyte ram schon weg
+bärm in your face noch mal gucken ob das jetzt funktioniert frame despose scheiße
+alter was ist das für eine kacke
+voll auf den sack
+mega auf den sack dass es nicht funktioniert
+aber wie ging das free kann ich mal tippen er free
+frem frem frem frem ich kann jetzt schreiben av frem frem
+ne ne das mag nicht ich weiß woran das liegt ich habe eine idee ich habe nie
+das liegt überhaupt nicht an den referenzen das liegt hier dran
+das liegt 100 pro hier irgendwo dran ich sag es euch der das rumgesiege ist
+nicht richtig was ich hier mache weil ich guck mal das kackt ab genau ziemlich
+genau nachdem es einmal durch ist
+mein gesiege ist falsch alles kackt wischel studio noch ab oder was
+guck das kackt mehr oder weniger direkt mein ich ich sieke falsch das das wird
+sein dass es fehlt noch was oder sowas
+so ist es anders an der stelle
+fast das ist einfach nur verzögert haben
+ich werde mit euch ich sieke falsch
+ich habe das so irgendwie mach einfach try catch drauf wahrscheinlich wird das
+sogar funktionieren aber dann auf jeden fall in den memory
+liegt drinnen
+ich muss mal suchen ich habe bestimmt irgendwo was wo ich mal ein stream
+resettet habe ich ich suche noch mal ich suche noch mal danach siegfeil position
+ffmpeg format kontext sieg
+stream resett
+einfach nicht sieg nur die datei selbst storm ja das ist es muss gehen man muss
+mit immer muss doch an anfangen kommen
+mehr flo so was mache ich nicht also sagen wir so dass mit dem mit dem selbst
+mit dem mit dem storm das ist eine sache die ich vielleicht noch
+mache aber ich will wissen wie ich ordentlich siege
+position
+afv kodak flasch buffers kann man gleich ausprobieren
+was als letzten parametern vier
+wenn sie mal lustig wie interaktiv die ganzen streben dann werden wenn ich mir
+irgendwann hat weiter weiß das schon klar am anfang abgekackt
+stimmt doch irgendwas net
+ich spare mir jetzt mal kurz das disposender kackte auf jeden fall nicht
+mehr ab aber mein ram ist halt relativ schnell voll
+ok also nach was
+könnte man dann noch mal suchen interessantes so was der overflow also
+was was ist eigentlich was wir machen ffmpeg
+besetzt dream auf leicht pizream
+Speed Stream
+Gibt es da irgendwas?
+FFF Video Stream
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Gibt es da irgendwas?
+Sieg feil
+So und da muss rein der komische kontext hier wieder
+Kontext
+Index auf stream null
+Smalls timestamp null
+Lange tage timestamp macht der da stream stream
+Duration null bin ich ja mal gespannt ob der scheiß funktioniert
+Ups was vergessen
+Moment ich habe was vergessen was habe ich vergessen
+Null min null
+Tage timestamp null
+Null max timestamp. Der jetzt aber na
+Da war es jetzt ein akte
+Gehen wir memory liegen immer noch das tolles aber das ist ja klar
+Okay jetzt gucken wir auf wird es pausen dürfen
+Aha ich sag's euch hab's euch doch gesagt wir haben falsch gesiegt
+Das ist zwar kein richtiges deutsch ich weiß zwar nicht was wir falsch gesiegt haben, aber wir haben falsch gesiegt
+Das ist halt einfach so wir wieder komplett wir alter komplett durch
+Und wir memory liegen auch nicht wirklich oder vielleicht ein paar kilobyte, aber das
+Nee wir memory liegen nicht
+Guck mal hier 1200 fps gif animation
+Was gesiegt bedeutet das ist ganz schlecht eingeläut gesucht
+Ich meine damit hier das hier guck
+Sieg also suchen
+Und so gesiegt
+Ich meine damit hier das hier guck sieg also suchen und zwar also so wie ich das jetzt verstehe macht er an der stelle folgendes
+Hier ich öffne ja hier die datei warte mal
+Hier guck mal hier öffne ich ja die datei also meine meine bilddatei öffne ich ja hier
+Open input im fad steht die bilddatei drin und dann habe ich hier eine schleife wo ich quasi
+Inhalte aus der datei auslese irgendwann bin ich am ende end of file
+Und dann muss ich dass ich weiter lesen kann wieder an den anfang sieken also wieder an den anfang springen
+Also ich muss quasi den anfang suchen
+Also ich gebe quasi wieder auf position 0 zurück das ist ja natürlich sehr umständlich bei in dem c sharp stream würde ich sagen bei dem c sharp memory stream
+würde ich sagen
+position gleich 0 und er wäre am anfang
+Aber so einfach ist das jetzt natürlich nicht
+AV format sieg feil
+Warum ich doppelt machen muss weiß ich nicht
+Weil stack overflow das gesagt hat
+Kannst du ein video von mir kurz anschauen und sagen wie es ist und ob ich das video schneller machen soll oder oder nicht
+Es ist ein tutorial video für einen bot
+Einer hat mich gefragt ob ich ein anleitungsvideo machen möchte für den bot was ich auch gemacht habe was für mich war eher zu langsam die
+Aktionen und was für ein bot geht es denn
+gibt er viele bots
+Aktuelle ssd temp
+wie liest man das aus naja das geht das das das hittet ja gar nicht immer die ssd das hängt ja schon in einem fall ist im cash oder so
+Kommt mir trotzdem nicht ganz richtig was du probiert ob man beides machen muss nö ich habe das stack overflow kopiert
+Nö muss man nicht
+Man muss nicht beides machen jetzt gucken wir mal ob das andere auch gehen würde
+Okay, man braucht nur das erste
+Man braucht nur das erste
+Man braucht nur das erste
+Ne, okay, man braucht nur das erste man braucht nur das erste wie es aussieht
+Oder auch nicht vielleicht braucht man doch beides
+Man braucht auch beides zwar eben nur glück oder
+Oder nicht was war fuck
+Man braucht doch nur das erste
+Man braucht doch nur das erste spektrum aber wir müssen mal ein kleines wir müssen mal neu bilden so und jetzt noch mal
+Ne es reicht es reicht nicht
+Man muss beides machen
+Kackt ab wenn man nur eins davon hat
+Kackt ab wenn man nur eins davon macht ab und zu mal so kackt es nicht ab
+Sehr interessant
+Sehr interessant 1200 fps die sekunde wohl gewerkt
+Ja aber richtig cool dass es
+So schnell ist ich mein mit gecashten bildern ist es mit sicherheit noch eine ganze ecke schneller
+So schnell ist ich meine mit gecashten bildern ist es mit sicherheit noch eine ganze ecke schneller keine frage
+Gehe ich mal gehe ich mal von aus dass es
+Mit gecashten bilder noch eine ganze ecke schneller ist
+Ich meine wir könnten es mal ausprobieren
+Da müssten wir quasi wir könnten uns quasi die bilder hier in der zwischenspeichern
+Das können wir mal probieren gucken mal einfach nur mal testen was es für einen unterschied macht wenn man die bilder zwischenspeichern
+Eine möglichkeit um die frame rate zu setten warum soll ich denn die frame rate setten das auch die frame rate messen
+Du siehst ein memory leak wo ist es zeige ja private list frame
+Frames sagen wir zwei einmal frames klein einmal frames groß
+Mal gucken ob das ob das so funktioniert
+Das jetzt noch mal zu checken was es für ein performance unterschied macht zu cashen
+Wenn du das programm jetzt startest geht es nach oben
+Jetzt warum sollte ich hab da gar nichts gemacht
+Das pendelt sich ein bei irgendwie um die 100 da liegt nix
+Da liegt nix warum ist ein stirr die schild der playlist geht hier nicht mehr
+Da liegt nix guck was als fehler hätte durchaus sein können
+Und jetzt bitte das gift noch mit multis werden wir multis werden ja im prinzip schon
+Wir werden das gift in dem einen und die grafik in dem anderen also mit die kone das gift in einem
+Und trennen die grafik in dem anderen
+So mal gucken wie viel das jetzt bringt mit gecashten frames
+Okay so das heißt wir machen das wir breaken also wir gehen raus
+Nachdem wir einmal durch den end of file und danach machen wir endlos zum testen
+Endlos add frames von von dem ding
+Oder wie machen wir das jetzt am besten
+Oder wie machen wir das jetzt am besten
+Wir gehen wir breaken wenn wir end of file sind wir haben uns alle files zwischen gespeichert
+Doch wir machen das mit einer weile schlafen wir machen zwar frame wir machen c style cnt
+So und dann sagen wir add frames add
+Ich bin mal gespannt wie viel schneller das ist das lassen wir aber nicht so ich finde
+das andere schon schöner
+Wenn es direkt weil ich will ja gar nicht so viel ramp verbrauchen das ja eigentlich
+sind ins weg der sache so add frame dann müssen wir quasi gucken
+So und wenn das frame counter größer this frames count ist dann resetten wir frame counter
+wieder auf null
+Das jetzt so funktioniert bin ich mal gespannt
+Nein das habe ich falsch gemacht
+Irgendwo irgendwo ist meine meine logik fail
+größer gleich doch es müsste wahrscheinlich größer gleich sein
+Auch nicht
+Wo ist das problem
+Wo ist das Problem
+Achso ich sollte die frames nicht das pausen das wäre vielleicht ganz praktisch
+Moment was stimmt jetzt an meiner logik nicht ich meine das kackt schon mal nicht mehr
+ab das ist schon mal gut
+Irgendwo ist es null immer null
+Ach ich mache es pro durche auf alter bin ich dumm guck mal
+Richtig dumm
+Nicht der kack noob
+Guck mal hier bam gleich mal
+Doppelte bis dreifache anzahlen auch wieder schwankt es liegt es liegt da da heftig liegt
+es
+Warum liegt das denn
+Das sollte jetzt aber eigentlich nicht liegen
+Das soll hä wo kommt das memory leak jetzt bitte schon her ich höre hier doch auf einzulesen
+Wo kommt denn das her
+Das muss jetzt mal einer erklären wo das herkommt
+Musst du nicht alten frames aus der liste remove
+Ja das mache ich ja hier
+Das ist immer wieder in cache eingelesen
+Warum liegt das denn jetzt
+Es können ja auch gar nicht mehr als 100 rein
+Oder Moment ich habe das limit raus genommen
+Ich habe das limit raus genommen für die blocking collection
+Der schreibt wirklich jetzt unendlich viel da rein
+Krass äh hau verkackt
+Hallo andi unter aller sau
+Was ist ein memory leak
+Ja warte mal
+Boah poggers gecachede bilder macht was aus
+Schauts euch an
+Gecachede bilder ist das nochmal
+Da ist der schnellste gif player quasi noch schneller geworden
+Sind wir schon bei fast 5000 fps
+Oh mein gott
+Also ähm
+A memory leak ist eigentlich relativ einfach erklärt
+Das was der flow96 sagt ist so schon gar nicht verkehrt
+Wobei das nicht den kern trifft
+Wenn der ram verbrauch permanent steigt
+Die frage ist natürlich warum steigt der ram verbrauch immer weiter an
+Und
+In sprachen wie sagen wir mal c
+Dort wo du dich um die speicherverwaltung selbst kümmern musst
+Ist eigentlich auch das einzige wo memory leaks auftreten können
+Und warum ich in c sharp memory leaks habe
+Ist ähm weil ich eben die c library verwende
+Im prinzip ist eine memory leak ganz einfach damit erklärt
+Wenn du speicher anforderst
+Aber den speicher nicht wieder zurück gibst
+Das ist in memory leak
+Wenn ich jetzt sage betriebssystem gibt mir speicher
+Ich möchte was damit machen
+Kriege ich keine ahnung
+Ein mb speicher
+Und ähm
+Nächstes mal wenn ich was sage
+Wenn ich was brauche
+Betriebssystem ich brauche wieder ein mb speicher
+Ohne dass ich den speicher jemals wieder
+Äh sage hier kannst du wieder verwenden
+Das ist in memory leak
+Ja also sprich ich gebe einfach nicht den speicher wieder frei
+Den ich mal angefordert habe ganz ganz simpel gesagt
+Und was heißt ganz simpel gesagt
+Genau das ist es
+Du forderst speicher an und gibst die nicht wieder
+Oder vergisst die wieder zurück zu geben
+Und forderst weiteren an
+Und dann leaks du halt quasi memory
+Weil ja du hast es angefordert gibst das aber nie wieder zurück
+Letztendlich führt eine memory leak aber nie dazu
+Das was kaputt geht
+Das schlimmste was passieren kann ist
+Äh
+Dass irgendwann mal out of memory gibt
+Und du halt kein rammer kriegst
+Oder dein programm abgeschossen wird
+Das wahrscheinlich eher dein programm abgeschossen
+Also eigentlich passiert nichts
+Weil spätestens wenn dein programm beendet wird
+Wird auch jeglicher speicher wieder eingesammelt
+Den es jemals bekommen hat
+Also sprich du kannst nur
+Und das ist eine ganz wichtige geschichte
+Die man sich merken muss
+Du kannst nur memory leaken solange dein programm noch läuft
+Das ist ja auch gerade der
+Der effekt den man hat bei zeug
+Was ein bisschen merkwürdig programmiert ist
+Und z.B.
+Am Anfang Battlefield 4
+Dass man das
+Teilweise nach 2-3 stunden neu starten musste
+Weil das dann irgendwann 5GB gefressen hat
+Oder so ram
+Und durch den neustart vom game beendet sich der prozess
+Das betriebssystem sammelt alle arbeitsspeicher wieder ein
+Den es jemals diesen prozess gegeben hat
+Das weiß es ja
+Es wurde ja von ihm angefordert
+Und sagt jawoll kann es wieder verwendet werden
+Saito bar 3 man sieht es natürlich anders aus
+Ja wir reden jetzt hier rein von user mode geschichten
+Aber ich muss sagen hier dieser
+Der player der ist richtig hübsch jetzt oder
+Wir können es hier nochmal einrücken ein bisschen anders
+Ich glaube wir machen das mal alles
+Gucken ob das so besser aussieht wenn wir das alles auf eine ebene machen
+Sieht es jetzt besser aus ich weiß nicht
+Es sieht kürzer aus
+Ich muss sagen ich finde den gift player eigentlich ganz hübsch jetzt
+So wie er ist vor allem jetzt nachdem wir den frame nochmal
+Quasi gekapselt haben
+Finde ich den echt ganz ganz nett
+Achso ja gut jetzt müssen wir noch ein sleep einbauen
+Ok dann machen wir hier noch einen public
+Wo ist man zwar nicht aber finde ich schöner
+Stream index brauchen wir auch nicht
+Ist immer 0
+Können wir tatsächlich read only machen
+Wir machen jetzt noch hier was
+Und das setzen wir
+Jetzt kriegen wir noch die fps
+So jetzt werden wir das ganze nämlich ein bisschen begrenzen noch
+Weil aktuell ist es ein bisschen viel
+Gucken wir mal was der ganze spaß für cpu verursacht
+Also wir brauchen gerade mal leppische 33% cpu last
+Also quasi von einem 6 kerne lasten wir 2 kerne quasi komplett aus
+Was auch irgendwie sinn ergibt dass wir 2 kerne komplett auslasten
+Wir haben hier unseren thread der gifs decoded
+Und wir haben hier unseren thread der wie verrückt rendert
+Also das passt schon dass wir 2 kerne ziemlich gut auslasten
+Und das ist ein beispiel halt für ein problem was sich super multithreaden lässt
+So und wir werden jetzt mal sleepen
+Wir sleepen jetzt allerdings nicht einfach random irgendwie
+Sondern wir sleepen jetzt anhand der
+Das ist hier decoder
+Fps
+Tausend
+Tausend
+Durch fps
+Dann müssten wir eigentlich die zeit oder
+Die zeit in millisekunden haben die wir sleepen müssten
+Er ist ein double
+Ich will es ja in millisekunden
+1 durch framerate ist ja 0, irgendwas
+Ich will es ja in millisekunden es müsste so doch eigentlich passen
+Oder ist jetzt genau falsch rum
+Ne passt doch guck mal genau 25 fps so soll es sein
+Das ist der alte gif player also man sieht 25 fps sind 25 fps
+Wenn man sich das anguckt wird man verrückt
+Mit der zeit das wird da jetzt voll schwindelig
+Man sieht es ist nicht ganz synchron guck mal es läuft auseinander
+Jetzt weiß man nicht was richtiger ist meins oder der wpf timer
+Es läuft immer weiter auseinander
+Mit dem timer könnte man das auch machen aber wir brauchen halt also wir bräuchten
+halt einen sehr sehr präzisen timer
+Also das wäre schon also mit mit einem timer den man auf
+Da reicht noch nicht mal millisekunden
+Also mal angenommen wir wollen was mit 60 fps haben
+Dann bräuchten wir quasi 16,66 also irgendwie soweit wie es geht millisekunden
+Die differenz der zyklen ja das muss man auch mal machen
+Also und sprich wenn man es quasi nur mit 16 macht wird man ja irgendwie dann
+Läuft man damit knapp unter 25 fps also müsste man
+Ne mit knapp über 25 umso kürzer die zeit umso schneller
+Knapp über 25 fps also bräuchte man irgendwie einen timer
+Der halt auch wirklich hoch auflöst gibt es gibt es dort nicht mäßig so was
+Timer intervall kann man kann man die intervall das muss man mal gucken
+Wie sieht es mit sleep nanosekunden aus mikrosekunden aus
+Es gibt es gibt das hier es gibt thread aber das ist nicht schön es gibt spin
+Da kannst du irgendwie ich weiß nicht ob es sind nanosekunden ne das ist glaube
+Ich irgendwie schleif ins intern schleifendurchgänge oder sowas
+Wir können ja mal stackoverflow bemühen die scharp sleep nanosekunden
+Wir können mal gucken was was task delay hat
+Millisekunden millisekunden timespan wenn es den timespan frisst
+Prokramierst du auch beruflich ja aber was anderes als hier
+Allerdings verdiene ich nicht meine hauptsächliches kohler damit ich
+Prokramiere auch sachen ich mache so das was man neudeutsch def obs nennt
+Kann man hier nicht sagen new timespan also erst mal gucken ob das generell mit
+dem delay wie macht man das jetzt wait nicht wirklich oder was hat man 40
+Millisekunden verwirrungswunsch fps ne okay der task der task delay ist fail
+der funktioniert nicht richtig also hier 60 fps funktionieren hier
+60 fps ja und hier sieht man jetzt das halt der das nicht so ganz stimmt
+hat es immer ein bisschen schwankt wie können wir denn das jetzt wie
+sleept man dann hier ordentlich unter oder besser gesagt moment wie auf wie
+gut auflösen sind dann die timer intervall system threading timer system
+timer system windows ok was ist der unterschied dazwischen timer callback object state ok
+der sieht kompliziert aus der kann bestimmt was period in millisekunden alles in millisekunden
+es haben wir hier zu bieten intervall milliseconds als letztes haben die windows timer der kann
+man hier gar nicht setzen intervall in millisekunden performance count das gibt es bestimmt schon
+managt das ist da muss irgendwas ich wein ich hätte eine ganz blöde ideen
+ah flow das hast du gut beobachtet das kann man mal ausprobieren timer timer er akzeptiert
+aber double das können wir echt mal ausprobieren also sprich dass man da jetzt 16,777 oder
+ne was war es
+noch mal gucken wie wir das jetzt machen also von der idee her müssen wir uns jetzt ja
+die schleife hier schenken
+und der render krempel müsste eigentlich da rein jetzt ne wenn ich das jetzt richtig
+sehe es kann aber auch sein dass es voll verkacken ach so vielleicht sollte man mal starten start
+da
+30?
+Warum 33?
+Check ichs jetzt nicht?
+Das Ding sollte doch...
+33?
+Warum 33?
+Ich glaub der timet einfach nicht so genau.
+Nee, der ist einfach nicht so genau der Timer, der ist schlecht.
+Ich mein wir wollen jetzt hier alle 40 Millisekunden einen Tick haben und...
+Hast du noch ein Sleep drin?
+Nee.
+Ja, aber wenns mit 40 schon halt geht, Clocks HD...
+Ja, aber wenns mit 40 schon halt geht, Clocks HD...
+Also...
+Der Timer ist irgendwie nicht sonderlich precision-mäßig.
+Das Drawn geht schnell, das Drawn braucht doch keine so viel, das Drawn braucht nix.
+Ja, aber mein Code braucht keine...
+Nee, nee, nee, nee.
+Wenn man weiß, dass es ja ohne Timer gehts ja auch schnell.
+Also, ne?
+Das ist ja nicht so...
+Also mit nem Sleep, mit nem normalen Sleep funktionierts ja.
+Also daran kann es schonmal nicht liegen.
+Nee, also mit dem Timer klappt das nicht.
+Ich hab aber ne ganz blöde andere Idee.
+Pass mal auf.
+Ist bei GIFs nicht die Zeit zwischen den einzelnen Bildern in der GIF selbst hinterlegt?
+Das kann durchaus sein.
+Das kann durchaus sein.
+Hast du einen Grund warum du auf Englisch schreibst?
+W-w-w-w-wo schreib ich auf Englisch?
+Meinst du hier drinnen?
+Ja, Sounds Code schreibt man dann immer auf Englisch.
+Ja, aber Leute, das macht doch überhaupt keinen Sinn.
+Lass es mal ne Millisekunde dauern, wie das hier Ding.
+Das kann aber trotzdem nicht sein, dass der Timer auf einmal anstatt 60,
+obwohl ich die Zeit für 60 FPS angegeben auf einmal 33 hat.
+Achso, Tastaturlayout. Hab ich nicht, ich hab das Tastaturlayout auf Deutsch.
+So, also wir machen jetzt mal sowas hier.
+Das ist natürlich der Hardcore-Ansatz, sowas zu machen.
+Also, wir machen jetzt irgendwie sowas wie...
+Wir machen jetzt irgendwie sowas wie,
+Also Wir Machen Jetzt IrGendwie so was wie
+Weil True und dann dann dann Slippen wir IrGendwie Zwischen Zwischendurch
+IrGendwie sowas das funktioniert das wird Auf Jeden fall Funktionieren
+Kann man das Kann man das IrGendwie mit Detail Machen oder so
+Obwohl wir haben hier oben doch wir haben hier oben doch schon in daytime gesetzt start start time
+Aber ich probiere das Jetzt Mal Aus
+Start
+Obbei Ne mit daytime Komme ich da Wahrscheinlich nicht weiter
+Mit stopwatch mit stopwatch Können wir da IrGendwas Machen
+Mit stopwatch
+Was war eine Image Instanz dort den aktuellen frame index und last update Millisekunden
+Im image update Leuchten wir gerade nicht ein
+Ach so du checkst vorher ob es zeit zum updaten ist
+Du machst das Du machst das nicht alles hier in so einem riesen durchlauf sondern du checkst
+quasi so nach dem motto gibt es ein update ist es zeit zu updaten und wenn es Zeit zu updaten ist
+Damit Gemalt und gestoort
+Ticks
+Ticks
+Ticks brauchen wir
+Okay die meinen das Ernst Ticks
+Wie lang ist denn ein Tick ein paar nanosekunden oder so
+Ticks sind nicht Millisekunden Ticks ist irgendwas mit nanosekunden oder so
+Ticks mal 100 sind nanosekunden oder sehe ich das hier richtig
+Ticks mal 100 sind nanosekunden okay
+Microseconds würden wir schon reichen
+Aha das ist ja nice Ticks per Millisekund
+Aha das ist das ist gut stack overflow heute sind wir richtig stack overflow driven
+Ich will es jetzt einfach mal rauskriegen ob das so so funktioniert würde
+So wie jetzt gucken wir gerade wieder 140 leute zu wie ich keine ahnung
+Habt wie wir es hier ordentlich warten können gibt es gibt es nicht vielleicht einen sie schabt
+Gibt es das wäre mir natürlich am allerliebsten muss ich den ganzen wait schiess nicht selber
+machen
+Das hat doch bestimmt schon irgendeiner programmiert
+Github sie schabt timer high high precision timer in dotnet zack
+easy wie macht der das
+ja mit dem windows timer das können wir auch machen was sind das für eine für eine win
+mdl
+media timer muss ja genau sein
+Dann machen wir das doch damit
+Obbei mich ja doch interessieren würde wie man sowas hier hinkriegen
+Probieren wir das mal mit dem windows timer ich glaube das ist die bessere variante
+Warum ist es hier schwarz weil man weiß nicht
+gibt es aber schon fertige projekte
+da gibt es ein paar
+Ok wir machen das mal wie hier also ich finde das hier klingt gut
+Time set event
+Wir klauen uns jetzt mal hier den aufruf von ihm wie er das wie er das gemacht hat
+Also wir klauen uns das nicht wir holen uns die api definition raus
+Ja das nämlich
+Gucken wir mal ob das funktioniert wir rennen wir rennen dann mal gerade nichts
+Wir gucken einfach nur mal ob das geht
+Das sieht von der von der von der auflöser von von der methode relativ simpel aus von
+der signatur her
+Also set time ne wie hieß der kram set time set event
+So und dann sagen wir kleine stars diese promi frauen sind unter ein meter sechzig
+Oh ja das wollte ich schon immer mal wissen von gofeminin.de
+Milliseconds
+Moment
+Ich will keine Milliseconds
+Obwohl doch Milliseconds mit Komma ist ok
+Was sagt die Microsoft hilfe seite dazu
+So was sagt denn die Microsoft hilfe seite dazu
+In Milliseconds ich will es doch nicht in Milliseconds haben
+Warum ist das scheiß auch wieder in Milliseconds
+Alter geht mir das auf den keks jetzt
+Was query performance
+Oh ja das ist schön das wollen wir haben
+Da machen wir einfach jetzt eine wildschleife und gucken einfach
+Warum nennt man das
+New delay wenn es Milliseconds sind weil das Microsoft ist wahrscheinlich für unsigned
+Weil es ein unsigned ist
+Ich weiß dass du es gleich schon gesagt hast
+qpc und qpf
+Query performance
+Die Frequenz in der sich der performance counter update oder was also dass man sieht
+wie groß die sprünge sind zwischen den countern oder wie darf man das verstehen
+Query performance counter
+Jetzt Achtung schön das neue C sharp 7 feature
+Out bar counter
+Nächster mit extra variabler anlegen und jetzt counter ausgehen
+Aha jetzt bin ich mal gespannt
+Butschend
+Achso und das heißt, hiermit sehe ich quasi den Counter, der sich erhöht. Nur mal so,
+dass ich das jetzt richtig verstehe. Ich habe hier einen Counter, ich weiß allerdings nicht
+wie genau wie lang eine einheit ist wenn ich wissen will wie lange eine einheit ist dann muss ich hierhin gucken
+Oder ist es ein timestamp in in was
+Mikrosekunden okay
+Kann, wir können, wir ausprobieren
+Beruf, beruflich mache ich das in vielen sprachen
+Also was natürlich
+Wenn, man, ein, bisschen mit inox zu tun hat immer der fall ist es
+Irgendwelche shells, ich mache ganz gerne in ruby was wenn es nicht schnell sein muss
+In groovy habe ich auch ein paar sachen gebastelt schon wenn es geht dort net mit dort net core geht ja auf linux mittlerweile auch
+Mal auch die eine oder andere java script frontend geschichte wenn es sich nicht vermeiden lässt
+paar sachen also am liebsten mache ich eigentlich was in ruby wenn es nicht auf performance ankommt ruby und dort net ist für
+Mich so auf einer also die scharp und ruby ist für mich so auf einer einer ebene
+okay
+Also das heißt nur also wie wir machen jetzt jetzt mal ganz billig wir machen jetzt einen schleif und prägen die schleife sobald wir
+quasi
+40 millisekunden oder sag, man, mal 16 16, irgendwas
+millisekunden gewartet haben irgendwie
+oder besser gesagt
+16000 mikrosekunden
+Aber was noch sie also gucken, wir machen
+die performance counter
+Ich habe irgendwas im hals so und dann brauchen wir jetzt noch das andere das heißt dann brauchen wir jetzt noch
+die gleiche signatur hat
+Okay, das müssen wir nur einmal querien ich auch gerade sehen
+Ich weiß es gar nicht wie was nennen sollen query performance frequency
+Und war
+Timespan
+Was machst du dort gerade ich bastel ein transparentes gif overlay
+Für meinen
+Neen bort weil das standard wpf overlay wie du hier siehst wenn ich drauf klicke
+Viel zu langsam ist jetzt ja du klickst
+zack
+klick
+zack klick
+zack viel zu langsam bei kleinen bei kleinen gifs geht es ganz schnell aber ich habe jetzt was eigenes gebastelt was viel schneller ist
+das spielt gifs mit
+4273 fps ab
+Was kein mensch braucht so jetzt gucken wir gerade wie wir am besten warten auf das nächste nächste mal wo wir rennen mussten
+Ganz wichtig nicht einfach fps sondern fps in der sekunde
+So performance counter
+Sonst hängt er nach einmal rennen dann hängt er jetzt hier
+So
+Das bedeutet doch jetzt nur mal so von der idee also wenn ich jetzt hier einmal ausgebe
+Quasi den den den den die timespan also das da
+Ist quasi die zeit
+Zwischen zwei tix von diesen performance counter oder
+Oder habe ich das denn jetzt
+Frequenzie oder ne moment moment moment das ist das nee das ist wie wie wie schnell der updated oder
+Gibt es natürlich noch 2000
+Genau counter durch frequency ok was kommt dann da am ende raus
+Nennen wir es nicht timespan
+Frequenzie das ist ist das eine sekunde
+Das ist pro sekunde
+Das ist pro sekunde ne
+Aha okay das oh das ist aber echt interessant
+Das ist sehr interessant
+Lange mikrosekunden ja
+Also ganz, so ganz habe ich es jetzt aber noch nicht gecheckt, wie wir das machen.
+Warte mal, also sprich, was sehe ich denn jetzt überhaupt?
+Das update sich einmal in der Sekunde, das ist die, der Counter, der geht permanent rauf
+und das geteilt durch die, durch die Frequency, so also das bedeutet jetzt haben wir hier
+die Frequency, was, war, das ist kein JavaScript, war, wie ist das aus, was ist das, was ist
+das?
+Wie check ich das nicht, was ich was, was ich da jetzt eigentlich für eine Zeit habe.
+Also wenn ich das jetzt habe, dann das jetzt in der Sekunde ist.
+Also es leuchtet mir ehrlich gesagt nicht.
+Was soll das jetzt genau sein?
+Der Query das hier am Anfang, dann speichert er sich das irgendwo, wo speichert er sich
+das da, das nicht hier oben speichern, das ist im Prinzip ein bisschen was ich oben beim
+FPS Counter auch mache, oder?
+Also brauche ich hier sowas wie, ne, hä?
+Ich will im Prinzip doch einfach nur wissen, ob ich jetzt schon 60 Millisekunden gewartet
+oder in dem Fall 16 Millisekunden, also.
+Äh, wie macht man das da draus?
+Scheiße ich sie scharf stark von C++, ja.
+Was, Double Counter, ich kann sowas nicht Copy Paste, ich muss das jetzt erstmal checken,
+was ich da habe.
+Jaja, dass es die Millisekunden sind, das ist mir schon klar, aber ich will doch einfach
+glaube ich mehr als, ich muss die zwei Sachen miteinander vergleichen.
+Also ich muss mir einfach, ich muss mir einmal Start holen, Start Counter, so und im Prinzip
+muss ich doch jetzt eigentlich nur gucken, ob ich jetzt, ob das hier größer, Start Counter,
+so und hier muss ich jetzt dazu rechnen, was ich brauche zur Zahl für Millisekunden.
+Also irgendwie keine Ahnung, wie auch immer, wie viel das ist.
+So, wenn ich das jetzt dazu rechne, dürfte es dann wieder bei einer Sekunde sein, jaja,
+das sieht so aus, ne nicht plus Frequency.
+Easy peasy.
+Wir können mal gucken was passiert, genau auskennfuchs, sowas in der richtung hab ich
+auch gar nicht, wenn man die krams voneinander abzieht, da müsste ja was relativ kleines
+rauskommen, genau, und das
+die frequenzie ist ja nicht in millisekunden, irgendwie ist das der übelste brainfuck dieser
+also projekt soll ich noch einmal
+das ist das ist übelst ob die ecke
+ich glaube ich habe heute schon zu lange vom rechner gesessen das zu checken
+stimmt das jetzt?
+ich glaube das jetzt irgendwie sind was ich da gebastelt habe
+ja klar kann man es mit einem kleinen sleep ersetzen, das ist ja auch genau genug
+aber ich glaube ich bin heute nicht in der lage sowas zu checken mehr, das ist echt wahnsinn
+ich kann gerade keinen klaren gedanken fassen was so ein bisschen logik anbelangt
+es war halt einfach schon zu lange rum gebastelt, ja ja das gif hat das gif hat 25 fps das ist easy
+das war kein ding aber ich will ja trotzdem gucken wie ich konstante 60 fps hinkriege
+das würde mich einfach mal interessieren
+ja timer timer habe ich keinen gefunden der genau genug ist
+ich mache jetzt mal kurz was
+ich glaube die idee ist gar nicht so schlecht
+ich mein von der idee her war das einfach richtig wenn mein counter größer ist als start counter
+und jetzt halt hier quasi sowas wie plus 16 millisekunden in ticks so kann ich jetzt nicht
+sagen okay frequency frequency ist das was pro sekunde frequency ist ticks also das frequency
+ist ticks von diesem counter pro sekunde
+das heißt was kommt da jetzt raus
+ist das jetzt teilweise 16 millisekunden
+ich will ich will rauskriegen wie viel frequency quasi 16 millisekunden also wie viele wie
+viele ticks quasi 16 millisekunden entsprechen
+das bedeutet ich muss gerade was ausprobieren
+einfach mal gucken wie viele ungefähr rauskommen muss jetzt
+also irgendwas in dieser größe
+ich kann heute nichts mehr umrechnen ich bin nicht in der lagen irgendwas zu rechnen
+so also irgendwas um 50.000 müsste rauskommen deswegen mit dem dreh und das ist auch relativ
+schwer
+Wenn ich 60 mal wenn ich wenn ich quasi weiß das ist pro sekunde und ich weiß das ist
+pro sekunde da kann ich das doch eigentlich durcheinander teilen oder
+oder mein von der idee müsste es doch so was hier sein aber aus irgendwelchen gründen ist es das nicht oder oder ist es das doch
+was kann man auch machen das dauert auch keinen großen unterschied
+so kann unterschied
+so genau das gleiche im endeffekt weil es beides ist auch beides pro sekunde das müsste doch im
+prinzip das müsste doch eigentlich genau das gleiche sein
+ist doch
+das habe ich jetzt falsch gemacht ich kann echt nicht mehr denken heute
+ich blicke immer durch gerade
+ich will doch keinen so großen unterschied machen
+das ist irgendeine konversion geschichte weil ich meine im prinzip das da ich das jetzt davon
+handeintrag geht es ja auch aber das warum geht das vorher nicht
+auf 9000
+das ist irgendeine konversion geschichte
+ok das hatte ich doch vor fünf minuten schon was ist denn jetzt daran verkehrt
+das ist doch von der logik her ok das müsste
+ja das
+sieht nicht so aus wie man normalerweise performt
+ich hab, ich hab auch keine ahnung wie man das macht
+wisst ihr was?
+da muss ich mir noch mal Gedanken drüber machen
+wie wir das am besten machen
+hier drinnen zu sleepen ist eh keine
+sondern nicht clevere Idee
+aber ich glaub wir können es jetzt erst mal kurz
+als erstes mal
+für heute können wir das so lassen
+ich mein prinzipiell funktioniert es ja
+na?
+25 fps gif
+passt
+start counter form rendering hole
+ok, machen wir
+ich mach jetzt, ich mach jetzt alles
+ich kann heute eh nur mal richtig denken
+du warst aber schon vor, vor dem Durchgang, ne?
+pro Durchgang
+hm
+jetzt ist es sogar, jetzt ist es sogar ein ticken zu schnell
+aber das liegt daran
+wahrscheinlich, dass ich hier
+Komma-Stellen verliere irgendwie, ne?
+weil mir das jetzt ja mal einer erklären muss
+was hat er denn jetzt, was macht er denn hier wieder für conversion-dinger
+zack
+damit kann ich leben
+so
+das sieht doch jetzt ziemlich gleich aus, oder?
+gifs übertaktet, yeah
+ja, thera fox, das klingt logisch, ich muss mir noch mal Gedanken drüber machen
+von der logik her müsste es doch stimmen, weil ich da gewastelt habe, oder?
+ich meine, das GIF sieht jetzt auch schön SYNC aus
+das ist präzise genug
+das ist nicht lang
+guck mal mal, wir gucken mal wie lange das dauert, so ein, ein, einmal malen
+ja, und das stimmt, die Trot-Zeit wird tatsächlich abgezogen, weil wir den Krams am Anfang nehmen
+da hab ich jetzt gar nicht dran gedacht am Anfang
+also, wo fangen wir an? das eigentliche Malen ist ja hier
+start
+painter, paint
+bis da, würde ich sagen, ne?
+hier oben müssen wir übrigens, äh, ein bisschen reset müssen wir an der Stelle machen
+ne, nicht reset, stopp
+so, ähm, gucken wir mal
+wir haben Millisekunden, so, und danach haben wir reset
+dauert keine Millisekunde
+guck mal, das braucht nichts im Endeffekt
+in Ticks sind 100 Nanosekunden irgendwie an der Stelle, ja?
+das, das Drawn braucht nichts
+das braucht wirklich unter einer Millisekunde, ja?
+hier, guck mal
+unter einer halben Millisekunde braucht das Ganze
+das Drawn, das ist nichts im Endeffekt
+das ist wirklich nichts
+eigentlich könnten wir anstatt, wir könnten auch den Stopwatch-Timer da unten nehmen, ne?
+was, wenn das Drawn länger dauern würde, wie lang würden dann 3D-Spiele dauern?
+lange, das muss schnell gehen
+ich mein, wir Drawn ja hier im Endeffekt auch nichts, ne?
+ne, ne, das macht schon selbst alles
+ähm, wir machen hier am Endeffekt auch nichts, ne?
+wir haben hier oben ein paar komische Scale und ähm, na, Transparenzgeschichten
+und ähm, dann malen wir noch einen FPS-Counter und ein Bild
+also, das ist im Endeffekt ja nichts
+bringt das, das, das geht aus dem Bild raus, oder?
+das geht aus dem Bild raus
+seht ihr das?
+den lassen wir mal
+20, äh, 22 Pixels weiter unten starten
+ja, jetzt ist es besser
+wobei, nicht weiter unten, 20 weiter, weiter rechts starten
+ja
+oder?
+ne, ich glaub oben klippt er
+oben klippt er
+ja, oben hat er ein bisschen geklippt
+so, machen wir das Ganze jetzt mal mit 5 FPS
+rechts und oben klippt er oben, oben klippt er noch ein bisschen, oder?
+oben klippt er noch, aber es könnte sogar sein, dass das im Bild so ist
+machen wir mal oben ganz viel Abstand
+ah, ne, ok, noch mal 30 oben
+muss ich mal gucken, warum das oben überhaupt klippt
+ja, so ist gut
+hier oben, das ist, das ist im Bild so, dass der oben kurz geklippt ist
+wunderbar, zack, bam
+sehr schön
+das ist doch nice, das gefällt, ja
+durchklicken
+GIF am Start
+und, ich mein, guck mal
+wir brauchen jetzt 90 MB
+machen wir mal, stellen wir das Ganze mal wieder um auf Window Only
+Window Only, stellen wir das Ganze um, Release Mode
+wir brauchen ziemlich genau 88 MB
+oder auch nicht
+80, was für ne komische Anzeige
+angeblich haben wir 80, aber hier oben ist 9,8
+also wir brauchen 80 MB im Vergleich zu 850
+und es startet übel schnell
+also wenn man sich überlegt, das, guck mal, es startet jetzt die ganze, das ganze Programm startet jetzt
+das ganze Programm startet schneller und zeigt das GIF an, als das andere
+jetzt nehmen wir mal ein großes GIF, was beim anderen Probleme macht
+z.B.
+Brain, irgendwas mit Brain
+Mindblown heißt das Ding hier, Mindblown, das GIF brauchen wir jetzt noch
+Ups, jetzt hab ich es gelöscht
+so lange Dateifahne
+ich hab mich irgendwo verschrieben
+und auch übelst flüssig im Vergleich zum anderen
+wir könnten noch, das Bilderscalen könnten wir noch ein bisschen schöner machen
+weil hier sieht er besser aus
+fehlt da ein bisschen was
+oder ich glaub mein Scaling ist nicht ganz so sinnvoll
+mein Scaling ist nicht ganz richtig würde ich sagen
+mein Scaling ist nicht so ganz korrekt
+sagen wir mal so, hier ist er schöner skaliert
+wobei Leute ohne Scheiß, ich würde fast eher sagen, mein Scaling sieht mir irgendwie
+also von Abmaßen her scheint mir das aber
+guck mal wie flüssig das hier ist, seht ihr das wie flüssig das ist und wie sehr es da rumleckt
+wir können das noch mal ein bisschen ändern wie er das ganze macht, wir können jetzt mal hier
+Nearest Neighbor ist das schlechteste von der Qualität hier mit dem Cubic, das ist glaube ich beste Quali
+na guck jetzt sieht es auch gleich besser aus
+es ist nicht ganz gleich groß guck mal, wir müssen nochmal einen anderen Hintergrund nehmen
+guck mal es ist nicht ganz gleich groß, es ist ein bisschen, meinst du es ist ein bisschen kleiner
+ich mein jetzt ist es gleich, jetzt ist es ungefähr gleich breit, aber das ist ein Stück höher
+also das heißt bei mir fehlt ein Stückchen würde ich mal sagen
+bei mir fehlen ein paar Pixels
+ja Terra Fox guck ich mir an, ich kann heute nicht mehr mir großartige Gedanken zu machen
+normalerweise ist das bestimmt eigentlich nichts schwieriges
+hier fehlt oben und unten ein bisschen was, aber das passt schon
+so nice, das können wir jetzt dann einbauen das nächste Mal
+in das eigentliche Tool wofür wir das ganze gebastelt haben und dann dauern GIFs nicht mehr 3 Sekunden zum anzeigen
+sind instant da, die PNGs könnten wir übrigens auch noch mit FFmpeg machen
+sehr schön, gefällt mir
+das war's für heute, bis zum nächsten Mal
+so Leute, genug für heute, der GIF-Player funktioniert ziemlich gut
+sagen wir verlieren wir immer noch irgendwo Speicher, kann das sein, nee, der braucht einfach eine Weile bis alles geladen ist
+guck mal, das ist ein riesen Unterschied, das fette GIF, komplett gecached, braucht 160 MB
+wohingegen das in WPF 850 braucht, das ist schon ein Unterschied
+nee, der Server ist da nicht dabei, insgesamt braucht das Zeug irgendwie 180 MB
+das ISP.NET Core plus das WPF Fenster, aber sobald ein GIF geladen wird gehts hier irgendwie hoch auf 850, 900 oder so
+also sagen wir mal, das GIF braucht 700, 700 braucht das GIF und das liegt einfach daran
+wir können uns das hier grad nochmal angucken, guck mal, ich hab jetzt ein paar GIFs geladen, instant 2G voll, kann doch nicht sein
+jetzt gehts wieder runter auf 760, guck mal, jetzt sind wir mal bei 760 und jetzt mach ich das GIF hier an
+das GIF hat eine schlechte Position
+guck, 1,1, also das ist ja schon besser, nee nicht ganz, es ist tatsächlich nicht ganz so viel, aber es ist ordentlich
+also irgendwie 400 aus uns immer noch und ich glaube er hat auch nicht alle aus dem Garbage-Collector geschaufelt
+also das ist nicht sonderlich optimiert, dieses WPF GIF Ding, da sind wir hier doch schon deutlich besser mit dabei, oder?
+da sind wir schon deutlich besser mit dabei, 120 MB oder so
+und wenn wir das ganze nicht cashen, das können wir jetzt gleich auch nochmal ausprobieren, wie viel wir dann haben
+ich hoffe ich hab mir den Kram irgendwo gespeichert, sagen wir das übliche, rückgängig, rückgängig, rückgängig
+rückgängig, rückgängig, rückgängig, wo hab ich mir gespeichert, den Scheiß, lol
+wenn ich mich jetzt verdrücke ist alles weg, denke ich muss ihn nicht speichern, da
+und wieder vorwärts, dafür hat man eigentlich ein Git oder sowas
+soll mal gucken wie viel das ist, wenn ich es nicht cache, dann für 25 FPS reicht es natürlich immer noch
+achso ich muss hier die Frames freen, sonst leaken wir
+na guck, 118, das ist doch top, da kann man sich echt nicht beschweren
+und ich könnte wetten, wenn wir jetzt wirklich so Raw Window aufmachen würden, ohne Forms und ohne den ganzen Geschiss, wären wir wahrscheinlich unter 100
+Bilder brauchen halt einfach ein bisschen Speicherplatz, unkomprimierte Bilder, das hat ein bisschen was
+jetzt mal ausrechnen, 600 x 600 x 4, so, hallo Google, please, so, bytes to MB, ok das ist nicht so wirklich viel
+aber Bilder brauchen halt ein bisschen was, vor allem wenn sie größer werden
+warte mal, doch habe ich richtig gerechnet, kann sein ich habe was vergessen, also kleine Bilder gehen noch
+ich stelle dir mal ein unkomprimiertes Video vor, das ist in der Regel, also rein das Anzeigen ist ziemlich angenehm, weil du nichts decoden musst
+also vorausgesetzt, man kann es schnell genug lesen, ist das super, das hat kaum CPU Last unkomprimierte Videos, weil du halt nichts decoden musst
+sie sind halt riesengroß, ja, also wenn du mit deinem C++ Zeug dann quasi 60 MB hast, ich habe hier noch ein bisschen Managed Grempel drum herum
+dann ist das mit 100 MB oder sowas, was das hier hat, und wie viel hatte das hier jetzt, ja dann ist das doch vollkommen ok, also 118, das ist doch top
+kann man nichts sagen, ja, denke ich auch, 120 MB ist wirklich top, und man muss sich mal gucken, wie sau schnell das ist, das ist halt einfach instant
+und man muss es halt mal ohne Debugger machen, zack da, das ist nix, wir müssen uns noch ein bisschen um das Handling kümmern, also wir müssen noch resizeen und so einbauen
+das müssen wir noch machen, dass wir noch resizeen können das Fenster, das müssen wir noch einbauen, das machen wir aber das nächste Mal
+ja Flo, du machst das nächste Mal den Giftplay in Assembler, easy, dann verwende ich den auch, wenn du mir den Assembler machst, auf, go go
+ja da kannst du im Prinzip, da muss ich jetzt TheraFox schon recht geben, im Prinzip kannst du ja nicht so viel unterschiedliches speichern eigentlich
+du hast halt deine drei Bytes für Farben und hast halt einen Byte für Transparenz, was willst du mehr machen, das einzige wo du variieren kannst ist halt, dass du wieder die RGB Dinge anordnest
+BGA, RGB, GAA, was auch immer es da alles für Varianten wahrscheinlich gibt
+das heißt bei C-Sharp nochmal der Krams den man mit Attribute meintst du
+Juff gibt es auch noch ja, da ist der Colorspace ein bisschen anders und noch ein paar andere Sachen, die ich jetzt, weiß ich jetzt nicht genau
+ja Patrick auf gehts, Assembler, go go
+also TheraFox ich hab mir grad mal dein C++ Beispiel angeguckt, was ich nicht checke ist, du machst ja ganz unten Sleep 4 Milliseconds, so und dann mal 1000, was für eine Zahl übergibst du denn Sleep 4, was steht denn da drin so als Beispiel
+sag mal ein Beispiel als Zahl, steht da da irgendwie sowas drin wie 16,7 oder was oder wie
+richtig, das könnte man noch viel schöner darstellen, aber die Sache ist die FFmpeg haut mir ja quasi hier an der Stelle, da müsste man sich schon richtig das Bein ausreißen
+weil das FFmpeg die Code gibt dir halt quasi ein BGRA Memory Block zurück
+also ein BGRA Memory Block zurück
+so leute ich werde jetzt mal meine pizza futtern
+er meint wenn du das quasi in milisekunden schreiben würdest oder also sprich wenn du
+die sekunden in milisekunden haben willst was ja natürlich mehr wird an der sista hat
+verschrieben ok oder auch nicht weil das aussehen ergeben hat ja also wenn es mal
+1000 rechnest da hast halt das was du in milisekunden schreiben müsstest dass du
+wieder auf sekunden kommst
+ich bin echt begleitet wie flüssig das ist ich finde auch wenn man sich das hier
+anguckt im vergleich jetzt zu zu der wpf geschichte ich finde auch es ist
+flüssig guckt euch das mal an die animation ist viel flüssiger guckt mal wie wie die hände hier wackeln seht ihr moment meins ist meins hat
+auch die falsche falschen fps kann das sein meins hat die falschen fps nö hat es nicht meins hat die richtigen fps meins hat die fps die im
+feil stehen wpf kriegt nicht richtig hin guck mal wie lahm das ist ich habe zwei durchläufe bis die ein haben aber meins hat die hat meins hat die fps die das feil sagt dass es hat und wpf hat was auch immer das braucht doppelt so lange oder so wahrscheinlich weil es
+tp um ist in hinterherkommt keine ahnung das hier hat keine ahnung 5 fps oder so und der hier hat 25 aber ich nehme das was das feil auslässt wir können ja mal gucken können wir können wir wirklich
+checken was das zeug hat ne vlc wir machen ff probe ff probe hat fps 12,5 und der pappagei hat 25 allerdings
+ah moment nee keine ahnung müsste müsste eigentlich richtig erkennen macht aber anscheinend nicht läuft ein alter plane als web overlay oder lokal das ist lokal das ist immer zwei sachen also das web interface ist ja dafür gedacht dass du es auf dem tablet oder so verwenden kannst das ist ein transparentes wpf fenster und im hinterkommende asp.net core anwendung das web interface kannst du auf dem tablet verwenden klickst du drauf
+und dann geht es ja auf das besteht aus dem aus quasi dem web aus der aus der asp.net core und der wpf anwendung
+ja ich weiß dass man gift play mit 25 fps abgespielt hat allerdings ich habe es ja nicht gesetzt guck da ich sage hier die code fps und die code fps ist an der meinung dass es 25 sind was aber
+anscheinend nicht stimmt wobei ff probe gibt es aus und ich mache es auch mit ffmpeg das ist irgendwie ein bisschen merkwürdig
+doch da ich bin bin demnächst auf 25 der denkt es sind 25 guck da 25 wo schreibe ich denn hier hin stream frame rate
+was habe ich noch zu bieten air rate das können wir auch nochmal machen vielleicht sind die unterschiedlich 25 was haben wir sonst noch so zur auswahl
+mal gucken was die anderen dinger ausspucken wenn man das jetzt nochmal richtig schreiben würde alles
+bitt rate sample rate was kommt da raus null frame frame rate
+ich habe eine idee woran das liegt aha daran liegt das ich ich ich lese das falsch aus guckt mal das richtige ist stream
+das richtige ist stream das hat total beknackt das richtige ist stream average frame rate und dann das da geteilt durch das da und dann stimmt das nämlich auch
+am 1 ist trotzdem noch flüssiger
+was funktioniert nun schon alles fast alles resize klappt noch nicht aber gifs abspielen geht transparente gifs abspielen geht eigentlich
+funktioniert alles also das schwierige ist geschafft
+musst du die fps nicht später auslesen wenn das das feil ist schon geöffnet ich mache das feile im konstruktor auf also sprich ich kann gar nichts vorher
+auslesen bevor ich überhaupt drauf zugreifen kann das feil ist auf jeden fall da ich habe es jetzt ja hier richtig ich habe den die zweite komponente nicht
+ausgelesen an der stelle hier jetzt stimmt ja mit 12,5 fps leider gibt es keine halben fps es gibt im prinzip nur 12 oder 13
+oder 13
+ja das ist schön das gefällt mir
+das gefällt mir echt gut so leute ich gehe jetzt mal eine pizza futtern wir sehen uns demnächst machts gut bis denn tschüss
+gibt es irgendwas zu hausten wen kann ich hausten
+keine ahnung irgendwie keiner da der frazier der spielt nicht
+da gehe ich jetzt einfach auf
+remix
+so alles gut
+so
+SWR 2020

@@ -1,0 +1,3408 @@
+1
+00:00:00,000 --> 00:00:23,000
+Boah, instant, instant jemand da hier, bam, in your face, ich hab extra bis 17 Uhr gewartet,
+
+2
+00:00:23,000 --> 00:00:31,000
+was ist das hier, warte mal, ich hör mich doppelt, moment, da stimmt was nicht,
+
+3
+00:00:31,000 --> 00:00:43,000
+warum hör ich mich doppelt, hört ihr mich auch doppelt, the fuck, moment, warum hör ich mich doppelt,
+
+4
+00:00:43,000 --> 00:00:57,000
+das sollte eigentlich nicht, also eigentlich ist doppelt hören, ist, das ist nicht so gedacht, alles gut, hä, okay, hä, warum hör ich mich, ach, oh, bin ich doof, null,
+
+5
+00:00:57,000 --> 00:01:04,000
+ich hab, ich hab noch den Stream von gestern auf dem zweiten PC im Tab offen und da hat sich jetzt halt neu gestartet,
+
+6
+00:01:04,000 --> 00:01:13,000
+als ich online gegangen bin, das hat er halt dann nicht mehr gemuted und, ja, okay, jetzt hör ich mich auch nicht mehr selber, jetzt ist alles gut.
+
+7
+00:01:13,000 --> 00:01:23,000
+Heute machen wir OBS-Integration, ich muss das Ganze erst mal auf Twitter posten und wir nähern uns, so langsam aber sicher,
+
+8
+00:01:23,000 --> 00:01:34,000
+dann so einer Version, die ich mal releasen werde, aber OBS-Integration muss sein, falls man sich das nicht anzeigen lassen will,
+
+9
+00:01:34,000 --> 00:01:56,000
+das will wahrscheinlich auch nicht jeder, so, gut, mal kurz refreshen, refresh store, bugged, sehr schön, also was wir heute machen, folgendes,
+
+10
+00:01:56,000 --> 00:02:05,000
+und zwar, wir haben gestern probiert, das Tool in OBS zu integrieren, das hat jemand im Chat gefragt, ob das geht,
+
+11
+00:02:05,000 --> 00:02:12,000
+und da hab ich natürlich ganz großartig erzählt, ja, so, hab kein Problem, ne, guckste hier, machst du Window-Capture und dann hast du's,
+
+12
+00:02:12,000 --> 00:02:20,000
+das Problem ist, das funktioniert nicht, und ich, also, ne, wenn man, wenn man Display-Capture macht, ist eigentlich überhaupt kein Ding,
+
+13
+00:02:20,000 --> 00:02:30,000
+wenn man Display-Capture macht, dann ist das kein Ding, dann seht ihr das alle und OBS kann das auch aufnehmen,
+
+14
+00:02:30,000 --> 00:02:42,000
+aber, was euch, ich muss noch mal auf Twitter posten, das ist die ultimative Meming-Experience jetzt, wenn das in OBS drin ist,
+
+15
+00:02:42,000 --> 00:02:50,000
+also, ich mein, man sieht, also, den Zweck an sich erfüllt, ja, also, das, wofür ich's ursprünglich haben wollte, macht's halt, Dinge anzeigen,
+
+16
+00:02:50,000 --> 00:03:00,000
+als Overlay, dass ich sie selbst sehe, jetzt ist natürlich die Frage gestern aufgekommen, was ist denn, wenn ich das nur in OBS anzeigen will,
+
+17
+00:03:00,000 --> 00:03:07,000
+ich mein, klar, natürlich, dann kann ich das mit den OBS-Shortcuts machen, das funktioniert auch, aber es wär natürlich viel geiler,
+
+18
+00:03:07,000 --> 00:03:14,000
+wenn das hier auch integriert ist, weil OBS-Shortcuts haben kein so geiles Web-Interface wie mein Tool,
+
+19
+00:03:14,000 --> 00:03:21,000
+und wenn man das dann irgendwann mal noch mit Elgato Stream Deck und RGB-Tastaturen und alles integrieren in Zukunft,
+
+20
+00:03:21,000 --> 00:03:32,000
+dann ist das wirklich die ultimative Memegasm-Experience, so, das muss jetzt gesagt werden, ich poste das Ganze mal auf Twitter,
+
+21
+00:03:32,000 --> 00:03:44,000
+so, wir sind am Start, so, was, äh, freue mich, dass es weitergeht, nice,
+
+22
+00:03:44,000 --> 00:03:49,000
+was Pligge 2.0 durchprogrammieren angeht, aber höre dir gerne zu und find's unterhaltsam,
+
+23
+00:03:49,000 --> 00:03:53,000
+ja, das ist nice, wenn das auch Leute interessiert, die sich nicht fürs Programmieren interessieren,
+
+24
+00:03:53,000 --> 00:03:59,000
+hab ich da natürlich keine Schmerzen, das ist ja gut, also, falls du irgendwas wissen willst, schieß los, ja,
+
+25
+00:03:59,000 --> 00:04:03,000
+weil ich kann mir vorstellen, wenn man einfach so rein anmacht und das nicht verfolgt hat,
+
+26
+00:04:03,000 --> 00:04:13,000
+dann ist es ein bisschen schwierig durchzublicken, so, gut, ähm,
+
+27
+00:04:13,000 --> 00:04:20,000
+äh, meine komischen Comments kann ich rausschmeißen, also, und ich hab mir jetzt folgendes überlegt,
+
+28
+00:04:20,000 --> 00:04:23,000
+ich zeige euch doch mal, was nicht funktioniert, also, es ist ja immer ganz interessant,
+
+29
+00:04:23,000 --> 00:04:28,000
+wenn man sich erstmal anguckt, was nicht geht und was wir dann machen, was funktioniert,
+
+30
+00:04:28,000 --> 00:04:32,000
+so, also, zum Beispiel, wenn ich jetzt hier OBS aufmache, ich mach das mal ein bisschen kleiner,
+
+31
+00:04:32,000 --> 00:04:35,000
+weil eigentlich brauchen wir die Vorschau nicht wirklich, um es zu sehen, dafür sehen wir den Rest,
+
+32
+00:04:35,000 --> 00:04:39,000
+so, ich kann jetzt, ich blende jetzt hier was ein, das ist ja dann ein eigenes Fenster,
+
+33
+00:04:39,000 --> 00:04:42,000
+zwar ein unsichtbares Fenster, aber ein Fenster, und ich dachte eigentlich,
+
+34
+00:04:42,000 --> 00:04:49,000
+ich kann einfach sagen, Window Capture, so, und dann passiert das, dann Capture das nicht,
+
+35
+00:04:49,000 --> 00:04:54,000
+obwohl es, obwohl es hier unten ausgewählt ist, das Capture nicht,
+
+36
+00:04:54,000 --> 00:04:58,000
+die Konsole und so kann ich Capture, aber das Bild kann ich nicht Capture,
+
+37
+00:04:58,000 --> 00:05:04,000
+das ist natürlich ganz schön kacke, dass es nicht funktioniert,
+
+38
+00:05:04,000 --> 00:05:09,000
+das heißt, ähm, man muss Display Capture machen, dass das Ganze klappt,
+
+39
+00:05:09,000 --> 00:05:15,000
+und man will ja vielleicht nicht unbedingt Display Capture machen, und nicht immer Display Capture,
+
+40
+00:05:15,000 --> 00:05:24,000
+deswegen machen wir eine, machen wir ein OBS, machen wir ein OBS-Vorschau für das Ganze,
+
+41
+00:05:24,000 --> 00:05:31,000
+und das, soweit ich mir das überlegt habe, müsste das relativ einfach sein, relativ einfach,
+
+42
+00:05:31,000 --> 00:05:37,000
+und zwar können wir das folgendermaßen machen, ich mache mal das Webinterface auf, äh,
+
+43
+00:05:37,000 --> 00:05:50,000
+Moment, jaja, genau, ich mache mal das Webinterface auf, oh, wir haben zwei Theme-Buttons,
+
+44
+00:05:50,000 --> 00:05:56,000
+warum haben wir das? Wahrscheinlich weil ich das gestern eingebaut habe, lull, gut, ähm,
+
+45
+00:05:56,000 --> 00:06:01,000
+ah ja, ich habe übrigens gestern noch ein bisschen rumgebaut, dass das rotatet wieder,
+
+46
+00:06:01,000 --> 00:06:04,000
+dass das gerade rotatet jetzt, passt mal auf, für alle die gestern dabei waren,
+
+47
+00:06:04,000 --> 00:06:09,000
+die werden dann auch wissen, dass das Zahnrad nicht so ganz rund rotiert ist,
+
+48
+00:06:09,000 --> 00:06:18,000
+ich zeige euch jetzt mal, wie krass das jetzt rotatet, Moment, Reload, äh,
+
+49
+00:06:18,000 --> 00:06:23,000
+warum rotatet es denn jetzt nicht rund? Ich hatte es noch gestern eingestellt, dass es rund rotatet,
+
+50
+00:06:23,000 --> 00:06:34,000
+meine Fresse, ey, the struggle is real, gut, was auch immer, das ist jetzt nicht unsere Priorität,
+
+51
+00:06:34,000 --> 00:06:38,000
+dass es nicht mehr Eier hat beim Drehen, so, und ich habe mir gedacht, wir können folgendes machen,
+
+52
+00:06:38,000 --> 00:06:45,000
+ähm, haben wir hier mal ein bisschen Platz, das ist natürlich auch gestern dank dem Sirius
+
+53
+00:06:45,000 --> 00:06:56,000
+Max voll responsive, dieses Ding hier, so, und, ähm, wir machen jetzt einen Browser-Preview,
+
+54
+00:06:56,000 --> 00:07:07,000
+Fenster für OBS, ah ja, das Problem übrigens mit OBS ist, sobald, das ist wohl irgendwie so,
+
+55
+00:07:07,000 --> 00:07:10,000
+ich habe mal ein bisschen nachgeguckt, also ich habe hier gestern mal ein bisschen gesucht nach
+
+56
+00:07:10,000 --> 00:07:19,000
+irgendwie OBS-WPF-Transparency und so, das sieht man hier schon, die schreiben halt, ähm, geht nicht,
+
+57
+00:07:19,000 --> 00:07:26,000
+also die oft, und das sagt der Ober-OBS-Typ, wenn es der Ober-OBS-Typ sagt, dann ist das so,
+
+58
+00:07:26,000 --> 00:07:33,000
+also anscheinend geht das nicht, sobald man Transparenz anschaltet, und ich meine, wir brauchen
+
+59
+00:07:33,000 --> 00:07:38,000
+offensichtlich Transparenz, wenn das nicht Transparenz wäre, würdet ihr jetzt hier ein Fenster drum herum
+
+60
+00:07:38,000 --> 00:07:44,000
+sehen um das Bild, was natürlich nicht der Zweck der Sache ist, äh, der nackte Zeus schreibt auch gerade,
+
+61
+00:07:44,000 --> 00:07:49,000
+geiler Name übrigens, schreibt auch irgendwie sowas in der Richtung, das Problem mit OBS hatte ich,
+
+62
+00:07:49,000 --> 00:07:59,000
+eigenes Overlay-Tool, da lief eine Animation durch, das, OBS hat nur schwarz gesehen, genau, genau,
+
+63
+00:07:59,000 --> 00:08:06,000
+das ist das Problem, sobald man Transparenz anschaltet, das sagt Balls, ah, richtig Balls,
+
+64
+00:08:06,000 --> 00:08:11,000
+ArtCore Balls sagt das, deswegen machen wir jetzt Trick 17, und das müsste wunderbar funktionieren,
+
+65
+00:08:11,000 --> 00:08:18,000
+wenn das Ganze in OBS zu integrieren, und zwar wir machen eine, eine Browser, Browser Preview,
+
+66
+00:08:18,000 --> 00:08:25,000
+also sprich, wir machen so eine Seite, die automatisch geupdatet wird, aber nichts, außer das aktuelle Bild enthält,
+
+67
+00:08:25,000 --> 00:08:33,000
+und dann, sagen wir in OBS hier, ähm, Browser Source, ich mach exemplarisch jetzt das hier,
+
+68
+00:08:33,000 --> 00:08:39,000
+aber das geht nicht, ich sag's euch gleich, also nicht wundern, so, und dann fügen wir das hier hinzu,
+
+69
+00:08:39,000 --> 00:08:45,000
+so, und dann zeigt er das hier als, als Browser an, und halt nur mit dem Bild und transparent,
+
+70
+00:08:45,000 --> 00:08:51,000
+das müsste funktionieren, das probieren wir jetzt mal aus, und damit fangen wir auch an,
+
+71
+00:08:51,000 --> 00:08:57,000
+weil OBS-Integration muss, es kann ja sein, dass ich irgendwas eben, eben exklusiv Fullscreen spielen will,
+
+72
+00:08:57,000 --> 00:09:03,000
+oder selbst nicht sehen will, oder es nur in OBS integrieren will, allerdings dann vom Smartphone aus,
+
+73
+00:09:03,000 --> 00:09:08,000
+ähm, übers Webinterface die Sachen anzeigen möchte, kann ja alles sein, das heißt OBS-Integration
+
+74
+00:09:08,000 --> 00:09:17,000
+ohne, dass man Full-Display-Capture machen muss, ist Pflicht, ja, und das Schöne ist, dadurch geht dann auch
+
+75
+00:09:17,000 --> 00:09:21,000
+Fullscreen-Game und alles, allerdings bei Fullscreen-Game sieht man es dann selbst nicht mehr,
+
+76
+00:09:21,000 --> 00:09:27,000
+aber die Leute im OBS sehen es, und auf dem zweiten Monitor, oder auf dem Tablet, oder auf dem Smartphone
+
+77
+00:09:27,000 --> 00:09:31,000
+sehe ich es dann auch hier immer noch angezeigt, grün umrandet, was gerade aktiv ist, das heißt,
+
+78
+00:09:31,000 --> 00:09:35,000
+ich kann es nicht vergessen, was ich persönlich viel besser finde als bei Stream Deck,
+
+79
+00:09:35,000 --> 00:09:40,000
+bei Stream Deck-Integrationen machen wir in Zukunft auch noch, so, also ich habe mir das folgendermaßen
+
+80
+00:09:40,000 --> 00:09:51,000
+überlegt, wir machen einfach, äh, wir machen hier auch mal ein Menü, auch mal ein Button für irgendwie, äh, Open Preview,
+
+81
+00:09:51,000 --> 00:10:00,000
+oder Preview for OBS, seid mal kreativ, fallen euch irgendwie schönere Funktionsnummer ein,
+
+82
+00:10:00,000 --> 00:10:10,000
+Open Preview, aber einfach so, ja, irgendwie so, ja, ok, klingt schon mal besser, kacke.
+
+83
+00:10:10,000 --> 00:10:15,000
+So, und dann, ähm, machen wir da drin nichts anderes, wie einfach ein neues Browser-Fenster auf,
+
+84
+00:10:15,000 --> 00:10:21,000
+und nichts anderes Open Web Preview, oh, das ist, das gefällt mir, ja, das ist schön, das mal,
+
+85
+00:10:21,000 --> 00:10:25,000
+siehste, deswegen mag ich das hier so auf Twitch zusammen zu machen, ich meine, ich bin alleine
+
+86
+00:10:25,000 --> 00:10:29,000
+viel viel schneller, also wenn ich wirklich irgendwas zustande kriegen will, dann stream ich das nicht,
+
+87
+00:10:29,000 --> 00:10:36,000
+aber, ähm, deswegen finde ich das geil, wenn man das, wenn man das streamt, die Leute gucken zu,
+
+88
+00:10:36,000 --> 00:10:42,000
+dann hat man immer, ich wäre jetzt nicht auf Open Web Preview gekommen, obwohl es eigentlich total logisch ist,
+
+89
+00:10:42,000 --> 00:10:54,000
+ähm, was wollte ich jetzt machen, genau, äh, Open Web Preview, zack, so,
+
+90
+00:10:54,000 --> 00:10:59,000
+und da machen wir jetzt, bei dem Buttonklick, sagen wir jetzt, das habe ich schon mal nachgeguckt,
+
+91
+00:10:59,000 --> 00:11:04,000
+wie das geht, man kann jetzt sagen, Window, Open, dann sagt man jetzt die Uhr, die man öffnen will,
+
+92
+00:11:04,000 --> 00:11:09,000
+also quasi, Preview HTML, die gibt es noch nicht, die müssen wir gleich anlegen,
+
+93
+00:11:09,000 --> 00:11:18,000
+und das Ganze, Target, und das ist jetzt seit HTML 0001, so nach dem Motto, wenn man das hier angibt,
+
+94
+00:11:18,000 --> 00:11:22,000
+dann macht das eben, wenn man es richtig schreibt, macht das eben neuen Tab oder neuen Fenster auf,
+
+95
+00:11:22,000 --> 00:11:27,000
+so, können wir gleich mal ausprobieren, zack, wisst ihr, neuer Tab auf mit dem Preview,
+
+96
+00:11:27,000 --> 00:11:31,000
+die Seite gibt es noch nicht, aber, soweit von der Idee, wir brauchen noch ein gescheites Icon,
+
+97
+00:11:31,000 --> 00:11:40,000
+was nennt man da, Get Emotions, Objects, beste, was nehmen wir für ein schönes Bildchen für Vorschau,
+
+98
+00:11:40,000 --> 00:11:46,000
+ein Fernseh, komm, wir nehmen ein Fernseh, das ist doch ganz hübsch, für eine Vorschau,
+
+99
+00:11:46,000 --> 00:11:52,000
+oder gibt es hier noch irgendwas schöne, was, eben erst mal ein Fernseher, das tut es schon,
+
+100
+00:11:52,000 --> 00:12:02,000
+die Toilette, das muss halt thematisch irgendwas dazu tun haben, so, da, ok, wenn wir da drauf gehen,
+
+101
+00:12:02,000 --> 00:12:07,000
+geht jetzt die OBS Vorschau auf, natürlich gibt es die OBS Vorschau noch nicht, wie man sieht,
+
+102
+00:12:07,000 --> 00:12:14,000
+offensichtlich, deswegen müssen wir die jetzt mal anlegen, Review HTML, zack, und wenn ich jetzt drauf klicke,
+
+103
+00:12:14,000 --> 00:12:28,000
+gibt es schon mal keinen Fehler mehr, ja, piss dich alle, so, so, den ganzen Schmodder hier,
+
+104
+00:12:28,000 --> 00:12:39,000
+brauchen wir alles nicht, alles weg, gucken wir mal, ob es prinzipiell funktioniert,
+
+105
+00:12:39,000 --> 00:12:45,000
+ah, es funktioniert, ok, also das Reload ist, so, und hier machen wir jetzt keine View App,
+
+106
+00:12:45,000 --> 00:12:53,000
+oder sowas in der Richtung, hey, komm mal da, Patrick, moin, alles klar, in der Schweiz,
+
+107
+00:12:53,000 --> 00:12:58,000
+und hat jemand beim Primedale zugeschlagen, überlege mir die 500GB, ach, ist das heute,
+
+108
+00:12:58,000 --> 00:13:09,000
+Moment, Moment, Amazon, Details leaked, was leaked, ach, ich bin hier gar nicht eingeloggt,
+
+109
+00:13:09,000 --> 00:13:19,000
+gebated, gebated, gebated, hat mir hier keiner geglaubt, ähm, wo ist das denn,
+
+110
+00:13:19,000 --> 00:13:28,000
+ok, was gibt es denn da heute, was, Patrick, warum lädt dich denn die Polizei vor,
+
+111
+00:13:28,000 --> 00:13:34,000
+boah, ich will das gar nicht wissen, denkt noch irgendeiner, ich hätte mit irgendwie was zu tun,
+
+112
+00:13:34,000 --> 00:13:55,000
+gebated, so, was gibt es denn heute, Primedale, jetzt irgendwas gescheitert,
+
+113
+00:13:55,000 --> 00:14:10,000
+oh, das Sebaro ist auch da, was gibt es denn da, 4.615, meine Güte, äh,
+
+114
+00:14:10,000 --> 00:14:15,000
+bis zu 40% reduziert Fritzboxen, früher auch genannt die rote Pest aus Berlin,
+
+115
+00:14:15,000 --> 00:14:31,000
+allerdings, mittlerweile sind die Dinge, ich hoffe, jetzt guckt keiner von AVM zu, mittlerweile sind die Dinge echt ein Übel,
+
+116
+00:14:31,000 --> 00:14:35,000
+ja, Patrick, das hast du verdient, wenn du 130 gefahren bist, obwohl du 180 erlaubt bist,
+
+117
+00:14:35,000 --> 00:14:51,000
+da kann ich jetzt leider nichts anderes sagen, so, wo ist denn die SSD,
+
+118
+00:14:51,000 --> 00:15:05,000
+kann man Primedale irgendwie suchen, oder so, SSD, ach, hier, guck mal da, oh, oh, das, Moment, Moment, Moment,
+
+119
+00:15:05,000 --> 00:15:12,000
+das hier ist ja eh gebated, das hier ist ultra gebated, ist ja das immer, Moment, ich muss mir das jetzt mal merken,
+
+120
+00:15:12,000 --> 00:15:19,000
+was gebated ist, also, ne, diese unverbindliche Preisempfehlung, Anzeigen, ist ja immer der mega gebated,
+
+121
+00:15:19,000 --> 00:15:26,000
+so, also das hier ist eigentlich das interessante, und dann ist es gar nicht mehr so viel, ne, das, sie sparen, das stimmt überhaupt nicht,
+
+122
+00:15:26,000 --> 00:15:36,000
+normalerweise kostet die SSD bei Amazon, lass doch, komm, wir gucken jetzt mal hier aus, Spaß, das ist eine 860 Evo, so,
+
+123
+00:15:36,000 --> 00:15:45,000
+pass mal auf, 860 Evo kostet normalerweise 100 Euro, ja, von wegen, sie sparen 100 Euro, man spart 10 Euro,
+
+124
+00:15:45,000 --> 00:15:53,000
+es ist, ich mein, es ist okay, es ist Kohle, ja, aber es ist nicht die Hälfte, so wie es hier aussieht, was halt der mega gebated,
+
+125
+00:15:53,000 --> 00:16:03,000
+ach, die, ach, Muffi, ich glaub, das macht nichts, ich mein, die theoretisch längere Lebenszeit, die du da bei einer Pro oder bei einer Evo hast,
+
+126
+00:16:03,000 --> 00:16:13,000
+das macht doch eigentlich keinen Unterschied, so, Preview, gut, okay, dann binden wir den Cramp jetzt mal ein,
+
+127
+00:16:13,000 --> 00:16:23,000
+hier machen wir jetzt keine View-App oder sowas, hier machen wir mal ganz billiges, Raw, Raw, Java-Skript,
+
+128
+00:16:23,000 --> 00:16:34,000
+so, Preview, so, dann machen wir einen Skript, hauen wir da unten rein, inline, Java-Skript, oh komm, egal,
+
+129
+00:16:34,000 --> 00:16:44,000
+so, Skript, sagen wir, kopieren wir uns mal, wie man sich hier zu unserem Server verbindet, das müssen wir nicht nochmal machen,
+
+130
+00:16:44,000 --> 00:17:04,000
+ah, und jetzt sagen wir hier, onUpdate, so, sprich, sobald es neue Bildchen gibt, dann, sobald es neue Bildchen gibt, zeigen wir uns das erstmal an,
+
+131
+00:17:04,000 --> 00:17:30,000
+das prinzipiell funktioniert, was ich da mache, starten muss man die ganzen Scheiß noch, so, ja, scheint so, ja, ja, funktioniert, nice,
+
+132
+00:17:30,000 --> 00:17:43,000
+das ist der Sebaro-Raffling, eigentlich müsste ich, eigentlich müsste ich zum Prime-Day auch mal Rafflings in Massen generieren,
+
+133
+00:17:43,000 --> 00:18:01,000
+und dann, dann, und das da, der Nightbot dann spammt, Moment, ach, das ist mein Raffling, oh, das Sebaro hier mit dem Big-Prain-Play,
+
+134
+00:18:01,000 --> 00:18:13,000
+nicht sein Raffling, mein Raffling auch noch, ja Leute, guckt euch das mal alle an, guckt euch, guckt euch das mal alle an, was das Sebaro da, was das Sebaro da gepaustet hat, guckt euch das mal alle an,
+
+135
+00:18:13,000 --> 00:18:33,000
+und, ich brauche noch einen, und, ja, und, so, ja, vor allem, easy, ich habe echt gedacht, dass Sebaro hat sein Raffling gespammt, ja, easy money, man weiß ja nie, so, okay,
+
+136
+00:18:33,000 --> 00:18:51,000
+hier machen wir mal weiter, okay, wenn es neue Memes gibt, dann, dann suchen wir uns, wir machen das jetzt ganz billig, ganz, ganz kurz und knackig,
+
+137
+00:18:51,000 --> 00:19:08,000
+dann suchen wir uns, ähm, äh, äh, wie macht man das in JavaScript, first, ne, ähm, doch first, ist es first, find, find, ja, das, das musst du ja in nie,
+
+138
+00:19:08,000 --> 00:19:25,000
+warum heißen diese Funktion eigentlich in jeder Programmiersprache anders, select hast du bei dem einen, filter hast du bei dem anderen, where hast du bei dem nächsten, dann hast du, dann hast du noch irgendwie, map und find und first und single und,
+
+139
+00:19:25,000 --> 00:19:44,000
+baah, oftmals machen sie das gleiche Kram, so, wir suchen jetzt das erste Bildchen, was wir anzeigen wollen, das erste Bildchen, was, ähm, active ist und was, ähm, type nicht text to speech ist,
+
+140
+00:19:44,000 --> 00:20:10,000
+weil text to speech interessiert uns hier beim Anzeigen nicht, so, gucken wir mal, ob das funktioniert, funktioniert, okay, ähm, so, dann gucken wir, wenn das gesetzt, äh, die Makros sind komisch, diese Templates in Visual Studio Code,
+
+141
+00:20:10,000 --> 00:20:27,000
+okay, ähm, hi, I'm nix, nix, nix, nix, kann ich die aussprayen, aber willkommen im Stream, übrigens noch mal danke für die ganzen Follows, die es gestern und die letzten Tage gegeben hat,
+
+142
+00:20:27,000 --> 00:20:56,000
+ich hab überhaupt nicht reingeguckt, während ich online war, ich hab, äh, halt gestern reingeguckt und ich hab gestern irgendwie 20, 20 Follows oder so gekriegt, ich mein, beim Programmier Stream muss man sagen, beim Battlefield Stream, da gibt's immer mehr, aber, bei den Programmier Streams, da gibt's normalerweise nicht so viel, das ist sehr nice, hyper nice ist das, so, und das ist halt auch schrecklich, immer wenn ich, wenn ich, ich lass mich so leicht ablenken, ich kopiere jetzt glaub ich zum fünften Mal diese, diese Zeile hier irgendwie, ne,
+
+143
+00:20:56,000 --> 00:21:23,000
+frag mich nicht warum, ich lass mich so leicht ablenken, so, ähm, so, und jetzt suchen wir noch, ähm, das Element, the raw JavaScript in your face, preview, das heißt wir nehmen jetzt unser div und sagen, div inner html, ne, gut, gucken wir mal ob's prinzipiell funktioniert,
+
+144
+00:21:23,000 --> 00:21:44,000
+also, jetzt, sobald ich jetzt hier ne Meme anzeige, steht der Sahl auf der Seite, ja, passt, so, und else, wenn ich jetzt wieder verstecke, dann ist es leer, das sollte, ja, easy, ganz einfach, ok, das geht schneller als ich gedacht hab,
+
+145
+00:21:44,000 --> 00:22:11,000
+und dann haben wir gleich OBS-Integration, yeah, GoPro, GoPro, so, ähm, dann müssen wir jetzt erstmal sagen, wir wollen ein Image-Element, ich muss zwar immer kotzen bei JavaScript, aber dadurch, dass ich jetzt hier die letzten paar Wochen ja auch mit euch zusammen mit JavaScript gebastelt hab, so langsam aber sicher klappt das schon ein bisschen besser,
+
+146
+00:22:11,000 --> 00:22:35,000
+source, achso, aber wie gegen Template Strings nochmal ein Ding, Backticks, genau, Backticks, wie auch immer, wisst ihr, wisst ihr dieses JavaScript Gremium oder wie auch immer genau die heißen, die haben sichergestellt, dass kein Sonderzeichen, sei es noch so abgedreht, in JavaScript nicht für irgendwas verwendet wird,
+
+147
+00:22:35,000 --> 00:23:04,000
+also ich warte noch auf, so, dass das irgendwas bedeutet, ja, was kippt, so, das kann man dann aufrufen irgendwann und es gibt dann, ähm, das ist der, das ist der Fisch, ne, das ist der, wenn ich ehrlich bin, sieht es aus wie der Spermien-Operator oder so, weil man mal, weil man mal kreativ ist, das ist nicht der Fisch-Operator, so, und ähm, was auch immer der macht, keine Ahnung,
+
+148
+00:23:04,000 --> 00:23:28,000
+da warte ich noch drauf, bis das, bis das kommt in meinem JavaScript, ich weiß, dass das Ding tilde heißt, tilde ist Home Directory, das ist wichtig, das braucht man, so, ähm,
+
+149
+00:23:28,000 --> 00:23:57,000
+Moment, Template Strings, also, ähm, Source is, Dings hier, Meme, Name plus Image, ne, Images, so, bam, zack, Moment, Lul zeigt da an, Lul zeigt da, guckt mal, seht ihr, wie schnell der Scheiß ist, das rendert im Browser exakt genauso schnell wie auf dem Desktop,
+
+150
+00:23:57,000 --> 00:24:25,000
+also, ich muss sagen, diese Signal-R-Geschichte ist wirklich, warum zeigt der MonkaS da nicht an, ok, das zeigt, ah, die Size stimmt nicht, oh, ah, richtig MonkaS, MonkaGiga, HyperMonka, so, ähm, das heißt, wir müssen jetzt hier noch angeben, 100% vom Browser-Fan,
+
+151
+00:24:25,000 --> 00:24:42,000
+100% vom Browser-Fan, da kann man es dann auch einstellen, je nachdem, wie groß das ist, ah, besser, wenn ich jetzt groß mache, ah, sehr schön, ich, und ich fürchte fast, das war's schon für OBS-Integration,
+
+152
+00:24:42,000 --> 00:25:02,000
+also guck, wenn ich das jetzt aktiv hab, das macht das Vorschaufenster auf, es ist exakt das gleiche Bild, äh, funktioniert auch mit, ok, das dreht sich weiter, wohin ging das BPF Zeug ausgeht, moin Eax, aber, hm, aber prinzipiell funktioniert's,
+
+153
+00:25:02,000 --> 00:25:17,000
+und das testet jetzt mein OBS, ob's geht, und dann ging das ganze viel schneller, als ich gedacht hab, äh, ach ja, übrigens, ähm, also, ich hab gestern noch mal ein bisschen Track and Drop ausprobiert,
+
+154
+00:25:17,000 --> 00:25:32,000
+ich hab ne Idee, wie wir relativ einfach Bilder track und dropen können, die man nicht lokal haben muss, das probieren wir gleich noch mal aus, weil das OBS-Integration ging jetzt doch ziemlich schnell, muss ich sagen,
+
+155
+00:25:32,000 --> 00:25:59,000
+ähm, ok, gucken wir mal in OBS, ob das jetzt funktioniert, Paladins Eax, Paladins, ja, es gibt doch nix zum Spielen, wir können, Eax, wir spielen Dings hier, vielleicht aus 5 Beta, im August, es ist nicht mal lange hin,
+
+156
+00:25:59,000 --> 00:26:26,000
+wobei, gibt's da eigentlich, gibt's da eigentlich, Date, ha, Beta Start Date, ok, jaja, ok, das ist wieder so ne Seite, die dich mit Text erschlägt, aber nirgendwo was steht,
+
+157
+00:26:26,000 --> 00:26:41,000
+ah, 3. August, ah nice, ok, wir, wir spielen am 3. August dann die Black Ops 3 Beta und stellen danach wahrscheinlich fest, dass wir das Spiel nicht mögen und es nicht kaufen,
+
+158
+00:26:41,000 --> 00:27:00,000
+aber letztendlich bin ich ja froh, dass man das immer Beta irgendwie noch sehen kann und es ist ja irgendwo auch klar, wenn die Beta schon so massiv sackt, aus allen Gründen sollte das so sein, dass man dann nicht warten muss so nach dem Motto, das sagen ja immer viele Leute, ihr kennt das ja so nach dem Motto,
+
+159
+00:27:00,000 --> 00:27:29,000
+Beta sackt massiv, ja, es ist komplett scheiße durchdachten Game und dann sag ich Leute, ja Max, das ist aber doch nur Beta und in Beta und bis das Spiel dann rauskommt, dann ist das bestimmt alles super und jetzt mal ehrlich gesagt, war das bei irgendeinem Game schon mal so, dass die Beta massivst scheiße war und das Spiel danach mega geil, das geht gar nicht, also wenn so grundlegende Fail Sachen drin sind, dann ändert sich das nicht mehr,
+
+160
+00:27:29,000 --> 00:27:46,000
+so, aber jetzt gucken wir mal, ob unsere Vorschau-Geschichte geht,
+
+161
+00:27:46,000 --> 00:28:00,000
+Damn, funktioniert, easy as fuck, oh, it's me, me müssen wir noch rein machen, das probieren wir jetzt mal aus,
+
+162
+00:28:00,000 --> 00:28:24,000
+nein, das, das, das da, wo gibt es denn den hier in groß, den da, den brauchen wir, it's, intransparent please, ich brauch's intransparent,
+
+163
+00:28:24,000 --> 00:28:50,000
+transparent, transparent, gibt's irgendwie nicht, ach nice, schon einer gepostet, ja, das ist die kleine Variante, ich hätte gern die große,
+
+164
+00:28:50,000 --> 00:29:07,000
+haben wir hier irgendwelche Photoshop Künstler am Start, die das freistellen können, das brauchen wir unbedingt, was ist das denn,
+
+165
+00:29:07,000 --> 00:29:21,000
+was ist der größte, ja, aber 112 auf 12 ist doof, meine Bildbearbeitungskills, das verschieben wir auch später,
+
+166
+00:29:21,000 --> 00:29:29,000
+ja, aber das OBS-Integration funktioniert, das war total einfach, kann man nämlich wieder löschen,
+
+167
+00:29:29,000 --> 00:29:40,000
+gut, das heißt OBS-Preview haben wir schon mal, das ist eine wichtige Geschichte, jetzt kann man nämlich auch Fullscreen spielen
+
+168
+00:29:40,000 --> 00:30:00,000
+und trotzdem das Memboard verwenden, weil man es in OBS drin hat, so, was machen wir denn als nächstes, so, das haben wir fertig,
+
+169
+00:30:00,000 --> 00:30:10,000
+das passt, Preview geht auf, Teamzeug funktioniert noch, Button hier oben macht nichts beim draufklicken, das ist aber Absicht, ach so,
+
+170
+00:30:10,000 --> 00:30:24,000
+was macht eigentlich das Preview, wenn ich Text-to-Speech abspiele, nichts, so, nichts, nichts, gut, funktioniert, funktioniert, gut,
+
+171
+00:30:24,000 --> 00:30:38,000
+so viel Coggers, Moin Chris, ok, wunderbar, Funst alles, hast du Paladins überhaupt mal probiert,
+
+172
+00:30:38,000 --> 00:30:55,000
+ne, ne, ne, hab ich nicht, ich hab irgendwann mal das andere Game von denen gespielt vor 5 Minuten, diese Mobile-Geschichte vor 4 Jahren oder so,
+
+173
+00:30:55,000 --> 00:31:09,000
+aber OBS, nicht OBS, fuck, Paladins hab ich nicht ausprobiert, ne, spielt es noch Overwatch, nein, das halte ich nervlich nicht durch,
+
+174
+00:31:09,000 --> 00:31:26,000
+es ist mega sophisticated die Software hier, oder meinst du Gimp, best, most sophisticated Software ist ja immer noch Steam,
+
+175
+00:31:26,000 --> 00:31:50,000
+Steam ist wirklich mindblown, ok, machen wir mal weiter, Nuln hat das, das ist eine gute Idee, ja, das können wir machen,
+
+176
+00:31:50,000 --> 00:32:02,000
+das dürfte sogar relativ einfach gehen, das probieren wir mal aus, ob das funktioniert, ich glaube das müsste relativ einfach gehen,
+
+177
+00:32:02,000 --> 00:32:21,000
+machen wir hier einfach noch eine weitere Checkbox rein, für irgendwie, ja, mach mal, mach mal Pull-Request auf, und dann gucken wir uns das Rage-Video von Linus an,
+
+178
+00:32:21,000 --> 00:32:33,000
+ob er sich darüber aufregt, wie schlecht das ist, wenn er dann auf irgendeiner Konferenz wieder gefragt wird, so wie er sich über Nvidia aufgeregt hat,
+
+179
+00:32:33,000 --> 00:33:02,000
+so Nvidia, der hatte halt keine Probleme mit, letztendlich was sollen sie auch machen, ne, was sollen sie machen,
+
+180
+00:33:02,000 --> 00:33:22,000
+kommst du halt nicht halt vorbei, so, Kontextmenü, blablabla, warum ist das Icon schon wieder so komisch eingerückt hier,
+
+181
+00:33:22,000 --> 00:33:39,000
+ach nee, passt, ok, machen wir hier noch ein Kontextmenü-Eintrag hin, das wir aber, das Vorletztes irgendwie nennen wir, keine Ahnung,
+
+182
+00:33:39,000 --> 00:34:04,000
+mir fällt grad nichts Gescheites zu ein, bin grad unkreativ über den Krempel nennen, so, und dann schalten wir das einfach an und aus,
+
+183
+00:34:04,000 --> 00:34:27,000
+soll ich lautstärken, ok, irgendwelche schreienden Kinder in der Musik, ob das sein muss, ja, Patrick, das kenn ich, der flamt Leute teilweise übertrieben,
+
+184
+00:34:27,000 --> 00:34:37,000
+ach die Finnen, die machen das, ich weiß nicht, irgendwie sind die Finnen alle Flamer, das muss aber wohl auch, da hab ich mal irgendwas drüber gelesen,
+
+185
+00:34:37,000 --> 00:34:44,000
+es muss wohl auch ein bisschen an der finnischen Sprache liegen, dass die quasi auch in anderen Sprachen so viele Kraftausdrücke verwenden,
+
+186
+00:34:44,000 --> 00:35:13,000
+so, machen wir hier irgendwie mal ne, äh, irgendwie out, so was hier, dann setzen wir das,
+
+187
+00:35:13,000 --> 00:35:24,000
+wat, hab ich mich verdrückt, achso, ja, wenn man es falsch schreibt, muss man sich nicht wundern, dass es nicht funktioniert,
+
+188
+00:35:24,000 --> 00:35:38,000
+jetzt Trick 17, für den Switch, ganz einfach, zack, sowas hier, bäm, also ne, wir setzen es immer auf den umgedrehten Wert,
+
+189
+00:35:38,000 --> 00:35:52,000
+so, und jetzt können wir in, hier oben drin, können wir jetzt sagen, irgendwie gleich, return, äh, ne, Quatsch, if, return,
+
+190
+00:35:52,000 --> 00:36:07,000
+das ist jetzt zwar, da muss man mal Gedanken drüber machen, ob das die schönste Lösung ist, aber das sollte jetzt erstmal so funktionieren,
+
+191
+00:36:07,000 --> 00:36:27,000
+disable output, bäm, oh, ähm, ich glaube, da hab ich irgendwie ne, achso, ja klar, ha, ja, das, das, ach, Moment,
+
+192
+00:36:27,000 --> 00:36:35,000
+ne, ne, so funktioniert das gar nicht, weil, das funktioniert nicht, weil ich ja hier drinne quasi das übers Webinterface aufrufe,
+
+193
+00:36:35,000 --> 00:36:39,000
+es ist ja nicht so, dass es zuerst ans Webinterface geht, das muss ich auch nochmal ändern, das ist bescheuert,
+
+194
+00:36:39,000 --> 00:36:51,000
+dass es immer durch dieses GUI-Ding durchgeht, ähm, ich sag ja am Ende dann hier, äh, Webinterface, ne, also, was halt, irgendwie bescheuert ist,
+
+195
+00:36:51,000 --> 00:36:57,000
+glaub, das ist dann doch nicht so einfach, da muss ich mir erstmal ein bisschen Gedanken drüber machen, wie wir das machen,
+
+196
+00:36:57,000 --> 00:37:08,000
+also ich mein, man kann, man kann letztendlich, man kann das hier einfach überspringen, wo die, wo die Ausgaben gesetzt werden,
+
+197
+00:37:08,000 --> 00:37:36,000
+allerdings setze ich ja, glaub ich, auch hier drin, irgendwelche Dinge auf Active, ich mal kurz gucken, ja, na, das ist, ach, wobei,
+
+198
+00:37:36,000 --> 00:37:59,000
+ne, das, das müsste sogar funktionieren, das müsste eigentlich sogar klappen, aber wenn wir das hier überspringen,
+
+199
+00:37:59,000 --> 00:38:08,000
+ne, das, das, okay, an der Stelle klappt das nicht, weil hier mach ich den ganzen Mist, wie Fenster verstecken und sonst was,
+
+200
+00:38:08,000 --> 00:38:31,000
+und auch Zeug aktivieren und so, ah, das ist doof, das ist blöd, ha, das war doch nicht so einfach, wir, wir können das,
+
+201
+00:38:31,000 --> 00:38:42,000
+wir müssten das eigentlich hier irgendwie reinpacken, also irgendwie da, und dann an der Stelle, wo es angezeigt wird,
+
+202
+00:38:42,000 --> 00:38:53,000
+also quasi, so von der Idee her, das da müssten wir irgendwie überspringen, muss mal gucken, ob das funktioniert,
+
+203
+00:38:53,000 --> 00:38:57,000
+aber das ist nicht der Weisheitsletzter Schluss, zumal es allgemein schon nicht sonderlich clever ist,
+
+204
+00:38:57,000 --> 00:39:18,000
+dass ich das alles immer durch das, durch das WPF UI durchlaufen lasse, okay, und jetzt probieren wir mal aus, ha, funktioniert,
+
+205
+00:39:18,000 --> 00:39:27,000
+okay, funktioniert, das ist zwar nicht schön, aber die Idee fand ich gut, deswegen hab ich es jetzt erstmal eingebaut, dass das,
+
+206
+00:39:27,000 --> 00:39:36,000
+dass man es ausschalten kann, also sprich, falls man jetzt wirklich einen Fullscreen, Fullscreen Game oder sowas am Start hat,
+
+207
+00:39:36,000 --> 00:39:44,000
+dass man das dann nur noch über OBS verwenden kann, also ne, probieren wir es jetzt nochmal aus, ob das funktioniert,
+
+208
+00:39:44,000 --> 00:39:55,000
+machen wir hier Browser hinzufügen, also sprich, ihr solltet jetzt das Bild sehen, allerdings ich nicht,
+
+209
+00:39:55,000 --> 00:40:11,000
+so, und ich mach das auch übers Webinterface, dass man sieht, dass es an ist, so, ihr solltet es jetzt sehen, allerdings ich nicht,
+
+210
+00:40:11,000 --> 00:40:28,000
+ist das so, ah ne, Moment, ha, ne, ne, das kann nicht sein, Moment, ich hab, ja, ich hab was vergessen, lull, Moment, wartet mal,
+
+211
+00:40:28,000 --> 00:40:42,000
+ich glaub ich hab nicht gespeichert, so, jetzt, jetzt gehts, ha, ha, ha, er wusste gerade noch richtig, na, super,
+
+212
+00:40:42,000 --> 00:41:03,000
+so, jetzt seht ihr es aber, ne, jetzt seht ihr es und ich seh es nicht, aber die, ah, das wird abgeschnitten, das sackt,
+
+213
+00:41:03,000 --> 00:41:17,000
+ich seh es gerade, aber wird das abgeschnitten, ah gut, das liegt an dem, das liegt jetzt aber am OBS Fenster, dass das verkehrt ist,
+
+214
+00:41:17,000 --> 00:41:38,000
+machen wir jetzt irgendwie keine Ahnung, machen wir es mal irgendwie höher als breit oder so, so, das liegt jetzt am OBS Fenster,
+
+215
+00:41:38,000 --> 00:42:07,000
+bis 10 Zeroes Marks, aber jetzt funktionierts, kann man es hier einfach mal rund machen, beste,
+
+216
+00:42:07,000 --> 00:42:17,000
+beste, warum war immer das so kleines, aber von der Idee her funktionierts, sehr schön,
+
+217
+00:42:17,000 --> 00:42:28,000
+aber das mal wieder weg, machen wir mal aus und wieder an, aber wunderbar, also tut, das geht vom Screenshot Tool,
+
+218
+00:42:28,000 --> 00:42:37,000
+können wir eigentlich mal löschen, Sebaro, dann mach ich ja erstmal nicht weiter, dann mach ich wieder weiter, wenn ich BDO spiele,
+
+219
+00:42:37,000 --> 00:42:47,000
+solange ich kein BDO spiele, mach ich dann eh weiter, du könntest das Git mit dem Git vom Meme Tool übersetzen,
+
+220
+00:42:47,000 --> 00:43:08,000
+besser, ja das ist aber nicht das, ne ne ne Tommy, das ist vom falschen, das ist nicht das richtige,
+
+221
+00:43:08,000 --> 00:43:25,000
+Git repo, das da ist das richtige hier, aber es gibt bloß ein fertiges Programm von vor einer Woche,
+
+222
+00:43:25,000 --> 00:43:30,000
+das sieht noch komplett anders aus, das können wir eigentlich auch gleich nochmal machen,
+
+223
+00:43:30,000 --> 00:43:39,000
+wir können nochmal eine neue Version fertig machen, mit allem 3DHCore waren wir das mal schnell,
+
+224
+00:43:39,000 --> 00:43:49,000
+ich lade das jetzt mal hoch, weil ich lade das besser nach, ich mach das nach im Stream, da ist dann alles dabei, was wir heute machen,
+
+225
+00:43:49,000 --> 00:44:00,000
+nächste Sache, OBS Integration funktioniert, wunderbar, gibt es nichts zu meckern, klappt,
+
+226
+00:44:00,000 --> 00:44:10,000
+was ich jetzt noch gerne machen würde ist, also ich würde noch ein paar Sachen gerne machen,
+
+227
+00:44:10,000 --> 00:44:20,000
+und zwar OBS habe ich mal aufgeschrieben, OBS habe ich mal abgehakt, irgendwann müssen wir nochmal einen gescheiten Installer basteln, mit Update und sowas in der Richtung,
+
+228
+00:44:20,000 --> 00:44:28,000
+ich wollte noch einbauen, dass man Bilder tracken droppen kann, die man nicht lokal haben muss,
+
+229
+00:44:28,000 --> 00:44:42,000
+Tommy fragt, hatte eine Idee ob ich eine JavaScript Library über C-Sharp steuern kann, über das Webinterface halt, denkst du das geht?
+
+230
+00:44:42,000 --> 00:44:48,000
+Das muss ich mir jetzt genauer erklären, das verstehe ich gerade nicht so genau,
+
+231
+00:44:48,000 --> 00:44:59,000
+eine JavaScript Library über C-Sharp, das mache ich ja letztendlich wenn du es so willst, also sprich ich zeige jetzt ein Bild an,
+
+232
+00:44:59,000 --> 00:45:09,000
+und das wird hier highlighted, das Bild anzeigen ist in C-Sharp und das Updaten ist im Browser über JavaScript und umgedreht,
+
+233
+00:45:09,000 --> 00:45:25,000
+das kannst du dir einfach angucken auf GitHub wie es gemacht ist, so ok, genau Bilder reintroppen von einer anderen Seite,
+
+234
+00:45:25,000 --> 00:45:35,000
+probieren wir das mal aus, also gehen wir jetzt mal zum Beispiel auf GitHub und nehmen wir mal die Katze, meine alte Katze,
+
+235
+00:45:35,000 --> 00:45:51,000
+wenn man das reintracken droppt geht das nicht, sollte aber eigentlich funktionieren, geht aber nicht, geht aber nicht,
+
+236
+00:45:51,000 --> 00:45:58,000
+so, das probieren wir jetzt mal anzupassen, dass das funktioniert und ich glaube das ist relativ einfach,
+
+237
+00:45:58,000 --> 00:46:06,000
+weil aktuell sage ich ja, ich will dieses aufwarten, also wenn man Bilder reintracken droppt sieht das so aus,
+
+238
+00:46:06,000 --> 00:46:09,000
+so sieht das eigentliche Track and Drop Interface aus, für die die es nicht gesehen haben,
+
+239
+00:46:09,000 --> 00:46:18,000
+und das soll auch aufplocken, wenn ich das vom Browser reinziehe und ich gehe mal davon aus,
+
+240
+00:46:18,000 --> 00:46:36,000
+dass ich hier einfach nicht nur hier nach Files gucken darf, sondern überall gucken muss.
+
+241
+00:46:36,000 --> 00:46:44,000
+Gucken wir mal was passiert, wenn ich das jetzt reintracken droppe, Files ja guckt, Files steht hier an der vierten Stelle,
+
+242
+00:46:44,000 --> 00:46:57,000
+das heißt ich muss jetzt nicht gucken ob das erste Element Files ist, sondern ob irgendwo hier drinnen Files steht,
+
+243
+00:46:57,000 --> 00:47:05,000
+und dann sollte das Track and Drop eigentlich funktionieren von allen Quellen, ich glaube das war es schon,
+
+244
+00:47:05,000 --> 00:47:14,000
+ihr seht es löst auch aus, zack und die Katze ist drin, kannst du die auch im Browser renamen,
+
+245
+00:47:14,000 --> 00:47:17,000
+ne das funktioniert noch nicht, löschen geht auch noch nicht, das ist das nächste was wir uns angucken,
+
+246
+00:47:17,000 --> 00:47:25,000
+dass das löschen funktioniert, und den Bildnahme müsste hier unten auch nicht unbedingt angezeigt werden,
+
+247
+00:47:25,000 --> 00:47:33,000
+so was war die Frage, muss ich mal kurz gucken, Machine Learning Library, die es leider nicht für C Sharp gibt,
+
+248
+00:47:33,000 --> 00:47:39,000
+sondern nur für JavaScript, ja gut, in JavaScript gibt es generell mehr Zeug,
+
+249
+00:47:39,000 --> 00:47:48,000
+würde man Daten von C Sharp parsen und zu JavaScript schicken, dort bearbeiten, das funktioniert theoretisch,
+
+250
+00:47:48,000 --> 00:48:01,000
+du musst mal gucken, man kann mittlerweile auch schon, du kannst Node.js in.NET laufen lassen mittlerweile,
+
+251
+00:48:01,000 --> 00:48:09,000
+musst du mal gucken, du kannst, das geht, das habe ich letztens irgendwie gesehen, nicht das da,
+
+252
+00:48:09,000 --> 00:48:17,000
+was ganz offizielles von Microsoft gibt es jetzt, dass man irgendwie, genau, das musste man ein bisschen suchen,
+
+253
+00:48:17,000 --> 00:48:22,000
+das habe ich letztens irgendwo gesehen, man kann jetzt Node.js direkt in.NET laufen lassen,
+
+254
+00:48:22,000 --> 00:48:28,000
+und dann ist die Kommunikation viel einfacher von.NET zu Node und Node und.NET und zurück und sowas,
+
+255
+00:48:28,000 --> 00:48:38,000
+musst mal suchen, Eats Meme für Max, oh nice, sehr schön, das brauchen wir,
+
+256
+00:48:38,000 --> 00:48:51,000
+dann sehen wir doch jetzt gleich, ob das Dreckentrop wieder funktioniert, Eats, ne, das ist nicht richtig freigestellt,
+
+257
+00:48:51,000 --> 00:49:13,000
+Fail, funktioniert nicht, nicht transparent, klappt nicht, oder?
+
+258
+00:49:13,000 --> 00:49:22,000
+Ich meine, hier funktioniert es ja irgendwie mit dem Hintergrund, aber ich verstehe nicht, warum es hier funktioniert,
+
+259
+00:49:22,000 --> 00:49:28,000
+lustigerweise, hier scheint es ja zu gehen, ist der Hintergrund nicht schwarz, das muss man jetzt verstehen,
+
+260
+00:49:28,000 --> 00:49:57,000
+das ist JavaScript, gedürzt, gedürzt, ah ja, ne, keine Ahnung,
+
+261
+00:49:57,000 --> 00:50:10,000
+warum das nicht funktioniert, achso, ja genau, das sind Bitmaps, dann ist es kein Wunder,
+
+262
+00:50:10,000 --> 00:50:18,000
+naja, weil Dreckentrop von einem Browser in den anderen, weil anscheinend übertragen die das als Bitmap,
+
+263
+00:50:18,000 --> 00:50:28,000
+das ist natürlich doof, aber gut, da kann ich wenig dagegen machen, da müssten wir das höchstens,
+
+264
+00:50:28,000 --> 00:50:34,000
+da müssten wir uns die Uhren holen und das downloaden oder so und dann uploaden, das würde funktionieren,
+
+265
+00:50:34,000 --> 00:50:48,000
+müssen wir mal gucken, ob wir das rauskriegen, ja, eats, das funktioniert, gucken wir mal,
+
+266
+00:50:48,000 --> 00:51:02,000
+das Ganze nochmal starten, ja, ok, dann ist es doch nicht so einfach, wie ich mir das gedacht habe,
+
+267
+00:51:02,000 --> 00:51:11,000
+der Dreckentrop ist als Bitmap, was total beschissen ist, ja, dann müssen wir uns das Ganze nochmal
+
+268
+00:51:11,000 --> 00:51:17,000
+ein bisschen im Detail angucken, was er eigentlich für ein Problem hat, ok, dann gucken wir uns doch jetzt mal an,
+
+269
+00:51:17,000 --> 00:51:23,000
+dann gucken wir uns das jetzt doch, hat irgendjemand eine Idee, wie man das gescheit macht,
+
+270
+00:51:23,000 --> 00:51:30,000
+also, weil das Dreckentrop von hier darüber klappt halt nicht, weil das dann als BMP überträgt,
+
+271
+00:51:30,000 --> 00:51:37,000
+gucken wir doch mal, was er uns alles, was er uns hier noch für Informationen gibt,
+
+272
+00:51:37,000 --> 00:52:02,000
+so, wir wollen es nicht wirklich uploaden, sondern wir gucken jetzt mal, wenn Event-Trop ist,
+
+273
+00:52:02,000 --> 00:52:17,000
+was er dann hier drinne stehen hat, gucken wir mal, Files, Items und Types, wenn das Dreckentrop wird,
+
+274
+00:52:17,000 --> 00:52:27,000
+ok, kann man das irgendwo umstellen, nein, glaube ich nicht, ich kann ja da nichts ändern,
+
+275
+00:52:27,000 --> 00:52:33,000
+wie die ihre Dreckentrop-Dinger hin und her, also, einmal hat es Files und dann hat es Text-HTML,
+
+276
+00:52:33,000 --> 00:52:42,000
+Text-Urlist, Text-Plane, wir gucken uns mal Text-Plane an, wenn wir Glück haben, steht in Text-Plane
+
+277
+00:52:42,000 --> 00:53:02,000
+oder in der Urliste die Adresse drinne zum Bild, gucken wir mal, das ist in Types, Data Transfer,
+
+278
+00:53:02,000 --> 00:53:17,000
+ok, boah, jetzt kommt JavaScript in Items, so, gucken wir mal, was der uns jetzt ausspuckt,
+
+279
+00:53:17,000 --> 00:53:33,000
+Swing, Swing-Text-Plane, blaaah, ok, if, Debug with Console-Log in 2K18, null, Type, so,
+
+280
+00:53:33,000 --> 00:53:47,000
+gehen wir uns mal in Text-Plane aus, obbei, nee, wie funktioniert das überhaupt, Moment,
+
+281
+00:53:47,000 --> 00:54:04,000
+Kind, ok, Mozilla API-Dokumentation angucken, da, kenn ich, das habe ich schon mal gesehen,
+
+282
+00:54:04,000 --> 00:54:20,000
+Type-S-String-Invoke-Specify-Callback, also, sowas hier in der Richtung, Get-S, nee, Get-S,
+
+283
+00:54:20,000 --> 00:54:34,000
+JavaScript, Callback, Callback, oh, das ist so eklig, Callback, und jetzt, oh, der kam
+
+284
+00:54:34,000 --> 00:54:44,000
+mal weg, Callback, so, und dann mal gucken, was da drinne steht, ha, nice, da steht die
+
+285
+00:54:44,000 --> 00:54:50,000
+Karte, das ist natürlich cool, das ist natürlich hyper nice, da können wir uns nämlich das
+
+286
+00:54:50,000 --> 00:55:01,000
+jetzt runterladen, was, es gibt mittlerweile sogar Programming bei Twitch als Stream, das
+
+287
+00:55:01,000 --> 00:55:08,000
+gibt es schon eine Weile, das Problem ist, mit der Programming-Kategorie, das ist, du
+
+288
+00:55:08,000 --> 00:55:13,000
+hast in Creative schon kaum Leute, die gucken, bzw. doch, das stimmt nicht, du hast schon
+
+289
+00:55:13,000 --> 00:55:21,000
+genug Leute, die gucken, aber du hast wenig neue Leute, die es finden, über Creative,
+
+290
+00:55:21,000 --> 00:55:26,000
+und Programming ist noch mal eine nicht richtig gelistete Unterkategorie von Creative, das
+
+291
+00:55:26,000 --> 00:55:33,000
+heißt, da findet sich wirklich keine Sau, wer, würde das gehen, mit JavaScript das Bild
+
+292
+00:55:33,000 --> 00:55:43,000
+64 zu konvertieren und dann zu einem PNG degrudieren, nee, dann hast du ja die Transparenzinformation
+
+293
+00:55:43,000 --> 00:55:48,000
+wahrscheinlich immer noch nicht, oder, also falls die Transparenzinformation drinne sind,
+
+294
+00:55:48,000 --> 00:55:53,000
+würde das bestimmt irgendwie funktionieren, aber, nee, nee, wir müssen irgendwie die
+
+295
+00:55:53,000 --> 00:56:04,000
+Original-URL rauskriegen, echt, Depot X, also ich habe immer das Gefühl, wenn ich das in
+
+296
+00:56:04,000 --> 00:56:12,000
+Programming hoste, dann kriegt es kaum jemand mit, ok, also, das heißt, das funktioniert
+
+297
+00:56:12,000 --> 00:56:15,000
+doch jetzt, wir können das jetzt runterladen und dann hochladen, probieren wir nochmal
+
+298
+00:56:15,000 --> 00:56:24,000
+testweisen ein paar andere Sachen aus, was ist zum Beispiel, wenn man das von Google
+
+299
+00:56:24,000 --> 00:56:34,000
+rüber zieht jetzt, das funktioniert natürlich nicht richtig, aber das wundert mich ja auch
+
+300
+00:56:34,000 --> 00:56:43,000
+nicht, dass die Google Links nicht richtig sind, ist ja, das wundert mich nicht, die
+
+301
+00:56:43,000 --> 00:56:48,000
+Google Links, ach so, Moment, das ist der Link, aha, ok, Moment, das müssen wir anders
+
+302
+00:56:48,000 --> 00:56:56,000
+machen, wir haben zur Auswahl gehabt Text plane, was hatten wir noch zur Auswahl, wartet
+
+303
+00:56:56,000 --> 00:57:02,000
+mal, was hatten wir denn zur Auswahl, GitHub, ja, wir können auch das GitHub Bild nehmen,
+
+304
+00:57:02,000 --> 00:57:24,000
+ist auch ok, String, Text plane, Text Uri-List, was ist denn Text Uri-List, ja, das bringt
+
+305
+00:57:24,000 --> 00:57:43,000
+uns ja nicht, ich will ja einstielen, ok, dann checke ich jetzt nicht genau, ich meine,
+
+306
+00:57:43,000 --> 00:57:48,000
+es ist, er überträgt es immer als Image-BMP, dann funktioniert das Track and Drop direkt
+
+307
+00:57:48,000 --> 00:57:54,000
+aus Google nicht, wenn man das Bild allerdings so offen hat, dann funktioniert es schon,
+
+308
+00:57:54,000 --> 00:57:59,000
+gucken wir nochmal, was bei Text HTML rauskommt, aber wahrscheinlich auch nichts Gescheites,
+
+309
+00:57:59,000 --> 00:58:09,000
+ne, damit kann ich nichts anfangen, da müsste man das ja parsen und wissen, wie die Seite
+
+310
+00:58:09,000 --> 00:58:18,000
+aussieht, ne, ne, ne, ne, ok, dann geht es halt nur mit Bildern direkt, aber das ist auch
+
+311
+00:58:18,000 --> 00:58:34,000
+ok, worum geht es denn, Bilder hier rein Track and Dropen und, also von einem anderen Programm
+
+312
+00:58:34,000 --> 00:58:38,000
+Bilder rein Track and Dropen, die man nicht lokal hat und sie dann lokal Upload, um sie
+
+313
+00:58:38,000 --> 00:58:59,000
+zu verwenden, so, glaub, das habe ich jetzt ganz gut umschrieben, äh, also, wenn man
+
+314
+00:58:59,000 --> 00:59:21,000
+es nicht richtig schreibt, dann ist es auch kein Wunder, das muss doch gehen, das ist
+
+315
+00:59:21,000 --> 00:59:50,000
+immer die Weiterleitung auf diese scheiß Seite, äh, ja, dann weiß ich nicht so richtig,
+
+316
+00:59:50,000 --> 00:59:54,000
+genau, das ist richtig, das ist die Frage, was da eigentlich der Track and Drop wird,
+
+317
+00:59:54,000 --> 01:00:00,000
+keine Ahnung, halt, ne, das da wird da Track and Drop, also direkt Bild Track and Dropen
+
+318
+01:00:00,000 --> 01:00:07,000
+funktioniert, dann kriegt man die Url raus, irgendwie von Google Bildersuche Track and
+
+319
+01:00:07,000 --> 01:00:17,000
+Dropen kannst du vergessen, aber gut, ich mein, man kann nicht alles haben, ja, vielleicht
+
+320
+01:00:17,000 --> 01:00:29,000
+fällt uns da noch irgendwas ein, ich mein, natürlich kann man dann einfach so machen
+
+321
+01:00:29,000 --> 01:00:43,000
+und es reinziehen und das müsste dann funktionieren, ja, das funktioniert, das geht, was haben
+
+322
+01:00:43,000 --> 01:00:48,000
+wir, was haben wir noch, was haben wir denn sonst noch für Auswahl, Files, warten wir,
+
+323
+01:00:48,000 --> 01:01:00,000
+wir gucken mal, wir gucken mal, was wir sonst noch zur Auswahl haben, Files, ne, das ist
+
+324
+01:01:00,000 --> 01:01:20,000
+das Bitmap, das brauchen wir nicht, das haben wir ja hier schon, das Müll, ja gut, Pech,
+
+325
+01:01:20,000 --> 01:01:33,000
+Google musst du direkt links rausnehmen, ja, das ist schon, das ist aber doof, also was,
+
+326
+01:01:33,000 --> 01:01:50,000
+ok, was, was genau war jetzt diese, was war das hier nochmal ausgegeben, ja, das ist Crap,
+
+327
+01:01:50,000 --> 01:01:54,000
+gehen wir nochmal auf GitHub, gehen wir nochmal auf die Katze auf GitHub, da machen wir das
+
+328
+01:01:54,000 --> 01:02:02,000
+mal nicht über Google, machen wir das mal hier mit der Katze, ja, das ist ok, das ist
+
+329
+01:02:02,000 --> 01:02:11,000
+ok, das funktioniert, ok, dann geht das halt nicht von Google, aber gut, ich meine, da
+
+330
+01:02:11,000 --> 01:02:15,000
+war trotzdem doof, ok, dann gucken wir uns das jetzt nochmal an, dann haben wir hier einmal
+
+331
+01:02:15,000 --> 01:02:25,000
+zur Auswahl, das da, das ist jetzt, so, dann haben wir, also, wir kriegen die Url raus
+
+332
+01:02:25,000 --> 01:02:33,000
+bei ein paar Uri-Lists, was haben wir da, Text, Text plane, was kriegen wir da raus,
+
+333
+01:02:33,000 --> 01:02:44,000
+auch die, wat, auch die Liste, ok, machen wir noch Text HTML zur Auswahl, was sind da
+
+334
+01:02:44,000 --> 01:02:53,000
+drinne, ok, ja, das HTML Element, das bringt uns jetzt allerdings nichts, ich hab ja gehofft,
+
+335
+01:02:53,000 --> 01:02:59,000
+man kriegt das Bild irgendwie als Base64 oder irgendwie, oder als Data-Url oder sowas,
+
+336
+01:02:59,000 --> 01:03:05,000
+aber ich mein, so ist es ja eigentlich noch besser, dann können wir das direkt runterladen,
+
+337
+01:03:05,000 --> 01:03:17,000
+können wir das direkt hier eigentlich downloaden, oder wie machen wir, aber wie würden wir
+
+338
+01:03:17,000 --> 01:03:27,000
+das jetzt am besten machen, also mal angenommen, ich hab das jetzt hier reingezogen, so, und
+
+339
+01:03:27,000 --> 01:03:43,000
+jetzt krieg ich, all die Musik, so, naja, aus dem HTML den Bild-Link raus kopieren ist
+
+340
+01:03:43,000 --> 01:03:53,000
+nachher, weil das HTML ja immer anders ist, aber so, ich mein, so ist ok, und Visa, mein,
+
+341
+01:03:53,000 --> 01:04:03,000
+Visa, das ist jetzt nochmal aus, wenn ich es über Google reingezogen hab, ok, das ist
+
+342
+01:04:03,000 --> 01:04:10,000
+halt der Link auf die, nicht auf das Bild, sondern auf die Seite, was passiert eigentlich,
+
+343
+01:04:10,000 --> 01:04:24,000
+wenn ich das hier in die Bildersuche ziehe, naja, das Eats, Clap, Twitch, ok, die machen
+
+344
+01:04:24,000 --> 01:04:34,000
+Google-Magic mit ihrem eigenen Zeug, keine Ahnung, kannst du nicht direkt das Bild bekommen,
+
+345
+01:04:34,000 --> 01:04:38,000
+ohne einen Download zu starten, ich muss es doch runterladen, um es dann wieder bei mir
+
+346
+01:04:38,000 --> 01:05:02,000
+zu laden, oder was meinste, das ist kacke, das sackt alles massiv, ok, was haben wir
+
+347
+01:05:02,000 --> 01:05:09,000
+jetzt hier, ich hab hier ein paar Types, so zur Auswahl gehabt, da muss ich mir glaub
+
+348
+01:05:09,000 --> 01:05:16,000
+ich nochmal in Ruhe Gedanken drüber machen, weil das BMP will ich nicht haben, warum,
+
+349
+01:05:16,000 --> 01:05:31,000
+warum eigentlich das BMP, was ist das für ein Kacke, ja, ne, ich krieg das Bild nicht
+
+350
+01:05:31,000 --> 01:05:35,000
+aus, ich krieg nur den Link, ich krieg es doch, ich krieg es als BMP, was mir bei transparenten
+
+351
+01:05:35,000 --> 01:05:44,000
+Bildern ja nix bringt, und ich krieg es als Link, ok, wir probieren es jetzt mal Down
+
+352
+01:05:44,000 --> 01:05:53,000
+zu laden, wir gucken einfach mal, ob das funktioniert, ich hab es übrigens umgestellt auf Fetch,
+
+353
+01:05:53,000 --> 01:06:02,000
+das ganze hier, heute Morgen noch, ok, probieren wir das mal aus, wohin lädt man das eigentlich
+
+354
+01:06:02,000 --> 01:06:16,000
+runter, wenn man das mit dem Browser runter lädt, keine Ahnung, das gefällt mir alles
+
+355
+01:06:16,000 --> 01:06:20,000
+noch nicht so, wisst ihr was, da mach ich mir in Ruhe Gedanken drüber, wie man das am
+
+356
+01:06:20,000 --> 01:06:38,000
+besten machen, dass man hier Bilder reinziehen kann, so, wo hat man hier angefangen jetzt,
+
+357
+01:06:38,000 --> 01:06:54,000
+so, ja, da muss ich mir erstmal in Ruhe Gedanken drüber machen, das track and drop BMP liegt
+
+358
+01:06:54,000 --> 01:07:04,000
+an Windows, das kann gut sein, das kann, das ist durchaus möglich, das mit dem track and
+
+359
+01:07:04,000 --> 01:07:08,000
+drop aus dem anderen Process, da muss ich mir in Ruhe Gedanken zumachen, das fällt mir
+
+360
+01:07:08,000 --> 01:07:14,000
+jetzt grad nix gescheites ein, wie wir das machen, so, eine Sache, die ich auch noch
+
+361
+01:07:14,000 --> 01:07:21,000
+gerne einbauen würde, ist halt, dass man die Dinger hier einmal umbenennen kann, wobei
+
+362
+01:07:21,000 --> 01:07:28,000
+eigentlich hauptsächlich erstmal, dass man die löschen kann, also wenn ich jetzt zum
+
+363
+01:07:28,000 --> 01:07:39,000
+Beispiel hier ihn hier löschen will, dann geht das nicht, und es gab mal vor ein paar
+
+364
+01:07:39,000 --> 01:07:48,000
+Jahren, das kann aber Chrome nicht, gab es bei Mozilla was cooles, gibt es aber nicht
+
+365
+01:07:48,000 --> 01:07:54,000
+mehr, es gab mal ein Kontextmenü API bei Mozilla, wo man das Rechtklick Kontextmenü
+
+366
+01:07:54,000 --> 01:07:58,000
+erweitern konnte, das hat aber Chrome nie unterstützt, was natürlich cool wäre, da
+
+367
+01:07:58,000 --> 01:08:04,000
+könnte ich hier rechts draufklicken und sagen löschen, das heißt jetzt müssen wir
+
+368
+01:08:04,000 --> 01:08:11,000
+da irgendwas eigenes bauen, und ich würde vorschlagen, dass wir sowas machen wie, wenn,
+
+369
+01:08:11,000 --> 01:08:15,000
+da muss ich mir aber überlegen, da brauchen wir wieder die CSS-Profis aus dem Chat, ich
+
+370
+01:08:15,000 --> 01:08:20,000
+würde vorschlagen, wenn ich hier drüber hover mit der Maus, dann gibt es hier oben
+
+371
+01:08:20,000 --> 01:08:35,000
+rechts einen X oder so, ja genau, genau Nullen hat sowas in der Richtung, und dann geht es
+
+372
+01:08:35,000 --> 01:08:40,000
+weg, müssen wir mal gucken, wie wir das jetzt am besten machen, also erstmal würde ich
+
+373
+01:08:40,000 --> 01:08:46,000
+sagen, machen wir da oben rechts einen X hin, und zwar das ist das in das Diff, in das
+
+374
+01:08:46,000 --> 01:08:54,000
+Diff hier, oder? Ja, ja ok, das ist das richtige Diff, warum ist hier so komisch eingerückt?
+
+375
+01:08:54,000 --> 01:09:04,000
+So, dann machen wir da nochmal einen X rein, und das müssen wir uns erstmal richtig anordnen,
+
+376
+01:09:04,000 --> 01:09:12,000
+also wir machen da gleich einen ordentlichen X, wir nehmen wieder den Emoji X, beste, Objects
+
+377
+01:09:12,000 --> 01:09:22,000
+Delete, Emojis für alles, alles gut, die haben doch bestimmt irgendwie einen Crossmark,
+
+378
+01:09:22,000 --> 01:09:45,000
+jawoll, das dann nehmen wir jetzt, beste, in welcher Kategorie ist das? Hä, wir nehmen
+
+379
+01:09:45,000 --> 01:09:58,000
+Emojis, die sind überall vorhanden, außer dort wo sie nicht vorhanden sind, angeblich
+
+380
+01:09:58,000 --> 01:10:06,000
+hat das jetzt gefunden, aber nur wo, ah da, das ist Kategorie Symbols, ist da noch mehr
+
+381
+01:10:06,000 --> 01:10:18,000
+in der Richtung, ah wir haben noch einen Kraus, aber das rote finde ich eigentlich ganz gut,
+
+382
+01:10:18,000 --> 01:10:28,000
+so, ja, so das waren wir dann auch durchsichtig und sowas in der Richtung, nennen wir das
+
+383
+01:10:28,000 --> 01:10:37,000
+Ding mal irgendwie, das ich, die Lied, keine Ahnung, irgendwie gucken wir mal wie wir das
+
+384
+01:10:37,000 --> 01:10:41,000
+jetzt machen am besten, es hat auch eben schon einer was im Chat gepostet, ich muss
+
+385
+01:10:41,000 --> 01:10:47,000
+mal kleiner mal durchlesen, so, wir machen das Ganze erstmal ein ticken durchsichtiger,
+
+386
+01:10:47,000 --> 01:11:02,000
+ah, so und das heißt, oh wie machen wir das jetzt gescheit in CSS, also ich will, was
+
+387
+01:11:02,000 --> 01:11:07,000
+Position Absolute Top Right Null, ja gut, das ist klar, aber ich will, also da komme ich,
+
+388
+01:11:07,000 --> 01:11:17,000
+das, das, was, ne Moment, ja fast, also das funktioniert, das haben wir ja woanders auch
+
+389
+01:11:17,000 --> 01:11:34,000
+schon gemacht, nicht absolut, absolut nicht, warte mal, ich bin verwirrt, warte mal, warte
+
+390
+01:11:34,000 --> 01:11:39,000
+mal, wie, wie funktioniert der Kram jetzt nochmal, Top Right, wir wollen es schon absolut
+
+391
+01:11:39,000 --> 01:11:49,000
+haben, wir wollen es absolut in diesem Container haben, oder, ja, ja Leute, jetzt Backseat
+
+392
+01:11:49,000 --> 01:12:01,000
+programmt man jetzt nicht so, ich muss mir da erstmal kurz Gedanken drüber machen,
+
+393
+01:12:01,000 --> 01:12:07,000
+fragt gerade jemand per, hat mich gerade jemand gefragt, wie das funktioniert, dass die Seite
+
+394
+01:12:07,000 --> 01:12:15,000
+sich im Browser aktualisiert, während man speichert im Visual Studio Code, das liegt
+
+395
+01:12:15,000 --> 01:12:21,000
+daran, ich habe da folgendes Plugin installiert, Live Server nennt sich das Ganze, das ist
+
+396
+01:12:21,000 --> 01:12:26,000
+ein Visual Studio Plugin, was quasi ein Web Server startet mit dem Verzeichnis, wo du
+
+397
+01:12:26,000 --> 01:12:32,000
+gerade drinnen bist mit Visual Studio, und der bastelt da ein paar Java Script Hacks rein,
+
+398
+01:12:32,000 --> 01:12:37,000
+das heißt, wenn man über diese Seite jetzt seinen Content aufmacht, hat das automatisch
+
+399
+01:12:37,000 --> 01:12:49,000
+dann nen Reload drinnen, wenn man speichert. So, also, wie, warte mal, wie haben wir das
+
+400
+01:12:49,000 --> 01:13:17,000
+hier auch gemacht, Position, Position Fixed, wir wollen Position, ich bin verwirrt, wie
+
+401
+01:13:17,000 --> 01:13:30,000
+ist das jetzt, Position Absolut ist doch eigentlich das Richtige, ja genau, und jetzt sagen wir
+
+402
+01:13:30,000 --> 01:13:59,000
+hier, right, ach fuck, ach jetzt ist es da, Moment, no, jeff, ich bin verwirrt, okay,
+
+403
+01:13:59,000 --> 01:14:07,000
+warte mal, warte mal, warte mal, Moment, kann halt zu schwierig sein, das auf die rechte
+
+404
+01:14:07,000 --> 01:14:16,000
+Seite zu kriegen, kann ich hier float right, oder so meine krassen Frontend Skits, so geht
+
+405
+01:14:16,000 --> 01:14:20,000
+das nicht, right, ich hab da doch irgendwie, das hab ich doch gestern schonmal gemacht,
+
+406
+01:14:20,000 --> 01:14:36,000
+sowas in der Richtung, oh jetzt ist es da, warum ist es denn jetzt da, the fuck, war Text
+
+407
+01:14:36,000 --> 01:14:50,000
+allein, oh Text, Text allein ist auch eine gute Idee, ist ja auch kein Text, hm, okay,
+
+408
+01:14:50,000 --> 01:14:58,000
+also ich mein, die, die, die, äh, ähm, also die kack Variante wäre sowas hier, so, warum
+
+409
+01:14:58,000 --> 01:15:14,000
+jetzt noch so ein Ding drum herum, WTF, warum jetzt noch so ein Ding drum herum, du musst
+
+410
+01:15:14,000 --> 01:15:18,000
+es, ach nee, nee, hier, ähm, ähm, Clipper, du musst es nicht klonen, du kannst einfach
+
+411
+01:15:18,000 --> 01:15:30,000
+GS Viertel oder irgendwie sowas schicken, hallo, Milasra, ähm, wo kommt denn dieses
+
+412
+01:15:30,000 --> 01:15:41,000
+komische, dieses komische, dieser komische Border her, na ja, überschreiben wir den irgendwie
+
+413
+01:15:41,000 --> 01:16:00,000
+Border, wie macht man den jetzt aus, ist immer noch da, wo kommt der Border her, Border, ja,
+
+414
+01:16:00,000 --> 01:16:14,000
+Border Fünf, warum hat, mach Track and Drop in Mülleimer, okay, einfach nur Border Null,
+
+415
+01:16:14,000 --> 01:16:22,000
+nee, reicht nicht, reicht nicht, warte mal, hab ich überhaupt richtig ausgewählt, Class
+
+416
+01:16:22,000 --> 01:16:48,000
+Elite, das ist richtig, ne, Class Elite, okay, warum, warum kann ich das jetzt nicht überschreiben
+
+417
+01:16:48,000 --> 01:17:02,000
+mit dem Border Null Pixel, hä, warum kann ich das, warum ist, wo ist das Problem, alter
+
+418
+01:17:02,000 --> 01:17:13,000
+CSS, was ist das für ein Kack, ach kriegste ja die Krise, ey, ich krieg's doch nicht
+
+419
+01:17:13,000 --> 01:17:23,000
+mal auf die Reihe gebacken, gescheites Ding oben rechts zu positionieren, meine Güte,
+
+420
+01:17:23,000 --> 01:17:34,000
+ich Kack Noob, ey, ich bin so ein Kack Noob, warum kann, warum kann ich eigentlich so schlecht
+
+421
+01:17:34,000 --> 01:17:40,000
+CSS und JavaScript, dazu fällt mir eins plus noch ein Null 3D, oh nice, wir haben Code
+
+422
+01:17:40,000 --> 01:17:48,000
+Pen gekriegt, easy, easy backseat Programming, guck mal, was war, wie man das richtig macht,
+
+423
+01:17:48,000 --> 01:18:04,000
+aha, aha, also man setzt, man setzt die, das Element außen drum herum setzt man auf
+
+424
+01:18:04,000 --> 01:18:11,000
+Relative, okay, das probieren wir jetzt mal aus, das Element außen drum herum ist, so
+
+425
+01:18:11,000 --> 01:18:16,000
+das hat eigentlich, kann ich, kann ich sowas, kann ich, kann ich, kann ich diff im diff
+
+426
+01:18:16,000 --> 01:18:21,000
+machen, geht das, soll ich irgendwie sowas hier machen, dass, also, dass ich jetzt das
+
+427
+01:18:21,000 --> 01:18:27,000
+darin setze, Class, oder muss ich das auch wirklich anders komplett außen drum herum
+
+428
+01:18:27,000 --> 01:18:34,000
+machen, okay, probieren wir mal aus, da, ich copy paste das jetzt mal und schauen wir mal,
+
+429
+01:18:34,000 --> 01:18:44,000
+ob das funktioniert, so, dann brauchen wir noch die Box, jetzt bin ich mal gespannt,
+
+430
+01:18:44,000 --> 01:18:49,000
+ja, stimmt, ich muss das, ich glaube, der, der, der, der Box hat Recht, man muss das
+
+431
+01:18:49,000 --> 01:19:04,000
+ein bisschen spezifischer machen, ha, fast, okay, die Class Box muss dann doch an das
+
+432
+01:19:04,000 --> 01:19:25,000
+diff oben drüber, äh, fast, nein, das funktioniert auch nicht, achso, ne, das liegt da am Hintergrund,
+
+433
+01:19:25,000 --> 01:19:34,000
+das funktioniert doch, jetzt muss bloß noch der Hintergrund weg, okay, das funktioniert
+
+434
+01:19:34,000 --> 01:19:48,000
+doch, jetzt muss, äh, nein, nicht so ganz, oder, so, so ist das richtig, und jetzt ist
+
+435
+01:19:48,000 --> 01:19:55,000
+auch, ne, das, Moment, das ist immer noch da, wie krieg ich diesen hässlichen, wie krieg
+
+436
+01:19:55,000 --> 01:20:06,000
+ich diesen hässlichen, da, Ding, weg, border, ich mein, ich kanns doch hier im, im Browser
+
+437
+01:20:06,000 --> 01:20:29,000
+kann ichs doch auch löschen, Alter, was ist das, was ist das für Rausch, das ist doch
+
+438
+01:20:29,000 --> 01:20:38,000
+keine Musik da im Hintergrund, ey, das ist doch, was ist das, das hört sich an, wie wenn
+
+439
+01:20:38,000 --> 01:20:52,000
+der Fernseher früher, ne, na gut, jetzt gehts wieder, also, ich mein, ich kanns überschreiben,
+
+440
+01:20:52,000 --> 01:21:00,000
+okay, warte mal, wir probieren das mal aus, dann jetzt diff, dann sagen wir, border, man
+
+441
+01:21:00,000 --> 01:21:14,000
+muss das irgendwie spezifischer machen, ne, fuck, wie geht denn das, dank, dark mode, ach,
+
+442
+01:21:14,000 --> 01:21:25,000
+ich bin, ich bin da zu dumm für, ich bin da nicht in der Lage zu, so, einfache, CSS-Dinger,
+
+443
+01:21:25,000 --> 01:21:34,000
+vor allem, warum hat das, war dieses hässliche Teil da jetzt so ein Ding, das, das nervt mich,
+
+444
+01:21:34,000 --> 01:21:40,000
+ey, was ist denn das, kann man, man kann sowas hier machen, ne, dann ist weg, bam, aber ich
+
+445
+01:21:40,000 --> 01:21:47,000
+hab mir sagen lassen, das macht man nicht, ich hab mir sagen lassen, das macht man nicht,
+
+446
+01:21:47,000 --> 01:21:56,000
+was ich auch verstehen kann, aber, das funktioniert, was, replace mal den light mode items diff mit
+
+447
+01:21:56,000 --> 01:22:07,000
+light mode, dark mode brauch ich, du meinst den dark mode, oder, doch, doch, ich kann
+
+448
+01:22:07,000 --> 01:22:12,000
+das border löschen, aber dann ist hier wieder da, das ist dieses hässliche, alter, wisst
+
+449
+01:22:12,000 --> 01:22:20,000
+ihr, die Musik geht mir immer auf den Sack, was ist das denn, ich mein, da hat sich da
+
+450
+01:22:20,000 --> 01:22:25,000
+irgendeiner gedacht, ich nehm hier zwei Töne und mach Rauschen rein, und das ist dann geil,
+
+451
+01:22:25,000 --> 01:22:35,000
+oder was, border none geht auch, jelkswitz, aber pro, big, fuck, ich wollte jetzt sagen
+
+452
+01:22:35,000 --> 01:22:41,000
+big brain, aber es funktioniert ja immer noch nicht, lofi hip hop, alter, das hör ich auch
+
+453
+01:22:41,000 --> 01:23:03,000
+immer ganz gern, der streben radio, den da, ist auch immer entspannend, so, border radius
+
+454
+01:23:03,000 --> 01:23:07,000
+null, nein, nein, nein, border radius brauchen wir nicht, such mal nach items diff und pack
+
+455
+01:23:07,000 --> 01:23:32,000
+einen dazwischen, was ist das da, das da, mein css ist halt auch schon sehr eklig, ne,
+
+456
+01:23:32,000 --> 01:23:55,000
+es ist weg, warum, warum ist es weg, was macht es, ich hab keine Ahnung, was es macht, aber
+
+457
+01:23:55,000 --> 01:24:14,000
+es funktioniert, ok, nice, alter, ok, sehr, sehr, sehr, sehr nice, brauch ich das jetzt
+
+458
+01:24:14,000 --> 01:24:26,000
+noch, brauch ich diese box jetzt überhaupt noch, ja, css selektors, ja, das ist magic
+
+459
+01:24:26,000 --> 01:24:35,000
+pur, ich glaub das css muss ich allgemein nochmal, nochmal neu ordentlicher machen,
+
+460
+01:24:35,000 --> 01:24:50,000
+so, so, jetzt, oh, jetzt brauchen wir gleich nochmal eure krassen css skills und zwar,
+
+461
+01:24:50,000 --> 01:25:01,000
+jetzt wollen wir das ja nur an hover anzeigen, wir wollen das x ja nur wenn wir drüber hovern,
+
+462
+01:25:01,000 --> 01:25:05,000
+lass mich, lass mich mal selbst ausprobieren, lass mich mal selbst ausprobieren, ob ich
+
+463
+01:25:05,000 --> 01:25:28,600
+da, ob ich draufkomme, so, und zwar, nein, das highlighting geht jetzt nicht mehr, das
+
+464
+01:25:28,600 --> 01:25:41,400
+geht nicht, jetzt haben wir es kaputt gemacht, wir haben es kaputt gemacht, jetzt geht das
+
+465
+01:25:41,400 --> 01:25:46,800
+highlighting nicht mehr, muss ich jetzt, muss ich jetzt da irgendwie, da auch so was dazwischen
+
+466
+01:25:46,800 --> 01:26:01,800
+machen, ne, oh, jetzt haben wir es kaputt gemacht, ai, ai, ai, ai, ok, der Sache können
+
+467
+01:26:01,800 --> 01:26:17,800
+wir uns dann gleich widmen, schwierig, dass du mit tippst, du kannst es, wenn du willst,
+
+468
+01:26:17,800 --> 01:26:23,400
+kannst du es auf github angucken, mein abenteuerliches css, wenn ich das hier weg mache, geht das
+
+469
+01:26:23,400 --> 01:26:45,840
+logischerweise, weil dann hab ich ja wieder ne, so, egal, ich will jetzt erstmal, dass
+
+470
+01:26:45,840 --> 01:26:53,440
+es on hover funktioniert, also sprich, so quasi, dass ich, dass ich sag, quasi jetzt
+
+471
+01:26:53,440 --> 01:27:17,320
+hier, visible, und hör mal, so, visible hidden, oh, the fuck, achso, Moment, das ist auch
+
+472
+01:27:17,320 --> 01:27:27,040
+irgendwie on hover, ging das so, genau, da kann ich dann sagen, visible nicht hidden,
+
+473
+01:27:27,040 --> 01:27:44,400
+was denn, das ging da von nicht hidden, visible, ha, das funktioniert nicht, Moment, ich will
+
+474
+01:27:44,400 --> 01:27:53,160
+ja auch, ich will ja auch on, Moment, Moment, ich will ja auch, dass es visible wird, ich
+
+475
+01:27:53,160 --> 01:27:57,640
+will ja auch, dass es visible wird, wenn ich über diesem, wenn ich über delete box drüber
+
+476
+01:27:57,640 --> 01:28:05,000
+bin, also quasi, will ich jetzt, will ich jetzt, ok, lass mal überlegen, ich will
+
+477
+01:28:05,000 --> 01:28:33,280
+jetzt, oh, oh, oh, jetzt wirds special, delete box, delete, so, so, ich glaube, ich glaube,
+
+478
+01:28:33,280 --> 01:28:41,400
+das funktioniert, was ich vor hab, wartet mal, visible hidden, und jetzt, oh, jetzt kommt,
+
+479
+01:28:41,400 --> 01:28:50,080
+jetzt kommt magic, Achtung, jetzt sag ich delete box, hover, geht sowas, geht sowas,
+
+480
+01:28:50,080 --> 01:29:07,440
+geht das, poggers, poggers, alter, nein, hier, Koggers ist das schon, ach, ach, ach, ach,
+
+481
+01:29:07,440 --> 01:29:16,960
+ach, krasser Scheiß, ey, krasser Scheiß, wobei, das Ding, Kacknamen hat, mit delete box,
+
+482
+01:29:16,960 --> 01:29:18,960
+das heißt es ist nicht lieb was, das heißt
+
+483
+01:29:22,240 --> 01:29:25,040
+Dreambox, weil es das ja eigentlich auch ist
+
+484
+01:29:25,180 --> 01:29:27,240
+das ist das Dip, wo hier alles drin ist
+
+485
+01:29:35,640 --> 01:29:36,640
+ups
+
+486
+01:29:36,640 --> 01:30:00,640
+was zum teufel macht das CSS da, wat, was zum, was macht das da, Jack, was, ich hab irgendwas komisches copy pasted
+
+487
+01:30:00,640 --> 01:30:10,640
+ok, so und was ich jetzt gerne hätte ist, ich hätte noch so einen Übergang, hat jemand gefragt was das Tool macht
+
+488
+01:30:10,640 --> 01:30:20,640
+ah ja genau, was wird das hier eigentlich gemacht, ich kenne nämlich nur noch was, das ist ein Tool für Streamer, du kannst mal ausrufen zeichnen Meme Tool machen, da habe ich irgendwie auch eine kurze Erklärung
+
+489
+01:30:20,640 --> 01:30:40,640
+da kannst du vom zweiten Rechner aus Overlay Bildchen einplenden und auch danach suchen hier sowas hier, du kannst es per Shortcuts machen, du siehst es aktualisiert sich hier live im Webinterface, also siehst du nicht, weil ich gerade das kaputt gemacht habe
+
+490
+01:30:40,640 --> 01:30:58,640
+du kannst über Shortcuts, kannst du es bedienen, Overlay und du siehst es halt selbst, das ist der Vorteil gegenüber OBS, OBS Shortcuts, wir haben allerdings auch eine OBS Integration, dass du es quasi triggern kannst über das Webinterface vom Tablet oder vom zweiten Rechner aus oder so
+
+491
+01:30:58,640 --> 01:31:02,640
+und es in OBS angezeigt wird und nicht hier als Overlay wo du es selbst siehst
+
+492
+01:31:02,640 --> 01:31:16,640
+ja warte mal, eben hat auch jemand was geschrieben, wie man das andere wieder fixen kann
+
+493
+01:31:16,640 --> 01:31:44,640
+ok, was Dark Mode Items müsste es sein, ok, das mache ich jetzt mal, hier das da, Alter, ich blicke meinen CSS nicht mehr durch, das ist mir voll zu hoch
+
+494
+01:31:46,640 --> 01:32:02,640
+warte mal, der Radius, der kommt...
+
+495
+01:32:02,640 --> 01:32:31,640
+DivActive, warte mal, der kriegt jetzt einfach nicht mehr Border Radius, ich bin verwirrt was CSS angeht
+
+496
+01:32:31,640 --> 01:32:47,640
+ich meine, das hier ist halt...
+
+497
+01:32:47,640 --> 01:33:02,640
+das ist doch hier blitzig, eigentlich will ich das doch haben, ich will doch, dass es auf alle wirkt
+
+498
+01:33:02,640 --> 01:33:17,640
+das ist halt das X Mist, ne, komm scheiß drauf, ich will jetzt erstmal gucken, ob wir das mit dem X hinkriegen
+
+499
+01:33:17,640 --> 01:33:32,640
+benutzt du für den Webserver eine Windows API oder eigene NIP, weder noch, das ist ASP.NET Core, das ist dabei mehr oder weniger
+
+500
+01:33:32,640 --> 01:33:49,640
+Dark Mode, achso, warte mal, warte mal, Dark Mode Items
+
+501
+01:33:49,640 --> 01:34:13,640
+Dark Mode Items, Div, achso, achso, dann bezieht sich das auf die...
+
+502
+01:34:13,640 --> 01:34:23,640
+ja so ist das sehr, sehr nice, allerdings ist das bestimmt viel umständlicher als es eigentlich sein müsste
+
+503
+01:34:23,640 --> 01:34:36,640
+aber es funktioniert sehr, sehr nice, so ist das schön, ok, wunderbar, jetzt können wir nämlich das machen, was wir eigentlich vorhatten
+
+504
+01:34:36,640 --> 01:34:52,640
+und zwar, jetzt sagen wir hier nochmal, dass das nicht nur visible ist, sondern, dass das auch noch ein bisschen durchsichtig ist
+
+505
+01:34:52,640 --> 01:35:07,640
+wie sowas da, ja, jetzt haben wir noch Font Size, machen wir nochmal ein bisschen hoch, Font Size, bisschen fetteres X, BÄM
+
+506
+01:35:07,640 --> 01:35:23,640
+auf fetteres X, zack, so, das sieht kacke aus, wir hatten doch eben noch ein anderes X gefunden
+
+507
+01:35:23,640 --> 01:35:37,640
+was genau das machen soll, Legendary Snake, du kannst mit Shortcuts transparent Bilder overlayen, sowohl, dass du es selbst siehst, als auch mit OBS Integration, dass du es nicht selbst siehst
+
+508
+01:35:37,640 --> 01:35:49,640
+es hat GIF Support, ja, und das beste ist, dass es halt keinen Einfluss hat auf die Anwendung dahinter, also sprich, das reißt dich auch nicht aus dem Spiel raus, nur weil du das Overlay einplendest
+
+509
+01:35:49,640 --> 01:36:01,640
+das einzige, wo es natürlich nicht funktioniert, ist in exklusiv, exklusiv X ist eine gute Idee, exklusiv Fullscreen-Spiel, das funktioniert natürlich nicht
+
+510
+01:36:01,640 --> 01:36:14,640
+aber, damit kann man leben, und wenn man damit nicht leben kann, nimmt man halt die OBS Integration, gibt plus das Gescheites eigentlich
+
+511
+01:36:14,640 --> 01:36:20,640
+ach, das sieht doch ein, so schlimm sieht das doch gar nicht aus, weil es je nach Emoji-Font eh anders aussieht
+
+512
+01:36:20,640 --> 01:36:34,640
+ok, jetzt hätte ich noch eine Sache gerne, wenn man hier drüber geht, wie macht man das jetzt am besten, dass das so ganz kurz einfaded, so dieses X, also quasi sowas wie Transition oder sowas
+
+513
+01:36:34,640 --> 01:36:59,640
+wie sowas wie Transition, mal kurz gucken, fade in CSS, Transition, aha, da muss man eine eigene Animation machen, das ist natürlich
+
+514
+01:36:59,640 --> 01:37:12,640
+ach, das hier, das will ich haben, genau
+
+515
+01:37:12,640 --> 01:37:24,640
+ja, sowas hier, also aber nicht auf Klick, sondern sowas hier
+
+516
+01:37:24,640 --> 01:37:39,640
+mal gucken, ob das funktioniert, wenn ich das einfach da dran haue
+
+517
+01:37:39,640 --> 01:37:58,640
+nicht wirklich, weil CSS-Skills sind halt so schlecht
+
+518
+01:37:58,640 --> 01:38:13,640
+was ist denn Target? Was genau sagt uns Target hinten dran? Was ist denn Target? Das ist das, wie es dann werden soll oder was?
+
+519
+01:38:13,640 --> 01:38:28,640
+ne, hä, was ist denn Target bei CSS? Target-Selektor, Highlight-Active-Hardware
+
+520
+01:38:28,640 --> 01:38:43,640
+achso, das ist das, wo ich mit der Maus drüber bin oder sowas, ne, ne, ne, das machen wir nicht
+
+521
+01:38:43,640 --> 01:39:01,640
+hover is in, eats, eats in on hover
+
+522
+01:39:01,640 --> 01:39:16,640
+was zum Teufel machen die da? wow, das sieht geil aus
+
+523
+01:39:16,640 --> 01:39:31,640
+ja, Transition, Background-Color, achja, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso, achso
+
+524
+01:39:31,640 --> 01:39:46,640
+ich nehm' noch eine angeben, also Mistress density två 0, ja funktioniert, sehr nice
+
+525
+01:39:46,640 --> 01:39:49,160
+Ja das ist doch schick, aber ganz kurz nur
+
+526
+01:39:49,720 --> 01:39:51,920
+Ja so ist, guck mal das ist doch nice
+
+527
+01:39:51,920 --> 01:39:54,400
+Da gehts dir hier drüber und dann fade das so ein
+
+528
+01:39:56,940 --> 01:39:59,300
+Das ist doch massiv poggers
+
+529
+01:39:59,300 --> 01:40:11,280
+Stimmt visible kann man raus machen, weil
+
+530
+01:40:11,280 --> 01:40:25,960
+Ja so ist das schön
+
+531
+01:40:25,960 --> 01:40:36,840
+Das ist das gefällt mir das ist das hat recht das das hat was so und jetzt müssen wir nur
+
+532
+01:40:36,840 --> 01:40:40,360
+gucken dass wir das irgendwie was man das anklicken können
+
+533
+01:40:40,360 --> 01:40:53,440
+Ja das ist doch nice guck jetzt geht man hier hin das fade ein und man kann das man kann das
+
+534
+01:40:53,440 --> 01:41:03,920
+anklicken so und dann kann man das anklicken und dann wollen wir es löschen also sprich
+
+535
+01:41:03,920 --> 01:41:22,600
+funktioniert das eigentlich so und da kann man jetzt hier dran dann was finden und klick
+
+536
+01:41:22,600 --> 01:41:42,560
+gleich so soweit von der idee hier man kommt die spracherkennung dazu ja da kann zumindest
+
+537
+01:41:42,560 --> 01:41:49,560
+schon text to speech wenn man spracherkennung wäre natürlich noch geiler dann sagst du dann
+
+538
+01:41:49,560 --> 01:41:55,720
+omega null und dann mit bisschen random faktor zeigt er dann irgendwas passendes hier dazu das
+
+539
+01:41:55,720 --> 01:42:00,040
+wäre natürlich das wäre natürlich also was was dazu kommt auf jeden fall noch habe ich
+
+540
+01:42:00,040 --> 01:42:07,160
+extra schon mal schon mal notiert von der weile ist eine möglichkeit mit twitch chat also twitch
+
+541
+01:42:07,160 --> 01:42:16,240
+chat interaktion also sprich wenn der twitch chat innerhalb von so und so einer zeit in den
+
+542
+01:42:16,240 --> 01:42:20,080
+mod gesperrt gesperrt hat dann macht es das auch kurz an oder irgendwie so was habe ich
+
+543
+01:42:20,080 --> 01:42:21,800
+schon überlegt so was in der richtung könnte man auch machen
+
+544
+01:42:21,800 --> 01:42:34,640
+bin ich der einzige der immer misstrauisch wird wenn sein rechner auf einmal hier symbol ans
+
+545
+01:42:34,640 --> 01:42:49,600
+nvidia macht da dinger habt das gesehen nvidia macht dinger im hintergrund warum so jetzt
+
+546
+01:42:49,600 --> 01:43:10,120
+basteln so zack so und jetzt müssen wir natürlich den irgendwas zum solver schicken das es gelöscht
+
+547
+01:43:10,120 --> 01:43:26,400
+wird es gibt gut und einfach zu nutzen bibliotheken für spracherkennung also welche dann also ich
+
+548
+01:43:26,400 --> 01:43:33,040
+habe mal wir haben wir für bilderkennung haben wir mal die die die kostenlose diese microsoft
+
+549
+01:43:33,040 --> 01:43:37,640
+things cloud geschichte verwendet weil wenn man das selbst macht dann muss man wahrscheinlich
+
+550
+01:43:37,640 --> 01:43:44,640
+das dann noch lernen lassen und solche dinger ist dann wieder diesen akt für den das benutzen
+
+551
+01:43:44,640 --> 01:44:08,400
+so ja gut dann machen wir jetzt einfach hier haben wir das hier drüber noch mal neue neue
+
+552
+01:44:08,400 --> 01:44:16,360
+Methode auf server seite die liet wobei das können wir jetzt jetzt jetzt hier drüber
+
+553
+01:44:16,360 --> 01:44:23,720
+oder machen wir das über htp aufruf eigentlich ist es egal überlegen was was schöner wäre
+
+554
+01:44:23,720 --> 01:44:28,920
+das hier geht dann über signal eher weil es einfach schneller sein soll könnte es genauso
+
+555
+01:44:28,920 --> 01:44:52,920
+gut über htp machen aber es ist klickt es aber es ist nicht die lite die lite das ist
+
+556
+01:44:52,920 --> 01:45:03,960
+der erste auf der server seite wenn das hier request delete sowas ist für das meme so und
+
+557
+01:45:03,960 --> 01:45:13,040
+da müssen wir das jetzt einbauen hier irgendwo wo haben wir es denn da brauchen wir hier noch
+
+558
+01:45:13,040 --> 01:45:34,600
+eine wie habe ich es genannt die quest delete genau ich gebe jetzt nur mal den fad aus was
+
+559
+01:45:34,600 --> 01:45:56,480
+er löschen würde gucken aber dass jetzt ob das funktionieren würde so aber ich muss
+
+560
+01:45:56,480 --> 01:46:01,120
+noch das click weg machen wenn ich hier drauf klicke dass das untere nicht klickt ja also
+
+561
+01:46:01,120 --> 01:46:09,760
+er würde das er würde das löschen er würde das löschen ok das ist schon mal nicht schlecht
+
+562
+01:46:09,760 --> 01:46:34,000
+wo sie noch gucken wie ich den beibringen dass er den klick nicht macht den anderen
+
+563
+01:46:34,000 --> 01:46:44,840
+ich meine er macht logischerweise den klick das liegt hier in der reinfolge nicht moin
+
+564
+01:46:44,840 --> 01:46:51,400
+der apfel x3 das steht natürlich jetzt an der reinfolge liegt das jetzt weil hier sagt
+
+565
+01:46:51,400 --> 01:47:13,480
+der klick hier sagt der klick für select und hier sagt der klick klick für löschen
+
+566
+01:47:13,480 --> 01:47:30,240
+genau so ist es allerdings habe ich keine ahnung wie ich das mache ich meine ok wir
+
+567
+01:47:30,240 --> 01:47:54,160
+machen hier einfach jetzt noch das event rein und dann geben wir uns das mal aus warum ist
+
+568
+01:47:54,160 --> 01:48:19,360
+der letzte select wieder kaputt
+
+569
+01:48:19,360 --> 01:48:42,800
+ne ne so funktioniert das nicht achso bei delete memes ja stimmt ich muss das irgendwie
+
+570
+01:48:42,800 --> 01:49:04,520
+machen wir können das mal probieren wir können sowas machen wie event ich glaube nicht dass
+
+571
+01:49:04,520 --> 01:49:34,000
+er macht jubel stimmt in den magic im hintergrund kann man irgendwie sowas sagen wie ne ne ne
+
+572
+01:49:34,000 --> 01:49:39,080
+das ist das ist das ist nicht das ist nicht schön das muss irgendwie anders gehen das
+
+573
+01:49:39,080 --> 01:50:08,160
+gefällt also mich ja irgendwie um zu passen ich kann es noch mal probieren was event stop
+
+574
+01:50:08,160 --> 01:50:30,720
+tatsächlich fack man das funktioniert krasse shit gebetet das ist sehr sehr nice so jetzt
+
+575
+01:50:30,720 --> 01:50:38,320
+kann ich das nämlich löschen jetzt sage ich jetzt einfach hier meine meme was ich aus
+
+576
+01:50:38,320 --> 01:50:41,520
+dem repo geholt habe und nicht einfach den fad nehmen weil sonst könnte man irgendwie
+
+577
+01:50:41,520 --> 01:50:49,720
+was sonst wo löschen wir nehmen das wo wir wissen dass das legit ist was da drin steht
+
+578
+01:50:49,720 --> 01:51:03,920
+das habe ich gerade ausprobiert ich habe die die text so speech die eingebaute text
+
+579
+01:51:03,920 --> 01:51:11,600
+so speech in wenn aus habe ich mal haben sogar hier eingebaut die ist aber gewöhnungsbedürftig
+
+580
+01:51:11,600 --> 01:51:17,240
+am liebsten hätte ich noch so richtig richtig weep text so speech da habe ich ein paar
+
+581
+01:51:17,240 --> 01:51:22,000
+sachen gefunden aber das ist alles nicht nicht schön zu bedienen wir hätten da echt so
+
+582
+01:51:22,000 --> 01:51:27,560
+eine richtig krasse weepstimme gebraucht wie so eine anime grill stürmer die dann irgendwas
+
+583
+01:51:27,560 --> 01:51:43,600
+vorliest das wäre der renner geworden sage ich euch der renner ja ja ja so gelöschen
+
+584
+01:51:43,600 --> 01:51:47,440
+wir das mal löschen wir mal die ganze festplatte jetzt weil wir uns irgendwie vertan haben
+
+585
+01:51:47,440 --> 01:52:15,160
+so und jetzt kopieren wir es wieder hin da ist es wieder da ist wieder weg oh ah moment
+
+586
+01:52:15,160 --> 01:52:21,680
+ah das funktioniert nicht wenn es im kehr das funktioniert natürlich nicht wenn es
+
+587
+01:52:21,680 --> 01:52:27,480
+im zugriff ist weil es gerade angezeigt wird da müssen wir noch was machen da müssen
+
+588
+01:52:27,480 --> 01:52:36,120
+wir jetzt wahrscheinlich irgendwie sagen dass er den krempel cashen soll dass das probieren
+
+589
+01:52:36,120 --> 01:52:42,160
+es noch mal schnell danach muss man was essen ich habe übelst hunger es geht hier garantiert
+
+590
+01:52:42,160 --> 01:52:46,760
+irgendwo drinnen dass man hier irgendwie beim beim laden vom bitmap dass man dann irgendwie
+
+591
+01:52:46,760 --> 01:53:02,760
+sagen kann cashing oder sowas cash options was haben wir da so zu bieten unload ja das
+
+592
+01:53:02,760 --> 01:53:19,440
+brauche wir das brauche wir das brauche wir cash options und load was haben wir und demand
+
+593
+01:53:19,440 --> 01:53:40,280
+ist von disk und laut hoffentlich gibt er das feine handel frei danach hier setzen wir
+
+594
+01:53:40,280 --> 01:54:02,440
+das auch cash options unload so bin ich mal gespannt ob es funktioniert anzeigen warum
+
+595
+01:54:02,440 --> 01:54:24,000
+ist das used warum ist das bild used ich habe doch gesagt ist so was ist das wo ist das
+
+596
+01:54:24,000 --> 01:54:53,400
+problem google das ist eine möglichkeit dass für das selbst aus memory ja das ist aber
+
+597
+01:54:53,400 --> 01:55:05,320
+dumm unload das muss ok moment das muss man anders setzen mit dem unload das funktioniert
+
+598
+01:55:05,320 --> 01:55:18,240
+so nicht wie ich das mache ok mal gucken ob das moment aber mit mit mit mit gifs
+
+599
+01:55:18,240 --> 01:55:27,640
+wird das mit gifs wartet mal mit gifs funktioniert es auch nicht aber mit gifs machen wir das
+
+600
+01:55:27,640 --> 01:55:49,640
+ja schon stack overflow beste source bitmap image source begin init bla bla bla pass unload
+
+601
+01:55:49,640 --> 01:56:01,200
+init end source machen wir es mal so stack overflow weiß Bescheid stack overflow hat
+
+602
+01:56:01,200 --> 01:56:25,880
+erfunden bam schreckt funktioniert sehr nice
+
+603
+01:56:25,880 --> 01:56:44,920
+da ist es wieder ja das ist cool da bauen wir das noch für das gif ein benennen wir
+
+604
+01:56:44,920 --> 01:56:57,040
+hier genau so wenn ich anders heißen sehr nice stack overflow beste leute ich sag euch
+
+605
+01:56:57,040 --> 01:57:08,000
+beste klimaanlage ausmachen ist zu kühl muss man credits geben ja ich habe es jetzt hier
+
+606
+01:57:08,000 --> 01:57:16,360
+gezeigt die haben bestimmt irgendwie terms of service dass das ok ist sonst wäre es
+
+607
+01:57:16,360 --> 01:57:22,760
+ja nicht zu gebrauchen es gibt bestimmt irgendwie so eine stack overflow dass es ok ist es zu
+
+608
+01:57:22,760 --> 01:57:27,840
+nehmen es sei denn es wird was anderes geschrieben oder so weil ansonsten wird man die komplette
+
+609
+01:57:27,840 --> 01:57:40,440
+seite in frage stellen warum es die überhaupt gibt so leute also ich würde mal sagen für
+
+610
+01:57:40,440 --> 01:57:45,440
+heute ist es ok jetzt müssen wir gerade mal amazon gucken weil wir gucken ob ich mir
+
+611
+01:57:45,440 --> 01:57:49,960
+noch was was was kaufe ich muss ich habe nämlich heute noch nicht einmal drauf geguckt ich
+
+612
+01:57:49,960 --> 01:58:00,360
+wollte mal gucken ob es beim prime der irgendwas gescheites gibt irgendwas gescheites gibt
+
+613
+01:58:00,360 --> 01:58:10,720
+so also haben wir denn hier amazon geräte ich war mal ein bisschen größer ja guck mal
+
+614
+01:58:10,720 --> 01:58:17,200
+amazon ist auch nicht so wirklich geile responsive so wir machen jetzt erstmal elektronik elektronik
+
+615
+01:58:17,200 --> 01:58:38,200
+und foto gibt es hier gibt es irgendwas gescheites alles crap brauche ich nicht so leute wisst
+
+616
+01:58:38,200 --> 01:58:44,840
+ihr was ich hole mir mal ganz kurz was zu futtern und dann gucken wir noch mal kurz amazon
+
+617
+01:58:44,840 --> 01:58:47,680
+durch weil das wollte ich eben machen dann können wir das auch kurz zusammen machen
+
+618
+01:58:47,680 --> 01:59:15,680
+und dann pushe ich den restlichen kram auf auf github ich bin gleich wieder da zwei minuten
+
+619
+01:59:15,680 --> 01:59:31,680
+ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin
+
+620
+01:59:31,680 --> 02:00:00,680
+gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin gleich wieder
+
+621
+02:00:00,680 --> 02:00:25,680
+da zwei minuten ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten
+
+622
+02:00:25,680 --> 02:00:41,680
+ich bin gleich wieder da zwei minuten ich bin gleich wieder da zwei minuten ich bin
+
+623
+02:00:41,680 --> 02:00:53,380
+4k fernseher für 269 euro da bin ich mal gespannt was das für einer ist
+
+624
+02:00:53,380 --> 02:01:13,380
+was ist das? ich glaube der fernseher suckt aber wobei der ist relativ klein ok aber trotzdem also ein 4k fernseher für 569 euro das ist nicht übel
+
+625
+02:01:13,380 --> 02:01:27,380
+skat in 2k18 lul vga und skat
+
+626
+02:01:27,380 --> 02:01:49,380
+omega lul ich muss das drehen schneller machen das reicht das ist nicht schnell genug drehen
+
+627
+02:01:49,380 --> 02:02:00,380
+rotation speed moment fuck
+
+628
+02:02:00,380 --> 02:02:07,380
+wo stellt man die rotation nochmal ein
+
+629
+02:02:07,380 --> 02:02:29,380
+rotation muss schneller sein so ist besser
+
+630
+02:02:29,380 --> 02:02:44,380
+also ne brauch man nicht aber auch alles nicht alles alles müll
+
+631
+02:02:44,380 --> 02:02:59,380
+da gibt es wieder den komischen stelsbomber router hier wo ich nicht weiß warum man sich sowas kauft
+
+632
+02:02:59,380 --> 02:03:13,380
+das ist eine maus die nicht sonderlich bequem aussieht mit einem fetten roten knut das ist die 360 quickscope headshot taste
+
+633
+02:03:13,380 --> 02:03:26,380
+ok jetzt muss ich mal gucken wie nennen sie diese tast wie nennen sie denn die tast die bei gaming zubehör hat das hat immer geile geile namen für einfache dinger
+
+634
+02:03:26,380 --> 02:03:36,380
+wie heißt das wie heißt der button ich will wissen wie der button heißt
+
+635
+02:03:36,380 --> 02:04:01,380
+extrem tunable ultra durable voll tödlicher voll voll tödlicher voll voll tödlicher was voll tödlich voll tödlicher roter button
+
+636
+02:04:01,380 --> 02:04:09,380
+die technik die ihnen zum sieg verhelft wie heißt der button ich will wissen wie dieser button heißt
+
+637
+02:04:09,380 --> 02:04:35,380
+leistungsstärke q software das ist der mega krab habe ich ja auch am laufen das ist der dass diese software ist grausam ja die tastatur finde ich gut aber die q software von korsair
+
+638
+02:04:35,380 --> 02:04:50,380
+der dpi wechsel ach sowas ist das ist ja langweilig das hatte die das hatte die g502 ja die da genau die hatte das auch die hatte ich davor
+
+639
+02:04:50,380 --> 02:05:03,380
+die hatte hier diesen sniper button der sieht bei logitech nicht so super fancy aus wie bei korsair jetzt aber das lustige ist die maus war mir viel zu schwer die logitech maus
+
+640
+02:05:03,380 --> 02:05:18,380
+deswegen habe ich jetzt eine g403 ohne sniper button also man könnte man könnte ja einfach auch die die seitentaste auf dpi change legen das geht ja auch aber das ist dann halt kein extra sniper button
+
+641
+02:05:18,380 --> 02:05:37,380
+kingston hat jetzt auch mäuse ok gamebots war es wares dass das das stand früher stand das für sicherheits runtergeladener sicherheitskopien
+
+642
+02:05:37,380 --> 02:05:50,380
+gaming zubehör wird ja ist ja ein schlimmer als das andere der stuhl sieht ich finde der stuhl sieht jetzt schon unbequemer aus
+
+643
+02:05:50,380 --> 02:06:07,380
+plastik headset zumindest was was nach ohrpolstein aussieht wo man das nicht sofort vom kopf reißen will der rest sieht mir auch sehr plastikmäßig aus router den kein mensch braucht noch das ist die abgegradete version davon oder was
+
+644
+02:06:07,380 --> 02:06:29,380
+mit lensflare effekt ich muss ja sagen mein exes point sieht irgendwie besser aus das ist das ist übrigens total also ne ich zeige euch mal mein exes point weil das fancy sind ja die antennen hier
+
+645
+02:06:29,380 --> 02:06:55,380
+so den habe ich den da guck mal der sieht so voll normal aus der exes point und der sieht finde ich schon sehr fancy aus ja einfach rund mit nem kreis drauf aber der ist richtig gut der exes point der ist wirklich top kann man nichts sagen
+
+646
+02:06:55,380 --> 02:07:18,380
+bis in garten wählen und dann auch von einem ordentlichen hersteller sieht aus wie ein feiermelder ja stimmt moment und es gibt jetzt sogar noch den nighthawk 9000 für nur 300 euro die ich finde ja muss man jetzt ja mal so sehen
+
+647
+02:07:18,380 --> 02:07:32,380
+da gucken wir mal wartet mal ich finde der router sieht umso teurer wird umso schlechter sieht er aus guckt mal das ist ja das ist das einsteigermodell für nur 120 euro ich finde der geht noch irgendwie
+
+648
+02:07:32,380 --> 02:07:58,380
+der geht noch ja danach kommt das nächste modell das sieht schon mal richtig kacke aus und jetzt kommt das modell für 300 das sieht mal mega scheiße aus ich weiß auch nicht so geht es wird ja immer schlimmer aber das ist doch die
+
+649
+02:07:58,380 --> 02:08:18,380
+wisst ihr weil die antennen auch besser werden wenn um die antennen noch mal plastik drumherum ist naja gut wenn das was sein muss razor glaube ich man ja auf das ding da habe ich sogar mal ein video zugemacht
+
+650
+02:08:18,380 --> 02:08:46,380
+das ding war ich mal relativ scharf drauf bevor das dann rausgekommen ist was der hat einen 10g sfp plus port ernsthaft nur einen warte mal welcher der hier
+
+651
+02:08:46,380 --> 02:08:52,380
+mal einen
+
+652
+02:08:52,380 --> 02:08:55,380
+einen
+
+653
+02:08:55,380 --> 02:09:03,380
+ja warum mit alles in der welt brauche ich denn einen
+
+654
+02:09:03,380 --> 02:09:15,380
+wo ist denn davon dessen einen warum denn nur einen port
+
+655
+02:09:15,380 --> 02:09:32,380
+übrigens für den preis kriegt man schon was was um um welchen besseres zum beispiel wie fast kostet man kann sich eine mikrotik
+
+656
+02:09:32,380 --> 02:09:50,380
+mikrotik
+
+657
+02:09:50,380 --> 02:10:13,380
+das kann man sich kaufen das sieht zwar nicht so fancy aus der da
+
+658
+02:10:13,380 --> 02:10:24,380
+ich finde es jetzt nicht wie das das das teil heißt einfach umlängen besser günstiger braucht wahrscheinlich sogar noch weniger strom
+
+659
+02:10:24,380 --> 02:10:32,380
+aber wie hieß denn das ding
+
+660
+02:10:32,380 --> 02:10:50,380
+sfp plus hatte der ich finde es jetzt nicht mehr keine ahnung aber zumindest ist das
+
+661
+02:10:50,380 --> 02:11:02,380
+in allen in allen belangen und ich meine man kann sich einfach eine billige was wenn man jetzt in dsl modem oder so braucht kann man sich dann
+
+662
+02:11:02,380 --> 02:11:22,380
+noch eine günstige fritzbox vorstellen das ist alle mal besser als dieses teil hier so und und halt auch viel mehr ich meine warum warum ein fsp plus warum warum einen das ist total beknackt einer also normalerweise willst du mindestens zwei haben mindestens
+
+663
+02:11:22,380 --> 02:11:46,380
+also mal eigentlich also zwei aus dem grund mindestens ein für euren rechner und ein für eure vorher nass oder sowas weil ich meine was bringt es dir denn wenn du deinen rechner mit 10 g anschließt aber du kannst nichts anderes anschließen was auch 10 g kann das ist total unsinnig irgendwie
+
+664
+02:11:46,380 --> 02:12:12,380
+ja und das mit dem verteilen bringt halt auch nichts weil die gegenseite ja nur einen gigabit kann dann müsstest du da quasi dir von von quasi guck mal du kannst du könntest jetzt über alle ports irgendwie drüber drüber schieben mit gigabit kann das ding wenigstens 2,5 kann das ding wenigstens 2,5 g kann das 5 g
+
+665
+02:12:12,380 --> 02:12:18,380
+kann das irgendwas gescheites noch auch guck mal es gibt noch mehr von der von der sorte
+
+666
+02:12:18,380 --> 02:12:47,380
+das sieht echt einer hässlicher aus als der andere aber 2,5 kann er nicht oder warum nicht der kann nichts kann er nicht zwar 2,5 und 5 noch also es ist es ist mega sinnlos das ist echt mega sinnlos einen 10 g port einen einen 2 kann ich verstehen aber eigentlich brauchst du also eigentlich brauchst du 4
+
+667
+02:12:47,380 --> 02:13:16,380
+also das geht ja immer doppelte also das geht ja 1,1 1 habe ich noch nie gesehen irgendwo eigentlich brauchst du 4 weil dann kannst du auch noch mehr dran anschließen also zum beispiel man sagt jetzt ok wenn man 4 hat weil 3 würden auch reichen aber 3 gibt es halt mehr regelmäßig es gibt dann meistens 2,4,12 was auch immer wenn du 4 stück hast kannst du deinen NAS anschließen deinen rechner anschließen plus einen weiteren gigabit switch zum beispiel anschließen
+
+668
+02:13:16,380 --> 02:13:28,380
+was das was was dann was bringt weil dann hast du noch mal einen 10 g ablink mit dabei das bringt dann was aber einer ist das ist weil ich weiß nicht wer das designt hat
+
+669
+02:13:28,380 --> 02:13:54,380
+und außerdem sieht es mega kacke aus das ding egal gucken wir uns mal weiter an die tolle gaming hardware das wars schon ne oder Seite 1 vor 9 ne moment ok die gaming hardware ist schon vorbei
+
+670
+02:13:54,380 --> 02:14:04,380
+mehr gibt es echt nicht mehr gaming hardware ist ja doof ok was haben wir beim prime day noch zu bieten
+
+671
+02:14:04,380 --> 02:14:25,380
+ein stuhl der mal aussieht wie ein stuhl auch nicht schlecht könnte sogar was sein da könnte vielleicht was gutes dabei sein müssen wir mal gucken
+
+672
+02:14:25,380 --> 02:14:39,380
+das zumindest ein ganz guter hersteller die machen ganz gutes zeug der machen auch ganz gutes zeug wenn man sowas braucht
+
+673
+02:14:39,380 --> 02:14:59,380
+premium dvd mit dvd in 2k18 einen mp3 player der so groß ist wie ein smartphone wo man sich dann fragt warum nimmt man dann lieber einen mp3 player anstatt ein smartphone
+
+674
+02:14:59,380 --> 02:15:14,380
+habt ihr dann habt ihr dann eine gute idee für also also wann greife ich denn zu einem mp3 player der so groß ist wie ein smartphone mit touch screen anstatt ein smartphone mitzunehmen
+
+675
+02:15:14,380 --> 02:15:39,380
+wann mache ich das bessere analog in dem mobilen musikdingen erkommen also wenn es mir auf qualität von irgendwelchen digital analog konverter irgendwelche verstärker oder sonst was ankommt
+
+676
+02:15:39,380 --> 02:15:50,380
+ok dann ja das lasse ich mir noch irgendwie gefallen aber für die meisten leute haben noch nicht mal den passenden kopfhörer dafür aber selbst wenn unterwegs mit irgendeinem in-ear
+
+677
+02:15:50,380 --> 02:16:19,380
+und dann auch über bluetooth also ok ja ja ok es gibt es gibt tatsächlich paar sinnvolle bekündungen ja wenn man smartphone nicht mitnehmen will dass man wenn was verliert ok ja das
+
+678
+02:16:19,380 --> 02:16:39,380
+hat mich nur mal interessiert wobei es ist doch kleiner doch einen ticken kleiner als ein smartphone hervorragend klingende mp3 player superplay ok also wenn ich ja ihr habt mich überzeugt wenn ich mir das so angucke im chat das hat tatsächlich seine daseinsberechtigung anscheinend
+
+679
+02:16:39,380 --> 02:16:55,380
+da hat kein wlan ernsthaft gibt es gibt geräte ohne wlan
+
+680
+02:16:55,380 --> 02:17:21,380
+wlan chips kosten irgendwie 50 cent oder so wir müssen natürlich noch ganz ganz wichtig wenn wir schon dabei sind müssen wir uns natürlich auch noch irgendwie das öl backen oder so
+
+681
+02:17:21,380 --> 02:17:48,380
+wir sind müssen wir uns natürlich auch noch irgendwie das öl backen gold hdmi kabel kaufen also für nur moment das ist ja jetzt für nur 120 euro für den usb für den hdmi kabel nur 120 es ist ja wie geschenkt
+
+682
+02:17:48,380 --> 02:18:13,380
+313 euro das ist ja immer besser die haben die haben sogar die haben sogar gold die haben sogar goldene strom kabel bestimmt goldene strom kabel
+
+683
+02:18:13,380 --> 02:18:20,380
+eigentlich wollte ich was essen das steht jetzt hier neben mir vor sich hin
+
+684
+02:18:20,380 --> 02:18:31,380
+was haben wir sonst noch schönes
+
+685
+02:18:31,380 --> 02:18:48,380
+naja wo der sieht sieht ist auf retro auf retro gemacht also es ist nicht es ist nicht vintage ist also nicht echt echt alt es ist nur so sieht so aus haben die auch irgendwas wo ich sagen würde
+
+686
+02:18:48,380 --> 02:19:12,380
+oh geil dass das will ich haben das auch ganz nice was die bauen in der regel ok mehr gibt es nicht das haben wir noch
+
+687
+02:19:12,380 --> 02:19:31,380
+noch mehr crap brauchen wir alles nicht ja ich muss jetzt mal gucken gibt es gibt es für meinen heim automatisierungszeug gibt es seawave zeugs heute günstiger alles noch zu teuer viel zu teuer
+
+688
+02:19:31,380 --> 02:19:43,380
+ich habe mir ich habe mir fenster sensor gekauft sieben fenster sensor habe ich mir geholt bei aliexpress für zehn dollar das stück so aus kostet hochgeladen
+
+689
+02:19:43,380 --> 02:20:02,380
+ich lade das mal nicht masto ich lade das mal in einem extra extra branche branche hoch weil ich will ich will mir das noch mal angucken was wir heute gemacht haben ich bin damit ein paar sachen nicht so nicht so zufrieden
+
+690
+02:20:02,380 --> 02:20:23,380
+was weiß ich
+
+691
+02:20:23,380 --> 02:20:43,380
+beste kommet message test über beste namen ja
+
+692
+02:20:43,380 --> 02:20:53,380
+branche test zwei ist es von heute drinne moment also ich dachte eigentlich
+
+693
+02:20:53,380 --> 02:21:14,380
+was ich brauche kein username ich habe kies warum brauche ich nicht username da fuck
+
+694
+02:21:14,380 --> 02:21:26,380
+outdated jebaited overrated ok da gehen wir halt mal username ein
+
+695
+02:21:26,380 --> 02:21:47,380
+den muss ich erst mal raussuchen warte mal kurz
+
+696
+02:21:47,380 --> 02:21:59,380
+github
+
+697
+02:21:59,380 --> 02:22:19,380
+wollen jetzt ja keine passwörter niken
+
+698
+02:22:19,380 --> 02:22:34,380
+die sind ja ok deswegen spack das spack das rum github ist anscheinend gerade am abspacken
+
+699
+02:22:34,380 --> 02:22:50,380
+ich wusste gar nicht dass github immer noch auf ruby läuft das ist unicorn wie heißt das unicorn ruby webserver ist das das logo von
+
+700
+02:22:50,380 --> 02:23:06,380
+github ist dauernd microsoft please ja jetzt haben sie ihren kompletten asia kram am start steht sogar da komplette azur ist am start
+
+701
+02:23:06,380 --> 02:23:26,380
+geht aber nicht ja also ihr könnt euch gleich angucken ich der hat das gepusht hoffentlich angenommen hier gucken wir mal ja bestimmt twitter account
+
+702
+02:23:26,380 --> 02:23:38,380
+twitter github excited to share
+
+703
+02:23:38,380 --> 02:23:59,380
+ha service unavailable ja das haben wir auch schon mitgekriegt gerade ja gut da kann man nichts machen ja sie schreiben es auch gerade dass sie nicht da sind ok gucken wir mal amazon weiter
+
+704
+02:23:59,380 --> 02:24:09,380
+immer noch alles zu teuer wie gesagt fenster sensor habe ich mir für die kommt für das komplette haus geholt erster stock erdgeschoss und keller 10 dollar das stück
+
+705
+02:24:09,380 --> 02:24:25,380
+als es beim angebot war auf aliexpress und das ist ein riesen guck mal hier ein fenster sensor 33 euro und im kern ist das überall der gleiche miss ja
+
+706
+02:24:25,380 --> 02:24:41,380
+korser k95 moment sie echt im angebot wo wo echt jetzt warum haben wir die nicht bei gaming zubehör gesehen die k5 das habe ich hier die ist die ist die ist gut ja die da in prime
+
+707
+02:24:41,380 --> 02:24:57,380
+ja das ist nicht übel ich weiß nicht mal was ich dafür bezahlt habe ich muss mal kurz nachgucken
+
+708
+02:24:57,380 --> 02:25:13,380
+kurz nach
+
+709
+02:25:13,380 --> 02:25:27,380
+ich gucke mal kurz nach was ich für die tastatur bezahlt habe und zwar
+
+710
+02:25:27,380 --> 02:25:49,380
+und zwar habe ich da bezahlt 195 ja das kann man machen also ich habe 195 bezahlt das ist die gleiche tastatur die ich gerade hier habe die ist nicht übel allerdings die mit den
+
+711
+02:25:49,380 --> 02:26:09,380
+ja das ist genau die also die kann man sich holen die ist nicht übel die tast die tasten sie dann extrem leichtgängig und also ich bin da nicht so 100 prozentig mit dem layout zufrieden
+
+712
+02:26:09,380 --> 02:26:19,380
+jetzt im nachhinein ich habe mir zwei mechanische gekauft einmal die hier und eine ziemlich klassische
+
+713
+02:26:19,380 --> 02:26:39,380
+eine ziemlich klassische vom vom layout her das ding habe ich mir noch noch eine geholt und ich muss sagen wenn man wenn man hier noch eine handballen auflage dran macht von vom layout her gefällt die mir besser fühlt die die die man merkt auch den unterschied dass die
+
+714
+02:26:39,380 --> 02:27:01,380
+ich finde die tasten fühlen sich ein ticken größer an was wahrscheinlich blödsinn ist allerdings wirken die tasten hochwertiger was was sie auch sind aber die kann man sich kaufen die ist also das gesamtpaket ist wirklich gut also vor allem auch mit der mit dem makro zeuchen dem rgb kram wenn man da drauf steht die q software ist kacke gut kann ich alles haben
+
+715
+02:27:01,380 --> 02:27:10,380
+kann ich in primeday in primeday suchen oder so
+
+716
+02:27:10,380 --> 02:27:32,380
+gibt es nichts okay
+
+717
+02:27:32,380 --> 02:27:47,380
+4 bis 5 vms max 1000 euro für 4 bis 5 vms das ist doch das ist doch nix was denn für vms was willst du damit machen
+
+718
+02:27:47,380 --> 02:28:06,380
+die von hp die wie heißen diese mini server micro server ja alles noch sogar die sind ganz gut
+
+719
+02:28:06,380 --> 02:28:23,380
+die sind ganz gut und von dell hatten die nicht auch sowas
+
+720
+02:28:23,380 --> 02:28:43,380
+ne das meine ich nicht also die hp die hp dinger sind also wenn man einfach was fertiges haben will sind die hp dinger nicht verkehrt ja und wenn man halt sagen wir so man kann sich natürlich auch in was in rektbauweise kaufen
+
+721
+02:28:43,380 --> 02:28:59,380
+das sind aber die bisschen fetteren schon falls du inspiration brauchst was du server du kaufen willst gibt es zwei gute subreddits und zwar einmal home server und einmal home lab
+
+722
+02:28:59,380 --> 02:29:20,380
+da kannst du gucken was andere leute daheim bauen sag mal finde ich das neue reddit irgendwie gewöhnungsbedürftig
+
+723
+02:29:20,380 --> 02:29:37,380
+da siehst du halt das leute so komische dinger was ich daheim haben das natürlich ein bisschen overkill home server ist die bessere variante
+
+724
+02:29:37,380 --> 02:29:51,380
+einfach mal gucken was die anderen leute so bauen das sind das sind das sind all die ganz fetten kissen also generation 6 wahrscheinlich nicht aber das da brauchst du halt ach nee das ist ein tower ok
+
+725
+02:29:51,380 --> 02:30:04,380
+na das sind so die dinger die man so im rechenzentrum hängen hat ich sag euch rz hardware data center hardware ist das hässlichste auf der welt die dinger sind alle so dermaßen beschissen aus
+
+726
+02:30:04,380 --> 02:30:08,380
+aber die müssen ja auch nicht schön aussehen
+
+727
+02:30:08,380 --> 02:30:32,380
+ja die dings hier die dell was irgendwie einer schreibt gerade im chat ist auch nicht verkehrt aber das frisst halt strom also ich würde mir mal so ein hp so diesen hp diesen kleinen mini server angucken oder aber je nachdem warte mal hast du geschrieben was du machen willst
+
+728
+02:30:32,380 --> 02:30:44,380
+windows server mit ad windows client windows client vm ist kacke virtualisiertes windows ist scheiße ist immer lahm
+
+729
+02:30:44,380 --> 02:31:02,380
+und das ist also ernsthaft jetzt also kein windows gebäsche auch ein virtualisiertes linux mit grafische oberfläche islam das einzige wie das gut funktioniert ist vor allem wenn wir workstation auf dem desktop laufen und selbst da ist windows teilweise ein bisschen eklig
+
+730
+02:31:02,380 --> 02:31:17,380
+also wenn man wenn man den desktop betriebssystem virtualisiert auf dem server und dann darauf zu greift das ist in der regel immer scheiße zu bedienen es gibt ein paar es gibt ein paar dinger mit denen es besser funktioniert microsoft hat jetzt auch so
+
+731
+02:31:17,380 --> 02:31:32,380
+für für hyper vi so so geschichten mit 3d beschleunigung in der virtualisierung drin da brauchst du aber in video quadro karten und geschätzt für das funktioniert nicht richtig
+
+732
+02:31:32,380 --> 02:31:56,380
+linux vms kannst du für linux vms würde ich mir einfach ein paar linux container hinhauen beziehungsweise ein paar lxd lxd container das sieht dann sind container sehen aber so aus wie komplette vms die brauchen nichts zusätzlich an ressourcen also für für ein paar für eine windows server mit ad beziehungsweise ein paar linux vms brauchst du keinen fetten server es ist overkill
+
+733
+02:31:56,380 --> 02:32:16,380
+cs go server ts3 das braucht alles nicht viel das braucht alles nicht viel also ich würde dir ich würde wirklich vorschlagen unabhängig von windows windows ad kannst du damit vergessen aber wenn du einfach nur ein bisschen erfahrung sammeln willst und mal gucken was geht und damit geht erstaunlich viel kauf dir den aktuellen raspberry pi
+
+734
+02:32:16,380 --> 02:32:41,380
+das hat zwar keine iow großartig die gigabit schnittstelle ist auch nicht wirklich gigabit aber für den ts server und den cs server also mich wird es wundern wenn es ich also gut ob ob cs auf auf arm läuft weiß ich nicht ich würde es mal vermuten aber für zum üben also man muss man nicht wirklich viel kohle ausgeben
+
+735
+02:32:41,380 --> 02:33:06,380
+ansonsten ich hab
+
+736
+02:33:06,380 --> 02:33:14,380
+so was ja
+
+737
+02:33:14,380 --> 02:33:41,380
+ich zeig euch mal was ich hab
+
+738
+02:33:41,380 --> 02:33:45,380
+ist es
+
+739
+02:33:45,380 --> 02:33:49,380
+das könnte es sein
+
+740
+02:33:49,380 --> 02:33:55,380
+das das ist es glaube ich
+
+741
+02:33:55,380 --> 02:34:16,380
+genau das habe ich das wird das ist aber auch schon wieder ein bisschen älter mit 2 x 10 g sfp plus controller pc express on board und cpu das kostet auch so in dem dreh aber wenn du noch platten und gehäuse mit kaufen willst bist du da drüber
+
+742
+02:34:16,380 --> 02:34:31,380
+wieso ich keinen kogas habe hier kogas
+
+743
+02:34:31,380 --> 02:34:45,380
+ne epic haben wir nicht keine ahnung wie das sich selber mäßig schlägt was auch noch eine variante ist wenn du was kleines haben willst in irgendwie so intel nuke geschichten
+
+744
+02:34:45,380 --> 02:35:07,380
+also man muss sich echt überlegen ob man sich eine fette kiste daheim hinstellen wenn man das verbrauchen auch strom vor allem wenn du da noch ein paar platten drin hast die auch nicht immer nur im standby sind das kostet halt auf dauer schon ganz gut was sowas ist auch noch eine variante wenn man nicht immer nur was kleines brauche
+
+745
+02:35:07,380 --> 02:35:23,380
+also ich würde mit dem raspberry anfangen ja und falls halt steam und cs go und so auf dem raspberry nicht läuft würde ich mir vielleicht mal sowas angucken desktop virtualisierung ist natürlich auch eine sache und dann
+
+746
+02:35:23,380 --> 02:35:52,380
+dann würde ich richtung hp micro links vom server gucken welches board das gerade war ich glaube ich glaube das hier ich bin mir dann immer ganz sicher ich glaube das hier aber das ist auch schon ein
+
+747
+02:35:52,380 --> 02:36:21,380
+bisschen älter also da müsste ich mal gucken ob es jetzt etwas neueres gibt das ist ja auch schon ein jahr oder ein wann habe ich das video gemacht ja eineinhalb jahre ist das auch schon wieder alt und es war damals auch nicht taufrisch also also das ist fest nicht kennt hier das ist mein sieht jetzt ein bisschen anders hier steht noch was das ist mein mein reck daheim
+
+748
+02:36:21,380 --> 02:36:50,380
+mit dem billigen damals noch billigen tp link access point drauf ich zeige es jetzt mal also falls falls jetzt leute hier sind halt noch nicht kennen vom video übrigens haben viele geguckt hier guck mal 110k aufrufe porgas alter porgas so hier sieht man es ein bisschen ja hier sieht man es von vorne hier oben steht da steht da selber drauf das hier ist
+
+749
+02:36:50,380 --> 02:37:02,380
+soll ich das überhaupt erzählen oder wisst ihr das alles schon weil ich meine wenn ihr alle das video geguckt haben muss ich muss ich kann ich bis jetzt auch sparen wenn es euch interessiert ich kann auch gerne was zu erzählen jetzt
+
+750
+02:37:20,380 --> 02:37:41,380
+dass ihr baro kennt das weiß ich also ja da kann ich erzählen was man sieht ist das jetzt auf 1080
+
+751
+02:37:41,380 --> 02:37:51,380
+also man sieht hier folgendes aber kurz gucken dass ich einen guten gute einstellung finde
+
+752
+02:37:51,380 --> 02:38:14,380
+den server oben drauf hat man gesehen sieht man nachher im detail noch mal wieder dann ein ziemlich stark geknicktes glasfaser kabel also was man hier sieht ist wie gesagt oben drauf den server den wollte ich mal ursprünglich hier unten einbauen fangen wir von oben nach unten an der server steht oben drauf dann zudem sage ich dann am ende noch was
+
+753
+02:38:14,380 --> 02:38:37,380
+mein 10g switch wo man hier dabei sind von wegen also der hatte glaube ich 400 euro gekostet aber der hat halt auch 12 fsp plus port plus 4 10g kupfer port das ist halt mal eine ganz andere hausnummer als dieser nur 100 euro billigere net gear
+
+754
+02:38:37,380 --> 02:38:53,380
+das ist ein switch der hat ein paar layer 3 funktionen die sind natürlich nicht so superschnell seine fritzbox könnte man wahrscheinlich aber trotzdem drüber laufen lassen aber das würde ich nicht damit machen dafür ist nicht gedacht
+
+755
+02:38:53,380 --> 02:39:19,380
+10 12 fsp plus port mit 10 gigabit und das ding braucht halt ein bisschen strom aber es ist relativ sparsam die wenn man das mal vergleicht mit so mit den etablierten größen aus dem rechenzentrum wo die halt gar nicht auf lüfter lautstärke und stromverbrauch achten ist das gut das braucht 20 watt so irgendwie in dem dreh das ist also echt ok für so ein switch
+
+756
+02:39:19,380 --> 02:39:36,380
+da geht das ganze runter auf so einen patchpanel was man übrigens auch mit usb gibt da wusste ich bis zu dem zeitpunkt gar nicht warum hast du da fiber in der weile weil ich 10 das hier ist 10 10 gigabit an den server dran
+
+757
+02:39:36,380 --> 02:40:02,380
+der server hat bloß hat bloß sp also hat bloß glasfaser port das heißt muss dran strom gedöns dann noch so ein besen teil dass es ein bisschen ordentlicher aussieht hier unten steht noch ein alter tp link switch drinnen und das unity media kabel modem hier dahinter steht dann irgendwo noch die die telekom fritzbox und die
+
+758
+02:40:02,380 --> 02:40:29,380
+dvbc empfänger sieht man jetzt nicht richtig fernseh empfang dinger und hier unten ist eine usb die sieht man hier glaube ich ganz gut das ist das einmal power usb mit glaube acht anschlüssen 600 va 360 va irgendwas es hält nicht übertrieben lang aber es reicht dass sich der server runterfahren kann sollte es zu wenig werden
+
+759
+02:40:29,380 --> 02:40:53,380
+ja die 10 gigabit muss ich genau muss ich auch noch was zu sagen also die 10 gigabit die braucht man nicht der einzige grund warum ich einen 10 gigabit aufbau habe ist weil es geht weil es geht und weil ich 10 gigabit haben wollte das hat keinen tieferen sinn dahinter
+
+760
+02:40:53,380 --> 02:41:18,380
+dahinter braucht man eigentlich nicht ich habe in meinem desktop eine 10 g anschluss zwar der grund warum ich mir dieses mainboard gekauft habe der ist jetzt auch hier oben dran allerdings kupfer ja aber es ist gar nicht so teuer ne also 10 g im privaten bereich ist vor allem mit
+
+761
+02:41:18,380 --> 02:41:47,380
+den mikrotik switchen jetzt und den mikrotik routern es ist erschwinglich es ist kein ding da gibste gibste 150 euro für einen switch aus gibste nochmal keine ahnung 50 euro für jeweils ein paar netzwerkarten aus und dann brauchst du noch ein paar module also sagen wir mal so mit 400 euro bist du dabei mit 400 euro bist du dabei ganz gut dabei im heimbereich
+
+762
+02:41:47,380 --> 02:42:15,380
+mit 10 g mittlerweile schon und wir nicht alle rz hardware kaufen sondern ordentlich neues was auch leise ist und für daheim sich eignet so dann guckt man aber auf den sauber drauf sieht man gerade einen neuen schwarzstromverbrauch also der haut schon ein bisschen oder 97 der haut schon ein bisschen rein es wird ein bisschen weniger wenn die platten sich ausschalten also sind so 70 würde ich sagen 70 mit den platten aus
+
+763
+02:42:15,380 --> 02:42:44,380
+max welches notebook ist das beste keine ahnung kenne ich mich nicht mit aus so im server selbst ist eine 4he kiste warum ist das eine 4he kiste weil das rack ziemlich kurz ist sonst hätte es nicht reingepasst also sprich wenn man diesen faktor haben will in 2he muss der länger sein weil ich meine das netzteil muss irgendwo rein wenn man das netzteil längs legt wird der server länger wenn man das netzteil
+
+764
+02:42:44,380 --> 02:43:01,380
+hoch kann stellt dann wird er nach oben höher und nach oben habe ich mehr platz als nach hinten deswegen das ist ein ganz kurzes rack das ist wirklich ganz ganz gut du hast im rz hast du direkt ein bisschen meter und sowas das hier ist glaube ich 35 cm oder das ist nichts 40 cm ist das rack glaube ich das ist nichts
+
+765
+02:43:01,380 --> 02:43:27,380
+nee die fritzbox bleibt davor muss ich ja nicht total übertreiben wie heißen die günstigen switches also was was sich anbietet also ich finde es gibt zwei sachen die sich die sich die sich gut eignen für die günstigen switches
+
+766
+02:43:27,380 --> 02:43:31,380
+also ich finde es gibt zwei sachen die sich die sich die sich gut eignen für für die
+
+767
+02:43:35,380 --> 02:43:46,380
+das ist mein switch wenn man ein bisschen mehr ambitionen hat daheim was man machen will kann man den hier nehmen den gibt es auch meistens also der ist gerade ziemlich teuer ich habe da 400 noch etwas für bezahlt
+
+768
+02:43:46,380 --> 02:43:58,380
+das ist das eine allerdings deutlich günstiger wenn man einfach nur den 10g switch haben will nehmen wir den mikrotik cs
+
+769
+02:43:58,380 --> 02:44:27,380
+du musst aber mikrotik gucken ich kann mit die haben ab die haben ganz grausame produkten haben ja also da geht es los die das ganz gut wenn man anguckt was das kostet da sind wir schon deutlich deutlich deutlich drunter wenn man sich überlegt man kauft sich so einen so einen switch
+
+770
+02:44:27,380 --> 02:44:48,380
+dann hast du 24 gigabit port zwei fsp plus port also für den preis kannst du absolut nicht sagen da kommen auch zwei fsp plus module dabei die eigenen eigenbau sind aber auch günstig von denen du musst mal gucken was es was es so gibt die haben irgendeinen neuen habe ich letztens gesehen müssen wir mal kurz gucken einen neuen router hatten die
+
+771
+02:44:48,380 --> 02:45:10,380
+hatten irgendeinen neuen und der war echt gut für das preis leistungsmäßig der war echt richtig nice kann man irgendwie suchen auf der seite wir wollen fsp plus ports haben
+
+772
+02:45:10,380 --> 02:45:26,380
+oder was mit der musik los
+
+773
+02:45:26,380 --> 02:45:40,380
+wir wollen keine gute wir wollen wir wollen die router switch kombi wollen wir haben von denen und der ist richtig gut gewesen habe ich letztens erst gesehen
+
+774
+02:45:40,380 --> 02:45:58,380
+der da ich bilde mir eines gab noch einen anderen habe ich letztens den jetzt nämlich auch schon ein bisschen länger
+
+775
+02:45:58,380 --> 02:46:14,380
+der da
+
+776
+02:46:14,380 --> 02:46:29,380
+ich finde es jetzt nicht mehr
+
+777
+02:46:29,380 --> 02:46:44,380
+kann deine netzwerkkarte mit fsp plus eigentlich auch getaggte vilans ich habe keine ahnung
+
+778
+02:46:44,380 --> 02:47:00,380
+das ist ja nichts das ist ja eine das muss ja die netzwerkkarte nicht können du musst
+
+779
+02:47:00,380 --> 02:47:09,380
+ja nicht wirklich netzwerkkarte können ja ist wieder wie wie der moritz sagt dass
+
+780
+02:47:09,380 --> 02:47:14,380
+eigentlich von der netzwerkkarte ziemlich unabhängig kann sein dass es da irgendwelche offload
+
+781
+02:47:14,380 --> 02:47:19,380
+geschichten gibt aber ich wüsste jetzt nicht wofür wir für so viel entdeckt setzen irgendwie wahnsinnig was offloaden
+
+782
+02:47:19,380 --> 02:47:29,380
+muss ja und selbst wenn man das nicht auf kleinen seite macht was man in der regel eigentlich nie macht der switch
+
+783
+02:47:29,380 --> 02:47:41,380
+kann es aber das eigentlich auch das mindeste jetzt können alle switch außer diese billigen consumer dinger die ganz billigen so genau
+
+784
+02:47:41,380 --> 02:47:46,380
+können wir noch mal in den server kurz reingucken da sieht es mittlerweile ein bisschen anders da aus wie gesagt
+
+785
+02:47:46,380 --> 02:47:53,380
+selbst gebaut also das ist ich habe mir das gehäuse gekauft das das bord gekauft und halt den kram ich wollte sowas mal selbst für
+
+786
+02:47:53,380 --> 02:48:01,380
+für mein zeug halt zusammenbauen man sieht wie klein das bord ist eigentlich deswegen ist es halt auch eine 4 hee kiste weil das das netzteil hochkant
+
+787
+02:48:01,380 --> 02:48:10,380
+drinne ist ein on board hast du auch noch ein on board host adapter für
+
+788
+02:48:10,380 --> 02:48:24,380
+sas platten beziehungsweise für für äh wie heißt sata und gedürtzeitser
+
+789
+02:48:24,380 --> 02:48:36,380
+was hältst du von seinen ordentlichen qnup mit nass virtualisierung nass mit virtualisierung kann man auch machen ist auch nicht schlecht
+
+790
+02:48:36,380 --> 02:48:53,380
+so und man sieht eine abenteuerliche netzwerkarte fällt euch die netzwerkarte auf leute fällt euch diese netzwerkarte auf ist sie nicht hier irgendwie falsch
+
+791
+02:48:53,380 --> 02:49:09,380
+sie nicht irgendwie falsch normalerweise ist die netzwerkarte doch nicht so oder so
+
+792
+02:49:09,380 --> 02:49:23,380
+so aber das ist absicht da ist ein adapter drinne passt mal auf m2 auf pc express
+
+793
+02:49:23,380 --> 02:49:40,380
+ihr wusstet gar nicht dass es sowas überhaupt gibt das da aber nicht von aliexpress sowas ist da drinne
+
+794
+02:49:40,380 --> 02:49:54,380
+m2 auf pc express und da ist die netzwerkarte drin mittlerweile nicht mehr mittlerweile ist die netzwerkarte im ganz normal pc express drinne
+
+795
+02:49:54,380 --> 02:50:06,380
+das war das habe ich damals so gemacht weil ich bisschen experimentieren wollte mit grafikkarten in vms durchreichen und sowas
+
+796
+02:50:06,380 --> 02:50:18,380
+weil ich habe ich hatte noch eine oder ich habe noch eine 980 ti hier die jetzt halt durch die 1080ti abgelöst wurde im desktop
+
+797
+02:50:18,380 --> 02:50:36,380
+da habe ich mir gedacht das ist ja schande wenn das ding rumliegt lass mal da ein bisschen mit basteln genau also die vlan tags werden beim switch port gesetzt und können auch wieder verschwinden
+
+798
+02:50:36,380 --> 02:50:44,380
+sprich das ist egal das ist port basiert wenn man das auf switch seite macht du musst eigentlich kleintmäßig nix taggen
+
+799
+02:50:44,380 --> 02:50:56,380
+musst du nur wenn du quasi dort einen hypervisor oder irgendwie sowas drauf laufen lässt der quasi die vms in mehreren vlans hat und sowas
+
+800
+02:50:56,380 --> 02:51:05,380
+weil am switch kannst du logischerweise pro port nur einen vlan vergeben weil der kann halt nur sagen ok dieser port kommt in dieses vlan rein
+
+801
+02:51:05,380 --> 02:51:14,380
+wenn du halt mehrere sachen haben willst drüber musst du selbst taggen und dann am switch die dinger erlauben aber für den desktop braucht man das nicht
+
+802
+02:51:14,380 --> 02:51:28,380
+also auf dieser kiste habe ich ubuntu server drauf beste serverdistribution ich bin wirklich also auf dem desktop das ist witzig
+
+803
+02:51:28,380 --> 02:51:38,380
+bei den meisten leuten ist komplett umgedreht auf dem desktop mag ich ubuntu überhaupt nicht desktop ist man mancharo linux beste aber auf dem server
+
+804
+02:51:38,380 --> 02:51:51,380
+ich mag die ubuntu serverdistribution mir gefällt das irgendwie ich finde das viel angenehmer zu bedienen als irgendwelche beispielsweise red hat basierte
+
+805
+02:51:51,380 --> 02:52:02,380
+geschichten es ist jetzt persönlicher geschmack es hat jeder so seins ja rett hat habe ich auf der arbeit einen ganzen tag dann kann ich hier daheim auch
+
+806
+02:52:02,380 --> 02:52:23,380
+ubuntu nehmen nämlich das was mir besser gefällt sie ist ein bisschen laut oder
+
+807
+02:52:23,380 --> 02:52:34,380
+trank port ist was andere also man muss aufpassen von hersteller zu hersteller unterschiedlich trank port ist im prinzip einfach nur ein port der
+
+808
+02:52:34,380 --> 02:52:45,380
+wo du quasi mehrere vlan drüber erlauben kannst wenn man es so will also eigentlich ist der trunk port
+
+809
+02:52:45,380 --> 02:52:53,380
+der port der nix großartig tag trank port heißt eigentlich wenn du trunk port einstellst sagst du eigentlich nur ok das ist ein trunk port da drüber dürfen jetzt
+
+810
+02:52:53,380 --> 02:53:05,380
+vlan 1 2 3 4 5 6 das ist quasi eher so eine vlan firewall oder sowas wenn man es so will wenn du trunk port hast musst du selber taggen
+
+811
+02:53:05,380 --> 02:53:30,380
+auf klein also auf anderer seite weil dein trank port hat ja keine ahnung was du was du haben willst
+
+812
+02:53:30,380 --> 02:53:57,380
+trunk port machst du zwischen zwei switches zum beispiel dass da halt einfach alles drüber gehen darf das heißt ein nicht getagter port ist das eigentlich
+
+813
+02:53:57,380 --> 02:54:04,380
+ja ubuntu server beste max holst du das neue black ops ich werde mal die beta spielen
+
+814
+02:54:04,380 --> 02:54:30,380
+moin captain prozeit so wir wollten noch amazon weiter gucken was haben wir denn hier ssd und gedöns da bin ich mal gespannt ich bin ich bin einer minute mit schwörder
+
+815
+02:54:30,380 --> 02:54:51,380
+die katz vor der tür ging es ab ich weiß nicht ob ihr sie gehört habt
+
+816
+02:54:51,380 --> 02:55:10,380
+so also wir gucken jetzt noch mal kurz hier und dann dann gehe ich auf kopfhörer oder kann ich flame was haben wir hier zu bieten
+
+817
+02:55:10,380 --> 02:55:22,380
+das sind doch ganz normale da gibt es nicht so viel zu flame ich dachte gaming kopfhörer oder sowas so was haben wir hier computer und zubehör da bin ich mal gespannt was haben wir da alles schönes zu bieten
+
+818
+02:55:22,380 --> 02:55:48,380
+das einzige mal wo es amazon verkackt hat das darf ich aber nicht so laut sagen ich habe mir ein paar ssd bestellt ein paar micro sd karten also 128g bestellt 16g und 32g oder 64g ich weiß es gar nicht mehr genau ist aber auch egal
+
+819
+02:55:48,380 --> 02:56:11,380
+jetzt gucken und da hat es zum einzigen mal amazon richtig verkackt indem sie mir einfach einen 15er pack geschickt haben und ich habe auch nichts gesagt
+
+820
+02:56:11,380 --> 02:56:38,380
+ne 32g war es jetzt habe ich hier 15 oder 20 32 64 ne 64 sind es 64g krass 20 15 bis 20 weiß ich ob es 15 oder 20er pack war wahrscheinlich 20er pack micro sd karten anzeige ist raus ja aber ich gehe mal davon aus amazon wird es verkraften
+
+821
+02:56:38,380 --> 02:57:06,380
+mit mit sd adapter das immer dabei also hier guckt wenn der wenn ihr guckt die haben immer eine in der ist immer eine in der packung mit drinne wenn sd auf also micro sd auf sd es ist es ist eigentlich immer ein adapter mit dabei was war bisher das beste angebot ich weiß nicht die ssd war ganz ok aber die war jetzt nicht
+
+822
+02:57:06,380 --> 02:57:22,380
+das ist ja auch wieder fake dieses 10 euro billiger dieses 190 stimmt überhaupt nicht so
+
+823
+02:57:22,380 --> 02:57:41,380
+warum hat es so dälen 500g
+
+824
+02:57:41,380 --> 02:58:10,380
+ja das ist auch kein großer unterschied ich habe überlegt ob ich ich habe jetzt aktuell in meinem server plus 64 64g fürs system platten drinne zwei ssd ich wollte die mal bisschen upgraden ich habe noch eine alte samsung 500g ich gucke gerade ob ich mir eine zweite holen soll aber gucken
+
+825
+02:58:10,380 --> 02:58:23,380
+boah 400 gigabyte micro sd krasser scheiß
+
+826
+02:58:23,380 --> 02:58:38,380
+könnte sein dass du in hanau wohnst fast fast nicht ganz also ich wohne zwischen zwischen frankfurt und hanau
+
+827
+02:58:38,380 --> 02:59:02,380
+kommst du da jetzt drauf steht das hier irgendwo in der nähe bei nicht ganz aber so hundertprozentig genau ist das ja auch nicht
+
+828
+02:59:02,380 --> 02:59:18,380
+die dinger sind teilweise gar nicht so schlecht allerdings nicht mit diesem gerät sondern wenn man die platten da raus nimmt falls sich das lohnt
+
+829
+02:59:18,380 --> 02:59:34,380
+also das kann sich lohnen wenn man sich so ein ding kauft und die und da noch ordentlich platte drin ist und ausbaut kann sich das lohnen man das kostet 100 150
+
+830
+02:59:34,380 --> 02:59:57,380
+primeday guck mal mal gibt es gibt festplatten gibt keine festplatten
+
+831
+02:59:57,380 --> 03:00:19,380
+da wird sicherlich keine iron wolf drin sein ne wahrscheinlich nicht also ich habe in meinem server habe ich dreimal 10t iron wolf aber das gerade vorher davon hatten
+
+832
+03:00:19,380 --> 03:00:40,380
+240g m2 das war es auch schon irgendwie ist da nichts dabei oder nichts dabei aber ich jetzt sagen würde ja gamingzube hatten wir schon momentan wird es nicht alles schon mal
+
+833
+03:00:40,380 --> 03:01:06,380
+da sonst was das powerbank das buttons nice das buttons das buttons kann man sich immer kaufen das lohnt sich weil man kann also nicht weil man das buttons als das buttons
+
+834
+03:01:06,380 --> 03:01:24,380
+damit sondern weil man mit das buttons auch weil man das buttons auch für alle andere dinger verwenden kann also die es gibt einen auf ein projekt was quasi dieses die sachen die die das button schicken
+
+835
+03:01:24,380 --> 03:01:37,380
+übers wlan quasi abfängt und man kann halt quasi dann einstellen was man damit triggern will also sprich wenn ich jetzt wenn ich jetzt sage ok für was ich halt für alles wo man einen schalter braucht
+
+836
+03:01:37,380 --> 03:01:54,380
+ich glaube ich habe irgendwie ein host automatisierungssystem und brauche schalter so für irgendwas ein auszuschalten oder irgendwie was weiß ich rolle den runter zu machen oder irgendwas dann kann ich mir auch einen 1.99 1.99 dash button kaufen
+
+837
+03:01:54,380 --> 03:02:22,380
+zum beispiel den durex den durex dash button kann ich mir dann kaufen und dann geht der rolle runter passend dazu und er bestellt kein durex irgendwie ist da nichts dabei habt ihr denn was gekauft
+
+838
+03:02:22,380 --> 03:02:33,380
+habt ihr irgendwas gekauft
+
+839
+03:02:33,380 --> 03:02:50,380
+das ist das erste vibrator oder sowas ist hier so mit sauger
+
+840
+03:02:50,380 --> 03:03:12,380
+durex dabei alles grab was monitor monitor wo gibt es die monitor ok
+
+841
+03:03:12,380 --> 03:03:23,380
+übrigens monitor also ein monitor auf den ich ja zur zeit so schiele ist
+
+842
+03:03:23,380 --> 03:03:27,380
+ist das der
+
+843
+03:03:27,380 --> 03:03:45,380
+ich glaube der ist das das ist der ein das ist der monitor mit einem lüfter monitor mit einem aktiven lüfter ohne scheiß leute das habt ihr auch nicht gesehen aber das ist der erste 4k 144
+
+844
+03:03:45,380 --> 03:04:06,380
+monitor mit g-sync und hdr das ist so krass op also das ist der wahnsinn allerdings wenn man sich den untersten ips panel aber wenn man sich den preis anguckt dann ist das halt nicht so geil
+
+845
+03:04:06,380 --> 03:04:22,380
+da fällt es mir eigentlich glaube ich müsste mal wieder asus anschreiben weil damals war es so wir wollten wir wollten ja was zusammen auf youtube machen mit asus wollte ich mal mit asus schon vor einer weile und also schon vor einer ganz weile
+
+846
+03:04:22,380 --> 03:04:39,380
+und damals habe ich nichts gefunden bei dem was was ich was ich haben will und jetzt hätte ich was jetzt hätte ich was
+
+847
+03:04:39,380 --> 03:04:55,380
+wie schreibt man die das kann man machen die bauen keine schlechten kopfhörer
+
+848
+03:04:55,380 --> 03:05:14,380
+man sieht sofort guten kopfhörer das irgendwie an also nein man sieht ihn nicht an dass sie gut sind aber man sieht ihn an dass sie nicht kompletter crap sind da sieht man einfach die sind definitiv nicht kompletter crap
+
+849
+03:05:14,380 --> 03:05:33,380
+so leute irgendwie gibt es auf amazon nichts ich hoffe euch hat es gefallen wir machen den schluss schön dass ihr dabei wart ich danke für alle follows gab heute wieder jede menge
+
+850
+03:05:33,380 --> 03:05:56,380
+ich guck mal ich sehe ja ich sehe leider immer nur die letzten hier in streamlabs das ist irgendwie ganz schön fail
+
+851
+03:05:56,380 --> 03:06:22,380
+das ist nicht dreck der mir folgt
+
+852
+03:06:22,380 --> 03:06:34,380
+gut bis zum nächsten mal
+

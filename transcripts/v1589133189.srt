@@ -1,0 +1,2916 @@
+1
+00:01:30,000 --> 00:01:47,120
+So Leute, weiter geht's, ich muss mir gerade noch was zu trinken holen.
+
+2
+00:01:47,120 --> 00:01:58,840
+Ihr werdet es nicht glauben, ich hab off stream weiter gemacht, sodass es jetzt eigentlich
+
+3
+00:01:58,840 --> 00:01:59,840
+funktioniert.
+
+4
+00:01:59,840 --> 00:02:05,060
+Weil ich bin immer so lahm, wenn wir im stream was machen, da brauche ich drei Stunden für
+
+5
+00:02:05,060 --> 00:02:06,060
+zwei Zeilen.
+
+6
+00:02:06,060 --> 00:02:09,000
+Ups, warum ist da der Rahmen drum?
+
+7
+00:02:09,000 --> 00:02:15,360
+Deswegen, ich mach mal kurz die ganzen Vms an, dann erzähle ich euch, ich zeige euch
+
+8
+00:02:15,360 --> 00:02:16,360
+einfach, was ich gebaut habe.
+
+9
+00:02:16,360 --> 00:02:20,640
+Kann sein, dass wir es noch ein bisschen umbauen müssen, dass ich es jetzt im stream verwenden
+
+10
+00:02:20,640 --> 00:02:22,840
+kann, aber mal gucken.
+
+11
+00:02:22,840 --> 00:02:28,400
+Erstmal starten, my home assistant starten und dann gucken wir mal.
+
+12
+00:02:28,400 --> 00:02:32,360
+Heute bauen wir ein home assistant addon und pushen es, wir pushen es vielleicht schon
+
+13
+00:02:32,360 --> 00:02:38,640
+auf shithub, falls irgendjemand nen fiat hat oder nen jeep oder irgendwas mit uconnect.
+
+14
+00:02:38,640 --> 00:02:42,960
+Könnt ihr es dann theoretisch sogar schon ausprobieren, vorausgesetzt, ich kriege das
+
+15
+00:02:42,960 --> 00:02:47,080
+gebacken, ein home assistant addon zu bauen, das habe ich noch nie gemacht, legit, wirklich.
+
+16
+00:02:47,080 --> 00:02:50,680
+Nicht so dieses noch nie und ich hab doch irgendwie mal davor geguckt, hab ich wirklich noch
+
+17
+00:02:50,680 --> 00:02:51,680
+nie gemacht.
+
+18
+00:02:51,680 --> 00:03:01,000
+Aber ich hab vorhin mal geschaut, so das Starttutorial sieht easy aus, ja genau, ich hab reingeguckt,
+
+19
+00:03:01,000 --> 00:03:06,800
+das sah relativ easy aus, irgendwie drei Dateien hinlegen und gut ist, mal gucken, wie es wirklich
+
+20
+00:03:06,800 --> 00:03:15,400
+in der Praxis dann aussieht, mal schauen, so, home assistant gestartet, progas vm gestartet,
+
+21
+00:03:15,400 --> 00:03:23,400
+diesen ganzen Krempel muss ich nochmal kurz zumachen, äh, kurz eine Runde Updates und
+
+22
+00:03:23,400 --> 00:03:36,240
+dann nix, wie, gibt nix, keck wait, keine Updates, ah, aber dafür hier jede Menge Updates,
+
+23
+00:03:36,240 --> 00:03:47,320
+geb ihm, Updaten, so, hier haben wir, der Mockchamp, hier haben wir auch noch äh, älteres Zeug
+
+24
+00:03:47,320 --> 00:03:53,040
+auf Exit, gut, dann lassen wir den erstmal updaten und dann machen wir weiter, also
+
+25
+00:03:53,040 --> 00:04:00,440
+ich hab, wie gesagt, ähm, das nochmal ein bisschen umgebaut und ähm, home assistant
+
+26
+00:04:00,440 --> 00:04:04,960
+integration ordentlich reingebaut, also sprich, ich zeig's euch, ich zeig's euch, ich werd's
+
+27
+00:04:04,960 --> 00:04:09,120
+einfach gleich laufen lassen, wir müssen bloß, doch, wir müssen zwei Sachen ändern,
+
+28
+00:04:09,120 --> 00:04:14,400
+dass er sich nicht versucht, wirklich buffiert einzuloggen, weil, wie gesagt, ähm, ich hab
+
+29
+00:04:14,400 --> 00:04:21,200
+nicht vor, mein Account zu leaken hier im Stream, deswegen muss ich das noch umbauen,
+
+30
+00:04:21,200 --> 00:04:24,560
+dass er die Fake-Daten nimmt, anstatt sich direkt einzuloggen, aber dann ist, dann ist
+
+31
+00:04:24,560 --> 00:04:38,320
+okay, ich, deswegen hab ich's auch noch nicht auf GitHub gepusht, ist der einzige Grund,
+
+32
+00:04:38,320 --> 00:04:41,360
+warum ich's noch nicht auf GitHub gepusht hab, weil ich mir nicht sicher war, ob ich
+
+33
+00:04:41,360 --> 00:04:48,400
+nicht im Source-Code irgendwo noch E-Mail oder Passwort oder so stehen hab, da hab ich
+
+34
+00:04:48,400 --> 00:04:54,640
+mir gedacht, so na, guck, guck lieber nochmal bevor das, ups, was jetzt, lul, guck lieber
+
+35
+00:04:54,640 --> 00:05:00,560
+nochmal bevor das pusht, aber da dürfte eigentlich nix mehr drin sein, ich hatte das nur an einer
+
+36
+00:05:00,560 --> 00:05:09,880
+Stelle stehen und das hab ich rausgeschmissen, so, Update ist durch, genau, das sind übrig
+
+37
+00:05:09,880 --> 00:05:14,200
+gebliebenen Sachen vom letztem Mal, äh, wenn wir grad dabei sind, ist was für Reap, was
+
+38
+00:05:14,200 --> 00:05:23,080
+ich jetzt eigentlich nicht mehr, ich reboot immer, macht nix.
+
+39
+00:05:23,080 --> 00:05:26,760
+Gibt's da eigentlich keine automatischen Checks beim Puschen?
+
+40
+00:05:26,760 --> 00:05:33,000
+Also, du hast so eine, du hast diese Anzeige, aus was deine Repo besteht, also wenn du ausversehen
+
+41
+00:05:33,000 --> 00:05:39,000
+irgendwelche SSL-Keys oder so pusht, dann siehst du's in der Code Übersicht, aber
+
+42
+00:05:39,000 --> 00:05:46,760
+ich glaube, irgendwelche Analysetools standardmäßig gibt's nicht, du kannst natürlich selbst
+
+43
+00:05:46,760 --> 00:05:51,340
+was machen, ja, du kannst bei nem Push irgendeinen Job laufen lassen, der guckt, aber da musst
+
+44
+00:05:51,340 --> 00:05:55,200
+du halt erstmal puschen, das ist ja auch eine Sache, die find ich persönlich an GitHub
+
+45
+00:05:55,200 --> 00:06:00,000
+ein bisschen doof, im Vergleich zu nem selbst gehausten Repo, du kannst auf GitHub keine
+
+46
+00:06:00,000 --> 00:06:05,920
+ordentlichen Git-Hooks verwenden, das klappt nicht, das einzige was du machen kannst ist,
+
+47
+00:06:05,920 --> 00:06:15,000
+irgendwelche, irgendwelche Web-Hooks kannst du verwenden, du kannst aber keine klassischen
+
+48
+00:06:15,000 --> 00:06:19,400
+Git-Hooks verwenden, dass du quasi pushen, ablehnen kannst oder sowas, du kannst zwar
+
+49
+00:06:19,400 --> 00:06:23,520
+die offiziellen Pre-Receive-Hooks nehmen, also quasi Branch-Protection oder sowas, aber
+
+50
+00:06:23,520 --> 00:06:28,040
+wenn du sagst, hey, ich möchte eine spezielle, ich möchte einmal scannen nach Passwörtern
+
+51
+00:06:28,040 --> 00:06:34,200
+bevor ich pushe, dann geht das nicht, zumindest nicht in nem Git-Hook, weil du kannst auf
+
+52
+00:06:34,200 --> 00:06:38,760
+GitHub keine Pushs ablehnen, du kannst nur nach einem Push was auslösen, also du könntest
+
+53
+00:06:38,760 --> 00:06:44,640
+checken, ob das okay ist und dann, nachdem du gepusht hast, könntest du dann irgendeine
+
+54
+00:06:44,640 --> 00:06:48,840
+Meldung dir schicken, so Achtung, da ist ein Passwort drin, ja, du kannst natürlich auch
+
+55
+00:06:48,840 --> 00:06:56,480
+einen lokalen Commit-Hook machen, aber ich fand das bei, mit nem lokalen Git-Repo, beziehungsweise
+
+56
+00:06:56,480 --> 00:07:01,520
+lokal, irgendein Repo, was auf nem Server liegt, ganz praktisch, da konntest du Pre-Receive-Hooks
+
+57
+00:07:01,520 --> 00:07:07,960
+machen, dass du manche Sachen ablehnen konntest beim Git-Push. So, Reboot ist immer gut,
+
+58
+00:07:07,960 --> 00:07:14,960
+genau. Oh, was haben wir denn da heute im Hintergrund? Wie gesagt, Bing Image of the Day. Sowas?
+
+59
+00:07:14,960 --> 00:07:28,160
+Weiß ich nicht. Das kommt drauf an, wie die das machen. Das musst du dir auch irgendwo
+
+60
+00:07:28,160 --> 00:07:33,600
+laufen lassen und irgendwo muss es getriggert werden. Das kenn ich nicht, keine Ahnung.
+
+61
+00:07:33,600 --> 00:07:56,920
+Sagt mir nix, ist aber sehr beliebt anscheinend. Äh, ich, also... Warum sollte ich ein extra
+
+62
+00:07:56,920 --> 00:08:04,760
+Package hinzufügen, um ein Commit-Hook laufen lassen zu können? In jedem Git, das versteh
+
+63
+00:08:04,760 --> 00:08:09,760
+ich wieder mal nicht, das ist so ein JavaScript-Git für uns wieder. Du kannst in jedem Git-Repo
+
+64
+00:08:09,760 --> 00:08:14,960
+Punkt Git Hooks, Pre-Receive und Commit, da kannst du einfach was reinschreiben, das
+
+65
+00:08:14,960 --> 00:08:19,260
+ist schon da. Also warum man das braucht, erschließt sich mir jetzt ehrlich gesagt
+
+66
+00:08:19,260 --> 00:08:29,280
+gerade nicht. Noch nix, ich hab grad meine VM Rebooted. So, da sind wir. Mal hier Konsole
+
+67
+00:08:29,280 --> 00:08:40,680
+starten. Das schöne an Git Hooks ist, das kommt gar nicht auf meine Code Pays an. Die
+
+68
+00:08:40,680 --> 00:08:50,040
+sind einfach da. Guck mal hier. Achtung, Achtung. Machst du ein Hacks Addon? Ja, mach ich, wenn
+
+69
+00:08:50,040 --> 00:09:03,200
+ich checke wie es funktioniert. Gut, Git Hooks. Und guck mal da. Leute. Ganz ohne NPM Install
+
+70
+00:09:03,200 --> 00:09:09,440
+sind da einfach schon irgendwelche Git Hooks da. Wie ist das überhaupt möglich ohne NPM
+
+71
+00:09:09,440 --> 00:09:14,280
+Install, dass da überhaupt irgendwas läuft ohne NPM Install? Ich dachte ohne NPM Install
+
+72
+00:09:14,280 --> 00:09:19,840
+ist eigentlich prinzipiell überhaupt nichts möglich. Ich mein ohne NPM Install kann man
+
+73
+00:09:19,840 --> 00:09:26,480
+noch nicht mal feststellen, ob eine Zahl gerade oder ungerade ist, hab ich gehört. Weiß nicht,
+
+74
+00:09:26,480 --> 00:09:31,440
+wie es euch geht, Chat. Chat, könnt ihr das feststellen ohne NPM? Also bei mir hört's
+
+75
+00:09:31,440 --> 00:09:46,560
+da auf. Ich brauch der NPM dazu. Oder Alternative PIP, oder GEM, oder Nugget, oder... Was gibt's
+
+76
+00:09:46,560 --> 00:09:55,040
+denn da noch so alle? Ja, siehste, ohne zwei Gigabyte Module geht da natürlich nix, da
+
+77
+00:09:55,040 --> 00:10:01,400
+habt ihr recht. Das ist das JavaScript Mindset, so mag ich euch, Chat. Exzellent. Halt die
+
+78
+00:10:01,400 --> 00:10:09,280
+HiIQ wieder angesagt. Ohne zwei Gigabyte Abhängigkeiten ist das nicht möglich, das ist... So ist
+
+79
+00:10:09,280 --> 00:10:13,680
+es. So sieht's aus. Und jeder der was anderes behauptet hat, einfach keine Ahnung. Alles
+
+80
+00:10:13,680 --> 00:10:27,480
+Kacknubs. Äh, das ist der Package Manager für.NET. Allerdings nur mit nur einem G.
+
+81
+00:10:27,480 --> 00:10:43,160
+Ich mein, eigentlich heißt es Nugget, aber ich sag immer Nugget. User32DLL. Das ist
+
+82
+00:10:43,160 --> 00:10:49,160
+sehr Windows-Style, der Name. Aber danke schön für den Sub. Massive Subscription hier, drei
+
+83
+00:10:49,160 --> 00:11:00,480
+Monate, huge. So, also ich check mal kurz mein lokales Repo aus. Ah ne, das gibt's schon.
+
+84
+00:11:00,480 --> 00:11:08,920
+Ähm, da muss ich mal kurz den Fiat-Champ ummoven. Leute, morgen wird's auf der Arbeit
+
+85
+00:11:08,920 --> 00:11:13,760
+lustig, ich krieg morgen ein neues Notebook. Ein Surface Book. Und wisst ihr was das erste
+
+86
+00:11:13,760 --> 00:11:19,400
+ist, was ich mache auf dem Surface Book? Der Chat gibt, ihr wisst das, ihr wisst das, geht
+
+87
+00:11:19,400 --> 00:11:24,440
+mal in euch. Was ist das erste was ich mache? Na, Linux ist klar. Welches Linux? Welches
+
+88
+00:11:24,440 --> 00:11:39,600
+Linux? Archlinux, korrekt. Das erste was ich mache, ich hab extra schon USB-Stick eingepackt,
+
+89
+00:11:39,600 --> 00:11:43,920
+das erste was ich machen werde ist ein Archlinux draufknallen. Da bin ich mal gespannt wie
+
+90
+00:11:43,920 --> 00:11:56,280
+gut das auf dem Surface Hub läuft. So Leute, ich muss mal kurz mein lokales Repo klonen.
+
+91
+00:11:56,280 --> 00:12:10,120
+HTTPS, SSH, hier. Achtung, mkdir, Fiat-Champ, wobei ich glaub es geht auch so. Geht klonen,
+
+92
+00:12:10,120 --> 00:12:16,560
+da sind wir. Oh ne, Moment, ich hab das Fiat-Client genannt. Alter, was ist denn mit mir los?
+
+93
+00:12:16,560 --> 00:12:28,720
+Weird-Champing. Das Repo heißt komplett falsch. Wie kann man das nur so kaputt nennen? Ne,
+
+94
+00:12:28,720 --> 00:12:36,400
+so gehts ja, so gehts ja nicht. Gut, so ich werde das mal öffnen und dann zeige ich euch
+
+95
+00:12:36,400 --> 00:12:41,920
+was ich gemacht hab. Und zeige euch auch die Home Assistant-Integration, wie gut das jetzt
+
+96
+00:12:41,920 --> 00:12:46,760
+alles schon funktioniert, ohne dass wir uns hier schleppend im Stream dadurch durchkämpfen
+
+97
+00:12:46,760 --> 00:13:05,480
+müssen. Also. Ja ja, ich truste meinem eigenen Repo. So, ich muss mal ganz kurz ins Main gucken
+
+98
+00:13:05,480 --> 00:13:16,080
+ob das die richtige Version ohne Passwörter ist. Ja, ist es. Okay, also, auf gehts. Ach,
+
+99
+00:13:16,080 --> 00:13:20,720
+da heißt es Fiat-Champ. Ich konnte mich auch nicht entscheiden, oder? Das Repo heißt Fiat-Client
+
+100
+00:13:20,720 --> 00:13:25,320
+und das hier heißt Fiat-Champ. Na gut, also im Prinzip ist es mehr oder weniger das gleiche
+
+101
+00:13:25,320 --> 00:13:31,520
+was wir gebaut haben zusammen im Stream. Nur, Alter, hab ich hier immer so eine große Schrift,
+
+102
+00:13:31,520 --> 00:13:36,240
+oder? Ich hab doch nicht immer so eine fette Schrift hier im Stream, oder? Bin ich, bin
+
+103
+00:13:36,240 --> 00:13:42,560
+ich, bin ich, bin ich? Ist das wirklich so, ist das immer so fett? Ich dachte eher ich
+
+104
+00:13:42,560 --> 00:13:50,720
+hab sowas hier. Und das ist ja mega fett. Echt? Da erkennst du ja gar nichts. Aber es
+
+105
+00:13:50,720 --> 00:14:00,360
+ist für euch besser, ne? Da erkennt ihr mehr. Naja, dann ist man, dann ist man auch gar
+
+106
+00:14:00,360 --> 00:14:04,440
+nicht geneigt mehr als 120 Zeichen zu machen, weil mehr als 120 Zeichen passen dann gar
+
+107
+00:14:04,440 --> 00:14:09,280
+nicht, ne, mehr als 108 Zeichen, weil mehr passen dann ja auch gar nicht auf den Bildschirm.
+
+108
+00:14:09,280 --> 00:14:15,120
+Also, was wir heute machen ist folgendes. Also, ich fang nochmal anders an. Für alle,
+
+109
+00:14:15,120 --> 00:14:21,000
+die nicht dabei waren, ich hab mir ein Fiat Elektroauto gekauft und hab festgestellt,
+
+110
+00:14:21,000 --> 00:14:26,680
+ich bekomme die ganzen Daten nicht in meine Heimautomatisierung. Da so Sachen wie zum
+
+111
+00:14:26,680 --> 00:14:31,280
+Beispiel Ladestatus, wie viel Prozent hat die Batterie, wieviel kann ich damit noch
+
+112
+00:14:31,280 --> 00:14:39,760
+fahren, Reifendruck, aktueller Kilometerzähler, wieviel bin ich heute gefahren und solche
+
+113
+00:14:39,760 --> 00:14:46,320
+Geschichten bekomme ich nicht in Home Assistant. Deswegen, das kannst du als Clip machen,
+
+114
+00:14:46,320 --> 00:14:51,040
+ja, dann kannst du gleich Clip machen. Also, deswegen haben wir da was gebastelt, was
+
+115
+00:14:51,040 --> 00:14:58,240
+die fiat api, sag mal so die inoffizielle fiat api anzapft. Muss ich nochmal abdecken
+
+116
+00:14:58,240 --> 00:15:07,920
+hier? Alter, Home Assistant, ja, dann installier halt schnell. Also, was die fiat api anzapft
+
+117
+00:15:07,920 --> 00:15:11,760
+und die Sachen in Home Assistant pumpt, das funktioniert schon ganz gut. Wo wir das letzte
+
+118
+00:15:11,760 --> 00:15:16,440
+Mal stehen geblieben sind ist und was ich jetzt Offstream fertig gemacht hab ist, man kann
+
+119
+00:15:16,440 --> 00:15:25,400
+nicht nur Sensoren in Home Assistant reinpumpen, sondern man kann auch Commands. Max, ja, ich
+
+120
+00:15:25,400 --> 00:15:28,920
+hab noch gar nicht angefangen, das ist das, was ich das letzte Mal gemacht hab. So, und
+
+121
+00:15:28,920 --> 00:15:42,160
+jetzt bin ich, jetzt bin ich, jetzt weiß ich nicht, was ich sagen wollte. Ähm, erstmal
+
+122
+00:15:42,160 --> 00:15:47,480
+Home Assistant updaten, dann gehts weiter. Ja, also genau, jetzt weiß ich wieder. Wir
+
+123
+00:15:47,480 --> 00:15:51,440
+sind stehen geblieben, dass wir nur Sachen in Home Assistant reinpumpen konnten, wir
+
+124
+00:15:51,440 --> 00:15:55,200
+konnten keine Kommandos ausführen. Das hab ich jetzt auch gebaut, wir können jetzt
+
+125
+00:15:55,200 --> 00:15:59,280
+Kommandos ausführen. Ich, wie gesagt, ich werd euch, ich werd's euch gleich zeigen.
+
+126
+00:15:59,280 --> 00:16:07,200
+Wir können jetzt nämlich sowohl die, ah, das muss ich wahrscheinlich dann auch ändern,
+
+127
+00:16:07,200 --> 00:16:19,240
+wir können die, den Standort des Autos abfragen und wir können diese Fiat Befehle, die, die
+
+128
+00:16:19,240 --> 00:16:24,120
+ich aus diesem iOpRocker Addon mir abgeguckt hab, können wir auch direkt an Home Assistant
+
+129
+00:16:24,120 --> 00:16:27,680
+sticken. Also wir können jetzt zum Beispiel dann, über Home Assistant hat man dann nen
+
+130
+00:16:27,680 --> 00:16:33,480
+Schalter, da kann man dann den Kofferraum anlocken oder locken oder die Lichter blinken
+
+131
+00:16:33,480 --> 00:16:39,040
+lassen oder, äh, die Klimaanlage an- und ausschalten und sowas. Das ist tatsächlich
+
+132
+00:16:39,040 --> 00:16:44,760
+ganz praktisch, weil sonst geht ja die Hälfte der Funktion, die die App hat nicht und ich
+
+133
+00:16:44,760 --> 00:16:48,000
+will ja, dass ich mehr oder weniger alles kann wie die App und eigentlich nur besser.
+
+134
+00:16:48,000 --> 00:16:57,360
+So, da sind wir. So, also da haben wir das letzte Mal aufgehört. Ich glaube, ich muss
+
+135
+00:16:57,360 --> 00:17:03,960
+euch jetzt nicht das alles im Detail zeigen, aber nur mal so ganz grob. Ich beleg grad,
+
+136
+00:17:03,960 --> 00:17:09,400
+wie wir das machen. Wie kann ich das jetzt ausführen? Was ist der TÜV da? Nix. Was
+
+137
+00:17:09,400 --> 00:17:14,400
+soll das? Ist doch dem TÜV egal. Das ist immer so ein, das, das hör ich bei total
+
+138
+00:17:14,400 --> 00:17:18,120
+vielen Sachen. Was wohl, was soll denn der TÜV davon halten? Das ist, das geht dem
+
+139
+00:17:18,120 --> 00:17:23,520
+TÜV am Arsch vorbei, ob ich über ein Webinterface irgendwelche Datenauslese, die eh schon da
+
+140
+00:17:23,520 --> 00:17:29,480
+sind. Was soll das? Das juckt den TÜV doch immer absolut gar nicht. Das ist höchstens
+
+141
+00:17:29,480 --> 00:17:36,360
+für mich gut, dass ich weiß, wann ich wieder zur nächsten Wartung fahren muss. Ja, weil
+
+142
+00:17:36,360 --> 00:17:42,320
+zum Beispiel, ich sehe hier Kilometer bis zur Wartung. Ja gut, das ist Fake, Fake-Response,
+
+143
+00:17:42,320 --> 00:17:47,920
+aber ja. Nee, das ist dem TÜV vollkommen egal. So, wir tragen da jetzt mal ein paar Fake-Werte
+
+144
+00:17:47,920 --> 00:17:52,000
+ein. Ach so, Remote blinken lassen. Nö, das ist dem TÜV auch egal. Das kannst du
+
+145
+00:17:52,000 --> 00:17:56,240
+über die App ja auch machen. Nur weil du das über die Home Assistant machst, dann
+
+146
+00:17:56,240 --> 00:18:00,480
+statt der App ist das dem TÜV, wenn man davon abkommt, der TÜV kriegt das gar nicht
+
+147
+00:18:00,480 --> 00:18:13,880
+mit. Und selbst wenn er es mitkriegt, wäre es ihm egal. Genau, ja. So, also Leute, wir
+
+148
+00:18:13,880 --> 00:18:21,680
+müssen mal, was ist denn, was hat denn Deutschland für Länge und Breitengrad so? Hier, Salzgitter,
+
+149
+00:18:21,680 --> 00:18:31,520
+da, da muss schon immer mal mein Auto stehen. Salzgitter, Leute. Das ist mein Auto jetzt.
+
+150
+00:18:31,520 --> 00:18:38,320
+Salzgitter. Auto hupen lassen, während es beim TÜV steht. Man kann nicht hupen lassen,
+
+151
+00:18:38,320 --> 00:18:44,360
+das wäre natürlich mega, wenn das geht. Man kann das Auto nur die Lichthupe machen.
+
+152
+00:18:44,360 --> 00:18:49,360
+Man kann Lichthupe machen und das ist dafür da, dass man sein Auto wieder findet, wenn
+
+153
+00:18:49,360 --> 00:18:52,360
+man beispielsweise irgendwie im Dunklen über den Parkplatz läuft. Das ist eigentlich eine
+
+154
+00:18:52,360 --> 00:19:00,280
+ganz gute Idee. Aber hupen lassen geht nicht. Ja, beim Tesla geht technisch an sich eh schon
+
+155
+00:19:00,280 --> 00:19:06,440
+einiges mehr. Die zeichnen ja auch beispielsweise exakte Verläufe der Fahrten auf und so was.
+
+156
+00:19:06,440 --> 00:19:10,920
+Das macht der Fiat auch nicht. Der Fiat zeichnet die Kilometer auf und der übermittelt ab
+
+157
+00:19:10,920 --> 00:19:18,360
+und zu mal so alle Viertelstunde, alle 10 Minuten Viertelstunde die GPS Position. Also
+
+158
+00:19:18,360 --> 00:19:27,720
+sprich, das ist, naja, also wirklich Bewegungsprofil, ein gutes. Kannst du da dran nicht erstellen.
+
+159
+00:19:27,720 --> 00:19:32,880
+Aber ist egal. Ich zeige euch jetzt erstmal im Home Assistant, wie das Ganze dann ausschaut.
+
+160
+00:19:32,880 --> 00:19:42,520
+Damit das funktioniert, ich mir gerade überlegen. Ich habe das nämlich schon angepasst, dass
+
+161
+00:19:42,520 --> 00:19:46,520
+man das über Environment Variablen reinkriegt. Dann testen wir doch gerade mal, ob es mit
+
+162
+00:19:46,520 --> 00:19:54,880
+Environment Variablen alles funktioniert. Probieren das doch gerade mal aus. Epo, Fiat,
+
+163
+00:19:54,880 --> 00:20:00,200
+Client. Testen wir noch mal gerade. Also, weil wir können ja, wenn wir das im Container
+
+164
+00:20:00,200 --> 00:20:05,120
+laufen lassen, müssen wir die Daten von Home Assistant über Environment Variablen da reinpacken.
+
+165
+00:20:05,120 --> 00:20:12,320
+Deswegen simuliere ich das jetzt einfach gerade mal. Also Fiat Login. Gut, Fiat Login werden
+
+166
+00:20:12,320 --> 00:20:16,840
+wir nicht brauchen, weil wir Fake-Responses verwenden, weil ich mein Passwort nicht liegen
+
+167
+00:20:16,840 --> 00:20:29,120
+will. CAC, Fiat, PW, CAC, MQTT Server, das brauchen wir. Das ist nicht CAC, sondern das
+
+168
+00:20:29,120 --> 00:20:43,520
+da. MQTT User. Weiß ich schon gar nicht mehr. Sub. Ach, MQTT 123456. Ne, da hätte ich ja
+
+169
+00:20:43,520 --> 00:20:51,640
+auch selbst drauf kommen können. MQTT User, MQTT PW ist 123456. Was brauchen wir sonst
+
+170
+00:20:51,640 --> 00:20:57,120
+noch? Port. Port brauchen wir nicht. Ok, also ich lasse es jetzt mal laufen und dann werden
+
+171
+00:20:57,120 --> 00:21:06,080
+wir gleich sehen, es crasht. Es ist logisch, dass es crasht, weil naja, CAC und CAC ist
+
+172
+00:21:06,080 --> 00:21:14,600
+kein gültiges Fiat Login. Mal gucken, was passiert. Na ja, ganz... Ja, guck hier, verbinden.
+
+173
+00:21:14,600 --> 00:21:26,600
+Invalid Login ID. Hunst nicht. Kaputt. Invalid Login ID. Invalid Login ID or Passwort. Ja,
+
+174
+00:21:26,600 --> 00:21:46,080
+das hätte man sich aber eigentlich denken können. Ja, das hätte man sich denken können,
+
+175
+00:21:46,080 --> 00:21:50,720
+weil CAC und CAC ist kein gültiges Fiat Login. Deswegen kommentiere ich jetzt, dass wir das
+
+176
+00:21:50,720 --> 00:21:54,560
+ordentliche testen können offline. Deswegen kommentiere ich jetzt einfach mal das Login
+
+177
+00:21:54,560 --> 00:22:01,920
+aus, dass er sich versucht einzuloggen und beim Fahrzeug Fetchen rufen wir einfach Fake
+
+178
+00:22:01,920 --> 00:22:06,600
+Daten ab und gut ist, die Fake Daten kopieren wir uns mal kurz aus diesem anderen, was ich
+
+179
+00:22:06,600 --> 00:22:21,640
+hier hatte vom letzten Mal. Hier. Fake. Fake. Könnte bei Gelegenheit... Habe ich das in
+
+180
+00:22:21,640 --> 00:22:42,080
+dem anderen nicht schon gemacht vom letzten Mal? Ja. Ja. Oh, Vim. No. Set. Nee. Set.
+
+181
+00:22:42,080 --> 00:22:53,260
+Set number aus. Alter Vim Logik, du kannst... Manchmal ist es Set No, No Set, Set irgendetwas
+
+182
+00:22:53,260 --> 00:23:01,160
+gleich Null, das hat alles keinerlei System wie man das macht. Entweder man merkt sich
+
+183
+00:23:01,160 --> 00:23:16,720
+oder man hat verloren ok zack zack so wir returnen mal für eine fake fake response dass ich mein
+
+184
+00:23:16,720 --> 00:23:24,880
+home assistant befüllt krieg und dass ich euch den rechts den rest zeigen kann sehr schön ist
+
+185
+00:23:24,880 --> 00:23:29,320
+wim zu schwer bist du zu schwach leute wim ist einfach total inkonsistent an vielen stellen
+
+186
+00:23:29,320 --> 00:23:38,240
+dafür ist wim was das editieren angeht mega poc weil wenn man sich einmal gemerkt hat was
+
+187
+00:23:38,240 --> 00:23:44,880
+da so geht mit mit editieren und change change inner quotes und solche sachen dann ist das wirklich
+
+188
+00:23:44,880 --> 00:23:55,360
+mega nice leider dauert es ein bisschen ok auf geht's wir exportieren das ganze mal schauen
+
+189
+00:23:55,360 --> 00:24:03,120
+ob das funktioniert jetzt wir sollten jetzt im home assistant ein eintrag bekommen der sich
+
+190
+00:24:03,120 --> 00:24:24,320
+kartu nennt integrations mqtt oder pock pock k hatten wir das letzte mal pock k genau das
+
+191
+00:24:24,320 --> 00:24:33,520
+sollten wir jetzt wieder bekommen mit allen möglichen infos aber jetzt mit switches und allem ich
+
+192
+00:24:33,520 --> 00:24:44,600
+hoffe es funktioniert jetzt aber da ist es pock k ha ha da haben wir alles
+
+193
+00:24:44,600 --> 00:24:59,840
+mein fiat login war gerade zu sehen wo ach hier ne das ist fake
+
+194
+00:24:59,840 --> 00:25:11,160
+das da ne das ist fake das macht nichts das ist das ist fake das gibt's nicht meinst das
+
+195
+00:25:11,160 --> 00:25:17,800
+hier ne ne ne ne ne das ist nix nix bildes das ist fake adresse mit fake password das
+
+196
+00:25:17,800 --> 00:25:23,080
+habe ich extra für ein stream angelegt weil eigentlich ist login ist da nicht mehr drinne
+
+197
+00:25:23,080 --> 00:25:28,560
+zu also mein mein richtiges mein richtig ja ist gut dass du sagst ja chat six hat heim
+
+198
+00:25:28,560 --> 00:25:32,040
+wieder gut dass du sagst denn das hatte ich fake mäßig für ein stream angelegt mein
+
+199
+00:25:32,040 --> 00:25:39,280
+richtiges login ist nicht drinne so also hier ist das auto wieder nur mit dem unterschied
+
+200
+00:25:39,280 --> 00:25:49,120
+guckt mal ich habe es umbenannt ist natürlich auch sehr sehr clever gewesen von mir das
+
+201
+00:25:49,120 --> 00:25:53,200
+dass das umzubringen wisst ihr was ich benenne es jetzt testweise wieder zurück weil ich
+
+202
+00:25:53,200 --> 00:25:59,880
+keinen bock habe im web interface das zurück zu wir löschen es noch mal und fühlen es
+
+203
+00:25:59,880 --> 00:26:15,200
+noch mal aus root habe ich das letzte mal genannt ja siehst du so einfach kann man
+
+204
+00:26:15,200 --> 00:26:23,240
+zum neuen fiat kommen so da sind wir jetzt passt auch wieder so guck jetzt ist das dashboard
+
+205
+00:26:23,240 --> 00:26:29,920
+auch wieder befüllt also ladung 8 90 prozent 45 kilometer gefahren bla bla bla blub es gibt
+
+206
+00:26:29,920 --> 00:26:33,920
+jetzt ein paar neue sachen was ich gemacht habe während ihr nicht da wart nämlich zum
+
+207
+00:26:33,920 --> 00:26:41,560
+beispiel bekommt man jetzt die location von dem auto die ist nämlich da guckt also die
+
+208
+00:26:41,560 --> 00:26:45,920
+location das ist fake location jetzt die ich für ein stream eingetragen habe jetzt hat
+
+209
+00:26:45,920 --> 00:26:50,040
+man nämlich auch die location das heißt man kann jetzt zum beispiel auch sowas hier machen
+
+210
+00:26:50,040 --> 00:27:02,960
+dass man eine map einbindet und sagt dann car location und dann sieht man in städt steht
+
+211
+00:27:02,960 --> 00:27:29,000
+angeblich mein auto ok standort aus to show 48 default zoom das ist natürlich cool angeblich
+
+212
+00:27:29,000 --> 00:27:34,040
+cup das ist natürlich sehr praktisch jetzt kann man auch gleich sehen wo das auto ist
+
+213
+00:27:34,040 --> 00:27:46,360
+ich überlege gerade habe ich habe ich sonst noch irgendwas bei mir lokal geändert ach
+
+214
+00:27:46,360 --> 00:27:49,920
+so ja natürlich jetzt kann man nämlich auch die buttons hier hinzuführen guckt mal jetzt
+
+215
+00:27:49,920 --> 00:27:56,680
+kann ich nämlich sagen hier zum beispiel wir machen ein grit mit einem oder nehmen wir
+
+216
+00:27:56,680 --> 00:28:07,800
+machen kein grit cancel und so eine entity liste und sagen dann hier zum beispiel k nicht
+
+217
+00:28:07,800 --> 00:28:30,960
+location sensor klimaanlage auto klimaanlage an und aus kann man machen oder was habe ich
+
+218
+00:28:30,960 --> 00:28:41,480
+sonst noch hier drin blink zum beispiel kofferraum kofferraum kann man auch kofferraum kann man
+
+219
+00:28:41,480 --> 00:28:56,240
+auch machen kofferraum schreibt man das so mit 2f und 2r täglich deutsch truck genau
+
+220
+00:28:56,240 --> 00:29:07,240
+dass die datenbank muss dahin für kofferraum ja jetzt kann man den kofferraum auf und zu
+
+221
+00:29:07,240 --> 00:29:16,880
+machen klimaanlage an und ausschalten oder auch zum beispiel blinken lassen aber das
+
+222
+00:29:16,880 --> 00:29:41,360
+mal blink haben wir hier ein light icon lights oder so
+
+223
+00:29:41,360 --> 00:29:44,320
+zumindest kann man jetzt auch kommandos an sein auto schicken das ist das worauf ich
+
+224
+00:29:44,320 --> 00:29:50,120
+raus will also kann man zum beispiel sagen kofferraum klimaanlage an aus und kofferraum
+
+225
+00:29:50,120 --> 00:29:54,400
+auf und zu und solche geschichten allerdings muss man halt sagen das ist asynchron das
+
+226
+00:29:54,400 --> 00:30:02,720
+geht über die fiat api das dauert ein bisschen also sprich selbst wenn ich jetzt die klimaanlage
+
+227
+00:30:02,720 --> 00:30:15,640
+einschalte dann dauert das bestimmt 20 sekunden bis es angeht
+
+228
+00:30:15,640 --> 00:30:19,680
+das ist das ist langsam und kofferraum öffnen dauert bestimmt auch 20 sekunden aber gut
+
+229
+00:30:19,680 --> 00:30:23,720
+da kann es nichts machen deswegen stelle ich den status auch sofort auf ok nicht dass die
+
+230
+00:30:23,720 --> 00:30:31,680
+leute hier anfangen so dumm rumzuklicken genau ja also so sieht die aktuelle home assistant
+
+231
+00:30:31,680 --> 00:30:38,280
+integration aus ich denke mal das ist richtig nice kofferraum geht auf nachdem man losgefahren
+
+232
+00:30:38,280 --> 00:30:44,880
+ist das weiß ich nicht das habe ich nicht ausprobiert ob man beispielsweise wenn jemand
+
+233
+00:30:44,880 --> 00:30:51,400
+drinne ist und das auto angeschaltet hat wirklich sagen kann kofferraum entriegeln und ob das
+
+234
+00:30:51,400 --> 00:30:57,760
+dann auch geht keine ahnung wobei naja gut wenn du fährst geht ja keiner hinten und
+
+235
+00:30:57,760 --> 00:31:01,680
+macht auf aber das weiß ich nicht ob die dann einen schutz drin haben oder nicht wenn
+
+236
+00:31:01,680 --> 00:31:06,920
+es klickt bis selbst dran schuld das schreibe ich auch in die app rein ich übernehme keine
+
+237
+00:31:06,920 --> 00:31:11,640
+garantie für irgendwas so und jetzt müssen wir daraus den home assistant addon bauen
+
+238
+00:31:11,640 --> 00:31:15,880
+die sache ist nämlich die schön und gut wenn ich das hier bei mir laufen lassen kann und
+
+239
+00:31:15,880 --> 00:31:21,320
+über mqtt in home assistant sachen exportieren man will ja dass das ganze automatisch funktioniert
+
+240
+00:31:21,320 --> 00:31:25,480
+und ich kann ja auch keinem zumuten irgendwie den source code runterzuladen da was drinne
+
+241
+00:31:25,480 --> 00:31:30,120
+einzutragen dann selbst zu kompilieren oder sowas das ist ja natürlich bescheuert deswegen
+
+242
+00:31:30,120 --> 00:31:36,520
+versuche ich da draus jetzt mal ein home assistant addon zu bauen das habe ich legit noch nie
+
+243
+00:31:36,520 --> 00:31:43,160
+gemacht home assistant addon tutorial aber ich habe vorhin mal in das tutorial reingeguckt das
+
+244
+00:31:43,160 --> 00:31:48,040
+sah tatsächlich gar nicht so kompliziert aus man braucht irgendwie den docker feil konfig
+
+245
+00:31:48,040 --> 00:31:56,440
+jammel runsh also ich würde sagen wir probieren das einfach mal aus ja also fiat client da sind
+
+246
+00:31:56,440 --> 00:32:04,880
+wir also was brauchen wir das lasst uns das mal angucken inside that directory brauchen wir
+
+247
+00:32:04,880 --> 00:32:18,080
+docker feil konfig jammel runsh ja gut aus das lässt sich das lässt sich einrichten ein docker
+
+248
+00:32:18,080 --> 00:32:29,500
+feil brauma ein konfig jammel brauma ich glaube die meinen dass man das hier im root macht du
+
+249
+00:32:29,500 --> 00:32:34,040
+musst nach integration suchen ich will keine integration machen ich will ein addon machen
+
+250
+00:32:34,040 --> 00:32:42,560
+eine integration muss ja in python programmiert sein und muss dann als integration da rein ach
+
+251
+00:32:42,560 --> 00:32:47,200
+so ja du hast recht deswegen mache ich auch nicht über hacks weil über hacks kannst du das ja
+
+252
+00:32:47,200 --> 00:33:10,820
+nicht machen ich will kein das wird ein addon so runsh brauchen wir noch ein runsh alles unter
+
+253
+00:33:10,820 --> 00:33:20,200
+ordner ist hyperplot so also was muss denn jetzt da rein vor allem wie kriege ich das dann auf
+
+254
+00:33:20,200 --> 00:33:29,320
+mein home assistant drauf habe ich habe ich ssh addons oder sowas installiert ja habe ich
+
+255
+00:33:29,320 --> 00:33:34,960
+zum glück kann ich bei ssh drauf kopieren aber ich glaube dass das wird man ja sieht man ja
+
+256
+00:33:34,960 --> 00:33:40,840
+denn hier drin also was muss man machen die dateien anlegen docker feil soll so aussehen ok das kriegen
+
+257
+00:33:40,840 --> 00:33:49,920
+wir hin ark bild from bild sollte da nicht irgendwas rein oder ersetzt das oder ersetzt
+
+258
+00:33:49,920 --> 00:34:01,000
+das home assistant automatisch copy runsh ok dann führt der runsh aus ok das ist easy das
+
+259
+00:34:01,000 --> 00:34:07,560
+könnte nicht viel einfacher sein config feil jammel so was kann man da konfigurieren hello world
+
+260
+00:34:07,560 --> 00:34:26,120
+my first addon den heißt vier champ keck version 1 0 slack hetschapp in it was macht denn in it
+
+261
+00:34:26,120 --> 00:34:36,720
+also das gibt es auf jeden fall nur für amd 64 das da und für arm v7 und v8 ist das v8
+
+262
+00:34:36,720 --> 00:34:47,840
+was anderes was anderes unterstützen wenn ich das reicht aber auch ganz ehrlich das ist auch ok so
+
+263
+00:34:47,840 --> 00:35:02,080
+passt so und jetzt wie geht das weiter runsh ja gut das kriege ich ok wisst ihr was wir machen
+
+264
+00:35:02,080 --> 00:35:09,480
+mal das tutorial durch dass ich ungefähr verstehe um was es geht moment warum habe ich das muss ich
+
+265
+00:35:09,480 --> 00:35:17,720
+docker feil kopieren nicht dahin was muss dahin hello world ok alles klar installing and testing
+
+266
+00:35:17,720 --> 00:35:25,680
+your add-on open config home assistant add-on backup super adon store check for update button
+
+267
+00:35:25,680 --> 00:35:31,200
+you should now see ne moment das sehe ich bestimmt nicht das liegt bei mir lokal auf der platte wie
+
+268
+00:35:31,200 --> 00:35:40,280
+kriege ich das hin ach hier vor ssh ok ich das heißt ich muss es auf mein respawn nicht auf
+
+269
+00:35:40,280 --> 00:35:45,320
+was habe ich denn ich habe ich muss es auf mein home assistant rüber kopieren gut probieren wir
+
+270
+00:35:45,320 --> 00:35:59,000
+das mal aus also der da auf welchem port läuft das ist auch standardmäßig auch 22 nice ssh key
+
+271
+00:35:59,000 --> 00:36:26,040
+gen minus er ist und was ist das default password configuration cute chat 123 alles klar ich glaube
+
+272
+00:36:26,040 --> 00:36:39,360
+ich glaube wir machen mal wir kopieren mal kurz das password rüber aus irgendwelchen gründen ist
+
+273
+00:36:39,360 --> 00:36:50,480
+es mir nicht ist es ok sfdp brauche ich glaube ich muss das in authorized keys rein packen sonst
+
+274
+00:36:50,480 --> 00:37:07,480
+geht das nicht anders ok cut ssh achtung leute jetzt kein ssh key liegen max et poggers muss man
+
+275
+00:37:07,480 --> 00:37:22,600
+das kann man das so reinschreiben save restart hoffentlich frisst er das lock ja gehen wir nicht
+
+276
+00:37:22,600 --> 00:37:38,800
+auf den sack ob man mal funktioniert oder verwendet er den key gar nicht dass der key ist fünf jahre
+
+277
+00:37:38,800 --> 00:38:06,120
+alt oder so wo ist mein key hin
+
+278
+00:38:06,120 --> 00:38:07,920
+warum
+
+279
+00:38:14,680 --> 00:38:19,680
+ach mehrere save buttons alter six hat konfiguration
+
+280
+00:38:23,680 --> 00:38:28,600
+das ist der IQ technisch schon wieder versagt so geht's jetzt
+
+281
+00:38:28,600 --> 00:38:38,320
+das sieht natürlich schon das sieht wie der hive meint im chat ja das ist halt so der chat
+
+282
+00:38:38,320 --> 00:38:44,600
+ist mittlerweile durch die ganzen subs und bits und alles und über die letzten jahre über der
+
+283
+00:38:44,600 --> 00:38:52,600
+ist so extrem high IQ da kann ich kann ich nicht mal gegen anstehen der ist der chat ist
+
+284
+00:38:52,600 --> 00:38:58,480
+wirklich schon mittlerweile so der kopf ist so quasi komplett in die breite schon seit 16 zu
+
+285
+00:38:58,480 --> 00:39:23,360
+neun eher 16 zu fünf so da sind wir eingelogged wie wo hin muss ich den kram überhaupt kopieren für
+
+286
+00:39:23,360 --> 00:39:40,200
+ok das mag ich an home assistant die dinger sind immer relativ selbsterklärend ok also heißt von
+
+287
+00:39:40,200 --> 00:39:54,320
+der idee bild publish publish also minus konfiguration nicht release die back ist ok
+
+288
+00:39:54,320 --> 00:40:00,680
+minus wobei kommt scheiß drauf wir lassen erst mal das hello world laufen und gut ist
+
+289
+00:40:00,680 --> 00:40:15,600
+also wohin wird der ganze krempel der netz scp scp 134 also wir scp das da jetzt einfach mal
+
+290
+00:40:15,600 --> 00:40:31,000
+nach dem slash add ons ist es 1 2 1 3 2 überhaupt gewesen ach nee 1 3 1 3 1 3 2 ist es gewesen ok
+
+291
+00:40:31,000 --> 00:40:45,040
+action close ach so ich muss ja minus er machen scp connection close ich habe irgendwas von sftp
+
+292
+00:40:45,040 --> 00:40:50,000
+er laut oder so gesehen zeigt mal her ich muss ich das auf true setzen dass ich ssh machen kann
+
+293
+00:40:50,000 --> 00:41:01,440
+wenn alles nicht hilft dann erst und ja erst und ist ja eigentlich das was man eher nehmen sollte
+
+294
+00:41:01,440 --> 00:41:23,960
+nexon refused alter was jetzt you have enabled sftp using ssh enable this requires ssh username to be root was
+
+295
+00:41:23,960 --> 00:41:31,240
+ok ist mir lieber wenn ich ruht bin ruht tut gut
+
+296
+00:41:31,240 --> 00:41:47,560
+jetzt sagt fahr jetzt zu megas dann da sind wir dann fahr du mal zu megas glhf bei megas
+
+297
+00:41:47,560 --> 00:41:56,240
+jetzt geben halt alle geben halt per ruht drauf mein sind wir halt ruht slash add ons via champ da
+
+298
+00:41:56,240 --> 00:42:13,000
+sind wir ok also und jetzt wie lebt man jetzt die add ons basic kakona ja hau dir den richtig
+
+299
+00:42:13,000 --> 00:42:19,360
+fetten kakona burger rein hat attack burger wobei ich glaube so was gibt es bei mcdonalds nicht
+
+300
+00:42:19,360 --> 00:42:24,880
+aber in amis gibt so was die haben doch in den usa gibt es auch diese komische fast food ich
+
+301
+00:42:24,880 --> 00:42:30,920
+weiß nicht welche das ist da gibt es auch diese fast food kette wo du hat attack burger kaufen
+
+302
+00:42:30,920 --> 00:42:41,240
+kannst wo auch die die kellerin in bikinis und so rumlaufen wie heißt das normal da sitzen die
+
+303
+00:42:41,240 --> 00:42:48,200
+ganzen halbe kakone aus rum und fressen den ganzen tag guters das kann sein ich ja doch kann sein
+
+304
+00:42:48,200 --> 00:42:57,640
+so wo muss ich denn jetzt hin hau muss es den frontend da sind wir configuration add ons und
+
+305
+00:42:57,640 --> 00:43:04,920
+add ons store ok im prinzip weiß ich eigentlich wo ich hin muss wir sind ja hier schon richtig
+
+306
+00:43:04,920 --> 00:43:22,120
+auch nicht settings add ons add ons store und jetzt was muss ich bin verwirrt habe ich das
+
+307
+00:43:22,120 --> 00:43:37,440
+jetzt gerade geschlossen oder was jetzt gerade habe ich das jetzt gerade zugemacht weil ich
+
+308
+00:43:37,440 --> 00:43:46,360
+total bescheuert bin so also click add ons store in the bottom right habe ich top right overflow
+
+309
+00:43:46,360 --> 00:43:55,000
+in new click check for update button da und jetzt hier schutz siehnau new section called local add
+
+310
+00:43:55,000 --> 00:44:24,600
+ons nur löse ich nicht habe ich irgendwas vergessen also man muss das so heißen muss
+
+311
+00:44:24,600 --> 00:44:52,000
+das so heißen kann das sein dass der kram nicht richtig heißt dass es dass es so heißen muss weil
+
+312
+00:44:52,000 --> 00:45:09,280
+ich hier in der config jammel das ding auch so genannt kann das sein check for updates
+
+313
+00:45:09,280 --> 00:45:35,720
+nö und jetzt das tutorial klappt nicht
+
+314
+00:45:35,720 --> 00:45:41,160
+hier oben sollte ich jetzt local add ons sehen nö sehe ich nicht ich sehe keine local add ons
+
+315
+00:45:41,160 --> 00:45:53,800
+gibt es nicht finden tut auch nicht habe ich irgendwas übersehen was ich machen muss add
+
+316
+00:45:53,800 --> 00:46:12,520
+ons folder samba nö nö slash addon muss man sonst muss man dann nichts machen ok dann machen
+
+317
+00:46:12,520 --> 00:46:20,320
+wir das mal anders wenn das nicht funktioniert wir machen jetzt wirklich eins zu eins das tutorial
+
+318
+00:46:20,320 --> 00:46:30,040
+machen eins zu eins das tutorial also ich soll ein verzeichnis erstellen hello world alles klar
+
+319
+00:46:30,040 --> 00:46:46,920
+add ons mk dir hello world dann da drin ein docker file erstellen mit diesem inhalt alles
+
+320
+00:46:46,920 --> 00:47:03,240
+klar habe ich gemacht danach eine config jammel erstellen mit diesem inhalt auch auch alles klar
+
+321
+00:47:03,240 --> 00:47:12,440
+dann ein runsh file erstellen es stimmt recht stand da was von chmod mein ich bin root wenn
+
+322
+00:47:12,440 --> 00:47:24,960
+ich dateien anlege dann das kann natürlich sein dass es nicht gut gehören darf du hast recht
+
+323
+00:47:24,960 --> 00:47:43,840
+das ist das das wird es wahrscheinlich sein ja ja ja guck dir mal ups alter ich kann das gehört
+
+324
+00:47:43,840 --> 00:47:56,800
+root aber wir machen einfach mal 777 auf move dockerfile config jammel run nach hello world
+
+325
+00:47:56,800 --> 00:48:17,680
+.sh so jetzt haben wir exakt das gemacht was im tutorial steht installing and testing check
+
+326
+00:48:17,680 --> 00:48:22,680
+updates nö will nicht hä leute ich hätte wahrscheinlich einfach refreshen müssen wobei
+
+327
+00:48:22,680 --> 00:48:47,320
+ok install start start logs hello world ok das hat funktioniert uninstall uninstall
+
+328
+00:48:47,320 --> 00:49:04,520
+was auch immer ja dann scp ich das ding jetzt noch mal scp fiat fiat champ allerdings nach
+
+329
+00:49:04,520 --> 00:49:13,160
+geht das habe ich noch nie ausprobiert ob man das so umbenennen kann mit scp ja geht
+
+330
+00:49:13,160 --> 00:49:29,000
+sehr schön jetzt müsste es jetzt müsste es eigentlich checken da ist er doch der fiat
+
+331
+00:49:29,000 --> 00:49:36,160
+champ man muss einfach ohne cash refreshen und gut ist alter lull das muss jetzt erstmal
+
+332
+00:49:36,160 --> 00:49:41,560
+einer verstehen na gut ok also wir wollen jetzt natürlich nicht hello world ausführen
+
+333
+00:49:41,560 --> 00:49:55,440
+sondern erst einmal erst einmal wollen wir das ding bilden publish publish so config
+
+334
+00:49:55,440 --> 00:50:03,240
+nee release lassen wir weg ich will mit debug ausgabe sehen dot net publish linux self contain
+
+335
+00:50:03,240 --> 00:50:18,280
+publish ja das ist erstmal ok so wie groß ist das binary jetzt 120 mb 68 das geht ja
+
+336
+00:50:18,280 --> 00:50:42,360
+sogar noch so und das wollen wir starten ja ok das funst das heißt in das run file muss
+
+337
+00:50:42,360 --> 00:50:47,120
+jetzt was rein nee moment erst einmal docker file wir müssen den krempel jetzt noch kopieren
+
+338
+00:50:47,120 --> 00:51:01,960
+genau wir wollen nämlich wir wollen nämlich bild slash fiat champ da auch hinkopieren
+
+339
+00:51:01,960 --> 00:51:18,800
+wollen wir das nicht vorwarnen vielleicht unterordner machen irgendwie so kann man so
+
+340
+00:51:18,800 --> 00:51:31,880
+und dann kommt der kram noch hier drauf zum ausführen ja und dann starten wir runsh und
+
+341
+00:51:31,880 --> 00:51:40,480
+in runsh sagen wir da nicht hello world sondern slash fiat champ so und jetzt sollte den krempel
+
+342
+00:51:40,480 --> 00:51:44,600
+zumindest schon mal starten jetzt habe ich im tutorial gesehen jetzt muss man die versionsnummer
+
+343
+00:51:44,600 --> 00:52:06,240
+hoch zählen sonst checkt das nämlich net net zcpn wirs rüber jetzt muss ich ersunken
+
+344
+00:52:06,240 --> 00:52:21,480
+Leute sonst dauert es zu lang wenn ich das nicht ersünke dauert das drei stunden ich
+
+345
+00:52:21,480 --> 00:52:32,880
+habe das jetzt ineinander kopiert ne das ist ok wir ersunken das jetzt mal ersünk
+
+346
+00:52:32,880 --> 00:52:52,560
+minus v minus a ging das so nee ersünk es ist three hat so ey sieht schon mal besser
+
+347
+00:52:52,560 --> 00:52:59,040
+aus jawoll nice und jetzt kann ich nämlich den ganzen krempel auch ein bisschen schneller
+
+348
+00:52:59,040 --> 00:53:07,640
+sinken alles da schauen wir mal was wir jetzt neues neue addon version haben eins punkt
+
+349
+00:53:07,640 --> 00:53:16,180
+eins ok install dark zone schreibt was was macht minus k ist minus k nicht zertifikate
+
+350
+00:53:16,180 --> 00:53:23,760
+ignorieren moin zusammen ich versuche im moment ross desk von github bei mir auf eine ubuntu
+
+351
+00:53:23,760 --> 00:53:29,560
+vm zu installieren im firmnetz und wenn ich weg hat mache sagt er mir dass die echtheit
+
+352
+00:53:29,560 --> 00:53:36,040
+vom zertifikat nicht überprüft werden kann hab schon sehr also kannst du das einfach
+
+353
+00:53:36,040 --> 00:53:45,200
+ignorieren sowohl mit karl als auch mit weget und ja ich glaube es wirklich minus k aber
+
+354
+00:53:45,200 --> 00:53:56,240
+dann sagt er das denn weil ich mein github hat definitiv ein gültiges zertifikat es
+
+355
+00:53:56,240 --> 00:54:07,480
+würde mich doch sehr wundern hätte github kein gültiges zertifikat achso starten muss
+
+356
+00:54:07,480 --> 00:54:16,840
+ich vielleicht noch log vier champ no such file or directory warum
+
+357
+00:54:24,840 --> 00:54:26,920
+warum nicht wo ist es denn
+
+358
+00:54:26,920 --> 00:54:40,080
+wo ist es hin muss ich das so nennen
+
+359
+00:54:50,080 --> 00:54:56,200
+das müsste ich habe es auch ich habe es doch dahin kopiert das müsste auch da sein oder bin
+
+360
+00:54:56,200 --> 00:55:00,080
+ich jetzt bin ich jetzt pp gar im kopf was docker docker feil angeht
+
+361
+00:55:00,080 --> 00:55:18,200
+ne ne es ist kein punkt sh es ist einfach nur guck einfach ohne ohne was aber das
+
+362
+00:55:18,200 --> 00:55:27,400
+müsste auch eigentlich da sein wenn ich es dann noch mal hin
+
+363
+00:55:27,400 --> 00:55:52,560
+habe ich den sündungsfehler immer im docker feil oder sowas aber also mich wird es wirklich
+
+364
+00:55:52,560 --> 00:56:11,720
+wundern wenn weget mein das github das zertifikat abgelaufen ist das ist verwirrt die anzeige ist
+
+365
+00:56:11,720 --> 00:56:22,640
+etwas durcheinander hier glaube ich jetzt install dann bin ich nicht so verstehe ich nicht so ganz
+
+366
+00:56:22,640 --> 00:56:31,320
+was er für schmerzen hat warum er es nicht findet ist nicht das github zrm er will es
+
+367
+00:56:31,320 --> 00:56:45,440
+doch von github installieren wo ist das problem warte mal ich muss mal kurz chat lesen so
+
+368
+00:56:45,440 --> 00:56:54,880
+wenn du ein weget auf github machst sagt er das ist nicht echt ja die zeit stimmt vielleicht
+
+369
+00:56:54,880 --> 00:57:03,280
+in der ubuntu vm nicht das könnte eventuell noch sein aber ansonsten geht es über irgendein
+
+370
+00:57:03,280 --> 00:57:11,400
+proxien die dich irgendwie machen die irgendwelche magic mit transparenter proxy oder machen
+
+371
+00:57:11,400 --> 00:57:22,080
+die irgendwelche komischen dinger bei euch auf der arbeit
+
+372
+00:57:22,080 --> 00:57:27,880
+was hat denn sein company company hu ca und der trust store mit einem get mit einem weget
+
+373
+00:57:27,880 --> 00:57:35,480
+auf github zu tun ich würde jetzt lieber gerne wissen warum der der meinung ist dass
+
+374
+00:57:35,480 --> 00:57:45,800
+der vier champ nicht findet wo ist das wo ist jetzt das problem das mache ich doch richtig
+
+375
+00:57:45,800 --> 00:57:55,640
+oder copy run asa nach slash run asa und jetzt copy bild für dahin und dann ist es doch da
+
+376
+00:57:55,640 --> 00:58:01,480
+mehr die run asa brauche ich nicht wirklich aber vielleicht wird doch die brauche ich
+
+377
+00:58:01,480 --> 00:58:13,960
+ich will ja noch ein bisschen mehr machen gleich aber wo ist das problem also jetzt
+
+378
+00:58:13,960 --> 00:58:25,880
+fliege ich nicht mehr durch slash gibt's nicht wisst ihr der fiat pfiat champs store page
+
+379
+00:58:25,880 --> 00:58:46,200
+jetzt das geht immer in das internet so copy so schwierig ist das ja eigentlich nett genau
+
+380
+00:58:46,200 --> 00:58:57,240
+das ist theoretisch relativ simpel findet er das nicht beim ko hat hat man vielleicht
+
+381
+00:58:57,240 --> 00:59:05,760
+ein lock vom bild oder so dass man hier irgendwie nachgucken kann lock hat kein lock vom bild
+
+382
+00:59:05,760 --> 00:59:35,600
+vielleicht in den system locks locks locks supervisor aha build verstehe ich das leuchtet
+
+383
+00:59:35,600 --> 00:59:42,120
+jetzt nicht nein ich weil wenn ich da in krab angebe dann sollte das bilden schon mal überhaupt
+
+384
+00:59:42,120 --> 00:59:57,160
+nicht funktionieren da hätte ich jetzt nicht gedacht dass es an der stelle kompliziert
+
+385
+00:59:57,160 --> 01:00:00,960
+wird schon es fackt mich immer ab wenn so einfache dinger dann nicht funktionieren
+
+386
+01:00:00,960 --> 01:00:15,520
+so ne wo war das hier addon store check for updates nein wir brauchen kein backup aha
+
+387
+01:00:15,520 --> 01:00:23,280
+ja siehste wenn es nicht wenn du was kopierst was nicht da ist dann geht es nicht das ist
+
+388
+01:00:23,280 --> 01:00:45,480
+ja ok so bild fiat champ ok so was ich jetzt mal mach lsla slash lass mir anzeigen check
+
+389
+01:00:45,480 --> 01:00:58,640
+for updates update man jetzt macht ein backup eget in beim ch mod ich kopier es dahin und
+
+390
+01:00:58,640 --> 01:01:12,160
+dann mache ich ein ch mod das ist ok ok warum braucht jetzt drei stunden dafür alter was
+
+391
+01:01:12,160 --> 01:01:39,360
+machst du denn da ach jetzt hat er geupdatet ok lock start da ist es doch da ist es doch
+
+392
+01:01:39,360 --> 01:01:57,240
+ganz offensichtlich und hat auch execute rechte will er mich verarschen da ist es doch das
+
+393
+01:01:57,240 --> 01:02:14,760
+ist doch ganz offensichtlich da ich habs nicht für arm gebaut ich habs für x86 gebaut
+
+394
+01:02:14,760 --> 01:02:29,360
+oder ja kann das sein ok ich hab ne idee ich hab ne idee kann das sein dass diese meldung
+
+395
+01:02:29,360 --> 01:02:45,280
+einfach nur richtig bescheuert ist probieren wir mal was aus blub.sh bin.sh echo123 so ok
+
+396
+01:02:45,280 --> 01:02:59,560
+copy blub.sh ich mach das alles mal in ein eigenes verzeichnis gleich so und jetzt gucken
+
+397
+01:02:59,560 --> 01:03:08,160
+wir mal ob das geht weil es könnte sein dass der ein anderes problem hat ich glaube der
+
+398
+01:03:08,160 --> 01:03:22,000
+hat ein anderes problem rsync rüber rsync dieser store ist wirklich ganz pepega zu bedienen
+
+399
+01:03:22,000 --> 01:03:35,040
+ja so check for updates alles klar update wisst ihr was ich glaube das no such filo directory
+
+400
+01:03:35,040 --> 01:03:43,000
+ist dotnet beim starten was das sagt ich gehe davon aus da fehlt irgendwas weil dotnet
+
+401
+01:03:43,000 --> 01:03:50,480
+hat eine oder zwei abhängigkeiten selbst bei self contained access wenn man das nicht
+
+402
+01:03:50,480 --> 01:04:03,200
+abschaltet man kann das abschalten die brauchen irgendeine translation library oder sowas wenn
+
+403
+01:04:03,200 --> 01:04:16,360
+es nicht ausschaltet guck hier das funktioniert das funst was ist denn das für ein system
+
+404
+01:04:16,360 --> 01:04:23,320
+wir installieren da was nach kann man sich da irgendwie connecten oder so docker protection
+
+405
+01:04:23,320 --> 01:04:37,480
+mode ach was protection mode nix protection hier wird nix protected ich hab doch grad
+
+406
+01:04:37,480 --> 01:05:00,360
+schon geupdatet der ist der ist verwirrt der ist verwirrt protection mode protection protection
+
+407
+01:05:00,360 --> 01:05:17,600
+mode ich will ich will per command line auf das system drauf so was läuft da wo ist denn
+
+408
+01:05:17,600 --> 01:05:34,280
+meiner wo ist denn hier der nee wo ist es denn wie kann ich mich jetzt auf meinen läuft
+
+409
+01:05:34,280 --> 01:05:44,440
+das addon überhaupt protection mode ist das ps-a aber es sollte doch laufen ach nee es
+
+410
+01:05:44,440 --> 01:05:53,680
+läuft nicht es hat sein es hat sein links gestartet und gut es aber wie ging das jetzt
+
+411
+01:05:53,680 --> 01:06:05,320
+docker execk kriege ich aus dem kopf nicht gebacken docker execk bin bash oder so nee
+
+412
+01:06:05,320 --> 01:06:27,360
+er ist noch running run it run it war das run it run it was latest was moment nein image
+
+413
+01:06:27,360 --> 01:06:49,240
+execk ist richtig aber wie ging das jetzt was so tatsächlich nee nee nee nee nee nee
+
+414
+01:06:49,240 --> 01:07:02,080
+das ist run bin bash docker hier ja das das ist neu starten warum findet er das image
+
+415
+01:07:02,080 --> 01:07:24,640
+eigentlich nicht muss die muss das da muss das image hinten dran
+
+416
+01:07:24,640 --> 01:07:50,200
+ja ich mach das schon nicht das ist schon richtig nee nee
+
+417
+01:07:50,200 --> 01:08:02,880
+docker images wo ist es denn da hier das da brauchen wir ach nee image id das da brauchen
+
+418
+01:08:02,880 --> 01:08:11,680
+wir so also was ist denn das ist das ein debian nee das ist das ist ein dings das ist ein
+
+419
+01:08:11,680 --> 01:08:23,000
+alpine oder ok slash fiat fiat champ no such file directly ok da fehlt irgendwas wartet
+
+420
+01:08:23,000 --> 01:08:33,320
+mal was braucht dotnet noch mal dass es läuft ohne wenn man es nicht abschaltet das braucht
+
+421
+01:08:33,320 --> 01:08:55,360
+dings wie heißt das irgend so eine globalization translation library war das eco an die ad
+
+422
+01:08:55,360 --> 01:09:18,200
+ist es lip eq oder sowas wie heißt der kram einfach so eq lips fiat champ fuck ähm warte
+
+423
+01:09:18,200 --> 01:09:26,560
+mal ach moment das ist ein alpine das muss man anders warte mal dotnet das muss das musste
+
+424
+01:09:26,560 --> 01:09:36,240
+man doch anders machen oder für alpine linux muss man das doch anders nennen genau da musste
+
+425
+01:09:36,240 --> 01:09:43,880
+ich so kompilieren dass es funktioniert stimmt ich erinnere mich da muss man das muss man
+
+426
+01:09:43,880 --> 01:09:53,520
+so machen publish weil alpine benutzt irgend so eine furchtbar exotische c library mit
+
+427
+01:09:53,520 --> 01:10:03,680
+der es sonst nicht funktioniert so willst du das neue kort ausprobieren ja wahrscheinlich
+
+428
+01:10:03,680 --> 01:10:18,480
+schon ok jetzt jetzt sollte es aber funktionieren bild da ist es mal gucken wann es zuletzt
+
+429
+01:10:18,480 --> 01:10:24,960
+kompiliert wurde 2127 das sieht ziemlich gut aus so jetzt müssen muss es aber funktionieren
+
+430
+01:10:24,960 --> 01:10:36,800
+so zack dass da weg da mal die versionsnummer rauf und ersunken das rüber rüber ersünkt
+
+431
+01:10:36,800 --> 01:10:44,960
+addons ne da muss man nicht hin wir müssen hier irgendwo ins webinterface ja addons zack
+
+432
+01:10:44,960 --> 01:11:05,040
+für updates hallo oh ich hab vergessen zu speichern ersünkt check for updates update
+
+433
+01:11:05,040 --> 01:11:10,360
+so und jetzt sollte es laufen kannst du nicht einfach ein ubuntu docker image nehmen doch
+
+434
+01:11:10,360 --> 01:11:15,240
+wahrscheinlich aber das default image von denen ist wahrscheinlich ist anscheinend ein
+
+435
+01:11:15,240 --> 01:11:19,080
+alpine image wahrscheinlich kann ich nehmen was ich will ja da gehe ich auch mal von
+
+436
+01:11:19,080 --> 01:11:47,360
+aus so wie sieht es denn jetzt aus start achtung
+
+437
+01:11:47,360 --> 01:12:10,520
+ok das stimmt irgendwelche versionen nicht entweder ist da irgendwas zu machen wie ich
+
+438
+01:12:10,520 --> 01:12:21,960
+sowas nicht ab kann so ok wir nehmen anderes image build from home assistant addons base
+
+439
+01:12:21,960 --> 01:12:34,640
+images was haben wir da alles zu bieten base images ja was haben wir da hast du das mit
+
+440
+01:12:34,640 --> 01:12:42,160
+der dotnet beta gemacht ja aber sollte eigentlich mal wir können ja mal gucken dotnet sieben
+
+441
+01:12:42,160 --> 01:12:52,680
+prerequisites die sollten eigentlich mehrere jahre zurück
+
+442
+01:12:52,680 --> 01:13:13,920
+ja so ported os alpine linux 13 ok release notes für
+
+443
+01:13:13,920 --> 01:13:28,720
+ach so das ist noch das ist noch core sieben ja man kann bestimmt l.o.t. compile aber support
+
+444
+01:13:28,720 --> 01:13:41,480
+os alpine 115 so und das ist das ist von sonst wann wie gesagt wir haben das von einem ubuntu
+
+445
+01:13:41,480 --> 01:13:50,240
+von vor 15 jahren laufen lassen kann er jetzt nicht sein
+
+446
+01:13:50,240 --> 01:14:15,880
+die side base images was haben wir denn für base images dockerfile alpine 316 siehste wir
+
+447
+01:14:15,880 --> 01:14:29,160
+das probieren wir doch mal aus docker images das da wollen wir haben run so slash fiat
+
+448
+01:14:29,160 --> 01:14:45,880
+ja also daran wird es jetzt wird es ja nicht liegen das würde normalerweise eine ordentliche
+
+449
+01:14:45,880 --> 01:14:57,520
+fehler easy tatsächlich die die übersetzungs library die internationalisierungs dingsbums
+
+450
+01:14:57,520 --> 01:15:05,880
+library das kann man ausschalten da muss ich in invariant bilden dann geht das aber
+
+451
+01:15:05,880 --> 01:15:07,800
+wir können es auch einfach wir können es auch einfach adden
+
+452
+01:15:07,800 --> 01:15:28,680
+was auch immer ich davon brauche wunderbar so versionsnummer fünf
+
+453
+01:15:28,680 --> 01:15:45,560
+ok so jetzt aber please einfach einfach funktionieren check for updates jawoll fünf ist da kein
+
+454
+01:15:45,560 --> 01:16:04,360
+backup update jetzt aber auf an ich muss noch starten das sieht doch gut aus es funktioniert
+
+455
+01:16:04,360 --> 01:16:17,800
+ja das ist gut es funktioniert jetzt können wir gucken wie wir die ganzen daten da rein
+
+456
+01:16:17,800 --> 01:16:22,280
+kriegen also ich habe in diesem tutorial folgendes
+
+457
+01:16:22,280 --> 01:16:50,360
+gefunden man kann man kann auslesen was der genau options home assistant addons mqtt man
+
+458
+01:16:50,360 --> 01:16:56,320
+kann auslesen was für den mqtt server gesetzt ist das heißt das muss man gar nicht in der
+
+459
+01:16:56,320 --> 01:17:00,680
+config angeben genau so hoffe das hoffe das war so
+
+460
+01:17:00,680 --> 01:17:24,520
+mqtt oder mysql ging das ja so das heißt schreiben wir das mal in die runsh und geben
+
+461
+01:17:24,520 --> 01:17:30,840
+wir mal testweise keine ahnung testweise irgendwie usernamen aus
+
+462
+01:17:30,840 --> 01:17:35,960
+und schauen wir mal vielleicht vielleicht geht es ja auch ohne update vielleicht reicht
+
+463
+01:17:35,960 --> 01:17:37,400
+es ja auch wenn ich einfach nach rebuild
+
+464
+01:17:37,400 --> 01:17:46,920
+vielleicht macht das ja dann neu und ich brauche den ganzen krempel ich weil da kriege
+
+465
+01:17:46,920 --> 01:17:50,760
+ich die ganzen infos raus und die muss ich dann als environment variablen exportieren
+
+466
+01:17:50,760 --> 01:17:56,560
+dass der krempel funktioniert ok start
+
+467
+01:17:56,560 --> 01:18:10,200
+ok nee geht halt nicht funktioniert man muss man muss wirklich die config file soll halt
+
+468
+01:18:10,200 --> 01:18:13,360
+wir machen das jetzt mal anders wir machen wir machen das mal anders ich habe mich keinen
+
+469
+01:18:13,360 --> 01:18:18,600
+bock immer das von hand da einzutragen mit mit config config version und und gedöns
+
+470
+01:18:18,600 --> 01:18:25,560
+ja wobei ich wollte jetzt automatisch wollte irgendwie den seet rüber machen aber dann
+
+471
+01:18:25,560 --> 01:18:30,240
+habe ich überlegt wie zähle ich dann hoch kannst du nicht einfach auto update machen
+
+472
+01:18:30,240 --> 01:18:33,000
+tja und scheinheit ich muss immer da oben klicken
+
+473
+01:18:33,000 --> 01:18:51,560
+ich wobei was wir machen können ist kann das da aufmachen den store dann klicke ich hier
+
+474
+01:18:51,560 --> 01:19:00,200
+auf update und hier bleibe ich dann da drinnen für update ja kannst du nicht auch einfach
+
+475
+01:19:00,200 --> 01:19:05,440
+auto update machen ja wie gut das könne ich wahrscheinlich wirklich machen aber trotzdem
+
+476
+01:19:05,440 --> 01:19:09,080
+muss jemand die datei anpassen das ist halt das doofe start
+
+477
+01:19:09,080 --> 01:19:30,640
+ja nee sollte er nicht eigentlich den echo machen mit usernamen aber wahrscheinlich
+
+478
+01:19:30,640 --> 01:19:44,320
+ich fand das nicht echo haben wir hier irgendwie sowas rein usernamen host vielleicht funktioniert
+
+479
+01:19:44,320 --> 01:19:45,320
+das ja so gar nicht
+
+480
+01:19:45,320 --> 01:20:08,640
+und jetzt muss ich da wieder richtig das richtig dumm er so refresh ja check for update so
+
+481
+01:20:08,640 --> 01:20:13,480
+hoffentlich hoffentlich zeigt das mir jetzt irgendwas an weil ich meine ich brauche mein
+
+482
+01:20:13,480 --> 01:20:17,320
+mqtt server und ich brauche den api login
+
+483
+01:20:17,320 --> 01:20:22,760
+nee das ist was anderes mit dem kein zugriff auf den service
+
+484
+01:20:22,760 --> 01:20:29,000
+oder achso
+
+485
+01:20:29,000 --> 01:20:45,360
+und wie kriege ich access zu meinem mqtt service
+
+486
+01:20:45,360 --> 01:21:03,920
+das ist nicht im scope genau wie kriege ich access zu meinem
+
+487
+01:21:03,920 --> 01:21:25,720
+und da muss man bestimmt hier irgendwas das ist eine mario playlist
+
+488
+01:21:25,720 --> 01:21:30,800
+das muss ich bestimmt hier reinschreiben dass ich das dass ich das machen darf da muss
+
+489
+01:21:30,800 --> 01:21:53,440
+ich über home assist home assistant discovery
+
+490
+01:21:53,440 --> 01:21:57,240
+wo habe ich denn das gefunden
+
+491
+01:21:57,240 --> 01:22:06,720
+das war irgendeine hilfeseite da ging es um mysql und um mqtt da stand drinne wie das funktioniert
+
+492
+01:22:06,720 --> 01:22:27,880
+hier addon communication genau das brauche ich ja we have an internal service api to make
+
+493
+01:22:27,880 --> 01:22:42,080
+service public addon needs ok addon needs to mark the usage of the server over his configuration
+
+494
+01:22:42,080 --> 01:22:49,440
+also da muss man irgendwas da muss man irgendwas eintragen dass man das dass man das darf
+
+495
+01:22:49,440 --> 01:23:00,880
+a list of services discovery was in meinem beispiel werfeleinheit verkehrt
+
+496
+01:23:00,880 --> 01:23:12,240
+discovery ok ich sehe schon dass es ist nicht so einfach
+
+497
+01:23:12,240 --> 01:23:20,520
+optional configuration options optional options das ist auch gut
+
+498
+01:23:20,520 --> 01:23:31,160
+discovery ok das heißt ich muss hier unten in die config jammeln reinschreiben discovery
+
+499
+01:23:31,160 --> 01:23:49,840
+und dann eine liste mqtt hoffe ich mal dass es dann so funktioniert
+
+500
+01:23:49,840 --> 01:23:58,360
+was mqtt ist das ist ein sehr leichtgewichtiger message broker bus
+
+501
+01:23:58,360 --> 01:24:03,320
+das ist in der iot welt so das ding wo alle devices ihre infos hinschicken und broadcasten
+
+502
+01:24:03,320 --> 01:24:04,320
+und subscriben und so
+
+503
+01:24:04,320 --> 01:24:24,600
+alter wo ist das problem man no access to mqtt warum ich habe doch explizit gesagt ich will
+
+504
+01:24:24,600 --> 01:24:28,800
+das haben in der config so wir suchen jetzt einfach mal nach der
+
+505
+01:24:28,800 --> 01:24:55,760
+fehlermeldung ja genau hier zeige ich wie es funktioniert service not enabled
+
+506
+01:24:55,760 --> 01:25:14,680
+mostly ja und
+
+507
+01:25:14,680 --> 01:25:39,520
+weiter
+
+508
+01:25:39,520 --> 01:25:44,720
+no access to mqtt ja gut mein addon braucht irgendwelche spezialrechte dafür dass man
+
+509
+01:25:44,720 --> 01:25:48,840
+das machen darf und und und wie fragt man das an
+
+510
+01:25:48,840 --> 01:26:09,280
+eine güte das ist tatsächlich komplizierter als ich mir das vorgestellt habe die sündags
+
+511
+01:26:09,280 --> 01:26:23,520
+im jammeln richtig würde mal sagen ja
+
+512
+01:26:23,520 --> 01:26:32,800
+ja würde ich schon mal sagen dass die richtig ist
+
+513
+01:26:32,800 --> 01:26:38,200
+ich meine das ist jason style das müsste aber in jammeln auch erlaubt sein man könne
+
+514
+01:26:38,200 --> 01:26:43,640
+es ja so machen aber trotzdem
+
+515
+01:26:43,640 --> 01:26:50,320
+was macht denn in it eigentlich in it that is to fall so deshalb die docker die fall system
+
+516
+01:26:50,320 --> 01:26:51,320
+in it
+
+517
+01:26:51,320 --> 01:27:13,400
+ok man muss auch voll stehen lassen also
+
+518
+01:27:13,400 --> 01:27:22,440
+es ist nicht so einfach
+
+519
+01:27:22,440 --> 01:27:25,680
+das ist wirklich 6 hat da muss man muss man genau gucken wie das wie das funktioniert
+
+520
+01:27:25,680 --> 01:27:30,080
+hier wir suchen mal ok ich weiß was wir machen jetzt hab
+
+521
+01:27:30,080 --> 01:27:43,480
+wir gucken mal rein wie die anderen leute das definiert haben so
+
+522
+01:27:43,480 --> 01:28:03,360
+da kann ich den ganzen jammeln weg das ist was anderes oder
+
+523
+01:28:03,360 --> 01:28:18,120
+wenn das steht einfach nur mq ne das ist was anderes
+
+524
+01:28:18,120 --> 01:28:34,240
+wo ja wo ist denn wo ist denn hier jetzt die die konfig jammeln die gibt es hier gar nicht
+
+525
+01:28:34,240 --> 01:28:55,360
+ok was was für einen addon hat auf jeden fall
+
+526
+01:28:55,360 --> 01:29:03,760
+options also das sind options die er mir anzeigt im web interface das ist nicht die
+
+527
+01:29:03,760 --> 01:29:13,000
+options was mein addon darf und was es nicht darf das ist was anderes
+
+528
+01:29:13,000 --> 01:29:31,880
+wo ist was mit service ach so alter btf jetzt ernsthaft
+
+529
+01:29:31,880 --> 01:29:36,840
+wie soll man da drauf kommen also da wäre ich im leben nicht drauf
+
+530
+01:29:36,840 --> 01:29:40,760
+gekommen das so zu schreiben wirklich ganz sicherlich nicht
+
+531
+01:29:40,760 --> 01:30:10,520
+so jetzt müssen wir das mal in verjamme lisieren so und hoffen dass jammel jetzt jammelt erzink
+
+532
+01:30:10,520 --> 01:30:16,040
+dies jetzt einfach einfach funktionieren wenn es geht einfach funken
+
+533
+01:30:16,040 --> 01:30:24,600
+so aber das müsste damit doch jetzt eigentlich gehen
+
+534
+01:30:24,600 --> 01:30:46,440
+was addons addons username ist addons ach das ist ein eigener username oder wie ok jetzt
+
+535
+01:30:46,440 --> 01:30:53,920
+bin ich mal gespannt was ist password ok was ist port und was ist was ist password dann
+
+536
+01:30:53,920 --> 01:31:02,960
+also addons haben anscheinend den eigenen user der alles darf scheint so zu sein man
+
+537
+01:31:02,960 --> 01:31:07,560
+muss gar nicht den standard user nehmen da bin ich mal gespannt noch mal kurz abdehnen
+
+538
+01:31:07,560 --> 01:31:23,720
+ok das ist aber schon mal gut zu wissen da brauchen wir jetzt noch options was wir im
+
+539
+01:31:23,720 --> 01:31:26,280
+im web interface eintragen können unter configuration
+
+540
+01:31:26,280 --> 01:31:42,560
+war gespannt was das jetzt anzeigt start tatsächlich eier obviously ist das das password
+
+541
+01:31:42,560 --> 01:31:50,280
+da werde mehr also da hätte ich selbst drauf kommen können dass das das password ist
+
+542
+01:31:50,280 --> 01:32:05,600
+ok ja dann ok dann weiß ich was wir als nächstes machen muss da gehen wir jetzt in die run jamme
+
+543
+01:32:05,600 --> 01:32:24,240
+wir sagen host ist vier champ mqtt server password ist mqtt pw username forst password
+
+544
+01:32:24,240 --> 01:32:33,320
+mqtt server mqtt user und report so dann haben wir das nämlich als environment variable
+
+545
+01:32:33,320 --> 01:32:47,480
+gesetzt oder export davor machen machen wir mal sondern haben wir das nämlich gesetzt
+
+546
+01:32:47,480 --> 01:32:57,640
+und dann sollte der das finden gleich nach dem starten ok das heißt als nicht warum ist
+
+547
+01:32:57,640 --> 01:33:04,400
+das sündungs highlighting hier so kaputt so das heißt als nächstes brauchen wir options
+
+548
+01:33:04,400 --> 01:33:28,320
+für das frontend also hier sowas brauchen wir das da brauchen wir options also wir brauchen
+
+549
+01:33:28,320 --> 01:33:38,320
+ein fiat user ne moment wie heißt das ding fiat user ein fiat password und später noch
+
+550
+01:33:38,320 --> 01:33:43,840
+ein fiat pin damit man sachen freischalten kann standardmäßig sind die dinger leer
+
+551
+01:33:43,840 --> 01:33:55,320
+falls falls man das so machen muss und ich hoffe das ergibt sinn was ich meine ich copy
+
+552
+01:33:55,320 --> 01:34:00,800
+paste ist einfach nur aus denen ihrer aus denen ihre anleitung mal gucken so und wenn
+
+553
+01:34:00,800 --> 01:34:04,880
+das jetzt klappt dann sollte ich im web interface options angezeigt bekommen
+
+554
+01:34:04,880 --> 01:34:27,440
+das sollte oder configuration zumindest gleich was stehen auf upgrade jetzt mal weiß ich
+
+555
+01:34:27,440 --> 01:34:44,560
+was er da immer drei stunden macht config oder da sind wir doch nice da kann man jetzt
+
+556
+01:34:44,560 --> 01:34:56,840
+zeugs eintragen sehr produktive sprints ja wir iterieren im minutentakt und und pushen
+
+557
+01:34:56,840 --> 01:35:08,600
+direkt live so also und wie kriege ich den kram jetzt abgefragt per environment variable
+
+558
+01:35:08,600 --> 01:35:18,880
+wir sind unser eigenes ci cd so und jetzt natürlich die frage mich das per environment
+
+559
+01:35:18,880 --> 01:35:46,360
+variable abgefragt bekomme aha so kriegt man das raus config default lease config also
+
+560
+01:35:46,360 --> 01:36:01,040
+das heißt im endeffekt ich muss jetzt so was machen wie alles sind alles strings fiat fiat
+
+561
+01:36:01,040 --> 01:36:24,920
+user fiat pw und hin so ich denke mal so kann man da auch irgendwie noch eine hilfe zu angeben
+
+562
+01:36:24,920 --> 01:36:33,680
+weil so weiß ja keiner so wirklich was er da reinschreiben soll neue dat neue version
+
+563
+01:36:33,680 --> 01:36:41,080
+er so ein grüber da ist irgendwie fast aber das geht eigentlich nur wenn wir written in
+
+564
+01:36:41,080 --> 01:36:48,480
+rust werden weiß nicht weiß nicht ob wir so basically fast sein können ist das ist das
+
+565
+01:36:48,480 --> 01:36:52,960
+möglich leute kann man plays in den plays in die fast sein auch wenn man nicht in rust
+
+566
+01:36:52,960 --> 01:37:02,200
+written ist oder in go in go vielleicht noch vielleicht noch in go mit wim stimmt stimmt
+
+567
+01:37:02,200 --> 01:37:15,960
+wenn man das ohne wim das geht natürlich gar nicht rust und wim only ap user not found
+
+568
+01:37:15,960 --> 01:37:30,560
+das hat schon mal nicht geklappt das hat schon mal nicht geklappt das so zu exportieren
+
+569
+01:37:30,560 --> 01:37:52,520
+dann dann dann check ich nicht so genau was ich verkehrt mache create main config meint
+
+570
+01:37:52,520 --> 01:38:08,520
+oder ist ok wir müssen uns mal die die hilfe angucken von dem wo ist die config jammel options
+
+571
+01:38:08,520 --> 01:38:26,040
+ist eigentlich ist eigentlich genau richtig ist eigentlich genau richtig man trägt die
+
+572
+01:38:26,040 --> 01:38:39,680
+options ein genauso wie ich das gemacht habe hier kommt mal options ach moment jammel alter
+
+573
+01:38:39,680 --> 01:39:05,400
+ne moment ne das ist kein array das ist key key value also ja prinzipiell schon richtig
+
+574
+01:39:05,400 --> 01:39:31,400
+komm scheiße wir machen back up vorher aber wenn das also wenn jetzt die default werte
+
+575
+01:39:31,400 --> 01:39:39,360
+gleich drin stehen ich sollte das vielleicht mal ausgeben um zu gucken ob es funktioniert
+
+576
+01:39:39,360 --> 01:39:56,760
+ich meine vielleicht habe ich mich hier auch sofort also ich echo
+
+577
+01:39:56,760 --> 01:40:04,920
+ja deswegen heiße ich hier auch nicht so wie auf youtube damit die leute nicht so sehr
+
+578
+01:40:04,920 --> 01:40:17,960
+verwirrt das funktioniert einfach nicht muss das vielleicht kleingeschrieben sein oder
+
+579
+01:40:17,960 --> 01:40:23,120
+muss das problem also ich brauche ich brauche auf jeden fall ein eigenes repo wo das automatisch
+
+580
+01:40:23,120 --> 01:40:33,040
+pull ich drehe jetzt schon durch beim ganzen auf update klicken hier jedes javascript framework
+
+581
+01:40:33,040 --> 01:40:38,360
+ist doch blazing fast javascript framework sind nicht nur blazing fast die tun auch immer
+
+582
+01:40:38,360 --> 01:40:42,520
+so als haben sie irgendwie super krasses neues zeug erfunden wie vorhin dieses framework
+
+583
+01:40:42,520 --> 01:40:47,600
+irgendwie npm install damit ihr git hooks machen kann machen könnt jedes git repo hat
+
+584
+01:40:47,600 --> 01:40:53,240
+standardmäßig fünf bash scripts drinne für für git hooks warum brauche warum muss ich
+
+585
+01:40:53,240 --> 01:40:59,560
+den ersten npm installieren für wie gesagt ohne npm install ist odd ist even geht eh
+
+586
+01:40:59,560 --> 01:41:04,520
+nix funktioniert bei euch da ist 16 download noch nicht ausprobiert
+
+587
+01:41:04,520 --> 01:41:27,480
+dort ist doch funktioniert doch leute api user not found warum nicht
+
+588
+01:41:27,480 --> 01:41:50,440
+guckt mal da der sucht nach es heißt fiat login nicht fiat user
+
+589
+01:41:50,440 --> 01:42:00,600
+mensch wer nennt es auch so doof
+
+590
+01:42:00,600 --> 01:42:12,400
+ersynch ne version hochzählen so jetzt ersynch leute ich drehe durch mit dem versions hochzählen
+
+591
+01:42:12,400 --> 01:42:22,280
+wir müssen das irgendwie anders machen seht jemand jemand eine high iq idee muss die version
+
+592
+01:42:22,280 --> 01:42:32,080
+wirklich hochgezählt werden acht ok das moment fai fai fai fai fai fai fai fai fai fai fai
+
+593
+01:42:32,080 --> 01:42:47,520
+file grab version kann man am punkt fällt drei jaja sieht schonmal sieht schonmal gut
+
+594
+01:42:47,520 --> 01:43:11,360
+Und jetzt hoch zählen, Moment erst noch mal irgen, so und jetzt bash magic, ohje echo,
+
+595
+01:43:11,360 --> 01:43:28,560
+plus eins, fack, Moment wie ging das nochmal, rechnen in bash, so schonmal nett, fack doch
+
+596
+01:43:28,560 --> 01:43:37,480
+ein unix timestamp als version, das ist ja, aber wie war man, wie war bash, in bash rechnen
+
+597
+01:43:37,480 --> 01:43:53,160
+nochmal, also obviously so natürlich, wie sollte es auch anders sein, oh, also Moment,
+
+598
+01:43:53,160 --> 01:44:12,760
+also so, ach du kacke, Moment, so, hey, es funst, so bash magic, so jetzt haben wir 16
+
+599
+01:44:12,760 --> 01:44:28,120
+und jetzt, Achtung neun, jetzt seht, wie war das sehtechnisch nochmal, so ne, so, in config
+
+600
+01:44:28,120 --> 01:44:44,840
+jamme, ne, ah mein hirn, Moment, ne ne so einfach ist es nicht, jetzt sind 16 und was
+
+601
+01:44:44,840 --> 01:45:00,880
+will ich ersetzen, ich will die gesamte zeile ersetzen, jetzt funktioniert, fast, fast,
+
+602
+01:45:00,880 --> 01:45:15,680
+Punkt, ne, ok, ich gehe davon aus, ich muss es quoteen, dass das funktioniert richtig,
+
+603
+01:45:15,680 --> 01:45:42,240
+Moment, wenn ich das quotee, gehts nicht, bash magic, oh meine güde, no matches found,
+
+604
+01:45:42,240 --> 01:46:07,680
+ah fuck, ok, easy, oh ne, ich hab nix gekillt, Moment, da ist noch ein quote, da, ne, ach
+
+605
+01:46:07,680 --> 01:46:22,840
+du scheiße, bash hör auf, ok, jetzt aber, jawoll, es hat funktioniert, es hat funktioniert,
+
+606
+01:46:22,840 --> 01:46:40,120
+version, doppelpunkt, ein, oh fuck, jetzt aber, version, kann man das hier wenigstens
+
+607
+01:46:40,120 --> 01:47:05,200
+einzeln quoteen, jawoll, version, Punkt, so, ja, ja, ist schonmal gut, 1.0, ja, ja, das
+
+608
+01:47:05,200 --> 01:47:10,920
+sieht auch schonmal gut aus, sehr gut, sehr gut, jetzt hinten noch einmal quotes dran,
+
+609
+01:47:10,920 --> 01:47:23,280
+ah, yes, wunderbar, so, minus i, und guckt mal, und jetzt zählt er automatisch hoch,
+
+610
+01:47:23,280 --> 01:47:32,400
+jedes mal wenn ich minus i mache, excellent bash, logik, guckt hier, guckt da, boom, zählt
+
+611
+01:47:32,400 --> 01:47:42,520
+automatisch hoch, ich mein lesen, kanns keines sau, aber es funktioniert, so und jetzt jedes
+
+612
+01:47:42,520 --> 01:47:53,160
+mal bevor ich in rsync mache, zähle ich die Datei eins hoch, so, easy, bump.sh, alles
+
+613
+01:47:53,160 --> 01:48:01,880
+inline, rest ist alles bloated, so jetzt updaten wir schnell, noch, das sollte eigentlich,
+
+614
+01:48:01,880 --> 01:48:13,480
+ob ich check for updates, ah ja, update, guter code muss auch lesbar sein, das gilt für
+
+615
+01:48:13,480 --> 01:48:35,360
+alles außer bash, und c++, ja gut, das ist ja, ja, es funktioniert, Leute, es funktioniert,
+
+616
+01:48:35,360 --> 01:48:45,400
+es läuft, jetzt muss ich noch die fake Dateien rüber kopieren im build, build action, copy,
+
+617
+01:48:45,400 --> 01:48:55,120
+always, publish, publish, die Weihnachtsnups sind zurück, so und jetzt unser wahnsinnstolles,
+
+618
+01:48:55,120 --> 01:49:12,800
+eigentlich bräuchten wir jetzt ein deploy.sh, wo das reinkommt, check for updates, update,
+
+619
+01:49:12,800 --> 01:49:17,520
+pünktlich bei Version 20, bald überholen wir chrome, Leute, ich würde sagen, nächster
+
+620
+01:49:17,520 --> 01:49:29,640
+Stream wird chrome überholt in den Versionstab an, ach, warte mal, es lief die ganze Zeit,
+
+621
+01:49:29,640 --> 01:49:47,480
+noch, start, put non-fine file, warum nicht, ah, weil ich das nicht mitkopiere, ok, docker
+
+622
+01:49:47,480 --> 01:50:07,520
+recursive, copy recursive, docker, macht es das standardmäßig, das ist, verzeih, ach,
+
+623
+01:50:07,520 --> 01:50:12,680
+anscheinend kopiert er das einfach so, ok, ja, weil dann ist easy, dann kopieren wir
+
+624
+01:50:12,680 --> 01:50:27,240
+dann nämlich einfach build, build nach build und sagen dann plubsh, braucht keiner mehr
+
+625
+01:50:27,240 --> 01:50:43,480
+und sagen dann einfach chmod, minus, ist es klein oder großr, minus großr, siehste, slash
+
+626
+01:50:43,480 --> 01:50:49,240
+build, genau, und im run machen wir dann einfach slash build slash viachamp und dann müsste
+
+627
+01:50:49,240 --> 01:51:10,000
+es glaube ich besser funktionieren, run, zack, kommt homosys dann eigentlich mit pre-release
+
+628
+01:51:10,000 --> 01:51:23,640
+und build, markers in der sem wäre klar, das ist eine gute frage, keine ahnung, ich kann
+
+629
+01:51:23,640 --> 01:51:30,720
+es ausprobieren wenn du willst, sag mir mal was ich markern soll, sowas wie minus test
+
+630
+01:51:30,720 --> 01:51:43,600
+oder irgendwas hinten dranhängen oder minus hash von git commit dranhängen oder was, restart,
+
+631
+01:51:43,600 --> 01:52:01,280
+kann man ausprobieren, be not found, wie, warum not found, ah ich weiß warum not found,
+
+632
+01:52:01,280 --> 01:52:08,640
+weil ich absolut 3 hat bin, ich muss nach build wechseln und dann den viachamp starten,
+
+633
+01:52:08,640 --> 01:52:12,560
+anders funktioniert es natürlich nicht, ok dann hänge ich mal hinten was an die versionsnummer
+
+634
+01:52:12,560 --> 01:52:37,560
+dran, zum ausprobieren, keckel, plus 4, das geht mal wieder weg, äh ne moment, versunken,
+
+635
+01:52:37,560 --> 01:53:01,880
+ui, schauen wir mal ob es das checkt, ja wir updaten jetzt zu 1021 keckel plus 4, oh was,
+
+636
+01:53:01,880 --> 01:53:08,000
+ich hab jetzt noch ein paar probleme damit, oder muss ich erst mal stopp sagen, vielleicht
+
+637
+01:53:08,000 --> 01:53:16,920
+kommt da doch nicht klar damit, weil connection resetted ergibt ja wenig sinn, connection
+
+638
+01:53:16,920 --> 01:53:46,880
+resetted, ne jetzt funktionierts, das kommt damit nicht klar,
+
+639
+01:53:46,880 --> 01:54:02,800
+start, jetzt es läuft, es läuft, leute es funktioniert, es läuft, und sind unsere daten
+
+640
+01:54:02,800 --> 01:54:28,000
+am start, schauen wir mal, settings, integrations, da ist es, und es gab messages um 9.51, jawoll
+
+641
+01:54:28,000 --> 01:54:33,080
+hat funktioniert, so wir können es nochmal, ich kann nochmal gucken ob es wirklich funktioniert,
+
+642
+01:54:33,080 --> 01:54:39,840
+alles, ich lösche das mal, das auto was ich vorher angelegt hab, so und jetzt, gucken
+
+643
+01:54:39,840 --> 01:54:46,280
+wir mal hier mein dashboard mit dem auto, ist auch nix da, irgendwelche gründen ist
+
+644
+01:54:46,280 --> 01:55:00,800
+mein standort noch da, ok, amsterdam, alles klar, alles klar, addon, restart, und dann
+
+645
+01:55:00,800 --> 01:55:15,280
+sollte jetzt gleich, so jetzt sollte gleich hier, guckt, jawoll, addon funktioniert,
+
+646
+01:55:15,280 --> 01:55:45,040
+ja, das funktioniert, jetzt kann man das addon tatsächlich sogar halbwegs schon verwenden,
+
+647
+01:55:45,040 --> 01:55:51,360
+ich meine, man kann eine configuration angeben, man kann passwort und keine pin angeben, gibt
+
+648
+01:55:51,360 --> 01:55:57,720
+es irgendwie die möglichkeit da hilfe dazu einzutragen, wie sieht denn das bei anderen,
+
+649
+01:55:57,720 --> 01:56:02,840
+moment wie sieht denn das bei anderen addons aus, wie sieht es z.b. bei diesem ssh addon
+
+650
+01:56:02,840 --> 01:56:25,240
+aus, so, configuration, ja da steht, guck mal da steht, hilfetext oben drüber, stimmt
+
+651
+01:56:25,240 --> 01:56:38,600
+und wie macht man das mit den passwörtern, na gut, im klartext, wie kann man, wie kann
+
+652
+01:56:38,600 --> 01:56:47,040
+man passwörter, das ist tatsächlich eine gute frage, wie kann man passwörter verstecken,
+
+653
+01:56:47,040 --> 01:56:53,280
+welches addon, welches addon benutzt denn passwörter wo man sich das abgucken kann,
+
+654
+01:56:53,280 --> 01:57:11,360
+ducktns fürs api token vielleicht, aha, alles klar, da können wir abgucken, da können wir
+
+655
+01:57:11,360 --> 01:57:32,280
+abgucken, config.yml, also options, token, und woher weiß der jetzt, dass das, hä?
+
+656
+01:40:54,300 --> 01:57:56,400
+also daran erkenne ich mal gar nichts, vielleicht weil es token heißt, meint ihr,
+
+657
+01:57:56,400 --> 01:58:09,400
+das ist so magic, das ist so magic, das ist anhand des namens, das kann ich, das wäre
+
+658
+01:58:09,400 --> 01:58:26,080
+bescheuert, aber was anderes ist es, was anderes, was anderes ist da nicht, oh Null, das war,
+
+659
+01:41:52,340 --> 01:59:05,200
+ach guck mal hier, da kann man direkt Passwort angeben, ja, maybe it's reserved,
+
+660
+01:59:05,200 --> 01:59:19,040
+I don't know, I don't think it's reserved keyword, it's, we try password, ich glaub
+
+661
+01:59:19,040 --> 01:59:23,760
+nicht, dass das reserved ist, kann ich mir nicht vorstellen, guck mal, wir probieren
+
+662
+01:59:23,760 --> 01:59:37,280
+einfach mal aus, Passwort da reinzuschreiben, so, und pin, der pin ist auf jeden fall auch
+
+663
+01:59:37,280 --> 01:59:49,720
+ein Passwort, so, Achtung, seht magic, seht magic, Version hat hochgezählt, den krempel,
+
+664
+01:59:49,720 --> 02:00:19,240
+den uninstall ich jetzt mal schnell wieder, check for updates, so, hat das jetzt geupdatet,
+
+665
+02:00:19,240 --> 02:00:35,960
+aha, guck mal da, jetzt ist es, so ist das gut, save, restart, so ist das gut, so mag
+
+666
+02:00:35,960 --> 02:00:47,520
+ich das, so, und es funktioniert, das Auto ist da, das Auto steht in Salzgitter, was
+
+667
+02:00:47,520 --> 02:01:00,640
+ist das, nicht, oder nee, Moment, es steht nicht, es steht in, wo steht das Auto, im See,
+
+668
+02:01:00,640 --> 02:01:11,720
+im Stadtparkteich, alles klar, das geht auch wenn man mehr als ein Auto hat, ja, das ist
+
+669
+02:01:11,720 --> 02:01:17,960
+alles dynamisch anhand der Fahrzeug-ID und dem Index von deinem Auto, wobei nee, der
+
+670
+02:01:17,960 --> 02:01:23,360
+Index, dynamisch anhand deiner Fahrzeug-ID, also wenn das zweite Auto erscheint würde
+
+671
+02:01:23,360 --> 02:01:38,040
+dann einfach hier, Moment, Integrations, ja, ja, das Echo kommt noch aus, Integrations,
+
+672
+02:01:38,040 --> 02:01:46,480
+dann würde einfach hier das zweite Auto stehen und wenn du dein Auto bei Fiat ein Nickname
+
+673
+02:01:46,480 --> 02:01:56,840
+gegeben hast, dann steht sogar der richtige Name da, ok, machen wir das hier mal weg,
+
+674
+02:01:56,840 --> 02:02:09,040
+das Debug von diesem ganzen Kramus raus, im Programm, da wo ich Route eingetragen habe,
+
+675
+02:02:09,040 --> 02:02:19,200
+wollte ich eigentlich K eintragen, weil das viel besser passt, so, jetzt müsste das eigentlich,
+
+676
+02:02:19,200 --> 02:02:24,920
+ich pusht das jetzt einfach mal auf GitHub, falls irgendjemand Bock hat daraus zu probieren,
+
+677
+02:02:24,920 --> 02:02:30,880
+wie gesagt, das geht noch nicht alles, also die Commands, die gehen noch ins Leere, wobei
+
+678
+02:02:30,880 --> 02:02:34,440
+ich pusht, ich pusht für den nächsten Stream, ich bin mir nicht ganz sicher, ob ich denn
+
+679
+02:02:34,440 --> 02:02:48,840
+noch irgendwas machen muss, ich müsste ja auch noch ein Addon Repo machen und ne, lass
+
+680
+02:02:48,840 --> 02:02:55,120
+mal ausprobieren, so, was, was, müssen wir noch irgendwas machen für heute, ne, wir haben
+
+681
+02:02:55,120 --> 02:03:00,520
+den Kram, kann ich das Auto auch downloaden, genauso wie Ram, der Karlsson, danke schön
+
+682
+02:03:00,520 --> 02:03:16,920
+für den Sub, ich mein, das kann man, das ist bestimmt nicht der Weisheitsletzter Schluss
+
+683
+02:03:16,920 --> 02:03:30,200
+hier das so zu machen, Max, danke schön für den Sub, aber das ist schon okay so, das ist
+
+684
+02:03:30,200 --> 02:03:36,520
+tatsächlich mal was schönes, schönes Anwendungsbeispiel für Containerkrempel hier, wir müssen übrigens
+
+685
+02:03:36,520 --> 02:03:52,320
+dann das nächste Mal noch gucken, wir brauchen ja Builds für x86, Raspberry Pi, das muss
+
+686
+02:03:52,320 --> 02:03:58,760
+dann quasi anders heißen, also ich muss das dann, ich muss das dann unterschiedlich irgendwie
+
+687
+02:03:58,760 --> 02:04:12,360
+kopieren, mal gucken, wie wir das machen, wie man das unterscheidet, weil wir brauchen
+
+688
+02:04:12,360 --> 02:04:26,320
+ja dann andere Dateien, die kopiert werden, je nach Plattform, okay, Git, Status, das
+
+689
+02:04:26,320 --> 02:04:47,760
+brauchen wir nicht mehr, ja, Commit, A-M, Postchamp, beste, so muss das heißen, das
+
+690
+02:04:47,760 --> 02:04:57,360
+passt alles, ja, dann würde ich sagen, das pushen wir dann das nächste Mal, aber das
+
+691
+02:04:57,360 --> 02:05:01,960
+funktioniert ja schon mal, wir haben hier ein Auto angelegt, wo alles drinne ist, inklusive
+
+692
+02:05:01,960 --> 02:05:12,480
+Buttons, Kilometerstand und sonst was, also da fehlt nicht mal viel, dann kann ich das
+
+693
+02:05:12,480 --> 02:05:18,000
+auf Github pushen und die Leute können sich freuen, dass es dann auch ein Fiat Addon gibt
+
+694
+02:05:18,000 --> 02:05:25,280
+für Home Assistant und das Schöne ist, man muss eigentlich außer seiner ID und dem Pin,
+
+695
+02:05:25,280 --> 02:05:34,240
+also man muss eigentlich nur das hier eintragen, alles andere macht der Autodiscovery, Autodiscovery,
+
+696
+02:05:34,240 --> 02:05:38,360
+hat jemand schon mal Docker Files gebaut, die irgendwie unabhängig von der, abhängig
+
+697
+02:05:38,360 --> 02:05:56,280
+von der Architektur sind, also kann man das im Docker, fragt man das, das habe ich noch
+
+698
+02:05:56,280 --> 02:06:07,120
+nie gemacht, fragt man das im Docker File irgendwie ab, ne ich suche auf jeden Fall
+
+699
+02:06:07,120 --> 02:06:17,560
+nach irgendwas, was in Home Assistant am Ende auch funktioniert, weil Home Assistant bildet
+
+700
+02:06:17,560 --> 02:06:34,240
+das Ding ja anscheinend, ja, das muss ich mir mal überlegen, das machen wir erstmal
+
+701
+02:06:34,240 --> 02:06:41,520
+aus, weil jetzt ist, die Musik passt wunderbar, es ist Bad-Git-Time, nächsten, einen Stream
+
+702
+02:06:41,520 --> 02:06:46,880
+brauchen wir noch dafür würde ich sagen, dann kommt es auf Github und gut ist, hat
+
+703
+02:06:46,880 --> 02:06:51,680
+jemand von euch einen Fiat oder einen Jeep oder irgendwas mit Uconnect, der das mal ausprobieren
+
+704
+02:06:51,680 --> 02:07:04,840
+will, nächstes mal, ich habe hier einen Gitwerk-Workflow von mir, zeigt mal her, aha, ein Yimmelschreiber,
+
+705
+02:07:04,840 --> 02:07:34,280
+Docker Image, aha, aber wie unterscheidest du das im Docker File?
+
+706
+02:07:34,280 --> 02:07:46,240
+Kannst du das im Docker File irgendwie unterscheiden, weil ich muss ja im Docker File je nach Version
+
+707
+02:07:46,240 --> 02:07:59,520
+anderes Zeug kopieren, oder aber, oder aber noch besser, wir machen das.NET Build auch
+
+708
+02:07:59,520 --> 02:08:17,680
+direkt im Docker Container, bei, das ist eigentlich auch blöd, das Binary da drin zu bilden, nee,
+
+709
+02:08:17,680 --> 02:08:43,400
+ich gehe jetzt auf, Dollar Bild Plattform, ja genau, so was brauche ich, ja genau, das
+
+710
+02:08:43,400 --> 02:08:49,200
+brauche ich, Dollar Bild Plattform, das muss ich mir jetzt noch da reinschreiben, weil
+
+711
+02:08:49,200 --> 02:09:14,280
+sonst weiß ich das bis zum nächsten Stream nicht mehr, Dollar Bild Plattform, ja also
+
+712
+02:09:14,280 --> 02:09:23,960
+quasi, ja jetzt muss ich hier gucken, das ist alles okay, so und jetzt muss ich dann
+
+713
+02:09:23,960 --> 02:09:45,080
+quasi hier gucken, nee Dollar Bild Plattform, kann man Bash Style, Bash Style If machen irgendwie,
+
+714
+02:09:45,080 --> 02:10:03,240
+geht so was, geht so was, keine Ahnung, das probiere ich jetzt nicht, das probiere ich
+
+715
+02:10:03,240 --> 02:10:23,800
+jetzt nicht aus, das geht nicht, ah, dann gucken wir uns das das nächste Mal an, hier
+
+716
+02:10:23,800 --> 02:10:38,160
+so weiter machen, ja weil dann kann ich das kopieren, unabhängig, also abhängig davon,
+
+717
+02:10:38,160 --> 02:10:43,800
+weil von der Idee her ich würde dann halt sowas machen, ich würde dann halt sowas machen
+
+718
+02:10:43,800 --> 02:10:55,760
+hier, Bild und dann hier halt das, keine Ahnung, irgendwie das da, Linux, so irgendwie so und
+
+719
+02:10:55,760 --> 02:11:08,680
+dann dahin kopieren, so und dann das andere machen und dann irgendwie sowas wie, ich weiß
+
+720
+02:11:08,680 --> 02:11:19,320
+halt nicht ob das funktioniert, ja irgendwie sowas in der Richtung, da muss ich mal schlau
+
+721
+02:11:19,320 --> 02:11:24,240
+machen wie das funktioniert, keine Ahnung, alles klar, so Leute jetzt aber wirklich Schluss,
+
+722
+02:11:24,240 --> 02:11:32,040
+warum nicht im Container bauen, muss ich da dort nicht im Container installieren, das
+
+723
+02:11:32,040 --> 02:11:46,480
+macht so eine unnötig groß und dann selbst, selbst brauche ich, dann brauche ich ja auch
+
+724
+02:11:46,480 --> 02:11:56,200
+das richtige Argument für das Bild im Container, ich muss ne angeben was ich kompilieren will
+
+725
+02:11:56,200 --> 02:12:12,240
+bei.NET für welche Zielplattform, kannst du das fertige Bild nicht, nee kann ich nicht,
+
+726
+02:12:12,240 --> 02:12:17,560
+weil soweit ich verstanden hab, macht den Bild der Home Assistant oder, oder ist das
+
+727
+02:12:17,560 --> 02:12:21,080
+jetzt nur in meinem Fall so, weil es ein lokales Addon ist und normalerweise zieht das sich
+
+728
+02:12:21,080 --> 02:12:25,560
+das aus irgendeiner Registrie, egal probier es nächstes Mal aus, bis dann machts gut
+
+729
+02:12:25,560 --> 02:12:26,060
+tschüss, tschüss.
+
