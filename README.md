@@ -31,7 +31,7 @@ python main.py
 
 Using the large whisper model (`-m large`) will result in the best speech to text but requires ~12GB+ GPU memory and takes about twice as long as the medium model (which is default).
 
-```bash
+```
 usage: main.py [-h] [-c CONFIG] [-o OUTPUT] [-m {medium,large}]
 
 options:
