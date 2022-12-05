@@ -73,9 +73,16 @@ def post_vods(vods) -> None:
 
 
 def main() -> None:
+    if args.post_all:
+        first_api = Api(config["apis"][0])
+        vods = [vod for vod in first_api.get_vods() if os.path.exists(
+            os.path.join(args.output, f"{vod['filename']}.srt"))]
+        post_vods(vods)
+        return
+
     vods = process_vods()
     if len(vods) == 0:
-        exit(0)
+        return
 
     print("Please transfer the transcripts to all your servers in the config before posting files to api.")
     reply = None
@@ -89,11 +96,13 @@ def main() -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-c', '--config', help='Path to config.json', default=os.path.join(pathlib.Path(__file__).parent.resolve(), "config.json"), type=pathlib.Path)
+        "-c", "--config", help="Path to config.json", default=os.path.join(pathlib.Path(__file__).parent.resolve(), "config.json"), type=pathlib.Path)
     parser.add_argument(
-        '-o', '--output', help='Directory where scripts will be saved', default=os.path.join(pathlib.Path(__file__).parent.resolve(), "transcripts"), type=pathlib.Path)
+        "-o", "--output", help="Directory where scripts will be saved", default=os.path.join(pathlib.Path(__file__).parent.resolve(), "transcripts"), type=pathlib.Path)
     parser.add_argument(
-        '-m', '--model', help='Whisper model. Medium is default, but large will result in better quality.', choices=["medium", "large"], default="medium", type=str)
+        "-m", "--model", help="Whisper model. Medium is default, but large will result in better quality.", choices=["medium", "large"], default="medium", type=str)
+    parser.add_argument(
+        "-p", "--post-all", help="Only post available files, no transcribing", action="store_true")
     args = parser.parse_args()
 
     if not os.path.exists(args.config):
