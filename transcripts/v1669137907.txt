@@ -1,0 +1,97 @@
+Okay, ich habe jetzt nicht Dresden, ich habe jetzt Frankfurt 2, nicht einfach nur Frankfurt
+2.
+Ich habe keinen selbstgebauten Router, außerdem war das doch ein Witz von ihm.
+Ich glaube es wissen alle hier, dass es nichts bringt.
+Okay, schauen wir mal, jetzt sind wir in Frankfurt 2, gucken ob das jetzt besser funktioniert.
+Also wenn es jetzt nicht funktioniert, gehe ich off.
+Jetzt muss ich mir Werbung in der Vorschau zu meinem eigenen Stream angucken, ganz toll.
+Dankeschön Twitch, keck wait.
+Gehts jetzt?
+Okay, vielleicht haben wir Glück und es tut jetzt, schauen wir mal.
+Na, fix, ich weiß nicht ob das fix ist, das hatten wir immer mal ein paar Phasen jetzt
+dazwischen.
+Also es gibt anscheinend ein Problem, wir machen jetzt einfach weiter, wir machen jetzt
+einfach weiter, das hat ja keinen Sinn.
+Also es gibt wohl ein Problem, wenn einer einen Jeep verwendet, US, okay, also wir brauchen
+noch einen neuen Account, jetzt gehts anscheinend, wir brauchen noch einen neuen Fake Account,
+jeepNA, also jeep, jeep, jeep, jeep, jeep, jeep, jeep, jeep, jeep, jeep, jeep, jeep,
+neuer Fake Account, North America, USA, 10 Minute Mails, ja ich brauch ne andere E-Mail
+Adresse, die da, die brauch ich jetzt unbedingt, E-Mail, nee, Register, mal gucken ob wir die
+Probleme von ihm nachstellen können, United States, Englisch, keqw, 0w, das ist meine
+E-Mail Adresse, next, next, next, Passwort, okay, next, wir agreeen allem, agreege, agreet
+ihr auch chat, ich hoffe wir sind uns einig, dass wir alle jetzt bei jeep agreeen, agreege
+time, export, wo ist, wo ist meine E-Mail Adresse, E-Mail Adresse, die hier, wir brauchen
+jetzt nicht mein Dodge Login, sondern mein jeep Login, Passwort, reply, so brand, also
+fiat region amerika ist richtig, allerdings brand ist jeep, okay, schauen wir mal was
+passiert, run, funktioniert, also ich kann das nicht nachvollziehen, dass es Probleme
+gibt beim Login, das ist halt das dumme, bei mir funktioniert's, region amerika jeep,
+so und er sagt er bekommt Probleme, er bekommt Probleme nach dem Login, also wenn er das hier
+macht, vehicle stage all, could not be deserialized to jason, kann das sein, dass eigentlich alles
+funktioniert, aber jeep irgendwelche nicht passbares jason zurückliefert, was ich jetzt
+nicht ausprobieren kann, weil ich keine Autos auf meinem account habe, also sprich, das ist
+natürlich jetzt doof, apurl, hier kackt das ab bei ihm, could not deserialize, jeep wird
+mit irgendwas antworten, was ist, was ist nicht, also was vehicle response, wie sieht
+das aus, user id, version, ja irgendwas hier wird da nicht serialisieren können, okay,
+da bleibt uns jetzt nichts anderes übrig, das können wir nicht so ohne weiteres fixen,
+weil ich nicht weiß woran es hängt, es könnte durchaus sein, dass die irgendwas hier zurückliefern,
+was hier nicht funktioniert, also was auch immer vielleicht ist, model, string oder
+sowas, das müssen wir mal gucken, das heißt uns bleibt jetzt eigentlich nichts anderes
+übrig, außer hier ein bisschen mehr zu loggen oder, was soll man sonst machen, also wir
+können die exception nochmal ausgeben, wobei die message haben wir ja schon, attp exception,
+die message können wir ausgeben und wir können eine sache probieren, den status code, wobei
+da sagt ihr schon, response could not deserialize, status, wir können eigentlich nur ein bisschen
+mehr debug machen, was anderes fällt mir jetzt an der stelle wirklich nicht ein, error, okay
+und jetzt hier response und dann muss er das mal ausprobieren und wir müssen gucken ob
+es funktioniert, was anderes fällt mir nämlich gerade echt nicht ein, so und response ist
+quasi call, ne ne response ist nicht gleich status code, response ist das was man im body
+drinne hat, body, ne, request body, funktioniert das jetzt, content oder ne, wie geht das,
+wie geht das, wollte ich nach request gucken, ne request body, available only if attp request
+message content is a floral content, was ich denn, ich will auch nicht request ich will
+only response, response message, content, ne, read, warte mal wie ging das denn jetzt nochmal,
+jetzt ersetzt attp response message, is success status message, what, read as string, alter
+können wir es noch komplizierter machen bitteschön, response, attp response message, content,
+okay ich seh schon das geht nicht anscheinend, wir haben response, ach hier, hier get string
+async, das wollen wir haben, ja, so die sache ist jetzt die, das geht doch bestimmt kaputt,
+wir müssen checken ob das null ist, wir müssen checken ob das null ist, ne ne das nicht,
+das ist, das ist nicht null, das hier müssen wir gucken ob es null ist, was soll der jetzt
+verschmerzen, das gucken ob es null ist und wir müssen gucken ob response vielleicht
+null ist, okay, so mehr als so ein bisschen debug message können wir wahrscheinlich gar
+nicht da jetzt, gar nicht tun, ne, also wir können aber mal, wir können aber mal versuchen
+zu testen ob, ob wir das nachstellen, also nicht nachstellen ob wir den Fehler, ob wir
+das testen können, dass zumindest die Error Ausgabe halbwegs, halbwegs sinnvoll ist und
+zwar wir faken das einfach mal, wir gehen jetzt mal hier in fiat client und hier braucht
+er ja den, ne, warte mal, wo sind wir, da fetch, hier braucht er ja api key, das benutzt er
+da auch schon, ich will dass der, ich will dass der fehl schlägt, okay wir gehen jetzt
+einfach nicht auf v4 accounts vehicles sondern auf vehicles und guck mal was passiert, weil
+das sollte ja auf jeden fall nicht funktionieren oder api key plus abc, ja das stimmt schon,
+error connecting to vehicles not found, okay das ist jetzt ein anderes problem, ja wir
+machen wirklich, das ist eine gute Idee chat, high iq chat, error connecting to, ähm,
+aber es geht, jetzt haben wir das Bild
+Das ist ein anderer Fehler, den wir jetzt kriegen.
+Response could not be deserialized to JSON.
+Okay, das können wir auch nachstellen.
+Das können wir auch nachstellen.
+Wir schreiben hier einfach irgendeinen Mist rein.
+Was weiß ich hier, das soll ein Bool sein, User ID.
+So, und dann sollte es zumindest an der Stelle doch auch abkacken.
+Auf, kack ab, please.
+Ah, ich hab kein Debugging an, deswegen ging das jetzt grad nicht.
+Ich sag doch hier Debug, das ist ja Blödsinn.
+Ich hab ja gar kein Debugging an und ich will auch gar kein Debugging zum Testen anhaben,
+weil dann seht ihr mein Passwort und sowas.
+Okay, mach mal einfach Info, sollte jetzt genauso funktionieren.
+Hier, alles klar, oh, das ist falsch.
+Response could not be deserialized to JSON, blabla.
+Okay, das bestärkt mich in der Annahme, dass die irgendeinen Mist responden, den es gar
+nicht gibt oder geben sollte.
+Ich hab irgendwas nicht erwartet, kann das sein?
+Kann man, meine blöde Frau hat gesagt, kann man null überhaupt erwarten?
+Nee, oder?
+Nee, nee, nee, also ich muss jetzt quasi erstmal checken, okay, okay, okay, das ist ja eklig.
+Kann ich, ich mein, ich könnte, ich könnte es halt einfach sagen, das geht wahrscheinlich.
+Okay, das ist, das ist im Prinzip das, was wir haben wollen, ja, das soll so sein, also
+der sagt den Error, den Status Code und die Response, ist schön, das können wir so lassen.
+Nice, wie sieht es eigentlich aus jetzt mit, no, no, no, no, no, no, no, no, no, no, no,
+no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no.
+Okay, dann geht es heute nicht weiter, ich hab keinen Bock auf den Motor von Scheiß.
+Leute, wir sehen uns im nächsten Stream, bis dann, see you!
