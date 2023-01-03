@@ -40,7 +40,7 @@ Head over to [pytorch.org](https://pytorch.org/get-started/locally/), select:
     </tr>
     <tr>
         <td>Compute Platform</td>
-        <td>CUDA \&lt;latest version\&gt;</td>
+        <td>CUDA &lt;latest version&gt;</td>
     </tr>
 </table>
 
