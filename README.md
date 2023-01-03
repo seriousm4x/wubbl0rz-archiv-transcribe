@@ -20,13 +20,29 @@ pip install -r requirements.txt
 ```
 
 Head over to [pytorch.org](https://pytorch.org/get-started/locally/), select:
-|||
-|-|-|
-|PyTorch Build|Preview (Nightly)|
-|Your OS|xxxx|
-|Package|Pip|
-|Language|Python|
-|Compute Platform|CUDA \<latest version\>|
+
+<table>
+    <tr>
+        <td>PyTorch Build</td>
+        <td>Preview (Nightly)</td>
+    </tr>
+    <tr>
+        <td>Your OS</td>
+        <td>xxxx</td>
+    </tr>
+    <tr>
+        <td>Package</td>
+        <td>Pip</td>
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Compute Platform</td>
+        <td>CUDA \&lt;latest version\&gt;</td>
+    </tr>
+</table>
 
 Then run the given command to install pytorch.
 
