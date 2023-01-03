@@ -8,7 +8,9 @@ CUDA is highly recommended for this! It can run it on CPU, but oh boi, you don't
 
 ```bash
 python -m venv venv
-source venv/bin/activate # venv/Scripts/activate - if you use windows
+
+source venv/bin/activate # linux, or...
+venv/Scripts/activate # for windows
 ```
 
 2. Install pip packages
@@ -17,9 +19,20 @@ source venv/bin/activate # venv/Scripts/activate - if you use windows
 pip install -r requirements.txt
 ```
 
-Head over to [pytorch.org](https://pytorch.org/get-started/locally/), select `Preview, OS, Pip, Python and latest CUDA version`. Then copy and paste the command to install pytorch.
+Head over to [pytorch.org](https://pytorch.org/get-started/locally/), select:
+|||
+|-|-|
+|PyTorch Build|Preview (Nightly)|
+|Your OS|xxxx|
+|Package|Pip|
+|Language|Python|
+|Compute Platform|CUDA \<latest version\>|
+
+Then run the given command to install pytorch.
 
 3. Copy `SAMPLE_config.json` to `config.json` and change the api endpoints.
+
+4. Make sure to have `ffmpeg` installed.
 
 ## Run
 
