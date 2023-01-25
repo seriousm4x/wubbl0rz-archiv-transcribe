@@ -2,7 +2,7 @@ import os
 
 import torch
 from whisper import load_model, transcribe
-from whisper.utils import write_srt, write_txt, write_vtt
+from whisper.utils import WriteSRT, WriteTXT, WriteVTT
 
 
 def select_whisper_device() -> str:
@@ -28,10 +28,10 @@ def run_whisper(aac: str, model: str, device: str, output: str) -> None:
     filename = os.path.splitext(aac)[0]
 
     with open(os.path.join(output, filename + ".txt"), "w", encoding="utf-8") as f:
-        write_txt(result["segments"], file=f)
+        WriteTXT(result["segments"], file=f)
 
     with open(os.path.join(output, filename + ".srt"), "w", encoding="utf-8") as f:
-        write_srt(result["segments"], file=f)
+        WriteSRT(result["segments"], file=f)
 
     with open(os.path.join(output, filename + ".vtt"), "w", encoding="utf-8") as f:
-        write_vtt(result["segments"], file=f)
+        WriteVTT(result["segments"], file=f)
