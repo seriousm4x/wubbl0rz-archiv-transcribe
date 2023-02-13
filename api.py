@@ -44,8 +44,12 @@ class Api:
                 continue
             newtext.append(line)
 
-        uuid = requests.get(
-            f"https://{self.api}/vods/?filename={filename}").json()["result"][0]["uuid"]
+        uuid_req = requests.get(
+            f"https://{self.api}/vods/?filename={filename}").json()
+        if uuid_req["error"] == True:
+            print("No vod for filename", filename)
+            return
+        uuid = uuid_req["result"][0]["uuid"]
 
         data = {
             "transcript": "\n".join(newtext)
