@@ -1,0 +1,3668 @@
+WEBVTT
+
+00:30.000 --> 00:58.560
+da bin ich leute heute ist es soweit kubornitis kubornitis stream
+
+00:58.560 --> 01:09.480
+oder oder auch kubanitis oder kubanitis oder kubanitis oder was auch immer
+
+01:15.480 --> 01:22.440
+wir sind cool wir sprechen ja auch ubuntu nicht ubuntu aus sondern jubantu also sagen wir natürlich
+
+01:22.440 --> 01:38.840
+auch eindeutig auch kubanitis kubanitis das wird übrigens heute als übrigens nicht sponsored bei
+
+01:38.840 --> 01:46.560
+hetzen oder so wir machen heute die sachen noch lokal und es wird erst mal auch nur horizontal
+
+01:46.560 --> 01:52.240
+skaliert heute ich weiß ich weiß das ist eigentlich nicht das performer mindset wie heißt das
+
+01:52.240 --> 01:58.920
+doch performer mindset oder wie heißt das shit high performer halt das nicht das high performer
+
+01:58.920 --> 02:11.080
+mindset es wird heute auch nicht der einzige stream sein dazu weil da gibt es einiges das
+
+02:11.080 --> 02:17.360
+ist eine fass ohne boden und es ist jetzt auch nicht so als bin ich zum aktuellen zeitpunkt
+
+02:17.360 --> 02:24.960
+der krasseste kubanitis experte den es auf diesem planeten gibt ich habe damit schon was gemacht ich
+
+02:24.960 --> 02:30.080
+habe die letzten tage auch so ein bisschen noch um probiert und ich habe schon mal die deployment
+
+02:30.080 --> 02:37.600
+jammel gemacht und dann was zum laufen gebracht und also ganz komplett ahnungslos bin ich nicht
+
+02:37.600 --> 02:47.600
+aber ich bin jetzt nicht der der der krasseste profi ever jetzt jetzt aber was machen wir
+
+02:47.600 --> 02:57.800
+ein bisschen ahnung haben verstehe nicht was ihr meint mit skalieren das wirst du dann im laufe
+
+02:57.800 --> 03:04.840
+des films sehen was mit skalieren gemeint ist da wird hyperscaled wird da da kann man
+
+03:04.840 --> 03:19.120
+richtig schöne tolle cloud buzzwords draus machen die hyperscalenden cloud native container
+
+03:19.120 --> 03:31.640
+infrastructure s keine ahnung ja fast jeden tag wenn ich nicht streben abends
+
+03:31.640 --> 03:39.280
+mit den mit den gleichen leuten wieder näher ich bin auch am spiel ich habe gesehen du bist
+
+03:39.280 --> 03:48.480
+nicht über level 11 rausgekommen nicht so ging nicht so weit gachi roll war aber während
+
+03:48.480 --> 03:53.880
+der stream anläuft leute ich mache mal meine vm an wobei wir heute beim cool aussprechen
+
+03:53.880 --> 04:00.760
+sind ich mache meine vm an und ich mache mal ein update bevor wir jetzt hier großen großen
+
+04:00.760 --> 04:05.760
+kubernetes stellt man ja also leute wir gucken uns das wir gucken uns das alles an also das wird
+
+04:05.760 --> 04:10.640
+jetzt nicht also wenn ihr jetzt erwartet wir machen jetzt hier kubernetes tutorial wie sagt
+
+04:10.640 --> 04:18.640
+man so schön from zero to hero wenn man cool sein will dann nennt man das sowas das machen
+
+04:18.640 --> 04:22.320
+wir nicht also ich erkläre euch ein bisschen was und ich zeige euch auch ein bisschen was und wir
+
+04:22.320 --> 04:26.840
+probieren ein paar sachen aus aber die sinn dieser streams ist ja auch einmal dass ich euch was
+
+04:26.840 --> 04:33.680
+zeigen kann und auch dass ich selbst besser kann das ist ja immer so eins eins ich meine ich mache
+
+04:33.680 --> 04:38.720
+meistens nicht sachen wo ich komplett planlos bin aber wenn man die dann noch mal erklären
+
+04:38.720 --> 04:42.560
+muss dann ist natürlich immer ein bisschen schwieriger versteht selbst besser bei patrick
+
+04:42.560 --> 04:47.080
+horizontal skalieren ist doch mehrere maschinen hochfahren können zum skalieren oder vertikal
+
+04:47.080 --> 04:53.880
+ist mehrere leitungen freigeben ich bin mir ehrlich gesagt gar nicht so sicher ich glaube
+
+04:53.880 --> 05:01.400
+horizontal skalieren ist mehrere mehrere potts starten und vertikal skalieren ist mehrere notes
+
+05:01.400 --> 05:12.240
+hinzufügen nee keine ahnung bin ich bin ich so im hyper hyper scaler high performance mindset
+
+05:12.240 --> 05:28.400
+ach du hast recht genau horizontal ja ja ne ne stimmt doch mehr leistung mehr leistung
+
+05:28.400 --> 05:33.280
+ist ja im prinzip mehrere notes hinzufügen wobei du auch du musst gleichzeitig du musst
+
+05:33.280 --> 05:40.080
+gleichzeitig ein bisschen vertikal skalieren dass du besser horizontal skalieren kannst oder
+
+05:40.080 --> 05:44.640
+glaube da müssen wir mal eben business coach fragen der uns das erklärt wie das wie das
+
+05:44.640 --> 05:57.560
+richtig funktioniert wir skalieren prinzipiell nur diagonal korrekt das ist richtig das haben
+
+05:57.560 --> 06:02.520
+wir schon vor eine weile festgestellt dass für uns diagonal skalieren das beste ist dann musst
+
+06:02.520 --> 06:08.720
+du dich nicht mit mehr mit so komischen nupp kack abgeben wie ob das jetzt vertikal oder
+
+06:08.720 --> 06:19.000
+horizontal oder y y axel x axel z axel wir wir machen wir skalieren diagonal dreidimensional
+
+06:19.000 --> 06:35.400
+also in alle drei dimensionen wird skaliert du brauchst mindestens fünf kubernetes cluster
+
+06:35.400 --> 06:44.400
+daheim dass du dass du dem kerle auf youtube konkurrenz machen kannst wir skalieren sogar
+
+06:44.400 --> 06:48.440
+runter das ist richtig wir skalieren tatsächlich heute auch runter wir skalieren mal container
+
+06:48.440 --> 06:57.160
+von 8 auf 4 zurück und so was so ich war mal kurz bevor es richtig los geht aber kurz den
+
+06:57.160 --> 07:03.720
+ganzen shit hier zu das haben wir hier noch swelt zeug alles weg ich war mal kurz ein update und
+
+07:03.720 --> 07:11.520
+dann starte ich mal die vm neu dass es auch was wird hier dass wir top aktuelles kubernetes
+
+07:11.520 --> 07:21.800
+machen können orthogonales skalierung was kommt man was kommt dann als als nächstes
+
+07:21.800 --> 07:34.280
+parallelogramm skalierung relativistische skalierung hätte ich noch zu bieten dann
+
+07:34.280 --> 07:41.040
+skalieren wir nicht nur in alle raum dimensionen sondern auch zeitlich was was haltet denn davon
+
+07:41.040 --> 07:48.520
+dass wer kann das bild weg was wird moment was so warum kompiliert er gerade in den shit was
+
+07:48.520 --> 07:57.960
+macht er da 7 zipp ich habe was viel ich zeige euch mal kurz was bevor wir kubernetes anfangen
+
+07:57.960 --> 08:03.920
+ich habe was was ein cooles projekt auf github gefunden wenn man keinen bock auf 7 7 zipp
+
+08:03.920 --> 08:15.960
+gedöns hat unter linux denn sich pzip das ist das macht alle möglichen formate unter anderem
+
+08:15.960 --> 08:23.920
+auch 7 zipp und und es hat ein gui dabei einfach 8 zipp nehmen ja das ist schon ganz schön 6 hat
+
+08:23.920 --> 08:35.760
+ich habe ich ok leute ich ich muss mal kurz was zum ich muss mal kurz 7 zipp entfernen
+
+08:35.760 --> 08:46.280
+so und dann zeige ich euch mal was wir heute vor haben beziehungsweise was ansteht das ist vielleicht
+
+08:46.280 --> 08:57.840
+nicht das alte 7 zipp näher so alt ist es nicht ist es last week geabdeut updated oder doch was
+
+08:57.840 --> 09:06.320
+sind die letzte version 9.1 ist doch gut alles also gar für die ganzen qt qt chats chatter
+
+09:06.320 --> 09:19.560
+also ich wollte noch ein update machen gut lassen wir den erst mal updateen also um was
+
+09:19.560 --> 09:28.800
+geht es heute ich versuche jetzt mal so ganz grob mal auszuholen ja erinnert sich noch
+
+09:28.800 --> 09:35.400
+einer an zipp drives zipp drives die hat mit zipp an sicher nichts zu tun das war eher so
+
+09:35.400 --> 09:42.000
+halt das zipp so weiß gar nicht warum die so heißen vom geräusche oder so zipp drive ja
+
+09:42.000 --> 09:51.280
+jomi gar zipp drive da wurde nix gezippt immer eine 100 mb diskette war damals schon richtig
+
+09:51.280 --> 09:57.760
+krasser shit wenn die normalen disketten hatten wie viel und 1,44 mb oder 1,2 ich glaube es gab
+
+09:57.760 --> 10:06.880
+drei disketten 800k 1,2 und 1,44 oder so was gär war es gab war das nicht so nee 3,4 gab es
+
+10:06.880 --> 10:12.640
+nicht das wäre gut vielleicht später mal aber ich kenne also die 1,44 waren glaube ich die verbreitetsten
+
+10:12.640 --> 10:19.240
+wisst ihr dass ich mich da dass ich mir damals wieder krasse heckermann vorgekommen bin ich
+
+10:19.240 --> 10:26.800
+habe alte disketten vom amiga genommen das waren ja auch so floppy floppy disk floppy disk und dann
+
+10:26.800 --> 10:31.560
+habe ich die in meinen pc laufwerk reingesteckt und dort unter windows rechts drauf geklickt und
+
+10:31.560 --> 10:36.640
+gesagt formatieren und dann hatte ich auf einmal ganz viele leere disketten weil ich die amiga
+
+10:36.640 --> 10:42.680
+dinger recycelt habe und da habe ich mich richtig geil gesagt mann bin ich bin ich geiler hier
+
+10:42.680 --> 10:50.960
+heckermann ich habe quasi disketten aus dem nichts erschaffen dabei waren das ja ganz normale floppy
+
+10:50.960 --> 10:57.280
+das halt für den amiga das habe ich nicht habe ich damals nicht gecheckt also ja amiga gescaled
+
+10:57.280 --> 11:12.040
+genau so update ist durch update ist durch ich glaube es war ein kernel update dabei
+
+11:12.040 --> 11:20.960
+deswegen reboote ich mal 5x dankeschön für den sub ich habe oben übrigens glaube ich noch ein
+
+11:20.960 --> 11:31.120
+übersehen stripes hat wieder subscrib poggers danke für die subs leute so dann starten wir
+
+11:31.120 --> 11:47.520
+mal das verdammte spiel weg damit firefox starten terminal starten und jetzt kann kubernetes
+
+11:47.520 --> 11:59.640
+kubernetes kubernetes weiter kein bock auf krasse giga chat aussprache jetzt können wir damit
+
+11:59.640 --> 12:09.280
+anfangen das ketten war das stimmt das ketten war schon cool dass sie der klick zu dieses klick
+
+12:09.280 --> 12:21.360
+dieses hatte schon was nutzt du zsh ja mache ich und wenn ja welches theme ist das das ist gar
+
+12:21.360 --> 12:30.640
+kein theme das ist also du meinst jetzt mein termin oder wirklich hier den prompt von der
+
+12:30.640 --> 12:40.800
+shell ich vermute mal weil du zell hast was meinst du den prompt also der prompt ist starship allerdings
+
+12:40.800 --> 12:48.240
+ein custom meister ein custom meister ein custom meister starship prompt wenn du den prompt sehen
+
+12:48.240 --> 12:57.240
+willst gehst du hierhin auf wubblers dot files config starship und da siehst du das ich habe
+
+12:57.240 --> 13:05.040
+den base prompt genommen von starship du musst übrigens noch sagen ob du wirklich shell oder
+
+13:05.040 --> 13:11.000
+terminal meinst weil terminal ist anders so und ich habe dieses preset genommen von starship
+
+13:11.000 --> 13:22.800
+pastel powerline was wiederum selbst auf m365 princess basiert das habe ich genommen und
+
+13:22.800 --> 13:27.240
+habe ein paar custom ist sachen angepasst ja zum beispiel habe ich die schrift gemacht wie
+
+13:27.240 --> 13:35.080
+mein hintergrund ich habe hinzugefügt dass wenn man in ein dotnet projekt geht die versionen da
+
+13:35.080 --> 13:39.640
+stehen und so was ich habe es auch zweizeilig gemacht weil ich zweizeilige prompt persönlich
+
+13:39.640 --> 13:45.800
+viel besser finde als einzeilige prompt ja aber es ist etwas ist das hier aber angepasst und du
+
+13:45.800 --> 13:58.400
+kannst findest das hier ach du kacke das ist wild ja das ist das ist aber wahrscheinlich noch
+
+13:58.400 --> 14:07.800
+neuer oder fast so alt wie unsere kobold geschichten die bei uns laufen wo ich mich
+
+14:07.800 --> 14:25.920
+auch immer frage wo finden die immer noch leute die den kram können wir zeit wird zeit für linux
+
+14:25.920 --> 14:31.720
+upgrade und dann das ganze einfach in free doors laufen lassen oder oder oder noch besser
+
+14:31.720 --> 14:44.320
+wein im docker container im container weiß gar ob das gescheit funktioniert ja warum eigentlich
+
+14:44.320 --> 14:49.160
+nicht ja aber das will man ja wahrscheinlich nicht weil man so altes zeug hat dass es stabil
+
+14:49.160 --> 14:56.680
+läuft ob das mit wein dann unter den noch so gut ist das weiß ich ja nicht also was machen wir
+
+14:56.680 --> 15:07.800
+heute wo fange ich denn jetzt am besten an leute wo fangen wir am besten an
+
+15:07.800 --> 15:18.960
+serverschrank 24 wieso klingt auch ganz normal anbieter hört sich halt bisschen old school an
+
+15:18.960 --> 15:48.720
+aber warum warum nicht klickt auch klickt auch ganz normal
+
+15:48.720 --> 15:54.640
+erst mal ob kubernetes native stellt oder mini cube zum ausprobieren reicht das lokal voll und
+
+15:54.640 --> 16:00.800
+ganz ach ja ich weiß wo ich anfangen ich weiß wo ich anfangen und zwar das bis heute nicht der
+
+16:00.800 --> 16:08.680
+einzige kubernetes stream und zwar wir machen da mehrere ich weiß nicht inwieweit da bin ich
+
+16:08.680 --> 16:13.160
+wieder unschuldig weiß ich inwieweit das alles so aufeinander aufbauen wird wahrscheinlich
+
+16:13.160 --> 16:20.000
+kein raspberry pi cluster wahrscheinlich schon in gewisser weise wir machen aber nicht immer so
+
+16:20.000 --> 16:23.960
+exakt die gleichen beispiel und zwar also wir brauchen mehrere wir brauchen mehrere streams
+
+16:23.960 --> 16:27.600
+jena es hängt auch ein bisschen davon ab wie weit wir den einzelnen streams kommen aber es
+
+16:27.600 --> 16:37.440
+wird auf jeden fall auch aus praktischen gründen mehrere streams geben das erste ist wir setzen
+
+16:37.440 --> 16:41.040
+uns damit lokal mal ein bisschen auseinander wir müssen ja nicht gleich in die cloud in der
+
+16:41.040 --> 16:50.200
+cloud irgendwas bauen das nächste ist wir gucken uns google cloud kubernetes an warum
+
+16:50.200 --> 16:55.440
+gucken uns google cloud kubernetes an weil dort wo ich am ersten april anfangen zu arbeiten die
+
+16:55.440 --> 16:59.560
+alle google cloud verwenden ich weiß nicht warum das sind die einzigen die ich kenne die google
+
+16:59.560 --> 17:07.640
+cloud benutzen aktuell wo ich bin ist es ist es quasi fast nur ausschließlich er ich habe
+
+17:07.640 --> 17:12.920
+schon ein bisschen was mit aws nee ich fasse nicht mit aws schon ein bisschen was privat gemacht mit
+
+17:12.920 --> 17:18.720
+google und mit aws würde ich sagen aber abstand am wenigsten aber ich kenne außerdem niemand der
+
+17:18.720 --> 17:23.160
+im professionellen umfeld google cloud verwendet gibt es allerdings genug nur weil ich keine kenne
+
+17:23.160 --> 17:29.960
+heißt das nix weil ganz einfach ich kenne nicht so viele leden von innen die paar handvoll da die
+
+17:29.960 --> 17:33.720
+ich gesehen habe die haben keine google cloud verwendet gut es heißt ja nichts erfolgreich
+
+17:33.720 --> 17:39.960
+ist es trotzdem und ich habe mir ein paar videos angeguckt und angeblich ist das dieses autopilot
+
+17:39.960 --> 17:47.240
+kubernetes management feature von der google cloud wohl für diesen anwendungszweck am besten dann
+
+17:47.240 --> 17:51.640
+betreibst du nämlich gar kein kubernetes cluster mehr selbst in der google cloud sondern kannst
+
+17:51.640 --> 17:56.760
+direkt pots deployen und die scaling und managen das für dich aber natürlich machen wir damit
+
+17:56.760 --> 18:01.440
+nicht fangen wir damit nicht gleich an weil das ist ja langweilig müssen erstmal ein bisschen so
+
+18:01.440 --> 18:06.760
+die grundlagen uns angucken dass man weiß wie das funktioniert weil nur was man mal von hand
+
+18:06.760 --> 18:10.320
+zumindest ich so ein bisschen selbst angeguckt hat blickt man dann auch durch was man besser
+
+18:10.320 --> 18:24.880
+sein lassen sollte ja deswegen gibt es mehrere streams wir machen wir wir gucken uns jetzt erst
+
+18:24.880 --> 18:34.080
+mal wir gucken uns jetzt erst mal das ganze lokal an da machen wir mal so ein setup aus irgendwie
+
+18:34.080 --> 18:43.960
+so einem 5 5 pots als application server mit einem load balancer und einem ssl zertifikat
+
+18:43.960 --> 18:55.080
+oder so mit ingress controller davor wir holen uns auch echte let's encrypt zertifikate über
+
+18:55.080 --> 19:12.800
+let's encrypt also echte echte ssl zertifikate über let's encrypt mit zert manager und was
+
+19:12.800 --> 19:20.480
+wollen wir sonst noch wir machen den lokalen registry für container images und konfigurieren
+
+19:20.480 --> 19:27.040
+halt das deployment und den service gucken uns das alles mal ein bisschen an ist der moogame
+
+19:27.040 --> 19:35.840
+dankeschön für den snap was hältst du von IT zertifikat kommt ein bisschen auf die zertifikate
+
+19:35.840 --> 19:44.480
+an aber allgemein gesagt nicht ganz so viel ja ich würde sagen wir fangen mal relativ easy an
+
+19:44.480 --> 19:52.080
+achja und übrigens ich habe schon ein bisschen was vorbereitet wo ich abgucken kann also das
+
+19:52.080 --> 19:56.600
+ist jetzt nicht fix und fertig aber ich habe mir so ein paar kleine snippets raus kopiert falls ich
+
+19:56.600 --> 20:00.960
+jetzt im stream nicht direkt drauf komme weil alles auf den kopf weiß ich da auch nicht was hältst
+
+20:00.960 --> 20:07.600
+du von lpix also das was ich bisher gesehen habe sah sehr nach man pages auswendig lernen aus aber
+
+20:07.600 --> 20:13.800
+kann auch kann mich auch täuschen wir verwenden kein windows server doch klar
+
+20:13.800 --> 20:24.800
+ich mache immer windows server windows server ist eindeutig die überlegene technologie deswegen
+
+20:24.800 --> 20:32.400
+läuft ja auch 90 prozent des internets auf linux guck hier ja was sonst verstehe ich auch die
+
+20:32.400 --> 20:43.760
+frage gar nicht was denn sonst gibt es noch was anderes windows server und powershell und iis
+
+20:43.760 --> 20:59.720
+auf final auf was auf final ist gerade irgendwas ich habe überhaupt nichts mitgekriegt cs go ist
+
+20:59.720 --> 21:13.520
+gerade glaube ich also wenn die windows server skalieren bist du nicht arm wenn die oracle
+
+21:13.520 --> 21:20.360
+datenbanken skalieren dann bist du arm wobei ne ne das stimmt nicht wir können es anders machen
+
+21:20.360 --> 21:25.000
+wenn die windows server skalieren bist du arm wenn die oracle datenbanken skalieren da kannst
+
+21:25.000 --> 21:51.760
+du gleich insolvenz anmelden
+
+21:51.760 --> 21:57.200
+das war das problem dass frisch arsch nicht rein copy pasten konntest in der vm ne das problem habe
+
+21:57.200 --> 22:02.280
+ich nicht weil ich weiß was ich machen muss um das problem zu fixen jetzt ist nur die frage
+
+22:02.280 --> 22:13.080
+möchtest du auch wissen wie man das problem fixt was muss man denn machen also die
+
+22:13.080 --> 22:19.840
+grundvoraussetzung ist schon mal prime zu prime zu bleiben das ist schon mal essentiell und dann
+
+22:19.840 --> 22:26.160
+zeige ich dir auch dass du gtk mm oder wie das heißt installieren muss das da musst du installieren
+
+22:26.160 --> 22:41.640
+und dann funktioniert probier mal aus das musst du installieren und dann startet die kiste am
+
+22:41.640 --> 22:48.320
+besten mal neu oder oder den system system d service neu starten den hast ja bestimmt
+
+22:48.320 --> 22:52.400
+e gestartet und so was aber das ding musste installieren diese library ist pflicht sonst
+
+22:52.400 --> 22:56.800
+funktioniert copy und paste nicht warum das keine dependency ist und warum das nirgends wo steht ich
+
+22:56.800 --> 23:06.120
+habe keine ahnung aber du brauchst diese library sonst geht kommen paste nicht gtk mm3 warum weiß
+
+23:06.120 --> 23:14.960
+nur vm wer so also wir uns jetzt mal hier das kubernetes kubernetes vielleicht aber was sagen
+
+23:14.960 --> 23:20.960
+die denn was sagen die denn selbst ja das das trifft es eigentlich ganz gut ich wollte sagen
+
+23:20.960 --> 23:28.240
+kubernetes ist ein tool zur container orchestrierung aber das sagen sie ja selbst also für alle was
+
+23:28.240 --> 23:35.840
+genau wird heute mit kubernetes gemacht also erst mal erkläre ich kurz was kubernetes ist kubernetes
+
+23:35.840 --> 23:50.880
+ist quasi so was wie docker nur geklastert und mit wie wir klären ist am besten es ist es ist
+
+23:50.880 --> 23:56.720
+so was wie docker nur verteilt über mehrere server ich glaube das kann man eigentlich am besten
+
+23:56.720 --> 24:03.280
+glaube das umschreibt eigentlich am ehesten ne du kannst doch einen server nehmen du kannst
+
+24:03.280 --> 24:10.360
+doch ein server nehmen aber für ein server macht es halt wenig sinn hoch verfügbares docker ja ich
+
+24:10.360 --> 24:15.920
+glaube ich glaube dass das trifft eigentlich ganz gut sie sagen ja selbst sie sind ein
+
+24:15.920 --> 24:23.400
+ein orchestrierungstool für container infrastruktur also du kannst damit deine container in deine
+
+24:23.400 --> 24:30.520
+container verwalten du kannst damit zum beispiel einstellen dass du für einen ich nenne es mal
+
+24:30.520 --> 24:36.960
+service auch wenn die kubernetes ein service was anderes ist das wird eine pence champ-reihe nur
+
+24:36.960 --> 24:41.840
+wieso so schlimm so schlimm ist es auch das einzige problem an kubernetes ist so zumindest
+
+24:41.840 --> 24:47.360
+wie ich das sehe also was vom lernen her dass es ein fass ohne boden ist es gibt 30 milliarden
+
+24:47.360 --> 24:53.480
+tools fünf tools für die gleichen sachen jede woche spawnet irgendein neues tool die einfachsten
+
+24:53.480 --> 25:00.040
+sachen werden teilweise super krass verkompliziert aber insgesamt ist es an sich an sich ist das doch
+
+25:00.040 --> 25:08.200
+eine coole sache ja also was so interessiert also was so damit zum beispiel machen kann so
+
+25:08.200 --> 25:18.120
+mal ganz simpler use case ja du hast drei server und möchtest also du willst du willst web service
+
+25:18.120 --> 25:27.000
+anbieten willst web service anbieten und du willst dass das ganze möglichst verfügbar ist und du
+
+25:27.000 --> 25:32.560
+willst dass das ding im laufenden betrieb geupdatet werden kann und du willst dass das auch je nachdem
+
+25:32.560 --> 25:39.920
+wie viel user gerade drauf sind ordentlich performt oder eben auch skaliert wie man so schön nennt
+
+25:39.920 --> 25:44.400
+dann ist kubernetes genau das richtige weil du kannst kubernetes nehmen stellst dir verschiedene
+
+25:44.400 --> 25:51.080
+notes hin heißt das bei kubernetes also verschiedene server notes sind bei kubernetes in der regel die
+
+25:51.080 --> 25:56.960
+unterschiedlichen server in dem cluster also cluster members sind quasi notes bei kubernetes das muss
+
+25:56.960 --> 26:04.400
+ich zwangsläufig eine hardware kiste sein das können auch vor ems sein der neueste schrei ist
+
+26:04.400 --> 26:10.240
+so was wie kubernetes auf firecracker vms wenn man das jetzt mal hört und jemand weiß nicht was
+
+26:10.240 --> 26:16.520
+es ist er denkt jetzt erstmal was zum teufel will er von uns das machen wir heute nicht ich weiß nicht
+
+26:16.520 --> 26:21.560
+ob wir es überhaupt im stream machen ist auch was ganz ganz ab abgedrehtes das sind minimal vms
+
+26:21.560 --> 26:27.000
+firecracker das ist glaube ich von glaube das ist von amazon ich bin mir nicht ganz sicher ich glaube
+
+26:27.000 --> 26:40.520
+von amazon so eine minimal vm kubernetes selbst ist für container workload und der kubernetes
+
+26:40.520 --> 26:45.960
+cluster besteht aus unterschiedlichen notes in der regel ist es halt ein server jeder note das
+
+26:45.960 --> 26:50.600
+kann natürlich auch ein server sein worauf dann mehrere vms sind kann es kann es quasi auch sein
+
+26:50.600 --> 26:56.280
+kubernetes cluster in mehreren vms die auf einem esk server laufen betreiben was auch immer oder
+
+26:56.280 --> 27:01.560
+theoretisch kannst du das ding auch über mehrere cloud anbieter spannen wie dem auch sein da bist
+
+27:01.560 --> 27:07.880
+sie sind ja deine kreativität keine grenzen gesetzt wieder das ganze aufbauen willst zumindest hast
+
+27:07.880 --> 27:13.520
+du dann den vorteil dass du so schöne sachen machen kannst wie es gibt ein das machen wir
+
+27:13.520 --> 27:18.720
+übrigens heute wenn wir so weit kommen du hast eine neue anwendungsversion und möchtest jetzt
+
+27:18.720 --> 27:27.040
+wirst deine anwendung läuft zur zeit auf version 1 und du willst jetzt auf version 2 und dann kannst
+
+27:27.040 --> 27:32.320
+du ein config file editieren du kannst darüber kommandos teile machen aber in der regel macht
+
+27:32.320 --> 27:38.600
+man über config jammels dann drehst du ein ich will jetzt die version 2 von diesem moment
+
+27:38.600 --> 27:59.240
+schicko ist an der tür schicko hat mich abgelenkt also wenn du keine ahnung davon hast und wenn
+
+27:59.240 --> 28:02.960
+euer online shop so funktioniert dass nur ein service ist da brauchst wahrscheinlich kein kubernetes
+
+28:02.960 --> 28:07.720
+cluster wie gesagt man muss es nicht man muss es auch nicht übertreiben manchmal tut es ohne
+
+28:07.720 --> 28:13.960
+probleme 123 vms und reverse proxy für ssl davor also es muss nicht sein da ist schon da
+
+28:13.960 --> 28:18.520
+ist schon ihr werdet wahrscheinlich so im lauf des streams ein bisschen an an klingen sehen da
+
+28:18.520 --> 28:23.960
+ist schon auch wenn es erstmal easy aussieht eine gehörige portion komplexität drinne gar nicht
+
+28:23.960 --> 28:29.440
+so sehr in den basis rein in basis funktion von kubernetes sondern das gesamte ökosystem drum
+
+28:29.440 --> 28:34.000
+herum was es gibt ja wo bin ich jetzt stehen geblieben genau also du willst du hast ein
+
+28:34.000 --> 28:37.880
+service laufen du willst den service jetzt abqueren wessen von version 1 auf version 2
+
+28:37.880 --> 28:43.760
+normalerweise wird es dann auf dich und vm einloggen neu pullen vm den service wieder
+
+28:43.760 --> 28:48.080
+starten was auch immer mit kubernetes geht es relativ einfach du gehst in den jammelfall machen
+
+28:48.080 --> 28:53.040
+wir heute auch alles jammelfall trägst die neue container image version ein das image bauste
+
+28:53.040 --> 28:58.840
+vorher irgendwo entweder lokal mit docker oder über jenkins oder github actions über irgendwelche
+
+28:58.840 --> 29:06.040
+continues pipeline geschiss bauste dann image und pusht das in registry rein und dann trägst du
+
+29:06.040 --> 29:10.320
+dann im jammelfall ein ich will jetzt auf version 2 dann applies du diese konfig machen wir jetzt
+
+29:10.320 --> 29:17.960
+gleich alles dann applies diese konfig auf dein kubernetes cluster und es skaliert dann automatisch
+
+29:17.960 --> 29:29.040
+rulli also der reihe nach deine einzelnen container hoch also nene nicht skaliert plötzlich der
+
+29:29.040 --> 29:35.240
+reihe nach deine einzelnen container ja richtig stripes genau so dass der service nicht ausfällt
+
+29:35.240 --> 29:47.600
+was ist der unterschied zwischen k8s und k3s ich glaube das eine ist irgendwie super
+
+29:47.600 --> 29:53.960
+leichtgewichtiges kubernetes gibt es ein paar sachen es gibt ein paar sachen wenn man das
+
+29:53.960 --> 29:58.640
+ist zum beispiel was was du eher auf dem raspberry pi laufen lassen kann kannst das ist aber glaube
+
+29:58.640 --> 30:03.200
+ich soweit ich weiß 100 prozent api kompatibel zum großen kubernetes es gibt verschiedenste
+
+30:03.200 --> 30:12.760
+sachen für minimal kubernetes es gibt es gibt das originale kubernetes oftmals mit k8s abgekürzt
+
+30:12.760 --> 30:20.640
+gibt 3 ks gibt auch 0 ks es gibt kein es gibt mini cube es gibt alle möglichen dinger total
+
+30:20.640 --> 30:30.600
+viel sachen mini schiff feiercube was auch immer alles wir nehmen heute mini cube wir nehmen heute
+
+30:30.600 --> 30:36.280
+mini cube weil es am einfachsten ist für dich mit mini cube lokal ein bisschen rum zu basteln so
+
+30:36.280 --> 30:46.540
+mini cube ist nahezu 100 prozent api kompatibel mit nahezu 100 prozent es kann halt einige sachen
+
+30:46.540 --> 30:52.680
+nicht ich kann euch aber nicht aus dem kopf sagen was es aber zum größten teil api kompatibel mit
+
+30:52.680 --> 30:57.520
+kubernetes und du kannst auch die ganz normalen kubernetes tools nehmen für für mini cube um
+
+30:57.520 --> 31:06.960
+damit lokal was auszuprobieren ist halt ist halt hauptsächlich gedacht für auf einer kiste lernen
+
+31:06.960 --> 31:16.440
+und üben mini cube wir machen jetzt mal ein eigenes wir machen jetzt mal ein eigenes verzeichnis
+
+31:16.440 --> 31:25.320
+dafür repos mk dir nennen wir es einfach mal sogar du brauchst noch cube ctl ne brauche ich nicht
+
+31:25.320 --> 31:40.560
+weil guck mal da ist es das ist mittlerweile bei mini cube dabei also was heißt dabei der
+
+31:40.560 --> 31:47.400
+lädt es im hintergrund runter aber trotzdem ich installiere es trotzdem weil das braucht man
+
+31:47.400 --> 31:58.520
+normalerweise hast du schon recht planer mission lernen ja also wie gesagt meine streams sind
+
+31:58.520 --> 32:03.360
+ja immer so so ein ding also ich mache meistens sachen wo ich selbst ein bisschen schon von ahnung
+
+32:03.360 --> 32:08.680
+habe aber nicht so krass den durchblick und dadurch dass ich das euch zeige und ein bisschen
+
+32:08.680 --> 32:21.600
+was erklären muss lernt man selbst besser das ist immer ganz gute kombination so sieht es aus jetzt
+
+32:21.600 --> 32:28.240
+können wir anfangen es ist relativ easy zu starten mit mini cube und zwar ihr braucht keine vm ihr
+
+32:28.240 --> 32:33.520
+braucht kein kubernetes installation und nix ihr sagt einfach mini cube start und jetzt macht ihr
+
+32:33.520 --> 32:44.080
+eine sache falls ihr das auch ausprobieren wollt ja macht ihr eine sache man muss mal kurz nachgucken
+
+32:44.080 --> 32:56.560
+insecure oder mir ist das insecure registry macht jetzt mini cube start ins insecure registry werdet
+
+32:56.560 --> 33:09.720
+gleich sehen warum so jetzt leider kopane das geht uns runter und direkt best practice ist lokal
+
+33:09.720 --> 33:27.600
+es ist lokal übungs practice chat ihr werdet gedisst gerade im chat also quasi aber du bist
+
+33:27.600 --> 33:33.520
+auch teil des chats kommt eigentlich ein video zu dem mobilfunk anbieter suchen was ich euch da
+
+33:33.520 --> 33:48.120
+erzählen soll so ach ja es gibt verschiedene nummer so der vollständigkeit vollständigkeit
+
+33:48.120 --> 33:56.400
+halber erwähnt es gibt verschiedene möglichkeiten mini cube zu betreiben die standard variante ist
+
+33:56.400 --> 34:05.960
+über irgendeinen virtualisierungs provider also meistens kvm also wenn ihr mini cube startet dann
+
+34:05.960 --> 34:14.040
+legt es normalerweise unter der haupe neue vm an wenn man keine vm anlegen möchte kann man das
+
+34:14.040 --> 34:19.960
+ganze auch selbst als container in docker laufen lassen ist ja kein ding ich mein kubernetes ist
+
+34:19.960 --> 34:25.640
+ja letztendlich tool zur container verwaltung warum sollte man das nicht auch selbst in dem
+
+34:25.640 --> 34:33.400
+container laufen lassen können also ihr seht ja hier ich habe keine vm install ich habe hier
+
+34:33.400 --> 34:38.160
+keine virtualisierungsmöglichkeiten in der vm drinnen das heißt er lässt jetzt das back end
+
+34:38.160 --> 34:44.080
+einfach in einem eigenen docker container laufen also es ist jetzt quasi kubernetes in docker
+
+34:44.080 --> 34:49.080
+womit man eine weitere container verwalten gab es ist egal letztendlich muss man sich damit nicht
+
+34:49.080 --> 34:53.600
+beschäftigen das ist ja zum üben und die api und wie man das anspricht und so ist überhaupt
+
+34:53.600 --> 35:00.200
+kein unterschied also diese lokale lokales so entwicklungsumgebung mit mini cube können
+
+35:00.200 --> 35:05.760
+die genauso benutzen wie also die du brauchst keine extra süntags ist quasi genau das gleiche wie
+
+35:05.760 --> 35:13.040
+fürs große kuppernät ist nur dass es lokal bei einem auf dem rechner läuft sammar logial halb
+
+35:13.040 --> 35:19.280
+ist irgendwie besoffen oder so ich kann dir nicht folgen was du für komisches teuch im chat schreibst
+
+35:19.280 --> 35:29.200
+die ganze zeit was was soll was soll uns das sagen lokal geschützt von meter alles klar
+
+35:29.200 --> 35:38.320
+written in rust container runtime nie kenne ich nicht ich kann ich jede rust software kennen ich
+
+35:38.320 --> 35:49.160
+schreibe über mastadon schreibst du das einfach nur so oder oder schreibst du mit jemand ich
+
+35:49.160 --> 35:53.360
+glaube ich glaube du machst aktuell die taktik was ich auch manchmal mache alles was einem in
+
+35:53.360 --> 35:57.320
+den kopf fällt in irgendein text eingericht was einem in den kopf kommt in den text eingabe
+
+35:57.320 --> 36:05.480
+fällt tippen und unterdrücken aber machen ruhig beschwer mich nicht alles interactions auf twitch
+
+36:05.480 --> 36:12.880
+wobei das war youtube wo das so wichtig ist ach ja und wir brauchen tatsächlich anscheinend doch
+
+36:12.880 --> 36:17.640
+kann nachher noch potman und so aber gucken wir uns an so also wir haben mini cube gestartet wir
+
+36:17.640 --> 36:24.120
+können jetzt mal sowas machen wie cube ctl get ach nee ha sekunde leute lasst lasst euch nicht
+
+36:24.120 --> 36:29.880
+jebaden von irgendwelchen youtube tutorials oder sowas ich zeige euch jetzt mal wie das die ganzen
+
+36:29.880 --> 36:37.200
+youtube tutorial duz machen und dann zeige ich euch wie man es richtig macht ok also die ganzen
+
+36:37.200 --> 36:42.280
+youtube nicht alle es gibt gut es gibt gute tutorials das beste deutschsprachige tutorial
+
+36:42.280 --> 36:49.640
+auf youtube was ich kenne dazu kubernetes ist also für leute die ein bisschen ahnung von linux und
+
+36:49.640 --> 36:56.680
+sich nicht vor kommando zeilen scheuen und relativ relativ ja schon ein bisschen bisschen background
+
+36:56.680 --> 37:04.080
+was container angeht haben das ist das beste also wenn wenn sich einmal wirklich eine zwei
+
+37:04.080 --> 37:09.360
+stunden in zwei stunden gut strukturiert das kubernetes tutorial angucken will finde ich das
+
+37:09.360 --> 37:15.240
+persönlich auf deutsch finde ich das persönlich am besten ich könnte natürlich auch einfach
+
+37:15.240 --> 37:20.080
+dabei bleiben weil ich wir werden ja wahrscheinlich nicht alles machen was er im video macht aber
+
+37:20.080 --> 37:25.240
+ein großteil und ihr könnt ja live auch noch was dazu beitragen und wir machen auch ein paar
+
+37:25.240 --> 37:30.360
+sachen die er so glaube ich nicht im video zeigt ich glaube es ist ein zertifikate über let's
+
+37:30.360 --> 37:33.760
+encrypt macht er im video gar nicht aber wenn mal einer sich in ruhe einen tutorial angucken
+
+37:33.760 --> 37:47.680
+will ich finde das hier ist das beste so genau also ich zeige euch jetzt mal wie das die ganzen
+
+37:47.680 --> 37:54.760
+tutorial dudes auf youtube und auch teilweise auf judy und so machen wenn die kubernetes kommandos
+
+37:54.760 --> 37:58.440
+oder generell wenn die kommando zeilen tools tools verwenden dann machen wir sowas hier guck
+
+37:58.440 --> 38:11.600
+jub ctl get potts oder da machen sie so get events und solche dinger du siehst die typen
+
+38:11.600 --> 38:17.640
+in tutorial videos zum kurz ich drücke schon in sie den ganzen krempel immer fünf mal tippen so
+
+38:17.640 --> 38:23.600
+nicht so nicht leute das ist das ist mist auch wenn man das in allen möglichen tutorials sieht das
+
+38:23.600 --> 38:28.760
+erste was man braucht ist und jeder linux admin wird wissen das erste was man braucht ist shell
+
+38:28.760 --> 38:34.120
+completion leute jetzt nicht unbedingt für mini cube für mini cube ist das relativ egal dann
+
+38:34.120 --> 38:41.840
+müssen wir nicht so viel machen aber für kubectl brauchen wir best completion gehört das ist
+
+38:41.840 --> 38:46.880
+aktuell noch nicht der fall das geht noch nicht und wir wollen ja nicht nur einfach
+
+38:46.880 --> 38:54.360
+tepp completion haben sondern wir wollen auch quasi ja kontextsensitive tepp completion haben
+
+38:54.360 --> 39:01.760
+also wenn ich zum beispiel sage hier irgendwie describe potts oder potts genau describe nee
+
+39:01.760 --> 39:07.360
+nee quatsch nee das kann ich so die ressource hinten dran schreiben blabla blub so und dann
+
+39:07.360 --> 39:14.240
+will ich dass das auto completed so und dazu gibt es folgendes kubectl jetzt muss ich mal überlegen
+
+39:14.240 --> 39:25.680
+wie das war completion zsh genau so kubectl bringt nämlich eine eigene completion definition
+
+39:25.680 --> 39:42.000
+für best zsh und was noch best zsh wahrscheinlich mit richtig nice so und das kann man dann in
+
+39:42.000 --> 39:47.960
+seine best zsh eintragen sieht dann folgendermaßen aus muss bloß mal kurz seine zhsh wie auch immer
+
+39:47.960 --> 39:59.480
+shell konfig ich muss mal kurz gucken wo habe ich denn meine ach da da ist es doch muss doch
+
+39:59.480 --> 40:17.840
+unten irgendwie sein source und wie machen das jetzt so geht das einfach so bin ich gerade
+
+40:17.840 --> 40:26.800
+ein bisschen ich glaube ich glaube wir müssen es redirecten ich bin mir nicht ganz sicher ob
+
+40:26.800 --> 40:37.920
+das so funktioniert nein aber ich habe ich habe dings da brauche ich nicht genau so ist gut ja
+
+40:37.920 --> 40:47.320
+genau und jetzt habe ich kubectl und guck mal tapp tapp und jetzt habe ich autocomplete ja und
+
+40:47.320 --> 40:55.960
+ihr seht autocomplete hier endpoints autocomplete und der autocomplete hat mir jetzt quasi auch
+
+40:55.960 --> 41:01.240
+kontextsensitive infos so an der stelle gibt es halt einen endpoint der kubernetes heißt und
+
+41:01.240 --> 41:10.600
+den kann ich da eintragen jetzt kann zum beispiel describe irgendwie sowas wie hier potts gibt
+
+41:10.600 --> 41:15.840
+es halt pots gibt es halt noch kein man kann auch sagen all namespaces dann zeigt er dann
+
+41:15.840 --> 41:22.160
+alle pots an die es gibt warum man get pots dann erzähle ich mal ein bisschen so was zur
+
+41:22.160 --> 41:29.080
+zur benahmung wie kubernetes denkt dass man dinger nennen soll also das sind jetzt die laufenden
+
+41:29.080 --> 41:34.480
+container die wir zur zeit haben in unserem kubernetes cluster wobei das nicht stimmt wobei
+
+41:34.480 --> 41:43.000
+das nicht ganz richtig ist ich muss das ich muss das anders erklären also kubernetes ist zwar ein
+
+41:43.000 --> 41:51.800
+orchestrierungstool für container aber kubernetes arbeitet gar nicht auf container basis das klingt
+
+41:51.800 --> 41:55.880
+jetzt erstmal verwirrend aber wenn ich euch das ein bisschen genauer erklären wird hoffentlich
+
+41:55.880 --> 42:02.800
+klarer und zwar das was somit kubernetes verwaltet sind zwar unter der haube container aber container
+
+42:02.800 --> 42:09.760
+während in kubernetes zusammengefasst zu pots ein pot ist quasi so eine logische einheit wie
+
+42:09.760 --> 42:24.040
+viel wir kam ein klasse du meinst wie viele notes mein klasse hat einen lokale vm gerade so also was
+
+42:24.040 --> 42:34.640
+wollte ich jetzt sagen genau kubernetes das kleinste mit dem kubernetes hantiert sind pots pots ist so
+
+42:34.640 --> 42:41.760
+die kleinste logische einheit die man die man mit kubernetes verwalten kann in der regel könnte
+
+42:41.760 --> 42:47.840
+man sagen dass ein pot so was wie ein container ist wobei das nicht stimmt ein pot ist quasi
+
+42:47.840 --> 42:56.400
+also ist quasi so der container für die container oder so dass so die so die der rahmen oder so die
+
+42:56.400 --> 43:00.360
+kiste um die container klingt jetzt bescheuert kann man kann man echt schlecht beschreiben also
+
+43:00.360 --> 43:08.160
+ich erkläre euch mal zum beispiel warum man das braucht ich erkläre ich mal warum man das braucht
+
+43:08.160 --> 43:14.120
+und zwar mal angenommen du hast jetzt eine anwendung in die net anwendung ja die verpackst du in
+
+43:14.120 --> 43:22.080
+container image und die lässt man als pot laufen dann ist der pot genau ein container drin aber du
+
+43:22.080 --> 43:27.520
+könntest jetzt ja in diesem pot zum beispiel noch einen container für metriken haben oder noch
+
+43:27.520 --> 43:37.000
+noch ein container für secrets oder noch ein container für reverse proxy oder so was also
+
+43:37.000 --> 43:43.040
+könntest ja du könntest ja quasi damit die anwendung als einheit funktioniert also ein
+
+43:43.040 --> 43:51.720
+docker compose file ist ein pot ja das kommt ungefähr hin wobei man sagen muss in so einem
+
+43:51.720 --> 44:00.720
+docker compose file definierst du ja auch mehrere logische services die du miteinander verbindest
+
+44:00.720 --> 44:07.040
+du kannst jetzt im docker compose file auch eine datenbank reinschreiben ein application server
+
+44:07.040 --> 44:11.080
+und die dann miteinander verbinden das wird schon in einzelne pots machen also du würdest
+
+44:11.080 --> 44:19.680
+quasi nur sachen die logisch zusammengehören in einen pot packen ja also zum beispiel ein container
+
+44:19.680 --> 44:32.640
+für connection zu deinem secret store oder sowas in der richtung also werd mal angenommen deine
+
+44:32.640 --> 44:38.240
+deine anwendung braucht api keys und sonstige geschichten die hast du nicht in einem kubernetes
+
+44:38.240 --> 44:43.480
+cluster sondern irgendwo extern liegen und du willst es auch nicht in kubernetes cluster integrieren
+
+44:43.480 --> 44:47.040
+dann kannst du dir noch einen zweiten container rein passen rein packen der nur dafür da ist
+
+44:47.040 --> 45:10.160
+diese secrets zeig mal wie ist denn dieses bild ja ja genau also ja das ganze nennt sich
+
+45:10.160 --> 45:18.160
+übrigens seit k wenn man noch mehrere container rein packt in so einen pot genau so was hier das
+
+45:18.160 --> 45:25.360
+ist das ist ein schönes beispiel das ist das ist ein schönes schönes beispiel ja aber aber
+
+45:25.360 --> 45:29.880
+chat gpt erklärt er nicht warum das ist ein schönes beispiel ja du hast zum beispiel deine
+
+45:29.880 --> 45:35.800
+anwendung die schreibt logs und jetzt willst du diese log files allerdings zu irgendeinem
+
+45:35.800 --> 45:41.840
+zentralen logserver schicken ja und die anwendung selbst kann kein syslog und hat auch kein bock
+
+45:41.840 --> 45:46.480
+sich irgendwie mit log sam einsammeln dingern zu beschäftigen dann würdest du einen pot erstellen
+
+45:46.480 --> 45:51.560
+der enthält die anwendung und noch einen zweiten container der dafür da ist die logs einzusammeln
+
+45:51.560 --> 45:58.320
+und an irgendein zentrales log management system zu schicken das ist ein gutes beispiel ja du
+
+45:58.320 --> 46:03.520
+könntest zum beispiel noch einen dritten container dabei machen der metriken bereit stellt für
+
+46:03.520 --> 46:08.760
+prometheus monitoring oder sowas hast du quasi eine logische einheit also das hier wäre dann
+
+46:08.760 --> 46:16.040
+quasi dein application server pot allerdings enthält er eben alle container in diesem pot die
+
+46:16.040 --> 46:20.640
+die anwendung braucht um ebenso als logische einheit gestartet werden zu können und das zu
+
+46:20.640 --> 46:31.120
+machen was sie machen soll eine datenbank wäre wiederum ein zweiter pot das ist eigentlich gar
+
+46:31.120 --> 46:36.760
+nicht so verkehrt was was ein bisschen doof ist ein komponent ist die haben halt für alles
+
+46:36.760 --> 46:42.160
+irgendwelche irgendwie was ist denn das das wurscht mir als wachung die halt für alles
+
+46:42.160 --> 46:47.960
+irgendwelche bisschen bisschen ja gewöhnungsbedürftige bezeichnung ja container sind pots was schon
+
+46:47.960 --> 46:55.080
+irgendwie klar ist weil ein pot mehrere container enthalten kann du hast deployments da versteht jeder
+
+46:55.080 --> 46:59.520
+eigentlich was anderes darunter als irgendwelche komischen jammel files die pots definieren aber
+
+46:59.520 --> 47:06.120
+gut da muss man sich ein bisschen dran gewöhnen was phippe goes to the zoo cloud native computing
+
+47:06.120 --> 47:19.040
+foundation ist ein kubanete story moment jetzt lernen wir was ok pots hier hier werden pots
+
+47:19.040 --> 47:32.200
+erklärt
+
+47:32.200 --> 47:45.600
+ich verstehe den zusammenhang kann ich so genau
+
+47:45.600 --> 48:00.240
+ich verstehe den zusammenhang zwischen diesem bild und und pots nicht wie dem auch sei wir
+
+48:00.240 --> 48:06.640
+machen jetzt wir machen jetzt mal weiter man muss sich zumindest ein bisschen daran gewöhnen
+
+48:06.640 --> 48:16.200
+dass die alles irgendwie irgendwie anders nennen und zwar ist es zum beispiel bei kubanete
+
+48:16.200 --> 48:24.200
+ist auch so die nennen dort wo der traffic reingeht also quasi das was jeder normale
+
+48:24.200 --> 48:29.320
+mensch irgendwie reverse proxy nennt das nennen die ingress zum beispiel und das gegenteil
+
+48:29.320 --> 48:40.440
+von ingress also da wo der traffic quasi reingeht ist nicht etwa outgress sondern egress weil
+
+48:40.440 --> 48:51.720
+ist halt so und da gibt wie gesagt gibt gibt gibt noch mehr sachen wo ganz komisch benannt
+
+48:51.720 --> 48:56.480
+sind wo man sich einfach dran gewöhnen muss was genau ist mini cube mini cube ist ein tool
+
+48:56.480 --> 49:03.320
+wo du lokal bei dir kubanete laufen lassen kannst zum üben also wir haben das ganze
+
+49:03.320 --> 49:07.560
+noch nicht gestartet doch haben wir so also nach dem mini cube installiert ist es ganz
+
+49:07.560 --> 49:11.520
+einfach über den package manager oder als single binary runterladen ist glaube ich auch
+
+49:11.520 --> 49:17.840
+in go programmiert als single binary runterladen starten dann startet ihr mini cube am besten
+
+49:17.840 --> 49:22.000
+dass ihr noch hinten dran wenn ihr lokale container registry haben wollt und gut ist
+
+49:22.000 --> 49:32.120
+dann habt ihr mini cube gestartet euer kubanete läuft irgendwann mal läuft es dann und dann
+
+49:32.120 --> 49:36.080
+könnt ihr auch schon kommandos an euren kubanete server schicken und das ganze machen mit kubectl
+
+49:36.080 --> 49:44.880
+kubectl kubectl get pods zum beispiel so und man sieht ja schon folgendes das ist das wo
+
+49:44.880 --> 49:53.640
+ich gerade am wo ich gerade am erzählen gewesen bin ein pot ist die kleinste logische einheit
+
+49:53.640 --> 50:03.760
+die kubanete verwaltet kubanete selbst oder in dem fall mini cube selbst wenn du startest
+
+50:03.760 --> 50:09.360
+kommt schon mit ein paar vor installierten pots um die musst du dich nicht kümmern das
+
+50:09.360 --> 50:15.680
+siehst ja auch hier das ist im name space cube system und dort sind interne sind interne
+
+50:15.680 --> 50:23.360
+pots die man die das braucht dass es funktioniert was zum beispiel hier sowas wie core dns das
+
+50:23.360 --> 50:29.120
+ist das ist wichtig dafür dass die pots sich untereinander beziehungsweise auch die services
+
+50:29.120 --> 50:35.520
+aufgelöst werden können und im cluster selbst die dienste per namen angesprochen werden
+
+50:35.520 --> 50:38.440
+können und so was da muss man sich jetzt nicht so viel gedanken drüber machen aber damit
+
+50:38.440 --> 50:45.120
+kommt das halt also sprich man sieht hier laufen schon ein paar container was man hier auch
+
+50:45.120 --> 50:51.520
+schon sieht das brauchen wir später noch hier sieht man dass manche pots ready sind
+
+50:51.520 --> 50:59.560
+es ist so in kubanetes dass ein also in docker ist es so du startest das ding so und entweder
+
+50:59.560 --> 51:09.120
+es krascht oder es läuft aber zu wirklich großartig wissen wann das jetzt ready ist
+
+51:09.120 --> 51:13.800
+und wann nicht tust du nicht ja du kannst den docker zwar einstellen dass er restarten
+
+51:13.800 --> 51:19.440
+soll wenn es krascht aber wann die web anwendung darin gestartet ist und ich weiß nicht so
+
+51:19.440 --> 51:26.120
+und nachdem es in kubanetes ja unter anderem darum geht dass das ganze möglichst ausfallfrei
+
+51:26.120 --> 51:37.880
+läuft haben container oder pots muss man sagen sind da sind da keine container
+
+51:37.880 --> 51:42.200
+haben container verschiedene möglichkeiten zu überprüfen ob sie bereit sind da gibt
+
+51:42.200 --> 51:47.840
+es nämlich sowas was der andreas gerade schreibt es gibt sowas wie readiness und life nis da
+
+51:47.840 --> 51:52.320
+kann man dann wirklich health checks auf die container machen auf die pots machen und erst
+
+51:52.320 --> 51:57.960
+wenn die wirklich ready sind funktionieren also in dem fall dass ein web response web
+
+51:57.960 --> 52:03.760
+request durchgeht bei einer anwendung erst dann kommen die quasi in den ready state und
+
+52:03.760 --> 52:12.840
+der interne load balancer in kubanetes würde die dann ansteuern ja genau compose kann auch
+
+52:12.840 --> 52:17.040
+sowas in der richtung ja ich finde hier ist das jetzt das schöner gemacht so also mit
+
+52:17.040 --> 52:21.000
+was ich überlege gerade mit was wir anfangen wir machen uns erstmal eine leere datei nennen
+
+52:21.000 --> 52:30.080
+wir das einfach mal hier touch keine ahnung cute punkt jammel und machen wir wishell studio
+
+52:30.080 --> 52:38.320
+code auf wir trasten cute wir trasten nicht cute punkt jammel nope so jetzt können wir
+
+52:38.320 --> 52:46.720
+als erstes mal die kubanetes extension installieren ja ja reload mal die kubanetes extension ist
+
+52:46.720 --> 52:55.400
+nicht so dolle also ehrlich gesagt das einzige was ich von der kubanetes extension benutze
+
+52:55.400 --> 53:08.160
+ist das hier jammel das jammel synthax autocomplete für kubanetes files so haben wir ihn gerade
+
+53:08.160 --> 53:14.280
+installiert so das nächste ist ein config file für kubanetes also so ein jammel file
+
+53:14.280 --> 53:21.860
+hier das nennt sich wenn ich nicht ganz falsch liege manifest warum weil config datei zu
+
+53:21.860 --> 53:27.480
+dumm ist weil die das immer gerne ein bisschen fancy nennen wenn was kubanetes angeht also
+
+53:27.480 --> 53:33.120
+ein jammel konfig datei für kubanetes nennt sich manifest und in so einem manifest kann
+
+53:33.120 --> 53:38.440
+man fast beliebig viele dinge reinschreiben die man konfigurieren will für sein kubanetes
+
+53:38.440 --> 53:45.080
+cluster man kann mehr als eins reinschreiben allerdings muss man sich immer überlegen
+
+53:45.080 --> 53:52.400
+man kann das waren wir jetzt auch gleich man kann diese datei immer nur im gesamten einlesen
+
+53:52.400 --> 54:00.440
+lassen von kubanetes also wenn ich da jetzt 20 sachen drinne definiere und ich will dass
+
+54:00.440 --> 54:05.840
+kubanetes den kram übernimmt dann immer nur alles auf einmal wenn alles in einer datei
+
+54:05.840 --> 54:11.120
+entsteht also es macht durchaus sinn sachen die zusammengehören zusammen zu definieren
+
+54:11.120 --> 54:15.480
+also man könnte jetzt zum beispiel wobei da schreiten sich ja die geister darüber was
+
+54:15.480 --> 54:22.800
+man wie aufsplitten sollte in config files und ob man wie man es nennt und ob man für
+
+54:22.800 --> 54:28.240
+jeden dings unterordner macht und dann ein eigenes jammel file für service deployment
+
+54:28.240 --> 54:33.240
+was auch immer wir schreiben das jetzt erste mal sinnvoll zum zum üben schreiben wir das
+
+54:33.240 --> 54:38.080
+jetzt erstmal alles in ein jammel file also wir brauchen erstmal eine testanwendung würde
+
+54:38.080 --> 54:45.920
+ich sagen oder wir haben keine testanwendung wir machen man wir machen mal eine minimal
+
+54:45.920 --> 54:56.760
+dotnet testanwendung wobei da müssen wir einen container bauen und sowas hello world
+
+54:56.760 --> 55:00.960
+wir nehmen den hello world container da seht ihr auch schon mal gleich das wie das aussieht
+
+55:00.960 --> 55:09.320
+wenn ein container crashed wir machen hello world hello world container der beendet sich
+
+55:09.320 --> 55:13.240
+nämlich da werde ich gleich sehen als kubanetes aus 18 ding ist das ding läuft nicht mehr
+
+55:13.240 --> 55:18.720
+also deployment so sieht ein kubanetes deployment aus ich mache mal kurz die schriftgrößen
+
+55:18.720 --> 55:32.800
+ein ticken größer 18 wenn man sogar 20 kommen dass man gescheit was sieht wunderbar also
+
+55:32.800 --> 55:38.360
+so sieht ein deployment in kubanetes aus das ist das das ist das template was hier diese
+
+55:38.360 --> 55:44.960
+visual studio addon dabei hat also in deployment ist in kubanetes eine config die kubanetes
+
+55:44.960 --> 55:51.800
+sagt welche container es starten soll ganz platt gesagt leute ich glaube euch im chat
+
+55:51.800 --> 55:55.360
+dass ihr die super krassen kubanetes checker seid wahrscheinlich mehr als ich aber es
+
+55:55.360 --> 56:00.560
+hat keinen sinn wenn wir jetzt alle 800.000 kubanetes tools die es gibt immer wild durcheinander
+
+56:00.560 --> 56:07.640
+im chat schmeißen wie gesagt das ist ein unüberschaubare landscape an tools und sachen man könnte
+
+56:07.640 --> 56:11.520
+es auch man könnte man könnte auch gar kein manifest schreiben und man kann das manifest
+
+56:11.520 --> 56:15.720
+in python generieren das gibt es nämlich auch also wo wir gerade dabei sind man kann
+
+56:15.720 --> 56:19.680
+auch so was verwenden guck wenn man keinen wenn man keinen bock auf jammel hat kann man
+
+56:19.680 --> 56:26.280
+auch das komplett erstellen mit jeder x beliebigen programmiersprache was was haben die denn
+
+56:26.280 --> 56:30.800
+ich glaube python java und noch was aber das ist einfach zu viel auf einmal
+
+56:30.800 --> 56:50.440
+deswegen war jetzt erst mal jammel falls und gucken uns das ganze an so also was gibt
+
+56:50.440 --> 56:58.160
+es denn so in einem deployment zu sehen erst mal in unseren namen ausdenken cute app super
+
+56:58.160 --> 57:07.360
+toll ich mache noch mal deployment cute app dann haben wir hier so sachen wie meta data
+
+57:07.360 --> 57:12.480
+das ist erst mal nicht so wild meta data kann man alles möglich reinschreiben es gibt übrigens
+
+57:12.480 --> 57:20.920
+auch noch annotations schwachsinn was erzähle ich jetzt gibt labels es gibt labels und es
+
+57:20.920 --> 57:26.680
+gibt annotations ich habe noch keine ahnung bzw ich habe ich habe noch nicht gecheckt
+
+57:26.680 --> 57:33.440
+wozu man annotations überhaupt braucht ehrlich gesagt außer dass manche ja nennen wir es
+
+57:33.440 --> 57:40.080
+mal third party tools gerne annotations benutzen normalerweise kommt man eigentlich mit labels
+
+57:40.080 --> 57:47.120
+mehr oder weniger aus kannst du den programm kurz kurz erklären es gibt noch gar kein
+
+57:47.120 --> 57:52.160
+programm code das ist das template was bristles studio macht wenn ich deployment wenn ich
+
+57:52.160 --> 57:59.440
+deployment hinzufüge meiner kombiniertes konfig mehr gibt es da noch nicht also meta data name
+
+57:59.440 --> 58:06.320
+das nennen wir mal cute app also quasi wie diese ressourcen ressourcen nennt sich das
+
+58:06.320 --> 58:11.320
+übrigens was angelegt wird also diese ganze datei nennt sich manifest und was hier angelegt
+
+58:11.320 --> 58:20.200
+wird ist glaube ich eine ressource und der typ der ressource ist in dem fall deployment
+
+58:20.200 --> 58:29.200
+damit eure jammel files auch garantiert immer funktionieren gibt es hier oben eine api version
+
+58:29.200 --> 58:33.240
+also das heißt mal angenommen die bringen version 2 irgendwann raus was viel viel mehr
+
+58:33.240 --> 58:38.200
+sachen unterstützt und hier oben immer noch api version eins angegeben habt solange die
+
+58:38.200 --> 58:43.560
+version eins weiter unterstützen funktioniert euer manifest auch weiter api version gibt
+
+58:43.560 --> 58:55.200
+es übrigens für nahezu alle verschiedenen ressource typen so wir machen jetzt mal ein
+
+58:55.200 --> 59:00.320
+bisschen zackig dann kannst du noch selektor und labels und so anlegen das ist wird gleich
+
+59:00.320 --> 59:05.720
+das wird gleich relevanter wenn wir da noch ein load balancer und sowas und sowas da vorhängen
+
+59:05.720 --> 59:14.520
+so template meta data labels können wir auch so lassen cute app manifest v2 und v3 kann
+
+59:14.520 --> 59:18.800
+das war das in chrome ja sondern hier schreiben wir unser docker image rein beziehungsweise
+
+59:18.800 --> 59:23.320
+unser container image also nehmen wir einfach mal hello world das so diese hello docker container
+
+59:23.320 --> 59:29.120
+dann kann man noch limits eintragen wie viel ram und cpu das verwenden darf ich kann euch
+
+59:29.120 --> 59:34.120
+ehrlich gesagt nicht genau sagen in welcher einheit die cpu ist das ist irgend sowas irgendwas
+
+59:34.120 --> 59:42.280
+super super spezielles das ist nicht einfach nur anteile von einem cpu kern das sind irgendwelche
+
+59:42.280 --> 59:55.080
+megahertz nicht höchstwahrscheinlich nicht irgendwie irgendwie cpu zeit oder sowas was
+
+59:55.080 --> 59:59.080
+auch immer das habe ich nicht so genau gecheckt was das jetzt für eine einheit ist zumindest
+
+59:59.080 --> 01:00:05.040
+ram ist relativ klar und man sollte auch limits angeben das ist sinnvoll weil wenn ihr mal
+
+01:00:05.040 --> 01:00:11.280
+eine anwendung habt mit memory leak dann frisst ihr euch im zweifelsfall euren kompletten
+
+01:00:11.280 --> 01:00:15.120
+note an ram voll wenn ihr da keine limits angegeben habt das heißt man sollte immer
+
+01:00:15.120 --> 01:00:19.520
+man kann durchaus großzügige limits angeben muss ja gar nicht sein aber ganz ohne limits
+
+01:00:19.520 --> 01:00:23.720
+ist meistens doof weil man kann kubernetes auch so einstellen beziehungsweise macht
+
+01:00:23.720 --> 01:00:29.360
+automatisch mal angenommen ihr habt memory leak und die anwendung wird immer größer
+
+01:00:29.360 --> 01:00:34.280
+immer größer immer größer und irgendwann nach einem gigabyte ram gerät es ans limit
+
+01:00:34.280 --> 01:00:40.360
+und kackt ab dann startet kubernetes die neu und dann läuft das ding wieder eine woche
+
+01:00:40.360 --> 01:00:44.640
+oder so was auch immer bis es wieder abkackt wegen memory leaks aber ganz ohne limits ist
+
+01:00:44.640 --> 01:00:50.040
+doof so container port tja geben wir einfach mal container port 80 ein wir haben kein container
+
+01:00:50.040 --> 01:00:56.440
+port weil dieses image kein port aufmacht sollen jetzt sagen wir mal kubectl deploy
+
+01:00:56.440 --> 01:01:06.320
+apply nicht deploy apply minus f cute wir machen hier unten mal was auf watch kubectl
+
+01:01:06.320 --> 01:01:16.480
+get pots ihr seht es gibt noch keine pots aber jetzt gibt es einen pot gibt es nämlich
+
+01:01:16.480 --> 01:01:26.440
+ein cute app pot und ihr seht das ding ist gleich wieder abgekackt weil es ist kein pot
+
+01:01:26.440 --> 01:01:30.640
+der also das ist der standard docker hello world pot den ich hier gestartet habe der
+
+01:01:30.640 --> 01:01:37.000
+macht nichts anderes wie hello world ausgeben kuck docker run hello world der macht nichts
+
+01:01:37.000 --> 01:01:42.000
+anderes wie hello world ausgeben sich wieder zu beenden deswegen da hier guck hier deswegen
+
+01:01:42.000 --> 01:01:47.680
+funktioniert das natürlich nicht kubanete sieht aha anwendung startet anwendung krascht
+
+01:01:47.680 --> 01:01:52.440
+kubanetes denkt die anwendung krascht weil die läuft ja nicht mehr und jetzt jetzt versucht
+
+01:01:52.440 --> 01:01:58.600
+er die neu zu starten und das krascht immer wieder doch doch der hat gepullt das geht
+
+01:01:58.600 --> 01:02:03.440
+das geht nur relativ relativ zackig das ist ja auch nichts nix dabei sind das docker image
+
+01:02:03.440 --> 01:02:06.960
+wofür muss man docker auch installiert sein nein du brauchst docker nicht installiert
+
+01:02:06.960 --> 01:02:13.600
+haben ich habe einfach bei mir lokal docker installiert und das sind streng genommen sind
+
+01:02:13.600 --> 01:02:17.920
+docker images ja aber streng genommen sind docker images ja gar keine docker images mehr
+
+01:02:17.920 --> 01:02:25.920
+sondern sind oci images oder wie dieser kram jetzt heißt open container images also das
+
+01:02:25.920 --> 01:02:33.040
+ist was heißt ein oci open container image open container initiative image alles klar
+
+01:02:33.040 --> 01:02:39.440
+wäre auch zu einfach gewesen also das ist eine spezifikation von container images die
+
+01:02:39.440 --> 01:02:48.040
+auch docker verwendet aber mittlerweile auch ganz viele andere container tools aus dem
+
+01:02:48.040 --> 01:02:54.800
+container ökosystem also es muss kein docker image in dem sinn sein aber bietet sich jetzt
+
+01:02:54.800 --> 01:03:02.800
+in dem fall an so jetzt haben wir ein hello world container der niemals ready wird weil
+
+01:03:02.800 --> 01:03:10.760
+er immer krascht wie gesagt logisch weil naja macht ja macht ja auch nichts der beendet
+
+01:03:10.760 --> 01:03:18.840
+sich ja auch einfach wieder so bevor wir ein netzwerk container starten können wir ja machen
+
+01:03:18.840 --> 01:03:29.440
+who am i traffic container traffic who am i kommen wir mal starten wir bauen gleich
+
+01:03:29.440 --> 01:03:33.680
+noch eine kleine eigene dot net anwendung das dauert zwei minuten so jetzt sehen wir
+
+01:03:33.680 --> 01:03:40.040
+mal hier das zum beispiel traffic who am i das ist was mit einem webserver wir applyen
+
+01:03:40.040 --> 01:03:46.160
+die datei wieder ihr erkennt ein gewisses muster wenn ihr schon mal beispielsweise euch
+
+01:03:46.160 --> 01:03:51.080
+den terraform stream angeguckt habt von mir das war ja oder generell wenn die terraform
+
+01:03:51.080 --> 01:03:59.120
+oder solche infrastructure management tools verwendet habt ihr erkennt ein gewisses muster
+
+01:03:59.120 --> 01:04:04.960
+es gibt eine config datei dessen state dann applied wird wobei man sagen muss terraform
+
+01:04:04.960 --> 01:04:13.720
+ist da etwas advanced als die reinen kopernetes manifest weil da werden teilweise nicht die
+
+01:04:13.720 --> 01:04:20.040
+states getrackt also wenn ich das hier jetzt um benenne dann kann es durchaus sein dass
+
+01:04:20.040 --> 01:04:30.960
+der pot weiter läuft so mal gucken zumindest jetzt starten wir mal anderen container so
+
+01:04:30.960 --> 01:04:35.800
+und wir sehen schon der alte container wurde gestartet und dann der neue container wurde
+
+01:04:35.800 --> 01:04:39.800
+gestartet der alte container wurde gestoppt ich nenne mal container es ist eigentlich
+
+01:04:39.800 --> 01:04:44.040
+ein pot ja steht man auch hier oben aber irgendwie kommt mir container einfacher von den lippen
+
+01:04:44.040 --> 01:04:52.000
+wurde gestartet und der scheint jetzt auch zu funktionieren der ist running der ist ab
+
+01:04:52.000 --> 01:05:00.320
+der ist abend running und das passt ja eigentlich soweit ganz gut jetzt muss man sich natürlich
+
+01:05:00.320 --> 01:05:06.720
+überlegen ok ich bin übrigens gar nicht sicher ob das ding standardmäßig auf pot 80 läuft
+
+01:05:06.720 --> 01:05:12.720
+das ist eine gute frage doch kann man probieren aus weiß ich gar nicht was macht das standardmäßig
+
+01:05:12.720 --> 01:05:25.960
+pot 80 ok alles klar dann ups na geil jetzt eine sache wo ich nicht weiß wie das in meinem
+
+01:05:25.960 --> 01:05:41.880
+neuen terminal geht wie switche ich die terminals jetzt lull einfach gar nicht aber irgendwie
+
+01:05:41.880 --> 01:05:48.120
+geht das ich war noch nie in der ich musste das noch nie ausprobieren so jetzt ist natürlich
+
+01:05:48.120 --> 01:05:52.400
+die sache gut wir haben jetzt wir haben jetzt ein pot laufen mit einem service drinnen
+
+01:05:52.400 --> 01:05:59.080
+auf pot 80 wir kommen da allerdings nicht dran also selbst wenn ich mal karl lokal host oder
+
+01:05:59.080 --> 01:06:06.200
+so da geht nix ich kann mir mal zum beispiel die mini cube ip angucken und dann kann ich
+
+01:06:06.200 --> 01:06:13.760
+sagen karl ip auf mini cube geht aber auch nicht also der läuft zwar und dann wir wissen
+
+01:06:13.760 --> 01:06:20.480
+auch dass da was auf pot das wird funktionieren ja wir können wir können auch mini cube tunnel
+
+01:06:20.480 --> 01:06:24.640
+und so gedürnt machen kann man alles machen aber man sieht der container ist nicht so
+
+01:06:24.640 --> 01:06:34.120
+wirklich erreichbar damit ein container erreichbar ist müssen wir erst einen service davor bauen
+
+01:06:34.120 --> 01:06:40.600
+einen service kann man sich so als art ja ne kann man nicht wirklich laut balancer kann
+
+01:06:40.600 --> 01:06:46.000
+man nicht so als eingang kann man sich so als eingang zu diesem zu diesem zu diesen pots
+
+01:06:46.000 --> 01:06:52.400
+vorstellen so und jetzt kommt das was ich am anfang gesagt habe man kann in so einen
+
+01:06:52.400 --> 01:06:57.960
+kubernetes manifest nahezu beliebig viele ressourcen definieren und wir machen es jetzt
+
+01:06:57.960 --> 01:07:05.600
+zu übungszwecken so dass wir den service für dieses deployment also im prinzip für die
+
+01:07:05.600 --> 01:07:09.960
+anwendung hier unten drunter definieren ich finde das ich finde das an der stelle nicht
+
+01:07:09.960 --> 01:07:14.720
+verkehrt das gehört hier auch direkt zusammen das kann man kann man finde ich schon machen
+
+01:07:14.720 --> 01:07:21.440
+an der stelle da streiten sich tatsächlich da jetzt die geister dran wie man das macht
+
+01:07:21.440 --> 01:07:28.160
+und auch wie man das benennt ja ich kenne leute machen ordner also gut ordner ist prinzipiell
+
+01:07:28.160 --> 01:07:32.040
+für einzelne anwendung nicht verkehrt machen ordner machen darunter dann immer so was
+
+01:07:32.040 --> 01:07:40.520
+wie deployment extra service sonst wie manche machen auch eine datei mit dem namen von dem
+
+01:07:40.520 --> 01:07:46.280
+jeweiligen jeweilige anwendung dieser trennen laufen lassen wollen und schreiben dann deployments
+
+01:07:46.280 --> 01:07:53.920
+und service in eine datei allerdings ingress in der ande ist ein bisschen ist die musik zu
+
+01:07:53.920 --> 01:08:05.240
+laut wirklich passt doch eigentlich oder bin ich zu leise ich glaube die ist an sich einfach nur
+
+01:08:05.240 --> 01:08:24.080
+gerade ein bisschen sehr intensiv ok komm wir machen dass alle happy sind so jetzt ist
+
+01:08:24.080 --> 01:08:38.680
+minimal leiser aber immer noch gut
+
+01:08:38.680 --> 01:08:57.560
+so also damit diese pots verfügbar sind oder wahrscheinlich müsste man eher sagen dass die
+
+01:08:57.560 --> 01:09:01.960
+pots aus diesem deployment verfügbar sind also nicht nur innerhalb des clusters sondern auch
+
+01:09:01.960 --> 01:09:09.240
+von außen muss man da ein service da vorne service ist quasi so der eingang zu einem deployment
+
+01:09:09.240 --> 01:09:15.480
+denkt das kann man ganz gut sagen es gibt verschiedene möglichkeiten wie man services
+
+01:09:15.480 --> 01:09:24.120
+definieren kann also verschiedene typen von von services der in dem fall jetzt ganz praktische
+
+01:09:24.120 --> 01:09:28.440
+service wäre so was wie den load balancer zum beispiel weil wir machen auch gleich noch
+
+01:09:28.440 --> 01:09:33.600
+mehrere mehrere pots hier aktuell ist es ja nur ein potter läuft so also sagen wir jetzt hier mal
+
+01:09:33.600 --> 01:09:40.440
+service jetzt muss ich mal kurz überlegen meter meter meter data kann das gleiche sein das ist
+
+01:09:40.440 --> 01:09:46.360
+übrigens auch da streiten sich auch die geister dran ob das hier nicht irgendwie app heißen soll
+
+01:09:46.360 --> 01:09:52.360
+und das irgendwie service da kann man sich da kann man sich auch darüber streiten wie man das machen
+
+01:09:52.360 --> 01:10:06.880
+will so port port muss rein wo ich möchte dass dieser service erreichbar ist von außen in dem
+
+01:10:06.880 --> 01:10:14.480
+fall sagen wir auch mal pot 80 und taget port ist auch 80 kann man im kubernetes manifest auch
+
+01:10:14.480 --> 01:10:24.160
+immer schießen ja ja klar warum nicht das ja ganz normal textart ganz normales jammel so das heißt wir legen jetzt ein service an auf port 80 der
+
+01:10:24.160 --> 01:10:32.000
+auf diesen service ich nenne es mal balanced balanced an der stelle oder nicht so und hier
+
+01:10:32.000 --> 01:10:42.040
+ist das entscheidende hier im selektor entscheidet man jetzt wohin dieser service seine requests
+
+01:10:42.040 --> 01:10:48.280
+weiterleitet also nur weil das in der gleichen ratei drinne steht bedeutet das nicht automatisch
+
+01:10:48.280 --> 01:10:55.160
+dass das zusammen gehört also hier wo ich den selektor angebe selektor ab cute ab und ihr
+
+01:10:55.160 --> 01:11:14.760
+seht hier das hier ist ich vermute mal dass hier ist das relevante zumindest hier drauf
+
+01:11:14.760 --> 01:11:23.400
+match der also der guckt danach was es für deployments gibt was es für pots gibt mit
+
+01:11:23.400 --> 01:11:30.920
+diesem passenden tag dazu und dann balanced er da drauf also sprich ist es egal in welchen
+
+01:11:30.920 --> 01:11:42.400
+dateien die stehen ja das da so also wir sagen wir wollen alle so und jetzt damit das ganze
+
+01:11:42.400 --> 01:11:47.600
+hier testweise funktioniert müssen wir noch ein typ angeben man sieht es gibt mehrere typ
+
+01:11:47.600 --> 01:11:53.360
+es gibt cluster ip ich glaube cluster ip ist der default wenn ich nicht ganz falsch liege
+
+01:11:53.360 --> 01:12:03.920
+excellent load balancer node port so mal gucken ob ich das aus dem kopf halbwegs hinkriege
+
+01:12:03.920 --> 01:12:09.360
+also external name weiß ich jetzt gar nicht was heißt cluster ip hat heißt dieser service
+
+01:12:09.360 --> 01:12:15.200
+kriegt eine ip aus dem cluster zugewiesen also irgendeine ip aus der aus der cluster range
+
+01:12:15.200 --> 01:12:23.600
+node port bedeutet auf dem jeweiligen cluster knoten wo der container gerade läuft kriegt
+
+01:12:23.600 --> 01:12:35.000
+er kriegt er was zugewiesen und also ne random port zwischen 30.000 und 35.000 oder so und
+
+01:12:35.000 --> 01:12:45.000
+in dem fall will ich load balancer haben und jetzt applyn wir das ganze mal und dann hoffe
+
+01:12:45.000 --> 01:12:54.280
+ich dass ich nichts vergessen habe und der kram funktioniert jetzt können wir zum beispiel
+
+01:12:54.280 --> 01:13:02.920
+hier unten mal sagen kubectl get service und man sieht da aha gucke mal da wir haben ein
+
+01:13:02.920 --> 01:13:08.760
+load balancer angelegt mit dieser cluster ip per external ip pending kann ruhig pendeln
+
+01:13:08.760 --> 01:13:18.760
+so viel will und ein port mapping das heißt wenn ich jetzt einen curl mache mini cube ip
+
+01:13:18.760 --> 01:13:28.160
+können wir uns merken wenn ich jetzt einen curl drauf mache da hätte ich jetzt eigentlich
+
+01:13:28.160 --> 01:13:55.720
+gedacht dass es funktioniert
+
+01:13:55.720 --> 01:14:01.120
+mit mini cube ich habe das selbst so mit mini cube schon gemacht da hat ja auch eine klasse
+
+01:14:01.120 --> 01:14:05.200
+ne ne die klasse die klasse ip da müsstest du dich tunnen ne ne ne ne ne das funktioniert
+
+01:14:05.200 --> 01:14:14.040
+so glaube ich oder das ist immer jetzt jetzt jetzt lernen wir was ok wir probieren mal
+
+01:14:14.040 --> 01:14:30.120
+was aus braucht der lb nicht noch eine externe ip ne der hat einen port mapping das sollte
+
+01:14:30.120 --> 01:14:48.480
+eigentlich ich meine wir könnten jetzt weiter gehen und noch noch den inquest davor machen
+
+01:14:48.480 --> 01:14:59.200
+aber sollte das nicht einfach so gehen jetzt ok ok also übrigens ich sage mal das hier
+
+01:14:59.200 --> 01:15:04.240
+funktioniert an der stelle nicht ja die du kannst die dinger nicht erreichen du kannst
+
+01:15:04.240 --> 01:15:15.400
+aber zum beispiel sagen mini cube ssh und dann müsste es da drinne war scheine da gehts
+
+01:15:15.400 --> 01:15:22.760
+auch nicht ne ne ne ich brauch kein ingress wenn ich das hier ok mal gucken wie das mit
+
+01:15:22.760 --> 01:15:26.800
+cluster ip ist ich hätte jetzt eigentlich wecken können das funktioniert so egal probieren
+
+01:15:26.800 --> 01:15:35.440
+mal aus apply ja guck mal mal hier unten was er macht cluster ip das das wird das wird
+
+01:15:35.440 --> 01:15:40.000
+so natürlich auch nicht funktionieren ich bin mir das muss das muss mit load balancer
+
+01:15:40.000 --> 01:15:53.820
+doch funktionieren ja node port können wir auch ausprobieren das in dem fall ja immer
+
+01:15:53.820 --> 01:16:00.520
+immer das gleiche in dem fall macht es ja keinen unterschied ist ja immer der gleiche
+
+01:16:00.520 --> 01:16:24.480
+node irgendwas habe ich irgendwas habe ich verkehrt gemacht irgendwas ergibt gerade keinen
+
+01:16:24.480 --> 01:16:40.240
+weiter machen und den und den reverse proxy davor pappen ach ich weiß was ich mache was
+
+01:16:40.240 --> 01:16:45.000
+ich falsch mache ich benutze es doch auch falsch ich benutze es falsch leute ich habe
+
+01:16:45.000 --> 01:16:52.200
+alles richtig gemacht ich habe alles richtig gemacht ich bin bescheuert also apply ist
+
+01:16:52.200 --> 01:17:00.040
+es stimmt alles passt mal auf es stimmt alles ich hab das nur falsch gemacht so natürlich
+
+01:17:00.040 --> 01:17:05.980
+die cluster ip ist ja nicht erreichbar intern deswegen muss ich jetzt folgendes machen mini
+
+01:17:05.980 --> 01:17:18.760
+cube cube service cute app aha und siehe da das service funktioniert da hätte ich
+
+01:17:18.760 --> 01:17:22.660
+draufgemusst ich hätte ja auf die gemäbte auf den gemäbten port gehen müssen guck
+
+01:17:22.660 --> 01:17:29.640
+auf den port hätte ich gehen müssen der map der port 30.000 430 466 auf port 80 von dem
+
+01:17:29.640 --> 01:17:37.640
+von dem container so so ist richtig jetzt funktioniert so das ist das ist mein service
+
+01:17:37.640 --> 01:17:50.000
+der hier läuft das ist dieser hallo welt container von von traffic das ist der mini cube ip mit
+
+01:17:50.000 --> 01:17:56.720
+dem porter weitergeleitet wird ne ne load balance hast recht wahrscheinlich bräuchte
+
+01:17:56.720 --> 01:18:00.160
+ich das bräuchte ich das nicht wir können es mal wir können es mal weglassen und gucken
+
+01:18:00.160 --> 01:18:16.000
+ob es dann funktioniert nope siehst du funktioniert nicht notport würde funktionieren notport
+
+01:18:16.000 --> 01:18:22.560
+würde in dem fall wahrscheinlich auch funktionieren hallo mein gott ist das auto komplett wieder
+
+01:18:22.560 --> 01:18:36.360
+buggy ups ja das funktioniert auch also laut balancer braucht man an der stelle nicht wirklich
+
+01:18:36.360 --> 01:18:51.720
+das service type notport auch externer ja das müssen wir gesagt ich will es ja da gar
+
+01:18:51.720 --> 01:18:58.240
+nicht übertreiben so zumindest man sieht das service funktioniert damit was man jetzt ja
+
+01:18:58.240 --> 01:19:02.520
+schon sieht was ein bisschen doof ist ich meine wer kann hier wer hantiert da mit den dinger
+
+01:19:02.520 --> 01:19:07.160
+wer kann er mit rum hantieren mit den ports und und so also ich meine woher will jetzt
+
+01:19:07.160 --> 01:19:14.000
+zum beispiel jemand der auf mein service zugreift woher will der wissen dass er das über port
+
+01:19:14.000 --> 01:19:19.600
+32 259 machen muss das kann er nicht wissen so was man jetzt machen könnte ist man stellt
+
+01:19:19.600 --> 01:19:27.520
+das hier auf typ load balancer und mit einer wirklich extern erreichbaren ip dann müsstest
+
+01:19:27.520 --> 01:19:33.320
+du aber die jedes mal wenn du das über den cloud anbieter machst da müsste es müsste
+
+01:19:33.320 --> 01:19:38.520
+sich quasi über jedes mal müsstest du dann eine externe ip ressource anlegen in deiner
+
+01:19:38.520 --> 01:19:42.960
+cloud und hast dann am ende ganz viele externe ip viel sinnvoller ist es an der stelle sowas
+
+01:19:42.960 --> 01:19:48.520
+wie ein reverse proxy davor zu pappen was wir auch schon gemacht haben mit docker compose
+
+01:19:48.520 --> 01:19:53.920
+mit docker mit zeug haben wir im stream schon öfters gemacht und zwar ein reverse proxy
+
+01:19:53.920 --> 01:20:02.560
+der dann auch am besten mit einem gültigen let's encrypt zertifikat ausgestattet ist
+
+01:20:02.560 --> 01:20:08.480
+und der über port 80 und 443 erreichbar ist das heißt neben dieser definition von den
+
+01:20:08.480 --> 01:20:14.800
+pots und dem service brauchen wir jetzt noch was für eingehenden traffic und das nennt
+
+01:20:14.800 --> 01:20:22.040
+sich bei kubernetes ingress das gegenteil von ingress ist egress nicht outgress so da
+
+01:20:22.040 --> 01:20:28.840
+gibt es verschiedene programme die man verwenden kann man kann traffic verwenden man kann
+
+01:20:28.840 --> 01:20:37.320
+engine x verwenden oder ha proxy oder sowas wir verwenden jetzt bei engine x aus dem einzigen
+
+01:20:37.320 --> 01:20:45.520
+grund weil bei minikube schon in engine x addon für ingress dabei ist und das macht
+
+01:20:45.520 --> 01:20:53.840
+man folgendermaßen also wenn ihr eine richtig fette kubernetes installation habt die bei
+
+01:20:53.840 --> 01:20:57.720
+einem klauenanbieter läuft oder könnte natürlich daneben was ihr wollt aber minikube bringt
+
+01:20:57.720 --> 01:21:03.720
+verschiedene addons mit und da ist zum beispiel dabei sowas wie ein ingress und das ist in
+
+01:21:03.720 --> 01:21:09.600
+dem fall engine x das hat noch mehrere praktische addons dabei zum beispiel registry die benutzen
+
+01:21:09.600 --> 01:21:14.360
+wir auch gleich noch wir machen nämlich eine eigene dotnet anwendung die wir dann deployen
+
+01:21:14.360 --> 01:21:26.320
+hier über zu der lokalen zu der lokalen lokale container registry ich muss mal kurz überlegen
+
+01:21:26.320 --> 01:21:34.280
+in welcher reihenfolge wir das machen also ich würde sagen wir machen jetzt als erstes
+
+01:21:34.280 --> 01:21:48.160
+mal wir machen das in zwei stufen wir machen als erstes den ingress dann machen wir die
+
+01:21:48.160 --> 01:21:53.160
+dotnet an das drei zeilen dotnet das dauert nicht lang die dotnet anwendung und eine lokale
+
+01:21:53.160 --> 01:22:00.120
+registry und dann machen wir gültige let's encrypt zertifikate für den ingress ich glaube
+
+01:22:00.120 --> 01:22:08.840
+das ist eine gute reihenfolge das so zu machen ok das heißt als erstes enable wir mal unseren
+
+01:22:08.840 --> 01:22:22.840
+engine x addons enable ingress so und jetzt muss das muss ich ein bisschen abgucken leute
+
+01:22:22.840 --> 01:22:30.440
+das kriege ich nämlich aus dem kopf nicht gebacken so also wir haben unsere pots bei
+
+01:22:30.440 --> 01:22:35.480
+der gelegenheit ihr seht hier vielleicht kommt mal mal watch ihr seht hier wir haben aktuell
+
+01:22:35.480 --> 01:22:40.680
+nur einen pot laufen also quasi einen pot mit einem container drin das ist natürlich
+
+01:22:40.680 --> 01:22:44.560
+jetzt nicht sonderlich ausfallsicher man kann sagen das ist natürlich eh nicht ausfallsicher
+
+01:22:44.560 --> 01:22:49.800
+weil das alles auf meiner vm läuft aber geben wir mal von aus es wäre nicht so ich habe
+
+01:22:49.800 --> 01:22:56.120
+im anfang gesagt eigentliches kombiniert ist dafür da um mehrere instanzen so von containern
+
+01:22:56.120 --> 01:23:01.000
+für uns zu verwalten deswegen kann man auch sagen man möchte mehrere davon laufen haben
+
+01:23:01.000 --> 01:23:06.040
+da geht man hier hinten den moment wo muss man da hin templates ach fuck ich kann mir
+
+01:23:06.040 --> 01:23:11.720
+das immer nicht merken in spex spex muss man das irgendwo ist ein replica reinschreiben
+
+01:23:11.720 --> 01:23:27.400
+man alter wo muss denn das wo muss denn das hin muss doch unter spex oder ist das nicht
+
+01:23:27.400 --> 01:23:48.880
+nur das muss doch unter spex bin im deployment oder nicht ach da in die spex meine güte ja
+
+01:23:48.880 --> 01:23:58.960
+ich bin großer jammel fan was das angeht also da kann man jetzt eingeben wie viele pots
+
+01:23:58.960 --> 01:24:05.240
+standardmäßig laufen sollen sagen wir mal zum beispiel fünf ja komm vier wenn ich das
+
+01:24:05.240 --> 01:24:11.040
+jetzt noch mal apply werdet ihr feststellen auf einmal hoch guck mal da wir haben jetzt
+
+01:24:11.040 --> 01:24:19.280
+vier container das heißt unsere anwendung läuft jetzt vier mal und wenn ich jetzt hier
+
+01:24:19.280 --> 01:24:38.880
+service aufmach und funktioniert das auch kein ding aber es gibt noch mehr möglichkeiten
+
+01:24:38.880 --> 01:24:49.720
+der chrome kecht ja scheint so wir können das ganze auch noch mal stimmt aber machen
+
+01:24:49.720 --> 01:24:59.720
+wir das ganz mal mit karl guckt ihr seht jetzt auch die ip ändert sich immer seht
+
+01:24:59.720 --> 01:25:08.840
+ihr das guck 12 6 12 10 11 also ihr seht die ip ändert sich immer ich komme immer
+
+01:25:08.840 --> 01:25:15.120
+auf unterschiedlichen pots raus guck mal 69 pots machen wir jetzt mal jetzt wird hyper
+
+01:25:15.120 --> 01:25:20.920
+scaled hier apply ich hoffe das geht überhaupt meiner vor allem gescheit bämm jetzt haben
+
+01:25:20.920 --> 01:25:25.160
+wir die anwendung 69 mal laufen wenn ich jetzt in köln mache müssen wir kurz warten bis
+
+01:25:25.160 --> 01:25:38.080
+alles erstellt wurde das ist leute ist das high performer mindset
+
+01:25:38.080 --> 01:25:47.080
+jetzt habe ich so und guckt ich lande jetzt jedes mal auf einem anderen oder fast jedes
+
+01:25:47.080 --> 01:25:54.400
+mal auf dem anderen pot ihr seht sie an der ip oben so und jetzt guck mal was wo man jetzt
+
+01:25:54.400 --> 01:25:58.680
+schon mal sieht dass es sehr praktisch ist so ein container orchestrierungstool zu verwenden
+
+01:25:58.680 --> 01:26:03.600
+es gibt natürlich auch möglichkeiten das automatisch zu skalieren anhand der last der
+
+01:26:03.600 --> 01:26:08.200
+ram auslastung und sonst was das machen wir heute nicht das nächste mal geben wir mal
+
+01:26:08.200 --> 01:26:13.680
+was realistisches runter ich sag jetzt mal vier jetzt sage ich apply und passt auf es
+
+01:26:13.680 --> 01:26:25.960
+wird automatisch runter skaliert auf nur vier laufende pots warum ich linux verwende weil
+
+01:26:25.960 --> 01:26:32.120
+man gerade so netzwerk und technische sachen viel besser unter linux machen kann minikube
+
+01:26:32.120 --> 01:26:41.680
+unter windows geht auch dann macht ja unter der haube glaube ich eine hyper vvm in der
+
+01:26:41.680 --> 01:26:45.000
+dann aber höchstwahrscheinlich linux läuft weil letztendlich sind es ja alles linux container
+
+01:26:45.000 --> 01:26:53.040
+und ich finde so sachen unter linux zu machen tausendmal angenehmer als unter windows allein
+
+01:26:53.040 --> 01:26:58.600
+schon dass man ein gescheites terminal hat ja das neue terminal unter windows ist halbwegs
+
+01:26:58.600 --> 01:27:07.800
+erträglich aber nix ging ordentlich ordentliche linux umgebung so jetzt habt ihr gesehen man
+
+01:27:07.800 --> 01:27:11.920
+kann den kram hier auch ordentlich rauf und runter und runter skalieren wie man will am
+
+01:27:11.920 --> 01:27:15.120
+besten ist natürlich später man macht das automatisch aber das gucken wir uns bei einem
+
+01:27:15.120 --> 01:27:27.600
+anderen stream an da habe ich auch gerade gesagt vor zwei minuten so soll das mal überlegen was
+
+01:27:27.600 --> 01:27:32.880
+wollte ich als nächstes machen genau also wir machen jetzt wir machen jetzt den ingress
+
+01:27:32.880 --> 01:27:37.480
+controller also es ist immer noch das problem dass ich ihren karl machen muss mit so einem
+
+01:27:37.480 --> 01:27:43.600
+komischen port normalerweise will man ja dass jemand so drauf zugreifen am besten noch mit
+
+01:27:43.600 --> 01:27:49.920
+einem dns namen ja darauf zugreifen kann also gar nicht gar nicht mal mit einem dns vor allem
+
+01:27:49.920 --> 01:27:53.680
+aber auf jeden fall über port 80 und dann auf dem richtigen service rauskommt das heißt wir
+
+01:27:53.680 --> 01:28:02.320
+brauchen jetzt noch irgendein service der das ob dessen ingress ingress template hat ja wir
+
+01:28:02.320 --> 01:28:10.160
+brauchen das noch irgendein service der eben am eingang sitzt das entgegen nimmt und dann
+
+01:28:10.160 --> 01:28:18.640
+weiter leitet an den service wiederum an die pots so das ganze nennt sich mal kubanet das
+
+01:28:18.640 --> 01:28:25.120
+nennt sich das ingress also nennen wir das hier mal cute app ingress weiß ja nicht ob
+
+01:28:25.120 --> 01:28:39.960
+es minus in ingress wir können es wenn jetzt aber wieder cute aber es könnte ja mehrere
+
+01:28:39.960 --> 01:28:45.520
+eingänge geben aber machen sie jetzt einfach mal so so host
+
+01:28:45.520 --> 01:28:58.080
+da können wir jetzt in dns name eintragen was auch sinnvoll ist ja dann nehmen wir jetzt
+
+01:28:58.080 --> 01:29:09.240
+nehmen wir jetzt zum beispiel mal kackel punkt keck w punkt services prefix alles service
+
+01:29:09.240 --> 01:29:15.520
+bei service kommt jetzt der name rein das service ist was wir hier oben definiert haben das ist cute
+
+01:29:15.520 --> 01:29:23.680
+und bei port port 80 so und da muss man jetzt und da muss man jetzt ein bisschen gucken hier
+
+01:29:23.680 --> 01:29:33.960
+geht es drum um also um den target service nicht nicht hier irgendwie vom vom ingress controller
+
+01:29:33.960 --> 01:29:39.080
+dann brauchen wir noch ein paar andere sachen damit das ganze funktioniert das ist so magic
+
+01:29:39.080 --> 01:29:44.440
+kubaniertes zeug und das muss ich jetzt abgucken weil das kriege ich aus dem kopf nicht hin wir
+
+01:29:44.440 --> 01:29:51.840
+verwenden als eingangs proxy engine x das heißt ich muss das wie gesagt das gucke ich ab das war
+
+01:29:51.840 --> 01:30:01.520
+ich aus dem kopf nicht ingress classname muss ich eintragen nämlich engine x warum weil es
+
+01:30:01.520 --> 01:30:15.600
+sonst nicht funktioniert ja ja mit brauchste brauchste ultra white screen monitoren so und
+
+01:30:15.600 --> 01:30:25.640
+wenn ich jetzt alles richtig gemacht habe was ich mal hoffe dann sollten wir jetzt den ingress
+
+01:30:25.640 --> 01:30:39.280
+bekommen der sich für diese domain zuständig fühlt und dahin weiter leitet apply ok cube ctl
+
+01:30:39.280 --> 01:30:54.600
+get ingress what the fuck ingress ja haben wir host kekel punkt keck we services port 80 damit
+
+01:30:54.600 --> 01:30:59.680
+das damit das ganze funktioniert lokal müssen wir folgendes machen und zwar in die host datei
+
+01:30:59.680 --> 01:31:10.080
+dieses ding hier mal eintragen also keck we punkt services aus dem kopf ip ist zuerst ja ip ist
+
+01:31:10.080 --> 01:31:19.880
+zuerst genau ip ist zuerst weil einer ip mit mehreren amt und 49 punkt 2 ist glaube ich die
+
+01:31:19.880 --> 01:31:35.600
+mini cube ip ok guck mal mal pink pink ok karl moment der wahrheit es funktioniert chrome was
+
+01:31:35.600 --> 01:31:47.960
+nein chrome und siehe da keckel keck we punkt services ist verfügbar unter der domain und
+
+01:31:47.960 --> 01:31:57.320
+wir kommen auf unseren verschiedenen verschiedenen pots raus also der der traffic fluss ist jetzt so
+
+01:31:57.320 --> 01:32:05.440
+ich muss den namen auflösen in dem fall hier keckel punkt keck we punkt services da kommt die
+
+01:32:05.440 --> 01:32:13.520
+ip von meinem kubanet ist klasse da raus 192 168 49 punkt 2 dann geht das hier in den engine
+
+01:32:13.520 --> 01:32:19.880
+x ingress controller rein der leitet es weiter auf dieses backer der leitet wohlgemerkt alles
+
+01:32:19.880 --> 01:32:26.320
+weiter man kann auch sagen ich möchte bloß ab hier weiter leiten und so was er leitet alles weiter
+
+01:32:26.320 --> 01:32:34.560
+an dieses backer mit dem namen cute app auf port 80 also auf den service cute port 80 den service
+
+01:32:34.560 --> 01:32:41.880
+haben wir hier definiert taget port port das ist das worauf der ingress controller das ganze
+
+01:32:41.880 --> 01:32:49.600
+weiter leitet und der service selbst verteilt das dann wieder auf alle möglichen pots so heißt im
+
+01:32:49.600 --> 01:32:55.680
+endeffekt es funktioniert auch immer noch wenn ich hier reinschreibe 69 pots machen wir es
+
+01:32:55.680 --> 01:33:11.840
+noch mal apply damit skaliert das ganze hoch diagonales fife hat hyperskalierungs cloud native
+
+01:33:11.840 --> 01:33:19.800
+zeug wird hoch skaliert und wenn ich jetzt wieder ein köln mache auf keck we punkt services sehen
+
+01:33:19.800 --> 01:33:28.000
+wir kriegen fast immer eine andere ip und wir landen jetzt auf einem von 96 69 verschiedenen
+
+01:33:28.000 --> 01:33:37.240
+pots kann euch das sogar zeigen dass das relativ viel viel ab kann was jetzt kein wunder ist wir
+
+01:33:37.240 --> 01:33:46.040
+können mal einen htp benchmark starten können man htp benchmark starten sowas wie hey für eine
+
+01:33:46.040 --> 01:34:00.480
+minute warum geht altpunkt nicht was sind das z mal zehn sekunden zehn sekunden volle pulle
+
+01:34:00.480 --> 01:34:07.520
+und ihr seht guck mal meine cpu last hier oben ist jetzt einfach mal ist jetzt einfach mal 100
+
+01:34:07.520 --> 01:34:29.880
+prozent oh ja habe ich hatte tp vergessen ihr seht auch meine laut geht übelst hoch ja und
+
+01:34:29.880 --> 01:34:40.600
+wir haben 195.000 request geschickt alle hatten hat tp status 200 hat wohl funktioniert ich bin
+
+01:34:40.600 --> 01:34:46.800
+mir jetzt gerade aus dem kopf nicht sicher wie man sich kommando zeilen mäßig die auslastung
+
+01:34:46.800 --> 01:34:55.600
+anzeigen lassen kann gibt es kubectl top oder so dinge also man kann zusatztools sowas wie
+
+01:34:55.600 --> 01:35:08.200
+lens und sowas verwendet aber mal gucken ob kann man kubectl top gibt sowas pot node node
+
+01:35:08.200 --> 01:35:35.960
+minicube matrix api not verfügbar ok minicube addons enable matrix server ist das so ok ok
+
+01:35:39.200 --> 01:35:47.760
+wo ich das restarten oder so das könnte jetzt eine minicube geschichte sein dass das nicht will
+
+01:35:47.760 --> 01:36:10.680
+matrix server ist enabled der ram ist voll quatsch glaube ich nicht achso ja doch das
+
+01:36:10.680 --> 01:36:15.440
+könnte tatsächlich sein ich war mal kurz vier aber ich glaube nicht dass da voll ist weil so
+
+01:36:15.440 --> 01:36:28.280
+dieser container braucht ja nichts ich glaube da hat keine schmerzen so wir sehen hier ist
+
+01:36:28.280 --> 01:36:45.720
+autocomplete das ok naja ich meine wir können einfach mal minicube können das ding mal neu starten moment moment in secure und
+
+01:36:45.720 --> 01:36:53.600
+registries ich glaube dann einfach probleme mit der matrix api wir starten wir starten das ding mal
+
+01:36:53.600 --> 01:37:01.640
+neu vielleicht geht es dann muss man manchmal machen ich hatte schon öfters das minicube lokal
+
+01:37:01.640 --> 01:37:12.440
+manche sachen nicht wollte da muss man das neu starten oder funktioniert das wird jetzt mal
+
+01:37:12.440 --> 01:37:17.720
+neu starten dann gucken so weil als nächstes gucken wir uns mal an wie man das mit lokaler
+
+01:37:17.720 --> 01:37:25.880
+image registry macht weil aktuell verwenden wir hier öffentliche public verfügbare docker
+
+01:37:25.880 --> 01:37:31.280
+images das ist ja meistens nicht der fall also wenn man eigene anwendung laufen lassen will da
+
+01:37:31.280 --> 01:37:35.280
+will man in der regel nicht diese anwendung public in einem docker container beziehungsweise
+
+01:37:35.280 --> 01:37:51.880
+ein container image ins internet stellen zumindest viele wollen das nicht jetzt geht's
+
+01:37:51.880 --> 01:38:01.360
+ok minicube hat keinen bock
+
+01:38:01.360 --> 01:38:08.080
+minicube not found ok
+
+01:38:08.080 --> 01:38:21.240
+kann ich sowas machen wie get node also minicube wie dem auch sei pot ich kann eine pot ressource
+
+01:38:21.240 --> 01:38:28.560
+mir anzeigen lassen kann man das so watchen lassen oder muss man das von hand machen wir
+
+01:38:28.560 --> 01:38:44.920
+führen jetzt noch mal den kram hier aus also moment die selbst können ja gar nicht so viel
+
+01:38:44.920 --> 01:38:52.520
+sachen hier abkommen dass ich das sehe bin ich ein bisschen doof dass es nicht geht aber
+
+01:38:52.520 --> 01:38:59.720
+ach jetzt funktioniert not minicube auf einmal ok alles klar nice gut zu wissen hat man sich
+
+01:38:59.720 --> 01:39:12.600
+einfach ein bisschen gedauert bis es gestartet ist und sagt jetzt würde ich eigentlich erwarten
+
+01:39:12.600 --> 01:39:19.520
+dass der ein bisschen mehr ausgelastet ist ist er nicht hatte aber kein bock drauf denkt sich
+
+01:39:19.520 --> 01:39:26.280
+nope was was interessieren mich 128.000 naja gut machen wir mal machen wir einfach mal mehr
+
+01:39:26.280 --> 01:39:28.720
+potz misst ja apply
+
+01:39:28.720 --> 01:39:42.840
+ja wieder jede menge potz am start das ding ist hat einfach nur eine krasse krasse verzirkt
+
+01:39:42.840 --> 01:39:55.080
+ne wobei das ist jetzt jetzt pot erstellen so und jetzt mal nochmal arttp benchmark mein
+
+01:39:55.080 --> 01:40:03.200
+ganzer rechner ist voll man es könnte auch sein dass das irgendwie richtig funktioniert
+
+01:40:03.200 --> 01:40:10.360
+weil das im container läuft keine ahnung ich weiß eh nicht wie man sich das gescheit auf
+
+01:40:10.360 --> 01:40:16.160
+kommando zeile anzeigen lässt anscheinend so aber wirklich funktionieren tut es tut es ja
+
+01:40:16.160 --> 01:40:23.080
+nicht wirklich ja cpu 15 prozent na gut durchaus möglich dass es nicht mehr sein kann als 15
+
+01:40:23.080 --> 01:40:31.600
+prozent weil ich ja nur in zwei kerne docker container hab für mein minicube ach guck jetzt
+
+01:40:31.600 --> 01:40:38.240
+geht es ein bisschen hoch also wirklich wirklich wirklich toll zur übersicht ist das ist das nicht
+
+01:40:38.240 --> 01:40:45.920
+gut aber jetzt war mal wieder was gescheites jetzt machen wir eine lokale container registry
+
+01:40:45.920 --> 01:40:52.480
+normalerweise ist es ja so wenn ihr anwendungen programmiert habt oder wenn ihr in einem
+
+01:40:52.480 --> 01:40:58.400
+unternehmen seid das der anwendung entwickelt hat und das auf kubernetes deployed werden soll
+
+01:40:58.400 --> 01:41:10.280
+dann ist das ja keine open source anwendung die irgendwo im internet verfügbar ist ja das
+
+01:41:10.280 --> 01:41:15.080
+kenne ich das kenne ich habe ich aber noch nicht benutzt ich kenne das ich habe ich habe erst
+
+01:41:15.080 --> 01:41:30.760
+gestern mir paar kubernetes frontends angeguckt so und dementsprechend willst du ja auch keine
+
+01:41:30.760 --> 01:41:39.400
+container images bauen mit deiner close source super secret versicherungsbanken anwendung und
+
+01:41:39.400 --> 01:41:47.520
+hier auf docker hab öffentlich ins internet pushen so was du natürlich machen kannst ist wenn die
+
+01:41:47.520 --> 01:41:54.880
+firma in der cloud ist und in einem cloud anbieter vertraut kann man eine container registry verwenden
+
+01:41:54.880 --> 01:42:01.880
+also ich sag mal ihr kennt docker hab wahrscheinlich docker hab ist so die älteste container registry
+
+01:42:01.880 --> 01:42:07.160
+die es gibt docker hab ist nicht die einzige github hat beispielsweise auch eine eigene
+
+01:42:07.160 --> 01:42:14.440
+container registry docker hab kennen die meisten aber so docker hab ist halt public oder man meldet
+
+01:42:14.440 --> 01:42:17.760
+sich an und kriegt da auch ein private account aber es ist immer noch in der cloud das ist im
+
+01:42:17.760 --> 01:42:24.160
+internet also vielleicht möchte man nicht seine anwendung oder die das unternehmen die anwendung
+
+01:42:24.160 --> 01:42:31.680
+ins internet stellen entweder benutzt man an irgendeine registry wie docker hab allerdings
+
+01:42:31.680 --> 01:42:39.240
+bloß angemeldet und private oder github private registry oder man hostet sich eine container
+
+01:42:39.240 --> 01:42:45.200
+registry selber ich persönlich würde eher dazu tendieren die container registry nicht selber
+
+01:42:45.200 --> 01:42:51.600
+zu hosten sondern die von jeweiligen cloud anbieter zu nehmen also wenn man zum beispiel bei amazon
+
+01:42:51.600 --> 01:42:58.160
+ist bei asia oder bei google oder geben wir mal bei google wenn ihr wenn ihr gcp google cloud kunde
+
+01:42:58.160 --> 01:43:04.280
+seid da könnt ihr auch da eine container registry verwenden für unseren fall werden wir jetzt eine
+
+01:43:04.280 --> 01:43:12.720
+lokale container registry mit mit einem add-on was im minikube eingebaut ist verwenden das ist ganz
+
+01:43:12.720 --> 01:43:18.320
+praktisch dann muss ich mich hier nirgendswo anmelden docker hab technisch sondern kann das hier alles
+
+01:43:18.320 --> 01:43:23.960
+lokal machen dann machen wir eine kleine dotnet anwendung und die packen wir dann anstelle hier
+
+01:43:23.960 --> 01:43:31.200
+von who am i traffic container packen wir in einen docker container bzw. bauen container image und
+
+01:43:31.200 --> 01:43:36.880
+pushen das zu unserer lokalen container registry und bei der gelegenheit gucken wir uns dann auch
+
+01:43:36.880 --> 01:43:47.600
+noch ein paar einheiten an damit man so was updaten kann ohne dass die anwendung dabei ausfällt so wir
+
+01:43:47.600 --> 01:43:55.760
+machen jetzt erstmal hier in den ordner nennen wir mal app so dotnet habe ich überhaupt habe ich
+
+01:43:55.760 --> 01:44:07.760
+überhaupt sp dotnet runtime installiert sp habe ich gar nicht nur dachte mir doch irgendwie ich
+
+01:44:07.760 --> 01:44:11.600
+gehe mal kurz durch den chat durch was was da so gekommen ist ich habe wieder die hälfte nicht
+
+01:44:11.600 --> 01:44:19.580
+gelesen wenn firmenleute mit kubernetes erfahrung suchen wo ist dann in dem job genau die
+
+01:44:19.580 --> 01:44:24.120
+schwierigkeit dass die firmen wahrscheinlich gar nicht wissen was sie wollen ich glaube viele
+
+01:44:24.120 --> 01:44:30.840
+denken sie wollen kubernetes weil man das kennt und damit ja automatisch alles agil wird uns
+
+01:44:30.840 --> 01:44:37.400
+skaliert automatisch und alles super verfügbar ist das ist aber ein trugschluss also man ist
+
+01:44:37.400 --> 01:44:43.560
+wahrscheinlich mit bekannter technologie mit leuten die sich damit auskennen besser als wenn
+
+01:44:43.560 --> 01:44:47.440
+man jetzt übers kniepricht kubernetes für irgendeinen anwendungszweck wo es vielleicht
+
+01:44:47.440 --> 01:44:56.120
+noch gar nicht mal großartig sinnvoll ist ja sie so dankeschön für den sub also ich glaube die
+
+01:44:56.120 --> 01:44:58.800
+größte schwierigkeit ist dass die firmen wahrscheinlich nicht so genau wissen was sie
+
+01:44:58.800 --> 01:45:04.320
+wollen und ansonsten das für mich komplizierteste was kubernetes angeht ist eindeutig in dem
+
+01:45:04.320 --> 01:45:08.640
+ökosystem den überblick zu behalten wie gesagt ich habe es am anfang gesagt ich bin auch nicht
+
+01:45:08.640 --> 01:45:15.040
+die pot sind running ich bin auch nicht das super krasse kubernetes checker ja und das
+
+01:45:15.040 --> 01:45:24.320
+ökosystem ist wirklich unglaublich komplex es gibt für es gibt für alles acht verschiedene
+
+01:45:24.320 --> 01:45:31.560
+lösungen allein schon allein schon wie speichert man api keys und passwörter in kubernetes da
+
+01:45:31.560 --> 01:45:36.840
+gibt es fünf sechs verschiedene varianten von einfach bis super von ein bisschen einfacher
+
+01:45:36.840 --> 01:45:41.640
+und super kompliziert nee habe ich nicht
+
+01:45:49.160 --> 01:45:55.080
+als secrets storst du die besser nicht weil als secrets steht das im klaren text in
+
+01:45:55.080 --> 01:46:02.280
+dein jammel files drinnen das kann man machen aber sobald ein jammelfile ins git einchecks
+
+01:46:02.280 --> 01:46:07.680
+stehen deine secrets im klaren text drinnen so da gibt es verschiedene möglichkeiten es gibt so
+
+01:46:07.680 --> 01:46:16.120
+sachen wie ziel secrets dann speichert man das ganze verschlüsselt verschlüsselt im git und
+
+01:46:16.120 --> 01:46:23.800
+entsperrt das quasi per key beim kubernetes cluster start dann gibt es irgendwas komisches
+
+01:46:23.800 --> 01:46:29.800
+von mozilla was quasi irgendwie so ein makro für jammel files ist dann gibt es so was wie
+
+01:46:29.800 --> 01:46:37.120
+wollt und so da wird es aber schon langsam richtig kompliziert also gibt es unglaublich viel geschiss
+
+01:46:37.120 --> 01:46:46.080
+drumherum also gibt es ganz viel also da die ich glaube es gibt keinen den überblick behält
+
+01:46:46.080 --> 01:46:53.640
+ja da gibt es so sachen wie helm wo dran steht es ist ein paket ein package manager für kubernetes
+
+01:46:53.640 --> 01:46:58.600
+und du guckst dir mal helm chart definitionen an und musst erst mal kotzen wenn du die dateien
+
+01:46:58.600 --> 01:47:04.000
+siehst also da gibt es dann ja auch es ist auch nicht das einzige was es gibt gibt es auch wieder
+
+01:47:04.000 --> 01:47:09.600
+drei verschiedene sachen dann kannst du im zweifelsfall auch einfach sagen ach ich scheiß auf
+
+01:47:09.600 --> 01:47:14.240
+jammel und kannst es direkt über terraform machen terraform hat auch kubernetes provider
+
+01:47:14.240 --> 01:47:33.360
+und das ist also dadurch zu blicken ist tatsächlich für mich für mich das schwierigste
+
+01:47:33.360 --> 01:47:43.280
+ich blicke da auch nicht durch soll ich ganz ehrlich also es gibt es gibt so viele sachen wo
+
+01:47:43.280 --> 01:47:50.720
+ich keine ahnung von hab an sich tools was es für möglichkeiten gibt und und später wenn es dann
+
+01:47:50.720 --> 01:47:56.400
+richtung service mesh und solche geschichten geht habe ich mich auch nur am rande mit beschäftigt
+
+01:47:56.400 --> 01:48:02.200
+da wird sein ganz abgedreht also muss sagen so die basic funktion von kubernetes sowas wie das was
+
+01:48:02.200 --> 01:48:08.000
+wir gemacht haben das ist tatsächlich gar nicht so schwer wenn man sich ein bisschen an die namen
+
+01:48:08.000 --> 01:48:13.280
+gewöhnt hat wie die den kram nennen aber das was damit dann noch zusätzlich kommt macht es
+
+01:48:13.280 --> 01:48:18.920
+kompliziert eine sache werden wir vielleicht gleich noch sehen mit manager und und zertifikate
+
+01:48:18.920 --> 01:48:22.480
+anlegen damit es dann schon wieder ein bisschen komplizierter so aber wir bauen jetzt mal eine
+
+01:48:22.480 --> 01:48:31.640
+eigene dotnet anwendung die wir benutzen als application als application wie gesagt leute
+
+01:48:31.640 --> 01:48:37.920
+kein dotnet programmier stream das wird was ganz kleines was im prinzip nur aus drei zeilen
+
+01:48:37.920 --> 01:48:54.840
+oder so besteht so also dort net new web neue dotnet anwendung und verwendest du das wim plug-in
+
+01:48:54.840 --> 01:49:02.520
+wischl zu kontinue wenn ich wim aufmache ist es der real wim noch nicht mal neowimp der
+
+01:49:02.520 --> 01:49:13.440
+schlüssel tatsächlich da stinkt normale wim das ok ja ich traste traste alles hier voller
+
+01:49:13.440 --> 01:49:24.280
+trust dotnet anwendung am start ja das habe ich da habe ich da habe ich jetzt gar nicht
+
+01:49:24.280 --> 01:49:29.760
+dran gedacht leute ja die ganzen klassen und storage möglichkeiten gibt es ja auch noch du
+
+01:49:29.760 --> 01:49:34.000
+musst ja das müssen wir uns ja auch noch angucken hier nicht heute im stream aber in
+
+01:49:34.000 --> 01:49:40.640
+allem der nächste guckt mal meine anwendungen hier sind ja komplett stateless aktuell es sollen
+
+01:49:40.640 --> 01:49:46.840
+sie im besten fall auch sein in kuba nades ja aber irgendwo müssen die daten ja hin der
+
+01:49:46.840 --> 01:49:50.840
+einfachste fall ist es gibt irgendwo den datenbank service und du connectest dich dahin liest und
+
+01:49:50.840 --> 01:49:56.760
+schreibst ein gutes aber manchmal brauchst du auch persistente dateien oder config files oder
+
+01:49:56.760 --> 01:50:02.080
+config einträge mit environment variabel und sowas also aber spätestens bei dateien fängt
+
+01:50:02.080 --> 01:50:08.360
+an wo wie bekommst du wie bekommst du files in den container da gibt es auch 1000 varianten von
+
+01:50:08.360 --> 01:50:14.960
+clusterfile system bis s3 du kannst doch über s3 machen gibt es 1000 varianten und gerade diese
+
+01:50:14.960 --> 01:50:21.320
+vielfalt und dann die auswahl aus dieser vielfalt was lohnt sich denn jetzt für die neweiligen
+
+01:50:21.320 --> 01:50:26.840
+anwendungszweil anwendungsfall ja das ist das ist moment dies ist glaube ich nicht die landkarte
+
+01:50:26.840 --> 01:50:32.440
+die ich kenne doch das ist die landkarte ich kenne ja die ist wirklich nice
+
+01:50:32.440 --> 01:50:42.880
+ja und das ist bei weitem nicht alles was da drin steht wenn ich reingucke gibt es viele
+
+01:50:42.880 --> 01:50:46.680
+sagen es ist vieles weil ich noch nie davon gehört habe und auch einiges was hier noch
+
+01:50:46.680 --> 01:50:52.440
+fehlt also da den überblick zu behalten was es alles gibt und dann das passende auszuwählen
+
+01:50:52.440 --> 01:50:57.080
+für den anwendungsfall den man hat das ist fast das schwierigste an der ganzen kompanie das
+
+01:50:57.080 --> 01:51:05.120
+geschichte und was man ehrlicherweise auch sagen muss was auch schwieriger ist als mit vms ist
+
+01:51:05.120 --> 01:51:12.320
+so ich meine ich habe jetzt hier drei pots laufen alles schön und gut aber wenn dann mal
+
+01:51:12.320 --> 01:51:17.640
+irgendwas nicht läuft in so einem kompanie das klasse da rauszufinden warum da jetzt also mal
+
+01:51:17.640 --> 01:51:22.080
+so eine anwendung zu die banken in so einem kompanien das klasse da ist gar nicht mal so
+
+01:51:22.080 --> 01:51:27.480
+einfach im prinzip könnt ihr eigentlich nur folgendes machen logs für den container konnte
+
+01:51:27.480 --> 01:51:32.720
+euch angucken so viel mehr die bakt möglichkeiten habt ihr nicht es gibt noch die möglichkeit sich
+
+01:51:32.720 --> 01:51:39.320
+rein zu connecten in den container das können wir uns können wir uns auch gleich angucken also man
+
+01:51:39.320 --> 01:51:46.400
+kann ja mit docker was ist docker exek minus it ubuntu bin wesch also wir machen das mal docker
+
+01:51:46.400 --> 01:51:55.960
+beispiel ja ich krieg das immer nicht aus dem kopf hin was habe ich verkehrt gemacht docker exek
+
+01:51:55.960 --> 01:52:09.920
+an den docker run docker run und wenn er schon läuft doch er exek wenn er schon läuft doch er
+
+01:52:09.920 --> 01:52:14.840
+exek kann man sich ja in kontent kann man sich haben in lokale docker container rein verbinden
+
+01:52:14.840 --> 01:52:23.280
+das gleiche gibt es auch gibt es auch cube ctl exek oder kann man sich versuchen in weiß ich
+
+01:52:23.280 --> 01:52:26.520
+habe aus dem kopf überhaupt nicht wird es funktioniert kann man sich versuchen rein
+
+01:52:26.520 --> 01:52:30.040
+zu connecten in die container wenn es da zum beispiel eine shell gibt und so was
+
+01:52:30.040 --> 01:52:43.200
+das minus minus kommandok die haben aber die haben aber aktuell keine shell aber nicht dass
+
+01:52:43.200 --> 01:52:49.560
+du trotz ist es trotzdem schwierig so was so was zu debuggen also da muss ich sagen das ist immer
+
+01:52:49.560 --> 01:52:57.120
+noch wenn du so eine vm hast wurde dich rein connecten kannst und da dann rum wurschteln
+
+01:52:57.120 --> 01:53:03.640
+kannst drinnen angenehmer so wirklich rauszufinden wo ist der fehler und zu gucken ok warum
+
+01:53:03.640 --> 01:53:08.720
+funktioniert jetzt die namensauflösung nicht und so was also so ein container deployment zu
+
+01:53:08.720 --> 01:53:15.960
+debuggen finde ich persönlich eine ganze ecke anspruchsvoller mit dazu gemacht anspruchsvoller
+
+01:53:15.960 --> 01:53:22.920
+als eine vm wo was drinne läuft heißt die frage wo kommen deine locks raus deine locks sind ja
+
+01:53:22.920 --> 01:53:28.640
+wahrscheinlich da nicht lokal in dem container sondern auf irgendeiner lock aggregierungs
+
+01:53:28.640 --> 01:53:35.040
+loki oder irgendwas oder lock sammel plattform oder elastix und was gibt es denn da alles mir
+
+01:53:35.040 --> 01:53:46.440
+fällt jetzt bloß loki ein von dem was ich verwenden würde kibana gibt es da noch und und zeugs jenkins
+
+01:53:46.440 --> 01:53:55.440
+nicht jenkins ist kein lock lock sammel plattform wenn das ist das falsche was ich hier aufmache
+
+01:53:55.440 --> 01:54:05.400
+war das nicht gecheckt dass ich hier moment ich macht es reiter ist wieder zu pepega ok
+
+01:54:05.400 --> 01:54:19.080
+als hat es wieder nicht gecheckt hier max nepos minikube ab ja trust ok wir machen es
+
+01:54:19.080 --> 01:54:28.920
+minimal dort net anwendung um euch ein paar wo ich noch ein paar sachen zeigen kann hatten
+
+01:54:28.920 --> 01:54:35.280
+wir hier noch nie rider offen auf der neuen vm ich glaube nicht ob das ist neu ok sekunde da
+
+01:54:35.280 --> 01:54:52.200
+müssen wir erstmal was einstellen file settings short cuts ja fast fast ein action auch wieder
+
+01:54:52.200 --> 01:55:09.760
+den standard short cut ok ja ja remove und editor font ja mal wegen jet planes mono soll
+
+01:55:09.760 --> 01:55:27.080
+mir recht sein ok so jetzt jetzt sieht man ja hier was ja und them pass mal auf leute
+
+01:55:27.080 --> 01:55:41.720
+flash bang cake wait ich war noch ein bisschen größer so also wir machen es wirklich eine
+
+01:55:41.720 --> 01:55:52.680
+ganz simple minimale dort net anwendung also hello world vorher nicht wir wollen return
+
+01:55:52.680 --> 01:56:08.040
+cute chatter name so und dann müssen wir noch so noch einstellen hier war name gleich wir
+
+01:56:08.040 --> 01:56:13.480
+machen das auch gleich mit environment variablen dass man auch was weiteres lernen kann environment
+
+01:56:13.480 --> 01:56:34.120
+variablen get so wunderbar reicht gut das ist unser unsere minimal dort net web anwendung
+
+01:56:34.120 --> 01:56:37.960
+das reicht auch mehr brauchen wir zum testen an der stelle auch nicht reicht voll und ganz
+
+01:56:37.960 --> 01:56:43.560
+aus wir machen jetzt noch zwei sachen oder besser gesagt eine sache die sehr nützlich ist und zwar
+
+01:56:43.560 --> 01:56:59.680
+sagen wir noch ich glaube bilder bilder et health checks service et health checks und dann bei
+
+01:56:59.680 --> 01:57:09.760
+app et ne och fack wie war das map map health checks und zwar das ganze unter slash helft
+
+01:57:09.760 --> 01:57:17.240
+wisst ihr warum helft und ich helf weil aus irgendwelchen gründen die kubanete leute sich
+
+01:57:17.240 --> 01:57:22.160
+gedacht haben es ist eine tolle idee das mit z hinten dran zu schreiben wahrscheinlich weil
+
+01:57:22.160 --> 01:57:27.800
+das andere schon zu oft belegt war oder so keine ahnung worum das herkommt aber die finden es
+
+01:57:27.800 --> 01:57:32.520
+cooler dass das mit slash helft vielleicht weiß das deck overflow auch warum das so ist
+
+01:57:32.520 --> 01:57:39.960
+historisch die it comes from google internal best practices ok leute ihr habt es gehört
+
+01:57:39.960 --> 01:57:55.880
+helft ist google best practice excellent danke google so das ist unsere dotnet anwendung das
+
+01:57:55.880 --> 01:58:02.280
+war es auch schon mehr brauchen wir nicht was wir jetzt machen müssen ist ein image bauen für
+
+01:58:02.280 --> 01:58:12.080
+diese dotnet anwendung und das mache ich ganz einfach ich klaue mir den image weil habe ich
+
+01:58:12.080 --> 01:58:17.360
+nämlich schon vorbereitet kio kundangische für den sab und sorry falls ich irgendjemand übersehen
+
+01:58:17.360 --> 01:58:26.240
+habe mit subscriptions add docker support linux docker feil das kommt alles weg weil das rider
+
+01:58:26.240 --> 01:58:34.640
+template kacke ist und jetzt bärm soll ich das noch mal kurz erklären oder wollen wir das docker
+
+01:58:34.640 --> 01:58:39.800
+feil einfach zur kenntnis nehmen und nicht mehr reingucken kann ich jetzt vielmals arbeits- oder
+
+01:58:39.800 --> 01:58:44.560
+weiterbildungszeit absetzen ich würde sagen schon wir machen hier schon wichtige wichtige dinger
+
+01:58:44.560 --> 01:58:51.800
+so weil mit diesem docker feil kann ich jetzt aus meiner dotnet anwendung ein container bauen und
+
+01:58:51.800 --> 01:58:57.680
+diesen image bauen und dieses image kann ich in eine container registry pushen und auf diese
+
+01:58:57.680 --> 01:59:02.880
+container registry kann ich dann an der stelle hier von kubernetes drauf zugreifen und meine
+
+01:59:02.880 --> 01:59:07.960
+eigene anwendung aus meiner eigenen container registry ziehen und nicht mehr aus einer öffentlichen
+
+01:59:07.960 --> 01:59:16.120
+container registry im internet ja so sieht es aus wir können mal kurz schauen ob mein bild
+
+01:59:16.120 --> 01:59:39.600
+funktioniert docker bild punkt ich spreche mal kurz ab docker bild minus t cute app schauen wir mal
+
+01:59:39.600 --> 02:00:01.400
+ist das dann auch fertig gebaut so docker run it's minus minus am cute app jawoll da sind wir
+
+02:00:01.400 --> 02:00:15.520
+port 80 karl local host also ich habe kein port zweiter geleitet lull p 80 80 cute chatter gibt
+
+02:00:15.520 --> 02:00:22.280
+es nicht guck mal keiner unsere anwendung hatten back wir brauchen noch wenn wenn die environment
+
+02:00:22.280 --> 02:00:32.600
+nicht gesetzt ist brauchen wir noch die fall value excellent ok cute app noch mal bilden
+
+02:00:32.600 --> 02:00:48.760
+keine cute chatters bekannt ok run cute app wunderbar ok das ist unsere absolut
+
+02:00:48.760 --> 02:00:56.120
+high IQs maximum IQ also bessere web anwendung geht nicht mehr und wenn ich jetzt slash health
+
+02:00:56.120 --> 02:01:01.600
+mache dann kommt healthy zurück und wenn ich weglasse kommt nichts weil bei google sagt da
+
+02:01:01.600 --> 02:01:07.160
+muss ein z hinten dran gut das ist unsere web anwendung fertig aus das war es mit c sharp
+
+02:01:07.160 --> 02:01:18.040
+für heute demnächst wieder mehr hier test machen das nächste mal wobei man keine test braucht wenn
+
+02:01:18.040 --> 02:01:24.520
+man immer fehlerfreien code schreibt da braucht man keine doku keine tests und keine kommentare
+
+02:01:24.520 --> 02:01:34.280
+weil es geht ja eh also sagen wir unsere unsere unsere unsere anwendung und jetzt müssen wir
+
+02:01:34.280 --> 02:01:42.720
+diese anwendung pushen in unsere lokale container registry ich habe hier schon mal in weißer
+
+02:01:42.720 --> 02:01:51.760
+voraussicht mein kubanet ist gestartet mit insecure registries weil näher von meiner
+
+02:01:51.760 --> 02:01:56.480
+container registry ist kein gültiges SSL zertifikat als erstes enable wir das mal
+
+02:01:56.480 --> 02:02:15.200
+enable registry und irgendwann ist es dann durch ich kann euch auch mal zeichnen kubectl get ports
+
+02:02:15.200 --> 02:02:32.080
+und hier ist die container registry also die addons sind unter der haube auch nur container
+
+02:02:32.080 --> 02:02:39.480
+warum nicht pots tja muss man mal google fragen wie das sein kann gut und jetzt müssen wir in
+
+02:02:39.480 --> 02:02:50.160
+diese lokale container registry unsere app pushen das machen wir nicht mit docker ich kann euch
+
+02:02:50.160 --> 02:02:57.320
+auch sagen warum wir das nicht mit docker machen weil docker es nicht mag wenn die registry kein
+
+02:02:57.320 --> 02:03:04.520
+gültiges SSL zertifikat hat das muss man das kann man irgendwie konfigurieren bei docker
+
+02:03:04.520 --> 02:03:11.400
+fragt mich nicht wo also von der idee her würde man würde man das bilden und dann würde man sagen
+
+02:03:11.400 --> 02:03:25.280
+docker push und dann die registry ja man muss in den in den konfig feier kann man es reinschreiben
+
+02:03:25.280 --> 02:03:35.520
+aber wir nehmen einfach potman weil potman hat eine konfig option dafür potman ist quasi ein docker
+
+02:03:35.520 --> 02:03:42.040
+klon von redhead mit ein paar sachen die docker nicht kann und umgedreht so weil jetzt kann man
+
+02:03:42.040 --> 02:03:50.560
+sagen potman bild und jetzt kommt es darauf an wie man das image nennt damit das ganze funktioniert
+
+02:03:50.560 --> 02:03:59.440
+warum nicht pot woman fragt mal twitter heute ist heute ist equal payday weißt du das eigentlich
+
+02:03:59.440 --> 02:04:08.320
+leute equal payday ist heute jetzt da sollte man schon mal potman potwoman wenigstens mal
+
+02:04:08.320 --> 02:04:18.480
+zumindest für heute umbenen so also damit das ganze funktioniert damit man sein sein image in die in
+
+02:04:18.480 --> 02:04:24.920
+die lokale container registry pushen kann muss man das taggen und zwar richtig taggen und zwar mit
+
+02:04:24.920 --> 02:04:34.240
+der ip und mit der ip beziehungsweise dem namen von der container registry und mit dem image wie
+
+02:04:34.240 --> 02:04:39.400
+das wie das ganze wie das ganze heißen also ich muss mal sagen wie potman bild wie gesagt mit
+
+02:04:39.400 --> 02:04:46.040
+docker geht das auch wenn es gültiges zertifikat vor der registry hat also potman bild 192 wobei
+
+02:04:46.040 --> 02:04:50.680
+wir machen es anders wir machen das wir machen wir machen den script kommt wir sind wir sind mal
+
+02:04:50.680 --> 02:05:01.920
+super ordentlich wir machen bild punkt sh bin bash registry gleich hoffe ich schreibe das jetzt
+
+02:05:01.920 --> 02:05:15.720
+nicht registry gleich mini cube ip auf port 5000 läuft die registry das weiß ich weil ich nach
+
+02:05:15.720 --> 02:05:21.800
+geguckt habe und wir können auch so was wie ein tag hinten angeben vielleicht vielleicht gar nicht
+
+02:05:21.800 --> 02:05:28.800
+so blöd wenn man tag hinten angeben so und jetzt kommt das was wir an potman kommandos ausführen
+
+02:05:28.800 --> 02:05:38.160
+nämlich potman bild minus t registry also in dem fall die ip und der port und der port name von
+
+02:05:38.160 --> 02:05:43.320
+der app und jetzt können wir noch einen tag hinten dran machen so und wenn das fertig ist
+
+02:05:43.320 --> 02:05:49.080
+können wir sagen potman push und das muss ich mir jetzt kopieren weil ich das aus dem kopf nicht
+
+02:05:49.080 --> 02:05:56.600
+weiß minus minus tls verify gleich falls und dann funktioniert das auch alles über htp
+
+02:05:56.600 --> 02:06:02.560
+beziehungsweise auch mit ungültigen zertifikaten und jetzt hier den gleichen krempel ich habe
+
+02:06:02.560 --> 02:06:11.840
+mich auch einen punkt vergessen so wenn ich das script jetzt richtig gebaut habe dann sollte
+
+02:06:11.840 --> 02:06:29.240
+er uns jetzt ein container image bilden und in die registry pushen was habe ich denn verkehrt
+
+02:06:29.240 --> 02:06:38.400
+gemacht potman bild minus t registry gut er hat ich habe den tag vergessen anzugeben ok ja also
+
+02:06:38.400 --> 02:06:45.720
+1.0.0 hi iq app ok jetzt ok er baut und ihr seht es sieht fast aus wie bei docker nur dass es jetzt
+
+02:06:45.720 --> 02:06:51.520
+potman ist wieso der code war richtig funktioniert ohne jegliche änderung
+
+02:06:51.520 --> 02:07:03.600
+so image ist gepusht nice und was ich jetzt machen kann ist folgendes ich trage jetzt an
+
+02:07:03.600 --> 02:07:11.200
+der stelle einfach ein lokal host ich kann an der stelle jetzt lokal host verwenden weil die
+
+02:07:11.200 --> 02:07:18.480
+registry innerhalb des kubernetes clusters läuft es funktioniert an der stelle lokal host 5000
+
+02:07:18.480 --> 02:07:27.120
+slash cute app doppelpunkt versionsnummer 1.0.0 und jetzt werdet ihr feststellen ich zeige es
+
+02:07:27.120 --> 02:07:44.680
+mal watch karl keckel ihr seht hier das ist der aktuelle service der da läuft das ist noch der
+
+02:07:44.680 --> 02:07:55.200
+hallo welt service das ist noch nicht noch nicht unsere web anwendung was ist köln minus s glaube
+
+02:07:55.200 --> 02:08:00.360
+ich für weniger output genau so das ist noch nicht unser unser web anwendung ich habe jetzt in dem
+
+02:08:00.360 --> 02:08:08.200
+fall hier in unserer in unserem manifest aus dem kubernetes manifest das image ausgetauscht was
+
+02:08:08.200 --> 02:08:12.120
+ich als anwendung verwenden will vorher hatte ich hier diese traffic hello world ab und jetzt
+
+02:08:12.120 --> 02:08:17.720
+habe ich unsere eigene anwendung da rein gepackt die wir die wir vorher als container image
+
+02:08:17.720 --> 02:08:22.400
+verpackt haben und in diese registry gepusht haben und wenn jetzt alles funktioniert ich hoffe es
+
+02:08:22.400 --> 02:08:32.640
+mal wir machen hier wir machen hier parallel noch mal ein get pods dass wir nämlich sehen wenn
+
+02:08:32.640 --> 02:08:41.840
+es fehler gibt wo ich das studio muss mal kurz weg und jetzt sage ich apply und vorher hier
+
+02:08:41.840 --> 02:08:48.780
+wenn ich immer raus apply so alte container werden neue container werden gestartet alte
+
+02:08:48.780 --> 02:08:55.840
+container werden gesteckt ja ja ja zack ich habe jetzt quasi neue anwendung deploit ohne
+
+02:08:55.840 --> 02:09:01.760
+das request kaputt gegangen sind zwischendurch wie euch vielleicht aufgefallen ist das natürlich
+
+02:09:01.760 --> 02:09:14.960
+schon nice gelb aber das war weg also wir wissen jetzt ja dass mit dem image funktioniert so
+
+02:09:14.960 --> 02:09:18.760
+jetzt haben wir hier unsere eigene anwendung drauf laufen jetzt brauchen wir noch ein paar
+
+02:09:18.760 --> 02:09:27.240
+andere geschichten dass das ordentlich funktioniert weil aktuell ist es so und um euch das mal zu
+
+02:09:27.240 --> 02:09:31.360
+demonstrieren beziehungsweise dass man ich zeige so mal dass man sich besser vorstellen kann machen
+
+02:09:31.360 --> 02:09:44.240
+wir mal 6 machen wir mal 69 container ihr werdet feststellen gleich gibt es wieder jede menge
+
+02:09:44.240 --> 02:09:56.160
+container während es aufbaut wir machen mal eine ein dirty hack in unserem build script
+
+02:09:56.160 --> 02:10:03.920
+den sehe ich hier nehme ich gerade drüben dass ich das auch aus anderen verzeichnissen ausführen
+
+02:10:03.920 --> 02:10:16.520
+kann so abbild und jetzt machen wir mal eine neue versionsnummer von der app ja also zum
+
+02:10:16.520 --> 02:10:20.920
+beispiel okay ich ändere ich ändere der form halber auch noch was ja es gibt der west version
+
+02:10:20.920 --> 02:10:35.720
+1.0.1 von dieser app und zwar ist es cute chatter ja ich will ich will hier wobei irgendwas cute
+
+02:10:35.720 --> 02:10:45.920
+cute chatter ist es jetzt okay schreibt man das überhaupt so cute test cute chatter also es ist
+
+02:10:45.920 --> 02:10:55.280
+jetzt noch noch mehr alles und das will ich jetzt einchecken also ich baue ein neues image
+
+02:10:55.280 --> 02:11:03.480
+draus aus der anwendung mit diesem mit diesem fix drin image version 1.0.1 pusht das wieder
+
+02:11:03.480 --> 02:11:11.760
+in die registry so und jetzt apply ich das und was wird jetzt passieren leute es wird nichts
+
+02:11:11.760 --> 02:11:22.200
+passieren es wird nichts passieren weil es hat sich ja nichts geändert es hat sich ja nichts
+
+02:11:22.200 --> 02:11:30.760
+geändert warum sind meine pots eigentlich alle pending da unten ich glaube ich habe zu viele
+
+02:11:30.760 --> 02:11:36.440
+kann es sein dass ich mit den ressourcen am limit bin dass das meine dass ich zu viele pots habe
+
+02:11:36.440 --> 02:11:42.240
+okay moment wir skalieren es mal runter auf was sinnvolles auf 10 oder so
+
+02:11:55.640 --> 02:12:02.680
+so also wenn ich das jetzt applye und wieder karl mache werdet ihr vielleicht feststellen es
+
+02:12:02.680 --> 02:12:09.120
+ist immer noch die alte message warum na ja weil die versionsnummer die hier drin steht immer noch
+
+02:12:09.120 --> 02:12:16.720
+1.0 ist ich will ja 1.0.1 haben so und jetzt wird euch gleich ein problem auffallen wenn ich das
+
+02:12:16.720 --> 02:12:23.560
+jetzt applye dann wird er updaten dann wird er updaten von dieser von dem tag 1.0.0 auf
+
+02:12:23.560 --> 02:12:34.800
+1.0.1 und wenn ihr mal genau guckt was er hier unten macht wird euch vielleicht was auffallen der
+
+02:12:34.800 --> 02:12:40.880
+startet neue container und lässt dann die alten container löst dann die alten container aber euch
+
+02:12:40.880 --> 02:12:54.400
+wird auffallen das zeug ist relativ schnell ready das zeug ist relativ schnell ready das komisch
+
+02:12:54.400 --> 02:13:01.160
+und das ist aber auch doof weil wenn jetzt im falschen momenten ein request rankommt könnte
+
+02:13:01.160 --> 02:13:07.920
+es ja theoretisch sogar sein dass der request auf dem container landet der noch gar nicht richtig
+
+02:13:07.920 --> 02:13:15.280
+gestartet ist das heißt wir müssen jetzt nicht nur den container starten sondern wir müssen
+
+02:13:15.280 --> 02:13:20.880
+auch checken ob der container bereit ist ob der container bereit ist machen wir mit den health
+
+02:13:20.880 --> 02:13:33.520
+checks hier drinnen wenn du eine fehlerhafte version deploys ist ja quasi achso jaja jaja ach
+
+02:13:33.520 --> 02:13:39.160
+das ist eine gute idee das kann ich auch zeigen das kann ich auch zeigen guckt mal ich skaliere
+
+02:13:39.160 --> 02:13:43.520
+jetzt mal ein bisschen runter auf sechs stück erst mal wir werfen keine exception ich trage
+
+02:13:43.520 --> 02:13:49.120
+einfach eine tag ein den es nicht gibt also ich gehe jetzt mal kurz runter auf sechs das sieht
+
+02:13:49.120 --> 02:13:56.480
+man so mal angenommen ich sage jetzt hier nehmen mal image version 1.0.2 die es noch nicht gibt
+
+02:13:56.480 --> 02:14:03.720
+und ich applye das jetzt dann werdet ihr feststellen der versucht es zu applyen aber
+
+02:14:03.720 --> 02:14:10.560
+er image pull oder macht nicht weiter und die alten laufen weiter das heißt ich habe obwohl
+
+02:14:10.560 --> 02:14:15.040
+ich eine fehlerhafte konfig haben das ist wirklich auch eine coole sache an kompanien ist obwohl ich
+
+02:14:15.040 --> 02:14:22.280
+eine fehlerhafte konfig habe ein weiterhin funktionierenden service zwar die alte version
+
+02:14:22.280 --> 02:14:32.320
+aber egal ich meine besser als er ist kaputt kaputt wäre glaube ich das blödeste was was
+
+02:14:32.320 --> 02:14:36.680
+an der stelle passieren könnte so wenn ich das als wieder rückgängig mache mal wieder version
+
+02:14:36.680 --> 02:14:43.280
+eins rein sache play dann checkt er das ganze auch und er geht wieder auf sechs replikas hoch
+
+02:14:43.280 --> 02:14:48.040
+also ich habe angeheben ich möchte sechs davon laufen lassen und das ist wirklich cool und das
+
+02:14:48.040 --> 02:14:55.360
+im großen stil ist eigentlich der grund schlechthin also dieses solche features in der richtung ist
+
+02:14:55.360 --> 02:15:00.560
+nicht explizit dieses ist der grund schlechthin warum kuba netis sich überhaupt so durchgesetzt
+
+02:15:00.560 --> 02:15:09.720
+hat du kannst halt wunderbar deinen ganzen workload über mehrere notes skalieren und du kannst
+
+02:15:09.720 --> 02:15:17.120
+relativ gut ausfallfrei deine software managen damit das eigentlich der hauptsächliche grund
+
+02:15:17.120 --> 02:15:22.840
+warum warum kuba netis so beliebt ist oder sich auch so durchgesetzt hat gab ja noch ein paar
+
+02:15:22.840 --> 02:15:32.320
+andere pro andere dinge es gab dann zwischenzeitlich mal docker swarm was ja immer noch gibt aber
+
+02:15:32.320 --> 02:15:37.200
+kaum jemand benutzt dann gibt es noch ein paar andere geschichten wo mir grad nichts ein gibt
+
+02:15:37.200 --> 02:15:42.080
+noch no mad gibt es noch das ist aber glaube ich auch noch mehr mit vms dabei fällt jemand
+
+02:15:42.080 --> 02:15:47.800
+nehmen eine gute kuba netis alternative ein hat er genau nicht auch mal den versuch mit lxd
+
+02:15:47.800 --> 02:16:01.600
+gestartet irgendwie sowas zu bauen was keiner haben wollte mesos mesos gibt es noch richtig
+
+02:16:01.600 --> 02:16:07.960
+apache war das apache openshift wobei ist auch ein schiff noch deutlich mehr nicht noch deutlich
+
+02:16:07.960 --> 02:16:17.040
+mehr dabei dass du da auch ne moment das ist nicht openshift das ist das openshift also
+
+02:16:17.040 --> 02:16:24.760
+openshift ist die telekom cloud das weiß ich die telekom cloud ist aber das heißt ja nicht
+
+02:16:24.760 --> 02:16:29.440
+dass es das heißt ja nicht dass es schlecht sein muss wie heißt das andere wo noch vms und so
+
+02:16:29.440 --> 02:16:39.800
+dabei sind open stack meine ich ich meine open stack und die telekom cloud ist open stack
+
+02:16:39.800 --> 02:16:50.400
+darum war das nicht openshift open stack meine ich genau ja richtig richtig so siehts aus so
+
+02:16:50.400 --> 02:17:03.240
+was wollte ich was wollte ich denn jetzt noch machen ja also ihr habt jetzt ja gesehen es
+
+02:17:03.240 --> 02:17:08.000
+sind jetzt ganz viele services neu gestartet worden aber die dinger waren sofort ready das
+
+02:17:08.000 --> 02:17:16.400
+will man ja nicht das heißt wir haben ja hier einen health check definiert service
+
+02:17:16.400 --> 02:17:22.120
+fabric ok mir fällt schon außer kopernet ist gar nicht gar nicht mehr so viel ein so man kann
+
+02:17:22.120 --> 02:17:26.960
+jetzt an der stelle sagen hier wo man wo man replikas einträgt kann ich auch noch glaube ich
+
+02:17:26.960 --> 02:17:42.680
+sagen strategy type rolling ich glaube rolling update glaube ich ist sogar der default da bin
+
+02:17:42.680 --> 02:17:47.600
+ich mir aber nicht ganz sicher rolling update und dann kann man das braucht man eigentlich
+
+02:17:47.600 --> 02:17:58.560
+gar nicht ja da kann man dann noch so was sagen wie max unavailable eins und max max
+
+02:17:58.560 --> 02:18:03.840
+search eins oder man kann auch zwei in dem fall so kann man jetzt einstellen wie er
+
+02:18:03.840 --> 02:18:08.840
+ab updates machen soll also rolling update ist glaube ich relativ selbsterklärend
+
+02:18:08.840 --> 02:18:15.360
+und wobei das ja noch nicht alles ist was wir machen müssen und hier kann man jetzt
+
+02:18:15.360 --> 02:18:25.760
+auswählen wie er vorgehen soll beim rolling upgrade also von diesen sechs replikas wie viele
+
+02:18:25.760 --> 02:18:37.080
+dürfen nicht erreichbar sein während dem update und wie viele dürfen mehr da sein als target also
+
+02:18:37.080 --> 02:18:41.280
+mit diesen settings würde folgendes passieren er könnte zum beispiel einen neuen container
+
+02:18:41.280 --> 02:18:49.360
+erzeugen schon im vorfeld bevor er den alten stoppt und dann können den alten stoppen so dass
+
+02:18:49.360 --> 02:18:55.560
+kurzzeitig fünf nur laufen und das zwischenzeitlich kurz auch mal sieben laufen können was ja wichtig
+
+02:18:55.560 --> 02:19:00.600
+ist weil bei einem update müssen ja neue container gestartet werden alte container gestoppt werden
+
+02:19:00.600 --> 02:19:04.000
+das ist halt die frage wie man das macht man kann natürlich auch hier mehr eintragen wenn
+
+02:19:04.000 --> 02:19:09.840
+man damit dacor ist dass auch mal von diesen replikas weniger laufen hiermit kann man das
+
+02:19:09.840 --> 02:19:14.840
+quasi ein bisschen feintunen wie man dieses updates wie man dieses update durchführen
+
+02:19:14.840 --> 02:19:27.480
+will wenn ich jetzt wenn ich jetzt sag wie ging das jetzt die deployment cube cube rollout cube
+
+02:19:27.480 --> 02:19:40.720
+ctl rollout restart wobei ich brauche ich gar nicht ich kann jetzt einfach apply machen doch
+
+02:19:40.720 --> 02:19:52.200
+nicht unchanged ok cube ctl rollout restart deployment das sieht man jetzt macht er das
+
+02:19:52.200 --> 02:20:02.080
+halt entsprechen dieser policy das maximum einer eben hier immer abgecreated wird aber
+
+02:20:02.080 --> 02:20:08.040
+wenn ich jetzt hier zum beispiel version runter runter gehe auf version eins sach apply dann
+
+02:20:08.040 --> 02:20:14.080
+seht ihr ok der erzeugt zwei neue und er stoppt immer kann auch immer ein zwei austauschen
+
+02:20:14.080 --> 02:20:19.360
+immer ein mehr und ein weniger kann man das kann man so ein bisschen ein bisschen feintunen was
+
+02:20:19.360 --> 02:20:28.360
+er was er machen darf so was aber viel wichtiger ist wir brauchen noch health checks weil ihr
+
+02:20:28.360 --> 02:20:33.560
+seht jedes mal wenn der container gestartet ist er sofort ready das stimmt ja gar nicht der
+
+02:20:33.560 --> 02:20:38.080
+container ist gar nicht sofort ready der muss ja auch erst mal starten die web anwendung muss
+
+02:20:38.080 --> 02:20:50.600
+starten ich mein das geht schnell ja mein pot man run cute cute app also das hieß ja
+
+02:20:50.600 --> 02:21:06.600
+irgendwie anders was ich so ihr seht so container startet schnell ist mal exemplarisch lokal bei
+
+02:21:06.600 --> 02:21:11.320
+mir mit docker der startet schnell aber es ist trotzdem eine halbe sekunde wo der container
+
+02:21:11.320 --> 02:21:16.240
+gestartet ist aber noch nicht bereit ist requests anzunehmen und es könnte ja auch durchaus
+
+02:21:16.240 --> 02:21:22.760
+länger dauern okay keine frage so und dafür gibt es solche sachen wie ready probe und life
+
+02:21:22.760 --> 02:21:29.960
+oder leifnis probe und readiness probe das muss man das muss man abgucken wo das hin muss unter
+
+02:21:29.960 --> 02:21:36.680
+portz muss unterhalb von portz also dahin muss das an der stelle
+
+02:21:50.680 --> 02:21:58.840
+als wer cringe das kann ich dir nicht erzählen habe ich keine große erfahrung drin ich würde
+
+02:21:58.840 --> 02:22:05.680
+mal sagen mit datenbank migrations du willst die postgres version updaten oder was also willst
+
+02:22:05.680 --> 02:22:13.560
+nicht deine datenbank intern die struktur updaten du willst die datenbank version updaten oder wie
+
+02:22:13.560 --> 02:22:19.000
+das eigentlich erwarten dass deine anwendung sowohl mit der alten als auch mit der neuen
+
+02:22:19.000 --> 02:22:25.080
+version funktioniert weil ansonsten ansonsten wäre das easy du updatest zuerst die datenbank
+
+02:22:25.080 --> 02:22:30.360
+wenn du die datenbank version updaten willst du updatest zuerst die datenbank dann die anwendung
+
+02:22:30.360 --> 02:22:38.520
+und dann ist gut das schema ok du willst so was wie eine datenbank migration oder so haben das
+
+02:22:38.520 --> 02:22:41.480
+eine gute frage habe ich keine erfahrung mit wie man das gescheit synchronisiert
+
+02:22:41.480 --> 02:22:50.040
+gibt es bestimmt irgendwelche super tollen best practice sachen für aber ich kann ihr
+
+02:22:50.040 --> 02:22:56.480
+da nix nix sinnvolles zu sagen ich kann mit höchstens was zusammen reiben was mir da so
+
+02:22:56.480 --> 02:23:06.600
+auf dem stegreif einfällt aber ich weiß wenn du das schema updatest dann erweiterst du das
+
+02:23:06.600 --> 02:23:12.480
+schema ja in der regel oder machst du das schema incompatibel also geht die alte anwendung noch
+
+02:23:12.480 --> 02:23:22.640
+mit der neuen schema version oder nicht wahrscheinlich nicht ja wenn das so wenn das so voneinander
+
+02:23:22.640 --> 02:23:28.840
+abhängt müsste ich mir gedanken zu machen kann ich dir so vielleicht an der chat ahnung wir haben
+
+02:23:28.840 --> 02:23:35.120
+hier viele 5 hat cloud native kubernetes 6 herz vielleicht fällt da jemand was zu ein
+
+02:23:35.120 --> 02:23:44.600
+wahrscheinlich kommen die leute jetzt wahrscheinlich kommen die leute jetzt an und sagen ha ha null gar
+
+02:23:44.600 --> 02:23:50.760
+keine sql datenbanken mehr verwenden sondern einfach nur noch cloud native data basis wobei
+
+02:23:50.760 --> 02:23:58.920
+das halt wobei das halt nicht realistisch ist das ist dann wenn du die falschen leute was sie kommen
+
+02:23:58.920 --> 02:24:03.880
+dann immer mit so was so ja warum verwendest du auch nicht cloud technologie in kürze bescheuern
+
+02:24:03.880 --> 02:24:11.680
+wer definiert was cloud technologie sachen ist und was nicht also das ist das ist was du hast
+
+02:24:11.680 --> 02:24:17.240
+zweiergründer ist ein sehr praktischer und realer anwendungsfall und darauf gibt es bestimmt auch
+
+02:24:17.240 --> 02:24:24.680
+eine gute lösung habe ich aber keine erfahrungen mit kann ich dir gerade nicht sagen zu also das
+
+02:24:24.680 --> 02:24:30.960
+naheliegendste ist natürlich du musst sicherstellen dass die alte anwendung auch mit dem neuen schema
+
+02:24:30.960 --> 02:24:35.080
+funktioniert also dass du kannst du darfst das schema zwar erweitern aber das ist nicht
+
+02:24:35.080 --> 02:24:40.680
+inkompatibel zur alten anwendung machen dann funktioniert es dann ist easy dann kannst du
+
+02:24:40.680 --> 02:24:48.160
+zuerst die datenbank updaten und dann die anwendung und wenn das nicht so ist fällt jetzt so spontan
+
+02:24:48.160 --> 02:24:55.320
+nicht so viel ein weil da müsstest du ja sicherstellen dass du irgendwie so einen so
+
+02:24:55.320 --> 02:25:02.400
+einen rolling update macht so die datenbank updaten dann wobei es halt je nach datenbank auch so ist
+
+02:25:02.400 --> 02:25:07.840
+dass du gar keine unterschiedlichen datenbank anspricht sondern alle datenbanken in dem cluster
+
+02:25:07.840 --> 02:25:13.840
+über halt ein ein ein connection string wenn du so willst dass du gar nicht explizit sagen kannst
+
+02:25:13.840 --> 02:25:22.760
+ich will jetzt nur auf diese ja da gibt es bestimmt coole möglichkeiten zu bis jetzt hatte ich das
+
+02:25:22.760 --> 02:25:26.120
+muss ich mich mit diesem problem noch nicht beschäftigen wenn es soweit ist sag ich dir
+
+02:25:26.120 --> 02:25:37.600
+bescheid ich würde einfach sagen ist job der dba es kümmert dich nicht drum dass sie das machen
+
+02:25:37.600 --> 02:25:53.680
+sag einfach nicht mein problem easy ja aber kommen wir mal zur container geschichte zurück damit
+
+02:25:53.680 --> 02:26:00.880
+ich mitbekomme wann meine anwendung wirklich gestartet ist gibt es readiness probes und es
+
+02:26:00.880 --> 02:26:11.880
+gibt man dieses autocomplete alter ist es schlecht man leifnis probe gibt es das eine ist wenn
+
+02:26:11.880 --> 02:26:16.240
+der container ready also wenn der container gestartet ist zum ersten mal und das zweite
+
+02:26:16.240 --> 02:26:24.840
+ist ob der container noch weiterhin funktioniert und ich copy paste mir das jetzt hier raus aus
+
+02:26:24.840 --> 02:26:32.360
+dem beispiel weil ich keinen bock habe das noch mal alles zu tippen so sieht das ganze dann aus
+
+02:26:32.360 --> 02:26:39.480
+aber gibt sogar eine hilfe dazu der guckt ob der ob der container ready ist und der guckt ob der
+
+02:26:39.480 --> 02:26:45.240
+container noch am leben ist und wenn diese das ist der unterschied wenn diese leifnis probe
+
+02:26:45.240 --> 02:26:52.240
+fehlschlägt dann restartet kubernetes den container kann auch sehr praktisch sein falls die anwendung
+
+02:26:52.240 --> 02:26:56.720
+nicht komplett krascht sondern intern bloß in so einem zustand gerät dass sie nicht mehr richtig
+
+02:26:56.720 --> 02:27:05.120
+funktioniert also leifnis probe startet kubernetes im zweifelsfall den container neu und hier kann
+
+02:27:05.120 --> 02:27:10.720
+unter anderem dieser ready check entscheiden wann das denn in den load balancer aufgenommen wird es
+
+02:27:10.720 --> 02:27:14.800
+gibt auch startup probe ja aber das braucht man in der regel nicht genau so und wenn ich das jetzt
+
+02:27:14.800 --> 02:27:23.720
+applye dann werdet ihr vielleicht gleich was feststellen guckt mal das geht jetzt deutlich
+
+02:27:23.720 --> 02:27:35.520
+langsamer seht ihr das das das geht jetzt deutlich langsamer alles und warum weil er halt immer
+
+02:27:35.520 --> 02:27:41.600
+fünf sekunden wartet bis das ding auch wirklich am leben ist also der wartet fünf sekunden macht
+
+02:27:41.600 --> 02:27:47.080
+dann diesen health check ob es am leben seht es dauert deutlich länger aber jetzt haben wir den
+
+02:27:47.080 --> 02:27:53.680
+großen vorteil jetzt gehen keine requests mehr keine neuen requests mehr verloren also wenn
+
+02:27:53.680 --> 02:28:00.200
+ihr einen ganz ungünstigen moment erwischt dass ihr gerade weitergeleitet worden seid auf den
+
+02:28:00.200 --> 02:28:05.760
+server und der wird gerade weg gestartet oder so dann kann es sein dass man immer noch ein
+
+02:28:05.760 --> 02:28:11.680
+fehler kriegt aber es verschwindet gering und das kann ich euch jetzt auch zeigen ich mache mal ein
+
+02:28:11.680 --> 02:28:19.000
+benchmark ok ich mache ich mache eine neue version wir gehen wieder zurück zu cute cute chatter ich
+
+02:28:19.000 --> 02:28:26.680
+mache ich mache eine neue version 1.0.2 von unserem container pusht das in die registry update die
+
+02:28:26.680 --> 02:28:34.760
+container version und jetzt passt mal auf ich mache ein benchmark hey wenn man 30 sekunden
+
+02:28:34.760 --> 02:28:43.400
+oder mal länger eine minute aber eine minute eine minute holle pulle requests auf diesen service
+
+02:28:43.400 --> 02:28:51.440
+ich fange jetzt an und jetzt mache ich das update apply wir können wir können nebenbei
+
+02:28:51.440 --> 02:29:01.040
+nebenbei zugucken cute pots ja ihr seht die pots werden neu gestartet und werden hinzugehnen
+
+02:29:01.040 --> 02:29:10.400
+hinzugenommen und alles latest funktioniert nicht apply läuft immer nur dann wenn sich das manifest
+
+02:29:10.400 --> 02:29:20.280
+geändert hat latest funktioniert nicht es gibt tricks dass es mit latest funktioniert aber
+
+02:29:20.280 --> 02:29:28.760
+das starrer mich funktioniert das mit latest nicht so unser rolling update ist fertig und jetzt bin
+
+02:29:28.760 --> 02:29:40.520
+ich mal gespannt ob requests verloren gegangen sind das läuft noch ok irgendwie das zum irgendwie
+
+02:29:40.520 --> 02:29:46.440
+spackt es rum wir warten mal kurz die minute ab es spammt es spammt immer noch heftig so requests
+
+02:29:46.440 --> 02:29:55.640
+und guckt mal wir haben eine millionen requests gemacht und nur und jetzt halt euch aus von einer
+
+02:29:55.640 --> 02:30:05.280
+millionen requests sind nur während diesem rolling update 39 oder 40 requests mal als nicht
+
+02:30:05.280 --> 02:30:11.640
+erreichbar zurückgekommen von einer millionen requests 40 und wir haben unsere anwendung
+
+02:30:11.640 --> 02:30:17.040
+geupdatet im hintergrund ich weiß wir hatten mal so einen krassen manager dude der gesagt hätte
+
+02:30:17.040 --> 02:30:23.640
+jetzt 40 requests dann sollten wir uns jetzt mal auf die konzentrieren die nicht funktioniert
+
+02:30:23.640 --> 02:30:28.280
+haben haben wir vielleicht logs wo wir die bangen können warum diese requests fehlgeschlagen sind
+
+02:30:28.280 --> 02:30:36.840
+aber ich glaube das ist eine ganz gute ausbeute von einer millionen requests 40 requests fehl
+
+02:30:36.840 --> 02:30:46.600
+geschlagen und das während wir unsere anwendung geupgradet haben also das ist schwierig hinzukriegen
+
+02:30:46.600 --> 02:31:01.160
+anderweitig ja
+
+02:31:16.600 --> 02:31:21.640
+hättest du 100 prozent wenn du kein crawling update du meinst ein rolling update machen
+
+02:31:21.640 --> 02:31:31.000
+würdest die rolling update ist das beste was man machen kann du hast als auswahl sollst
+
+02:31:31.000 --> 02:31:40.680
+nur recreate ich bin den haus gebrauche ist das nix es gibt so verrückte leute auf youtube die
+
+02:31:40.680 --> 02:31:47.000
+haben drei kubernetes cluster daheim ist unsinnig und was man an der stelle auch noch mal dazu sagen
+
+02:31:47.000 --> 02:31:51.760
+muss wir haben jetzt hier in kubernetes cluster selbst erstellt und verwalten den kubernetes
+
+02:31:51.760 --> 02:32:01.480
+cluster selbst normalerweise musst du dich mit so grundlegenden sachen wie skalierung und so gar
+
+02:32:01.480 --> 02:32:07.000
+nicht großartig auseinandersetzen wenn du managet cluster also nicht einfach nur managet cluster so
+
+02:32:07.000 --> 02:32:11.080
+nen so wenn du den autopilot cluster von google beispielsweise wenn es da brauchst du nur noch
+
+02:32:11.080 --> 02:32:16.080
+deployments machen damit müssen wir uns auch noch beschäftigen die nächsten tage
+
+02:32:16.080 --> 02:32:25.320
+oder versions updates versions updates von kubernetes und solche geschichte da musst du dich nicht mit
+
+02:32:25.320 --> 02:32:30.880
+beschäftigen wenn du managet cluster verwendet also vieles von diesen basic sachen musst du gar
+
+02:32:30.880 --> 02:32:37.960
+nicht selbst machen zumal ich meine wenn du den benchmark jetzt ausführst sind dann alle 100% kann
+
+02:32:37.960 --> 02:32:43.680
+schauen wir mal ich lass den noch mal laufen es kann durchaus sein dass die ein oder weil meine
+
+02:32:43.680 --> 02:32:52.360
+cpu ist ja auch voll am anschlag dass die ein oder anderen request einfach nicht nicht richtig
+
+02:32:52.360 --> 02:32:59.200
+durchgehen also managet cluster kümmern sich um versions updates von kubernetes und so was schon
+
+02:32:59.200 --> 02:33:03.680
+da hat man viel arbeit nicht mehr was aber eigentlich auch ganz gut ist weil ganz ehrlich da
+
+02:33:03.680 --> 02:33:09.520
+hängt halt sehr viel so lowlevel kram dran wo es schwierig ist das alles das alles richtig zu
+
+02:33:09.520 --> 02:33:22.160
+machen und was auch ein gewisses tiefgreifendes knowhow erfordert alle staub ja das waren die
+
+02:33:22.160 --> 02:33:40.680
+control set ich habe kein control set gemacht ich habe terminal auf und zu gemacht ja jetzt
+
+02:33:40.680 --> 02:33:47.800
+habe ich eine millionen responses und zwar alles 200 ja also wir hatten tatsächlich 40 request
+
+02:33:47.800 --> 02:34:00.360
+verlust in unserem upgrade gibt schlimmeres oder von eine millionen requests ok chat wie
+
+02:34:00.360 --> 02:34:14.280
+hat es euch bis jetzt gefallen kubernetes stells wie gesagt ich bin ich ich bin selbst nicht ich
+
+02:34:14.280 --> 02:34:23.000
+bin ja selbst nicht der super super oberkombiniertes checker aber ich glaube so mit lokaler registry
+
+02:34:23.000 --> 02:34:27.040
+und so was hier das war schon ganz cool dann lasst uns doch jetzt noch mal kurz eine viertelstunde
+
+02:34:27.040 --> 02:34:42.800
+überlegen was wir als nächstes machen also als nächstes eine sache die mir eingefallen ist ja
+
+02:34:42.800 --> 02:34:57.560
+environment variablen genau so volume secrets manager das will ich unbedingt zeichen mit
+
+02:34:57.560 --> 02:35:08.960
+letzten crypt lokal dns challenge na service mesh das ist jetzt schon ein bisschen zu advanced
+
+02:35:08.960 --> 02:35:38.600
+dann vielleicht irgendwann mal ja und ends backends traffic gibt näher bisher ja ok
+
+02:35:38.960 --> 02:35:48.400
+geht aber ich finde den namen so das ist da hat man eigentlich was recht logisches also was
+
+02:35:48.400 --> 02:35:53.880
+naheliegendes so nach dem motto man checkt seine config in geht ein wieder super cool benannt
+
+02:35:53.880 --> 02:36:01.520
+dazu kommt da natürlich aber auch noch so dinge wie automatische tests und also man könnte man
+
+02:36:01.520 --> 02:36:06.440
+könnte ja zum beispiel sogar solche dinge machen wie ganz abgedreht weiterspinnen man könnte ja
+
+02:36:06.440 --> 02:36:12.160
+zum beispiel sagen ok man hat noch eine test suite für diese test suite fürs jetzt super krasse
+
+02:36:12.160 --> 02:36:22.880
+dort net anwendung und man lässt es dann irgendwie automatisch noch bilden und lässt die tests
+
+02:36:22.880 --> 02:36:29.440
+durchlaufen und lässt sich dinger machen dann automatisch noch auf irgendeinem ce server das
+
+02:36:29.440 --> 02:36:37.360
+image bauen dass man das nicht lokal machen mussten was in der richtung gibt ja gibt ja viele viele
+
+02:36:37.360 --> 02:36:42.080
+dinge man kann ganz abgedrehte sachen machen ja also irgendwann was wir uns auf jeden fall noch
+
+02:36:42.080 --> 02:36:47.120
+angucken ist das finde ich persönlich eine coole sache weil du damit weil du hiermit kannst du
+
+02:36:47.120 --> 02:36:55.280
+solche manifest erstellen in pyson zum beispiel finde ich persönlich eine super geschichte ist
+
+02:36:55.280 --> 02:37:04.120
+eigentlich aufer kill und komplett unsinnig für vieles aber ich persönlich finde es sehr nice
+
+02:37:04.120 --> 02:37:14.480
+weil man halt zum beispiel so sachen definieren kann guck hier hier hier kann man zum beispiel
+
+02:37:14.480 --> 02:37:20.080
+sagen hier kubeservice load balancer kubedeployment also das was wir eben im manifest
+
+02:37:20.080 --> 02:37:25.440
+definiert haben kann man hier drinnen ja ich weiß man kann auch hellen und so was verwenden
+
+02:37:25.440 --> 02:37:29.920
+ich persönlich würde dann aber fast sagen mir persönlich ist das hier finde ich den ansatz hier
+
+02:37:29.920 --> 02:37:37.520
+cooler weil man dann vollständige programmier sprache und ich mache halt lieber das im source
+
+02:37:37.520 --> 02:37:45.600
+code als irgendwelche jamme files und description files und so bauen also das ist cool ja hellen
+
+02:37:45.600 --> 02:37:50.880
+müssen müssen wir uns aber der vollständigkeit halber auf jeden fall angucken weil fast jedes
+
+02:37:50.880 --> 02:37:58.760
+zweite tutorial heißt ja in hellen repo enden und ausführen zum beispiel secret manager secret
+
+02:37:58.760 --> 02:38:08.400
+manager sagt das auch customize habe ich keine ahnung von kein plan vielleicht können wir uns
+
+02:38:08.400 --> 02:38:12.480
+irgendwann auch mal terraform noch in kombination mit dem kubernetes provider angucken habe ich
+
+02:38:12.480 --> 02:38:26.760
+jetzt auch noch nicht gemacht ja dann gucken wir uns natürlich noch google cloud managt kubernetes
+
+02:38:26.760 --> 02:38:33.960
+und auto autopilot an das ist der eigentliche grund warum ich mich in den letzten tagen wieder
+
+02:38:33.960 --> 02:38:38.280
+ein bisschen mehr damit beschäftigt habe weil ich weiß dass bei meinem neuen arbeitgeber google
+
+02:38:38.280 --> 02:38:42.480
+cloud mit wahrscheinlich managt kubernetes oder autopilot cluster vielleicht darf sogar ich mir
+
+02:38:42.480 --> 02:38:45.600
+aussuchen was ich haben will einsetzen wer das heißt da muss ich ein bisschen gucken
+
+02:38:45.600 --> 02:38:55.640
+metal lb ich habe keine ahnung was das ist ich kenne kong kong ist auch so ein
+
+02:38:55.640 --> 02:38:59.680
+lautballon kein lautballon son api gateway ist das harambe
+
+02:38:59.680 --> 02:39:10.000
+ich habe keine ahnung was es mir sagen soll ehrlich gesagt netwerk lautballon
+
+02:39:10.000 --> 02:39:16.880
+sampler mit dem kubernetes using standard routing protokolls was ja selbstverständlich
+
+02:39:16.880 --> 02:39:20.760
+da habe ich ja ganz vergessen das müssen wir noch mal ja prometheus
+
+02:39:20.760 --> 02:39:31.560
+matrix ja matrix auch nachher natürlich da müssen wir uns noch seit konteine angucken
+
+02:39:31.560 --> 02:39:41.680
+für so monitoring und logs also ihr seht schon die einfache die bild in kubernetes sachen die
+
+02:39:41.680 --> 02:39:49.880
+sind an sich recht easy ja kommt man recht schnell mit aber das ist ein loch ohne boden was da alles
+
+02:39:49.880 --> 02:39:55.080
+dran hängt dann ja voliums voliums ja haben wir ja schon
+
+02:40:04.400 --> 02:40:10.680
+und das was da dran ist wirklich ein fast ohne boden so bild in sachen den kubernetes jammel
+
+02:40:10.680 --> 02:40:15.720
+eintragen apply ja kein ding aber dieses ganze zeug was hier noch dabei kommt das ist halt
+
+02:40:15.720 --> 02:40:23.880
+extrem viel was es da gibt ja autodiscovery ja das sollten wir uns auch mal angucken ja
+
+02:40:23.880 --> 02:40:32.760
+ja genau ne traffic prominent engine x ich bin ich bin team engine x ich habe traffic
+
+02:40:32.760 --> 02:40:42.160
+selbst auch schon verwendet ich muss sagen ganz im ernst ich bleibe bei engine x ich benutze
+
+02:40:42.160 --> 02:40:48.400
+card event super simpel sein muss traffic von hand konfigurieren ist eh abfuck und traffic macht
+
+02:40:48.400 --> 02:40:52.600
+halt in so einem umfeld hier schon irgendwie sinn weil es auch viele service discovery funktionen
+
+02:40:52.600 --> 02:40:58.320
+ganz ehrlich aber es ist so easy in engine x ingress zu machen warum soll ich da traffic
+
+02:40:58.320 --> 02:41:17.200
+verwenden glaubt glaubt er welchen bogen erst mal drum machen ja schreiben wir noch mal
+
+02:41:17.200 --> 02:41:28.400
+dass wir uns das dann auch grafisch angucken können dahinter wenn euch noch was einfällt
+
+02:41:28.400 --> 02:41:32.560
+könnt ihr ruhig auch im nächsten stream schreiben da können wir uns das dann angucken also wir
+
+02:41:32.560 --> 02:41:36.240
+machen jetzt auf jeden fall erst mal weiter mit third manager und environments und volumes und
+
+02:41:36.240 --> 02:41:47.920
+sowas im nächsten stream ist ach du scheiße das ist nicht nice so nice jetzt fängt diese
+
+02:41:47.920 --> 02:41:54.320
+spotting scheiße schon in deutschland an oder was hat er seine adresse geleakt oder oder was war da
+
+02:41:54.320 --> 02:42:16.040
+mega für den arsch mann ok leute ich wann machst du tiktok sein ja ich macht ich werd
+
+02:42:16.040 --> 02:42:22.560
+krasser cooper natives cloud native influencer auf auf tiktok leute es ist fast 22 ich muss jetzt
+
+02:42:22.560 --> 02:42:30.920
+eh mal ins bett außerdem muss ich mal ganz dringend kacken also das wird eine serie ja
+
+02:42:30.920 --> 02:42:36.280
+nicht unbedingt am stück nicht unbedingt am stück jetzt kooper näht es jeden stream bis
+
+02:42:36.280 --> 02:42:46.680
+wir mit allem durch den immer mal wieder machen wir machen wir ja ok leute wir sehen uns dann bis
+
+02:42:46.680 --> 02:42:52.960
+dann see you
+
