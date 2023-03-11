@@ -1,0 +1,3344 @@
+WEBVTT
+
+01:30.000 --> 01:53.280
+der
+
+01:53.280 --> 01:58.860
+S
+
+01:58.860 --> 02:06.300
+So, wann ist denn das Lebenslaufdienst?
+
+02:06.300 --> 02:12.700
+Als nächstes, morgen kann ich es nicht machen, also heißt es am Wochenende höchstwahrscheinlich.
+
+02:12.700 --> 02:14.300
+Ich hoffe mal Samstag.
+
+02:14.300 --> 02:18.460
+Samstag ist immer ein ganz guter Tag für neue Bits.
+
+02:18.460 --> 02:21.940
+Heute machen wir keinen Köpernätis, nee, heute machen wir gar nichts.
+
+02:21.940 --> 02:25.220
+Ich habe heute ein bisschen so wie der Köpernätis gebastelt.
+
+02:25.220 --> 02:30.500
+Ich habe mal versucht ein GitLab zu hausten in Köpernätis.
+
+02:30.500 --> 02:33.300
+Leute ich sage euch, das ist abfucked, das ist selbst hausten.
+
+02:33.300 --> 02:36.140
+Ich weiß schon warum man sowas normalerweise nicht selbst hausten will.
+
+02:36.140 --> 02:42.180
+Ich weiß nicht, an mir liegt es nicht.
+
+02:42.180 --> 02:45.980
+In dem Fall liegt es nicht an mir, bei den letzten Videos hat es immer an mir gelegen.
+
+02:45.980 --> 02:59.700
+Kurz gucken ob heute noch irgendwie Kreisel, Grind, MMO ist, aber die waren bis jetzt alle
+
+02:59.700 --> 03:02.380
+nicht da, deswegen vermute ich mal nicht.
+
+03:02.380 --> 03:11.140
+Nee, nix, kein Kreisel, Grind.
+
+03:11.140 --> 03:28.380
+Leute es ist wirklich, du findest GitLab mittlerweile fürchterlich, weiß gar nicht, ich kann dazu
+
+03:28.380 --> 03:29.380
+nicht viel sagen.
+
+03:29.380 --> 03:35.700
+Ich habe GitLab selbst ewig nicht benutzt, aber ich dachte mir so, warum hauen wir nicht
+
+03:35.700 --> 03:38.860
+einfach mal in meinen lokalen Köpernätis Cluster.
+
+03:38.860 --> 03:50.500
+Das ist im Prinzip auch einfach, leider funktioniert wieder ein paar Sachen nicht und das ist ewig
+
+03:50.500 --> 03:51.980
+abfucked das rauszukriegen.
+
+03:51.980 --> 04:06.300
+Zum Beispiel ist da Standard Runner Container verbuckt und du musst erstmal ein paar Helmchart
+
+04:06.300 --> 04:11.220
+Werte überschreiben, dass der mit dem Ubuntu Image und nicht mit einem Alpine Image startet,
+
+04:11.220 --> 04:14.100
+weil das Alpine Image hat DNS Auflösungsprobleme.
+
+04:14.100 --> 04:29.340
+Da gab es witzigerweise erst vor kurzem ein Hacker News Alpine Post, never use again oder
+
+04:29.340 --> 04:36.260
+sowas hieß das, I will never use again Alpine Linux und das war mir so auch gar nicht ganz
+
+04:36.260 --> 04:37.260
+klar.
+
+04:37.260 --> 04:45.460
+Alpine hat Probleme, wenn DNS Anfragen größer als 512 Bytes sind, also bzw.
+
+04:45.460 --> 04:54.020
+DNS Request größer sind als 512 Bytes, der gesamte Request, nicht nur die Anfrage und
+
+04:54.020 --> 04:57.860
+da muss man sagen, das wusste ich nicht und das ist ziemlich scheiße, weil je nachdem
+
+04:57.860 --> 05:03.260
+was so ein DNS Server return, kann man durchaus schon mal über 512 Bytes kommen, ich meine,
+
+05:03.260 --> 05:10.900
+wenn das Ding erstmal MX Records, vier weitere Server und haste nicht gesehen returned, dann
+
+05:10.900 --> 05:16.140
+gibt es auf einmal doofes DNS Problemen, von denen man nichts wusste und jetzt hat lustigerweise
+
+05:16.140 --> 05:19.860
+der GitLab Runner auch Probleme gehabt, den ich installiert habe mit Alpine Linux und
+
+05:19.860 --> 05:24.380
+dann geht es weiter, dann funktioniert beim Runner natürlich kein Docker in Docker, weil
+
+05:24.380 --> 05:28.380
+es ist ja quasi schon ein containerisierter Workload und sowas, es ist alles, ist alles
+
+05:28.380 --> 05:29.380
+ein bisschen eklig.
+
+05:29.380 --> 05:34.300
+Ne, ich wollte halt mal so ein komplettes System draufklatschen, ich dachte mir, hey,
+
+05:34.300 --> 05:40.140
+die haben so einen Helm Chart zum installieren, haust du mal drauf, ist tatsächlich unglaublich
+
+05:40.140 --> 05:44.740
+bescheuert gemacht, also, ja, das ist wieder viel zu kompliziert.
+
+05:44.740 --> 05:57.300
+Ne, heute kein Kubernetes-Stell, das kriege ich heute auch nicht noch auf die Reihe, ich
+
+05:57.300 --> 06:04.300
+habe tagsüber ein bisschen, ein bisschen Kubernetes gestellt und da habe ich jetzt
+
+06:04.300 --> 06:08.860
+keinen Bock drauf mehr, ich mal gucken, ich meine, realistisch ist es eh nicht, warum
+
+06:08.860 --> 06:15.740
+sollte man GitLab in einem Kubernetes-Cluster selbst haust, macht ja eigentlich jetzt relativ
+
+06:15.740 --> 06:16.740
+wenig Sinn.
+
+06:16.740 --> 06:23.460
+GitLab entwickelt sich auch super langsam, bei denen sind Issues zweierhand, gut, das
+
+06:23.460 --> 06:28.340
+ist aber normal, bei größeren Projekten, die kriegen ja tausende Issues oder hunderte
+
+06:28.340 --> 06:33.820
+Issues, die kannst du gar nicht alle fixen und kennt ihr, kennt ihr so GitLab, nein nicht
+
+06:33.820 --> 06:37.540
+GitLab, GitHub, GitHub-Projekte, was ist denn mit der Musik wieder los, warum ist hier zweimal
+
+06:37.540 --> 06:38.540
+so laut?
+
+06:38.540 --> 06:49.860
+Leute, ich brauche was, ich brauche Relaxing, hier, das da jetzt, ja, besser, kennt ihr,
+
+06:49.860 --> 06:54.180
+kennt ihr größere Open Source oder generell GitHub-Projekte, es wird, es wird dann YouTube
+
+06:54.180 --> 07:04.900
+geschaut, ja, oder zumindest teilweise, The brutal downfall of, ach, er wieder, der hat,
+
+07:04.900 --> 07:11.260
+der hat schon lange keinen, von dem haben wir schon lange nichts mehr geguckt, ja, was
+
+07:11.260 --> 07:17.980
+ich sagen wollte, kennt ihr die GitHub-Projekte, die so einen automatischen, ich schließe
+
+07:17.980 --> 07:24.100
+das Issue-Bot drinne haben, das ist das Unsinnigste überhaupt und das fuckt mich jedes Mal ab,
+
+07:24.100 --> 07:30.660
+du suchst nach irgendeinem Fehler, findest was über Google, stellst fest, oh, das ist
+
+07:30.660 --> 07:37.820
+sogar ein Ticket schon offen in dem Projekt, was verbackt ist, guckst rein, Auto close
+
+07:37.820 --> 07:44.900
+nach 30 Tagen, nichts wurde gemacht, nichts wurde reagiert, es ist so hängen geblieben,
+
+07:44.900 --> 07:51.180
+deswegen mache ich das, deswegen mache ich das auch nicht, der 4 Champ wird Issues aufhaben
+
+07:51.180 --> 08:00.140
+bis 2045, wenn es keinen mehr interessiert, ich werde den Kram nur closen von Hand oder
+
+08:00.140 --> 08:08.100
+halt fixen, wobei ich gerade keinen Bock habe, ja, Auto close nach 30 Tagen ist richtig,
+
+08:08.100 --> 08:12.180
+richtig blöd, ne, machen wir heute gar nicht, heute gucken wir ein bisschen, heute schwätzen
+
+08:12.180 --> 08:16.380
+wir ein bisschen, gucken ein paar Videos, es ist ja auch nur noch quasi fast knapp 2 Stunden
+
+08:16.380 --> 08:22.980
+Zeit, ja, aber das finde ich total bescheuert, die Auto close Geschichten, die da manche
+
+08:22.980 --> 08:30.860
+machen, Docker in Docker im Runner funktioniert, ja, aber das funktioniert nicht so ohne weiteres,
+
+08:30.860 --> 08:36.380
+wenn dein Runner in einem Kubernetes Cluster läuft, wenn dein Runner in einem Kubernetes
+
+08:36.380 --> 08:44.780
+Cluster läuft, musst du als erstes den Container privileged ausführen und dann irgendwelche
+
+08:44.780 --> 08:48.620
+Environment Variablen setzen und das hat bei mir nicht funktioniert, wobei es eigentlich
+
+08:48.620 --> 08:55.220
+eine ziemlich doofe Idee ist, den privileged Container im Kubernetes Cluster auszuführen
+
+08:55.220 --> 09:02.260
+und da irgendwie Docker Zeug freizugeben, ich weiß nicht, was das bedeutet für Zugriff
+
+09:02.260 --> 09:12.300
+auf den Kubernetes Cluster selbst, das klingt zumindest nicht nach einer guten Idee, kann
+
+09:12.300 --> 09:20.780
+er denn jeder den Kubernetes Cluster ausschalten oder so, das klingt jetzt eben nicht so sinnig,
+
+09:20.780 --> 09:28.300
+ich muss auch sagen, ich finde es gar nicht mal großartig sinnvoll, ja, wie habt ihr
+
+09:28.300 --> 09:38.660
+das gemacht, ja Moment, ihr baut Docker Images in Kubernetes, ja gut, ich will bilden, das
+
+09:38.660 --> 09:44.940
+da will ich machen, also wie gesagt, GitLab selbst braucht, also GitLab selbst sagt, man
+
+09:44.940 --> 09:49.420
+muss den Container privileged starten und irgendwie Zugriff auf den Cluster geben, was
+
+09:49.420 --> 09:56.660
+irgendwie an sich schon ziemlich komisch ist, ach so, Docker in Docker, ja, Docker in Docker
+
+09:56.660 --> 10:01.340
+funktioniert, das ist, das ist, keine Ahnung, weiß nicht was, das kenne ich nicht, aber
+
+10:01.340 --> 10:04.660
+ich will das ja gar nicht wirklich machen, ich wollte es ja heute nochmal ausprobieren,
+
+10:04.660 --> 10:10.660
+weil an sich finde ich es ziemlich unsinnig, ehrlich gesagt, da hast du nämlich irgendwie
+
+10:10.660 --> 10:16.860
+so ein Henne-Ei Problem, also wenn du alles in einem Cluster über irgendeinen Git Repo
+
+10:16.860 --> 10:21.780
+laufen lässt, was dann selbst wiederum im Kubernetes Cluster gehorchtet ist und mal
+
+10:21.780 --> 10:25.180
+irgendwas geht kaputt, dann ist das Repo nicht da, du kannst keine Änderungen machen, das
+
+10:25.180 --> 10:30.740
+ist alles ein bisschen unsinnig, also wenn schon sollte das ein extra Cluster sein oder
+
+10:30.740 --> 10:35.260
+ganz ehrlich, nehmt einfach irgendeinen gehosteten Service und gut ist, wenn man eh schon in
+
+10:35.260 --> 10:40.020
+der Cloud unterwegs ist, warum sollte ich den, warum sollte ich den Kram selbst hosten,
+
+10:40.020 --> 10:46.900
+wenn es was fertiges gibt und man hat sich, und man hat sich schon dafür entschieden,
+
+10:46.900 --> 10:50.820
+dass man Cloud Services benutzt, wenn man alles offline machen will, ganz ehrlich, dann würde
+
+10:50.820 --> 10:59.820
+ich schlicht und ergreifend eine VM hinhauen und gut ist, dass das unabhängig davon ist,
+
+10:59.820 --> 11:03.860
+weil den Cluster-Managen über ein System, was selbst im Cluster läuft, ist immer ein
+
+11:03.860 --> 11:12.620
+bisschen, bisschen doof, außerdem finde ich, außerdem muss ich sagen, war es ziemlich
+
+11:12.620 --> 11:13.620
+kompliziert bisher.
+
+11:13.620 --> 11:28.540
+Was sind gute Weiterbildungen für Fachinformatiker, was, du meinst für wie, Fachinformatiker
+
+11:28.540 --> 11:36.220
+System-Integrations-Azubis, also Integration wird zwar mit I geschrieben, aber trotzdem,
+
+11:36.220 --> 11:40.220
+kommt drauf an, was dich interessiert, was interessiert dich denn, sag mal, was dich
+
+11:40.220 --> 11:44.060
+für einen Bereich interessiert, das kann man pauschal nicht sagen, man, du kannst alles
+
+11:44.060 --> 11:45.060
+und nichts machen.
+
+11:45.060 --> 11:57.700
+Nee, mach ich nicht, ist das irgendein VR-Ding oder mal das exte Remake von Resident Evil
+
+11:57.700 --> 11:59.220
+4 oder die exte Neuauflage.
+
+11:59.220 --> 12:09.140
+Das Drama habe ich übrigens auch nur am Rande mitbekommen, um GTA oder GT, wie man das ausspricht,
+
+12:09.140 --> 12:19.980
+die wurden von irgendeinem, von irgendeiner Firma in Hongkong nicht übernommen, sondern
+
+12:19.980 --> 12:24.020
+irgendeine Hongkonger, China-Chinesen-Firma will jetzt Support dafür anbieten oder sowas,
+
+12:24.020 --> 12:29.020
+es gab einen riesigen Shitstorm, sein riesigen Shitstorm ist vielleicht übertrieben, nicht
+
+12:29.020 --> 12:33.340
+zu verwechseln oder zu vergleichen mit dem Wizard-Game-Shitstorm, das hat deutlich mehr
+
+12:33.340 --> 12:36.540
+Leute interessiert, als das, wenn Leute irgendwas forken.
+
+12:36.540 --> 12:43.940
+Und jetzt gibt es irgendwie einen Fork, der weiterhin, der wird irgendwie von Codeberg
+
+12:43.940 --> 12:50.260
+entwickelt, kein Schimmer, was da wieder abgeht, man, wenn der Friseur da mal wieder Bock hat.
+
+12:50.260 --> 13:02.500
+Kannst du Zed und Reckaxe gut, ja, geht ganz gut, ja, Zed-Syntax ist aber abartig und du
+
+13:02.500 --> 13:05.380
+kannst auch nicht alle Reckax-Schweinereien in Zed machen.
+
+13:05.380 --> 13:24.620
+Welche, gab es wieder neue, ich kenne nur die 4-Chan-Leaks, dass es wieder, dass es
+
+13:24.620 --> 13:33.340
+in der Zeit 2020 bis 2030 spielen soll und also, dass es nicht mehr ganz so futuristisch
+
+13:33.340 --> 13:39.780
+ist, dass es wieder ein Single-Player haben soll und boah, weiß ich gar nicht, ja, genau,
+
+13:39.780 --> 13:45.540
+genau, Battle Royale zum Start, ja, mal gucken, ganz ehrlich, 4-Chan-Leaks haben ja schon
+
+13:45.540 --> 13:48.940
+ab und zu mal gestimmt, kann durchaus sein, klingt doch sinnvoll, ich meine gerade das
+
+13:48.940 --> 13:53.500
+mit dem Battle-Royale-Modus für Battlefield 7 klingt insofern sinnvoll, weil der neue
+
+13:53.500 --> 13:57.220
+Battlefield-Chef ja der von Apex Legends ist und der hat halt Erfahrung mit Battle-Royales
+
+13:57.220 --> 14:02.180
+und die Leute haben schon lange nach einem Battle-Royale geschrien, zumal Warzone 2
+
+14:02.180 --> 14:10.980
+nicht so gut läuft, wie es sein könnte, vielleicht haben sie die Hoffnung, so aus diesem Modern-Warfare-Military-Bereich
+
+14:10.980 --> 14:15.540
+ein paar Leute abzugreifen und das könnte durchaus klappen, also wenn das gescheit ist,
+
+14:15.540 --> 14:18.060
+ich traue halt DICE nicht mehr zu, dass sie was gescheites machen.
+
+14:18.060 --> 14:24.660
+128 Spieler Battle Royale, das würde ich durchaus verstehen, das klingt irgendwie sinnig
+
+14:24.660 --> 14:29.700
+je nach Karte, aber normale Spielmodi weiß ich nicht, ob 128 nicht so sinnvoll ist, das
+
+14:29.700 --> 14:33.020
+hängt aber auch ein bisschen von den Karten ab und wie die Spotting-Mechanik und alles
+
+14:33.020 --> 14:34.020
+funktioniert.
+
+14:34.020 --> 14:40.540
+In Battlefield 2042 ist es ja aktuell so, dass dich jeder dahergelaufener Dude irgendwie
+
+14:40.540 --> 14:41.540
+spotten kann.
+
+14:41.540 --> 14:48.180
+Und dann ist es natürlich schwierig, wenn du 64 Spieler hast, die auf dich gucken können
+
+14:48.180 --> 14:49.180
+potenziell.
+
+14:49.180 --> 15:05.140
+Habt ihr Vorschläge, wie man sein eigenes BIOS pricken kann, für ein Notebook, auf
+
+15:05.140 --> 15:06.140
+das man Wut hat?
+
+15:06.140 --> 15:11.340
+Da gibt es was viel einfacheres, selten von sowas.
+
+15:11.340 --> 15:21.140
+Also wenn du ein Notebook kaputt machen willst, dann kannst du es auch richtig kaputt machen,
+
+15:21.140 --> 15:27.140
+dann machst du es doch richtig kaputt, warum willst du das BIOS pricken, das wird wahrscheinlich
+
+15:27.140 --> 15:28.140
+nicht funktionieren.
+
+15:28.140 --> 15:33.540
+Also wenn das ein halbwegs gescheites Notebook ist, wird das wahrscheinlich nicht funktionieren.
+
+15:33.540 --> 15:47.140
+Hä?
+
+15:47.140 --> 15:57.580
+Muss was mit geprägtem BIOS anfangen, ich check mich, was los ist.
+
+15:57.580 --> 15:59.740
+Ist es schon geprägt oder willst du es pricken?
+
+15:59.740 --> 16:00.740
+Hä?
+
+16:00.740 --> 16:05.940
+Das gibt es jetzt, das ist unverständlich.
+
+16:05.940 --> 16:13.780
+Du willst es pricken, ja du willst dein Notebook kaputt machen, warum haust du es nicht kaputt?
+
+16:13.780 --> 16:19.020
+Also ich könnte mir einfachere Varianten vorstellen, ein Notebook zu zerstören, als
+
+16:19.020 --> 16:20.020
+das BIOS zu pricken.
+
+16:20.020 --> 16:27.740
+Oder hat es einen Grund, warum du ausgerechnet das BIOS pricken willst und nicht das Ding
+
+16:27.740 --> 16:28.740
+kaputt machen willst?
+
+16:28.740 --> 16:31.140
+Man kann es einfach absehen, dass es wahrscheinlich gar kein BIOS mehr ist.
+
+16:31.140 --> 16:46.740
+Also wie gesagt, Force Power Off wird wahrscheinlich nicht funktionieren, es ist gar nicht so einfach
+
+16:46.740 --> 16:52.620
+ein BIOS zu pricken, nein, vielleicht kannst du im BIOS-File mit dem Hex-Editor herumsauen
+
+16:52.620 --> 17:04.260
+und das dann flashen, falls er keinen Checksum-Überprüfung macht oder sowas.
+
+17:04.260 --> 17:10.860
+Tja, dann fällt mir das so spontan auch nichts ein.
+
+17:10.860 --> 17:19.060
+Die Dinger sind ja absichtlich so gemacht, dass man sie relativ schwer pricken kann,
+
+17:19.060 --> 17:20.620
+weil sonst das Notebook nicht mal bootet.
+
+17:20.620 --> 17:23.460
+Tja, nee, keine Ahnung, fällt mir jetzt nichts ein.
+
+17:23.460 --> 17:29.380
+Die Leute sind einfach nicht mehr da.
+
+17:29.380 --> 17:33.220
+Ich verstehe es auch nicht, warum sie es nicht gebacken kriegen.
+
+17:33.220 --> 17:39.060
+Nein, das wird bei den meisten nichts bringen, großartig, Strom rausziehen.
+
+17:39.060 --> 17:44.500
+Das steht zwar immer da, Achtung, bitte nicht den Strom abschalten, aber bei den meisten
+
+17:44.500 --> 17:45.500
+passiert dann gar nichts.
+
+17:45.500 --> 17:59.820
+Das ist eine gute Frage, da kann ich mal meinen Senf zugeben, auch wenn ich noch nicht
+
+17:59.820 --> 18:05.460
+alle Cloud-Plattformen wirklich jetzt so ausführlich benutzt habe.
+
+18:05.460 --> 18:07.980
+Also, ich kenne mich mit Azure am besten aus.
+
+18:07.980 --> 18:22.780
+Ach, Moment, ich habe mich verlesen, ich habe gelesen, Azure, AWS oder GCP, ich habe mich
+
+18:22.780 --> 18:26.940
+verlesen, ich dachte du willst wissen, welche Cloud-Plattformen ich am besten finde.
+
+18:26.940 --> 18:32.540
+Nee, okay, du willst wissen, würdet ihr für Infrastructure bei AWS eher Terraform oder
+
+18:32.540 --> 18:44.260
+CDK nutzen oder doch, ehrlich gesagt, keine Ahnung, ich kenne das Amazon eigene Zeug nicht,
+
+18:44.260 --> 18:46.060
+ich habe das noch nicht verwendet.
+
+18:46.060 --> 18:57.460
+Ich würde allerdings persönlich eher zu Terraform tendieren, weil du mit Terraform auch andere
+
+18:57.460 --> 19:01.740
+Sachen machen kannst und nicht so sehr an diesen eigenen Cloud-Anbieter gebunden bist.
+
+19:01.740 --> 19:06.500
+Und dann lernst du halt auch was für die Zukunft, ja klar, du kannst sagen CDK, dann lernst
+
+19:06.500 --> 19:10.740
+du auch was für die Zukunft, aber die Zukunft heißt dann auf jeden Fall AWS, also ich würde
+
+19:10.740 --> 19:16.740
+mir auf jeden Fall Terraform angucken und ich würde wahrscheinlich Terraform auch vorziehen,
+
+19:16.740 --> 19:21.660
+das liegt aber daran, weil ich auch mit anderen Cloud-Plattformen als AWS was machen will,
+
+19:21.660 --> 19:26.780
+mit AWS mache ich eigentlich am wenigsten, bei AWS blicke ich immer nicht durch, wie
+
+19:26.780 --> 19:33.060
+die einzelnen Dinger heißen, die haben dann Fargate und sowas, was soll Fargate sein?
+
+19:33.060 --> 19:38.020
+Fargate ist glaube ich der Managed Kubernetes Service von Amazon und so Dinger, die haben
+
+19:38.020 --> 19:44.980
+Namen, da blickst du überhaupt nicht durch, nee, da blickt auch AWS nicht durch, also
+
+19:44.980 --> 19:48.260
+die Benamungen sind, bei Google Cloud habe ich jetzt gesehen, ich habe mich jetzt in
+
+19:48.260 --> 19:52.620
+letzter Zeit öfters ein bisschen mit Google Cloud beschäftigt, da geht es zum größten
+
+19:52.620 --> 20:02.060
+Teil, also die Hosted Postgres Dinger heißen dann auch Hosted RDB oder irgendwie sowas,
+
+20:02.060 --> 20:07.780
+also da muss ich sagen, das Teufel bei Google ist eigentlich ganz sinnvoll benannt, bei
+
+20:07.780 --> 20:20.580
+Azure geht es auch einigermaßen, das kann sein, ich weiß es aus dem Kopf nicht, aber
+
+20:20.580 --> 20:25.900
+es ist auf jeden Fall wirbel, das Teufel bei Amazon benannt ist, da blicke ich nicht
+
+20:25.900 --> 20:33.540
+durch, das muss ich sagen, ich habe auch schon ein bisschen in letzter Zeit mit Pulumi rumgespielt,
+
+20:33.540 --> 20:39.500
+finde ich persönlich viel angenehmer als Terraform, ich bin aber zumindest froh, dass Terraform
+
+20:39.500 --> 20:49.900
+kein Yammel verwenden kann, wobei kann Terraform nicht sogar mittlerweile Yammel, anscheinend
+
+20:49.900 --> 20:53.980
+können die auch Yammel mittlerweile, also ich bin ja eigentlich ganz froh, dass Terraform
+
+20:53.980 --> 20:59.180
+kein Yammel verwendet, weil Yammel geht mir auch in letzter Zeit zunehmend auf den Sack,
+
+20:59.180 --> 21:03.060
+man ist ja bald kein DevOps Engineer mehr oder kein Anwendungsentwickler mehr oder kein
+
+21:03.060 --> 21:10.340
+Admin mehr, sondern man ist eher Yammel Engineer, weil alles mittlerweile nur noch in Yammel
+
+21:10.340 --> 21:16.940
+ist, und Yammel ist so kacke zu lesen und Yammel ist so verbose, das ist so lang alles,
+
+21:16.940 --> 21:28.420
+du schreibst alles 30 mal hin und ich bin kein großartiger Yammel-Fan, ja gut, du kannst
+
+21:28.420 --> 21:34.420
+es manchmal nicht aussuchen, wenn du halt Tools verwendest, die Yammel-Config haben,
+
+21:34.420 --> 21:38.580
+dann ist Yammel-Config das Einzige, was du machen kannst und selbst wenn nicht, selbst
+
+21:38.580 --> 21:43.060
+wenn es dafür dann irgendwelche Tommel-Möglichkeiten gibt, ist halt die Frage, ob das irgendwas
+
+21:43.060 --> 21:47.620
+Community-Maintainedes ist, wo dann morgen kein Support mehr gibt, ist das irgendwas,
+
+21:47.620 --> 21:51.700
+was die auch die anderen verstehen, wenn man mit diesem Service nur Yammel gewöhnt ist,
+
+21:51.700 --> 21:56.460
+also eins muss ich sagen, eins hab ich die letzten Jahre über gelernt, es ist sinnvoll,
+
+21:56.460 --> 22:07.860
+sich an Defaults zu halten, beziehungsweise so wenig wie nötig von den Defaults abzuweichen,
+
+22:07.860 --> 22:25.980
+einfach der Klarheit halber und nachdem das manchmal so kompliziert werden kann, alles,
+
+22:25.980 --> 22:36.940
+was man macht, ist es sinnvoll, wenn man bei Defaults bleibt, wenn möglich, dann hast du
+
+22:36.940 --> 22:41.180
+auch nicht das Problem, dass du irgendwie ein Custom Plugin brauchst von irgendeinem
+
+22:41.180 --> 22:46.020
+Third-Party-Typ, der dann in zwei Monaten keinen Bock mehr hat, weil wenn man sich mal
+
+22:46.020 --> 22:55.340
+anguckt, wie Zusammengestücke manche Services mittlerweile sind, die bestehen aus 180 verschiedenen
+
+22:55.340 --> 22:59.380
+Einzelteilen und Produkten und alles lässt sich ein bisschen anders konfigurieren und
+
+22:59.380 --> 23:05.180
+sowas, da bin ich mittlerweile auf dem Standpunkt, dass ich sage, hä, manchmal ist es sogar sinnvoll,
+
+23:05.180 --> 23:08.260
+nicht auf ein bisschen Funktionalität zu verzichten, wenn man es halt nicht zwingend
+
+23:08.260 --> 23:14.660
+braucht und lieber bei dem Default zu bleiben und das, was mitgeliefert wird, als noch drei
+
+23:14.660 --> 23:19.740
+zusätzliche Plugins, die dann noch mal extra konfiguriert werden müssen, das ist richtig,
+
+23:19.740 --> 23:24.620
+wie gesagt, mir hat das auch gut gefallen, also ich persönlich würde, wenn ich die Auswahl
+
+23:24.620 --> 23:42.740
+habe, die Sachen auch lieber in Pulumi machen als in Terraform, das stimmt, Terraform lässt
+
+23:42.740 --> 23:47.460
+sich nicht eins zu eins transferieren, also alles sieht anders aus, vor allem liegt es
+
+23:47.460 --> 23:52.620
+halt auch daran, weil die Dinger unterschiedlich heißen, es heißt halt bei AWS anders als bei
+
+23:52.620 --> 23:58.140
+Azure oder bei GCP und dann heißt das halt auch in Terraform anders, weil die Cloud-Anbieter
+
+23:58.140 --> 24:01.580
+den Kram halt unterschiedlich benennen, ja gut, ist halt so, aber man kann sich zumindest
+
+24:01.580 --> 24:06.300
+dran gewöhnen, wie man Terraform an sich verwendet, von der Syntax her, wie man Schleifen
+
+24:06.300 --> 24:16.100
+macht und sowas, man Schleifen, was auch immer die sich da ausgedacht haben, aber, oh, meine
+
+24:16.100 --> 24:29.420
+Augen, meine Augen, ich brauche, Moment, this is just pseudo code, ja count, wenn ich das
+
+24:29.420 --> 24:35.340
+hier schon sehe, man, was zum Toll, da haben sie sich auch was ausgedacht, genauso eklig
+
+24:35.340 --> 24:46.220
+wie Schleifen in Ansible, wobei es da mittlerweile Möglichkeiten gibt, dann guckt euch, guckt
+
+24:46.220 --> 25:05.100
+euch das mal an, hallo, wie wäre es einfach mal mit einem Beispiel, eh, count, ja, ja,
+
+25:05.100 --> 25:18.260
+das ist doch eklig, was habe ich da ausgedacht, man kann irgendwie Neo-Wim-Stream, oh, das
+
+25:18.260 --> 25:22.540
+müssen wir auch noch machen, ja, nee, wahrscheinlich, also morgen gar nichts, also, wobei morgen
+
+25:22.540 --> 25:26.660
+bin ich arbeiten und dann abends wahrscheinlich Kreiser grind, Wochenende muss ich ein Video
+
+25:26.660 --> 25:30.100
+machen, da machen wir ein bisschen Kubernetes-Stells, mal gucken, wann wir das mit Neo-Wim machen,
+
+25:30.100 --> 25:49.900
+mir ist eine Sache letztens aufgefallen, was an Ansible kacke ist, im Vergleich zu Puppet,
+
+25:49.900 --> 25:54.980
+wir haben ja bei mir auf der Arbeit relativ viel Puppet noch, weil da seit, keine Ahnung,
+
+25:54.980 --> 26:00.220
+aber 10 Jahren dran rumgewurstelt wird, da gab es noch kein Ansible und Puppet hat ein
+
+26:00.220 --> 26:07.020
+schönes Feature, man kann sagen, also Server-Konfiguration, sowohl in Ansible als auch in Puppet kann
+
+26:07.020 --> 26:13.540
+man z.B. definieren, dieser Server braucht den User Max mit Berechtigung auf Verzeichnis
+
+26:13.540 --> 26:21.260
+xy und sowas, kann man in beiden Tools konfigurieren, ist kein Problem, aber in Puppet kann man
+
+26:21.260 --> 26:27.580
+sagen, Puppet run no-op und dann zeigt er einem an, was er machen würde, das geht in Ansible
+
+26:27.580 --> 26:32.900
+zwar theoretisch auch mit, glaub wie heißt das, Test-Mode, bei Ansible ist es aber so,
+
+26:32.900 --> 26:39.740
+dass Test-Mode nicht so schön anzeigt, also was er jetzt genau machen würde und das Test-Mode
+
+26:39.740 --> 26:44.300
+optional ist, also Test-Mode ist nichts, was Ansible direkt unterstützt, sondern was,
+
+26:44.300 --> 26:48.500
+was die unterschiedlichen Provider und Module unterstützen müssen, also da muss ich sagen,
+
+26:48.500 --> 26:54.900
+da finde ich das, wie es Puppet gemacht hat, immer noch schicker, dafür finde ich Ansible
+
+26:54.900 --> 27:05.420
+viel einfacher zu handhaben als Puppet.
+
+27:05.420 --> 27:09.820
+Frage als Informatiker, Zubi, ich würde gerne ein wenig mehr in die Welt von Linus einsteigen,
+
+27:09.820 --> 27:12.820
+da hat er bisher nur wenig Berührungspunkt, da hast du gute Tipps für den Einstieg in
+
+27:12.820 --> 27:13.820
+die Linus Welt.
+
+27:13.820 --> 27:19.140
+Bei uns wird eigentlich nur Windows benutzt, tja gut, dann ist das natürlich ein bisschen
+
+27:19.140 --> 27:24.260
+schwierig auf der Arbeit in Kontakt mit Linus zu kommen, wenn die nur Windows verwenden,
+
+27:24.260 --> 27:27.940
+da bleibt dir nichts übrig für dich privat ein bisschen damit zu beschäftigen oder aber
+
+27:27.940 --> 27:30.980
+vielleicht gibt es ja tatsächlich die Möglichkeit, dass du was auf der Arbeit machst, was irgendwie
+
+27:30.980 --> 27:36.100
+auch für den Arbeitgeber von Mehrwert ist, fällt mir jetzt spontan ehrlich gesagt nichts
+
+27:36.100 --> 27:42.060
+ein, man könnte ja Microsoft SQL auf Linus hosten, du willst lachen, also das funktioniert,
+
+27:42.060 --> 27:46.340
+das ist sogar mittlerweile offiziell supported, aber ich wüsste nicht, warum man das machen
+
+27:46.340 --> 27:50.740
+sollte, wenn man außerdem jetzt nicht mehr so an das Masochist sich veranlagt.
+
+27:50.740 --> 27:56.620
+Du kannst dich natürlich privat damit beschäftigen, das ist kein Ding, installierst du dir eine
+
+27:56.620 --> 28:01.660
+VM, installierst du ja VM oder Virtual Box oder sonst was und dann installierst du dir
+
+28:01.660 --> 28:07.300
+neben deiner Linux Kiste, neben deiner Windows Kiste, installierst du dir eine Linux Kiste
+
+28:07.300 --> 28:13.060
+oder eine VM und dann kannst du rumwurschteln, nee, nee, nee, kein Kubernetes Cluster installieren,
+
+28:13.060 --> 28:19.100
+Leute empfehle den Leuten nicht so komische Dinge, er hat kein Linux Knowhow und die Leute
+
+28:19.100 --> 28:21.740
+dort in der Firma haben auch kein Linux Knowhow, warum sollen die sich eine eigene Kubernetes
+
+28:21.740 --> 28:22.740
+Cluster installieren?
+
+28:22.740 --> 28:31.820
+Na gut, vielleicht ist das auch die Taktik, ihr wollt, dass die Firma pleite geht, weil
+
+28:31.820 --> 28:44.940
+sie nur Windows verwendet sonst, nee, machst du dir hier eine VM, Linux drauf, gut ist,
+
+28:44.940 --> 28:48.540
+ich lösche das mal und da kannst du hier ein bisschen mit rum basteln, du kannst dir
+
+28:48.540 --> 28:56.020
+natürlich auch irgendwelche Cloud VMs mieten und sowas, wobei ich ehrlich gesagt sagen
+
+28:56.020 --> 29:01.820
+würde, nimm nichts, was im Internet hängt, sondern probier es lokal aus und ich finde
+
+29:01.820 --> 29:05.580
+ja persönlich, dass es die beste Variante, was du machen kannst, wenn du eine Linux,
+
+29:05.580 --> 29:10.820
+nee, du kannst auch einen Raspberry Pi holen, aber Raspberry Pi sind aktuell zu teuer, also
+
+29:10.820 --> 29:15.620
+ich finde es am sinnvollsten, du setzt dich erstmal ganz normal mit Linux auseinander
+
+29:15.620 --> 29:19.980
+in Form von irgendeiner Installation in einer VM mit grafischem Interface und arbeitest
+
+29:19.980 --> 29:24.300
+ein bisschen so mit Linux da, wo es halt geht, so mache ich das ja auch, ich habe hier meine
+
+29:24.300 --> 29:29.620
+VM auf dem zweiten Desktop und ich mache alles, was nicht unbedingt unter Windows gemacht
+
+29:29.620 --> 29:35.580
+werden muss in meiner Linux VM und da lernt man schon einiges dabei, einfach wenn du das
+
+29:35.580 --> 29:43.220
+tagtäglich benutzt, du lernst was, wo man bestimmte Pakete konfiguriert, wie man Kommando
+
+29:43.220 --> 29:47.220
+Zeilen Sachen händelt und sowas, das lernt man wahrscheinlich im täglichen Umgang als
+
+29:47.220 --> 29:51.900
+Desktop Distribution, wo man halt drauf arbeitet und auch täglich benutzt, besser als sich
+
+29:51.900 --> 29:57.980
+ab und zu mal per SSH auf dem Server einloggen und da ein bisschen rumbasteln, also das würde
+
+29:57.980 --> 30:01.580
+ich machen, ganz ehrlich, ich würde gar nicht mit Server Anwendungen anfangen, auch wenn
+
+30:01.580 --> 30:05.420
+das vielleicht dein Ziel ist in Zukunft, dass du sagst, hey du willst nochmal Linux Server
+
+30:05.420 --> 30:08.820
+administrieren, aber du brauchst erstmal Linux Grundlagen und Linux Grundlagen heißt unter
+
+30:08.820 --> 30:15.020
+anderem Kommando Zeilen lernen und generell so ein bisschen Linux Feeling und Kenntnisse
+
+30:15.020 --> 30:19.660
+aufbauen und da ist tatsächlich das Beste, man verwende das tagtäglich, das heißt mach
+
+30:19.660 --> 30:26.180
+dir ne Linux VM, hau dir ne Archlinux drauf und ne Ubuntu, ne ne Ubuntu oder so was zum
+
+30:26.180 --> 30:32.660
+Mintlinux zum starten, wobei ich ja auch persönlich sagen würde, so ein Archlinux Install ist
+
+30:32.660 --> 30:37.140
+auch kein Ding, weil wenn du es geschafft hast, dort ein grafisches Environment zu installieren,
+
+30:37.140 --> 30:42.420
+sodass es ganz gut funktioniert, hast du schon mal einiges gelernt, wird aber am Anfang
+
+30:42.420 --> 30:46.380
+vielleicht ein bisschen frustrierend, aber das ist wichtig, also wenn du täglich damit
+
+30:46.380 --> 30:50.760
+arbeitest lernst du unglaublich viel, du lernst mehr als Kurse, ganz ehrlich Kurse bringen
+
+30:50.760 --> 30:56.420
+überhaupt nichts, Kurse sind gut, um so die ganzen Begriffe, die mit dem Thema zu tun
+
+30:56.420 --> 31:04.220
+haben aufzuschnappen, ich hab mir beispielsweise auch vor ein paar Wochen bei Udemy so im Schnelldurchgang
+
+31:04.220 --> 31:09.900
+ein paar Kubernetes Sachen angeguckt und auf YouTube, damit ich da ein bisschen so ein bisschen
+
+31:09.900 --> 31:17.460
+wieder, was die Basics angeht, besser durchblicke, ich hab das aber total schnell durchgeskippt
+
+31:17.460 --> 31:21.940
+und hab mir angeguckt, ok, ok, ok, ich brauch im Hinterkopf, muss ich mir beispielsweise
+
+31:21.940 --> 31:28.740
+merken, Helmcharts anpassen, eigenes Value-File, ok, Ingress-Controller, guck da, hier, da,
+
+31:28.740 --> 31:33.100
+hab ich ganz schnell durchgemacht innerhalb von einem Tag, das war irgendwie ein Kurs
+
+31:33.100 --> 31:38.480
+mit irgendwie 12 Stunden Videolaufzeit oder so was, ich hab die Videos auf 1,25% Geschwindigkeit
+
+31:38.480 --> 31:44.780
+gestellt und hab noch die ganze Zeit hier File-Taste gedrückt nach vorne und dann hatte
+
+31:44.780 --> 31:51.340
+ich so einen Chrom-Überblick und dafür sind Kurse gut, aber ansonsten zum tiefgreifend
+
+31:51.340 --> 31:58.060
+lernen, musste die Kurse machen und gleichzeitig dabei üben oder am besten halt auch tagtäglich
+
+31:58.060 --> 32:03.780
+verwenden, tagtäglich verwenden ist das Beste, was du machen kannst, ja Mail-Server, Mail-Server
+
+32:03.780 --> 32:10.020
+ist auch nix, was man eigentlich machen will, Mail-Server ist total abartig, ja, also wirst
+
+32:10.020 --> 32:13.540
+auf jeden Fall sehr viel lernen, wenn du dir ein Linux-System installierst in der VM und
+
+32:13.540 --> 32:18.140
+das versuchst täglich so für die meisten Sachen, die nicht unbedingt Windows erfordert
+
+32:18.140 --> 32:22.260
+oder sag mal so, muss ja auch nicht für das meiste machen, ja normales Internet surfen
+
+32:22.260 --> 32:25.940
+auf YouTube und so, das mach ich hier noch in meiner Windows-Kiste, aber so für ein
+
+32:25.940 --> 32:29.200
+bisschen, wenn du was programmierst, wenn du ein bisschen was basteln willst, dann mach
+
+32:29.200 --> 32:39.420
+das unter Linux, ich würd sagen ich bin tagsüber so ungefähr so 60% unter Linux, ja ungefähr
+
+32:39.420 --> 32:44.020
+60% unter Linux unterwegs, ungefähr 40% unter Windows unterwegs und da lernst du viel,
+
+32:44.020 --> 32:48.220
+weil du wirst auf einmal Probleme haben, wo du dich fragst, hey wie konfigurier ich das
+
+32:48.220 --> 32:52.140
+jetzt, da musst du gucken, wie du auf der Kommandozeile was editierst, gucken wo liegt
+
+32:52.140 --> 32:59.460
+denn die Konfig-Datei und solche Geschichten, was denn das, und dann stellst du zum Beispiel
+
+32:59.460 --> 33:07.180
+fest, fuck meine Tastatur ist kaputt und jetzt geht sie wieder nachdem man das Terminal neu
+
+33:07.180 --> 33:18.900
+gestartet hat, alles gut, ja so würd ich das machen, ich finde Jason tatsächlich angenehmer
+
+33:18.900 --> 33:26.420
+als Jaml, das stimmt, dass Jason keine Kommentare unterstützt, allerdings neuere Versionen
+
+33:26.420 --> 33:37.940
+oder Standards von Jason können ja mittlerweile auch kommen, aber vieles unterstützt das
+
+33:37.940 --> 33:51.780
+noch gar nicht, haben wir letztens erst, letztens erst uns angeguckt, also es könnte
+
+33:51.780 --> 33:55.900
+auch irgendeine Extension gewesen sein, wo irgendeiner zum Standard was dazu gedichtet
+
+33:55.900 --> 34:01.620
+hat, aber ich bilde mir ein, in einem der neueren Standards gibt es mittlerweile auch
+
+34:01.620 --> 34:25.780
+Kommentare, meine Augen, aber das unterstützen noch nicht viele, ja das stimmt, na gut man
+
+34:25.780 --> 34:36.220
+kann auch unter Pulumi irgendwie auch Terraform-Provider benutzen oder?
+
+34:36.220 --> 34:40.660
+Das nervige an Terraform ist, dass man sich selbst um den State kümmern muss, naja irgendwo
+
+34:40.660 --> 34:44.580
+musst du deinen State doch ablegen, das ist eh das beste, wenn du Terraform, also den
+
+34:44.580 --> 34:49.820
+State würd ich nie in Skitrepo oder so einchecken, was zum Beispiel ganz cool sein muss, ist
+
+34:49.820 --> 34:55.260
+wenn man, das kann ich aus praktischer Erfahrung nicht sagen, aber wenn ich jetzt nochmal was
+
+34:55.260 --> 34:59.660
+neu machen würde mit Terraform und was vorschlagen könnte, dann würde ich sagen, dass man das
+
+34:59.660 --> 35:06.820
+einfach in irgendeinen S3 Storage in der Cloud mit eincheckt, weil dann hast du das
+
+35:06.820 --> 35:36.620
+auch, ok wie gesagt CDK hab ich schon nie verwendet, was ich Neo will machen, ich will
+
+35:36.620 --> 35:44.380
+mir mal angucken, wie so das Plugin Ökosystem ist und wie man das gescheit mit Lua konfiguriert,
+
+35:44.380 --> 35:48.700
+ich hab ja NeoWim noch nie, ich hatte das schon eine Weile mal installiert, ganz am
+
+35:48.700 --> 35:54.500
+Anfang als das neu war, das war noch irgendwie 01 oder sowas, weil die da asynchrone Syntax
+
+35:54.500 --> 35:58.300
+Highlighting und sowas drin hatten, was ich ganz cool fand, danach habe ich aber aufgehört
+
+35:58.300 --> 36:06.580
+Wim aufzubohren, mega krass und bin hauptsächlich auf Wishl Studio Code und Jetbrain IDEs umgeschwenkt
+
+36:06.580 --> 36:11.380
+für alles was ich so mache und benutze Wim jetzt tatsächlich nur noch für Dinger wie
+
+36:11.380 --> 36:16.460
+Kommandozeilen editieren und dementsprechend kurz ist meine Wim RC auch, da ist nix mehr
+
+36:16.460 --> 36:21.300
+großartig drinnen, ich weiß bei manchen Sachen auch gar nicht mehr warum die da überhaupt
+
+36:21.300 --> 36:46.100
+drinnen stehen.
+
+36:46.100 --> 37:07.940
+Übrigens, es gibt ein sehr cooles Projekt für AWS Entwickler, ich zeige euch das mal
+
+37:07.940 --> 37:14.660
+falls ihr das noch nicht kennt, ich hab selbst noch nicht verwendet, aber ich bin letztens
+
+37:14.660 --> 37:22.820
+darüber gestolpert, die haben fast alle AWS Apis nachgebaut, sodass man sie lokal verwenden
+
+37:22.820 --> 37:27.660
+kann, das ist nicht für Performance oder so gedacht, das ist nur dafür gedacht, dass
+
+37:27.660 --> 37:34.300
+man nicht schon während der Entwicklung 50.000 Euro Kosten verursacht laufend, also du kannst
+
+37:34.300 --> 37:38.900
+mehr oder weniger alle AWS Apis lokal damit verwenden, ist auch nicht ganz unbeliebt mit
+
+37:38.900 --> 37:45.860
+46.000 Stern, kannst das lokal hosten und dann ohne dass du Cloud Ressourcen brauchst lokal
+
+37:45.860 --> 37:51.980
+dein Kram ausprobieren und dagegen entwickeln, das finde ich klingt sehr nice, nur dass
+
+37:51.980 --> 37:57.060
+ich halt kein AWS verwende normalerweise, also keine Ahnung wie gut das wirklich ist, aber
+
+37:57.060 --> 38:01.340
+die Idee dahinter finde ich nice, man kann auch so Sachen wie DynamoDB und sowas verwenden,
+
+38:01.340 --> 38:06.180
+wie gesagt die API, das heißt nicht zwangsläufig, dass das wirklich auch performant ist wie
+
+38:06.180 --> 38:09.660
+in der Cloud, das läuft ja immer in lokal und ist in Python implementiert, kann es ja
+
+38:09.660 --> 38:14.580
+gar nicht sein, aber es ist viel angenehmer gegen was zu entwickeln was lokal ist, als
+
+38:14.580 --> 38:29.380
+wo du laufend dann auch noch Geld dafür bezahlen musst, ja Bind macht auch kaum noch einer,
+
+38:29.380 --> 38:32.740
+also Bind brauchst du an manchen Stellen, aber in der Regel brauchst du es nicht und
+
+38:32.740 --> 38:38.980
+der Meldsober macht auch keiner mehr dabei, verstand es selbst, wir haben letztens zum
+
+38:38.980 --> 38:42.700
+Beispiel ein bisschen Kubernetes Zeug gebaut, machen wir übrigens demnächst auch weiter,
+
+38:42.700 --> 38:48.780
+es sind noch ein paar Sachen offen und ich habe mir dann mal so überlegt, ok, mal realistisch
+
+38:48.780 --> 38:54.380
+betrachtet, ich hätte irgendeinen Managed Kubernetes Cluster in der Cloud, was würde
+
+38:54.380 --> 39:00.580
+ich darauf laufen lassen und ich würde tatsächlich gucken, dass ich nach Möglichkeit, reine
+
+39:00.580 --> 39:07.580
+Nachmöglichkeit sage ich ja, so gut wie nur stateless Anwendung drauf laufen lasse und
+
+39:07.580 --> 39:12.940
+alles andere wo state irgendwie hin muss, über Cloud Services laufen lasse, wenn ich
+
+39:12.940 --> 39:17.180
+es in der Cloud laufen lassen will, wohlgemerkt, also ich würde die Datenbank nicht selber
+
+39:17.180 --> 39:21.980
+hausten im Kubernetes Cluster, ich würde irgendeine Managed Datenbank benutzen, ich
+
+39:21.980 --> 39:25.820
+würde auch irgendwelche Message Queues und sowas nicht im Kubernetes hausten, sondern
+
+39:25.820 --> 39:33.020
+irgendwelche Cloud Services dafür verwenden, weil man muss sich ja nicht, also wenn man
+
+39:33.020 --> 39:37.900
+sich schon dafür entschieden hat, Sachen in der Cloud zu verwenden, dann muss man sich
+
+39:37.900 --> 39:43.340
+ja auch nicht unnötig das Leben schwer machen, sondern kann das benutzen, was angeboten wird,
+
+39:43.340 --> 39:47.900
+wenn es preislich hinhaut und alles kann, was man will, aber ich meine, was soll eine
+
+39:47.900 --> 39:51.860
+Managed Postgres in der Google Cloud nicht können, das ist das stinknormale Postgres
+
+39:51.860 --> 39:59.660
+der Datenbank, nur dass man sich nicht selbst um Failover, Cluster Management, Master Selection
+
+39:59.660 --> 40:04.540
+und sowas, oh darf man das, ich weiß gar nicht ob das auch, ob das Wort überhaupt noch
+
+40:04.540 --> 40:29.340
+ok ist, Master Selection kümmern muss und sowas, ist halt viel angenehmer.
+
+40:29.340 --> 40:35.820
+Hast du was mit dem Wireless Wirecube, mit dem was, dem Wireless Wirecube, nee sagt mir
+
+40:35.820 --> 40:49.300
+gar nichts, was ist der Wire, der Wireless Wirecube, das ist irgendein Outdoor Access
+
+40:49.300 --> 40:57.780
+Point, auf 5G ist Out, jetzt sind wir bei 60G schon angelangt, keine Ahnung wofür man
+
+40:57.780 --> 41:07.500
+den verwendet, nee, du benutzt auf der Arbeit auch eine vm, nee mache ich nicht, auf der
+
+41:07.500 --> 41:13.300
+Arbeit habe ich Linux auf dem Notebook installiert, ich habe ein Windows Notebook und ein Linux
+
+41:13.300 --> 41:17.740
+Notebook, da muss ich mal gucken, ob ich da meinen neuen Arbeitgeber auch dazu bringe,
+
+41:17.740 --> 41:26.060
+mir zwei Notebooks zu geben, eins für Linux Installation und eins mit Windows, was man
+
+41:26.060 --> 41:31.260
+für alle Firmen interne Geschichten braucht, ich könnte allerdings auch ohne Probleme
+
+41:31.260 --> 41:41.820
+mit einer vm leben, ob ich rein mit WSL leben kann, weiß ich noch nicht, WSL, das ist immer
+
+41:41.820 --> 41:50.460
+so ein Thema, wo alle sagen, ja es funktioniert doch alles und dann weißt du genau im Hinterkopf,
+
+41:50.460 --> 41:55.560
+es gab immer mal gewisse Sachen, die nicht funktioniert haben in WSL, aber es fällt
+
+41:55.560 --> 42:01.740
+dir dann immer nicht passend ein dazu, ich müsste eigentlich mal eine Liste machen mit
+
+42:01.740 --> 42:06.380
+Dingern, die in WSL nicht ordentlich funktionieren, weil immer wenn es um die Frage geht, na was
+
+42:06.380 --> 42:11.620
+ist es, warum geht es, warum nicht WSL, dann sage ich immer, weil nicht alles richtig funktioniert
+
+42:11.620 --> 42:15.540
+in WSL und dann wollen sie immer wissen, ja wie, ich denke es funktioniert alles, was
+
+42:15.540 --> 42:19.540
+denn genau und dann fällt mir das meistens nicht ein, aber es gibt Sachen, also Summer
+
+42:19.540 --> 42:31.180
+Games zum Beispiel, funktionieren WSL 2 irgendwo oder WSL 1, keine Ahnung, nicht richtig, Port
+
+42:31.180 --> 42:38.100
+Weiterleitung, ja es gibt noch mehr, grafische Anwendung ist auch so ein Ding, es gibt immer
+
+42:38.100 --> 42:46.140
+wieder so Dinge, wo du Probleme hast mit WSL, man fährt, also wenn man so geil mit WSL fahren
+
+42:46.140 --> 42:58.460
+würde, warum sollte ich ein Linux-VM verwenden, na gut, weil ich E3 mag, viel lieber als Windows,
+
+42:58.460 --> 43:03.100
+und ich denke schon, dass man Leuten, die im Linux-Umfeld unterwegs sind, irgendeine
+
+43:03.100 --> 43:06.740
+Linux-Umgebung zur Verfügung stellen muss, du musst auch mal ein paar, du musst auch
+
+43:06.740 --> 43:10.740
+Tools ausprobieren können, du musst auch mal irgendeinen Package installieren können,
+
+43:10.740 --> 43:17.020
+du brauchst auch mal, was weiß ich, sei es so, dass du irgendeinen Cube-CTL-Plugin installieren
+
+43:17.020 --> 43:22.660
+willst oder sowas, was dann unter Windows manchmal eventuell Probleme macht, weil der
+
+43:22.660 --> 43:26.100
+Virenscanner meint, oh nee, der lädt da was runter, das will ich nicht, das haben wir
+
+43:26.100 --> 43:31.500
+zum Beispiel bei mir aktuell auf der Arbeit, wenn ich Log-Dateien kopiere unter WSL, jetzt
+
+43:31.500 --> 43:35.980
+kein Witz Leute, müsst ihr euch mal reinziehen, wenn ich Log-Dateien kopiere per SCP über
+
+43:35.980 --> 43:44.500
+WSL, dann bricht das nach irgendwie 25 MB ab und kriegt ganz komische IO-Read-Write-Errors,
+
+43:44.500 --> 43:45.500
+warum?
+
+43:45.500 --> 43:50.300
+Weil der Virenscanner meint, die Log-Datei oder mein SCP wäre irgendeine Ransomware,
+
+43:50.300 --> 43:53.340
+die gerade Festplatten verschlüsselt und deswegen wird es abgebrochen.
+
+43:53.340 --> 44:01.780
+Kann man über WSL einen Windows-Manager laufen lassen?
+
+44:01.780 --> 44:07.260
+Theoretisch bestimmt praktisch ist es unsinnig, ich glaube nicht, dass es gescheit funktioniert,
+
+44:07.260 --> 44:09.540
+man kann es vielleicht laufen lassen, aber ich kann mir nicht vorstellen, dass es gescheit
+
+44:09.540 --> 44:10.540
+funktioniert.
+
+44:10.540 --> 44:13.260
+Welche Distributionen ich auf der Arbeit benutze?
+
+44:13.260 --> 44:19.700
+Also ich hatte ganz lang das hier auch auf der Arbeit, also ok, da war es noch mal Jaro,
+
+44:19.700 --> 44:25.020
+da war es noch kein echtes Archlinux, by the way, ich benutze Archlinux, nur dass ihr
+
+44:25.020 --> 44:29.220
+es wisst, muss man glaube ich immer mal wieder ein bisschen erwähnen, das erwarten die
+
+44:29.220 --> 44:34.860
+Leute von einem, wenn man Archlinux benutzt, das ist ein bisschen so mit Veganer, die dir
+
+44:34.860 --> 44:39.100
+erzählen, dass sie Veganer sind, man muss erwähnen, dass man Archlinux verwendet, by
+
+44:39.100 --> 44:40.100
+the way.
+
+44:40.100 --> 44:45.140
+So, also das war eine ganze Zeit lang Manjaro, hatte ich bei mir auch daheim und auf der
+
+44:45.140 --> 44:55.060
+Arbeit und jetzt habe ich daheim in Archlinux kein Manjaro mehr und auf der Arbeit habe
+
+44:55.060 --> 44:59.500
+ich tatsächlich Ubuntu, aber wisst ihr warum ich Ubuntu habe?
+
+44:59.500 --> 45:05.700
+Einfacher Grund ist, ich hatte dort auch meine Manjaro Installation und ich musste das Notebook
+
+45:05.700 --> 45:14.140
+wechseln und das war vor nicht all zu langer Zeit, da wusste ich schon, dass ich abhaue,
+
+45:14.140 --> 45:17.700
+da habe ich mir gedacht, Leute ich mache jetzt keine extra Archinstallation auf meinem Notebook
+
+45:17.700 --> 45:23.940
+und richte das schön ein, auch wenn es schnell geht mit meinen Dot Files aus dem Git Repo,
+
+45:23.940 --> 45:29.340
+trotzdem dauert es ein bisschen länger als Ubuntu Installation, aber ich dachte, komm
+
+45:29.340 --> 45:35.740
+für die drei Monate haust du dir dann noch ein Ubuntu drauf und gut ist, weil ich bin
+
+45:35.740 --> 45:38.940
+auch total unmotiviert auf der Arbeit, muss ich ehrlich sagen, es ist nicht so, dass ich
+
+45:38.940 --> 45:43.780
+gar nichts mache, aber seit ich gekündigt habe, bin ich extrem unmotiviert, mich interessiert
+
+45:43.780 --> 45:48.700
+da auch nichts mehr großartig, ich freue mich wirklich drauf, wenn es beim neuen losgeht,
+
+45:48.700 --> 45:53.900
+ich habe da überhaupt keinen Bock mehr drauf gerade, also wie gesagt, ich benutze keine
+
+45:53.900 --> 46:03.220
+VM auf der Arbeit, ich habe ein Surface Book von Microsoft, Microsoft Surface Book, was
+
+46:03.220 --> 46:07.740
+ich rein als statisches Notebook verwende, also ich verwende weder die Tablet Funktion
+
+46:07.740 --> 46:11.880
+noch die Touch Funktion noch sonst was, es ist als zugeklapptes statisches Notebook mit
+
+46:11.880 --> 46:17.540
+einem Monitor dran und einer USB Tastatur, also nichts spezielles, da ist Linux drauf
+
+46:17.540 --> 46:26.300
+installiert und es läuft auch ganz gut auf dem Surface Book, Official Arch, ja, kein
+
+46:26.300 --> 46:45.660
+Arch Flavor, sondern hier, Poggers, Pogu Arch, ja, das ist eine gute Idee, kann man
+
+46:45.660 --> 46:50.180
+für forever die Free Variante benutzen oder ist die sehr trash, du meinst den Player,
+
+46:50.180 --> 46:58.780
+der Player ist okay, du kannst aber auch Virtual Box verwenden oder du holst der für 3,50
+
+46:58.780 --> 47:10.820
+Euro, kannst du dir bei einem Keyshop eine Forever Workstation Pro Lizenz holen oder
+
+47:10.820 --> 47:17.020
+vielleicht auch aus anderen Quellen, aber da werde ich dir jetzt nichts schicken dazu,
+
+47:17.020 --> 47:20.860
+ich habe mir die auch aus dem Keystore geholt für 7 Euro oder so damals und das reicht
+
+47:20.860 --> 47:29.700
+voll und ganz aus, warum mehr ausgeben als nötig, sind die Keys für 10 Euro legit,
+
+47:29.700 --> 47:35.660
+keine Ahnung, ist mir auch egal, ich habe die legit gekauft und sie haben legit funktioniert,
+
+47:35.660 --> 47:59.500
+das ist eben eine Mario Playlist, Mario Sunshine, Sunshine Soundtrack, wie kann man nur auf
+
+47:59.500 --> 48:02.700
+die Idee kommen, dass man in Jason keine Commons braucht, naja, weil das ursprünglich nicht
+
+48:02.700 --> 48:07.620
+dafür gedacht war, Konfig-Dateien da drin zu erstellen oder irgendwie super menschenlesbar
+
+48:07.620 --> 48:13.780
+zu sein, wobei man halt sagen muss, die Erweiterung, wisst ihr eigentlich, Chat, wisst ihr, wisst
+
+48:13.780 --> 48:21.460
+ihr, dass Jammel quasi von Jason abstammt, auch wenn es nicht so aussieht, dass jedes
+
+48:21.460 --> 48:30.220
+gültige Jason ein gültiges Jammel ist, sieht ganz anders aus, ist aber so, auch wenn es
+
+48:30.220 --> 48:34.380
+komplett anders aussieht, du kannst jedes gültige Jason in der Jammel-Datei speichern
+
+48:34.380 --> 49:02.860
+und es ist automatisch gültiges Jammel, ja, den kenne ich, den kenne ich, den kenne ich,
+
+49:02.860 --> 49:08.020
+ich gehe davon aus, dass es nicht viele Leute benutzen, diesen Infinite Storage-Klitsch,
+
+49:08.020 --> 49:18.020
+also ich zeige es euch mal für Leute, die es nicht gesehen haben bisher, da ist jemand
+
+49:18.020 --> 49:31.140
+auf die, ach guck mal archiviert ist es, ok, warum, warum, warum ist es archiviert?
+
+49:31.140 --> 49:43.020
+Wahrscheinlich weil es zu viele Issues gegeben hat oder, der Typ hat keinen Bock mehr, der
+
+49:43.020 --> 49:52.940
+hat glaube ich keinen Bock mehr, der Dude, kann das sein, also du konntest dort Dateien
+
+49:52.940 --> 49:58.900
+umwandeln in Videofiles, die dann so aussahen, quasi aus mehr oder weniger Rauschen bestanden
+
+49:58.900 --> 50:04.220
+haben und die konntest du auf YouTube hochladen und YouTube hat ja keine Beschränkungen,
+
+50:04.220 --> 50:08.580
+was Video-Uploads angeht und dann konntest du das quasi runterladen und dann wieder zurück
+
+50:08.580 --> 50:14.380
+wandeln in die Datei, das ist nichts neues, dieses Verfahren an sich gibt es schon ganz
+
+50:14.380 --> 50:20.140
+lange und es ist jetzt bloß bekannt geworden so die letzten paar Monate über, wahrscheinlich
+
+50:20.140 --> 50:25.780
+weil Hacker-News oder Fortchain oder wer auch immer das Projekt entdeckt hat, es gibt viele
+
+50:25.780 --> 50:30.460
+andere solcher Sachen auch schon länger, ich gehe davon aus, dass es kaum einer nutzt,
+
+50:30.460 --> 50:37.460
+weil es nicht so, du könntest damit theoretisch Sicherheitskopien über YouTube verteilen,
+
+50:37.460 --> 50:44.460
+natürlich nur für dich selbst, ich gehe davon aus, dass es nicht so viele Leute benutzen,
+
+50:44.460 --> 50:48.700
+weil YouTube sonst einfach sperren würde, es ist auch nicht so sinn, es ist auch nicht
+
+50:48.700 --> 50:55.220
+wirklich praktikabel gut zu benutzen, die Dateien, also die Videodateien sind eine ganze
+
+50:55.220 --> 51:02.940
+Ecke größer als die Ursprungsdateien, das Uploaden dauert ewig, wenn es größere Dateien
+
+51:02.940 --> 51:06.340
+sind, du musst ja vorher auch noch verschlüsseln und sowas, du kannst dann auch nicht gescheit
+
+51:06.340 --> 51:12.300
+zippen, na gut, du kannst zuerst zippen und dann verschlüsseln, ja doch, das funktioniert,
+
+51:12.300 --> 51:17.220
+dann den Videos umwandeln, die Dateien sind riesengroß, du brauchst lange zum Upload,
+
+51:17.220 --> 51:22.940
+du brauchst ja vielleicht nicht ganz so lange zum Download, also jetzt so wirklich großartig
+
+51:22.940 --> 51:30.740
+sinnvoll, finde ich es in der Handhabung nicht, natürlich, natürlich wäre es gut für Leute,
+
+51:30.740 --> 51:36.020
+die irgendwelche Sachen sharen wollen, größere Sachen und das nicht über irgendwelche One-Click-Hoster,
+
+51:36.020 --> 51:42.580
+Usenet oder sonst was machen würden, sobald das anfängt Fahrt aufzunehmen, wird folgendes
+
+51:42.580 --> 51:50.500
+passieren, YouTube wird die Dinge einfach sperren, weil sowas kann YouTube ja easy erkennen,
+
+51:50.500 --> 52:02.660
+ob ein Video so aussieht, das dürfte für YouTube gar kein Problem sein, so und eventuell
+
+52:02.660 --> 52:07.820
+baut YouTube, auch wenn es solche Videos erkennt, einfach Fehler ein, sodass sie nicht mehr
+
+52:07.820 --> 52:20.980
+packt werden können, also da glaube ich nicht, dass das irgendwie großartig YouTube aufmischen
+
+52:20.980 --> 52:29.100
+wird, 3500 Zeilen Neo-Wim-Conf, ok, dann machst du das heute, so wie ich das früher gemacht
+
+52:29.100 --> 52:34.220
+habe, ich habe mein Wim früher auch komplett aufgemotzt und alles im Wim gemacht, hatte
+
+52:34.220 --> 52:39.660
+ich auch ewig lange, ich weiß nicht wie lange, aber ewig lange WimRC und Unterordner und
+
+52:39.660 --> 52:45.340
+alles, das habe ich dann irgendwann weggeschmissen und bin zum Beispiel Studio Code und JetBrains
+
+52:45.340 --> 52:46.340
+rüber.
+
+52:46.340 --> 53:03.740
+Motto kenne ich nicht, wie gesagt ich verwende auch wenig AWS, das ist richtig, für dich
+
+53:03.740 --> 53:09.780
+als Privatperson macht das überhaupt keinen Sinn, also Sachen in der Cloud zu verwenden,
+
+53:09.780 --> 53:13.900
+solange du mit Free-Kontingent auskommst und zu Kleinigkeiten brauchst du es gut, aber
+
+53:13.900 --> 53:17.020
+jetzt irgendwie eine Datenbank in der Cloud Hause macht für dich als Privatperson wenig
+
+53:17.020 --> 53:18.020
+Sinn.
+
+53:18.020 --> 53:26.380
+Wo es für dich Sinn machen könnte ist, wenn du einen Service im Internet anbieten willst,
+
+53:26.380 --> 53:30.820
+ja also nicht von dir für dich oder für dich daheim irgendwas, sondern du hast irgendwas
+
+53:30.820 --> 53:33.900
+programmiert, das willst du der Welt zur Verfügung stellen, dann kann es durchaus
+
+53:33.900 --> 53:41.100
+sinnvoll sein das in der Cloud laufen zu lassen, wobei man sagen muss billiger, auch wenn die
+
+53:41.100 --> 53:47.820
+ganzen Verkäufer was Cloud-Produkte angehen wahrscheinlich anders erzählen werden, weil
+
+53:47.820 --> 53:52.220
+in der Cloud erzählen sie dir immer so nach dem Motto, Cloud ist auch riesen Kostenersparnis,
+
+53:52.220 --> 53:58.940
+weil du bezahlst ja nur das was du auch wirklich verwendest, naja das stimmt so ohne weiteres
+
+53:58.940 --> 54:05.380
+nichts, das kommt immer ganz drauf an was für einen Serviceman verwendet und was man
+
+54:05.380 --> 54:12.300
+dort für Garantien haben will, was man dort für Zugriffszeiten haben will, da gibt es
+
+54:12.300 --> 54:17.900
+ja ganz viele verschiedene Abstufungen oftmals, ja es ist nicht nur bei VMs in der Cloud wo
+
+54:17.900 --> 54:22.060
+du unterschiedliche Performance Ausstattung, auch bei Storage zum Beispiel, bei Storage
+
+54:22.060 --> 54:30.020
+gibt es in AWS glaube 3 oder 5 verschiedene Sachen, du kannst das irgendwie hot, ne es
+
+54:30.020 --> 54:35.420
+gibt glaube ich allein von Cold Storage irgendwie oder Archivspeicher irgendwie 3 verschiedene
+
+54:35.420 --> 54:42.820
+Stufen, das ist ganz wirr und da bezahlst du auch unterschiedlich viel und je nach dem
+
+54:42.820 --> 54:47.220
+ist es dann auch unterschiedlich wo du was bezahlst, ja bei dem einen ist der Upload
+
+54:47.220 --> 54:56.100
+billiger und der Download billiger aber dafür ist das pro Gigabyte teurer und bei dem anderen
+
+54:56.100 --> 55:01.660
+ist es pro Gigabyte billiger aber das Abrufen ist extrem teuer und sowas, das ist Riesenwissen
+
+55:01.660 --> 55:07.900
+Wissenschaft für sich und du kannst in der Cloud auch total easy einfach 1000 Euro ausgeben
+
+55:07.900 --> 55:14.300
+wenn du nicht aufpasst, gab ja schon Leute die haben es geschafft Serverless Functions
+
+55:14.300 --> 55:20.220
+zu bauen die sich dann selbst aufgerufen haben oder um 3 Ecken dann in irgendeine Schleife
+
+55:20.220 --> 55:25.700
+hatten und dann sind sie ins Bett und morgens sind sie aufgewacht an 70.000 Euro Rechnung
+
+55:25.700 --> 55:33.500
+auf ihrem Account, in der Vergangenheit haben sich die Cloud an Peter da tatsächlich relativ
+
+55:33.500 --> 55:39.420
+kulant gezeigt wahrscheinlich weil sie wussten sie bekommen das Geld eh nie und haben gesagt
+
+55:39.420 --> 55:45.100
+ja es ist ok pass auf dass du nicht wieder Scheiße baust aber es geht halt genauso also
+
+55:45.100 --> 55:50.540
+ich finde das macht durchaus Sinn als in der Cloud zu hausen aber und das ist jetzt eigentlich
+
+55:50.540 --> 55:54.860
+das, das ist eigentlich das was ich sagen wollte ja also wie gesagt ich finde da ist
+
+55:54.860 --> 55:58.900
+nicht viel dran wenn dir irgendwelche Verkäufer da sagen ja aber in der Cloud ist viel große
+
+55:58.900 --> 56:03.700
+Kostenersparnis das billigste wenn du ein Kleiner, das billigste nicht unbedingt für
+
+56:03.700 --> 56:10.020
+dich als Entwickler das einfachste aber das billigste ist höchstwahrscheinlich also wenn
+
+56:10.020 --> 56:15.180
+du einen Service hast den du im Internet anbieten willst und du auch gar nicht weißt ob das
+
+56:15.180 --> 56:22.540
+viele Leute benutzen miete dir eine Linux VM miete dir irgendwo bei Hetzner zum Beispiel
+
+56:22.540 --> 56:27.140
+miete dir irgendeine billige Linux VM klatscht da deine Anwendung drauf und guck erstmal
+
+56:27.140 --> 56:33.340
+wie es ankommt da kannst du zwar nichts von dem machen was dir die ganzen Cloud Leute erzählen
+
+56:33.340 --> 56:38.620
+dass das super essenziell wäre du kannst das nicht rolling skalieren und du kannst
+
+56:38.620 --> 56:45.980
+das nicht irgendwie großartig upgraden ohne dass du es runterfahren musst und solche
+
+56:45.980 --> 56:51.620
+sonstige Geschichten und du kannst das auch nicht per Edge Computing und Edge Dingsbums
+
+56:51.620 --> 56:57.620
+Distribution und haste nicht gesehen ausliefern aber das meiste kann man ja immer noch später
+
+56:57.620 --> 57:03.260
+machen wenn man einfach nur was kleines programmiert hat gucken will wie das ankommt das billigste
+
+57:03.260 --> 57:10.580
+und einfachste ist eine Linux VM bei irgendeinem Hoster das Ding draufgeschmissen am besten
+
+57:10.580 --> 57:15.460
+noch mit irgendeiner SQLite Datenbank anstatt irgendwelche großen Datenbank Service sich
+
+57:15.460 --> 57:23.380
+zu kaufen oder kannst ja auch darauf irgendeine Postgres installieren aber meistens reicht
+
+57:23.380 --> 57:27.780
+für sowas kleines ja sogar SQLite aus wenn es komplett lokal auf der gleichen Kiste ist
+
+57:27.780 --> 57:34.140
+und fertig muss man gar nichts großartig machen finde ich persönlich am sinnvollsten wenn
+
+57:34.140 --> 57:39.100
+man es einfach nur ausprobieren will und sollte man wirklich den super mega Service erfunden
+
+57:39.100 --> 57:45.420
+haben wo auf einmal letztendlich die Leute drauf stürzen ja gut die Chancen sind gering
+
+57:45.420 --> 57:51.700
+wenn man für diese kleine Chance vorsorgen will muss man halt Geld in die Hand nehmen
+
+57:51.700 --> 57:54.980
+und es von Anfang an so bauen dass man es irgendwie ordentlich ausrollen könnte in
+
+57:54.980 --> 58:04.940
+der Cloud Umgebung wo es ordentlich skaliert aber eher nicht zumal man vieles ja auch auf
+
+58:04.940 --> 58:16.100
+die schnelle machen kann du kannst ja erstmal deine VM also mehr aufrüsten also man kann
+
+58:16.100 --> 58:22.700
+ja erstmal die einfachen Sachen machen ja ohne das komplett auf cloud native mit allen
+
+58:22.700 --> 58:29.260
+cloud services und nur noch im managed Kubernetes Cluster und hast du nicht gesehen alles laufen
+
+58:29.260 --> 58:33.420
+zu lassen also man kann ja auch erstmal seine VMs upgraden also sollte wirklich der Fall
+
+58:33.420 --> 58:39.100
+eintreten dass man als Einzelentwickler ein Projekt gebaut hat das hostet der Welt zur
+
+58:39.100 --> 58:43.940
+Verfügung stellt und auf einmal springen tausende Leute drauf und du hast auf einmal du hast
+
+58:43.940 --> 58:50.340
+quasi über Nacht irgendwie hunderte oder tausende User und es geht ab weil zufälligerweise
+
+58:50.340 --> 58:55.020
+PewDiePie ein Video über deinen Service gemacht hat ja gut dann kannst du erstmal einfach
+
+58:55.020 --> 59:02.580
+deine VM erweitern da gibt es deine VM, RAM, CPU und das ist dann erstmal kommst du damit
+
+59:02.580 --> 59:07.460
+ja auch relativ weit und dann musst du dir halt überlegen ok ich habe auf einen Schlag
+
+59:07.460 --> 59:13.060
+500 Benutzer jetzt muss ich mir tatsächlich ein bisschen Mühe geben mit dem Service wobei
+
+59:13.060 --> 59:18.180
+du halt weißt es ja noch nicht mal irgendwie ein Abo-Modell oder irgendwas hast wenn du
+
+59:18.180 --> 59:22.820
+einfach als Privatperson was gebaut hast gucken willst wie es ankommt da hast du ja noch nicht
+
+59:22.820 --> 59:28.980
+mal irgendwie Monetarisierungs Schema dir ausgedacht das ist ja meistens dann kostenloser
+
+59:28.980 --> 59:33.300
+Webservice und da kann sich dann eh keiner beschweren also du hast sehe ich prinzipiell
+
+59:33.300 --> 59:37.260
+auch so ich finde das meistens ist es für private Personen so für so Ein-Mann-Projekte
+
+59:37.260 --> 59:38.260
+nicht sonderlich sinnvoll.
+
+59:38.260 --> 59:49.860
+Kommt drauf an was man macht ja also ich habe gehört dass wir mittlerweile 6-stellig
+
+59:49.860 --> 59:54.700
+im Monat ausgeben für die Cloud bei meinem aktuellen Arbeitgeber also es ist nicht ohne
+
+59:54.700 --> 01:00:01.740
+was da Geld raus reingebuttert wird aber wenn du das brauchst was die anbieten dann kann
+
+01:00:01.740 --> 01:00:07.620
+sich das durchaus lohnen es hat ja seinen Grund dass die Cloud-Anbieter erfolgreich
+
+01:00:07.620 --> 01:00:12.340
+sind und dass auch immer mal wieder neue auftauchen die manche Sachen besonders gut machen oder
+
+01:00:12.340 --> 01:00:17.460
+einfacher machen oder fokussierter sind auf spezielle Bereiche als die großen ich meine
+
+01:00:17.460 --> 01:00:24.240
+klar Google, Microsoft und Amazon die können irgendwie alles dafür sind sie unglaublich
+
+01:00:24.240 --> 01:00:29.500
+komplex groß kompliziert und keiner blickt so wirklich durch am Anfang und ich glaube
+
+01:00:29.500 --> 01:00:32.980
+es gibt ganz wenige die wirklich insgesamt durchblicken dann gibt es dann irgendwelche
+
+01:00:32.980 --> 01:00:41.380
+Service so was wie Fly.io was jetzt gerade voll angesagt ist was spezielle Sachen einfacher
+
+01:00:41.380 --> 01:00:49.380
+macht und dementsprechend auch für viele erstmal einfacher zu verstehen ist.
+
+01:00:49.380 --> 01:00:55.140
+Linode habe ich noch nie verwendet habe ich aber schon öfters mal als guten Tipp gehört
+
+01:00:55.140 --> 01:01:04.900
+für Managed Kubernetes und Managed in Anführungsstrichen viel Managed ist ja da nicht bei und Digital
+
+01:01:04.900 --> 01:01:09.520
+Ocean Kubernetes soll auch nicht schlecht sein ansonsten wie die VMs von Linode sind
+
+01:01:09.520 --> 01:01:14.620
+habe ich auch nicht schlechtes bisher gehört Managed ist bei diesen ganzen Sachen ja nicht
+
+01:01:14.620 --> 01:01:23.780
+wirklich viel sondern eigentlich nur die wie heißt das bei Kubernetes die API also das
+
+01:01:23.780 --> 01:01:27.660
+eigentliche Kubernetes die Control Plane heißt das genau also das ist ja meistens
+
+01:01:27.660 --> 01:01:33.500
+bei der Kubernetes Service selber Managed also du kannst dann zum Beispiel darüber
+
+01:01:33.500 --> 01:01:38.500
+abgehen dass die gucken dann halt dass Versions Upgrades durchgeführt werden in irgendeinem
+
+01:01:38.500 --> 01:01:41.820
+Maintenance Winner was du eingetragen hast dass du dich nicht selbst machen musst und
+
+01:01:41.820 --> 01:01:46.260
+solche Geschichten aber um alles andere in deinem Cluster auch wenn es ein Managed Cluster
+
+01:01:46.260 --> 01:01:52.780
+ist musst du dich bei den meisten Anbietern dort eh selber kümmern da haben die größten
+
+01:01:52.780 --> 01:02:00.460
+Anbieter was was cooleres Google hat zum Beispiel sowas wie ihren Kubernetes Autopilot da kriegst
+
+01:02:00.460 --> 01:02:06.700
+du gar kein Kubernetes Cluster mehr im klassischen Sinne sondern du kriegst ein Kubernetes Cluster
+
+01:02:06.700 --> 01:02:14.700
+wo du per Pod bezahlst oder nee nicht per Pod per doch per ich bin mir nicht sicher ob
+
+01:02:14.700 --> 01:02:21.700
+du es per Pod bezahlst oder ob du es per Pod Typ bezahlst aber wahrscheinlich wirst du
+
+01:02:21.700 --> 01:02:27.860
+es nach Pod bezahlen und dann halt je nachdem wie viele Replikas und sonst was man haben
+
+01:02:27.860 --> 01:02:34.700
+will dafür musst du dich halt Null mehr drum kümmern um Kubernetes an sich ist da nochmal
+
+01:02:34.700 --> 01:02:41.580
+so ein Zwischenschritt zwischen alles Serverless Functions oder Kubernetes Cluster so ein Zwischending
+
+01:02:41.580 --> 01:03:07.740
+was ist das für Betge Musik ja
+
+01:03:07.740 --> 01:03:13.460
+das habe ich gesehen das habe ich gesehen ich glaube nicht dass das das ziehen wird
+
+01:03:13.460 --> 01:03:28.980
+wenn ich das sage
+
+01:03:28.980 --> 01:03:43.220
+ob und Unity gibt es doch gar nicht mehr oder das ist doch jetzt alles auch genommen
+
+01:03:43.220 --> 01:03:50.020
+welchen Keystore benutzt du so für Corporate Care meinst du Keystore oder Secret Store
+
+01:03:50.020 --> 01:03:54.780
+also meinst du Keyvalue Geschichten oder wirklich Secret Store Secret Store Azure Key Vault
+
+01:03:54.780 --> 01:03:59.300
+ganz einfach weil Azure und so Zeug weil wir Azure verwenden und da bietet sich das
+
+01:03:59.300 --> 01:04:10.780
+an Azure Key Vault und ansonsten Redis das dürfte auch mit das verbreiteste sein was
+
+01:04:10.780 --> 01:04:24.860
+so so Caching und solche Geschichten angeht
+
+01:04:24.860 --> 01:04:29.500
+Jaml kompiliert ja unter der Haube zu Jason oder nicht das weiß ich nicht es gibt allerdings
+
+01:04:29.500 --> 01:04:34.460
+Sachen Konstrukte in Jaml die kannst du in Jason so nicht machen zum Beispiel Referenzen
+
+01:04:34.460 --> 01:04:41.260
+und sowas aber klar wenn das irgendwie dann zu Jason kompiliert dann glaube ich nicht
+
+01:04:41.260 --> 01:04:42.260
+passt eigentlich nicht
+
+01:04:42.260 --> 01:04:50.860
+Jason Jaml ist keine Alternativ Syntax für Jason also nicht jedes Jaml ist Jason aber
+
+01:04:50.860 --> 01:05:06.220
+jedes Jason ist Jaml
+
+01:05:06.220 --> 01:05:12.660
+ich benutze das Main Ubuntu ja das ganz das ganz stinknormale Ubuntu benutze ich was du
+
+01:05:12.660 --> 01:05:18.660
+kriegst wenn du sagst hier Download Ubuntu verschicken die eigentlich noch kostenlos
+
+01:05:18.660 --> 01:05:25.160
+CDs früher haben noch CDs verschickt das was du hier kriegst hier 22 04 LTS wir sind
+
+01:05:25.160 --> 01:05:32.660
+übrigens sehe ich gerade wir sind bald bei Ubuntu 22 23 04 wie wird denn das heißen
+
+01:05:32.660 --> 01:05:40.100
+Luna Lobster endlich mal wieder ein guter Ubuntu Name die letzten waren irgendwie nicht
+
+01:05:40.100 --> 01:05:52.340
+so geil die letzten fand ich nicht so geil aber Luna Lobster ist Poggers ja so das war
+
+01:05:52.340 --> 01:06:00.380
+cool das war cool war sich es war zu zweien den kann ich mich auch noch erinnern das ist
+
+01:06:00.380 --> 01:06:06.660
+glaube ich den Namen den ich am meisten noch im Kopf habe was Ubuntu angeht ja die kenne
+
+01:06:06.660 --> 01:06:14.940
+ich alle noch aber die war jetzt auch nicht so geil haben die nicht einfach mal eine Tabelle
+
+01:06:14.940 --> 01:06:20.500
+wo man das sieht so eklig sowieso aber die letzten die letzten muss ich sagen die fand
+
+01:06:20.500 --> 01:06:26.460
+ich jetzt gar nicht mehr so gar nicht mehr so toll Kinect Kudus Zungenbrecher das spricht
+
+01:06:26.460 --> 01:06:33.780
+doch keiner so aus Luna Lobster ist mal wieder was was gut von der Zunge geht das fand ich
+
+01:06:33.780 --> 01:06:38.040
+noch Kimchi Fisch oder Dragx
+
+01:06:38.040 --> 01:06:47.540
+Coming?-like-smart-faces-letter- attractionen-b redistribution das wusste ich aber gar nicht
+
+01:06:47.540 --> 01:06:55.360
+dass es existiert wenn ich eeherlich bin ist mir komplett neuer hab ich bis jetzt noch
+
+01:06:55.360 --> 01:06:57.120
+aber ganz ehrlich
+
+01:06:57.120 --> 01:07:01.280
+das Luna Lobster ist mal wieder was gutes
+
+01:07:01.280 --> 01:07:03.880
+sind das die gleichen wie bei Debian? Nee
+
+01:07:03.880 --> 01:07:06.320
+Debian hat Toy Story Namen
+
+01:07:06.320 --> 01:07:11.360
+Debian benennt ihre Dinger immer nach Toy Story Characters
+
+01:07:11.360 --> 01:07:13.920
+Ubuntu macht da irgendwelche komischen
+
+01:07:13.920 --> 01:07:16.160
+wie nennt man das
+
+01:07:16.160 --> 01:07:19.360
+diese Konstellation von Wörtern bei Ubuntu wie nennt man das
+
+01:07:19.360 --> 01:07:22.960
+also Luna Lobster ist ja quasi das ist
+
+01:07:22.960 --> 01:07:25.480
+nen, nen, nen
+
+01:07:25.480 --> 01:07:31.440
+Tier ist mit L, nen Wort mit L am Anfang
+
+01:07:31.440 --> 01:07:32.880
+was
+
+01:07:32.880 --> 01:07:34.400
+halt irgendwie
+
+01:07:34.400 --> 01:07:41.400
+ne Eigenschaft dann von dem Tier ist
+
+01:07:41.400 --> 01:07:44.680
+Adjektiv und Tier
+
+01:07:44.680 --> 01:07:47.680
+Adjektiv und Tier, ja genau
+
+01:07:47.680 --> 01:07:50.000
+aber es muss aber es muss immer
+
+01:07:50.000 --> 01:07:54.560
+das gleiche Adjektiv sein vom Anfang, also das gleiche Anfangsbuchstabe Adjektiv wie
+
+01:07:54.560 --> 01:07:57.080
+im Tiername
+
+01:07:57.080 --> 01:08:15.080
+bei Ubuntu
+
+01:08:15.080 --> 01:08:17.080
+was?
+
+01:08:17.080 --> 01:08:20.080
+ihr wechselt auch wieder
+
+01:08:20.080 --> 01:08:21.640
+zurück
+
+01:08:21.640 --> 01:08:25.640
+von der Cloud
+
+01:08:25.640 --> 01:08:40.160
+aha
+
+01:08:40.160 --> 01:08:55.160
+das leucht, vielleicht verstehe ich jetzt den Zusammenhang irgendwie nicht
+
+01:08:55.160 --> 01:08:58.480
+was hat der Rails Erfinder und Google damit zu tun, das
+
+01:08:58.480 --> 01:08:59.480
+ja gut
+
+01:08:59.480 --> 01:09:08.480
+keine Ahnung
+
+01:09:08.480 --> 01:09:10.280
+Brezelsnacker, danke für den Sub
+
+01:09:10.280 --> 01:09:13.080
+sorry Leute, was ich heute wieder die Hälfte überlesen habe wahrscheinlich
+
+01:09:13.080 --> 01:09:16.080
+warte mal, Chico
+
+01:09:16.080 --> 01:09:28.200
+was ist da los?
+
+01:09:28.200 --> 01:09:30.040
+so
+
+01:09:30.040 --> 01:09:37.400
+Chico kratzt an der Tür rum
+
+01:09:37.400 --> 01:09:40.800
+ja und der hat es archiviert aber warum weiß man nicht
+
+01:09:40.800 --> 01:09:46.080
+oder weiß man das?
+
+01:09:46.080 --> 01:09:48.120
+wie ist der Typ? Github
+
+01:09:48.120 --> 01:09:49.800
+infinite
+
+01:09:49.800 --> 01:09:53.800
+storage glitch
+
+01:09:53.800 --> 01:09:57.920
+also ich meine der Source Code ist noch da
+
+01:09:57.920 --> 01:09:59.120
+rework
+
+01:09:59.120 --> 01:10:02.560
+update readme, ok was hat er da reingeschrieben, warum hat er das
+
+01:10:02.560 --> 01:10:06.640
+gelöscht
+
+01:10:06.640 --> 01:10:31.520
+oh ich glaube Youtube hat ihn angeschrieben, könnte das sein?
+
+01:10:31.520 --> 01:10:53.960
+ah
+
+01:10:53.960 --> 01:10:56.960
+so
+
+01:10:56.960 --> 01:11:01.640
+ja das ist
+
+01:11:01.640 --> 01:11:13.360
+die Leute erzählen im Internet viel wenn der Tag lang ist
+
+01:11:13.360 --> 01:11:16.000
+kostenlose Ubuntu CDs gibt es schon lange nicht mehr
+
+01:11:16.000 --> 01:11:16.800
+tja
+
+01:11:16.800 --> 01:11:22.760
+es sagt
+
+01:11:22.760 --> 01:11:27.680
+Moment es gibt ein Ubuntu Remix mit dem alten Unity aber warum das denn?
+
+01:11:27.680 --> 01:11:32.200
+das fand ich ja noch schlimmer als den Gnome Desktop von denen
+
+01:11:32.200 --> 01:11:35.480
+Leute falls ihr irgendwelche Fragen übersehen habt schreibt es ruhig in den Chat rein
+
+01:11:35.480 --> 01:11:39.920
+ich hab wieder die Hälfte jetzt gerade überscrollt wahrscheinlich
+
+01:11:39.920 --> 01:11:42.960
+Ed Wubblos davor
+
+01:11:42.960 --> 01:11:44.920
+ich bin unten im Chat
+
+01:11:44.920 --> 01:11:49.800
+ich hab noch im Hinterkopf gehabt, irgendwas wollte ich noch
+
+01:11:49.800 --> 01:11:59.680
+beantworten aber
+
+01:11:59.680 --> 01:12:05.320
+weiß nicht mehr was
+
+01:12:05.320 --> 01:12:06.800
+ach stimmt
+
+01:12:06.800 --> 01:12:10.760
+Unity wird ja von diesem 13 jährigen Typ weiterentwickelt ja
+
+01:12:10.760 --> 01:12:12.600
+ja haben wir sogar letztens gesehen
+
+01:12:12.600 --> 01:12:14.400
+Moment der hatte doch noch mehr oder?
+
+01:12:14.400 --> 01:12:17.840
+der hat nicht nur an Unity entwickelt, der hatte doch auch irgendwelche anderen
+
+01:12:17.840 --> 01:12:18.560
+Projekte
+
+01:12:18.560 --> 01:12:22.760
+wo wir uns gedacht haben es ist irgendein Zwölfjähriger oder so
+
+01:12:22.760 --> 01:12:31.760
+der das programmiert
+
+01:12:31.760 --> 01:12:34.080
+ich hab gar kein Laufwerk mehr im Rechner drinnen
+
+01:12:34.080 --> 01:12:39.480
+meine letzten paar Rechner hatten alle schon kein Laufwerk mehr
+
+01:12:39.480 --> 01:12:42.960
+es haben ein paar Leute gefragt wann ich jetzt letzten Arbeitstag und ersten
+
+01:12:42.960 --> 01:12:46.600
+Arbeitstag hab also
+
+01:12:46.600 --> 01:12:49.400
+dazu gibt es ein Update
+
+01:12:49.400 --> 01:12:53.760
+ich hab euch ja mal erzählt, mein letzter Arbeitstag ist spätestens der 22.
+
+01:12:53.760 --> 01:12:58.440
+und je nach Hofbereitschaftskonto vielleicht schon der 17.
+
+01:12:58.440 --> 01:13:00.640
+und mein erster Arbeitstag ist der 1.
+
+01:13:00.640 --> 01:13:02.480
+beziehungsweise der
+
+01:13:02.480 --> 01:13:04.760
+ja 3. oder 4. je nachdem um den Monat
+
+01:13:04.760 --> 01:13:09.480
+wahrscheinlich gehe ich gleich Anfang der Woche hin
+
+01:13:09.480 --> 01:13:13.520
+der 3. April ist mein erster
+
+01:13:13.520 --> 01:13:17.160
+Arbeitstag aber es hat sich jetzt was anderes ergeben ich hab nämlich
+
+01:13:17.160 --> 01:13:19.920
+folgendes entdeckt und zwar
+
+01:13:19.920 --> 01:13:23.760
+wenn man innerhalb eines Jahres den Arbeitgeber wechselt kann man seine
+
+01:13:23.760 --> 01:13:29.120
+Urlaubstage mitnehmen
+
+01:13:29.120 --> 01:13:32.640
+wenn man eine Bescheinigung bekommt, also wenn der alte und der neue
+
+01:13:32.640 --> 01:13:35.080
+Arbeitgeber damit einverstanden sind
+
+01:13:35.080 --> 01:13:38.720
+und wenn man eine Bescheinigung bekommt vom alten Arbeitgeber
+
+01:13:38.720 --> 01:13:40.720
+wie viele Urlaubstage
+
+01:13:40.720 --> 01:13:42.480
+man schon
+
+01:13:42.480 --> 01:13:44.400
+verbraucht hat dieses Jahr
+
+01:13:44.400 --> 01:13:46.600
+sodass man halt nicht sagen kann hey
+
+01:13:46.600 --> 01:13:47.760
+ich nehme die mit
+
+01:13:47.760 --> 01:13:51.320
+aber ich will sie auch ausbezahlt haben ne Woche später oder sowas ja das wäre
+
+01:13:51.320 --> 01:13:53.440
+dann beschiss
+
+01:13:53.440 --> 01:13:56.640
+so mein neuer Arbeitgeber erlaubt das anscheinend, weil die haben sogar ne
+
+01:13:56.640 --> 01:14:00.520
+Möglichkeit das Formular das hochzuladen
+
+01:14:00.520 --> 01:14:04.280
+jetzt muss ich mal bei meinem aktuellen Arbeitgeber fragen ob das ok ist
+
+01:14:04.280 --> 01:14:07.560
+ich denke nicht dass die was dagegen haben die freuen sich wahrscheinlich
+
+01:14:07.560 --> 01:14:12.880
+sogar wenn ich noch ne Woche länger da bin
+
+01:14:12.880 --> 01:14:16.840
+bezahlen müssen sie es ja eh
+
+01:14:16.840 --> 01:14:22.360
+und dann wäre mein letzter Arbeitstag tatsächlich erst
+
+01:14:22.360 --> 01:14:27.560
+wahrscheinlich der neunundzwanzigste
+
+01:14:27.560 --> 01:14:30.320
+was mir persönlich auch ganz lieb ist weil
+
+01:14:30.320 --> 01:14:35.560
+ich habe überhaupt kein Interesse den sechs Tage Urlaub jetzt zu nehmen
+
+01:14:35.560 --> 01:14:38.040
+ich will ich will überhaupt kein Urlaub nehmen ich will lieber wieder Urlaub
+
+01:14:38.040 --> 01:14:39.320
+ordentlich am Stück nehmen
+
+01:14:39.320 --> 01:14:44.080
+und nicht irgendwie so sechs Tage so im im im März total bescheuert hab ich
+
+01:14:44.080 --> 01:14:51.160
+will ich überhaupt nicht
+
+01:14:51.160 --> 01:14:54.200
+deswegen werde ich das mal checken
+
+01:14:54.200 --> 01:14:58.160
+ob das geht
+
+01:14:58.160 --> 01:15:02.840
+ich will jetzt überhaupt kein Urlaub machen
+
+01:15:02.840 --> 01:15:10.200
+ist Fulltime Office Homeoffice bei dem neuen nee es ist nicht Fulltime Homeoffice
+
+01:15:10.200 --> 01:15:11.480
+es ist
+
+01:15:11.480 --> 01:15:13.520
+einmal die Woche
+
+01:15:13.520 --> 01:15:18.560
+bis zu 14 Tage also einmal die Woche oder einmal alle 14 Tage
+
+01:15:18.560 --> 01:15:20.160
+Office
+
+01:15:20.160 --> 01:15:23.400
+je nach Absprache mit seinem Chef ich denke mal am Anfang
+
+01:15:23.400 --> 01:15:26.080
+werde ich da schon einmal die Woche hingehen
+
+01:15:26.080 --> 01:15:36.560
+allein schon dass man ein bisschen so die Leute mal gesehen hat
+
+01:15:36.560 --> 01:15:38.240
+und dann
+
+01:15:38.240 --> 01:15:42.920
+mal gucken ob man das ein bisschen ausweitet
+
+01:15:42.920 --> 01:15:49.040
+da wird sich nichts mehr großartig tun die Übergabe ist abgeschlossen
+
+01:15:49.040 --> 01:15:51.280
+gibt eigentlich nichts mehr was ich übergeben muss
+
+01:15:51.280 --> 01:15:54.400
+nur ich muss mich vielleicht selbst übergeben wenn ich sehe wie bescheuert
+
+01:15:54.400 --> 01:15:55.720
+sie das wieder gemacht haben
+
+01:15:55.720 --> 01:15:59.560
+die haben einen Kerl dahin gesetzt
+
+01:15:59.560 --> 01:16:00.680
+der
+
+01:16:00.680 --> 01:16:04.680
+die Sachen von mir alle übernehmen soll
+
+01:16:04.680 --> 01:16:06.440
+der die Sachen von meinem
+
+01:16:06.440 --> 01:16:07.280
+Kollege
+
+01:16:07.280 --> 01:16:11.560
+übernehmen soll der mit auch mit mir wechselt teilweise zumindest
+
+01:16:11.560 --> 01:16:14.640
+dann macht er noch die Sachen weiter die er vorher gemacht hat
+
+01:16:14.640 --> 01:16:18.280
+plus dass er sich jetzt noch mit unserem Mailsystem auseinandersetzen soll
+
+01:16:18.280 --> 01:16:20.280
+wie soll das funktionieren
+
+01:16:20.280 --> 01:16:22.600
+und das beste ist das beste ist
+
+01:16:22.600 --> 01:16:30.000
+das ist ein externer Mitarbeiter der nur einen Vertrag für ein halbes Jahr hat
+
+01:16:30.000 --> 01:16:33.240
+der ist dann weg und auf einmal haben die gar keinen Plan mehr was abgeht
+
+01:16:33.240 --> 01:16:41.560
+also da schaufen sie sich gerade wirklich ihr Grab
+
+01:16:41.560 --> 01:16:56.560
+der der haut einfach ab wenn er keinen Bock mehr hat aber vollkommen vollkommen zurecht
+
+01:17:12.560 --> 01:17:19.160
+also keine Ahnung was sie sich dabei wieder gedacht haben
+
+01:17:19.160 --> 01:17:23.080
+ja morgen habe ich auch mal einen Termin mit meinem Chef da werde ich das mal
+
+01:17:23.080 --> 01:17:27.360
+werde ich das klären wie das mit dem mit dem Urlaub mit dem Urlaub nehmen ist
+
+01:17:27.360 --> 01:17:34.320
+und und was mein Abschlusszeugnis macht
+
+01:17:34.320 --> 01:17:39.760
+Abschlusszeugnis müssen sie nämlich auch endlich mal hinkriegen
+
+01:17:39.760 --> 01:17:44.120
+ich habe das ich habe das alles ausgefüllt mein Chef hat es auch
+
+01:17:44.120 --> 01:17:47.520
+ausgefüllt und irgendwie hört man dann nichts mehr von
+
+01:17:47.520 --> 01:17:54.200
+die sind total lahm was das angeht und ich brauche das Abschlusszeugnis
+
+01:17:54.200 --> 01:17:58.440
+also was ich brauche
+
+01:17:58.440 --> 01:18:03.040
+nicht wirklich aber ich will eins haben
+
+01:18:03.040 --> 01:18:19.560
+wie wo ist das wo ist das Problem viele Emoils zu benutzen
+
+01:18:19.560 --> 01:18:25.440
+das kann ich überhaupt nicht verstehen ist nicht ist nicht Emoils eigentlich das
+
+01:18:25.440 --> 01:18:41.640
+beste an ganz twitch beste einfach nur den ganzen tag Emoils spam
+
+01:18:41.640 --> 01:18:46.320
+ich habe auch keine Probleme wenn der Chat Emoil Only ist wobei das mag ich
+
+01:18:46.320 --> 01:18:50.880
+nicht eigentlich mag ich mag ich Emoil Only Chats nicht
+
+01:18:50.880 --> 01:18:56.520
+nein nein nein nein nein nein nein nein nein nein wieder ausmachen
+
+01:18:58.040 --> 01:19:06.000
+ja was machen aber Emoils sind doch echt das beste eigentlich so das mal kurz
+
+01:19:06.000 --> 01:19:09.360
+gucken wir jetzt wie wir klotz noch immer irgendwas auf wir gucken uns noch mal
+
+01:19:09.360 --> 01:19:12.600
+irgendwas auf auf youtube an gibt es da irgendwelche spannen
+
+01:19:12.600 --> 01:19:20.760
+the brutal downfall of better twitch tv 1 extension that millions of ok lass mal so
+
+01:19:20.760 --> 01:19:24.000
+auf was haben wir denn zu was haben wir denn zur Auswahl zu gucken
+
+01:19:24.000 --> 01:19:29.280
+ffm pack in 100 sekunden ok war feier schipp kommen wir gucken feier schipp
+
+01:19:29.280 --> 01:19:35.800
+ffm pack ist tatsächlich beste also ich glaube ich könnte ich könnte keine
+
+01:19:35.800 --> 01:19:40.600
+videos ohne ffm pack mehr erstellen in open source command line ffm pack in
+
+01:19:40.600 --> 01:19:44.680
+open source command line tool for processing audio and video files it was
+
+01:19:44.680 --> 01:19:48.520
+created by fabrice billard in the year 2000 the name stands for fast forward
+
+01:19:48.520 --> 01:19:52.320
+followed by the moving picture experts group file format today it's used in a
+
+01:19:52.320 --> 01:19:56.280
+wide variety of tools dafür steht das ok ich wusste bis jetzt nicht ffm pack
+
+01:19:56.280 --> 01:20:00.280
+steht was like google chrome and blender und das logo ist auch kacke
+
+01:20:00.280 --> 01:20:04.640
+well it's video platforms like youtube in vimeo it's able to decode encode
+
+01:20:04.640 --> 01:20:08.800
+transcode multiplex demultiplex stream filter and play virtually any
+
+01:20:08.800 --> 01:20:12.880
+multimedia file in the world with over 100 different codecs supported it works
+
+01:20:12.880 --> 01:20:17.800
+by taking an input file then passes it to a demultiplexer that splits the audio
+
+01:20:17.800 --> 01:20:21.680
+and video tracks into separate encoded data packets these packets are then
+
+01:20:21.680 --> 01:20:25.880
+decoded into uncompressed frames which can be further processed and filtered you
+
+01:20:25.880 --> 01:20:30.160
+might modify the brightness and contrast add subtitles or visualize the audio as a
+
+01:20:30.160 --> 01:20:36.280
+das das beste das beste an ffm pack ist ja dass das um encoden von einem format
+
+01:20:36.280 --> 01:20:40.280
+ins andere format das ist das wo es wahrscheinlich auch mit abstand die
+
+01:20:40.280 --> 01:20:45.520
+meisten leute benutzen halt im endeffekt zum video rendern
+
+01:20:46.440 --> 01:20:50.120
+damals gerade windows build speed oder verwende ich ja wahrscheinlich sachen
+
+01:20:50.120 --> 01:20:54.360
+von einem arbeitskollege dann feinlich die frames aren't code weil ich hab
+
+01:20:54.360 --> 01:20:58.480
+natürlich auch ffm pack installiert und multiplexed back into the output file in
+
+01:20:58.480 --> 01:21:02.320
+addition it also comes with the ff play tool to easily play media from the
+
+01:21:02.320 --> 01:21:06.560
+command line and ff probe to extract metadata from a file in addition to tons
+
+01:21:06.560 --> 01:21:10.280
+of low-level libraries for developers building their own multimedia processing
+
+01:21:10.280 --> 01:21:16.240
+ffm pack kann fast alles einzige was ffm pack nicht kann was mich ein bisschen
+
+01:21:16.240 --> 01:21:23.760
+stört ist wie heißt dieses komische nachfolge format was ich google ausgedacht
+
+01:21:23.760 --> 01:21:40.200
+hat für png web web nein nein web p ja genau das kann ffm pack nicht und ich
+
+01:21:40.200 --> 01:21:43.400
+verstehe nicht warum
+
+01:21:43.720 --> 01:21:49.720
+oder nie animiertes werb p kann es nicht animiertes werb p kann es nicht
+
+01:21:49.720 --> 01:21:57.520
+irgendwie so gab's da gab's da probleme ich merke das merkt das immer wieder weil
+
+01:21:57.520 --> 01:22:05.400
+ich zum beispiel suche nach betta twitch tv keck weh oder oder keine ahnung wenn
+
+01:22:05.400 --> 01:22:11.880
+ich irgendwelche animierten emote suche sind die manchmal in webp animation
+
+01:22:11.880 --> 01:22:17.280
+formaten das kriegt ffm pack nicht hin benutzt du dein selbst made pop shots
+
+01:22:17.280 --> 01:22:23.440
+noch ja den habe ich immer noch dran hier guckt das ist immer noch mein schwamm
+
+01:22:23.440 --> 01:22:27.280
+den ich am mikrofon stecken habe
+
+01:22:29.720 --> 01:22:39.800
+hänne das funktioniert nicht guck mal ffz nehmen wir mal gatschi roll so
+
+01:22:39.800 --> 01:22:52.160
+oder sowas hier so wenn ich das runter lade ist das ja web web p also keckel so
+
+01:22:52.160 --> 01:22:59.360
+achtung achtung downloads ff play
+
+01:23:02.120 --> 01:23:05.280
+im ist data not found
+
+01:23:05.280 --> 01:23:13.080
+es geht nicht könnte das sein dass einfach diese dass es nicht alles kann
+
+01:23:13.080 --> 01:23:23.240
+von web p also der browser kanns aber ffm pack kann es nicht image data not
+
+01:23:23.240 --> 01:23:27.360
+found das habe ich jetzt schon paar mal gemerkt
+
+01:23:27.360 --> 01:23:36.080
+dass ffm pack mit dem format probleme hat
+
+01:23:36.080 --> 01:23:42.600
+ach guck mal das kann die encode aber nicht die kauten
+
+01:23:42.600 --> 01:24:03.040
+moment die können bilder erstellen aber bilder nicht einlesen
+
+01:24:03.040 --> 01:24:06.560
+na gut wie gesagt das weiß ich dass das dass es damit probleme hat
+
+01:24:06.560 --> 01:24:09.080
+ansonsten ist ffm pack das beste
+
+01:24:09.080 --> 01:24:13.480
+to get started install it then open up the terminal use the ffm peg command
+
+01:24:13.480 --> 01:24:17.920
+followed by I to supply one or more input files to convert that file to a
+
+01:24:17.920 --> 01:24:22.040
+different format simply provide the name of the output it will was ffm pack
+
+01:24:22.040 --> 01:24:29.920
+minus e image 2 ok geht das geht das auch bei bei ff play
+
+01:24:29.920 --> 01:24:34.720
+nee ok ff ffm pack probieren jetzt mal aus
+
+01:24:34.720 --> 01:24:44.080
+minus e was image 2 warum image 2 ok image 2 aber aber das im moment minus e
+
+01:24:44.080 --> 01:24:49.840
+geht auch gar nicht minus e ist das input feil chat was ihr über zeug
+
+01:24:49.840 --> 01:24:53.200
+schreibt es gibt überhaupt keinen sinn will automatically detect the file
+
+01:24:53.200 --> 01:24:57.040
+extension and convert it to the proper codec or the c-flag can be used to
+
+01:24:57.040 --> 01:25:01.880
+specify an explicit codec like mpeg 4 for the video track and mp3 for the audio
+
+01:25:01.880 --> 01:25:09.360
+minus f image 2 ok ok ff play minus f image 2 ok geht das bei ff play vielleicht
+
+01:25:09.360 --> 01:25:13.200
+image no data found
+
+01:25:14.120 --> 01:25:20.160
+oder oder muss man das f nach minus i machen
+
+01:25:20.160 --> 01:25:31.120
+nee nee nee keine chance ja
+
+01:25:31.120 --> 01:25:50.600
+Das ist vor sieben Jahren, okay?
+
+01:26:01.120 --> 01:26:08.840
+Ne, das JPG kann FFmpeg ja auch, weil es den Encoder hat und es hat keinen Decoder hierfür.
+
+01:26:08.840 --> 01:26:37.600
+Gibt's nicht, deswegen geht das auch nicht. Ja, benutzt kaum einer. Aber du kannst extrem,
+
+01:26:37.600 --> 01:26:42.400
+hier kannst du übrigens auch Sachen skippen und so was. Du kannst ja auch mit FFmpeg Videos
+
+01:26:42.400 --> 01:26:53.800
+schneiden auf der Kommandozeile, wenn man will. Und es gibt minus S ist skip am Keyframe und
+
+01:26:53.800 --> 01:27:01.200
+minus SS ist skip exakt zum Timestamp oder so. Bin mir gerade im Kopf nicht ganz sicher. Gibt
+
+01:27:01.200 --> 01:27:18.960
+2, gibt 2, gibt minus SS und minus S als Kommentar, als nicht als Kommentar, als Option. Ich skaliere
+
+01:27:18.960 --> 01:27:24.080
+damit übrigens seit einer Weile meine Videos hoch, weil ich nehme ja selbst so ein 1080p auf,
+
+01:27:24.080 --> 01:27:29.000
+aber die Bandbreite in 1080p auf YouTube ist einfach Müll, deswegen skaliere ich die einfach
+
+01:27:29.000 --> 01:27:33.640
+hoch auf 1440p und dann sehen sie auf einmal viel besser aus.
+
+01:27:33.640 --> 01:28:00.920
+Ich will ja FFmpeg verwenden Leute, dass es jetzt irgendein anderes Tool gibt, was das kann. Gehe
+
+01:28:00.920 --> 01:28:07.920
+ich jetzt mal von aus. Ich meine ImageMagic, habe ich überhaupt ImageMagic installiert? Kann
+
+01:28:07.920 --> 01:28:29.000
+das, kann das wahrscheinlich auch, ja. Image, Image to WebP? Was zum, was ist das? Ok. Convert.
+
+01:28:29.000 --> 01:28:35.440
+Ne, wie heißt das Programm zum Anzeigen bei ImageMagic? Boah, keine Ahnung. Egal, ich
+
+01:28:35.440 --> 01:28:44.560
+deinstalliere es jetzt wieder. Braume erinnert, ImageMagic ist Legacy Zeug. Westfirm? Ne,
+
+01:28:44.560 --> 01:28:59.320
+das glaube ich nicht. Gucken wir mal, gucken wir mal. Ich würde sagen, kann es nicht.
+
+01:28:59.320 --> 01:29:06.320
+Hat, aber, hey, ich meine, es geht auf jeden Fall in die richtige Richtung, aber hat von
+
+01:29:06.320 --> 01:29:15.000
+so ein bisschen noch Probleme damit. Also kann es, kann es auch nicht richtig. Wahrscheinlich,
+
+01:29:15.000 --> 01:29:28.880
+wahrscheinlich kann es statische Images und nicht animierte Images. Ja. Ne, ne, ne, keine
+
+01:29:28.880 --> 01:29:36.560
+Chance, das kann es nicht. Hätte mich jetzt auch gewundert. Ja, lass mal kurz YouTube
+
+01:29:36.560 --> 01:29:41.560
+reloaden, ob da noch irgendwas spannendes dabei, dabei ist. Was, building a rack-mounted
+
+01:29:41.560 --> 01:29:46.840
+Proxmox-Server? Ja, soll er machen. Müssen wir uns jetzt aber nicht angucken, das ist
+
+01:29:46.840 --> 01:29:54.440
+sehr unspektakulär. Haben wir noch irgendwas? Wir haben noch, wir haben noch eine halbe Stunde
+
+01:29:54.440 --> 01:30:00.160
+Zeit. Komm, irgendwas, irgendwas spannendes gibt es doch noch. Linux Fundamentals, Fundamentals,
+
+01:30:00.160 --> 01:30:16.880
+Ach du Scheiße, was ist das Wort? Fundamentals, oder? The Metaverse is dead. Okay. Hä, ist
+
+01:30:16.880 --> 01:30:22.520
+das wirklich so? Mark Zuckerberg hat entschieden, das Metaverse zu töten. Es gab keine großen
+
+01:30:22.520 --> 01:30:31.840
+Announcements und no funeral. Ist, ist das so? Ich mein, der übertreibt, er hat übertreibts
+
+01:30:31.840 --> 01:30:41.800
+auch manchmal ganz schön mit seinem Zeug was er da erzählt, ja. Was ganz davon abgesehen,
+
+01:30:41.800 --> 01:30:47.040
+dass das irgendjemand irgendwann, irgendwann wieder, irgendwann abhebt, wie sie sich das
+
+01:30:47.040 --> 01:30:50.920
+erhofft haben, habe ich eh schwarz gesehen, aber nur weil ich das, weil ich das nicht
+
+01:30:50.920 --> 01:31:01.160
+sehe. Hey guck mal, die Leute haben jetzt auf einmal Füße. Ich dachte, der Metaverse
+
+01:31:01.160 --> 01:31:11.360
+hat halt keine mehr Beine und Füße. Und wie kommt er da jetzt drauf? Okay, wir gucken
+
+01:31:11.360 --> 01:31:21.800
+mal kurz News. Es stimmt überhaupt nicht. Okay, es gibt keine weiteren News dazu. Alles
+
+01:31:21.800 --> 01:31:32.320
+klar, gut, nice, GG. Alles klar. Ja, der übertreibt manchmal so ein bisschen. So, also gucken
+
+01:31:32.320 --> 01:31:39.440
+wir uns mal das an. The brutal downfall of BetterTwitchTV. Verwendet noch jemand BetterTwitchTV
+
+01:31:39.440 --> 01:31:47.320
+von euch Leute? Ich verwende nur noch FFZ und nachdem FFZ auch BetterTwitchTV Emotes
+
+01:31:47.320 --> 01:31:59.200
+kann und 7TV Emotes kann, macht es eigentlich gar keinen Sinn für mich mehr. Idee für
+
+01:31:59.200 --> 01:32:03.880
+altes Notebook als Server, sowas wie Proxmox drauf oder was anderes, das kommt drauf an.
+
+01:32:03.880 --> 01:32:10.800
+Leute, es macht keinen Sinn, irgendeine alte Kiste hinzustellen und daraus einen Virtualisierungshost
+
+01:32:10.800 --> 01:32:17.960
+zu machen, wenn man nichts hat, was man virtualisieren will. Oder hast du was, was du virtualisieren
+
+01:32:17.960 --> 01:32:22.800
+willst? Weil dann hast du es dir quasi schon selbst beantwortet, dass es Sinn macht, wenn
+
+01:32:22.800 --> 01:32:31.280
+dir die Leistung ausreicht und wenn deine CPU das kann. Ansonsten sind alte Notebooks da
+
+01:32:31.280 --> 01:32:34.960
+ganz gut für. Ich meine, die sind meistens recht leise, die brauchen nicht viel Strom
+
+01:32:34.960 --> 01:32:49.440
+und die haben je nach Notebook auch ganz okay Leistung. Kann man verwenden für sowas? Habt
+
+01:32:49.440 --> 01:32:54.120
+ihr eine Idee, wie ich einen Terminal UI Dialog, der sehr wahrscheinlich mit Dialog erstellt
+
+01:32:54.120 --> 01:33:01.240
+wurde in einem Skript? Dialog ist das Ding mit diesem blauen Hintergrund und den, den
+
+01:33:01.240 --> 01:33:08.840
+grafischen Dingern zum auswählen dann. Ich hab vergessen, wie das heißt. Wie nennt sich
+
+01:33:08.840 --> 01:33:21.840
+das denn? Das hat so einen speziellen Namen, diese Art von dir. Ich zeig's euch mal. Weißt
+
+01:33:21.840 --> 01:33:27.880
+du, Kekkel, wie benutzt man das? N-Curses, das meine ich, genau. Ach du Kacke. Wie macht
+
+01:33:27.880 --> 01:33:34.840
+man das? Wie benutzt man das überhaupt? Wie, wie, wie, wie benutzt man? Der Thomas Dick
+
+01:33:34.840 --> 01:33:43.320
+hat das, hat das programmiert, so, so. Wie, wie, wie, wie macht man das? Ich hab keine
+
+01:33:43.320 --> 01:33:54.880
+Ahnung, wie man das überhaupt benutzt. Kalender? Was? Form? What? Gibt es nicht einfach Textbox?
+
+01:33:54.880 --> 01:34:08.720
+Ok, Textbox. Textbox, ne, ne, gibt's nicht. Textbox? Null. Was? Leute, ich bin unfähig,
+
+01:34:08.720 --> 01:34:19.400
+das zu benutzen. Ich, ich, so, ok, wie geht das? Zeig mal ein Beispiel. Dialog. Off.
+
+01:34:19.400 --> 01:34:30.800
+Ja. Beispiel please. Ja, ja, ja, ja, ja, ja, ja, ja. Ja und wie geht's? Yes, no, möchten
+
+01:34:30.800 --> 01:34:36.120
+sie abrechen? Ok, alles klar, das will ich haben. Genau. So, das willst du automatisieren?
+
+01:34:36.120 --> 01:34:43.920
+Ähm, das ist doch einfach.
+
+01:34:43.920 --> 01:34:54.240
+Du willst xdo, xxdo-tool haben, da kannst du an Fenster Tasten-Inputs senden.
+
+01:34:54.240 --> 01:35:01.320
+Und du willst dann den Tasten-Input senden, einmal Pfeiltaste rechts und Enter.
+
+01:35:01.320 --> 01:35:11.920
+Kannste machen, Keypresses, das weiß ich aber aus dem Kopf gerade nicht, wie das funktioniert.
+
+01:35:11.920 --> 01:35:16.160
+Gucken wir mal, gucken wir mal, wie das funktioniert hier.
+
+01:35:16.160 --> 01:35:29.560
+Press Key N, genau, ok, also machst du hier, Press Key N und Enter, ok, mach den Dialog
+
+01:35:29.560 --> 01:35:38.560
+auf, oh, Key N und jetzt müssen wir das noch ans richtige Fenster, Fenster muss ja so
+
+01:35:38.560 --> 01:35:39.560
+sein.
+
+01:35:39.560 --> 01:35:51.920
+Groß N, ja, wir müssen es irgendwie im gleichen Fenster ausführen, das wird jetzt ein bisschen
+
+01:35:51.920 --> 01:35:53.280
+eklig von der Sonntags her.
+
+01:35:53.280 --> 01:36:14.440
+So, können wir das so machen, nein, ok, das hat nicht funktioniert, also es wird aber
+
+01:36:14.440 --> 01:36:22.640
+funktionieren, wenn man es im zweiten Fenster macht, so und jetzt musst du halt hier angeben
+
+01:36:22.640 --> 01:36:27.280
+an welches Fenster du das senden willst, das weiß ich aber aus dem Kopf ehrlich gesagt
+
+01:36:27.280 --> 01:36:30.320
+nicht, wie das funktioniert, das musst du nachgucken.
+
+01:36:30.320 --> 01:36:49.560
+To Specific Window, ja, ja, klar, da kannst du einstellen, an welches Fenster du deine
+
+01:36:49.560 --> 01:36:53.920
+Tastendrücke, Tastendrücke schicken willst.
+
+01:36:53.920 --> 01:36:59.880
+Es gibt theoretisch die Möglichkeit das Ganze auch noch in Expect oder so zu rappen, aber
+
+01:36:59.880 --> 01:37:06.040
+das funktioniert glaube ich für grafische Tools nicht, beziehungsweise auch für grafische
+
+01:37:06.040 --> 01:37:12.640
+Commandos, also Konsolentools nicht, da wirst du wahrscheinlich Tasten Inputs senden müssen.
+
+01:37:12.640 --> 01:37:17.400
+Ja, Sarix, das kenne ich schon, das habe ich letztens, das habe ich letztens auch schon
+
+01:37:17.400 --> 01:37:24.200
+gezeigt, ja, das ist eklig zu automatisieren, aber da wird ja nichts anderes übrig bleiben,
+
+01:37:24.200 --> 01:37:31.680
+wie sowas zu machen hier, Sende, Sende Key, hier Sende Key, yes, hat doch funktioniert,
+
+01:37:31.680 --> 01:37:53.960
+hat doch funktioniert, ja, Sleep, 2, guck, geht doch, ja, Error Right, wie macht man das,
+
+01:37:53.960 --> 01:38:01.600
+Key Up, Down, Right, ok, also kann man auch sagen quasi, Right und Enter oder so, ja,
+
+01:38:01.600 --> 01:38:06.920
+hat auch funktioniert, guck, er ist nach rechts, er ist nach rechts geswitcht und macht
+
+01:38:06.920 --> 01:38:32.120
+Enter, ja, kannst du, kannst du, geht, ja, Zack, Bam, Switch, rechts, Enter, ja, kann
+
+01:38:32.120 --> 01:38:42.600
+man auch sagen, so, so, so funktioniert das nicht, ja, ok, also, das funktioniert so nicht,
+
+01:38:42.600 --> 01:38:47.800
+wie ich mir das gedacht habe mit dem Sleep, aber das kannst du so automatisieren, ja,
+
+01:38:47.800 --> 01:38:53.200
+Simikolon vergessen, ne, ich wollte es hier dazwischen einbauen und ich dachte, das geht
+
+01:38:53.200 --> 01:38:59.560
+vielleicht, dass man das direkt da Inline, Inline einbauen kann, weil ansonsten müsste
+
+01:38:59.560 --> 01:39:05.840
+ich jetzt ja so machen, Sleep, 1, ne, und dann noch mal und dann Enter und so, das ist
+
+01:39:05.840 --> 01:39:11.920
+natürlich auch doof, so, jetzt switcht er rüber, macht ein Sleep und drückt Enter,
+
+01:39:11.920 --> 01:39:16.960
+ich würde auch jede Menge Sleeps einbauen an deiner Stelle, weil ansonsten ist das Shellscript
+
+01:39:16.960 --> 01:39:17.960
+vielleicht nicht schnell genug.
+
+01:39:17.960 --> 01:39:28.840
+Ja, wenn das geht, wenn das geht, ist natürlich sinniger, aber wenn du wirklich was automatisieren
+
+01:39:28.840 --> 01:39:34.640
+willst, willst in der Kommandozeile mit Tasten drücken, dann bleibt dir ja nur sowas.
+
+01:39:34.640 --> 01:39:46.280
+Ist eine Stelle als Junior Kubernetes Admin, ja, fragt die mal, wie sie Kubernetes aussprechen,
+
+01:39:46.280 --> 01:39:55.440
+ist es Kubernetes, ist es Kubernetes, ist es Kubernetes oder sowas und wenn die sagen
+
+01:39:55.440 --> 01:40:01.680
+Kubernetes, dann sagst du gleich, ne, zu euch will ich nicht, ne, keine Ahnung, was ich
+
+01:40:01.680 --> 01:40:11.560
+dir als Junior Admin im Vorstellungsgespräch raten soll, ähm, außer das, was man immer
+
+01:40:11.560 --> 01:40:19.760
+raten kann, nicht so wirklich jetzt aber spezifisch zu Kubernetes, ja, das würde ich nicht, das
+
+01:40:19.760 --> 01:40:23.720
+sind aber so allgemeine Themen, ich überleg gerade, was man explizit für die Stelle als
+
+01:40:23.720 --> 01:40:28.000
+Junior Kubernetes Admin sagen könnte.
+
+01:40:28.000 --> 01:40:33.840
+Kommt halt drauf an, bei wem du das Vorstellungsgespräch hast, hast du das bei irgendeinem der Ahnung
+
+01:40:33.840 --> 01:40:43.840
+hat oder ist das nur so ein erstes Scan-Gespräch von irgendeinem Typ von der Recruiting-Firma
+
+01:40:43.840 --> 01:40:48.360
+oder von irgendeinem Personaler, der eh keinen Plan davon hat?
+
+01:40:48.360 --> 01:40:56.240
+Also ist da jemand, vielleicht weißt du das, also dort, wo ich jetzt Vorstellungsgespräche
+
+01:40:56.240 --> 01:41:02.880
+hatte, stand immer dabei, wer teilnimmt am Vorstellungsgespräch, ich hatte aber in letzter
+
+01:41:02.880 --> 01:41:12.760
+Zeit nur zwei und eins war direkt mit dem Chef, also, äh, oder mit dem, ist ja nicht
+
+01:41:12.760 --> 01:41:18.280
+Chef, es ist ja der, was ist der Technik-Chef mit dem CTO, wobei das halt auch eine kleinere,
+
+01:41:18.280 --> 01:41:21.600
+größere Firma war, also da wusste ich halt mit wem ich rede und bei den anderen stand
+
+01:41:21.600 --> 01:41:28.000
+es immer dabei, es nehmen teil, bla bla bla, Teamleiter-Bereiche, Exkursion, bla bla bla,
+
+01:41:28.000 --> 01:41:29.000
+Personalabteilung.
+
+01:41:29.000 --> 01:41:38.520
+Ein paar aus dem Team, alter, was wolle ich da irgendwie, die mangelte eben oder so, ich
+
+01:41:38.520 --> 01:41:42.520
+finde es immer schon ein bisschen cringe, wenn da einem drei Leute gegenüber sitzen
+
+01:41:42.520 --> 01:41:53.280
+und man denkt so, ja, alter, was wolle ich da da hinsetzen, acht oder was, ja, also, mir
+
+01:41:53.280 --> 01:42:02.320
+fällt jetzt ehrlich gesagt, so Kubernetes-Admin-spezifisches jetzt nix so direkt ein, was man da vielleicht
+
+01:42:02.320 --> 01:42:06.160
+mit was man punkten könnte, ich mein, du wirst ja schon ein bisschen Erfahrung haben als
+
+01:42:06.160 --> 01:42:11.440
+Kubernetes, ich mein, es ist zwar eine Junior-Stelle, aber es ist eine Junior-Stelle, als Kubernetes-Admin,
+
+01:42:11.440 --> 01:42:14.480
+aber es wird wahrscheinlich Anforderungen sein, dass man zumindest ein bisschen Plan
+
+01:42:14.480 --> 01:42:15.480
+von Kubernetes hat.
+
+01:42:15.480 --> 01:42:22.760
+Meinung zu Fefe, ich hab schon ewig Jahre nix mehr von Fefe gelesen, keine Ahnung was
+
+01:42:22.760 --> 01:42:23.760
+der aktuell treibt.
+
+01:42:23.760 --> 01:42:30.600
+Ja, natürlich kannst du ein bisschen von deinen Erfahrungen berichten, was du schon
+
+01:42:30.600 --> 01:42:31.600
+gemacht hast.
+
+01:42:31.600 --> 01:42:36.880
+Und ansonsten nur das allgemeine Zeug fällt mir jetzt gerade so spontan nichts ein.
+
+01:42:36.880 --> 01:42:47.120
+Du versuchst Checkmk-Updates zu automatisieren und bei OMD, das ist das Kommando-Zeilen-Tool
+
+01:42:47.120 --> 01:42:49.760
+von Checkmk, oder?
+
+01:42:49.760 --> 01:42:52.880
+Dover Dialog, tja, sackt.
+
+01:42:52.880 --> 01:42:59.800
+Bester Tipp, Leute, kein Scheiß machen.
+
+01:42:59.800 --> 01:43:07.520
+Ich glaube, diesen Tipp kannst du auf 99% der Lebenssituationen anwenden.
+
+01:43:07.520 --> 01:43:09.960
+Just, just kein Scheiß machen.
+
+01:43:09.960 --> 01:43:15.240
+Das geht immer.
+
+01:43:15.240 --> 01:43:20.840
+Und wenn's nicht läuft, dann hast du wahrscheinlich zu viel Scheiß gemacht.
+
+01:43:20.840 --> 01:43:29.520
+Oh Leute, ich hab gerade eine Nachricht von Twitch bekommen.
+
+01:43:29.520 --> 01:43:35.040
+Das Werbeprogramm von Twitch wird noch flexibler im April.
+
+01:43:35.040 --> 01:43:39.720
+Ist mir egal, ich hab, glaub ich, noch nicht einmal Werbung laufen lassen in meinem Stream
+
+01:43:39.720 --> 01:43:40.720
+hier.
+
+01:43:40.720 --> 01:43:43.880
+Also Werbung, wo man auf diesen Werbebutton drückt.
+
+01:43:43.880 --> 01:43:48.120
+Wenn überhaupt kommt Werbung, wenn ihr einschaltet, weil ich da nix dagegen machen kann.
+
+01:43:48.120 --> 01:43:52.600
+Aber ich hab noch nicht einmal Werbeknopf gedrückt.
+
+01:43:52.600 --> 01:43:57.520
+Ich hab natürlich schon Werbung gezeigt, weil ich Sponsoring-Sachen in Streams hatte,
+
+01:43:57.520 --> 01:44:00.960
+aber ich hab nie Werbung, Werbeunterbrechung gedrückt bisher.
+
+01:44:00.960 --> 01:44:05.640
+Ja, das Werbeprogramm ist auch unsinnig.
+
+01:44:05.640 --> 01:44:10.120
+Hast du eigentlich eine Ausbildung zum Systemintegrator?
+
+01:44:10.120 --> 01:44:11.960
+Ich hab Systemintegration gelernt.
+
+01:44:11.960 --> 01:44:12.960
+2007.
+
+01:44:12.960 --> 01:44:19.240
+Ist schon ein bisschen her, ja.
+
+01:44:19.240 --> 01:44:24.440
+Geht richtig aussprechen, ja, das wäre nicht verkehrt, geht richtig auszusprechen.
+
+01:44:24.440 --> 01:44:29.200
+Also man sollte sich Shit aussprechen.
+
+01:44:29.200 --> 01:44:49.720
+Nö, kenn ich nicht.
+
+01:44:49.720 --> 01:44:56.480
+Ist das, ist das, ist das das von den Battlefield-Leuten, von den ex Battlefield-Leuten?
+
+01:44:56.480 --> 01:45:14.000
+Ja, ist es, ist es, ist es.
+
+01:45:14.000 --> 01:45:16.840
+Bekommt bisher gute Kritiken, okay, ist das rausgekommen schon?
+
+01:45:16.840 --> 01:45:28.320
+An den ehemaligen DICE-Entwickler, Klaus Beter, zu dem er auf PC gestanden hat, okay, okay.
+
+01:45:28.320 --> 01:45:29.320
+Alles klar.
+
+01:45:29.320 --> 01:45:31.680
+Wäre doch cool, wenn die was auf die Reihe kriegen.
+
+01:45:31.680 --> 01:45:36.240
+Man, DICE hat es ja nicht auf die Reihe gekriegt die letzten Jahre, wäre doch gut, wenn die
+
+01:45:36.240 --> 01:45:38.080
+jetzt was Neues, wenn die jetzt was Neues schaffen.
+
+01:45:38.080 --> 01:45:43.560
+Ich habe übrigens irgendwas heute gelesen, das habe ich nicht ganz gecheckt.
+
+01:45:43.560 --> 01:45:49.120
+Vielleicht blicken da irgendwelche TikTok-Enjoyer von euch durch.
+
+01:45:49.120 --> 01:45:56.520
+Ich habe gelesen, es gibt einen neuen TikTok-Trend, dass man bei irgendeinem Kinofilm und nur
+
+01:45:56.520 --> 01:46:03.600
+bei einem bestimmten Kinofilm mit Cola, mit Colaflaschen gegen die Leinwand werfen soll,
+
+01:46:03.600 --> 01:46:05.560
+so lange bis der Film abgebrochen wird.
+
+01:46:05.560 --> 01:46:08.720
+Was zum Teufel ist da auf TikTok wieder los?
+
+01:46:08.720 --> 01:46:22.280
+Creed, möglich, ja, du hast recht, Creed 3, warum und warum, warum, also plickt das
+
+01:46:22.280 --> 01:46:27.560
+irgendjemand, hat irgendjemand eine Ahnung warum, weil die dumm sind, okay, das ist natürlich
+
+01:46:27.560 --> 01:46:36.880
+die ultimative Erklärung für alle TikTok-Geschichten, aber wo kommt, was ist da wieder los, man?
+
+01:46:36.880 --> 01:46:42.800
+Es ist immer noch ein besserer Trend, es ist immerhin noch ein besserer Trend, als Wäschetaps
+
+01:46:42.800 --> 01:46:43.800
+essen.
+
+01:46:43.800 --> 01:46:51.200
+Das war wirklich so die Krönung und wisst ihr, wisst ihr, was gleichzeitig der dümmste
+
+01:46:51.200 --> 01:46:57.240
+und tragischste Trend überhaupt war, von dem ich, von dem ich, von dem ich so direkt
+
+01:46:57.240 --> 01:47:04.280
+gar nichts mitbekommen habe, aber man hat die Opfer, die Opfer gesehen, also das war,
+
+01:47:04.280 --> 01:47:09.560
+es gab auf TikTok eine Ich erhänge mich Challenge, es war nicht wirklich eine Ich erhänge mich
+
+01:47:09.560 --> 01:47:14.440
+Challenge, man muss sich mal vorstellen, alle TikTok, die sind wirklich, trennen komplett,
+
+01:47:14.440 --> 01:47:21.400
+trennen komplett ab, es gab, es gab eine Challenge, da ging es darum, sich selber, sich selber
+
+01:47:21.400 --> 01:47:27.200
+bewusstlos zu würgen oder so und das ist ein Schwachsinn, muss man sich mal vorstellen,
+
+01:47:27.200 --> 01:47:30.680
+wenn man das schon, wenn man das schon ausspricht, stellt man fest, wie unglaublich bescheuert
+
+01:47:30.680 --> 01:47:38.960
+das alles ist, so und ich habe das nur mitgekriegt, weil es vor einer Weile eine größere Diskussion
+
+01:47:38.960 --> 01:47:50.000
+um Lebenserhaltende Maßnahmen, war das glaube ich, gab in England und da gab es ein Kind,
+
+01:47:50.000 --> 01:47:57.720
+das lag jetzt irgendwie, keine Ahnung, zwei Jahre oder so mit Hirntod im Krankenhaus und
+
+01:47:57.720 --> 01:48:03.440
+da habe ich mir mal die Geschichte zu durchgelesen, das hat sich selbst quasi für eine TikTok
+
+01:48:03.440 --> 01:48:11.920
+Challenge so erhängt und die Mutter hat es halt gefunden, wo es zu spät war, kam das
+
+01:48:11.920 --> 01:48:16.960
+Kind ins Krankenhaus, Hirn halt schon komplett hinüber und da ging es dann letztendlich
+
+01:48:16.960 --> 01:48:20.280
+darum, ob die Geräte abgestellt werden dürfen und so was, es war eine riesen Geschichte
+
+01:48:20.280 --> 01:48:25.560
+in UK und da geht es gar nicht so sehr darum, es ging jetzt um die TikTok Challenge, also
+
+01:48:25.560 --> 01:48:30.600
+es gab wohl wirklich eine TikTok Challenge, wo die Leute sich selbst gewürgen sollten
+
+01:48:30.600 --> 01:48:36.840
+bis zum bewusstlos werden und da muss man sich sagen, man kann sich doch schon überlegen,
+
+01:48:36.840 --> 01:48:42.720
+egal wie jung und wie blöd man ist, dass die Sauerstoffzufuhr zum Gehirn abschneiden
+
+01:48:42.720 --> 01:48:49.600
+nicht sonderlich gut sein kann, also ich meine, es ist doch gar nicht möglich, dass man nicht,
+
+01:48:49.600 --> 01:48:57.720
+dass man das nicht merkt, dass es eine doofe Idee ist, das muss einem doch klar sein, ach
+
+01:48:57.720 --> 01:49:17.880
+keine Ahnung, TikToks Zeug, ich blicke da nicht mehr durch, ja gut, das ist ja wieder
+
+01:49:17.880 --> 01:49:21.160
+was anderes, sich mit Kleber an der Straße festkleben.
+
+01:49:21.160 --> 01:49:32.280
+Was, was, künstlich hyperventilieren, nee, nee, nee, nee, es gab, nee, nee, aufs Herz
+
+01:49:32.280 --> 01:49:38.000
+drücken musst du nicht, es gab ein Trend, wo die Leute hyperventiliert haben im Liegen
+
+01:49:38.000 --> 01:49:42.880
+und dann schnell aufgestanden sind, sodass sie bewusstlos werden, das haben sie gefilmt,
+
+01:49:42.880 --> 01:49:49.480
+das ist unglaublich, es ist so unglaublich dämlich, das ist so bescheuert man, aber
+
+01:49:49.480 --> 01:49:58.160
+die Wäschetaps-Challenge war schon auch absolute Krönung von TikTok Trends bisher, ja, meine
+
+01:49:58.160 --> 01:50:23.840
+Güte, ja, zu sechst im Vorstellungsgespräch, mal gucken, hoffentlich schwätzen sie dich
+
+01:50:23.840 --> 01:50:29.640
+nicht so voll von allen Seiten gleichzeitig, haben da bisschen Struktur drinne, ah, du machst
+
+01:50:29.640 --> 01:50:34.200
+das schon, ich mein, du hast ja hoffentlich Ahnung von dem Thema, das kannst du denen
+
+01:50:34.200 --> 01:50:41.640
+ja auch ruhig verkaufen, dass du Ahnung von dem Thema hast, ansonsten, tja, achso, wir
+
+01:50:41.640 --> 01:50:48.720
+wollten ja ein Video gucken, fällt mir gerade ein, kann man Anwendungen, die auf einem Container
+
+01:50:48.720 --> 01:50:52.480
+eigentlich mit Anwendungen, die auf einem Container, Clustern oder Notebalancing, ja, kann man,
+
+01:50:52.480 --> 01:50:59.240
+also sprich nix dagegen, das zu machen, also rein, von der Machbarkeit her, geht doch so
+
+01:50:59.240 --> 01:51:27.840
+klar, warum soll das nicht gehen, was machst du, aktuell bist du im Projektleiter, oh,
+
+01:51:27.840 --> 01:51:32.600
+Gottes Willen, bloß nicht, wenn du wissen willst, was ich beim aktuellen Arbeitgeber
+
+01:51:32.600 --> 01:51:43.360
+mache, guck einfach mal, ich habe auf YouTube, ja, sowas habe ich gemacht, warum, ich habe
+
+01:51:43.360 --> 01:51:49.680
+relativ viele Videos zu dem Thema schon gemacht, kannst dich auf YouTube mal umgucken, da ist
+
+01:51:49.680 --> 01:51:54.840
+das auch alles ein bisschen ausführlicher, was ich erzählt habe, aber ich bin glücklicherweise
+
+01:51:54.840 --> 01:52:00.960
+kein Projektleiter, und ich habe auch keine Ambitionen Projektleiter zu werden, so, wir
+
+01:52:00.960 --> 01:52:10.560
+müssen jetzt aber das Video noch gucken, weil, sind ja nur 7 Minuten, Lul, wir fangen noch
+
+01:52:10.560 --> 01:52:23.320
+von vorne an, guckt euch mal an, richtig, ein richtig nicer Kacona Stecker, ja, ich
+
+01:52:23.320 --> 01:52:43.520
+glaube, das ist jetzt ein Clip, ich dachte, das ist irgendwas von früher, ja, das ist
+
+01:52:43.520 --> 01:52:59.200
+jetzt ein Clip, ich dachte, das ist irgendwas von früher, ja, Nightbot hat bei mir auch
+
+01:52:59.200 --> 01:53:25.160
+ein paar Aussätze auf das Mal,
+
+01:53:25.160 --> 01:53:39.440
+ich
+
+01:53:39.440 --> 01:53:45.040
+right at the us capitol i know this just went zero to 101 sentence but this was the reason
+
+01:53:45.040 --> 01:53:50.160
+why he was removed as the face of the emote on twitch that's where i believe the very very beginning
+
+01:53:50.160 --> 01:53:55.680
+of the end for better ttv started as in reaction to twitch removing the emote franker phase z
+
+01:53:55.680 --> 01:54:00.960
+removed every pogchamp emote variant basically any imagery with goo tex's face in it was off
+
+01:54:00.960 --> 01:54:06.560
+their extension besides pog that one stayed with better ttv saying that they will not be removing
+
+01:54:06.560 --> 01:54:13.040
+any pog emotes in general better ttv has never removed emotes due to controversies and likely
+
+01:54:13.040 --> 01:54:18.000
+won't as a result of this behavior ja das ist der grund warum wir noch manche pog emotes
+
+01:54:18.000 --> 01:54:23.120
+im chat benutzen können wegen der twitch theory choice on our platform in retrospect this was
+
+01:54:23.120 --> 01:54:27.280
+the right choice for better ttv because during this time all the big streamers wanted to seem
+
+01:54:27.280 --> 01:54:32.080
+like they were doing a big service to the streaming community by changing their pogchamp emotes to
+
+01:54:32.080 --> 01:54:36.720
+something different only for them to all flip back to using goo tex emotes like four months later
+
+01:54:37.440 --> 01:54:42.560
+but that statement they released would also backfire on them because in february of 2021
+
+01:54:42.560 --> 01:54:47.520
+better ttv decided to remove the emote zulo off their website now this one i definitely agree
+
+01:54:47.520 --> 01:54:52.560
+should have been removed i mean look at it man after its removal it was promptly replaced
+
+01:54:52.560 --> 01:54:58.320
+with a new zulo but because of that something in the dark depths was cooking something was brewing
+
+01:54:58.320 --> 01:55:04.960
+in the spring of 2021 a new extension would be making the rounds around smaller streamers chats
+
+01:55:04.960 --> 01:55:27.920
+7 tv and reaction to the emotes better tv was removing this extension was created now the big
+
+01:55:35.200 --> 01:55:39.520
+reason why i said it was immediately said okay that was also one of the reasons why i made a
+
+01:55:39.520 --> 01:56:05.680
+bigger curve around 7 tv now it's supposedly better
+
+01:56:10.000 --> 01:56:10.880
+kohler abgedrückt
+
+01:56:10.880 --> 01:56:40.720
+features 7 tv brought to the table like zero with emotes allowing you to stack emotes on top of each other and name paints for further customizability okay that's actually quite cool that was enough to convince quite a lot of people to download the extension the problem with the extension at launch was truly it didn't take itself too seriously causing some questionable emotes to be plastered all over the website or hidden private emotes only visible if you visited the user's profile there was so much potential for this extension to take off and be better than any extension available and
+
+01:56:40.720 --> 01:56:46.160
+after some criticism they took it to heart because they got to work almost immediately fixing the emote
+
+01:56:46.160 --> 01:56:51.200
+issues and moderation problems slowly but surely the number of users on the website began to grow
+
+01:56:52.160 --> 01:56:56.400
+and it grew enough to where it was time to start getting emote integration on the other extensions
+
+01:56:56.400 --> 01:57:01.280
+emote integration allows users to install only one of the main emote extensions but will still be able
+
+01:57:01.280 --> 01:57:06.480
+to see all three of the extensions this is where things get funky
+
+01:57:06.480 --> 01:57:36.480
+they easily got the integration now for better ttv in various chats 7 tv users were asking better tv devs about emote integration this could be chalked up to just general shit talk and it wasn't directly from the creator night but a few staff members were pretending they didn't know what 7 tv was which doesn't make sense considering they are better tv staff members like you would think you would know or catch wind of the new extension that everyone is talking about on october 9 2022 this little twitter thread would be the start of a little tiny beef between the
+
+01:57:36.480 --> 01:57:46.000
+creator of better tv night and the creator of 7 tv anatole moment es gibt ernsthaft beefs zwischen chrome add-on creaton
+
+01:57:47.440 --> 01:57:57.120
+and emotes are finally here you can now upload emails with up to three times more width from your dashboard dead app 7 tv on top yeah but 7 tv is taking away too much
+
+01:57:57.120 --> 01:58:06.720
+information about you and your viewers so i would not recommend to use 7 tv is taking away too much information about you
+
+01:58:06.720 --> 01:58:21.200
+okay also sprich er sagt da ist quasi so tracking eingebaut tv from what i've heard they have bots which sit in all the twitch chat collecting data and when the bots get banned it rejoins on a different account i.e.
+
+01:58:21.200 --> 01:58:28.000
+you can't get rid of it dude your extension has an option to see the chat while banned a bot rejoining on anon is no different
+
+01:58:28.000 --> 01:58:34.400
+speak about unethical while your service literally demands hundreds of dollars for that same month
+
+01:58:34.400 --> 01:58:38.960
+under what i believe was now the lead promotional tweet from twitch night would be seen under that
+
+01:58:38.960 --> 01:58:44.240
+tweet throwing more shade at 7 tv this sure looks like ban evasion to me which is definitely against
+
+01:58:44.240 --> 01:58:50.400
+the at twitch community guidelines it's surprising twitch streamers slash viewers continue to promote 7 tv
+
+01:58:50.400 --> 01:58:55.440
+given their unethical practices this response is not what you'd expect from a company acting with
+
+01:58:55.440 --> 01:59:00.720
+good intent now all this shit talk only ever started once 7 tv began to become a real threat
+
+01:59:00.720 --> 01:59:05.520
+financially to better tv that's when night started this little campaign to shit talk and i'm sure he
+
+01:59:05.520 --> 01:59:10.800
+thought it would go amazing i mean he created better tv he must have all the twitch ogs by his side
+
+01:59:10.800 --> 01:59:16.080
+he ended up nuking his whole twitter page and has been extremely silent since this encounter up
+
+01:59:16.080 --> 01:59:24.000
+until january 18th of 2023 huge massive gargantuan update for better tv dropped i am not exaggerating
+
+01:59:24.000 --> 01:59:30.960
+when i tell you this one to one bar for bar they stole every single feature that made seven tv
+
+01:59:30.960 --> 01:59:37.440
+unique loyalty badges larger emote slots emote renaming and they changed their logo to a scuffed
+
+01:59:37.440 --> 01:59:48.240
+ass punch studios wer hat denn jetzt von was geklaut better twitch tv hat von 7 tv oder wie geklaut
+
+01:59:50.000 --> 01:59:56.240
+logo the most interesting addition though was what's this 7 tv support has it finally happened
+
+01:59:56.240 --> 02:00:01.040
+have all the emote extensions made peace and we can finally live happily ever after well when
+
+02:00:01.040 --> 02:00:07.680
+ticking the 7 tv box you are met with a very backhanded message disguised as a very heartfelt
+
+02:00:07.680 --> 02:00:12.960
+warning from what i can't help but assume was written by night himself over one million users
+
+02:00:12.960 --> 02:00:17.600
+in almost two years and every big streamer having the extension enabled in their chat
+
+02:00:17.600 --> 02:00:31.680
+i believe it is safe to say there is a new king of twitch emote extensions
+
+02:00:48.480 --> 02:00:53.920
+ja easy ja so lange die ihre moderationsprobleme in griff gekriegt haben mache ich das
+
+02:00:54.880 --> 02:00:58.480
+mit consistent updates und ein eurer der nicht versuchte brüchen zu brennen
+
+02:00:58.480 --> 02:01:03.440
+statt in der Vergangenheit war er hoffnungsvoll für eine welt wo alle extensions zusammenarbeiten können
+
+02:01:03.440 --> 02:01:07.920
+aber klar mit dem nicht möglich sein sieben tv hat sich selbst in der twitch historie als der
+
+02:01:07.920 --> 02:01:13.600
+erste neue emote extension zu erzielen beim brechen in den scenen und auch die twitch
+
+02:01:13.600 --> 02:01:19.120
+space by expanding on the whole idea of an extension and for them it's worked quite well
+
+02:01:19.120 --> 02:01:23.920
+i don't believe better tv will ever fully die but the stunts performed by night
+
+02:01:23.920 --> 02:01:50.480
+have truly put a stain on the entire legacy of better tv
+
+02:01:53.920 --> 02:01:56.560
+schon irgendwie sas
+
+02:02:02.960 --> 02:02:10.640
+oder china chinesen das kann natürlich auch sein ja auch möglich auch möglich
+
+02:02:10.640 --> 02:02:25.120
+ich glaube es ist bettgetime oder nicht wie seht ihr das sieht es sieht nach 22 uhr 8 aus
+
+02:02:25.120 --> 02:02:32.880
+was heißt sieht nicht nur nach 22 uhr 8 aus sieht nach 22 ist auch 22 uhr 8
+
+02:02:32.880 --> 02:02:39.440
+musst du morgen arbeiten ja ich muss montags nicht arbeiten freitags muss ich arbeiten und
+
+02:02:39.440 --> 02:02:46.400
+das wird beim neuen arbeitgeber auch so sein und morgen fahre ich sogar noch mal nach frankfurt
+
+02:02:46.400 --> 02:03:15.680
+let's check in irgendwas vergessen hab im chat post jam
+
+02:03:17.280 --> 02:03:27.040
+ja ne hab ich nichts übersehen ja welche denn ich sehe keine
+
+02:03:27.040 --> 02:03:47.440
+er macht sommer ist das wurde chain law gebannt das ist ein neuer account vom chain law hier
+
+02:03:47.440 --> 02:03:54.160
+das muss ich jetzt mal überprüfen ok ne du bist kein account von chain law du bist 2013
+
+02:03:54.160 --> 02:04:03.040
+gejohnt und bis seit 2017 am starten hast über 1000 nachrichten geschrieben nee ok du bist nicht
+
+02:04:03.040 --> 02:04:10.880
+du bist nicht 2.0 ich glaube ich hab dich auch schon aber der chain law ist normalerweise
+
+02:04:10.880 --> 02:04:22.840
+der einzige dieses ausrufe zeichen frage sinnlos spammt wo ist er eigentlich da habe ich jetzt den
+
+02:04:22.840 --> 02:04:27.320
+letzten zwei streams nicht gesehen normalerweise ist er immer am start und spammt irgendwelche
+
+02:04:27.320 --> 02:04:38.240
+sinnlosen dinger rum oder oder postet irgendwelche monka toss subreddits und so was oder so was ja
+
+02:04:38.240 --> 02:04:53.200
+ok leute wir sehen uns ist den macht es gut zu
+

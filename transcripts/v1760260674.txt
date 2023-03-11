@@ -1,0 +1,1114 @@
+der
+S
+So, wann ist denn das Lebenslaufdienst?
+Als nächstes, morgen kann ich es nicht machen, also heißt es am Wochenende höchstwahrscheinlich.
+Ich hoffe mal Samstag.
+Samstag ist immer ein ganz guter Tag für neue Bits.
+Heute machen wir keinen Köpernätis, nee, heute machen wir gar nichts.
+Ich habe heute ein bisschen so wie der Köpernätis gebastelt.
+Ich habe mal versucht ein GitLab zu hausten in Köpernätis.
+Leute ich sage euch, das ist abfucked, das ist selbst hausten.
+Ich weiß schon warum man sowas normalerweise nicht selbst hausten will.
+Ich weiß nicht, an mir liegt es nicht.
+In dem Fall liegt es nicht an mir, bei den letzten Videos hat es immer an mir gelegen.
+Kurz gucken ob heute noch irgendwie Kreisel, Grind, MMO ist, aber die waren bis jetzt alle
+nicht da, deswegen vermute ich mal nicht.
+Nee, nix, kein Kreisel, Grind.
+Leute es ist wirklich, du findest GitLab mittlerweile fürchterlich, weiß gar nicht, ich kann dazu
+nicht viel sagen.
+Ich habe GitLab selbst ewig nicht benutzt, aber ich dachte mir so, warum hauen wir nicht
+einfach mal in meinen lokalen Köpernätis Cluster.
+Das ist im Prinzip auch einfach, leider funktioniert wieder ein paar Sachen nicht und das ist ewig
+abfucked das rauszukriegen.
+Zum Beispiel ist da Standard Runner Container verbuckt und du musst erstmal ein paar Helmchart
+Werte überschreiben, dass der mit dem Ubuntu Image und nicht mit einem Alpine Image startet,
+weil das Alpine Image hat DNS Auflösungsprobleme.
+Da gab es witzigerweise erst vor kurzem ein Hacker News Alpine Post, never use again oder
+sowas hieß das, I will never use again Alpine Linux und das war mir so auch gar nicht ganz
+klar.
+Alpine hat Probleme, wenn DNS Anfragen größer als 512 Bytes sind, also bzw.
+DNS Request größer sind als 512 Bytes, der gesamte Request, nicht nur die Anfrage und
+da muss man sagen, das wusste ich nicht und das ist ziemlich scheiße, weil je nachdem
+was so ein DNS Server return, kann man durchaus schon mal über 512 Bytes kommen, ich meine,
+wenn das Ding erstmal MX Records, vier weitere Server und haste nicht gesehen returned, dann
+gibt es auf einmal doofes DNS Problemen, von denen man nichts wusste und jetzt hat lustigerweise
+der GitLab Runner auch Probleme gehabt, den ich installiert habe mit Alpine Linux und
+dann geht es weiter, dann funktioniert beim Runner natürlich kein Docker in Docker, weil
+es ist ja quasi schon ein containerisierter Workload und sowas, es ist alles, ist alles
+ein bisschen eklig.
+Ne, ich wollte halt mal so ein komplettes System draufklatschen, ich dachte mir, hey,
+die haben so einen Helm Chart zum installieren, haust du mal drauf, ist tatsächlich unglaublich
+bescheuert gemacht, also, ja, das ist wieder viel zu kompliziert.
+Ne, heute kein Kubernetes-Stell, das kriege ich heute auch nicht noch auf die Reihe, ich
+habe tagsüber ein bisschen, ein bisschen Kubernetes gestellt und da habe ich jetzt
+keinen Bock drauf mehr, ich mal gucken, ich meine, realistisch ist es eh nicht, warum
+sollte man GitLab in einem Kubernetes-Cluster selbst haust, macht ja eigentlich jetzt relativ
+wenig Sinn.
+GitLab entwickelt sich auch super langsam, bei denen sind Issues zweierhand, gut, das
+ist aber normal, bei größeren Projekten, die kriegen ja tausende Issues oder hunderte
+Issues, die kannst du gar nicht alle fixen und kennt ihr, kennt ihr so GitLab, nein nicht
+GitLab, GitHub, GitHub-Projekte, was ist denn mit der Musik wieder los, warum ist hier zweimal
+so laut?
+Leute, ich brauche was, ich brauche Relaxing, hier, das da jetzt, ja, besser, kennt ihr,
+kennt ihr größere Open Source oder generell GitHub-Projekte, es wird, es wird dann YouTube
+geschaut, ja, oder zumindest teilweise, The brutal downfall of, ach, er wieder, der hat,
+der hat schon lange keinen, von dem haben wir schon lange nichts mehr geguckt, ja, was
+ich sagen wollte, kennt ihr die GitHub-Projekte, die so einen automatischen, ich schließe
+das Issue-Bot drinne haben, das ist das Unsinnigste überhaupt und das fuckt mich jedes Mal ab,
+du suchst nach irgendeinem Fehler, findest was über Google, stellst fest, oh, das ist
+sogar ein Ticket schon offen in dem Projekt, was verbackt ist, guckst rein, Auto close
+nach 30 Tagen, nichts wurde gemacht, nichts wurde reagiert, es ist so hängen geblieben,
+deswegen mache ich das, deswegen mache ich das auch nicht, der 4 Champ wird Issues aufhaben
+bis 2045, wenn es keinen mehr interessiert, ich werde den Kram nur closen von Hand oder
+halt fixen, wobei ich gerade keinen Bock habe, ja, Auto close nach 30 Tagen ist richtig,
+richtig blöd, ne, machen wir heute gar nicht, heute gucken wir ein bisschen, heute schwätzen
+wir ein bisschen, gucken ein paar Videos, es ist ja auch nur noch quasi fast knapp 2 Stunden
+Zeit, ja, aber das finde ich total bescheuert, die Auto close Geschichten, die da manche
+machen, Docker in Docker im Runner funktioniert, ja, aber das funktioniert nicht so ohne weiteres,
+wenn dein Runner in einem Kubernetes Cluster läuft, wenn dein Runner in einem Kubernetes
+Cluster läuft, musst du als erstes den Container privileged ausführen und dann irgendwelche
+Environment Variablen setzen und das hat bei mir nicht funktioniert, wobei es eigentlich
+eine ziemlich doofe Idee ist, den privileged Container im Kubernetes Cluster auszuführen
+und da irgendwie Docker Zeug freizugeben, ich weiß nicht, was das bedeutet für Zugriff
+auf den Kubernetes Cluster selbst, das klingt zumindest nicht nach einer guten Idee, kann
+er denn jeder den Kubernetes Cluster ausschalten oder so, das klingt jetzt eben nicht so sinnig,
+ich muss auch sagen, ich finde es gar nicht mal großartig sinnvoll, ja, wie habt ihr
+das gemacht, ja Moment, ihr baut Docker Images in Kubernetes, ja gut, ich will bilden, das
+da will ich machen, also wie gesagt, GitLab selbst braucht, also GitLab selbst sagt, man
+muss den Container privileged starten und irgendwie Zugriff auf den Cluster geben, was
+irgendwie an sich schon ziemlich komisch ist, ach so, Docker in Docker, ja, Docker in Docker
+funktioniert, das ist, das ist, keine Ahnung, weiß nicht was, das kenne ich nicht, aber
+ich will das ja gar nicht wirklich machen, ich wollte es ja heute nochmal ausprobieren,
+weil an sich finde ich es ziemlich unsinnig, ehrlich gesagt, da hast du nämlich irgendwie
+so ein Henne-Ei Problem, also wenn du alles in einem Cluster über irgendeinen Git Repo
+laufen lässt, was dann selbst wiederum im Kubernetes Cluster gehorchtet ist und mal
+irgendwas geht kaputt, dann ist das Repo nicht da, du kannst keine Änderungen machen, das
+ist alles ein bisschen unsinnig, also wenn schon sollte das ein extra Cluster sein oder
+ganz ehrlich, nehmt einfach irgendeinen gehosteten Service und gut ist, wenn man eh schon in
+der Cloud unterwegs ist, warum sollte ich den, warum sollte ich den Kram selbst hosten,
+wenn es was fertiges gibt und man hat sich, und man hat sich schon dafür entschieden,
+dass man Cloud Services benutzt, wenn man alles offline machen will, ganz ehrlich, dann würde
+ich schlicht und ergreifend eine VM hinhauen und gut ist, dass das unabhängig davon ist,
+weil den Cluster-Managen über ein System, was selbst im Cluster läuft, ist immer ein
+bisschen, bisschen doof, außerdem finde ich, außerdem muss ich sagen, war es ziemlich
+kompliziert bisher.
+Was sind gute Weiterbildungen für Fachinformatiker, was, du meinst für wie, Fachinformatiker
+System-Integrations-Azubis, also Integration wird zwar mit I geschrieben, aber trotzdem,
+kommt drauf an, was dich interessiert, was interessiert dich denn, sag mal, was dich
+für einen Bereich interessiert, das kann man pauschal nicht sagen, man, du kannst alles
+und nichts machen.
+Nee, mach ich nicht, ist das irgendein VR-Ding oder mal das exte Remake von Resident Evil
+4 oder die exte Neuauflage.
+Das Drama habe ich übrigens auch nur am Rande mitbekommen, um GTA oder GT, wie man das ausspricht,
+die wurden von irgendeinem, von irgendeiner Firma in Hongkong nicht übernommen, sondern
+irgendeine Hongkonger, China-Chinesen-Firma will jetzt Support dafür anbieten oder sowas,
+es gab einen riesigen Shitstorm, sein riesigen Shitstorm ist vielleicht übertrieben, nicht
+zu verwechseln oder zu vergleichen mit dem Wizard-Game-Shitstorm, das hat deutlich mehr
+Leute interessiert, als das, wenn Leute irgendwas forken.
+Und jetzt gibt es irgendwie einen Fork, der weiterhin, der wird irgendwie von Codeberg
+entwickelt, kein Schimmer, was da wieder abgeht, man, wenn der Friseur da mal wieder Bock hat.
+Kannst du Zed und Reckaxe gut, ja, geht ganz gut, ja, Zed-Syntax ist aber abartig und du
+kannst auch nicht alle Reckax-Schweinereien in Zed machen.
+Welche, gab es wieder neue, ich kenne nur die 4-Chan-Leaks, dass es wieder, dass es
+in der Zeit 2020 bis 2030 spielen soll und also, dass es nicht mehr ganz so futuristisch
+ist, dass es wieder ein Single-Player haben soll und boah, weiß ich gar nicht, ja, genau,
+genau, Battle Royale zum Start, ja, mal gucken, ganz ehrlich, 4-Chan-Leaks haben ja schon
+ab und zu mal gestimmt, kann durchaus sein, klingt doch sinnvoll, ich meine gerade das
+mit dem Battle-Royale-Modus für Battlefield 7 klingt insofern sinnvoll, weil der neue
+Battlefield-Chef ja der von Apex Legends ist und der hat halt Erfahrung mit Battle-Royales
+und die Leute haben schon lange nach einem Battle-Royale geschrien, zumal Warzone 2
+nicht so gut läuft, wie es sein könnte, vielleicht haben sie die Hoffnung, so aus diesem Modern-Warfare-Military-Bereich
+ein paar Leute abzugreifen und das könnte durchaus klappen, also wenn das gescheit ist,
+ich traue halt DICE nicht mehr zu, dass sie was gescheites machen.
+128 Spieler Battle Royale, das würde ich durchaus verstehen, das klingt irgendwie sinnig
+je nach Karte, aber normale Spielmodi weiß ich nicht, ob 128 nicht so sinnvoll ist, das
+hängt aber auch ein bisschen von den Karten ab und wie die Spotting-Mechanik und alles
+funktioniert.
+In Battlefield 2042 ist es ja aktuell so, dass dich jeder dahergelaufener Dude irgendwie
+spotten kann.
+Und dann ist es natürlich schwierig, wenn du 64 Spieler hast, die auf dich gucken können
+potenziell.
+Habt ihr Vorschläge, wie man sein eigenes BIOS pricken kann, für ein Notebook, auf
+das man Wut hat?
+Da gibt es was viel einfacheres, selten von sowas.
+Also wenn du ein Notebook kaputt machen willst, dann kannst du es auch richtig kaputt machen,
+dann machst du es doch richtig kaputt, warum willst du das BIOS pricken, das wird wahrscheinlich
+nicht funktionieren.
+Also wenn das ein halbwegs gescheites Notebook ist, wird das wahrscheinlich nicht funktionieren.
+Hä?
+Muss was mit geprägtem BIOS anfangen, ich check mich, was los ist.
+Ist es schon geprägt oder willst du es pricken?
+Hä?
+Das gibt es jetzt, das ist unverständlich.
+Du willst es pricken, ja du willst dein Notebook kaputt machen, warum haust du es nicht kaputt?
+Also ich könnte mir einfachere Varianten vorstellen, ein Notebook zu zerstören, als
+das BIOS zu pricken.
+Oder hat es einen Grund, warum du ausgerechnet das BIOS pricken willst und nicht das Ding
+kaputt machen willst?
+Man kann es einfach absehen, dass es wahrscheinlich gar kein BIOS mehr ist.
+Also wie gesagt, Force Power Off wird wahrscheinlich nicht funktionieren, es ist gar nicht so einfach
+ein BIOS zu pricken, nein, vielleicht kannst du im BIOS-File mit dem Hex-Editor herumsauen
+und das dann flashen, falls er keinen Checksum-Überprüfung macht oder sowas.
+Tja, dann fällt mir das so spontan auch nichts ein.
+Die Dinger sind ja absichtlich so gemacht, dass man sie relativ schwer pricken kann,
+weil sonst das Notebook nicht mal bootet.
+Tja, nee, keine Ahnung, fällt mir jetzt nichts ein.
+Die Leute sind einfach nicht mehr da.
+Ich verstehe es auch nicht, warum sie es nicht gebacken kriegen.
+Nein, das wird bei den meisten nichts bringen, großartig, Strom rausziehen.
+Das steht zwar immer da, Achtung, bitte nicht den Strom abschalten, aber bei den meisten
+passiert dann gar nichts.
+Das ist eine gute Frage, da kann ich mal meinen Senf zugeben, auch wenn ich noch nicht
+alle Cloud-Plattformen wirklich jetzt so ausführlich benutzt habe.
+Also, ich kenne mich mit Azure am besten aus.
+Ach, Moment, ich habe mich verlesen, ich habe gelesen, Azure, AWS oder GCP, ich habe mich
+verlesen, ich dachte du willst wissen, welche Cloud-Plattformen ich am besten finde.
+Nee, okay, du willst wissen, würdet ihr für Infrastructure bei AWS eher Terraform oder
+CDK nutzen oder doch, ehrlich gesagt, keine Ahnung, ich kenne das Amazon eigene Zeug nicht,
+ich habe das noch nicht verwendet.
+Ich würde allerdings persönlich eher zu Terraform tendieren, weil du mit Terraform auch andere
+Sachen machen kannst und nicht so sehr an diesen eigenen Cloud-Anbieter gebunden bist.
+Und dann lernst du halt auch was für die Zukunft, ja klar, du kannst sagen CDK, dann lernst
+du auch was für die Zukunft, aber die Zukunft heißt dann auf jeden Fall AWS, also ich würde
+mir auf jeden Fall Terraform angucken und ich würde wahrscheinlich Terraform auch vorziehen,
+das liegt aber daran, weil ich auch mit anderen Cloud-Plattformen als AWS was machen will,
+mit AWS mache ich eigentlich am wenigsten, bei AWS blicke ich immer nicht durch, wie
+die einzelnen Dinger heißen, die haben dann Fargate und sowas, was soll Fargate sein?
+Fargate ist glaube ich der Managed Kubernetes Service von Amazon und so Dinger, die haben
+Namen, da blickst du überhaupt nicht durch, nee, da blickt auch AWS nicht durch, also
+die Benamungen sind, bei Google Cloud habe ich jetzt gesehen, ich habe mich jetzt in
+letzter Zeit öfters ein bisschen mit Google Cloud beschäftigt, da geht es zum größten
+Teil, also die Hosted Postgres Dinger heißen dann auch Hosted RDB oder irgendwie sowas,
+also da muss ich sagen, das Teufel bei Google ist eigentlich ganz sinnvoll benannt, bei
+Azure geht es auch einigermaßen, das kann sein, ich weiß es aus dem Kopf nicht, aber
+es ist auf jeden Fall wirbel, das Teufel bei Amazon benannt ist, da blicke ich nicht
+durch, das muss ich sagen, ich habe auch schon ein bisschen in letzter Zeit mit Pulumi rumgespielt,
+finde ich persönlich viel angenehmer als Terraform, ich bin aber zumindest froh, dass Terraform
+kein Yammel verwenden kann, wobei kann Terraform nicht sogar mittlerweile Yammel, anscheinend
+können die auch Yammel mittlerweile, also ich bin ja eigentlich ganz froh, dass Terraform
+kein Yammel verwendet, weil Yammel geht mir auch in letzter Zeit zunehmend auf den Sack,
+man ist ja bald kein DevOps Engineer mehr oder kein Anwendungsentwickler mehr oder kein
+Admin mehr, sondern man ist eher Yammel Engineer, weil alles mittlerweile nur noch in Yammel
+ist, und Yammel ist so kacke zu lesen und Yammel ist so verbose, das ist so lang alles,
+du schreibst alles 30 mal hin und ich bin kein großartiger Yammel-Fan, ja gut, du kannst
+es manchmal nicht aussuchen, wenn du halt Tools verwendest, die Yammel-Config haben,
+dann ist Yammel-Config das Einzige, was du machen kannst und selbst wenn nicht, selbst
+wenn es dafür dann irgendwelche Tommel-Möglichkeiten gibt, ist halt die Frage, ob das irgendwas
+Community-Maintainedes ist, wo dann morgen kein Support mehr gibt, ist das irgendwas,
+was die auch die anderen verstehen, wenn man mit diesem Service nur Yammel gewöhnt ist,
+also eins muss ich sagen, eins hab ich die letzten Jahre über gelernt, es ist sinnvoll,
+sich an Defaults zu halten, beziehungsweise so wenig wie nötig von den Defaults abzuweichen,
+einfach der Klarheit halber und nachdem das manchmal so kompliziert werden kann, alles,
+was man macht, ist es sinnvoll, wenn man bei Defaults bleibt, wenn möglich, dann hast du
+auch nicht das Problem, dass du irgendwie ein Custom Plugin brauchst von irgendeinem
+Third-Party-Typ, der dann in zwei Monaten keinen Bock mehr hat, weil wenn man sich mal
+anguckt, wie Zusammengestücke manche Services mittlerweile sind, die bestehen aus 180 verschiedenen
+Einzelteilen und Produkten und alles lässt sich ein bisschen anders konfigurieren und
+sowas, da bin ich mittlerweile auf dem Standpunkt, dass ich sage, hä, manchmal ist es sogar sinnvoll,
+nicht auf ein bisschen Funktionalität zu verzichten, wenn man es halt nicht zwingend
+braucht und lieber bei dem Default zu bleiben und das, was mitgeliefert wird, als noch drei
+zusätzliche Plugins, die dann noch mal extra konfiguriert werden müssen, das ist richtig,
+wie gesagt, mir hat das auch gut gefallen, also ich persönlich würde, wenn ich die Auswahl
+habe, die Sachen auch lieber in Pulumi machen als in Terraform, das stimmt, Terraform lässt
+sich nicht eins zu eins transferieren, also alles sieht anders aus, vor allem liegt es
+halt auch daran, weil die Dinger unterschiedlich heißen, es heißt halt bei AWS anders als bei
+Azure oder bei GCP und dann heißt das halt auch in Terraform anders, weil die Cloud-Anbieter
+den Kram halt unterschiedlich benennen, ja gut, ist halt so, aber man kann sich zumindest
+dran gewöhnen, wie man Terraform an sich verwendet, von der Syntax her, wie man Schleifen
+macht und sowas, man Schleifen, was auch immer die sich da ausgedacht haben, aber, oh, meine
+Augen, meine Augen, ich brauche, Moment, this is just pseudo code, ja count, wenn ich das
+hier schon sehe, man, was zum Toll, da haben sie sich auch was ausgedacht, genauso eklig
+wie Schleifen in Ansible, wobei es da mittlerweile Möglichkeiten gibt, dann guckt euch, guckt
+euch das mal an, hallo, wie wäre es einfach mal mit einem Beispiel, eh, count, ja, ja,
+das ist doch eklig, was habe ich da ausgedacht, man kann irgendwie Neo-Wim-Stream, oh, das
+müssen wir auch noch machen, ja, nee, wahrscheinlich, also morgen gar nichts, also, wobei morgen
+bin ich arbeiten und dann abends wahrscheinlich Kreiser grind, Wochenende muss ich ein Video
+machen, da machen wir ein bisschen Kubernetes-Stells, mal gucken, wann wir das mit Neo-Wim machen,
+mir ist eine Sache letztens aufgefallen, was an Ansible kacke ist, im Vergleich zu Puppet,
+wir haben ja bei mir auf der Arbeit relativ viel Puppet noch, weil da seit, keine Ahnung,
+aber 10 Jahren dran rumgewurstelt wird, da gab es noch kein Ansible und Puppet hat ein
+schönes Feature, man kann sagen, also Server-Konfiguration, sowohl in Ansible als auch in Puppet kann
+man z.B. definieren, dieser Server braucht den User Max mit Berechtigung auf Verzeichnis
+xy und sowas, kann man in beiden Tools konfigurieren, ist kein Problem, aber in Puppet kann man
+sagen, Puppet run no-op und dann zeigt er einem an, was er machen würde, das geht in Ansible
+zwar theoretisch auch mit, glaub wie heißt das, Test-Mode, bei Ansible ist es aber so,
+dass Test-Mode nicht so schön anzeigt, also was er jetzt genau machen würde und das Test-Mode
+optional ist, also Test-Mode ist nichts, was Ansible direkt unterstützt, sondern was,
+was die unterschiedlichen Provider und Module unterstützen müssen, also da muss ich sagen,
+da finde ich das, wie es Puppet gemacht hat, immer noch schicker, dafür finde ich Ansible
+viel einfacher zu handhaben als Puppet.
+Frage als Informatiker, Zubi, ich würde gerne ein wenig mehr in die Welt von Linus einsteigen,
+da hat er bisher nur wenig Berührungspunkt, da hast du gute Tipps für den Einstieg in
+die Linus Welt.
+Bei uns wird eigentlich nur Windows benutzt, tja gut, dann ist das natürlich ein bisschen
+schwierig auf der Arbeit in Kontakt mit Linus zu kommen, wenn die nur Windows verwenden,
+da bleibt dir nichts übrig für dich privat ein bisschen damit zu beschäftigen oder aber
+vielleicht gibt es ja tatsächlich die Möglichkeit, dass du was auf der Arbeit machst, was irgendwie
+auch für den Arbeitgeber von Mehrwert ist, fällt mir jetzt spontan ehrlich gesagt nichts
+ein, man könnte ja Microsoft SQL auf Linus hosten, du willst lachen, also das funktioniert,
+das ist sogar mittlerweile offiziell supported, aber ich wüsste nicht, warum man das machen
+sollte, wenn man außerdem jetzt nicht mehr so an das Masochist sich veranlagt.
+Du kannst dich natürlich privat damit beschäftigen, das ist kein Ding, installierst du dir eine
+VM, installierst du ja VM oder Virtual Box oder sonst was und dann installierst du dir
+neben deiner Linux Kiste, neben deiner Windows Kiste, installierst du dir eine Linux Kiste
+oder eine VM und dann kannst du rumwurschteln, nee, nee, nee, kein Kubernetes Cluster installieren,
+Leute empfehle den Leuten nicht so komische Dinge, er hat kein Linux Knowhow und die Leute
+dort in der Firma haben auch kein Linux Knowhow, warum sollen die sich eine eigene Kubernetes
+Cluster installieren?
+Na gut, vielleicht ist das auch die Taktik, ihr wollt, dass die Firma pleite geht, weil
+sie nur Windows verwendet sonst, nee, machst du dir hier eine VM, Linux drauf, gut ist,
+ich lösche das mal und da kannst du hier ein bisschen mit rum basteln, du kannst dir
+natürlich auch irgendwelche Cloud VMs mieten und sowas, wobei ich ehrlich gesagt sagen
+würde, nimm nichts, was im Internet hängt, sondern probier es lokal aus und ich finde
+ja persönlich, dass es die beste Variante, was du machen kannst, wenn du eine Linux,
+nee, du kannst auch einen Raspberry Pi holen, aber Raspberry Pi sind aktuell zu teuer, also
+ich finde es am sinnvollsten, du setzt dich erstmal ganz normal mit Linux auseinander
+in Form von irgendeiner Installation in einer VM mit grafischem Interface und arbeitest
+ein bisschen so mit Linux da, wo es halt geht, so mache ich das ja auch, ich habe hier meine
+VM auf dem zweiten Desktop und ich mache alles, was nicht unbedingt unter Windows gemacht
+werden muss in meiner Linux VM und da lernt man schon einiges dabei, einfach wenn du das
+tagtäglich benutzt, du lernst was, wo man bestimmte Pakete konfiguriert, wie man Kommando
+Zeilen Sachen händelt und sowas, das lernt man wahrscheinlich im täglichen Umgang als
+Desktop Distribution, wo man halt drauf arbeitet und auch täglich benutzt, besser als sich
+ab und zu mal per SSH auf dem Server einloggen und da ein bisschen rumbasteln, also das würde
+ich machen, ganz ehrlich, ich würde gar nicht mit Server Anwendungen anfangen, auch wenn
+das vielleicht dein Ziel ist in Zukunft, dass du sagst, hey du willst nochmal Linux Server
+administrieren, aber du brauchst erstmal Linux Grundlagen und Linux Grundlagen heißt unter
+anderem Kommando Zeilen lernen und generell so ein bisschen Linux Feeling und Kenntnisse
+aufbauen und da ist tatsächlich das Beste, man verwende das tagtäglich, das heißt mach
+dir ne Linux VM, hau dir ne Archlinux drauf und ne Ubuntu, ne ne Ubuntu oder so was zum
+Mintlinux zum starten, wobei ich ja auch persönlich sagen würde, so ein Archlinux Install ist
+auch kein Ding, weil wenn du es geschafft hast, dort ein grafisches Environment zu installieren,
+sodass es ganz gut funktioniert, hast du schon mal einiges gelernt, wird aber am Anfang
+vielleicht ein bisschen frustrierend, aber das ist wichtig, also wenn du täglich damit
+arbeitest lernst du unglaublich viel, du lernst mehr als Kurse, ganz ehrlich Kurse bringen
+überhaupt nichts, Kurse sind gut, um so die ganzen Begriffe, die mit dem Thema zu tun
+haben aufzuschnappen, ich hab mir beispielsweise auch vor ein paar Wochen bei Udemy so im Schnelldurchgang
+ein paar Kubernetes Sachen angeguckt und auf YouTube, damit ich da ein bisschen so ein bisschen
+wieder, was die Basics angeht, besser durchblicke, ich hab das aber total schnell durchgeskippt
+und hab mir angeguckt, ok, ok, ok, ich brauch im Hinterkopf, muss ich mir beispielsweise
+merken, Helmcharts anpassen, eigenes Value-File, ok, Ingress-Controller, guck da, hier, da,
+hab ich ganz schnell durchgemacht innerhalb von einem Tag, das war irgendwie ein Kurs
+mit irgendwie 12 Stunden Videolaufzeit oder so was, ich hab die Videos auf 1,25% Geschwindigkeit
+gestellt und hab noch die ganze Zeit hier File-Taste gedrückt nach vorne und dann hatte
+ich so einen Chrom-Überblick und dafür sind Kurse gut, aber ansonsten zum tiefgreifend
+lernen, musste die Kurse machen und gleichzeitig dabei üben oder am besten halt auch tagtäglich
+verwenden, tagtäglich verwenden ist das Beste, was du machen kannst, ja Mail-Server, Mail-Server
+ist auch nix, was man eigentlich machen will, Mail-Server ist total abartig, ja, also wirst
+auf jeden Fall sehr viel lernen, wenn du dir ein Linux-System installierst in der VM und
+das versuchst täglich so für die meisten Sachen, die nicht unbedingt Windows erfordert
+oder sag mal so, muss ja auch nicht für das meiste machen, ja normales Internet surfen
+auf YouTube und so, das mach ich hier noch in meiner Windows-Kiste, aber so für ein
+bisschen, wenn du was programmierst, wenn du ein bisschen was basteln willst, dann mach
+das unter Linux, ich würd sagen ich bin tagsüber so ungefähr so 60% unter Linux, ja ungefähr
+60% unter Linux unterwegs, ungefähr 40% unter Windows unterwegs und da lernst du viel,
+weil du wirst auf einmal Probleme haben, wo du dich fragst, hey wie konfigurier ich das
+jetzt, da musst du gucken, wie du auf der Kommandozeile was editierst, gucken wo liegt
+denn die Konfig-Datei und solche Geschichten, was denn das, und dann stellst du zum Beispiel
+fest, fuck meine Tastatur ist kaputt und jetzt geht sie wieder nachdem man das Terminal neu
+gestartet hat, alles gut, ja so würd ich das machen, ich finde Jason tatsächlich angenehmer
+als Jaml, das stimmt, dass Jason keine Kommentare unterstützt, allerdings neuere Versionen
+oder Standards von Jason können ja mittlerweile auch kommen, aber vieles unterstützt das
+noch gar nicht, haben wir letztens erst, letztens erst uns angeguckt, also es könnte
+auch irgendeine Extension gewesen sein, wo irgendeiner zum Standard was dazu gedichtet
+hat, aber ich bilde mir ein, in einem der neueren Standards gibt es mittlerweile auch
+Kommentare, meine Augen, aber das unterstützen noch nicht viele, ja das stimmt, na gut man
+kann auch unter Pulumi irgendwie auch Terraform-Provider benutzen oder?
+Das nervige an Terraform ist, dass man sich selbst um den State kümmern muss, naja irgendwo
+musst du deinen State doch ablegen, das ist eh das beste, wenn du Terraform, also den
+State würd ich nie in Skitrepo oder so einchecken, was zum Beispiel ganz cool sein muss, ist
+wenn man, das kann ich aus praktischer Erfahrung nicht sagen, aber wenn ich jetzt nochmal was
+neu machen würde mit Terraform und was vorschlagen könnte, dann würde ich sagen, dass man das
+einfach in irgendeinen S3 Storage in der Cloud mit eincheckt, weil dann hast du das
+auch, ok wie gesagt CDK hab ich schon nie verwendet, was ich Neo will machen, ich will
+mir mal angucken, wie so das Plugin Ökosystem ist und wie man das gescheit mit Lua konfiguriert,
+ich hab ja NeoWim noch nie, ich hatte das schon eine Weile mal installiert, ganz am
+Anfang als das neu war, das war noch irgendwie 01 oder sowas, weil die da asynchrone Syntax
+Highlighting und sowas drin hatten, was ich ganz cool fand, danach habe ich aber aufgehört
+Wim aufzubohren, mega krass und bin hauptsächlich auf Wishl Studio Code und Jetbrain IDEs umgeschwenkt
+für alles was ich so mache und benutze Wim jetzt tatsächlich nur noch für Dinger wie
+Kommandozeilen editieren und dementsprechend kurz ist meine Wim RC auch, da ist nix mehr
+großartig drinnen, ich weiß bei manchen Sachen auch gar nicht mehr warum die da überhaupt
+drinnen stehen.
+Übrigens, es gibt ein sehr cooles Projekt für AWS Entwickler, ich zeige euch das mal
+falls ihr das noch nicht kennt, ich hab selbst noch nicht verwendet, aber ich bin letztens
+darüber gestolpert, die haben fast alle AWS Apis nachgebaut, sodass man sie lokal verwenden
+kann, das ist nicht für Performance oder so gedacht, das ist nur dafür gedacht, dass
+man nicht schon während der Entwicklung 50.000 Euro Kosten verursacht laufend, also du kannst
+mehr oder weniger alle AWS Apis lokal damit verwenden, ist auch nicht ganz unbeliebt mit
+46.000 Stern, kannst das lokal hosten und dann ohne dass du Cloud Ressourcen brauchst lokal
+dein Kram ausprobieren und dagegen entwickeln, das finde ich klingt sehr nice, nur dass
+ich halt kein AWS verwende normalerweise, also keine Ahnung wie gut das wirklich ist, aber
+die Idee dahinter finde ich nice, man kann auch so Sachen wie DynamoDB und sowas verwenden,
+wie gesagt die API, das heißt nicht zwangsläufig, dass das wirklich auch performant ist wie
+in der Cloud, das läuft ja immer in lokal und ist in Python implementiert, kann es ja
+gar nicht sein, aber es ist viel angenehmer gegen was zu entwickeln was lokal ist, als
+wo du laufend dann auch noch Geld dafür bezahlen musst, ja Bind macht auch kaum noch einer,
+also Bind brauchst du an manchen Stellen, aber in der Regel brauchst du es nicht und
+der Meldsober macht auch keiner mehr dabei, verstand es selbst, wir haben letztens zum
+Beispiel ein bisschen Kubernetes Zeug gebaut, machen wir übrigens demnächst auch weiter,
+es sind noch ein paar Sachen offen und ich habe mir dann mal so überlegt, ok, mal realistisch
+betrachtet, ich hätte irgendeinen Managed Kubernetes Cluster in der Cloud, was würde
+ich darauf laufen lassen und ich würde tatsächlich gucken, dass ich nach Möglichkeit, reine
+Nachmöglichkeit sage ich ja, so gut wie nur stateless Anwendung drauf laufen lasse und
+alles andere wo state irgendwie hin muss, über Cloud Services laufen lasse, wenn ich
+es in der Cloud laufen lassen will, wohlgemerkt, also ich würde die Datenbank nicht selber
+hausten im Kubernetes Cluster, ich würde irgendeine Managed Datenbank benutzen, ich
+würde auch irgendwelche Message Queues und sowas nicht im Kubernetes hausten, sondern
+irgendwelche Cloud Services dafür verwenden, weil man muss sich ja nicht, also wenn man
+sich schon dafür entschieden hat, Sachen in der Cloud zu verwenden, dann muss man sich
+ja auch nicht unnötig das Leben schwer machen, sondern kann das benutzen, was angeboten wird,
+wenn es preislich hinhaut und alles kann, was man will, aber ich meine, was soll eine
+Managed Postgres in der Google Cloud nicht können, das ist das stinknormale Postgres
+der Datenbank, nur dass man sich nicht selbst um Failover, Cluster Management, Master Selection
+und sowas, oh darf man das, ich weiß gar nicht ob das auch, ob das Wort überhaupt noch
+ok ist, Master Selection kümmern muss und sowas, ist halt viel angenehmer.
+Hast du was mit dem Wireless Wirecube, mit dem was, dem Wireless Wirecube, nee sagt mir
+gar nichts, was ist der Wire, der Wireless Wirecube, das ist irgendein Outdoor Access
+Point, auf 5G ist Out, jetzt sind wir bei 60G schon angelangt, keine Ahnung wofür man
+den verwendet, nee, du benutzt auf der Arbeit auch eine vm, nee mache ich nicht, auf der
+Arbeit habe ich Linux auf dem Notebook installiert, ich habe ein Windows Notebook und ein Linux
+Notebook, da muss ich mal gucken, ob ich da meinen neuen Arbeitgeber auch dazu bringe,
+mir zwei Notebooks zu geben, eins für Linux Installation und eins mit Windows, was man
+für alle Firmen interne Geschichten braucht, ich könnte allerdings auch ohne Probleme
+mit einer vm leben, ob ich rein mit WSL leben kann, weiß ich noch nicht, WSL, das ist immer
+so ein Thema, wo alle sagen, ja es funktioniert doch alles und dann weißt du genau im Hinterkopf,
+es gab immer mal gewisse Sachen, die nicht funktioniert haben in WSL, aber es fällt
+dir dann immer nicht passend ein dazu, ich müsste eigentlich mal eine Liste machen mit
+Dingern, die in WSL nicht ordentlich funktionieren, weil immer wenn es um die Frage geht, na was
+ist es, warum geht es, warum nicht WSL, dann sage ich immer, weil nicht alles richtig funktioniert
+in WSL und dann wollen sie immer wissen, ja wie, ich denke es funktioniert alles, was
+denn genau und dann fällt mir das meistens nicht ein, aber es gibt Sachen, also Summer
+Games zum Beispiel, funktionieren WSL 2 irgendwo oder WSL 1, keine Ahnung, nicht richtig, Port
+Weiterleitung, ja es gibt noch mehr, grafische Anwendung ist auch so ein Ding, es gibt immer
+wieder so Dinge, wo du Probleme hast mit WSL, man fährt, also wenn man so geil mit WSL fahren
+würde, warum sollte ich ein Linux-VM verwenden, na gut, weil ich E3 mag, viel lieber als Windows,
+und ich denke schon, dass man Leuten, die im Linux-Umfeld unterwegs sind, irgendeine
+Linux-Umgebung zur Verfügung stellen muss, du musst auch mal ein paar, du musst auch
+Tools ausprobieren können, du musst auch mal irgendeinen Package installieren können,
+du brauchst auch mal, was weiß ich, sei es so, dass du irgendeinen Cube-CTL-Plugin installieren
+willst oder sowas, was dann unter Windows manchmal eventuell Probleme macht, weil der
+Virenscanner meint, oh nee, der lädt da was runter, das will ich nicht, das haben wir
+zum Beispiel bei mir aktuell auf der Arbeit, wenn ich Log-Dateien kopiere unter WSL, jetzt
+kein Witz Leute, müsst ihr euch mal reinziehen, wenn ich Log-Dateien kopiere per SCP über
+WSL, dann bricht das nach irgendwie 25 MB ab und kriegt ganz komische IO-Read-Write-Errors,
+warum?
+Weil der Virenscanner meint, die Log-Datei oder mein SCP wäre irgendeine Ransomware,
+die gerade Festplatten verschlüsselt und deswegen wird es abgebrochen.
+Kann man über WSL einen Windows-Manager laufen lassen?
+Theoretisch bestimmt praktisch ist es unsinnig, ich glaube nicht, dass es gescheit funktioniert,
+man kann es vielleicht laufen lassen, aber ich kann mir nicht vorstellen, dass es gescheit
+funktioniert.
+Welche Distributionen ich auf der Arbeit benutze?
+Also ich hatte ganz lang das hier auch auf der Arbeit, also ok, da war es noch mal Jaro,
+da war es noch kein echtes Archlinux, by the way, ich benutze Archlinux, nur dass ihr
+es wisst, muss man glaube ich immer mal wieder ein bisschen erwähnen, das erwarten die
+Leute von einem, wenn man Archlinux benutzt, das ist ein bisschen so mit Veganer, die dir
+erzählen, dass sie Veganer sind, man muss erwähnen, dass man Archlinux verwendet, by
+the way.
+So, also das war eine ganze Zeit lang Manjaro, hatte ich bei mir auch daheim und auf der
+Arbeit und jetzt habe ich daheim in Archlinux kein Manjaro mehr und auf der Arbeit habe
+ich tatsächlich Ubuntu, aber wisst ihr warum ich Ubuntu habe?
+Einfacher Grund ist, ich hatte dort auch meine Manjaro Installation und ich musste das Notebook
+wechseln und das war vor nicht all zu langer Zeit, da wusste ich schon, dass ich abhaue,
+da habe ich mir gedacht, Leute ich mache jetzt keine extra Archinstallation auf meinem Notebook
+und richte das schön ein, auch wenn es schnell geht mit meinen Dot Files aus dem Git Repo,
+trotzdem dauert es ein bisschen länger als Ubuntu Installation, aber ich dachte, komm
+für die drei Monate haust du dir dann noch ein Ubuntu drauf und gut ist, weil ich bin
+auch total unmotiviert auf der Arbeit, muss ich ehrlich sagen, es ist nicht so, dass ich
+gar nichts mache, aber seit ich gekündigt habe, bin ich extrem unmotiviert, mich interessiert
+da auch nichts mehr großartig, ich freue mich wirklich drauf, wenn es beim neuen losgeht,
+ich habe da überhaupt keinen Bock mehr drauf gerade, also wie gesagt, ich benutze keine
+VM auf der Arbeit, ich habe ein Surface Book von Microsoft, Microsoft Surface Book, was
+ich rein als statisches Notebook verwende, also ich verwende weder die Tablet Funktion
+noch die Touch Funktion noch sonst was, es ist als zugeklapptes statisches Notebook mit
+einem Monitor dran und einer USB Tastatur, also nichts spezielles, da ist Linux drauf
+installiert und es läuft auch ganz gut auf dem Surface Book, Official Arch, ja, kein
+Arch Flavor, sondern hier, Poggers, Pogu Arch, ja, das ist eine gute Idee, kann man
+für forever die Free Variante benutzen oder ist die sehr trash, du meinst den Player,
+der Player ist okay, du kannst aber auch Virtual Box verwenden oder du holst der für 3,50
+Euro, kannst du dir bei einem Keyshop eine Forever Workstation Pro Lizenz holen oder
+vielleicht auch aus anderen Quellen, aber da werde ich dir jetzt nichts schicken dazu,
+ich habe mir die auch aus dem Keystore geholt für 7 Euro oder so damals und das reicht
+voll und ganz aus, warum mehr ausgeben als nötig, sind die Keys für 10 Euro legit,
+keine Ahnung, ist mir auch egal, ich habe die legit gekauft und sie haben legit funktioniert,
+das ist eben eine Mario Playlist, Mario Sunshine, Sunshine Soundtrack, wie kann man nur auf
+die Idee kommen, dass man in Jason keine Commons braucht, naja, weil das ursprünglich nicht
+dafür gedacht war, Konfig-Dateien da drin zu erstellen oder irgendwie super menschenlesbar
+zu sein, wobei man halt sagen muss, die Erweiterung, wisst ihr eigentlich, Chat, wisst ihr, wisst
+ihr, dass Jammel quasi von Jason abstammt, auch wenn es nicht so aussieht, dass jedes
+gültige Jason ein gültiges Jammel ist, sieht ganz anders aus, ist aber so, auch wenn es
+komplett anders aussieht, du kannst jedes gültige Jason in der Jammel-Datei speichern
+und es ist automatisch gültiges Jammel, ja, den kenne ich, den kenne ich, den kenne ich,
+ich gehe davon aus, dass es nicht viele Leute benutzen, diesen Infinite Storage-Klitsch,
+also ich zeige es euch mal für Leute, die es nicht gesehen haben bisher, da ist jemand
+auf die, ach guck mal archiviert ist es, ok, warum, warum, warum ist es archiviert?
+Wahrscheinlich weil es zu viele Issues gegeben hat oder, der Typ hat keinen Bock mehr, der
+hat glaube ich keinen Bock mehr, der Dude, kann das sein, also du konntest dort Dateien
+umwandeln in Videofiles, die dann so aussahen, quasi aus mehr oder weniger Rauschen bestanden
+haben und die konntest du auf YouTube hochladen und YouTube hat ja keine Beschränkungen,
+was Video-Uploads angeht und dann konntest du das quasi runterladen und dann wieder zurück
+wandeln in die Datei, das ist nichts neues, dieses Verfahren an sich gibt es schon ganz
+lange und es ist jetzt bloß bekannt geworden so die letzten paar Monate über, wahrscheinlich
+weil Hacker-News oder Fortchain oder wer auch immer das Projekt entdeckt hat, es gibt viele
+andere solcher Sachen auch schon länger, ich gehe davon aus, dass es kaum einer nutzt,
+weil es nicht so, du könntest damit theoretisch Sicherheitskopien über YouTube verteilen,
+natürlich nur für dich selbst, ich gehe davon aus, dass es nicht so viele Leute benutzen,
+weil YouTube sonst einfach sperren würde, es ist auch nicht so sinn, es ist auch nicht
+wirklich praktikabel gut zu benutzen, die Dateien, also die Videodateien sind eine ganze
+Ecke größer als die Ursprungsdateien, das Uploaden dauert ewig, wenn es größere Dateien
+sind, du musst ja vorher auch noch verschlüsseln und sowas, du kannst dann auch nicht gescheit
+zippen, na gut, du kannst zuerst zippen und dann verschlüsseln, ja doch, das funktioniert,
+dann den Videos umwandeln, die Dateien sind riesengroß, du brauchst lange zum Upload,
+du brauchst ja vielleicht nicht ganz so lange zum Download, also jetzt so wirklich großartig
+sinnvoll, finde ich es in der Handhabung nicht, natürlich, natürlich wäre es gut für Leute,
+die irgendwelche Sachen sharen wollen, größere Sachen und das nicht über irgendwelche One-Click-Hoster,
+Usenet oder sonst was machen würden, sobald das anfängt Fahrt aufzunehmen, wird folgendes
+passieren, YouTube wird die Dinge einfach sperren, weil sowas kann YouTube ja easy erkennen,
+ob ein Video so aussieht, das dürfte für YouTube gar kein Problem sein, so und eventuell
+baut YouTube, auch wenn es solche Videos erkennt, einfach Fehler ein, sodass sie nicht mehr
+packt werden können, also da glaube ich nicht, dass das irgendwie großartig YouTube aufmischen
+wird, 3500 Zeilen Neo-Wim-Conf, ok, dann machst du das heute, so wie ich das früher gemacht
+habe, ich habe mein Wim früher auch komplett aufgemotzt und alles im Wim gemacht, hatte
+ich auch ewig lange, ich weiß nicht wie lange, aber ewig lange WimRC und Unterordner und
+alles, das habe ich dann irgendwann weggeschmissen und bin zum Beispiel Studio Code und JetBrains
+rüber.
+Motto kenne ich nicht, wie gesagt ich verwende auch wenig AWS, das ist richtig, für dich
+als Privatperson macht das überhaupt keinen Sinn, also Sachen in der Cloud zu verwenden,
+solange du mit Free-Kontingent auskommst und zu Kleinigkeiten brauchst du es gut, aber
+jetzt irgendwie eine Datenbank in der Cloud Hause macht für dich als Privatperson wenig
+Sinn.
+Wo es für dich Sinn machen könnte ist, wenn du einen Service im Internet anbieten willst,
+ja also nicht von dir für dich oder für dich daheim irgendwas, sondern du hast irgendwas
+programmiert, das willst du der Welt zur Verfügung stellen, dann kann es durchaus
+sinnvoll sein das in der Cloud laufen zu lassen, wobei man sagen muss billiger, auch wenn die
+ganzen Verkäufer was Cloud-Produkte angehen wahrscheinlich anders erzählen werden, weil
+in der Cloud erzählen sie dir immer so nach dem Motto, Cloud ist auch riesen Kostenersparnis,
+weil du bezahlst ja nur das was du auch wirklich verwendest, naja das stimmt so ohne weiteres
+nichts, das kommt immer ganz drauf an was für einen Serviceman verwendet und was man
+dort für Garantien haben will, was man dort für Zugriffszeiten haben will, da gibt es
+ja ganz viele verschiedene Abstufungen oftmals, ja es ist nicht nur bei VMs in der Cloud wo
+du unterschiedliche Performance Ausstattung, auch bei Storage zum Beispiel, bei Storage
+gibt es in AWS glaube 3 oder 5 verschiedene Sachen, du kannst das irgendwie hot, ne es
+gibt glaube ich allein von Cold Storage irgendwie oder Archivspeicher irgendwie 3 verschiedene
+Stufen, das ist ganz wirr und da bezahlst du auch unterschiedlich viel und je nach dem
+ist es dann auch unterschiedlich wo du was bezahlst, ja bei dem einen ist der Upload
+billiger und der Download billiger aber dafür ist das pro Gigabyte teurer und bei dem anderen
+ist es pro Gigabyte billiger aber das Abrufen ist extrem teuer und sowas, das ist Riesenwissen
+Wissenschaft für sich und du kannst in der Cloud auch total easy einfach 1000 Euro ausgeben
+wenn du nicht aufpasst, gab ja schon Leute die haben es geschafft Serverless Functions
+zu bauen die sich dann selbst aufgerufen haben oder um 3 Ecken dann in irgendeine Schleife
+hatten und dann sind sie ins Bett und morgens sind sie aufgewacht an 70.000 Euro Rechnung
+auf ihrem Account, in der Vergangenheit haben sich die Cloud an Peter da tatsächlich relativ
+kulant gezeigt wahrscheinlich weil sie wussten sie bekommen das Geld eh nie und haben gesagt
+ja es ist ok pass auf dass du nicht wieder Scheiße baust aber es geht halt genauso also
+ich finde das macht durchaus Sinn als in der Cloud zu hausen aber und das ist jetzt eigentlich
+das, das ist eigentlich das was ich sagen wollte ja also wie gesagt ich finde da ist
+nicht viel dran wenn dir irgendwelche Verkäufer da sagen ja aber in der Cloud ist viel große
+Kostenersparnis das billigste wenn du ein Kleiner, das billigste nicht unbedingt für
+dich als Entwickler das einfachste aber das billigste ist höchstwahrscheinlich also wenn
+du einen Service hast den du im Internet anbieten willst und du auch gar nicht weißt ob das
+viele Leute benutzen miete dir eine Linux VM miete dir irgendwo bei Hetzner zum Beispiel
+miete dir irgendeine billige Linux VM klatscht da deine Anwendung drauf und guck erstmal
+wie es ankommt da kannst du zwar nichts von dem machen was dir die ganzen Cloud Leute erzählen
+dass das super essenziell wäre du kannst das nicht rolling skalieren und du kannst
+das nicht irgendwie großartig upgraden ohne dass du es runterfahren musst und solche
+sonstige Geschichten und du kannst das auch nicht per Edge Computing und Edge Dingsbums
+Distribution und haste nicht gesehen ausliefern aber das meiste kann man ja immer noch später
+machen wenn man einfach nur was kleines programmiert hat gucken will wie das ankommt das billigste
+und einfachste ist eine Linux VM bei irgendeinem Hoster das Ding draufgeschmissen am besten
+noch mit irgendeiner SQLite Datenbank anstatt irgendwelche großen Datenbank Service sich
+zu kaufen oder kannst ja auch darauf irgendeine Postgres installieren aber meistens reicht
+für sowas kleines ja sogar SQLite aus wenn es komplett lokal auf der gleichen Kiste ist
+und fertig muss man gar nichts großartig machen finde ich persönlich am sinnvollsten wenn
+man es einfach nur ausprobieren will und sollte man wirklich den super mega Service erfunden
+haben wo auf einmal letztendlich die Leute drauf stürzen ja gut die Chancen sind gering
+wenn man für diese kleine Chance vorsorgen will muss man halt Geld in die Hand nehmen
+und es von Anfang an so bauen dass man es irgendwie ordentlich ausrollen könnte in
+der Cloud Umgebung wo es ordentlich skaliert aber eher nicht zumal man vieles ja auch auf
+die schnelle machen kann du kannst ja erstmal deine VM also mehr aufrüsten also man kann
+ja erstmal die einfachen Sachen machen ja ohne das komplett auf cloud native mit allen
+cloud services und nur noch im managed Kubernetes Cluster und hast du nicht gesehen alles laufen
+zu lassen also man kann ja auch erstmal seine VMs upgraden also sollte wirklich der Fall
+eintreten dass man als Einzelentwickler ein Projekt gebaut hat das hostet der Welt zur
+Verfügung stellt und auf einmal springen tausende Leute drauf und du hast auf einmal du hast
+quasi über Nacht irgendwie hunderte oder tausende User und es geht ab weil zufälligerweise
+PewDiePie ein Video über deinen Service gemacht hat ja gut dann kannst du erstmal einfach
+deine VM erweitern da gibt es deine VM, RAM, CPU und das ist dann erstmal kommst du damit
+ja auch relativ weit und dann musst du dir halt überlegen ok ich habe auf einen Schlag
+500 Benutzer jetzt muss ich mir tatsächlich ein bisschen Mühe geben mit dem Service wobei
+du halt weißt es ja noch nicht mal irgendwie ein Abo-Modell oder irgendwas hast wenn du
+einfach als Privatperson was gebaut hast gucken willst wie es ankommt da hast du ja noch nicht
+mal irgendwie Monetarisierungs Schema dir ausgedacht das ist ja meistens dann kostenloser
+Webservice und da kann sich dann eh keiner beschweren also du hast sehe ich prinzipiell
+auch so ich finde das meistens ist es für private Personen so für so Ein-Mann-Projekte
+nicht sonderlich sinnvoll.
+Kommt drauf an was man macht ja also ich habe gehört dass wir mittlerweile 6-stellig
+im Monat ausgeben für die Cloud bei meinem aktuellen Arbeitgeber also es ist nicht ohne
+was da Geld raus reingebuttert wird aber wenn du das brauchst was die anbieten dann kann
+sich das durchaus lohnen es hat ja seinen Grund dass die Cloud-Anbieter erfolgreich
+sind und dass auch immer mal wieder neue auftauchen die manche Sachen besonders gut machen oder
+einfacher machen oder fokussierter sind auf spezielle Bereiche als die großen ich meine
+klar Google, Microsoft und Amazon die können irgendwie alles dafür sind sie unglaublich
+komplex groß kompliziert und keiner blickt so wirklich durch am Anfang und ich glaube
+es gibt ganz wenige die wirklich insgesamt durchblicken dann gibt es dann irgendwelche
+Service so was wie Fly.io was jetzt gerade voll angesagt ist was spezielle Sachen einfacher
+macht und dementsprechend auch für viele erstmal einfacher zu verstehen ist.
+Linode habe ich noch nie verwendet habe ich aber schon öfters mal als guten Tipp gehört
+für Managed Kubernetes und Managed in Anführungsstrichen viel Managed ist ja da nicht bei und Digital
+Ocean Kubernetes soll auch nicht schlecht sein ansonsten wie die VMs von Linode sind
+habe ich auch nicht schlechtes bisher gehört Managed ist bei diesen ganzen Sachen ja nicht
+wirklich viel sondern eigentlich nur die wie heißt das bei Kubernetes die API also das
+eigentliche Kubernetes die Control Plane heißt das genau also das ist ja meistens
+bei der Kubernetes Service selber Managed also du kannst dann zum Beispiel darüber
+abgehen dass die gucken dann halt dass Versions Upgrades durchgeführt werden in irgendeinem
+Maintenance Winner was du eingetragen hast dass du dich nicht selbst machen musst und
+solche Geschichten aber um alles andere in deinem Cluster auch wenn es ein Managed Cluster
+ist musst du dich bei den meisten Anbietern dort eh selber kümmern da haben die größten
+Anbieter was was cooleres Google hat zum Beispiel sowas wie ihren Kubernetes Autopilot da kriegst
+du gar kein Kubernetes Cluster mehr im klassischen Sinne sondern du kriegst ein Kubernetes Cluster
+wo du per Pod bezahlst oder nee nicht per Pod per doch per ich bin mir nicht sicher ob
+du es per Pod bezahlst oder ob du es per Pod Typ bezahlst aber wahrscheinlich wirst du
+es nach Pod bezahlen und dann halt je nachdem wie viele Replikas und sonst was man haben
+will dafür musst du dich halt Null mehr drum kümmern um Kubernetes an sich ist da nochmal
+so ein Zwischenschritt zwischen alles Serverless Functions oder Kubernetes Cluster so ein Zwischending
+was ist das für Betge Musik ja
+das habe ich gesehen das habe ich gesehen ich glaube nicht dass das das ziehen wird
+wenn ich das sage
+ob und Unity gibt es doch gar nicht mehr oder das ist doch jetzt alles auch genommen
+welchen Keystore benutzt du so für Corporate Care meinst du Keystore oder Secret Store
+also meinst du Keyvalue Geschichten oder wirklich Secret Store Secret Store Azure Key Vault
+ganz einfach weil Azure und so Zeug weil wir Azure verwenden und da bietet sich das
+an Azure Key Vault und ansonsten Redis das dürfte auch mit das verbreiteste sein was
+so so Caching und solche Geschichten angeht
+Jaml kompiliert ja unter der Haube zu Jason oder nicht das weiß ich nicht es gibt allerdings
+Sachen Konstrukte in Jaml die kannst du in Jason so nicht machen zum Beispiel Referenzen
+und sowas aber klar wenn das irgendwie dann zu Jason kompiliert dann glaube ich nicht
+passt eigentlich nicht
+Jason Jaml ist keine Alternativ Syntax für Jason also nicht jedes Jaml ist Jason aber
+jedes Jason ist Jaml
+ich benutze das Main Ubuntu ja das ganz das ganz stinknormale Ubuntu benutze ich was du
+kriegst wenn du sagst hier Download Ubuntu verschicken die eigentlich noch kostenlos
+CDs früher haben noch CDs verschickt das was du hier kriegst hier 22 04 LTS wir sind
+übrigens sehe ich gerade wir sind bald bei Ubuntu 22 23 04 wie wird denn das heißen
+Luna Lobster endlich mal wieder ein guter Ubuntu Name die letzten waren irgendwie nicht
+so geil die letzten fand ich nicht so geil aber Luna Lobster ist Poggers ja so das war
+cool das war cool war sich es war zu zweien den kann ich mich auch noch erinnern das ist
+glaube ich den Namen den ich am meisten noch im Kopf habe was Ubuntu angeht ja die kenne
+ich alle noch aber die war jetzt auch nicht so geil haben die nicht einfach mal eine Tabelle
+wo man das sieht so eklig sowieso aber die letzten die letzten muss ich sagen die fand
+ich jetzt gar nicht mehr so gar nicht mehr so toll Kinect Kudus Zungenbrecher das spricht
+doch keiner so aus Luna Lobster ist mal wieder was was gut von der Zunge geht das fand ich
+noch Kimchi Fisch oder Dragx
+Coming?-like-smart-faces-letter- attractionen-b redistribution das wusste ich aber gar nicht
+dass es existiert wenn ich eeherlich bin ist mir komplett neuer hab ich bis jetzt noch
+aber ganz ehrlich
+das Luna Lobster ist mal wieder was gutes
+sind das die gleichen wie bei Debian? Nee
+Debian hat Toy Story Namen
+Debian benennt ihre Dinger immer nach Toy Story Characters
+Ubuntu macht da irgendwelche komischen
+wie nennt man das
+diese Konstellation von Wörtern bei Ubuntu wie nennt man das
+also Luna Lobster ist ja quasi das ist
+nen, nen, nen
+Tier ist mit L, nen Wort mit L am Anfang
+was
+halt irgendwie
+ne Eigenschaft dann von dem Tier ist
+Adjektiv und Tier
+Adjektiv und Tier, ja genau
+aber es muss aber es muss immer
+das gleiche Adjektiv sein vom Anfang, also das gleiche Anfangsbuchstabe Adjektiv wie
+im Tiername
+bei Ubuntu
+was?
+ihr wechselt auch wieder
+zurück
+von der Cloud
+aha
+das leucht, vielleicht verstehe ich jetzt den Zusammenhang irgendwie nicht
+was hat der Rails Erfinder und Google damit zu tun, das
+ja gut
+keine Ahnung
+Brezelsnacker, danke für den Sub
+sorry Leute, was ich heute wieder die Hälfte überlesen habe wahrscheinlich
+warte mal, Chico
+was ist da los?
+so
+Chico kratzt an der Tür rum
+ja und der hat es archiviert aber warum weiß man nicht
+oder weiß man das?
+wie ist der Typ? Github
+infinite
+storage glitch
+also ich meine der Source Code ist noch da
+rework
+update readme, ok was hat er da reingeschrieben, warum hat er das
+gelöscht
+oh ich glaube Youtube hat ihn angeschrieben, könnte das sein?
+ah
+so
+ja das ist
+die Leute erzählen im Internet viel wenn der Tag lang ist
+kostenlose Ubuntu CDs gibt es schon lange nicht mehr
+tja
+es sagt
+Moment es gibt ein Ubuntu Remix mit dem alten Unity aber warum das denn?
+das fand ich ja noch schlimmer als den Gnome Desktop von denen
+Leute falls ihr irgendwelche Fragen übersehen habt schreibt es ruhig in den Chat rein
+ich hab wieder die Hälfte jetzt gerade überscrollt wahrscheinlich
+Ed Wubblos davor
+ich bin unten im Chat
+ich hab noch im Hinterkopf gehabt, irgendwas wollte ich noch
+beantworten aber
+weiß nicht mehr was
+ach stimmt
+Unity wird ja von diesem 13 jährigen Typ weiterentwickelt ja
+ja haben wir sogar letztens gesehen
+Moment der hatte doch noch mehr oder?
+der hat nicht nur an Unity entwickelt, der hatte doch auch irgendwelche anderen
+Projekte
+wo wir uns gedacht haben es ist irgendein Zwölfjähriger oder so
+der das programmiert
+ich hab gar kein Laufwerk mehr im Rechner drinnen
+meine letzten paar Rechner hatten alle schon kein Laufwerk mehr
+es haben ein paar Leute gefragt wann ich jetzt letzten Arbeitstag und ersten
+Arbeitstag hab also
+dazu gibt es ein Update
+ich hab euch ja mal erzählt, mein letzter Arbeitstag ist spätestens der 22.
+und je nach Hofbereitschaftskonto vielleicht schon der 17.
+und mein erster Arbeitstag ist der 1.
+beziehungsweise der
+ja 3. oder 4. je nachdem um den Monat
+wahrscheinlich gehe ich gleich Anfang der Woche hin
+der 3. April ist mein erster
+Arbeitstag aber es hat sich jetzt was anderes ergeben ich hab nämlich
+folgendes entdeckt und zwar
+wenn man innerhalb eines Jahres den Arbeitgeber wechselt kann man seine
+Urlaubstage mitnehmen
+wenn man eine Bescheinigung bekommt, also wenn der alte und der neue
+Arbeitgeber damit einverstanden sind
+und wenn man eine Bescheinigung bekommt vom alten Arbeitgeber
+wie viele Urlaubstage
+man schon
+verbraucht hat dieses Jahr
+sodass man halt nicht sagen kann hey
+ich nehme die mit
+aber ich will sie auch ausbezahlt haben ne Woche später oder sowas ja das wäre
+dann beschiss
+so mein neuer Arbeitgeber erlaubt das anscheinend, weil die haben sogar ne
+Möglichkeit das Formular das hochzuladen
+jetzt muss ich mal bei meinem aktuellen Arbeitgeber fragen ob das ok ist
+ich denke nicht dass die was dagegen haben die freuen sich wahrscheinlich
+sogar wenn ich noch ne Woche länger da bin
+bezahlen müssen sie es ja eh
+und dann wäre mein letzter Arbeitstag tatsächlich erst
+wahrscheinlich der neunundzwanzigste
+was mir persönlich auch ganz lieb ist weil
+ich habe überhaupt kein Interesse den sechs Tage Urlaub jetzt zu nehmen
+ich will ich will überhaupt kein Urlaub nehmen ich will lieber wieder Urlaub
+ordentlich am Stück nehmen
+und nicht irgendwie so sechs Tage so im im im März total bescheuert hab ich
+will ich überhaupt nicht
+deswegen werde ich das mal checken
+ob das geht
+ich will jetzt überhaupt kein Urlaub machen
+ist Fulltime Office Homeoffice bei dem neuen nee es ist nicht Fulltime Homeoffice
+es ist
+einmal die Woche
+bis zu 14 Tage also einmal die Woche oder einmal alle 14 Tage
+Office
+je nach Absprache mit seinem Chef ich denke mal am Anfang
+werde ich da schon einmal die Woche hingehen
+allein schon dass man ein bisschen so die Leute mal gesehen hat
+und dann
+mal gucken ob man das ein bisschen ausweitet
+da wird sich nichts mehr großartig tun die Übergabe ist abgeschlossen
+gibt eigentlich nichts mehr was ich übergeben muss
+nur ich muss mich vielleicht selbst übergeben wenn ich sehe wie bescheuert
+sie das wieder gemacht haben
+die haben einen Kerl dahin gesetzt
+der
+die Sachen von mir alle übernehmen soll
+der die Sachen von meinem
+Kollege
+übernehmen soll der mit auch mit mir wechselt teilweise zumindest
+dann macht er noch die Sachen weiter die er vorher gemacht hat
+plus dass er sich jetzt noch mit unserem Mailsystem auseinandersetzen soll
+wie soll das funktionieren
+und das beste ist das beste ist
+das ist ein externer Mitarbeiter der nur einen Vertrag für ein halbes Jahr hat
+der ist dann weg und auf einmal haben die gar keinen Plan mehr was abgeht
+also da schaufen sie sich gerade wirklich ihr Grab
+der der haut einfach ab wenn er keinen Bock mehr hat aber vollkommen vollkommen zurecht
+also keine Ahnung was sie sich dabei wieder gedacht haben
+ja morgen habe ich auch mal einen Termin mit meinem Chef da werde ich das mal
+werde ich das klären wie das mit dem mit dem Urlaub mit dem Urlaub nehmen ist
+und und was mein Abschlusszeugnis macht
+Abschlusszeugnis müssen sie nämlich auch endlich mal hinkriegen
+ich habe das ich habe das alles ausgefüllt mein Chef hat es auch
+ausgefüllt und irgendwie hört man dann nichts mehr von
+die sind total lahm was das angeht und ich brauche das Abschlusszeugnis
+also was ich brauche
+nicht wirklich aber ich will eins haben
+wie wo ist das wo ist das Problem viele Emoils zu benutzen
+das kann ich überhaupt nicht verstehen ist nicht ist nicht Emoils eigentlich das
+beste an ganz twitch beste einfach nur den ganzen tag Emoils spam
+ich habe auch keine Probleme wenn der Chat Emoil Only ist wobei das mag ich
+nicht eigentlich mag ich mag ich Emoil Only Chats nicht
+nein nein nein nein nein nein nein nein nein nein wieder ausmachen
+ja was machen aber Emoils sind doch echt das beste eigentlich so das mal kurz
+gucken wir jetzt wie wir klotz noch immer irgendwas auf wir gucken uns noch mal
+irgendwas auf auf youtube an gibt es da irgendwelche spannen
+the brutal downfall of better twitch tv 1 extension that millions of ok lass mal so
+auf was haben wir denn zu was haben wir denn zur Auswahl zu gucken
+ffm pack in 100 sekunden ok war feier schipp kommen wir gucken feier schipp
+ffm pack ist tatsächlich beste also ich glaube ich könnte ich könnte keine
+videos ohne ffm pack mehr erstellen in open source command line ffm pack in
+open source command line tool for processing audio and video files it was
+created by fabrice billard in the year 2000 the name stands for fast forward
+followed by the moving picture experts group file format today it's used in a
+wide variety of tools dafür steht das ok ich wusste bis jetzt nicht ffm pack
+steht was like google chrome and blender und das logo ist auch kacke
+well it's video platforms like youtube in vimeo it's able to decode encode
+transcode multiplex demultiplex stream filter and play virtually any
+multimedia file in the world with over 100 different codecs supported it works
+by taking an input file then passes it to a demultiplexer that splits the audio
+and video tracks into separate encoded data packets these packets are then
+decoded into uncompressed frames which can be further processed and filtered you
+might modify the brightness and contrast add subtitles or visualize the audio as a
+das das beste das beste an ffm pack ist ja dass das um encoden von einem format
+ins andere format das ist das wo es wahrscheinlich auch mit abstand die
+meisten leute benutzen halt im endeffekt zum video rendern
+damals gerade windows build speed oder verwende ich ja wahrscheinlich sachen
+von einem arbeitskollege dann feinlich die frames aren't code weil ich hab
+natürlich auch ffm pack installiert und multiplexed back into the output file in
+addition it also comes with the ff play tool to easily play media from the
+command line and ff probe to extract metadata from a file in addition to tons
+of low-level libraries for developers building their own multimedia processing
+ffm pack kann fast alles einzige was ffm pack nicht kann was mich ein bisschen
+stört ist wie heißt dieses komische nachfolge format was ich google ausgedacht
+hat für png web web nein nein web p ja genau das kann ffm pack nicht und ich
+verstehe nicht warum
+oder nie animiertes werb p kann es nicht animiertes werb p kann es nicht
+irgendwie so gab's da gab's da probleme ich merke das merkt das immer wieder weil
+ich zum beispiel suche nach betta twitch tv keck weh oder oder keine ahnung wenn
+ich irgendwelche animierten emote suche sind die manchmal in webp animation
+formaten das kriegt ffm pack nicht hin benutzt du dein selbst made pop shots
+noch ja den habe ich immer noch dran hier guckt das ist immer noch mein schwamm
+den ich am mikrofon stecken habe
+hänne das funktioniert nicht guck mal ffz nehmen wir mal gatschi roll so
+oder sowas hier so wenn ich das runter lade ist das ja web web p also keckel so
+achtung achtung downloads ff play
+im ist data not found
+es geht nicht könnte das sein dass einfach diese dass es nicht alles kann
+von web p also der browser kanns aber ffm pack kann es nicht image data not
+found das habe ich jetzt schon paar mal gemerkt
+dass ffm pack mit dem format probleme hat
+ach guck mal das kann die encode aber nicht die kauten
+moment die können bilder erstellen aber bilder nicht einlesen
+na gut wie gesagt das weiß ich dass das dass es damit probleme hat
+ansonsten ist ffm pack das beste
+to get started install it then open up the terminal use the ffm peg command
+followed by I to supply one or more input files to convert that file to a
+different format simply provide the name of the output it will was ffm pack
+minus e image 2 ok geht das geht das auch bei bei ff play
+nee ok ff ffm pack probieren jetzt mal aus
+minus e was image 2 warum image 2 ok image 2 aber aber das im moment minus e
+geht auch gar nicht minus e ist das input feil chat was ihr über zeug
+schreibt es gibt überhaupt keinen sinn will automatically detect the file
+extension and convert it to the proper codec or the c-flag can be used to
+specify an explicit codec like mpeg 4 for the video track and mp3 for the audio
+minus f image 2 ok ok ff play minus f image 2 ok geht das bei ff play vielleicht
+image no data found
+oder oder muss man das f nach minus i machen
+nee nee nee keine chance ja
+Das ist vor sieben Jahren, okay?
+Ne, das JPG kann FFmpeg ja auch, weil es den Encoder hat und es hat keinen Decoder hierfür.
+Gibt's nicht, deswegen geht das auch nicht. Ja, benutzt kaum einer. Aber du kannst extrem,
+hier kannst du übrigens auch Sachen skippen und so was. Du kannst ja auch mit FFmpeg Videos
+schneiden auf der Kommandozeile, wenn man will. Und es gibt minus S ist skip am Keyframe und
+minus SS ist skip exakt zum Timestamp oder so. Bin mir gerade im Kopf nicht ganz sicher. Gibt
+2, gibt 2, gibt minus SS und minus S als Kommentar, als nicht als Kommentar, als Option. Ich skaliere
+damit übrigens seit einer Weile meine Videos hoch, weil ich nehme ja selbst so ein 1080p auf,
+aber die Bandbreite in 1080p auf YouTube ist einfach Müll, deswegen skaliere ich die einfach
+hoch auf 1440p und dann sehen sie auf einmal viel besser aus.
+Ich will ja FFmpeg verwenden Leute, dass es jetzt irgendein anderes Tool gibt, was das kann. Gehe
+ich jetzt mal von aus. Ich meine ImageMagic, habe ich überhaupt ImageMagic installiert? Kann
+das, kann das wahrscheinlich auch, ja. Image, Image to WebP? Was zum, was ist das? Ok. Convert.
+Ne, wie heißt das Programm zum Anzeigen bei ImageMagic? Boah, keine Ahnung. Egal, ich
+deinstalliere es jetzt wieder. Braume erinnert, ImageMagic ist Legacy Zeug. Westfirm? Ne,
+das glaube ich nicht. Gucken wir mal, gucken wir mal. Ich würde sagen, kann es nicht.
+Hat, aber, hey, ich meine, es geht auf jeden Fall in die richtige Richtung, aber hat von
+so ein bisschen noch Probleme damit. Also kann es, kann es auch nicht richtig. Wahrscheinlich,
+wahrscheinlich kann es statische Images und nicht animierte Images. Ja. Ne, ne, ne, keine
+Chance, das kann es nicht. Hätte mich jetzt auch gewundert. Ja, lass mal kurz YouTube
+reloaden, ob da noch irgendwas spannendes dabei, dabei ist. Was, building a rack-mounted
+Proxmox-Server? Ja, soll er machen. Müssen wir uns jetzt aber nicht angucken, das ist
+sehr unspektakulär. Haben wir noch irgendwas? Wir haben noch, wir haben noch eine halbe Stunde
+Zeit. Komm, irgendwas, irgendwas spannendes gibt es doch noch. Linux Fundamentals, Fundamentals,
+Ach du Scheiße, was ist das Wort? Fundamentals, oder? The Metaverse is dead. Okay. Hä, ist
+das wirklich so? Mark Zuckerberg hat entschieden, das Metaverse zu töten. Es gab keine großen
+Announcements und no funeral. Ist, ist das so? Ich mein, der übertreibt, er hat übertreibts
+auch manchmal ganz schön mit seinem Zeug was er da erzählt, ja. Was ganz davon abgesehen,
+dass das irgendjemand irgendwann, irgendwann wieder, irgendwann abhebt, wie sie sich das
+erhofft haben, habe ich eh schwarz gesehen, aber nur weil ich das, weil ich das nicht
+sehe. Hey guck mal, die Leute haben jetzt auf einmal Füße. Ich dachte, der Metaverse
+hat halt keine mehr Beine und Füße. Und wie kommt er da jetzt drauf? Okay, wir gucken
+mal kurz News. Es stimmt überhaupt nicht. Okay, es gibt keine weiteren News dazu. Alles
+klar, gut, nice, GG. Alles klar. Ja, der übertreibt manchmal so ein bisschen. So, also gucken
+wir uns mal das an. The brutal downfall of BetterTwitchTV. Verwendet noch jemand BetterTwitchTV
+von euch Leute? Ich verwende nur noch FFZ und nachdem FFZ auch BetterTwitchTV Emotes
+kann und 7TV Emotes kann, macht es eigentlich gar keinen Sinn für mich mehr. Idee für
+altes Notebook als Server, sowas wie Proxmox drauf oder was anderes, das kommt drauf an.
+Leute, es macht keinen Sinn, irgendeine alte Kiste hinzustellen und daraus einen Virtualisierungshost
+zu machen, wenn man nichts hat, was man virtualisieren will. Oder hast du was, was du virtualisieren
+willst? Weil dann hast du es dir quasi schon selbst beantwortet, dass es Sinn macht, wenn
+dir die Leistung ausreicht und wenn deine CPU das kann. Ansonsten sind alte Notebooks da
+ganz gut für. Ich meine, die sind meistens recht leise, die brauchen nicht viel Strom
+und die haben je nach Notebook auch ganz okay Leistung. Kann man verwenden für sowas? Habt
+ihr eine Idee, wie ich einen Terminal UI Dialog, der sehr wahrscheinlich mit Dialog erstellt
+wurde in einem Skript? Dialog ist das Ding mit diesem blauen Hintergrund und den, den
+grafischen Dingern zum auswählen dann. Ich hab vergessen, wie das heißt. Wie nennt sich
+das denn? Das hat so einen speziellen Namen, diese Art von dir. Ich zeig's euch mal. Weißt
+du, Kekkel, wie benutzt man das? N-Curses, das meine ich, genau. Ach du Kacke. Wie macht
+man das? Wie benutzt man das überhaupt? Wie, wie, wie, wie benutzt man? Der Thomas Dick
+hat das, hat das programmiert, so, so. Wie, wie, wie, wie macht man das? Ich hab keine
+Ahnung, wie man das überhaupt benutzt. Kalender? Was? Form? What? Gibt es nicht einfach Textbox?
+Ok, Textbox. Textbox, ne, ne, gibt's nicht. Textbox? Null. Was? Leute, ich bin unfähig,
+das zu benutzen. Ich, ich, so, ok, wie geht das? Zeig mal ein Beispiel. Dialog. Off.
+Ja. Beispiel please. Ja, ja, ja, ja, ja, ja, ja, ja. Ja und wie geht's? Yes, no, möchten
+sie abrechen? Ok, alles klar, das will ich haben. Genau. So, das willst du automatisieren?
+Ähm, das ist doch einfach.
+Du willst xdo, xxdo-tool haben, da kannst du an Fenster Tasten-Inputs senden.
+Und du willst dann den Tasten-Input senden, einmal Pfeiltaste rechts und Enter.
+Kannste machen, Keypresses, das weiß ich aber aus dem Kopf gerade nicht, wie das funktioniert.
+Gucken wir mal, gucken wir mal, wie das funktioniert hier.
+Press Key N, genau, ok, also machst du hier, Press Key N und Enter, ok, mach den Dialog
+auf, oh, Key N und jetzt müssen wir das noch ans richtige Fenster, Fenster muss ja so
+sein.
+Groß N, ja, wir müssen es irgendwie im gleichen Fenster ausführen, das wird jetzt ein bisschen
+eklig von der Sonntags her.
+So, können wir das so machen, nein, ok, das hat nicht funktioniert, also es wird aber
+funktionieren, wenn man es im zweiten Fenster macht, so und jetzt musst du halt hier angeben
+an welches Fenster du das senden willst, das weiß ich aber aus dem Kopf ehrlich gesagt
+nicht, wie das funktioniert, das musst du nachgucken.
+To Specific Window, ja, ja, klar, da kannst du einstellen, an welches Fenster du deine
+Tastendrücke, Tastendrücke schicken willst.
+Es gibt theoretisch die Möglichkeit das Ganze auch noch in Expect oder so zu rappen, aber
+das funktioniert glaube ich für grafische Tools nicht, beziehungsweise auch für grafische
+Commandos, also Konsolentools nicht, da wirst du wahrscheinlich Tasten Inputs senden müssen.
+Ja, Sarix, das kenne ich schon, das habe ich letztens, das habe ich letztens auch schon
+gezeigt, ja, das ist eklig zu automatisieren, aber da wird ja nichts anderes übrig bleiben,
+wie sowas zu machen hier, Sende, Sende Key, hier Sende Key, yes, hat doch funktioniert,
+hat doch funktioniert, ja, Sleep, 2, guck, geht doch, ja, Error Right, wie macht man das,
+Key Up, Down, Right, ok, also kann man auch sagen quasi, Right und Enter oder so, ja,
+hat auch funktioniert, guck, er ist nach rechts, er ist nach rechts geswitcht und macht
+Enter, ja, kannst du, kannst du, geht, ja, Zack, Bam, Switch, rechts, Enter, ja, kann
+man auch sagen, so, so, so funktioniert das nicht, ja, ok, also, das funktioniert so nicht,
+wie ich mir das gedacht habe mit dem Sleep, aber das kannst du so automatisieren, ja,
+Simikolon vergessen, ne, ich wollte es hier dazwischen einbauen und ich dachte, das geht
+vielleicht, dass man das direkt da Inline, Inline einbauen kann, weil ansonsten müsste
+ich jetzt ja so machen, Sleep, 1, ne, und dann noch mal und dann Enter und so, das ist
+natürlich auch doof, so, jetzt switcht er rüber, macht ein Sleep und drückt Enter,
+ich würde auch jede Menge Sleeps einbauen an deiner Stelle, weil ansonsten ist das Shellscript
+vielleicht nicht schnell genug.
+Ja, wenn das geht, wenn das geht, ist natürlich sinniger, aber wenn du wirklich was automatisieren
+willst, willst in der Kommandozeile mit Tasten drücken, dann bleibt dir ja nur sowas.
+Ist eine Stelle als Junior Kubernetes Admin, ja, fragt die mal, wie sie Kubernetes aussprechen,
+ist es Kubernetes, ist es Kubernetes, ist es Kubernetes oder sowas und wenn die sagen
+Kubernetes, dann sagst du gleich, ne, zu euch will ich nicht, ne, keine Ahnung, was ich
+dir als Junior Admin im Vorstellungsgespräch raten soll, ähm, außer das, was man immer
+raten kann, nicht so wirklich jetzt aber spezifisch zu Kubernetes, ja, das würde ich nicht, das
+sind aber so allgemeine Themen, ich überleg gerade, was man explizit für die Stelle als
+Junior Kubernetes Admin sagen könnte.
+Kommt halt drauf an, bei wem du das Vorstellungsgespräch hast, hast du das bei irgendeinem der Ahnung
+hat oder ist das nur so ein erstes Scan-Gespräch von irgendeinem Typ von der Recruiting-Firma
+oder von irgendeinem Personaler, der eh keinen Plan davon hat?
+Also ist da jemand, vielleicht weißt du das, also dort, wo ich jetzt Vorstellungsgespräche
+hatte, stand immer dabei, wer teilnimmt am Vorstellungsgespräch, ich hatte aber in letzter
+Zeit nur zwei und eins war direkt mit dem Chef, also, äh, oder mit dem, ist ja nicht
+Chef, es ist ja der, was ist der Technik-Chef mit dem CTO, wobei das halt auch eine kleinere,
+größere Firma war, also da wusste ich halt mit wem ich rede und bei den anderen stand
+es immer dabei, es nehmen teil, bla bla bla, Teamleiter-Bereiche, Exkursion, bla bla bla,
+Personalabteilung.
+Ein paar aus dem Team, alter, was wolle ich da irgendwie, die mangelte eben oder so, ich
+finde es immer schon ein bisschen cringe, wenn da einem drei Leute gegenüber sitzen
+und man denkt so, ja, alter, was wolle ich da da hinsetzen, acht oder was, ja, also, mir
+fällt jetzt ehrlich gesagt, so Kubernetes-Admin-spezifisches jetzt nix so direkt ein, was man da vielleicht
+mit was man punkten könnte, ich mein, du wirst ja schon ein bisschen Erfahrung haben als
+Kubernetes, ich mein, es ist zwar eine Junior-Stelle, aber es ist eine Junior-Stelle, als Kubernetes-Admin,
+aber es wird wahrscheinlich Anforderungen sein, dass man zumindest ein bisschen Plan
+von Kubernetes hat.
+Meinung zu Fefe, ich hab schon ewig Jahre nix mehr von Fefe gelesen, keine Ahnung was
+der aktuell treibt.
+Ja, natürlich kannst du ein bisschen von deinen Erfahrungen berichten, was du schon
+gemacht hast.
+Und ansonsten nur das allgemeine Zeug fällt mir jetzt gerade so spontan nichts ein.
+Du versuchst Checkmk-Updates zu automatisieren und bei OMD, das ist das Kommando-Zeilen-Tool
+von Checkmk, oder?
+Dover Dialog, tja, sackt.
+Bester Tipp, Leute, kein Scheiß machen.
+Ich glaube, diesen Tipp kannst du auf 99% der Lebenssituationen anwenden.
+Just, just kein Scheiß machen.
+Das geht immer.
+Und wenn's nicht läuft, dann hast du wahrscheinlich zu viel Scheiß gemacht.
+Oh Leute, ich hab gerade eine Nachricht von Twitch bekommen.
+Das Werbeprogramm von Twitch wird noch flexibler im April.
+Ist mir egal, ich hab, glaub ich, noch nicht einmal Werbung laufen lassen in meinem Stream
+hier.
+Also Werbung, wo man auf diesen Werbebutton drückt.
+Wenn überhaupt kommt Werbung, wenn ihr einschaltet, weil ich da nix dagegen machen kann.
+Aber ich hab noch nicht einmal Werbeknopf gedrückt.
+Ich hab natürlich schon Werbung gezeigt, weil ich Sponsoring-Sachen in Streams hatte,
+aber ich hab nie Werbung, Werbeunterbrechung gedrückt bisher.
+Ja, das Werbeprogramm ist auch unsinnig.
+Hast du eigentlich eine Ausbildung zum Systemintegrator?
+Ich hab Systemintegration gelernt.
+2007.
+Ist schon ein bisschen her, ja.
+Geht richtig aussprechen, ja, das wäre nicht verkehrt, geht richtig auszusprechen.
+Also man sollte sich Shit aussprechen.
+Nö, kenn ich nicht.
+Ist das, ist das, ist das das von den Battlefield-Leuten, von den ex Battlefield-Leuten?
+Ja, ist es, ist es, ist es.
+Bekommt bisher gute Kritiken, okay, ist das rausgekommen schon?
+An den ehemaligen DICE-Entwickler, Klaus Beter, zu dem er auf PC gestanden hat, okay, okay.
+Alles klar.
+Wäre doch cool, wenn die was auf die Reihe kriegen.
+Man, DICE hat es ja nicht auf die Reihe gekriegt die letzten Jahre, wäre doch gut, wenn die
+jetzt was Neues, wenn die jetzt was Neues schaffen.
+Ich habe übrigens irgendwas heute gelesen, das habe ich nicht ganz gecheckt.
+Vielleicht blicken da irgendwelche TikTok-Enjoyer von euch durch.
+Ich habe gelesen, es gibt einen neuen TikTok-Trend, dass man bei irgendeinem Kinofilm und nur
+bei einem bestimmten Kinofilm mit Cola, mit Colaflaschen gegen die Leinwand werfen soll,
+so lange bis der Film abgebrochen wird.
+Was zum Teufel ist da auf TikTok wieder los?
+Creed, möglich, ja, du hast recht, Creed 3, warum und warum, warum, also plickt das
+irgendjemand, hat irgendjemand eine Ahnung warum, weil die dumm sind, okay, das ist natürlich
+die ultimative Erklärung für alle TikTok-Geschichten, aber wo kommt, was ist da wieder los, man?
+Es ist immer noch ein besserer Trend, es ist immerhin noch ein besserer Trend, als Wäschetaps
+essen.
+Das war wirklich so die Krönung und wisst ihr, wisst ihr, was gleichzeitig der dümmste
+und tragischste Trend überhaupt war, von dem ich, von dem ich, von dem ich so direkt
+gar nichts mitbekommen habe, aber man hat die Opfer, die Opfer gesehen, also das war,
+es gab auf TikTok eine Ich erhänge mich Challenge, es war nicht wirklich eine Ich erhänge mich
+Challenge, man muss sich mal vorstellen, alle TikTok, die sind wirklich, trennen komplett,
+trennen komplett ab, es gab, es gab eine Challenge, da ging es darum, sich selber, sich selber
+bewusstlos zu würgen oder so und das ist ein Schwachsinn, muss man sich mal vorstellen,
+wenn man das schon, wenn man das schon ausspricht, stellt man fest, wie unglaublich bescheuert
+das alles ist, so und ich habe das nur mitgekriegt, weil es vor einer Weile eine größere Diskussion
+um Lebenserhaltende Maßnahmen, war das glaube ich, gab in England und da gab es ein Kind,
+das lag jetzt irgendwie, keine Ahnung, zwei Jahre oder so mit Hirntod im Krankenhaus und
+da habe ich mir mal die Geschichte zu durchgelesen, das hat sich selbst quasi für eine TikTok
+Challenge so erhängt und die Mutter hat es halt gefunden, wo es zu spät war, kam das
+Kind ins Krankenhaus, Hirn halt schon komplett hinüber und da ging es dann letztendlich
+darum, ob die Geräte abgestellt werden dürfen und so was, es war eine riesen Geschichte
+in UK und da geht es gar nicht so sehr darum, es ging jetzt um die TikTok Challenge, also
+es gab wohl wirklich eine TikTok Challenge, wo die Leute sich selbst gewürgen sollten
+bis zum bewusstlos werden und da muss man sich sagen, man kann sich doch schon überlegen,
+egal wie jung und wie blöd man ist, dass die Sauerstoffzufuhr zum Gehirn abschneiden
+nicht sonderlich gut sein kann, also ich meine, es ist doch gar nicht möglich, dass man nicht,
+dass man das nicht merkt, dass es eine doofe Idee ist, das muss einem doch klar sein, ach
+keine Ahnung, TikToks Zeug, ich blicke da nicht mehr durch, ja gut, das ist ja wieder
+was anderes, sich mit Kleber an der Straße festkleben.
+Was, was, künstlich hyperventilieren, nee, nee, nee, nee, es gab, nee, nee, aufs Herz
+drücken musst du nicht, es gab ein Trend, wo die Leute hyperventiliert haben im Liegen
+und dann schnell aufgestanden sind, sodass sie bewusstlos werden, das haben sie gefilmt,
+das ist unglaublich, es ist so unglaublich dämlich, das ist so bescheuert man, aber
+die Wäschetaps-Challenge war schon auch absolute Krönung von TikTok Trends bisher, ja, meine
+Güte, ja, zu sechst im Vorstellungsgespräch, mal gucken, hoffentlich schwätzen sie dich
+nicht so voll von allen Seiten gleichzeitig, haben da bisschen Struktur drinne, ah, du machst
+das schon, ich mein, du hast ja hoffentlich Ahnung von dem Thema, das kannst du denen
+ja auch ruhig verkaufen, dass du Ahnung von dem Thema hast, ansonsten, tja, achso, wir
+wollten ja ein Video gucken, fällt mir gerade ein, kann man Anwendungen, die auf einem Container
+eigentlich mit Anwendungen, die auf einem Container, Clustern oder Notebalancing, ja, kann man,
+also sprich nix dagegen, das zu machen, also rein, von der Machbarkeit her, geht doch so
+klar, warum soll das nicht gehen, was machst du, aktuell bist du im Projektleiter, oh,
+Gottes Willen, bloß nicht, wenn du wissen willst, was ich beim aktuellen Arbeitgeber
+mache, guck einfach mal, ich habe auf YouTube, ja, sowas habe ich gemacht, warum, ich habe
+relativ viele Videos zu dem Thema schon gemacht, kannst dich auf YouTube mal umgucken, da ist
+das auch alles ein bisschen ausführlicher, was ich erzählt habe, aber ich bin glücklicherweise
+kein Projektleiter, und ich habe auch keine Ambitionen Projektleiter zu werden, so, wir
+müssen jetzt aber das Video noch gucken, weil, sind ja nur 7 Minuten, Lul, wir fangen noch
+von vorne an, guckt euch mal an, richtig, ein richtig nicer Kacona Stecker, ja, ich
+glaube, das ist jetzt ein Clip, ich dachte, das ist irgendwas von früher, ja, das ist
+jetzt ein Clip, ich dachte, das ist irgendwas von früher, ja, Nightbot hat bei mir auch
+ein paar Aussätze auf das Mal,
+ich
+right at the us capitol i know this just went zero to 101 sentence but this was the reason
+why he was removed as the face of the emote on twitch that's where i believe the very very beginning
+of the end for better ttv started as in reaction to twitch removing the emote franker phase z
+removed every pogchamp emote variant basically any imagery with goo tex's face in it was off
+their extension besides pog that one stayed with better ttv saying that they will not be removing
+any pog emotes in general better ttv has never removed emotes due to controversies and likely
+won't as a result of this behavior ja das ist der grund warum wir noch manche pog emotes
+im chat benutzen können wegen der twitch theory choice on our platform in retrospect this was
+the right choice for better ttv because during this time all the big streamers wanted to seem
+like they were doing a big service to the streaming community by changing their pogchamp emotes to
+something different only for them to all flip back to using goo tex emotes like four months later
+but that statement they released would also backfire on them because in february of 2021
+better ttv decided to remove the emote zulo off their website now this one i definitely agree
+should have been removed i mean look at it man after its removal it was promptly replaced
+with a new zulo but because of that something in the dark depths was cooking something was brewing
+in the spring of 2021 a new extension would be making the rounds around smaller streamers chats
+7 tv and reaction to the emotes better tv was removing this extension was created now the big
+reason why i said it was immediately said okay that was also one of the reasons why i made a
+bigger curve around 7 tv now it's supposedly better
+kohler abgedrückt
+features 7 tv brought to the table like zero with emotes allowing you to stack emotes on top of each other and name paints for further customizability okay that's actually quite cool that was enough to convince quite a lot of people to download the extension the problem with the extension at launch was truly it didn't take itself too seriously causing some questionable emotes to be plastered all over the website or hidden private emotes only visible if you visited the user's profile there was so much potential for this extension to take off and be better than any extension available and
+after some criticism they took it to heart because they got to work almost immediately fixing the emote
+issues and moderation problems slowly but surely the number of users on the website began to grow
+and it grew enough to where it was time to start getting emote integration on the other extensions
+emote integration allows users to install only one of the main emote extensions but will still be able
+to see all three of the extensions this is where things get funky
+they easily got the integration now for better ttv in various chats 7 tv users were asking better tv devs about emote integration this could be chalked up to just general shit talk and it wasn't directly from the creator night but a few staff members were pretending they didn't know what 7 tv was which doesn't make sense considering they are better tv staff members like you would think you would know or catch wind of the new extension that everyone is talking about on october 9 2022 this little twitter thread would be the start of a little tiny beef between the
+creator of better tv night and the creator of 7 tv anatole moment es gibt ernsthaft beefs zwischen chrome add-on creaton
+and emotes are finally here you can now upload emails with up to three times more width from your dashboard dead app 7 tv on top yeah but 7 tv is taking away too much
+information about you and your viewers so i would not recommend to use 7 tv is taking away too much information about you
+okay also sprich er sagt da ist quasi so tracking eingebaut tv from what i've heard they have bots which sit in all the twitch chat collecting data and when the bots get banned it rejoins on a different account i.e.
+you can't get rid of it dude your extension has an option to see the chat while banned a bot rejoining on anon is no different
+speak about unethical while your service literally demands hundreds of dollars for that same month
+under what i believe was now the lead promotional tweet from twitch night would be seen under that
+tweet throwing more shade at 7 tv this sure looks like ban evasion to me which is definitely against
+the at twitch community guidelines it's surprising twitch streamers slash viewers continue to promote 7 tv
+given their unethical practices this response is not what you'd expect from a company acting with
+good intent now all this shit talk only ever started once 7 tv began to become a real threat
+financially to better tv that's when night started this little campaign to shit talk and i'm sure he
+thought it would go amazing i mean he created better tv he must have all the twitch ogs by his side
+he ended up nuking his whole twitter page and has been extremely silent since this encounter up
+until january 18th of 2023 huge massive gargantuan update for better tv dropped i am not exaggerating
+when i tell you this one to one bar for bar they stole every single feature that made seven tv
+unique loyalty badges larger emote slots emote renaming and they changed their logo to a scuffed
+ass punch studios wer hat denn jetzt von was geklaut better twitch tv hat von 7 tv oder wie geklaut
+logo the most interesting addition though was what's this 7 tv support has it finally happened
+have all the emote extensions made peace and we can finally live happily ever after well when
+ticking the 7 tv box you are met with a very backhanded message disguised as a very heartfelt
+warning from what i can't help but assume was written by night himself over one million users
+in almost two years and every big streamer having the extension enabled in their chat
+i believe it is safe to say there is a new king of twitch emote extensions
+ja easy ja so lange die ihre moderationsprobleme in griff gekriegt haben mache ich das
+mit consistent updates und ein eurer der nicht versuchte brüchen zu brennen
+statt in der Vergangenheit war er hoffnungsvoll für eine welt wo alle extensions zusammenarbeiten können
+aber klar mit dem nicht möglich sein sieben tv hat sich selbst in der twitch historie als der
+erste neue emote extension zu erzielen beim brechen in den scenen und auch die twitch
+space by expanding on the whole idea of an extension and for them it's worked quite well
+i don't believe better tv will ever fully die but the stunts performed by night
+have truly put a stain on the entire legacy of better tv
+schon irgendwie sas
+oder china chinesen das kann natürlich auch sein ja auch möglich auch möglich
+ich glaube es ist bettgetime oder nicht wie seht ihr das sieht es sieht nach 22 uhr 8 aus
+was heißt sieht nicht nur nach 22 uhr 8 aus sieht nach 22 ist auch 22 uhr 8
+musst du morgen arbeiten ja ich muss montags nicht arbeiten freitags muss ich arbeiten und
+das wird beim neuen arbeitgeber auch so sein und morgen fahre ich sogar noch mal nach frankfurt
+let's check in irgendwas vergessen hab im chat post jam
+ja ne hab ich nichts übersehen ja welche denn ich sehe keine
+er macht sommer ist das wurde chain law gebannt das ist ein neuer account vom chain law hier
+das muss ich jetzt mal überprüfen ok ne du bist kein account von chain law du bist 2013
+gejohnt und bis seit 2017 am starten hast über 1000 nachrichten geschrieben nee ok du bist nicht
+du bist nicht 2.0 ich glaube ich hab dich auch schon aber der chain law ist normalerweise
+der einzige dieses ausrufe zeichen frage sinnlos spammt wo ist er eigentlich da habe ich jetzt den
+letzten zwei streams nicht gesehen normalerweise ist er immer am start und spammt irgendwelche
+sinnlosen dinger rum oder oder postet irgendwelche monka toss subreddits und so was oder so was ja
+ok leute wir sehen uns ist den macht es gut zu
