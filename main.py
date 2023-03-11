@@ -13,6 +13,12 @@ from api import Api
 
 def process_vods() -> list:
     """Transcribe all needed vods and push them to git"""
+    # update repo
+    repo = Repo(os.path.join(pathlib.Path(
+        __file__).parent.resolve(), ".git"))
+    origin = repo.remote(name="origin")
+    origin.pull()
+
     # use the first api in config to transcribing and set whisper device
     first_api = Api(config["apis"][0])
     device = transcribe.select_whisper_device()
@@ -41,10 +47,6 @@ def process_vods() -> list:
 
         # push transcript to git
         try:
-            repo = Repo(os.path.join(pathlib.Path(
-                __file__).parent.resolve(), ".git"))
-            origin = repo.remote(name="origin")
-            origin.pull()
             repo.git.add(args.output)
             repo.index.commit(f"[🤖] add {vod['filename']}")
             origin.push()
