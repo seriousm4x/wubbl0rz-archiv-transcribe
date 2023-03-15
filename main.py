@@ -47,6 +47,7 @@ def process_vods() -> list:
 
         # push transcript to git
         try:
+            origin.pull()
             repo.git.add(args.output)
             repo.index.commit(f"[🤖] add {vod['filename']}")
             origin.push()
