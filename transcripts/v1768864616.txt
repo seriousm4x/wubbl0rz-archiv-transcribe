@@ -1,0 +1,1073 @@
+Auf gehts Pogu, ich muss nebenbei ins Discord gucken, ob MMO Kreiselgrind losgeht, da muss
+ich nämlich abhauen. Da ist er wieder. So Leute, seid ihr bereit noch für eine Runde
+zu gehen? Dann macht mal kurz ein Update in meiner Vm. Irgendwas stimmt auch mit meinem
+Mikrofon nicht. Sekunde, was hat Windows da wieder getrieben? Na ja, es ist doch zum
+Großteil eigentlich okay so. Ja, weiter gehts. Heute kümmern wir uns um zwei essentiell
+wichtige Sachen, nämlich Secrets und Let's Encrypt Zertifikate. Oder generell Zertifikate
+bei den meisten Leuten. Eigentlich Let's Encrypt, wenn man mal ehrlich ist. Wer gibt
+heute schon noch großartig Geld aus, außer mein Arbeitgeber, aber wer gibt da noch normal
+im Kopf ist, der gibt da noch großartig Geld für Zertifikate aus. Beziehungsweise macht
+sich den Aufwand dann mit teilweise noch manuellem Verlängern und sowas in der Richtung.
+Webminister, danke schön für den Zap. Patrick, moin. Schön, dass ihr alle am Start seid.
+Benutzt irgendjemand von euch noch Zertifikate, die nicht Let's Encrypt sind? Also ich weiß,
+bei mir auf der Arbeit haben wir noch Zertifikate, die nicht Let's Encrypt sind, weil irgendwelche
+Leute der Meinung sind, es ist besser, wenn sie die immer von Hand bestellen, weil sie
+dann wichtig sind. Ansonsten hat es keinen weiteren Sinn. So, ich mach mal kurz. Okay,
+läuft der Cluster noch? Nee, der Cluster ist abgekackt. Na auch gut. Ohne Mist, ich
+würde für Let's Encrypt auch was bezahlen. Kein Ding? Also wenn Let's Encrypt, also ich
+würde theoretisch sogar für Let's Encrypt auch so bezahlen, aber wenn die wirklich wollten,
+die müssten einfach nur irgendwie so paar ganz kleine Sachen vielleicht als Premium
+bieten, von der Supporter-Batch im Forum bis zu vielleicht irgendwie die Möglichkeit,
+die E-Mails nochmal zu redirecten, die man da eingetragen hat, wobei das natürlich dann
+auch bis braucht werden kann. Muss man sich halt genau überlegen. Also man müsste echt
+viel machen, dass ich da Geld bezahlen würde bei Let's Encrypt. Ja, das hat es bei uns
+auch gehießen, aber das kommt meistens von Leuten, die das nicht so meinen. Also es gibt
+zwei Varianten, entweder die haben keine Ahnung oder die meinen das eigentlich gar nicht so,
+sagen es aber trotzdem, weil sie es dann nicht mehr wichtig sind. Also es gibt ja Leute, die
+kümmern sich hauptsächlich um Zertifikats-Handling, Zertifikats-Management, Bestellen, Überwachen,
+Verneuern und diese Leute sagen dann null Let's Encrypt in der Produktion. Das sagen
+die allerdings nur, weil sie Schiss haben, dass Let's Encrypt sie irgendwie überflüssig
+macht. Ich weiß nicht, Stefan, wie war es bei euch? Oder wie schätzt du es denn ein?
+So, ich starte mal kurz die VM neu und wir machen mal Delete Minikube, machen wir den
+Cluster mal kurz aus, machen hier alles zu. Wir starten jetzt nämlich den Rechner mal
+neu, also die VM, nicht den Rechner, weil sonst wäre ja das Stream weg. Das kommt auch
+dazu, aber ich glaube gerade wenn es von Leuten kommt, die ein bisschen Ahnung haben, dann
+sehen die so ihre Fälle wegschwimmen. Also wenn die vorher was mit Zertifikaten zu tun
+hatten. Was ich gerade mache, ich habe gerade den Stream angemacht vor 4 Minuten. Ne, die
+Diablo 4, da werde ich mal warten bis es rauskommt. Ich kann mich auch dran erinnern, die Diablo
+3 Beta war auch nicht übel, weil der erste Akt auch das beste am ganzen Game war. Es
+ist ja noch nicht mal nur Zertbot. Mittlerweile ist der Mist ja schon in nahezu alles Mögliche
+integriert. Du hast Caddy geprinkt, das standardmäßig mit Traffic, falls irgendjemand wirklich noch
+Traffic verwenden will, freiwillig. Na gut, im Containerumfeld ist Traffic wirklich ganz
+nice, wenn man was braucht, was easy zum Setup ist. Allerdings, ich bin kein großer Traffic
+Fan. Caddy hat es eingebaut, Traffic hat es eingebaut, alle möglichen Hoster und Cloud
+Provenzer, alle haben es eingebaut mittlerweile. Das ist halt schon sehr praktisch. Ja, bewundert
+mich, ich glaube auch nicht. Nice, hat es richtig gelohnt. Moment, soll ich dich time
+outen? Moment, ich time oute dich persönlich sogar. Ich weiß gar nicht wie das geht. Wie
+überhaupt? Hatte man da nicht im Knopf, wenn man den Namen anklickt? Warte mal, ich bin
+zu blöd, ich kann das glaube ich nicht mehr. Ich kann nicht bunnen, blocken, ah hier, hier,
+hier, time out. Nice, so, jetzt bist du getime outet. Jetzt habe ich dich wieder untime outet,
+jetzt bist du wieder da. Was ist denn das hier, was passiert denn da im Hintergrund gerade?
+The Way aktualisiert Leute, The Way. Rust, nicht Blazingly Fast aktuell. Das ist überhaupt
+nicht Blazingly Fast. Ich mache das jetzt aus. Nochmal, nochmal neu starten. The Way.
+Erstmal halbes Internet runterladen, ja. Ah, okay, jetzt geht es schneller, na gut. Was
+passiert da eigentlich gerade? Der lädt wirklich, das ist ja fast schon zweites Node Modules
+was hier abgeht. Ich erzähle gleich was wir heute machen wenn ein paar mehr Leute da sind.
+Ich muss nebenbei immer ins Discord, erinnert mich mal please mit dran, ich muss mal nebenbei
+immer ins Discord gucken ob die Leute da sind. Dann machen wir nachher noch eine Runde Kreisel
+grind. Mein Gott, Rust, mach hinne, Alter. Was ist denn das? The Way, was ist das überhaupt?
+Das ist ein Snippet Manager für Command Line. Geht kein Mensch, Alter. The Way. Weg damit,
+cool. Alles klar, exzellent, perfekt. Okay, Reboot. Wir machen jetzt gleich ein neues
+GitHub Repo. Ja, wir machen jetzt ein neues GitHub Repo. Für den Stream heute. Beziehungsweise
+wir können ein GitHub Repo machen wo wir die ganzen Sachen rein posten in nächster
+Zeit. Also, dann erzähle ich mal so ungefähr was wir heute vorhaben. Es ist blöd wenn
+ich das jetzt erzähle. Ich starte erstmal den Cluster wie wir das letzte Mal aufgehört
+haben und dann gucken wir uns das an. Ja, geiles Notizprogramm, das haben wir jetzt
+gebraucht. So, ich hoffe es ist alles geupdatet. Cute. Cute K8S, da sind wir. Okay, alles
+klar, also ich werde das mal ganz kurz zeigen, mal kurz einloggen in Shithub. Fiveheader,
+alles klar. Repos. Nein, das nicht, das ist mein privates, da machen wir hier. Machen
+wir auch Public, ist nicht wild, dann könnt ihr danach gucken was wir heute gebastelt haben.
+Create Repo. So, also ich zeige euch mal wo wir das letzte Mal stehen geblieben sind,
+dass ihr so ungefähr durchblickt was wir das letzte Mal gemacht haben und dann sage
+ich was wir heute machen werden. Als erstes starte ich mal wieder wie gehabt einen lokalen
+Kubernetes Cluster, bei mir auf der VM mit Minikube. Das ist nichts wo man später produktive
+Kubernetes Cluster mit laufen lässt, sondern das ist nur lokal in der VM zum ausprobieren.
+Was ich mir demnächst vielleicht mit euch mal angucken will war Talos OS. Keine Ahnung
+ob das was taucht. Ich habe eh nicht vor im großen Stil Kubernetes Cluster selber zu
+hausen, aber sich so ein bisschen mit so Basics zu beschäftigen ist nie verkehrt, das hilft
+einem auch wenn man Managed Lösungen verwendet, weil man dann Dinge einfach besser einschätzen
+kann. So, also unser lokaler Kubernetes Cluster ist am Laufen und ich applye jetzt mal die
+Config vom letzten Mal. Ich bin mir nicht ganz sicher ob das so überhaupt funktioniert
+hat. Nee das funktioniert so nicht. Moment. Warte mal. Ich muss doch erstmal meine Passwörter
+setzen oder? Ich habe doch hier so eine Datei die sich super geheim nennt. Dann löschen
+wir den Cluster nochmal kurz. Wir machen jetzt nochmal start.sh. Dann sollte das Ding hoffentlich
+den Cluster hochfahren. Und dann sagen wir kubectl applye-k und applye in unsere aktuelle
+Config. Ich zeige mal kurz was wir aktuell im Cluster laufen haben. Nicht wahnsinnig
+irgendwie spannendes Zeug. Wir haben aktuell nur zwei Sachen laufen und zwar wir haben
+einmal ArgoCD laufen und einmal eine selbst entwickelte App, die nichts anderes außer
+bisschen Blödsinn auf dem Webinterface ausgibt zum testen. Dazu haben wir ein paar Configs
+noch angelegt. Kann ich euch zeigen. Wir haben noch ein paar Configs angelegt. So wir legen
+eine Namespace an für ArgoCD und ein bisschen Magic. Wir starten ein Ingress Server, quasi
+ein Reverseproxy, dass wir uns unter ArgoCDkappaLUL.com connecten können. Ihr könnt es ausprobieren
+ob ihr euch hinconnecten könnt. Ihr könnt nicht hinconnecten, weil ich die Domainlokale
+umgebogen habe. Dann haben wir zwei Appdefinitionen für ArgoCD. Einmal es selber und dann unsere
+selbst entwickelte App. Ich zeige euch das Ganze jetzt auch noch mal im Webinterface
+bzw. wenn man die Config Applian auf den Cluster. Das mache ich jetzt mal. Es gibt mehrere
+Möglichkeiten so eine Jaml-Konfigurationsdatei auf seinen Cluster zu schieben. Also es gibt
+generell mehrere Varianten so ein kombiniertes Cluster zu administrieren. Die billigste Variante,
+ich weiß nicht wie ich es jetzt nenne, die einsteigerfreundlichste Variante ist per Kommandozeile
+mit kubectl. Oder was ich witzig finde, Leute jetzt mal eine Frage. Wie sprecht ihr kubectl
+aus? Ich meine meiner Meinung nach steht das ja eindeutig für Kubernetes Control. Aber
+es gibt Leute die sprechen es nicht kubectl oder kubectl aus, sondern haltet euch fest
+kubectl. Also Kuschelwürfel quasi, Würfelkuschel. K9S ist das beste Interface, das bringt dir
+aber nichts wenn du den Cluster managen willst, großartig. Damit kannst du schön Sachen angucken.
+Ja es gibt Leute die sprechen das so aus, kubectl so. Also quasi Würfelkuschel, Würfelkuschler.
+Ich würde ja sagen der Chat darf sich aussuchen wie ich es ausspreche, das halte ich aber
+nicht aus das kubectl zu nennen. Sonst gewöhn ich mich noch an diesen Blödsinn. Das ist
+weiterhin kubectl. So also Cluster gestartet, also die einfachste Variante kubectl ist über
+kubectl. Da kann man alle möglichen Sachen, man kann sagen create, namespace, das Ding
+hat übrigens wie ihr seht auch TabCompletion. TabCompletion ist was was ich lustigerweise
+relativ selten in YouTube Tutorials sehe wo es um Kubernetes geht. Ich glaube das liegt
+daran dass viele Leute aus welchen Gründen auch immer die Administration von Windows aus
+machen in Videos. Ich weiß nicht was die geritten hat, warum man sowas machen will. Wir benutzen
+tatsächlich ziemlich playing Kubernetes ohne irgendwas aktuell, lokal. Die nächsten Tage
+machen wir tatsächlich dann auch mal richtig was ordentliches und zwar in Google Cloud.
+So und man kann in seine config für die shell, kann man eintragen dass man das hier haben
+will guck kubectl completion für zsh. Wenn man das hier einträgt dann hat man autocomplete
+für seinen Kubernetes Cluster. Und dann kann man das ganze noch aliasen und dann hat man
+ganz kurze Sachen und hat noch die Möglichkeit ihr seht es hier schon autocomplete zu machen,
+also besser geht es da nicht wenn man das über Kumano-Zehler administrieren will. Alias
+dass das ganze abgekürzt ist plus noch, ja was es noch gibt zeige ich euch vielleicht
+auch noch, aber nachdem ich den Cluster konfiguriert habe. So und der Nachvollziehbarkeit halber
+macht man außer beim Einstieg eigentlich relativ wenig über kubectl direkt am Kubernetes Cluster,
+sondern man macht das alles in Kubernetes Manifest Dateien, das sind solche Yammels,
+so was hier, so eine Yammel Datei zum Beispiel, da steht dann zum Beispiel drinne leg einen,
+also ich könnte zum Beispiel sagen kubectl create namespace keckel, da würde er namespace
+anlegen. Ich kann das allerdings auch so im Yammel definieren, das hat den Vorteil wenn
+ich das im Yammel definiere ist das halt irgendwo nachvollziehbar was passiert, ich brauche
+keine komischen Skripte mit Shell Befehlen, ich kann das relativ easy auf weitere Server
+anwenden, ich kann auch Sachen automatisch deployen lassen über Yammels, das ist alles
+über Kommandozeile ein bisschen, ein bisschen eklig und wenn man das eincheckt auf GitHub
+in den Repo, sorry auf Shithub in den Repo eincheckt, dann kann man sogar nachvollziehen
+wer wie wo wann was dran geändert hat, also das ist eigentlich so da way wie man das heutzutage
+macht, man macht natürlich trotzdem Sachen weiterhin mit kubectl, logs angucken, Portstatus
+angucken, Serviceadresse an was auch immer, alle möglichen Geschichten, man kann auch
+falls gerade einer im Chat erwähnt hat, man kann auch K9S verwenden als Frontend für den
+Cluster und sich dann so Sachen angucken wie IP vom Container, logs, logs vom Container
+und solche Geschichten, gibt es halt da keine logs. So und wenn man so eine Konfiguration
+erstellt hat in Yammel, da gibt es keine so strikte Vorgabe wie man das machen muss,
+man kann da kann man sich jeder selbst ein bisschen überlegen wie man das ganze eben
+organisiert, also ich mache ganz gerne zumindest aktuell mal gucken wie das ist, wenn ich da
+mal wirklich im richtig großen Stil komplett selbst konfigurieren muss, vielleicht denke
+ich mir da auch was anderes aus, pro installierte Anwendung ein Ordner wenn die Custom-Config
+braucht und für jede App so ein Application-File hier oben im Apps-Folder. So und dann hat
+man hier seine Konfiguration für den Cluster und dann geht man in das Verzeichnis und sagt
+kubectl apply entweder minus f, da kann man dann direkt das Yammel-File angeben was man
+auf den Cluster applyen will oder man sagt minus k Punkt, dann wird das Customize-File
+im aktuellen Verzeichnis ausgeführt. Customize ist eingebaut in kubectl und auch in ganz
+vielen anderen Gruppen des Tools, damit kannst du so ein bisschen die ganzen Yammel-Dateien
+bundeln. Ich kann zum Beispiel sagen hier, führ mal alles aus was im Argo-CD-Ordner ist
+und zusätzlich noch das da. Man kann da noch mehr machen, man kann auch Namespaces überschreiben
+in allen quasi ja darunter liegenden Ressourcen und noch viel andere ekliche Geschichten
+machen aber das lassen wir jetzt. Ich applye das jetzt mal auf meinen Cluster und dann
+gucken wir mal ob das noch funktioniert was wir das letzte Mal gebaut haben. Ah das wird
+wahrscheinlich nicht funktionieren, ja ok was auch immer. Das wird wahrscheinlich nicht
+funktionieren Leute, ich weiß auch warum das nicht mehr funktionieren wird. Mein GitHub
+Talken vom letzten Mal ist expired. Da sollte jetzt eigentlich nix gehen. Also schauen wir
+mal Pots. Zumindest Argo-CD selber läuft. Secret. Initial Secret. Einmal das mal hier.
+Port forward in den Cluster rein. Machen das mal auf. Das einzige was wir auf unserem Cluster
+aktuell installiert haben ist Argo-CD. Also das einzige was wir aktuell installiert haben
+auf unserem Kubernetes Cluster ist Argo-CD. Argo-CD ist ein Tool was dafür gedacht ist
+um eben solche Konfig hier aus einem Git Repo automatisch auf Kubernetes Cluster auszuführen.
+Also man macht dann gar nichts mehr per kubectl sondern man ändert so eine Datei, pusht das
+ins Git Repo und Argo-CD applyt das automatisch auf den Cluster. So das funktioniert allerdings
+aktuell gerade nicht weil mein GitHub Talken ausgelaufen ist und das Ding kommt nicht zu
+GitHub. Das heißt ich muss mal kurz mein GitHub Talken drüber kopieren damit wir heute weiter
+machen können. So Clipboard aus. Chat ihr müsst jetzt leider mal kurz weggucken. Ich
+weiß ihr guckt auch so weg wenn ich sage aber manchmal muss man auch nur sicher gehen.
+Wo haben wir es denn hier? GitHub Talken. Dauert eine Minute da muss ich den Clamp drüber kopieren.
+Ich hoffe man sieht nichts mehr. Github Talken. Da ist es zack. Glaube das war es. Das sollte
+reichen. Gehen wir mal zurück. Mache euch wieder an. Und ich hoffe ich habe meinen Talken
+jetzt nicht geleakt. Nein ich habe nicht meinen Talken geleakt. Und selbst wenn ich meinen
+Talken geleakt hätte das wäre nicht so schlimm. Weil ich habe was gemacht was ich schon längst
+hätte machen sollen wenn ich öfter streamen und in GitHub rum klicke. Kann ich euch vielleicht
+auch noch mal so als Sixhead Tipp erzählen. Wenn ihr einen privaten GitHub Account habt
+so wie ich hier und ihr habt da einige Repos drinnen und ihr habt Talkens generiert wo
+man Zugriff auf Repos hat wo ihr vielleicht nicht wollt dass jeder wenn ihr aus Versehen
+im Stream mal das Talken zeigt auf eure privaten Repos Zugriff hat dann könnt ihr folgendes
+machen. Ihr könnt eine Organisation erstellen auf GitHub zum Beispiel so hier wie ich hier
+5header und dann erstellt ihr euch einen neuen GitHub User mit irgendeiner Fake E-Mail Adresse
+oder aber mit irgendeiner E-Mail Adresse irgendeiner Catch All E-Mail Adresse von einem eurer Domains
+erstellt ihr euch einen neuen User und gebt diesem User Zugriff auf diese Organisation
+dann hat und dann stellt ihr die Talkens nur mit diesem neuen User aus dann habt ihr Zugriff
+auf die Repos in der Organisation mit eurem alten User mit dem ihr normalerweise verwendet
+und mit eurem neuen User aber wenn ihr das Talken liegt kann nichts Schlimmeres passieren
+als dass Leute Zugriff bekommen auf die Repos in eurer Organisation und dann muss man halt
+sich überlegen was man da reinpusht und was nicht. Ja so siehts aus. Ok. Delete. Ich initialisiere
+mal unseren Cluster neu und diesmal mit dem richtigen Git-Talken und dann hoffe ich zumindest
+dass es jetzt das richtige Git-Talken ist. Ihr habt den Blackscreen durchschaut. Shit.
+Jetzt ist vorbei. Blackscreen hack. Finde ich persönlich schlimmer als Blackfacing zu
+Fasching. Oh da haben sie wieder diskutiert aber ich sag dazu nichts. Ich sag dazu nichts
+das ist eine mühsliche Diskussion. So ist das Ding gestartet. Apply. Ich hoffe es funktioniert
+jetzt sonst müssen wir heute anfangen ohne dass ich euch den letzten Stand zeigen kann.
+Ok nicht nochmal ausführen. Secret. Secret ist noch nicht da das ist ok. Get Pots wir
+können auch K9S aufmachen und uns die Pots angucken und feststellen dass Argo CD Server
+gerade erstellt wird und deswegen man auch noch nicht drauf zugreifen kann. Aha da
+sind wir. Passwort. Port forward machen in den Cluster. Öffnen. Admin. Zack. Sign in.
+Update. Und. Ach das ist normal das kommt manchmal vor. Das kommt manchmal vor wenn
+man zu oft auf GitHub zugegriffen hat. Dann gehts das geht gleich. Das wird gleich. Repository
+not found. Welches Repo nehmen wir denn überhaupt. Ich hätte ich wäre halt doof dass meine
+Github Keys abgelaufen sind. Welches Repo nehmen wir denn überhaupt. Github ja. Ach
+ich hab mein privates Repo noch. Ja ne das funktioniert natürlich nicht. Wenn ich mein
+privates Repo nehme. Ok dann müssen wir das mal umstellen. Und zwar. Git. Remote. Rm.
+Origin. Git. Remote. Add. Origin. Im neuen Repo. Und dann sagen wir Git. Push. Oh.
+Bridge. Genau. Git. Push. Origin. Master. Oder Main. Wie es euch beliebt. Und dann
+haben wir hier den ganzen Krempel drinnen. Sehr schön. Gut. Und jetzt können wir pushen.
+So jetzt können wir das ganze noch mal ausführen. Unser Cluster initialisieren und hoffen dass
+es jetzt endlich funktioniert. Es wird wahrscheinlich auch nicht funktionieren. Weil meine App glaube
+ich auch in einem privaten Repo von meinem privaten Account liegt. Ja. Leider. Ne. Cute
+App. Naja gut. Das ist egal. Die App kann ruhig fehlschlagen. Ich kann euch aber zeigen
+dass es soweit alles funktioniert. Im Cluster. Weil wir machen das heute eh anders. Ihr habt
+ja mitbekommen ich hab jetzt Probleme mit meinen Github Secrets. Dass ich die hier nicht leake
+und sonst was. Wir kümmern uns heute um zwei Sachen. Einmal Secret Management in Kubernetes
+um Zertifikate. Aber erstmal um Secret Management. Also wenn ihr einen Kubernetes Cluster habt
+da werden ja da höchstwahrscheinlich entweder Infrastruktur Management Anwendungen drin laufen
+die Talkons, Passwörter, Usernamen und sowas brauchen damit sie funktionieren. Oder aber
+ihr habt irgendwelche Apps die irgendwo drauf hinzugreifen müssen. Die brauchen auch Passwörter,
+Usernamen, Talkons und haste nicht gesehen. Und da gibt es zwei verschiedene Varianten
+wie man das machen kann. Wir machen das heute mit einem Secret Manager. So. Rampel ist gepusht.
+Apply. Recaps Wobblors. Was sieht man da? Das meist benutzte E-Mode ist Wubgasm. Alles
+klar. Gucken wir uns später angucken. So Cluster ist eingerichtet. Forward. Ne Secret. So und
+dann können wir uns angucken wo wir das letzte Mal stehen geblieben sind. Ich hoffe es funktioniert
+jetzt. Ansonsten machen wir einfach weiter. Local Hosts. Update. Alter. Ah Moment. Moment.
+Das ist das Initiale. Ich hab Probleme auf GitHub zuzugreifen. Wait a minute. Ich hab
+das Repo noch nicht angepasst, oder? Ich hab das Repo noch nicht angepasst. Das ist
+5header. 5header. Ok jetzt. Ne Moment. Was mach ich denn hier? Das hier. So. So ist
+richtig. Und dann auch mit dem großen H an der Stelle. Jetzt aber gut. Jetzt nochmal
+und dann soll es aber endlich funktionieren. Basefin 16. Very secure. Highly, highly secure.
+Ist schon. Achso ne das Repo nicht. Das kann ich dir zeigen. Das Secret ist hier drinnen.
+Da. Guck der macht hier ein bisschen Magic. Der stellt ein wie oft er GitHub abfragt und
+hier kommen die ganzen Secrets her. Deswegen hat es eben auch nicht funktioniert. Das
+sei das Ding. ArgoCD muss funktionieren damit ich mein Cluster gescheit da drüber verwalten
+kann. Sonst müsste ich jetzt halt von Hand apply nochmal. Wär ja auch nicht schlimm.
+So. Apply. Kommt drauf an. Kommt drauf an wieviel du da drauf laufen lasst. Also so pauschal
+finde ich kann man es nicht sagen. Man muss sich bei Kubernetes halt mit ganz vielen Sachen
+drum herum beschäftigen. Kubernetes an sich ist nicht das Problem. So das gesamte Ökosystem
+und die ganzen Feinheiten. Und wenn man dann vom hundertsten ins tausendste gucken muss
+das ist tatsächlich ein Problem. Also Docker Compose File ist auf jeden Fall einfacher
+zu managen. Um Welten einfacher zu managen. Aber wenn man ab und zu mal was ändern muss.
+Also ein Kubernetes Cluster. Aber ansonsten kann das durchaus Sinn machen. Also ich würde
+jetzt nicht sagen es ist doof. Also das kann durchaus Sinn machen ja. So jetzt aber Cluster
+please funktionier. Was? Wollt ihr mich verarschen? Ich hab's so angepasst. I-Fedder? Hä? Moment
+ich applye das jetzt gleich nochmal. Ohne den Cluster neu aufzubauen. Hab ich doch irgendwie
+nur drinstehen? Fuck genau. Ach so. Ja dann. Okay mal gucken ob es jetzt funktioniert.
+Ja ja forward alles gut. Ah jetzt ist schon besser. Kaum passt man das repo an ist alles
+gut. So und was ihr jetzt nicht gesehen habt ist. Der züngt sich jetzt automatisch alle
+anderen Apps rüber. Wie euch vielleicht aufgefallen ist. Also ich hab eine Root App also so eine
+Master App so eine Main App in meinem Repo drinne und die holt sich aus diesem Verzeichnis
+alle anderen App Definitionen. Das ist quasi so die Base App selbst. Das ist meine selbst
+entwickelte App und das hier ist Argo CD selbst. Das hat den großen Vorteil ich zeig
+es euch jetzt nochmal. Das geht übrigens an der Stelle nicht. Weil ich keinen Zugriff
+auf das Repo hab und auch nicht auf das Repo mit dem Image. Aber das müssen wir eh fixen.
+Cute. Cute App. Wir machen jetzt hier nochmal für die Cute App ein Repo. Äh Public. Bäm
+geb ihm. Kopieren. Git Remote Rm Origin Git Add Push. Ok jetzt haben wir den ganzen Klempel
+hier. Ich hoffe die Action funktioniert auch. Git Tag. Ach ja gut. Minus Minus Tags pushen
+alles gut. So ich hoffe meine Action funktioniert. Nö die Action funktioniert nicht. Ok warum
+auch immer. Action. Ah weil Action. Sollte die GitHub Action nicht funktionieren jetzt
+eigentlich. Äh ich sag da gleich was zu. Ich guck mir gleich den Chat an. Warum geht
+meine GitHub Action nicht. Muss ich vielleicht ein neues Tag machen. Tag. Version 6 oder
+so. Warum läuft meine GitHub Action nicht. Ach jetzt. Best Feature ever. Ok. Action
+läuft. Gucken wir mal kurz in die Action rein. Ja ich muss das alles jetzt umziehen
+in meine Public Orga. Deswegen muss ich das nochmal ein bisschen fixen vom letzten Mal.
+Bevor wir heute mit der eigentlichen Geschichte anfangen können. So blub blub blub. Wo bloß
+ist auch verkehrt. Aufwärts. Pfeilfeder muss das sein. So. Pfeilfeder Cute App. Und
+dann muss ich noch der Action. Rechte geben. Äh. Äh. Warum geht das nicht. Äh. Äh.
+Wo ist das Problem. Warum darf ich das nicht einstellen. Äh. Äh. Äh. Äh. Äh. Äh.
+Hä. Wo ist das Problem. External Secrets probiere ich heute aus. Ähm. Ok. Muss ich irgendwie
+den User wechseln. Muss ich irgendwie in den Organisations User wechseln oder sowas.
+Warum darf ich hier nichts einstellen. Wo ich die Secrets ablege in dem lokalen Vault.
+Das ist jetzt kacke. Ich brauche GitHub Actions die in die Container Registry pushen dürfen.
+Warum geht das nicht. Settings. Muss man da vielleicht irgendwas einstellen. Packages.
+Action. General. Vielleicht da drüber. Aha. Aha. Man muss es komplett für die Organisation
+erst mal erlauben dass das funktioniert. Alles klar. Ok. Das ist gut zu wissen. Das
+war mir so nicht klar. GitHub. Pfeilfeder. Shit. Ne ne das ist nicht Premium Only. So
+sind wir in der App. Gehen wir in die Settings. Nochmal in die Actions. General. Jetzt. Ok.
+Alles klar. Jetzt passt es. Gut. Weil unsere Actions sollten fehlgeschlagen sein und zwar
+mit er hat keine Rechte auf die Container Registry verbinden to push. Tja. So sieht
+es aus. Neuer Tag. Sollten die alten vielleicht mal löschen. Aber gut. Tags löscht man
+eigentlich nicht. Tags sollten eigentlich unverändert so auf immer das gleiche Comet
+zeigen. Aber man kann Tags löschen. Nur dass man was nicht machen sollte heißt ja nicht
+dass man es nicht machen kann. So und jetzt geht hoffentlich. Der Workflow für meine
+Container Registry. Und dann gucke ich mir und dann gucke ich mir den Chat an. Push
+das Image ins richtige Repo. Ich hab es eben angepasst ja. Ich bilde mir ein ich hab es
+eben angepasst auf Pfeilfeder Organisation. Sehen wir jetzt gleich. Ach fuck. Ne hä warum
+nicht. Ich hab das doch eben angepasst. Ah ich hab nicht gepullt lokal. Ich hab vergessen
+zu pullen. Ja. Was. Ich hab vergessen zu pullen. Ok. Jetzt aber.
+Also wer wissen will wie man Tags pusht ist eigentlich relativ easy. Man sagt git push
+und entweder minus minus du lead oder Doppelpunkt 0.0.1 zum Beispiel. Oder git push origin.
+So und dann kann man den ersten Tag zum Beispiel löschen. Und dann muss man allerdings auch
+noch sagen dass man ihn lokal löscht weil ansonsten ist er irgendwann einfach wieder
+da. Dann ist der Tag weg. Aus irgendwelchen Gründen ist jetzt der GitHub Workflow nicht
+gelaufen. Ja Mensch was ist denn heute los. Warum geht denn das nicht. Jetzt. So. Please
+Prage Chat. Wir brauchen wieder eine Runde Prage dass das funktioniert. Das letzte Mal
+hat es auch erst funktioniert als der Chat Prage gespammt hat. Gut nice Chat. Jetzt kann
+nichts mehr schief gehen. Jetzt ist jetzt alles gut. Jetzt easy win easy win. Jetzt läuft
+es ohne Probleme durch. Alter. Was. Was hat er denn jetzt für Probleme. Repository must
+be lowercase. Das ist aber heute wirklich ein ganz schöner Akt man. Ok. Repository must
+be lowercase. Also dann 5 header so geschrieben vielleicht. So. Massive. Tolles. The best
+feature ever. Genau. So muss es heißen. Neuer Tag drauf. Es ist nicht das rechte Problem.
+Wir nähern uns. Wir nähern uns der Sache. Best feature ever wird gepusht. Es muss jetzt
+gehen. So viel Prage. So viel Prage wie im Chat ist muss es jetzt einfach gehen. Übrigens
+wenn man das schön machen will mit GitHub Actions man kann auch die Steps cashen sodass
+er nicht immer wieder den gleichen Container neu neu neu bauen muss. Potato Bob danke
+für den Sub. So jetzt Prage please. Ich will jetzt mal das eigentliche vom heutigen Stream
+machen und nicht GitHub Actions vom letzten Mal fixen. Push. Ok das ist gut. Das ist
+gut. Nice er hat gepusht. Endlich. Poggers. Nice. Ok. So jetzt kann ich in meinem Manifest
+einstellen. Hat funktioniert. Easy. So jetzt kann ich in meinem Manifest einstellen dass
+wir bei Qt App nicht Wuppler sondern 5 header verwenden wollen und zwar Version äh keine
+Ahnung. Punkt 10 ist glaube ich die letzte. So. Push. Best feature ever. Beste Git commits
+heute des Tages. Alles klar. Und jetzt sollte automatisch das ganze schon Applied werden.
+Es kann doch gar nicht sein dass das Repo nicht gefunden wurde. Jetzt hat er es. Ist
+doch richtig. Ach es funktioniert ja auch. Es funktioniert. Es funktioniert. So Pods
+backing of image. Unauthorized. Das ist public. Das Image ist public.
+Das Image ist public oder oder etwa nicht. Also das Repo ist public. Da ist normalerweise
+das. Nee ich brauche kein Key. Das Image. Das Image ist public. Guck. Probieren wir
+Git nicht geht. Alter doch. Ja wenn man das. Ich habe mit GitHub Organisation noch nie
+was gemacht aber normalerweise ist die Package Registry public wenn das Repo public ist und
+das Repo ist public. Ok Package Settings. Change Package Visibility. Ok aus irgendwelchen
+Gründen. Settings ist Disabled per Organisation Administrator. Glücklicherweise bin ich der
+Organisation Administrator und kann das. So wo könnte das jetzt sein Packages. Nee.
+Nicht so hier drüber jetzt. Nee das das geht jetzt wahrscheinlich wieder nicht. Settings
+changes. Da vielleicht. Hier. Ah hier alle alle bitte einmal donaten. Ach hier. Ok alles
+klar. Das ist so huge League dass das die öffentliche Adresse ist die ich für Donations
+eingetragen habe. Ok jetzt müsste es aber eigentlich gehen. Repositories Cute App wobei
+ich habe es doch hier noch auf. Cute App. So. Change Visibility Public. Jawoll. Jetzt
+muss ich mit der SMS Authentifizierung machen oder irgend so ein Shit. Nee es geht einfach
+so. Nice. Ok Pull. Ja Gott sei Dank man. So hat sich mein Kubernetes Cluster von alleine
+gefixt. Nee der ist immer noch der Meinung Image. Backoff Image. Also der Cluster sollte
+sich von alleine fixen wenn ich ein bisschen warte. Weil aktuell hängt er im Pull Back
+off also der macht es jetzt erst in drei Minuten oder so versucht er wieder zu pullen. Das
+ist der Prompt das ist Starship. Ja das ist Starship. So also der Kubernetes Cluster fixt
+sich gleich von alleine. Warum das hier sich dreht da kann ich auch gleich noch was zu
+erzählen das liegt an meinem lokalen Setup dass das nicht funktioniert. So wenn wir jetzt
+lange genug warten bis der nochmal versucht das Image zu pullen dann fixt sich der Cluster
+von alleine. Das macht er so der versucht ein Image zu pullen wenn es nicht geht versucht
+er wieder ein Image zu pullen und dann macht er so einen Backoff also quasi dann versucht
+er für eine Minute nicht zu pullen dann für zwei Minuten nicht zu pullen dann für vier
+Minuten nicht zu pullen also ich weiß die genauen Intervalle ehrlich gesagt nicht aber
+so in der Richtung dass er nicht permanent irgendwelche Registries voll spammt mit Images
+die es vielleicht nicht gibt. Also er müsste sich gleich von selbst reparieren oder ich
+kann sagen recreate Deployment das würde auch funktionieren. Also was man unter Kommando
+Zeile sagen kann ist z.B. sowas wie Cube CTL ich glaube. Nee Ree. Wie ist es. Restart Deployment
+boah weiß ich aus dem Kopf gar nicht. CTL Restart Deployment. Warum findet man da nicht
+gleich was. Was. Was. Deployment. Nee. Replace. Nee. Nee. Replace was nicht. Rollout. Ach
+hier Rollout. Rollout Restart Deployment und dann die App. Das könnte man machen oder
+die oder die oder die die Pods weghauen aber eigentlich sollte. Aha. Aha. Jetzt hat das
+jetzt hat das gecheckt. Jetzt hat er sich selbst repariert weil er jetzt das Image pullen
+konnte. Okay alles funktioniert. Anwendung läuft. Aus irgendwelchen Gründen proprogress
+er noch wegen dem ingress alles gut. So da kann ich euch zeigen wie die App aussieht
+wenn man die aufmacht und zwar unter CuteAppKappaLull.com ich hoffe. Okay aus irgendwelchen. Ja Moment
+nicht nicht. Okay. Hä. Wait a minute. Ach so. Oh man ich hab mir das Ingress noch nicht
+an. Das muss ich unbedingt in mein Startscript reinschreiben. Sonst werde ich mich da noch
+oft wundern warum irgendwelche Sachen nicht funktionieren. Start. Nee. Ach so das ist
+hier. Start. So. Okay. CuteApp. Da ist die App. Okay. Also das ist das wo wir das letzte
+Mal. Hat jetzt nur 50 Minuten gedauert bis wir da sind wo wir das letzte Mal gewesen
+sind. Also das ist das wo wir das letzte Mal stehen geblieben sind. Wir haben eine Installation
+mit ArgoCD am Start und einer selbst programmierten App die da drüber deployed wird. Nochmal
+ganz kurz was das coole daran ist. Normalerweise administriert man seinen Cluster über Kommando
+Zeile. Was heißt normalerweise. Eigentlich macht man das normalerweise nicht. Zum starten
+macht man es oftmals. Über Kommando Zeile. Aber es ist natürlich besser wenn das ganze
+nachvollziehbar ist. Über YAML Files in irgendeinem Git Repo. Da hat man eine History wo
+man nachgucken kann. Da kann man einfacher auch zurückrollen. Änderungen rückgängig
+machen wenn was nicht geht. So und jetzt mal so als Beispiel was da dran ganz cool ist
+wenn das alles automatisch funktioniert. Ich muss nichts machen außer. Also ich habe
+aktuell wie ihr hier seht habe ich 1 2 3 4 5 6 Backends laufen von meiner App. Steht
+auch hier drin. 6 Stück. Wenn ich jetzt sage ach komm es ist Nacht. Es ist Nacht. Ich brauche
+gar nicht so viele. Das kann man übrigens auch automatisch machen. Da kommen wir vielleicht
+irgendwann auch nochmal dazu. Dann kann ich sagen ok es ist jetzt bald Nacht. Da brauche
+ich ja nur 3. Das reicht ja. Oder sogar ich brauche ok ich brauche nur 2. Ich brauche
+nur 2. Weil es ist Nacht. Ist kaum Last drauf. Und dann trage ich das hier in mein Git Repo
+rein. Gehe in mein Repo. Mache ein Comet. Push das ganze. Also ich push jetzt die Änderung
+wo ich hier von 6 auf 2 runter bin. Push die Änderung. So und jetzt gucken wir mal hier
+zu. So in ein paar Sekunden wird er jetzt auf einmal die ganze Sache. Wartet mal. Mach
+mal so das man es vielleicht besser sieht. So in ein paar Sekunden falls ich automatisch
+Deployment eingestellt habe. Wird er jetzt runter skalieren. Auf 2 Pods. Habt ihr gesehen
+ich musste nichts machen. Der hat das automatisch über AgroCD ausgerollt. AgroCD hat die neuen
+Änderungen aus GitHub gepullt. Hat gesehen. Aha. ReplikaZ wurde verringert auf 2. Und
+darauf hin wurde es automatisch applied auf den Cluster. Und meine Pod Anzahl ist runter
+gegangen auf 2. So und wenn jetzt zufälligerweise. Was gibt es denn für deutsche gehypte YouTuber.
+Was ist denn da aktuell so angesagt. Sagt mir mal irgendeiner der da gerade angesagt
+ist. Ich blicke nicht durch in YouTube Deutschland. Max FPS. Genau wenn jetzt zufälligerweise
+Max FPS ein Video zugemacht der Apo rett bestimmt nicht. Oder ist er immer noch aus dem Insie
+Modus wieder raus. Also wenn jetzt irgendein bekannter YouTuber zufälligerweise ein Video
+über eure App gemacht hat. Beziehungsweise über eure Website gemacht hat. Und ihr ganz
+viel Traffic bekommt. Dann könnt ihr sagen wir skalieren jetzt mal diagonal auf den Mount
+Everest und sagen wir brauchen 12 Pods. Wird eingestellt. Hups. Eingestellt. Comet gemacht.
+Gepusht. Und gleich werdet ihr sehen. Übrigens hier das ganze ich demonstriere das mal indem
+ich hier auf Refreshen drücke. Das ganze ohne Serviceausfall. Passt mal auf. Ihr werdet
+es gleich sehen. Also ich guck jetzt hat das abgerufen es skaliert hoch auf 12 Pods auf
+12 Backends. Und während der hoch skaliert habe ich keinen Serviceausfall. Also ich bekomme
+die ganze Zeit weiter meinen Service. Obwohl der grad Dinger im Hintergrund neu startet.
+Stoppt und erweitert. So. Wir haben das letzte Mal tatsächlich getestet mit einem HTTP Benchmark
+Tool. Es sind von einer Million Requests 56 verloren gegangen oder 46 verloren gegangen.
+Also es ist tatsächlich ganz ganz gut. Ich kann euch das ich kann. Können wir machen
+können wir machen. Leute wir machen. Ich zeige ich zeige euch das. So wir gehen jetzt mal
+wir gehen jetzt mal wieder runter auf drei Pods. Ich muss ich muss das Ding immer wieder
+auf den zweiten Bildschirm verschieben. Wir gehen jetzt mal runter auf zwei Pods. Puschen
+das. Warten bis das ganze Applied ist. Und dann machen wir mal einen Benchmark von. Keine
+Ahnung hier von von zwei Minuten. Auf den auf den auf den Service. So ich warte jetzt
+erst mal bis das ganze Applied wurde. Wobei ich kann es ein bisschen beschleunigen nehme
+ich hier von Hand auf Refresh drücke. So. Pots runter skaliert. Alles gut. Ihr seht es
+sind bloß noch drei Pods am Start. Und jetzt schreibe ich hier mal wieder rein. Wir skalieren
+jetzt hoch auf neun Pods. Ich pushe das jetzt und dann mache ich ein HTTP Benchmark an.
+Und dann gucken wir mal zu. Ich lasse es jetzt. Ich lasse es jetzt eine Minute laufen. Gucken
+wir hier wieder zu. Na gut das oben kann ich mir eigentlich sparen. So es sind noch drei
+es sind noch drei. Ich mache gerade ganz viel ganz viel Benchmark im Hintergrund. So ich
+Refresh jetzt mal von Hand und jetzt skaliert er hoch. Jetzt skaliert er hoch auf neun Pods.
+Gleich ist er fertig. Alles ready alles gut. So jetzt können wir jetzt okay jetzt können
+wir eigentlich noch die Zeit warten. Warten wir mal bis zwei Minuten um sind bis der Benchmark
+durch ist. Hier unten. Und dann werdet ihr sehen wie viel von den Requests wirklich in
+die Hose gegangen sind. Man darf nicht vergessen ich laufe hier auf einer VM und mache den
+Benchmark auf eine VM. Und meine gesamte VM ist komplett ausgelastet. Also daher kann
+es auch ein bisschen kommen. Ich lasse es jetzt mal kurz laufen die zwei Minuten also
+die paar Sekunden haben wir jetzt noch übrig dafür. So und ich gucke mal in den Chat. Also
+Prompt ist Starship ja.
+Ich habe doch eben was gelesen im Chat wo ich gesagt habe da sage ich gleich was zu
+was war das denn noch mal.
+Ne das war was anderes gewesen.
+Welches Secret Management probierst du heute aus? Also ich habe lokal ein Vault laufen
+auf dem zweiten Rechner den seht ihr nicht. Da habe ich ein Cloudflare DNS Talken drinne
+und ich habe mein GitHub Talken drinne. Und wir werden aus der Vault Instanz Sünden in
+unseren Kubernetes Cluster mit dem External Secrets Manager heißt das Ding glaube ich
+oder einfach nur External Secrets. Ja ist auch eine sinnvolle Sache. Muss das nicht
+unbedingt alles in Kubernetes jammeln machen. Aber wenn sich Argo quasi selbst managt kann
+das sich dann selbst updaten. Das kann sich selbst updaten das klappt in der Regel auch
+ohne Probleme. Es kann aber auch in die Hose gehen. Also wenn irgendwas kaputt ist zwischen
+den Updates und es nicht mal startet dann hast du ein Problem dann kannst du nicht mehr
+so einfach zurückrollen über das Web Interface. Ich meine Applying per kubectl und sowas
+ist ganz natürlich immer noch. Es ist tatsächlich dann doof. Das heißt man könnte sich zum
+Beispiel auch überlegen hey man managt Argo CD nicht über Argo CD sondern man macht
+irgendwie mit einem Helm Chart ein Update oder ja sogar ganz von Hand. Oder noch sinniger
+vielleicht wenn man viele Kubernetes Cluster hat man lässt Argo CD zentral laufen nicht
+in jedem Cluster oder sowas sondern man lässt Argo CD einfach zentral laufen in irgendeinem
+nennen es mal Infrastruktur Management Cluster. Da kann dann auch gleich Prometheus mit laufen
+und alle möglichen Dinger. Dann hast du dann so nicht das Problem. Dann ist zumindest wenn
+Argo CD kaputt ist außer Argo CD sonst nix kaputt. Gibt es ja verschiedene Ansätze aber
+ja das geht und in der Regel geht das auch ohne Probleme aber es kann in die Hose gehen
+also muss man sich überlegen ob das eine gute Idee ist. Ne das kenne ich nicht.
+Ok nice. So also Request. Leute es ist nichts. Es ist nichts. Es ist nicht ein Request verloren
+gegangen bei diesem Upgrade. Von einer Million Request ist nicht ein Request fehl geschlagen
+während ich meine App hochskaliert habe. Also ich glaube da kann man sich nicht beschweren
+oder? Ja die Response Time ging zwischenzeitlich mal ein bisschen hoch. Aber das war es. Und
+das ist halt wirklich das richtig coole an Kuba. Ne das sowas out of the box möglich ist.
+Das ist auch der Hauptgrund warum sowas benutzt wird. Weil du eben on the fly dein Zeug abdecken
+kannst, hoch verfügbar machen, neu ausrollen kannst, super agil wie man so schon sagt gerade
+sein kannst, kontinuierlich kleine Verbesserungen rausbringen kannst, deine App updaten kannst
+ohne dass großartig was kaputt geht. Natürlich ist die App jetzt von mir enorm simpel. Das
+ist ein Web Request auf einen Endpunkt und fertig. Also da kann ja nichts großartig schief
+gehen. Es ist keine Datenbank dahinter. Da muss keine Datenbankmigration gemacht werden
+beim ersten starten. Das ist äußerst simpel. Natürlich ist es in der Praxis dann nicht
+so simpel wie es jetzt hier aussieht. Aber man sieht dass das prinzipiell möglich ist.
+So und was wir uns heute angucken nachdem jetzt alles funktioniert ist folgendes. Ich mach
+mal die Cute App zu. Was wir uns heute angucken ist folgendes. Ich hoffe ich mach mein Cluster
+nicht kaputt dabei. Ich skaliere mal meine App wieder ein bisschen runter. Was wir uns
+angucken ist folgendes. Also ich brauche an dieser Stelle, nee an dieser Stelle, brauche
+ich meinen GitHub Talken und wenn ich Zertifikate generieren will, dann brauche ich auch meinen
+GitHub Talken. Heißt im Endeffekt, äh nicht beim GitHub, im Cloudflare Talken. Also ich
+brauche an der Stelle einen GitHub Talken und ich brauche bei den anderen Cloudflare
+DNS Talken. Aktuell mache ich das mit den Talkens so. Die Talkens sind nicht im Git
+Repo drinnen, weil ich will ja mein Cloudflare DNS Talken nicht in mein Public Git Repo einchecken.
+Die Talkens mache ich am Anfang einmal initial per Kommandozeil in den Cluster und dann funktioniert
+es. Das ist natürlich nicht so der Weisheitsletzter Schluss, vor allem wenn man viele Secrets hat
+und wenn man Secrets hat, die sich auch ab und zu mal ändern. Muss ich dann CubeCTL machen
+für jeden Cluster den ich hab, muss ich dann dran denken, dass überall im Jaml irgendwie
+Referenzen und was auch immer anzupassen, neue Secrets, das ist auf jeden Fall doof.
+So und um Passwörter, Talken und solche Geschichten in Kubernetes zu verwalten bzw. in Jaml Manifests
+zu verwalten, gibt es mehrere Ansätze. Es gibt einmal sowas hier. Sealed Secrets, das
+ist im Prinzip eine Verschlüsselung. Das heißt du schreibst deine Secrets immer noch
+in dein Jaml, du schreibst dein Passwort quasi immer noch in dein Jaml File rein. Allerdings
+du verschlüsselst das was hier drinnen steht und der Cluster selbst hat ein Zertifikat
+mit dem man das wieder entschlüsseln kann. Das ist eine ganz coole Geschichte. Wenn man
+das alles 100%ig in seinen Jaml Files haben will, ist das eine ganz coole Geschichte.
+Wir machen heute das mit einem anderen Projekt und wir machen das heute mit dem External
+Secrets. Und zwar ist das ein Tool, das kann man installieren in seinem Kubernetes Cluster
+und das kann sich dann verbinden zu verschiedenen Passwort Saves. Aktuell unterstützen die natürlich
+den AWS Secret Store, Google Secret Manager und Azure irgendwo, wo ist er? Und Azure Keyboard.
+Also natürlich unterstützen die die drei großen Cloud Anbieter, dann können sie noch IBM
+Secrets Manager, Achilles, das habe ich noch nie bemerkt. Vault, das werden wir heute benutzen.
+Yandex, ist das irgendein China-Chinesen Zeug oder? Ne, Yandex in Russen oder? GitLab Variablen,
+Oracle Vault, One Passwort, über Webhooks kann man das ganze machen. Von einem anderen
+Kubernetes Cluster, Secrets Sinken, ja unterstützt eigentlich relativ viel. Wie groß war der
+Aufwand Vault bei dir im Hintergrund aufzusetzen? Zeige ich dir, wie groß der Aufwand war. Install,
+Vault. Yes. Vault. Def. Ne, äh. Mode. Ne, boah, wie ging das denn heute? Def Mode.
+Ah ja, Vault Server Def, so rum. So, fertig, Vault läuft. Das sollte man so nicht benutzen,
+weil das rein in Memory ist, das unsealed ist und man mit irgendwelchen Keys rumhantieren muss,
+aber es ist rein lokal bei mir auf der VM, also da würde ich mir jetzt nicht so viele Gedanken
+drum machen. Das ist jetzt ein lokaler Vault, allerdings im Developer-Modus. Das ist nicht
+persistent, es ist alles im RAM und er ist unsealed, du kannst es auch nicht speichern, also das ist
+wirklich nur zum rumbasteln gedacht. So, und so ein Vault habe ich hier auf der zweiten VM-Lauf
+mit ein paar Talkings von mir drin und da greifen wir heute drauf zu. Damit man jetzt auch sieht,
+dass das Ganze was bringt, fangen wir jetzt nicht direkt mit dem Secrets Manager an, weil ich war
+mit einem Secrets Manager anzufangen. Der Secrets Manager, den man nirgendswo braucht,
+ist ja relativ doof. Wir fangen jetzt mit Zertifikaten an. Also, an der Stelle hier,
+Ingress, an der Stelle seht ihr ja, habe ich ein Web-Server laufen bzw. ein Reverse-Proxy laufen,
+der SSL verschlüsselt ist, also der auf Port 443 lauscht und man mit HTTPS drauf zugreifen kann und
+das war unter argocdkappalul.com. Aktuell sind das alles Self-Signed Zertifikate. Mario, danke schön
+für den Sub. Aktuell sind das alles Self-Signed Zertifikate, das seht ihr auch, das kann ich euch
+auch zeigen. Geben wir mal Chrome auf, da sieht man das schöner. argocdkappalul.com, Zertifikate
+anzeigen, Kubernetes Ingress Controller Fake Certificate. Ich glaube, genauer kann das da nicht
+stehen. So, und jetzt wirst du uns angucken, wie kriegen wir da letzte Encrypt-Zertifikate rein.
+Dazu gibt es ein weiteres Projekt, das nennt sich Cert Manager, den gibt's da,
+ist auch saumäßig beliebt, wenn man das mal sucht. GitHub, Cert Manager.
+Warum bei Orga? Weil das das Protokoll ist zum Zertifikate ausstellen, warum die das da reingeschrieben
+haben, kein Plan. Also das Projekt ist auch ziemlich beliebt, ich meine 10.000 Sterne auf GitHub
+sprechen da denke ich mal für sich. Wie können wir jetzt Zertifikate für unsere Sachen ausstellen?
+Also wir brauchen ein Zertifikat für argocdkappalul.com, aber wir brauchen noch viel eher ein Zertifikat
+für Qt-App, also für unsere App. Und damit fangen wir jetzt mal an. Das heißt, als erstes
+installieren wir mal den Cert Manager. Und nachdem wir das Ganze ja über Kubernetes-Konfix
+machen, machen wir das nicht über Helm direkt und machen das auch nicht über kubectl mit
+irgendwelchen Yammel-Files, sondern wir machen das so, dass es nachvollziehbar ist, dass
+jeder durchblickt, wann im Git wie was passiert ist. Das heißt wir legen hier eine neue App
+an, die nennen wir einfach mal Cert Manager. Punkt Yammel. Und ich kopiere das jetzt mal
+rüber und dann erkläre ich, weil warum soll ich das jetzt alles von Hand schreiben, ich
+könnte es aus dem Kopf eh nicht, ich muss eh abgucken. Also es hat keinen Sinn, wenn
+ich sage, haha wir schreiben jetzt hier api-version-pong-dump. Ich weiß es aus dem Kopf nicht, ich kann
+keine fehlerfreie Yammel-Syntax da aus dem Kopf mir zusammenwursten. So, das heißt ich
+kopiere das jetzt mal rüber. So sieht das Ganze aus an App-Definition. Wir müssen hier
+plus anpassen auf QS, das richtige repo rein machen. Und dann kann ich erklären, was drinnen
+passiert. Also MMO-Kreise, Crying Ritthot, wahrscheinlich nichts, sind erst zwei Leute
+da. So, also jetzt kann ich euch erklären, was passiert. Wir können uns, wir gucken es
+uns einfach mal, wir gucken es uns einfach mal an. Es wird jetzt gleich gesagt, es wird
+jetzt nicht funktionieren, aber wir gucken es uns trotzdem an. Ich mache jetzt mal einen
+Push in unser Repo. Best Feature Ever immer noch. Push in unser Repo. Und auf einmal wird
+jetzt, ich beschleunige das Refreshen mal ein bisschen, auf einmal taucht jetzt der
+Cert Manager hier als neue App auf. Der wird natürlich nicht funktionieren, weil, naja,
+ich habe ja noch gar nichts drinne stehen. Ah, ich habe das Projekt gar nicht angelegt.
+Okay, das ist natürlich bescheuert. Dann müssen wir das anders machen, dann kommt das in Projekt
+Default. Hat mir nichts anderes übrig. So, und jetzt müssen wir noch ein bisschen Konfix
+anlegen für das Ganze. Das heißt, wir machen jetzt noch ein neues Verzeichnis, nennen
+wir auch Cert Manager. Dort kopieren wir einmal eine Namespace-Definition rein. Cert Manager.
+Das Ding soll in seinem eigenen Namespace laufen. Namespaces sind, das sind quasi
+diese Unterteilungen im Kubernetes Cluster. Man sieht ja, ich habe aktuell vier Namespaces,
+Cube System, das ist standardmäßig dabei, für den Ingress, also für den Reverse Box,
+den Default Namespace und für Argo CD, den Namespace. Da kann man das so ein bisschen
+aufteilen. Da kann man zum Beispiel, könnte man eine Namespace machen fürs Monitoring,
+Namespace machen für irgendwelche Storage-Streiber oder so, dass es ein bisschen besser kopiert
+ist. Es hat auch ein bisschen was später mit Berechtigungen zu tun, weil es können nur,
+oftmals, manchmal gibt es Ausnahmen, es können nur Sachen innerhalb eines Namespaces auf
+Ressourcen innerhalb von dem gleichen Namespace zugreifen. Ich glaube, die einzige Ausnahme
+ist, dass man per DNS übergreifend auflösen kann. Aber wenn ich zum Beispiel Passwörter
+und sowas habe, dann ist das immer auf den Namespace beschränkt. Das heißt, ich kann
+nicht einfach ein Passwort in meinem Kubernetes Cluster speichern, hier in Default und dann
+von diesem Namespace, von irgendeiner Anwendung in diesem Namespace drauf zugreifen. Das funktioniert
+nicht. Man sollte es vielleicht auch nicht übertreiben mit Namespaces. Die Diskussion,
+ob man Environments als Namespaces abbildet oder ob man Environments besser als eigene
+Cluster abbildet, kann man sich darüber streiten, hängt, denke ich, am Ende davon ab, wie gut
+will man es wirklich trennen und wie viel Geld hat man übrig. Also will man für das Live-System
+einen eigenen Cluster haben und für das Test-System einen eigenen Cluster haben oder sagt man sich
+scheiß drauf, wir machen das alles in einen Cluster, dann halt in einem unterschiedlichen
+Namespace. Muss man sich überlegen. Das gibt es auch, würde ich sagen, gibt es pauschal
+nichts, wo man sagen kann so und einzig wahre Sache. Ich schreibe mein Continuing, ich kann
+das nicht schreiben. So. Jetzt hat mich Discord gerade abgelenkt. Wo sind wir stehen geblieben?
+Wir wollten uns als Third-Manager konfigurieren. Ich glaube, jetzt passt das. Also das Ding
+braucht einen eigenen Namespace. Das ist schon mal ganz sinnvoll, dass der Third-Manager
+im eigenen Namespace läuft. Gut, dann müssen wir den Third-Manager konfigurieren. Das ist
+relativ simpel an der Stelle. Und da muss ich jetzt gucken, dass ich nichts leake, aber
+ich glaube, es passt. Ja, nee, ist okay. Nix drinne. So. In die Third-Manager-Definition
+muss ich jetzt mal gucken, was ich hier anlegen will. Das ist die Konfiguration für Let's
+Encrypt, dass ich Let's Encrypt-Zertifikate ausstellen kann. Ich lege hier einen Cluster-Issuer
+an. Warum das so heißt? Weil die Third-Manager-Leute gedacht haben, das muss so heißen. Ein Cluster-Issuer
+ist eine Ressource im Kubernetes-Cluster für den gesamten Cluster. Das heißt, die
+ist nicht Namespace gebunden. Sie selbst gehört zwar zum Third-Manager-Namespace, aber sie
+kann benutzt werden, weil Cluster vorne dran steht, aus dem gesamten Cluster. Das heißt,
+es kann jetzt jede Anwendung in diesem Kubernetes-Cluster nachfragen beim Let's Encrypt Cloudflare DNS-Cluster-Issuer.
+Bitte gib mir doch mal ein Zertifikat. So. Und damit der funktioniert, brauche ich einen
+API-Token für Cloudflare. Wo wir jetzt genau bei dem Problem sind, wo kriege ich dieses
+API-Token her? Das API-Token liegt in meinem Vault. Die verbinde ich den Vault mit Kubernetes.
+Wir richten jetzt erstmal den Third-Manager noch ein. Brauche ich noch irgendwas? Alter,
+was habe ich denn hier für Magic gemacht? What the fuck? MonkaS, was ist das? Was habe
+ich denn da gebaut? Egal. Ich Copy-Paste das jetzt einfach mal rüber. Wir müssen den Third-Manager
+noch installieren. Und das machen wir mal raus. Muss nicht jeder Pod Internetzugriff
+haben, um ein Zert anzufordern? Nein, muss nicht. Also ist standardmäßig so. Oder wäre
+so, wenn das Routing stimmt, muss nicht. Der Pod geht zum Cluster-Issuer und der Cluster-Issuer
+läuft im Hintergrund und macht das. Es reicht, wenn der ins Internet kommt. Der Pod selber
+muss nicht ins Internet kommen. Das ist gerade Sinn und Zweck der ganzen Übung. Oder eine
+der Übungen. Also der Pod selber muss nicht zwangsläufig ins Internet kommen. So, ich
+glaube, das passt jetzt soweit. Jetzt können wir das installieren. Und wir gehen schon
+mal her und stellen für unsere App ein, dass die erreichbar sein soll. Und zwar über
+cuteapp.com. Wunderbar. Nicht argocdls, cuteapp.tls. Jetzt commenten wir das Ganze. Und dann hat
+es schon gecheckt. Er hat es schon kapiert. Guck, er hat erkannt, ThirdManager ist am Start,
+die cuteapp muss sich refreschen und ThirdManager wird im Hintergrund installiert. Ohne, ohne
+dass ich was machen muss. Was hat er jetzt für ein Schmelz? Ach so, genau. ThirdManager
+kann nicht installiert werden. Richtig. Weil... Okay, die Fehlermeldung ist ziemlich pepega.
+Aber weil das Secret nicht stimmt. Also dieses Secret, was ich im ThirdManager eingestellt
+habe hier an der Stelle, das Cloudflare-Talken, das gibt es noch gar nicht im Cluster. Also
+das wird nicht klappen. Deswegen sagt er auch hier, ich bin kaputt. Kommen wir mal angucken.
+Startup, bla, funktioniert nicht. Man kann mal gucken mit Certificate-Requests. Aber man
+sieht, für Argo CD gibt es schon ein Certificate-Request. Der wird allerdings nie bearbeitet werden
+können, weil das Talken für Cloudflare, für den Cloudflare-DNS ist ja noch gar nicht
+da. Auf geht's. Das heißt, wir müssen jetzt mal gucken, wie kriegt man... Übrigens selbst
+wenn ich, ich sag's jetzt gleich mal, selbst wenn ich mein Cloudflare-Talken leaken sollte
+ist es nicht schlimm. Ich hab das gescoped auf meine Absender-IP. Das heißt, ihr könnt
+noch nicht mal darüber großartig was machen. Es sei dann, ihr kommt über meine Absender-IP,
+die ihr nicht habt. Ach stimmt, man kann auch... Ja, du hast recht. Irgendwie denke ich da nicht
+dran, weil ich hab das meistens schon so in der History, da ich an der Stelle einfach
+nur noch Complete drücken muss. ThirdManager ist installiert. Allerdings, wie gesagt,
+funktionieren kann das Ganze noch nicht. Qt-App ist am Start. Juna möchte auch TLS haben.
+Damit das Ganze funktioniert, muss man noch ein paar Sachen hinzuschreiben. Wie gesagt,
+neben dem, dass das Talken fehlt, kannst du uns denn den Scope mal zeigen? Was für
+einen Scope? Von was? Den Quickscope? Du meinst also quasi den...
+Wo hab ich denn den Sound? Man, jetzt wenn man ihn braucht, finde ich ihn nicht. Den
+Scope? Ich hab keine Ahnung, was du wissen willst. Also das ist alles bei mir nur lokal
+aufgelöst. Da kannst du externer nichts ausprobieren. Hat er mal das andere jetzt auch schon angefragt?
+Nee. So, also wo sind wir stehen geblieben? Also uns fehlt einmal das Token für den Zertifikatmanager,
+das ist noch nicht drinne. Und es fehlen auch noch ein paar Annotations, dass der Zertifikatmanager
+überhaupt checkt, dass er hierfür zuständig sein soll. Da muss man Folgendes machen, das
+Copy-Paste ich mir auch raus, weil aus dem Kopf kann ich den ganzen Krempel auch nicht,
+muss man noch zwei Annotations setzen bzw. eine, die essentiell ist. Und zwar gucken,
+wo ich die hab. Hier, Metadata Annotations muss man setzen. Zwar da, das da nicht, das
+da muss man setzen. Das heißt, hiermit sagt man dem Zertifikatmanager, du bist dafür
+zuständig. Guckt mal da rein, was dafür auszahlt und stell dafür ein Zertifikat aus. So und
+wenn ich das jetzt pushe, dann sollte der Zertifikatmanager zumindest denken, dass er dafür zuständig
+ist. Kann auch sein, dass er kaputt ist wegen dem Token. Ok. Guck, er hat versucht das Ganze
+anzufordern, aber es hat nicht funktioniert. Man sieht jetzt aus, es gibt jetzt zwei verschiedene
+Zertifikatsrequests, aber geht nicht. Das eine schon vor 4 Minuten, das andere vor 13.
+Das heißt, ich muss irgendwie dieses blöde Cloudflare Token da reinbekommen, dass das
+funktioniert. So und das machen wir jetzt mit dem External Secrets Manager. Das heißt,
+es gibt nochmal eine neue App. Diesmal für External Secrets. External Secrets.
+Copy Paste stellst du am Start. Du hast Sicht-Services, um dich selbst zu verwalten. Ja. Deswegen
+lohnt sich das auch für kleine Sachen nicht. Wenn du irgendwas kleines hosten willst, vm
+bei Hetzner und fertig aus. Neues Repo anpassen, fertig. Projekt Default muss sein. Ich hab
+das andere Zeug nicht hier. Ok, das ist alles gut so. Dann legen wir noch ein Verzeichnis
+für die anderen External Secrets. Da muss jetzt noch ein bisschen Konfiguration rein.
+Das ist der letzte Service, den wir konfigurieren müssen. Danach können wir einfach alles
+hinzufügen. Das da rein copy pasten. Weg damit. Also wir wollen External Secrets installieren
+in Version 0.81 von dieser Quelle in diesen Namespace und alles ist gut. Und dann brauchen
+wir noch eine Konfiguration, damit man sich oder damit sich der External Secrets Manager
+zu meinem lokalen Vault verbinden kann, den ich bei mir lokal laufen habe. Vault.yaml und
+das sieht so aus. Hier läuft der Vault und für den Zugriff auf das Vault braucht er
+auch wieder ein Token. Das heißt einmal am Anfang, wenn ich den Cluster boote, einmal
+muss ich den Token hinterlegen. Da komm ich nicht drumherum. Aber es reicht, wenn ich
+das Token hinterlege für meinen Passwort Manager, aus dem ich dann alle anderen Tokens
+holen kann. Ich meine irgendwie komme ich nicht gut. Ich meine ich könnte wahrscheinlich
+auch einen Passwort Manager nehmen, der nicht Passwort geschützt ist selber, aber das ist
+dann ein bisschen fragwürdig natürlich, ob das dann unterm Strich so sinnvoll ist. Ich
+muss jetzt einmal initial in meinen Kubernetes Cluster das hier noch reinpushen und zwar
+im Namespace External Secrets ein Secret anlegen Key mit einem, Key ist ein bescheuerer Name
+eigentlich. Man könnte es auch besser nennen. Cloudflare zum Beispiel könnte man das nennen.
+Wobei Cloudflare kann man das nicht nennen. Das ist doof, wenn ich Cloudflare nenne, weil
+Cloudflare nenne ich das Target Secret dann. Ich nenne es einfach mal Keys. Und da drin
+drunter dann ein Schlüssel, der sich Token nennt. Da kommt das ganze rein. Gut, also
+jetzt muss ich das ganze Copy Pasten. So, das dürft ihr übrigens alles sehen. Das ist
+nicht geheim, weil das ist eh bei mir lokal. Also nicht wirklich schlimm. Ich muss jetzt
+noch mein Token rüber kopieren für den Zugriff auf meinen lokalen Passwortmanager. Zack,
+leaked. Namespaces External Secrets not found. Ah, ja, weil ich es nicht installiert habe.
+Dann gibt es hier noch eine Namespace Definition. External Secrets. Alles klar, alles klar. Push.
+Gut, dann gucken wir erstmal, dass das ganze installiert wird. Refresh die ganzen Apps.
+Hopp, da ist sie. Das ist halt sehr praktisch mit ArgoCD. Du musst einfach nur eine App
+hinzufügen oder eine App Definition hinzufügen und zack ist der Kram auf dem Cluster applied.
+So, out of sync. Ja, geht nicht, weil failed Webhook und hast du nicht gesehen. Ja, ich
+weiß, dass der Webhook failed ist, weil naja, das Token ist nicht drinnen. Aber jetzt kann
+ich das hinzufügen. External Secrets created. Jetzt sollte das alles sich gleich von alleine
+fixen. Hoffe ich mal. Bin ich mal gespannt. Out of sync. Ah, kommt mal, External Secrets.
+Hat funktioniert. Der ist schon mal grün. Ja, jetzt fehlt eigentlich, guck mal, das hat
+sich jetzt alles gefixt. Jetzt fehlt eigentlich noch die App. Das Zertifikat ist allerdings
+noch nicht da. Es hat auch vor 5 Minuten angefragt, da war das Ganze noch nicht drin. Mal gucken,
+ob er das von alleine checkt. Da bin ich mir gar nicht sicher, ob er das von alleine kapiert.
+Ich habe aber noch gar keine Definition für das Zertifikat angelegt. Moment, Sekunde,
+brauche ich das? Cloudflare? Ja, ich muss, ich muss, ich muss ja noch anlegen, dass der
+sich zu Cloudflare verbinden soll. Das habe ich ja noch gar nicht gemacht. Also mein Zertmanager
+kann sich noch nicht zu Cloudflare verbinden. So, das heißt, wir müssen jetzt im Zertmanager
+sagen, dass der gefälligst mal auf das Cloudflare-Token zugreift bzw. erstmal das Cloudflare-Token
+als Secret überhaupt anlegt und das soll er sich über den external Secret-Manager holen.
+Und das funktioniert folgendermaßen, ich mache hier nochmal eine neue Datei, Secrets,
+Zertmanager, Secrets und das kann man dann so definieren, dann sagt man ihm, guck mal,
+hier zum Cluster-Secret-Store, der Cluster-Secret-Store, der wird hier angelegt und connectet sich
+zu meinem Vault-Backend und aus dem Cluster-Secret-Store holt ihr das Cloudflare-Token und erstellt
+ein neues internes Kubernetes-Secret mit dem Namen Cloudflare und einem Key-Token.
+Also man kann hier drin auch quasi so eine eigene Config zusammenbauen mit vielleicht
+aus verschiedenen Secrets, falls die jeweilige App das braucht.
+Dann committen wir das Ganze mal und wenn wir jetzt Glück haben, dann sollte sich in
+2-3 Minuten alles erledigt haben von alleine und ich sollte ein Zertifikat haben.
+Noch kein richtig echtes gültiges Zertifikat, Cloudflare.de Domains, da bin ich sofort
+dabei. Also noch kein richtig echtes gültiges Zertifikat,
+weil ich habe Cloudflare hier, wie ihr seht. Let's Encrypt habe ich ja Staging drinnen,
+das ist die Let's Encrypt-Stelle zum Testen, weil man hat ja nur gewisse Limits in der
+Woche für Let's Encrypt, die man benutzen kann. Ich habe eigentlich gehofft, der macht
+eine neue Anfrage für das Zertifikat, macht er aber nicht, natürlich doof.
+Jetzt weiß ich nicht, wie ich das gescheit regelt, dass der Cert Manager nochmal nachguckt.
+Also der Cert Manager hat zumindest nicht gecheckt, der Cert Manager hat nicht gecheckt,
+dass er ein neues Zertifikat anfragen soll. Das ist natürlich doof, wir können auch
+mal in die Logs rein gucken, Logs, Namespace, Cert Manager, Cert Manager, hier was macht
+er? Error, get in Cloudflare's Secret, Secret Cloudflare not found, okay, get secrets,
+übrigens die secrets die werde ich nicht anzeigen, denn ansonsten habe ich ein Problem,
+das Cloudflare's Secret ist doch, das Cloudflare's Secret ist doch da, alles gut, ah im Namespace
+Cert Manager, okay da ist das ja, da ist es falsch, das muss in, nee Moment, nee im Namespace
+Cert Manager ist das richtig, Error, get in Cloudflare's Secret, Secret Cloudflare not
+found, da ist es doch, hä, jaja es ist angelegt, alles im Vault, not found, aber warum nicht,
+da ist es doch, es ist im Cert Manager Namespace und der Cert Manager meint, das ist nicht
+da, ah Moment, das ist 19, Moment, Moment, das ist vor, das war vor 4 Minuten, wir haben
+es hier eben auch erst updated, wir haben es hier eben auch erst updated, ah, es funktioniert
+alles, man muss einfach nur ein bisschen warten, guck, DNS-Record, Qt-App-Capa-Lul-Not-Yet-Propagated,
+das dauert jetzt ein bisschen bis der Authentifizierung für Let's Encrypt gemacht hat über DNS,
+aber in paar Minuten oder bald, bald sollte, sollte es da sein, Certificate Requests, noch
+nicht, noch nichts zu sehen, wenn Ready True da steht, True 0W, dann weiß ich, es hat funktioniert,
+es kann durchaus mal 2-3 Minuten dauern, ah, not yet propagated, bla bla bla, wir warten
+jetzt bis das Zertifikat da ist und dann zeige ich euch, Qt-App, da ist es, Qt-App-Capa-Lul,
+ja, ist ja gut, man, so, ihr seht, noch ist das alte Zertifikat da, ne, da ist es schon,
+staging Let's Encrypt hat funktioniert, True, in dem Moment, wo ich es ausprobieren wollte,
+also er ist jetzt zu Let's Encrypt, da habe ich den Zertifikat ausgestellt, das ist die
+staging, also die Testumgebung von Let's Encrypt, das habe ich absichtlich gemacht, weil ich
+ansonsten in irgendwelche Limits laufen würde, ich kann es euch mal zeigen, dass es wirklich
+echt funktioniert mit dem echten Zertifikat, ja, sodass ich nicht so sehr in meine Limits
+laufen darf, das heißt, wir ändern das ganze mal, ich gehe jetzt hier wieder rein, wo ich
+den Clusterissuer definiert habe und sage, ok, von welchem Server sollst du dir die Zertifikate
+holen bei Let's Encrypt, aktuell haben wir das Staging drinne und ich habe ehrlich gesagt
+keine Ahnung, ob das die richtige URL ist, wahrscheinlich einfach Staging raus, oder,
+ok, einfach Staging raus, so und jetzt holen wir uns mal ein Zertifikat, ich hoffe, der
+refrescht das jetzt, wenn ich es an der Stelle ändere, müsst ihr eigentlich, jetzt gehen
+wir auf das Live Let's Encrypt, also auf geht's, Push, jetzt gehen wir auf das Live Let's Encrypt,
+ich refresche mal, dass es ein bisschen schneller geht, ok, ne, das juckt dir nicht, wenn man
+das da refrescht, ja, wie, ok, das habe ich noch nicht gemacht, wie kann man ihm jetzt
+sagen, please ein neues Zertifikat ausstellen, oh, was, URL ist falsch, fail to retrieve
+order, oh, ist das falsch, Moment, Cert Manager Let's Encrypt URL, wie ist denn die richtige
+URL, oder, Let's Encrypt URLs, was ist die Let's Encrypt URL, ja, aber ich bilde mir
+ein, das habe ich doch, habe ich das nicht, äh, sieht ziemlich gut aus, vielleicht ohne
+Directory hinten dran, gibt's da, gibt's, ups, da gibt's doch bestimmt Cert Manager
+Example mit Let's Encrypt, kann doch nicht so kompliziert sein, muss doch schon irgendjemand
+vor mir gemacht haben, ja, ja genau, von dem will ich das jetzt wissen, ne, ist doch, ist
+doch richtig, ist doch alles richtig, was hat er für Schmerzen, war doch, ist doch alles,
+ist doch alles gut, selbes Secret, ja, das ist ja nur das Secret vom, vom, vom DNS, äh,
+das kann sein, dass ich das, dass ich das noch ändern muss, das kann sein, dass er
+das gecached hat und das deswegen nicht funktioniert, das wäre vielleicht, vielleicht möglich,
+keine Ahnung, gucken wir mal, das Problem hatte ich so noch nicht, Refresh, na gut,
+das, äh, ich glaube, ich glaube jetzt hat er's gecheckt, ja, das ist glaube ich besser,
+deswegen, so und wie kann ich dem jetzt sagen, dass er das Zertifikat neu ausstellen soll,
+also das sieht jetzt schon mal besser aus, ich hab jetzt ja, das, das hat's dir ja so
+normalerweise auch nicht, dass da einfach mal die, ähm, Zertifizierungsstelle für schon
+bestehen, ich mein, ich könnte die URL ändern, das ist vielleicht nicht so, nicht so geil,
+das machen wir jetzt aber mal, weil, vielleicht muss man auch einfach nur ein bisschen warten,
+das könnte natürlich auch sagen, ah ja, ok, alles gut, ah nee, jetzt holt er für
+Argo CD eins, ah gut, dann, dann warten wir doch mal ab, ob das, ob das funktioniert,
+gucken wir mal, dann kann ich Argo CD gleich mit einem echten, mit einem echten Zertifikat
+aufmachen, wir müssen auf jeden Fall noch eine Sache eintragen und zwar, Annotations
+sollten da noch, ach nee, hab ich schon, hab ich schon, ach deswegen geht das jetzt, so,
+Error, not yet propagated, ja, blablabla, mach hinne, welche Distro würdest du zum Umsteigen
+empfehlen, habe bisher nur Erfahrung mit Debian-Servern, na ja, wie wär's mit Ubuntu?
+Error, was ist denn jetzt für ein Problem, Key-ID-Header-Contain-Invalid-Account-Ul,
+hä, irgendwas hab ich da verkehrt, verkehrt reingepastet, das ist die falsche URL für
+Let's Encrypt man, keine Ahnung, was der für Schmerzen hat, aber das stimmt doch,
+muss man das vielleicht Quoten oder so, nur für den Fall der Fälle, DNS Error Accepting
+Challenge-Invalid-Account-Ul, okay, keine Ahnung, kein Plan man, Key-ID-Header ist Invalid-Account,
+irgendjemand im Plan was der für Schmerzen hat, ich hätte jetzt eigentlich gerechnet
+damit, das geht einfach, weil wenn, wenn über Staging das funktioniert und ich die Url austausche,
+dann würde man erwarten, dass es für Produktion auch geht, also fürs Produktive Let's Encrypt,
+ist die URL vielleicht doch falsch, es muss doch irgendwo ein Cert Manager Let's Encrypt
+Exempel geben, kann doch nicht sein, irgendwas Aktuelles halt, irgendwas aus dem letzten Jahr,
+Let's Encrypt, Staging, so schlau bin ich auch, ich will es ja nicht für Staging, das hatte ich ja schon,
+gibt es das vielleicht auch mal ohne Staging das Beispiel, ja Digital ist das beste, was
+habe ich verkehrt gemacht, keine Ahnung, ich ändere jetzt, okay ich probiere jetzt mal das aus,
+ich ändere jetzt die URL für meine App, das ist jetzt CuteApp-Prot und das heißt auch Minus
+Prot-TLS, push, dann schauen wir mal ob das funktioniert, weil ansonsten wüsste ich echt
+nicht mehr, was er noch für Schmerzen hat, das sieht gut aus, hier Digital Ocean,
+haben wir noch da bestimmt, ist doch genau das, Moment, ist doch genau das was ich verwende, ist
+ein Bug ja, das kann tatsächlich sein, dass der denkt das ist der alte, jedenfalls doof,
+dass es nicht funktioniert, aber jetzt habe ich den neuen Domain, also mit der muss es ja
+auf jeden Fall funktionieren, CuteApp-Prot, okay das ist das ist soweit, okay CuteApp-Prot,
+gut, das ist in Ordnung, so in 1-2 Minuten sollte er jetzt ein gültiges Zertifikat haben, schauen
+wir mal ob das so ist, jetzt bräuchte man so ein Tail oder sowas, okay, not yet propagated,
+ne Anführungszeichen sind es eigentlich, ich habe die extra drum gemacht, das sollte in
+Jaml an der Stelle keinen Unterschied machen, hat funktioniert, hat funktioniert, CuteApp-Prot,
+ach ich habe oben vergessen anzupassen, Lul, push, aber man sieht einen Vorteil davon schon,
+es ist alles nachvollziehbar, das ist halt wirklich nice, ich muss nichts per CubeCTL
+oder sonst was machen, es wird alles automatisch Applied ausgerollt auf mein Cluster, ich beschleunige
+das ganze jetzt halt mal ein bisschen, es wird alles automatisch ausgerollt auf mein Cluster
+und das ist natürlich cool, so jetzt sollte es eigentlich schon gehen, Pester geht, so und jetzt
+wird euch vielleicht was auffallen, ich habe ein gültiges Let's Encrypt Zertifikat, also es hat
+funktioniert, Verified Let's Encrypt, echtes gültiges Zertifikat, nicht Self-Signed, nicht
+Staging, sondern richtig echtes Zertifikat, was in jeder Browser akzeptiert und das kann ich jetzt
+für jede App anfordern lassen in der Config aus meinem Kubernetes-Klasse, also wenn ich jetzt hier
+noch 15 andere Apps reinpappe, dann muss ich einfach so einen Eintrag hier rein machen und schon kriegen
+ich ein Zertifikat ausgestellt über den Certificate Manager und haben ein gültiges TLS SSL HTTPS
+Zertifikat, so wir machen jetzt noch mal das andere, wundert mich nämlich, dass es mit ArgoCD
+nicht richtig funktioniert, guck mal hier CR, CR, All Namespaces, True, False, wir löschen es jetzt einfach mal,
+hier Delete, habe ich glaube ich noch nie gemacht, CR, wie löscht man das eigentlich, Namespace,
+achso okay einfach so, alles als Helm-Chart bauen, nee warum, das ist doch so übersichtlich genug,
+da brauche ich doch keine Helm-Charts für, bin ich der große Helm-Freund ehrlich gesagt, vielleicht
+kommt noch irgendwann das große Aha-Erlebnis, wo ich sagen würde, ja unbedingt, aber ich denke mir
+halt die meisten Sachen zusammen bundeln kannst du mit Customize machen und sobald man Logik braucht
+und Templates braucht, da finde ich Helm jetzt auch nicht so wirklich nice, ich meine du kannst
+das damit machen, aber es ist halt diese komische Go-Template-Syntax, dann würde ich, wenn ich
+wirklich was kompliziertes machen will, dann würde ich wahrscheinlich sogar lieber sowas verwenden
+und das in einer ordentlichen Programmiersprache erstellen, meine Manifests, da kann ich nämlich
+wirklich alles machen, wie ich will, aber das ist ein bisschen Philosophie-Frage, das ist ein bisschen
+Richtung Pulumi versus Terraform, die einen sagen ja klar Easy Terraform Beste reicht für alles und
+die anderen sagen ja ein bisschen Programmiersprache, Logik drumherum war auch nicht verkehrt.
+Fordert er jetzt das ganze noch mal neu an oder muss ich noch irgendwas machen?
+Wer hat das eben vorgeschlagen mit CR löschen und alles ist gut?
+Muss ich jetzt noch irgendwas machen, dass er das noch mal anfragt?
+Ich hätte jetzt, guck mal hier, wenn ich jetzt sage Argo CD Kappa Lull, dann ist immer noch
+das Self-Sign-Zertifikan am Start. Ich weiß es gibt für Third Manager ein
+Commando Sign Tool, um sowas zu machen, aber man muss es ja auch irgendwie im Plaster anfordern
+können und das ohne, dass ich das lösche, ist ja doof, wenn ich das jedes mal löschen muss.
+Argo CD TLS habe ich gelöscht, muss ich das Zertifikat selber vielleicht noch löschen?
+Request habe ich schon gelöscht, Zertifikat, das können wir löschen, ok, das muss ich
+vielleicht löschen, dass das dann checkt. Jetzt funktioniert es, ok, jetzt haben wir
+das Zertifikat selbst, Blablabla. Was? Ok, jetzt sollte es funktionieren.
+Jetzt müsste es gleich funktionieren, hol mal aus Argo CD Kappa Lull, noch ist es das
+falsche Zertifikat, noch ist es das Fake Ingress Zertifikat, Watch. Ich hoffe, dass der Kram
+gleich auf True springt, True Lull W, wenn es Propagated ist. Ich meine, ich habe das
+Zertifikat gelöscht, ich habe den Zertifikat Request gelöscht, eigentlich sollte er jetzt
+ein neues Zertifikat anfragen, aber noch ist es das alte, vielleicht wird es sonst
+noch irgendwo gecasht, kein Plan. Zumindest für unsere App hat er schon mal, ach jetzt,
+True, True, aber hier ist noch das alte. Ok, er hat jetzt ein gültiges Zertifikat,
+aber er liefert noch das alte aus, warum? Oder ist das ein Firefox Ding? Ah easy, funktioniert,
+alles gut, Firefox hat es gecasht, ok, alles gut, in Chrome sieht man, dass es funktioniert,
+guck, zack, gültiges Zertifikat, Connection ist secure, vertraut und das ganze ist ausgestellt,
+Argo CD Kappa Lull, Let's Encrypt, so muss das sein, wunderbar. So, jetzt kann man das
+vielleicht noch ein bisschen in der Handhabung angenehmer machen, indem wir jetzt zum Beispiel
+einen zweiten Cluster Issuer definieren, den man, na komm, scheiß drauf, also ich hab euch,
+ne, das machen wir nicht, das machen wir nicht, weil aus dem Grund, ich stell das um, aus
+einem ganz praktischen Grund, ich hab keinen Bock, dass ich jetzt den Cluster ein paar
+mal neu aufsetze und neu starte und ich mein wöchentliches Let's Encrypt Kontingent damit
+irgendwie voll mache, da hab ich wirklich keinen Nerv drauf, deswegen, ich tu einfach
+so, als wäre das echte Zertifikate, ich hab euch jetzt gezeigt, es funktioniert, ja,
+es gibt richtig echte, gültige Zertifikate und das funktioniert und die Browser vertrauen
+dem, aber ich stell's wieder um hier auf das Staging Area, da gibt's gar keine Probleme.
+Push, gut, dann hätten wir das an der Stelle eigentlich schon, was haben wir gemacht, wir
+haben Zert Manager installiert und wir haben External Secrets, Private Key Secret Ref,
+ja, stell was so um, so und jetzt können wir per External Secrets auf unseren Passwort
+von Vault zugreifen, dort Tokens, Username, Passwörter auslesen und mit Zert Manager Zertifikate
+ausstellen für alle Services im Cluster, so, das war's jetzt im Prinzip, was man großartig
+selbst konfigurieren muss, das weitere Zeug kann man eigentlich mehr oder weniger so installieren
+oder eben Apps drauf hosten, wir haben jetzt die grundlegenden Sachen da, das nächste
+Mal können wir uns noch eine Runde Monitor, wobei, ich mein, es ist noch Zeit, wir könnten
+jetzt auch noch ein bisschen, wir könnten irgendwie mal so ein Prometheus Stack rein
+pushen, wobei, nee, Prometheus drauf zu hauen ist wirklich abfuck, bis das läuft, ich mein,
+wir können's probieren, vielleicht geht's auch, soll man noch probieren Prometheus drauf
+zu hauen für Cluster Monitoring, ich hab fertige Manifests dafür, wo ich eigentlich
+nur Copy Paste muss und wir uns das Ganze angucken können, aber es hängt halt einiges dran
+und das ist ein bisschen blöd, also zum Beispiel, wenn ich Grafana installieren will, ne, Check
+MK will ich jetzt grade nicht machen, okay, wir probieren das mal, also wir machen eine
+neue App, in dem Fall Grafana.YAML, ich Copy Paste das mal und dann erzähl ich was zu,
+wir müssen eh ein paar Sachen anpassen, so, wir installieren jetzt Grafana, wir installieren
+hier einfach nur Grafana, wir installieren den Kubernetes Prometheus Stack, der besteht
+aus einem Prometheus, aus einem Grafana, aus irgendeinem Loki Endpunkt, aus zig tausend
+Zeug, vergiss es, so, Loki schmeißen wir raus, das werd ich jetzt nicht installieren,
+Grafana Services lassen wir so stehen, wie es ist, Project wird Default, das reicht,
+ansonsten der Rest passt, glaub ich, so und das hier geht auch noch nicht, weil Prometheus
+ist ein Monitoring System, das heißt, das braucht Storage logischerweise und es gibt
+nur ein Plugin, das würd ich normalerweise jetzt vielleicht in einem Cloud Service nicht
+verwenden, aber lokal ist es ganz praktisch, da kann man automatisch den Storage auf der
+lokalen Kiste professionieren lassen für Container in Kubernetes, das ist ganz praktisch,
+das hauen wir jetzt auch noch rein, ich bin mir gar nicht sicher, was er macht, wenn ich
+die Storage Glass weglasse, wahrscheinlich gar nicht starten, dafür machen wir jetzt
+hier noch Local Storage, das Storage Punkt Jamme, Local Storage, Local Storage Punkt
+Jamme und da kommt folgendes rein, ich muss mir gleich die Manifest nochmal angucken,
+ich hab bestimmt irgendwas übersehen, da kommt folgendes rein, bla bla bla blub, dieses
+Repo, bla bla bla blub, fertig aus, Zombie, das passt so, das ist wie gesagt nur für
+lokale Cluster, das würd ich nicht unbedingt machen, das ist Public, Kyo-Kun, ach du bist
+auch mal wieder am Start, moin, ja, das ist Public, ok, ich hoffe, ich hab alles richtig
+gemacht, das sollte eigentlich jetzt schon reichen für eine Runde Grafana, es ist nicht
+auf Wublaws, es ist, hier guck mal, in der Fiveheader Organisation ist es, damit ich
+nicht, falls ich im Trocken liege, nix passiert, ist das in der Organisation drinne, so wenn
+ich jetzt Glück habe, sollte mein Prometheus funktionieren gleich, ich bin da noch skeptisch,
+hab ich irgendwelche Repos vielleicht noch nicht angepasst, ne Repos drinne passt, ok,
+checken wir mal, so wir müssen wieder nichts selbst machen, ich beschleunige nur das Refreshen
+mal, Argo CD wird das ganze für uns installieren, Local Path, ok, Local Path ist installiert,
+so wenn wir Glück haben, geht Grafana jetzt auch noch, Grafana dauert ein bisschen zum
+installieren, ihr sehts hier oben vielleicht, mein Rechner ist ein bisschen am abkacken
+gerade, und dann haben wir gleich einen Grafana Stack laufen, wo wir unseren Cluster mit monitorn
+können, wenn das funktioniert, das ist immer ein bisschen eklig, was hat er hier was nicht
+funktioniert, ah Namespace, den Namespace gibt es nicht, wobei hab ich nicht gesagt
+Create Namespace, doch hab ich gesagt, müsste funktionieren, was hat er das Problem für
+Namespace, de-created, warum, oh Moment, soll ich mir erzählen, dass mein Grafana einfach
+jetzt funktioniert oder was, so ganz von alleine, Moin, Shane Law, wie Moment, das hat auf
+ihn funktioniert, meine Grafana Installation, da hab ich jetzt aber, da hab ich jetzt ehrlich
+gesagt nicht mit gerechnet, also aber gar nicht, ok, ja, dann connecten wir uns mal zu
+unserem Grafana, und zwar auf den Grafana Service, wie macht man das mit K9S denn jetzt
+eigentlich so hier, auf Grafana Service, das sind ja nur Pods, ich will ja den Service
+haben, wie lässt man sich hier den Service anzeigen, beim Plan, ich weiß, wie ich Spiel
+in CubeZtl mache, keine Ahnung, wie könnte man das mit K9S machen jetzt den Service,
+egal, wir machen Forward, service, auf Service Grafana, Grafana, nein, wie heißt das Service,
+was heißt Grafana, achso, ich hab den Namespace überschrieben, das ist auch nicht Portding,
+sondern Port 80, nee, Port 3000, nee, wo denn, Get Service, Get Service, Grafana Service
+läuft auf Port 80, läuft nicht Grafana, normalerweise auf Port 8000, na gut, Local House 8080 und
+schon haben wir einen Grafana am Start, zack, kann man die Helm-Values noch in eine eigene
+Datei kippen, ja, es gibt verschiedene Varianten, wie man das machen kann, also, es gibt in
+ArgoCD zwei Varianten, wie man Helmcharts installieren kann, du kannst Helmcharts entweder
+direkt als Application und zwar als Helmchart angeben, dann kannst du hier, achso, du meinst
+die Values hier in der eigenen Datei, du kannst irgendeine Config, ja, das geht, das geht,
+das war nochmal ArgoCD Helm-Values, das geht, die Hilfe-Seite von denen ist tatsächlich
+ganz nice, Value Files, hier, hier, du kannst, du kannst, hier, so, das kannst du angeben,
+Value Files, Values Production-Yaml, ja, das kannst du machen, it's Ctrl-Z-Button-Paper,
+ok Chain-Lore, all du's bist, das können wir uns morgen früh angucken, ja, das, das
+funktioniert, ja, genau, es gibt zwei Varianten, wie du Helmcharts hinzufügen kannst, einmal
+hier halt direkt als Helmchart enden oder wenn du das Helmchart selber noch etwas erweitern
+musst, ohne dass du selbst quasi ein eigenes Chart machen willst mit der Dependency auf
+das andere Chart und sowas, da kannst du's einfach auch in die, da kannst du's auch
+so in der Customize-Datei reinschreiben, funktioniert auch, da kannst du hier noch andere Sachen
+incluiden im gleichen Ordner, ohne dass du quasi das Helmchart forken musst oder ohne
+dass du das Helmchart extenden musst, für kleine Sachen ist das ganz, ganz nice, ist
+halt wieder komplex, as fuck, unnötigerweise, so, ja, also, wir haben uns bei Grafana eingeloggt,
+jetzt können wir mal unseren Cluster uns angucken, also, Browse, das war jetzt wirklich easy
+mit Grafana, Browse, so, wir haben ein paar Standard-Dashboards dabei, ja, das stimmt
+wohl, das ist, da ist vieles, immer auf 50 Varianten möglich und bei Yammel-Bausen laufen
+auch irgendwelche Fehler ein, so, gucken wir uns mal, gucken wir uns mal die mitgelieferten
+Dashboards an, ob da irgendwas Spannendes drin ist, Cordien ist, okay, alert man, dass
+was drin, ah ja, interessant, nichts, sehr schön, ah, nichts, excellent, auch sehr interessant,
+wahrscheinlich sollte ich mal auf die letzten fünf Minuten stellen, auch nicht, wann habe
+ich überhaupt Datenquellen drinnen, die funktionieren, data sources, ja, ich hab die Standard-Prometos-Data-Source
+drin, die sollte funktionieren, ah, hier steht was drinnen, computer-sources, CPU, no data,
+auch geil, nice, ggeats, no data, hier, memory, doch ein paar Sachen stehen drin, CPU-limits
+und sowas, no data, CPU-usage, ich geh davon aus, du musst einfach noch ein bisschen einsammeln,
+da steht überall nichts drin, excellent, sehr schön, alles klar, da weiß man gleich
+Bescheid, okay, hier steht was drin, CPU-utilization, aber die Grafen sind auch noch nicht gefüllt,
+hier haben wir ein bisschen was, api-server und hier haben wir overview, Cordien, Cordien
+S, haben wir ein paar Anfragen, okay, Requests, Alert-Manager, ja gut, wollen wir haben Alerts,
+warum haben wir Alerts, von was, ja, wenn wir schon so gerade so nice am Monitoren sind,
+hauen wir auch gleich nochmal Loki drauf für Loks, dann kann ich euch das auch zeigen,
+so, aber jetzt, okay, langsam, lang, aber, ja, doch, jetzt, jetzt kriegen wir langsam
+ein paar Werte her, nicht dass mir das jetzt irgendwie großartig ist, was sagt, aber wir
+haben schon ein paar hübsche Dashboards, die beim Chef Eindruck machen, gibt es Monitoring
+fürs Monitoring und dann Monitoring fürs Monitoring, um dann wiederum das Monitor zu
+monitorn, mein Monitoring des Monitorings ist mein Auge, iChamp, so, Loki am Start,
+mehr müssen wir hier glaube ich an der Stelle nicht machen, Projekt Default und wir müssen
+jetzt noch hier abschließend in Grafana die Loki-Source einbinden und dann habe ich sogar
+Log-Dateien, ich zeige euch noch was wichtiges an der Stelle, guckt mal hier, Server-Site-Apply-True
+muss man setzen, weil Grafana bzw. dieses ganze Bundle hier aus Cube, Prometheus, Stack und
+alles mögliche, das ist so groß, dass das Probleme hat, wenn es an die Kubernetes-AP
+geschickt wird, deswegen muss man Server-Site-Apply einstellen, dann gibt es keine Probleme mehr.
+So, Push, jetzt sollten wir auch gleich noch eine Loki-Installation haben, achso, Local-Host,
+das ist ja klar, dass das nicht geht, Secret, Massive Password, Loki, da ist es doch schon
+und es ist auch gesüngt, der Pod startet noch nicht, mal abwarten, sollte sich hoffentlich
+gleich erledigt haben, Loki ist nicht Running, vielleicht braucht er einfach noch ein bisschen,
+ja, aber wir sind gleich fertig, ok, Loki hat kein Bock zu starten, mal gucken was ich
+verkackt habe, Logs, Loki, warum will das nicht starten, weil, Handing Over Indexes
+to Shipper, alles klar, die allerbesten Fehlermeldungen, achja ok, es läuft, ich habe nichts gesagt,
+funktioniert, Loki läuft, so, das heißt, ich kann jetzt auch in meinen Grafana gehen
+und wenn ich Glück habe, haben die, achso, vielleicht soll ich, Forwarding ist an, Forwarding
+ist an, Unexpected Error, ok, geht es jetzt, kein Unexpected Error mehr, Data Sources,
+Loki am Start, ok, so, jetzt können wir mal unsere Log-Dateien browsen, Data Source, Loki
+und zwar, keine Ahnung, hier, Pod, und zwar wollen wir uns Logs angucken und besser gesagt
+Server, egal, Pod, Pod wollen wir uns angucken vom Server Manager unbedingt, so, Run Query
+und wir haben Logs drinnen, Bam, wir sehen was kritisch ist, wir sehen was nicht kritisch
+ist, können Logs durchsuchen, eigentlich ganz nice, hier sieht man ok, da gab es irgendwelche
+Fehler, man könnte jetzt noch ein Log-Level einstellen, das ging jetzt deutlich schneller
+als ich gedacht habe, mein so ist das ein ziemliches Müll-Frontend, ja, oh, was macht
+er denn hier, ja, aber das ist doch jetzt schon mal eine ganz gute Grundlage, ich meine,
+da können wir doch die nächsten Male ordentlich weiter machen, wir haben alle Basics da, die
+wir brauchen, wir haben einen Cert Manager für Zertifikate, wir haben eine Testanwendung
+für unseren Kram, wir haben Anbindung an unseren Key Vault, das heißt selbst wenn ich mal meine
+Keys ändere, dann ist es easy, das einfach im Vault anpassen und gut ist und der Cluster
+aktualisiert sich, wir haben Logging, wir haben lokale Storage, wir haben Grafana fürs
+Monitoring beziehungsweise zum drauf gucken, Argo CD zum automatisch ausrollen, das ist
+auch schon mal ein ganz gutes Setup, nutzt du Wayland oder X, das ist X, Wayland funktioniert
+ja vm nicht gescheit, das ist ja immer noch meine Linux vm, ja guck hier Windows da Linux,
+ok.
+So, ja gut, man könnte sich jetzt noch ein bisschen Gedanken darüber machen, warum zum
+Beispiel die Qt App hier die ganze Zeit so ein drehendes Ding hat. Könnte das sein,
+dass der Health Check schlicht und ergreifend nicht funktioniert? Was habe ich denn da für
+den Health Check eingestellt? Gar keinen! Nee doch, hier. Readiness Probe slash Health,
+das sollte doch eigentlich funktionieren. Holen wir mal aus. Slash Health, jo. Health,
+ja, weil, weil, warum Health mit Z? Weil sich irgendwelche coolen Leute bei Google gedacht
+haben. Das ist eine gute Idee, das mit Z zu schreiben. Ich habe keine Ahnung, warum die
+auf diese klorreiche Idee gekommen sind. Aber der Default Endpunkt für einen Cluster Endpunkt,
+nein, für einen Service Endpunkt Check ist Health Z. Das ist der Default. Also warum
+der Service hier permanent in progressing ist, weiß ich nicht. Ich vermute aber mal,
+das liegt daran, weil ich es lokal betreibe und nicht bei einem Cloud-Anbieter. Also das
+ArgoCD da irgendwelche Probleme damit. Habe ich auch mal was zu gelesen. Progressing Service,
+wenn man das lokal hat. Hier, ArgoCD progressing state forever. Ja, Resource Health, genau,
+Service. If Service ist auf type Load Balancer, Status Load Balancer Ingress List ist non-empty.
+Okay, wollen wir mal gucken, ob das auf Typ Load Balancer ist. Get Service, Minus A. Es
+ist auf type. Moment, ich habe da einen Falto, Qt-App muss ich gucken, hier. Load Balancer,
+aha. Das ist das Problem. Die App ist auf Typ, der Service ist auf Typ Load Balancer. Warum
+eigentlich? Kann der lokal gar nicht funktionieren. So, gucken wir mal wahrscheinlich, weil ich Mist
+eingestellt habe. Will ich Cluster IP haben? Wahrscheinlich will ich Cluster IP haben. Ist Cluster
+IP nicht so geil der Default? Okay, Push. Und jetzt hat sich das hoffentlich erledigt. Bäm. Alles
+gesüngt. Healthy, wunderbar. Pogu. So muss das sein. Haben wir alles am Start.
+External Secrets, Zertifikate, Log-Auswertungen, Grafana-Dashboard, lokale Storage, automatisches
+Ausrollen auf dem Cluster. Da kann man doch mit leben, so. Okay, was sagt Chat-GPT? In Kubernetes
+ist slash Health ein Endpunkt für den einfachen Gesundheitscheck von Pods, während Health ein
+Endpunkt für erweiterte Prüfung der Pod-Gesundheit ist. Das erscheint mir ein bisschen sass, was Chat-GPT
+da erzählt. Also, ich mein, das heißt ja im Endeffekt, das gibt's nämlich gar nicht.
+Dass das Z für Zero steht, nee, das ist irgendwie so Google-Ding mit dem Z hinten dran. Keine Ahnung.
+Svelte. Svelte, finde ich, ist mit Abstand mein Favorite. Wenn du was brauchst, was verbreitet
+ist, also super krass weit verbreitet, und wenn du Leute finden willst, die mit dran arbeiten,
+da bleibt ja eigentlich nur React. React ist das mit Abstand, wirklich mit riesem Abstand
+verbreitetste Frontend-Framework, wo du auch ein paar Leute für findest, die davon Plan
+haben. Ja, mit Svelte, weiß ich nicht, ob es da so viele gibt. So. Leute, wir haben
+noch eine Stunde Zeit, was machen wir denn jetzt? Wir haben jetzt 2 Stunden 15 Kubernetes-ed,
+können wir doch irgendwas Sinniges da drin machen jetzt? Ich überleg gerade. Traffic
+als Ingress, nee. Traffic als Ingress ist jetzt eklig zu einzurichten, weil bei mir
+lokal auf der Kiste, da muss ich einfach bei Minikube das Nginx Addon anmachen und gut
+ist. Hast du Geburtstag in 3 Stunden? Pogu. Nee, das machen wir heute nicht, das ist zu
+umfangreiches Thema. Nö, da fällt mir jetzt gerade nichts mehr, ehrlich gesagt großartig
+ein, was wir da heute machen könnten. Du kannst links zu Stackoverflow posten, jaja. Kube
+Doom. Die Leute haben ja schon wieder Ideen, ey. Kackel. Das ist einfach eine gute Idee,
+oder? Kubernetes Doom. Security Scan. Ich schreibe mir das mal alles, ich schreibe mir
+das mal auf als To Do's, ja. Das ist ja geil. Das zusammen Windows Update machen, dann fährt
+mein Rechner ja runter und ihr seid weg. Leute, wisst ihr, dass ich bald 39 werde? Ich hab
+da auch kein Bock drauf. Dann ist nur noch ein Jahr bis 40. Mit 40 ist das Leben zur
+Hälfte vorbei, sozusagen. Chainlord, ich weiß nicht, wie alt du bist, aber wenn du
+unter 20 bist, könnte ich easy dein Vater sein, ja? Ist richtig. Ja, könnte ich, theoretisch.
+Ich bin es meines Wissens nach nicht, aber ich könnte, rein vom Alter her. Ja, wer weiß.
+Wenn du dir dein Alter aussuchen könntest, welches würdest du gerne wieder sein? Okay,
+es geht ja um das Alter und nicht um die Zeit. Ja, das muss man ja immer trennen. Wenn es
+um die Zeit ging, was richtig cool war, dann hätte ich eindeutig gesagt. Bonkers. Alter.
+Also, wenn es um die Zeit geht, da gibt es mehrere, aber ich glaube, ohne Mist, wenn
+ich nochmal Zeit, dann würde ich tatsächlich was nehmen, wo ich Ferien hatte und noch in
+die Schule gegangen bin. Ja, wo Oma und Opa noch am Leben waren, wo ich Half-Life gespielt
+habe den ganzen Tag auf meinem 17 Zoll Röhrenbildschirm, dann angefangen habe, schon ein bisschen
+MMOs zu grinden. So, sagen wir mal, sagen wir mal so die, so 1996 bis 2000, so die Zeit,
+das fände ich geil. So, aber wenn es um das Alter geht, also quasi so mit jetzigem Wissen
+und jetziger Zeit und so, wie alt ich heute sein möchte, ganz ehrlich, dann wahrscheinlich
+nur ein paar Jahre jünger, nicht wirklich viel. Vielleicht 25 oder so. Oder 30, 30
+wahrscheinlich. 30 ist eigentlich ganz gut. 30, paarunddreißig. Ehrlich keine Schmerzen.
+25 bis 35 so dazwischen irgendwie. Es ist jetzt auch nicht wirklich so schlimm gerade.
+Ich kann mich jetzt nicht beschweren. Wie gesagt, ich war lange nicht mehr so fit und so gesund,
+so auch was Rückenschmerzen und Kopfweh und so angeht wie jetzt. Und das liegt einzig
+und allein an mehr Bewegung. So ist es. Also ich war lange nicht mehr, wie gesagt, so fit
+und ja, also insgesamt eigentlich alles ganz gut wie jetzt. Ja, deswegen habe ich ja gesagt,
+wenn Ferien sind, Schulzeit selbst, da hätte ich auch keinen Bock mehr drauf. Schule war
+richtig kacke. Da hätte ich auch keinen Bock drauf jetzt. Schule ist ultra suck.
+Ähm. Kommt das hin mit 24? Joah. Leg gerade. Also
+Ausbildung 2007. Ja, ja, so irgendwie in dem Dreh, ne? Ja, nochmal. 2007 minus 1984, 23,
+ja, also mit 23, 24 ist richtig. Joah. Äh, was ich vorher gemacht habe. Ich habe vorher
+beispielsweise BWL-Shit gemacht. Ja. Nicht wirklich studiert BWL-Shit oder so. Eher ausbildungstechnisch
+was gemacht, aber da habe ich überhaupt keinen Bock drauf gehabt. Das habe ich auch nur
+gemacht, weil mich meine Mutter so genervt hat, genervt hat, dass ich das jetzt unbedingt
+was machen muss. Ja, was mit Holz. Was hast du für eine Ausbildung? Wie gesagt, ich habe
+mal Bürokauf angefangen zu lernen. Vor langer Zeit habe ich nicht fertig gemacht und das
+war die Zeit, da habe ich eigentlich mich morgens an Rechner gesetzt, eingeloggt, MMO-Kreiselgrind
+gemacht bis abends und dann bin ich dann bin ich pennen gegangen und dann bin ich aufgestanden
+und habe wieder MMO-Kreiselgrind gemacht den ganzen Tag. Und dann ging mir halt meine Mutter
+so sehr auf den Keks, dass ich dann mich habe halt dazu überreden lassen Bürokaufmann
+zu machen. Weil man ja irgendwie eine Ausbildung angeblich machen muss so. Und egal was, wie
+scheiße es ist, mach halt mal. Und ich meine nicht, dass ich da irgendwie jetzt großartig
+was gerissen hätte. Janfried, danke schön für den Sub. Nicht, dass ich da groß was
+gerissen hätte. Ich hatte auch keinen Bock. Also wie gesagt, ich habe da den ganzen Tag
+habe ich MMO-Kreiselgrind gemacht, mich für nichts anderes interessiert. Ja, löten
+deswegen mal was sinnvolles was man lernt, wenn man sowas lernt in der Schule. Also wie
+gesagt, das einzige was ich mir gemerkt habe aus meiner kaufmännischen Ausbildungszeit
+da ist, wie man eine Buchhalternase macht und dass man linear und dekresiv abschreiben
+kann. Wobei ich gehört habe, dass es mittlerweile gar nicht mehr so ist. Kannst du noch etwas
+sagen, was du nach der Physi-Ausbildung verdient hast? Ja, kann ich sagen 33.500 im Jahr beim
+Provider. Direkt nach der Ausbildung. Ja, mit Bonus sogar ein bisschen mehr. Also sagen
+wir mal, ich habe meinen Gehalt in den letzten 15 Jahren quasi ziemlich genau verdreifacht,
+kann man glaube ich sagen. Ne, sogar mehr. Bisschen mehr sogar. Fast verdreifacht. Ich
+bin mir relativ sicher, in den nächsten 15 Jahren wird das nicht mal so viel sein. Ich
+glaube nicht, dass ich nochmal mal 3 verdienen werde. 2035. Die hat Epic? Was soll denn
+Epic sein? Erzählende Literatur, ok. Inflationsbereinigt, keine Ahnung, musst du selbst ausrechnen.
+Gibt es dazu einen Rechner? Wie viel das heute wird? 33.500, 2010 oder so. Die Seite
+mache ich nicht auf. Die sieht sass aus. Ah, im Moment das Spiegel ist aus. Ok, es sieht
+trotzdem sass aus. Ok, zeig mal her. Protogohalt, Datum, so frisst es jedenfalls. Was soll ich
+da jetzt eintippen? Muss ich jetzt da zurückgehen auf 2010 oder
+das muss ich da jetzt einstellen. 2010 habe ich, keine Ahnung, 33.500 durch 12. Wie viel
+ist denn das? Ok. Um sich genauso viel leisten zu können wie November, müssen sie heute
+3600 verdienen. Ok. Ok, ich glaube ich kann auch einfach das Jahresgal reinschreiben.
+Ok, also heute müsste man dann schon 43.000 verdienen. Das ist schon krass wenn man sich
+das hier anguckt, oder? Davor eigentlich nur halbwegs milde und jetzt wirklich bergab.
+Da kann das durchaus sein, wenn das so weiter geht. Also wenn das irgendwie 10% im Jahr
+sind, da kann das durchaus sein, dass ich in 15 Jahren oder in 10 Jahren tatsächlich
+dieses doppelte habe oder so, weil die müssen ja irgendwie da mitziehen. Wer weiß. Ja, das
+ist doch eigentlich ziemlich gut, oder? Es kommt recht genau hin. Mit meinem Einstiegsgehalt
+damals und jetzt bei ihm. Naja. So, ich war mal kurz bei dem Kubernetes-Klasse aus. Ausgecubed
+für heute. Das Chat-GPT uns alle arbeitslos macht. Ja, wenn es nach YouTube geht ist das
+ja so. Wenn die Leute damit leben können, dass in allen Arbeiten irgendwelche versteckten
+Fehler drin sind, von denen du nichts weißt, ja dann kannst du Chat-GPT alles machen lassen.
+Welchen IT-Job kann man machen, wo man nicht 24-7 programmiert? Alle außer Software-Entwickler
+und selbst als Software-Entwickler programmierst du nicht 24 Stunden? Wann war der letzte
+AVM-Aufsett-Stream? Gar nicht so lange her. Ich glaube im Dezember. Ich bin echt richtig
+gelangweilt von diesen ganzen Chat-GPT-Videos oder generell von diesem Ultra-AI-Gehype.
+Ich habe es nach einer Woche schon gelangweilt. Weil die Videos auch immer die gleichen sind.
+Oh, ich lasse Chat-GPT eine Webseite machen. Oh, Chat-GPT schreibt meine Bewerbung. Blablabla.
+Die Diskussion ist sehr ermüdend alles. Es ist ja auch langsam mal wieder gut. War doch
+Januar, Februar kann auch sein. Kann auch sein, dass es Januar, Februar gewesen ist.
+Na ja, Leute, ich glaube, ich gehe jetzt off.
+Ja, ich habe da auch ein paar Ausschnitte gesehen. Was sie da erzählt haben auf Genie-Level
+und sowas. Ich muss Chat-GPT einfach nur mal nach einer genauen Funktionsweise vom Kommando-Zahlen-Tool
+fragen. Da denkt sich schon irgendwelchen Blödsinn aus. Chat-GPT kann eins richtig
+gut. Dich mit einer riesen Masse an Text erschlagen.
+Ja, Leute, wir haben jetzt genug gewürfelt für heute. Kubernetes. Das schon, das hat
+ja mit Chat-GPT erstmal nur am Rande zu tun. Bis denn, macht's gut, CU.
