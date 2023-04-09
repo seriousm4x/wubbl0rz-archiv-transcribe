@@ -48,16 +48,9 @@ for srt in os.listdir("transcripts"):
         current_block = {}
 
     final_json = {
-        "text": "",
+        "text": " ".join([i["text"] for i in segments]),
         "segments": segments
     }
-
-    for i in segments:
-        try:
-            final_json["text"] += i["text"]
-        except:
-            print(i)
-            print(srt)
 
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(final_json, f)
