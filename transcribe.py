@@ -27,6 +27,9 @@ def run_whisper(aac: str, model: str, device: str, output: str) -> None:
                         best_of=5, verbose=False, language="de")
     filename = os.path.splitext(aac)[0]
 
+    writer = get_writer("json", output)
+    writer(result, filename)
+
     writer = get_writer("txt", output)
     writer(result, filename)
 
