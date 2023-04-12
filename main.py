@@ -71,7 +71,6 @@ def run_transcribe():
         # some console output
         end = time.time()
         print(colored("[main]", "green"), "Finished in:", timedelta(seconds=end-start))
-        print("")
 
     # show final message
     if len(vods_to_transcribe) == 1:
