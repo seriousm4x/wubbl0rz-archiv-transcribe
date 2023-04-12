@@ -18,7 +18,11 @@ def read_config() -> Any:
     """Read config file from args"""
     print(colored("[main]", "blue"), "Reading config...")
     with open(args.config, "r", encoding="utf-8") as f:
-        return json.load(f)
+        conf = json.load(f)
+        if conf["version"] != "3":
+            print(colored("[main]", "red"), "Config file has wrong version. Please update it.")
+            exit(1)
+        return conf
 
 
 def run_transcribe():
