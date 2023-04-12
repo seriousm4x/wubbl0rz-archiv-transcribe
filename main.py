@@ -8,10 +8,10 @@ from typing import Any, Optional
 
 from termcolor import colored
 
-from lib.transcribe import ArchivWhisper
 from lib.api import ArchivApi
 from lib.git import ArchivGit
 from lib.meili import ArchivMeili
+from lib.whisper import ArchivWhisper
 
 
 def read_config() -> Any:
@@ -20,7 +20,8 @@ def read_config() -> Any:
     with open(args.config, "r", encoding="utf-8") as f:
         conf = json.load(f)
         if conf["version"] != "3":
-            print(colored("[main]", "red"), "Config file has wrong version. Please update it.")
+            print(colored("[main]", "red"),
+                  "Config file has wrong version. Please update it.")
             exit(1)
         return conf
 
@@ -45,7 +46,8 @@ def run_transcribe():
             vods_to_transcribe.append(vod)
 
     # print result and exit if no vods
-    print(colored("[main]", "blue"), len(vods_to_transcribe), "vods to transcribe")
+    print(colored("[main]", "blue"), len(
+        vods_to_transcribe), "vods to transcribe")
     if len(vods_to_transcribe) == 0:
         exit(0)
 
@@ -60,12 +62,13 @@ def run_transcribe():
         start = time.time()
         filename = vod["filename"]
         aac = f"{filename}.aac"
-        print(colored("[main]", "blue"), i, "of", len(vods_to_transcribe), filename)
+        print(colored("[main]", "blue"), i, "of",
+              len(vods_to_transcribe), filename)
 
         # download vod and extract audio to aac, transcribe audio and delete aac afterwards
         api.download_vod(filename)
         whisper.run(aac=aac, model=args.model,
-                               device=whisper_device, output=args.output)
+                    device=whisper_device, output=args.output)
         os.remove(aac)
 
         # push transcript to git
@@ -74,13 +77,16 @@ def run_transcribe():
 
         # some console output
         end = time.time()
-        print(colored("[main]", "green"), "Finished in:", timedelta(seconds=end-start))
+        print(colored("[main]", "green"), "Finished in:",
+              timedelta(seconds=end-start))
 
     # show final message
     if len(vods_to_transcribe) == 1:
-        print(colored("[main]", "green"), f"Transcribed {len(vods_to_transcribe)} file")
+        print(colored("[main]", "green"),
+              f"Transcribed {len(vods_to_transcribe)} file")
     else:
-        print(colored("[main]", "green"), f"Transcribed {len(vods_to_transcribe)} files")
+        print(colored("[main]", "green"),
+              f"Transcribed {len(vods_to_transcribe)} files")
 
     # ask to post vods to meilisearch
     reply = None
