@@ -49,10 +49,12 @@ class ArchivMeili:
                     "duration": vod["duration"],
                     "viewcount": vod["viewcount"]
                 })
-            if len(segments) > 10000:
+            if len(segments) > 50000:
                 # avoid error "payload too large"
+                print(colored("[meili]", "blue"), f"Posting {len(segments)} segments")
                 self.client.index("transcripts").update_documents(segments)
                 segments = []
+        print(colored("[meili]", "blue"), f"Posting {len(segments)} segments")
         self.client.index("transcripts").update_documents(segments)
 
     def update_clips(self, clips: dict) -> None:
@@ -69,7 +71,7 @@ class ArchivMeili:
             if clip.get("vod"):
                 del clip["vod"]
             clips_to_post.append(clip)
-            if len(clips_to_post) > 10000:
+            if len(clips_to_post) > 50000:
                 # avoid error "payload too large"
                 self.client.index('clips').update_documents(clips_to_post, "uuid")
                 clips_to_post = []
