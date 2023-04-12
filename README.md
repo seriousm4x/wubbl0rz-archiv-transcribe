@@ -55,20 +55,26 @@ Then run the given command to install pytorch.
 Just running the main script will mostly do all you need. Transcribed scripts will be saved in `transcripts/`.
 
 ```bash
-python main.py
+python main.py -e prod transcribe
 ```
 
-Using the large whisper model (`-m large`) will result in the best speech to text but requires ~12GB+ GPU memory and takes about twice as long as the medium model (which is default).
+Using the large whisper model (`transcribe -m large`) will result in the best speech to text but requires ~12GB+ GPU memory and takes about twice as long as the medium model (which is default).
 
 ```
-usage: main.py [-h] [-c CONFIG] [-o OUTPUT] [-m {medium,large}]
+usage: Wubbl0rz Archiv Transcribe [-h] [-c CONFIG] -e {prod,dev} [-o OUTPUT]
+                                  {transcribe,post} ...
+
+positional arguments:
+  {transcribe,post}     Availble commands
+    transcribe          Run whisper to transcribe vods to text
+    post                Post available transcriptions
 
 options:
   -h, --help            show this help message and exit
   -c CONFIG, --config CONFIG
                         Path to config.json
+  -e {prod,dev}, --environment {prod,dev}
+                        Target environment
   -o OUTPUT, --output OUTPUT
-                        Directory where scripts will be saved
-  -m {medium,large}, --model {medium,large}
-                        Whisper model. Medium is default, but large will result in better quality
+                        Output directory for transcripts
 ```

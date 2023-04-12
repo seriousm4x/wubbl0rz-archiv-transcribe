@@ -4,128 +4,137 @@ import os
 import pathlib
 import time
 from datetime import timedelta
+from typing import Any, Optional
 
-from git import Repo
+from termcolor import colored
 
-import transcribe
-from api import Api
+from lib.transcribe import ArchivWhisper
+from lib.api import ArchivApi
+from lib.git import ArchivGit
+from lib.meili import ArchivMeili
 
 
-def process_vods() -> list:
-    """Transcribe all needed vods and push them to git"""
-    # update repo
-    repo = Repo(os.path.join(pathlib.Path(
-        __file__).parent.resolve(), ".git"))
-    origin = repo.remote(name="origin")
-    origin.pull()
+def read_config() -> Any:
+    """Read config file from args"""
+    print(colored("[main]", "blue"), "Reading config...")
+    with open(args.config, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    # use the first api in config to transcribing and set whisper device
-    first_api = Api(config["apis"][0])
-    device = transcribe.select_whisper_device()
 
-    # only use vods where no transcript exists
-    vods = first_api.get_vods()
-    vods = [vod for vod in vods if not os.path.exists(
-        os.path.join(args.output, f"{vod['filename']}.srt"))]
-    count = len(vods)
+def run_transcribe():
+    """Compare vods in api with files in output dir and transcribe missing vods"""
+    # read config from args
+    config = read_config()
 
+    # keep out transcripts up to date
+    git = ArchivGit()
+    git.pull()
+
+    # get vods in api
+    api = ArchivApi(config[args.environment])
+    all_vods_in_api = api.get_vods()
+
+    # compare with local files
+    vods_to_transcribe = []
+    for vod in all_vods_in_api:
+        if not os.path.exists(os.path.join(args.output, vod["filename"] + ".json")):
+            vods_to_transcribe.append(vod)
+
+    # print result and exit if no vods
+    print(colored("[main]", "blue"), len(vods_to_transcribe), "vods to transcribe")
+    if len(vods_to_transcribe == 0):
+        exit(0)
+
+    # get the device to run whisper on
+    whisper = ArchivWhisper()
+    whisper_device = whisper.select_device()
+
+    # transcribe each vod
     i = 0
-    for vod in vods:
+    for vod in vods_to_transcribe:
         i += 1
         start = time.time()
         filename = vod["filename"]
         aac = f"{filename}.aac"
-        print(i, "of", count, filename)
+        print(colored("[main]", "blue"), i, "of", len(vods_to_transcribe), filename)
 
         # download vod and extract audio to aac, transcribe audio and delete aac afterwards
-        print("Downloading vod...")
-        first_api.download_vod(filename)
-        print("Transcribing...")
-        transcribe.run_whisper(aac=aac, model=args.model,
-                               device=device, output=args.output)
+        api.download_vod(filename)
+        whisper.run(aac=aac, model=args.model,
+                               device=whisper_device, output=args.output)
         os.remove(aac)
 
         # push transcript to git
-        try:
-            origin.pull()
-            repo.git.add(args.output)
-            repo.index.commit(f"[🤖] add {vod['filename']}")
-            origin.push()
-        except Exception as e:
-            print("Git error:", e)
+        git.pull()
+        git.push(f"[🤖] add {vod['filename']}", args.output)
 
+        # some console output
         end = time.time()
-        print("Finished in:", timedelta(seconds=end-start))
-        print("-"*20)
+        print(colored("[main]", "green"), "Finished in:", timedelta(seconds=end-start))
+        print("")
 
-    if count == 1:
-        print(f"Transcribed {count} file")
+    # show final message
+    if len(vods_to_transcribe) == 1:
+        print(colored("[main]", "green"), f"Transcribed {len(vods_to_transcribe)} file")
     else:
-        print(f"Transcribed {count} files")
+        print(colored("[main]", "green"), f"Transcribed {len(vods_to_transcribe)} files")
 
-    return vods
+    # ask to post vods to meilisearch
+    reply = None
+    while reply not in ["y", "n"]:
+        reply = input(
+            "Post transcripts to meilisearch? [y/n]: ").strip().casefold()
+        if reply == "y":
+            run_post(vods_to_transcribe)
 
 
-def post_vods(vods) -> None:
-    """Post all given vods to all apis in config"""
-    for ap in config["apis"]:
-        a = Api(ap)
-        for vod in vods:
-            a.post_transcript(os.path.join(
-                args.output, vod["filename"] + ".srt"))
+def run_post(vods_to_post: Optional[list] = None) -> None:
+    """Post transcriptions, vods and clips to meilisearch"""
+    # read config from args
+    config = read_config()
+
+    api = ArchivApi(config[args.environment])
+    clips_to_post = api.get_clips()
+    if not vods_to_post:
+        # get vods in api
+        vods_to_post = api.get_vods()
+
+    # run meilisearch
+    meili = ArchivMeili(config[args.environment])
+    meili.update_vods(vods_to_post)
+    meili.update_transcripts(vods_to_post, args.output)
+    meili.update_clips(clips_to_post)
 
 
 def main() -> None:
-    if args.post_all:
-        first_api = Api(config["apis"][0])
-        vods = [vod for vod in first_api.get_vods() if os.path.exists(
-            os.path.join(args.output, f"{vod['filename']}.srt"))]
-        post_vods(vods)
-        return
-
-    vods = process_vods()
-    if len(vods) == 0:
-        return
-
-    print("Please transfer the transcripts to all your servers in the config before posting files to api.")
-    reply = None
-    while reply not in ["y", "n"]:
-        reply = input("Continue? [y/n]: ").strip().casefold()
-        if reply == "n":
-            exit(0)
-    post_vods(vods)
+    if args.cmd == "transcribe":
+        run_transcribe()
+    elif args.cmd == "post":
+        run_post()
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-c", "--config", help="Path to config.json", default=os.path.join(pathlib.Path(__file__).parent.resolve(), "config.json"), type=pathlib.Path)
-    parser.add_argument(
-        "-o", "--output", help="Directory where scripts will be saved", default=os.path.join(pathlib.Path(__file__).parent.resolve(), "transcripts"), type=pathlib.Path)
-    parser.add_argument(
-        "-m", "--model", help="Whisper model. Medium is default, but large will result in better quality.", choices=["medium", "large"], default="medium", type=str)
-    parser.add_argument(
-        "-p", "--post-all", help="Only post available files, no transcribing", action="store_true")
+    # main parser
+    parser = argparse.ArgumentParser(prog="Wubbl0rz Archiv Transcribe")
+    parser.add_argument("-c", "--config", help="Path to config.json", default=os.path.join(
+        pathlib.Path(__file__).parent.resolve(), "config.json"), type=pathlib.Path)
+    parser.add_argument("-e", "--environment", choices=[
+                        "prod", "dev"], required=True, type=str, help="Target environment")
+    parser.add_argument("-o", "--output", default=os.path.join(pathlib.Path(__file__).parent.resolve(),
+                        "transcripts"), type=pathlib.Path, help="Output directory for transcripts")
+    subparsers = parser.add_subparsers(
+        dest="cmd", help="Availble commands")
+
+    # parser for transcibe
+    transcribe_parser = subparsers.add_parser(
+        "transcribe",  help="Run whisper to transcribe vods to text")
+    transcribe_parser.add_argument("-m", "--model", choices=["tiny", "base", "small", "medium", "large"],
+                                   default="medium", type=str, help="Whisper language model")
+
+    # parser for post
+    post_parser = subparsers.add_parser(
+        "post",  help="Post available transcriptions")
+
+    # run parse
     args = parser.parse_args()
-
-    if not os.path.exists(args.config):
-        print("Config file doesn't exist")
-        print("Please use SAMPLE_config.json, rename it to config.json and edit your api endpoints.")
-        exit(1)
-
-    if not os.path.isdir(args.output):
-        print("Output path doesn't exist. I'll create it...")
-        os.mkdir(args.output)
-
-    with open(args.config, "r", encoding="utf-8") as f:
-        config = json.load(f)
-
-    if config["version"] != "1.0":
-        print("Config doesn't have the latest version. Please update it.")
-        exit(1)
-
-    if len(config["apis"]) == 0:
-        print("Config doesn't have an api. Please add at least one.")
-        exit(1)
-
     main()
