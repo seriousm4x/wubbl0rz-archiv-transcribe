@@ -42,7 +42,7 @@ def run_transcribe():
 
     # print result and exit if no vods
     print(colored("[main]", "blue"), len(vods_to_transcribe), "vods to transcribe")
-    if len(vods_to_transcribe == 0):
+    if len(vods_to_transcribe) == 0:
         exit(0)
 
     # get the device to run whisper on
