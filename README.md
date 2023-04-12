@@ -24,7 +24,7 @@ Head over to [pytorch.org](https://pytorch.org/get-started/locally/), select:
 <table>
     <tr>
         <td>PyTorch Build</td>
-        <td>Preview (Nightly)</td>
+        <td>Stable</td>
     </tr>
     <tr>
         <td>Your OS</td>
