@@ -51,11 +51,14 @@ class ArchivMeili:
                 })
             if len(segments) > 50000:
                 # avoid error "payload too large"
-                print(colored("[meili]", "blue"), f"Posting {len(segments)} segments")
+                print(colored("[meili]", "blue"),
+                      f"Posting {len(segments)} segments")
                 self.client.index("transcripts").update_documents(segments)
                 segments = []
-        print(colored("[meili]", "blue"), f"Posting {len(segments)} segments")
-        self.client.index("transcripts").update_documents(segments)
+        if len(segments) > 0:
+            print(colored("[meili]", "blue"),
+                  f"Posting {len(segments)} segments")
+            self.client.index("transcripts").update_documents(segments)
 
     def update_clips(self, clips: dict) -> None:
         """update or create clips"""
@@ -73,6 +76,8 @@ class ArchivMeili:
             clips_to_post.append(clip)
             if len(clips_to_post) > 50000:
                 # avoid error "payload too large"
-                self.client.index('clips').update_documents(clips_to_post, "uuid")
+                self.client.index('clips').update_documents(
+                    clips_to_post, "uuid")
                 clips_to_post = []
-        self.client.index('clips').update_documents(clips_to_post, "uuid")
+        if len(clips_to_post) > 0:
+            self.client.index('clips').update_documents(clips_to_post, "uuid")
