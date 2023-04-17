@@ -1,0 +1,1530 @@
+Ich glaube, wir wären zu spät, wenn wir hier wo
+einmal
+no god please no no no
+ja
+so was id liegt monkaS
+guckt euch mal an meine id ultraliegte id ja omg id liegt
+ja ich hab was getrunken also was passiert heute kann ich euch erzählen ich geb zu der
+titel ist nicht ganz ganz klar ich bin nicht so ganz sicher wie weit wir kommen beziehungsweise
+was davon wir machen werden chat ihr schreibt wirres zeug das ergibt überhaupt keinen sinn
+so also was wir heute machen ist folgendes es gibt so ein paar punkte ach ja und die
+desktop hintergründe müssen wir eigentlich auch noch machen das machen wir heute nicht
+also was wir heute machen ist folgendes wir beschäftigen uns etwas mit google cloud ich
+stelle mir das so in zwei drei teilen vor wie wir das machen also nicht alles heute aber mal
+gucken so das erste ist wir legen da ein paar sachen übers web interface angucken uns das mal
+alles soweit an weil wie gesagt ich habe ja da auch noch nicht so viel so viel alles mögliche
+mir angeguckt so also ich meine ich kann projekte anlegen kann vm so anlegen und so was aber z.b.
+wie man eine container registry anliegt oder so keine ahnung dann oder mal custom netzwerke
+anlegen und so was und dann ich weiß nicht ob das eine gute idee wäre ich gehe davon aus dass
+studio code erweiterung nicht so schwierig zu programmieren ist aber ich habe keine gute
+idee für eine erweiterung so also wir gucken uns erst mal so ein bisschen google cloud im browser
+an ich bin auch schon eingeloggt hier leute ich muss mal kurz die andere musik machen natürlich
+durch bei ja komm wir machen ein bisschen wupp wupp an wupp wupp wupp wupp wupp wupp wupp wupp
+ich gehe davon aus das gibt es schon mehr zu genüge also ich glaube nur visual studio code
+erweiterung die chat gpt für git commits integriert wird es gar nicht schon geben das ist das so
+naheliegend das haben schon 50 andere leute gemacht so also zumindest ich bin auch schon eingeloggt wie
+ihr seht guckt da hier google cloud am start ich habe ein streamprojekt angelegt das ist auch das
+einzige projekt was ich habe ich hatte vorher noch ein anderes dieses das defaultprojekt aber das
+habe ich vorhin gelöscht ich hoffe der mittlerweile alle ressourcen freigegeben
+weil kubernetes cluster erzeugen dauert ewig über das web interface generell über
+das web in google cloud überall dauert das lang ja eindeutig solltest dich bewerben damit
+direkt kannst du reinschreiben expertise cloud storage usage vielleicht solltest du noch
+schreiben was du was du da drinne hast 300 terabyte auf was hast du irgendwelche camgirl sessions
+mitgeschnitten wo aus der irgendwas auf 300 terabyte zu kommen urlaubsfotos ok dann nicht
+also das erste was ich mir überlegt habe ist wir gucken uns mal ein bisschen an bei manchen
+sagen kann ich euch was zu sagen bei manchen auch nicht so mal schauen bis wir vielleicht auch die
+ein oder anderen sachen mal zusammen angucken also folgende folgende punkte will ich will ich mir
+angucken und zwar wie man die container registry anlegt wie man das ordentlich mit netzwerken
+macht dann legen wir kubernetes cluster an dann legen wir cloud sql datenbank an und danach weil
+wir uns angeguckt haben im web interface wie das alles funktioniert das probieren das mal
+terraform zu machen terraform google cloud bissl was habe ich schon gemacht auf der arbeit
+muss ich tatsächlich gar nicht so viel machen da ist vieles schon fertig die haben jede menge
+custom terraform module aber wenn man wenn man ja so eigene sachen machen will die da nicht
+vorgesehen sind brauche man das doch und das ziel das ganze ich denke mal das das dauert jetzt
+mal bestimmt drei streams und ich glaube das kann man auch ganz gut ganz gut aufsplitten also das
+ziel das ganze das ganze ist dass wir im endeffekt dann einen service im google kubernetes laufen
+haben einen api server einen frontend server eine cloud sql datenbank und das ganze dann auch in
+cluster verschlüsseln das ist ganz witzig weil ich muss auf der arbeit gerade was ähnliches
+machen beziehungsweise ich war so blöd habe ich freiwillig dazu gemeldet das das einzurichten und
+da dachte ich mir wenn man schon auf der web wenn ich da schon mal was mache in der richtung da
+können wir hier auch uns paar sachen davon natürlich jetzt hat nichts mit der firma zu tun wo ich
+arbeite aber mein google cloud ist google cloud und ein paar sachen angucken wie das so funktioniert
+das heißt heute das heißt heute gucken wir uns mal ein bisschen google cloud an sich an dann
+gucken wir an wie man das ganze per terraform provisioniert und dann brauchen wir noch eine
+beispielanwendung das weiß ich nicht ob wir das heute machen vielleicht machen wir das auch im
+nächsten stream wir brauchen eine beispielanwendung bestehend aus drei teilen eigentlich zwei teile
+ja ein javascript frontend das wird was ganz simples das wird eine webseite mit einem button
+und wenn man da draufklickt dreht sich ein cac w-build oder irgendwie sowas in der richtung
+sondern nicht kompliziert wird das nicht also wir brauchen eine backend anwendung mit irgendeine
+api-schnittstelle frontend die wir von einem anderen container dann ausliefern können und
+am endeffekt irgendeine postgres cloud datenbank die können wir heute vielleicht schon professionieren
+über terraform das müssen wir mal gucken also das müssen wir machen und dann werden wir gucken
+wie man das möglichst agil und dynamisch auf ein kubernetes cluster deploit so dass man das
+alles ordentlich managen kann ich bin mir nicht sicher wo wir genau heute anfangen wo wir genau
+aufhören aber ich gehe davon aus dass das grob ungefähr drei streams firebase nee warum
+ich weil ich will das ist ein bisschen bezug zu dem was ich auf der arbeit machen muss und da ist
+es nicht firebase weil das hatte ist immer ein vorteil wenn wenn das was ich da gelernt habe wenn
+ich das hier mal so ein bisschen in streams verarbeiten kann umgedreht was ich hier lerne
+dass ich das auf der arbeit benutzen kann das ist eigentlich ganz praktisch das heißt ich werde
+jetzt erstmal hauptsächlich sachen benutzen von den ich weiß dass ich die da auch benutzen kann
+firebase ist nichts nichts davon keines keines davon ja das läuft im endeffekt raus dass wir
+dann wir wahrscheinlich machen wir eine dotnet core api-server anwendung irgend so eine billige
+weltweb anwendung mit einem button drinne zum zum bild rotieren und dann gibt es einen nginx
+server der das frontend ausliefert cloud postgres cloud sql datenbank das wir uns mal anschauen wie
+wir das machen ja weil ich habe mich gestern auf der arbeit freiwillig dazu gemeldet weil
+es ist wirklich ein bisschen anstrengend gerade ich kann irgendwie nichts technisch machen meine
+accounts funktionieren teilweise nicht und du musst erst mal durch fünf muss erst mal fünf
+hürden umschiffen bis zu irgendwas machen kannst das heißt gestern habe ich erfahren da gibt es
+ein neues projekt und die machen das oder zumindest ein teil eines neuen projekts gibt
+und die ne ist immer noch ist immer noch nicht alles freigeschaltet ein teil eines neuen projekts
+gibt und die wollen jetzt erst mal so ein proof of concept in der cloud aufbauen für zum testen von
+ihren sachen habe ich gleich gesagt jungs das mache ich weil da muss man keine internen abläufe
+mit 500 teams und 500 berechtigung sonst was machen dann logste nicht einfach ein und legst
+das erst mal so an wie es dir danach ist das mache ich keine frage da kann ich wenigstens
+was sinnvolles machen weil es wirklich schlimm ist jetzt die zweite woche rum und ich habe
+nichts großartig technik bisher gemacht ich kann auch nicht mal technik großartig machen also sehr
+sehr weird champ alles noch ja deswegen das mache ich das und da habe ich vorgeschlagen wir können
+das ja so machen also die sind noch ganz das ist noch ganz frisch die haben die haben aktuell
+läuft die anwendung bei denen noch rein rein lokal in dockercontainern und wir haben halt gesagt
+ja gut wir hauen das in kubernetes cluster rein da meinten die halt es gibt noch überhaupt kein
+überhaupt noch kein image und sonst was aber sie können mir docker files liefern jetzt kein
+problem wie ich baue die images selbst und vielleicht bauen wir für die zukunft auch
+in den helm chart raus aber schickt schickt einfach schickt einfach euer docker und jetzt wollen sie
+mir binaries schicken und dockerfile ich soll die images selbst machen mache ich überhaupt kein
+problem das heißt da gucken wir uns heute auch mal an wie man eine container registry in der
+google cloud anlegt und am besten natürlich das alles über terraform müssen wir mal gucken wie
+gesagt ich weiß noch nicht genau wo wir anfangen wo wir aufhören nee der hat noch nicht die
+probleme weil der hat noch gar nicht angefangen der fängt am montag an übermorgen der fängt
+hier an und ich gehe davon aus der hatte gleich probleme ich habe sogar zwei wochen
+vorsprung wahrscheinlich kann ich ihm dann die ein oder anderen sache zeigen die er nicht
+selbst raus rausfinden muss wir machen mal kurz ein update weil wir sind ja nach wie vor unter
+achtsch by the way unterwegs für die coolen leute hier arch muss sein archlinux masterrace
+gibt es nichts besseres alles noobs wenn ich arch benutzt gentoo lasse ich mir vielleicht auch
+noch gefallen ich sollte das pro stream öfters öfters erwähnen auf der anderen seite verschenke
+ich dann die chance dass die leute fragen und ich will eine halbe stunde über mein archlinux
+reden kann also wahrscheinlich wäre es besser ich sage gar nichts dazu so erst mal erst einmal
+kurz ein bisschen package updates machen immer und das brauchen wir nicht mehr ich glaube die
+eikens verwende ich gar nicht egal ich lasse trotzdem update vor ich jetzt sachen lösche
+alles mal update soll ich euch mal das beste kommen zeigen was ich auf youtube in letzter
+zeit bekommen habe youtube
+sag uns lieber mal deine meinung zu c++ ja das haben wir auch so selten schon gemacht
+ja also das sind so die sachen die so für die nächsten ich weiß nicht ob das die nächsten
+zwei zwei drei streams in folge sein wird sondern aber es wird auf jeden fall in über
+zwei drei streams gehen was wir google cloud technisch jetzt bauen das wird ein komplettes
+setup ja also das gibt dann container registry irgendeine vm die man als als also mit privates
+privates netzwerk in der cloud in der vm wo man drüber reinkommt zum administrieren in privaten
+kubernetes cluster container registry ingress also dass man von außen auf die anwendung zugreifen
+kann vielleicht irgendwie in flux argo cd oder sonst was zum automatisch deployen für neue
+sachen das muss man sagen wir können nicht allzu große nee ist noch nicht fertig wir haben noch
+gar nicht angefangen 15 minuten das wollte ich jetzt sagen wir können nicht ganz so große
+sprünge hier in der cloud machen weil das ist ein demo account und ich habe irgendwo wo sieht
+man das leute warum steht denn das auf deutsch ich habe gerade billing gesucht warum steht das auf
+deutsch monka es das muss weg oder ich weiß überhaupt nicht wie der wieder kämpel hier
+auf eine mal einstellungen oder nein fake email liegt omg sprache und region ja das müssen wir
+umstellen also ihr seht schon das ist ein account den habe ich explizit angelegt hier zum stream
+zum test da läuft sonst nix drinne ok ich habe billing da ist es doch das habe ich gesucht
+genau und ich habe noch budget 284 euro von 284 euro habe ich noch übrig wir können aber
+trotzdem keine allzu großen sprünge machen weil ich zeige euch mal quotas
+obai das ist jetzt nur für das projekt ich bin mir nicht ganz sicher ob man das da schon
+sieht solange ich kupane das noch nicht eingeschaltet habe ja also was man hier zum
+Beispiel sieht ist dass man ja man hat man hat verschiedene quotas zum beispiel hat man auch
+ein quota für vm storage total storage und ihr seht ich habe ein limit von 250 g also sprich
+ich wir können jetzt kein irgendwie acht acht not kubernetes cluster dahin bauen wir können
+wahrscheinlich zum testen so ein wir machen zwei zwei not klasse reicht reicht ja vollkommen aus
+also man kann da keine so große sprünge machen die limits sind auch hardcoded also ich kann die
+nicht kann die nicht vergrößern weil der account ist wie gesagt ist ein demo account die wollen
+natürlich nicht dass irgendjemand übernacht 10.000 euro da in den demo account rein haut bevor
+sie es überhaupt checken und sonst was also wir sind ein bisschen wir sind ein bisschen limitiert
+also man sieht hier kommt mal in limit wir wir sind europe west europe west 3 ist glaube
+ich frankfurt können wir gleich mal gucken ich glaube europe west 3 ist frankfurt europe west
+3 frankfurt ja
+genau also wir haben wir haben 250 gigabyte ssd limit da können wir jetzt nicht so viel machen
+das eine sache und dann müssen wir uns mal angucken wie das alles funktioniert wir können
+schon mal ein projekt anlegen ja mach mal update ja wenn du was spezifisches wissen willst kannst
+du mich fragen ansonsten denke ich aber ist das eher in richtung das ist wie wenn der
+lehrer dir in der schule 45 minuten was erzählte du hast nichts verstanden am ende fragte ein
+habt ihr noch fragen oder so max hast du noch fragen ja ja was dann ja alles ich weiß nicht
+habe nichts verstanden so ungefähr wird das wahrscheinlich sein wie gesagt der fängt erst
+an so ungefähr stelle ich mir das stelle ich mir das vor wenn man gar keine ahnung davon hat
+aber du kannst natürlich kannst natürlich zeug fragen wenn du was wissen willst
+so sieht es aus wir werden auf eine sache zurückgreifen heute zum testen und zwar auf unsere
+app die wir das letzte mal gebaut haben auf die hier cute cute app auf die hier werden wir
+zurückgreifen die macht nichts anderes wie hallo chat auf der webseite ausgeben das war es also
+hält sich hält sich sehr in grenzen aber das eine praktische praktische demo aber wobei ich gar
+nicht weiß ob wir das brauchen hat google cloud eigentlich mittlerweile ein dark dark sieben ja
+gegeben preference ja moment moment cloud shell
+nee anscheinend nicht da war mein dark reader an weil das plant mich zu sehr
+ist da auch blockchain und ai auf der webseite kannst in der gut du kannst vms laufen lassen
+kannst drin alles laufen lassen was du willst wenn du genug speicherplatz hast und blockchain
+sachen laufen zu können weil das ist ja recht speicherintensiv so ach ja ich wollte euch ja
+das beste kommen zeigen was ich in letzter zeit so auf youtube gekriegt haben wo ich nicht wo ich
+bin ich sicher bin ob der trolls oder ob das ob er das ernst meint aber müsst ihr euch mal
+müsst ihr euch mal durchlesen und zwar hier also er bezieht sich auf folgendes ich sage das ganz
+am anfang vom video heute rechnet man merkt halt einfach wenn man zehn jahre und mehr ich meine ich
+war ja zwölf jahre und relativ lang beim gleichen laden jetzt gewesen man gewöhnt sich da gleich
+um ein zehnjähriges eine sache habe ich geschafft mit dem wechsel ich habe mich erfolgreich um ein
+zehnjähriges jubiläumsessen mit dem oberit chef gedrückt das hat er gehört in dem video und das
+gefällt ihm irgendwie nicht dass ich keinen bock hat mit dem oberit chef essen zu gehen
+chat frage an euch mal angenommen ihr arbeitet in der it viele von euch machen das ja auch und
+ihr würdet zum zehnjährigen jubiläum anstatt irgendwie eine bonuszahlung oder irgendwas
+sinnvolles zu bekommen ein treffen mit allen anderen zehnjährigen jubilanten und dem oberit
+chef bekommen würdet ihr hingehen ja oder nein immer dort ja die bezahlen die bezahlen
+ja ja das essen bezahlen die essen bezahlen die was gibt es zu essen ich weiß ich nicht was zu
+essen also ich hatte da per se persönlich ich hatte da persönlich überhaupt kein bock drauf
+also ok als chat chat ich glaube die meist im chat hier würden sagen wenn überhaupt dann wenn
+es essen bezahlt wird ja klar aber also ich habe da kein bock drauf das hat mehrere gründe warum
+ich da kein bock drauf habe der erste offensichtlichste grund ist ich habe
+überhaupt keinerlei schnittmenge mit unserem oberit chef gehabt und ich habe den kerl zweimal
+zweimal gesehen und du kannst davon da kannst davon ausgehen dass wenn du dort sitzt und mit
+dem reden muss so ein bisschen smalltalk mit muss halt auf jedes wort achten was du sagst
+und auch wenn ich mit den leuten keine schnittmenge dazu kommt dass die letzten jahre schon nicht
+sonderlich toll gelaufen sind die firma mir extrem auf den sack gegangen ist so von wegen wir halten
+uns nicht an absprachen wir haben keinen bock mehr auf home office und auch wenn es probleme gab haben
+die sich nie irgendwie mal dazu herab gelassen tatsächlich mal ein bisschen auf die leute zuzugehen
+und zu sagen ja ok was ist denn jetzt eigentlich genau das problem wie können wir das jetzt hand
+haben auf der einen seite wollte man immer wie gesagt im alten unternehmen wo ich war wollte man
+immer dass die leute das machen was die firma will aber die firma wollte quasi nie das machen was
+man persönlich jetzt vielleicht mal gebraucht hätte zum beispiel hatte ich einen kollege bei
+mir im team der musste einmal seinen urlaub absagen muss ich euch mal vorstellen den urlaub
+glaube ich in italien gebucht der fährt gerne motorrad und hat irgendwie hotels gebucht dass
+er da rumfahrt und hat die firma gesagt hier wir haben jetzt ganz viele probleme bei uns du kannst
+nicht in urlaub fahren und da hat er hat er tatsächlich ist er den entgegengekommen und
+hat gesagt ja ok da fahre ich irgendwie eine woche später so und dann am ende hat sich raus
+gestellt das eine hotel hat er irgendwie irgendwie so gebucht dass er nicht mal zurücktreten konnte
+und am ende hat er irgendwie 300 400 euro oder so verloren einfach weil er eine woche länger in
+der firma geblieben ist also er ist der firma entgegengekommen und ein jahr später und jetzt
+kommt der hammer jetzt kommt es kommt wirklich der hammer ein jahr später hat er gesagt ok die firma
+hat sich jetzt überhaupt nicht mehr dazu geäußert wie das mit dem urlaub ist und wie das wie das
+werden soll und das letzte mal muss ich schon absagen ich plane jetzt einfach mal ein bisschen
+später falls den dieses jahr wieder einfällt irgendwelche sonder sachen machen zu müssen und
+daraufhin und jetzt haltet euch mal fest daraufhin haben die ihm eine abmahnung geschickt dass er
+seinen urlaub nicht rechtzeitig eine abmahnung das wird sich mal vorstellen die haben eine abmahnung
+geschickt dass er seinen urlaub nicht rechtzeitig eingereicht hätte und da hat er auch gesagt ich glaube ihr habt
+ja nicht mehr alle und der ist jetzt auch demnächst ich kenne den letzten ich kenne den letzten stand
+nicht aber so wie es scheint ist er wahrscheinlich auch demnächst weg und das sind so dinge wo ich
+mir denke kannst du nicht auf der einen seite immer was haben wollen auf der anderen seite
+nichts machen also ganz ganz ganz ganz ganz merkwürdig und solche dinger sind da öfters gelaufen wo man
+sich auch nie irgendwie mal dazu bequemt hat mal bei den leuten zu fragen was ist jetzt eigentlich
+das problem wie können wir das handhaben dass es für beide seiten passt und dann so ein gestelltes
+zehnjähriges essen wo so belangloses zeug gelabert wird was soll ich da machen zumindest ich deswegen
+muss ich sagen ich kann ich kann das immer nicht ganz nachvollziehen also er schreibt hier ich glaube
+ja das ist ich glaube ja dass das troll kommend ist leute wir lesen uns das jetzt mal durch und ihr
+könnt mir danach sagen ob ihr meinen dass das ein troll kommend ist oder nicht es geht noch ein
+bisschen weiter also er schreibt sehr schade dass du das jubiläumsessen nicht wahrgenommen hast was
+ist der bestimmt chainloss fünfte account oder so hat er mittlerweile schon einige weil er überall
+gebannt ist was ist der grund dafür dass du dich so stark abgrenzt die erste frage die ich mir stelle
+was verpflichtet mich eigentlich dazu oder was sollte mich irgendwie dazu bringen in meiner freizeit
+oder was könnte es sein was mich dazu bringt mich darauf zu freuen in meiner freizeit zwei drei
+stunden mich mit kollegen von der bzw das kollegen mit den leuten da habe ich eigentlich gar nichts
+zu tun mit direkten kollegen hatte ich da wahrscheinlich gar kein problem mit mit
+irgendwelchen random leuten von der arbeit die ich nicht kenne und wo ich bei jedem zweiten
+wort überlegen muss ob ich jetzt auch sagen darf warum sollte ich mit den essen gehen das ist die
+grundsätzliche frage das ist ja und das habe ich ihm auch geschrieben das ist ja weder meine
+familie noch sind das meine freunde oder sonst was in der richtung gerade im hinblick das in was
+in den letzten paar jahren gelaufen ist also mache ich lieber was anderes so und jetzt und jetzt hat
+er noch mal ausgeholt jetzt hat er noch mal ausgeholt so gibst du dem arbeit deswegen glaube ich doch
+dass das ich glaube doch dass das getrollt ist das ist einfach zu zu lost ja kann ich mir nicht
+vorstellen dass das ist real ist so gibst du dem arbeitgeber doch die möglichkeit dich besser
+kennenzulernen alle hatte zehn jahre zeit mich kennenzulernen vielleicht ist es der big boss
+im selbe das glaube ich glaube ich eher nicht einen rahmen in dem man sich offen austauschen kann davon
+hat übrigens nie jemand gesprochen dass man sich da offen austauschen kann über das berufliche
+hinaus ja da habe ich keinen bock drauf mit den leuten über das berufliche hinaus zu reden wer bist
+du was machst du gerne wie kann man dich fördern das kann ich mit meinem chef besprechen das muss
+ich mit dem ober artie chef machen außerdem gibt es da genug möglichkeiten die alle nicht
+eingehalten wurden was kann man für dich tun damit du dich wohl fühlst ja zum beispiel sich in
+absprachen halten wie du beschreibst dass du froh warst an dem gespräch nicht teilnehmen zu
+wollen war wenig wertschätzend von das ist korrekt dass es war das war tatsächlich wenig
+wertschätzend was aber zum größten teil daran liegt dass sich die firma die letzten jahre über
+auch äußerst nicht wertschätzend einem gegenüber verhalten hat im endeffekt meinte man ist nur gut
+mit dir ist er wirklich so lost ist er wirklich so los ich weiß nicht also man sollte doch auch
+gerade wie ich das erzählt habe in dem video kommt auch auch später dass ich es noch nicht
+mal geschafft haben mir bis zum bis zum austrittszeitpunkt alle dokumenten auszustellen
+und so was ist das wertschätzend ist das ist es wertschätzend dass ich ich ob ich musste ich
+musste als ich in der neuen firma angefangen habe nach einer woche musste ich noch mal bei
+der alten arbeit anrufen und sagen die personalabteilung ist zu langsam die
+hatten mir immer noch nicht alles geschickt ist das wertschätzend dass man so lahm ist
+und dann hieß es jetzt halt jetzt haltet euch mal fest dass muss ich muss ich auch noch an
+der stelle erzählen ich war eine woche jetzt schon beim neuen arbeit geht also jetzt das
+das jetzt nächste woche ist die dritte woche ich bin jetzt ja schon ein bisschen da nach einer
+woche ich glaube erste woche freitag oder so war das bin man ich bin man nicht ganz sicher oder
+wann war ostern
+letztes wochenende
+genau so und da habe ich da im freitag am donnerstag war das dann am donner nee
+doch am donnerstag muss es gewesen sein so also es war ja abgemacht dass ich vom alten arbeit
+geben eine bescheinigung bekomme wie viel urlaubstage ich schon genommen habe damit die
+beim neuen gut geschrieben werden können das geht also wer das nicht weiß das kann man machen wenn
+beide seiten zustimmen also mal angenommen er wechselt innerhalb des jahres am ende des
+jahres stellt sich die frage ja gar nicht aber mal angenommen er wechselt innerhalb des jahres
+wie ich zum beispiel am 1. april dann müsste ihr anteilmäßig habt ihr ja anteilmäßig urlaub
+am alten arbeitgeber und ihr habt anteilmäßig dann den restlichen urlaub am neuen arbeitgeber
+jetzt könnte es natürlich so sein dass die im ersten halbjahr der urlaub dass ich da eigentlich
+gar kein urlaub nehmen wollte ist bei mir so ich habe überhaupt keine gar keine verwendung dafür
+gehabt jetzt irgendwie sechs tage urlaub zu machen ich hätte sechs tage urlaub nehmen müssen dass
+das dass das quasi beklechen war was ich beim alten arbeitgeber habe deswegen habe ich mal
+geguckt es gibt die möglichkeit dass wenn beide seiten zustimmen ich bin mir nicht sicher ob es
+da gesetzlich irgendwie eine verpflichtung zugibt aber zumindest wenn beide seiten zustimmen dann
+kann man den urlaubsanspruch quasi transferieren vom alten arbeitgeber zum neuen arbeitgeber dazu
+muss folgendes passieren der neue arbeitgeber muss sagen ja er macht das und der alte arbeitgeber
+muss auch sagen ja sie machen mit und er muss dir eine bescheinigung ausstellen wie viele
+urlaubstage du schon genommen hast ist ja irgendwie logisch sonst könntest du quasi beim neuen sagen
+ich habe noch keine genommen und beim alten dir die ausbezahlen lassen und solche geschichten
+das wäre irgendwie wer beschiss also habe ich mir den folgendes ausgemacht hier leute ich war
+extra noch mal bei der personal abteilung oben ja habe ich mir den ausgemacht hier leute also das
+ist heute mein letzter tag das ist auch da wo ich mein mein zeugnis abgeholt hat mein letzter tag
+könnt ihr mir jetzt diese diese bescheinigung schicken dass es bis nächste woche da ist haben
+gesagt ja kein problem erster tag neue arbeitgeber selbstverständlich war die bescheinigung vom
+alten noch nicht da also was habe ich gemacht nach ich habe dann montag gewartet dienstag
+war mittwoch dann habe ich mich nachmittags bei meinem alten chef gemeldet von alten aber hier
+guck mal die personal abteilung hat mir hat mir zugesagt es ist bis montag da und es ist
+irgendwie mittwoch nachmittag das ist immer noch nicht da was ist denn jetzt was wie sieht
+es denn aus das kann es doch nicht sein dankeschön für den sub und dann meinte er ja er fragt noch
+mal nach und dann hat er gesagt ja also die personal abteilung hat gesagt sie hätten das
+am montag losgeschickt weil offiziell bin ich ja erst am montag weg gewesen okay dann müsste
+es ja gleich kommen leute es kam die bescheinigung kam mittlerweile die bescheinigung kam glaube ich
+diese woche diese woche dienstag oder sowas und wisst ihr was drauf stand da ist ja immer so
+einen so einen stempel von der post so einen so einen wann das wann das eingegangen ist es stand
+drauf die haben es losgeschickt am warte mal ich sage jetzt durchblick hier die haben es
+losgeschickt am 5.4. das heißt die haben das dann losgeschickt nachdem ich noch mal nachgefragt
+habe also sprich die haben das überhaupt nicht gemacht wie besprochen die haben es überhaupt
+nicht gemacht wie besprochen die haben erst nachdem ich gefragt haben das vergessen erst
+nachdem ich gefragt habe haben sie noch mal das dann losgeschickt das ist auch sehr wertschätzend
+oder findet ihr nicht auch was auch immer die müssen gar nichts machen miteinander der neue
+kann die einfach übernehmen ich meine denn der neue hat ja eigentlich gar kein interesse
+da dran wenn man zwar so nimmt das zu machen weil er müsste er bekommt mich dann dafür quasi
+vier tage weniger muss mich die zeit bezahlen der alte freut sich der alte freut sich weil
+ich noch vier tage länger für ihn arbeite aber ich glaube so kleinlich sind die dann nicht in der
+neue hat er gesagt dass er es macht dankeschön kst für den sub na mobile games kannst du da
+ein spiel das ist so eine veranstaltung mit entertainment da sitzt du dann da und da gibt
+sein in den programm und irgendwelche leute dansen darum oder so und nebenbei gibt es was zu essen
+muss smalltalk mit dem oberit chef halten das ja ganz bestimmt ganz bestimmt ne da hatte ich
+wirklich überhaupt kein bock drauf dafür bin ich in der management hier archie eben noch nicht
+hoch genug glaube ich und jetzt jetzt deswegen mal übrigens das ist der grund warum ich denke
+dass das ein troll comment ist kein wunder dass du nicht mehr nicht mehr dort arbeitest wenn du
+einen wichtigen teil der unternehmenskultur ablehnst ein arbeitgeber vor 50 jahren sehr gut zu dir
+passen also entweder ist das einfach nur hyperlost das kommen wenn das ernst mein oder es es ist recht
+gutgeschriebene troll comments ich glaube zweiter ich glaube nicht dass das wirklich ernst mein
+genau ja das ist doch kein ding da würde ich auch tatsächlich mit mit denen hat man ja auch
+direkte schnittmenge da völlig keine keine schmerzen mit aus dem mittagessen ja mittagessen ist kein
+problem das andere wäre irgendwie so einen vier stunden abendprogramm habe ich noch am
+freitag am ist noch habe ich gar kein bock drauf gehabt ja schön dass ihr alle da seid ich habe
+gesehen der das ist aber habe ich nicht habe ich die im dark theme eingeschaltet doch habe ich ja
+schön dass ihr alle da seid ich sehe das stream ist jetzt angelaufen also ich erzähle noch mal ganz
+schnell was wir heute machen wobei ich bin selbst nicht ganz sicher bin wo wir anfangen und wo wir
+aufhören die beschäftigung ist heute ein bisschen mit google cloud als erstes legen wir
+mal ein paar sachen von hand an dann gucken wir über das ganze per terraform professionieren können
+dann gucken wir wie man den kubanitas cluster anlegt wobei ich sicher bin ob wir das heute
+machen über terraform weil das dauert immer ewig generell kubanitas engine hier provisioning dauert
+ewig da kannst du teilweise 20 minuten zugucken wie der den cluster anlegt dann basteln wir eine
+beispielanwendung die pläne cloud sql datenbank und lassen das darauf laufen mit verschlüsselung
+unter den containern mit einem eingang von außen das werden wir heute nicht alles hinbekommen es
+wird so über 23 ich vermute mal eher drei streams gehen heute gucken wir uns so die grundlagen an
+beziehungsweise das was man wir klicken ein bisschen das von hand zusammen was wir dann am
+endeffekt automatisch professionieren wollen und im dritten stream kümmern wir uns dann um den
+kubanitas cluster so denke ich mal dass wir das machen das heißt wenn ihr dabei sein wollt jetzt
+die nächsten 23 streams ein bisschen bock auf google google cloud 5 hätte habt dann ist es
+natürlich eine optimale gelegenheit zu folgen und zu subscriben aus dem freue ich mich drüber
+warum nicht magenta cloud ja da bin ich ganz scharf drauf auf magenta cloud ich finde mein
+ich finde mein telekom imot nicht da ist es also magenta cloud ist glaube ich open stack oder
+wenn ich das richtig im kopf habe und ich kenne niemand der magenta cloud benutzt im business
+umfeld kennt ihr jemand kennt ihr irgendjemand in der firma die magenta cloud benutzt außer
+die telekom selbst und bei ob sie telekom selbst benutzt ist ja auch schon fraglich
+ok geht laut habe ich das installiert nein habe ich nicht erst mal erst mal das erste was man
+braucht um irgendwas mit alter laut das erste was man braucht ist man braucht das google cloud
+cli man braucht sich unbedingt aber es ist sehr von vorteil die google cloud kommt das google
+cloud command line interface sich zu installieren das kann man entweder machen wenn man art
+stillungs verwendet hier über dieses art user repo oder man kann es auch das ist ziemlich
+einfach zu installieren oder man kann es auch das mache ich wahrscheinlich jetzt auch so weil
+ich habe in meiner shell schon die config drinne home max downloads g cloud siehste dann machen
+wir das mal hier linux google clouds cli 64 bit copy link we get man kann das auch selbst
+also man muss es nur einmalig einmalig installieren so und jetzt sollte ich eigentlich habe ich nicht
+ok ich bin blöd ich hätte unterordner machen sollen lull lull w mk dir g cloud move google
+cloud sdk warum auch immer ich den unterordner gemacht habe keine ahnung da haben wir es doch
+ok das ist das erste was man machen muss sonst kannst du nämlich vergessen was mit google cloud
+zu machen du kannst zwar auch alles im webinterface klicken aber spätestens bei so sachen wie
+weiterleiten auf nur vm und solche geschichten funktioniert nicht übers webinterface alleine
+das muss man also man braucht das man braucht das command line command line interface das wenn
+irgendwas vor hat mit google cloud zu machen dann würde ich euch empfehlen direkt google
+cloud zu installieren irgendwelchen gründen ok jetzt geht's so und dann muss man machen g
+cloud wir haben übrigens auch direkt out of the box wie ihr seht autocomplete components update
+kann man dann mal hinterher schießen das hat nämlich in eigenen updater drinne do you want
+to opt in in reporting no so ich habe sie auch gerade runtergeladen gerade installiert also
+dementsprechend ist es aktuell geben wir mal unsere repos mk dir ja legen wir uns mal ein repo an für
+unsere was auch immer wir für dateien brauchen wir sagen jetzt können wir anfangen das erste ist
+man muss sich anmelden bei google cloud mit dem cli ich glaube das ginge einfach so ne na super
+ne wie ging das application default kann man sich mal aus dem kopf nicht merken alter ok
+das macht man einmal und dann und dann nicht wieder wir können uns wir können auch gleich
+schon mal das tutorial aufmachen wie man mit terraform google kubernetes cluster provisioned
+das müssen wir nicht mehr machen das habe ich schon gemacht ach das habe ich gebraucht genau
+das hat übrigens nichts mit terraform zu tun auch wenn es vielleicht so aussieht jetzt auf
+der seite das ist standard standard login bei google cloud mit dem cli dann geht der
+falsche browser auf was natürlich auch sehr sehr nice ist dann schnappen wir uns mal das
+long uns hier ein ja lau liegt das ist nicht schlimm dass das liegt ist das einzige was
+ihr machen könntet mit dem link eventuell und da bin ich mir auch nicht so sicher
+ihr könntet mich für euer google cloud projekt authentifizieren ich glaube das wollt ihr nicht
+ok ich weiß nicht was er mir sagen will aber es hat funktioniert jetzt kann ich jetzt kann
+ich das google cloud cli verwenden und das das brauchen wir auch gleich also ziel heute
+ist folgendes wir machen mal machen aber hier notiz notiz auf das brauchen wir eh nicht können
+das jetzt mal neues also wir brauchen eine container registry da wollen wir image rein
+pushen also müssen wir auch gucken wie das mit mit credentials und so was funktioniert in der
+hoffnung ich liege meine credentials zu meiner container registry nicht im stream weil da muss
+ich sie wieder löschen das wäre alles nicht so vorteilhaft dann gucken wir uns wie man
+netzwerke anlegen kann dann legen wir eine vm anlegen und tunneln da drauf per ssh schauen
+wie man das gescheit macht also weiß ich wie man das macht das ist eines der sachen wo ich
+weiß wie es funktioniert dann legen wir einen zwei notes google google kubernetes an
+klassen an dann legen wir eine cloud sql datenbank an das wird eine postgres
+wie sprecht ihr eigentlich postgres aus leute es gibt ja da so ein bisschen auch
+ein so zwei lager es gibt leute die sprechen ist postgres aus weil das projekt heißt ja
+postgres ql beziehungsweise heißt eigentlich je nachdem wie man es ausspricht also manche
+leute manche leute sprechen das projekt so aus postgres ql manche sprechen ist postgres ql aus
+und wenn sie es dann abkürzen sagen manche leute post gre oder postgres
+also wie würdet ihr postgres ql abkürzen post gre oder postgres postgres oder post gre ich bin
+mir gar nicht sicher ob die nicht eine offiziellen guide dafür haben wie man das auch ich spreche
+es auch immer postgres aus pg sql ja das ist natürlich das natürlich da alter chain law timeout
+pronunciation na wie man postgres ausspricht ist klar die frage ist ob man es abkürzt mit post gre
+oder postgres also ich persönlich bin ja team postgres wobei ich pg sql auch nicht schlecht
+finde da hast du überhaupt keine probleme mehr aber auf der arbeit habe ich welche die stehen
+unglaublich auf post gre ich finde das immer ein bisschen cringe aber man kann ja jeder aussprechen
+wie er will so und wenn wir das gemacht haben dann gucken wir wie man das alles mit terraform
+provisioniert als ich das richtig geschrieben habe so schauen wir mal schauen wir mal wie
+weit wir heute kommen also das erste ist wir probieren das im webinterface aus
+webinterface und danach kommen wir das mit terraform
+der terraform provider ist trash warum
+also außer dass alles ewig dauert aber das ist ja bei google cloud normal ist eigentlich bei
+allen cloud anbieter ich habe den eindruck dass tatsächlich es schon noch am schnellsten ist
+beim anlegen von ressourcen sonst was ja schauen wir mal nichtdestotrotz probiere ich das mal aus
+mit dem provider so das gucken wir uns an dann also wahrscheinlich ist das hier ein guter punkt für
+stream stopp heute dann als nächstes müssen wir eine beispielanwendung machen also ein
+ein frontend javascript ding das ist aber nichts großartiges ja das wird ein button zum klicken
+also das ist was ganz kleines da brauchen eine frontend js anwendung wir brauchen eine backend
+also auch zwei zeilen zwei zeilen die einfach irgendwie was ausliefert nix großartiges
+zwei stunden krasser scheiß also ich das längste worauf ich mal gewartet habe das war auch terraform
+bei google google google company das anlegen war glaube ich 35 minuten für den e-note cluster 35
+minuten ich weiß nicht was der ob das an terraform lag oder das google einfach langsam war über
+35 minuten so und also ich hatte zumindest bei gut bei aks die leitung das ist schneller erstellt
+als bei google so und das muss dann connecten zu einer cloud sql postgres so das war vielleicht
+an dem übernächsten stream und dann kümmern wir uns das ist dann der dritte schritt dann kümmern
+wir uns um das kubanete setup also mit get ops und wir machen dann tatsächlich mal was mit einem
+service mesh dass nämlich die inter anwendungs kommunikation auch noch verschlüsselt wird
+ingress cloud lb und dann könnte darauf zugreifen da muss ich auch gucken wie man eine domain auf
+gcp bekommt da weiß ich gar nicht wahrscheinlich in der kappa lul.com oder sowas als domain auf geht
+habe ich noch gar nicht gemacht welches mesh wahrscheinlich linker die weil das mega simpel
+zum aufsetzen ist und für einfache sachen total ausreicht und mtls mega easy ist einfach
+eine annotation suchen eine annotation eintragen gut ist konsul habe ich noch nicht verwendet
+konsul kann ich gar nicht sagen also das war jetzt gut gucken wir uns das mal an wir legen
+schon mal ein leeres terraform projekt an was heißt was heißt leeres terraform
+weder ein volles noch ein leeres terraform projekt wir legen einfach mal ein terraform
+projekt an und zwar wir kopieren uns mal schnell das da muss ich das nicht selbst schreiben wir
+kopieren uns mal schnell die haben noch hier so ein beispielprojekt oder zum netzwerk anlegen
+sowas wir nehmen wir nehmen nicht das hier von denen komplett sondern plus dieses plus
+dieses eine feil ja ja wir trusten dem autor das kopieren wir rein variable project all die
+ja gut ergibt ergibt wahrscheinlich sogar sind dann brauchen wir eine erweiterung für
+visual studio code das für ordentlich terraform zeich oh alter warum hatten das ding so schlechte
+schlechte bewertung die scheint richtig zu sagen die terraform extension warum sagt die so
+warum ist sie so schlecht
+nice
+ok die extension ist wohl mega beschissen aber wir stellen jetzt trotzdem
+mal gucken ob man damit dann wirklich so viel probleme bekommt ich habe einen guten pc das
+stimmt ich habe vor allem eine gute vm meine vm hat acht cpu kerne und 24 gigabyte ram das
+das sollte denke ich das sollte denke ich erst mal reichen wie macht man in terraform terraform
+punkt war es nie wie ging das noch mal auf v war es oder sowas in der richtung
+haben sie doch tf war es haben sie auch drin stehen f war es so und ich war jetzt so mal
+dass das das project set ab wir klicken erst mal wir klicken erst mal von hand uns gleich durch
+durch web interface nur eine sache wollte ich euch jetzt gleich schon mal zeigen wo man darauf achten
+muss sollte man sollte man google cloud mit terraform machen beziehungsweise sollte man
+erst mit einem demo account und terraform machen nämlich war ich hier war ich hier das
+beispiel ja nämlich nicht nicht so wie die das hier wie die das hier machen also das kann man an
+der stelle kann man schon machen aber da muss noch ein bisschen mehr hin also projekt ID kriegt
+wir wollen europ west 3 wollen wir haben aber was wir auch noch haben wollen ist wir wollen
+location weil standardmäßig ist es so dass wenn du bei einem zum beispiel kuban das cluster den
+über terraform erstellt in google cloud oder auch wenn es mal web interface erstellt glaube
+ich zumindest dass er das irgendwie regionweit noch im hintergrund irgendwie discs repliziert
+und sonst was und dann kommt man mit dem 300 gigabyte oder 250 gigabyte storage limit des
+demo accounts nicht aus das heißt man muss nicht sagen dass man den cluster in der region aufmacht
+sondern man muss sagen dass man den können es auch zone nennen ja dass man den so dass man den
+cluster in der zone aufmacht eine zone und eine region ist folgender unterschied also europe 3
+ist in dem fall wie nennen die das wie nennen das bei google es ist frankfurt aber das gibt es
+auch noch mit unterschiedlichen quasi unterteilung das gibt es quasi als abc so und wenn man das
+ganze jetzt regionweit aufbauen lässt dann repliziert er das ja so ein bisschen dann
+würde das quasi replizieren in alle anderen zonen unterhalb von dieser region was cool ist
+wenn man das braucht was totaler platzverschwendung ist wenn man das nicht braucht deswegen würde ich
+noch eine zone anlegen wenn wir das hier auch mal zone und das wollen wir nicht weil wir haben
+250 gigabyte platz so das hier ist ok region alles gut das können wir auch so lassen das ist
+alles das alles in ordnung und wir können jetzt schon mal das terraform wie habe ich nicht
+installiert tatsächlich hast du schon mal trp 10 benutzt nee ich weiß aber was das ist das ist
+diese geschichte die irgendwie kraft kl konkurrenz machen soll terraform in it
+alles klar terraform apply ich apply jetzt nicht ich guck bloß ob es theoretisch funktionieren
+würde das würden würde würden sie anlegen ok alles gut nice wobei wir können das wir können
+das auch gleich anlegen lassen wir haben jetzt ja noch nix gemacht bisher als wenn man hier
+reinguckt compute engine nicht compute engine vpc networks kann man sich angucken was es für
+was es für netzwerke in der google cloud gibt da gibt es nur das default netzwerk so in seiner
+standard du hast die zone variabler erstellt aber benutzt du nirgends das ist richtig ich benutze
+die noch nirgends ich werde die dann beim cluster erstellen oder beim vm erstellen verwenden aber
+aktuell brauche ich das nicht das netzwerk muss man glaube ich so weit ich weiß sogar in der
+region erstellen und es gibt keine es gibt keine location angabe fürs netzwerk muss man machen das
+braucht man dann erst bei späteren ressourcen aktuell legen wir plus netzwerke an da ist es
+nicht da ist es nicht weiter wild genau so als es also noch nix noch nix großartig angelegt das
+sieht standardmäßig so aus wenn man ein neues projekt erstellt in der google cloud das sind
+die default ip ranges und wir legen jetzt ein eigenes netzwerk an für unsere spiele rein also
+wie gesagt ziel für heute ist wir wollen am ende eine container registry haben mit images wo man
+images reinpushen kann netzwerke eine vm mal gucken wie man uns damit vms tunneln können da
+habe ich auch noch nicht so die große erfahrung ich weiß wie es geht aber noch nicht ausbilden
+kommen ins klasse da klicken wir mal was webinterface zusammen ich glaube bis wir das
+über terraform konfiguriert haben sprengt den rahmen unterlegen wir über terraform noch eine
+cloud sql datenbank an die war die zweite woche beim job besser als die erste woche aber viel
+technik konnte ich immer noch nicht machen deswegen habe ich jetzt freiwillig mich dazu
+gemeldet was neues aufzubauen unter anderem auch auf google cloud wo man nicht so viel internes
+knowledge über die ganze firma braucht weil es eher so einen proof of concept spielwiesenprojekt
+ist habe ich gleich gesagt jungs da sehe ich mich da mache ich mit weil ansonsten bekomme
+ich ja da monatelang nicht dazu technik kram zu machen bis alles funktioniert nicht bei allem
+bescheid weiß so also wir legen jetzt mal ein eigenes netzwerk an zum ausprobieren was haben
+wir denn hier zu bieten das kann man auf zwei arten machen entweder geht man ins webinterface
+und sagt hier create weil ich glaube ich muss euch mal plennten weil
+die seite ist pro wenn man das ausschaltet das ist aber auch abartig hell das muss
+können wir nicht irgendwie so ein zwischending
+ja so ist ganz gut oder so ein zwischending nicht super hell
+so vielleicht
+so vielleicht das andere gefällt man nämlich überhaupt ja ich glaube so ist so ist in ordnung
+das ist eine gute idee das ist eine gute idee dass man quasi terraform import sagt das ist
+eine gute idee aber nur das was man gesehen hat also man könnte beispielsweise sich ein
+netzwerk hier drüber zusammenklicken übers webinterface hier alles mögliche eintragen
+am ende sagt man dann ach ja man kann auch bei der gelegenheit gleich firewall regel anlegen
+falls man hier welche welche braucht man kann auch einstellen ob es regional sein soll oder global
+und dann kann man das erstellen hat natürlich den nachteil ja sowie so wie alles wenn man
+es wenn man es von hand macht es ist relativ schlecht reproduzierbar das ist ja auch der
+grund warum man sowas wie terraform verwendet wenn ich jetzt zum beispiel ein projekt aufsetzen
+will also das ist ja auch das ziel des ganzen wir stellen ein neues projekt und genau wir
+stellen ein neues projekt dann soll das hier alles automatisch deployed werden bzw. nicht
+deployed provisioniert werden wenn ich es jetzt hier alles von hand anklicken und wegschmeißen
+dann muss ich auch wieder alles von hand erzeugen wenn ich das jetzt über terraform erstelle kann
+ich entweder über terraform alles wieder löschen lassen oder wenn ich ein neues projekt anlege es
+exakt so aufsetzen wie ich es haben will reproduzierbar ohne dass ich jetzt 50 sachen
+von hand klicken muss deswegen machen wir tatsächlich das netzwerk erstellen mal über
+terraform terraform apply also was würde er machen er würde ein netzwerk erstellen über
+den subnet erstellen im prinzip genau das was ich angegeben habe bloß noch mit ein paar sachen die
+erst bekannt sind nachdem er das gemacht hat terraform fragt normalerweise immer ob das was
+hier steht jetzt auch wirklich gemacht werden soll ist von der idee her ganz sinnvoll weil
+das kostet ja potenziell alles geld kostet alles geld hier wenn man was macht also dass
+jeder furz jeder furz kostet teilweise geld ja sogar sogar die cloud shell aufmachen das
+braucht man nicht die da genau sogar die cloud shell aufmachen das kostet alles geld wobei
+ich nicht sicher bin ob es von microsoft oder google war wo die cloud shell geld kostet bei
+einem von beiden kosten ich glaube am microsoft kostet die cloud shell geld und bei google ist
+sie umsonst bis zu einem gewissen limit könnte aber auch umgedreht kann auch umgedreht sein weiß
+gar nicht auf dem kopf nicht zumindest muss man dann bei terraform sagen ja ich möchte das apply
+man kann allerdings auch sagen aber dafür gibt es keinen gibt es kein auto complete man kann
+allerdings auch sagen glaube ich auto approve war das dann macht er das automatisch das ist
+quasi wie wenn ich yes eingegeben hätte vorhin macht er das er erstellt ein netzwerk was wir
+übrigens sehen wenn wir hier drauf klicken oder da ist es schon guck wurde angelegt gibt
+keine fireball regeln brauchen wir an der stelle noch nicht und irgendwann ist terraform dann
+fertig und dann zeige ich euch was cooles an terraform warum man das auch verwendet
+oder eines der großen plus punkte halt man es verwendet
+fertig der jetzt der hat jetzt das netzwerk angelegt das kann man sich jetzt hier im
+angucken was er angelegt hat ip range also subnet subnet ip range 10.10.0.0 slash 24
+gateway ip sonst was so wenn man das jetzt aufgebaut hat und mal also mal angenommen es
+wären hier mehr als so zwei ressourcen drin am angenommen ich hätte hier 30 verschiedene
+sachen angelegt und ich will es jetzt alles wieder los werden dann ist es mit terraform
+ganz praktisch auch wenn das nicht immer hundertprozentig funktioniert sollte man
+gleich dazu sagen kann man an der stelle sagen terraform destroy dann guckt danach ok in meinem
+state file was habe ich denn da und dann kann man sagen terraform destroy und dann fliegt wieder
+alles weg was man angelegt hat also ihr werdet gleich sehen jetzt ist wieder rück rückstands
+los sofern es denn funktioniert manchmal backt das ein bisschen rum ist wieder alles fort
+20 sekunden oder sowas 20 sekunden ist wieder auf geben
+also bedenkt so klaut provisioning zeug ist schnell der irt das dauert teilweise ewig
+residenz lieber alter ich hätte es nur für netzwerk entfernen
+so hat er es geschafft die fresh uns ist jetzt wieder alles rückstandslos weg so
+muss das sein in der zeit ist das startup schon bankrott gegangen das ist halt das nice daran
+und terraform trägt halt auch den state das heißt wenn jetzt jemand von hand hier was
+drinne editiert hätte dann könnte man das auch wieder überschreiben wobei das auch so seine
+limitierung hat und man da und man da aufpassen muss also rufen wir das aber noch mal gucken
+uns das uns das an snapshots in der google cloud erstellen residenz lieber was hältst du vom
+polumi wenn du mich fragst ich mag das mehr als terraform ich verwende jetzt terraform weil
+ich auf der arbeit zum größten teil terraform habe und sicherlich nicht schadet sich ein
+bisschen mit terraform zu beschäftigen so jetzt haben wir das netzwerk erstellt das
+ist wirklich mega residenz lieber jetzt können wir uns auch ein paar andere sachen angucken also
+wir haben wir hier unsere app die wir das letzte mal angelegt haben ich klone es mal hier rein
+das ist ich werde das danach wieder löschen ich klone das mal hier rein und diese app die macht
+nichts weiter als ich kann es euch ja mal zeigen machen wir mal docker bild das hat einen docker
+feil drinne und macht nichts anderes wie das komplette ding zu bauen und danach mit dotnet
+zu starten also das ist relativ relativ easy also mal docker bild das image bauen da zeige
+ich euch mal kurz was die app macht viel simpler geht es nicht
+ah ich weiß woran das liegt
+ich habe ein kernel update gemacht ich muss rebooten ich habe ein kernel update gemacht ich
+muss rebooten deswegen geht das jetzt nicht die fehlermeldung ist natürlich auch wieder
+komplett pepega also dass du da also wenn ich die fehlermeldung nicht kennen würde wäre jetzt
+wahrscheinlich verzweifelt aber ich weiß das ist so die typische fehlermeldung während er
+kann wenn man kernel update gemacht hat wo doch er dann ich nicht mag
+firefox wieder aufmachen oder so restore session
+so terminal repos ne repos google cloud habe ich das ganze genannt
+ich verschreibe mich total oft dicker ihr weiß ich ist ein bisschen blöd aber schreibe
+immer doch kein bild guck jetzt funktioniert auch sofort am max ans trinken erinnern sehr gute
+idee genau so tanken tanken wir das ganze noch mal das bild cute app latest docker run cute app
+jetzt werdet ihr gleich sehen was das macht und zwar moment ich muss noch port 8000 auf 80
+was jetzt was diese app macht ist nicht 8000 ist nichts andere
+gut
+als rum
+ah yes excellent alles klar so also diese macht nichts anderes für sinnloses zeug auf
+eine webseite ausgeben sonst ist das der entry point stimmt du hast recht logisch
+jaja klar das ergibt sinn so und die app macht nichts anderes ist also simple simple demo demo
+anwendung und die versuchen mal in die registry zu pushen der netzwerk unser netzwerk ist da
+also ihr seht dass das funktioniert richtig gute anwendung also peak
+peak anwendungsentwicklung skills so und jetzt kommt das was ich noch nie gemacht habe und
+zwar wir brauchen einer kont eine container registry nur mal so zur erklärung was ist
+eine container registry beziehungsweise warum braucht man das also machen wir das mal am
+beispiel von docker bei kubernetes ist es genau das gleich oder es muss ja nicht mal kubernetes
+sein bei docker bei egal welcher container runtime die container runtime muss ja wissen
+was sie ausführen soll und dazu gibt man ihr ein image an was ausgeführt werden soll und das
+image das container image man nennt es auch ganz gerne umgangssprachlich docker image auch
+wenn das korrekt genommen nicht richtig ist muss irgendwo liegen und das image liegt in
+einer container registry oder besser gesagt in einer früher hat man gesagt docker registry
+ganz korrekt müsste man glaube ich sagen oci registry open nein es ist nicht oracle cloud
+infrastructure so will ich schon mal sicher es ist glaube ich open container für was steht
+oci noch mal container initiative ja genau open container ich glaube ich glaube ganz korrekt
+muss man oci registry umgangssprachlich nennt man das nennt man das docker docker registry
+wenn ich jetzt zum beispiel sage so was wie docker run ubuntu dann muss das image hier
+irgendwo herkommen und das image kommt aus einer container registry die standard container registry
+die bei docker eingestellt ist oder die viele standardmäßig verwenden ist docker hub wenn man
+jetzt hier zum beispiel mal nach ubuntu sucht wird man feststellen da kommt man da official image
+ubuntu das ist das was ich gerade installiert habe kann ich euch auch zeigen hier steht zum
+beispiel drinne was ist was es für tags gibt nehmen wir jetzt mal zum beispiel hier jami
+auf den auf den jeweiligen tag und es funktioniert wir schmeißen mal kurz alles wieder weg und wenn
+ich meine eigenen anwendung laufen lassen will als container sei es jetzt lokal mit docker alter
+oder aber auch in einem kubernetes klasser dann muss ich ein container image bauen davon das kann
+ich zum beispiel machen mit docker bild es gibt aber auch noch andere tools mit denen man das
+machen kann und ich muss es in eine container registry pushen und wenn ich anwendungen habe
+die ich nicht der öffentlichkeit zugänglich machen will beziehungsweise auch nicht will dass
+die leute die container images pullen können dann kann ich schon mal kein public docker hub repo
+benutzen ich könnte die private container registry benutzen bei github ich könnte aber auch die
+private container registry in der google cloud verwenden und radion tracer dankeschön für den
+sub man könnte sich auch eine container registry selber hausen in einem cluster irgendwo so ab
+kein ding aber wenn ich eh quasi die runtime für meine container in der google cloud hausen
+will bietet es sich an denke ich mal auch die google cloud container registry zu benutzen und
+das probieren wir jetzt einfach mal aus und dann probieren wir mal aus das ganze in google cloud
+run oder wie das heißt das habe ich auch noch nie verwendet laufen zu lassen schieben wir was
+dazwischen zwischen dem was wir machen wollen gucken wir das image ausgeführt bekommen in
+der google cloud das hat das habe ich das habe ich zum beispiel nie benutzt das gar nicht wie das
+wie das funktioniert also wir bauen erst mal wieder den image nämlich von unserer app
+moin cross maus so wir bauen image von unserer app das haben wir gerade schon gemacht aber ich
+habe gerade meine docker images alle gelöscht schlau wie ich war und jetzt müssen wir das
+ganze pushen standardmäßig werden wir auch gleich sehen und wir werden auch sehen dass
+es nicht funktioniert standardmäßig macht man das mit docker push wenn ich docker push verwende
+sagt er aber also ja cute cute ab dann will er aber zu docker hab pushen und docker hab ist
+nicht die registry die ich verwenden will leider ist es in docker ein bisschen umständlich also
+man kann und was heißt umständlich ist es bisschen gewöhnungsbedürftig ja es wäre natürlich
+sinnvoll wenn es hier sowas gebe oder gibt man an in welche registry man pushen will das gibt es
+aber nicht damit das funktioniert muss man genau muss man das ding richtig taggen also sprich man
+muss dann quasi sagen url von der registry port 9000 sowas sowas in der richtung kann man sagen
+und dann würde das funktionieren er versucht das dahin zu pushen aber invalid format ok aber so
+ungefähr und dann funktioniert das auch das heißt wir müssen jetzt erstmal eine container registry
+anlegen in der google cloud und wenn ich das richtig im hinterkopf habe heißt das nicht
+mehr registry sondern es heißt nicht mehr container registry sondern artefakt registry
+signiert signiert so deine docker images und oder auf der arbeit schon privat nicht
+zumindest hier jetzt wird nix wird nix signiert wobei ich kann mir vorstellen könnte dass die
+sogar irgendwie automatisch signieren so wir wollen die artefakt registry enable jo
+irgendwann ist es dann enabled
+drei stunden später
+enable so ich vermute mal man muss sagen create repository das habe ich noch nie gemacht keine
+ahnung docker ok registry alter morgen ks warum hat mein brauche mein browser gerade einen
+kompletten cpu kern das ist bestimmt der dark reader der dark reader macht den scheiß wieder
+ja fuck alter drecksting
+es ist der dark der dark reader macht manchmal so komische dinger
+also ja container nennen wir es einfach mal so das ist eine docker registry standard was gibt
+es hier noch für unterschiede was ist denn wenn andere was applikationen soll das soll das
+applikationen heißen ok was ist denn wenn andere applikationen auch mit terraform auf die cloud
+zugreifen schmeißen die dann auch alle netzwerke weg oder nur die die mit ihnen direkt erstellt
+also das ist folgen ich bin nicht ganz sicher ob ich jetzt verstehe was du meinst aber das
+liegt also da kommt normalerweise nicht zu problemen wenn man es richtig macht also es könnte jetzt ja
+sein mal angenommen wir hätten das hier in dem github liegen wir hätten unsere unsere terraform
+geschichte in dem github liegen und du führst das aus und ich für das aus irgendwie parallel
+ja da kommt sich das in die quere deswegen macht man das auch nicht deswegen also das kann man
+machen wenn man es richtig macht deswegen muss man sich überlegen wo leg ich mein terraform
+statefile hin deswegen sollte man das terraform statefile das ist das wo sich terraform merkt
+was es für ressourcen aufgebaut hat was die für ids haben wie die heißen dass es die auch
+wieder löschen kann deswegen muss ich mir überlegen wenn ich das mit mehreren leuten zeitgleich
+verwenden will wo lege ich mein terraform statefile hin und ich kann euch nicht empfehlen das terraform
+statefile in ein git repo zu legen weil du dann im endeffekt genau das problem ist du klonsen
+dir das repo inklusive statefile du führst das aus ich führe das aus und im endeffekt passt
+nicht mehr zusammen zum beispiel kannst du es auch auf ein e3 nicht e3 s3 du kannst auf ich
+weiß gar nicht was die es mittlerweile unterstützt back end back end type brauchen wir weiß gar nicht
+was sie mittlerweile alles unterstützen hier available backends law remote also du kannst
+es du kannst es zum beispiel dein state auf drei speichern du kannst es anscheinend in der post
+class datenbank speichern du kannst es in der alibaba cloud speichern da wollte ich schon immer
+man terraform state speichern in der alibaba cloud kannst du es aus irgendwelchen gründen
+im komponentes cluster speichern ach nee in einem komponentes secret aber im cluster ok warum auch
+immer auf dem webserver auf google cloud storage also ich persönlich finde es drei ganz nice da
+musste ich nicht um locking oder irgendwelche geschichten dir gedanken machen und dann
+funktioniert das also sprich du sagst dem dass dein state beispielsweise auf in einem
+in einem s3 storage liegt und dann kannst du und ich das parallel ausführen und das kommt
+sich auch nicht in die quere so weit die theorie zumindest ja genau so dass das das
+was ligand schreibt so ist das genau so also container ist hier anlegen docker standard
+region region wollen wir haben europe west 3 description keckel das muss er ordentlich benutzen
+so ok man kann und kann das verschlüsseln von innen
+was ist das hier zum beispiel remote
+da kann man was zünden von irgendeinem anderen ja leute ist ja gut regt euch ab regt euch ab
+was ist was ist jetzt los wurden wir geradet wer hat uns denn geradet haben wir was übersehen
+dankeschön für den rate ich weiß immer noch nicht ob man nicht jv peak oder jv peak oder
+wie soll man das hat wie spricht man nicht eigentlich richtig aus dankeschön für den
+rate ja war ja sag einfach ja ja dann dann vielleicht so besser also ich gehe nicht
+davon aus dass er großer ja war fern ist was ich bisher gesehen habe und beides die coolen
+leute natürlich auch java aussprechen ja also wir basteln heute ein bisschen nur mal kurz
+als erklärung für alle die dabei gekommen sind wir basteln heute ein bisschen in der google
+hat zwei hintergründe das erste ist ich habe noch nicht so viel mit google cloud gemacht ich habe
+in der vergangenheit hauptsächlich verwendet beim alten arbeitgeber aber macht gut viel viel
+erfolg im baumarkt aber ich habe seit erstem april einen neuen job ich habe gekündigt quasi
+letzte letztes jahr im december und da hatte ich kündigungs fristplan zumindest jetzt zum
+1. april habe ich angefangen und dort wo ich jetzt angefangen habe verwenden sie hauptsächlich
+google cloud und ich habe zwar schon in der vergangenheit ein bisschen was google
+cloud mäßiges gemacht ich glaube sogar wir haben im stream schon mal ein bisschen google
+cloud gemacht oder haben wir da äscher gemacht ich weiß es gar nicht mehr und deswegen dachte
+ich mir das ist ein guter anlass mal ein paar sachen in der google cloud auszuprobieren und
+sich damit ein paar sachen vertraut zu machen weil ich glaube ich was was ich im stream machen kann
+und was was ich auf der arbeit gebrauchen kann und umgedreht was ich auf der arbeit gelernt habe kann
+ich dann wieder im stream irgendwann mal erzählen also es bietet sich bietet sich irgendwie an das
+ziel für heute ist eigentlich relativ relativ simpel und relativ naheliegend wir wollen ein
+paar sachen professionieren in in der google cloud wir wollen es einen container registry anlegen
+paar docker images reinpushen können da netzwerke anlegen das haben wir tatsächlich schon gemacht
+dann mal eine vm anlegen ob ich den den kubernetes cluster heute anlege weiß ich nicht zumindest
+würde ich gerne über terraform noch eine postkurs datenbank in der google cloud professionieren
+weil dann können wir im nächsten stream weitermachen eine beispiel anwendung deployen und am ende das
+ganze in dem kuban im dritten stream oder so dazu das ganze in dem kubanetiskluster laufen lassen
+wo wir das dann auch alles tatsächlich mal ganz ordentlich machen werden so mit infrastruktur
+git repo service mesh für verschlüsselung mit mtls unter den pots bzw innerhalb des clusters mit
+einem cloud load balancer als eingang da lassen wir dann eine kleine testanwendung laufen die
+wir hier im nächsten stream dann zusammen bauen ja aber jetzt bin ich gerade dabei mir eine
+container registry zu erzeugen das habe ich nämlich noch nicht gemacht und gucken ob ich
+kann wie ist der erste eindruck von google cloud also ich habe ja vorher schon ein bisschen was
+gemacht mit google cloud ich muss sagen ich finde da nix ich finde es total undurchsichtig wo da
+was ist das ist bei asia auch so aber bei asia weiß ich mittlerweile wo was ist google hat ich
+zeige euch das mal wenn ihr hier draufklickt sieht ihr erst mal sieht ihr erst mal relativ
+übersichtlich aus gär das passt mal auf
+und das das ist auch das ist auch alles wenn ihr wenn es mal richtig richtig unordentlich haben wollt
+so und jetzt und jetzt finde mal was du suchst ja ok es ist aber es ist aber tatsächlich meistens
+halb so wild weil man mit den meisten sachen mit den meisten sachen massive rate weil man mit
+den meisten sachen hier oben halbwegs halbwegs zurecht kommt die sachen die sachen sind meist
+noch recht selbsterkläger also nur mal so ganz ganz kurze ganz kurze übersicht ist eigentlich
+egal hier kann man sich angucken wie die abrechnung aussieht ist eigentlich der wichtigste ja die
+suchleiste wenn du weißt was du suchst das ist übrigens auch ein großer unterschied zu aws ich
+finde die dinger bei google cloud sind deutlich besser benannt als aws muss aber sagen ich habe
+mit aws noch von allen drei großen cloud anbietern bisher das wenigste gemacht aber ich finde bei
+aws sind die dinger wirklich total hängen geblieben benannt ich meine wie kommt man auf die idee das
+fahre geht irgendwas mit mannage kubernetes zu tun hat also die benahmung bei aws ist echt
+absolut krass ppeger oder was gab es noch aws snow snow mobile aws snow mobile das ist wenn
+ihr wollt dass amazon zu euch den lkw schickt muss mal kurz hier achtung flashbang wenn ihr
+wollt dass amazon zu euch den lkw schickt dann braucht ihr aws snow mobile apache klingt auch
+instant nach webserver ja das ist aber schon so alt und so bekannt es kann man sich mittlerweile
+merken ja hat aber auch nicht den schönsten namen aber nginx auch also viele sachen heißen ja nicht
+wie das was es ist aber bei einem cloud anbieter hättest du die chance ist irgendwie so zu nennen
+ja was machen sie aber nicht ich finde bei google cloud sind die dinger ganz gut benannt also
+amazon wenn ihr wirklich peter beidweiser die festplatten gestapelt habt bei euch und die
+sollen zu google india zu amazon in die cloud da könnt ihr euch aws snow mobile bestellen da
+kommen die mit einem lkw zu euch gefahren und nehmen die festplatten mit oder vielleicht hat
+der truck auch ein usb stecker und man kann die sachen per usb upload ich bezweifle es
+habe ich jetzt habe ich jetzt mein leute war ich jetzt so blöd und habe das das das erstellen
+von meiner registry wieder zugemacht weil ich bescheuert bin baumarkt bis denn
+ja das ist eigentlich auch so der erste eindruck von google cloud total kompliziert wo was steht
+aber die dinger sind halbwegs brauchbar benannt ja ok also ich wollte mir eine container registry
+anlegen eine sorry keine container registry macht nicht den gleichen fehler wie ich vorhin fast ihr
+wollt keine container registry auch wenn ihr eine container registry wollt so viel zum thema wieder
+gut benannt ja ihr wollt keine container registry ihr wollt ein eine artifact registry warum weil
+container registry alt legacy und deprecated ist und artefakt registry der neueste shit
+create repository container alter ich muss den dark reader ausmachen ich raste aus
+wie beschissen möchte eine software eigentlich noch noch werden soll heute ich muss euch leider
+flash bang mein dark reader macht 100 prozent cpu auslastung für den browser
+container so wir wollen eine docker registry haben auch wenn es streng genommen nicht stimmt
+dass eine docker registry ist das ist written in javascript ja da kann ich schiefgehen so region
+zu region muss man in google cloud wissen muss ich umgedreht sagen zu zonen und regionen muss
+man in google cloud wissen es gibt zeige euch das mal kurz es gibt mehrere unterregionen von
+einer region das nennt sich dann zone ja zum beispiel gibt es europe west 3 europe west 3
+ist quasi frankfurter mein warum es nicht europe ffm heißt keine ahnung wahrscheinlich dass sie
+sich die option offen halten es umzuziehen nach köln oder so und es trotzdem weiter europe west
+3 heißt aber europe west 3 ist in frankfurt doch registry mit terraform anlegen machen wir
+da ich will erst mal von hand gucken und unterhalb von so einer region gibt es noch verschiedene
+zonen es gibt zum beispiel die region west 3 gibt es drei unterregionen und abc und ihr müsst
+ein bisschen gucken wenn ihr ressourcen in der google cloud anlegt manchmal gibt es so was wie
+location was man anlegen kann und bei location könnt ihr manchmal eine region reinschreiben
+oder eine zone reinschreiben und wenn ihr eine region reinschreibt dann neigen manche
+sachen dazu sich zu replizieren also sprich wenn ihr zum beispiel ein kubernetes cluster erstellt
+in der region europe west 3 dann legt er diese ganze kubernetes control plane legt er dreimal
+an nämlich in europe west 3 abc wenn ihr das nicht wollt müsst ihr in location eine zone angeben
+das kann cool sein mit dem replizieren wenn man das braucht es kann aber auch doof sein wenn man
+einen storage quota hat von 250 gigabyte wie ich hier bei meinem test account und es dann einfach
+nicht funktioniert was willst du in google cloud machen ich will eine container registry anlegen
+netzwerke anlegen eine vm anlegen kubernetes cluster anlegen eine cloud postgres datenbank
+anlegen und das ganze mit terraform provisionieren damit ich dann im nächsten stream eine testanwendung
+bauen kann die wir später im dritten stream auf unserer kubernetes cluster deployen können und
+das ordentlich machen so sieht es aus das wenn ihr dabei sein wollt leute jetzt muss ich ein
+bisschen sehr laut machen weil sind jetzt paar neue leute dazugekommen wenn ihr dabei sein wollt
+ich kann euch aber nicht versprechen dass es exakt die aufeinander folgende nächsten zwei
+streams sein werden ihr könnt ihr jetzt ja folgen und wieder reingucken so also
+container registry anlegen blablabla lassen wir mal alles default sieht eigentlich alles gut aus
+jetzt muss ich mal gucken wie man in diese container registry reinpushen kann weil da
+bin ich jetzt echt ein bisschen planlos und ich muss den da krüder wieder anmachen das
+mir einfach zu zu hart der kontrast
+format go ja du kannst go sachen darin darin hosten es ist aber nicht es ist aber nicht so viel es
+gibt ja noch deutlich mehr ruby gems zum beispiel ok wen interessieren ruby gems heutzutage noch
+oder pipp oder sowas gibt es hier auch nicht da kommen wahrscheinlich ein bisschen mehr dabei
+gut wir haben unsere container registry angelegt und jetzt ist die große preisfrage
+wie
+pushe ich was in die container registry rein echt stand ran habe ich nicht gesehen habe ich
+nicht gesehen hatte google hier neben nicht mal so eine hilfe so eine hilfeanzeige die sowas immer
+immer eingepländet hat so so nach dem motto möchten sie nicht sich jetzt mit der registry
+verbinden haben wir das wieder einpländen lassen setup instructions ok dann das ok
+gcloud authentifizieren konfigure docker ok ich hoffe ich liege jetzt nix weil wenn ich jetzt
+was liege muss jetzt wieder löschen ok sieht sieht sieht nicht so aus als hätte ich irgendwelche
+jetzt haben wir unsere lokalen docker konfiguriert dass er wahrscheinlich für einen push in die
+container registry die hier konfigurierten zugangsdaten benutzt ich vermute mal dass
+er die zugangsdaten von meinem google cloud utility verwendet denke ich mal so und wie
+macht man wie benutzt man das jetzt artifact registry push ja zeige ich schon mal her wie
+macht man das push and pull images artifact registry documentation was will der von mir
+kein ex ist tauschen pushing an image tagging the local image location
+ok also ich vermute mal ok mal mal mal docker image bild so
+was the fuck
+bau bau wir das mal so
+ok was auch immer so location is
+location is europe west europe west 3 docker punkt
+deaf minus docker nee oder das das kommt wieder weg docker project id project id hat immer stream
+das ist meine project id also ich kann gerade echt nicht tippen stream 38 38 11 repository name das
+dürfte hoffe ich mal dürfte dass die container registry sein und die heißt container und das
+image heißt cute app latest das probieren wir jetzt maus will ich nicht speichern bild tag
+cute app latest failed to resolve ach so ich bin im falschen verzeichen ok das scheint funktioniert
+zu haben und jetzt mache ich wie wie geht's weiter wie kriege ich mein docker image da rein docker
+push ok einfach das gleiche noch einmal docker push latest nein das funktioniert nicht
+die night on resource container und mehr oder x ist ok was habe ich falsch gemacht
+irgendwas irgendwas habe ich falsch gemacht doch kein login nee brauche ich nicht ich brauche
+kein docker login das habe ich hier vorhin schon gemacht der benutzt der benutzt die
+über meine google google command line tool habe ich irgendwas falsch gemacht europe west minus
+docker sieht doch eigentlich gut aus oder
+cacquard
+tonight or resource
+could not open configuration file
+ist es jetzt gut oder schlecht
+ok das habe ich ja eben schon gemacht
+ok ja keine ahnung warum das nicht funktioniert
+hatte tps davor nicht glaube nicht glaube nicht zumal es sogar sogar die
+folgt ist hatte tps du kannst es bei doch glaube ich gar nicht unterdrücken
+direkt von der kommandozeit ok das funktioniert nicht was ist was ist hier
+was ist hier verkehrt googeln wir mal danach ja benutze ich benutze ich da ist es
+permissions denied artefakt denied ok warum
+i'm trying to push ok aha
+das ist der einzige user den es gibt und als admin user
+ok ich habe ich habe hier bestimmt irgendwas bestimmt verkehrt es ist
+meine ist meine projekt id richtig stream 3811
+das ist richtig dass du so mal kurz die hilfe angucken tag so ist ja location docker den
+projekt id repository ich vermute mal nee ich muss mich nicht
+autentifizieren das geht über das google google cloud cli guck über das über das hier
+oben your config file add wissen was ich lösche das mal ich lösche mal kurz mein mein docker
+config weiß ja nie und jetzt sagen wir noch mal yes
+could not open config file configuration config default ist vielleicht das das
+ich kann hier davon kann ich halt hier im stream nichts öffnen ich meine ich kann mal die
+das wo kommt das projekt her das ist die projekt id von dem google cloud project also das müsste
+eigentlich doch stimmen was passiert wenn ich irgendwas eintrage was es hier gar nicht gibt
+also dann gibt es das nicht hier bauern bild europe europe west
+hier das gibt es gar nicht ja dann weiß ich auch nicht wo das das problem ist
+europe west doch irgendwie habe ich irgendwo verschrieben
+projekt id darf ich das vielleicht nicht container nennen
+man kann es doch sogar hier kopieren man kann es doch sogar hier kopieren
+so da war ein doppelte ich weiß verabsicht
+probier doch mal ghcr
+warum sollte ich es nach github pushen
+so was komplett anderes ok vielleicht hat mein user aus irgendwelchen gründen nicht
+genug rechte warum auch immer das standardmäßig so sein sollte beim einzigen user der admin
+berechtigung jetzt ist doch ein neuer fehler eines exakter exakter gleiche fehler von von vorhin
+so was könnte das problem sein in ischgl tata i was able to recreate
+and i will try to push an image on a river in which it's specific is not yet added to critter
+hat
+ja schon gemacht das das habe ich doch das habe ich auch schon gemacht ja das habe ich
+das europe west 3 habe ich auch schon gemacht
+ist denn das problem jetzt
+das habe ich genau das habe ich doch gemacht
+update cloud components ist doch auch blödsinnig warum warum soll ich den graben updaten ich
+habe wahrscheinlich habe ich nicht konnte man open the config fallen glaube ich nicht
+ok vielleicht muss man bei google cloud das kann sein dass man bei google cloud
+irgendwie default project setzen muss bei asia muss man das machen
+aber das doch mal
+project id stream ob es jetzt geht
+jetzt ist die jetzt ist die fehlermeldung weg aber es geht immer noch nicht
+doch doch also was könnten das ich habe die ja ich meine ich habe die anleitung ja genauso
+gemacht wie es sein soll
+gehen wir noch mal in die registry rein cloud in it
+er sonst würde das hier gar nicht funktionieren
+warum habe ich das überhaupt dann alles habe ich am anfang nicht cloud in it gemacht
+ne habe ich doch wir können es reinitialisieren warum nicht
+dann du musst lock in to continue what you like to lock in yes aber nicht da drinne sondern da
+yes yes
+pick pick cloud project to use ions do you want to configure default compute region or zone
+ok in it in it vorhin war wahrscheinlich nicht in it genug aber jetzt pusht da meine
+meine images auf jeden fall schon mal rauf habe ich das nicht vorhin gemacht ich habe ich habe
+mich ich habe das kann das sein dass ich das in it irgendwie geskippt habe im kopf und direkt
+die alternifizierung gemacht habe ok das ergibt natürlich sinn wenn das alles noch nicht da war
+ok so also jetzt ist mein image da ja da ist es doch da ist mein image alles klar nice wunderbar
+so jetzt machen wir was was ich heute eigentlich nicht machen wollte und zwar das habe ich keine
+ahnung wie das funktioniert es gibt doch so was wie cloud run noch nie ausprobiert oder cloud run
+wie heißt der kram hier cloud run serverless for containerized applications da kann man wenn
+man container image hat das einfach ausführen ohne kubernetes cluster ohne irgendwas das das
+probieren einfach mal aus der richtig pepega jeder da wieder man warum haben die denn kein
+native warum haben warum haben die kein native dark sieben einfach run containers on a fully
+managable das probieren jetzt einfach mal aus kein plan aber gucken wir mal enable cloud run admin
+api container image url gut ich hoffe mal dass ich was von meiner eigenen registry auswählen kann
+high speed google cloud was no images were found
+ok damit hat sich das schon mal erledigt würde ich sagen
+lernmoor habe ich das falsch gepusht
+meinetwegen cloud project id ja das brauchen wir nicht das haben wir alle schon gemacht
+also es kann durchaus sein dass ich das dass sich das überhaupt nicht dafür eignet ja
+ist ist es durchaus möglich dass ich mein image gar nicht dafür eignet weil ich irgendwas
+habe ich überhaupt nicht vorgehabt das ist einfach nur langsam einfach nur lahm es fragt
+ja cute ab latest einfach nur langsam ok die pläne von revision from an existing container image
+kontinuos die deploy new revisions from a source repos oder ist ja noch cooler da macht
+er automatisch in der neue version die cloud bill will ich nicht macht das selbst name oh man der
+dark reader alter ich sorry leute ich muss euch ich muss euch flash bang google cloud funktioniert
+mit dem dark reader nicht tut nicht kontinuos die pläne cute ab in iowa genau da wollte ich
+unbedingt hin europe europe 3 frankfurt ach nee das geht gar nicht ja ja ich dachte der
+wenn ich eine neue revision gepusht habe das war jetzt nicht gar nicht eigentlich mein ziel
+aber will man das image mal aus erst select cpu allocation and pricing cpu is only allocated
+ja gut das ist die geschichte mit cold cold start zeit und so was wahrscheinlich also
+vermute ich man man sieht es hier zwar nicht richtig aber ich gehe mal davon aus dass der
+nicht permanent das image laufen lässt sondern erst wenn es requests gibt spart geld aber der
+erste request nach einer zeit in aktivität dauert ein bisschen ach hier minimum instances
+null mini ok wenn man minimum instances eins machen dann ist immer einer da
+machen wir mal mal mal mal null mal gucken set to want to reduce cold starts
+ah ja steht ja sogar unten drunter naja lassen was machen wir machen wir mal eins ok
+internal knee all allow direct access from internet authentication
+allow unauthorized ja container network security wir lassen es wir lassen es einfach mal brauchen
+auch keine keine zertifikate und sonstige dinge create das habe ich wirklich nie ausprobiert
+das ist der einfachste die einfachste variante in der google cloud container images laufen zu
+lassen das auf jeden fall brauchst kein managed kubernetes kein autopilot kubernetes oder sonst
+was einfach container gib ihm fertig container port anpassen das ist glaube ich port 80 standard
+mäßig bei mir weiß ich nicht ob ach hier port 80 80 dann wird es wahrscheinlich nicht funktionieren
+ja dann wird es wahrscheinlich nicht funktionieren ok gucken wir gleich mal
+erst mal kurz checken wie lange er überhaupt braucht das ganze das ganze zu deployen
+refreshen wir mal ok da braucht noch ein bisschen enable clue
+wahrscheinlich braucht er beim ersten mal ein bisschen länger postchamp
+keck btf wie viele keck channel wie viele keck emotes icka icka mache ich rein finde ich nicht
+schlecht wie viel wollen wir da eigentlich noch machen manches ist wirklich abartig langsam
+residenz sleeper
+pending
+kann es sein dass das einfach nur so lange braucht weil ich den port nicht richtig angegeben
+habe kann man es jetzt noch mal nachträglich ändern
+edit and deploy new revision ok genau ok das ist gut container port 80
+rest bleibt add cloud sql connections das ist natürlich auch sehr nice dass man das hier
+direkt direkt drüber machen kann ohne irgendwie secrets injecten und sonst was
+unter der haube wird es wahrscheinlich auch ein kubernetes sein aber das ist
+halt die mit abstand einfachste variante networking ok jetzt haben wir port 80
+was haben wir eingetragen port hier tcp 80 container port 80 ok hat es ja so was
+ich gar nicht ja ja ja ja die haben auch so was ich weiß aber grad gar nicht wie es heißt die
+haben auch so was heißt das nicht heisten das container workload heißt es nicht einfach nur
+container workload bei azure app funtions ja das klingt gut das klingt gut app funtions das gibt's
+jetzt ist die app da ok nice und die alte konvolution actions delete delete bamm das ist
+zack neue neue app am start alles klar so cute app postchamp postchamp
+erster request kann ein bisschen dauern
+erster request kann ein bisschen dauern vielleicht eine blöde idee dass ich das alte jetzt
+abgeschaltet habe bei der gelegenheit können wir mal alle tabs to the right
+aber was macht das 3 stunden da darf man das überhaupt löschen
+aber wohl ein krasses delay
+ja ich weiß dass es fail to start ist
+braucht das so lange service unavailable keine ahnung
+ok leute ich habe keine ahnung was ich hier getrieben habe ich lösche das ich lösche
+das ding jetzt noch mal und legt es noch mal an keine ahnung was er für schmerzen hat
+ach das war ohne htps nicht das das ich würde ich würde eigentlich erwarten wenn ich auf den link
+klicke dass es ein automatisches redirect hat wir legen wir legen es einfach noch mal
+neu an ok also select keine ahnung was ich verkehrt gemacht habe wahrscheinlich wird
+es einfach da ein paar minuten schon funktionieren cute ab dass da will ich haben select nein nicht
+us central komm wir gehen jetzt mal nach europe nach tier 1 pricing ist tier 1 pricing besser
+als tier 2 pricing oder ist was ist also für mich ist besser was billiger ist
+gehen wir nach belgien minimum instances machen wir 1 allow ja ok und und container
+container port müssen wir noch ändern container port 80 ja ok schaue ob es jetzt funktioniert
+das sollte an sich ja eigentlich relativ schnell gehen networking container port completed ok
+und den pol 80 ok angeblich läuft alles das immer doch ok irgendwas irgendwas habe ich
+verkackt das ist nur wirklich mit abstand der einfachste wege irgendwelche apps in
+der google class um laufen zu bringen wenn man sie kontinuerisiert hat da braucht man
+kein mannatsch kopane des klasse und nix kostet aber wahrscheinlich auch am meisten vermute ich
+jetzt einfach mal natürlich ist die domain für den arsch ja cute ab ewe punkt ab punkt
+rand punkt ab komplett unbrauchbare url aber man könnte natürlich das weiß ich nicht wie es
+geht das machen wir dann auch im hier in diesem stream irgendwann gucken wie ich die domain
+umgebogen bekommen auf google cloud wahrscheinlich muss ich einfach zu meinem registrar gehen und
+sagen die google cloud dns servers sind jetzt dafür zuständig würde ich jetzt mal würde ich
+jetzt mal vermuten ok interessant das hat funktioniert jetzt auch wenn ich das nicht
+ausprobieren wollte ist auf jeden fall ein nicer service wenn man einfach mal zackig was bereit
+stellen will wir probieren wir probieren mal kurz was aus und zwar gehen wir hier in die app und
+wir ändern mal irgendwas hier program cs und da kommt jetzt einfach einfach 123 kommt einfach
+weg so dann bauen wir das container image bild latest pushen das pushen das container image
+und jetzt ok noch noch ist es die alte app und jetzt sagen wir edit and deploy new revision
+gehe ich mal von aus und select latest hier wo wir die haben alles jetzt richtig ein ja
+obviously das wird schon richtig sein wie guck mal wie mies das gemacht ist der wählt
+ja nicht noch mal aus so container port 80 cpu allocation die blu man sieht schon der erste
+ok das ist wirklich einfach also wenn ich irgendwas vercontainerisiertes hätte was
+ich einfach nur irgendwo laufen lassen will dann ist der service wirklich easy
+unter der haupe wird es wahrscheinlich auch in kuba nades cluster sein aber halt komplett
+von google das ist cool das gefällt mir also mein ziel für übernächsten stream ist dass
+wir selbst in kuba nades cluster machen wo wir das drin laufen lassen
+stimmt google hat ja ihren eigenen kuba nades vorgänger quasi mit eingebautem load balancer
+wir verwenden den cloud balancer wahrscheinlich ich bin mir noch gar nicht sicher wobei wir können
+auch den ingress verbinden mit unserem service mesh weiß ich noch nicht genau wie was machen
+ok also das also cloud run ist tatsächlich richtig simpel übrigens chat ihr könnt ja mal ausprobieren
+das bei euch müsste die seite auch funktionieren ja guck mal probiert mal aus die sollte bei euch
+genauso gehen wie bei mir wenn ihr die aufmacht sollte die auf den gleichen auf den gleichen
+jetzt probieren wir mal was aus wir machen mal wir machen mal ein bisschen wir machen mal ein
+bisschen last würde ich sagen gucken wir uns gucken wir uns das ganze mal an wir machen mal
+ein bisschen last und zwar nicht zwei millionen requests lasst mal kurz gucken nicht zwei millionen
+requests das ist vielleicht ein bisschen übertrieben du wolltest du nicht übertreiben
+minus z ist was duration of applications to send requests
+duration war eine minute eine minute war übrigens eine minute und nicht eine millionen requests
+ja das ist ich will jetzt ich will jetzt nicht gar gar überkommen geben zu viel das ist zu viel
+aber jetzt irgendwas ich will zu ich will zu rate ich will zu rate limited haben
+ich will zwei minuten das ist schon ok ok 200 response
+rate limit rate limit
+yew right limit in kurz per second per worker wie viel ist da stand natlich
+worker numbers 2 und rate limit 200 pro 100 ok 10 pro sekunde reicht glaube ich
+was jetzt verkehrt ah moment
+ok jetzt jetzt sollte ein paar requests reinkommen ja wir wollen es ja nicht übertreiben
+request request counts view chart in fullscreen übertreibst halt man ok view chat in fullscreen
+if viele requests haben wir jetzt ein request die sekunde
+startet aber aus
+so ich will jetzt eigentlich nur mal gucken ob der irgendwie rauf skaliert ja ich muss die
+zeit request ich will gucken ob der irgendwie rauf skaliert jetzt
+google cloud functions ist doch aber nicht für container workloads sondern für direkt
+also quasi functions also direkt source code ausführen und nicht erst vercontainerisieren
+5 requests zeit für eine stunde ich hätte es gerne ein bisschen
+jetzt gerne ein bisschen schneller aber geht anscheinend nicht
+wo konnte ich jetzt noch mal was neues deployen hier so und wo sehe ich jetzt wie viel wie viel
+er da skaliert hat von sloth also immer logs
+firefox hey da das bin ich so revisions sieht man da irgendwo wie viele wie viele er aktuell
+laufen hat weil ich habe ja eingestellt dass er von eins container instance count hier oder wo
+ane hier instance ach ja ok 2 er hat ok er hat jetzt eine hochgefahren ok leute wir machen mal
+wir geben ihm mal ein bisschen mehr
+wir machen zehn mal so viel komm gib ihm 10 worker und 20 requests pro sekunde also haben
+200 200 requests die sekunde gerade und hier haben wir instance ok das sollte vielleicht
+gleich hoch skalieren ja es geht rauf view in matrix explorer ja das ist so ein ding so was
+hatten die in so was gibt es in azure auch in azure haben die noch so eine komische query
+language dafür weiß ich ob google auch so was hat ne die haben nur so ein bilder ne hier code
+die haben auch so was ja das war übelst kompliziert aber auch ganz nice auf der anderen
+seite ich persönlich ich finde es immer noch nice wenn man das irgendwie in kraft ane rein
+kriegt kann man hier einstellen dass der auto refreshed ich will nicht absolut time ranges
+ich will die letzten letzten 15 minuten ist gut auto refresh kann man nicht so was machen wie
+hier kann man nicht die zeit ich wollte ich wollte die letzte minute dass ich schön sehe
+wie es hoch geht ok es hier gab es zwischenzeitlich ein paar vierhunderter
+gibt man eine ach du ach man kann hier oben ja auch tatsächlich was eingeben
+last minute ok two minutes war gar nicht fünf minutes jetzt geht er jetzt geht er
+wieder runter auf irgendwie fünf requests die sekunde stand nicht eine minute als ich
+habe es ich habe es nicht gesehen wo denn ach hier das ist aggregieren über eine minute
+ja gut das muss ja irgendwie das passt schon das ist das ist in ordnung das ist in ordnung so
+jetzt jetzt geben wir immer jetzt geben wir immer ordentlich 1000 1000 requests
+oder warum wollen wir mal so schnell wie geht
+wollen wir mal so schnell wie geht und gucken was es uns am ende kostet
+aber ich weiß nicht ob das jetzt so schnell ist wie geht
+also ich weiß nicht wie viele requester macht wir hätten uns am ende angucken müssen
+wie viele instanzen hat er jetzt gestartet nur zwei ok ok jetzt geht es hoch jetzt gehen die
+requests ok war so immer spiel spielerei aber es ist wenn man einfach nur was verkontinerisiert
+hat und laufen lassen will ist es wirklich nicht schlecht mich würde es halt mal interessieren
+was es kostet im endeffekt sollte das nicht hochgehen sollte das jetzt nicht eigentlich
+rauf gehen 213
+ja das sieht schon besser aus
+ja kann mir einer diese logik erklären wie das geht
+ich blick den graf nicht das hier das hier ergibt das hier ergibt schon deutlich mehr
+sinn also wir haben 900 wir haben ungefähr 90.000 90.000 anfragen gemacht davon waren
+8997 ok 44 44 nicht ok wir haben 749 requests pro sekunde gemacht was hier absolut sich nicht
+drinne niederschlägt also das ist ziemlich doch ein bisschen das ist ziemlich zeitverzögert so
+was kostet was kostet mich das jetzt eigentlich was würde mich das jetzt kosten
+ich glaube ich war noch im free tier drinne
+requests per second über die letzte stunde dass jetzt einfach eine stunde requests schicken
+keck ich meine mehr als 288 euro kann ich ausgeben ok nice
+weißt du was sein kann kann sein dass mich google band google google cloud mäßig wenn
+ich zu zu sehr rumsperme mit requests ich meine sind requests auf den auf den gültigen web service
+das ergibt eigentlich keinen sinn es ergibt eigentlich kann sie nehmen lassen es mal laufen
+aber guck wir sind schon auf 3 73 requests hoch ja aber ok wie würde ich denn jetzt
+sehen was es mich kostet das ist natürlich immer so ein bisschen oh ja guck mal leute
+sind wir bei 2,5.000 2,5.000 requests die sekunde
+und das skaliert ja auch ordentlich hoch stonks
+wollen wir mal gucken ob wir irgendwie rauskriegen billing ob wir irgendwie rauskriegen was uns das
+jetzt kosten würde ich habe seriously keinen plastenschimmer wie man das hier raus bekommt
+das ist meistens ein bisschen zeitversetzt ok keine ahnung
+keine ahnung wie man das hier rausbekommt das ist aber auch bei allen cloud anbietern
+unglaublich schwierig rauszubekommen was es eigentlich kostet ob das ist alles absicht
+die die wollen die wollen das möglichst möglichst undurchsichtig haben dass man
+feed dass man mehr ausgibt als als man denkt set up continuous deployment was macht das
+repository provider nee nee nee ich dachte also ist ja was cool wäre wenn das ding
+es wäre cool wenn das ding nachgucken könnte es wurde neues image gepusht und dann die pläuter
+ist neu der muss das das image musste ja nicht unbedingt bauen und in git repo bräuchte dafür
+eigentlich auch nicht aber ich glaube das konnte man nicht nee das konnte man nicht einsteigen
+bitt backet
+klaut und ist klaut source das githab gegenstück von von google
+benutzt benutzt das irgendjemand
+ich möchte es nicht benutzen müssen ja
+wie wird das in rechnung gestellt das stand das stand da wie das jetzt steht auch da klaut
+ran hier check pricing tears das das gibt es per request und per genau das wird auf
+request basis auf bandbreiten basis auf cpu time basis wird das berechnet also diese drei
+sachen ergeben dann was es im endeffekt kostet pricing calculator ja gucken wir mal gucken
+wir mal was es kosten würde nur mal eine theorie was was würde es kosten okay wir wollen ein
+es gehört das zu compute engine nee klaut ran ein resource ein job name of the service ja gut
+es ist egal wie es heißt location europe cpu is only allocated during request processing glaub
+das haben wir ich glaube wir haben die standard sachen minibom number ich glaube 80 ist jeder
+default konkurrent request per instance müssen wir mal nachgucken
+nee wo stand da kram revisions hier konkurrenz 80 und 10 okay läuft das service noch minimum
+number of instance 1 konkurrent request 80 execution time per request tja das kann ich in
+meinen metrics gucken metrics execution time per millisekunde oder so ganz wenig
+container instance was ist meine request time stand es da nicht irgendwo hier
+irgendwie sowas 2 2 millisekunden haben wir 2 millisekunden pro request
+aber 2 millisekunden per request request per month ja wie viele request per month haben wir
+denn wie kann man das jetzt hochrechnen wir haben gerade okay ganz einfach wir haben gerade
+ein request die stunde also 246 request pro sekunde haben wir gerade und aktuell haben wir
+okay aktuell haben wir der graph ist kaputt alter video in fullscreen
+okay man aber das hier aktuell aber 1500 request pro sekunde okay chat clickmaps 1500
+requests pro sekunde sind so sind 90.000 requests in der minute sind was auch immer
+pro stunde mache ich das richtig requests pro
+tag mal 30 okay nice oh das wird teuer leute sage ich euch
+ja geht doch eigentlich das geht eigentlich geht das voll klar 1500 dollar
+1444 euro das geht doch eigentlich voll klar
+moment eine datas entfernt geht auch eigentlich voll klar oder
+ja nee ich finde das voll ich finde das wirklich in ordnung ich mein das ist schon ordentlich
+also konstant konstant 1500 request die sekunde muss da auch erst mal erst mal hinkriegen ja
+ich finde das auch okay ich mein konstant über 1000 request die sekunde welche seite
+welche also wie man so als normalsterblicher betreibt hat den so was ist bescheuert ich will
+ich google und zeug die haben natürlich wahrscheinlich noch mehr aber 2000 wie weiter mit cpus kommst
+ja das hat er sich ja ausgerechnet ich habe ihm mal gesagt es dauert zwei millisekunden pro
+request am ende ist es wahrscheinlich trotzdem doch mal teurer
+memory reicht ja offensichtlich memory reicht ja sonst wird es jetzt ja auch abschmieren
+also ich schon ich habe so was naja gut so aber bevor ich jetzt wirklich hier irgendwie das mein
+free tier aufbrauche beenden wir das mal an der stelle wieder aber das war schon mal interessant
+da sind wir was gelernt also ganz im ernst das ist tatsächlich auch bei uns auf der arbeiten option
+würde ich sagen ich meine überlegt man die wollen ja im prinzip nur in anführung strichen
+1 2 simple container zusätzlich laufen lassen das braucht ja oder 3 container oder so was
+insgesamt das braucht ja das muss ja kein kubernetes cluster werden wo drei container
+drauf laufen mein praktisch gesehen werden wir es in dem schon bestehenden kubernetes cluster
+laufen lassen aber es würde ja eigentlich gar keinen sinn machen
+ja klingt auch sinnvoll klingt auch sinnvoll na gut hochverfügbar ist serverless ja auch du
+meinst halt 24 7 die laufen die keine cold start time und so was haben ja das würde ich auch von
+ausgehen das ist gar nicht mal so übel also ich das also das ist wirklich eine super simple
+geschichte um eine app zu deployen wenn ich jetzt wenn ich jetzt noch die domain umgebogen
+hätte könntet ihr könntet ihr die da drunter aufmachen so ich lösche das jetzt aber mal wieder
+sonst kostet geld weil ich habe ja konstant allocated instances so delete next erst mal
+löschen was haben wir als nächstes unsere to do liste also mit container und registry pushen hat
+ja das wollte ich noch ausprobieren ich okay das machen wir heute noch eine vm anlegen und mal
+gucken kurz wie das mit dem tunneln ist also was ich kenne ist was man machen kann ist ssh verbinden
+das ist easy auf eine vm einzelne ports weiter leiten ist auch easy und wenn es jemand für
+einen eingerichtet hat in cloud vpn ist auch relativ easy wobei ich das noch nie von hand
+eingerichtet habe aber gucken wir ob ich das auf die reihe krieg also gehen wir mal von aus ich
+habe hier einen privaten kubernetes cluster und muss mich irgendwie zu dem hin verbinden da muss
+man das ja über irgendeinen in den jump post machen also brauchen wir eine vm wobei ich nicht
+weiß ob es da nicht sogar andere möglichkeiten mittlerweile gibt hier compute engine vm instances
+machen wir mal machen wir mal eine vm
+danach machen wir noch eine cloud sql postgres datenbank so in stanzen ist bei admin
+europe immer nach frankfurt geben
+okay wir dann neue vm anlegen bla bla blub deploy container image aha aha ok compute engine
+service account allow full access bm wenn schon so networking wollen wir allerdings nicht das
+default networking haben so viel weiß ich schon mal sondern wir wollen es hier an unser angestellt
+dass das das würde ich normalerweise jetzt nicht machen weil dann hat terraform wieder
+probleme wenn ich hier schon was mitgemacht habe es wieder zu löschen macht es aber trotzdem
+subnet 10 100 32 ja die vm preise sind echt jenseits von allem ja so und wir wollen auch
+keine public ip hier public ip brauchen wir nicht ok dann ob das passt create
+so wenn ich das jetzt richtig sehe sollte jetzt irgendwann mal die vm angelegt haben
+und dann können wir sowas sagen wie gcloud compute compute sind die ganzen vm vm geschichten das
+heißt bei denen so ok ist angelegt aber nur mit einer internen ip ok gcloud compute und ich glaube
+jetzt konnte man sagen ssh dann konnte man sagen wie das ding heißen soll und dann war ganz wichtig
+das muss ich mir copy pasten die vm hat ja jetzt nur eine interne ip ich muss jetzt quasi über
+so einen so einen gateway gehen dass das funktioniert test passphrase keckel bei
+hessner 320 vor allem ohne public ip also vms sind google cloud technisch wirklich teuer
+aber muss er sagen die kubanete cluster sind auch nicht billig also auf digital
+ocean oder so fährt man wenn man rein man hat kubanete es braucht viel viel günstiger als bei
+google cloud möchtest du dich heute noch connecten vielleicht zu meiner vm wäre das wäre das denkbar
+no pass
+warning welches warning genau
+ist die vm schon da
+moment was was hat er geschrieben
+missing firewall ach so ja ich habe das ja gar nicht freigegeben freigegeben stimmt
+ingress traffic ach so ok da machen wir das noch das war jetzt nicht über terraform so wir gehen
+mit network so das habe ich auch noch nie über das ui gemacht wie geht das hier gehen wir dahin
+firewall firewall hier allow incoming allow internal allow default ok allow ssh ist doch
+drinne von
+kann man das irgendwie editieren müsste doch eigentlich funktionieren oder allow ssh from
+anywhere source filters alles sollte das nicht gehen ok was sagt jetzt muss ich mal kurz gucken
+was hat was erzählt er mir wenn ich ich pass ssh verwendet vor allem is missing firewall allowing
+tcp ingress traffic from muss man das explizit angeben ich dachte eigentlich dass das alles
+naja gut legen wir was an wie legt man hier was an firewall policies refresh create firewall
+firewall policy firewall rule firewall rule wollen wir wahrscheinlich anlegen oder was sagt
+er hier missing firewall rule also namen ja ssh es klopfte logs brauchen wir nicht die
+fortnetwork das da firewall bei der vm ich wüsste nicht dass auf vm ebene
+irgendwie starrt mich was geblockt wird
+glaube ich nett
+doch
+anscheinend ok wie viel wie viel füge ich da jetzt was hinzu dass jetzt
+alles web interface ppega ingress allow all instances in network ip ranges specific port 22
+so mal gucken ob das jetzt alleine schon reicht
+da von da von bei das halt irgendwie damit dem default müsste eigentlich auch gehen
+keine fehlermeldung mehr keine fehlermeldung mehr schauen ob es jetzt hier funktioniert
+aha da sind wir
+die anderen waren nicht für mein netzwerk die waren für was anderes das habe ich jetzt
+am end wollen das habe ich gar nicht gesehen
+stimmt das habe ich gar nicht gesehen ja ja du hast recht ok wir sind auf unserer vm
+wait a minute keck wait ich habe kein public interface damit kann ich jetzt
+ok das war eine blöde idee ganz ohne pappen da bräuchte ich jetzt
+irgendeinen nattausgang und das mache ich jetzt nicht ich lege die ich
+lege die vm lieber noch mal neu aber weg hier weg hier die lied wobei kann man das
+nachträglich ändern dass er sich eine publik ip jetzt nimmt netwerking
+boah da hört es oft da blicke ich nicht mehr durch feierball insatz das kann man auch bestimmt
+nachträglich nachträglich ändern wie ändere ich von meiner ip edit
+netwerking dazu muss ich sie bestimmt beenden dass es funktioniert
+externe ip jetzt muss ich eine ip kriegen
+wobei sshs immer noch nicht erlaubt ist also ihr würde da jetzt nicht drankommen per ssh
+aber ich sollte jetzt ah jetzt funktioniert das ok nice also das würde das würde schon
+funktionieren das ganze so zu tunneln und von da könnte ich jetzt ja wahrscheinlich auch auf
+ja irgendwas anderes pingen aus diesem netz ich weiß bloß ehrlich gesagt gerade nicht was
+haben wir denn hier was ist mein gut der wird sich der wird sich wahrscheinlich nicht pingen
+lassen aber ich gehe mal davon aus dass ich von hier jetzt auch auf meinen kubernetes cluster
+wenn ich einen hätte unsere drauf kommen würde ja gut wenn ich das komplette netzwerk wenn ich
+aufs komplette netzwerk von mir zur lokal zugreifen will dann müsste ich in cloud vpn machen oder
+irgendwelche ganz abgedrehten ssh tunnel geschichten aber das habe ich jetzt keinen
+bock drauf ok mein vm ist tatsächlich relativ relativ easy an der stelle jetzt geh mal zum
+anderen was ich noch nicht gemacht habe ich ausprobieren will also ob ich die vm brauche
+bin ich mir jetzt gar nicht so sicher ich schweiß die auf jeden fall mal wieder weg weil kost geld
+sql warum ist jetzt eigentlich hier unten das jetzt nicht mehr standardmäßig offen nach welchem
+system funktioniert das jetzt ist es standardmäßig wieder offen und jetzt und jetzt wieder nicht
+google logik ich will eine cloud sql machen eine postgres datenbank create instance jetzt war ich
+blöden ab die vm gelöscht auch die sessi war bescheuert ich brauche die vm ja noch um zu
+testen ob ich da dran kommen an die datenbank ok ich mache mal wieder eine vm sehr sehr high
+IQ max create vm wir nennen die einfach wieder exakt gleich las vegas europ west london perfekt
+frankfurt admin netzwerk trance options networking hostname jetzt brauchen wir alles
+nicht network card auch nicht network interface default network das da ob der rest ist ok den
+können wir so lassen das name is already news war doch eben schon weg admin 2 da muss ich nur
+gucken dass ich hier admin 2 angebe sonst richtig pepega time ich frage mich warum es geht ok
+cloud sql was wollen wir haben choose your database engine postgres ql choose postgres
+jawoll soll ich euch das verraten oder gar nicht so sicher ob ich euch das verraten soll
+ich verrate euch das nicht instance id ja ab db ich denke mir jetzt ich denke mir jetzt ein
+passwort aus nur für den fall der fälle dass ich das mal für irgendwas irgendwas brauche gleich
+ich will die datenbank so einstellen dass sie nicht von außen zugreifbar ist
+production natürlich was sonst configuration details single development reicht
+region single zone hier kann man seine datenbank auch automatisch replizieren
+und so dass das lassen wir jetzt das kostet glaube ich nur unnötig geld
+auch nach frankfurt
+network connection public ip enable nein private ip private ip von diesem netzwerk
+private was private services action was private services access connection
+required your network requires a private service access connect was eine ok
+ich mach mal ich weiß zwar nicht was ich von was von mir will aber ja
+private service access vpc das ist das was wir vorhin angelegt haben can be
+can be used across all managed service such as und weiter
+ist es dass sie sich untereinander auflösen können oder wofür was was mein netzwerk ist doch
+als sie sich auf eben
+tja use automatic ja allocate immer automatic
+create connection perfekt
+drei stunden später ist meine vm mittlerweile wieder da
+hey meine vm ist da okay nice
+die macht bettgetime die connection
+bettge setge übrigens wir müssen noch vom rack man die hintergründe einbinden
+weil es kann eigentlich kann es nicht sein dass ich noch nicht die pepo dinger im hintergrund
+hab also wir sollten die zumindest mal
+sollten die zumindest mal runterladen und schon mal die passenden die passenden bilder
+aussuchen guck mal was wir jetzt zum beispiel was wir was wir für die aktuelle tageszeit
+angemessen das da eigentlich oder eigentlich der da max day ok download zip
+ne ich hallo ich will alles runterladen google drive bedienung mensche
+ja heute mal andere musik ist jetzt eigentlich fertig mit anlegen postgres ip is fertig private
+service access connection has been successfully created authorized networks you have not authorized
+any external networks will ich auch net enable private path glaube nicht dass ich das brauche
+data protection flags ja gut create und safe jetzt erstelle meine datenbank da können wir uns mal
+um die bilder es dauert noch ein bisschen ne das war schon ne ne ne ne ne creating so schnell
+geht das natürlich nett kümmern wir uns doch gerade mal um die downloads enten wenn er irgendwie
+wallpaper wallpaper wallpaper und zip ok ok so welchen brauchen wir jetzt
+day pc moment wie setze ich wie setze ich mein hintergrund noch mal so
+x pepo day pc da ist er
+und jetzt müssen wir es auch so einrichten dass ich das nach urzeit automatisch fix aber da fällt
+mir jetzt gar nichts ein also dass ich das nach urzeit automatisch einstellt
+grondjob wird irgendwas im hintergrund laufen lassen was auch weil grondjob wird wenn du
+sie vm ausgeschaltet wird einfach alles was alle fünf sekunden die urzeit checkt und gut ist die
+vm hat über zwei die die db hat über zwei minuten gebraucht zu erstellen erstellt zu werden
+ja brauche noch
+erstellt
+also gibt es hier gar keine bildforschung pass mal auf ich kann jetzt im terminal die
+bilde anzeigen lassen oh fuck alle mein terminal ist mega ausgelastet wenn ich die bilde anzeigen
+lasse ja was nehmen wir denn für was
+mein aktuell gibt es nur den mit dem pc
+hältst du dich an ordner strukturen ja wenn es sinn macht es ist halt oftmals total übertrieben
+wenn ihr dir von irgend so einem java script scaffolding standardprojekt was anguckst dann
+ist das sind es ja immer 150 dateien drinnen das erstelle ich am liebsten selbst aber ich
+habe da so eine so eine also für die meisten sachen so eine eigene vorstellung wie es aussehen
+soll aber dann mache ich es immer gleich ich denke mal das deckt sich zum größten teil auch
+mit dem was so vorgeschlagen wird muss es nicht übertreiben ja wir haben gerade gewartet bis die
+datenbank erstellt ist die islam im erstellen ja aber guck mal wir haben wir haben ihn schon
+hier im hintergrund wir müssen gerade gucken was wir wie wo nehmen ich glaube ich meine
+theoretisch dort wo wir mehrere bilder haben muss es ja auch nicht immer das gleiche bild sein es
+könnte mal der sein es könnte mal der sein es könnte mal der sein es könnte mal der sein
+wenn er wenn er frühstück am schlafen könnte es mal der sein bei der sein
+also wir bräuchten dann quasi so eine group an ordnern quasi für für morning und so was und
+day wobei wir können das war einfach greppen also wir können jetzt irgendwie so in go aber
+ebis was hier krepp nach neid
+das Hasta kratzen nach neid
+ja und davon konnten wir jetzt random eins auswählen und anzeigen lassen
+wie geht denn das? hier bash pick random from line
+das habe ich mir noch nie gedacht select random lines from a file
+keine ahnung wie man das gescheit macht schuff? was? was zum teufel? schuff?
+ok es gibt es gibt für alles irgendein irgendein shell tool
+moment was zum schuff? tatsächlich n1?
+Leute null ok was es nicht alles gibt jetzt wählt jetzt random ein bild aus passend passend
+zum zur uhrzeit jetzt bräuchte man eigentlich nur noch irgendwas was guckt von so viel uhr
+gleich neid von so viel uhr gleich gleich das und das sind dann für so ein dreizeiler bash
+das zu gucken was macht eigentlich unsere cloud instance daten? jetzt seriously google
+was macht der denn da?
+der created seit sieben minuten unsere datenbank was ist denn los mit dem?
+da muss bestimmt irgendwie in den inner aus dem container für google jetzt drei
+sachen eintippen und datenbank professionieren
+naja das muss man nicht verstehen na gut lass uns mal kurz gucken noch mal
+ich muss erstmal auf Gentoo kompilieren
+lass uns doch mal irgendwie so ein 5 hat drei zeilen hier wallpaper.sh
+hier das machen wir repos, scripts, repos helper, ne moment repos, scripts ja den können wir löschen
+den braucht kein mensch mehr wallpaper.sh bin bash
+lass chat gpt das wollen wir das mal ausprobieren? oh die datenbank ist created
+ok ihr dürft mir nicht zugucken beim einloggen aber wir fragen chat gpt log in
+ich weiß man chat gpt passt man mittlerweile aus wenn ihr so oft eingegeben
+so alles klar ihr seid wieder am start ok schreibe mir ein bash script das je nach
+tageszeit den desktop hintergrund ändert da fehlt ein bisschen zu wenig context
+ok bestimme die aktuelle tageszeit überprüfe die tageszeit und ändere das hintergrundbild
+entsprechend ja gar nicht schlecht so kann man das machen halt für gnome aber ok
+ja das ist das ist gar nicht schlecht das kann man machen dass das das kann so funktionieren
+ja das funktioniert so jetzt müssen wir noch jetzt müssen wir noch was anderes hinschreiben
+und zwar mal gucken wir mal das kann desktop hintergrund ändert
+jetzt bin ich mal gespannt ah hi iq chat gpt am start
+das habe ich auch letztens gesehen Serious Max das habe ich mal ausprobiert das habe
+ich mir nicht gefallen das hat Mist Mist gefunden das ist schon mal viel besser schon mal viel
+viel viel viel besser so ja das passt wie können wir chat gpt jetzt dazu kriegen wirklich das
+genau zu machen wie wir wollen folgende bilder als input verwenden
+moment
+folgende bilder stehen zur auswahl gucken ob sie damit schon was anfangen kann wahrscheinlich
+fahrt zum burger und getränke fahrt zum batman
+aber der ist schon mal der ist schon mal schlau
+und passt passt die sachen passt die sachen an wer für das letzte
+so ich glaube wir müssen wir müssen wir müssen eine ordentliche liste machen und zwar so
+ich muss besser erklären was ich was ich haben will ich will ja ich will ja dass
+er random auswählt passend zur urzeit ich weiß aber nicht ob er die urzeit oder die den hier mit
+sunrise und sunset kennt ich glaube jetzt wird wirklich einfacher als uns zu überlegen wie
+über das chat gpt umschreiben lassen selbst zu machen wähle je nach urzeit
+sag ihm doch dass der das der teile
+verwende folgende
+teile als hintergrund nein ah shit
+er werden der folgende teile als hintergrund der dateiname enthält die tageszeit oder den
+irgendwie sowas nicht tageszeit er enthält ja
+schon besser schon besser schon besser wobei ich das halt auch mit einem ls machen würde kann ja
+sein dass es gut ich glaube jetzt ist tatsächlich an der stelle einfacher weil was ich machen will
+ist dass er sich random eins raussucht dann aber mal gucken mal gucken ob der ob er das jetzt ja
+ist ja gut chat gpt komm gibby aber das erste das erste beispiel von chat gpt finde ich schon
+also das erste beispiel ist tatsächlich ganz gut ja also das hier das hier ist ganz gut
+ok wir probieren wir probieren wir probieren auch mal was aus wir probieren auch was aus
+in einem ordner liegen dateien mit dateiname passend zur tageszeit wie zum beispiel
+wähle je nach urzeit random ein passendes als hintergrund ich weiß ja nicht mal wie
+schreiben soll richtig was in pyson monkeys wie kommt er jetzt auf einmal auf pyson
+aber das soll mir auch recht sein
+hast du geschehen es war die ganze zeit in basch
+nee das ergibt weiß was scheiß drauf scheiß drauf wir machen das für man das wirklich schnell
+selbst also wir nehmen wir nehmen aber tatsächlich das was chat gpt vorgeschlagen hat weil das ist
+gar nicht so gar nicht so blöde ja das ist eigentlich ganz ganz gut und jetzt machen wir so
+also sprich vormittags vielleicht wir können sogar wir können sogar die die die wer braucht
+comments kackel ist so wobei wir auch ein bisschen bisschen mehr eigentlich bräuchten jetzt also
+machen wir so wir nehmen jetzt random eins von ls la von hier so greb neid nur hier nicht greb
+neid sondern knapp greb was ist es morning reck wie hast du die dinger reck man wir
+an morning wie heißen die wie heißen die für morgens
+morning oder morning nice day for fishing rap morning
+morning okay da haben wir eins image
+so da mache ich image und gucke ob das jetzt funktioniert was ich mir hier vorher nicht
+für image so dann kommt das hier hin das kann man das kann man deutlich deutlich besser besser
+machen anstatt es zu copy pasten so morning an der stelle brauche night und hier ist ja wie
+heißt da fehlt noch sunset und sunrise und sowas day heißt das andere day okay gucken wir mal ob
+das an sich funktioniert wallpaper.sh
+chmod plus x wallpaper.sh
+was ist was ist verkehrt ah ich bin ja auch blöd guck mal keck ich hab ja da die ganzen
+muss es la weg machen
+so was das not exist weil weil der fad fehlt okay ja das kann man das kann man mit
+wahrscheinlich besser machen an der stelle feind nicht lsla sondern macht ein feind davor
+dann hat man nämlich den ganzen fad auch noch mal gucken ob das jetzt prinzipiell funktioniert
+schön ist es nett haha es funktioniert guck mal
+eins ganz nice
+aber das ist das ist noch sehr rudimentär alles also das würde ich tatsächlich noch
+mal ein bisschen ein bisschen verbessern weil es gibt ja explizit bilder die sind für
+die sind für fürs essen und es gibt explizit bilder die sind sunrise sunset und sowas
+also das ist doch nicht wirklich gut außerdem ist das so wie wir das hier machen richtig richtig
+abartig es wäre deutlich sinniger man macht hier ups man geht hier zum beispiel mal nach
+ja das kann man ausprobieren das ist eine gute idee hier wallpaper
+was wollte ich jetzt machen ihr feind genau das ist sinnvoller wir machen jetzt hier feind
+also das ist bescheuert feind home downloads home max downloads wallpaper wallpaper ja
+wenn man nämlich das dann hat man nämlich den ganzen fad mit drinne das ist deutlich
+schon mal schon mal viel besser als diesen anderen müll den ich hier mache also hier
+ein feind draus dann können wir uns nämlich kann man sich nämlich auch gleich diesen
+ganzen krempel hier sparen und außerdem wäre es besser war nachdem ich das e doppelt mache
+das kommt unten hin image hier image image gleich so und jetzt weisen wir hier drinne
+zu und das geht wahrscheinlich in basch auch noch irgendwie schöner
+wallpaper morning also moment morning day night
+funktioniert immer noch
+und das ist ein bisschen schöner ist jetzt müssen wir noch jetzt müssen
+wir sunrise sunset machen man könnte sogar richtig dynamisch rauskriegen anhand wann
+täglich sunset sunrise und so was ist wie sind die bilder noch aufgebaut also wir haben im
+endeffekt wir haben morning sunset day moment das müssen wir anders machen sort ja also wir
+haben day morning night night haben wir ganz viel das was wir am selbsten sehen wahrscheinlich
+also wir haben day morning
+ach nur wegen der no moon variant ok ich will die mit mit moon haben dann haben wir also wir haben
+sunrise sunset
+ne gibt kein bug gibt kein bug weil das habe ich schon berücksichtigt ich greppe nach
+anders gore morning anders gore und das gibt es in der kombination nicht keck das also wir haben
+lassen wir kurz gucken sunset sunrise so night haben wir morning day haben wir auch schon so
+dann dann fragen wir noch chat gp thema was jeder meinung ist also
+früher mal ergänze folgendes haben wir irgendwas vergessen reg man oder viel ist
+es ist sunset und sunrise als einzige was mir was mir fehlt ich habe ich habe day morning night habe
+ich jetzt ja schon also im prinzip glaub nicht ergänze folgendes kript um sunset und sunrise
+ich habe keine ahnung ob es das checkt was ich von ihm will wahrscheinlich nicht
+ok das ist schon mal clever das ist schon mal clever dass man sunset rauskriegt das ist schon
+mal nicht blöd das ist schon mal nicht blöd dass man die wetter api abfragt wann es sunrise gibt
+aber ich würde tatsächlich dazu übergehen dass das zu hardcoden ich glaube auch dass es ein bug
+hat ich glaube auch das hat einen bug oder weil das zeigt nachts an
+ich das ist mir zu 6 hat aber würde das jetzt nicht nachts anzeigen weil es zwischen sunset
+und sunrise ist und da hat sunrise auch gar nicht drinnen aber der guck mal der hat sunrise auch
+gar nicht gar nicht drinnen das ist das ist das funktioniert so nicht in best ist das ende
+wirklich viel ja ne der hat der hat kein der hat kein sunrise drin hat nur hier sunset night day
+morning morning machen wir mal von hand also wenn eins ist im prinzip ganz einfach else if also wenn
+es nach 6 und vor 9 ist machen wir jetzt einfach mal ja das ist sunrise oder nach 5 wobei das
+eigentlich egal ist wenn es nach 6 und vor 9 ist dann ist das ding so das nächste wenn es nach 9
+ist und vor 12 dann ist es morning ist man damit für den sup die eisfrieg
+sunrise fehlt
+guck mal mal
+aber es zeigt keine sunrise bilder an das was fehlt ja ok das ist schon besser das ist schon
+besser das ist eigentlich ganz gut jetzt ja ok ich hätte ich würde ich hätte die
+zeit ein bisschen anders verteilt ja also es ist aber schon ziemlich ähnlich zu dem was ich
+jetzt hier gerade mache also wenn wenn zeit größer als sechs kleiner als neun dann ist
+sunrise so das stings so dann brauchen wir noch ein letztes brauchen wir noch ein letztes
+sunset sunset ist von 18 uhr bis 21 uhr
+wir machen kommen ich mache bis 20 uhr von von 17 aber 17 dann sieht man die dinger nämlich
+auch mal ansonsten sieht man sie ja gar nicht und das muss schon 21 21 uhr sein weil sonst
+ja müsste müsste eigentlich jetzt ganz gut funktionieren ok
+das funktioniert immer noch
+ok da probieren wir mal aus was jetzt eigentlich bei unserer cloud datenbank machen wir mal
+unsere cloud datenbank mittlerweile da er hat er hat es geschafft zu erstellen ok dann schauen
+wir mal ob wir uns von der vm sind wir sind jetzt ein wenig ab abgeschwiffen vom eigentlichen
+thema google clouds ok wir verbinden uns auf die form was haben die was hat die cloud für
+eine ip hier die die cloud datenbank pingen ok pingen kann ich die datenbank schon mal nicht
+wahrscheinlich ist es aber absicht dass man die nicht pingen kann aber hinkommen sollte ich da
+oder aber n map report wird für port scan jetzt einfach mal was ist ein postgres für
+postgres port telnet auf was ist was hatten das postgres postgres default port 5 4 3 2 telnet
+telnet
+geht nice verbindung zur datenbank funst ab install pgs oder wie heißt das ding
+install pgs kiel debian ich will ja kein postgres installieren sondern nur das cli
+postgres common oder sowas muss ich da wahrscheinlich installieren
+abzeits postgres heißt es kleint tatsächlich ab install
+bsql so das weiß ich jetzt aus dem kopf nicht wir können auch nicht chat gpt fragen
+bsql connect weil ich habe das fenster schon wieder zugemacht die parameter ist minus h für
+host ne boah keine ahnung weiß ich doch nicht auswendig
+minus klein h for root ok password for root password fail for root habe ich den user
+vorhin irgendwie anders anders genannt wie habe ich in den wie habe ich in den user
+vorhin genannt cloud instances boah ne keine ahnung kann man das hat man irgendwie noch die
+chance das zu sehen users username postgres
+ne
+select ich habe keine ahnung
+oder wie lists wie konnte man sich die vorhandenen databases anzeigen lassen
+list databases ich habe sql bin ich wirklich absoluter noob show show databases
+ne
+nop listing backslash l what the fuck backslash l welcher kobold programmierer hat sich das
+denn damals ausgedacht
+es ist schlimm man ist das was postgres spezifisches keine ahnung
+slash dt list table wahrscheinlich nicht wahrscheinlich ist es auch noch standard
+das ist wir das kommt aus grauer zeit vorzeit diese sachen wo die alle erfunden wurden da hat
+sich irgendein typ gedacht ich habe keinen bock über den terminal in meinem 80 zeichen breiten
+text editor da einzugeben was langes ich will backslash machen ok also wir haben auch eine
+cloud datenbank schon mal ganz nice jetzt müssen wir uns nur noch überlegen wie wir das ganze in
+terraform kriegen und ich bin mir nicht ganz sicher ob ich da heute noch bock drauf habe die
+datenbank in terraform anzulegen weil später müssen wir ja die credentials von der datenbank
+irgendwie in ein environment in eine environment variable vom container bzw für die für das
+deployment in unserem cluster kriegen damit der dann auf die datenbank connecten kann
+es könnte allerdings auch sein terraform import das ist eine wirklich gute idee das
+mache ich jetzt auch es können natürlich auch sein dass man google cloud das secret irgendwie
+exportieren lassen kann also dass man dieses secret irgendwie exportieren lassen kann hier
+in den in den in den password manager oder sowas weiß nicht vielleicht geht vielleicht geht das
+ja auch ok oder da drüber ja ok na was muss ich mir mal muss ich mir mal gedanken zumachen
+so ja aber wie kriegst du es da rein das soll ja automatisch passieren wir machen
+terraform import und jetzt hört es bei mir auf keine ahnung import google cloud zeusch
+terraform import ok und jetzt wahrscheinlich ja gut da muss man muss man gucken wie das
+heißt cloud sql database instance hallo was wo sind wir hier google sql database
+ich bin mir nicht ganz sicher was es in dem fall macht
+ich probiere jetzt mal aus ok ich weiß überhaupt nicht wie es funktioniert
+ok und dann muss man angeben wie das ding heißt ach so verstehe also ich habe ein
+projekt stream slash abdeb ich habe bis chat gpt schon wieder ausgeloggt
+ja und die fault warum warum genau punkt die fault man weiß es nicht
+ich habe keine ahnung wie es funktioniert
+so ich soll quasi irgendwie so ein platzhalter oder so einfügen
+ja
+was?
+Name? Muss ich das jetzt AppDB nennen, dass das funktioniert?
+Okay, ich bin zu dumm dafür, keine Ahnung, wie das funktioniert.
+Achso.
+Ey, kein Plan, man.
+Echt, echt kein Plan, wie das funktionieren soll.
+Missing Parameter, Instance.
+Moment, ich dachte, das macht er für mich.
+Wait a minute.
+Das, ach, das importiert nur in den State.
+Ich dachte, das kann, das kann auch daraus.
+Achso, ich muss die anlegen, wie Terraform sie anlegen würde und dann darf ich eine
+bestehende schon importieren.
+Ich dachte, kann man nicht aus schon bestehenden Cloud-Ressourcen Terraform-Files erzeugen
+um danach sie wieder aufzubauen?
+Also, wahrgenommen, ich habe schon was über Google Cloud aufgebaut, dass ich daraus ein
+Terraform-File erzeuge.
+Das wäre doch, das wäre doch Pfeil für den Export, Export hier Google Cloud Ressourcen
+into Terraform-Format, nice, okay.
+Prepare Cloud Shell, install config, aha.
+Das probieren wir jetzt mal noch schnell aus.
+Die haben den hässlichsten Progress-Balken aller Zeiten.
+Okay, Google, weil ihr es seid, ich mache das alles und jetzt export the entire, nein,
+nein, nein, nein, ich will nicht die Entire-Project, ich will nur, ich will nur meine Datenbank,
+okay, komm, scheiße, mal was mal, bulk-export, ja, okay, was, okay, yes, yes, yes, yes, ich
+lasse die da erstmal alles installieren, was auch immer, das halbe Internet wird runtergeladen
+gerade.
+Nicht, dass da jetzt Passwörter und so drinstehen, das wäre ziemlich kacke.
+Chat, ich muss euch glaube ich erstmal ausblenden, wenn ich die Datei jetzt aufmache.
+Ich weiß nicht, was da drinsteht, alles im Klartext.
+Leaked.
+Ah hier, resource-type.
+Da kann man dann auch Cloud SQL reinschreiben.
+Macht der jetzt noch was?
+Der ist wahrscheinlich einfach langsam as fuck, ja, der exportiert gerade mein ganzes
+Projekt, das ist ja plötzlich Blödsinn.
+Wir sagen jetzt einfach resource-types gleich und wer weiß ich, welche resource-types es
+gibt?
+Compute-instance.
+Was?
+Ah, da muss man jetzt Project angeben.
+Stream.
+Was ist das?
+Completed.
+Admin 2, ja, okay, alles klar.
+Scopes.
+Ah, hier ist die ganzen, ganzen Settings von der VM.
+CLI tool to generate Terraform files from existing infrastructure.
+Terraformer.
+Okay.
+Jetzt wird's Sixhead, Google Cloud.
+Das macht doch, das benutzt es, dieses Tool benutzt es doch unter der Haube bestimmt
+auch.
+Wie heißt denn die richtige, der richtige resource-type?
+ECP resource-type, woher weiß ich denn, was es da welche gibt?
+Supported resource-types, SQL, ne, ich weiß gar nicht, woher ich weiß, welche.
+List resource-type, SQL database, genau.
+Oh, was?
+Invalid argument found that matches asset, was, for a list of supported content types.
+Okay.
+Nur normalen Export.
+Kein Bulk-Export, ich will ja auch keinen Bulk exportieren.
+Ah ne, Moment, Export.
+Alter, das wird zu dumm, keine Ahnung, ich leg's lieber von Hand nochmal an.
+Keine Ahnung, wie das funktionieren soll.
+Wie funktioniert das hier?
+Ne, das mach ich jetzt nicht, ich leg das nochmal von Hand an, um gut ist.
+So, aber was ich jetzt machen werde ist, weil wir haben ja alles erstmal ausprobiert, was
+wir heute ausprobieren wollten.
+Was ich jetzt machen werde ist das Projekt löschen, das ist nämlich alles weg.
+Docker-Images löschen, yes, nope, da will ich hin, ach Quatsch, wo ist das nochmal?
+Managed Resources, ja, bam, delete, delete, bam, nice, alles klar Leute, das reicht mir
+für heute.
+Ich hab jetzt schon genug gebastelt, ich krieg jetzt schon langsam aber sicher wieder
+Hunger.
+Nächsten Stream, erinnern wir uns glaube ich mal dem Kubernetes-Cluster da drauf dann.
+Ich muss doch gucken, wie man das ganze professionlicher raid, wen soll ich raiden, okay, wir gucken
+mal was.
+Twitch, Programming, wer ist denn da am Start, jetzt geht auf Deutsch, iFreesy, ist da Frasher
+gewesen in letzter Zeit auf Twitch, irgendwelche Weep-Dinger, Programming, wer ist denn hier
+am Start, Programming Lectures, beliebte Clips, alle Videos, nope, was, vor 6 Jahren, wait
+a minute, aber es sind da keine Leute gerade online, oder ist da niemand live gerade in
+dieser Kategorie, kann das sein, wait, Moment, ach das ist der, es heißt ja auch Software
+im Game, das heißt ja nicht mal Programming, zwei Tetris Streams oder 2K, 5Heads, 5Heads
+Zeug, gecommodet am Start, Kanäle auf Deutsch, C-Sharp, Stelzer, wie heißt das andere, Science,
+da ist ja gar keiner am Start, da ist ja nur wirklich mal gar niemand da, die Kategorie
+benutzt ja wirklich niemand, wie es aussieht, keine Ahnung, wen ich hoste, ich kenne alle
+nicht, ich geh jetzt was fressen Leute, bis denn, see you.
