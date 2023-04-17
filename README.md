@@ -65,7 +65,7 @@ usage: Wubbl0rz Archiv Transcribe [-h] [-c CONFIG] -e {prod,dev} [-o OUTPUT]
                                   {transcribe,post} ...
 
 positional arguments:
-  {transcribe,post}     Availble commands
+  {transcribe,post}     Available commands
     transcribe          Run whisper to transcribe vods to text
     post                Post available transcriptions
 

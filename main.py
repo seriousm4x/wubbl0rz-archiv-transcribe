@@ -132,7 +132,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", default=os.path.join(pathlib.Path(__file__).parent.resolve(),
                         "transcripts"), type=pathlib.Path, help="Output directory for transcripts")
     subparsers = parser.add_subparsers(
-        dest="cmd", help="Availble commands")
+        dest="cmd", help="Available commands")
 
     # parser for transcibe
     transcribe_parser = subparsers.add_parser(
