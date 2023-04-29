@@ -28,8 +28,12 @@ class ArchivWhisper:
         print(colored("[whisper]", "blue"),
               f"Started: aac={aac}, model={model}, device={device}")
         model = load_model(model, device)
+        # result = transcribe(model=model, audio=aac, beam_size=5,
+        #                     best_of=5, verbose=False, language="de")
+
+        # use condition_on_previous_text to help with larger segments of silence
         result = transcribe(model=model, audio=aac, beam_size=5,
-                            best_of=5, verbose=False, language="de")
+                            best_of=5, verbose=False, language="de", condition_on_previous_text=False)
         filename = os.path.splitext(aac)[0]
 
         writer = get_writer("json", output)
