@@ -1,0 +1,10204 @@
+1
+00:00:30,000 --> 00:00:56,880
+Wir machen heute was kleines, und zwar bauen wir heute endlich mal so ein kleines Bash-Skript
+
+2
+00:00:56,880 --> 00:01:03,480
+zusammen für die Hintergründe. Und dann uploaden wir das Ganze auf GitHub und erwähnen natürlich
+
+3
+00:01:03,480 --> 00:01:16,680
+auch den Rackman, dass die Bilder alle von ihm sind. Machen wir mal kurz die VM an. Also
+
+4
+00:01:16,680 --> 00:01:26,160
+wir uploaden das alles auf ShitHub. Ich bin plötzlich mal ganz sicher, Google Drive, wo ich
+
+5
+00:01:26,160 --> 00:01:46,880
+es habe. Drive, was ist das hier? Ja, das sieht gut aus. White Paper Happy Time. Mal umsortieren,
+
+6
+00:01:46,880 --> 00:02:01,960
+Firefox aufmachen. Mal updaten, weil es ist Archlinux, es hat immer Updates. Weißt du?
+
+7
+00:02:01,960 --> 00:02:06,560
+Ach, ich dachte es hat immer Updates. So, was wir jetzt machen ist folgendes. Wir laden uns
+
+8
+00:02:06,560 --> 00:02:11,440
+die ganzen Backgrounds runter. Wie geht denn das hier? Wie kann man alles runterladen? So,
+
+9
+00:02:11,440 --> 00:02:14,880
+wir laden uns die ganzen Backgrounds runter und dann basteln wir einen Skript,
+
+10
+00:02:14,880 --> 00:02:19,880
+was irgendwie so anhand der Tageszeit die Backgrounds ändert und das war's. Irgendwie
+
+11
+00:02:19,880 --> 00:02:24,000
+gescheit ist nicht dieses komische Ding, was letztens da Chat-GPT ausgespuckt hat.
+
+12
+00:02:24,000 --> 00:02:34,400
+Ja, ich kann ja schon mal das Bizzar Stream richtig angelaufen ist. Ich kann ja schon mal
+
+13
+00:02:34,400 --> 00:02:42,720
+das GitHub Projekt machen. Shithub. Ist das ein Fiveheader Projekt oder ist es ein Wubblos
+
+14
+00:02:42,720 --> 00:02:53,040
+Projekt? Ich glaube, das ist ein Wubblos Projekt. WallpaperChamp. Wie nennen wir es denn? White
+
+15
+00:02:53,040 --> 00:03:11,160
+People Happy Desktop. Irgendwie sowas, oder? White People Happy Desktop Backgrounds. Wie
+
+16
+00:03:11,160 --> 00:03:26,720
+schreibt man das jetzt am besten? For every time of day, oder irgendwie sowas? Everyone. Irgendwie
+
+17
+00:03:26,720 --> 00:03:38,840
+sowas. Desktop Read Me License. Ja, Rackmann, welche License gibt denn das Ganze? Creative
+
+18
+00:03:38,840 --> 00:03:49,880
+Commons. Oh fuck. Zero Universal. Ich hab keine Ahnung. Wir lassen erst mal keine
+
+19
+00:03:49,880 --> 00:03:54,720
+Lizenz. Da können sich die Leute eigentlich offiziell gar nicht benutzen. Ja, ich kann
+
+20
+00:03:54,720 --> 00:04:11,240
+das nicht bestimmen. Ich hab die Bilder ja nicht gemacht. Okay. Yes. Repos. Das ist
+
+21
+00:04:11,240 --> 00:04:19,440
+Lizenz technisch eh nicht safe, aber da hast du wohl recht. Naja. Jetzt endlich wird's
+
+22
+00:04:19,440 --> 00:04:26,360
+kein Mensch interessieren. Okay. Wo haben wir die Sachen hier? Wurden die grad schon runtergeladen?
+
+23
+00:04:26,360 --> 00:04:39,480
+Nee, oder? Sag. Safe. Auf geht's. Von different daytimes. Ja, genau. Sowas in der Richtung. Wir
+
+24
+00:04:39,480 --> 00:04:44,600
+machen dann einfach die Bilder. Ich weiß gar nicht, wie man gescheit die Bilder in... Hat
+
+25
+00:04:44,600 --> 00:04:51,480
+jemand mal eine GitHub-Readme gemacht mit irgendeiner Galerie oder sowas? Nee, ich glaub nicht.
+
+26
+00:04:51,480 --> 00:04:54,960
+Ich glaub, weiß gar nicht, ob es das geht. Ich mein, das ist ein Marktau und das kann alles
+
+27
+00:04:54,960 --> 00:05:00,680
+mögliche HTML. Wird schon funktionieren. Leute, morgen ist Feiertag, hab ich festgestellt. Guckt
+
+28
+00:05:00,680 --> 00:05:08,240
+mal. War mir neu. Ich mein, für mich ist es egal, weil... Naja, ich muss montags eh nicht arbeiten.
+
+29
+00:05:08,240 --> 00:05:13,440
+Irgendwie hab ich das jetzt erst gecheckt, dass morgen Feiertag ist.
+
+30
+00:05:38,240 --> 00:06:03,240
+Hast du dann drei Tage next week oder dadurch den Nachteil? Nee, ich hab nen Nachteil dadurch.
+
+31
+00:06:03,240 --> 00:06:08,440
+Nachteil, wenn du es so willst, ja. Der freie Tag ist verschenkt, also jeder hat Montag frei,
+
+32
+00:06:08,440 --> 00:06:14,720
+ich auch. Jaja, ich hab ganz normal vier Tage Woche. Ja, das trifft an 1-2 Tagen im Jahr zu,
+
+33
+00:06:14,720 --> 00:06:23,040
+damit kann ich leben. Jaja, ich hab nen Nachteil. Wie fällt dann Weihnachten dieses Jahr?
+
+34
+00:06:23,040 --> 00:06:37,840
+Wann ist Weihnachten 2023? Ok, Freitag. Montag? Wollt ihr mich verarschen?
+
+35
+00:06:37,840 --> 00:06:48,320
+Alter, das fällt ja mal richtig beschissen, ey.
+
+36
+00:06:48,320 --> 00:06:54,400
+Haha, das fällt ja mal mega scheiße, Alter.
+
+37
+00:06:54,400 --> 00:07:02,960
+Oh, das fällt ja mal richtig kacke.
+
+38
+00:07:02,960 --> 00:07:10,040
+Okay, das ist mies, das ist ja mal richtig mies, Alter.
+
+39
+00:07:10,040 --> 00:07:13,640
+Das fällt auch noch auf Montag, Mann.
+
+40
+00:07:13,640 --> 00:07:16,600
+Oh, das ist ja mal mega beschissen, Alter.
+
+41
+00:07:16,600 --> 00:07:20,480
+Ja, gut, gibt's Schlimmeres.
+
+42
+00:07:20,480 --> 00:07:25,920
+Das ist jetzt nicht so, das ist wirklich super, ganz furchtbar schrecklich, wieso ist das
+
+43
+00:07:25,920 --> 00:07:26,920
+kacke?
+
+44
+00:07:26,920 --> 00:07:29,920
+Weil ich Montags immer frei hab und ich ja deswegen nicht mehr und mehr bekomme.
+
+45
+00:07:29,920 --> 00:07:32,440
+Übrigens, guck mal, was ich gefunden habe auf Shithub vorhin.
+
+46
+00:07:32,440 --> 00:07:37,360
+Beste, ein Plants vs. Zombies Widescreen Mod.
+
+47
+00:07:37,360 --> 00:07:42,600
+Ich würde sagen, es ist mal wieder Zeit für neues Playthrough, allerdings diesmal mit
+
+48
+00:07:42,600 --> 00:07:43,880
+Widescreensupport.
+
+49
+00:07:51,480 --> 00:07:54,480
+Ich weiß übrigens nicht, wie lange es das schon gibt, anscheinend auch nicht so lange.
+
+50
+00:07:58,480 --> 00:07:59,480
+Widescreen Modge.
+
+51
+00:08:06,480 --> 00:08:11,480
+Das ist ein Game, das muss ich eigentlich so einmal alle 1-2 Jahre mal wieder durchspielen.
+
+52
+00:08:11,480 --> 00:08:15,480
+Das geht ja auch schnell, das hast du in 4-5 Stunden durch, das Gesamt.
+
+53
+00:08:15,480 --> 00:08:19,480
+Das ist ja tatsächlich so wahnsinnig, also gut, vielleicht 10 Stunden, wenn du alles
+
+54
+00:08:19,480 --> 00:08:21,480
+so die Sachen noch anlocken willst, aber...
+
+55
+00:08:25,480 --> 00:08:27,480
+Written in Rust? Nee, glaube ich nicht, das ist Written in...
+
+56
+00:08:28,480 --> 00:08:30,480
+Moment, warum ist das Written in Rust?
+
+57
+00:08:37,480 --> 00:08:41,480
+Okay, das schreibt irgendwelche Bites an irgendwelche Hex Offsets.
+
+58
+00:08:42,480 --> 00:08:45,480
+Na ja gut, ich weiß nicht, ob das unbedingt Written in Rust sein müsste.
+
+59
+00:08:46,480 --> 00:08:49,480
+Macht eigentlich relativ wenig Sinn, Written in Rust zu sein, oder?
+
+60
+00:09:03,480 --> 00:09:06,480
+Das patcht ja nur, das bringt ja keine Custom-Logik rein.
+
+61
+00:09:07,480 --> 00:09:09,480
+Also insofern war keine Ahnung, was das für einen Sinn macht.
+
+62
+00:09:10,480 --> 00:09:11,480
+Nun gut, wie dem auch sei...
+
+63
+00:09:11,480 --> 00:09:17,480
+Ich hab's zumindest heute entdeckt und ich dachte mir, es ist mal wieder Zeit für ein Replay.
+
+64
+00:09:24,480 --> 00:09:26,480
+Geht das mit der Origin-Version?
+
+65
+00:09:26,480 --> 00:09:29,480
+Oh, sorry, sorry, der EA-App-Version?
+
+66
+00:09:29,480 --> 00:09:30,480
+Wahrscheinlich.
+
+67
+00:09:30,480 --> 00:09:33,480
+Wobei, ich hab's, glaube ich, auch mittlerweile auf Steam.
+
+68
+00:09:33,480 --> 00:09:37,480
+Ich glaube, ich hab's auf allen Plattformen, die es gibt.
+
+69
+00:09:37,480 --> 00:09:39,480
+Ich hab's sogar auf der Xbox.
+
+70
+00:09:40,480 --> 00:09:46,480
+Wisst ihr, ich würde mich bei dem Spiel wirklich über den zweiten Teil freuen.
+
+71
+00:09:46,480 --> 00:09:51,480
+Den zweiten Teil, der halt auch den Namen verdient hat.
+
+72
+00:09:51,480 --> 00:09:57,480
+Der zweite Teil war halt ganz okay, aber auch schon komplett verschissen mit Microtransactions und allem.
+
+73
+00:09:57,480 --> 00:09:59,480
+Das ist echt so ein Paradebeispiel.
+
+74
+00:09:59,480 --> 00:10:05,480
+Wieder mache aus einem ganz guten, kleinen, netten Game irgendeinen Microtransaction Monster.
+
+75
+00:10:06,480 --> 00:10:11,480
+So einen richtig guten zweiten Teil, der einfach das macht, was der erste Teil gut gemacht hat.
+
+76
+00:10:11,480 --> 00:10:15,480
+Plus halt einfach noch mehr Levels und alles drum herum.
+
+77
+00:10:15,480 --> 00:10:17,480
+Ich glaube, es würde jeder feiern.
+
+78
+00:10:17,480 --> 00:10:21,480
+Aber der zweite Teil war halt Microtransaction versackt.
+
+79
+00:10:29,480 --> 00:10:31,480
+Zwei Reihen Sonnenblumen und Abfahrt, ja.
+
+80
+00:10:31,480 --> 00:10:37,480
+Wobei das beste Setup in Plants vs. Zombies ja immer noch das mit den Pilzen ist.
+
+81
+00:10:40,480 --> 00:10:41,480
+Das da.
+
+82
+00:10:44,480 --> 00:10:54,480
+Also für Leute, die noobs sind und die bisschen interaktiv was machen wollen, ist das Setup ganz nice.
+
+83
+00:10:54,480 --> 00:11:00,480
+Oder aber man kann auch Endlos bauen, man kann auch Endless bauen.
+
+84
+00:11:00,480 --> 00:11:04,480
+Das sieht man im, ne Moment, das ist noch nicht das Endless Bild.
+
+85
+00:11:06,480 --> 00:11:08,480
+Das ist das komplette Endless Bild.
+
+86
+00:11:08,480 --> 00:11:14,480
+Und das ist wirklich nahezu, nahezu, das ist immer noch nicht das Endless Bild.
+
+87
+00:11:14,480 --> 00:11:17,480
+Die, die Garlix kommen noch weg oder?
+
+88
+00:11:17,480 --> 00:11:19,480
+Ja, anscheinend doch nicht.
+
+89
+00:11:25,480 --> 00:11:30,480
+Es gibt, es gibt so ein Endless, so ein Endless, das hier meine ich.
+
+90
+00:11:33,480 --> 00:11:35,480
+Das hier meine ich.
+
+91
+00:11:36,480 --> 00:11:39,480
+Das kann man, das muss man aber alles anlockt haben.
+
+92
+00:11:39,480 --> 00:11:43,480
+Wobei die weißen Pilze sind, glaube ich, diese, die man anlocken kann.
+
+93
+00:11:43,480 --> 00:11:45,480
+Das muss man aber alles anlockt haben.
+
+94
+00:11:45,480 --> 00:11:49,480
+Wobei die weißen Pilze sind, glaube ich, diese Kopie, diese Kopie Pilze, ja.
+
+95
+00:11:50,480 --> 00:11:52,480
+Ja, das ist, das ist so das Endless Setup.
+
+96
+00:11:52,480 --> 00:11:54,480
+Da ist da alles dabei, was du brauchst.
+
+97
+00:11:54,480 --> 00:11:57,480
+Und das kannst du mehr oder weniger Endless laufen lassen.
+
+98
+00:11:57,480 --> 00:12:01,480
+Manchmal backt das rum, wenn dieser, dieser Michael Jackson Zombie mit, ne Moment.
+
+99
+00:12:01,480 --> 00:12:06,480
+Ne, wenn dieser Zombie mit der Box kommt und der umkippt und das dann hier explodiert vorne.
+
+100
+00:12:06,480 --> 00:12:10,480
+Dann ist es nicht wirklich Endless, aber das geht nah, nahezu Endless.
+
+101
+00:12:14,480 --> 00:12:17,480
+Das ist aber dann schon ein bisschen advanceder, wenn man das hier so sieht, ja.
+
+102
+00:12:24,480 --> 00:12:27,480
+Aber das müssen wir echt mal wieder spielen, hätte ich, hätte ich Bock drauf.
+
+103
+00:12:29,480 --> 00:12:30,480
+So.
+
+104
+00:12:30,480 --> 00:12:32,480
+Was macht mein Download?
+
+105
+00:12:32,480 --> 00:12:33,480
+Download.
+
+106
+00:12:35,480 --> 00:12:36,480
+Drive, Download.
+
+107
+00:12:36,480 --> 00:12:38,480
+So, und das soll nach...
+
+108
+00:12:38,480 --> 00:12:39,480
+Repos.
+
+109
+00:12:39,480 --> 00:12:40,480
+White.
+
+110
+00:12:40,480 --> 00:12:41,480
+Peepo.
+
+111
+00:12:41,480 --> 00:12:42,480
+Happy.
+
+112
+00:12:42,480 --> 00:12:43,480
+Clear.
+
+113
+00:12:43,480 --> 00:12:44,480
+Was?
+
+114
+00:12:44,480 --> 00:12:45,480
+Was mache ich hier?
+
+115
+00:12:45,480 --> 00:12:46,480
+Clear minus L.A.
+
+116
+00:12:46,480 --> 00:12:47,480
+Ja.
+
+117
+00:12:47,480 --> 00:12:48,480
+Clear minus L.S.
+
+118
+00:12:48,480 --> 00:12:49,480
+Alles klar.
+
+119
+00:12:49,480 --> 00:12:50,480
+MK.
+
+120
+00:12:50,480 --> 00:12:51,480
+Dear.
+
+121
+00:12:51,480 --> 00:12:52,480
+Images.
+
+122
+00:12:52,480 --> 00:12:53,480
+Drive.
+
+123
+00:12:53,480 --> 00:12:54,480
+Download.
+
+124
+00:12:54,480 --> 00:12:55,480
+Nach Images.
+
+125
+00:12:55,480 --> 00:12:56,480
+Unzip.
+
+126
+00:12:56,480 --> 00:13:01,480
+So, und jetzt haben wir unsere ganzen White.
+
+127
+00:13:01,480 --> 00:13:02,480
+Peepo.
+
+128
+00:13:02,480 --> 00:13:03,480
+Happy.
+
+129
+00:13:03,480 --> 00:13:04,480
+Images.
+
+130
+00:13:05,480 --> 00:13:08,480
+So, und jetzt haben wir unsere ganzen White.
+
+131
+00:13:08,480 --> 00:13:09,480
+Peepo.
+
+132
+00:13:09,480 --> 00:13:10,480
+Happy.
+
+133
+00:13:10,480 --> 00:13:11,480
+Hier.
+
+134
+00:13:11,480 --> 00:13:12,480
+Und hier können wir jetzt den Skript reinhauen.
+
+135
+00:13:12,480 --> 00:13:15,480
+Touchsetbg.sh oder sowas.
+
+136
+00:13:15,480 --> 00:13:18,480
+Was die Images switcht.
+
+137
+00:13:18,480 --> 00:13:21,480
+Ja, also um euch das nochmal zu zeigen.
+
+138
+00:13:21,480 --> 00:13:24,480
+Der Rackman hat Hintergründe gebaut.
+
+139
+00:13:24,480 --> 00:13:28,480
+Für jede Tageszeit einen passenden Desktop-Hintergrund.
+
+140
+00:13:29,480 --> 00:13:32,480
+Wie kann man sich das anzeigen lassen?
+
+141
+00:13:32,480 --> 00:13:33,480
+Also guckt, seht ihr.
+
+142
+00:13:33,480 --> 00:13:36,480
+Man hat für jede Zeit einen passenden Desktop-Hintergrund.
+
+143
+00:13:36,480 --> 00:13:39,480
+Es gibt Sonnenuntergangs.
+
+144
+00:13:39,480 --> 00:13:40,480
+White.
+
+145
+00:13:40,480 --> 00:13:41,480
+Peepo.
+
+146
+00:13:41,480 --> 00:13:42,480
+Happy.
+
+147
+00:13:42,480 --> 00:13:45,480
+Die gucken natürlich Oldschool-Ultra-Skiller.
+
+148
+00:13:45,480 --> 00:13:50,480
+Dann gibt es das ganze nochmal, wo einfach nur die Sonne untergeht.
+
+149
+00:13:50,480 --> 00:13:52,480
+Dann gibt es den Sonnenaufgang.
+
+150
+00:13:52,480 --> 00:13:54,480
+Ne, das ist nochmal Sunset.
+
+151
+00:13:54,480 --> 00:13:56,480
+Der guckt immer noch.
+
+152
+00:13:56,480 --> 00:14:00,480
+Ach, das ist mit Planket und das andere ist Cozy.
+
+153
+00:14:00,480 --> 00:14:02,480
+Dann gibt es Sunrise.
+
+154
+00:14:02,480 --> 00:14:04,480
+Da putzt er Zähne.
+
+155
+00:14:04,480 --> 00:14:06,480
+Das ist nicht für jede Stunde.
+
+156
+00:14:06,480 --> 00:14:08,480
+So für jede Tageszeit hast du drin.
+
+157
+00:14:08,480 --> 00:14:10,480
+Das ist Sonnenaufgang.
+
+158
+00:14:10,480 --> 00:14:13,480
+Dann hast du jede Menge Bilder, wo er schläft.
+
+159
+00:14:13,480 --> 00:14:15,480
+Was heißt jede Menge?
+
+160
+00:14:15,480 --> 00:14:17,480
+Du hast gar nicht so viele.
+
+161
+00:14:17,480 --> 00:14:19,480
+Du hast die alle nur mit Mond und ohne Mond.
+
+162
+00:14:19,480 --> 00:14:21,480
+Da träumt er verschiedene Sachen.
+
+163
+00:14:21,480 --> 00:14:24,480
+Dann gibt es den noch Sonnenaufgang.
+
+164
+00:14:24,480 --> 00:14:28,480
+Dann gibt es noch Sonnenaufgang mit Futter.
+
+165
+00:14:28,480 --> 00:14:34,480
+Dann gibt es den noch tagsüber Mittagessen, Cookies, Futter und Arbeiten.
+
+166
+00:14:34,480 --> 00:14:36,480
+Das heißt wir bauen uns jetzt einen Skript,
+
+167
+00:14:36,480 --> 00:14:40,480
+was guckt von der Uhrzeit her, welche Uhrzeit es ist.
+
+168
+00:14:40,480 --> 00:14:43,480
+Und dann den Hintergrund setzt.
+
+169
+00:14:43,480 --> 00:14:45,480
+Die Hintergründe werde ich auch so hochladen.
+
+170
+00:14:45,480 --> 00:14:47,480
+Die kann sich auch jeder selbst scrapen.
+
+171
+00:14:47,480 --> 00:14:52,480
+Das Skript muss man dafür auch gar nicht benutzen.
+
+172
+00:14:54,480 --> 00:15:00,480
+Wie erfolgt der Abnahmetest des Skripts 24 Stunden?
+
+173
+00:15:00,480 --> 00:15:02,480
+Das dürft ihr dann ausprobieren.
+
+174
+00:15:02,480 --> 00:15:09,480
+Also wir machen irgendwie sowas von 6 Uhr ist Sunrise,
+
+175
+00:15:09,480 --> 00:15:17,480
+von 8 Uhr ist Morning, von 11 Uhr ist Tag,
+
+176
+00:15:17,480 --> 00:15:23,480
+ab 18 Uhr ist Sunset und ab 20 Uhr ist dann irgendwie Night.
+
+177
+00:15:23,480 --> 00:15:24,480
+Irgendwie sowas.
+
+178
+00:15:24,480 --> 00:15:26,480
+Und ab 21 Uhr ist Night.
+
+179
+00:15:26,480 --> 00:15:29,480
+Dann das mal alle Bilder auch eine Chance hat zu sehen.
+
+180
+00:15:29,480 --> 00:15:30,480
+Erstmal Scrum.
+
+181
+00:15:30,480 --> 00:15:32,480
+Na Moment, erstmal müssen wir unser Kanban Board,
+
+182
+00:15:32,480 --> 00:15:34,480
+unseren Scrum Master ernennen dafür.
+
+183
+00:15:34,480 --> 00:15:36,480
+Leute, wer hat Scrum Master?
+
+184
+00:15:36,480 --> 00:15:41,480
+Wer hat Agile Erfahrung von euch?
+
+185
+00:15:41,480 --> 00:15:44,480
+Jetzt müssen wir, jetzt machen wir es richtig.
+
+186
+00:15:44,480 --> 00:15:46,480
+Leute, Daily.
+
+187
+00:15:46,480 --> 00:15:53,480
+Okay, Ligat ist unser Scrum Master.
+
+188
+00:15:53,480 --> 00:15:56,480
+Der muss uns sagen, wenn wir das Agile Mindset nicht richtig einhalten.
+
+189
+00:16:04,480 --> 00:16:05,480
+Lasst es safe machen.
+
+190
+00:16:05,480 --> 00:16:09,480
+Ja, also wie gesagt, ein Kanban Board sollten wir auf jeden Fall anlegen.
+
+191
+00:16:09,480 --> 00:16:13,480
+Ja, erstmal denke ich auch, erstmal ein Kanban Board erstellen.
+
+192
+00:16:13,480 --> 00:16:16,480
+Warum nicht das Ganze nach Sonnenstand, Mondstand?
+
+193
+00:16:16,480 --> 00:16:20,480
+Weil du dann irgendwie abfragen müsstest, wie der Sonnenstand, Mondstand ist.
+
+194
+00:16:20,480 --> 00:16:29,480
+Irgendwie auch passend zur Zeitzone und wo du auf der Erde bist.
+
+195
+00:16:29,480 --> 00:16:31,480
+Also gut, Zeitzone.
+
+196
+00:16:31,480 --> 00:16:34,480
+Das ist mir für den Bash Script ein bisschen zu kompliziert.
+
+197
+00:16:34,480 --> 00:16:38,480
+Aber du kannst ja selbst was bauen, wenn dir das zu billig ist.
+
+198
+00:16:38,480 --> 00:16:41,480
+Dann müsste ich ihn mal fragen, weiß ich grad nicht.
+
+199
+00:16:41,480 --> 00:16:44,480
+Da gibt es doch sicherlich ein Paket.
+
+200
+00:16:44,480 --> 00:16:52,480
+Ich weiß nicht, ich habe keins gefunden, was tagesformabhängig Background setzen kann.
+
+201
+00:16:52,480 --> 00:16:55,480
+Und was dann auch anhand des Namens das rausfällt.
+
+202
+00:16:55,480 --> 00:16:57,480
+Ich meine, das kann jeder benutzen, wie er will.
+
+203
+00:16:57,480 --> 00:16:59,480
+Ich lade die Bilder ja hoch.
+
+204
+00:17:00,480 --> 00:17:02,480
+Eine coole Idee.
+
+205
+00:17:02,480 --> 00:17:05,480
+Aber das kackt halt ab, wenn man ins Internet geht.
+
+206
+00:17:05,480 --> 00:17:07,480
+Ich mache es jetzt erst mal Hardcoated.
+
+207
+00:17:07,480 --> 00:17:11,480
+Ihr könnt euch dann, wenn ihr wollt, am Bash-Skript auslassen.
+
+208
+00:17:11,480 --> 00:17:14,480
+Ich werde einfach Pull-Requests …
+
+209
+00:17:14,480 --> 00:17:15,480
+Plint Mergen.
+
+210
+00:17:15,480 --> 00:17:18,480
+Weil, der Chat macht ja prinzipiell kein Zaun.
+
+211
+00:17:18,480 --> 00:17:24,480
+Und wenn ich dann plötzlich die Plint Mergen-Technologien durante dem Video ablese,
+
+212
+00:17:24,480 --> 00:17:26,480
+dann muss man das auch nicht überprüfen.
+
+213
+00:17:30,480 --> 00:17:32,480
+Machen wir jetzt Kanban oder Scrum?
+
+214
+00:17:32,480 --> 00:17:36,480
+Wir machen beides, weil wir sind ja ein agiles T-Shaped-Team.
+
+215
+00:17:41,480 --> 00:17:43,480
+Die Musik ist ein bisschen laut, hä?
+
+216
+00:17:45,480 --> 00:17:48,480
+Jetzt ist die Frage, wo habe ich die Music auf?
+
+217
+00:17:48,480 --> 00:17:49,480
+Da.
+
+218
+00:17:50,480 --> 00:17:52,480
+Scrum-Ban, genau.
+
+219
+00:17:53,480 --> 00:17:55,480
+Das ist eher Scrum-Ban.
+
+220
+00:18:00,480 --> 00:18:02,480
+Ok, Bash-Magic, Leute.
+
+221
+00:18:02,480 --> 00:18:04,480
+Bash-Magic-Time.
+
+222
+00:18:06,480 --> 00:18:08,480
+Ok, erst mal alles hinzufügen.
+
+223
+00:18:10,480 --> 00:18:12,480
+Ok, dann machen wir das jetzt.
+
+224
+00:18:12,480 --> 00:18:14,480
+Ok, dann machen wir das jetzt.
+
+225
+00:18:14,480 --> 00:18:16,480
+Ok, dann machen wir das jetzt.
+
+226
+00:18:16,480 --> 00:18:18,480
+Ok, erst mal alles hinzufügen.
+
+227
+00:18:20,480 --> 00:18:22,480
+Oh, die Bilder sind ganz schön groß.
+
+228
+00:18:32,480 --> 00:18:34,480
+Alter, wie fett sind bitte schön die Bilder.
+
+229
+00:18:46,480 --> 00:18:48,480
+Oh, das sind ordentlich pepo-fette Bilder.
+
+230
+00:18:52,480 --> 00:18:54,480
+Welche Auflösung haben die Bilder eigentlich?
+
+231
+00:18:54,480 --> 00:18:56,480
+Ich dachte die sind bloß 1080p, oder nicht?
+
+232
+00:18:58,480 --> 00:19:00,480
+Ach nee, das sind 4K-Bilder.
+
+233
+00:19:02,480 --> 00:19:04,480
+Eher noch viel geiler.
+
+234
+00:19:04,480 --> 00:19:06,480
+Ok, nice.
+
+235
+00:19:06,480 --> 00:19:08,480
+Da sind die ja sogar 4K-Certified.
+
+236
+00:19:12,480 --> 00:19:14,480
+Git LFS.
+
+237
+00:19:14,480 --> 00:19:16,480
+Quatsch, das wird einfach committed und gut ist.
+
+238
+00:19:16,480 --> 00:19:18,480
+Mir doch egal, das ist nicht mein Speicherplatz.
+
+239
+00:19:18,480 --> 00:19:20,480
+Ok.
+
+240
+00:19:20,480 --> 00:19:22,480
+Bin. Bash.
+
+241
+00:19:22,480 --> 00:19:24,480
+Ich weiß, manche schreien jetzt rum, oh es muss bin erst her.
+
+242
+00:19:24,480 --> 00:19:26,480
+Das ist mir egal, jeder hat eine Bash installiert.
+
+243
+00:19:26,480 --> 00:19:28,480
+So.
+
+244
+00:19:28,480 --> 00:19:30,480
+Wie machen wir das jetzt gescheit, Leute?
+
+245
+00:19:30,480 --> 00:19:32,480
+Wie machen wir das?
+
+246
+00:19:32,480 --> 00:19:34,480
+Ich muss da mal kurz überlegen.
+
+247
+00:19:34,480 --> 00:19:36,480
+Wie kriege ich denn jetzt eine Liste
+
+248
+00:19:36,480 --> 00:19:38,480
+mit allen meinen Files
+
+249
+00:19:38,480 --> 00:19:40,480
+hier zusammen?
+
+250
+00:19:40,480 --> 00:19:42,480
+Find.
+
+251
+00:19:42,480 --> 00:19:44,480
+So was.
+
+252
+00:19:44,480 --> 00:19:46,480
+Und dann irgendwie type F.
+
+253
+00:19:46,480 --> 00:19:48,480
+Ja, dann hat man es doch.
+
+254
+00:19:48,480 --> 00:19:50,480
+Und dann grab nach
+
+255
+00:19:50,480 --> 00:19:52,480
+xppo.
+
+256
+00:19:52,480 --> 00:19:54,480
+So, dann hat man die Bilder.
+
+257
+00:19:54,480 --> 00:19:56,480
+Nice. Ok.
+
+258
+00:19:56,480 --> 00:19:58,480
+Und dann sortieren,
+
+259
+00:19:58,480 --> 00:20:00,480
+dass es immer die gleichen Reihenfolge gibt.
+
+260
+00:20:00,480 --> 00:20:02,480
+Ok, das finde ich schon mal gut.
+
+261
+00:20:02,480 --> 00:20:04,480
+Das brauchen wir jetzt.
+
+262
+00:20:04,480 --> 00:20:06,480
+Files.
+
+263
+00:20:06,480 --> 00:20:08,480
+Gleich.
+
+264
+00:20:08,480 --> 00:20:10,480
+So.
+
+265
+00:20:10,480 --> 00:20:12,480
+Da haben wir jetzt unsere Bilder drinne.
+
+266
+00:20:12,480 --> 00:20:14,480
+Wir könnten
+
+267
+00:20:14,480 --> 00:20:16,480
+mit den Bildern auch NFTs
+
+268
+00:20:16,480 --> 00:20:18,480
+und einen Champ...
+
+269
+00:20:18,480 --> 00:20:20,480
+Ja, na klar.
+
+270
+00:20:20,480 --> 00:20:22,480
+Wie heißt diese Kryptobörse?
+
+271
+00:20:22,480 --> 00:20:24,480
+Da wo die alle ihre shit
+
+272
+00:20:24,480 --> 00:20:26,480
+NFTs verkaufen.
+
+273
+00:20:26,480 --> 00:20:28,480
+Aber ich hab's vergessen.
+
+274
+00:20:28,480 --> 00:20:30,480
+Wenn ich den Namen lese, weiß ich sofort wieder.
+
+275
+00:20:32,480 --> 00:20:34,480
+Und ich meine nicht, ich meine nicht.
+
+276
+00:20:34,480 --> 00:20:36,480
+Ja, genau
+
+277
+00:20:36,480 --> 00:20:38,480
+dieses Ding.
+
+278
+00:20:38,480 --> 00:20:40,480
+Ja, genau das meine ich.
+
+279
+00:20:42,480 --> 00:20:44,480
+Ich werde nie NFTs machen, Leute.
+
+280
+00:20:46,480 --> 00:20:48,480
+Der Hype ist ja auch schon ziemlich wieder vorbei.
+
+281
+00:20:50,480 --> 00:20:52,480
+Nee, ich meinte Dings hier.
+
+282
+00:20:52,480 --> 00:20:54,480
+Ich meinte Open Seas oder
+
+283
+00:20:54,480 --> 00:20:56,480
+Open CS oder
+
+284
+00:20:56,480 --> 00:20:58,480
+wie soll man das ausspricht?
+
+285
+00:21:00,480 --> 00:21:02,480
+So, hier haben wir unsere Files.
+
+286
+00:21:02,480 --> 00:21:04,480
+Jetzt
+
+287
+00:21:04,480 --> 00:21:06,480
+brauchen wir noch, was ist denn das nochmal?
+
+288
+00:21:06,480 --> 00:21:08,480
+Date
+
+289
+00:21:08,480 --> 00:21:10,480
+Date minus, nee
+
+290
+00:21:10,480 --> 00:21:12,480
+Was war das?
+
+291
+00:21:12,480 --> 00:21:14,480
+Date Prozent H?
+
+292
+00:21:16,480 --> 00:21:18,480
+Oder nee, plus
+
+293
+00:21:18,480 --> 00:21:20,480
+Plus ist es glaube ich.
+
+294
+00:21:20,480 --> 00:21:22,480
+Plus H, okay.
+
+295
+00:21:22,480 --> 00:21:24,480
+Also das ist die Stunde.
+
+296
+00:21:24,480 --> 00:21:26,480
+Date
+
+297
+00:21:26,480 --> 00:21:28,480
+Plus Prozent H.
+
+298
+00:21:28,480 --> 00:21:30,480
+Das müssen wir nicht checken.
+
+299
+00:21:30,480 --> 00:21:32,480
+Das hat jeder auf dem Rechner.
+
+300
+00:21:36,480 --> 00:21:38,480
+K.I.
+
+301
+00:21:38,480 --> 00:21:40,480
+K.I. ist jetzt der Hotshit.
+
+302
+00:21:40,480 --> 00:21:42,480
+Wen jucken NFTs?
+
+303
+00:21:42,480 --> 00:21:44,480
+Wen juckt Web 3.0 noch?
+
+304
+00:21:44,480 --> 00:21:46,480
+Hat jemand von euch Web 3.0
+
+305
+00:21:46,480 --> 00:21:48,480
+in den letzten paar Wochen, Monaten
+
+306
+00:21:48,480 --> 00:21:50,480
+mal gehört? Nee.
+
+307
+00:21:50,480 --> 00:21:52,480
+Da war nur A.I.
+
+308
+00:21:52,480 --> 00:21:54,480
+und nochmal A.I.
+
+309
+00:21:54,480 --> 00:21:56,480
+und A.I. in irgendeiner Art und Weise.
+
+310
+00:21:56,480 --> 00:21:58,480
+Und vielleicht ein bisschen
+
+311
+00:21:58,480 --> 00:22:00,480
+Ausläufer von Blockchain
+
+312
+00:22:00,480 --> 00:22:02,480
+Kryptogramm noch.
+
+313
+00:22:02,480 --> 00:22:04,480
+Das ist ja immer so
+
+314
+00:22:04,480 --> 00:22:06,480
+ein bisschen Grundrauschen.
+
+315
+00:22:06,480 --> 00:22:08,480
+War das Web? Nee.
+
+316
+00:22:08,480 --> 00:22:10,480
+Ich glaube es war Web 3.0 oder?
+
+317
+00:22:10,480 --> 00:22:12,480
+Oder Web 3 war das?
+
+318
+00:22:12,480 --> 00:22:14,480
+War das?
+
+319
+00:22:14,480 --> 00:22:16,480
+Ich glaube es war Web 3.0
+
+320
+00:22:16,480 --> 00:22:18,480
+dieses ganze.
+
+321
+00:22:18,480 --> 00:22:20,480
+Allerdings muss ich ehrlich sagen
+
+322
+00:22:20,480 --> 00:22:22,480
+ich sehe es wie Erbsenraube, also
+
+323
+00:22:22,480 --> 00:22:24,480
+von den beiden Trends
+
+324
+00:22:24,480 --> 00:22:26,480
+ist mit dem Machine Learning Trend
+
+325
+00:22:26,480 --> 00:22:28,480
+auf jeden Fall lieber als
+
+326
+00:22:28,480 --> 00:22:30,480
+der ganze Krypto-Shit.
+
+327
+00:22:30,480 --> 00:22:32,480
+Was machen eigentlich diese ganzen
+
+328
+00:22:32,480 --> 00:22:34,480
+Krypto-Scam-Games, die immer so mit
+
+329
+00:22:34,480 --> 00:22:36,480
+super viel Hype verbunden waren.
+
+330
+00:22:36,480 --> 00:22:38,480
+Da ist doch noch kein einziges
+
+331
+00:22:38,480 --> 00:22:40,480
+rausgekommen. Da gab es doch dieses
+
+332
+00:22:40,480 --> 00:22:42,480
+Super-Scammy-Game.
+
+333
+00:22:42,480 --> 00:22:44,480
+Wie ist das? Earth?
+
+334
+00:22:44,480 --> 00:22:46,480
+Irgendwas mit Earth?
+
+335
+00:22:50,480 --> 00:22:52,480
+To Earth? Oder irgendwie
+
+336
+00:22:52,480 --> 00:22:54,480
+sowas? Second Earth?
+
+337
+00:22:54,480 --> 00:22:56,480
+Nee, das war Second Life.
+
+338
+00:22:58,480 --> 00:23:00,480
+Double Earth? Earth 2.0? Ich weiß nicht.
+
+339
+00:23:00,480 --> 00:23:02,480
+Dieses Ding, wo du
+
+340
+00:23:02,480 --> 00:23:04,480
+virtuell auf einer Karte
+
+341
+00:23:04,480 --> 00:23:06,480
+Länder kaufen konnt.
+
+342
+00:23:06,480 --> 00:23:08,480
+Ernsthaft? Wirklich?
+
+343
+00:23:08,480 --> 00:23:10,480
+Alter, das ist der größte Scam-Shit
+
+344
+00:23:10,480 --> 00:23:12,480
+überhaupt. Warum
+
+345
+00:23:12,480 --> 00:23:14,480
+hat man da Geld reingesteckt?
+
+346
+00:23:22,480 --> 00:23:24,480
+Krypto-Land.
+
+347
+00:23:24,480 --> 00:23:26,480
+Ja, den Shit gab es auch noch.
+
+348
+00:23:26,480 --> 00:23:28,480
+Ich glaube, mit den
+
+349
+00:23:28,480 --> 00:23:30,480
+meisten Sachen haben noch nicht mal die Erfinder-Geld
+
+350
+00:23:30,480 --> 00:23:32,480
+verdient.
+
+351
+00:23:36,480 --> 00:23:38,480
+Stimmt, was
+
+352
+00:23:38,480 --> 00:23:40,480
+macht eigentlich das Metaverse?
+
+353
+00:23:44,480 --> 00:23:46,480
+Was macht
+
+354
+00:23:46,480 --> 00:23:48,480
+eigentlich so das Metaverse?
+
+355
+00:23:48,480 --> 00:23:50,480
+Ja,
+
+356
+00:23:50,480 --> 00:23:52,480
+Spigge, White Paper Happy, was macht
+
+357
+00:23:52,480 --> 00:23:54,480
+eigentlich das Metaverse so?
+
+358
+00:23:58,480 --> 00:24:00,480
+Ja,
+
+359
+00:24:00,480 --> 00:24:02,480
+der Zuck, der
+
+360
+00:24:02,480 --> 00:24:04,480
+dreht halt immer noch am Rad.
+
+361
+00:24:06,480 --> 00:24:08,480
+Die Hälfte der Erwachsenen
+
+362
+00:24:08,480 --> 00:24:10,480
+weiß nicht, was das Metaverse
+
+363
+00:24:10,480 --> 00:24:12,480
+ist. Ich bezweifle, dass
+
+364
+00:24:12,480 --> 00:24:14,480
+die Leute, die andere
+
+365
+00:24:14,480 --> 00:24:16,480
+Hälfte ist wirklich weiß.
+
+366
+00:24:18,480 --> 00:24:20,480
+Das weiß glaube ich
+
+367
+00:24:20,480 --> 00:24:22,480
+Facebook selber noch nicht mal so richtig.
+
+368
+00:24:22,480 --> 00:24:24,480
+Die National Hockey League
+
+369
+00:24:24,480 --> 00:24:26,480
+hat eine Dynamic Metaverse
+
+370
+00:24:26,480 --> 00:24:28,480
+Experience in Roblox.
+
+371
+00:24:30,480 --> 00:24:32,480
+Ist das jetzt ne Verarschung oder
+
+372
+00:24:32,480 --> 00:24:34,480
+hat das wirklich jemand so geschrieben?
+
+373
+00:24:36,480 --> 00:24:38,480
+Eine Dynamische Metaverse in Roblox,
+
+374
+00:24:38,480 --> 00:24:40,480
+Roblox?
+
+375
+00:24:40,480 --> 00:24:42,480
+Man weiß es nicht.
+
+376
+00:24:42,480 --> 00:24:44,480
+Das weiß ich nicht.
+
+377
+00:24:46,480 --> 00:24:48,480
+Das weiß ich echt nicht.
+
+378
+00:24:48,480 --> 00:24:50,480
+Das weiß ich wirklich nicht.
+
+379
+00:24:50,480 --> 00:24:52,480
+Eine Metaverse in Roblox, Roblox?
+
+380
+00:24:54,480 --> 00:24:56,480
+Meine Güte.
+
+381
+00:24:58,480 --> 00:25:00,480
+Na gut, da hat irgend so ein komischer
+
+382
+00:25:00,480 --> 00:25:02,480
+BWL-Stonkstyp von denen gehört.
+
+383
+00:25:02,480 --> 00:25:04,480
+Jetzt drei Jahre nachdem es angesagt war.
+
+384
+00:25:04,480 --> 00:25:06,480
+Ha, Metaverse.
+
+385
+00:25:06,480 --> 00:25:08,480
+Oh, da müssen wir auch was machen.
+
+386
+00:25:10,480 --> 00:25:12,480
+Ja, das mein ich. Den Müll gibt's ja immer noch.
+
+387
+00:25:14,480 --> 00:25:16,480
+Außer dieses komische Video
+
+388
+00:25:16,480 --> 00:25:18,480
+gibt's ja da nix. Also das ist ja kein
+
+389
+00:25:18,480 --> 00:25:20,480
+Game oder sowas.
+
+390
+00:25:20,480 --> 00:25:22,480
+Die haben ja angefangen mit, es soll ein Game werden,
+
+391
+00:25:22,480 --> 00:25:24,480
+würde halt nie ein Game und wird auch nie ein Game.
+
+392
+00:25:24,480 --> 00:25:26,480
+Ist auch so eine Unreal
+
+393
+00:25:26,480 --> 00:25:28,480
+5 Demo wieder gewesen.
+
+394
+00:25:30,480 --> 00:25:32,480
+Wo sie mit irgend so einem Auto
+
+395
+00:25:32,480 --> 00:25:34,480
+durch irgendwie pre-rendert
+
+396
+00:25:34,480 --> 00:25:36,480
+äh, äh, nicht pre-rendert
+
+397
+00:25:38,480 --> 00:25:40,480
+Keine Ahnung, auto-generated
+
+398
+00:25:40,480 --> 00:25:42,480
+Weltgefahren sind
+
+399
+00:25:42,480 --> 00:25:44,480
+total unsinnig, alter.
+
+400
+00:25:48,480 --> 00:25:50,480
+Ja, goodluck.
+
+401
+00:25:50,480 --> 00:25:52,480
+Du chebatest uns doch eh.
+
+402
+00:25:52,480 --> 00:25:54,480
+Du hast wahrscheinlich gar nichts investiert da drinnen.
+
+403
+00:26:00,480 --> 00:26:02,480
+Scamverse, ja und von dieser
+
+404
+00:26:02,480 --> 00:26:04,480
+Richtung gab es ja noch total viel andere Sachen.
+
+405
+00:26:06,480 --> 00:26:08,480
+Ok, jetzt lasst uns mal ganz schnell mal
+
+406
+00:26:08,480 --> 00:26:10,480
+unseren Bash-Script, da gucken wir vielleicht noch ein paar Videos,
+
+407
+00:26:10,480 --> 00:26:12,480
+das sollte ja nicht allzu lang dauern.
+
+408
+00:26:12,480 --> 00:26:14,480
+Unserem Fiveheader
+
+409
+00:26:14,480 --> 00:26:16,480
+Bash-Script mit einem
+
+410
+00:26:16,480 --> 00:26:18,480
+Ähm
+
+411
+00:26:18,480 --> 00:26:20,480
+Wie kriegt man raus in einem
+
+412
+00:26:20,480 --> 00:26:22,480
+Bash-Script?
+
+413
+00:26:22,480 --> 00:26:24,480
+In welchem Verzeichnis das Script ist?
+
+414
+00:26:24,480 --> 00:26:26,480
+Äh, Bash
+
+415
+00:26:26,480 --> 00:26:28,480
+Get Script Directory
+
+416
+00:26:30,480 --> 00:26:32,480
+How do I get the directory where a Bash-Script is located?
+
+417
+00:26:32,480 --> 00:26:34,480
+Excellent.
+
+418
+00:26:34,480 --> 00:26:36,480
+Genau das brauche ich.
+
+419
+00:26:38,480 --> 00:26:40,480
+What?
+
+420
+00:26:40,480 --> 00:26:42,480
+Was ist das für
+
+421
+00:26:42,480 --> 00:26:44,480
+Magic?
+
+422
+00:26:44,480 --> 00:26:46,480
+Ok, meint ihr das funktioniert?
+
+423
+00:26:48,480 --> 00:26:50,480
+CD minus minus
+
+424
+00:26:50,480 --> 00:26:52,480
+Was?
+
+425
+00:26:56,480 --> 00:26:58,480
+Was macht CD minus minus?
+
+426
+00:26:58,480 --> 00:27:00,480
+Ach ne, Moment
+
+427
+00:27:00,480 --> 00:27:02,480
+Minus minus ist nur, dass danach keine
+
+428
+00:27:02,480 --> 00:27:04,480
+Optionen mehr kommen.
+
+429
+00:27:04,480 --> 00:27:06,480
+Ich glaube, deswegen ist minus minus.
+
+430
+00:27:06,480 --> 00:27:08,480
+Was anderes ergibt keinen Sinn.
+
+431
+00:27:08,480 --> 00:27:10,480
+So, und dann
+
+432
+00:27:10,480 --> 00:27:12,480
+DNA minus minus
+
+433
+00:27:12,480 --> 00:27:14,480
+Immer minus minus?
+
+434
+00:27:14,480 --> 00:27:16,480
+Warum immer minus minus minus?
+
+435
+00:27:16,480 --> 00:27:18,480
+Was macht er an der Stelle?
+
+436
+00:27:32,480 --> 00:27:34,480
+Was macht das denn?
+
+437
+00:27:36,480 --> 00:27:38,480
+Und vor allem, warum hat der Typ
+
+438
+00:27:38,480 --> 00:27:40,480
+Double Quotes in Double Quotes?
+
+439
+00:27:40,480 --> 00:27:42,480
+Nix, nix so geiles.
+
+440
+00:27:42,480 --> 00:27:44,480
+Na gut, okay, Echo Dear.
+
+441
+00:27:44,480 --> 00:27:46,480
+Guck mal, ob das funktioniert.
+
+442
+00:27:48,480 --> 00:27:50,480
+Moment, wenn ich das jetzt so richtig schreiben würde,
+
+443
+00:27:50,480 --> 00:27:52,480
+dann würde es auch vielleicht funktionieren.
+
+444
+00:27:52,480 --> 00:27:54,480
+CMOD plus X, ZBG.
+
+445
+00:27:54,480 --> 00:27:56,480
+ZBG.
+
+446
+00:27:56,480 --> 00:27:58,480
+Tatsächlich, es funktioniert.
+
+447
+00:27:58,480 --> 00:28:00,480
+Stack Overflow weiß einfach Bescheid.
+
+448
+00:28:00,480 --> 00:28:02,480
+Ich hab zwar keine Ahnung,
+
+449
+00:28:02,480 --> 00:28:04,480
+was es genau macht,
+
+450
+00:28:04,480 --> 00:28:06,480
+aber nice, okay.
+
+451
+00:28:06,480 --> 00:28:08,480
+Ultrabash Magic ist das.
+
+452
+00:28:08,480 --> 00:28:10,480
+Okay, while
+
+453
+00:28:10,480 --> 00:28:12,480
+true
+
+454
+00:28:12,480 --> 00:28:14,480
+do
+
+455
+00:28:14,480 --> 00:28:16,480
+done
+
+456
+00:28:16,480 --> 00:28:18,480
+sleep, okay.
+
+457
+00:28:18,480 --> 00:28:20,480
+Alle 5 Sekunden checken wir, ob eine neue Tageszeit ist.
+
+458
+00:28:20,480 --> 00:28:22,480
+Okay, also.
+
+459
+00:28:22,480 --> 00:28:24,480
+Dann lass uns das doch mal ausprobieren.
+
+460
+00:28:26,480 --> 00:28:28,480
+Was ist das?
+
+461
+00:28:30,480 --> 00:28:32,480
+Egal, haben wir doch schon.
+
+462
+00:28:34,480 --> 00:28:36,480
+Also, das heißt, wir gucken jetzt.
+
+463
+00:28:36,480 --> 00:28:38,480
+If
+
+464
+00:28:38,480 --> 00:28:40,480
+die Stunde
+
+465
+00:28:40,480 --> 00:28:42,480
+ist
+
+466
+00:28:42,480 --> 00:28:44,480
+größer als
+
+467
+00:28:44,480 --> 00:28:46,480
+machen wir es einfach von oben nach unten.
+
+468
+00:28:46,480 --> 00:28:48,480
+Die Stunde ist größer als
+
+469
+00:28:48,480 --> 00:28:50,480
+20,
+
+470
+00:28:50,480 --> 00:28:52,480
+dann
+
+471
+00:28:54,480 --> 00:28:56,480
+Okay.
+
+472
+00:28:56,480 --> 00:28:58,480
+So, wenn die Stunde größer als 20 ist
+
+473
+00:28:58,480 --> 00:29:00,480
+äh, nicht die Stufe.
+
+474
+00:29:00,480 --> 00:29:02,480
+Wenn die Stunde größer als 20 ist,
+
+475
+00:29:02,480 --> 00:29:04,480
+dann ist es
+
+476
+00:29:05,480 --> 00:29:07,480
+Nacht?
+
+477
+00:29:10,480 --> 00:29:12,480
+Moment, Bash, Bashcomments sind so,
+
+478
+00:29:12,480 --> 00:29:14,480
+gell?
+
+479
+00:29:14,480 --> 00:29:16,480
+Äh, Moment, äh, größer als, also,
+
+480
+00:29:16,480 --> 00:29:18,480
+also ab 21 Uhr ist Nacht.
+
+481
+00:29:18,480 --> 00:29:20,480
+Das ist doch ganz okay.
+
+482
+00:29:22,480 --> 00:29:24,480
+Ab 21 Uhr ist Nacht.
+
+483
+00:29:24,480 --> 00:29:26,480
+Das ist doch, das ist doch in Ordnung.
+
+484
+00:29:26,480 --> 00:29:28,480
+Kann man, kann man doch sagen.
+
+485
+00:29:28,480 --> 00:29:30,480
+So, das nächste ist, sagen wir,
+
+486
+00:29:30,480 --> 00:29:32,480
+ab 18 Uhr, ab 18 Uhr
+
+487
+00:29:32,480 --> 00:29:34,480
+ist Sunset.
+
+488
+00:29:36,480 --> 00:29:38,480
+Sagt, wenn es keinen Sinn macht,
+
+489
+00:29:38,480 --> 00:29:40,480
+was ich eingebe.
+
+490
+00:29:40,480 --> 00:29:42,480
+So, dann sagen wir,
+
+491
+00:29:42,480 --> 00:29:44,480
+ab, ab wann ist Mittag,
+
+492
+00:29:44,480 --> 00:29:46,480
+beziehungsweise ab wann ist Tag,
+
+493
+00:29:46,480 --> 00:29:48,480
+ab,
+
+494
+00:29:48,480 --> 00:29:50,480
+ab 11,
+
+495
+00:29:50,480 --> 00:29:52,480
+day,
+
+496
+00:29:54,480 --> 00:29:56,480
+ähm,
+
+497
+00:29:56,480 --> 00:29:58,480
+ab 8,
+
+498
+00:29:58,480 --> 00:30:00,480
+ab 8 ist
+
+499
+00:30:00,480 --> 00:30:02,480
+ab 8 ist Sunrise
+
+500
+00:30:04,480 --> 00:30:06,480
+und als letztes brauchen wir noch
+
+501
+00:30:06,480 --> 00:30:08,480
+Elz und das ist Nacht.
+
+502
+00:30:08,480 --> 00:30:10,480
+Ergibt das
+
+503
+00:30:10,480 --> 00:30:12,480
+Sinn? Ich hoffe,
+
+504
+00:30:12,480 --> 00:30:14,480
+dass ergibt Sinn.
+
+505
+00:30:14,480 --> 00:30:16,480
+So, dann gucken wir mal kurz wie wir den Background
+
+506
+00:30:16,480 --> 00:30:18,480
+setzen.
+
+507
+00:30:18,480 --> 00:30:20,480
+Wie mache ich das denn hier?
+
+508
+00:30:26,480 --> 00:30:28,480
+BG Phil.
+
+509
+00:30:28,480 --> 00:30:30,480
+Images.
+
+510
+00:30:30,480 --> 00:30:32,480
+Coffee.
+
+511
+00:30:32,480 --> 00:30:34,480
+Ja, funktioniert.
+
+512
+00:30:34,480 --> 00:30:36,480
+Okay.
+
+513
+00:30:38,480 --> 00:30:40,480
+Auer ist da hinter, du könntest auch...
+
+514
+00:30:40,480 --> 00:30:42,480
+Ja, das könnte ich wahrscheinlich machen.
+
+515
+00:30:42,480 --> 00:30:44,480
+Da hast du recht.
+
+516
+00:30:44,480 --> 00:30:46,480
+Wisst ihr was? Wir fragen danach mal,
+
+517
+00:30:46,480 --> 00:30:48,480
+wenn wir fertig sind,
+
+518
+00:30:48,480 --> 00:30:50,480
+fragen wir mal JetKPT, ob
+
+519
+00:30:50,480 --> 00:30:52,480
+sie das Bash Script
+
+520
+00:30:52,480 --> 00:30:54,480
+optimieren und
+
+521
+00:30:54,480 --> 00:30:56,480
+das BG Phil
+
+522
+00:30:56,480 --> 00:30:58,480
+optimieren und
+
+523
+00:30:58,480 --> 00:31:00,480
+verbessern kann.
+
+524
+00:31:00,480 --> 00:31:02,480
+Mal gucken, ob da was
+
+525
+00:31:02,480 --> 00:31:04,480
+sinnvolles bei rauskommt.
+
+526
+00:31:04,480 --> 00:31:06,480
+So, ich würde sagen,
+
+527
+00:31:06,480 --> 00:31:08,480
+jetzt müssen wir an der Stelle
+
+528
+00:31:08,480 --> 00:31:10,480
+das mal testen. Welcher Fall trifft denn jetzt zu?
+
+529
+00:31:10,480 --> 00:31:12,480
+Größer 17 Uhr trifft zu.
+
+530
+00:31:12,480 --> 00:31:14,480
+Also, jetzt müssen wir
+
+531
+00:31:14,480 --> 00:31:16,480
+das Background
+
+532
+00:31:16,480 --> 00:31:18,480
+setzen und das Background,
+
+533
+00:31:18,480 --> 00:31:20,480
+wie machen wir das jetzt am besten?
+
+534
+00:31:20,480 --> 00:31:22,480
+Also das hier ist...
+
+535
+00:31:22,480 --> 00:31:24,480
+Das hier ist Sunset.
+
+536
+00:31:24,480 --> 00:31:26,480
+Okay.
+
+537
+00:31:26,480 --> 00:31:28,480
+Wir müssen jetzt
+
+538
+00:31:28,480 --> 00:31:30,480
+von dem Ordner, in dem das Skript liegt
+
+539
+00:31:34,480 --> 00:31:36,480
+random
+
+540
+00:31:36,480 --> 00:31:38,480
+ein Image rauspicken.
+
+541
+00:31:40,480 --> 00:31:42,480
+Also, das ist schon mal
+
+542
+00:31:42,480 --> 00:31:44,480
+Blödsinn, das muss schon mal so rum.
+
+543
+00:31:44,480 --> 00:31:46,480
+Und an die Stelle muss
+
+544
+00:31:46,480 --> 00:31:48,480
+dir.
+
+545
+00:31:50,480 --> 00:31:52,480
+Okay, random
+
+546
+00:31:52,480 --> 00:31:54,480
+Image rauspicken, das hatten wir
+
+547
+00:31:54,480 --> 00:31:56,480
+letzten schon mal. Echo
+
+548
+00:31:56,480 --> 00:31:58,480
+Files
+
+549
+00:32:00,480 --> 00:32:02,480
+Nach
+
+550
+00:32:02,480 --> 00:32:04,480
+Ne, jetzt müssen wir erstmal die Bilder
+
+551
+00:32:04,480 --> 00:32:06,480
+rausfiltern,
+
+552
+00:32:06,480 --> 00:32:08,480
+die wir haben wollen, was mit Sunset
+
+553
+00:32:08,480 --> 00:32:10,480
+Also, die Dinger heißen dann sowas wie
+
+554
+00:32:10,480 --> 00:32:12,480
+Max
+
+555
+00:32:12,480 --> 00:32:14,480
+Underscore
+
+556
+00:32:14,480 --> 00:32:16,480
+Underscore
+
+557
+00:32:16,480 --> 00:32:18,480
+Sunset
+
+558
+00:32:18,480 --> 00:32:20,480
+Holen wir mal aus hier
+
+559
+00:32:20,480 --> 00:32:22,480
+Sort
+
+560
+00:32:22,480 --> 00:32:24,480
+Images
+
+561
+00:32:24,480 --> 00:32:26,480
+Ne, Moment
+
+562
+00:32:32,480 --> 00:32:34,480
+Sunset
+
+563
+00:32:34,480 --> 00:32:36,480
+Ja, also die Dinger heißen sowas wie
+
+564
+00:32:36,480 --> 00:32:38,480
+Sunset
+
+565
+00:32:40,480 --> 00:32:42,480
+So
+
+566
+00:32:42,480 --> 00:32:44,480
+Also
+
+567
+00:32:44,480 --> 00:32:46,480
+Ironic
+
+568
+00:32:46,480 --> 00:32:48,480
+Oops
+
+569
+00:32:48,480 --> 00:32:50,480
+Ich glaube
+
+570
+00:32:50,480 --> 00:32:52,480
+Kleines ist
+
+571
+00:32:52,480 --> 00:32:54,480
+Ich glaube
+
+572
+00:32:54,480 --> 00:32:56,480
+Großes
+
+573
+00:32:56,480 --> 00:32:58,480
+Ist die Zahl
+
+574
+00:32:58,480 --> 00:33:00,480
+Und kleines ist die Geschichte mit AM und PM
+
+575
+00:33:00,480 --> 00:33:02,480
+Aber bin mir aus dem Kopf nicht sicher
+
+576
+00:33:02,480 --> 00:33:04,480
+So jetzt haben wir unsere Files
+
+577
+00:33:04,480 --> 00:33:06,480
+Das habe ich mir gemerkt
+
+578
+00:33:06,480 --> 00:33:08,480
+Das haben wir nämlich in dem letzten
+
+579
+00:33:08,480 --> 00:33:10,480
+Wallpaperscript
+
+580
+00:33:10,480 --> 00:33:12,480
+Ähm
+
+581
+00:33:12,480 --> 00:33:14,480
+Alter
+
+582
+00:33:14,480 --> 00:33:16,480
+Das Shuffle minus eins brauchen wir
+
+583
+00:33:16,480 --> 00:33:18,480
+Das habe ich mir gemerkt
+
+584
+00:33:18,480 --> 00:33:20,480
+Ja Shuffle
+
+585
+00:33:20,480 --> 00:33:22,480
+Ja weil ich es mir so gut gemerkt habe
+
+586
+00:33:22,480 --> 00:33:24,480
+Musste ich jetzt nachgucken
+
+587
+00:33:24,480 --> 00:33:26,480
+Logisch
+
+588
+00:33:26,480 --> 00:33:28,480
+So File gleich
+
+589
+00:33:28,480 --> 00:33:30,480
+So ok jetzt schauen wir mal ob das funktioniert
+
+590
+00:33:30,480 --> 00:33:32,480
+Dollar File
+
+591
+00:33:32,480 --> 00:33:34,480
+So wenn ich das jetzt ausführe
+
+592
+00:33:34,480 --> 00:33:36,480
+Sollte erst einen Hintergrund setzen
+
+593
+00:33:36,480 --> 00:33:38,480
+ZBG
+
+594
+00:33:38,480 --> 00:33:40,480
+Hahaha
+
+595
+00:33:40,480 --> 00:33:42,480
+Hahaha
+
+596
+00:33:42,480 --> 00:33:44,480
+Ok doch nicht so viel
+
+597
+00:33:44,480 --> 00:33:46,480
+Bash aus dem Kopf
+
+598
+00:33:46,480 --> 00:33:48,480
+Wo ist das Problem?
+
+599
+00:33:48,480 --> 00:33:50,480
+Synthax Error
+
+600
+00:33:50,480 --> 00:33:52,480
+Near Else If
+
+601
+00:33:52,480 --> 00:33:54,480
+Zeile 11
+
+602
+00:34:02,480 --> 00:34:04,480
+Äh was ist da falsch?
+
+603
+00:34:04,480 --> 00:34:06,480
+Ach Moment
+
+604
+00:34:06,480 --> 00:34:08,480
+Da muss glaube ich was drinne stehen
+
+605
+00:34:08,480 --> 00:34:10,480
+Glaub sonst geht das nicht
+
+606
+00:34:10,480 --> 00:34:12,480
+Wenn da nichts drinne steht
+
+607
+00:34:12,480 --> 00:34:14,480
+Kann das sein?
+
+608
+00:34:18,480 --> 00:34:20,480
+Glaub das geht nicht wenn da nichts drinne steht
+
+609
+00:34:20,480 --> 00:34:22,480
+Ok nice
+
+610
+00:34:22,480 --> 00:34:24,480
+Funktioniert
+
+611
+00:34:28,480 --> 00:34:30,480
+Ok
+
+612
+00:34:30,480 --> 00:34:32,480
+Pogu
+
+613
+00:34:32,480 --> 00:34:34,480
+Also die Logik
+
+614
+00:34:34,480 --> 00:34:36,480
+Die Logik ist schonmal ok die ich hier gebaut hab
+
+615
+00:34:38,480 --> 00:34:40,480
+Musst du nicht den alten Prozess noch killen?
+
+616
+00:34:40,480 --> 00:34:42,480
+Doch, aber der läuft ja nicht mehr
+
+617
+00:34:42,480 --> 00:34:44,480
+Im Hintergrund, den breche ich ja immer ab
+
+618
+00:34:44,480 --> 00:34:46,480
+Erst wenn ich den beim Desktop starten
+
+619
+00:34:46,480 --> 00:34:48,480
+Anmache oder so
+
+620
+00:34:48,480 --> 00:34:50,480
+Dann, dann schon
+
+621
+00:34:50,480 --> 00:34:52,480
+So also jetzt nimmt er hier
+
+622
+00:34:52,480 --> 00:34:54,480
+Random, random nen File
+
+623
+00:34:54,480 --> 00:34:56,480
+Ich würd sagen das lagern wir mal in ne Funktion aus
+
+624
+00:34:56,480 --> 00:34:58,480
+Nennen wir das mal sowas wie
+
+625
+00:34:58,480 --> 00:35:00,480
+SetBackGround
+
+626
+00:35:02,480 --> 00:35:04,480
+Äh, so
+
+627
+00:35:04,480 --> 00:35:06,480
+Und jetzt
+
+628
+00:35:06,480 --> 00:35:08,480
+Kopieren wir einfach
+
+629
+00:35:08,480 --> 00:35:10,480
+Den Krempel da rein
+
+630
+00:35:10,480 --> 00:35:12,480
+So
+
+631
+00:35:16,480 --> 00:35:18,480
+Sunset
+
+632
+00:35:18,480 --> 00:35:20,480
+So und das ist nicht hier
+
+633
+00:35:20,480 --> 00:35:22,480
+Wollen wir nicht Sunset sondern Dollar
+
+634
+00:35:22,480 --> 00:35:24,480
+Eins, weil dann können wir das
+
+635
+00:35:24,480 --> 00:35:26,480
+Hier ein bisschen schöner machen, da können wir jetzt
+
+636
+00:35:26,480 --> 00:35:28,480
+An der Stelle sagen
+
+637
+00:35:28,480 --> 00:35:30,480
+Set
+
+638
+00:35:30,480 --> 00:35:32,480
+Set
+
+639
+00:35:32,480 --> 00:35:34,480
+Background
+
+640
+00:35:34,480 --> 00:35:36,480
+Moment das ist Bash, das ist Bash
+
+641
+00:35:36,480 --> 00:35:38,480
+Sunset
+
+642
+00:35:38,480 --> 00:35:40,480
+So und hier können wir dann sagen
+
+643
+00:35:44,480 --> 00:35:46,480
+Night
+
+644
+00:35:46,480 --> 00:35:48,480
+Moment wir haben Night doppelt
+
+645
+00:35:50,480 --> 00:35:52,480
+Hab ich irgendwas vergessen?
+
+646
+00:35:54,480 --> 00:35:56,480
+Ok, lass mal kurz überlegen
+
+647
+00:35:56,480 --> 00:35:58,480
+Das hier ist
+
+648
+00:35:58,480 --> 00:36:00,480
+Day
+
+649
+00:36:04,480 --> 00:36:06,480
+Ich hab Morning vergessen oder?
+
+650
+00:36:10,480 --> 00:36:12,480
+Ich glaube ich hab Morning
+
+651
+00:36:12,480 --> 00:36:14,480
+Ja ich hab Morning vergessen
+
+652
+00:36:20,480 --> 00:36:22,480
+Pepega
+
+653
+00:36:28,480 --> 00:36:30,480
+Ach hier, ne hier ist doch Morning
+
+654
+00:36:30,480 --> 00:36:32,480
+Night Sunset Day Morning
+
+655
+00:36:34,480 --> 00:36:36,480
+Wummet brauch ich die Night überhaupt?
+
+656
+00:36:42,480 --> 00:36:44,480
+Es jetzt fehlt aber Sunrise
+
+657
+00:36:48,480 --> 00:36:50,480
+Ne, ich hab Morning vergessen
+
+658
+00:36:52,480 --> 00:36:54,480
+Und ich hab Morning vergessen
+
+659
+00:36:54,480 --> 00:36:56,480
+Es jetzt fehlt aber Sunrise
+
+660
+00:36:58,480 --> 00:37:00,480
+Moment jetzt fehlt aber Sunrise
+
+661
+00:37:00,480 --> 00:37:02,480
+Ich bin verwirrt
+
+662
+00:37:02,480 --> 00:37:04,480
+Wir brauchen noch eins
+
+663
+00:37:04,480 --> 00:37:06,480
+Wir brauchen noch so was wie
+
+664
+00:37:06,480 --> 00:37:08,480
+Keine Ahnung ab 6 Uhr oder sowas
+
+665
+00:37:08,480 --> 00:37:10,480
+Ab 6 Uhr ist Sunrise
+
+666
+00:37:16,480 --> 00:37:18,480
+Stimmt ich brauch zweimal Nacht
+
+667
+00:37:18,480 --> 00:37:20,480
+Das ist richtig ja ja ich brauch
+
+668
+00:37:20,480 --> 00:37:22,480
+Zweimal Nacht
+
+669
+00:37:24,480 --> 00:37:26,480
+Kann ich nicht
+
+670
+00:37:26,480 --> 00:37:28,480
+Kann ich nicht an
+
+671
+00:37:28,480 --> 00:37:30,480
+Judd Dixon sagen
+
+672
+00:37:30,480 --> 00:37:32,480
+Oder
+
+673
+00:37:32,480 --> 00:37:34,480
+Ist
+
+674
+00:37:34,480 --> 00:37:36,480
+Less
+
+675
+00:37:36,480 --> 00:37:38,480
+Or equal 5
+
+676
+00:37:38,480 --> 00:37:40,480
+Jetzt müsste ich doch
+
+677
+00:37:40,480 --> 00:37:42,480
+Alles abgedeckt haben
+
+678
+00:37:42,480 --> 00:37:44,480
+Weil ich mir da nicht
+
+679
+00:37:44,480 --> 00:37:46,480
+Sicher bin in meiner
+
+680
+00:37:46,480 --> 00:37:48,480
+In der Logik
+
+681
+00:37:48,480 --> 00:37:50,480
+Also
+
+682
+00:37:50,480 --> 00:37:52,480
+Wenn es größer als
+
+683
+00:37:52,480 --> 00:37:54,480
+Ab 21 Uhr
+
+684
+00:37:54,480 --> 00:37:56,480
+Und vor
+
+685
+00:37:56,480 --> 00:37:58,480
+Inklusive 5 Uhr
+
+686
+00:37:58,480 --> 00:38:00,480
+Ja doch
+
+687
+00:38:00,480 --> 00:38:02,480
+Das müsste doch eigentlich funktionieren
+
+688
+00:38:06,480 --> 00:38:08,480
+Ab 6 Uhr dann das
+
+689
+00:38:08,480 --> 00:38:10,480
+Dann das, dann das, dann das
+
+690
+00:38:10,480 --> 00:38:12,480
+Nee doch
+
+691
+00:38:12,480 --> 00:38:14,480
+Eigentlich
+
+692
+00:38:14,480 --> 00:38:16,480
+Eigentlich habe ich glaube ich jetzt alles abgedeckt
+
+693
+00:38:22,480 --> 00:38:24,480
+Ja
+
+694
+00:38:24,480 --> 00:38:26,480
+Funktioniert
+
+695
+00:38:26,480 --> 00:38:28,480
+So jetzt müssen wir nur noch einstellen
+
+696
+00:38:28,480 --> 00:38:30,480
+Dass er
+
+697
+00:38:30,480 --> 00:38:32,480
+Das nicht
+
+698
+00:38:34,480 --> 00:38:36,480
+Nee nee nee er soll nicht alle 5 Sekunden random
+
+699
+00:38:36,480 --> 00:38:38,480
+In neues Background setzen
+
+700
+00:38:38,480 --> 00:38:40,480
+Das müssen wir jetzt einstellen
+
+701
+00:38:40,480 --> 00:38:42,480
+Denn
+
+702
+00:38:46,480 --> 00:38:48,480
+Wenn du
+
+703
+00:38:48,480 --> 00:38:50,480
+Wenn du die
+
+704
+00:38:50,480 --> 00:38:52,480
+Wenn du Night nicht
+
+705
+00:38:52,480 --> 00:38:54,480
+In Els machst musst du beim Anpassen
+
+706
+00:38:54,480 --> 00:38:56,480
+Nur einmal die Stundenangabe für
+
+707
+00:38:56,480 --> 00:38:58,480
+Morning ändern
+
+708
+00:38:58,480 --> 00:39:00,480
+Was?
+
+709
+00:39:06,480 --> 00:39:08,480
+Die Aua muss noch in die
+
+710
+00:39:08,480 --> 00:39:10,480
+Schleife
+
+711
+00:39:10,480 --> 00:39:12,480
+Oh das ist richtig
+
+712
+00:39:12,480 --> 00:39:14,480
+Sonst
+
+713
+00:39:14,480 --> 00:39:16,480
+Sonst funzt das nicht
+
+714
+00:39:16,480 --> 00:39:18,480
+Ja
+
+715
+00:39:20,480 --> 00:39:22,480
+Okay
+
+716
+00:39:22,480 --> 00:39:24,480
+Okay
+
+717
+00:39:26,480 --> 00:39:28,480
+Cron-Shop bei jeder vollen Stunde
+
+718
+00:39:28,480 --> 00:39:30,480
+Doch, doch geht auch, aber es soll ja
+
+719
+00:39:30,480 --> 00:39:32,480
+Es soll ja schneller gehen
+
+720
+00:39:34,480 --> 00:39:36,480
+Kann jeder machen wie er will
+
+721
+00:39:36,480 --> 00:39:38,480
+So jetzt müssen wir noch checken, dass die Datei
+
+722
+00:39:40,480 --> 00:39:42,480
+Kannste auch damit machen
+
+723
+00:39:42,480 --> 00:39:44,480
+Jetzt müssen wir noch checken, dass die Datei
+
+724
+00:39:44,480 --> 00:39:46,480
+Ähm
+
+725
+00:39:46,480 --> 00:39:48,480
+Älter als 15 Minuten ist
+
+726
+00:39:48,480 --> 00:39:50,480
+Dann machen wir mal
+
+727
+00:39:50,480 --> 00:39:52,480
+Alle 15 Minuten kann er das Bild ändern
+
+728
+00:39:52,480 --> 00:39:54,480
+So, da weiß ich aus dem Kopf nicht
+
+729
+00:39:58,480 --> 00:40:00,480
+Also wenn du Morning zu einer anderen
+
+730
+00:40:00,480 --> 00:40:02,480
+Uhrzeit einstellen willst
+
+731
+00:40:02,480 --> 00:40:04,480
+Musst du das an zwei Stellen machen
+
+732
+00:40:04,480 --> 00:40:06,480
+Wieso?
+
+733
+00:40:06,480 --> 00:40:08,480
+Ich will Morning
+
+734
+00:40:08,480 --> 00:40:10,480
+Ab wenn es größer ist als
+
+735
+00:40:10,480 --> 00:40:12,480
+7
+
+736
+00:40:18,480 --> 00:40:20,480
+Sag mal ein Beispiel
+
+737
+00:40:20,480 --> 00:40:22,480
+Mach mal ein Beispiel, wo funktioniert es nicht
+
+738
+00:40:24,480 --> 00:40:26,480
+Sag mal ein Beispiel
+
+739
+00:40:26,480 --> 00:40:28,480
+Wo würde es nicht funktionieren?
+
+740
+00:40:30,480 --> 00:40:32,480
+Im Ohr und im Creator 5
+
+741
+00:40:38,480 --> 00:40:40,480
+Ach wenn ich das ändern will
+
+742
+00:40:40,480 --> 00:40:42,480
+Ja
+
+743
+00:40:44,480 --> 00:40:46,480
+Ach so ja
+
+744
+00:40:46,480 --> 00:40:48,480
+Ja ja wenn ich das ändern will muss ich es da und da ändern
+
+745
+00:40:48,480 --> 00:40:50,480
+Ja
+
+746
+00:40:50,480 --> 00:40:52,480
+Ist halt so
+
+747
+00:40:54,480 --> 00:40:56,480
+Man könnte hier oben Variablen machen
+
+748
+00:40:56,480 --> 00:40:58,480
+So nach dem
+
+749
+00:40:58,480 --> 00:41:00,480
+Morning, Start oder irgendwie
+
+750
+00:41:00,480 --> 00:41:02,480
+Warum
+
+751
+00:41:02,480 --> 00:41:04,480
+So das funktioniert
+
+752
+00:41:04,480 --> 00:41:06,480
+Jetzt müssen wir noch kurz gucken
+
+753
+00:41:06,480 --> 00:41:08,480
+Wie kriegt man
+
+754
+00:41:08,480 --> 00:41:10,480
+Bash, File, Older
+
+755
+00:41:10,480 --> 00:41:12,480
+Than, ja genau One Hour
+
+756
+00:41:12,480 --> 00:41:14,480
+Das will ich haben
+
+757
+00:41:14,480 --> 00:41:16,480
+Unit Test
+
+758
+00:41:16,480 --> 00:41:18,480
+Das könnt ihr dann alles machen
+
+759
+00:41:18,480 --> 00:41:20,480
+What about Min Time?
+
+760
+00:41:20,480 --> 00:41:22,480
+Das ist mir schon viel zu kompliziert
+
+761
+00:41:24,480 --> 00:41:26,480
+Five Minutes
+
+762
+00:41:26,480 --> 00:41:28,480
+Ok
+
+763
+00:41:28,480 --> 00:41:30,480
+Beste
+
+764
+00:41:30,480 --> 00:41:32,480
+If, Test, Find, Min
+
+765
+00:41:32,480 --> 00:41:34,480
+Excellent, das brauchen wir
+
+766
+00:41:34,480 --> 00:41:36,480
+Uns das denn auch
+
+767
+00:41:36,480 --> 00:41:38,480
+Tests
+
+768
+00:41:38,480 --> 00:41:40,480
+Gucken wir mal
+
+769
+00:41:40,480 --> 00:41:42,480
+Tests und zwar
+
+770
+00:41:42,480 --> 00:41:44,480
+PBG
+
+771
+00:41:44,480 --> 00:41:46,480
+Es ist nicht älter als
+
+772
+00:41:46,480 --> 00:41:48,480
+30 Minuten, aber es sollte älter als eine Minute sein
+
+773
+00:41:48,480 --> 00:41:50,480
+Korrekt, funktioniert, nice
+
+774
+00:41:50,480 --> 00:41:52,480
+Eats
+
+775
+00:41:54,480 --> 00:41:56,480
+Eats
+
+776
+00:41:56,480 --> 00:41:58,480
+Also dann gucken wir hier
+
+777
+00:41:58,480 --> 00:42:00,480
+If
+
+778
+00:42:00,480 --> 00:42:02,480
+Das ist älter
+
+779
+00:42:02,480 --> 00:42:04,480
+als 15 Minuten
+
+780
+00:42:06,480 --> 00:42:08,480
+Dann machen wir das, ansonsten
+
+781
+00:42:08,480 --> 00:42:10,480
+machen wir das nicht, da können wir noch
+
+782
+00:42:10,480 --> 00:42:12,480
+Echo rein machen, irgendwie
+
+783
+00:42:12,480 --> 00:42:14,480
+Echo, irgendwie was weiß ich
+
+784
+00:42:14,480 --> 00:42:16,480
+Set new
+
+785
+00:42:16,480 --> 00:42:18,480
+Background to
+
+786
+00:42:22,480 --> 00:42:24,480
+Irgendwie sowas
+
+787
+00:42:24,480 --> 00:42:26,480
+Dollar File
+
+788
+00:42:28,480 --> 00:42:30,480
+So
+
+789
+00:42:30,480 --> 00:42:32,480
+Und jetzt sollte es das nur alle
+
+790
+00:42:32,480 --> 00:42:34,480
+15 Minuten machen
+
+791
+00:42:34,480 --> 00:42:36,480
+Dann testen wir noch mal, ob das funktioniert
+
+792
+00:42:40,480 --> 00:42:42,480
+So
+
+793
+00:42:42,480 --> 00:42:44,480
+Initial
+
+794
+00:42:44,480 --> 00:42:46,480
+Ach ne, er setzt es jetzt auch
+
+795
+00:42:46,480 --> 00:42:48,480
+Initial nicht, das ist natürlich
+
+796
+00:42:48,480 --> 00:42:50,480
+Doof
+
+797
+00:42:50,480 --> 00:42:52,480
+Ok, wie können wir das machen, dass er
+
+798
+00:42:52,480 --> 00:42:54,480
+Initial einmal beim
+
+799
+00:42:54,480 --> 00:42:56,480
+Starten das Build setzt
+
+800
+00:43:02,480 --> 00:43:04,480
+Wir könnten, ich hab ne Idee
+
+801
+00:43:04,480 --> 00:43:06,480
+Wir könnten sowas machen
+
+802
+00:43:06,480 --> 00:43:08,480
+Wie
+
+803
+00:43:08,480 --> 00:43:10,480
+TimeOutMinit
+
+804
+00:43:10,480 --> 00:43:12,480
+Das fängt mit 0 an
+
+805
+00:43:12,480 --> 00:43:14,480
+Aber das ist gut hier
+
+806
+00:43:14,480 --> 00:43:16,480
+So machen wir das
+
+807
+00:43:16,480 --> 00:43:18,480
+$TimeOutMin
+
+808
+00:43:18,480 --> 00:43:20,480
+Und nach dem ersten Durchlauf
+
+809
+00:43:20,480 --> 00:43:22,480
+Das ist zwar
+
+810
+00:43:24,480 --> 00:43:26,480
+TimeOutMin
+
+811
+00:43:26,480 --> 00:43:28,480
+Gleich 15
+
+812
+00:43:28,480 --> 00:43:30,480
+Ok, jetzt sollte er beim ersten Mal
+
+813
+00:43:30,480 --> 00:43:32,480
+Starten den Build setzen
+
+814
+00:43:34,480 --> 00:43:36,480
+Nice
+
+815
+00:43:36,480 --> 00:43:38,480
+Und für 15 Minuten nichts mehr machen
+
+816
+00:43:44,480 --> 00:43:46,480
+Einfach vor dem Schleifenlauf
+
+817
+00:43:48,480 --> 00:43:50,480
+Ja ne, dann müsste ich ja gucken, welche Zeit
+
+818
+00:43:52,480 --> 00:43:54,480
+Shega, danke schön für den Sub
+
+819
+00:43:54,480 --> 00:43:56,480
+Du du du du du
+
+820
+00:43:56,480 --> 00:43:58,480
+Du du du du
+
+821
+00:43:58,480 --> 00:44:00,480
+Du du du du
+
+822
+00:44:00,480 --> 00:44:02,480
+Ok
+
+823
+00:44:06,480 --> 00:44:08,480
+Ich würde sagen
+
+824
+00:44:08,480 --> 00:44:10,480
+Chat, ich würde sagen
+
+825
+00:44:10,480 --> 00:44:12,480
+Das
+
+826
+00:44:12,480 --> 00:44:14,480
+Das war's
+
+827
+00:44:14,480 --> 00:44:16,480
+Achso
+
+828
+00:44:16,480 --> 00:44:18,480
+Wie heissen die Dinger mit dem Mond
+
+829
+00:44:18,480 --> 00:44:20,480
+Die will ich, ups
+
+830
+00:44:20,480 --> 00:44:22,480
+Die mit dem Mond will ich nicht dabei haben
+
+831
+00:44:22,480 --> 00:44:24,480
+Minus
+
+832
+00:44:24,480 --> 00:44:26,480
+Moon
+
+833
+00:44:30,480 --> 00:44:32,480
+No Moon
+
+834
+00:44:32,480 --> 00:44:34,480
+Ok, die crepten wir raus
+
+835
+00:44:36,480 --> 00:44:38,480
+CREP minus V
+
+836
+00:44:38,480 --> 00:44:40,480
+No Moon
+
+837
+00:44:40,480 --> 00:44:42,480
+Leaderboard
+
+838
+00:44:42,480 --> 00:44:52,180
+Fillet
+
+839
+00:45:10,480 --> 00:45:14,480
+GetStatus
+
+840
+00:45:14,480 --> 00:45:16,480
+GetAd
+
+841
+00:45:16,480 --> 00:45:18,480
+GetCommit
+
+842
+00:45:18,480 --> 00:45:20,480
+A-M
+
+843
+00:45:20,480 --> 00:45:22,480
+InIt
+
+844
+00:45:22,480 --> 00:45:24,480
+SetBG
+
+845
+00:45:24,480 --> 00:45:26,480
+SetBG
+
+846
+00:45:26,480 --> 00:45:28,480
+SetBG
+
+847
+00:45:28,480 --> 00:45:30,480
+SetBG
+
+848
+00:45:30,480 --> 00:45:32,480
+SetBG
+
+849
+00:45:32,480 --> 00:45:34,480
+SetBG
+
+850
+00:45:34,480 --> 00:45:36,480
+SetBG
+
+851
+00:45:36,480 --> 00:45:38,480
+SetBG
+
+852
+00:45:38,480 --> 00:45:40,480
+Fee
+
+853
+00:45:40,480 --> 00:45:42,480
+Fee
+
+854
+00:45:42,480 --> 00:45:44,480
+SetBG
+
+855
+00:45:44,480 --> 00:45:46,480
+SetBG
+
+856
+00:45:46,480 --> 00:45:48,480
+Fee
+
+857
+00:45:48,480 --> 00:45:50,480
+SetBG
+
+858
+00:45:50,480 --> 00:45:52,480
+SetBG
+
+859
+00:45:52,480 --> 00:45:54,480
+SetBG
+
+860
+00:45:54,480 --> 00:45:56,480
+A-M
+
+861
+00:45:56,480 --> 00:45:58,480
+A-M
+
+862
+00:45:58,480 --> 00:46:00,480
+A-M
+
+863
+00:46:00,480 --> 00:46:02,480
+A-M
+
+864
+00:46:02,480 --> 00:46:04,480
+A-M
+
+865
+00:46:04,480 --> 00:46:06,480
+A-M
+
+866
+00:46:06,480 --> 00:46:08,480
+A-M
+
+867
+00:46:08,480 --> 00:46:10,480
+A-M
+
+868
+00:46:10,480 --> 00:46:12,480
+A-M
+
+869
+00:46:12,480 --> 00:46:14,480
+A-M
+
+870
+00:46:14,480 --> 00:46:16,480
+A-M
+
+871
+00:46:16,480 --> 00:46:18,480
+A-M
+
+872
+00:46:18,480 --> 00:46:20,480
+A-M
+
+873
+00:46:20,480 --> 00:46:22,480
+A-M
+
+874
+00:46:22,480 --> 00:46:24,480
+A-M
+
+875
+00:46:24,480 --> 00:46:26,480
+A-M
+
+876
+00:46:26,480 --> 00:46:28,480
+A-M
+
+877
+00:46:28,480 --> 00:46:30,480
+A-M
+
+878
+00:46:30,480 --> 00:46:32,480
+A-M
+
+879
+00:46:32,480 --> 00:46:34,480
+A-M
+
+880
+00:46:34,480 --> 00:46:36,480
+A-M
+
+881
+00:46:36,480 --> 00:46:38,480
+A-M
+
+882
+00:46:38,480 --> 00:46:40,480
+A-M
+
+883
+00:46:40,480 --> 00:46:42,480
+A-M
+
+884
+00:46:42,480 --> 00:46:44,480
+A-M
+
+885
+00:46:44,480 --> 00:46:46,480
+A-M
+
+886
+00:46:46,480 --> 00:46:48,480
+A-M
+
+887
+00:46:48,480 --> 00:46:50,480
+A-M
+
+888
+00:46:50,480 --> 00:46:52,480
+A-M
+
+889
+00:46:52,480 --> 00:46:54,480
+A-M
+
+890
+00:46:54,480 --> 00:46:56,480
+A-M
+
+891
+00:46:56,480 --> 00:46:58,480
+A-M
+
+892
+00:47:00,480 --> 00:47:03,480
+A-M
+
+893
+00:47:03,480 --> 00:47:05,480
+A-M
+
+894
+00:47:05,480 --> 00:47:09,480
+A-M
+
+895
+00:47:09,480 --> 00:47:11,480
+A-M
+
+896
+00:47:11,480 --> 00:47:13,480
+A-M
+
+897
+00:47:13,480 --> 00:47:15,480
+A-M
+
+898
+00:47:15,480 --> 00:47:17,480
+A-M
+
+899
+00:47:17,480 --> 00:47:19,480
+A-M
+
+900
+00:47:19,480 --> 00:47:21,480
+A-M
+
+901
+00:47:21,480 --> 00:47:23,480
+A-M
+
+902
+00:47:23,480 --> 00:47:25,480
+A-M
+
+903
+00:47:25,480 --> 00:47:27,480
+A-M
+
+904
+00:47:27,480 --> 00:47:29,480
+A-M
+
+905
+00:47:29,480 --> 00:47:31,480
+A-M
+
+906
+00:47:31,480 --> 00:47:33,480
+A-M
+
+907
+00:47:33,480 --> 00:47:35,480
+A-M
+
+908
+00:47:35,480 --> 00:47:37,480
+A-M
+
+909
+00:47:37,480 --> 00:47:39,480
+A-M
+
+910
+00:47:39,480 --> 00:47:41,480
+A-M
+
+911
+00:47:41,480 --> 00:47:43,480
+A-M
+
+912
+00:47:43,480 --> 00:47:45,480
+A-M
+
+913
+00:47:45,480 --> 00:47:47,480
+A-M
+
+914
+00:47:47,480 --> 00:47:49,480
+A-M
+
+915
+00:47:49,480 --> 00:47:51,480
+A-M
+
+916
+00:47:51,480 --> 00:47:53,480
+A-M
+
+917
+00:47:53,480 --> 00:47:55,480
+A-M
+
+918
+00:47:55,480 --> 00:47:57,480
+A-M
+
+919
+00:47:57,480 --> 00:47:59,480
+A-M
+
+920
+00:47:59,480 --> 00:48:01,480
+A-M
+
+921
+00:48:01,480 --> 00:48:03,480
+A-M
+
+922
+00:48:03,480 --> 00:48:05,480
+A-M
+
+923
+00:48:05,480 --> 00:48:07,480
+A-M
+
+924
+00:48:07,480 --> 00:48:09,480
+A-M
+
+925
+00:48:09,480 --> 00:48:11,480
+A-M
+
+926
+00:48:11,480 --> 00:48:13,480
+A-M
+
+927
+00:48:13,480 --> 00:48:15,480
+A-M
+
+928
+00:48:15,480 --> 00:48:17,480
+A-M
+
+929
+00:48:17,480 --> 00:48:19,480
+A-M
+
+930
+00:48:19,480 --> 00:48:21,480
+A-M
+
+931
+00:48:21,480 --> 00:48:23,480
+A-M
+
+932
+00:48:23,480 --> 00:48:25,480
+A-M
+
+933
+00:48:25,480 --> 00:48:27,480
+A-M
+
+934
+00:48:27,480 --> 00:48:29,480
+A-M
+
+935
+00:48:29,480 --> 00:48:31,480
+A-M
+
+936
+00:48:31,480 --> 00:48:33,480
+A-M
+
+937
+00:48:33,480 --> 00:48:35,480
+A-M
+
+938
+00:48:35,480 --> 00:48:37,480
+A-M
+
+939
+00:48:37,480 --> 00:48:39,480
+A-M
+
+940
+00:48:39,480 --> 00:48:41,480
+A-M
+
+941
+00:48:41,480 --> 00:48:43,480
+A-M
+
+942
+00:48:43,480 --> 00:48:45,480
+A-M
+
+943
+00:48:45,480 --> 00:48:47,480
+A-M
+
+944
+00:48:47,480 --> 00:48:49,480
+A-M
+
+945
+00:48:49,480 --> 00:48:51,480
+A-M
+
+946
+00:48:51,480 --> 00:48:53,480
+A-M
+
+947
+00:48:53,480 --> 00:48:55,480
+A-M
+
+948
+00:48:55,480 --> 00:48:57,480
+A-M
+
+949
+00:48:57,480 --> 00:48:59,480
+A-M
+
+950
+00:48:59,480 --> 00:49:01,480
+A-M
+
+951
+00:49:01,480 --> 00:49:03,480
+A-M
+
+952
+00:49:04,480 --> 00:49:06,480
+A-M
+
+953
+00:49:10,480 --> 00:49:12,480
+A-M
+
+954
+00:49:13,480 --> 00:49:15,480
+A-M
+
+955
+00:49:19,480 --> 00:49:21,480
+A-M
+
+956
+00:49:21,480 --> 00:49:23,480
+A-M
+
+957
+00:49:25,480 --> 00:49:27,480
+A-M
+
+958
+00:49:27,480 --> 00:49:29,480
+A-M
+
+959
+00:49:29,480 --> 00:49:31,480
+A-M
+
+960
+00:49:31,480 --> 00:49:33,480
+A-M
+
+961
+00:49:35,480 --> 00:49:37,480
+A-M
+
+962
+00:49:37,480 --> 00:49:39,480
+A-M
+
+963
+00:49:39,480 --> 00:49:41,480
+A-M
+
+964
+00:49:41,480 --> 00:49:43,480
+A-M
+
+965
+00:49:43,480 --> 00:49:45,480
+A-M
+
+966
+00:49:45,480 --> 00:49:47,480
+A-M
+
+967
+00:49:47,480 --> 00:49:49,480
+A-M
+
+968
+00:49:51,480 --> 00:49:53,480
+A-M
+
+969
+00:49:53,480 --> 00:49:55,480
+A-M
+
+970
+00:49:55,480 --> 00:49:57,480
+A-M
+
+971
+00:49:57,480 --> 00:49:59,480
+A-M
+
+972
+00:49:59,480 --> 00:50:01,480
+A-M
+
+973
+00:50:01,480 --> 00:50:03,480
+A-M
+
+974
+00:50:03,480 --> 00:50:05,480
+A-M
+
+975
+00:50:05,480 --> 00:50:07,480
+A-M
+
+976
+00:50:07,480 --> 00:50:09,480
+A-M
+
+977
+00:50:09,480 --> 00:50:11,480
+A-M
+
+978
+00:50:11,480 --> 00:50:13,480
+A-M
+
+979
+00:50:13,480 --> 00:50:15,480
+A-M
+
+980
+00:50:15,480 --> 00:50:17,480
+A-M
+
+981
+00:50:17,480 --> 00:50:19,480
+A-M
+
+982
+00:50:19,480 --> 00:50:21,480
+A-M
+
+983
+00:50:21,480 --> 00:50:23,480
+A-M
+
+984
+00:50:23,480 --> 00:50:25,480
+A-M
+
+985
+00:50:25,480 --> 00:50:27,480
+A-M
+
+986
+00:50:27,480 --> 00:50:29,480
+A-M
+
+987
+00:50:29,480 --> 00:50:31,480
+A-M
+
+988
+00:50:31,480 --> 00:50:33,480
+A-M
+
+989
+00:50:33,480 --> 00:50:35,480
+A-M
+
+990
+00:50:35,480 --> 00:50:37,480
+A-M
+
+991
+00:50:37,480 --> 00:50:39,480
+A-M
+
+992
+00:50:39,480 --> 00:50:41,480
+A-M
+
+993
+00:50:41,480 --> 00:50:43,480
+A-M
+
+994
+00:50:43,480 --> 00:50:45,480
+A-M
+
+995
+00:50:45,480 --> 00:50:47,480
+A-M
+
+996
+00:50:47,480 --> 00:50:49,480
+A-M
+
+997
+00:50:50,040 --> 00:50:52,040
+A-M
+
+998
+00:51:03,320 --> 00:51:05,320
+Hey deos funs
+
+999
+00:51:13,780 --> 00:51:16,020
+Wäre es nicht sogar smarter die Images auf GitHub
+
+1000
+00:51:16,020 --> 00:51:20,980
+Suchen zu lassen aus dem repo raus, dann braucht man die nicht lokal kann easy immer welche hinzufügen
+
+1001
+00:51:21,220 --> 00:51:25,860
+Ja, da muss man das kript halt ändern ich mein kann jeder machen was er will das ist jetzt nicht dafür
+
+1002
+00:51:25,860 --> 00:51:29,820
+Ich habe das kript jetzt nicht da rein gehauen weil ich denke es sollte jeder verwenden sondern weil ich halt irgendein
+
+1003
+00:51:29,820 --> 00:51:33,140
+Irgendeins braucht. By the way, ich habe ein error gefunden guck mal
+
+1004
+00:51:34,580 --> 00:51:41,860
+Ein krümel ein krümel von dem hamburger ist durchsichtig und man sieht den pepo dahinter
+
+1005
+00:51:41,860 --> 00:51:43,860
+Monke es
+
+1006
+00:51:48,340 --> 00:51:50,340
+Transparenter burger krümel sesamsamen
+
+1007
+00:51:52,940 --> 00:51:54,940
+Und der andere ist der eine ist blau einer ist grün
+
+1008
+00:51:57,580 --> 00:52:00,460
+Completely unusable oder es ist gebadet
+
+1009
+00:52:01,140 --> 00:52:08,580
+Wie macht man jetzt die größe da noch mal dahinter gar nicht oder da muss ich da muss ich mal kurz abgucken im vm champ
+
+1010
+00:52:09,420 --> 00:52:16,220
+Da habe ich das nämlich gemacht mit der größe von den bildern in der ritmi
+
+1011
+00:52:26,500 --> 00:52:30,860
+So habe ich das gemacht also quasi
+
+1012
+00:52:30,860 --> 00:52:38,860
+geht das geht das so hey das funktioniert
+
+1013
+00:52:38,860 --> 00:52:48,340
+ja dann ja dann machen wir es doch so dann machen wir es doch so
+
+1014
+00:52:48,340 --> 00:53:03,420
+so und dann bauen wir uns jetzt einfach so was hier zusammen für für alle
+
+1015
+00:53:03,420 --> 00:53:21,420
+boar i in du echo dollar i dann echo so wie muss das shit aussehen ok so muss es aussehen
+
+1016
+00:53:21,420 --> 00:53:30,420
+alter habe ich mich vertippt so muss es aussehen
+
+1017
+00:53:31,420 --> 00:53:32,420
+äh
+
+1018
+00:53:32,420 --> 00:53:34,420
+muss ich auch noch eskapen
+
+1019
+00:53:34,420 --> 00:53:36,420
+wie gehts
+
+1020
+00:53:38,420 --> 00:53:40,420
+monka escape
+
+1021
+00:53:46,420 --> 00:53:48,420
+dollare nice
+
+1022
+00:53:48,420 --> 00:53:50,420
+so jetzt haben wir unsere ganzen
+
+1023
+00:53:50,420 --> 00:53:52,420
+bilder am start
+
+1024
+00:53:52,420 --> 00:53:54,420
+flesh script five fair time
+
+1025
+00:53:54,420 --> 00:53:56,420
+nice
+
+1026
+00:53:56,420 --> 00:53:58,420
+also no moon
+
+1027
+00:53:58,420 --> 00:54:00,420
+also no moon
+
+1028
+00:54:00,420 --> 00:54:02,420
+die moons muss ich noch ausfiltern
+
+1029
+00:54:02,420 --> 00:54:04,420
+die
+
+1030
+00:54:08,420 --> 00:54:10,420
+oder habe ich die schon ausgefiltert
+
+1031
+00:54:14,420 --> 00:54:16,420
+grad minus v
+
+1032
+00:54:16,420 --> 00:54:18,420
+die muss man nicht anzeigen
+
+1033
+00:54:18,420 --> 00:54:20,420
+die anzeigen
+
+1034
+00:54:26,420 --> 00:54:28,420
+burger ist doppelt
+
+1035
+00:54:28,420 --> 00:54:30,420
+so
+
+1036
+00:54:30,420 --> 00:54:32,420
+jetzt haben wir noch alle bilder einmal drinne
+
+1037
+00:54:38,420 --> 00:54:40,420
+jetzt müssen wir noch hinschreiben
+
+1038
+00:54:42,420 --> 00:54:44,420
+images by
+
+1039
+00:54:44,420 --> 00:54:46,420
+regman9
+
+1040
+00:54:48,420 --> 00:54:50,420
+so
+
+1041
+00:54:54,420 --> 00:54:56,420
+der sesam körner bug ist
+
+1042
+00:54:56,420 --> 00:54:58,420
+behoben
+
+1043
+00:54:58,420 --> 00:55:00,420
+das ging aber schnell
+
+1044
+00:55:00,420 --> 00:55:02,420
+high speed
+
+1045
+00:55:02,420 --> 00:55:04,420
+high speed
+
+1046
+00:55:04,420 --> 00:55:06,420
+image fixing
+
+1047
+00:55:12,420 --> 00:55:14,420
+so
+
+1048
+00:55:14,420 --> 00:55:16,420
+massive
+
+1049
+00:55:16,420 --> 00:55:18,420
+so ich star mich jetzt selbst
+
+1050
+00:55:20,420 --> 00:55:22,420
+dann gehen wir nochmal auf
+
+1051
+00:55:22,420 --> 00:55:24,420
+den burger
+
+1052
+00:55:24,420 --> 00:55:26,420
+der burger hat jetzt keine durchsichtigen
+
+1053
+00:55:26,420 --> 00:55:28,420
+sesam körner mehr
+
+1054
+00:55:32,420 --> 00:55:34,420
+wo ist der burger
+
+1055
+00:55:34,420 --> 00:55:36,420
+mit den sesam körnern
+
+1056
+00:55:36,420 --> 00:55:38,420
+nice
+
+1057
+00:55:38,420 --> 00:55:40,420
+sesam körner burger sind behoben
+
+1058
+00:55:40,420 --> 00:55:42,420
+sehr schön
+
+1059
+00:55:42,420 --> 00:55:44,420
+scanning for viruses
+
+1060
+00:55:44,420 --> 00:55:46,420
+dann updaten wir das ganze mal
+
+1061
+00:55:46,420 --> 00:55:48,420
+cp
+
+1062
+00:55:48,420 --> 00:55:50,420
+downloads
+
+1063
+00:55:58,420 --> 00:56:00,420
+so
+
+1064
+00:56:00,420 --> 00:56:02,420
+ist das ausgetauscht
+
+1065
+00:56:02,420 --> 00:56:04,420
+git pull origin master
+
+1066
+00:56:04,420 --> 00:56:06,420
+minus minus rebase
+
+1067
+00:56:06,420 --> 00:56:08,420
+dass wir die
+
+1068
+00:56:08,420 --> 00:56:10,420
+achso
+
+1069
+00:56:10,420 --> 00:56:12,420
+ok
+
+1070
+00:56:12,420 --> 00:56:14,420
+kommet
+
+1071
+00:56:14,420 --> 00:56:16,420
+fix burger
+
+1072
+00:56:30,420 --> 00:56:32,420
+ok nice alles klar
+
+1073
+00:56:32,420 --> 00:56:34,420
+passt
+
+1074
+00:56:34,420 --> 00:56:36,420
+white people happy backgrounds für alle
+
+1075
+00:56:36,420 --> 00:56:38,420
+porque
+
+1076
+00:56:38,420 --> 00:56:40,420
+ich will jetzt
+
+1077
+00:56:40,420 --> 00:56:40,420
+
+
+1078
+00:56:40,420 --> 00:56:49,620
+ich habe
+
+1079
+00:56:49,620 --> 00:56:53,900
+eine
+
+1080
+00:56:53,900 --> 00:56:57,740
+mal mit
+
+1081
+00:56:57,740 --> 00:56:59,140
+da sword
+
+1082
+00:56:59,140 --> 00:57:03,220
+der ist einmal mit
+
+1083
+00:57:03,220 --> 00:57:06,100
+jadi kann man das eigentlich lassen
+
+1084
+00:57:07,100 --> 00:57:15,900
+also für alle die schon immer mal white pepo happy backgrounds haben wollten jetzt könnt ihr euch
+
+1085
+00:57:15,900 --> 00:57:20,140
+könnt also wie gesagt das das skript hier müsst ihr macht ja keinen sinn müsst ihr auch
+
+1086
+00:57:20,140 --> 00:57:28,860
+überhaupt nicht verwenden hier ist der ordner mit den bildern drin und dem gefixten burger
+
+1087
+00:57:36,100 --> 00:57:50,980
+den finde ich am besten der mit den bürgern so sieht er aus bevor er white pepo happy pepo
+
+1088
+00:57:50,980 --> 00:57:56,180
+fat wird das muss man sich auch mal vorstellen das ist das ist ein satz den versteht außerhalb
+
+1089
+00:57:56,180 --> 00:58:02,900
+von twitch wirklich keiner so sieht er aus bevor er pepo fat wird michael 50 milliarden
+
+1090
+00:58:03,540 --> 00:58:07,460
+sagt man diesen satz versteht auf der welt niemand noch nicht mal auf twitch viel
+
+1091
+00:58:07,460 --> 00:58:15,900
+ach dass das gefällt mir das gefällt mir das ist nice hat er eigentlich jetzt das
+
+1092
+00:58:15,900 --> 00:58:19,300
+hintergrundbild geändert er müsste müsste er gleich machen
+
+1093
+00:58:19,300 --> 00:58:27,460
+in
+
+1094
+00:58:27,460 --> 00:58:34,180
+in zwei minuten müsste er das hintergrundbild ändern
+
+1095
+00:58:34,180 --> 00:58:40,940
+und wahrscheinlich haben wir pech und er ändert das hintergrundbild auch aber es ist zufälligerweise
+
+1096
+00:58:40,940 --> 00:58:45,060
+genau das gleiche und wir sehen es nicht irgendwie irgendwie gebetet er uns schon noch
+
+1097
+00:58:45,060 --> 00:58:58,660
+ja nice ja das das das gefällt mir richtig gut ich glaube ich glaube die ritmi geht so
+
+1098
+00:58:58,660 --> 00:59:06,260
+oder oder ihr ganzen 5 hat github ritmi schreiber soll ich dann soll ich da noch
+
+1099
+00:59:06,260 --> 00:59:11,340
+irgendwas anderes reinschreiben ich meine ist doch eigentlich relativ relativ selbst erklärend
+
+1100
+00:59:15,060 --> 00:59:20,340
+kommt das noch per hotfix damit das gleiche bild nicht zweimal kommt sehr gute idee pull requests
+
+1101
+00:59:20,340 --> 00:59:29,580
+sind offen ist alles wirklich eine gute idee weil die bilder sind könnte man könnte man
+
+1102
+00:59:29,580 --> 00:59:37,380
+glaube ich relativ relativ easy einbauen indem man hier einfach guckt welches background image
+
+1103
+00:59:37,980 --> 00:59:42,300
+benutzt ist das reicht mir jetzt erst mal
+
+1104
+00:59:51,580 --> 00:59:58,620
+das ist ein äußerst wichtiges projekt da muss ich erst mal meine pins customisieren
+
+1105
+00:59:58,620 --> 01:00:06,300
+wo ist es? da war es doch
+
+1106
+01:00:06,300 --> 01:00:14,500
+achso ich muss jetzt was anderes weg pinnen was pinne ich denn weg?
+
+1107
+01:00:14,500 --> 01:00:22,740
+den epg champ den juckt keiner oder? den versandtracker
+
+1108
+01:00:22,740 --> 01:00:27,260
+bei eigentlich kann ich keqv ss service auch weg weg machen
+
+1109
+01:00:27,260 --> 01:00:34,100
+ein keqv ss service muss ja nicht wirklich da drin erstehen oder?
+
+1110
+01:00:34,100 --> 01:00:51,140
+beste
+
+1111
+01:00:56,900 --> 01:01:00,220
+zeit für eine retrospective er im moment wir haben noch nicht mal die
+
+1112
+01:01:00,300 --> 01:01:08,980
+schiller tickets erstellt wie eigentlich ist wir konnten wir eigentlich hätte schon fertig
+
+1113
+01:01:08,980 --> 01:01:15,620
+sein wir haben nichts agiles gemacht wir haben keine tickets aufgemacht kein daily scrum gehalten
+
+1114
+01:01:15,620 --> 01:01:19,500
+und stand up und es ist trotzdem fertig geworden das ist doch eigentlich das geht doch eigentlich
+
+1115
+01:01:19,500 --> 01:01:29,780
+eigentlich gar nicht keine geierer tickets keine gefahrenanalyse keine retrospective
+
+1116
+01:01:29,780 --> 01:01:35,620
+kein sprintplanung und nix nix haben wir gemacht nix und das hat einfach funktioniert
+
+1117
+01:01:35,620 --> 01:01:43,300
+achso ey background wechsel hat funktioniert leute
+
+1118
+01:01:43,300 --> 01:01:55,580
+user stories brauchen wir noch richtig genau es ist 21 uhr also ist es jetzt nachtlaut im
+
+1119
+01:01:55,580 --> 01:02:01,900
+script und er träumt von php ist das das php maskottchen
+
+1120
+01:02:01,900 --> 01:02:12,020
+ist ja echtlich warum hat denn der so ein komisches schwanz
+
+1121
+01:02:12,020 --> 01:02:20,740
+sieht aus als hat er jemand reingebissen oder ist ganz ausgefranst
+
+1122
+01:02:20,740 --> 01:02:34,660
+es funktioniert
+
+1123
+01:02:34,660 --> 01:02:43,620
+der auf dem hintergrund sieht glücklich aus ja ja der ist besser als der original als der
+
+1124
+01:02:43,620 --> 01:02:52,260
+original p.a.p. elefant was denn das
+
+1125
+01:02:52,260 --> 01:03:05,420
+ha leute der burger kam noch aus dem cache habt ihr das gesehen gecashter burger jetzt ist der
+
+1126
+01:03:05,420 --> 01:03:10,580
+burger gefixt davor war er noch aus dem cache cached burger
+
+1127
+01:03:10,580 --> 01:03:18,740
+ok dann gucken wir uns jetzt noch das hetzner das hetzner rz video an
+
+1128
+01:03:18,740 --> 01:03:29,420
+hey leute und herzlich willkommen bei hardware deals heute zu einem sehr sehr spannenden video
+
+1129
+01:03:29,420 --> 01:03:35,020
+denn wir wurden von hetzner eingeladen die stellen einen neuen server vor morgen und wir haben gefragt
+
+1130
+01:03:35,020 --> 01:03:42,140
+ob wir das waren diese armen server die haben wir schon gesehen die tatsächlich ganz attraktiv
+
+1131
+01:03:42,140 --> 01:03:48,380
+sind wenn man guten multi multi core workload hat und viel ram brauche ich einen tag vorher
+
+1132
+01:03:48,380 --> 01:03:53,540
+das datacenter anschauen können wir sind heute in falkenstein das steht eins von hetzner nicht
+
+1133
+01:03:53,540 --> 01:04:00,660
+nicht in nürnberg datacenter gibt es ja seit 1997 und die haben inzwischen wirklich sau viele
+
+1134
+01:04:00,660 --> 01:04:07,220
+rechenzentren eins hier in falkenstein wo wir heute sind eins in nürnberg wir wissen genau dass es
+
+1135
+01:04:07,220 --> 01:04:11,740
+nur im berg heißt und inzwischen auch mehrere standorte in den usa und das rechenzentrum in
+
+1136
+01:04:11,740 --> 01:04:15,540
+falkenstein werden wir uns heute mal ein bisschen genauer anschauen echt wo haben sie noch in den
+
+1137
+01:04:15,540 --> 01:04:26,060
+usa die haben ashwood hetzner usa ashwood heißt das doch glaube ich oder
+
+1138
+01:04:29,460 --> 01:04:39,540
+datacenters wo haben sie denn noch was ash hillsboro das klingt das ohne scheiße ist
+
+1139
+01:04:39,540 --> 01:04:41,860
+bestimmt zur richtigen hinterwelt stadt
+
+1140
+01:04:47,140 --> 01:04:49,740
+so klein scheint es gar nicht zu sein oder
+
+1141
+01:04:51,860 --> 01:04:59,460
+naja ich meine es ist riesengroß aber es ist jetzt keine ganz ganz kleines furz
+
+1142
+01:04:59,460 --> 01:05:09,540
+also es ist nicht mini, ja, hillsbottles
+
+1143
+01:05:13,540 --> 01:05:18,380
+ok roman also der bauer war ja auch schon mal hier das heißt manche sachen werdet ihr wahrscheinlich
+
+1144
+01:05:18,380 --> 01:05:22,700
+auch wieder erkennen damals aus seinem video hier hinter mir seht ihr schon welche von den
+
+1145
+01:05:22,700 --> 01:05:26,340
+datacentern und wie man sehen kann ist hier noch ein bisschen baustelle denn hier bei herzner
+
+1146
+01:05:27,240 --> 01:05:30,660
+ich weiß nicht ob das schon fertig ist das neue datacenter aber ich bin auf jeden
+
+1147
+01:05:30,660 --> 01:05:34,020
+fall gespannt ob wir da vielleicht auch mit einen blick sein dürfen weil wer auf jeden
+
+1148
+01:05:34,020 --> 01:05:38,860
+fall spannend auch so im datacenter in der entsteung zu dürfen auf us lunar ist viel
+
+1149
+01:05:38,860 --> 01:05:43,440
+klimaanlagen gebasteln dabei jeden fall ist hetzen einer der größten europäischen web poster mit
+
+1150
+01:05:43,440 --> 01:05:48,140
+mehreren hundert tausend server die die cops und durante an produkten wirklich alles was man sich
+
+1151
+01:05:48,140 --> 01:05:52,460
+in dem bereich vorstellen kann dedicated server cloud electricity anderes theme aber aufönig
+
+1152
+01:05:52,460 --> 01:05:56,180
+auch gespannt und birgitt vielleicht noch einen anschauen können die machen web hosting es gibt
+
+1153
+01:05:56,340 --> 01:06:00,660
+wie man kann cloud server anschauen das zerstört jetzt aber meine komplette illusion
+
+1154
+01:06:00,660 --> 01:06:06,340
+server und die haben auch viele services wie ssl zertifikate oder auch einfach nur domain
+
+1155
+01:06:06,340 --> 01:06:10,100
+registrierungen also bei hetzen wird wirklich alles aus diesem bereich geboten und ich bin mega
+
+1156
+01:06:10,100 --> 01:06:13,940
+gespannt das ganze heute anschauen zu dürfen vor allem bin ich auch gespannt ob wir unseren
+
+1157
+01:06:13,940 --> 01:06:17,940
+eigenen server hier wieder leider so paar sachen hätte ich also paar sachen fände ich noch ganz
+
+1158
+01:06:17,940 --> 01:06:25,380
+gut als alternative also was ich was ich zum beispiel persönlich gerne sehen würde in zukunft also
+
+1159
+01:06:25,620 --> 01:06:28,900
+es gibt es gibt eigentlich zwei sachen die ich in zukunft vielleicht noch gerne bei hetzen sehen
+
+1160
+01:06:28,900 --> 01:06:35,540
+würde das eine wäre managt managt datenbacken möglichst billig ja also halt auf basis der
+
+1161
+01:06:35,540 --> 01:06:41,220
+hetzener cloud vms nur dass es halt für mich mit ha und dem ganzen shit gehandelt wird sie
+
+1162
+01:06:41,220 --> 01:06:47,220
+machen das ja jetzt schon mit load balancern allerdings ja so eine datenbank wäre auch nicht
+
+1163
+01:06:47,220 --> 01:06:54,500
+verkehrt und vielleicht in zukunft auch ein managt kubernetes das wäre wirklich eine
+
+1164
+01:06:54,500 --> 01:07:05,060
+coole kombination weil viele leute machen das schon selbst und das geht auch wunderbar auf
+
+1165
+01:07:05,060 --> 01:07:13,580
+hetzener cloud vms das heißt es wäre tatsächlich gar nicht verkehrt wenn man das managt anbieter
+
+1166
+01:07:13,580 --> 01:07:18,140
+ich verstehe aber dass sie zumindest managt kubernetes nicht machen wollen bzw auch managt
+
+1167
+01:07:18,140 --> 01:07:25,020
+datenbanken da gehört halt schon einiges auch noch an know-how dazu und wenn man nicht aufpasst
+
+1168
+01:07:25,020 --> 01:07:29,660
+kackt halt ab und man muss sich dann halt auch um die updates und alles kümmern genauso bei
+
+1169
+01:07:29,660 --> 01:07:35,220
+datenbanken also ja ich verstehe aber das wäre tatsächlich zwei services die würden tatsächlich
+
+1170
+01:07:35,220 --> 01:07:40,420
+würden hetzener noch ein bisschen rausstechen lassen weiter weil so richtig richtig günstig
+
+1171
+01:07:40,420 --> 01:07:46,820
+das günstigste was mir so einfällt managt kubernetes und datenbanken ist digital ocean aber
+
+1172
+01:07:47,140 --> 01:07:50,420
+tatsächlich dann hättst du noch mal so richtigen bust bringen weil dann können
+
+1173
+01:07:51,620 --> 01:07:56,500
+man ist nicht irgendwelche super advance geschichten braucht ja wenn du jetzt irgendwie
+
+1174
+01:07:56,500 --> 01:08:02,540
+chw sheets proبدס
+
+1175
+01:08:02,540 --> 01:08:11,580
+also wenn du nicht diese super advanced sachen brauchst georeplizierung alles mögliche was
+
+1176
+01:08:11,580 --> 01:08:17,500
+jetzt die die großen cloud anbieter anbieten dann wäre hetsna tatsächlich richtig gute
+
+1177
+01:08:17,500 --> 01:08:24,220
+alternative wenn man sich nämlich überlegt dass bei google clouds somit mit der kleinstmögliche
+
+1178
+01:08:24,220 --> 01:08:30,540
+kubernetes cluster kostet 70 euro im monat bei google und das sind glaube ich nur nur
+
+1179
+01:08:30,540 --> 01:08:37,380
+zwei kleine notes drin da kannst du kaum was drauf laufen lassen sobald du einen
+
+1180
+01:08:37,380 --> 01:08:41,140
+cluster laufen lassen willst der auch ein bisschen workload hat da bezahlst du mal
+
+1181
+01:08:41,140 --> 01:08:42,700
+bestimmt 500 euro aufwärts
+
+1182
+01:08:49,140 --> 01:08:49,940
+und insofern
+
+1183
+01:08:52,620 --> 01:08:56,340
+hätte es durchaus seinen charm so für sagen wir mal
+
+1184
+01:08:59,660 --> 01:09:07,180
+sagen wir mal 20 30 euro einstiegspreis oder 20 euro einstiegspreis dann halt vielleicht
+
+1185
+01:09:07,180 --> 01:09:14,060
+vielleicht auch nur einen zwei bis drei noten cluster aus den allerkleinsten vms oder wie auch
+
+1186
+01:09:14,060 --> 01:09:21,220
+immer also ja das wäre schon das wäre schon cool ohne mannage datenbank mannage postgres
+
+1187
+01:09:21,220 --> 01:09:26,060
+wäre auch ultra nice weil nicht jeder hat das know-how und die zeit und den bock und will den
+
+1188
+01:09:26,060 --> 01:09:31,540
+aufwand betreiben eine postgres datenbank hoch verfügbar in der cloud zu betreiben das wäre
+
+1189
+01:09:31,540 --> 01:09:37,260
+cool und letztendlich die infrastruktur haben sie ja schon bei google ist es ja auch nicht anders
+
+1190
+01:09:37,260 --> 01:09:44,700
+die google kubernetes cluster bestehen aus ganz normalen google vms und also gcp vms und die
+
+1191
+01:09:44,700 --> 01:09:49,780
+mannage datenbanken sind auch ganz normale compute instances also das könnten die aber jetzt auch so
+
+1192
+01:09:49,780 --> 01:09:55,940
+machen es ist im prinzip eigentlich nur in anführungen strichen quasi so in den ends
+
+1193
+01:09:55,940 --> 01:10:00,580
+of the script was im hintergrund läuft und das professioniert für einen wobei mit nur ich sag
+
+1194
+01:10:00,580 --> 01:10:04,900
+das absicht weil ist es natürlich nicht ja du musst das eben im web interface einbinden du
+
+1195
+01:10:04,900 --> 01:10:08,900
+musst dich um updates kümmern du musst dich um security sagen das ist nicht nur aber du
+
+1196
+01:10:08,900 --> 01:10:12,980
+könntest es automatisch professionieren lassen ja machst du ein wizard was weiß ich triple
+
+1197
+01:10:12,980 --> 01:10:17,140
+notes da und davon im hintergrund wird es dann professioniert nach zehn minuten hast du dein
+
+1198
+01:10:17,140 --> 01:10:22,340
+cluster wer extrem nice also mannage datenbanken mannage kubernetes wenn die sowas noch mal in
+
+1199
+01:10:22,340 --> 01:10:26,540
+zukunft anbieten würden das wäre wirklich mega coole sache
+
+1200
+01:10:26,540 --> 01:10:36,180
+und vielleicht in zukunft noch wenn sie wenn sie wenn sie das auch hinkriegen vielleicht noch
+
+1201
+01:10:36,180 --> 01:10:44,140
+irgendeinen irgendeinen storage in den cloud in ein cloud native storage weil irgendwo musst
+
+1202
+01:10:44,140 --> 01:10:48,660
+ja auch dein kubernetes zeug drauf laufen lassen das kannst natürlich mit local volumes machen was
+
+1203
+01:10:48,660 --> 01:10:51,100
+aber auch nicht so der letzte weisheitssetzer schluss ist
+
+1204
+01:10:51,100 --> 01:10:58,380
+irgendwas irgendwas ordentliche storage provider mäßiges für kubernetes noch
+
+1205
+01:10:58,380 --> 01:11:05,180
+schlag das zeug vor ich habe mir in der startenbank schon vorgeschlagen aber das
+
+1206
+01:11:05,180 --> 01:11:10,860
+wollten sie nicht machen also da haben sie gemeint das ist aktuell wäre das wäre das nicht geplant
+
+1207
+01:11:10,860 --> 01:11:19,740
+unser server steht hier in falkenstein gut es aber auch schon wieder eineinhalb jahre her aber
+
+1208
+01:11:19,740 --> 01:11:24,380
+wie gesagt ich ich kann es mir ungefähr ausmalen da hängt ja ein bisschen was hintendran
+
+1209
+01:11:26,900 --> 01:11:32,260
+hetsna kannst du schon in terraform aufbauen das ist gar kein problem es gibt fix und fertige
+
+1210
+01:11:32,260 --> 01:11:38,100
+terraform scripts die den kubernetes cluster bei hetsna professionieren und noch mehr gibt noch
+
+1211
+01:11:38,100 --> 01:11:42,820
+mehr scripts dafür es ist relativ easy also es gibt ja schon fertige scripts dafür wenn man es
+
+1212
+01:11:42,820 --> 01:11:48,660
+nicht selbst machen will und deswegen hetsna müsste es halt richtig machen dass im hintergrund
+
+1213
+01:11:49,020 --> 01:11:53,480
+professioniert werden ich muss sagen dass web ich mag wirklich das web interface von der hetsna
+
+1214
+01:11:53,480 --> 01:12:00,520
+cloud das ist schön schnell und simpel und funktional und lässt sich usability ist gut lässt sich gut
+
+1215
+01:12:00,520 --> 01:12:05,940
+bedienen also ein schnelles webinterface würde ich mir auch mal für google oder oder azure
+
+1216
+01:12:05,940 --> 01:12:12,420
+wünschen und machen aber halt auch eine ganze ecke noch mehr aber das hetsna web Interface ist
+
+1217
+01:12:12,420 --> 01:12:18,340
+wirklich saumäßig schnell wie da was angelegt wird Kling球ião server ist da so hast ja kaum
+
+1218
+01:12:18,760 --> 01:12:24,740
+Zeit auf die konsole zu switchen und pass das hdp zu copy paste an dieser server auch schon da
+
+1219
+01:12:30,740 --> 01:12:34,300
+immer gespannt ob wir den wieder finden weil ich denke da ist schon eine ganz schöne anzahl an
+
+1220
+01:12:34,300 --> 01:12:37,980
+servicern hier in diesem rechenzentrum auf jeden fall gibt es auch sonst jede menge spannende
+
+1221
+01:12:37,980 --> 01:12:41,660
+themen die server werden hier auch zusammengebaut das werden wir uns auch mal anschauen und hier
+
+1222
+01:12:41,660 --> 01:12:45,260
+ist immer weiter angebaut worden das heißt man kann auch so ein bisschen nachvollziehen wie
+
+1223
+01:12:45,260 --> 01:12:48,700
+das angefangen hat und wie so ein rechenzentrum inzwischen aussieht und es gibt natürlich auch
+
+1224
+01:12:48,700 --> 01:12:53,100
+viele spannende themen wie kühlung allgemein wie so ein server aufgebaut ist und vieles mehr ich
+
+1225
+01:12:53,100 --> 01:12:56,180
+hätte gesagt wir gehen jetzt rein weil ist doch ziemlich kalt hier draußen wir sind hier genau an
+
+1226
+01:12:56,180 --> 01:13:00,060
+der schneegrenze wo wir vorher losgefahren sind lag halt noch eine menge er patrick dankeschön
+
+1227
+01:13:00,060 --> 01:13:09,180
+für den sub 46 monat das ist extrem michael wenn du keine ipv4 adresse hast wirst du dein natt
+
+1228
+01:13:09,180 --> 01:13:16,660
+nicht offen bekommen aber macht doch auch nix der kram funktioniert mittlerweile doch auch so ich
+
+1229
+01:13:16,660 --> 01:13:21,820
+mein seriously ich verstehe nicht warum call of duty damit jemals probleme hatte man kann
+
+1230
+01:13:21,820 --> 01:13:26,500
+das doch ordentlich tunneln ja ok man konnte damals nicht mit seiner xbox hosten aber ansonsten
+
+1231
+01:13:26,500 --> 01:13:34,740
+auch so doch gar nicht das geht doch das geht doch geht doch ohne probleme dass die anzeige ist
+
+1232
+01:13:34,740 --> 01:13:39,700
+total hängen geblieben was macht er überhaupt kann also brauchst das gar nicht du verbindest
+
+1233
+01:13:39,700 --> 01:13:48,580
+dich von dir zum server ach bei mw 2009 ja das ist richtig das stimmt wobei auf dem pc gibt
+
+1234
+01:13:48,580 --> 01:13:56,060
+es da nicht richtige server ja das ist das ok da keine ahnung gibt es gibt es weiß ich aber nicht
+
+1235
+01:13:56,060 --> 01:13:57,460
+wie gut das funktioniert
+
+1236
+01:14:02,460 --> 01:14:05,020
+dedicated servers on all platforms
+
+1237
+01:14:05,020 --> 01:14:22,740
+also je nachdem ich gehe davon aus dass die ihre rechten zentren jetzt nicht runterkühlen
+
+1238
+01:14:22,740 --> 01:14:27,820
+auf 18 grad oder sowas aber da drinne wird wahrscheinlich was was werden auf was werden
+
+1239
+01:14:27,820 --> 01:14:34,700
+die die klimaanlage eingestellt haben 23 grad 22 grad 23 grad der trend ging er die letzten
+
+1240
+01:14:34,700 --> 01:14:38,820
+jahre eindeutig dahin dass man rechenzentren ein bisschen rechenzentren wieder ein bisschen
+
+1241
+01:14:38,820 --> 01:14:44,300
+wärmer macht früher hat man die dinger immer krass auf 18 grad und so runter gekühlt auch
+
+1242
+01:14:44,300 --> 01:14:48,740
+im sommer was halt ultra viel als mega viel energie gekostet hat und man hat sich gedacht
+
+1243
+01:14:48,740 --> 01:14:55,220
+die bisschen geringere lebenszeit der kisten unter dem strich ist es halt überhaupt nicht
+
+1244
+01:14:55,220 --> 01:15:04,580
+wert die energie ersparen ist also die energie kosten 23 straße in dem dreher also wir fahren
+
+1245
+01:15:04,580 --> 01:15:11,060
+rein in den hoch sicherheitsdruck zieht euch das mal rein hier mit stacheldraht überall wir waren
+
+1246
+01:15:11,060 --> 01:15:17,180
+gespannt ob man sich auch wiegen muss wie bei wie auf der hanau landstraße hier sind halt natürlich
+
+1247
+01:15:17,740 --> 01:15:28,540
+darin drin, in den data sender und hardware natürlich und hardware deals gleich sehsam öffne dich
+
+1248
+01:15:28,540 --> 01:15:32,760
+so also wir haben es jetzt inzwischen wieder aufwärmen können wir haben hier eine komplette
+
+1249
+01:15:32,760 --> 01:15:36,740
+tour durchs rechenzentrum bekommen und ich kann euch sagen es werden auf jeden fall einige spannende
+
+1250
+01:15:36,740 --> 01:15:40,780
+themen heute hier im video sein wir schauen uns einmal die verschiedenen arten von den servers an
+
+1251
+01:15:40,780 --> 01:15:44,500
+dann werden wir über die kühlung sprechen wir werden über die stromversorgung sprechen das
+
+1252
+01:15:44,540 --> 01:15:47,300
+ist auch ein sehr interessantes thema und anschließend kann ich euch auch noch ein
+
+1253
+01:15:47,300 --> 01:15:52,300
+rechenzentrum zeigen was gerade im aufbau ist das denke ich ist auch sehr interessant und dann
+
+1254
+01:15:52,300 --> 01:15:55,780
+schauen wir uns noch die produktion an und vieles mehr also hier wirds auf jeden fall einige themen
+
+1255
+01:15:55,780 --> 01:15:59,520
+in dem video geben wir sind hier schon mal in einen der gange im rechenzentrum wir sehen könnt
+
+1256
+01:15:59,520 --> 01:16:05,420
+stehen hier sehr viele midi towers das kennt ihr das ist quasi aber was fandest du besser ich fand
+
+1257
+01:16:05,420 --> 01:16:09,980
+zehn angenehmer aber wenn aus elf hat was meine cpu angeht ein paar vorteile deswegen benutze ich
+
+1258
+01:16:10,980 --> 01:16:16,620
+klassisches pc format ich denke die meisten pcs von euch sind auch in so einer landstraße wird man
+
+1259
+01:16:16,620 --> 01:16:27,820
+echt gewogen ja also nicht bei hetzner hetzner ist wahrscheinlich wahrscheinlich hat hetzner
+
+1260
+01:16:27,820 --> 01:16:36,740
+auch ein paar router oder oder switches stehen in der hannover landstraße aber die haben doch kein
+
+1261
+01:16:36,740 --> 01:16:41,060
+eigenes rechnzentrum also insofern ja du wirst gewogen wenn du da reingehst
+
+1262
+01:16:41,060 --> 01:16:47,260
+mal hier ich zeige euch mal wo das ist maps google
+
+1263
+01:16:51,140 --> 01:16:55,220
+hannauer landstraße frankfurt de
+
+1264
+01:17:01,020 --> 01:17:02,540
+interaction genau
+
+1265
+01:17:06,900 --> 01:17:14,700
+ja hier irgendwo unterirdisch ist das dann kann man das immer nicht genau merken wobei
+
+1266
+01:17:14,700 --> 01:17:18,100
+ich dachte es ein bisschen weiter vorne hier ist der kentucky fried schicken
+
+1267
+01:17:20,100 --> 01:17:27,060
+ein bisschen weiter wo wo es jetzt genau ist weiß ich gar nicht mehr so aus der vogel perspektive
+
+1268
+01:17:31,940 --> 01:17:34,260
+weiß müller strass kommt mir hier hier
+
+1269
+01:17:36,820 --> 01:17:45,140
+ich ich glaube hier irgendwie unter unterirdisch hier irgendwie so unterirdisch unterirdisch und
+
+1270
+01:17:45,140 --> 01:17:50,260
+erster stock irgendwie hier so müsste das sein
+
+1271
+01:17:57,940 --> 01:18:01,060
+ja und da wird man wird man gewogen wenn man reingeht tatsächlich ja
+
+1272
+01:18:01,060 --> 01:18:05,380
+jepp
+
+1273
+01:18:10,540 --> 01:18:12,580
+von wann ist das 2010 lull
+
+1274
+01:18:16,340 --> 01:18:19,300
+hier sind sie natürlich nicht ja doch das kommt mir bekannt vor
+
+1275
+01:18:19,300 --> 01:18:26,140
+hier musst du dich irgendwie anmelden ja ja das kommt mir bekannt vor
+
+1276
+01:18:26,140 --> 01:18:32,700
+äh warum wird man gewogen dass du nicht sachen drinne ablädst und nicht wieder mit rausnimmst
+
+1277
+01:18:32,700 --> 01:18:36,140
+komm aus hanau ja
+
+1278
+01:18:40,780 --> 01:18:42,420
+in der kleiner straße da war ich auch schon
+
+1279
+01:18:42,420 --> 01:18:52,500
+kleiner straße in fangfurt ich bin nix früher gab es da itinos oder so was die den eingang
+
+1280
+01:18:52,500 --> 01:19:00,420
+gemacht haben und die hatten so eine furchtbar unfreundliche frau am eingang itinos in der
+
+1281
+01:19:00,420 --> 01:19:01,140
+kleiner straße
+
+1282
+01:19:13,220 --> 01:19:15,020
+ja ok guck mal weiter
+
+1283
+01:19:15,020 --> 01:19:19,980
+midi tower drin interessanterweise ist hier sehr viel consumer hardware bei
+
+1284
+01:19:20,580 --> 01:19:24,840
+also jetzt setzt in sehr vielen servern auf consumer hardware unter anderem der
+
+1285
+01:19:24,840 --> 01:19:28,700
+grund dass diese hardware halt deutlich preiswerter als reine server hardware
+
+1286
+01:19:28,700 --> 01:19:32,460
+und wenn den kram wegschmeißt und austauscht ist das wahrscheinlich der beste ansatz so zu fahren
+
+1287
+01:19:35,960 --> 01:19:39,960
+was sagst du zu dem rechenzentrumsbau in Schöneck das soll ja angeblich auch...
+
+1288
+01:19:39,960 --> 01:19:42,720
+keine ahnung nö haben ich nichts von mitgekriegt
+
+1289
+01:19:42,720 --> 01:19:45,600
+von der leistung langlebigkeit und so weiter unterscheiden sich server hardware
+
+1290
+01:19:45,600 --> 01:19:49,720
+und consumer hardware aber nicht großartig. midi tower sind eine von drei arten von
+
+1291
+01:19:49,720 --> 01:19:52,880
+servern die hier bei herzner zum einsatz kommen es gibt die midi tower es gibt
+
+1292
+01:19:52,880 --> 01:19:56,400
+19 zoll racks also der normale server standard und dann hat herzner auch noch
+
+1293
+01:19:56,400 --> 01:19:59,440
+sein eigenes racksystem entwickelt warum die das gemacht haben und was
+
+1294
+01:19:59,440 --> 01:20:01,840
+bevorteile das hat das werden wir uns später noch anschauen was ich auch sehr
+
+1295
+01:20:01,840 --> 01:20:03,840
+interessant finde das mir gerade aufgefallen wir haben hier zum
+
+1296
+01:20:03,840 --> 01:20:09,000
+beispiel noch einen eX 52 NVMe das ist genau der server den wir selber auch
+
+1297
+01:20:09,000 --> 01:20:12,720
+benutzen also nicht das ist unser server aber der eX 52 so einen haben wir auch
+
+1298
+01:20:12,720 --> 01:20:16,000
+und da ist unsere eigene homepage drauf gehostet und wir werden mal schauen ob
+
+1299
+01:20:16,000 --> 01:20:18,640
+wir später noch unseren eigenen server hier finden werden wenn wir jetzt hier
+
+1300
+01:20:18,640 --> 01:20:21,440
+gerade noch bei den midi towers stehen dann kann ich euch auch mal die kühlung
+
+1301
+01:20:21,440 --> 01:20:29,200
+hier zeigen was ist der blaue dongel da ich vermute mal sowas wie kvm für dass
+
+1302
+01:20:29,200 --> 01:20:32,600
+so dass du dich mit mit einer tastatur dran anstöpseln kannst ohne die
+
+1303
+01:20:32,600 --> 01:20:37,720
+tastatur dahin tragen zu müssen es funktioniert nämlich so dass hier in
+
+1304
+01:20:37,720 --> 01:20:42,080
+der mitte also quasi vor den midi towers wird kalte luft nach oben gepustet die
+
+1305
+01:20:42,320 --> 01:20:45,100
+kommt von außen von außerhalb von den gebäuden werde ich ja später auch noch
+
+1306
+01:20:45,100 --> 01:20:55,860
+zeigen und die wird dann vorne an den midi towers durch den lüfter donít
+
+1307
+01:20:56,060 --> 01:20:58,560
+schaut dann seht ihr das habt ihr vielleicht vorher auch schon gesehen
+
+1308
+01:20:58,560 --> 01:21:02,060
+als wir hier her gefahren sind im intro die dächer sind angewinkelt das sorgt
+
+1309
+01:21:02,060 --> 01:21:04,620
+dafür dass die warme luft hier oben aufsteigt und bis nach da oben zieht
+
+1310
+01:21:04,620 --> 01:21:08,680
+wo diese lamelln sind und da kann die luft lang bei fettkonstruktion sind oder
+
+1311
+01:21:08,680 --> 01:21:10,780
+ob sie geöffnet sind kann sie entweder nach draußen
+
+1312
+01:21:10,780 --> 01:21:12,960
+oder sie
+
+1313
+01:21:12,960 --> 01:21:16,980
+das sind ja im endeffekt regale was selber drin stehen ja es ist ganz clever
+
+1314
+01:21:16,980 --> 01:21:18,020
+gemacht
+
+1315
+01:21:18,020 --> 01:21:22,420
+normalerweise hast du im ansatz hier oder was heißt normalerweise kann man so
+
+1316
+01:21:22,420 --> 01:21:23,740
+nicht sagen
+
+1317
+01:21:23,740 --> 01:21:26,940
+aber es kommt oft vor dass im rz quasi solche
+
+1318
+01:21:26,940 --> 01:21:29,860
+solche abgekapselten gänge sind
+
+1319
+01:21:29,860 --> 01:21:32,980
+das ist die warme seite das ist die kalte seite
+
+1320
+01:21:32,980 --> 01:21:35,860
+meistens ist dann auch eine decke hier direkt drüber
+
+1321
+01:21:35,860 --> 01:21:37,340
+am ende der schränke
+
+1322
+01:21:37,340 --> 01:21:40,340
+dass du gerade so durchgehen kannst in der mitte
+
+1323
+01:21:40,340 --> 01:21:43,220
+die müssen natürlich halt auch gucken dass das preis leistungsmäßig passt
+
+1324
+01:21:43,220 --> 01:21:45,020
+ich finde es eine schlaue konstruktion
+
+1325
+01:21:45,020 --> 01:21:48,140
+wird wieder vom klimasystem angezogen dazu werde ich jetzt gleich noch was
+
+1326
+01:21:48,140 --> 01:21:48,500
+sagen
+
+1327
+01:21:48,500 --> 01:21:51,340
+und im zweifelsfall kriegen die da auch noch mehr drauf wenn du noch eine reihe
+
+1328
+01:21:51,380 --> 01:21:54,020
+mal sind auf der raustellen willst geht das wahrscheinlich auch das
+
+1329
+01:21:54,020 --> 01:21:57,400
+klima system für uns am besten von oben an sich Spielmanns hat eine ganz schöne
+
+1330
+01:21:57,400 --> 01:21:58,260
+raumhöhe hier
+
+1331
+01:21:58,260 --> 01:22:02,120
+haben jetzt nach oben die st Tucson der ersten krischen noch weiter nach oben
+
+1332
+01:22:02,120 --> 01:22:02,740
+hier
+
+1333
+01:22:02,740 --> 01:22:05,820
+und ihr sehtustinger über lookout sogar wenn möglich
+
+1334
+01:22:05,820 --> 01:22:07,500
+eine Menge Burger
+
+1335
+01:22:07,500 --> 01:22:11,460
+und das ist nur eins von den Rechenzentren下來 wir in ste Protect
+
+1336
+01:22:11,460 --> 01:22:14,860
+ngsın von diesen Rechenzentren also natürlich сам das Gacin fifa ins
+
+1337
+01:22:14,860 --> 01:22:17,180
+gesamten rejections
+
+1338
+01:22:17,180 --> 01:22:19,800
+dyr paintsur war upsein hier
+
+1339
+01:22:20,020 --> 01:22:21,880
+was man hier unten auch sehen kann ist
+
+1340
+01:22:21,880 --> 01:22:25,240
+dass hier eben nicht nur Meditator zum Einsatz kommen. Das was ihr hier unten
+
+1341
+01:22:25,240 --> 01:22:29,180
+seht ist das Hezneriend eigene Wreck System. Die haben ihr eigenes Wreck System entwickelt
+
+1342
+01:22:29,180 --> 01:22:31,080
+für ihre eigenen Ansprüche
+
+1343
+01:22:31,080 --> 01:22:34,440
+warum genau kommen später noch zu, aber vor allem geht es auch um die Packdichte
+
+1344
+01:22:34,440 --> 01:22:36,920
+denn ihr seht schon da passt natürlich viel mehr rein als wenn man
+
+1345
+01:22:36,920 --> 01:22:38,000
+Medi Tower verwendet
+
+1346
+01:22:38,000 --> 01:22:41,760
+die Packdichte ist 2,5 mal so hoch also man kriegt
+
+1347
+01:22:41,760 --> 01:22:45,000
+wenn man das Wreck System von Hezner verwendet hat 2 Mal so viele Server
+
+1348
+01:22:45,000 --> 01:22:47,120
+wie wenn man nur Medi Tower verwenden würde
+
+1349
+01:22:47,200 --> 01:22:49,720
+die Kühlung von dem ganzen habe ich gerade eben schon angeschnitten
+
+1350
+01:22:49,720 --> 01:22:53,160
+das ist eben so dass immer zwei Reihen von Medi Towers sich gegenüber stehen
+
+1351
+01:22:53,160 --> 01:22:56,520
+und dann in der Mitte wird quasi kalte Luft nach oben gepustet beziehungsweise
+
+1352
+01:22:56,520 --> 01:22:59,720
+von den Medi Towers angesaugt weil die ja auf beiden Seiten vorne einen Lüfter
+
+1353
+01:22:59,720 --> 01:23:03,320
+drin haben und die warme Luft dann nach hinten rauspusten. Die kalte Luft die vorne
+
+1354
+01:23:03,320 --> 01:23:05,400
+angesaugt wird die kommt von draußen
+
+1355
+01:23:05,400 --> 01:23:09,440
+ihr seht schon hier an der Seite von dem Gebäude, ich arbeite nicht in Hanau, ne, ich bin in
+
+1356
+01:23:09,440 --> 01:23:12,880
+ich arbeite in Frankfurt. Also das sind glaube ich 18 Stück pro Gebäude
+
+1357
+01:23:12,880 --> 01:23:15,840
+jedes einzelne von diesen silbernen Kästen hier ist eine Klimaanlage
+
+1358
+01:23:15,840 --> 01:23:19,080
+das interessante ist, dass hier erstmal komplett mit der Außenluft gearbeitet wird
+
+1359
+01:23:19,080 --> 01:23:23,400
+interessanterweise wird hier nämlich 95 Prozent des Jahres nicht aktiv zugekühlt
+
+1360
+01:23:23,400 --> 01:23:27,400
+oder zugehalzt. Das ganze funktioniert so, dass die Luft von außen eben hier
+
+1361
+01:23:27,400 --> 01:23:31,120
+reingepustet wird und je nachdem was für eine Temperatur die hat, aktuell ist sie
+
+1362
+01:23:31,120 --> 01:23:34,920
+ja ziemlich kalt, wir haben draußen irgendwie minus zwei Grad gehabt vorher, muss sie
+
+1363
+01:23:34,920 --> 01:23:38,400
+auch aufgewärmt werden. Bei den Medi Towersystemen ist es so, dass die eine
+
+1364
+01:23:38,400 --> 01:23:43,040
+Betriebstemperatur von 22 Grad haben, bei den Rex Systemen von 24 Grad, im Sommer
+
+1365
+01:23:43,040 --> 01:23:45,800
+liegt die auch noch mal ein bisschen höher und dementsprechend wird die
+
+1366
+01:23:45,800 --> 01:23:49,680
+warme Abluft, die hier hinten rauskommt aus den Systemen, vermischt mit der
+
+1367
+01:23:49,680 --> 01:23:52,880
+Außenluft, um genau die Betriebstemperatur von den Servern zu erreichen.
+
+1368
+01:23:52,880 --> 01:23:58,120
+Okay, das ist Sixhead, wenn sie das ordentlich reguliert bekommen.
+
+1369
+01:23:58,120 --> 01:24:02,600
+Spart halt massig Geld für die Klimaanlage.
+
+1370
+01:24:02,600 --> 01:24:05,920
+Kommt dann wieder die Klimaanlage ins Spiel, da sind unten Klimakompressoren
+
+1371
+01:24:05,920 --> 01:24:08,720
+drin, draußen sind auch noch große Wärmetauscher und dann wird die Luft
+
+1372
+01:24:08,720 --> 01:24:12,080
+eben zusätzlich runtergekühlt, das ist aber natürlich ein Riesenkostenfaktor,
+
+1373
+01:24:12,080 --> 01:24:15,720
+wenn man ein komplettes Rechenzentrum, die Luft runterkühlen muss. Deswegen hat man hier auch
+
+1374
+01:24:15,720 --> 01:24:20,960
+einen relativ kühlen Standort gewählt und eben, wie gesagt, 95% der Jahre wird nicht zusätzlich
+
+1375
+01:24:20,960 --> 01:24:23,760
+gekühlt werden, sondern kann man einfach nur die Außenluft hier reinpusten.
+
+1376
+01:24:23,760 --> 01:24:26,960
+Durch Zufall sind wir gerade hier dran noch vorbeigekommen, so sehen die
+
+1377
+01:24:26,960 --> 01:24:30,600
+Radiallüfter aus, die in der Klimaanlage drin sind, also das sind schon echt
+
+1378
+01:24:30,600 --> 01:24:35,040
+riesige Teile. Gesteuert wird das Ganze über diese Lamellen hier oben, wenn diese
+
+1379
+01:24:35,040 --> 01:24:38,480
+Lamellen offen sind, dann kann die warme Luft nach draußen ziehen, wenn diese
+
+1380
+01:24:38,480 --> 01:24:42,000
+Lamellen sich schließen, dann staut sich die Luft hier oben natürlich an, wenn man
+
+1381
+01:24:42,000 --> 01:24:44,280
+hier mal nach unten schaut, dann sieht man nämlich die Oberseite von dieser
+
+1382
+01:24:44,280 --> 01:24:48,400
+Klimaanlage und die kann eben, wie gesagt, die warme Luft, die sich schon hier drin
+
+1383
+01:24:48,400 --> 01:24:51,840
+befindet, wieder ansaugen, mit der Außenluft vermischen und dann genau die
+
+1384
+01:24:51,840 --> 01:24:55,440
+gewünschte Temperatur erreichen. Weil auch die Lamellen oben an dieser
+
+1385
+01:24:55,440 --> 01:24:59,040
+Klimaanlage, oben an diesem Klimaschacht sind verstellbar und können eben geschlossen
+
+1386
+01:24:59,040 --> 01:25:02,160
+oder geöffnet werden, je nachdem, ob die Luft mit der Außenluft vermischt werden soll.
+
+1387
+01:25:02,160 --> 01:25:05,200
+Wir sind jetzt direkt ins nächste Rechenzentrum weitergewandert und hier
+
+1388
+01:25:05,200 --> 01:25:08,600
+stehen schon ganz viele von den neueren REC-Systemen von Hetzner. Ihr seht es,
+
+1389
+01:25:08,600 --> 01:25:11,200
+wenn wir mal von oben hier runter schauen, dass hier einfach wirklich eine
+
+1390
+01:25:11,200 --> 01:25:15,080
+viel höhere Packdichte erreicht werden kann. Dann schaut euch mal an, wie viele
+
+1391
+01:25:15,080 --> 01:25:19,040
+Server alleine in einer so einer Reihe drin sind. Das ist wirklich extrem und man
+
+1392
+01:25:19,040 --> 01:25:22,240
+sieht auch schon, dass das Kühlkonzept hier sehr sehr ähnlich funktioniert.
+
+1393
+01:25:22,240 --> 01:25:25,120
+Schauen wir uns jetzt aber noch mal aus der Nähe an. Wir sind jetzt mal nach unten
+
+1394
+01:25:25,120 --> 01:25:28,680
+gegangen und ich stehe jetzt tatsächlich in einem von den Kühlgängen drin. Rechts
+
+1395
+01:25:28,680 --> 01:25:31,840
+und links von mir sind die ganzen RECs, die ihr gerade eben von außen gesehen habt,
+
+1396
+01:25:31,840 --> 01:25:35,680
+die vorne die Metallblende dran haben und so sieht das Ganze von der Rückseite
+
+1397
+01:25:35,680 --> 01:25:41,680
+aus. Das Kühlkonzept ist wirklich nicht schlecht, also alles wirklich ordentlich.
+
+1398
+01:25:41,680 --> 01:25:45,640
+Klar hast du immer noch so die super Kabelfetischisten, denen auch das nicht
+
+1399
+01:25:45,640 --> 01:25:50,720
+reicht, aber da siehst du schon, da ist das Thema dahinter. Im Endeffekt liegt hier
+
+1400
+01:25:50,720 --> 01:25:55,120
+halt irgendwie das Mainboard drinnen, so mehr oder weniger.
+
+1401
+01:25:55,120 --> 01:25:58,440
+Sehr sehr interessant. Ihr seht, wir sind hier in einem geschlossenen Gang drin.
+
+1402
+01:25:58,440 --> 01:26:02,120
+Über uns ist Glas oder Plexiglas, da bin ich mir nicht ganz sicher, aber es ist
+
+1403
+01:26:03,120 --> 01:26:05,840
+Ja, so kenne ich das mit Gang drüber und Tür davor.
+
+1404
+01:26:05,840 --> 01:26:11,280
+Hier unten, wenn man nach unten schaut, sieht man, hier sind so Lüftungsgitter und da wird
+
+1405
+01:26:11,280 --> 01:26:15,200
+eben die kalte Luft von außen oder je nachdem die vermischte Luft hier nach oben gepustet,
+
+1406
+01:26:15,200 --> 01:26:18,880
+beziehungsweise von den Servern eben. Ich fände es interessanter, wenn er die Kisten von hinten zeigt.
+
+1407
+01:26:18,880 --> 01:26:22,800
+Jedes von diesen Rack-Systemen hat außen einen Lüfter und zieht die Luft entsprechend hier
+
+1408
+01:26:22,800 --> 01:26:27,440
+durch, sodass hier ein Sog entsteht und eben die kalte Luft hier reingezogen wird. Muss ich auch sagen,
+
+1409
+01:26:27,440 --> 01:26:31,800
+hier drin ist es temperaturmäßig ziemlich angenehm, verglichen mit draußen. Ich würde
+
+1410
+01:26:31,800 --> 01:26:36,520
+mal schätzen, dass es hier in diesem rechten Zentrum so um die 30 Grad hat oder sowas und
+
+1411
+01:26:36,520 --> 01:26:40,600
+hier drin so um die 20 Grad vielleicht wirklich sehr angenehm auf jeden Fall. Wenn man sich das
+
+1412
+01:26:40,600 --> 01:26:47,280
+mal anschaut, dann sieht man eben auch wieder. Okay, ja, hier liegt so mehr oder weniger das
+
+1413
+01:26:47,280 --> 01:26:59,880
+Mainboard drin. Und wisst ihr, das mag jetzt für den manch einen unordentlich aussehen,
+
+1414
+01:26:59,880 --> 01:27:04,840
+aber ich bin mir ziemlich sicher erstens, dass das alles System hat und zweitens,
+
+1415
+01:27:04,840 --> 01:27:09,440
+dass das absichtlich so gebaut ist. Also ich gehe davon aus, das ist halt so gebaut,
+
+1416
+01:27:09,440 --> 01:27:13,720
+dass du möglichst schnell auch Teile wechseln kannst, dass du nicht erst ausbauen musst,
+
+1417
+01:27:13,720 --> 01:27:23,440
+aufschrauben musst, also sprich, du kannst nach Möglichkeit alles, sofern man dran kommt,
+
+1418
+01:27:23,440 --> 01:27:28,200
+austauschen hier ohne die Kiste kurz auszubauen und sowas. Die scheinen ja auch keine Schienen
+
+1419
+01:27:28,200 --> 01:27:34,600
+zu haben. Das ist halt so auf Effizienz gemacht.
+
+1420
+01:27:34,600 --> 01:27:44,320
+Auf den ersten Blick, hier passt wahnsinnig viel mehr rein, als wenn man Midi-Tower verwendet.
+
+1421
+01:27:44,320 --> 01:27:46,920
+Ja, hier muss man natürlich ein bisschen aufpassen beim Ziehen, dass man nicht den
+
+1422
+01:27:46,920 --> 01:27:48,920
+einen selber mit rauszieht, wenn man den unteren rauszieht.
+
+1423
+01:27:48,920 --> 01:27:50,760
+Hier sind 24 Systeme pro Reihe.
+
+1424
+01:27:50,760 --> 01:27:51,760
+Bin ich gut gemacht.
+
+1425
+01:27:51,760 --> 01:27:54,960
+Ich meine, zieht es euch rein, das will ich jetzt nicht nachzählen,
+
+1426
+01:27:55,280 --> 01:27:57,280
+aber das sind einige Reihen hier drin.
+
+1427
+01:27:57,280 --> 01:28:01,800
+Ich habe mir sagen lassen, das sind insgesamt über 1.400 Systeme, die in einem so einem
+
+1428
+01:28:01,800 --> 01:28:05,800
+Kühlgang stehen. Also das ist wirklich extrem, wie eng man diese Systeme dann unterbringen kann.
+
+1429
+01:28:05,800 --> 01:28:08,720
+Wir haben die ganze Tour ja schon bekommen und ich kann euch sagen, ich kann euch nachher zeigen,
+
+1430
+01:28:08,720 --> 01:28:12,440
+wie sowas gebaut wird. Das ist nämlich mega spannend, denn die gesamten Rahmen,
+
+1431
+01:28:12,440 --> 01:28:16,920
+die gesamte Rack-Konstruktion hier wird von Hetzner selber an diesem Standort hier gebaut.
+
+1432
+01:28:16,920 --> 01:28:18,640
+Und dann können wir eben sehen, wie das Ganze funktioniert.
+
+1433
+01:28:19,120 --> 01:28:25,120
+Ja, das sind halt Blech-Schränke, was aber auch gut spart halt letztendlich auch Geld.
+
+1434
+01:28:25,120 --> 01:28:30,120
+Du kriegst halt so nicht fertig gekauft.
+
+1435
+01:28:32,120 --> 01:28:35,480
+Das wird nämlich aus einzelnen Modulen zusammengesetzt, das ist komplett modular,
+
+1436
+01:28:35,480 --> 01:28:38,920
+das kann hier überall aufgestellt werden. Und das Interessante ist auch der Boden.
+
+1437
+01:28:38,920 --> 01:28:43,520
+Wenn man hier unten durchschaut, dann sieht man, wir sind quasi ein Meter über dem eigentlichen Boden
+
+1438
+01:28:43,520 --> 01:28:47,320
+von dem Rechenzentrum. Also die gesamte Fläche von der Halle.
+
+1439
+01:28:47,400 --> 01:28:50,400
+Ja, so Doppelboden ist eigentlich vollkommen normal im RZ.
+
+1440
+01:28:50,400 --> 01:28:53,400
+Wie ihr gerade eben gesehen habt, wir waren ja oben, das ist eine riesige Halle,
+
+1441
+01:28:53,400 --> 01:28:56,400
+die ist ein Meter nach oben gesetzt worden, mit solchen Stelzen,
+
+1442
+01:28:56,400 --> 01:28:59,400
+das unten komplett kalte Luft ist, also unter dieser gesamten Halle...
+
+1443
+01:28:59,400 --> 01:29:02,400
+Ja, und vor allem, dass man im Zweifel was drunter verlegen kann,
+
+1444
+01:29:02,400 --> 01:29:05,400
+das ist aber eigentlich normal im RZ, das ist eigentlich so gut wie immer doppelter Boden.
+
+1445
+01:29:05,400 --> 01:29:09,400
+...kalte Luft durchgepustet, entsprechend kann man auch überall in dieser Halle
+
+1446
+01:29:09,400 --> 01:29:10,400
+so einen Kühlgang aufbauen.
+
+1447
+01:29:10,400 --> 01:29:13,400
+Ich frage mich, wie sie das mit den Kabeln gemacht haben, ob die unten durchgehen
+
+1448
+01:29:13,480 --> 01:29:18,480
+und ob sie oben irgendwelche Trassen haben.
+
+1449
+01:29:18,480 --> 01:29:21,480
+Aber man hat ja eben das Ganze in der Halle gesehen, da war nichts.
+
+1450
+01:29:21,480 --> 01:29:24,480
+Also ich vermute mal, es geht auch unten durch den Boden zum größten Teil der Kabel.
+
+1451
+01:29:24,480 --> 01:29:26,480
+Das ist wirklich mega clever gemacht.
+
+1452
+01:29:26,480 --> 01:29:29,480
+Wie genau das aussieht mit diesem, ich nenne es mal doppelten Boden,
+
+1453
+01:29:29,480 --> 01:29:30,480
+kann ich euch nachher zeigen.
+
+1454
+01:29:30,480 --> 01:29:33,480
+Ist ein Meter auch normal oder ist das normal?
+
+1455
+01:29:33,480 --> 01:29:35,480
+Es ist normal, glaube ich, ein bisschen weniger.
+
+1456
+01:29:35,480 --> 01:29:37,480
+Ich habe mir das noch nie so im Detail angeguckt.
+
+1457
+01:29:37,480 --> 01:29:40,480
+Also doppelter Boden ist ziemlich normal im Rechenzentrum.
+
+1458
+01:29:40,560 --> 01:29:44,560
+Aber ich glaube, Meter vielleicht eher nicht.
+
+1459
+01:29:44,560 --> 01:29:46,560
+Hier ist gerade ein Rechenzentrum, was neu gebaut wird.
+
+1460
+01:29:46,560 --> 01:29:50,560
+Was ich auch noch sehr interessant fand, die Information habe ich auch vorher noch bekommen,
+
+1461
+01:29:50,560 --> 01:29:52,560
+diese Eigenentwicklung von den Racksystemen,
+
+1462
+01:29:52,560 --> 01:29:55,560
+die hatten nicht nur den Grund, dass man das Ganze ein bisschen enger packen kann,
+
+1463
+01:29:55,560 --> 01:29:57,560
+sondern es hat auch was mit dem Energieverbrauch zu tun.
+
+1464
+01:29:57,560 --> 01:30:00,560
+Das ist eine komplette Eigenentwicklung, auch mit den Lüftern hier.
+
+1465
+01:30:00,560 --> 01:30:02,560
+Das dachte ich mir.
+
+1466
+01:30:02,560 --> 01:30:05,560
+Und das soll auch günstige Kombination, günstige Hardware,
+
+1467
+01:30:05,560 --> 01:30:08,560
+Strom sparen und möglichst viel auf einen engen Raum.
+
+1468
+01:30:08,640 --> 01:30:12,640
+Dann als wenn man irgendwie so ein Midi-Tower oder einen fertigen 19 Zoll Server nimmt.
+
+1469
+01:30:12,640 --> 01:30:15,640
+Und was man hier auf der Rückseite auch noch schön sieht, sind eben die ganzen kleinen Lüfter,
+
+1470
+01:30:15,640 --> 01:30:17,640
+die hier an jedem Racksystem dran sind.
+
+1471
+01:30:17,640 --> 01:30:18,640
+Da habe ich gerade eben schon von gesprochen.
+
+1472
+01:30:18,640 --> 01:30:21,640
+Also man braucht hier nicht viel Druck, um die Luft hier wirklich rein zu pusten,
+
+1473
+01:30:21,640 --> 01:30:24,640
+sondern die Server, die saugen die kalte Luft quasi raus.
+
+1474
+01:30:24,640 --> 01:30:26,640
+Die saugen sozusagen.
+
+1475
+01:30:26,640 --> 01:30:29,640
+Also wenn man die Hand dahin hält, ist schon ordentlich warm, was da rauskommt.
+
+1476
+01:30:29,640 --> 01:30:33,640
+Was ihr hier hinter mir seht, sind jetzt die ganz normalen, typischen 19 Zoll-Systeme.
+
+1477
+01:30:33,640 --> 01:30:34,640
+Die benutzt Hetzner.
+
+1478
+01:30:34,640 --> 01:30:37,640
+Schlafender Azubis im Doppelboden, okay, das habe ich noch nie gesehen in irgendeiner Zeit.
+
+1479
+01:30:38,640 --> 01:30:41,640
+Für Kundensysteme, aber zum Beispiel auch für die Hetzner Cloud.
+
+1480
+01:30:41,640 --> 01:30:43,640
+Haben die kein redundantes Netzteil?
+
+1481
+01:30:43,640 --> 01:30:45,640
+Schaut nicht so aus.
+
+1482
+01:30:45,640 --> 01:30:49,640
+Aber muss man ja auch nicht unbedingt.
+
+1483
+01:30:49,640 --> 01:30:51,640
+Wobei, warte mal.
+
+1484
+01:30:51,640 --> 01:30:53,640
+Nee, nee, nee, nee.
+
+1485
+01:30:53,640 --> 01:30:55,640
+Aber muss man ja auch nicht unbedingt.
+
+1486
+01:30:55,640 --> 01:30:58,640
+Wird halt ausgetauscht, wenn es kaputt ist.
+
+1487
+01:31:01,640 --> 01:31:06,640
+Spart Geld und Strom und Wärme und alles.
+
+1488
+01:31:08,640 --> 01:31:10,640
+Und so oft gehen ja Netzteile nicht kaputt.
+
+1489
+01:31:10,640 --> 01:31:12,640
+Ich meine, bei der Menge.
+
+1490
+01:31:12,640 --> 01:31:14,640
+Ja, bei der Menge.
+
+1491
+01:31:14,640 --> 01:31:16,640
+Vielleicht haben die auch auf der anderen Seite noch eins.
+
+1492
+01:31:16,640 --> 01:31:17,640
+Keine Ahnung.
+
+1493
+01:31:17,640 --> 01:31:21,640
+Aber trotzdem, bei der Menge geht trotzdem täglich laufen was kaputt.
+
+1494
+01:31:21,640 --> 01:31:29,640
+Ja, also ist ja klar, wenn du irgendwie, keine Ahnung, 10.000 Systeme hast und du auch nur
+
+1495
+01:31:29,640 --> 01:31:35,640
+einen 0,01 Ausfall da hat, da ist halt auch trotzdem am Tag immer mal was kaputt.
+
+1496
+01:31:35,720 --> 01:31:39,720
+Was ihr hinter mir seht, sind jetzt die ganz normalen, typischen 19 Zoll Systeme.
+
+1497
+01:31:39,720 --> 01:31:43,720
+Die benutzt Hetzner für Kundensysteme, aber zum Beispiel auch für die Hetzner Cloud.
+
+1498
+01:31:43,720 --> 01:31:45,720
+Also hier in diesen rechten Zentren gibt es alles.
+
+1499
+01:31:45,720 --> 01:31:50,720
+Midi Tower Systeme, die eigenen Wrecksysteme von Hetzner, aber eben auch 19 Zoll Systeme.
+
+1500
+01:31:50,720 --> 01:31:52,720
+Wir sind jetzt auch mal hier in den Kühlgang reingegangen.
+
+1501
+01:31:52,720 --> 01:31:54,720
+Was auffällig ist, ist, dass es hier drin nochmal...
+
+1502
+01:31:54,720 --> 01:31:57,720
+Das sind, das sind, das sieht jetzt eher nach normalen Servern aus.
+
+1503
+01:31:57,720 --> 01:32:00,720
+Mit ein bisschen ordentlich Storage drin, hä?
+
+1504
+01:32:00,720 --> 01:32:02,720
+Ordentlich Storage Kram.
+
+1505
+01:32:02,800 --> 01:32:05,800
+Was hier deutlich lauter ist, als bei den eigenen Wrecks von Hetzner,
+
+1506
+01:32:05,800 --> 01:32:10,800
+das liegt vor allem daran, dass diese 19 Zoll Systeme halt so winzig kleine Lüfter verwenden.
+
+1507
+01:32:10,800 --> 01:32:13,800
+Habt ihr grad eben schon außen gesehen und die drehen halt viel, viel höher.
+
+1508
+01:32:13,800 --> 01:32:16,800
+Dadurch, dass diese kleinen Lüfter halt auch so extrem hoch drehen,
+
+1509
+01:32:16,800 --> 01:32:19,800
+ist es so, dass die Systeme auch deutlich mehr Strom verbrauchen.
+
+1510
+01:32:19,800 --> 01:32:23,800
+Man unterschätzt es, wie viel Strom so ein kleiner Lüfter verbrauchen kann.
+
+1511
+01:32:23,800 --> 01:32:28,800
+Ich hab mir sagen lassen, dass teilweise so ein kleiner Lüfter bis zu 60 Watt Strom verbrauchen kann.
+
+1512
+01:32:28,880 --> 01:32:32,880
+Also teilweise ist es bei Servern so, dass der Lüfter mehr Strom verbraucht,
+
+1513
+01:32:32,880 --> 01:32:34,880
+als der eigentliche Server an sich.
+
+1514
+01:32:34,880 --> 01:32:37,880
+Das ist eben auch einer der Gründe, warum Hetzner seine eigenen Wrecks entwickelt hat,
+
+1515
+01:32:37,880 --> 01:32:40,880
+um diese Stromverbrauchung zu minimieren.
+
+1516
+01:32:40,880 --> 01:32:43,880
+Jetzt ist hier einer ordentlich durchgestartet neben mir.
+
+1517
+01:32:43,880 --> 01:32:45,880
+Okay, gehen wir aber weiter.
+
+1518
+01:32:45,880 --> 01:32:47,880
+Was auch noch ein sehr interessantes Thema ist,
+
+1519
+01:32:47,880 --> 01:32:49,880
+ist natürlich die Stromversorgung von dem Ganzen,
+
+1520
+01:32:49,880 --> 01:32:52,880
+weil so viele Server verbrauchen natürlich auch eine Menge Strom.
+
+1521
+01:32:52,880 --> 01:32:55,880
+Ein Rechenzentrum alleine verbraucht 1,2 Megawatt
+
+1522
+01:32:55,960 --> 01:32:58,960
+oder ist auf 1,2 Megawatt spezifiziert.
+
+1523
+01:32:58,960 --> 01:33:01,960
+Das sind 1,2 Millionen Watt, das muss man sich mal vorstellen.
+
+1524
+01:33:01,960 --> 01:33:03,960
+Und das ist eben so ausgelegt,
+
+1525
+01:33:03,960 --> 01:33:06,960
+dass es bei durchschnittlicher Auslastung der Fall ist.
+
+1526
+01:33:06,960 --> 01:33:08,960
+Wenn man jetzt mal überlegen würde,
+
+1527
+01:33:08,960 --> 01:33:10,960
+wenn jeder Server hier zu 100% ausgelastet wäre,
+
+1528
+01:33:10,960 --> 01:33:12,960
+dann wäre das natürlich noch mal deutlich mehr,
+
+1529
+01:33:12,960 --> 01:33:14,960
+aber in der Realität kommt das natürlich gar nicht vor.
+
+1530
+01:33:14,960 --> 01:33:16,960
+Trotzdem, wir haben hier 18 Rechenzentren,
+
+1531
+01:33:16,960 --> 01:33:18,960
+jedes davon 1,2 Megawatt,
+
+1532
+01:33:18,960 --> 01:33:20,960
+das ist schon wirklich eine ganz schöne Hausnummer.
+
+1533
+01:33:20,960 --> 01:33:23,960
+Da jedes Rechenzentrum aber ja die gleiche Grundfläche hat
+
+1534
+01:33:24,040 --> 01:33:28,040
+und die gleiche Größe und 1,2 Megawatt quasi die Obergrenze sind,
+
+1535
+01:33:28,040 --> 01:33:30,040
+versucht man die Rechenzentren
+
+1536
+01:33:30,040 --> 01:33:32,040
+so effizient wie möglich auszustatten.
+
+1537
+01:33:32,040 --> 01:33:34,040
+Das heißt, man mischt Midi-Tower
+
+1538
+01:33:34,040 --> 01:33:37,040
+mit diesen eigenen Rack-Systemen und mit 19 Zoll-Systemen.
+
+1539
+01:33:37,040 --> 01:33:40,040
+Die haben ja alle eine andere Packdichte, um die Fläche eben so gut...
+
+1540
+01:33:40,040 --> 01:33:42,040
+Das Wort Packdichte gefällt eben, oder?
+
+1541
+01:33:42,040 --> 01:33:44,040
+...möglich auszunutzen.
+
+1542
+01:33:44,040 --> 01:33:46,040
+Denn wenn man nur die eigenen Rack-Systeme verwenden würde,
+
+1543
+01:33:46,040 --> 01:33:48,040
+die eine extrem hohe Packdichte haben,
+
+1544
+01:33:48,040 --> 01:33:50,040
+dann würde halt die alte Fläche leer stehen.
+
+1545
+01:33:50,040 --> 01:33:52,040
+Thema Stromversorgung ist in einem Rechenzentrum
+
+1546
+01:33:52,120 --> 01:33:55,120
+besonders wichtig und da nicht ausgeschlossen werden kann,
+
+1547
+01:33:55,120 --> 01:33:58,120
+dass der Strom halt auch mal ausfällt oder die Spannung abfällt,
+
+1548
+01:33:58,120 --> 01:34:00,120
+sind hier natürlich riesige USVs verbaut.
+
+1549
+01:34:00,120 --> 01:34:02,120
+Die sorgen im Notfall dafür,
+
+1550
+01:34:02,120 --> 01:34:04,120
+dass das gesamte Rechenzentrum
+
+1551
+01:34:04,120 --> 01:34:07,120
+bis zu 15 Minuten weiterhin mit Strom versorgt werden kann.
+
+1552
+01:34:07,120 --> 01:34:08,120
+Und falls ihr euch fragt, was...
+
+1553
+01:34:08,120 --> 01:34:10,120
+15 Minuten ist ganz schön lang.
+
+1554
+01:34:10,120 --> 01:34:12,120
+Was passiert nach den 15 Minuten?
+
+1555
+01:34:12,120 --> 01:34:14,120
+Dann geht ein Dieselgenerator an.
+
+1556
+01:34:14,120 --> 01:34:16,120
+Wir haben auch noch einen riesigen Dieselgenerator,
+
+1557
+01:34:16,120 --> 01:34:18,120
+der bis zu drei Tage lang...
+
+1558
+01:34:18,120 --> 01:34:20,120
+Dir gefällt das Wort Exzellent.
+
+1559
+01:34:20,200 --> 01:34:22,200
+Mehrwatt, aber Exzellent ist auf jeden Fall dabei.
+
+1560
+01:34:22,200 --> 01:34:24,200
+Wenn man Strom versorgen kann, den werden wir uns gleich auch noch anschauen.
+
+1561
+01:34:24,200 --> 01:34:26,200
+Exzellent.
+
+1562
+01:34:26,200 --> 01:34:28,200
+Hier hängen auf jeden Fall riesige Batterien dran.
+
+1563
+01:34:28,200 --> 01:34:30,200
+Die zeige ich euch jetzt.
+
+1564
+01:34:30,200 --> 01:34:32,200
+Hier sind wir jetzt im Batterieraum und ihr seht schon...
+
+1565
+01:34:32,200 --> 01:34:34,200
+Das haben wir schon mal beim Bauer gesehen vor zwei Jahren oder so.
+
+1566
+01:34:34,200 --> 01:34:36,200
+... für 15 Minuten leisten zu können.
+
+1567
+01:34:36,200 --> 01:34:38,200
+Die 15 Minuten sind auch absolut ausreichend,
+
+1568
+01:34:38,200 --> 01:34:40,200
+weil es eben diesen Dieselgenerator gibt.
+
+1569
+01:34:40,200 --> 01:34:42,200
+Der braucht so um die 20 Sekunden zum Anlaufen.
+
+1570
+01:34:42,200 --> 01:34:44,200
+Also hier wurde alles wirklich ausreichend bedacht.
+
+1571
+01:34:44,200 --> 01:34:46,200
+Und wenn man sich das mal anschaut bei diesen Zellen hier,
+
+1572
+01:34:46,200 --> 01:34:48,200
+du kannst ja mal reinkommen,
+
+1573
+01:34:48,280 --> 01:34:50,280
+das sind alles riesige 2 Volt-Zellen,
+
+1574
+01:34:50,280 --> 01:34:52,280
+die in Reihe geschaltet sind.
+
+1575
+01:34:52,280 --> 01:34:54,280
+Und die sind auch durchnummeriert.
+
+1576
+01:34:54,280 --> 01:34:56,280
+Das sind insgesamt 240 Stück hier pro Regal.
+
+1577
+01:34:56,280 --> 01:34:58,280
+Das heißt, das USV arbeitet mit 480 Volt.
+
+1578
+01:34:58,280 --> 01:35:00,280
+Also hier stehen wir jetzt vor allem von den Dieselgeneratoren.
+
+1579
+01:35:00,280 --> 01:35:02,280
+Das ist ein 16-Zylinder-Diesel-Aggregat.
+
+1580
+01:35:02,280 --> 01:35:04,280
+Und es kann zwei Meter...
+
+1581
+01:35:04,280 --> 01:35:06,280
+Das ist bestimmt sowas, was sie sonst im U-Boot haben.
+
+1582
+01:35:06,280 --> 01:35:08,280
+... also nochmal deutlich mehr,
+
+1583
+01:35:08,280 --> 01:35:10,280
+als ein Rechenzentrum benötigen würde.
+
+1584
+01:35:10,280 --> 01:35:12,280
+Wobei...
+
+1585
+01:35:12,280 --> 01:35:14,280
+Ich glaube sowas haben die nicht im U-Boot, oder?
+
+1586
+01:35:14,280 --> 01:35:16,280
+Wie das Rechenzentrum hat so ein Teil.
+
+1587
+01:35:16,360 --> 01:35:18,360
+Also hier ist schon wirklich für Stromversorgung selbst im absoluten Notfall gesorgt.
+
+1588
+01:35:18,360 --> 01:35:20,360
+Das Ganze läuft dann für zwei bis drei Tage komplett autark.
+
+1589
+01:35:20,360 --> 01:35:22,360
+Da hinten sind riesige Tanks,
+
+1590
+01:35:22,360 --> 01:35:24,360
+mit insgesamt 60.000 Litern.
+
+1591
+01:35:24,360 --> 01:35:26,360
+Die sind aber jeweils für zwei Aggregate,
+
+1592
+01:35:26,360 --> 01:35:28,360
+also stehen 30.000 Liter Diesel für ein Aggregat im Notfall bereit.
+
+1593
+01:35:28,360 --> 01:35:30,360
+Was wir hier draußen jetzt auch sehen können,
+
+1594
+01:35:30,360 --> 01:35:32,360
+sind eben diese riesigen Wärmetauscher,
+
+1595
+01:35:32,360 --> 01:35:34,360
+die, wenn es mal wirklich warm draußen wird...
+
+1596
+01:35:34,360 --> 01:35:36,360
+Das haben wir beim Bauer auch schon gesehen.
+
+1597
+01:35:36,360 --> 01:35:38,360
+... dass die Klimaanlage drin, die Temperatur runterkühlen kann.
+
+1598
+01:35:38,360 --> 01:35:40,360
+Und genau dafür sind die eben da.
+
+1599
+01:35:40,360 --> 01:35:42,360
+Und das ist das, was wir hier sehen.
+
+1600
+01:35:42,360 --> 01:35:44,360
+Das ist das, was wir hier sehen.
+
+1601
+01:35:44,440 --> 01:35:46,440
+Und genau dafür sind die eben da.
+
+1602
+01:35:46,440 --> 01:35:48,440
+Aber wie gesagt, 95% des Jahres laufen die sowieso nicht.
+
+1603
+01:35:48,440 --> 01:35:50,440
+Wir sind jetzt gerade in einer der Hallen, die im Aufbau ist.
+
+1604
+01:35:50,440 --> 01:35:52,440
+Und ihr seht hinter mir, das finde ich sehr interessant,
+
+1605
+01:35:52,440 --> 01:35:54,440
+das ist so ein Racksystem im Aufbau quasi.
+
+1606
+01:35:54,440 --> 01:35:56,440
+...
+
+1607
+01:35:56,440 --> 01:35:58,440
+Hey, bei Hetzner kann man sich doch auch so Co-Location-mäßig einmieten, ha?
+
+1608
+01:35:58,440 --> 01:36:00,440
+...
+
+1609
+01:36:00,440 --> 01:36:02,440
+Was kostet denn das eigentlich?
+
+1610
+01:36:02,440 --> 01:36:04,440
+...
+
+1611
+01:36:04,440 --> 01:36:06,440
+...
+
+1612
+01:36:06,440 --> 01:36:08,440
+...
+
+1613
+01:36:08,440 --> 01:36:10,440
+...
+
+1614
+01:36:10,440 --> 01:36:12,440
+...
+
+1615
+01:36:12,520 --> 01:36:14,520
+...
+
+1616
+01:36:14,520 --> 01:36:16,520
+...
+
+1617
+01:36:16,520 --> 01:36:18,520
+...
+
+1618
+01:36:18,520 --> 01:36:20,520
+...
+
+1619
+01:36:20,520 --> 01:36:22,520
+...
+
+1620
+01:36:22,520 --> 01:36:24,520
+...
+
+1621
+01:36:24,520 --> 01:36:26,520
+...
+
+1622
+01:36:26,520 --> 01:36:28,520
+...
+
+1623
+01:36:28,520 --> 01:36:30,520
+...
+
+1624
+01:36:30,520 --> 01:36:32,520
+...
+
+1625
+01:36:32,520 --> 01:36:34,520
+...
+
+1626
+01:36:34,520 --> 01:36:36,520
+...
+
+1627
+01:36:36,520 --> 01:36:38,520
+...
+
+1628
+01:36:38,520 --> 01:36:40,520
+...
+
+1629
+01:36:40,520 --> 01:36:42,520
+...
+
+1630
+01:36:42,520 --> 01:36:44,520
+...
+
+1631
+01:36:44,520 --> 01:36:46,520
+...
+
+1632
+01:36:46,520 --> 01:36:48,520
+...
+
+1633
+01:36:48,520 --> 01:36:50,520
+...
+
+1634
+01:36:50,520 --> 01:36:52,520
+...
+
+1635
+01:36:52,520 --> 01:36:54,520
+...
+
+1636
+01:36:54,520 --> 01:36:56,520
+...
+
+1637
+01:36:56,520 --> 01:36:58,520
+...
+
+1638
+01:36:58,520 --> 01:37:00,520
+...
+
+1639
+01:37:00,520 --> 01:37:02,520
+...
+
+1640
+01:37:02,520 --> 01:37:04,520
+...
+
+1641
+01:37:04,520 --> 01:37:06,520
+...
+
+1642
+01:37:06,520 --> 01:37:08,520
+...
+
+1643
+01:37:08,520 --> 01:37:10,520
+...
+
+1644
+01:37:10,520 --> 01:37:12,520
+...
+
+1645
+01:37:12,520 --> 01:37:14,520
+...
+
+1646
+01:37:14,520 --> 01:37:16,520
+...
+
+1647
+01:37:16,520 --> 01:37:18,520
+...
+
+1648
+01:37:18,520 --> 01:37:20,520
+...
+
+1649
+01:37:20,520 --> 01:37:22,520
+...
+
+1650
+01:37:22,520 --> 01:37:24,520
+...
+
+1651
+01:37:24,520 --> 01:37:26,520
+...
+
+1652
+01:37:26,520 --> 01:37:28,520
+...
+
+1653
+01:37:28,520 --> 01:37:30,520
+...
+
+1654
+01:37:30,520 --> 01:37:32,520
+...
+
+1655
+01:37:32,520 --> 01:37:34,520
+...
+
+1656
+01:37:34,520 --> 01:37:36,520
+...
+
+1657
+01:37:36,520 --> 01:37:38,520
+...
+
+1658
+01:37:38,520 --> 01:37:40,520
+...
+
+1659
+01:37:40,520 --> 01:37:42,520
+...
+
+1660
+01:37:42,520 --> 01:37:44,520
+...
+
+1661
+01:37:44,520 --> 01:37:46,520
+...
+
+1662
+01:37:46,520 --> 01:37:48,520
+...
+
+1663
+01:37:48,520 --> 01:37:50,520
+...
+
+1664
+01:37:50,520 --> 01:37:52,520
+...
+
+1665
+01:37:52,520 --> 01:37:54,520
+...
+
+1666
+01:37:54,520 --> 01:37:56,520
+...
+
+1667
+01:37:56,520 --> 01:37:58,520
+...
+
+1668
+01:37:58,520 --> 01:38:00,520
+...
+
+1669
+01:38:00,520 --> 01:38:02,520
+...
+
+1670
+01:38:02,520 --> 01:38:04,520
+...
+
+1671
+01:38:04,520 --> 01:38:06,520
+...
+
+1672
+01:38:06,520 --> 01:38:08,520
+...
+
+1673
+01:38:08,520 --> 01:38:12,520
+...
+
+1674
+01:38:12,520 --> 01:38:14,520
+...
+
+1675
+01:38:14,520 --> 01:38:16,520
+...
+
+1676
+01:38:18,520 --> 01:38:21,520
+...
+
+1677
+01:38:21,520 --> 01:38:23,520
+...
+
+1678
+01:38:23,520 --> 01:38:25,520
+...
+
+1679
+01:38:25,520 --> 01:38:27,520
+...
+
+1680
+01:38:27,520 --> 01:38:29,520
+...
+
+1681
+01:38:29,520 --> 01:38:31,520
+...
+
+1682
+01:38:31,520 --> 01:38:33,520
+...
+
+1683
+01:38:33,520 --> 01:38:35,520
+...
+
+1684
+01:38:35,520 --> 01:38:37,520
+...
+
+1685
+01:38:37,520 --> 01:38:39,520
+...
+
+1686
+01:38:39,520 --> 01:38:41,520
+...
+
+1687
+01:38:41,520 --> 01:38:43,520
+...
+
+1688
+01:38:43,520 --> 01:38:45,520
+...
+
+1689
+01:38:45,520 --> 01:38:47,520
+...
+
+1690
+01:38:47,520 --> 01:38:49,520
+...
+
+1691
+01:38:49,520 --> 01:38:51,520
+...
+
+1692
+01:38:51,520 --> 01:38:53,520
+...
+
+1693
+01:38:53,520 --> 01:38:55,520
+...
+
+1694
+01:38:55,520 --> 01:38:57,520
+...
+
+1695
+01:38:57,520 --> 01:38:59,520
+...
+
+1696
+01:38:59,520 --> 01:39:01,520
+...
+
+1697
+01:39:01,520 --> 01:39:03,520
+...
+
+1698
+01:39:03,520 --> 01:39:05,520
+...
+
+1699
+01:39:05,520 --> 01:39:07,520
+...
+
+1700
+01:39:07,520 --> 01:39:09,520
+...
+
+1701
+01:39:09,520 --> 01:39:11,520
+...
+
+1702
+01:39:11,520 --> 01:39:13,520
+...
+
+1703
+01:39:13,520 --> 01:39:15,520
+...
+
+1704
+01:39:15,520 --> 01:39:17,520
+...
+
+1705
+01:39:17,520 --> 01:39:19,520
+...
+
+1706
+01:39:19,520 --> 01:39:21,520
+...
+
+1707
+01:39:21,520 --> 01:39:23,520
+...
+
+1708
+01:39:23,520 --> 01:39:25,520
+...
+
+1709
+01:39:25,520 --> 01:39:27,520
+...
+
+1710
+01:39:27,520 --> 01:39:29,520
+...
+
+1711
+01:39:29,520 --> 01:39:31,520
+...
+
+1712
+01:39:31,520 --> 01:39:33,520
+...
+
+1713
+01:39:33,520 --> 01:39:35,520
+...
+
+1714
+01:39:35,520 --> 01:39:37,520
+...
+
+1715
+01:39:37,520 --> 01:39:39,520
+...
+
+1716
+01:39:39,520 --> 01:39:41,520
+...
+
+1717
+01:39:41,520 --> 01:39:43,520
+...
+
+1718
+01:39:43,520 --> 01:39:45,520
+...
+
+1719
+01:39:45,520 --> 01:39:47,520
+...
+
+1720
+01:39:47,520 --> 01:39:49,520
+...
+
+1721
+01:39:49,520 --> 01:39:51,520
+...
+
+1722
+01:39:51,520 --> 01:39:53,520
+...
+
+1723
+01:39:53,520 --> 01:39:55,520
+...
+
+1724
+01:39:55,520 --> 01:39:57,520
+...
+
+1725
+01:39:57,520 --> 01:39:59,520
+...
+
+1726
+01:39:59,520 --> 01:40:01,520
+...
+
+1727
+01:40:01,520 --> 01:40:03,520
+...
+
+1728
+01:40:03,520 --> 01:40:05,520
+...
+
+1729
+01:40:05,520 --> 01:40:07,520
+...
+
+1730
+01:40:07,520 --> 01:40:09,520
+...
+
+1731
+01:40:09,520 --> 01:40:11,520
+...
+
+1732
+01:40:11,520 --> 01:40:13,520
+...
+
+1733
+01:40:13,520 --> 01:40:15,520
+...
+
+1734
+01:40:15,520 --> 01:40:17,520
+...
+
+1735
+01:40:17,520 --> 01:40:19,520
+...
+
+1736
+01:40:19,520 --> 01:40:21,520
+...
+
+1737
+01:40:21,520 --> 01:40:23,520
+...
+
+1738
+01:40:23,520 --> 01:40:25,520
+...
+
+1739
+01:40:25,520 --> 01:40:27,520
+...
+
+1740
+01:40:27,520 --> 01:40:29,520
+...
+
+1741
+01:40:29,520 --> 01:40:31,520
+...
+
+1742
+01:40:31,520 --> 01:40:33,520
+...
+
+1743
+01:40:33,520 --> 01:40:35,520
+...
+
+1744
+01:40:35,520 --> 01:40:37,520
+...
+
+1745
+01:40:37,520 --> 01:40:39,520
+...
+
+1746
+01:40:39,520 --> 01:40:41,520
+...
+
+1747
+01:40:41,520 --> 01:40:43,520
+...
+
+1748
+01:40:43,520 --> 01:40:45,520
+...
+
+1749
+01:40:45,520 --> 01:40:47,520
+...
+
+1750
+01:40:47,520 --> 01:40:49,520
+...
+
+1751
+01:40:49,520 --> 01:40:51,520
+...
+
+1752
+01:40:51,520 --> 01:40:53,520
+...
+
+1753
+01:40:53,520 --> 01:40:55,520
+...
+
+1754
+01:40:55,520 --> 01:40:57,520
+...
+
+1755
+01:40:57,520 --> 01:40:59,520
+...
+
+1756
+01:40:59,520 --> 01:41:01,520
+...
+
+1757
+01:41:01,520 --> 01:41:03,520
+...
+
+1758
+01:41:03,520 --> 01:41:05,520
+...
+
+1759
+01:41:05,520 --> 01:41:07,520
+...
+
+1760
+01:41:07,520 --> 01:41:09,520
+...
+
+1761
+01:41:09,520 --> 01:41:11,520
+...
+
+1762
+01:41:11,520 --> 01:41:13,520
+...
+
+1763
+01:41:13,520 --> 01:41:15,520
+...
+
+1764
+01:41:15,520 --> 01:41:17,520
+...
+
+1765
+01:41:17,520 --> 01:41:19,520
+...
+
+1766
+01:41:19,520 --> 01:41:21,520
+...
+
+1767
+01:41:21,520 --> 01:41:25,520
+...
+
+1768
+01:41:25,520 --> 01:41:27,520
+...
+
+1769
+01:41:27,520 --> 01:41:29,520
+...
+
+1770
+01:41:29,520 --> 01:41:31,520
+...
+
+1771
+01:41:31,520 --> 01:41:33,520
+...
+
+1772
+01:41:33,520 --> 01:41:35,520
+...
+
+1773
+01:41:35,520 --> 01:41:37,520
+...
+
+1774
+01:41:37,520 --> 01:41:39,520
+...
+
+1775
+01:41:39,520 --> 01:41:41,520
+...
+
+1776
+01:41:41,520 --> 01:41:43,520
+...
+
+1777
+01:41:43,520 --> 01:41:45,520
+...
+
+1778
+01:41:45,520 --> 01:41:47,520
+...
+
+1779
+01:41:47,520 --> 01:41:49,520
+...
+
+1780
+01:41:49,520 --> 01:41:51,520
+...
+
+1781
+01:41:51,520 --> 01:41:53,520
+...
+
+1782
+01:41:53,520 --> 01:41:55,520
+...
+
+1783
+01:41:55,520 --> 01:41:59,520
+...
+
+1784
+01:41:59,520 --> 01:42:01,520
+...
+
+1785
+01:42:01,520 --> 01:42:03,520
+...
+
+1786
+01:42:03,520 --> 01:42:05,520
+...
+
+1787
+01:42:05,520 --> 01:42:07,520
+...
+
+1788
+01:42:07,520 --> 01:42:09,520
+...
+
+1789
+01:42:09,520 --> 01:42:11,520
+...
+
+1790
+01:42:11,520 --> 01:42:13,520
+...
+
+1791
+01:42:13,520 --> 01:42:15,520
+...
+
+1792
+01:42:15,520 --> 01:42:17,520
+...
+
+1793
+01:42:17,520 --> 01:42:19,520
+...
+
+1794
+01:42:19,520 --> 01:42:21,520
+...
+
+1795
+01:42:21,520 --> 01:42:23,520
+...
+
+1796
+01:42:23,520 --> 01:42:25,520
+...
+
+1797
+01:42:25,520 --> 01:42:27,520
+...
+
+1798
+01:42:27,520 --> 01:42:29,520
+...
+
+1799
+01:42:29,520 --> 01:42:31,520
+...
+
+1800
+01:42:31,520 --> 01:42:33,520
+...
+
+1801
+01:42:33,520 --> 01:42:35,520
+...
+
+1802
+01:42:35,520 --> 01:42:37,520
+...
+
+1803
+01:42:37,520 --> 01:42:39,520
+...
+
+1804
+01:42:39,520 --> 01:42:41,520
+...
+
+1805
+01:42:41,520 --> 01:42:43,520
+...
+
+1806
+01:42:43,520 --> 01:42:45,520
+...
+
+1807
+01:42:45,520 --> 01:42:47,520
+...
+
+1808
+01:42:47,520 --> 01:42:49,520
+...
+
+1809
+01:42:49,520 --> 01:42:51,520
+...
+
+1810
+01:42:51,520 --> 01:42:53,520
+...
+
+1811
+01:42:53,520 --> 01:42:55,520
+...
+
+1812
+01:42:55,520 --> 01:42:57,520
+...
+
+1813
+01:42:57,520 --> 01:42:59,520
+...
+
+1814
+01:42:59,520 --> 01:43:01,520
+...
+
+1815
+01:43:01,520 --> 01:43:03,520
+...
+
+1816
+01:43:03,520 --> 01:43:05,520
+...
+
+1817
+01:43:05,520 --> 01:43:07,520
+...
+
+1818
+01:43:07,520 --> 01:43:09,520
+...
+
+1819
+01:43:09,520 --> 01:43:11,520
+...
+
+1820
+01:43:11,520 --> 01:43:13,520
+...
+
+1821
+01:43:13,520 --> 01:43:15,520
+...
+
+1822
+01:43:15,520 --> 01:43:17,520
+...
+
+1823
+01:43:17,520 --> 01:43:19,520
+...
+
+1824
+01:43:19,520 --> 01:43:21,520
+...
+
+1825
+01:43:21,520 --> 01:43:23,520
+...
+
+1826
+01:43:23,520 --> 01:43:25,520
+...
+
+1827
+01:43:25,520 --> 01:43:27,520
+...
+
+1828
+01:43:27,520 --> 01:43:29,520
+...
+
+1829
+01:43:29,520 --> 01:43:31,520
+...
+
+1830
+01:43:31,520 --> 01:43:33,520
+...
+
+1831
+01:43:33,520 --> 01:43:35,520
+...
+
+1832
+01:43:35,520 --> 01:43:37,520
+...
+
+1833
+01:43:37,520 --> 01:43:39,520
+...
+
+1834
+01:43:39,520 --> 01:43:41,520
+...
+
+1835
+01:43:41,520 --> 01:43:43,520
+...
+
+1836
+01:43:43,520 --> 01:43:45,520
+...
+
+1837
+01:43:45,520 --> 01:43:47,520
+...
+
+1838
+01:43:47,520 --> 01:43:49,520
+...
+
+1839
+01:43:49,520 --> 01:43:51,520
+...
+
+1840
+01:43:51,520 --> 01:43:53,520
+...
+
+1841
+01:43:53,520 --> 01:43:55,520
+...
+
+1842
+01:43:55,520 --> 01:43:57,520
+...
+
+1843
+01:43:57,520 --> 01:43:59,520
+...
+
+1844
+01:43:59,520 --> 01:44:01,520
+...
+
+1845
+01:44:01,520 --> 01:44:03,520
+...
+
+1846
+01:44:05,520 --> 01:44:07,520
+...
+
+1847
+01:44:07,520 --> 01:44:09,520
+...
+
+1848
+01:44:09,520 --> 01:44:11,520
+...
+
+1849
+01:44:11,520 --> 01:44:13,520
+...
+
+1850
+01:44:13,520 --> 01:44:15,520
+...
+
+1851
+01:44:15,520 --> 01:44:17,520
+...
+
+1852
+01:44:17,520 --> 01:44:19,520
+...
+
+1853
+01:44:19,520 --> 01:44:21,520
+...
+
+1854
+01:44:21,520 --> 01:44:23,520
+...
+
+1855
+01:44:23,520 --> 01:44:25,520
+...
+
+1856
+01:44:25,520 --> 01:44:27,520
+...
+
+1857
+01:44:27,520 --> 01:44:29,520
+...
+
+1858
+01:44:29,520 --> 01:44:31,520
+...
+
+1859
+01:44:31,520 --> 01:44:33,520
+...
+
+1860
+01:44:33,520 --> 01:44:35,520
+...
+
+1861
+01:44:35,520 --> 01:44:37,520
+...
+
+1862
+01:44:37,520 --> 01:44:39,520
+...
+
+1863
+01:44:39,520 --> 01:44:41,520
+...
+
+1864
+01:44:41,520 --> 01:44:43,520
+...
+
+1865
+01:44:43,520 --> 01:44:45,520
+...
+
+1866
+01:44:45,520 --> 01:44:47,520
+...
+
+1867
+01:44:47,520 --> 01:44:49,520
+...
+
+1868
+01:44:49,520 --> 01:44:51,520
+...
+
+1869
+01:44:51,520 --> 01:44:53,520
+...
+
+1870
+01:44:53,520 --> 01:44:55,520
+...
+
+1871
+01:44:55,520 --> 01:44:57,520
+...
+
+1872
+01:44:57,520 --> 01:44:59,520
+...
+
+1873
+01:44:59,520 --> 01:45:01,520
+...
+
+1874
+01:45:01,520 --> 01:45:03,520
+...
+
+1875
+01:45:03,520 --> 01:45:05,520
+...
+
+1876
+01:45:05,520 --> 01:45:07,520
+...
+
+1877
+01:45:07,520 --> 01:45:09,520
+...
+
+1878
+01:45:09,520 --> 01:45:11,520
+...
+
+1879
+01:45:11,520 --> 01:45:13,520
+...
+
+1880
+01:45:13,520 --> 01:45:15,520
+...
+
+1881
+01:45:15,520 --> 01:45:17,520
+...
+
+1882
+01:45:17,520 --> 01:45:19,520
+...
+
+1883
+01:45:19,520 --> 01:45:21,520
+...
+
+1884
+01:45:21,520 --> 01:45:23,520
+...
+
+1885
+01:45:23,520 --> 01:45:25,520
+...
+
+1886
+01:45:25,520 --> 01:45:27,520
+...
+
+1887
+01:45:27,520 --> 01:45:29,520
+...
+
+1888
+01:45:29,520 --> 01:45:31,520
+...
+
+1889
+01:45:31,520 --> 01:45:33,520
+...
+
+1890
+01:45:33,520 --> 01:45:35,520
+...
+
+1891
+01:45:35,520 --> 01:45:37,520
+...
+
+1892
+01:45:37,520 --> 01:45:39,520
+...
+
+1893
+01:45:39,520 --> 01:45:41,520
+...
+
+1894
+01:45:41,520 --> 01:45:43,520
+...
+
+1895
+01:45:43,520 --> 01:45:45,520
+...
+
+1896
+01:45:45,520 --> 01:45:47,520
+...
+
+1897
+01:45:47,520 --> 01:45:49,520
+...
+
+1898
+01:45:49,520 --> 01:45:51,520
+...
+
+1899
+01:45:51,520 --> 01:45:53,520
+...
+
+1900
+01:45:53,520 --> 01:45:55,520
+...
+
+1901
+01:45:55,520 --> 01:45:57,520
+...
+
+1902
+01:45:57,520 --> 01:45:59,520
+...
+
+1903
+01:45:59,520 --> 01:46:01,520
+...
+
+1904
+01:46:01,520 --> 01:46:03,520
+...
+
+1905
+01:46:03,520 --> 01:46:05,520
+...
+
+1906
+01:46:05,520 --> 01:46:07,520
+...
+
+1907
+01:46:07,520 --> 01:46:09,520
+...
+
+1908
+01:46:09,520 --> 01:46:11,520
+...
+
+1909
+01:46:13,520 --> 01:46:15,520
+...
+
+1910
+01:46:15,520 --> 01:46:17,520
+...
+
+1911
+01:46:17,520 --> 01:46:19,520
+...
+
+1912
+01:46:19,520 --> 01:46:21,520
+...
+
+1913
+01:46:21,520 --> 01:46:23,520
+...
+
+1914
+01:46:23,520 --> 01:46:25,520
+...
+
+1915
+01:46:25,520 --> 01:46:27,520
+...
+
+1916
+01:46:27,520 --> 01:46:29,520
+...
+
+1917
+01:46:29,520 --> 01:46:31,520
+...
+
+1918
+01:46:31,520 --> 01:46:33,520
+...
+
+1919
+01:46:33,520 --> 01:46:35,520
+...
+
+1920
+01:46:35,520 --> 01:46:37,520
+...
+
+1921
+01:46:37,520 --> 01:46:39,520
+...
+
+1922
+01:46:39,520 --> 01:46:41,520
+...
+
+1923
+01:46:41,520 --> 01:46:43,520
+...
+
+1924
+01:46:43,520 --> 01:46:45,520
+...
+
+1925
+01:46:45,520 --> 01:46:47,520
+...
+
+1926
+01:46:47,520 --> 01:46:49,520
+...
+
+1927
+01:46:49,520 --> 01:46:51,520
+...
+
+1928
+01:46:51,520 --> 01:46:53,520
+...
+
+1929
+01:46:53,520 --> 01:46:55,520
+...
+
+1930
+01:46:55,520 --> 01:46:57,520
+...
+
+1931
+01:46:57,520 --> 01:46:59,520
+...
+
+1932
+01:46:59,520 --> 01:47:01,520
+...
+
+1933
+01:47:01,520 --> 01:47:03,520
+...
+
+1934
+01:47:03,520 --> 01:47:05,520
+...
+
+1935
+01:47:05,520 --> 01:47:07,520
+...
+
+1936
+01:47:07,520 --> 01:47:09,520
+...
+
+1937
+01:47:09,520 --> 01:47:11,520
+...
+
+1938
+01:47:11,520 --> 01:47:13,520
+...
+
+1939
+01:47:13,520 --> 01:47:15,520
+...
+
+1940
+01:47:15,520 --> 01:47:17,520
+...
+
+1941
+01:47:17,520 --> 01:47:19,520
+...
+
+1942
+01:47:19,520 --> 01:47:21,520
+...
+
+1943
+01:47:21,520 --> 01:47:23,520
+...
+
+1944
+01:47:23,520 --> 01:47:25,520
+...
+
+1945
+01:47:25,520 --> 01:47:27,520
+...
+
+1946
+01:47:27,520 --> 01:47:29,520
+...
+
+1947
+01:47:29,520 --> 01:47:31,520
+...
+
+1948
+01:47:31,520 --> 01:47:33,520
+...
+
+1949
+01:47:33,520 --> 01:47:35,520
+...
+
+1950
+01:47:35,520 --> 01:47:37,520
+...
+
+1951
+01:47:37,520 --> 01:47:39,520
+...
+
+1952
+01:47:39,520 --> 01:47:41,520
+...
+
+1953
+01:47:41,520 --> 01:47:43,520
+...
+
+1954
+01:47:43,520 --> 01:47:45,520
+...
+
+1955
+01:47:45,520 --> 01:47:47,520
+...
+
+1956
+01:47:47,520 --> 01:47:49,520
+...
+
+1957
+01:47:49,520 --> 01:47:51,520
+...
+
+1958
+01:47:51,520 --> 01:47:55,520
+...
+
+1959
+01:47:55,520 --> 01:47:57,520
+...
+
+1960
+01:47:57,520 --> 01:47:59,520
+...
+
+1961
+01:47:59,520 --> 01:48:01,520
+...
+
+1962
+01:48:01,520 --> 01:48:03,520
+...
+
+1963
+01:48:03,520 --> 01:48:05,520
+...
+
+1964
+01:48:05,520 --> 01:48:07,520
+...
+
+1965
+01:48:07,520 --> 01:48:09,520
+...
+
+1966
+01:48:09,520 --> 01:48:11,520
+...
+
+1967
+01:48:11,520 --> 01:48:13,520
+...
+
+1968
+01:48:13,520 --> 01:48:15,520
+...
+
+1969
+01:48:15,520 --> 01:48:17,520
+...
+
+1970
+01:48:17,520 --> 01:48:19,520
+...
+
+1971
+01:48:19,520 --> 01:48:21,520
+...
+
+1972
+01:48:21,520 --> 01:48:23,520
+...
+
+1973
+01:48:23,520 --> 01:48:25,520
+...
+
+1974
+01:48:25,520 --> 01:48:27,520
+...
+
+1975
+01:48:27,520 --> 01:48:29,520
+...
+
+1976
+01:48:29,520 --> 01:48:31,520
+...
+
+1977
+01:48:31,520 --> 01:48:33,520
+...
+
+1978
+01:48:33,520 --> 01:48:35,520
+...
+
+1979
+01:48:35,520 --> 01:48:37,520
+...
+
+1980
+01:48:37,520 --> 01:48:39,520
+...
+
+1981
+01:48:39,520 --> 01:48:41,520
+...
+
+1982
+01:48:41,520 --> 01:48:43,520
+...
+
+1983
+01:48:43,520 --> 01:48:45,520
+...
+
+1984
+01:48:45,520 --> 01:48:47,520
+...
+
+1985
+01:48:47,520 --> 01:48:49,520
+...
+
+1986
+01:48:49,520 --> 01:48:51,520
+...
+
+1987
+01:48:51,520 --> 01:48:53,520
+...
+
+1988
+01:48:53,520 --> 01:48:55,520
+...
+
+1989
+01:48:55,520 --> 01:48:57,520
+...
+
+1990
+01:48:57,520 --> 01:48:59,520
+...
+
+1991
+01:48:59,520 --> 01:49:01,520
+...
+
+1992
+01:49:01,520 --> 01:49:03,520
+...
+
+1993
+01:49:03,520 --> 01:49:05,520
+...
+
+1994
+01:49:05,520 --> 01:49:07,520
+...
+
+1995
+01:49:07,520 --> 01:49:09,520
+...
+
+1996
+01:49:09,520 --> 01:49:11,520
+...
+
+1997
+01:49:11,520 --> 01:49:13,520
+...
+
+1998
+01:49:13,520 --> 01:49:15,520
+...
+
+1999
+01:49:15,520 --> 01:49:17,520
+...
+
+2000
+01:49:17,520 --> 01:49:19,520
+...
+
+2001
+01:49:19,520 --> 01:49:21,520
+...
+
+2002
+01:49:21,520 --> 01:49:23,520
+...
+
+2003
+01:49:23,520 --> 01:49:25,520
+...
+
+2004
+01:49:27,520 --> 01:49:29,520
+...
+
+2005
+01:49:29,520 --> 01:49:31,520
+...
+
+2006
+01:49:31,520 --> 01:49:33,520
+...
+
+2007
+01:49:33,520 --> 01:49:35,520
+...
+
+2008
+01:49:35,520 --> 01:49:37,520
+...
+
+2009
+01:49:37,520 --> 01:49:39,520
+...
+
+2010
+01:49:39,520 --> 01:49:41,520
+...
+
+2011
+01:49:41,520 --> 01:49:43,520
+...
+
+2012
+01:49:43,520 --> 01:49:45,520
+...
+
+2013
+01:49:45,520 --> 01:49:47,520
+...
+
+2014
+01:49:47,520 --> 01:49:49,520
+...
+
+2015
+01:49:49,520 --> 01:49:51,520
+...
+
+2016
+01:49:51,520 --> 01:49:53,520
+...
+
+2017
+01:49:53,520 --> 01:49:55,520
+...
+
+2018
+01:49:55,520 --> 01:49:57,520
+...
+
+2019
+01:49:57,520 --> 01:49:59,520
+...
+
+2020
+01:49:59,520 --> 01:50:01,520
+...
+
+2021
+01:50:01,520 --> 01:50:03,520
+...
+
+2022
+01:50:03,520 --> 01:50:05,520
+...
+
+2023
+01:50:05,520 --> 01:50:07,520
+...
+
+2024
+01:50:07,520 --> 01:50:09,520
+...
+
+2025
+01:50:09,520 --> 01:50:11,520
+...
+
+2026
+01:50:11,520 --> 01:50:13,520
+...
+
+2027
+01:50:13,520 --> 01:50:15,520
+...
+
+2028
+01:50:15,520 --> 01:50:17,520
+...
+
+2029
+01:50:17,520 --> 01:50:19,520
+...
+
+2030
+01:50:19,520 --> 01:50:21,520
+...
+
+2031
+01:50:21,520 --> 01:50:23,520
+...
+
+2032
+01:50:23,520 --> 01:50:25,520
+...
+
+2033
+01:50:25,520 --> 01:50:27,520
+...
+
+2034
+01:50:27,520 --> 01:50:29,520
+...
+
+2035
+01:50:29,520 --> 01:50:31,520
+...
+
+2036
+01:50:31,520 --> 01:50:33,520
+...
+
+2037
+01:50:33,520 --> 01:50:35,520
+...
+
+2038
+01:50:35,520 --> 01:50:37,520
+...
+
+2039
+01:50:37,520 --> 01:50:39,520
+...
+
+2040
+01:50:39,520 --> 01:50:41,520
+...
+
+2041
+01:50:41,520 --> 01:50:43,520
+...
+
+2042
+01:50:43,520 --> 01:50:45,520
+...
+
+2043
+01:50:45,520 --> 01:50:47,520
+...
+
+2044
+01:50:47,520 --> 01:50:49,520
+...
+
+2045
+01:50:49,520 --> 01:50:51,520
+...
+
+2046
+01:50:51,520 --> 01:50:53,520
+...
+
+2047
+01:50:53,520 --> 01:50:55,520
+...
+
+2048
+01:50:55,520 --> 01:50:57,520
+...
+
+2049
+01:50:57,520 --> 01:50:59,520
+...
+
+2050
+01:50:59,520 --> 01:51:01,520
+...
+
+2051
+01:51:01,520 --> 01:51:03,520
+...
+
+2052
+01:51:03,520 --> 01:51:05,520
+...
+
+2053
+01:51:05,520 --> 01:51:07,520
+...
+
+2054
+01:51:07,520 --> 01:51:09,520
+...
+
+2055
+01:51:09,520 --> 01:51:11,520
+...
+
+2056
+01:51:11,520 --> 01:51:13,520
+...
+
+2057
+01:51:13,520 --> 01:51:15,520
+...
+
+2058
+01:51:15,520 --> 01:51:17,520
+...
+
+2059
+01:51:17,520 --> 01:51:19,520
+...
+
+2060
+01:51:19,520 --> 01:51:21,520
+...
+
+2061
+01:51:21,520 --> 01:51:23,520
+...
+
+2062
+01:51:23,520 --> 01:51:25,520
+...
+
+2063
+01:51:25,520 --> 01:51:27,520
+...
+
+2064
+01:51:27,520 --> 01:51:29,520
+...
+
+2065
+01:51:29,520 --> 01:51:31,520
+...
+
+2066
+01:51:31,520 --> 01:51:33,520
+...
+
+2067
+01:51:33,520 --> 01:51:35,520
+...
+
+2068
+01:51:35,520 --> 01:51:37,520
+...
+
+2069
+01:51:37,520 --> 01:51:39,520
+...
+
+2070
+01:51:39,520 --> 01:51:41,520
+...
+
+2071
+01:51:41,520 --> 01:51:43,520
+...
+
+2072
+01:51:43,520 --> 01:51:45,520
+...
+
+2073
+01:51:45,520 --> 01:51:47,520
+...
+
+2074
+01:51:47,520 --> 01:51:49,520
+...
+
+2075
+01:51:49,520 --> 01:51:51,520
+...
+
+2076
+01:51:51,520 --> 01:51:53,520
+...
+
+2077
+01:51:53,520 --> 01:51:55,520
+...
+
+2078
+01:51:55,520 --> 01:51:57,520
+...
+
+2079
+01:51:57,520 --> 01:51:59,520
+...
+
+2080
+01:51:59,520 --> 01:52:01,520
+...
+
+2081
+01:52:01,520 --> 01:52:03,520
+...
+
+2082
+01:52:03,520 --> 01:52:05,520
+...
+
+2083
+01:52:05,520 --> 01:52:07,520
+...
+
+2084
+01:52:07,520 --> 01:52:09,520
+...
+
+2085
+01:52:09,520 --> 01:52:11,520
+...
+
+2086
+01:52:11,520 --> 01:52:13,520
+...
+
+2087
+01:52:13,520 --> 01:52:15,520
+...
+
+2088
+01:52:15,520 --> 01:52:17,520
+...
+
+2089
+01:52:17,520 --> 01:52:19,520
+...
+
+2090
+01:52:19,520 --> 01:52:21,520
+...
+
+2091
+01:52:21,520 --> 01:52:23,520
+...
+
+2092
+01:52:23,520 --> 01:52:25,520
+...
+
+2093
+01:52:25,520 --> 01:52:27,520
+...
+
+2094
+01:52:27,520 --> 01:52:29,520
+...
+
+2095
+01:52:29,520 --> 01:52:31,520
+...
+
+2096
+01:52:31,520 --> 01:52:33,520
+...
+
+2097
+01:52:35,520 --> 01:52:37,520
+...
+
+2098
+01:52:37,520 --> 01:52:39,520
+...
+
+2099
+01:52:39,520 --> 01:52:41,520
+...
+
+2100
+01:52:41,520 --> 01:52:43,520
+...
+
+2101
+01:52:43,520 --> 01:52:45,520
+...
+
+2102
+01:52:47,520 --> 01:52:49,520
+...
+
+2103
+01:52:49,520 --> 01:52:51,520
+...
+
+2104
+01:52:51,520 --> 01:52:53,520
+...
+
+2105
+01:52:53,520 --> 01:52:55,520
+...
+
+2106
+01:52:55,520 --> 01:52:57,520
+...
+
+2107
+01:52:57,520 --> 01:52:59,520
+...
+
+2108
+01:52:59,520 --> 01:53:01,520
+...
+
+2109
+01:53:01,520 --> 01:53:03,520
+...
+
+2110
+01:53:03,520 --> 01:53:05,520
+...
+
+2111
+01:53:05,520 --> 01:53:07,520
+...
+
+2112
+01:53:07,520 --> 01:53:09,520
+...
+
+2113
+01:53:09,520 --> 01:53:11,520
+...
+
+2114
+01:53:11,520 --> 01:53:13,520
+...
+
+2115
+01:53:13,520 --> 01:53:15,520
+...
+
+2116
+01:53:15,520 --> 01:53:17,520
+...
+
+2117
+01:53:17,520 --> 01:53:19,520
+...
+
+2118
+01:53:19,520 --> 01:53:21,520
+...
+
+2119
+01:53:21,520 --> 01:53:23,520
+...
+
+2120
+01:53:23,520 --> 01:53:25,520
+...
+
+2121
+01:53:25,520 --> 01:53:27,520
+...
+
+2122
+01:53:27,520 --> 01:53:29,520
+...
+
+2123
+01:53:29,520 --> 01:53:33,520
+...
+
+2124
+01:53:33,520 --> 01:53:35,520
+...
+
+2125
+01:53:35,520 --> 01:53:37,520
+...
+
+2126
+01:53:37,520 --> 01:53:39,520
+...
+
+2127
+01:53:39,520 --> 01:53:41,520
+...
+
+2128
+01:53:41,520 --> 01:53:43,520
+...
+
+2129
+01:53:43,520 --> 01:53:45,520
+...
+
+2130
+01:53:45,520 --> 01:53:47,520
+...
+
+2131
+01:53:47,520 --> 01:53:49,520
+...
+
+2132
+01:53:49,520 --> 01:53:51,520
+...
+
+2133
+01:53:51,520 --> 01:53:53,520
+...
+
+2134
+01:53:53,520 --> 01:53:55,520
+...
+
+2135
+01:53:55,520 --> 01:53:57,520
+...
+
+2136
+01:53:57,520 --> 01:53:59,520
+...
+
+2137
+01:53:59,520 --> 01:54:01,520
+...
+
+2138
+01:54:01,520 --> 01:54:03,520
+...
+
+2139
+01:54:03,520 --> 01:54:05,520
+...
+
+2140
+01:54:05,520 --> 01:54:07,520
+...
+
+2141
+01:54:07,520 --> 01:54:09,520
+...
+
+2142
+01:54:09,520 --> 01:54:11,520
+...
+
+2143
+01:54:11,520 --> 01:54:13,520
+...
+
+2144
+01:54:13,520 --> 01:54:15,520
+...
+
+2145
+01:54:15,520 --> 01:54:17,520
+...
+
+2146
+01:54:17,520 --> 01:54:19,520
+...
+
+2147
+01:54:19,520 --> 01:54:21,520
+...
+
+2148
+01:54:21,520 --> 01:54:23,520
+...
+
+2149
+01:54:23,520 --> 01:54:25,520
+...
+
+2150
+01:54:25,520 --> 01:54:27,520
+...
+
+2151
+01:54:27,520 --> 01:54:29,520
+...
+
+2152
+01:54:29,520 --> 01:54:31,520
+...
+
+2153
+01:54:31,520 --> 01:54:33,520
+...
+
+2154
+01:54:33,520 --> 01:54:35,520
+...
+
+2155
+01:54:35,520 --> 01:54:37,520
+...
+
+2156
+01:54:37,520 --> 01:54:39,520
+...
+
+2157
+01:54:39,520 --> 01:54:41,520
+...
+
+2158
+01:54:41,520 --> 01:54:43,520
+...
+
+2159
+01:54:43,520 --> 01:54:45,520
+...
+
+2160
+01:54:45,520 --> 01:54:47,520
+...
+
+2161
+01:54:47,520 --> 01:54:49,520
+...
+
+2162
+01:54:49,520 --> 01:54:51,520
+...
+
+2163
+01:54:51,520 --> 01:54:53,520
+...
+
+2164
+01:54:53,520 --> 01:54:55,520
+...
+
+2165
+01:54:55,520 --> 01:54:57,520
+...
+
+2166
+01:54:57,520 --> 01:54:59,520
+...
+
+2167
+01:54:59,520 --> 01:55:01,520
+...
+
+2168
+01:55:01,520 --> 01:55:03,520
+...
+
+2169
+01:55:03,520 --> 01:55:05,520
+...
+
+2170
+01:55:05,520 --> 01:55:07,520
+...
+
+2171
+01:55:07,520 --> 01:55:09,520
+...
+
+2172
+01:55:09,520 --> 01:55:11,520
+...
+
+2173
+01:55:11,520 --> 01:55:13,520
+...
+
+2174
+01:55:13,520 --> 01:55:15,520
+...
+
+2175
+01:55:15,520 --> 01:55:17,520
+...
+
+2176
+01:55:17,520 --> 01:55:19,520
+...
+
+2177
+01:55:19,520 --> 01:55:21,520
+...
+
+2178
+01:55:21,520 --> 01:55:23,520
+...
+
+2179
+01:55:23,520 --> 01:55:25,520
+...
+
+2180
+01:55:25,520 --> 01:55:27,520
+...
+
+2181
+01:55:27,520 --> 01:55:29,520
+...
+
+2182
+01:55:29,520 --> 01:55:31,520
+...
+
+2183
+01:55:31,520 --> 01:55:33,520
+...
+
+2184
+01:55:33,520 --> 01:55:35,520
+...
+
+2185
+01:55:35,520 --> 01:55:37,520
+...
+
+2186
+01:55:37,520 --> 01:55:39,520
+...
+
+2187
+01:55:39,520 --> 01:55:41,520
+...
+
+2188
+01:55:41,520 --> 01:55:43,520
+...
+
+2189
+01:55:43,520 --> 01:55:45,520
+...
+
+2190
+01:55:45,520 --> 01:55:47,520
+...
+
+2191
+01:55:47,520 --> 01:55:49,520
+...
+
+2192
+01:55:49,520 --> 01:55:51,520
+...
+
+2193
+01:55:51,520 --> 01:55:53,520
+...
+
+2194
+01:55:53,520 --> 01:55:55,520
+...
+
+2195
+01:55:55,520 --> 01:55:57,520
+...
+
+2196
+01:55:57,520 --> 01:55:59,520
+...
+
+2197
+01:55:59,520 --> 01:56:01,520
+...
+
+2198
+01:56:01,520 --> 01:56:03,520
+...
+
+2199
+01:56:03,520 --> 01:56:05,520
+...
+
+2200
+01:56:05,520 --> 01:56:07,520
+...
+
+2201
+01:56:07,520 --> 01:56:09,520
+...
+
+2202
+01:56:09,520 --> 01:56:11,520
+...
+
+2203
+01:56:11,520 --> 01:56:13,520
+...
+
+2204
+01:56:13,520 --> 01:56:15,520
+...
+
+2205
+01:56:15,520 --> 01:56:17,520
+...
+
+2206
+01:56:17,520 --> 01:56:19,520
+...
+
+2207
+01:56:19,520 --> 01:56:21,520
+...
+
+2208
+01:56:21,520 --> 01:56:23,520
+...
+
+2209
+01:56:23,520 --> 01:56:25,520
+...
+
+2210
+01:56:25,520 --> 01:56:27,520
+...
+
+2211
+01:56:27,520 --> 01:56:29,520
+...
+
+2212
+01:56:29,520 --> 01:56:31,520
+...
+
+2213
+01:56:31,520 --> 01:56:33,520
+...
+
+2214
+01:56:33,520 --> 01:56:35,520
+...
+
+2215
+01:56:35,520 --> 01:56:37,520
+...
+
+2216
+01:56:37,520 --> 01:56:39,520
+...
+
+2217
+01:56:39,520 --> 01:56:41,520
+...
+
+2218
+01:56:41,520 --> 01:56:43,520
+...
+
+2219
+01:56:43,520 --> 01:56:45,520
+...
+
+2220
+01:56:45,520 --> 01:56:47,520
+...
+
+2221
+01:56:47,520 --> 01:56:49,520
+...
+
+2222
+01:56:49,520 --> 01:56:51,520
+...
+
+2223
+01:56:51,520 --> 01:56:53,520
+...
+
+2224
+01:56:53,520 --> 01:56:55,520
+...
+
+2225
+01:56:55,520 --> 01:56:57,520
+...
+
+2226
+01:56:57,520 --> 01:56:59,520
+...
+
+2227
+01:56:59,520 --> 01:57:01,520
+...
+
+2228
+01:57:01,520 --> 01:57:03,520
+...
+
+2229
+01:57:03,520 --> 01:57:05,520
+...
+
+2230
+01:57:05,520 --> 01:57:07,520
+...
+
+2231
+01:57:07,520 --> 01:57:09,520
+...
+
+2232
+01:57:09,520 --> 01:57:11,520
+...
+
+2233
+01:57:11,520 --> 01:57:13,520
+...
+
+2234
+01:57:13,520 --> 01:57:15,520
+...
+
+2235
+01:57:15,520 --> 01:57:17,520
+...
+
+2236
+01:57:17,520 --> 01:57:19,520
+...
+
+2237
+01:57:19,520 --> 01:57:21,520
+...
+
+2238
+01:57:21,520 --> 01:57:23,520
+...
+
+2239
+01:57:23,520 --> 01:57:25,520
+...
+
+2240
+01:57:25,520 --> 01:57:27,520
+...
+
+2241
+01:57:27,520 --> 01:57:29,520
+...
+
+2242
+01:57:29,520 --> 01:57:31,520
+...
+
+2243
+01:57:31,520 --> 01:57:33,520
+...
+
+2244
+01:57:33,520 --> 01:57:35,520
+...
+
+2245
+01:57:35,520 --> 01:57:37,520
+...
+
+2246
+01:57:37,520 --> 01:57:39,520
+...
+
+2247
+01:57:39,520 --> 01:57:41,520
+...
+
+2248
+01:57:41,520 --> 01:57:43,520
+...
+
+2249
+01:57:43,520 --> 01:57:45,520
+...
+
+2250
+01:57:45,520 --> 01:57:47,520
+...
+
+2251
+01:57:47,520 --> 01:57:49,520
+...
+
+2252
+01:57:49,520 --> 01:57:51,520
+...
+
+2253
+01:57:51,520 --> 01:57:53,520
+...
+
+2254
+01:57:53,520 --> 01:57:55,520
+...
+
+2255
+01:57:55,520 --> 01:57:57,520
+...
+
+2256
+01:57:57,520 --> 01:57:59,520
+...
+
+2257
+01:57:59,520 --> 01:58:01,520
+...
+
+2258
+01:58:01,520 --> 01:58:03,520
+...
+
+2259
+01:58:03,520 --> 01:58:05,520
+...
+
+2260
+01:58:05,520 --> 01:58:07,520
+...
+
+2261
+01:58:07,520 --> 01:58:09,520
+...
+
+2262
+01:58:09,520 --> 01:58:11,520
+...
+
+2263
+01:58:11,520 --> 01:58:13,520
+...
+
+2264
+01:58:13,520 --> 01:58:15,520
+...
+
+2265
+01:58:15,520 --> 01:58:17,520
+...
+
+2266
+01:58:17,520 --> 01:58:19,520
+...
+
+2267
+01:58:19,520 --> 01:58:21,520
+...
+
+2268
+01:58:21,520 --> 01:58:23,520
+...
+
+2269
+01:58:23,520 --> 01:58:25,520
+...
+
+2270
+01:58:25,520 --> 01:58:27,520
+...
+
+2271
+01:58:27,520 --> 01:58:29,520
+...
+
+2272
+01:58:29,520 --> 01:58:31,520
+...
+
+2273
+01:58:31,520 --> 01:58:33,520
+...
+
+2274
+01:58:33,520 --> 01:58:35,520
+...
+
+2275
+01:58:35,520 --> 01:58:37,520
+...
+
+2276
+01:58:37,520 --> 01:58:39,520
+...
+
+2277
+01:58:39,520 --> 01:58:41,520
+...
+
+2278
+01:58:41,520 --> 01:58:43,520
+...
+
+2279
+01:58:43,520 --> 01:58:45,520
+...
+
+2280
+01:58:45,520 --> 01:58:47,520
+...
+
+2281
+01:58:47,520 --> 01:58:49,520
+...
+
+2282
+01:58:49,520 --> 01:58:51,520
+...
+
+2283
+01:58:51,520 --> 01:58:53,520
+...
+
+2284
+01:58:53,520 --> 01:58:55,520
+...
+
+2285
+01:58:55,520 --> 01:58:57,520
+...
+
+2286
+01:58:57,520 --> 01:58:59,520
+...
+
+2287
+01:58:59,520 --> 01:59:01,520
+...
+
+2288
+01:59:01,520 --> 01:59:03,520
+...
+
+2289
+01:59:03,520 --> 01:59:05,520
+...
+
+2290
+01:59:05,520 --> 01:59:07,520
+...
+
+2291
+01:59:07,520 --> 01:59:09,520
+...
+
+2292
+01:59:09,520 --> 01:59:11,520
+...
+
+2293
+01:59:11,520 --> 01:59:13,520
+...
+
+2294
+01:59:13,520 --> 01:59:15,520
+...
+
+2295
+01:59:15,520 --> 01:59:17,520
+...
+
+2296
+01:59:17,520 --> 01:59:19,520
+...
+
+2297
+01:59:19,520 --> 01:59:19,520
+
+
+2298
+01:59:19,520 --> 01:59:21,520
+...
+
+2299
+01:59:21,520 --> 01:59:23,520
+...
+
+2300
+01:59:23,520 --> 01:59:25,520
+...
+
+2301
+01:59:25,520 --> 01:59:27,520
+...
+
+2302
+01:59:27,520 --> 01:59:29,520
+...
+
+2303
+01:59:29,520 --> 01:59:31,520
+...
+
+2304
+01:59:31,520 --> 01:59:33,520
+...
+
+2305
+01:59:33,520 --> 01:59:35,520
+...
+
+2306
+01:59:35,520 --> 01:59:37,520
+...
+
+2307
+01:59:37,520 --> 01:59:39,520
+...
+
+2308
+01:59:39,520 --> 01:59:41,520
+...
+
+2309
+01:59:41,520 --> 01:59:43,520
+...
+
+2310
+01:59:47,520 --> 01:59:49,520
+...
+
+2311
+01:59:49,520 --> 01:59:51,520
+...
+
+2312
+01:59:51,520 --> 01:59:53,520
+...
+
+2313
+01:59:55,520 --> 01:59:57,520
+...
+
+2314
+01:59:57,520 --> 01:59:59,520
+...
+
+2315
+01:59:59,520 --> 02:00:01,520
+...
+
+2316
+02:00:01,520 --> 02:00:03,520
+...
+
+2317
+02:00:03,520 --> 02:00:05,520
+...
+
+2318
+02:00:05,520 --> 02:00:07,520
+...
+
+2319
+02:00:07,520 --> 02:00:09,520
+...
+
+2320
+02:00:09,520 --> 02:00:11,520
+...
+
+2321
+02:00:11,520 --> 02:00:13,520
+...
+
+2322
+02:00:13,520 --> 02:00:15,520
+...
+
+2323
+02:00:15,520 --> 02:00:17,520
+...
+
+2324
+02:00:17,520 --> 02:00:19,520
+...
+
+2325
+02:00:19,520 --> 02:00:21,520
+...
+
+2326
+02:00:21,520 --> 02:00:23,520
+...
+
+2327
+02:00:23,520 --> 02:00:25,520
+...
+
+2328
+02:00:25,520 --> 02:00:27,520
+...
+
+2329
+02:00:27,520 --> 02:00:29,520
+...
+
+2330
+02:00:29,520 --> 02:00:31,520
+...
+
+2331
+02:00:31,520 --> 02:00:33,520
+...
+
+2332
+02:00:33,520 --> 02:00:35,520
+...
+
+2333
+02:00:35,520 --> 02:00:37,520
+...
+
+2334
+02:00:37,520 --> 02:00:39,520
+...
+
+2335
+02:00:39,520 --> 02:00:41,520
+...
+
+2336
+02:00:41,520 --> 02:00:43,520
+...
+
+2337
+02:00:43,520 --> 02:00:45,520
+...
+
+2338
+02:00:45,520 --> 02:00:47,520
+...
+
+2339
+02:00:47,520 --> 02:00:49,520
+...
+
+2340
+02:00:49,520 --> 02:00:51,520
+...
+
+2341
+02:00:51,520 --> 02:00:53,520
+...
+
+2342
+02:00:53,520 --> 02:00:55,520
+...
+
+2343
+02:00:55,520 --> 02:00:57,520
+...
+
+2344
+02:00:57,520 --> 02:00:59,520
+...
+
+2345
+02:00:59,520 --> 02:01:01,520
+...
+
+2346
+02:01:01,520 --> 02:01:03,520
+...
+
+2347
+02:01:03,520 --> 02:01:05,520
+...
+
+2348
+02:01:05,520 --> 02:01:07,520
+...
+
+2349
+02:01:07,520 --> 02:01:09,520
+...
+
+2350
+02:01:09,520 --> 02:01:11,520
+...
+
+2351
+02:01:11,520 --> 02:01:13,520
+...
+
+2352
+02:01:13,520 --> 02:01:15,520
+...
+
+2353
+02:01:15,520 --> 02:01:17,520
+...
+
+2354
+02:01:17,520 --> 02:01:19,520
+...
+
+2355
+02:01:19,520 --> 02:01:21,520
+...
+
+2356
+02:01:21,520 --> 02:01:23,520
+...
+
+2357
+02:01:23,520 --> 02:01:25,520
+...
+
+2358
+02:01:25,520 --> 02:01:27,520
+...
+
+2359
+02:01:27,520 --> 02:01:29,520
+...
+
+2360
+02:01:29,520 --> 02:01:31,520
+...
+
+2361
+02:01:31,520 --> 02:01:33,520
+...
+
+2362
+02:01:33,520 --> 02:01:35,520
+...
+
+2363
+02:01:35,520 --> 02:01:37,520
+...
+
+2364
+02:01:37,520 --> 02:01:39,520
+...
+
+2365
+02:01:39,520 --> 02:01:41,520
+...
+
+2366
+02:01:41,520 --> 02:01:43,520
+...
+
+2367
+02:01:43,520 --> 02:01:45,520
+...
+
+2368
+02:01:45,520 --> 02:01:47,520
+...
+
+2369
+02:01:47,520 --> 02:01:49,520
+...
+
+2370
+02:01:49,520 --> 02:01:51,520
+...
+
+2371
+02:01:51,520 --> 02:01:53,520
+...
+
+2372
+02:01:53,520 --> 02:01:55,520
+...
+
+2373
+02:01:55,520 --> 02:01:57,520
+...
+
+2374
+02:01:57,520 --> 02:01:59,520
+...
+
+2375
+02:01:59,520 --> 02:02:01,520
+...
+
+2376
+02:02:01,520 --> 02:02:03,520
+...
+
+2377
+02:02:03,520 --> 02:02:05,520
+...
+
+2378
+02:02:05,520 --> 02:02:07,520
+...
+
+2379
+02:02:07,520 --> 02:02:09,520
+...
+
+2380
+02:02:09,520 --> 02:02:11,520
+...
+
+2381
+02:02:11,520 --> 02:02:13,520
+...
+
+2382
+02:02:13,520 --> 02:02:15,520
+...
+
+2383
+02:02:15,520 --> 02:02:17,520
+...
+
+2384
+02:02:17,520 --> 02:02:19,520
+...
+
+2385
+02:02:19,520 --> 02:02:21,520
+...
+
+2386
+02:02:21,520 --> 02:02:25,520
+...
+
+2387
+02:02:25,520 --> 02:02:27,520
+...
+
+2388
+02:02:27,520 --> 02:02:29,520
+...
+
+2389
+02:02:29,520 --> 02:02:31,520
+...
+
+2390
+02:02:31,520 --> 02:02:33,520
+...
+
+2391
+02:02:33,520 --> 02:02:35,520
+...
+
+2392
+02:02:35,520 --> 02:02:37,520
+...
+
+2393
+02:02:37,520 --> 02:02:39,520
+...
+
+2394
+02:02:39,520 --> 02:02:41,520
+...
+
+2395
+02:02:41,520 --> 02:02:43,520
+...
+
+2396
+02:02:43,520 --> 02:02:45,520
+...
+
+2397
+02:02:45,520 --> 02:02:47,520
+...
+
+2398
+02:02:47,520 --> 02:02:49,520
+...
+
+2399
+02:02:49,520 --> 02:02:51,520
+...
+
+2400
+02:02:51,520 --> 02:02:53,520
+...
+
+2401
+02:02:53,520 --> 02:02:55,520
+...
+
+2402
+02:02:55,520 --> 02:02:57,520
+...
+
+2403
+02:02:57,520 --> 02:02:59,520
+...
+
+2404
+02:02:59,520 --> 02:03:01,520
+...
+
+2405
+02:03:01,520 --> 02:03:03,520
+...
+
+2406
+02:03:03,520 --> 02:03:05,520
+...
+
+2407
+02:03:05,520 --> 02:03:07,520
+...
+
+2408
+02:03:07,520 --> 02:03:09,520
+...
+
+2409
+02:03:09,520 --> 02:03:11,520
+...
+
+2410
+02:03:11,520 --> 02:03:13,520
+...
+
+2411
+02:03:13,520 --> 02:03:15,520
+...
+
+2412
+02:03:15,520 --> 02:03:17,520
+...
+
+2413
+02:03:17,520 --> 02:03:19,520
+...
+
+2414
+02:03:19,520 --> 02:03:21,520
+...
+
+2415
+02:03:21,520 --> 02:03:23,520
+...
+
+2416
+02:03:23,520 --> 02:03:25,520
+...
+
+2417
+02:03:25,520 --> 02:03:27,520
+...
+
+2418
+02:03:27,520 --> 02:03:29,520
+...
+
+2419
+02:03:29,520 --> 02:03:31,520
+...
+
+2420
+02:03:31,520 --> 02:03:33,520
+...
+
+2421
+02:03:33,520 --> 02:03:35,520
+...
+
+2422
+02:03:35,520 --> 02:03:37,520
+...
+
+2423
+02:03:37,520 --> 02:03:39,520
+...
+
+2424
+02:03:39,520 --> 02:03:41,520
+...
+
+2425
+02:03:41,520 --> 02:03:43,520
+...
+
+2426
+02:03:43,520 --> 02:03:45,520
+...
+
+2427
+02:03:45,520 --> 02:03:47,520
+...
+
+2428
+02:03:47,520 --> 02:03:49,520
+...
+
+2429
+02:03:49,520 --> 02:03:51,520
+...
+
+2430
+02:03:51,520 --> 02:03:53,520
+...
+
+2431
+02:03:53,520 --> 02:03:55,520
+...
+
+2432
+02:03:55,520 --> 02:03:57,520
+...
+
+2433
+02:03:57,520 --> 02:03:59,520
+...
+
+2434
+02:03:59,520 --> 02:04:01,520
+...
+
+2435
+02:04:01,520 --> 02:04:03,520
+...
+
+2436
+02:04:03,520 --> 02:04:05,520
+...
+
+2437
+02:04:05,520 --> 02:04:07,520
+...
+
+2438
+02:04:07,520 --> 02:04:09,520
+...
+
+2439
+02:04:09,520 --> 02:04:11,520
+...
+
+2440
+02:04:11,520 --> 02:04:13,520
+...
+
+2441
+02:04:13,520 --> 02:04:15,520
+...
+
+2442
+02:04:15,520 --> 02:04:17,520
+...
+
+2443
+02:04:17,520 --> 02:04:19,520
+...
+
+2444
+02:04:19,520 --> 02:04:21,520
+...
+
+2445
+02:04:21,520 --> 02:04:23,520
+...
+
+2446
+02:04:23,520 --> 02:04:25,520
+...
+
+2447
+02:04:25,520 --> 02:04:27,520
+...
+
+2448
+02:04:27,520 --> 02:04:29,520
+...
+
+2449
+02:04:29,520 --> 02:04:31,520
+...
+
+2450
+02:04:31,520 --> 02:04:33,520
+...
+
+2451
+02:04:33,520 --> 02:04:35,520
+...
+
+2452
+02:04:35,520 --> 02:04:37,520
+...
+
+2453
+02:04:37,520 --> 02:04:39,520
+...
+
+2454
+02:04:39,520 --> 02:04:41,520
+...
+
+2455
+02:04:41,520 --> 02:04:43,520
+...
+
+2456
+02:04:43,520 --> 02:04:45,520
+...
+
+2457
+02:04:45,520 --> 02:04:47,520
+...
+
+2458
+02:04:47,520 --> 02:04:49,520
+...
+
+2459
+02:04:49,520 --> 02:04:51,520
+...
+
+2460
+02:04:51,520 --> 02:04:53,520
+...
+
+2461
+02:04:53,520 --> 02:04:55,520
+...
+
+2462
+02:04:55,520 --> 02:04:57,520
+...
+
+2463
+02:04:57,520 --> 02:04:59,520
+...
+
+2464
+02:04:59,520 --> 02:05:01,520
+...
+
+2465
+02:05:01,520 --> 02:05:03,520
+...
+
+2466
+02:05:03,520 --> 02:05:05,520
+...
+
+2467
+02:05:05,520 --> 02:05:07,520
+...
+
+2468
+02:05:07,520 --> 02:05:09,520
+...
+
+2469
+02:05:09,520 --> 02:05:11,520
+...
+
+2470
+02:05:11,520 --> 02:05:13,520
+...
+
+2471
+02:05:13,520 --> 02:05:15,520
+...
+
+2472
+02:05:15,520 --> 02:05:17,520
+...
+
+2473
+02:05:17,520 --> 02:05:19,520
+...
+
+2474
+02:05:19,520 --> 02:05:21,520
+...
+
+2475
+02:05:21,520 --> 02:05:23,520
+...
+
+2476
+02:05:23,520 --> 02:05:25,520
+...
+
+2477
+02:05:25,520 --> 02:05:27,520
+...
+
+2478
+02:05:27,520 --> 02:05:29,520
+...
+
+2479
+02:05:29,520 --> 02:05:31,520
+...
+
+2480
+02:05:31,520 --> 02:05:33,520
+...
+
+2481
+02:05:33,520 --> 02:05:35,520
+...
+
+2482
+02:05:35,520 --> 02:05:37,520
+...
+
+2483
+02:05:37,520 --> 02:05:39,520
+...
+
+2484
+02:05:39,520 --> 02:05:41,520
+...
+
+2485
+02:05:41,520 --> 02:05:43,520
+...
+
+2486
+02:05:43,520 --> 02:05:45,520
+...
+
+2487
+02:05:45,520 --> 02:05:47,520
+...
+
+2488
+02:05:47,520 --> 02:05:49,520
+...
+
+2489
+02:05:49,520 --> 02:05:51,520
+...
+
+2490
+02:05:51,520 --> 02:05:53,520
+...
+
+2491
+02:05:53,520 --> 02:05:55,520
+...
+
+2492
+02:05:55,520 --> 02:05:57,520
+...
+
+2493
+02:05:57,520 --> 02:05:59,520
+...
+
+2494
+02:05:59,520 --> 02:06:01,520
+...
+
+2495
+02:06:01,520 --> 02:06:03,520
+...
+
+2496
+02:06:03,520 --> 02:06:05,520
+...
+
+2497
+02:06:05,520 --> 02:06:07,520
+...
+
+2498
+02:06:07,520 --> 02:06:09,520
+...
+
+2499
+02:06:09,520 --> 02:06:11,520
+...
+
+2500
+02:06:11,520 --> 02:06:13,520
+...
+
+2501
+02:06:13,520 --> 02:06:15,520
+...
+
+2502
+02:06:15,520 --> 02:06:17,520
+...
+
+2503
+02:06:17,520 --> 02:06:19,520
+...
+
+2504
+02:06:19,520 --> 02:06:21,520
+...
+
+2505
+02:06:21,520 --> 02:06:23,520
+...
+
+2506
+02:06:23,520 --> 02:06:25,520
+...
+
+2507
+02:06:25,520 --> 02:06:27,520
+...
+
+2508
+02:06:27,520 --> 02:06:29,520
+...
+
+2509
+02:06:29,520 --> 02:06:31,520
+...
+
+2510
+02:06:31,520 --> 02:06:33,520
+...
+
+2511
+02:06:33,520 --> 02:06:35,520
+...
+
+2512
+02:06:35,520 --> 02:06:37,520
+...
+
+2513
+02:06:37,520 --> 02:06:39,520
+...
+
+2514
+02:06:39,520 --> 02:06:41,520
+...
+
+2515
+02:06:41,520 --> 02:06:43,520
+...
+
+2516
+02:06:43,520 --> 02:06:45,520
+...
+
+2517
+02:06:45,520 --> 02:06:47,520
+...
+
+2518
+02:06:47,520 --> 02:06:49,520
+...
+
+2519
+02:06:49,520 --> 02:06:51,520
+...
+
+2520
+02:06:51,520 --> 02:06:53,520
+...
+
+2521
+02:06:53,520 --> 02:06:55,520
+...
+
+2522
+02:06:55,520 --> 02:06:57,520
+...
+
+2523
+02:06:57,520 --> 02:06:59,520
+...
+
+2524
+02:06:59,520 --> 02:07:01,520
+...
+
+2525
+02:07:01,520 --> 02:07:03,520
+...
+
+2526
+02:07:03,520 --> 02:07:05,520
+...
+
+2527
+02:07:05,520 --> 02:07:07,520
+...
+
+2528
+02:07:07,520 --> 02:07:09,520
+...
+
+2529
+02:07:09,520 --> 02:07:11,520
+...
+
+2530
+02:07:11,520 --> 02:07:13,520
+...
+
+2531
+02:07:13,520 --> 02:07:15,520
+...
+
+2532
+02:07:15,520 --> 02:07:17,520
+...
+
+2533
+02:07:17,520 --> 02:07:19,520
+...
+
+2534
+02:07:19,520 --> 02:07:21,520
+...
+
+2535
+02:07:21,520 --> 02:07:23,520
+...
+
+2536
+02:07:23,520 --> 02:07:25,520
+...
+
+2537
+02:07:25,520 --> 02:07:27,520
+...
+
+2538
+02:07:27,520 --> 02:07:29,520
+...
+
+2539
+02:07:29,520 --> 02:07:31,520
+...
+
+2540
+02:07:31,520 --> 02:07:33,520
+...
+
+2541
+02:07:33,520 --> 02:07:35,520
+...
+
+2542
+02:07:35,520 --> 02:07:37,520
+...
+
+2543
+02:07:37,520 --> 02:07:39,520
+...
+
+2544
+02:07:39,520 --> 02:07:41,520
+...
+
+2545
+02:07:41,520 --> 02:07:43,520
+...
+
+2546
+02:07:43,520 --> 02:07:45,520
+...
+
+2547
+02:07:45,520 --> 02:07:47,520
+...
+
+2548
+02:07:47,520 --> 02:07:49,520
+...
+
+2549
+02:07:49,520 --> 02:07:51,520
+...
+
+2550
+02:07:51,520 --> 02:07:53,520
+...
+
+2551
+02:07:53,520 --> 02:07:55,520
+...
+
