@@ -33,7 +33,8 @@ class ArchivWhisper:
 
         # use condition_on_previous_text to help with larger segments of silence
         result = transcribe(model=model, audio=aac, beam_size=5,
-                            best_of=5, verbose=False, language="de", condition_on_previous_text=False)
+                            best_of=5, verbose=False, language="de", condition_on_previous_text=False,
+                            no_speech_threshold=0.3, compression_ratio_threshold=1.8)
         filename = os.path.splitext(aac)[0]
 
         writer = get_writer("json", output)
