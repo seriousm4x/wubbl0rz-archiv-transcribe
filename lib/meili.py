@@ -42,7 +42,7 @@ class ArchivMeili:
                     "start": segment["start"],
                     "end": segment["end"],
                     "text": segment["text"],
-                    "vod": vod["uuid"],
+                    "uuid": vod["uuid"],
                     "title": vod["title"],
                     "filename": vod["filename"],
                     "date": vod["date"],
