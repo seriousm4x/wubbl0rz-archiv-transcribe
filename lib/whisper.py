@@ -14,7 +14,7 @@ class ArchivWhisper:
         if not torch.cuda.is_available():
             device = "cpu"
             print(colored(
-                "CUDA IS NOT AVAILABLE! Whisper will run in CPU mode which is incredibly slow... Please set up cuda.", "yellow"))
+                "CUDA IS NOT AVAILABLE! Whisper will run in CPU mode which is 3-4x slower... Please set up cuda.", "yellow"))
             reply = None
             while reply not in ["y", "n"]:
                 reply = input(
