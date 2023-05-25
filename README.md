@@ -58,7 +58,7 @@ Just running the main script will mostly do all you need. Transcribed scripts wi
 python main.py -e prod transcribe
 ```
 
-Using the large whisper model (`transcribe -m large`) will result in the best speech to text but requires ~12GB+ GPU memory and takes about twice as long as the medium model (which is default).
+Using the large whisper model (default) will result in the best speech to text and requires ~6GB GPU memory. Use `python main.py transcribe -h` so see all available models.
 
 ```
 usage: Wubbl0rz Archiv Transcribe [-h] [-c CONFIG] -e {prod,dev} [-o OUTPUT]
