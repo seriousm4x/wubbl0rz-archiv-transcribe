@@ -1,9 +1,10 @@
+import json
 import os
 
 import torch
+from faster_whisper import WhisperModel, format_timestamp
 from termcolor import colored
-from whisper import load_model, transcribe
-from whisper.utils import get_writer
+from tqdm import tqdm
 
 
 class ArchivWhisper:
@@ -23,28 +24,51 @@ class ArchivWhisper:
         print(colored("[whisper]", "blue"), "Selected device:", device)
         return device
 
-    def run(self, aac: str, model: str, device: str, output: str) -> None:
+    def run(self, m4a: str, model: str, device: str, output: str) -> None:
         """Transcribes all given vods to .txt .srt and .vtt"""
         print(colored("[whisper]", "blue"),
-              f"Started: aac={aac}, model={model}, device={device}")
-        model = load_model(model, device)
-        # result = transcribe(model=model, audio=aac, beam_size=5,
-        #                     best_of=5, verbose=False, language="de")
+              f"Started: m4a={m4a}, model={model}, device={device}")
 
-        # use condition_on_previous_text to help with larger segments of silence
-        result = transcribe(model=model, audio=aac, beam_size=5,
-                            best_of=5, verbose=False, language="de", condition_on_previous_text=False,
-                            no_speech_threshold=0.2, compression_ratio_threshold=1.0)
-        filename = os.path.splitext(aac)[0]
+        model = WhisperModel(model_size_or_path=model, device=device, compute_type="float16")
+        segments, info = model.transcribe(m4a, beam_size=5, language="de")
 
-        writer = get_writer("json", output)
-        writer(result, filename)
+        filename = os.path.splitext(m4a)[0]
+        final_json = {
+            "text": "",
+            "segments": [],
+            "language": info.language
+        }
+        final_vtt = "WEBVTT\n"
+        final_srt = ""
 
-        writer = get_writer("txt", output)
-        writer(result, filename)
+        with tqdm(total=round(info.duration, 2), unit="sec", bar_format="{l_bar}{bar} | {n:0.1f}/{total:0.1f} [{elapsed}<{remaining}, {rate_fmt}{postfix}]") as pbar:
+            for segment in segments:
+                pbar.update(segment.end - pbar.n)
 
-        writer = get_writer("srt", output)
-        writer(result, filename)
+                # json
+                final_json["text"] += segment.text.strip() + "\n"
+                segment_dict = segment._asdict()
+                segment_dict.pop("words")
+                segment_dict["text"] = segment.text.strip()
+                final_json["segments"].append(segment_dict)
 
-        writer = get_writer("vtt", output)
-        writer(result, filename)
+                # vtt
+                final_vtt += "\n"
+                final_vtt += f"{format_timestamp(segment.start)} --> {format_timestamp(segment.end)}\n"
+                final_vtt += segment.text.strip() + "\n"
+
+                # srt
+                if final_srt != "":
+                    final_srt += "\n"
+                final_srt += f"{segment.id}\n"
+                final_srt += f"{format_timestamp(segment.start, True, ',')} --> {format_timestamp(segment.end, True, ',')}\n"
+                final_srt += segment.text.strip() + "\n"
+
+        with open(os.path.join(output, filename + ".json"), "w", encoding="utf-8") as f:
+            json.dump(final_json, f)
+        with open(os.path.join(output, filename + ".vtt"), "w", encoding="utf-8") as f:
+            f.write(final_vtt)
+        with open(os.path.join(output, filename + ".srt"), "w", encoding="utf-8") as f:
+            f.write(final_srt)
+        with open(os.path.join(output, filename + ".txt"), "w", encoding="utf-8") as f:
+            f.write(final_json["text"])

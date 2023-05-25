@@ -29,7 +29,8 @@ class ArchivApi:
         print(colored("[api]", "blue"), f"Downloading vod...")
         cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-stats", "-i",
                f"{self.api}/media/vods/{filename}-segments/{filename}.m3u8", "-vn",
-               "-c:a", "copy", "-bsf:a", "aac_adtstoasc", "-movflags", "frag_keyframe+empty_moov", "-y", f"{filename}.aac"]
+               "-c:a", "copy", "-bsf:a", "aac_adtstoasc", "-movflags",
+               "frag_keyframe+empty_moov", "-y", f"{filename}.m4a"]
         subprocess.check_output(cmd)
 
     def get_clips(self) -> list:

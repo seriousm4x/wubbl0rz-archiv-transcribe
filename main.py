@@ -61,15 +61,15 @@ def run_transcribe():
         i += 1
         start = time.time()
         filename = vod["filename"]
-        aac = f"{filename}.aac"
+        m4a = f"{filename}.m4a"
         print(colored("[main]", "blue"), i, "of",
               len(vods_to_transcribe), filename)
 
-        # download vod and extract audio to aac, transcribe audio and delete aac afterwards
+        # download vod and extract audio to m4a, transcribe audio and delete m4a afterwards
         api.download_vod(filename)
-        whisper.run(aac=aac, model=args.model,
+        whisper.run(m4a=m4a, model=args.model,
                     device=whisper_device, output=args.output)
-        os.remove(aac)
+        os.remove(m4a)
 
         # push transcript to git
         git.pull()
@@ -137,8 +137,8 @@ if __name__ == "__main__":
     # parser for transcibe
     transcribe_parser = subparsers.add_parser(
         "transcribe",  help="Run whisper to transcribe vods to text")
-    transcribe_parser.add_argument("-m", "--model", choices=["tiny", "base", "small", "medium", "large"],
-                                   default="medium", type=str, help="Whisper language model")
+    transcribe_parser.add_argument("-m", "--model", choices=["tiny", "base", "small", "medium", "large-v1", "large-v2"],
+                                   default="large-v2", type=str, help="Whisper language model")
 
     # parser for post
     post_parser = subparsers.add_parser(

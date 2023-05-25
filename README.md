@@ -1,6 +1,6 @@
 # Whisper transcribe for vods
 
-CUDA is highly recommended for this! It can run it on CPU, but oh boi, you don't want that.
+CUDA is highly recommended for this! CPU is about 3x slower. Read more about speed comparison here: https://github.com/guillaumekln/faster-whisper#benchmark
 
 ## Installation
 
