@@ -30,7 +30,8 @@ class ArchivWhisper:
               f"Started: m4a={m4a}, model={model}, device={device}")
 
         model = WhisperModel(model_size_or_path=model, device=device)
-        segments, info = model.transcribe(m4a, beam_size=5, language="de")
+        segments, info = model.transcribe(
+            m4a, beam_size=5, language="de", temperature=0)
 
         filename = os.path.splitext(m4a)[0]
         final_json = {
