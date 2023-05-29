@@ -64,6 +64,7 @@ class ArchivWhisper:
                 final_srt += f"{segment.id}\n"
                 final_srt += f"{format_timestamp(segment.start, True, ',')} --> {format_timestamp(segment.end, True, ',')}\n"
                 final_srt += segment.text.strip() + "\n"
+            pbar.n = pbar.total
 
         with open(os.path.join(output, filename + ".json"), "w", encoding="utf-8") as f:
             json.dump(final_json, f)
