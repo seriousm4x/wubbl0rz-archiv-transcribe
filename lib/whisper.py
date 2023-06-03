@@ -31,7 +31,7 @@ class ArchivWhisper:
 
         model = WhisperModel(model_size_or_path=model, device=device)
         segments, info = model.transcribe(
-            m4a, beam_size=5, language="de", no_speech_threshold=0.3, condition_on_previous_text=False)
+            m4a, language="de", no_speech_threshold=0.3, condition_on_previous_text=False)
 
         filename = os.path.splitext(m4a)[0]
         final_json = {
