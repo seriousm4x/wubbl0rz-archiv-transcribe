@@ -1,0 +1,6721 @@
+WEBVTT
+
+01:17.810 --> 01:18.810
+Da bin ich.
+
+01:20.740 --> 01:22.840
+Zarex ist auch schon wokige.
+
+01:23.660 --> 01:26.660
+Da magst auch. Und DJSW77
+
+01:26.660 --> 01:28.540
+auch am Start.
+
+01:32.980 --> 01:35.900
+In meinem Stream musst du es nicht selbst machen, du kannst zugucken,
+
+01:35.900 --> 01:36.900
+das ist der Unterschied.
+
+01:38.820 --> 01:41.300
+Mal davon abgesehen, die Sache ist die,
+
+01:41.760 --> 01:43.980
+ich hab schon wieder fast alles vergessen,
+
+01:44.840 --> 01:47.740
+was Helmchart-Erstellung angeht. Ich weiß noch, du brauchst
+
+01:47.740 --> 01:50.520
+eine Chart-Jamme und ein Template-Verzeichnis,
+
+01:50.520 --> 01:53.360
+wo du deine Kubernetes-Ressourcen reinschmeißt.
+
+01:55.150 --> 01:58.310
+Ja, und dann zum Überschreiben Value-Files, aber es hält sich
+
+01:58.310 --> 01:59.910
+ganz hart in Grenzen.
+
+02:01.310 --> 02:04.310
+Du hast den ganzen Tag alte Streams laufen gehabt,
+
+02:04.310 --> 02:05.830
+das ist extrem nice.
+
+02:06.870 --> 02:08.710
+Views of what?
+
+02:09.070 --> 02:11.570
+Weiß ich nicht, ob das was bringt auf Twitch, aber
+
+02:11.570 --> 02:13.590
+trotzdem gut, dass du jetzt am Start bist.
+
+02:14.010 --> 02:17.010
+Ja, also, ich muss euch ehrlich sagen, ich bin mir nicht sicher,
+
+02:17.010 --> 02:20.010
+ob ich das geistig heute Abend noch
+
+02:20.010 --> 02:21.590
+genug Gehirn-Kapazitäten für alles hab.
+
+02:24.690 --> 02:25.970
+Muss ich nochmal schauen, ja.
+
+02:27.490 --> 02:30.770
+Ich will ein eigenes Chart erstellen, ich will nicht unbedingt
+
+02:30.770 --> 02:33.950
+was erweitern oder auf Repos oder das damit installieren.
+
+02:33.950 --> 02:36.410
+Ich will ein eigenes Chart erstellen, das wird was super Simples,
+
+02:36.410 --> 02:39.410
+was wir heute erstellen. Wie gesagt, ich hab schon einige
+
+02:39.410 --> 02:42.410
+erstellt oder zumindest mit dran gearbeitet,
+
+02:42.410 --> 02:45.010
+aber ich hab fast alles wieder vergessen.
+
+02:46.370 --> 02:49.570
+Ich krieg noch nicht mal mehr die Template-Syntax richtig aus dem Kopf hin.
+
+02:49.570 --> 02:53.130
+Aber Go-Templates sind eh massive abartig.
+
+02:56.710 --> 02:59.470
+Ja, ich kann euch ja mal den Grund erzählen. Moment, wir müssen erstmal
+
+02:59.470 --> 03:02.270
+kurz ein bisschen was Entspannteres anmachen.
+
+03:02.550 --> 03:05.550
+Machen wir ne Runde Wup Wup Wup an? Weiß ich nicht.
+
+03:05.550 --> 03:08.190
+Wir können auch Relaxing...
+
+03:09.670 --> 03:12.430
+Das ist... Jawohl, excellent.
+
+03:26.340 --> 03:28.340
+Dire Dire Docks, beste.
+
+03:37.320 --> 03:40.260
+Was ich Kubernetes-Ready machen will,
+
+03:40.260 --> 03:41.600
+ein Hello-World-Web-Server.
+
+03:41.960 --> 03:44.160
+Nichts Großartiges, Kompliziertes.
+
+03:44.160 --> 03:46.920
+Ich mein, es bringt ja nichts, wenn ich zwei komplizierte Sachen mache.
+
+03:53.280 --> 03:56.640
+Ich muss erstmal wieder ein bisschen in Fahrt kommen hier.
+
+03:56.760 --> 03:58.040
+Gatschi-Bass.
+
+03:59.910 --> 04:02.470
+Ich müsste jetzt mal ein paar Liegestützen machen.
+
+04:03.270 --> 04:06.230
+Oder irgendwas. Ich bin zwar schon seit
+
+04:06.230 --> 04:07.710
+eineinhalb Stunden daheim,
+
+04:08.630 --> 04:11.430
+aber es ist schon immer ein bisschen anstrengend gewesen,
+
+04:11.430 --> 04:13.230
+wir haben den ganzen Tag wieder gemietet.
+
+04:16.020 --> 04:19.420
+Kurze Stand-Up. Leute, Daily Scrum, auf geht's.
+
+04:19.460 --> 04:23.820
+Daily Scrum, Stand-Up, alle hinstellen von Rechnern.
+
+04:24.900 --> 04:27.300
+Und jeder halbe Minute,
+
+04:27.300 --> 04:30.300
+was hat er heute gemacht, was will er heute machen.
+
+04:30.300 --> 04:33.100
+Boah, ey, wie ich so gezwungene Sachen hasse.
+
+04:33.140 --> 04:36.020
+Ich finde an sich das eigentlich sehr sinnvoll, das zu machen.
+
+04:36.020 --> 04:38.020
+Wirklich, ich finde das wirklich sehr sinnvoll.
+
+04:38.020 --> 04:40.020
+Allerdings nur unter der Prämisse,
+
+04:40.020 --> 04:42.020
+dass es okay ist,
+
+04:42.020 --> 04:45.020
+wenn man auch sagen kann, gibt nichts Spannendes, Neues.
+
+04:45.020 --> 04:48.020
+Alle anderen haben das System auch nicht verstanden,
+
+04:48.100 --> 04:50.100
+wenn du was sagen musst.
+
+04:50.100 --> 04:52.100
+Was findest du persönlich besser?
+
+04:52.100 --> 04:56.500
+In einer internen IT zu arbeiten oder bei einem IT-Dienstleister?
+
+04:56.500 --> 04:58.500
+Äh, intern in der IT zu arbeiten,
+
+04:58.500 --> 05:01.500
+weil als Externer oder als IT-Dienstleister
+
+05:01.500 --> 05:08.820
+für größere Enterprise-Dinger bist du immer der Gearschte.
+
+05:08.820 --> 05:11.820
+Heute ist Sprint angesagt,
+
+05:11.820 --> 05:13.820
+für die nächsten vier Wochen.
+
+05:13.820 --> 05:16.820
+Heute machen wir Sprint-Review,
+
+05:16.820 --> 05:20.820
+Sprint-Retrospektive und Sprint-Planning.
+
+05:21.300 --> 05:23.300
+Alles in einem heute im Stream.
+
+05:23.300 --> 05:25.300
+Und das alles als Stand-Up.
+
+05:25.300 --> 05:27.300
+Wir dürfen uns nicht hinsetzen dabei.
+
+05:27.300 --> 05:30.300
+Sonst sind wir nicht agile genug.
+
+05:30.300 --> 05:37.960
+Ja, und wir machen natürlich auch so schöne, äh, so schöne,
+
+05:37.960 --> 05:40.960
+agile Boards, wo dann jeder, wo dann jeder...
+
+05:40.960 --> 05:43.960
+Wobei, kein Witz, Leute, wir haben ein neues,
+
+05:43.960 --> 05:46.960
+wir haben einen neuen Scrum-Master bei uns.
+
+05:46.960 --> 05:48.960
+Und der hat sich jetzt was überlegt.
+
+05:48.960 --> 05:50.960
+Ich find's eigentlich gar nicht so schlecht,
+
+05:50.960 --> 05:52.960
+aber es ist schon ganz lustig, was für Ausmaße das annimmt.
+
+05:53.440 --> 05:58.440
+Und zwar, wir haben jetzt eine Wetterkarte für unser Sprint,
+
+05:58.440 --> 06:01.440
+für unsere Sprint-Retrospektive.
+
+06:01.440 --> 06:03.440
+Haben wir eine Wetterkarte.
+
+06:03.440 --> 06:05.440
+Ich glaub, so heißt das.
+
+06:05.440 --> 06:10.440
+Ja, Max, genau so, genau so, das hab ich mir auch gedacht.
+
+06:10.440 --> 06:12.440
+Wisst ihr, was das ist?
+
+06:12.440 --> 06:15.440
+Das ist eigentlich, ich zeig euch das mal.
+
+06:15.440 --> 06:18.440
+Das ist eigentlich nur ein Paint-Bild mit,
+
+06:18.440 --> 06:22.440
+äh, wie fügt man bei Paint, kann man bei Paint Emojis einfügen?
+
+06:22.440 --> 06:24.440
+Äh, selbstverständlich nicht.
+
+06:24.440 --> 06:26.440
+Warum kann man bei Paint keine Emojis einfügen?
+
+06:26.440 --> 06:28.440
+Warum ist das schon wieder so kacke alles?
+
+06:29.440 --> 06:32.440
+Leute, wie fügt man in Paint Emojis?
+
+06:32.440 --> 06:36.200
+Das muss doch gehen.
+
+06:36.200 --> 06:38.200
+Gar nicht, ne?
+
+06:38.200 --> 06:40.200
+Naja, gut.
+
+06:41.200 --> 06:45.200
+Aber in Affinity Designer kann man Emojis einfügen.
+
+06:45.200 --> 06:47.200
+Hoff ich, glaub ich.
+
+06:47.200 --> 06:49.200
+Hab ich noch nie ausprobiert,
+
+06:49.200 --> 06:51.200
+ob das über das Windows-Menü geht.
+
+06:51.200 --> 06:53.200
+Also, wir haben eine...
+
+06:53.200 --> 06:55.200
+Alter, geh mir nicht auf den Sack,
+
+06:55.200 --> 06:59.850
+ich will einfach nur ein Bild anlegen.
+
+06:59.850 --> 07:01.850
+So, wir haben eine Wetterkarte,
+
+07:01.850 --> 07:03.850
+und das sieht dann so aus.
+
+07:03.850 --> 07:07.480
+Moment, mal gucken, ob man hier Emojis machen kann.
+
+07:07.480 --> 07:09.480
+Ne, geht auch nicht.
+
+07:09.480 --> 07:13.500
+Okay, ähm.
+
+07:13.500 --> 07:15.500
+Pass auf, wir machen jetzt Trick 17.
+
+07:15.500 --> 07:17.500
+Wir fügen jetzt, pass mal auf,
+
+07:17.500 --> 07:19.500
+das ist ZigZag, Cloud.
+
+07:19.500 --> 07:21.500
+Wir nehmen jetzt hier ein Bild,
+
+07:21.500 --> 07:23.500
+ein Emoji, copy...
+
+07:23.500 --> 07:27.640
+Ach, das geht, oder was?
+
+07:27.640 --> 07:31.530
+Das geht wohl.
+
+07:31.530 --> 07:33.530
+Aber richtig vergrößern kann man es nicht,
+
+07:33.530 --> 07:35.530
+das muss man dann mit der...
+
+07:35.530 --> 07:37.530
+mit der...
+
+07:37.530 --> 07:39.530
+Textgröße machen.
+
+07:39.530 --> 07:45.980
+Okay.
+
+07:45.980 --> 07:47.980
+Excellent.
+
+07:47.980 --> 07:49.980
+Also, wir haben eine Wetterkarte,
+
+07:49.980 --> 07:51.980
+das sieht dann so aus.
+
+07:51.980 --> 07:53.980
+Cloud, Regen,
+
+07:53.980 --> 07:57.740
+Wolkig,
+
+07:57.740 --> 07:59.740
+Wolke mit Sonne,
+
+07:59.740 --> 08:01.740
+und Sonne.
+
+08:01.740 --> 08:06.810
+So.
+
+08:06.810 --> 08:08.810
+So eine Wetterkarte haben wir jetzt.
+
+08:08.810 --> 08:10.810
+Sieht so aus, ja.
+
+08:10.810 --> 08:12.810
+Ja, okay, alles klar.
+
+08:12.810 --> 08:14.810
+Chat, geh.
+
+08:14.810 --> 08:16.810
+Ja.
+
+08:16.810 --> 08:21.150
+Und...
+
+08:21.150 --> 08:25.360
+So, und da sollst du jetzt...
+
+08:25.360 --> 08:27.360
+So was haben wir jetzt, weil wir sind super agil auf der Arbeit.
+
+08:27.360 --> 08:29.360
+So was haben wir da.
+
+08:29.360 --> 08:31.360
+Und da soll jetzt jeder für den letzten Sprint
+
+08:31.360 --> 08:33.360
+eintragen, was gut
+
+08:33.360 --> 08:35.360
+und schlecht gelaufen ist.
+
+08:35.360 --> 08:37.360
+Was schlecht gelaufen ist, ist nicht schlecht,
+
+08:37.360 --> 08:39.360
+sondern ist Regen, Wolke.
+
+08:39.360 --> 08:41.360
+Was eher schlecht gelaufen ist,
+
+08:41.360 --> 08:43.360
+ist Wolke.
+
+08:43.360 --> 08:45.360
+Was eher gut gelaufen ist, ist Sonne und Wolke.
+
+08:45.360 --> 08:47.360
+Und was top gelaufen ist, ist Sonne.
+
+08:47.360 --> 08:49.360
+Und da müssen die Leute jetzt drunter schreiben,
+
+08:49.360 --> 08:51.360
+Ah, also im letzten Sprint
+
+08:51.360 --> 08:53.360
+war die Abstimmung
+
+08:53.360 --> 08:55.360
+in dem und dem Bereich schlecht.
+
+08:55.360 --> 08:57.360
+Regen, Wolke.
+
+08:57.360 --> 09:01.820
+Ich find's nicht schlecht.
+
+09:01.820 --> 09:03.820
+Jetzt war Spaß,
+
+09:03.820 --> 09:05.820
+ich find's vom Ansatz her eigentlich gar nicht übel.
+
+09:05.820 --> 09:07.820
+Aber ich find's immer lustig,
+
+09:07.820 --> 09:09.820
+wenn dann irgendwie 20 Leute da sitzen
+
+09:09.820 --> 09:11.820
+und erstmal irgendwelche Paintbildchen
+
+09:11.820 --> 09:18.460
+wählen. Habt ihr auch einen Redestock?
+
+09:18.460 --> 09:20.460
+Nein.
+
+09:20.460 --> 09:22.460
+Das haben wir zum Glück nicht.
+
+09:22.460 --> 09:24.460
+Diesen Blödsinn haben wir nicht gemacht.
+
+09:24.460 --> 09:26.460
+Was wir haben ist,
+
+09:26.460 --> 09:28.460
+wir haben Elmo, heißt das Ding?
+
+09:28.460 --> 09:30.460
+Elmo?
+
+09:30.460 --> 09:32.460
+Aus der Sesamstraße?
+
+09:32.460 --> 09:34.460
+Ja, Elmo. Wir haben Elmo.
+
+09:34.460 --> 09:36.460
+Und man kann,
+
+09:36.460 --> 09:38.460
+man kann ein Bild von Elmo
+
+09:38.460 --> 09:40.460
+einblenden. Und wenn man ein Bild
+
+09:40.460 --> 09:42.460
+von Elmo einblendet, jetzt überlegt
+
+09:42.460 --> 09:44.460
+wir sind nicht im Kindergarten oder so.
+
+09:44.460 --> 09:46.460
+Also wenn man ein Bild von Elmo
+
+09:46.460 --> 09:48.460
+einblendet, dann bedeutet
+
+09:48.460 --> 09:50.460
+das in unserer agilen
+
+09:50.460 --> 09:52.460
+Agilitätssprache, ein
+
+09:52.460 --> 09:54.460
+Thema wird zutiefst behandelt
+
+09:54.460 --> 09:56.460
+im Daily Scrum, bitte
+
+09:56.460 --> 09:58.460
+macht ein
+
+09:58.460 --> 10:00.460
+weiterführendes Meeting zusammen.
+
+10:00.460 --> 10:07.740
+Ohne mich.
+
+10:07.740 --> 10:09.740
+Ja, also mal angenommen,
+
+10:09.740 --> 10:11.740
+man hat Daily
+
+10:11.740 --> 10:13.740
+und zwei Leute unterhalten
+
+10:13.740 --> 10:15.740
+sich fünf Minuten lang über
+
+10:15.740 --> 10:17.740
+was weiß ich,
+
+10:17.740 --> 10:19.740
+Bitcoin oder keine Ahnung,
+
+10:19.740 --> 10:21.740
+über irgendwelche Sachen, die nicht wirklich was für alle relevant
+
+10:21.740 --> 10:23.740
+sind. Und dann blendest du Elmo
+
+10:23.740 --> 10:25.740
+ein und sagst, mach doch
+
+10:25.740 --> 10:27.740
+mal ein Meeting dazu, da braucht ihr uns doch nicht bei.
+
+10:27.740 --> 10:29.740
+Ja, das ist alles ein bisschen,
+
+10:29.740 --> 10:31.740
+ein bisschen Kindergarten ist das schon.
+
+10:31.740 --> 10:33.740
+Aber vom Ansatz her machen die
+
+10:33.740 --> 10:35.740
+es eigentlich ganz gut.
+
+10:35.740 --> 10:37.740
+Kann ich es nicht durch...
+
+10:37.740 --> 10:39.740
+Du hast recht.
+
+10:39.740 --> 10:41.740
+Du hast recht. Deswegen ist das
+
+10:41.740 --> 10:43.740
+Elmo. Das habe ich ja noch nie gecheckt.
+
+10:43.740 --> 10:45.740
+Das heißt, enough, let's move on.
+
+10:45.740 --> 10:49.690
+Chat, siehste?
+
+10:49.690 --> 10:51.690
+Wieder was gelernt.
+
+10:51.690 --> 10:53.690
+Absolut massive high IQ Chat.
+
+10:53.690 --> 10:58.990
+Das ist richtig.
+
+10:58.990 --> 11:00.990
+Deswegen heißt das Elmo.
+
+11:00.990 --> 11:02.990
+Hab ich nie gecheckt.
+
+11:02.990 --> 11:06.810
+Wieder ein kompletter IQ
+
+11:06.810 --> 11:08.810
+Increase für den gesamten Chat.
+
+11:08.810 --> 11:21.280
+Boda
+
+11:21.280 --> 11:23.280
+Shields2395, danke
+
+11:23.280 --> 11:27.360
+für den Prime Sub.
+
+11:27.360 --> 11:29.360
+Was war der Grund, weswegen du in der
+
+11:29.360 --> 11:31.360
+IT, in der Finanzbranche tätig bist?
+
+11:31.360 --> 11:33.360
+Der Grund?
+
+11:33.360 --> 11:35.360
+Weil es Geld gibt.
+
+11:35.360 --> 11:37.360
+Weil ich nicht unter der Brücke schlafen will.
+
+11:37.360 --> 11:39.360
+Und was zu essen haben will.
+
+11:39.360 --> 11:55.470
+Okay, das habe ich zu
+
+11:55.470 --> 11:57.470
+ernst gesagt. Wahrscheinlich haben es ja sogar ein paar Leute
+
+11:57.470 --> 11:59.470
+geglaubt. Also, der Grund,
+
+11:59.470 --> 12:01.470
+der Grund, warum ich in der IT-Branche tätig
+
+12:01.470 --> 12:03.470
+bin. Ich meine, in der IT verdient man nicht schlecht.
+
+12:03.470 --> 12:05.470
+Ich könnte auch in jeder anderen Branche in der IT arbeiten
+
+12:05.470 --> 12:07.470
+und würde wahrscheinlich auch genug verdienen, um nicht unter der Brücke
+
+12:07.470 --> 12:09.470
+schlafen zu müssen. Also, der Grund, warum
+
+12:09.470 --> 12:11.470
+ich in der Finanzbranche tätig bin, ist ganz einfach.
+
+12:11.470 --> 12:13.470
+Ich bin damals
+
+12:13.470 --> 12:15.470
+in die Frankfurter Finanzbranche reingerutscht.
+
+12:15.470 --> 12:17.470
+Ich war ja zuerst beim Internetprovider,
+
+12:17.470 --> 12:19.470
+wo ich gearbeitet habe und meine Ausbildung
+
+12:19.470 --> 12:21.470
+gemacht habe und nach der Ausbildung auch noch ein bisschen
+
+12:21.470 --> 12:23.470
+weitergearbeitet habe. Und dort waren
+
+12:23.470 --> 12:25.470
+wir tätig für eine Bank in Frankfurt
+
+12:25.470 --> 12:27.470
+und
+
+12:27.470 --> 12:29.470
+als mir der Internetprovider
+
+12:29.470 --> 12:31.470
+dann zu sehr auf den Sack ging,
+
+12:31.470 --> 12:33.470
+bin ich gewechselt
+
+12:33.470 --> 12:35.470
+zur Bank in Frankfurt.
+
+12:35.470 --> 12:37.470
+Also, die kannte ich ja damals
+
+12:37.470 --> 12:39.470
+schon. Das war halt auch Frankfurter Finanzbranche.
+
+12:39.470 --> 12:41.470
+Jetzt bin ich zu einer Versicherung gewechselt in Frankfurt.
+
+12:41.470 --> 12:43.470
+Das ist auch Frankfurter Finanzbranche.
+
+12:43.470 --> 12:45.470
+Allerdings muss man sagen, die fanden das
+
+12:45.470 --> 12:47.470
+richtig gut, dass ich schon über 10 Jahre Erfahrung
+
+12:47.470 --> 12:49.470
+in der Frankfurter Finanzbranche habe. Was auch immer
+
+12:49.470 --> 12:51.470
+das genau bringen soll, ich weiß es nicht.
+
+12:51.470 --> 12:53.470
+Vielleicht, dass man weiß, dass man sich an Regulierung halten
+
+12:53.470 --> 12:55.470
+muss und sowas.
+
+12:55.470 --> 13:03.390
+Das klingt aber ziemlich Fremdschäm
+
+13:03.390 --> 13:07.600
+Peter Prometheus.
+
+13:07.600 --> 13:09.600
+Was ich im Vorstellungsgespräch dazu
+
+13:09.600 --> 13:11.600
+gesagt habe,
+
+13:11.600 --> 13:13.600
+nichts. Ich glaube, ich wurde
+
+13:13.600 --> 13:15.600
+dazu nichts gefragt.
+
+13:15.600 --> 13:17.600
+Also, ich habe das sicherlich mal erwähnt,
+
+13:17.600 --> 13:19.600
+aber nichts weiter.
+
+13:19.600 --> 13:21.600
+Ich bin ja auch schon 10 Jahre hier.
+
+13:21.600 --> 13:23.600
+Über 10 Jahre Finanzbranche-Erfahrung.
+
+13:23.600 --> 13:25.600
+Ich weiß, wie das mit Regulation
+
+13:25.600 --> 13:27.600
+und Vorgaben ist.
+
+13:27.600 --> 13:29.600
+Ich glaube, das war es.
+
+13:29.600 --> 13:31.600
+Es kam nicht groß zur Sprache.
+
+13:31.600 --> 13:33.600
+Außer, dass sie das nice finden.
+
+13:33.600 --> 13:35.600
+X Defiant, Peter.
+
+13:35.600 --> 13:37.600
+Heute schaffe ich das
+
+13:37.600 --> 13:39.600
+geistig nicht mehr. Aber ich wollte unbedingt
+
+13:39.600 --> 13:41.600
+mal noch ein bisschen spielen.
+
+13:41.600 --> 13:43.600
+Weil ja die Leute schon wieder anfangen.
+
+13:43.600 --> 13:45.600
+Der COD-Killer.
+
+13:45.600 --> 13:47.600
+Das glaube ich nicht.
+
+13:47.600 --> 13:49.600
+Vielleicht ein ganz guter
+
+13:49.600 --> 13:51.600
+Ersatz für einen Multiplayer.
+
+13:51.600 --> 13:53.600
+Die letzten normalen Multiplayer
+
+13:53.600 --> 13:55.600
+waren einfach
+
+13:55.600 --> 13:57.600
+Shit. Also nicht der
+
+13:57.600 --> 14:06.480
+Shit, sondern richtig mies.
+
+14:06.480 --> 14:17.790
+Da ist er wieder.
+
+14:17.790 --> 14:19.790
+Da hat dann aber auch keiner was von.
+
+14:19.790 --> 14:21.790
+Also, eine Sache,
+
+14:21.790 --> 14:23.790
+die mir wirklich gefällt
+
+14:23.790 --> 14:25.790
+in der
+
+14:25.790 --> 14:27.790
+Firma, wo ich aktuell arbeite.
+
+14:27.790 --> 14:29.790
+Kann ich mal erzählen.
+
+14:29.790 --> 14:31.790
+Eine Sache, die mir ein bisschen
+
+14:31.790 --> 14:33.790
+in der alten Firma auf den Keks gegangen ist,
+
+14:33.790 --> 14:35.790
+ist, dass die immer gesagt haben,
+
+14:35.790 --> 14:37.790
+wir suchen bei Problemen ja keinen
+
+14:37.790 --> 14:39.790
+Schuldigen, sondern wir suchen, wie man das
+
+14:39.790 --> 14:41.790
+besser machen kann. Das haben die immer gesagt.
+
+14:41.790 --> 14:43.790
+Das ging dann bis zu dem Punkt,
+
+14:43.790 --> 14:45.790
+wenn mal was kaputt war, dann wurden eigentlich
+
+14:45.790 --> 14:47.790
+nur Schuldige gesucht und nicht das Problem angegangen.
+
+14:47.790 --> 14:49.790
+Das war in meiner alten Firma so.
+
+14:49.790 --> 14:51.790
+Das hat dazu geführt, dass eigentlich die Leute
+
+14:51.790 --> 14:53.790
+lieber nichts gemacht haben,
+
+14:53.790 --> 14:55.790
+weil wenn du nichts machst,
+
+14:55.790 --> 14:57.790
+machst du auch nichts kaputt und kriegst keinen Ärger.
+
+14:57.790 --> 14:59.790
+Da habe
+
+14:59.790 --> 15:01.790
+ich heute mit jemand in der neuen Firma,
+
+15:01.790 --> 15:03.790
+wo ich arbeite, drüber geredet und da meinte der,
+
+15:03.790 --> 15:05.790
+ich bin hier schon irgendwie 15 Jahre da
+
+15:05.790 --> 15:07.790
+und das war früher bei uns auch so,
+
+15:07.790 --> 15:09.790
+aber
+
+15:09.790 --> 15:11.790
+die neue IT-Leitung
+
+15:11.790 --> 15:13.790
+und sowas, die es jetzt seit ein paar Jahren gibt,
+
+15:13.790 --> 15:15.790
+die hat das wohl geschafft zu transformieren.
+
+15:15.790 --> 15:17.790
+Er hat gesagt, es war früher auch ganz
+
+15:17.790 --> 15:19.790
+stark hier verbreitet, so dieses,
+
+15:19.790 --> 15:21.790
+wenn du nichts machst, machst du nichts kaputt und kriegst
+
+15:21.790 --> 15:23.790
+keinen Ärger und das haben die wohl
+
+15:23.790 --> 15:25.790
+die letzten 5, 6 Jahre über geschafft,
+
+15:25.790 --> 15:27.790
+die Transformation von wirklich
+
+15:27.790 --> 15:29.790
+richtig Oldschool, Dienst nach Vorschrift,
+
+15:29.790 --> 15:31.790
+keiner macht was freiwillig, weil er dann
+
+15:31.790 --> 15:33.790
+Ärger kriegt, wenn was schief geht, zu
+
+15:33.790 --> 15:35.790
+moderner und
+
+15:35.790 --> 15:37.790
+weniger Gebläme und mehr
+
+15:37.790 --> 15:39.790
+Sachen lösen. Das fand ich
+
+15:39.790 --> 15:41.790
+wirklich gut. Da hat man gesehen,
+
+15:41.790 --> 15:43.790
+es geht auch der umgedrehte
+
+15:43.790 --> 15:45.790
+Trend. Bei meiner alten Firma, wo
+
+15:45.790 --> 15:47.790
+ich war, war der Trend eher von, es war
+
+15:47.790 --> 15:49.790
+gut zu, wir blamen jetzt nur noch Leute den
+
+15:49.790 --> 15:51.790
+ganzen Tag und dort, wo ich jetzt bin, ging es
+
+15:51.790 --> 15:53.790
+von, wir blamen nur noch die Leute zu,
+
+15:53.790 --> 15:55.790
+wir suchen eigentlich Lösungen dazu.
+
+15:55.790 --> 15:57.790
+Was viel sinnvoller ist,
+
+15:57.790 --> 15:59.790
+weil, seriously, das führt halt echt
+
+15:59.790 --> 16:01.790
+dazu, wenn du bei jedem
+
+16:01.790 --> 16:03.790
+Handschlag Ärger für kriegst,
+
+16:03.790 --> 16:05.790
+wenn irgendwie mal irgendwo was ein bisschen nicht
+
+16:05.790 --> 16:07.790
+ganz richtig gelaufen ist, dann machst du halt
+
+16:07.790 --> 16:09.790
+in Zukunft wirklich nur noch das absolute Minimum
+
+16:09.790 --> 16:11.790
+und damit fährst du besser, was ja
+
+16:11.790 --> 16:13.790
+halt auch eigentlich unterm Strich scheiße
+
+16:13.790 --> 16:17.360
+ist für alle Beteiligten.
+
+16:17.360 --> 16:19.360
+Aber das fand ich gut, was
+
+16:19.360 --> 16:26.440
+er heute erzählt hat.
+
+16:26.440 --> 16:28.440
+Hat die Asus Dual RTX
+
+16:28.440 --> 16:30.440
+eine Kaufempfehlung? Keine Ahnung,
+
+16:30.440 --> 16:32.440
+keine Asus
+
+16:32.440 --> 16:34.440
+Dual RTX 4070.
+
+16:34.440 --> 16:36.440
+Ich weiß es nicht.
+
+16:36.440 --> 16:38.440
+Ansonsten
+
+16:38.440 --> 16:40.440
+guckt mal bei PC Games Hardware oder so,
+
+16:40.440 --> 16:42.440
+irgendwo, wo es gute Grafikkartentests gibt.
+
+16:42.440 --> 16:50.430
+Boah, ich hab Durst heute ohne Ende.
+
+16:50.430 --> 16:52.430
+Aber es ist ja auch warm.
+
+16:52.430 --> 16:54.430
+Klimaanlage läuft schon. So Leute,
+
+16:54.430 --> 17:02.800
+ich mach mal kurz meine 4M an.
+
+17:02.800 --> 17:06.880
+Skip Stream.
+
+17:06.880 --> 17:08.880
+Let's go.
+
+17:08.880 --> 17:10.880
+Okay, ich versuche euch mal zu erklären,
+
+17:10.880 --> 17:12.880
+was wir heute probieren. Also,
+
+17:12.880 --> 17:14.880
+heute,
+
+17:14.880 --> 17:16.880
+erstmal
+
+17:16.880 --> 17:18.880
+die Story drumherum.
+
+17:18.880 --> 17:20.880
+Ich hab mich heute auf der Arbeit
+
+17:20.880 --> 17:22.880
+freiwillig dazu gemeldet, ein paar Sachen
+
+17:22.880 --> 17:26.380
+zu verhelmisieren.
+
+17:26.380 --> 17:28.380
+Weil ich mir gedacht hab, ich bin wahrscheinlich noch
+
+17:28.380 --> 17:30.380
+der, der bei uns im gesamten Projekt,
+
+17:30.380 --> 17:32.380
+also von den internen Leuten,
+
+17:32.380 --> 17:34.380
+im gesamten Projekt noch am meisten Ahnung
+
+17:34.380 --> 17:36.380
+davon hat.
+
+17:36.380 --> 17:38.380
+Und
+
+17:38.380 --> 17:40.380
+außerdem ist immer ganz gut,
+
+17:40.380 --> 17:42.380
+wenn man weiß, was man dann im Endeffekt da auch deployed.
+
+17:42.380 --> 17:44.380
+Zumindest hab ich mich gemeldet
+
+17:44.380 --> 17:46.380
+und hab gesagt, Jungs, ich guck mir das mal an.
+
+17:46.380 --> 17:48.380
+Wenn ihr mir erklärt, was ihr genau,
+
+17:48.380 --> 17:50.380
+was genau rauskommen soll am Ende.
+
+17:50.380 --> 17:52.380
+Also, was ihr genau deployen wollt, wo es die
+
+17:52.380 --> 17:54.380
+Images gibt, was für Optionen ihr braucht und so was,
+
+17:54.380 --> 17:56.380
+dann mach ich das.
+
+17:56.380 --> 17:58.380
+Und als ich das gesagt hab, ist mir aufgefallen,
+
+17:58.380 --> 18:00.380
+es ist bestimmt schon 3 Jahre her, wo ich
+
+18:00.380 --> 18:02.380
+das letzte Mal, oder 2 Jahre her, wo ich das letzte Mal
+
+18:02.380 --> 18:06.010
+was mit Helm gemacht hab. Ich hab keine Ahnung mehr.
+
+18:06.010 --> 18:08.010
+Also ich hab mir jetzt quasi irgendwas ausgesucht,
+
+18:08.010 --> 18:10.010
+was ich machen will, aber ich hab keine Ahnung mehr davon,
+
+18:10.010 --> 18:12.010
+wie es geht. Aber ich hab's schon gemacht.
+
+18:12.010 --> 18:14.010
+Ich komm da relativ einfach wieder rein.
+
+18:14.010 --> 18:17.580
+Und ich weiß bei Helm Charts
+
+18:17.580 --> 18:19.580
+noch 2 Sachen. Du brauchst
+
+18:19.580 --> 18:21.580
+eine Chart-Jammel, wo du deine Metadaten
+
+18:21.580 --> 18:23.580
+reinschreibst und du brauchst einen
+
+18:23.580 --> 18:25.580
+Templates-Ordner, wo deine eigentlichen Kubernetes-Resourcen
+
+18:25.580 --> 18:27.580
+reinkommen. Fertig.
+
+18:27.580 --> 18:29.580
+Mehr weiß ich nicht. So, und was Helm
+
+18:29.580 --> 18:31.580
+ist, das zeige ich euch jetzt.
+
+18:31.580 --> 18:33.580
+Helm ist quasi so ein Setup-
+
+18:33.580 --> 18:35.580
+Installer für Kubernetes.
+
+18:35.580 --> 18:37.580
+Das heißt auch, im Endeffekt, wir brauchen
+
+18:37.580 --> 18:39.580
+erstmal ein Kubernetes-Cluster, dass wir das machen
+
+18:39.580 --> 18:41.580
+können. Aber das ist easy,
+
+18:41.580 --> 18:43.580
+weil den können wir lokal starten
+
+18:43.580 --> 18:47.530
+und den benutzen.
+
+18:47.530 --> 18:49.530
+Ich kann euch mal sagen, was offiziell
+
+18:49.530 --> 18:51.530
+Helm sagt, was sie sind.
+
+18:51.530 --> 18:53.530
+Ich glaube Helm sagt,
+
+18:53.530 --> 18:55.530
+Helm ist der Kubernetes-Packet-Manager
+
+18:55.530 --> 18:57.530
+oder sowas. Kann man nicht wirklich
+
+18:57.530 --> 18:59.530
+was mit anfangen,
+
+18:59.530 --> 19:01.530
+aber wir gucken trotzdem auf die Seite, was die
+
+19:01.530 --> 19:04.910
+sagen. Package-Manager
+
+19:04.910 --> 19:06.910
+für Kubernetes. Also von der Idee
+
+19:06.910 --> 19:08.910
+her ist es folgendermaßen.
+
+19:08.910 --> 19:10.910
+Du hast einen Kubernetes-Cluster und willst darauf
+
+19:10.910 --> 19:12.910
+eine Anwendung laufen lassen. Die Anwendung
+
+19:12.910 --> 19:14.910
+geht aus
+
+19:14.910 --> 19:16.910
+eine Message-Queue,
+
+19:16.910 --> 19:18.910
+vielleicht
+
+19:18.910 --> 19:20.910
+einer Datenbank, zwei
+
+19:20.910 --> 19:22.910
+Applikations-Servern und sonstige
+
+19:22.910 --> 19:24.910
+Geschichten oder zwei Applikations-Containern
+
+19:24.910 --> 19:26.910
+und
+
+19:26.910 --> 19:28.910
+die Secrets, die du brauchst,
+
+19:28.910 --> 19:30.910
+die Ingress-Definition und sowas.
+
+19:30.910 --> 19:32.910
+Also sagen wir mal so, damit die
+
+19:32.910 --> 19:34.910
+Anwendung in Kubernetes läuft, brauchst du
+
+19:34.910 --> 19:36.910
+so, keine Ahnung, sieben, acht verschiedene Ressourcen.
+
+19:36.910 --> 19:38.910
+So, und die kannst du jetzt entweder von Hand
+
+19:38.910 --> 19:40.910
+anlegen oder
+
+19:40.910 --> 19:42.910
+das Software hat schon ein Helm-Chart
+
+19:42.910 --> 19:44.910
+angelegt oder ein Setup-Package
+
+19:44.910 --> 19:46.910
+ist das ja, eigentlich ein Installer, quasi
+
+19:46.910 --> 19:48.910
+erstellt und dann kannst du sagen, Helm install
+
+19:50.910 --> 19:52.910
+Kekl-App
+
+19:52.910 --> 19:54.910
+und dann installiert er das in dein
+
+19:54.910 --> 19:56.910
+Kubernetes-Cluster und du kannst es mit Helm
+
+19:56.910 --> 19:58.910
+ich glaube Delete ist es, dann auch
+
+19:58.910 --> 20:00.910
+wieder entfernen.
+
+20:00.910 --> 20:02.910
+Helm 2 ist absolut
+
+20:02.910 --> 20:04.910
+mega, Ultraschrott gewesen.
+
+20:04.910 --> 20:06.910
+Das braucht man
+
+20:06.910 --> 20:08.910
+glücklicherweise nicht mehr.
+
+20:08.910 --> 20:10.910
+Ne, das braucht man nicht mehr. Das war
+
+20:10.910 --> 20:19.020
+kompletter Schrott.
+
+20:19.020 --> 20:21.020
+Hat man es verstanden?
+
+20:21.020 --> 20:23.020
+Es ist quasi Up-Install für
+
+20:23.020 --> 20:25.020
+Kubernetes-Cluster.
+
+20:25.020 --> 20:27.020
+Up-Install und Up-Remove
+
+20:27.020 --> 20:29.020
+ist es, glaube ich, für
+
+20:29.020 --> 20:31.020
+Anwendung für Kubernetes-Cluster.
+
+20:31.020 --> 20:38.300
+So, wir brauchen...
+
+20:38.300 --> 20:41.800
+Klar, also den kenne ich noch.
+
+20:41.800 --> 20:43.800
+So, haben wir Helm installiert?
+
+20:43.800 --> 20:45.800
+Ja, haben wir.
+
+20:45.800 --> 20:47.800
+Hast du den
+
+20:47.800 --> 20:49.800
+Bahn-Rent verpasst? Nö.
+
+20:49.800 --> 20:51.800
+Hab ich nicht. Ich hab mich heute ein bisschen
+
+20:51.800 --> 20:53.800
+auf Twitter ausgekotzt,
+
+20:53.800 --> 20:55.800
+weil ganz im Ernst, ey.
+
+20:55.800 --> 20:57.800
+Heute sind wir wieder richtig auf den Sack gegangen
+
+20:57.800 --> 20:59.800
+bei der Bahn. Müsst ihr euch vorstellen,
+
+20:59.800 --> 21:01.800
+wir sind in Frankfurt hier.
+
+21:01.800 --> 21:03.800
+Wir sind in Frankfurt.
+
+21:03.800 --> 21:05.800
+Mein Geflame kam heute nicht so gut an.
+
+21:05.800 --> 21:07.800
+Guck mal, es haben bloß 2500 Leute gesehen.
+
+21:07.800 --> 21:09.800
+Sonst ist der Bahn-Flame...
+
+21:09.800 --> 21:11.800
+Der Bahn-Flame geht immer besser.
+
+21:11.800 --> 21:13.800
+Also heute ging es mir echt auf den Sack.
+
+21:13.800 --> 21:15.800
+Wir stehen in Frankfurt
+
+21:15.800 --> 21:17.800
+und die Türen gehen zu
+
+21:17.800 --> 21:19.800
+und es gibt irgendwie Türprobleme.
+
+21:19.800 --> 21:21.800
+Dann sagt der erstmal, ja, alle wegbleiben von den Türen.
+
+21:21.800 --> 21:23.800
+Passiert nichts. Und dann, oh, wir haben eine Türstörung.
+
+21:23.800 --> 21:25.800
+Es verzögert sich. Dann sind wir schon
+
+21:25.800 --> 21:27.800
+10 Minuten später in Frankfurt losgefahren.
+
+21:27.800 --> 21:29.800
+Dann waren wir in Frankfurt-Süd.
+
+21:29.800 --> 21:31.800
+Dann ging es dann weiter und dann waren wir in Offenbach.
+
+21:31.800 --> 21:33.800
+Und in Offenbach hatten wir wieder eine Türstörung.
+
+21:33.800 --> 21:35.800
+Alter!
+
+21:35.800 --> 21:37.800
+Das ist so unfähig alles.
+
+21:37.800 --> 21:39.800
+Ich meine, der Typ, der den Zug fährt,
+
+21:39.800 --> 21:41.800
+der kann nichts dafür, dass der Zug kaputt ist.
+
+21:41.800 --> 21:43.800
+Aber die Dinger sind halt so
+
+21:43.800 --> 21:45.800
+schrottreif teilweise.
+
+21:45.800 --> 21:47.800
+Und da kommt jetzt noch die Wärme dabei,
+
+21:47.800 --> 21:49.800
+womit im Sommer ja auch keiner bei der Bahn immer rechnet.
+
+21:49.800 --> 21:56.890
+Das ist aber richtig...
+
+21:56.890 --> 21:58.890
+Na gut, auf einer Citrix-VM suckt.
+
+21:58.890 --> 22:00.890
+Aber CL...
+
+22:00.890 --> 22:02.890
+Achso, ohne Copy-Paste, weil Citrix-VM...
+
+22:02.890 --> 22:04.890
+Ja, das ist shit. Das benutzt ja auch keiner noch
+
+22:04.890 --> 22:14.090
+irgendwie bei Verstandes.
+
+22:14.090 --> 22:16.090
+Boah, Mann.
+
+22:16.090 --> 22:18.090
+Okay. Also wir brauchen
+
+22:18.090 --> 22:20.090
+einen lokalen Kubernetes-Cluster.
+
+22:20.090 --> 22:22.090
+Ja, aber
+
+22:22.090 --> 22:24.090
+nicht, wenn deine Citrix-Admins
+
+22:24.090 --> 22:26.090
+das Ganze disabled haben.
+
+22:26.090 --> 22:28.090
+Was Massive-Pepega
+
+22:28.090 --> 22:30.090
+ist,
+
+22:30.090 --> 22:32.090
+Citrix
+
+22:32.090 --> 22:34.090
+Copy-Paste zu deaktivieren.
+
+22:34.090 --> 22:41.820
+Ja, es ist komplett
+
+22:41.820 --> 22:43.820
+lächerlich. Das kannst du knicken, Alter.
+
+22:43.820 --> 22:51.360
+So, also wir müssen
+
+22:51.360 --> 22:53.360
+erstmal einen lokalen Kubernetes-Cluster
+
+22:53.360 --> 22:55.360
+hochfahren. So, Minikube start.
+
+22:55.360 --> 22:57.360
+Bäm, mehr brauchen wir nicht.
+
+22:57.360 --> 22:59.360
+Aber Moment, wir haben noch einen. Dann Minikube
+
+22:59.360 --> 23:02.800
+delete. Start.
+
+23:02.800 --> 23:06.430
+Minikube V1301
+
+23:06.430 --> 23:08.430
+on Arch
+
+23:08.430 --> 23:10.430
+Linux by the way.
+
+23:10.430 --> 23:12.430
+Nur mal für den Fall,
+
+23:12.430 --> 23:14.430
+dass ihr es noch nicht mitbekommen habt.
+
+23:14.430 --> 23:17.930
+Ich benutze Arch Linux
+
+23:17.930 --> 23:19.930
+für den Fall der Fälle, dass euch das interessiert.
+
+23:19.930 --> 23:21.930
+Das ist ein Arch Linux-System.
+
+23:21.930 --> 23:33.400
+Äh...
+
+23:33.400 --> 23:35.400
+Warum geht...
+
+23:35.400 --> 23:39.040
+Warum ist mein Minikube
+
+23:39.040 --> 23:43.180
+kaputt? Was ist los?
+
+23:43.180 --> 23:47.710
+Docker restart.
+
+23:47.710 --> 23:49.710
+Hab ich irgendwas broken oder...
+
+23:49.710 --> 23:55.520
+Hab ich ein Kernel-Update
+
+23:55.520 --> 23:58.960
+gemacht? Nö.
+
+23:58.960 --> 24:00.960
+Docker funktioniert. Ich hab kein
+
+24:00.960 --> 24:02.960
+Kernel-Update gemacht. Was ist denn das?
+
+24:02.960 --> 24:06.910
+Soll ich mal restarten?
+
+24:06.910 --> 24:08.910
+Bin mir nicht
+
+24:08.910 --> 24:10.910
+ganz sicher, aber ich reboote mal.
+
+24:10.910 --> 24:12.910
+Sehr merkwürdig.
+
+24:12.910 --> 24:17.760
+Verstehe ich nicht.
+
+24:17.760 --> 24:19.760
+Sicher, dass du Linux benutzt?
+
+24:19.760 --> 24:21.760
+Ich benutze nicht einfach nur Linux. Ich benutze
+
+24:21.760 --> 24:26.410
+Arch Linux.
+
+24:26.410 --> 24:28.410
+By the way.
+
+24:28.410 --> 24:34.540
+WhitePepoBadgetTime
+
+24:34.540 --> 24:36.540
+Start. Nein, nicht Start.
+
+24:36.540 --> 24:38.540
+X. Minikube start.
+
+24:38.540 --> 24:40.540
+Ah, jetzt funktioniert's.
+
+24:40.540 --> 24:42.540
+Keine Ahnung, was der für Schmerzen hatte, aber jetzt
+
+24:42.540 --> 24:44.540
+funktioniert der Minikube-Cluster.
+
+24:44.540 --> 24:46.540
+Das ist ja kein Cluster. Kann man so nicht sagen.
+
+24:46.540 --> 24:48.540
+Der
+
+24:48.540 --> 24:50.540
+Minikube-Kubernetes-Node.
+
+24:50.540 --> 24:54.810
+Reboot tut halt
+
+24:54.810 --> 24:56.810
+manchmal echt Wunder wirken.
+
+24:56.810 --> 25:02.680
+So, wir brauchen mal einen
+
+25:02.680 --> 25:04.680
+Test-Container, den wir deployen können.
+
+25:04.680 --> 25:06.680
+Hello
+
+25:06.680 --> 25:08.680
+World Web-Server
+
+25:08.680 --> 25:10.680
+Docker. Da gibt's doch
+
+25:10.680 --> 25:12.680
+irgendwie sowas. Easy.
+
+25:12.680 --> 25:16.700
+Linux-Demo. Ja, perfekt.
+
+25:16.700 --> 25:18.700
+Hello World.
+
+25:18.700 --> 25:20.700
+Wobei, da gibt es doch den
+
+25:20.700 --> 25:22.700
+Hello World
+
+25:22.700 --> 25:24.700
+Traffic
+
+25:24.700 --> 25:26.700
+Container, oder?
+
+25:26.700 --> 25:30.520
+Traffic.
+
+25:30.520 --> 25:32.520
+Der ist doch, glaube ich, ganz gut.
+
+25:32.520 --> 25:35.900
+Ja, genau.
+
+25:35.900 --> 25:37.900
+Hello World Container.
+
+25:37.900 --> 25:39.900
+Wie heißt denn das Ding nochmal?
+
+25:39.900 --> 25:41.900
+Ne, ne, ne, ne.
+
+25:41.900 --> 25:45.660
+Hier, den Who Am I?
+
+25:45.660 --> 25:54.350
+Container, meine ich.
+
+25:54.350 --> 25:56.350
+Hier.
+
+25:56.350 --> 25:58.350
+Deprecated. Use
+
+25:58.350 --> 26:00.350
+das hier. Ja, okay, dann use ich das hier.
+
+26:00.350 --> 26:03.720
+Ist auch okay. Ah, nervt
+
+26:03.720 --> 26:09.470
+mich rum, Alter. Kann das mal
+
+26:09.470 --> 26:13.040
+weggehen? Use Traffic.
+
+26:13.040 --> 26:15.040
+Okay, ich lass das mal kurz in dem Docker-Container.
+
+26:15.040 --> 26:17.040
+Docker run.
+
+26:17.040 --> 26:19.040
+Port.
+
+26:19.040 --> 26:21.040
+Moment, ne, das muss man immer vorne hin machen.
+
+26:21.040 --> 26:23.040
+Port 8000
+
+26:23.040 --> 26:25.040
+auf Port 80, vermutlich,
+
+26:25.040 --> 26:29.690
+in dem Container. Ja.
+
+26:29.690 --> 26:31.690
+Curl. Local
+
+26:31.690 --> 26:33.690
+Host Port 8080.
+
+26:33.690 --> 26:37.900
+What? Ach, ne.
+
+26:37.900 --> 26:39.900
+8000, nicht 8080.
+
+26:39.900 --> 26:41.900
+Null.
+
+26:41.900 --> 26:43.900
+Okay, Pfundst.
+
+26:43.900 --> 26:45.900
+Local Host Port 8000. Jawohl.
+
+26:45.900 --> 26:47.900
+Okay, wir haben unseren Hello World Webserver.
+
+26:47.900 --> 26:49.900
+Oh, fuck, Leute.
+
+26:49.900 --> 26:51.900
+Shit.
+
+26:51.900 --> 26:53.900
+IP-Leak.
+
+26:53.900 --> 26:58.360
+Moment, Moment.
+
+26:58.360 --> 27:00.360
+Chat, nicht klippen. Ich muss das
+
+27:00.360 --> 27:03.870
+Wort erstmal entfernen.
+
+27:03.870 --> 27:05.870
+Moment, Moment.
+
+27:05.870 --> 27:12.570
+Nicht klippen. Okay.
+
+27:12.570 --> 27:14.570
+Okay, ich hab alle Clips
+
+27:14.570 --> 27:16.570
+entfernt und Wort gelöscht. Jetzt ist gut.
+
+27:16.570 --> 27:18.570
+Oh, ne, da steht's noch. Immer noch Leak.
+
+27:18.570 --> 27:37.880
+Doppel-Leak. Leak.
+
+27:37.880 --> 27:39.880
+Ja, jetzt ist auch egal.
+
+27:39.880 --> 27:47.100
+Jetzt hab ich's ja schon geleakt.
+
+27:47.100 --> 27:53.230
+Ja, guck hier. Fuck IP-Leak.
+
+27:53.230 --> 27:55.230
+Nicht hacken, Leute.
+
+27:55.230 --> 27:57.230
+Und nicht DDoS'n, please.
+
+27:57.230 --> 28:04.700
+Also DDoS mich jetzt,
+
+28:04.700 --> 28:06.700
+please, nicht. Okay, weiter.
+
+28:06.700 --> 28:14.880
+Also.
+
+28:14.880 --> 28:16.880
+Stimmt, und ich hab auch noch den...
+
+28:16.880 --> 28:18.880
+Ich hab auch noch den Port offen.
+
+28:18.880 --> 28:28.330
+Das ist ja doppelt schlimm.
+
+28:28.330 --> 28:32.090
+Okay, jetzt haben wir unseren
+
+28:32.090 --> 28:36.110
+Hello World Container.
+
+28:36.110 --> 28:38.110
+Okay, also machen wir mal einen extra Ordner.
+
+28:38.110 --> 28:40.110
+Gibt es irgendwelche guten
+
+28:40.110 --> 28:42.110
+Visual Studio Code Extensions?
+
+28:42.110 --> 28:45.480
+Direkt mal Nmap.
+
+28:45.480 --> 28:47.480
+Du bist wahrscheinlich schon mit Reverse Shell
+
+28:47.480 --> 28:51.050
+auf meiner Kiste drauf. Gib's zu.
+
+28:51.050 --> 28:56.600
+Rootkit ist installiert.
+
+28:56.600 --> 28:58.600
+Oh, was haben wir denn hier noch offen?
+
+28:58.600 --> 29:00.600
+Ah, der
+
+29:00.600 --> 29:02.600
+Copypasta Champ
+
+29:02.600 --> 29:04.600
+Demo. Kann auch gleich
+
+29:04.600 --> 29:07.980
+weg. Das JetBrains
+
+29:07.980 --> 29:09.980
+Plugin ist eigentlich ganz gut.
+
+29:09.980 --> 29:11.980
+Ne, wir machen jetzt das mit
+
+29:11.980 --> 29:13.980
+VSCode. Temp.
+
+29:13.980 --> 29:15.980
+MKDIR.
+
+29:15.980 --> 29:17.980
+Ja, keine Ahnung.
+
+29:17.980 --> 29:19.980
+Helm, Heckweh.
+
+29:19.980 --> 29:21.980
+Irgendwas.
+
+29:21.980 --> 29:23.980
+Visual Studio Code öffnen.
+
+29:23.980 --> 29:25.980
+Ist da Linux in einer
+
+29:25.980 --> 29:27.980
+VM? Ja,
+
+29:27.980 --> 29:29.980
+ist es.
+
+29:29.980 --> 29:31.980
+Guck, ich hab das so,
+
+29:31.980 --> 29:33.980
+weil die Frage immer aufkommt,
+
+29:33.980 --> 29:35.980
+wie schnell ich zwischen Windows und Linux hin und her
+
+29:35.980 --> 29:37.980
+wechsle. Ich hab zwei Desktops.
+
+29:37.980 --> 29:39.980
+Ich hab einen Desktop
+
+29:39.980 --> 29:41.980
+für Windows,
+
+29:41.980 --> 29:43.980
+einen Desktop für die VM im Fullscreen,
+
+29:43.980 --> 29:45.980
+das ist VMware Workstation,
+
+29:45.980 --> 29:47.980
+und einen dritten Desktop, den ich benutzen kann,
+
+29:47.980 --> 29:49.980
+wenn ich mal brauche.
+
+29:49.980 --> 29:51.980
+Und ich kann jetzt mit
+
+29:51.980 --> 29:53.980
+Pfeiltasten hin und her schalten. Guck, ich mach jetzt
+
+29:53.980 --> 29:55.980
+Control, Windows, links,
+
+29:55.980 --> 29:57.980
+dann bin ich hier auf dem Desktop. Control, Windows,
+
+29:57.980 --> 29:59.980
+rechts, dann bin ich hier in der VM.
+
+29:59.980 --> 30:01.980
+Control, Windows, links, dann kann ich ganz einfach
+
+30:01.980 --> 30:03.980
+hin und her schalten.
+
+30:03.980 --> 30:05.980
+Zwischen der Linux VM und
+
+30:05.980 --> 30:07.980
+meiner Windows-Kiste. Es ist sehr praktisch.
+
+30:07.980 --> 30:09.980
+Für mich
+
+30:09.980 --> 30:11.980
+ist es der beste
+
+30:11.980 --> 30:13.980
+Workflow. Gibt Leute,
+
+30:13.980 --> 30:15.980
+die schwören drauf, dass man
+
+30:15.980 --> 30:17.980
+Linux als Host benutzt und dann irgendwie
+
+30:17.980 --> 30:19.980
+Windows in der VM. Aber ehrlich gesagt,
+
+30:19.980 --> 30:21.980
+ich mach genug unter Windows, dass mir das
+
+30:21.980 --> 30:23.980
+auf den Sack gehen würde. Dann mach ich lieber die Sachen,
+
+30:23.980 --> 30:25.980
+wo Linux seine Stärken hat in der VM.
+
+30:25.980 --> 30:27.980
+Und nachdem ich da keine Videos
+
+30:27.980 --> 30:29.980
+anzeige oder irgendwelche Sachen brauche
+
+30:29.980 --> 30:31.980
+mit GPU Access oder sonst was,
+
+30:31.980 --> 30:33.980
+ist die Performance absolut
+
+30:33.980 --> 30:35.980
+in Ordnung.
+
+30:35.980 --> 30:37.980
+Kann man die Animation deaktivieren vom
+
+30:37.980 --> 30:39.980
+Switchen? Welche Animation?
+
+30:39.980 --> 30:41.980
+Siehst du irgendeine Animation beim
+
+30:41.980 --> 30:46.250
+Switchen? Oder meinst du unter
+
+30:46.250 --> 30:48.250
+Windows 10? Jaja, unter
+
+30:48.250 --> 30:50.250
+Windows 10 gibt es eine Animation.
+
+30:50.250 --> 30:52.250
+Unter Windows 11 hat Microsoft die
+
+30:52.250 --> 30:58.570
+Animation einfach entfernt.
+
+30:58.570 --> 31:00.570
+Na gut, prinzipiell
+
+31:00.570 --> 31:02.570
+kann man
+
+31:02.570 --> 31:04.570
+auch Spiele in der VM
+
+31:04.570 --> 31:06.570
+spielen. Sowas wie
+
+31:06.570 --> 31:08.570
+SuperTuxCard, aber naja, warum
+
+31:08.570 --> 31:16.170
+sollte man? Ja, geht mir
+
+31:16.170 --> 31:18.170
+ähnlich. Ich mach unter Windows halt zu
+
+31:18.170 --> 31:20.170
+viel, als dass ich das lohnen würde
+
+31:20.170 --> 31:22.170
+Dualboot zu machen bzw. Linux
+
+31:22.170 --> 31:24.170
+als Host mit VM für Windows.
+
+31:24.170 --> 31:26.170
+Ich spiele, ich mache
+
+31:26.170 --> 31:28.170
+Videos, ich streame,
+
+31:28.170 --> 31:30.170
+ich mache Thumbnails für die Videos,
+
+31:30.170 --> 31:32.170
+ich schneide meine Videos. Das mach
+
+31:32.170 --> 31:34.170
+ich ehrlich gesagt am liebsten unter Windows mit der
+
+31:34.170 --> 31:36.170
+Software, die ich kenne. Ich sag gar nicht mal
+
+31:36.170 --> 31:38.170
+so sehr, dass man die Sachen, die ich machen würde,
+
+31:38.170 --> 31:40.170
+vielleicht bis auf den Gaming Aspekt,
+
+31:40.170 --> 31:42.170
+den kannst du unter Linux,
+
+31:42.170 --> 31:44.170
+das weiß ich mal, kannst du vergessen.
+
+31:44.170 --> 31:46.170
+Du könntest das meiste wahrscheinlich auch unter Linux machen,
+
+31:46.170 --> 31:48.170
+aber ich bin zu faul, mich umzugewöhnen
+
+31:48.170 --> 31:50.170
+von der Software an, die ich mich
+
+31:50.170 --> 31:53.800
+gewöhnt habe. Also insofern,
+
+31:53.800 --> 31:55.800
+ich werde das Setup höchst
+
+31:55.800 --> 31:57.800
+wahrscheinlich so lassen, wie es ist.
+
+31:57.800 --> 31:59.800
+So, also,
+
+31:59.800 --> 32:01.800
+Ziel ist jetzt folgendes,
+
+32:01.800 --> 32:03.800
+und zwar, guckt mal,
+
+32:03.800 --> 32:05.800
+get pods-a
+
+32:05.800 --> 32:07.800
+Wir haben einen lokalen
+
+32:07.800 --> 32:09.800
+Kubernetes-Cluster laufen, da ist nichts drauf,
+
+32:09.800 --> 32:11.800
+außer die Standard
+
+32:11.800 --> 32:13.800
+Kube-Systems-Sachen, die wir brauchen. Wir brauchen noch
+
+32:13.800 --> 32:17.630
+ein Ingress-Add-on,
+
+32:17.630 --> 32:22.090
+wobei brauchen wir das überhaupt?
+
+32:22.090 --> 32:30.840
+Ich installiere es einfach mal.
+
+32:30.840 --> 32:32.840
+So, also guckt, wir haben hier ein paar
+
+32:32.840 --> 32:34.840
+Kubernetes-Sachen drauf laufen, wir haben ein Ingress
+
+32:34.840 --> 32:36.840
+laufen, also ein Ingress.
+
+32:36.840 --> 32:38.840
+Habt ihr vielleicht schon mal,
+
+32:38.840 --> 32:40.840
+Chatge, ich hab mal eine Frage an euch.
+
+32:40.840 --> 32:42.840
+Wer hat
+
+32:42.840 --> 32:44.840
+Ingress schon mal im Umfeld von
+
+32:44.840 --> 32:46.840
+Kubernetes gehört, hat aber keine Ahnung,
+
+32:46.840 --> 32:48.840
+was es ist.
+
+32:48.840 --> 32:50.840
+Also das muss ich jetzt wissen, weil
+
+32:50.840 --> 32:52.840
+davon hängt ab, ob ich es jetzt noch mal
+
+32:52.840 --> 33:00.830
+erkläre oder es sein lasse.
+
+33:00.830 --> 33:02.830
+Okay, also ihr habt es schon gehört, ihr wisst nicht, was
+
+33:02.830 --> 33:04.830
+es ist. Im Prinzip,
+
+33:04.830 --> 33:06.830
+genau, im Prinzip ist es eigentlich,
+
+33:06.830 --> 33:08.830
+im Prinzip ist es eigentlich ganz einfach.
+
+33:08.830 --> 33:10.830
+Guckt mal, ihr habt hier einen,
+
+33:10.830 --> 33:12.830
+also Namesplate, das ist das, was von
+
+33:12.830 --> 33:14.830
+dem Add-on kommt, ja? Ihr habt hier einen
+
+33:14.830 --> 33:16.830
+Ingress-Controller laufen, das ist
+
+33:16.830 --> 33:20.200
+in Nginx. Was ist
+
+33:20.200 --> 33:22.200
+Kubernetes? Oh, da wird es jetzt natürlich schon ein bisschen
+
+33:22.200 --> 33:24.200
+komplizierter. Kubernetes ist
+
+33:24.200 --> 33:26.200
+ein Container-Orchestrierungstool.
+
+33:28.200 --> 33:30.200
+Also quasi so eine Art
+
+33:30.200 --> 33:32.200
+Docker, nur geklustert.
+
+33:32.200 --> 33:37.370
+Das trifft es eigentlich
+
+33:37.370 --> 33:46.760
+ganz gut. Oh, ich habe extrem
+
+33:46.760 --> 33:48.760
+Durst heute, Leute. Ich muss, glaube ich, gleich noch eine Flasche Wasser holen.
+
+33:48.760 --> 33:54.060
+So.
+
+33:54.060 --> 33:56.060
+Und zwar,
+
+33:56.060 --> 33:58.060
+wir haben jetzt einen
+
+33:58.060 --> 34:00.060
+Ingress-Controller laufen. Ein Ingress-Controller
+
+34:00.060 --> 34:02.060
+ist eigentlich
+
+34:02.060 --> 34:04.060
+erstmal nichts anderes, also in dem Fall
+
+34:04.060 --> 34:06.060
+hier, wie in dem Fall
+
+34:06.060 --> 34:08.060
+in Nginx. Nginx ist ein
+
+34:08.060 --> 34:10.060
+Web-Server, der nicht nur gerne als
+
+34:10.060 --> 34:12.060
+Web-Server benutzt wird, sondern auch als
+
+34:12.060 --> 34:14.060
+HTTP-Reverse-Proxy.
+
+34:14.060 --> 34:16.060
+So.
+
+34:16.060 --> 34:18.060
+Und jetzt kommt ja irgendwann
+
+34:18.060 --> 34:20.060
+mal der Tag, dass man Services
+
+34:20.060 --> 34:22.060
+auf Kubernetes laufen hat, die man
+
+34:22.060 --> 34:24.060
+der Außenwelt zugänglich machen möchte.
+
+34:24.060 --> 34:26.060
+Da gibt es, sagen wir mal, prinzipiell
+
+34:26.060 --> 34:28.060
+zwei Möglichkeiten, wie man das machen
+
+34:28.060 --> 34:30.060
+kann. Entweder
+
+34:30.060 --> 34:32.060
+man gibt dem Service selbst eine externe
+
+34:32.060 --> 34:34.060
+IP, zum Beispiel mit
+
+34:34.060 --> 34:36.060
+der Loadbalancer-Config, also
+
+34:36.060 --> 34:38.060
+es ist eingebaut in Kubernetes,
+
+34:38.060 --> 34:40.060
+kann man sagen, Service-Typ, Loadbalancer
+
+34:40.060 --> 34:42.060
+und dann zieht er sich eine externe IP,
+
+34:42.060 --> 34:44.060
+wenn man externe IPs bekommen kann bei
+
+34:44.060 --> 34:46.060
+einem Cloud-Anbieter, dann hat der
+
+34:46.060 --> 34:48.060
+jeweilige Service eine externe IP,
+
+34:48.060 --> 34:50.060
+man biegt sein DNS drauf um
+
+34:50.060 --> 34:52.060
+und dann funktioniert das.
+
+34:52.060 --> 34:54.060
+Das Problem ist aber, du brauchst
+
+34:54.060 --> 34:56.060
+für jeden Service
+
+34:56.060 --> 34:58.060
+eine Public-IP,
+
+34:58.060 --> 35:00.060
+was auch Geld kostet
+
+35:00.060 --> 35:02.060
+und du musst dich
+
+35:02.060 --> 35:04.060
+drum kümmern, was
+
+35:04.060 --> 35:06.060
+Zertifikate angeht,
+
+35:06.060 --> 35:08.060
+oder auch vielleicht um Firewall-Freischaltung
+
+35:08.060 --> 35:10.060
+und sowas. Brauchst du,
+
+35:10.060 --> 35:12.060
+also geht, ist teilweise
+
+35:12.060 --> 35:14.060
+auch sinnvoll, aber
+
+35:14.060 --> 35:16.060
+einfacher ist es eigentlich mit einem Ingress.
+
+35:16.060 --> 35:18.060
+So, und ein Ingress ist im Prinzip
+
+35:18.060 --> 35:20.060
+ein Webserver, den hast du einmal
+
+35:20.060 --> 35:22.060
+gestartet,
+
+35:22.060 --> 35:24.060
+beziehungsweise du hast einmal
+
+35:24.060 --> 35:26.060
+den Ingress-Controller laufen
+
+35:26.060 --> 35:28.060
+und wenn du jetzt Anwendungen und Services in Kubernetes
+
+35:28.060 --> 35:30.060
+hast, dann expost du nicht mal direkt
+
+35:30.060 --> 35:32.060
+den Service, sondern
+
+35:32.060 --> 35:34.060
+sagst, ok, der soll jetzt den Ingress benutzen
+
+35:34.060 --> 35:36.060
+und was dann passiert ist,
+
+35:36.060 --> 35:38.060
+wir gucken uns auch gleich die Config dafür an,
+
+35:38.060 --> 35:40.060
+was dann passiert ist,
+
+35:40.060 --> 35:42.060
+dass der
+
+35:42.060 --> 35:44.060
+Webserver, in dem Fall ist es halt ein Nginx,
+
+35:44.060 --> 35:46.060
+dass der sich merkt,
+
+35:46.060 --> 35:48.060
+ok, diese Anwendung soll ich quasi
+
+35:48.060 --> 35:50.060
+Reverse-Proxien, das erzeugt quasi eine
+
+35:50.060 --> 35:52.060
+Reverse-Proxy-Config für Nginx, das Ganze
+
+35:52.060 --> 35:54.060
+und dass Nginx den
+
+35:54.060 --> 35:56.060
+Server kennt, den Service kennt und darauf
+
+35:56.060 --> 35:58.060
+Loadbalancen kann. Also eigentlich
+
+35:58.060 --> 36:00.060
+legst du damit eine
+
+36:00.060 --> 36:02.060
+Reverse-Proxy-Config
+
+36:02.060 --> 36:04.060
+an und dann musst du nur noch eine
+
+36:04.060 --> 36:06.060
+Sache machen,
+
+36:06.060 --> 36:08.060
+du brauchst eine Public-IP für deinen
+
+36:08.060 --> 36:10.060
+Ingress, das kann man sich auch anzeigen,
+
+36:10.060 --> 36:12.060
+kube get Ingress
+
+36:12.060 --> 36:14.060
+wir haben noch keine
+
+36:14.060 --> 36:16.060
+Ingress-Objekte angelegt, wir haben bloß den
+
+36:16.060 --> 36:18.060
+Ingress-Controller angelegt,
+
+36:18.060 --> 36:20.060
+der übrigens, also wenn man sich jetzt Public-IPs
+
+36:20.060 --> 36:22.060
+und so anzeigen
+
+36:22.060 --> 36:24.060
+lassen würde, dann würde man
+
+36:24.060 --> 36:26.060
+das auch sehen, wir haben auch glaube ich
+
+36:26.060 --> 36:28.060
+keine Services und sowas,
+
+36:28.060 --> 36:30.060
+also noch keine eigens angelegte Services,
+
+36:30.060 --> 36:32.060
+genau hier sieht man es.
+
+36:32.060 --> 36:34.060
+Normalerweise hätte das hier dann
+
+36:34.060 --> 36:36.060
+Public-IPs,
+
+36:36.060 --> 36:38.060
+wenn wir jetzt bei einem Cloud-Anbieter wären.
+
+36:38.060 --> 36:42.840
+Ja und dann
+
+36:42.840 --> 36:44.840
+musst du eigentlich nur noch deinen DNS
+
+36:44.840 --> 36:46.840
+für die jeweiligen Services
+
+36:46.840 --> 36:48.840
+umbiegen
+
+36:48.840 --> 36:55.480
+auf die externe IP von
+
+36:55.480 --> 36:57.480
+deinem Ingress
+
+36:57.480 --> 36:59.480
+und deinem Service, den du
+
+36:59.480 --> 37:01.480
+einrichten willst, dass der den Ingress
+
+37:01.480 --> 37:03.480
+benutzt, legst du eine Config an, die unter
+
+37:03.480 --> 37:05.480
+der Haube quasi eine Reverse-Proxy
+
+37:05.480 --> 37:07.480
+Config erzeugt für Nginx.
+
+37:07.480 --> 37:09.480
+Also das heißt im Endeffekt,
+
+37:09.480 --> 37:11.480
+du kannst über eine Public-IP
+
+37:11.480 --> 37:13.480
+mehr oder weniger alle deine Anwendungen
+
+37:13.480 --> 37:15.480
+drüber laufen lassen, das ist sehr praktisch,
+
+37:15.480 --> 37:17.480
+es ist automatisch nur Port 80
+
+37:17.480 --> 37:19.480
+und 443 exposed, du kannst so ein paar
+
+37:19.480 --> 37:21.480
+Standardsachen einstellen, du kannst theoretisch auch
+
+37:21.480 --> 37:23.480
+unterschiedliches
+
+37:23.480 --> 37:25.480
+Routing für die unterschiedlichen
+
+37:25.480 --> 37:27.480
+Pfade und so noch
+
+37:27.480 --> 37:29.480
+einstellen in deinem Ingress, wenn du willst.
+
+37:29.480 --> 37:31.480
+Also du musst dich auch nicht um Zertifikate
+
+37:31.480 --> 37:33.480
+kümmern, wenn du es
+
+37:33.480 --> 37:35.480
+einmal ordentlich eingerichtet hast
+
+37:35.480 --> 37:37.480
+und das funktioniert in der Regel besser, eigentlich
+
+37:37.480 --> 37:39.480
+sind Ingress die beste Variante, Sachen
+
+37:39.480 --> 37:41.480
+zu exposen in Kubernetes.
+
+37:41.480 --> 37:43.480
+Das ist nichts anderes wie eine Reverse-Proxy
+
+37:43.480 --> 37:45.480
+und bei einer Sache muss man sich
+
+37:45.480 --> 37:47.480
+muss man sich
+
+37:49.480 --> 37:51.480
+wenn ich "-a"- mache, nee,
+
+37:51.480 --> 37:53.480
+"-a"- ist all Namespaces, siehst du doch hier, guck
+
+37:53.480 --> 37:55.480
+get pods-a
+
+37:55.480 --> 37:57.480
+namespace ingress, namespace
+
+37:57.480 --> 37:59.480
+kubesystem, wenn du "-a"- dran machst, ist das
+
+37:59.480 --> 38:01.480
+all. Du kannst "-a"- schreiben oder
+
+38:01.480 --> 38:03.480
+"-all Namespaces",
+
+38:05.480 --> 38:10.590
+aber "-a"- ist kürzer.
+
+38:10.590 --> 38:12.590
+So, und also es ist im Prinzip
+
+38:12.590 --> 38:14.590
+eine Reverse-Proxy, so wie man es kennt.
+
+38:14.590 --> 38:26.540
+Ja, jetzt habe ich gerade vergessen,
+
+38:26.540 --> 38:28.540
+was ich sonst noch sagen wollte.
+
+38:30.540 --> 38:32.540
+Bin ich denn gerade stehen geblieben?
+
+38:32.540 --> 38:37.320
+Ach, keine Ahnung mehr.
+
+38:37.320 --> 38:39.320
+Ach ja, jetzt weiß ich es wieder.
+
+38:39.320 --> 38:41.320
+So, das ist, also
+
+38:41.320 --> 38:43.320
+Ingress ist so die allgemeine
+
+38:43.320 --> 38:45.320
+Bezeichnung für quasi eine Reverse-Proxy
+
+38:45.320 --> 38:47.320
+für den Kubernetes-Cluster.
+
+38:47.320 --> 38:49.320
+Also quasi für einen Eingang.
+
+38:49.320 --> 38:51.320
+Ingress steht ja im Prinzip für sowas
+
+38:51.320 --> 38:53.320
+wie Eingang. Es gibt auch noch Egress,
+
+38:53.320 --> 38:55.320
+das ist Ausgang, aber
+
+38:55.320 --> 38:57.320
+Ingress ist deutlich, wie soll ich sagen,
+
+38:57.320 --> 38:59.320
+deutlich öfters verwendet als
+
+38:59.320 --> 39:01.320
+Egress. So, Ingress
+
+39:01.320 --> 39:03.320
+heißt ja eigentlich nur, dass es ein zentraler Eingang
+
+39:03.320 --> 39:05.320
+ist, aber hier seht ihr,
+
+39:05.320 --> 39:07.320
+das ist ein Nginx-Ingress.
+
+39:07.320 --> 39:09.320
+So, und da gibt es jetzt, es gibt noch mehrere.
+
+39:09.320 --> 39:11.320
+Du kannst Traffic als Ingress verwenden,
+
+39:11.320 --> 39:13.320
+du kannst eine A-Proxy als Ingress verwenden,
+
+39:13.320 --> 39:15.320
+du kannst bei Google zum Beispiel den
+
+39:15.320 --> 39:17.320
+Google Cloud Native Ingress verwenden,
+
+39:17.320 --> 39:19.320
+oder was gibt es noch?
+
+39:19.320 --> 39:21.320
+Kong oder so gibt es noch,
+
+39:21.320 --> 39:23.320
+ähm,
+
+39:23.320 --> 39:25.320
+Envy oder Envoy,
+
+39:25.320 --> 39:27.320
+oder wie das Ding heißt, gibt es noch.
+
+39:27.320 --> 39:29.320
+Was fallen euch noch für
+
+39:29.320 --> 39:31.320
+Ingress-Sachen ein? Gibt es einige.
+
+39:31.320 --> 39:33.320
+Quasi jeder x-beliebige Webserver
+
+39:33.320 --> 39:35.320
+hat wahrscheinlich irgendein Ingress-Modul.
+
+39:35.320 --> 39:37.320
+Die Musik ist ein bisschen lauter.
+
+39:37.320 --> 39:41.980
+Wir brauchen mal grad was
+
+39:41.980 --> 39:43.980
+bisschen Relaxing.
+
+39:43.980 --> 39:48.440
+Wupp, wupp.
+
+39:48.440 --> 39:50.440
+Wupp, wupp, wupp, wupp, wupp, wupp, wupp.
+
+39:50.440 --> 39:52.440
+Istio ist,
+
+39:52.440 --> 39:54.440
+ja doch, Istio
+
+39:54.440 --> 39:56.440
+ist, oder Istio, ich weiß gar nicht,
+
+39:56.440 --> 39:58.440
+wie man das richtig ausspricht, ist aber jetzt nicht
+
+39:58.440 --> 40:00.440
+ein klassischer Ingress, das ist ja eher was
+
+40:00.440 --> 40:02.440
+Richtung kompletter, komplettem
+
+40:02.440 --> 40:04.440
+Service-Mesh, also auch mit
+
+40:04.440 --> 40:09.680
+MTLS und allem möglichen.
+
+40:09.680 --> 40:11.680
+Ja, also so sieht das Ganze aus.
+
+40:11.680 --> 40:13.680
+Und jetzt um die Verwirrung mal
+
+40:13.680 --> 40:15.680
+komplett zu machen, wir benutzen
+
+40:15.680 --> 40:17.680
+hier halt einen Nginx als Ingress.
+
+40:17.680 --> 40:19.680
+So, und damit es nicht zu einfach wird,
+
+40:19.680 --> 40:21.680
+es gibt jetzt
+
+40:21.680 --> 40:23.680
+Ingress Nginx und
+
+40:23.680 --> 40:30.320
+Nginx Ingress.
+
+40:30.320 --> 40:32.320
+Und wer jetzt denkt, das ist das gleiche,
+
+40:32.320 --> 40:34.320
+der liegt falsch.
+
+40:34.320 --> 40:37.950
+Es gibt einmal
+
+40:37.950 --> 40:39.950
+den Nginx Ingress Controller
+
+40:39.950 --> 40:41.950
+und es gibt einmal den
+
+40:41.950 --> 40:45.710
+Ingress Nginx Controller.
+
+40:45.710 --> 40:47.710
+Ist von der Benahmung her schon ziemlich
+
+40:47.710 --> 40:49.710
+kacke, ja. Man würde eigentlich
+
+40:49.710 --> 40:51.710
+erstmal denken, das ist das gleiche,
+
+40:51.710 --> 40:53.710
+aber ist
+
+40:53.710 --> 40:58.170
+es nicht. Der Unterschied
+
+40:58.170 --> 41:00.170
+ist folgendes.
+
+41:00.170 --> 41:02.170
+Beides sind
+
+41:02.170 --> 41:04.170
+Ingress Controller für Kubernetes
+
+41:04.170 --> 41:06.170
+und beide basieren
+
+41:06.170 --> 41:08.170
+auf Nginx. Der Unterschied
+
+41:08.170 --> 41:10.170
+ist, das hier
+
+41:10.170 --> 41:12.170
+ist der Nginx Ingress Controller
+
+41:12.170 --> 41:14.170
+vom Nginx
+
+41:14.170 --> 41:16.170
+Hersteller
+
+41:16.170 --> 41:18.170
+und das hier ist der Nginx
+
+41:18.170 --> 41:20.170
+Ingress Controller
+
+41:20.170 --> 41:22.170
+vom offiziellen Kubernetes Team.
+
+41:22.170 --> 41:24.170
+Also Kubernetes
+
+41:24.170 --> 41:26.170
+stellt einen offiziellen Ingress Controller
+
+41:26.170 --> 41:28.170
+bereit, der auf Nginx Basis
+
+41:28.170 --> 41:30.170
+arbeitet. Allerdings die
+
+41:30.170 --> 41:32.170
+Nginx Hersteller stellen auch
+
+41:32.170 --> 41:34.170
+einen aus ihrer Sicht offiziellen
+
+41:34.170 --> 41:36.170
+Nginx Ingress Controller bereit.
+
+41:36.170 --> 41:38.170
+Total pipega, fragt mich bitte nicht
+
+41:38.170 --> 41:40.170
+warum die
+
+41:40.170 --> 41:42.170
+mit diesem Blödsinn überhaupt erst angefangen haben,
+
+41:42.170 --> 41:44.170
+aber in der Regel, wenn ihr
+
+41:44.170 --> 41:46.170
+euch fragt, welchen davon solltet
+
+41:46.170 --> 41:48.170
+ihr verwenden, ihr solltet immer den
+
+41:48.170 --> 41:50.170
+hier verwenden. Den offiziellen
+
+41:50.170 --> 41:52.170
+von Kubernetes.
+
+41:52.170 --> 41:54.170
+Wenn nichts dagegen spricht.
+
+41:54.170 --> 41:56.170
+Das ist auch, ich persönlich
+
+41:56.170 --> 41:58.170
+würde sagen, das ist der verbreitetste Ingress
+
+41:58.170 --> 42:00.170
+auch für Kubernetes, ja.
+
+42:00.170 --> 42:02.170
+Und
+
+42:02.170 --> 42:05.610
+eigentlich immer den, wenn nicht
+
+42:05.610 --> 42:09.440
+irgendwas dagegen spricht.
+
+42:09.440 --> 42:11.440
+Hat das Minikube
+
+42:11.440 --> 42:14.940
+add-on hier auch installiert?
+
+42:14.940 --> 42:16.940
+Ja, du kannst
+
+42:16.940 --> 42:18.940
+TLS kannst du mit ganz vielen machen.
+
+42:18.940 --> 42:20.940
+Also TLS kannst du auch
+
+42:20.940 --> 42:22.940
+mit Nginx machen.
+
+42:22.940 --> 42:24.940
+Kadi ist halt schön easy,
+
+42:24.940 --> 42:26.940
+weil Kadi direkt Let's Encrypt und alles
+
+42:26.940 --> 42:28.940
+integriert hat. Da brauchst du wahrscheinlich
+
+42:28.940 --> 42:33.470
+keinen Third Manager oder sowas mehr.
+
+42:33.470 --> 42:35.470
+Moin, Lothanox.
+
+42:35.470 --> 42:40.960
+So, Chat, hat man soweit
+
+42:40.960 --> 42:42.960
+verstanden, oder?
+
+42:42.960 --> 42:44.960
+Was ich jetzt hier versucht habe zu erklären.
+
+42:44.960 --> 42:46.960
+Ich glaube jetzt haben wir alles Ingress mäßig
+
+42:46.960 --> 42:48.960
+hier soweit abgedeckt.
+
+42:48.960 --> 42:50.960
+Also wir haben lokalen Kubernetes Cluster
+
+42:50.960 --> 42:52.960
+mit den Kube-Systems Sachen,
+
+42:52.960 --> 42:54.960
+die man so braucht,
+
+42:54.960 --> 42:56.960
+Key-Value-Store, den API-Server
+
+42:58.960 --> 43:00.960
+und alles mögliche Zeug.
+
+43:00.960 --> 43:02.960
+Ein paar Storage-Klassen sind drin und
+
+43:02.960 --> 43:04.960
+eben auch einen Ingress-Controller.
+
+43:04.960 --> 43:06.960
+So, was wir jetzt machen wollen ist,
+
+43:06.960 --> 43:08.960
+ich will einen ganz
+
+43:08.960 --> 43:10.960
+billigen Hello-World-Container
+
+43:10.960 --> 43:12.960
+oder Hello-World-Web-Server
+
+43:12.960 --> 43:14.960
+als Helm-Chart verpacken.
+
+43:14.960 --> 43:25.050
+Hast du auch mal Ingress
+
+43:25.050 --> 43:27.050
+gespielt? Nein, habe ich
+
+43:27.050 --> 43:29.050
+nicht. Erlebt das noch?
+
+43:29.050 --> 43:31.050
+Also Ingress ist ja quasi
+
+43:31.050 --> 43:33.050
+das gleiche wie
+
+43:33.050 --> 43:35.050
+Pokémon Go oder
+
+43:35.050 --> 43:37.050
+das Harry-Potter-Mobile-Game.
+
+43:37.050 --> 43:39.050
+Nur dass es damals
+
+43:39.050 --> 43:41.050
+am Anfang noch Portale und
+
+43:41.050 --> 43:43.050
+Raumschiffe und sowas waren.
+
+43:43.050 --> 43:45.050
+Oder bringe ich das jetzt durcheinander?
+
+43:45.050 --> 43:47.050
+Nee, ne? Das ist doch das Game.
+
+43:47.050 --> 43:54.330
+Habe ich nicht gespielt.
+
+43:54.330 --> 43:56.330
+Aber bei mir auf der alten Arbeit, als es neu war,
+
+43:56.330 --> 43:58.330
+fanden das manche Leute total geil.
+
+43:58.330 --> 44:00.330
+Die sind den ganzen Tag durch Frankfurt gelaufen, haben Portale
+
+44:00.330 --> 44:10.560
+gecaptured. Traffic ist
+
+44:10.560 --> 44:12.560
+eklig. Wo Traffic
+
+44:12.560 --> 44:14.560
+gut ist, im Kubernetes-Umfeld weiß ich nicht.
+
+44:14.560 --> 44:16.560
+Habe ich Traffic noch nie benutzt.
+
+44:16.560 --> 44:18.560
+Wo Traffic ganz nice ist, wenn man
+
+44:18.560 --> 44:20.560
+beispielsweise
+
+44:20.560 --> 44:22.560
+ein Docker-Compose-File
+
+44:22.560 --> 44:24.560
+hat
+
+44:24.560 --> 44:26.560
+und
+
+44:26.560 --> 44:28.560
+dort zum Beispiel automatisch
+
+44:28.560 --> 44:30.560
+ein paar Container tanken will für
+
+44:30.560 --> 44:32.560
+Zertifikate und sowas.
+
+44:32.560 --> 44:34.560
+Dann ist das ganz nice mit Traffic.
+
+44:34.560 --> 44:36.560
+Aber ansonsten
+
+44:36.560 --> 44:38.560
+finde ich Traffic auch eklig.
+
+44:38.560 --> 44:40.560
+Also die Traffic-Config ist richtige Abfuck.
+
+44:40.560 --> 44:42.560
+Wer schon mal Traffic-Config von Hand
+
+44:42.560 --> 44:44.560
+machen muss, kann ein Lied davon singen.
+
+44:44.560 --> 44:46.560
+Endlich
+
+44:46.560 --> 44:48.560
+Silber. Ja, drei Monate.
+
+44:48.560 --> 44:50.560
+Das ist extrem.
+
+44:50.560 --> 44:52.560
+Nice.
+
+44:52.560 --> 44:54.560
+Chat, wo wir gerade dabei sind.
+
+44:54.560 --> 44:56.560
+Was ist denn heute? Sind heute Weebs in
+
+44:56.560 --> 44:58.560
+oder Weebs out?
+
+44:58.560 --> 45:00.560
+Sind wir heute
+
+45:00.560 --> 45:02.560
+Weeb-freundlich oder eher nicht?
+
+45:02.560 --> 45:09.770
+Ja, ich würde auch sagen.
+
+45:09.770 --> 45:11.770
+Heute
+
+45:11.770 --> 45:25.450
+alle Weebs in.
+
+45:25.450 --> 45:27.450
+Ich habe noch Subs übersehen.
+
+45:27.450 --> 45:29.450
+Von gestern.
+
+45:29.450 --> 45:31.450
+HolyLuckGamers und SvenSupreme
+
+45:31.450 --> 45:36.240
+und WotCS
+
+45:36.240 --> 45:38.240
+auch am Start.
+
+45:38.240 --> 45:40.240
+Danke Leute für die Subscriptions.
+
+45:42.240 --> 45:47.020
+Oder um nicht zu sagen.
+
+45:49.020 --> 45:56.170
+Relax.
+
+45:56.170 --> 45:58.170
+Dankeschön für den Sub.
+
+45:58.170 --> 46:00.170
+Wir machen demnächst...
+
+46:00.170 --> 46:02.170
+Oh, der Scam-Train ist unterwegs, Leute.
+
+46:02.170 --> 46:04.170
+Wir machen demnächst übrigens
+
+46:04.170 --> 46:06.170
+tatsächlich einen Daily-Sub-Counter.
+
+46:06.170 --> 46:08.170
+Ich muss mir nur irgendwas
+
+46:08.170 --> 46:10.170
+überlegen, was ich mache, wenn wir die Daily-Subs
+
+46:10.170 --> 46:12.170
+packen.
+
+46:12.170 --> 46:14.170
+Irgendwas, was ich eh machen würde.
+
+46:14.170 --> 46:16.170
+Dass es easy ist.
+
+46:16.170 --> 46:18.170
+Mülli.
+
+46:18.170 --> 46:20.170
+Danke für den Sub.
+
+46:20.170 --> 46:22.170
+Jetzt hier, der Scam-Train ist am Start.
+
+46:22.170 --> 46:24.170
+Jetzt geht's los. Eine Face-Leak.
+
+46:24.170 --> 46:26.170
+Ja, klar.
+
+46:26.170 --> 46:28.170
+15 Subscriber gleich Face-Leak.
+
+46:28.170 --> 46:30.170
+Ja, doch.
+
+46:30.170 --> 46:32.170
+Face-Leak mit meiner Keks-Maske auf.
+
+46:32.170 --> 46:34.170
+Das ist kein Problem.
+
+46:34.170 --> 46:36.170
+Okay, ich mag...
+
+46:36.170 --> 46:38.170
+Ne, GPU-Pass-Train vor allem.
+
+46:38.170 --> 46:41.610
+Du lernst endlich PHP.
+
+46:41.610 --> 46:43.610
+Habe ich doch gemacht vor zwei Tagen.
+
+46:43.610 --> 46:48.010
+Und festgestellt, dass es suckt.
+
+46:48.010 --> 46:50.010
+Sub-Count in Grafana, ja.
+
+46:50.010 --> 46:52.010
+Weiß gar nicht.
+
+46:52.010 --> 46:54.010
+Müsste eigentlich gehen, ohne Probleme.
+
+46:54.010 --> 47:03.020
+Twitch-API.
+
+47:05.020 --> 47:10.440
+Das Garten-Stelz-Video.
+
+47:10.440 --> 47:12.440
+Weiß bis heute nicht, warum das so beliebt ist.
+
+47:12.440 --> 47:16.460
+Du lernst gerade React.
+
+47:16.460 --> 47:18.460
+Das ist sehr nice.
+
+47:18.460 --> 47:20.460
+Sebasu-Chan.
+
+47:20.460 --> 47:22.460
+Oh, das ist auch
+
+47:22.460 --> 47:24.460
+ein nicer Weeb-Name, oder?
+
+47:24.460 --> 47:28.350
+Sebasu-Chan.
+
+47:28.350 --> 47:30.350
+Oder das
+
+47:30.350 --> 47:32.350
+Nvidia-Shield-Review
+
+47:32.350 --> 47:34.350
+im Fernsehen.
+
+47:34.350 --> 47:39.840
+Ich weiß nicht, was mit YouTube los ist.
+
+47:39.840 --> 47:41.840
+Keine Ahnung.
+
+47:41.840 --> 47:43.840
+So, wo sind wir stehen geblieben?
+
+47:43.840 --> 47:45.840
+Unsere Kompanie, das Zeug.
+
+47:45.840 --> 47:47.840
+Und was ich jetzt probieren will,
+
+47:47.840 --> 47:49.840
+ist, ich möchte
+
+47:49.840 --> 47:51.840
+einen Installer quasi erstellen.
+
+47:51.840 --> 47:55.400
+Für
+
+47:55.400 --> 47:57.400
+diesen Container.
+
+47:57.400 --> 47:59.400
+Meine Erfahrung mit Helm
+
+47:59.400 --> 48:01.400
+ist zwei Jahre her.
+
+48:01.400 --> 48:03.400
+Und ich weiß eigentlich nichts mehr.
+
+48:03.400 --> 48:05.400
+C++, was?
+
+48:05.400 --> 48:07.400
+Das haben wir doch sogar schon gemacht.
+
+48:07.400 --> 48:09.400
+Ich weiß eigentlich
+
+48:09.400 --> 48:11.400
+nichts mehr. Das Einzige, was ich noch
+
+48:11.400 --> 48:13.400
+weiß, ist, dass man
+
+48:13.400 --> 48:15.400
+einen Ordner anlegen muss.
+
+48:15.400 --> 48:17.400
+Für seinen Helm-Chart.
+
+48:17.400 --> 48:19.400
+Also, keine Ahnung, mkdir.
+
+48:19.400 --> 48:21.400
+Ja.
+
+48:21.400 --> 48:23.400
+HelloHelm, oder so.
+
+48:23.400 --> 48:25.400
+So, und da drinnen
+
+48:25.400 --> 48:27.400
+braucht man jetzt, also, das war es
+
+48:27.400 --> 48:29.400
+wirklich, chart.yaml.
+
+48:29.400 --> 48:31.400
+Wobei ich mir auch nicht mehr sicher bin,
+
+48:31.400 --> 48:33.400
+ob man es groß oder klein schreiben muss.
+
+48:33.400 --> 48:37.480
+Und dann braucht man
+
+48:37.480 --> 48:39.480
+da drin, glaube ich, den Template oder
+
+48:39.480 --> 48:41.480
+Templates-Ordner.
+
+48:41.480 --> 48:43.480
+Wo man dann seine Kubernetes-Ressourcen reinschreibt.
+
+48:43.480 --> 48:45.480
+Mehr weiß ich legit nicht
+
+48:45.480 --> 48:48.990
+mehr. Ich habe keine Ahnung mehr.
+
+48:48.990 --> 48:50.990
+Deswegen brauchen wir jetzt mal
+
+48:50.990 --> 48:54.300
+einen Quickstart-Guide.
+
+48:54.300 --> 48:56.300
+Using Helm.
+
+48:56.300 --> 48:58.300
+Creating Charts.
+
+48:58.300 --> 49:00.300
+Charts Template Guide. Getting Started.
+
+49:00.300 --> 49:02.300
+Ja, perfekt.
+
+49:02.300 --> 49:04.300
+Jaja, man kann das,
+
+49:04.300 --> 49:06.300
+stimmt, du hast recht, man kann das auch mit dem
+
+49:06.300 --> 49:08.300
+CLI anlegen.
+
+49:08.300 --> 49:10.300
+Helm.
+
+49:10.300 --> 49:12.300
+Create.
+
+49:12.300 --> 49:15.800
+HelloHelm.
+
+49:15.800 --> 49:17.800
+Ja, genau.
+
+49:17.800 --> 49:19.800
+Ja, das hat schon alles
+
+49:19.800 --> 49:21.800
+angelegt für mich. Okay, nice.
+
+49:21.800 --> 49:23.800
+Machen wir mal
+
+49:23.800 --> 49:25.800
+ein Visual Studio Code auf und gucken, ob es da
+
+49:25.800 --> 49:27.800
+irgendwelche nice Plugins für gibt.
+
+49:27.800 --> 49:29.800
+Helm Ignore.
+
+49:29.800 --> 49:31.800
+Okay, die haben sogar ein eigenes Ignore-File.
+
+49:31.800 --> 49:33.800
+Das wusste ich gar nicht.
+
+49:33.800 --> 49:35.800
+Values.yaml.
+
+49:35.800 --> 49:37.800
+Naja, gut.
+
+49:37.800 --> 49:41.690
+Values.yaml.
+
+49:41.690 --> 49:43.690
+Zum Testen natürlich nicht verkehrt. Ansonsten müssen die Leute
+
+49:43.690 --> 49:45.690
+das halt selbst erstellen oder überschreiben
+
+49:45.690 --> 49:47.690
+später, besser gesagt.
+
+49:47.690 --> 49:49.690
+Templates.
+
+49:49.690 --> 49:51.690
+Ja, so, und jetzt ist halt das Ding.
+
+49:53.690 --> 49:58.160
+Tests.
+
+49:58.160 --> 50:00.160
+Ich glaube, es geht los.
+
+50:02.160 --> 50:05.790
+Testen muss man nur,
+
+50:05.790 --> 50:07.790
+wenn man Fehler macht.
+
+50:07.790 --> 50:09.790
+Oh, den Witz habe ich heute auf der Arbeit gebracht.
+
+50:09.790 --> 50:14.440
+Den fanden sie mega lustig.
+
+50:14.440 --> 50:16.440
+Also den, den ich hier schon tausendmal erzählt
+
+50:16.440 --> 50:18.440
+habe. Man, wir machen keine Tests, weil wir machen
+
+50:18.440 --> 50:23.360
+keine Fehler. Okay,
+
+50:23.360 --> 50:26.860
+also.
+
+50:26.860 --> 50:28.860
+Ja, anscheinend. Also, okay, okay.
+
+50:28.860 --> 50:30.860
+Ich erkläre das nochmal kurz.
+
+50:30.860 --> 50:34.360
+Also, wenn man jetzt
+
+50:34.360 --> 50:36.360
+ein Kubernetes-Cluster hat, wie wir hier
+
+50:36.360 --> 50:38.360
+gerade haben, und du möchtest dort
+
+50:38.360 --> 50:40.360
+jetzt eine Anwendung installieren,
+
+50:40.360 --> 50:42.360
+die jemand anderes
+
+50:42.360 --> 50:44.360
+entwickelt hat.
+
+50:44.360 --> 50:46.360
+Wie machst du das dann? Es gibt mehrere
+
+50:46.360 --> 50:48.360
+Möglichkeiten, das zu machen.
+
+50:48.360 --> 50:50.360
+Du erstellst
+
+50:50.360 --> 50:52.360
+beispielsweise ein YAML
+
+50:52.360 --> 50:54.360
+Deployment-File und
+
+50:54.360 --> 50:56.360
+pushst das in deinen Kubernetes-Cluster.
+
+50:56.360 --> 50:58.360
+Oder du hast so eine,
+
+50:58.360 --> 51:00.360
+du bist modern und hast sowas wie Argo-CD,
+
+51:00.360 --> 51:02.360
+was das für dich applied.
+
+51:02.360 --> 51:04.360
+Meistens ist es aber so,
+
+51:04.360 --> 51:06.360
+dass eine Anwendung nicht aus einem einzelnen Deployment
+
+51:06.360 --> 51:08.360
+besteht, sondern aus mehreren Sachen.
+
+51:08.360 --> 51:10.360
+Zum Beispiel könnte
+
+51:10.360 --> 51:12.360
+eine Anwendung aus
+
+51:12.360 --> 51:14.360
+zwei Applikations-
+
+51:14.360 --> 51:16.360
+Containern bestehen.
+
+51:16.360 --> 51:18.360
+Ich meine nicht Pods, ich meine verschiedene
+
+51:18.360 --> 51:20.360
+Images.
+
+51:20.360 --> 51:22.360
+Aus zwei Applikations-Images
+
+51:22.360 --> 51:24.360
+eine Message-Queue-Image,
+
+51:24.360 --> 51:26.360
+ein paar Kubernetes-Secrets
+
+51:26.360 --> 51:28.360
+und eine Datenbank.
+
+51:28.360 --> 51:30.360
+Jetzt hast du quasi fünf verschiedene Sachen,
+
+51:30.360 --> 51:32.360
+die du
+
+51:32.360 --> 51:34.360
+brauchst in einem Cluster, dass die Anwendung,
+
+51:34.360 --> 51:36.360
+dass der Service, den du eigentlich betreiben willst,
+
+51:36.360 --> 51:38.360
+läuft.
+
+51:38.360 --> 51:40.360
+Das heißt, entweder erstellst du jetzt alles
+
+51:40.360 --> 51:42.360
+von Hand an Kubernetes-Ressourcen
+
+51:42.360 --> 51:44.360
+oder du
+
+51:44.360 --> 51:46.360
+erstellst einmalig einen Helm-Chart,
+
+51:46.360 --> 51:48.360
+mit dem du es installieren kannst, oder der Hersteller
+
+51:48.360 --> 51:50.360
+hat schon einen Helm-Chart.
+
+51:50.360 --> 51:52.360
+Meistens hat der Hersteller schon einen Helm-Chart.
+
+51:52.360 --> 51:54.360
+Das ist eigentlich so der Weg schlechthin,
+
+51:54.360 --> 51:56.360
+jeder Hersteller von Software, die in Kubernetes
+
+51:56.360 --> 51:58.360
+laufen soll, bietet Helm-Charts an.
+
+51:58.360 --> 52:00.360
+Im Prinzip ist ein Helm-Chart
+
+52:00.360 --> 52:02.360
+quasi ein Installer.
+
+52:02.360 --> 52:04.360
+Angenommen, ich möchte jetzt
+
+52:04.360 --> 52:06.360
+in meinem Kubernetes-Cluster
+
+52:06.360 --> 52:08.360
+eine Software installieren, die sich
+
+52:08.360 --> 52:10.360
+keq-ws-service
+
+52:10.360 --> 52:12.360
+nennt
+
+52:12.360 --> 52:14.360
+und der Hersteller hätte
+
+52:14.360 --> 52:16.360
+schon einen Helm-Chart bereitgestellt
+
+52:16.360 --> 52:18.360
+für mich. Dann könnte ich einfach sagen,
+
+52:18.360 --> 52:20.360
+Helm-Install
+
+52:20.360 --> 52:22.360
+Ist das mit Terraform
+
+52:22.360 --> 52:24.360
+vergleichbar?
+
+52:24.360 --> 52:26.360
+Vielleicht ein
+
+52:26.360 --> 52:30.190
+bisschen.
+
+52:30.190 --> 52:32.190
+Vielleicht ein kleines bisschen.
+
+52:32.190 --> 52:34.190
+Terraform
+
+52:34.190 --> 52:36.190
+hat aber noch deutlich mehr.
+
+52:36.190 --> 52:38.190
+Terraform hat noch State-Tracking
+
+52:38.190 --> 52:40.190
+zum Beispiel. Das juckt
+
+52:40.190 --> 52:42.190
+Helm nicht wirklich.
+
+52:42.190 --> 52:44.190
+Naja doch,
+
+52:44.190 --> 52:46.190
+ein bisschen minimal mit Terraform
+
+52:46.190 --> 52:48.190
+ist das schon vergleichbar.
+
+52:48.190 --> 52:50.190
+Du erstellst irgendwelche Description-Files,
+
+52:50.190 --> 52:52.190
+die auch getemplated
+
+52:52.190 --> 52:54.190
+werden können
+
+52:54.190 --> 52:56.190
+und appliest die dann.
+
+52:56.190 --> 52:58.190
+Am Ende fällt halt irgendwas raus.
+
+52:58.190 --> 53:00.190
+Ein bisschen damit kann man es
+
+53:00.190 --> 53:02.190
+vergleichen. Wobei man halt sagen muss,
+
+53:02.190 --> 53:04.190
+Helm ist rein für Kubernetes-Resources
+
+53:04.190 --> 53:06.190
+und Terraform ist für alles.
+
+53:06.190 --> 53:08.190
+Mit Terraform kannst du Datenbank
+
+53:08.190 --> 53:10.190
+anlegen, VMs anlegen,
+
+53:10.190 --> 53:12.190
+Kubernetes-Cluster anlegen, alles anlegen.
+
+53:12.190 --> 53:15.630
+Und mit Helm kannst du eigentlich
+
+53:15.630 --> 53:17.630
+nur Kubernetes-Ressourcen anlegen.
+
+53:17.630 --> 53:19.630
+Aber, und der Vorteil
+
+53:19.630 --> 53:21.630
+davon ist, du kannst die Sachen halt templaten.
+
+53:21.630 --> 53:23.630
+Das heißt, wenn du jetzt 20 Secrets
+
+53:23.630 --> 53:25.630
+anlegen musst, dann machst du eine Schleife
+
+53:25.630 --> 53:27.630
+in Helm, anstatt 20 Secrets im YAML zu definieren.
+
+53:27.630 --> 53:32.030
+Es ist schon
+
+53:32.030 --> 53:37.390
+Infrastructure as Code.
+
+53:37.390 --> 53:39.390
+Ja, irgendwo schon.
+
+53:39.390 --> 53:45.580
+Ja. Nein, Helm
+
+53:45.580 --> 53:47.580
+hat nichts mit Security zu tun.
+
+53:47.580 --> 53:49.580
+Helm ist ein Install-Skript
+
+53:49.580 --> 53:51.580
+quasi, könnte man sagen.
+
+53:51.580 --> 53:53.580
+Helm führt Installer-
+
+53:53.580 --> 53:55.580
+Setups aus für Kubernetes.
+
+53:55.580 --> 53:57.580
+Also, wenn ihr euch für Windows
+
+53:57.580 --> 53:59.580
+was runterladet,
+
+53:59.580 --> 54:01.580
+ihr ladet euch
+
+54:01.580 --> 54:03.580
+das kekw-Setup runter
+
+54:03.580 --> 54:05.580
+und führt das aus,
+
+54:05.580 --> 54:07.580
+das ist ein Installer.
+
+54:07.580 --> 54:09.580
+Und sowas ist Helm für Kubernetes.
+
+54:09.580 --> 54:11.580
+Hier installiere ich jetzt diesen
+
+54:11.580 --> 54:13.580
+Krempel bei mir auf Windows,
+
+54:13.580 --> 54:15.580
+und mit Helm installen würde ich quasi
+
+54:15.580 --> 54:17.580
+kekw-as-a-Service in meinem Kubernetes-Cluster installieren.
+
+54:17.580 --> 54:19.580
+Alles, was dazu gehört.
+
+54:19.580 --> 54:21.580
+Sofern der Hersteller den Helm-Chart bereitstellt.
+
+54:21.580 --> 54:23.580
+Natürlich gibt es kekw-as-a-Service nicht
+
+54:23.580 --> 54:25.580
+als Helm-Chart.
+
+54:25.580 --> 54:27.580
+So.
+
+54:27.580 --> 54:29.580
+Und
+
+54:29.580 --> 54:31.580
+das Coole daran ist,
+
+54:31.580 --> 54:33.580
+wenn du das einfach nur benutzt,
+
+54:33.580 --> 54:35.580
+wenn du jetzt eine Software installieren
+
+54:35.580 --> 54:37.580
+möchtest in einem Cluster,
+
+54:37.580 --> 54:39.580
+wo der Hersteller halt dir Helm-Charts
+
+54:39.580 --> 54:41.580
+bereitstellt, oder ein Installer,
+
+54:41.580 --> 54:43.580
+in Form von einem Helm-Chart
+
+54:43.580 --> 54:45.580
+bereitstellt,
+
+54:45.580 --> 54:47.580
+dann kannst du es halt darüber installieren.
+
+54:47.580 --> 54:49.580
+Du kannst, sagen wir mal,
+
+54:49.580 --> 54:51.580
+halbwegs, ist nicht wirklich richtig,
+
+54:51.580 --> 54:53.580
+aber halbwegs
+
+54:53.580 --> 54:55.580
+wieder entfernen aus deinem Cluster.
+
+54:55.580 --> 54:57.580
+Auch halbwegs rückstandslos
+
+54:57.580 --> 54:59.580
+wieder entfernen aus deinem Cluster.
+
+54:59.580 --> 55:01.580
+Und du musst halt selbst die ganzen
+
+55:01.580 --> 55:03.580
+Ressourcen nicht anlegen.
+
+55:03.580 --> 55:05.580
+Das macht das Helm-Chart für dich.
+
+55:05.580 --> 55:07.580
+Und halt in der Art und Weise,
+
+55:07.580 --> 55:09.580
+wie der Hersteller schon getestet hat,
+
+55:09.580 --> 55:11.580
+dass es funktioniert.
+
+55:11.580 --> 55:13.580
+Leider artet das teilweise aus.
+
+55:13.580 --> 55:15.580
+Und du kannst, nachdem Helm-Charts
+
+55:15.580 --> 55:17.580
+aus Go-Templates bestehen,
+
+55:17.580 --> 55:19.580
+du kannst vieles der Sachen auch
+
+55:19.580 --> 55:21.580
+ändern. Das sind dann Value-Files
+
+55:21.580 --> 55:23.580
+bei Helm.
+
+55:23.580 --> 55:25.580
+Man sieht es hier zum Beispiel.
+
+55:25.580 --> 55:27.580
+Da gibt es Value-Files.
+
+55:27.580 --> 55:29.580
+Und in diesen Value-Files lege ich meine
+
+55:29.580 --> 55:31.580
+Optionen für die Installation fest.
+
+55:31.580 --> 55:33.580
+Also ihr seht es ja, das hier sind
+
+55:33.580 --> 55:35.580
+keine Kubernetes-Ressourcen, die man
+
+55:35.580 --> 55:37.580
+hier anlegt. Das ist Config,
+
+55:37.580 --> 55:39.580
+anhand dessen dann das
+
+55:39.580 --> 55:41.580
+Helm-Chart meine
+
+55:41.580 --> 55:43.580
+Kubernetes-Ressourcen erstellt.
+
+55:43.580 --> 55:45.580
+Also man kann die Image-Pull-Secrets
+
+55:45.580 --> 55:47.580
+anlegen, man kann das Repository
+
+55:47.580 --> 55:49.580
+anlegen, wo das Ganze hergepullt
+
+55:49.580 --> 55:51.580
+werden soll und sowas in der Richtung
+
+55:51.580 --> 55:53.580
+Replica-Count, wie viele Pots im Endeffekt
+
+55:53.580 --> 55:55.580
+laufen sollen und so. Und wenn ich das
+
+55:55.580 --> 55:57.580
+dann ausführe, das Helm-Chart,
+
+55:57.580 --> 55:59.580
+das können wir jetzt ja auch gleich mal machen,
+
+55:59.580 --> 56:01.580
+dann läuft unter der Haube
+
+56:01.580 --> 56:03.580
+hier dieses ganze Templating durch,
+
+56:03.580 --> 56:05.580
+wo ich mich als reiner Anwender nicht
+
+56:05.580 --> 56:07.580
+drum kümmern muss. Das Ganze hier,
+
+56:07.580 --> 56:09.580
+hier ist das Deployment. Ihr seht,
+
+56:09.580 --> 56:11.580
+das ist quasi Kubernetes-Ressourcen
+
+56:11.580 --> 56:13.580
+mit Go-Templates drin.
+
+56:13.580 --> 56:15.580
+Und wenn ich jetzt ein Helm
+
+56:15.580 --> 56:17.580
+installen mache, dann nimmt
+
+56:17.580 --> 56:19.580
+Helm mein Value-File
+
+56:19.580 --> 56:23.080
+das hier quasi als
+
+56:23.080 --> 56:25.080
+Variablen, ihr könnt euch das hier mehr oder weniger
+
+56:25.080 --> 56:27.080
+als Variablen vorstellen,
+
+56:27.080 --> 56:29.080
+und setzt das hier an den passenden
+
+56:29.080 --> 56:31.080
+Stellen, guck hier, das hat auch
+
+56:31.080 --> 56:33.080
+ein If,
+
+56:33.080 --> 56:35.080
+und sozusagen
+
+56:35.080 --> 56:37.080
+setzt es hier an den richtigen Ingress-Class-Name,
+
+56:37.080 --> 56:39.080
+guck mal, Values-Ingress-
+
+56:39.080 --> 56:41.080
+Class-Name, guck mal bei Values rein,
+
+56:41.080 --> 56:43.080
+Ingress-Class-Name,
+
+56:43.080 --> 56:45.080
+hier kommt die Variable her.
+
+56:45.080 --> 56:47.080
+Also, hier wird das eingesetzt.
+
+56:47.080 --> 56:49.080
+Helm templatet das und erstellt
+
+56:49.080 --> 56:51.080
+Kubernetes-Ressourcen, die dann applied werden.
+
+56:51.080 --> 56:53.080
+Wir können mal gucken, ob das Ganze ausgeführt
+
+56:53.080 --> 56:55.080
+werden kann. Ich habe keine Ahnung, was die hier eigentlich deployen.
+
+56:55.080 --> 56:57.080
+Hello Helm.
+
+56:57.080 --> 56:59.080
+Ja, okay, wir deployen das jetzt einfach mal.
+
+56:59.080 --> 57:01.080
+Also, wir haben jetzt das
+
+57:01.080 --> 57:03.080
+Default-Chart erstellt, also sagen wir Helm,
+
+57:03.080 --> 57:05.080
+Helm,
+
+57:05.080 --> 57:07.080
+Helm install,
+
+57:07.080 --> 57:09.080
+Punkt. So, Punkt ist,
+
+57:09.080 --> 57:11.080
+wir haben das Helm-Chart hier im aktuellen Verzeichnis
+
+57:11.080 --> 57:13.080
+liegen, das selbst funktioniert
+
+57:13.080 --> 57:15.080
+funktioniert noch nicht, weil
+
+57:15.080 --> 57:17.080
+man sollte einer Helm-Installation
+
+57:17.080 --> 57:19.080
+einen Release-Name
+
+57:19.080 --> 57:21.080
+geben, nennen wir es mal Kekl.
+
+57:21.080 --> 57:24.590
+Und
+
+57:24.590 --> 57:26.590
+jetzt hat das, glaube
+
+57:26.590 --> 57:28.590
+ich, funktioniert.
+
+57:28.590 --> 57:30.590
+Holen wir uns mal die Ports.
+
+57:30.590 --> 57:32.590
+Hat nicht funktioniert. Doch, hier.
+
+57:32.590 --> 57:34.590
+Da ist es.
+
+57:34.590 --> 57:36.590
+Also, wir haben jetzt das
+
+57:36.590 --> 57:38.590
+Helm-Chart installiert, was im Endeffekt nur
+
+57:38.590 --> 57:40.590
+ein Container ist im Default-Namespace.
+
+57:40.590 --> 57:42.590
+Aber ihr seht, wir mussten keine
+
+57:42.590 --> 57:44.590
+Kubernetes-Config von Hand anlegen.
+
+57:44.590 --> 57:46.590
+Und wir können den ganzen Kram jetzt auch wieder
+
+57:46.590 --> 57:51.760
+löschen. Brauchen wir nicht.
+
+57:51.760 --> 57:53.760
+Und jetzt ist
+
+57:53.760 --> 57:55.760
+der ganze Krempel wieder weg.
+
+57:55.760 --> 57:57.760
+Jetzt ist der ganze Kram wieder
+
+57:57.760 --> 57:59.760
+weg. Also es ist, wie ihr seht,
+
+57:59.760 --> 58:01.760
+hier guckt mit Install und Delete, es ist so eine Art
+
+58:01.760 --> 58:03.760
+Package-Manager und das sagen sie ja auch selbst.
+
+58:03.760 --> 58:05.760
+So, was man eigentlich machen sollte
+
+58:05.760 --> 58:07.760
+ist folgendes, wenn man den Kram installiert.
+
+58:07.760 --> 58:09.760
+Man sollte einen Release-Name angeben
+
+58:09.760 --> 58:11.760
+und
+
+58:11.760 --> 58:13.760
+ich zeige euch gleich den Unterschied,
+
+58:13.760 --> 58:15.760
+man sollte einen Release-Name angeben,
+
+58:15.760 --> 58:17.760
+man sollte einen
+
+58:17.760 --> 58:19.760
+Create-Namespace
+
+58:19.760 --> 58:24.090
+machen.
+
+58:24.090 --> 58:26.090
+Ach Moment, ich bin ja blöd. Jetzt habe ich
+
+58:26.090 --> 58:28.090
+was vergessen. Ich muss ja erst den Namespace
+
+58:28.090 --> 58:30.090
+noch angeben.
+
+58:30.090 --> 58:32.090
+So, dann gebt ihr den Namespace an.
+
+58:32.090 --> 58:34.090
+Minus L. Also wir installieren
+
+58:34.090 --> 58:36.090
+jetzt dieses Helm-Chart.
+
+58:36.090 --> 58:38.090
+Der Release-Name ist keckel und
+
+58:38.090 --> 58:40.090
+wir installieren das ganze im Namespace.
+
+58:40.090 --> 58:42.090
+Keine Ahnung.
+
+58:42.090 --> 58:44.090
+Machen wir was Realistisches.
+
+58:44.090 --> 58:46.090
+Wir installieren es im Namespace
+
+58:46.090 --> 58:48.090
+Test oder
+
+58:48.090 --> 58:50.090
+Dev.
+
+58:50.090 --> 58:52.090
+Jetzt ist das installiert.
+
+58:52.090 --> 58:54.090
+Oh Fuck. I'm not found. Gut, zum Glück.
+
+58:54.090 --> 58:56.090
+So, und wenn ich jetzt mal hier die Pots
+
+58:56.090 --> 58:58.090
+anzeige, seht ihr, im Namespace
+
+58:58.090 --> 59:00.090
+Dev wurde jetzt hier mein Deployment
+
+59:00.090 --> 59:02.090
+durchgeführt. Wenn ich jetzt sage
+
+59:02.090 --> 59:04.090
+Helm List, dann sehe ich auch
+
+59:04.090 --> 59:06.090
+okay, wir haben ein Deployment gemacht mit Helm.
+
+59:06.090 --> 59:08.090
+Funktioniert auch alles. Namespace
+
+59:08.090 --> 59:10.090
+Dings und Namen. So, und warum
+
+59:10.090 --> 59:12.090
+muss man Release-Namen angeben?
+
+59:12.090 --> 59:14.090
+Naja, man kann ja
+
+59:14.090 --> 59:16.090
+diese Anwendung mehrfach deployen.
+
+59:16.090 --> 59:18.090
+Heck weh.
+
+59:18.090 --> 59:20.090
+Guck, und jetzt habe ich im gleichen
+
+59:20.090 --> 59:22.090
+Namespace das gleiche
+
+59:22.090 --> 59:24.090
+Helm-Deployment mehrfach.
+
+59:24.090 --> 59:26.090
+Realistisch betrachtet
+
+59:26.090 --> 59:28.090
+wird man wahrscheinlich nicht im gleichen
+
+59:28.090 --> 59:30.090
+Namespace die gleiche Anwendung mehrfach
+
+59:30.090 --> 59:32.090
+deployen, sondern man wird eher sowas
+
+59:32.090 --> 59:34.090
+hier machen.
+
+59:34.090 --> 59:36.090
+Delete.
+
+59:36.090 --> 59:40.750
+Wahrscheinlich
+
+59:40.750 --> 59:42.750
+realistischer wird man
+
+59:42.750 --> 59:44.750
+sowas machen. Guck mal, wir haben jetzt
+
+59:44.750 --> 59:46.750
+die App
+
+59:46.750 --> 59:48.750
+die Kackle-App deployed
+
+59:48.750 --> 59:50.750
+im Namespace Dev.
+
+59:50.750 --> 59:52.750
+So, vielleicht habe ich aber auf meinem
+
+59:52.750 --> 59:54.750
+kombiniertes Cluster noch mehr Environments
+
+59:54.750 --> 59:56.750
+laufen. Dann würde ich sagen Helm
+
+59:56.750 --> 59:58.750
+Install
+
+59:58.750 --> 01:00:00.750
+Release. Wieder
+
+01:00:00.750 --> 01:00:02.750
+das gleiche. Äh, nicht Release-Name.
+
+01:00:02.750 --> 01:00:04.750
+Jetzt könnte ich
+
+01:00:04.750 --> 01:00:06.750
+im anderen Namespace
+
+01:00:06.750 --> 01:00:08.750
+jetzt wird er
+
+01:00:08.750 --> 01:00:10.750
+sagen, okay, alles klar, passt.
+
+01:00:10.750 --> 01:00:12.750
+List.
+
+01:00:12.750 --> 01:00:16.510
+So. Das ist, dass man das
+
+01:00:16.510 --> 01:00:18.510
+halt mehrfach deployen kann.
+
+01:00:18.510 --> 01:00:25.720
+List.
+
+01:00:25.720 --> 01:00:27.720
+Und sowas bringt der Standard nicht mit.
+
+01:00:27.720 --> 01:00:29.720
+Was meinst du, mit welcher Standard?
+
+01:00:29.720 --> 01:00:31.720
+Gibt es eigentlich den
+
+01:00:31.720 --> 01:00:33.720
+Helm Delete
+
+01:00:33.720 --> 01:00:37.480
+All oder sowas?
+
+01:00:37.480 --> 01:00:44.830
+Wahrscheinlich nicht, oder?
+
+01:00:44.830 --> 01:00:46.830
+Namespace Dev.
+
+01:00:46.830 --> 01:00:48.830
+Namespace
+
+01:00:48.830 --> 01:00:50.830
+Bots.
+
+01:00:50.830 --> 01:00:52.830
+Jetzt haben wir das ganze wieder gelöscht.
+
+01:00:52.830 --> 01:00:56.330
+Jetzt sind auch alle Bots wieder weg.
+
+01:00:56.330 --> 01:00:58.330
+So, also das ist der Sinn
+
+01:00:58.330 --> 01:01:00.330
+hinter Helm Charts.
+
+01:01:00.330 --> 01:01:02.330
+So, und
+
+01:01:02.330 --> 01:01:04.330
+nachdem ich ja nicht unbedingt wissen muss
+
+01:01:04.330 --> 01:01:06.330
+wie genau
+
+01:01:06.330 --> 01:01:08.330
+oder welche
+
+01:01:08.330 --> 01:01:10.330
+Kubernetes-Ressourcen unter der Haube
+
+01:01:10.330 --> 01:01:12.330
+generiert werden, aber ich trotzdem
+
+01:01:12.330 --> 01:01:14.330
+vielleicht, also rein als Anwender,
+
+01:01:14.330 --> 01:01:16.330
+ihr müsst euch jetzt vorstellen, ich habe mir irgendwie eine Software eingekauft,
+
+01:01:16.330 --> 01:01:18.330
+die ich bei mir, oder
+
+01:01:18.330 --> 01:01:20.330
+benutze ein Open-Source-Projekt,
+
+01:01:20.330 --> 01:01:22.330
+was ich bei mir im GitHub Cluster
+
+01:01:22.330 --> 01:01:24.330
+installieren will.
+
+01:01:24.330 --> 01:01:26.330
+Da will ich ja doch vielleicht die ein oder anderen Sachen
+
+01:01:26.330 --> 01:01:28.330
+customisen,
+
+01:01:28.330 --> 01:01:30.330
+aber ich möchte mich
+
+01:01:30.330 --> 01:01:32.330
+nicht damit rumschlagen, wirklich jede einzelne
+
+01:01:32.330 --> 01:01:34.330
+Kubernetes-Ressource
+
+01:01:34.330 --> 01:01:36.330
+und Config anlegen zu müssen von Hand.
+
+01:01:36.330 --> 01:01:38.330
+Und dafür gibt es Value-Files
+
+01:01:38.330 --> 01:01:40.330
+in Helm, die man überschreiben kann.
+
+01:01:40.330 --> 01:01:42.330
+So, also
+
+01:01:42.330 --> 01:01:44.330
+das hier sind jetzt quasi die Default-Values,
+
+01:01:44.330 --> 01:01:46.330
+aber ich kann das ganze überschreiben.
+
+01:01:46.330 --> 01:01:48.330
+Also entweder kann ich es direkt
+
+01:01:48.330 --> 01:01:50.330
+im Value-File ändern, das macht man
+
+01:01:50.330 --> 01:01:52.330
+aber meistens nicht, ja,
+
+01:01:52.330 --> 01:01:54.330
+sondern man macht sowas hier,
+
+01:01:54.330 --> 01:01:56.330
+äh, Values, sagen wir,
+
+01:01:56.330 --> 01:01:58.330
+Values für die
+
+01:01:58.330 --> 01:02:00.330
+Entwicklungsumgebung.
+
+01:02:00.330 --> 01:02:02.330
+Und jetzt möchte ich, dass in
+
+01:02:02.330 --> 01:02:04.330
+meiner Entwicklungsumgebung, äh,
+
+01:02:04.330 --> 01:02:06.330
+drei Replikas
+
+01:02:06.330 --> 01:02:08.330
+laufen von dem Pod, falls
+
+01:02:08.330 --> 01:02:10.330
+auch mal was kaputt gehen kann.
+
+01:02:10.330 --> 01:02:12.330
+So, es reicht übrigens,
+
+01:02:12.330 --> 01:02:14.330
+wenn ich das so mache, also wenn ich nur das
+
+01:02:14.330 --> 01:02:16.330
+reinschreibe, was ich
+
+01:02:16.330 --> 01:02:18.330
+überschreiben will. So, und dann kann ich
+
+01:02:18.330 --> 01:02:20.330
+sagen, okay, wenn ich das jetzt
+
+01:02:20.330 --> 01:02:22.330
+installiere, dann, sagen wir mal,
+
+01:02:22.330 --> 01:02:24.330
+ich mache jetzt eine Installation wieder in Def
+
+01:02:24.330 --> 01:02:26.330
+von der Kackle-App, dann kann ich sagen,
+
+01:02:26.330 --> 01:02:28.330
+Helm install,
+
+01:02:28.330 --> 01:02:30.330
+das hier ist der Release-Name,
+
+01:02:30.330 --> 01:02:32.330
+komm, wir geben dem Ding mal einen ordentlichen Release-Name
+
+01:02:32.330 --> 01:02:34.330
+hier, keine Ahnung, äh,
+
+01:02:34.330 --> 01:02:37.640
+MyApp oder so, ja.
+
+01:02:37.640 --> 01:02:39.640
+Release-Name MyApp,
+
+01:02:39.640 --> 01:02:41.640
+Create Namespace, im Namespace
+
+01:02:41.640 --> 01:02:43.640
+Def wird das Ganze installiert und jetzt kann ich sagen,
+
+01:02:43.640 --> 01:02:45.640
+Value-File,
+
+01:02:45.640 --> 01:02:47.640
+ähm, Values
+
+01:02:47.640 --> 01:02:49.640
+Def, und jetzt
+
+01:02:49.640 --> 01:02:51.640
+wird er das überschreiben.
+
+01:02:51.640 --> 01:02:53.640
+Jetzt wird er das installieren, nur,
+
+01:02:53.640 --> 01:02:55.640
+ihr werdet es gleich sehen, Get Pods
+
+01:02:55.640 --> 01:02:57.640
+und wir haben auf einmal drei Pods
+
+01:02:57.640 --> 01:03:02.680
+laufen. Also ich hab das quasi
+
+01:03:02.680 --> 01:03:04.680
+überschrieben, das hier sind die Default-Values,
+
+01:03:04.680 --> 01:03:06.680
+aber jetzt hab ich das customised, ich hab
+
+01:03:06.680 --> 01:03:08.680
+quasi die Werte angepasst
+
+01:03:08.680 --> 01:03:10.680
+für die Installation, das ist quasi wie so ein
+
+01:03:10.680 --> 01:03:12.680
+Option-File für den Installer,
+
+01:03:12.680 --> 01:03:14.680
+hab ich jetzt quasi angepasst, ja, aber
+
+01:03:14.680 --> 01:03:16.680
+ich möchte, dass, äh,
+
+01:03:16.680 --> 01:03:18.680
+wenn ich das mit diesem Value-File, also quasi
+
+01:03:18.680 --> 01:03:20.680
+für meine Entwicklungsumgebung installiere,
+
+01:03:20.680 --> 01:03:22.680
+dann will ich aber drei Replikas haben.
+
+01:03:22.680 --> 01:03:24.680
+Und wir könnten, wir können das jetzt
+
+01:03:24.680 --> 01:03:26.680
+noch weiter treiben, wir kopieren jetzt mal
+
+01:03:26.680 --> 01:03:28.680
+das Value Def zu Values,
+
+01:03:28.680 --> 01:03:30.680
+nennen wir es mal Values,
+
+01:03:30.680 --> 01:03:32.680
+Values Prod
+
+01:03:32.680 --> 01:03:34.680
+zum Beispiel, und ich sag,
+
+01:03:34.680 --> 01:03:36.680
+ja, Moment, aber,
+
+01:03:36.680 --> 01:03:38.680
+äh, für mein Live-System will ich
+
+01:03:38.680 --> 01:03:40.680
+zehn Replikas laufen lassen.
+
+01:03:40.680 --> 01:03:42.680
+So, und jetzt kann ich das installieren,
+
+01:03:42.680 --> 01:03:44.680
+Install, äh,
+
+01:03:44.680 --> 01:03:46.680
+darf auch ruhig meine App heißen, jetzt installieren wir
+
+01:03:46.680 --> 01:03:48.680
+jetzt aber im Namespace Prod
+
+01:03:48.680 --> 01:03:50.680
+und nehmen als Value-File
+
+01:03:52.680 --> 01:03:54.680
+das Prod-Yaml, und jetzt
+
+01:03:54.680 --> 01:03:56.680
+werdet ihr feststellen, guckt mal da,
+
+01:03:56.680 --> 01:03:58.680
+für die Produktions, äh,
+
+01:03:58.680 --> 01:04:00.680
+also für die, für das Produktions-Deployment
+
+01:04:00.680 --> 01:04:02.680
+von dieser App, haben wir jetzt
+
+01:04:02.680 --> 01:04:04.680
+zehn Replikas laufen.
+
+01:04:04.680 --> 01:04:06.680
+Also sind wir super krass ausfallsicher,
+
+01:04:06.680 --> 01:04:08.680
+alles auf einem
+
+01:04:08.680 --> 01:04:10.680
+Single-Node-Kubernetes-Cluster.
+
+01:04:10.680 --> 01:04:12.680
+Aber ich glaube,
+
+01:04:12.680 --> 01:04:14.680
+Chat, ich glaube, man gettet es, oder?
+
+01:04:14.680 --> 01:04:19.280
+K8, äh,
+
+01:04:19.280 --> 01:04:21.280
+K9S kenne ich,
+
+01:04:21.280 --> 01:04:23.280
+ich glaube, wir haben es sogar installiert,
+
+01:04:23.280 --> 01:04:25.280
+ich muss dir ehrlich sagen,
+
+01:04:25.280 --> 01:04:27.280
+ich mach's trotzdem
+
+01:04:27.280 --> 01:04:29.280
+lieber mit, mit Kubernetes,
+
+01:04:29.280 --> 01:04:31.280
+äh, von Hand, per, per
+
+01:04:31.280 --> 01:04:33.280
+kubectl auf der Command-Line.
+
+01:04:33.280 --> 01:04:35.280
+Die wichtigsten Sachen kann ich
+
+01:04:35.280 --> 01:04:37.280
+mittlerweile auch alle aus dem Kopf.
+
+01:04:37.280 --> 01:04:39.280
+Sei es, oder ich hab mir
+
+01:04:39.280 --> 01:04:41.280
+einen Cheat-Sheet gemacht, sei es jetzt den EXEC,
+
+01:04:41.280 --> 01:04:43.280
+oder Logs für, für,
+
+01:04:43.280 --> 01:04:45.280
+äh, Sidecar-Container und sowas.
+
+01:04:45.280 --> 01:04:47.280
+Ja, ich kenne K9S, aber
+
+01:04:47.280 --> 01:04:49.280
+bis jetzt hat sich mir der,
+
+01:04:49.280 --> 01:04:51.280
+also, ja gut, wo es
+
+01:04:51.280 --> 01:04:53.280
+ganz cool für ist, ist natürlich so eine Übersicht
+
+01:04:53.280 --> 01:04:55.280
+über den Cluster, äh, wo ändert
+
+01:04:55.280 --> 01:04:58.840
+man den Namespace,
+
+01:04:58.840 --> 01:05:00.840
+äh, all,
+
+01:05:00.840 --> 01:05:05.050
+ja, ja, da kannst du hier,
+
+01:05:05.050 --> 01:05:07.050
+hast du hier so eine Übersicht über den Kubernetes-Cluster,
+
+01:05:07.050 --> 01:05:09.050
+du kannst, glaube ich,
+
+01:05:09.050 --> 01:05:11.050
+konnte man nicht auch irgendwo
+
+01:05:11.050 --> 01:05:13.050
+eine Auslastungs,
+
+01:05:13.050 --> 01:05:15.050
+so einen
+
+01:05:15.050 --> 01:05:17.050
+Top anzeigen lassen, in K,
+
+01:05:17.050 --> 01:05:19.050
+K9S
+
+01:05:19.050 --> 01:05:21.050
+Top?
+
+01:05:21.050 --> 01:05:26.410
+Ging sowas nicht auch irgendwie?
+
+01:05:26.410 --> 01:05:28.410
+Äh, man kann aber auch ansonsten kubectl
+
+01:05:28.410 --> 01:05:30.410
+Top, glaube ich, machen.
+
+01:05:30.410 --> 01:05:32.410
+Äh, Pots.
+
+01:05:32.410 --> 01:05:34.410
+Ach, Metric-API,
+
+01:05:34.410 --> 01:05:36.410
+oh Gott, Alter.
+
+01:05:36.410 --> 01:05:38.410
+Äh, Add-Ons.
+
+01:05:40.410 --> 01:05:42.410
+Enable Metric-Server.
+
+01:05:42.410 --> 01:05:53.500
+Äh, okay.
+
+01:05:53.500 --> 01:05:55.500
+Warum geht der Metric-Server nicht?
+
+01:05:57.500 --> 01:05:59.500
+Weil Brocken, oder was?
+
+01:05:59.500 --> 01:06:04.090
+Okay, keine Ahnung.
+
+01:06:04.090 --> 01:06:11.370
+Irgendwie ist es kaputt.
+
+01:06:11.370 --> 01:06:13.370
+Muss ich das nochmal neu starten?
+
+01:06:13.370 --> 01:06:18.220
+Minikube Stop.
+
+01:06:18.220 --> 01:06:21.720
+Oder nochmal Start?
+
+01:06:21.720 --> 01:06:23.720
+Nee, der Metric-Spot lief doch.
+
+01:06:23.720 --> 01:06:25.720
+Der war sogar healthy, oder?
+
+01:06:25.720 --> 01:06:27.720
+Oder habe ich mich eben verguckt?
+
+01:06:29.720 --> 01:06:31.720
+Oh, nee, war er nicht.
+
+01:06:31.720 --> 01:06:33.720
+Ha, der war noch nicht oben.
+
+01:06:33.720 --> 01:06:35.720
+Deswegen ging es nicht.
+
+01:06:35.720 --> 01:06:46.300
+Aha.
+
+01:06:46.300 --> 01:06:48.300
+Das würde es natürlich erklären.
+
+01:06:50.300 --> 01:06:52.300
+Kann man mit K9S auch mehrere
+
+01:06:52.300 --> 01:06:54.300
+Kubernetes-Contacts verweilen?
+
+01:06:54.300 --> 01:06:56.300
+Es gibt ein relativ gutes kubectl-Plugin,
+
+01:06:56.300 --> 01:06:58.300
+um das zu switchen.
+
+01:06:58.300 --> 01:07:00.300
+Also vermute ich auch mal.
+
+01:07:00.300 --> 01:07:02.300
+Also eines der besten Plugins,
+
+01:07:02.300 --> 01:07:04.300
+wo wir gerade dabei sind.
+
+01:07:04.300 --> 01:07:06.300
+Komm, wir machen nochmal ein bisschen
+
+01:07:06.300 --> 01:07:08.300
+Kubernetes-Commandline.
+
+01:07:08.300 --> 01:07:10.300
+Ich zeige euch nochmal was Praktisches.
+
+01:07:10.300 --> 01:07:12.300
+Und zwar...
+
+01:07:12.300 --> 01:07:14.300
+Error running?
+
+01:07:14.300 --> 01:07:16.300
+Ah, der Metric-Server ist noch nicht.
+
+01:07:16.300 --> 01:07:18.300
+Guck mal, der ist noch nicht.
+
+01:07:18.300 --> 01:07:20.300
+Der Metric-Server startet nicht.
+
+01:07:20.300 --> 01:07:22.300
+Aber wir können auch sagen,
+
+01:07:22.300 --> 01:07:24.300
+kubectl-n
+
+01:07:24.300 --> 01:07:26.300
+kubesystem
+
+01:07:26.300 --> 01:07:28.300
+logs
+
+01:07:28.300 --> 01:07:31.800
+und dann hier auf den
+
+01:07:31.800 --> 01:07:36.200
+Metric-Server.
+
+01:07:36.200 --> 01:07:40.540
+Der scheint zu funktionieren.
+
+01:07:40.540 --> 01:07:42.540
+Ich gehe mal
+
+01:07:42.540 --> 01:07:44.540
+davon aus, dass der Pod jetzt auch ready ist.
+
+01:07:44.540 --> 01:07:46.540
+Ja.
+
+01:07:46.540 --> 01:07:51.640
+Ja, das ist halt...
+
+01:07:51.640 --> 01:07:53.640
+Guck mal, der ist eigentlich sowas wie
+
+01:07:53.640 --> 01:07:59.840
+H-Top.
+
+01:07:59.840 --> 01:08:01.840
+Okay, dafür gibt es keine.
+
+01:08:01.840 --> 01:08:03.840
+Egal, brauchen wir uns jetzt eh nicht zu interessieren.
+
+01:08:05.840 --> 01:08:07.840
+Ja, das wollte ich euch nämlich zeigen.
+
+01:08:07.840 --> 01:08:09.840
+Und zwar, es gibt für kubectl
+
+01:08:09.840 --> 01:08:11.840
+ein paar ganz praktische
+
+01:08:11.840 --> 01:08:13.840
+Describe-Nodes.
+
+01:08:13.840 --> 01:08:15.840
+Ja, aber da sieht man glaube ich nicht die CPU-Auslastung.
+
+01:08:15.840 --> 01:08:20.620
+Ich habe
+
+01:08:20.620 --> 01:08:22.620
+eigentlich gehofft, man hätte vielleicht
+
+01:08:22.620 --> 01:08:24.620
+so eine coole Anzeige.
+
+01:08:24.620 --> 01:08:26.620
+Aber da gibt es Plugins für,
+
+01:08:26.620 --> 01:08:28.620
+dass das schöne grafen und so auch macht.
+
+01:08:28.620 --> 01:08:30.620
+Top-Nodes mag er
+
+01:08:30.620 --> 01:08:32.620
+bei mir aber nicht.
+
+01:08:32.620 --> 01:08:34.620
+Hä, warum ging das eben noch nicht?
+
+01:08:34.620 --> 01:08:36.620
+Habe ich doch eben vorhin ausprobiert.
+
+01:08:36.620 --> 01:08:38.620
+Das ist das, was ich eigentlich gesucht habe.
+
+01:08:38.620 --> 01:08:40.620
+Das habe ich eben ausprobiert, da ging es noch nicht.
+
+01:08:40.620 --> 01:08:42.620
+Da meinte er Matrix not ready.
+
+01:08:42.620 --> 01:08:44.620
+Das ist das, was ich eigentlich machen wollte eben.
+
+01:08:44.620 --> 01:08:49.210
+Ja.
+
+01:08:49.210 --> 01:08:51.210
+Also es gibt für kubectl
+
+01:08:51.210 --> 01:08:53.210
+gibt es
+
+01:08:53.210 --> 01:08:55.210
+einen Plugin-Manager.
+
+01:08:55.210 --> 01:08:57.210
+Der nennt sich Crew.
+
+01:08:57.210 --> 01:08:59.210
+Man braucht den Plugin-Manager
+
+01:08:59.210 --> 01:09:01.210
+nicht wirklich.
+
+01:09:01.210 --> 01:09:03.210
+Man kann die Sachen auch von Hand hin kopieren.
+
+01:09:03.210 --> 01:09:05.210
+Aber es ist insofern ganz praktisch.
+
+01:09:05.210 --> 01:09:07.210
+Ich weiß gar nicht, ob ich installiert habe.
+
+01:09:07.210 --> 01:09:10.720
+Wahrscheinlich nicht.
+
+01:09:10.720 --> 01:09:12.720
+Nö.
+
+01:09:12.720 --> 01:09:16.220
+Habe ich gar nicht installiert.
+
+01:09:16.220 --> 01:09:18.220
+Und da kann man ein paar ganz nützliche
+
+01:09:18.220 --> 01:09:20.220
+Plugins installieren.
+
+01:09:20.220 --> 01:09:22.220
+Für sein kubectl.
+
+01:09:22.220 --> 01:09:24.220
+Zum Beispiel Namespaces und Kontext-Switchen.
+
+01:09:24.220 --> 01:09:26.220
+Das finde ich jetzt persönlich ganz nützlich.
+
+01:09:26.220 --> 01:09:28.220
+Denn zum Beispiel,
+
+01:09:28.220 --> 01:09:30.220
+wenn ich jetzt sage kubectl
+
+01:09:30.220 --> 01:09:32.220
+oder besser am besten noch hin zu
+
+01:09:32.220 --> 01:09:34.220
+aliasen übrigens
+
+01:09:34.220 --> 01:09:36.220
+getpods, dann sagt der mir
+
+01:09:36.220 --> 01:09:38.220
+nö, da gibt es ja keine pods, weil im default
+
+01:09:38.220 --> 01:09:40.220
+Namespace gibt es keine pods.
+
+01:09:40.220 --> 01:09:42.220
+Das heißt, ich müsste jetzt immer "-a"- hinten dran hängen.
+
+01:09:42.220 --> 01:09:44.220
+Das will ich aber oftmals nicht,
+
+01:09:44.220 --> 01:09:46.220
+weil mich meistens diese ganzen
+
+01:09:46.220 --> 01:09:48.220
+Sachen in kubesystem und ingress
+
+01:09:48.220 --> 01:09:50.220
+und so nicht interessieren.
+
+01:09:50.220 --> 01:09:52.220
+Da gibt es ganz coole
+
+01:09:52.220 --> 01:09:54.220
+Plugins für, dass man das relativ
+
+01:09:54.220 --> 01:09:56.220
+easy switchen kann.
+
+01:09:56.220 --> 01:09:58.220
+Man kann auch einfach den Namespace angeben
+
+01:09:58.220 --> 01:10:00.220
+und sagen Namespace dev oder
+
+01:10:00.220 --> 01:10:02.220
+Namespace prod und das geht ja sogar mit
+
+01:10:02.220 --> 01:10:04.220
+Autocomplete. Also das ist gar nicht so wild.
+
+01:10:04.220 --> 01:10:06.220
+Aber wenn man die Sachen nicht so genau
+
+01:10:06.220 --> 01:10:08.220
+aus dem Kopf weiß, dann kann man sich zum Beispiel
+
+01:10:08.220 --> 01:10:10.220
+Wie installiert man den
+
+01:10:10.220 --> 01:10:12.220
+kubectl eigentlich jetzt offiziell?
+
+01:10:12.220 --> 01:10:14.220
+Ah, obviously.
+
+01:10:14.220 --> 01:10:16.220
+Wir copy-pasten es einfach.
+
+01:10:16.220 --> 01:10:20.040
+Leute, ihr wisst,
+
+01:10:20.040 --> 01:10:22.040
+immer Sachen
+
+01:10:22.040 --> 01:10:24.040
+blind copy-pasten aus dem Internet.
+
+01:10:24.040 --> 01:10:26.040
+Das ist einfach das Beste.
+
+01:10:26.040 --> 01:10:30.510
+Excellent.
+
+01:10:30.510 --> 01:10:32.510
+Das ist das Beste.
+
+01:10:32.510 --> 01:10:34.510
+Kann nichts
+
+01:10:34.510 --> 01:10:40.190
+schief gehen.
+
+01:10:40.190 --> 01:10:42.190
+Achso, ich hab's sogar schon drinnen stehen. Ich hab's bloß nicht installiert.
+
+01:10:42.190 --> 01:10:44.190
+Search.
+
+01:10:44.190 --> 01:10:46.190
+Ja, da sind wir doch.
+
+01:10:46.190 --> 01:10:48.190
+Alles wunderbar.
+
+01:10:48.190 --> 01:10:50.190
+TMP, Helm.
+
+01:10:50.190 --> 01:10:52.190
+So, da sind wir.
+
+01:10:52.190 --> 01:10:54.190
+So, und jetzt können wir uns
+
+01:10:54.190 --> 01:10:56.190
+ein paar Plugins installieren. Es gibt nämlich ein ganz
+
+01:10:56.190 --> 01:10:58.190
+praktisches und zwar Search.
+
+01:10:58.190 --> 01:11:00.190
+CTX heißt das, glaube ich.
+
+01:11:00.190 --> 01:11:02.190
+Switch.
+
+01:11:03.190 --> 01:11:08.680
+Für Namespace und CTX.
+
+01:11:08.680 --> 01:11:10.680
+Das ist im Gleichen.
+
+01:11:10.680 --> 01:11:12.680
+Ja, das meine ich.
+
+01:11:12.680 --> 01:11:14.680
+Genau.
+
+01:11:14.680 --> 01:11:16.680
+Das ist alles im gleichen Repo.
+
+01:11:16.680 --> 01:11:18.680
+So, install
+
+01:11:18.680 --> 01:11:20.680
+skubectl
+
+01:11:20.680 --> 01:11:22.680
+plugin.
+
+01:11:22.680 --> 01:11:27.010
+Genau.
+
+01:11:27.010 --> 01:11:29.010
+Ja, ja.
+
+01:11:29.010 --> 01:11:31.010
+So, und was man jetzt
+
+01:11:31.010 --> 01:11:33.010
+machen kann, ist man kann sagen kubectl
+
+01:11:33.010 --> 01:11:35.010
+ns
+
+01:11:35.010 --> 01:11:37.010
+und da bietet ihr so ein
+
+01:11:37.010 --> 01:11:39.010
+Quasi-Finder-Menü an.
+
+01:11:39.010 --> 01:11:41.010
+Und das kannst du dann als Namespace
+
+01:11:41.010 --> 01:11:43.010
+setzen. Da sag ich, ich will jetzt prod haben.
+
+01:11:43.010 --> 01:11:45.010
+Dann steht hier da, ok.
+
+01:11:45.010 --> 01:11:47.010
+Active Namespace ist prod. Und wenn ich jetzt
+
+01:11:47.010 --> 01:11:49.010
+get pods ausführe, dann bezieht sich
+
+01:11:49.010 --> 01:11:51.010
+das automatisch immer auf prod.
+
+01:11:51.010 --> 01:11:53.010
+Oder ich kann sagen kubectl ns.
+
+01:11:53.010 --> 01:11:55.010
+Ah, ne, mich interessiert eigentlich dev.
+
+01:11:55.010 --> 01:11:57.010
+Und alle weiteren Kommandos, die ich ausführe,
+
+01:11:57.010 --> 01:11:59.010
+die beziehen sich dann halt auf den
+
+01:11:59.010 --> 01:12:01.010
+dev Namespace. So, und das gleiche gibt es
+
+01:12:01.010 --> 01:12:03.010
+noch für CTX.
+
+01:12:03.010 --> 01:12:05.010
+Und
+
+01:12:05.010 --> 01:12:07.010
+da kann man jetzt alle
+
+01:12:07.010 --> 01:12:09.010
+Kubernetes-Cluster, die man eingerichtet hat bei sich,
+
+01:12:09.010 --> 01:12:11.010
+in der
+
+01:12:11.010 --> 01:12:13.010
+in seiner
+
+01:12:13.010 --> 01:12:15.010
+Config hier,
+
+01:12:15.010 --> 01:12:17.010
+kann man den Kubernetes-Cluster auswählen.
+
+01:12:17.010 --> 01:12:19.010
+Also, ich hab hier aktuell bloß
+
+01:12:19.010 --> 01:12:21.010
+meinen lokalen Minikube eingerichtet und
+
+01:12:21.010 --> 01:12:23.010
+einen Google Kubernetes-Cluster
+
+01:12:23.010 --> 01:12:25.010
+mit dem tollen Namen GKE
+
+01:12:25.010 --> 01:12:27.010
+KeklStream1.
+
+01:12:27.010 --> 01:12:29.010
+Das heißt, wenn ich den hier jetzt
+
+01:12:29.010 --> 01:12:31.010
+setze als Kontext und sage
+
+01:12:31.010 --> 01:12:33.010
+get pods
+
+01:12:33.010 --> 01:12:35.010
+minus a, dann würde ich mir jetzt die pods
+
+01:12:35.010 --> 01:12:37.010
+von dem Kubernetes-
+
+01:12:37.010 --> 01:12:39.010
+Cluster anzeigen lassen in Google Cloud.
+
+01:12:39.010 --> 01:12:41.010
+Aber der Cluster läuft nicht mehr, den hab ich
+
+01:12:41.010 --> 01:12:43.010
+mittlerweile schon wieder gelöscht. Also insofern
+
+01:12:43.010 --> 01:12:45.010
+nehme ich meinen lokalen Minikube
+
+01:12:45.010 --> 01:12:47.010
+und dann geht das auch wieder.
+
+01:12:47.010 --> 01:12:49.010
+Oder ich sag wieder k set
+
+01:12:49.010 --> 01:12:51.010
+Namespace. Ach, eigentlich interessiert mich hier bloß Sachen
+
+01:12:51.010 --> 01:12:53.010
+in prod.
+
+01:12:53.010 --> 01:12:55.010
+Und dann sag ich wieder pods und hab hier nur die prod pods.
+
+01:12:55.010 --> 01:12:57.010
+Also, es gibt in der Tat tatsächlich
+
+01:12:57.010 --> 01:12:59.010
+sehr nützliche Plugins.
+
+01:12:59.010 --> 01:13:01.010
+Die haben bei denen auf der Seite
+
+01:13:01.010 --> 01:13:03.010
+auch ein Ranking.
+
+01:13:05.010 --> 01:13:07.010
+Naja, man kann es hier nicht richtig sortieren.
+
+01:13:07.010 --> 01:13:09.010
+Das ist natürlich massivst
+
+01:13:09.010 --> 01:13:11.010
+pp-gar.
+
+01:13:11.010 --> 01:13:13.010
+Man kann sich das hier mal durchgucken.
+
+01:13:13.010 --> 01:13:15.010
+So Plugins mit
+
+01:13:15.010 --> 01:13:17.010
+300, 400 Stern plus.
+
+01:13:17.010 --> 01:13:19.010
+Ob da ganz coole Sachen dabei sind.
+
+01:13:19.010 --> 01:13:21.010
+Guck mal hier. CertManager hat
+
+01:13:21.010 --> 01:13:23.010
+beispielsweise ein eigenes Plugin.
+
+01:13:23.010 --> 01:13:25.010
+Cloudflare
+
+01:13:25.010 --> 01:13:27.010
+ist jetzt egal. Cluster.
+
+01:13:27.010 --> 01:13:29.010
+Coast ist auch cool, wenn man
+
+01:13:29.010 --> 01:13:31.010
+Prognosen haben will. Gibt es ein paar
+
+01:13:31.010 --> 01:13:33.010
+solcher Tools, wenn man Prognosen haben will.
+
+01:13:33.010 --> 01:13:35.010
+Was das einkostet sein Kubernetes.
+
+01:13:35.010 --> 01:13:37.010
+Kontextswitches für den Cluster.
+
+01:13:37.010 --> 01:13:39.010
+Und sonst was.
+
+01:13:39.010 --> 01:13:41.010
+Kann man sich mal angucken.
+
+01:13:41.010 --> 01:13:43.010
+Was ich ganz praktisch fand,
+
+01:13:43.010 --> 01:13:45.010
+was ganz wichtig ist. Tail.
+
+01:13:45.010 --> 01:13:47.010
+Wobei
+
+01:13:47.010 --> 01:13:49.010
+das mittlerweile
+
+01:13:49.010 --> 01:13:53.030
+Logs
+
+01:13:53.030 --> 01:13:55.030
+glaube ich von Hand
+
+01:13:55.030 --> 01:13:57.030
+eingebaut kann.
+
+01:13:57.030 --> 01:13:59.030
+Aber hier kannst du halt
+
+01:13:59.030 --> 01:14:01.030
+aus mehreren Ports
+
+01:14:01.030 --> 01:14:03.030
+hier von mehreren Ports
+
+01:14:03.030 --> 01:14:05.030
+Logs tailen.
+
+01:14:05.030 --> 01:14:07.030
+Und musst nicht nur von einem.
+
+01:14:07.030 --> 01:14:09.030
+Also müsst ihr mal gucken. Gibt es wirklich viele
+
+01:14:09.030 --> 01:14:11.030
+praktische Plugins.
+
+01:14:11.030 --> 01:14:15.810
+Aber auch gefährlich,
+
+01:14:15.810 --> 01:14:17.810
+wenn man denkt, man ist in einem anderen Namespace.
+
+01:14:17.810 --> 01:14:19.810
+Ja, natürlich. Allerdings
+
+01:14:19.810 --> 01:14:21.810
+du machst ja meistens kein
+
+01:14:21.810 --> 01:14:23.810
+Delete oder sonst was. Du machst ja meistens
+
+01:14:23.810 --> 01:14:25.810
+mit kubectl read commands.
+
+01:14:25.810 --> 01:14:27.810
+Und dann ist das nicht
+
+01:14:27.810 --> 01:14:31.120
+so wild.
+
+01:14:31.120 --> 01:14:33.120
+Wenn du jetzt halt einen kubectl
+
+01:14:33.120 --> 01:14:35.120
+apply-f für irgendeine Datei machst,
+
+01:14:35.120 --> 01:14:37.120
+dann würde ich vorher schon mal
+
+01:14:37.120 --> 01:14:39.120
+gucken, dass man im richtigen Kontext ist.
+
+01:14:39.120 --> 01:14:43.520
+Ja, so sieht es aus.
+
+01:14:43.520 --> 01:14:45.520
+Das ist übrigens
+
+01:14:45.520 --> 01:14:47.520
+eine sehr gute Idee.
+
+01:14:47.520 --> 01:14:49.520
+Exzellent. Da weiß ich gar nicht, wie man das
+
+01:14:49.520 --> 01:14:51.520
+Das probieren wir jetzt mal aus.
+
+01:14:51.520 --> 01:14:53.520
+Das interessiert mich. Und das ist enorm praktisch.
+
+01:14:53.520 --> 01:14:55.520
+Ähm
+
+01:14:55.520 --> 01:14:57.520
+kubectl, wie würden wir
+
+01:14:57.520 --> 01:14:59.520
+das denn rausbekommen überhaupt?
+
+01:14:59.520 --> 01:15:01.520
+kubectl ns
+
+01:15:01.520 --> 01:15:05.540
+Ja, im Starship. Genau.
+
+01:15:05.540 --> 01:15:07.540
+Wie würden wir das rausbekommen?
+
+01:15:07.540 --> 01:15:09.540
+Wie bekomme ich raus,
+
+01:15:09.540 --> 01:15:11.540
+in welchem Kontext ich gerade bin?
+
+01:15:11.540 --> 01:15:15.430
+Oder in welchem Namespace
+
+01:15:15.430 --> 01:15:24.880
+gerade gesetzt ist?
+
+01:15:24.880 --> 01:15:29.800
+kubectl
+
+01:15:29.800 --> 01:15:31.800
+Im Moment Kontext, aber nicht Namespace, oder?
+
+01:15:31.800 --> 01:15:33.800
+config
+
+01:15:33.800 --> 01:15:35.800
+current context
+
+01:15:35.800 --> 01:15:37.800
+Nee, das ist Minikube.
+
+01:15:37.800 --> 01:15:39.800
+Ich will current Namespace haben, falls es
+
+01:15:39.800 --> 01:15:51.430
+sowas gibt. Aber das gibt es nicht, gell?
+
+01:15:51.430 --> 01:15:53.430
+Ach, das kann Starship einfach
+
+01:15:53.430 --> 01:16:01.090
+so schon, ja?
+
+01:16:01.090 --> 01:16:03.090
+Aha, das probieren wir mal aus.
+
+01:16:03.090 --> 01:16:07.240
+Die Frage ist nur, wie ich das
+
+01:16:07.240 --> 01:16:14.450
+jetzt mache gescheit.
+
+01:16:14.450 --> 01:16:20.960
+So wahrscheinlich, ja?
+
+01:16:20.960 --> 01:16:22.960
+So? Wow.
+
+01:16:22.960 --> 01:16:24.960
+Jetzt habe ich irgendwas
+
+01:16:24.960 --> 01:16:29.680
+destroyed.
+
+01:16:29.680 --> 01:16:31.680
+Und jetzt hier oben Kubernetes reinschreiben noch.
+
+01:16:31.680 --> 01:16:42.160
+Das hat aber nicht so wirklich
+
+01:16:42.160 --> 01:16:48.870
+funktioniert, ne?
+
+01:16:48.870 --> 01:16:50.870
+Aber woher kann das
+
+01:16:50.870 --> 01:16:52.870
+denn Starship
+
+01:16:52.870 --> 01:16:57.330
+überhaupt?
+
+01:16:57.330 --> 01:17:01.090
+starship
+
+01:17:01.090 --> 01:17:03.090
+rs
+
+01:17:03.090 --> 01:17:06.980
+config
+
+01:17:06.980 --> 01:17:14.000
+kubernetes
+
+01:17:14.000 --> 01:17:17.890
+Ja, übertreibt halt mal.
+
+01:17:17.890 --> 01:17:40.790
+Namespace
+
+01:17:40.790 --> 01:17:42.790
+Disabled gleich falls. Hä?
+
+01:17:42.790 --> 01:17:46.480
+Achso, ja.
+
+01:17:46.480 --> 01:17:48.480
+Ah! Ja, praktisch.
+
+01:17:48.480 --> 01:17:50.480
+Sehr gut. Nice.
+
+01:17:50.480 --> 01:17:52.480
+Ich meine, wir sollten vielleicht
+
+01:17:52.480 --> 01:17:54.480
+mal ein bisschen
+
+01:17:54.480 --> 01:17:56.480
+Das sieht ja schon ein bisschen kacke aus
+
+01:17:56.480 --> 01:17:58.480
+an der Stelle jetzt.
+
+01:17:58.480 --> 01:18:00.480
+So.
+
+01:18:00.480 --> 01:18:02.480
+Dann sagen wir ihm jetzt hier
+
+01:18:02.480 --> 01:18:08.360
+Style, was ihn nicht juckt.
+
+01:18:08.360 --> 01:18:12.370
+Warum juckt ihn mein Style nicht?
+
+01:18:12.370 --> 01:18:24.070
+Ah, weil
+
+01:18:24.070 --> 01:18:27.570
+hier
+
+01:18:27.570 --> 01:18:29.570
+Context Namespace und hier muss
+
+01:18:29.570 --> 01:18:31.570
+und hier muss dann quasi der
+
+01:18:31.570 --> 01:18:33.570
+Style
+
+01:18:33.570 --> 01:18:35.570
+rein. Dollar
+
+01:18:35.570 --> 01:18:39.330
+Style. Cool.
+
+01:18:39.330 --> 01:18:41.330
+Sehr schick. Das gefällt mir.
+
+01:18:41.330 --> 01:18:43.330
+Das hat was.
+
+01:18:43.330 --> 01:18:45.330
+Das ist nice. So, jetzt brauchen wir noch ein cooles
+
+01:18:45.330 --> 01:18:50.630
+Symbol dafür. Symbol.
+
+01:18:50.630 --> 01:18:52.630
+Symbol, Kontext.
+
+01:18:52.630 --> 01:18:59.650
+Da kommt noch irgendwas davor.
+
+01:18:59.650 --> 01:19:01.650
+Okay, so jetzt brauchen wir
+
+01:19:01.650 --> 01:19:03.650
+ein ordentliches Symbol dafür.
+
+01:19:03.650 --> 01:19:05.650
+Ähm.
+
+01:19:05.650 --> 01:19:07.650
+Power
+
+01:19:07.650 --> 01:19:11.090
+Line
+
+01:19:11.090 --> 01:19:13.090
+Icons
+
+01:19:13.090 --> 01:19:15.090
+Search
+
+01:19:15.090 --> 01:19:17.090
+Ja, das meine ich.
+
+01:19:17.090 --> 01:19:19.090
+So. Gibt es da irgendwas
+
+01:19:19.090 --> 01:19:21.090
+Gescheites für
+
+01:19:21.090 --> 01:19:25.560
+Kubernetes oder Container?
+
+01:19:25.560 --> 01:19:27.560
+Hallo?
+
+01:19:27.560 --> 01:19:29.560
+Öffnen, please.
+
+01:19:29.560 --> 01:19:31.560
+Kubernetes
+
+01:19:31.560 --> 01:19:33.560
+Ey, tatsächlich.
+
+01:19:33.560 --> 01:19:35.560
+Container
+
+01:19:35.560 --> 01:19:37.560
+Hm.
+
+01:19:37.560 --> 01:19:39.560
+Docker
+
+01:19:39.560 --> 01:19:46.000
+Dann haben wir das Kubernetes-Symbol
+
+01:19:46.000 --> 01:19:50.020
+und gucken wir
+
+01:19:50.020 --> 01:19:52.020
+mal, ob mein
+
+01:19:52.020 --> 01:19:54.020
+Ja!
+
+01:19:54.020 --> 01:19:56.020
+Mein Font kann das sogar.
+
+01:19:56.020 --> 01:19:58.020
+Guck mal, schon haben wir ein Kubernetes-Symbol
+
+01:19:58.020 --> 01:20:00.020
+hier vorne. Es sieht aber schon ein bisschen
+
+01:20:00.020 --> 01:20:04.930
+kacke aus, ne?
+
+01:20:04.930 --> 01:20:06.930
+Das erkennt doch niemand, dass das ein
+
+01:20:06.930 --> 01:20:08.930
+Package ist. Wir brauchen irgendein ordentliches
+
+01:20:08.930 --> 01:20:10.930
+Symbol.
+
+01:20:10.930 --> 01:20:12.930
+Habt ihr eine Idee,
+
+01:20:12.930 --> 01:20:14.930
+was es für Container geben
+
+01:20:14.930 --> 01:20:16.930
+könnte? Irgendwas Gutes?
+
+01:20:16.930 --> 01:20:20.690
+Docker?
+
+01:20:20.690 --> 01:20:26.690
+Helm? Ne, glaube ich nicht.
+
+01:20:26.690 --> 01:20:28.690
+Aber es hat ja mit Helm gar nichts direkt
+
+01:20:28.690 --> 01:20:32.390
+zu tun. Vielleicht machen wir
+
+01:20:32.390 --> 01:20:38.000
+wirklich den Docker-Fish hin?
+
+01:20:38.000 --> 01:20:42.150
+Aber ich meine,
+
+01:20:42.150 --> 01:20:44.150
+das ist aber eigentlich okay so.
+
+01:20:44.150 --> 01:20:46.150
+Da weiß man schon Bescheid.
+
+01:20:46.150 --> 01:20:54.260
+Ja, cool. Ne, das
+
+01:20:54.260 --> 01:20:56.260
+finde ich gut. Das finde ich richtig gut.
+
+01:20:56.260 --> 01:20:58.260
+Ne, das
+
+01:20:58.260 --> 01:21:00.260
+gefällt mir. Das gefällt mir. Guck mal.
+
+01:21:00.260 --> 01:21:02.260
+Jetzt haben wir sogar die Anzeige,
+
+01:21:02.260 --> 01:21:04.260
+welchen Cluster wir als
+
+01:21:04.260 --> 01:21:07.830
+Kontext haben und in welchem
+
+01:21:07.830 --> 01:21:09.830
+Namespace wir sind. Checken wir mal.
+
+01:21:09.830 --> 01:21:11.830
+kubectl ns. Switchen
+
+01:21:11.830 --> 01:21:13.830
+wir mal auf Dev.
+
+01:21:13.830 --> 01:21:15.830
+Oh, da steht Dev. Das ist sehr nice.
+
+01:21:15.830 --> 01:21:17.830
+Chat-FiFat-Idee. Gefällt mir richtig gut.
+
+01:21:17.830 --> 01:21:29.650
+Mein, wie würdest du diese
+
+01:21:29.650 --> 01:21:31.650
+Aufgabenstellung interpretieren?
+
+01:21:31.650 --> 01:21:33.650
+Raspberry Pi als Kubernetes
+
+01:21:33.650 --> 01:21:35.650
+Master parametrisieren
+
+01:21:35.650 --> 01:21:37.650
+zusätzlich drei
+
+01:21:37.650 --> 01:21:47.300
+Ubuntu-Maschinen, die er verwalten kann.
+
+01:21:58.690 --> 01:22:00.690
+Die meinen, dass du einen
+
+01:22:00.690 --> 01:22:02.690
+vier
+
+01:22:02.690 --> 01:22:06.320
+vier Node-Cluster
+
+01:22:06.320 --> 01:22:08.320
+machen sollst und ein Node
+
+01:22:08.320 --> 01:22:10.320
+davon ein Raspberry Pi
+
+01:22:10.320 --> 01:22:20.260
+ist? Oder
+
+01:22:20.260 --> 01:22:22.260
+meinen die, dass der Raspberry
+
+01:22:22.260 --> 01:22:26.790
+Pi quasi der
+
+01:22:26.790 --> 01:22:28.790
+RP-Node ist?
+
+01:22:28.790 --> 01:22:32.160
+Und dass du
+
+01:22:32.160 --> 01:22:34.160
+Ach, das meinen die. Ja, das
+
+01:22:34.160 --> 01:22:36.160
+meinen die. Okay, jetzt
+
+01:22:36.160 --> 01:22:38.160
+hab ich's gecheckt. Du sollst den Raspberry
+
+01:22:38.160 --> 01:22:40.160
+Pi als RP
+
+01:22:40.160 --> 01:22:42.160
+Node einrichten und
+
+01:22:42.160 --> 01:22:44.160
+drei Ubuntu-Kisten als
+
+01:22:44.160 --> 01:22:46.160
+Worker-Nodes, oder?
+
+01:22:46.160 --> 01:22:48.160
+Vermute ich mal. So was
+
+01:22:48.160 --> 01:22:52.500
+in der Richtung.
+
+01:22:52.500 --> 01:22:54.500
+So was. Ja, ja, ja. Okay.
+
+01:22:54.500 --> 01:22:56.500
+Ja, das ist vielleicht ein bisschen blöd geschrieben.
+
+01:22:56.500 --> 01:22:58.500
+Ich hab's auch erst nicht gecheckt, aber
+
+01:22:58.500 --> 01:23:00.500
+so was wird es sein.
+
+01:23:00.500 --> 01:23:16.160
+Ja, das wird es sein.
+
+01:23:16.160 --> 01:23:19.670
+Aber soll ich die Ubuntu-Maschine
+
+01:23:19.670 --> 01:23:21.670
+auch aufsetzen?
+
+01:23:21.670 --> 01:23:23.670
+Naja, wenn du
+
+01:23:23.670 --> 01:23:25.670
+keine hast, würde ich
+
+01:23:25.670 --> 01:23:27.670
+das schon mal da rein interpretieren.
+
+01:23:27.670 --> 01:23:29.670
+Weil du kannst ja schlecht
+
+01:23:29.670 --> 01:23:31.670
+einen Cluster machen mit drei
+
+01:23:31.670 --> 01:23:33.670
+Ubuntu-Worker-Nodes, solange du keine
+
+01:23:33.670 --> 01:23:35.670
+Ubuntu-Kisten hast, oder?
+
+01:23:35.670 --> 01:23:37.670
+Also irgendwo müssen die ja herkommen.
+
+01:23:37.670 --> 01:23:39.670
+Also
+
+01:23:39.670 --> 01:23:41.670
+da würde ich nochmal nachfragen,
+
+01:23:41.670 --> 01:23:43.670
+was er eigentlich will.
+
+01:23:43.670 --> 01:23:45.670
+Aber ich würde sagen, ja, die musst du
+
+01:23:45.670 --> 01:23:47.670
+auch aufbauen, weil
+
+01:23:47.670 --> 01:23:49.670
+die materialisieren sich ja nicht einfach
+
+01:23:49.670 --> 01:24:00.470
+so. Chatge.
+
+01:24:00.470 --> 01:24:03.970
+So, aber so viel
+
+01:24:03.970 --> 01:24:05.970
+zu meinen bisherigen hier Helm-
+
+01:24:05.970 --> 01:24:07.970
+Ausführungen.
+
+01:24:07.970 --> 01:24:09.970
+Ich glaube, man hat das soweit verstanden.
+
+01:24:09.970 --> 01:24:11.970
+Auch mit den Value-Files und dem
+
+01:24:11.970 --> 01:24:13.970
+Überschreiben. Wisst ihr, was
+
+01:24:13.970 --> 01:24:15.970
+das Coole ist? Ich dachte, ich
+
+01:24:15.970 --> 01:24:17.970
+müsste jetzt theoretisch ein Helm-Chart
+
+01:24:17.970 --> 01:24:19.970
+komplett from scratch erstellen.
+
+01:24:19.970 --> 01:24:21.970
+Aber wir haben ja hier auch ein ganz gutes
+
+01:24:21.970 --> 01:24:25.350
+Beispiel.
+
+01:24:25.350 --> 01:24:27.350
+Also mit dem
+
+01:24:27.350 --> 01:24:29.350
+mit dem Default
+
+01:24:29.350 --> 01:24:31.350
+Hello-World-Node.
+
+01:24:31.350 --> 01:24:33.350
+Was deployen die da eigentlich?
+
+01:24:33.350 --> 01:24:35.350
+Gucken wir mal kurz rein. Die machen
+
+01:24:35.350 --> 01:24:37.350
+Image
+
+01:24:37.350 --> 01:24:39.350
+Image
+
+01:24:39.350 --> 01:24:41.350
+Repository, Value-Tag
+
+01:24:41.350 --> 01:24:43.350
+Chart-App-Version
+
+01:24:43.350 --> 01:24:54.850
+Ja, Nginx.
+
+01:24:54.850 --> 01:24:56.850
+In Nginx deployen die da.
+
+01:24:56.850 --> 01:24:58.850
+Der dann im Endeffekt sowas wie Hello-World
+
+01:24:58.850 --> 01:25:02.160
+sagt wahrscheinlich.
+
+01:25:02.160 --> 01:25:04.160
+Ja, verstehe.
+
+01:25:04.160 --> 01:25:06.160
+Okay, Leute, ich glaube,
+
+01:25:06.160 --> 01:25:08.160
+das müssen wir uns an einem anderen Tag nochmal
+
+01:25:08.160 --> 01:25:10.160
+gesondert angucken. Ich merke gerade, dass ich keine
+
+01:25:10.160 --> 01:25:12.160
+keine freien
+
+01:25:12.160 --> 01:25:14.160
+Hirn-Kapazitäten mehr habe, mich
+
+01:25:14.160 --> 01:25:16.160
+im Detail der Sache zu widmen. Aber ich glaube,
+
+01:25:16.160 --> 01:25:18.160
+so als kleine Übersicht war das heute gar nicht
+
+01:25:18.160 --> 01:25:20.160
+schlecht.
+
+01:25:20.160 --> 01:25:25.720
+Was passiert denn eigentlich gerade im Hintergrund?
+
+01:25:25.720 --> 01:25:27.720
+Nix, okay.
+
+01:25:27.720 --> 01:25:35.890
+Wir haben jetzt ja auch schon
+
+01:25:35.890 --> 01:25:37.890
+einen Chart mit einer Demo-Anwendung.
+
+01:25:37.890 --> 01:25:39.890
+Was ich noch gucken
+
+01:25:39.890 --> 01:25:41.890
+wollte ist folgendes.
+
+01:25:41.890 --> 01:25:43.890
+Gibt es gescheite
+
+01:25:43.890 --> 01:25:45.890
+oder gibt es gute
+
+01:25:45.890 --> 01:25:47.890
+Visual Studio
+
+01:25:47.890 --> 01:25:49.890
+Code-Plugins
+
+01:25:49.890 --> 01:25:51.890
+dafür?
+
+01:25:51.890 --> 01:25:53.890
+Was dir auch ein bisschen
+
+01:25:53.890 --> 01:25:55.890
+Autocomplete bietet.
+
+01:25:55.890 --> 01:25:57.890
+Okay, Moment.
+
+01:25:57.890 --> 01:26:02.800
+Habe ich schon installiert?
+
+01:26:02.800 --> 01:26:04.800
+Anscheinend.
+
+01:26:04.800 --> 01:26:06.800
+Aber wenn ich hier jetzt irgendwie Template-Syntax
+
+01:26:06.800 --> 01:26:08.800
+machen will,
+
+01:26:08.800 --> 01:26:10.800
+checkt der dann was?
+
+01:26:10.800 --> 01:26:12.800
+Tatsächlich?
+
+01:26:12.800 --> 01:26:14.800
+If?
+
+01:26:14.800 --> 01:26:16.800
+Ja, okay.
+
+01:26:16.800 --> 01:26:21.780
+Okay. Auch wenn ich
+
+01:26:21.780 --> 01:26:23.780
+diese Go-Template-Syntax
+
+01:26:23.780 --> 01:26:25.780
+total abartig finde.
+
+01:26:25.780 --> 01:26:27.780
+Gibt es denn ein
+
+01:26:27.780 --> 01:26:29.780
+Autocomplete von
+
+01:26:29.780 --> 01:26:31.780
+.values? Ey, guck mal da.
+
+01:26:33.780 --> 01:26:35.780
+Ey, das ist ja richtig gut.
+
+01:26:37.780 --> 01:26:39.780
+Das ist ja richtig angenehm.
+
+01:26:39.780 --> 01:26:41.780
+Was habe ich denn da für Plugins installiert,
+
+01:26:41.780 --> 01:26:43.780
+dass das geht?
+
+01:26:43.780 --> 01:26:45.780
+Was habe ich denn, zeig mal her.
+
+01:26:45.780 --> 01:26:47.780
+Project Manager, wer braucht denn
+
+01:26:47.780 --> 01:26:49.780
+sowas, Alter?
+
+01:26:49.780 --> 01:26:51.780
+Also den Project Manager, der kommt auf jeden Fall
+
+01:26:51.780 --> 01:26:53.780
+wieder weg, den braucht noch wirklich niemand.
+
+01:26:55.780 --> 01:26:57.780
+Was habe ich denn für Plugins installiert, zeig mal her.
+
+01:26:57.780 --> 01:26:59.780
+Terraform,
+
+01:26:59.780 --> 01:27:01.780
+Kubernetes, okay.
+
+01:27:01.780 --> 01:27:03.780
+Ist das Helm-Plugin in
+
+01:27:03.780 --> 01:27:05.780
+Kubernetes schon dabei?
+
+01:27:05.780 --> 01:27:07.780
+Das ist ja sehr nice, das gefällt mir.
+
+01:27:07.780 --> 01:27:09.780
+Das wusste ich gar nicht.
+
+01:27:09.780 --> 01:27:11.780
+Pog, easy.
+
+01:27:11.780 --> 01:27:13.780
+Und sogar
+
+01:27:13.780 --> 01:27:15.780
+halbwegs
+
+01:27:15.780 --> 01:27:17.780
+guck mal, sogar gescheite
+
+01:27:17.780 --> 01:27:19.780
+halbwegs gescheite Autocomplete.
+
+01:27:19.780 --> 01:27:21.780
+Das ist doch praktisch.
+
+01:27:21.780 --> 01:27:27.780
+Praktisch.
+
+01:27:27.780 --> 01:27:29.780
+Aber man muss schon sagen, Leute,
+
+01:27:29.780 --> 01:27:31.780
+die Helm-Syntax, also
+
+01:27:31.780 --> 01:27:33.780
+die Go-Template-Syntax ist schon
+
+01:27:33.780 --> 01:27:35.780
+echt
+
+01:27:35.780 --> 01:27:37.780
+zum Kotzen, oder?
+
+01:27:37.780 --> 01:27:41.730
+Das sieht schon echt
+
+01:27:41.730 --> 01:27:50.160
+eklig aus.
+
+01:27:50.160 --> 01:27:52.160
+Und da hilft das Syntax-Highlighting auch nur
+
+01:27:52.160 --> 01:27:57.720
+beschränkt.
+
+01:27:57.720 --> 01:27:59.720
+Nee, das ist abartig.
+
+01:27:59.720 --> 01:28:01.720
+Chatge, komm,
+
+01:28:01.720 --> 01:28:03.720
+wir gucken uns noch die ein oder anderen
+
+01:28:03.720 --> 01:28:05.720
+Sachen auf YouTube an.
+
+01:28:05.720 --> 01:28:07.720
+Meine Hirn-Kapazität reicht nicht
+
+01:28:07.720 --> 01:28:09.720
+mehr aus heute, um mich damit zu beschäftigen.
+
+01:28:09.720 --> 01:28:11.720
+Was haben wir denn
+
+01:28:11.720 --> 01:28:13.720
+hier, was gucken wir uns denn
+
+01:28:13.720 --> 01:28:15.720
+mal an?
+
+01:28:15.720 --> 01:28:17.720
+Devops is terrible.
+
+01:28:17.720 --> 01:28:19.720
+Hat einer im Chat vorgeschlagen,
+
+01:28:19.720 --> 01:28:21.720
+dass ich da drauf reacten soll.
+
+01:28:21.720 --> 01:28:23.720
+Das heißt, nur wenn ich das
+
+01:28:23.720 --> 01:28:25.720
+jetzt richtig verstehe,
+
+01:28:25.720 --> 01:28:27.720
+ihr wollt, dass ich auf eine Reaction
+
+01:28:27.720 --> 01:28:29.720
+reacte, ja?
+
+01:28:29.720 --> 01:28:33.860
+Verstehe ich das richtig?
+
+01:28:33.860 --> 01:28:35.860
+Hi Max, spielst du Diablo 4?
+
+01:28:35.860 --> 01:28:37.860
+Nee.
+
+01:28:37.860 --> 01:28:39.860
+Ich bin immer noch am überlegen, ob ich es mir kaufen soll.
+
+01:28:39.860 --> 01:28:41.860
+Ich glaube, ich werde es mir kaufen,
+
+01:28:41.860 --> 01:28:43.860
+wenn es die
+
+01:28:43.860 --> 01:28:45.860
+erste Season gibt,
+
+01:28:45.860 --> 01:28:47.860
+die Kinderkrankheiten
+
+01:28:47.860 --> 01:28:49.860
+mehr oder weniger weg sind, wobei es ja erstaunlich
+
+01:28:49.860 --> 01:28:53.240
+gut läuft.
+
+01:28:53.240 --> 01:28:55.240
+Und ich weiß, ob sich das langzeitmäßig
+
+01:28:55.240 --> 01:28:57.240
+lohnt, dass man es eine Weile spielen kann.
+
+01:28:57.240 --> 01:28:59.240
+Ich weiß nicht.
+
+01:28:59.240 --> 01:29:01.240
+Blizzard hat mich so enttäuscht die letzten
+
+01:29:01.240 --> 01:29:03.240
+Jahre über, ich bin echt ein bisschen
+
+01:29:03.240 --> 01:29:05.240
+zurückhaltend,
+
+01:29:05.240 --> 01:29:07.240
+jetzt das Game zu kaufen.
+
+01:29:07.240 --> 01:29:12.020
+Außerdem habe ich wahrscheinlich eh keinen Bock
+
+01:29:12.020 --> 01:29:14.020
+auf drei Wochen non-stop grind,
+
+01:29:14.020 --> 01:29:16.020
+weil ich weiß, wenn ich so ein Game erstmal
+
+01:29:16.020 --> 01:29:18.020
+anfange, dann höre ich auch nicht auf.
+
+01:29:18.020 --> 01:29:21.520
+Ich persönlich freue mich
+
+01:29:21.520 --> 01:29:23.520
+viel mehr auf Path of Exile 2.
+
+01:29:23.520 --> 01:29:25.520
+Mal gucken, ob das irgendwann
+
+01:29:25.520 --> 01:29:29.800
+rauskommt.
+
+01:29:29.800 --> 01:29:53.200
+Morgen kommt Final
+
+01:29:53.200 --> 01:29:55.200
+Fantasy 16.
+
+01:29:55.200 --> 01:29:57.200
+Ja, das hätte ich komplett
+
+01:29:57.200 --> 01:29:59.200
+vergessen, aber ich habe heute am Hauptbahnhof
+
+01:29:59.200 --> 01:30:01.200
+auf einem
+
+01:30:03.200 --> 01:30:05.200
+Display Werbung dafür
+
+01:30:05.200 --> 01:30:07.200
+gesehen.
+
+01:30:07.200 --> 01:30:09.200
+Final Fantasy 16
+
+01:30:09.200 --> 01:30:11.200
+ist doch in guter Alter Final
+
+01:30:11.200 --> 01:30:13.200
+Fantasy Tradition.
+
+01:30:13.200 --> 01:30:15.200
+Hat nichts mit Final Fantasy 15
+
+01:30:15.200 --> 01:30:17.200
+zu tun, oder?
+
+01:30:17.200 --> 01:30:19.200
+Weil was mich ultra verwirrt
+
+01:30:19.200 --> 01:30:21.200
+hat ist,
+
+01:30:23.200 --> 01:30:25.200
+dass
+
+01:30:25.200 --> 01:30:27.200
+der Dude hier irgendwie
+
+01:30:27.200 --> 01:30:29.200
+aussieht ein bisschen auf dem Cover
+
+01:30:29.200 --> 01:30:31.200
+wie der Final Fantasy 15 Typ.
+
+01:30:31.200 --> 01:30:34.770
+Ja, ich weiß, die sind immer eigene
+
+01:30:34.770 --> 01:30:36.770
+Story, aber das hat mich ein bisschen verwirrt, weil die sich so
+
+01:30:36.770 --> 01:30:38.770
+ähnlich aussehen, so ähnlich gesehen haben.
+
+01:30:40.770 --> 01:30:42.770
+Battlefield 3 ist
+
+01:30:42.770 --> 01:30:44.770
+nichts, was abgeschaltet wird.
+
+01:30:44.770 --> 01:30:46.770
+BC2 ist Ende des Jahres weg.
+
+01:30:46.770 --> 01:30:48.770
+Danach kommt wahrscheinlich echt Battlefield 3.
+
+01:30:48.770 --> 01:30:50.770
+Das Schöne ist, dass BC2 nie
+
+01:30:50.770 --> 01:30:52.770
+sterben wird, weil du Custom Server hosten kannst.
+
+01:30:52.770 --> 01:30:54.770
+Und den BF3 mittlerweile auch.
+
+01:31:12.000 --> 01:31:14.000
+Okay Leute, ich muss mir nochmal kurz
+
+01:31:14.000 --> 01:31:16.000
+was zu trinken holen.
+
+01:31:16.000 --> 01:31:23.730
+Und dann
+
+01:31:23.730 --> 01:31:25.730
+we made a huge mistake.
+
+01:31:25.730 --> 01:31:27.730
+Haben sie mal wieder einen Server
+
+01:31:27.730 --> 01:31:29.730
+runtergeschmissen und beschweren sich jetzt drüber,
+
+01:31:29.730 --> 01:31:31.730
+dass sie Datenverlust haben.
+
+01:31:31.730 --> 01:31:33.730
+SSST.
+
+01:31:33.730 --> 01:31:35.730
+Clan Tumulte in Essen.
+
+01:31:35.730 --> 01:31:37.730
+Was ist da wieder los?
+
+01:31:37.730 --> 01:31:41.300
+Chat, ist heute
+
+01:31:41.300 --> 01:31:43.300
+irgendwas passiert in der Welt,
+
+01:31:43.300 --> 01:31:45.300
+was man missen müsste?
+
+01:31:45.300 --> 01:31:47.300
+Ich habe nichts mitbekommen. War heute irgendwas?
+
+01:31:49.300 --> 01:31:51.300
+Außer, dass...
+
+01:31:51.300 --> 01:31:53.300
+Doch, eine Sache habe ich tatsächlich
+
+01:31:53.300 --> 01:31:55.300
+mitbekommen.
+
+01:31:55.300 --> 01:31:57.300
+Da weiß ich aber nicht, was da schon wieder abgeht.
+
+01:31:57.300 --> 01:31:59.300
+Dass irgendwelche Rammstein-Konzerte in Berlin
+
+01:31:59.300 --> 01:32:01.300
+verboten werden.
+
+01:32:01.300 --> 01:32:03.300
+Dass Leute eine Petition gestartet haben,
+
+01:32:03.300 --> 01:32:05.300
+dass Rammstein-Konzerte in Berlin
+
+01:32:05.300 --> 01:32:07.300
+verboten werden. Das habe ich
+
+01:32:07.300 --> 01:32:09.300
+vorher in irgendwelchen Nachrichten gehört.
+
+01:32:09.300 --> 01:32:11.300
+Aber ansonsten habe ich
+
+01:32:11.300 --> 01:32:13.300
+heute nichts mitbekommen. War heute irgendwas?
+
+01:32:15.300 --> 01:32:17.300
+Morgen ist Nintendo Direct.
+
+01:32:17.300 --> 01:32:19.300
+Okay, ja.
+
+01:32:19.300 --> 01:32:21.300
+Juckt mich jetzt nicht so groß.
+
+01:32:21.300 --> 01:32:23.300
+Ich gucke mir da wieder die Zusammenfassung an.
+
+01:32:23.300 --> 01:32:25.300
+War heute irgendwas Spannendes?
+
+01:32:25.300 --> 01:32:27.300
+Glaube nicht.
+
+01:32:27.300 --> 01:32:31.250
+Ach doch!
+
+01:35:25.990 --> 01:35:27.990
+...
+
+01:35:27.990 --> 01:35:29.990
+...
+
+01:35:29.990 --> 01:35:31.990
+...
+
+01:35:31.990 --> 01:35:33.990
+...
+
+01:35:33.990 --> 01:35:35.990
+...
+
+01:35:35.990 --> 01:35:37.990
+..
+
+01:35:37.990 --> 01:35:39.990
+...
+
+01:35:39.990 --> 01:35:48.290
+...
+
+01:35:48.290 --> 01:35:50.290
+...
+
+01:35:50.290 --> 01:35:52.290
+...
+
+01:35:52.290 --> 01:35:54.290
+...
+
+01:35:54.290 --> 01:35:56.290
+30.000
+
+01:35:56.290 --> 01:35:58.290
+30.000
+
+01:35:58.290 --> 01:36:00.290
+...
+
+01:36:00.290 --> 01:36:08.030
+Hat er gelöscht oder wie?
+
+01:36:08.030 --> 01:36:12.910
+Das ist doch noch gar nicht so lange her, wo der On war.
+
+01:36:12.910 --> 01:36:14.990
+Ja, zuletzt vor elf Tagen, ja.
+
+01:36:14.990 --> 01:36:22.130
+Keine Ahnung,
+
+01:36:22.130 --> 01:36:35.550
+warum man die gelöscht hat.
+
+01:36:35.550 --> 01:36:39.350
+Okay.
+
+01:36:39.350 --> 01:36:45.460
+Auf geht's. Also, was gucken wir uns jetzt an?
+
+01:36:45.460 --> 01:36:48.200
+DevOps is terrible.
+
+01:36:48.200 --> 01:36:52.380
+Ja, DevOps schlecht gemacht ist auch tatsächlich terrible.
+
+01:36:52.380 --> 01:36:53.620
+Und
+
+01:36:53.620 --> 01:36:57.500
+eigentlich ist es ja an der ursprünglichen DevOps-Idee vorbei,
+
+01:36:57.500 --> 01:37:02.060
+wenn man sagt, man gründet eigene DevOps-Teams.
+
+01:37:02.060 --> 01:37:05.540
+Die Idee dahinter ist ja eigentlich,
+
+01:37:05.540 --> 01:37:07.700
+das Wort,
+
+01:37:07.700 --> 01:37:12.660
+also, dass auch das Entwickler auch den Betrieb ihre Anwendung machen.
+
+01:37:12.660 --> 01:37:15.140
+Das ist ja die ursprüngliche Idee dahinter.
+
+01:37:15.140 --> 01:37:18.820
+Nicht so sehr, dass man sagt, ah, wir setzen jetzt zwei Leute hin und das sind
+
+01:37:18.820 --> 01:37:20.860
+unsere DevOps-Leute. Aber gut,
+
+01:37:20.860 --> 01:37:26.330
+letztendlich ist es egal, so hat sich das in der Industrie halt nun mal durchgesetzt.
+
+01:37:26.330 --> 01:37:29.930
+Von der ursprünglichen Idee ist ja auch was Agilität angeht und so nicht mal
+
+01:37:29.930 --> 01:37:34.390
+viel übrig geblieben.
+
+01:37:34.390 --> 01:37:38.890
+Also.
+
+01:37:38.890 --> 01:37:43.890
+Boah, ich halte es nicht aus. Der ist immer so super energiegeladen und
+
+01:37:43.890 --> 01:37:45.450
+so
+
+01:37:45.450 --> 01:37:48.970
+Energy Drink vollgepumpt. Ich glaube, ich kann mir das, das halte ich heute Abend
+
+01:37:48.970 --> 01:37:49.970
+nicht aus.
+
+01:37:49.970 --> 01:37:52.970
+Type one in the chat, if you think DevOps
+
+01:37:52.970 --> 01:37:53.890
+is bullshit.
+
+01:37:53.890 --> 01:37:55.410
+Okay, we got a lot of ones in the chat.
+
+01:37:55.410 --> 01:37:58.410
+Die Leute wieder.
+
+01:37:59.410 --> 01:38:02.330
+Ja, das stimmt, das stimmt.
+
+01:38:02.330 --> 01:38:03.330
+Ja,
+
+01:38:03.330 --> 01:38:04.330
+weil,
+
+01:38:04.330 --> 01:38:06.530
+ja, wenn man ein DevOps-Team,
+
+01:38:06.530 --> 01:38:07.290
+richtig,
+
+01:38:07.290 --> 01:38:11.290
+exakt das ist, exakt das, was ich gerade gesagt habe, was der Typ schreibt. Aber
+
+01:38:11.290 --> 01:38:12.330
+ich meine,
+
+01:38:12.330 --> 01:38:15.570
+das ist insofern auch Realitätsverweigerung,
+
+01:38:15.570 --> 01:38:20.760
+weil es hat sich halt nun mal so durchgesetzt.
+
+01:38:20.760 --> 01:38:24.160
+Es ist egal, ob das vielleicht der ursprünglichen Idee nicht mehr folgt.
+
+01:38:24.160 --> 01:38:26.360
+Das gibt es heute, das wird heute halt so genannt.
+
+01:38:26.360 --> 01:38:27.800
+Es ist doch egal,
+
+01:38:27.800 --> 01:38:31.280
+ob der beim DevOps-Team jetzt eine neue Datenbank beantragt oder beim
+
+01:38:31.280 --> 01:38:36.000
+Cloud-Plattform-Team oder beim Admin-Team oder sonst was.
+
+01:38:36.000 --> 01:38:44.410
+Wollen wir uns nicht einfach den Blog-Post angucken?
+
+01:38:44.410 --> 01:38:47.530
+What the fuck?
+
+01:38:47.530 --> 01:38:54.680
+Ja, das ist mir zu energiegeladen, das kann ich mir heute nicht angucken.
+
+01:38:54.680 --> 01:38:57.120
+Es ist mir zu anstrengend.
+
+01:38:57.120 --> 01:39:05.320
+Haben wir nicht noch irgendwas Entspannendes?
+
+01:39:05.320 --> 01:39:09.520
+Ah, ich weiß nicht. Leute, mein Hirn macht heute nicht mehr so viel mit.
+
+01:39:10.520 --> 01:39:12.560
+Ich gehe jetzt auf.
+
+01:39:12.560 --> 01:39:17.400
+Guck mir noch irgendwie eine Stunde irgendein Video an oder so und dann gehe ich
+
+01:39:17.400 --> 01:39:21.150
+pennen.
+
+01:39:21.150 --> 01:39:23.430
+Ne, ne, passt schon.
+
+01:39:23.430 --> 01:39:25.630
+Ich gehe jetzt, Leute. Macht's gut. Bis dann. See you.
