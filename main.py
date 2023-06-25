@@ -88,13 +88,8 @@ def run_transcribe():
         print(colored("[main]", "green"),
               f"Transcribed {len(vods_to_transcribe)} files")
 
-    # ask to post vods to meilisearch
-    reply = None
-    while reply not in ["y", "n"]:
-        reply = input(
-            "Post transcripts to meilisearch? [y/n]: ").strip().casefold()
-        if reply == "y":
-            run_post(vods_to_transcribe)
+    # post vods to meilisearch
+    run_post(vods_to_transcribe)
 
 
 def run_post(vods_to_post: Optional[list] = None) -> None:
