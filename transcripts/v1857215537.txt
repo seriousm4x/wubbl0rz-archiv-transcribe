@@ -1,0 +1,4379 @@
+So, Pog. Leute, weiter geht's.
+Headset entknoten. Oh, bye. Bin ich zu faul, ich lass es einfach so.
+Gucken, solange nichts runterfällt. Ja, heute geht's weiter mit Proxmox bzw. mit
+das hier jetzt. So. Genau, mit Proxmox. Und zwar, wir sind
+gestern stehen geblieben bei dem Versuch, ein HA-Cluster-Setup zu erstellen, ohne ein
+Tutorial gelesen zu haben von Proxmox. Also insofern, kein Plan. Ne, hab ich nicht ausprobiert.
+Ich hab's gerade erst eben wieder gesehen. Ich hab's mir aufgeschrieben, aber ich hab's
+nicht gesehen, bevor ich den Stream angefangen hab. Also wir haben das letzte Mal den Installer,
+den Text-Installer ausprobiert, der tatsächlich ganz gut funktioniert. Das ist 1-to-1 der
+normale Installer halt mit Text-Interface. Gibt keinen Unterschied. Danke für den Sub.
+Wo wir gerade dabei sind. Leute, bevor der Stream richtig angelaufen ist, wisst ihr,
+wir schmeißen schon mal kurz die Installation an von dem dritten, von dem dritten Node.
+Hier, Custom, Later, Next, Next, ach, keine Ahnung, 4, weiß nicht, was ich dem gegeben hab, 4, 16G,
+soviel brauchst du es sehen hat, 16G, Bridge, Networking, Next, Next, Next, Create, New Virtual Disk,
+eine Ahnung, 50, Next, Next, Edit, Printer, so als dürfen wir nicht vergessen, bei CPU-Nested-Virtualisierung
+einzuschalten und wir müssen noch UEFI einschalten, wenn ich das richtig im Kopf habe. UEFI, so,
+und noch das Proxmox-Image-Mounten. Okay, da können wir nämlich einfach die Installation
+schon mal anschmeißen, bevor der Stream richtig losgeht, weil wir brauchen das Ganze, weil soweit
+ich das mitbekommen habe, kann man einen High-Availability-Cluster nur ordentlich betreiben
+in Proxmox mit drei Nodes, was ja irgendwie auch sinnvoll ist und auch das automatische Migrieren
+der VMs sagt zumindest der Chat und wir wissen ja, der Chat, der weiß sowas prinzipiell ja immer.
+Chico! Moment, Sekunde, meine Katze will irgendwas. Chico, was siehst du? So, wieder da. Also anscheinend
+geht Installer echt das erste Mal immer nicht, das ist sehr weird. Na gut. Ja, das habe ich
+gestern, das hat gestern ja schon jemand laufend rumgespammt, vielleicht sogar du, ich weiß nicht
+mehr im Chat, aber wir machen lieber drei Nodes, das kostet uns doch auch als VM überhaupt nichts,
+ist doch wurscht. So, mal kurz andere Background Musik, was haben wir hier? SongSmiles,
+happy and upbeat, jawoll. Extremly happy, dass wir virtualisieren dürfen. Welch ein Privileg,
+wir dürfen virtualisieren. Da kann man eigentlich die Playlist volle Pulle machen. Eigentlich ist es
+Mist, das ist ja übrigens, Leute, es ist ja bei jedem, es ist ja eigentlich bei jeder
+hochverfügbaren Technologie so, dass du eigentlich immer drei Nodes brauchst. Das
+habe ich auch schon bei Loadbalancer und sowas öfters gesagt. Alternativ gibt es manchmal noch
+die Möglichkeit, verschiedene Wege zu benutzen. Also zum Beispiel, nehmen wir mal den Fall
+Loadbalancer mit ClusterIP oder sowas, ja. Da ist auch am besten, man hat drei. Man kann,
+wenn man ganz viel Geld sparen will, auch theoretisch sowas mit zwei machen, aber man
+sollte immer sicherstellen, dass sie dann ein eigenes Interconnect-Kabel haben oder ein gemeinsames
+Storage, worüber sie sich austauschen können. In irgendeiner Art und Weise musst du noch mal
+extra sicherstellen, dass du nicht zwei Master hast, wenn mal kurz das Netzwerk ruckelt. Also
+wenn du wirklich Geld sparen willst, no supported hardware acceleration. Was? Willst du mich verarschen?
+Das habe ich doch eben eingeschaltet. Was ist das? Der will mich rollen, Alter. Hä? Hä? Chat, Chat,
+Chattke, ihr wart doch eben dabei. Ich habe das doch eben im Installer schon angeklickt. Sag mal,
+oder bin ich, oder Boomerbrain am Start? Das habe ich 100% schon angeklickt. Habe ich,
+ne? Ja, ja. Lul. Keck W. Bug gefunden in VMware. So, wir schalten die anderen Dinger gerade schon
+mal ein. Da haben wir unsere drei Nodes am Start. Hier lassen wir den Installer laufen. Der wieder
+broken ist anscheinend. Ne, ne, ne. Geht. Ich weiß auch nicht, was das für Schmerzen hat. Gleich
+wegen was? Weil, weil er die Option nicht akzeptiert hat. Ja, das ist, das sollte schon
+wirklich kurz vor der Anzeige sein, denke ich. Gut, Passwort 123456. Kommt nie jemand drauf. Mail,
+mail at kapalul.com. So, und da können wir uns ein bisschen, da können wir ein bisschen schwätzen,
+während das installiert. So, pve-3. Ich, ja, irgendwie so. Ich glaube, der muss einfach nur
+Unique heißen. Install. Okay, jetzt installiert er. Ja, Chat, was gibt's Neues? Irgendwas Spannendes,
+was ich heute verpasst habe? Erst mal kurz schauen. Was haben wir denn? Erstes Solardach
+über Autobahn fast fertig. Okay, und da kommen die ersten wahrscheinlich gleich schon an und
+machen es kaputt. Wer hat weniger Humor im Büro? Boomer oder ein Jungspund? Boomer vs. Sumer gibt's
+jetzt auch schon. Wisst ihr was? Ganz ehrlich, ich glaube, dass es die beiden, dass es beide
+Generationen von den jeweils anderen denken, weil die sich einfach nicht verstehen, humormäßig. Es
+gibt, das sieht man doch schon an meiner Generation. Leute, überlegt mal, wie viele, jetzt mal, jetzt
+mal ernsthaft, ernsthaft gefragt. Was denkt ihr von, sagen wir von 100, von 100 Leuten zwischen 35
+und 40, die wirklich jetzt so in meinem Alter sind? Wenn du die fragen würdest, was ist das
+bessere Lach-Emote? kekw oder lulw? Was meint ihr, wie viele von 100 wüssten überhaupt, wovon ihr
+sprecht? Ich glaube, die meisten würden eher den machen. Und was sagen sie dazu, lulw oder lulw vs. kekw?
+Was meint ihr, wie viel von 100? Also, also einer, wenn es hochkommt. Es ist nicht lolw, es ist lulw.
+Guck mal, wir müssen jetzt mal, das kann nicht sein, wir müssen mal die Bildungslücke schließen.
+Also, es gibt lulw, das ist ein Lach-Emote und es gibt kekw, das ist auch ein Lach-Emote. Jetzt ist
+natürlich die Frage, was ist das bessere Lach-Emote? Und dann stellt sich eigentlich die, also die
+eigentliche Frage ist lulw vs. kekw. Und es gibt ganz viele Leute, die sagen, es ist kekw mittlerweile.
+Ich persönlich bin der Meinung, lulw ist immer noch das Beste, aber kekw hat eindeutig die
+Vorherrschaft auf Twitter übernommen. Welches ist älter? Lulw ist älter. Und wisst ihr, was das
+Tragische ist? Man glaubt es gar nicht, beide sind tot mittlerweile auf dem Emote. Die leben
+beide nicht mehr. Das ist TotalBiscuit, das war ein englischsprachiger YouTuber, ein Influencer,
+der ungefähr in meinem Alter war und an einer seltenen Krebssorte gestorben ist, an einer seltenen
+Krebsart, den hat es richtig, richtig scheiße erwischt. Das ist TotalBiscuit und das ist
+ElRicitas. Das ist ein spanischer Komiker, kann man glaube ich sagen. Der war eine ganze Ecke
+älter, aber der lebt auch nicht mehr, der ist auch vor zwei Jahren oder so gestorben. Also beides,
+beides, sowohl lul, die Leute hinter lulw, als auch kekw leben nicht mehr. Es gibt übrigens auch
+ein sehr schönes, um die Bildungslücke weiter zu schließen, wir gucken uns das jetzt nicht an. Es
+gibt auch ein sehr schönes YouTube-Video dazu, nennt sich kekw vs lulw und der Anfang ist eigentlich
+prinzipiell schon, die ersten paar Sekunden müssen, müssen einfach sein, die sind schon einfach top.
+Reicht schon. Also wenn du deine Bildungslücke schließen willst, kannst du dir angucken die
+Story von lulw vs kekw, dann weißt du Bescheid. Also ich bin der Meinung, lulw ist immer noch das
+bessere Emote. Ne, ist das ein Emote? Das ist irgendein sehnloses Emote. Heute ist mir wieder was
+ulkiges, soll das glaube ich heißen. Das ist auch ein Wort, was keiner mehr verwendet im Jahr 2023.
+Alter, was ulkiges. Okay, was ulkiges passiert in der Jobsuche. Öffentlicher Dienst ist ja echt
+komisch. Gibt Arbeitszeugnis von Arbeitgeber oder werde ignoriert. Was? Hä? Moment, was? Gibt Arbeitszeugnis
+von Arbeitgeber oder werde ignoriert. Naja, kannst ja auch ein vorläufiges, äh, Vorläufiges. Naja, die sind, die
+sind wir. Also ich kann, ich kann euch sagen, wie das bei mir ist. Die, die waren da auch super korrekt mit, mit
+Arbeitszeugnis und sowas. Ich musste das auch, ich musste das auch abgeben. Allerdings nicht direkt zur
+Bewerbung und zum Vorstellungsgespräch. Vorstellungsgespräch hatte ich dann was Vorläufiges immer dabei, weil es
+es gerade ergeben hat. Aber ich musste und das ist halt Vorgabe, wegen Geldwäsche und allem möglichen. Ich musste
+am ersten Arbeitstag, ich musste ein Zeugnis mitbringen. Und das Geile war, ich hab's euch glaube ich schon
+mal erzählt, mein alter Arbeitgeber hat es nicht rechtzeitig fertig gekriegt, das Zeugnis. Obwohl die mir
+500 mal garantiert haben, es wird rechtzeitig fertig. Ich, also ohne Scheiß, hätten die mich beim neuen
+Arbeitgeber für drei bis vier Tage wieder heimgeschickt. So nach dem Motto, sie können wirklich erst anfangen,
+wenn sie das Arbeitszeugnis haben. Dann hätte ich das denen in Rechnung gestellt, meinem alten Arbeitgeber.
+Die, äh, einfach aus Prinzip. Ja, die, die paar Tage Verlust. Und da, da wäre ich so nur noch vor Gericht gegangen,
+weil das hätt's echt nicht sein können. Aber es hat ja glücklicherweise alles geklappt. Äh, da gewinnt KekW,
+muss ich keine Umfrage machen. Leider, leider. Ich glaube, es gibt mehr KekWer als LulWer. Ja. Also, hattet ihr
+schon mal das Problem, dass ihr zu eurem Arbeitgeber gegangen seid und ein Arbeitszeugnis haben wolltet,
+ein Zwischenzeugnis, und der hat gesagt, ja ne, sie haben ja da gar keinen Anspruch drauf, aber gibt nix.
+Oder ihr wolltet gar nicht fragen, weil ihr keinen Anspruch drauf hattet. Eins von beiden. Ist euch das schon mal passiert?
+Weil da kann ich euch, ich hab euch das zwar schon mal erzählt, da kann ich euch einen Ratschlag geben,
+den mir mal einer der wenigen, einer unserer wenigen FiveHead-Consultants gegeben hat.
+Es gab nicht viele Consultants, wo ich sagen würde, ey, das war richtig gut, dass die da waren, die hatten auch wirklich
+Plan vor dem, was sie machen. Aber das war einer der wenigen FiveHead-Consultants, die wir hatten.
+Ein Grund ist, dass du dich bewerben willst. Ja, vielleicht willst du das ja auch nicht sagen.
+Ähm, ne, aber es gibt, es gibt mehrere Gründe, warum ihr ein Arbeitszeugnis beantragen könnt,
+beziehungsweise ein Zwischenzeugnis. Eines davon ist zum Beispiel Führungskräftewechsel.
+Wenn jetzt grad ne Führungskräftewechsel, es bezieht sich soweit ich weiß übrigens nicht nur auf eure direkte
+Führungskraft, also vielleicht ergibt sich das, aber es gibt eine Sache, da kann wohl die Personalabteilung fast nicht
+rein sagen, und zwar, das ist, wenn ihr sagt, euer Aufgabengebiet hat sich geändert, weil die werden sicherlich
+nicht anfangen zu diskutieren, das stimmt doch gar nicht. Dann sagst du, ja stimmt's ja wohl. Und dann, und wenn
+sich das nicht geändert hat, wir arbeiten in der IT, Leute, unser Aufgabengebiet ändert sich wöchentlich.
+Und die Themen, mit denen wir zu tun haben. Also kannst du davon ausgehen, wenn du seit ein, zwei Jahren kein
+Zeugnis mehr hattest, du machst, irgendwas hast du auf jeden Fall neu gemacht, das ist rechtfertigt. Und außerdem
+wird deine Personalabteilung dafür nicht anfangen zu diskutieren. Und das hat mir eine unserer Consultants mal
+als Tipp gegeben, und das klang auch alles sehr einleuchtend. Also, wenn ihr ein Arbeitszeugnis haben wollt, ein
+Zwischenzeugnis, und die Personalabteilung sagt, jo ne, gibt doch keinen Grund, da sagt ihr doch Aufgabenwechsel,
+also, meine Aufgaben im Job haben sich geändert. Das scheint wohl gut zu hören, sagen Leute, ja. Das scheint wohl gut
+zu funktionieren. Wisst ihr eigentlich, wie lang mein alter Arbeitgeber für mein letztes Zwischenzeugnis gebraucht hat?
+Also nicht für mein Abschlusszeugnis, sondern für mein Zwischenzeugnis. Wisst ihr, also ich hatte ja ein
+Zwischenzeugnis beantragt. Wisst ihr, wie lang die dafür gebraucht haben? Das hat noch mein alter Chef geschrieben,
+ursprünglich. Nicht der neue, der alte. Ja, und Jahr ungefähr haben die bei mir auch gebraucht. Ein Jahr! Stell euch das mal vor! Ein Jahr!
+Ist doch eigentlich der absolute Witz, oder? Das war eh so ein ganz spezieller Laden, was diese, was die Personalabteilung
+und, und solche, also, wenn wir die eigentlich ausgehen als Bank- und Finanzdienstleister, ja, hätten sie das hinbekommen,
+aber nope. Unglaublich. Also der letzte Arbeitgeber, was das angeht, wirklich lahm. Ich glaube, ich habe jetzt auch
+letztens das allererste 7-TV-Emote für den Channel hinzugefügt. Ich weiß gar nicht mehr, was, was habe ich denn
+hinzugefügt? Ich wollte eigentlich nur gucken, ob, ach, das hier. Ich wollte eigentlich nur gucken, ob es geht.
+Das hier habe ich hinzugefügt. Cyberbeef, danke für den Sub. Was auch immer es uns sagen soll. Oh, Geisterfahrer.
+Warum wegen Geldwäsche? Also ich kenne die, also ich kann dir das erklären, aber ich kenne die gesetzlichen Vorgaben
+dazu nicht so wirklich. Also, ich vermute mal, die sind, also Finanzdienstleister, nicht nur Banken allgemein, die haben ja
+relativ viel Kontrolle. Und ich gehe davon aus, die müssen kontrollieren. Ich habe ja auch ein polizeiliches
+Führungszeugnis und alles mögliche gebraucht. Ich denke mal, die müssen kontrollieren, dass du nicht quasi irgendwie
+ein halbes Jahr in Kolumbien oder sonst wo warst und hast mit Drogen gedealt in der Zwischenzeit und sowas.
+Das heißt, die wollen schon sehen, dass der Arbeitgeber, wo du jetzt gesagt hast, dass du zuletzt gewesen bist,
+auch wirklich der ist, wo du gewesen bist. Verstehst du? Weil ich könnte ja viel erzählen, wenn der Tag lang ist.
+Ich könnte sagen, ich habe da und da gearbeitet und ich habe halt ein Arbeitszeugnis von vor eineinhalb Jahren
+und kein aktuelles. Und in der Zwischenzeit habe ich irgendwelche kriminellen Sachen gemacht oder so.
+Also kann ja alles sein. Ich glaube, das ist einfach Vorgabe, dass sie das machen. Also du brauchst das Arbeitszeugnis
+vom letzten Arbeitgeber und ich gehe davon aus, dass sie dann halt auch gucken, dass du nicht irgendwie eineinhalb Jahre
+sonst wo abwesend warst im Ausland und hast da nicht erklärbare Dinge getrieben und sowas.
+Wie gesagt, ich musste auch ein Führungszeugnis vorlegen und die waren auch tatsächlich sehr kritisch.
+Die haben mich beim Vorstellungsgespräch, jetzt muss man sich echt mal vorstellen, die haben mich im Vorstellungsgespräch gefragt.
+Ich hatte im Lebenslauf drinnen stehen, irgendwie, fragt mir nicht, ich weiß es aus dem Kopf gar nicht mehr.
+Da stand drin sowas wie irgendwie, keine Ahnung, 2000 bis 2003 oder irgendwie sowas.
+Irgendwie so um das Jahr 2000 rum. War da nicht richtig beschrieben im Lebenslauf.
+Und da hat mich allen Ernstes der Mann, der von der Personalabteilung dabei gesessen hat,
+hat mich allen Ernstes gefragt, hier sie haben so um das Jahr 2000 rum hier zwei Jahre nichts gemacht.
+Was war denn da?
+Was?
+Was weiß ich?
+Keine Ahnung.
+Das weiß ich doch jetzt nicht mehr.
+Okay, doch, ich wusste, ich wusste was es war.
+Und ich hab dann auch eine sinnvolle Antwort drauf gegeben.
+Und ich hab erstmal gesagt, boah, keine Ahnung, das ist aber doch ganz schön lang her.
+Also, die ehrliche Antwort wäre gewesen, ich hatte keinen Bock zu arbeiten und hab MMO Kreiselgrind 24-7 gemacht und wollte nix arbeiten.
+So, das wäre die ehrliche Antwort gewesen.
+So, direkt, direkt nach der Schule hatte ich keinen Bock zu arbeiten und dann Kreiselgrind 24-7 MMO spielen.
+Das war die ehrliche Antwort. Das hab ich da natürlich nicht gesagt.
+Und ich hab was gesagt, was auch nicht ganz falsch ist.
+Sondern, dass ich damals bisschen mitgeholfen hab im Onlineshop von meinem Vater und, und, ja, so Dinger gemacht.
+Ich hab ja schon die ein oder anderen Sachen gemacht, aber im Prinzip hab ich 24-7 Kreiselgrind gemacht.
+Morgens aufgestanden, MMO eingeloggt, Kreiselgrind, abends ins Bett gegangen.
+Kreative Auszeit, ja.
+Mit der Berufsmasse, oh, nee, das, das war tatsächlich ein bisschen später.
+Nee, nee, nee, das mit dem Arbeitsamtkurs, das war ein bisschen später.
+Aber auch nicht so viel später.
+Das war ein bisschen später.
+Das war im Anschluss danach.
+Ich hab ja dann irgendwann noch Zivildienst gemacht.
+Das gab's ja damals noch.
+Nee, das war ein Shop auf Ebay.
+Der hat dort, ähm, ja, Kleingraben verkauft, alles mögliche.
+Der hatte einen Onlineshop und hatte auch einen Ebay-Shop.
+Hatte dort alle möglichen Dinger gekauft.
+Also, mein Vater hat im Prinzip damals das gemacht, was heute der heiße Shit ist, wenn du in irgendwelche Coachinggruppen gehst.
+Der hat zwar kein Dropshipping gemacht im eigentlichen Sinne, weil damals gab's noch kein Dropshipping.
+Der hat aber Sachen billig eingekauft.
+Irgendwelche Restbestände oder China-Chinesen-Sachen damals schon.
+Und hat die auf Ebay Deutschland verkauft.
+Und das war eigentlich keine schlechte Geschäftsidee damals.
+Weil der ist dadurch nicht reich geworden.
+Und das Geld ist mittlerweile auch alles wieder weg.
+Aber die, die, die Geschäftsidee war an sich gar nicht, gar nicht schlecht.
+Nur nicht betrug, der hat schon reingeschrieben, was da Sache ist.
+Weil China-Chinesengraben da billig war.
+Ja, da hab ich ein bisschen mitgemacht.
+Aber ich mein ernsthaft, überlegt euch mal.
+Wenn ihr in einem Vorstellungsgespräch sitzt, selbst mit 38 Jahren.
+Und ihr werdet gefragt, was ihr vor 20 Jahren da gemacht habt, weil euer Lebenslauf da komisch aussieht.
+Selbst dann werdet ihr nicht sagen, naja, ich hab einfach 24-7 MMO gespielt und hatte keinen Bock zu arbeiten.
+Auch wenn's die ehrliche Antwort wär.
+Das macht sich im Vorstellungsgespräch nie gut, auch wenn das 20 Jahre her ist.
+Also hab ich schon die Wahrheit erzählt, allerdings das mit dem MMO-Kreisequant hab ich halt ausgelassen.
+Ja, viele von euch sind noch nicht mal 20, aber die meisten schon.
+Ich glaube, die meisten sind über 20 schon.
+Also ich muss sagen, das war bei mir gar nicht so schlimm.
+Das hatte gejuckt, das hatte gejuckt.
+Ich versteh's aber ein bisschen.
+Wie gesagt, das ist ein großer Finanzdienstleister in Frankfurt.
+Und die haben ja auch rechtliche Vorgaben.
+Also auch Behörden und so, die denen richtig auf den Keks gehen und sowas.
+Und die müssen ihre Bewerber, glaube ich, sorgfältig durchleuchten.
+Und es wäre fatal, wenn rauskommt, ey, vor 20 Jahren hat irgendeiner Drogenhandel betrieben.
+Illegal über einen Online-Shop oder sowas.
+Gut, ich mein, ja, letztendlich, ich musste ja auch ein Führungszeugnis abgeben.
+Wobei ich gar nicht weiß, wie lange das gültig ist.
+Wie lang steht denn sowas in einem Führungszeugnis?
+Leute, wie lang steht denn ein Führungszeugnis überhaupt drin, wenn man irgendwelche Straftaten begangen hat?
+Steht doch bestimmt nicht 20 Jahre drin.
+Kommt das Bewerbungs- und Lebenslaufvideo noch?
+Ja, ja.
+Kommen wir auf die Straftat an.
+Naja, zumindest, zumindest verstehe ich das, dass sie das so weit durchleuchtet haben.
+Das ergibt schon irgendwie Sinn.
+Ich hab ihnen halt nicht gesagt, 24-7 MMO gespielt und kein Bock zu arbeiten.
+Ach ja, was ich hier sagen wollte, das war bei meinem alten Arbeitgeber nicht so.
+Ich hab tatsächlich gesagt, ich brauche jetzt ein neues Arbeitszeugnis, weil ich mich bewerben will.
+Hab ich gesagt, aber die wussten auch, dass es mir da auf den Keks geht.
+Was haben sie auch gemacht?
+Mein Zeugnis ist auch gut gewesen.
+Ja.
+Das, das, ähm, ist auch ziemlich gut.
+Meinung zu Kik.
+Hab ich ja letztens schon gesagt.
+Ich glaube nicht, dass Kik sich durchsetzen wird als ernste Alternative zu Twitch.
+Zumindest nicht in diesem allgemeinen Streaming für alle.
+Gamestreaming.
+Dass sich Kik durchsetzen könnte, was, sagen wir mal, im Bereich Gambling.
+Also Sachen, die auf Twitch teil- und Sachen, die auf Twitch nicht erlaubt sind.
+Und auch für Leute, die auf Twitch gebannt sind.
+Kann ich mir vorstellen, dass sie auf Dauer diese Masse an Kohle in Streamer reinpumpen können.
+Und den Share bezahlen können.
+Gerade, wenn ihre Infrastruktur weiter wachsen muss.
+Man darf ja nicht vergessen, Infrastruktur kostet Geld.
+Die müssen ja auch an AWS Geld bezahlen.
+Und umso mehr Streamer die haben.
+Und natürlich auch mehr Zuschauer.
+Aber vor allem auch mehr Streamer.
+Kostet auch sehr viel, sehr viel mehr Geld.
+Also ich glaube nicht, dass das aktuell verbrennen, die einfach quasi ihr Risikokapital, was sie bekommen haben.
+Man darf nicht vergessen, hinter Kik steht ein Glücksspielbetreiber.
+Also Betreiber von Glücksspielplattformen.
+Wenn ich nicht ganz falsch liege.
+Und letztendlich könnte denen ihr Ziel ja auch sein, gar keine ernste Alternative zu Twitch bauen zu wollen.
+Sondern eine Alternative für Leute, die auch gerne Glücksspiel betreiben.
+Also sprich, vielleicht so ein bisschen Leute, die sich auf Twitch nicht so wohl fühlen.
+Und dass sie Kik eher so als Plattform aufbauen, wo es ein bisschen rauer zur Sache geht.
+Und auch vielleicht das ein oder andere Platt nicht so vor den Mund genommen werden muss, wie auf Twitch.
+Durchaus möglich, dass sie das in die Richtung probieren.
+Aber als allgemeine Streaming-Alternative zu Twitch wird sich Kik nicht etablieren.
+Gehe ich ganz stark von aus.
+Und im Game-Streaming-Segment wahrscheinlich auch nicht als große Twitch-Konkurrenz.
+Würdest du jemals dort streamen wollen?
+Nee.
+Nach aktuellem Maßstab nicht.
+Ich meine nie.
+Weiß ich, kann ich nicht sagen.
+Wer weiß, wie das in einem halben oder einem Jahr aussieht.
+Vielleicht ändert sich ja noch grundlegend was.
+Aber nach aktuellem, so wie es aktuell sich die Plattform präsentiert, nicht.
+Nee.
+Ja, die sind teilweise lahmer als fuck.
+Heh, okay.
+CyberChef, danke für den Sub.
+Blascht.
+Ja, muss ich auch machen.
+Hab ich letztens erst gemacht.
+Leute, musstet ihr auch schon mal den Test machen, ob ihr die Kiste Sekt annehmen dürft oder nicht?
+Alle, die noch nicht bei einer Bank oder bei einer größeren Versicherung sowas gearbeitet haben, werden jetzt den hier machen.
+Ja.
+Aber es gibt, du musst jährlich dort, oder Viertel?
+Nee.
+Zumindest jährlich.
+Du musst jährlich so bestimmte Schulungen machen.
+Und in diesen Schulungen kommen dann zum Beispiel Fragen vor.
+Alter, Chelo.
+Chelo will die Bann-Liste heute mal wieder anführen, glaube ich.
+Oder die Time-Out-Liste.
+Also, ihr müsst einmal im halben Jahr oder im Jahr, ich weiß nicht, ich glaube jährlich.
+Ich glaube jährlich ist es.
+Da müsst ihr so Fragebogen beantworten und Schulungen machen.
+Da sind dann so Fragen wie zum Beispiel, ihr werdet von einem, was weiß ich, ihr führt ein Projekt durch, an dem auch externe Dienstleister beteiligt sind.
+Einer der externen Dienstleister schenkt euch zum erfolgreichen Projektabschluss eine Apple Watch.
+Dürft ihr die annehmen und sowas?
+Da müsst ihr immer sagen, nein, die darf ich nicht annehmen.
+Du darfst Geschenke nur annehmen, irgendwie, da gibt es irgendwie so eine Bezeichnung, so im üblichen Rahmen.
+Und Veranstaltungen, die direkt halt Bezug haben zur Arbeit.
+Also wenn die dich einladen beispielsweise zu irgendeiner Produktvorstellung nach Mallorca oder so.
+Das ist theoretisch erlaubt.
+Da hätte ich keinen Bock drauf, das ist aber erlaubt.
+Also zu einer Produktvorstellung, die mit dem Projekt zu tun hat.
+Also ihr präsentiert was und du wirst dann eingeladen.
+Das ist okay.
+Sie dürfen dir aber keine Apple Watch einfach so schenken.
+Solche komischen Sachen musst du dann da ausfüllen.
+Was der Test bringen soll?
+Naja, dass du weißt, wenn dich einer bestechen will, dass du das nicht nehmen darfst.
+Ich meine, das ist doch erstmal ein Anfang.
+Und sag jetzt nicht, Chat, sagt jetzt nicht der gesunde Menschenverstand sagt einem das.
+Ich könnte mir vorstellen, bei vielen setzt der gesunde Menschenverstand aus, wenn einer ihnen sagt, ach willst du nicht eine Apple Watch haben.
+Ja.
+Und.
+Dann musst du dann, dann musst du noch zum Beispiel, musst du so Security, zumindest ist das bei uns, das ist eigentlich total lustig, total lustig gemacht.
+Und zwar, ähm, du musst so Security, Securityfragen beantworten.
+Da stehen dann zum Beispiel so Sachen drin.
+Äh, auf dem Gang begegnet ihnen eine Person ohne Zutrittskarte.
+Wie gehen sie hier weiter vor?
+So, so nach dem Motto, ähm, ist mir egal.
+Ich fessle und knebel die Person.
+Ich knebel die Person fest.
+Ich haue ihr eine rein.
+Oder ich sage unserer Securityabteilung Bescheid.
+Oder sowas, ja.
+Die, also, die Antworten sind meistens in diesen, das sind meistens Multiple Choice.
+Die Antworten sind meistens so offensichtlich, dass du das kaum falsch machen kannst.
+Kopfnuss.
+Erstmal direkt weggeklatscht.
+Erstmal eine reingeklatscht.
+Zack.
+So, so komische Fragen gibt es da.
+Oder auch eine, auch eine, auch eine beliebte, auch eine Frage, auch eine Frage.
+Äh, sie finden USB-Sticks auf dem Parkplatz.
+Wie gehen sie hier vor?
+So nach dem Motto, ich, ich schließe den USB-Stick umgehend an und versuche rauszufinden, wer den verloren hat.
+Ähm, ich sage unserer Securityabteilung Bescheid.
+Ich zerstöre den USB-Stick.
+Äh, und okay, oder, oder ist mir egal.
+So, irgendwie sowas.
+So, also die, die Antworten sind so offensichtlich immer.
+Hast du gehört, dass irgendwo solche USB-Stick explodiert sind?
+Ne.
+Was, was man am Fußgängerübergang macht, wenn es schneller gehen soll, Leerlauf rein und erstmal Gas geben.
+Das hat, oh, das war die.
+Leute, das war mal eine Situation mit meinem Opa.
+Das letzte Mal war das, wo ich mit meinem Opa Auto gefahren bin.
+Also nicht das letzte Mal, weil er gestorben ist oder so, kein Set getimed.
+Sondern das letzte Mal, wo ich mit ihm Auto gefahren bin, bis er gapiert hat, dass es keine gute Idee mehr ist, in seinem Alter Auto zu fahren.
+Und zwar, also, mein Opa hatte auch einen Schlaganfall, der konnte eh seine Hand nicht mehr richtig bewegen danach und sowas.
+Zumindest, das war, wir, wir haben an einem, wir haben an einem Fußgänger, also wir haben an einem Zebrastreifen gestanden.
+Und da ist eine Oma drüber gelaufen, über den Zebrastreifen, so richtig, so richtig langsam.
+Und mein Opa ist irgendwie, fragt mich nicht, mit dem Fuß aufs, aufs Gaspedal gekommen.
+Weil, wie gesagt, er hatte ein bisschen, nach dem Schlaganfall ein bisschen Probleme, so Hände und Füße hat er manchmal nicht so unter Kontrolle gehabt.
+Ist er aufs Gaspedal gekommen und auf einmal, hast du richtig gehört, so das Auto aus dem, vor aus dem Stehen, auf einmal macht das Auto so richtig, so übelst hochgedreht.
+Übelst laut und die Oma hat echt, ist fast so einen halben Meter zurückgesprungen, hat übelst Schiss gekriegt.
+Und er hat dann halt noch irgendwie, und da war ein Leerlauf drin gehabt, der hatte ja eh eine Automatik und so.
+Ist nix, ist nix passiert, ja, ist nix passiert.
+Und meinem Opa war das peinlich, ja, zurecht, zurecht peinlich.
+Und dann hat er gelacht, so nach dem Motto, mein Opa hat halt so gelacht, so nach dem Motto, ah, ah, ist mir das peinlich.
+Und die Oma guckt halt in das Auto rein, in dem Moment, wo der gerade lacht und, und die Oma regt sich übelst auf.
+So nach dem Motto, was die Oma gesehen hat ist, da sitzt ein alter Sack im Auto, der mich erschreckt hat und lacht mich jetzt auch noch aus.
+Und ich hab da nebenan gesessen, hab mir gedacht, Alter, komm, hoffentlich ist das jetzt hier gleich vorbei, es geht weiter.
+Die hat halt echt gedacht, der wollte, der wollte die trollen, so.
+Ja, kann man machen. Man kann viel machen, aber ob man das machen sollte, ist halt die Frage.
+Es geht doch gar nicht so darum, dass du das theoretisch auffaken könntest.
+Es geht darum, bei, bei Vorstellungsgesprächen und gerade wenn du Auflagen von Behörden hast, dass du als Arbeitgeber, nennen wir es mal deine Pflicht, was du gesetzlich vorgeschrieben hast, erfüllst.
+Ob das immer sinnvoll ist oder nicht, sei mal dahingestellt, aber wenn das Pflicht, verpflichtend ist, das zu machen, dann machen die das.
+Es hat ja schon seinen Sinn, sich die Bewerber ordentlich anzugucken für solche Positionen.
+Ja, als nächstes, oder erst ein Battle-Bit-Video, weiß noch nicht genau.
+Ich setze ja Installer eigentlich durch, ja, Installer ist durch, okay, nice.
+Aber denkst du, die hätten dich abgelehnt, wenn du gesagt hättest, hatte damals keinen Bock auf Arbeiten, wollte nur zocken?
+Wahrscheinlich nicht, aber warum sollte man in einem Vorstellungsgespräch sowas erzählen?
+Warum sollte man absichtlich was erzählen, was einen kacke dastehen lässt?
+Macht doch eigentlich keinen Sinn, oder?
+Wahrscheinlich wäre es ihnen egal gewesen, aber es hätte dann weitere blöde Diskussionen nach sich gezogen und es macht doch keinen Sinn.
+Warum sollte man was Negatives über sich selbst erzählen im Vorstellungsgespräch?
+Guck mal, du musst dir ja vorstellen, ein Arbeitgeber wird dir auch nicht irgendwelche, also auch wenn es gut wäre, aber die erzählen dir auch nicht irgendwelche blöden Sachen, ja?
+So nach dem Motto, ach übrigens, ihr Windows-Notebook ist so vernagelt, dass sie eigentlich gar nichts drauf machen können.
+Ist es positiv, eventuell denkt er, dass du ehrlich bist.
+Nee, das ist nicht positiv.
+So ticken Personaler nicht.
+Weil, wenn man es sich betrachtet, ist niemand im Vorstellungsgespräch wirklich ehrlich, in beide Richtungen nicht.
+Also, sowohl der Arbeitgeber ist nicht wirklich ehrlich, als auch der zukünftige, oder der Bewerber ist da nicht wirklich 100% ehrlich.
+Die Kunst beim Vorstellungsgespräch ist eigentlich, durch Weglassen mancher Sachen, so nah wie möglich bei der Wahrheit zu bleiben und einen guten Eindruck zu machen.
+Oder im Zweifelsfall auch durchs Ausschmücken nicht so großartiger Sachen.
+Letztendlich, für mich lief es gut im Vorstellungsgespräch, ich musste mir weder großartigen Kram aus den Fingern saugen, noch wichtig tun, noch sonst was, weil meine Bewerbung, also mein Profil, hat halt einfach super auf die Stelle gepasst.
+Also exakt das, was ich machen wollte, was ich machen kann, wo ich Erfahrungen drin habe, haben die auch gesucht.
+Also das war halt wirklich schon ein ziemlich guter Match, würde man da jetzt auf Tinder oder so, oder was gibt es da sonst noch, Grinder oder sowas gibt es da auch noch, oder?
+Sagen, und dementsprechend war das relativ easy.
+Fange nächsten Montag eine Ausbildung als Fachinformatiker Anwendungsentwicklung bei einer Versicherung an.
+Ah, guck mal, bist du auch bei einer Versicherung.
+Wie sieht denn das Logo deiner Versicherung aus?
+Vielleicht sind wir ja beide gleich.
+Bei einer Versicherung in NRW an und musste auch Führungszeugnismehrunterlagen unterschreiben, dass ich x Straftaten nicht begangen habe.
+Ja, ja, so ist es.
+Also Leute, ich habe euch ja schon Storys aus meiner MMO-Zeit erzählt.
+Ich will es jetzt nicht wiederholen.
+Das ist teilweise heftigster Cringe.
+Das hatten wir ja schon.
+Das stimmt schon, aber mir ist die Seite und die Atmosphäre auf Twitch lieber.
+Dass Amazon da Interessen hat, auf die ich wahrscheinlich keinen Bock habe, ja, das ist das eine.
+Aber die Plattform an sich und die ganze, wie soll man sagen, die ganze Aufmachung und die Leute, die hier auf Twitch sind und die anderen streamen auf Twitch.
+Ganz ehrlich, das ist mir viel lieber als das.
+Wenn du auf Kick guckst, merkst du gleich, dass das irgendwie eine Gambling-Seite ist mit ein bisschen Gaming jetzt.
+Aber das ist nicht dieses, nennen wir es mal, Family-Friendly-Streaming-Experience wie auf Twitch.
+Was Twitch auch nicht überall ist, aber Twitch sich zumindest Mühe gibt.
+Deswegen, ihr wisst ja, wir sind hier auch wirklich ein ganz streng christlicher Family-Friendly-Stream.
+Und das ist Kick nicht.
+Egal, wo du hinguckst, sind da irgendwelche super edgy Dinger am Start.
+Ja, Notizblock, ich glaube, das trifft es ganz gut.
+Ja, ah ja, diese Fragen kommen übrigens auch da drin.
+Solche Fragen muss man da auch beantworten, ja.
+So nach dem Motto, ist das ein besonders schützenswertes Geschäft und sowas?
+Oder ich bin mir gar nicht sicher, ob es schützenswertes Geschäft heißt.
+Ist es eine besonders schützenswerte Person?
+Genau, handelt es sich bei diesem Geschäft oder sind an diesem Geschäft irgendwie besonders schützenswerte Personen beteiligt?
+So nach dem Motto, das eine ist der Fußball-Nationaltrainer, das andere unser Bundeskanzler,
+das andere, keine Ahnung, Emma aus der Personalabteilung und sonst was.
+Ja, das musst du dann da auch bewerten.
+Ja, oder sie entdecken regelmäßige Zahlungen nach Dubai.
+Was machen sie damit?
+Obwohl keinerlei Geschäftsbeziehungen nach Dubai bestehen, entdecken sie regelmäßige Überweisungen hoher Summen nach Dubai.
+Wie gehen sie hier vor?
+Solche Fragen sind in diesen Tests drin.
+Das ist ganz furchtbar, Weird Champs. Seid froh, dass ihr das nicht machen müsst.
+Aber ich kann euch sagen, so schwer sind die Dinger nicht.
+Meistens sind die Antworten relativ easy und wenn nicht, man kann die Sachen auch mehrfach machen.
+Wie gesagt, der Test soll bringen, dass du dich nicht bestechen lässt zum Beispiel.
+Das wäre bei mir schon schwierig.
+Also wenn mir einer unserer Dienstleister, dem ich theoretisch Vorteile verschaffen könnte in der Auftragsvergabe,
+mir ein Geschenk kommt in 500 Euro.
+Ich glaube, das wäre äußerst grenzwertig, ob ich das nehmen dürfte oder nicht.
+Ich würde pauschal sagen, das ist zu viel. Das dürfte ich nicht nehmen.
+Ganz streng nach Bestechungskram und sowas.
+Gehe ich mal stark von aus, dass ich das nicht nehmen darf. Das ist über das übliche hinaus.
+Zum Essen einladen wäre okay.
+Ja, kommt drauf an.
+Also was okay ist, wenn zum Beispiel ein Dienstleister sagt,
+wir haben hier irgendwie Produktpräsentation und das Produkt ist wichtig für die Bank
+und dazu gibt es auch was zu essen oder sowas.
+Also wenn das einen Geschäftsbezug hat, das ist okay.
+Genau, wenn das jetzt irgendwie zwei Jahre später ist und irgendwie eine Woche in irgendeinem Luxusskigebiet in der Schweiz beinhaltet,
+dann wahrscheinlich eher nicht.
+Plus Essen.
+Also es kommt wirklich auf den Kontext an.
+Du musst immer gucken, ist das irgendwie bezogen mit der Arbeit und ist das irgendwie im normalen, üblichen Rahmen.
+Und bin ich eigentlich so weit dran mit dem Chat?
+What the fuck?
+Jetzt gibt es ja schon USB-Bomben, Alter.
+Genau so hat er ungefähr gelacht.
+Haha, die Technik, was wir machen. Die Oma hat es aber ziemlich geschockt.
+Was?
+Ich arbeite seit drei Monaten für ein großes Systemhaus und ich hatte keinen Plan von dem Zeug, was sie machen.
+Es ist hauptsächlich Azure und ich habe es in drei Monaten ziemlich schnell gelernt.
+Ich verstehe den Kontext dieses Chat-Eintrags nicht, aber GG Eats.
+Hat er es gestern überzeugt?
+Ich muss sagen, bis jetzt finde ich es gar nicht schlecht für den Anwendungszweck.
+Aber ich habe keinen Anwendungszweck daheim dafür.
+Ich habe eine Frage beim Bewerbungsgespräch.
+Wie würden Sie vorgehen, wenn ein User sich nicht einloggen kann?
+Ja, das kommt drauf an, was da benutzt wird.
+Mit Ja würde ich schauen, ob er gesperrt ist und ihm vorübergehend ein neues Passwort geben beantworten.
+Hä, warum?
+Also, okay. Ich sage dir mal, was ich da drauf sagen würde.
+Natürlich immer ein bisschen im Kontext, was das für ein Laden ist.
+Also, wenn ich diese Frage im Vorstellungsgespräch beantwortet würde, würde ich sagen, da fehlt mir der Kontext.
+Ich weiß ja gar nicht, was es hier jetzt für genauen Vorgaben gibt.
+Also, da müsste man sich den jeweiligen Prozess zum Zurücksetzen des Passworts angucken.
+Man müsste natürlich auch kontrollieren, wer das ist.
+Also, im Zweifelsfall auch nochmal gucken, gibt es den Typ wirklich oder ruft er von einer externen Telefonnummer an.
+Also, sprich, gibt es irgendwelche Anzeichen, dass der einer bescheißen will.
+Würde ja wirklich die Benutzernamen überprüfen.
+Und am besten über das offizielle Passwort-Zurücksetzverfahren, was es dann eventuell gibt,
+an dem ein neues Passwort zukommen lassen, was er sich selbst vergeben kann.
+Wobei es halt die Frage ist, ob es das bei jeweiligen Unternehmen gibt.
+Aber ansonsten, so verkehrt wird die Antwort...
+Also, wenn das eine Antwort war, die ein bisschen in die Hose gegangen ist
+und nicht hundertprozentig das ist, was die sich vorgestellt haben,
+das wird wahrscheinlich nicht der ausschlaggebende Punkt sein.
+Die Frage ist halt, wie du ihm das Passwort übermittelt hättest.
+Per Telefon, ohne dass du überprüft hast, dass er das ist, ist vielleicht nicht so schlau.
+Glücklicherweise habe ich das mit Endanwendersupport nichts zu tun.
+Die kommen nicht zu sowas bei mir.
+Wenn mich jemand anruft, oder wenn jemand was hat in der Richtung,
+es ist irgendein Entwickler oder Leute, die ich kenne,
+wo ich dann auch weiß, okay, die arbeiten hier und die brauchen Zugang,
+dann kann ich sagen, hier, gib mal dein SSK-Key her,
+ich schieb dich mal kurz auf den Server drauf.
+Solange sich gerade Live-Umgebung ist.
+Ja gut, das finde ich, aber klar, du bekommst die ersten sechs Monate
+das gleiche Gehalt, was du danach auch bekommst.
+Letztendlich wirst du die ersten sechs Monate nicht machen,
+nicht alles machen können, komplett.
+Aber gut, das müssen die halt einkalkulieren.
+Können ja schlecht sagen, wir geben dir die ersten sechs Monate nur die Hälfte,
+dann würde ich sagen, ihr habt sie nicht mal, ich fang doch nicht bei euch an.
+Oder einmal ein halbes Jahr für die Hälfte.
+Weil das ist ja auch mit Aufwand verbunden und Anstrengung,
+sich einzuarbeiten, umso schneller, umso besser ich das hinkriege,
+umso besser für die. Ich glaube, es geht los.
+Also wenn wirklich mal irgendjemand auf die Idee kommen sollte,
+man kriegt weniger Geld die ersten sechs Monate,
+würde ich deinem Leben nicht anfangen.
+Leider gibt es keine Freitextantworten.
+Du kannst bloß Multiple Choice machen und am Ende dann auch das nicht abgeben,
+nicht abschicken, wenn die Antworten falsch sind.
+Also das Gesamtding. Also wenn zu viele Antworten falsch sind.
+Ja, man kann die Fragen, genau, man kann die Fragepunkte so häufig machen, wie man will.
+Ja, genau, solche Fragen habe ich auch beantworten müssen.
+300 weniger, ja gut, in der Schweiz, ihr verdient ja auch 50.000 Euro im Monat.
+Da sind 300 Euro auch nicht schlimm.
+Danke für den Sub, Mr. Wali. Underscore.
+Traue ich mich das anzuklicken? Ich glaube nicht.
+Wer weiß, was das ist hier im Chat, gell?
+Hat sich am Homelab was geändert? Bei mir daheim? Nö.
+So, ich habe den Chat geschafft, sehr schön.
+Nein, habe ich nicht, werde ich wahrscheinlich auch nicht machen.
+Hast du schon mal Cubespray gearbeitet?
+Nö, habe ich auch nicht vor. Ich weiß, was das ist.
+Das ist so ein Ansible, also ein komplettes Ansible Playbook zum Kubernetes installieren.
+Ich persönlich bin der Meinung, das braucht man heute nicht mehr.
+So, also, dann würde ich sagen, Proxmox.
+Wir machen mal so langsam aber sicher weiter.
+50 Minuten geschwätzt, gutes Intro.
+150 Leute am Start.
+Was hältst du von Compose? Du meinst Docker Compose, oder was meinst du?
+Oder Compose? Compose allein kenne ich nicht.
+Ach ne, Convert your Docker. Ach doch, das kenne ich.
+Habe ich aber noch nie benutzt.
+Habe ich noch nicht benutzt, keine Ahnung.
+Ich habe es mir angeguckt, ist nichts Geheimes.
+Windows unknown.
+Ich meine, immerhin funktioniert es ordentlich unter Windows, ja.
+Gibt es eigentlich 2.023 Leute, die nicht wissen, dass Saturn...
+Ja, gibt es. Ich verstehe es auch nicht.
+Das war eigentlich schon vor irgendwie 150 Jahren bekannt.
+Und die haben sich ja früher auch nur dem Show-Effekt in der Werbung ein bisschen gebieft.
+Ja, das ist wirklich merkwürdig.
+So, also, Leute, wo sind wir das letzte Mal stehen geblieben bei Proxmox?
+Also, kann ich euch ganz kurz zeigen.
+Wir haben 2, also wir haben einen Cluster, einen Proxmox Cluster aus 2 Nodes.
+P4E1 und P4E0.
+Da habe ich ein bisschen rumgebastelt mit lokalen Storages, mit ZFS Storage und mit ZEV Storage.
+Das ist ein ZEV Storage, wobei ich dazu sagen muss, ich habe absolut keine Ahnung von ZEV gehabt davor.
+Das heißt, die Oberfläche ist insofern schon mal ganz gut.
+Das ist easy, ja.
+Ob ich das jetzt gut konfiguriert habe und richtig gemacht habe, sei mal dahingestellt.
+Da bin ich mir nicht so sicher.
+Aber probieren wir mal aus.
+So, und was ich gestern ausprobieren wollte, wo wir stehen geblieben sind, ist folgendes.
+Guckt euch das mal an.
+Ich habe hier eine VM laufen.
+Das ist eine...
+Wie macht man das nochmal auf hier?
+Konsole?
+Konsole.
+Alter, ernsthaft?
+Das ist Debian.
+Das ist ein anarchisches Debian.
+Das können wir auch anpingen.
+Ups.
+Das können wir auch anpingen.
+Debian, hier.
+Root.
+IP add.
+Guck, unser Debian hat... Ah, nee, 44 ist es jetzt.
+44.
+So.
+Also das ist die IP von unserem Debian.
+Was wir gestern schon gemacht haben ist,
+das Debian selbst, das läuft...
+Machen wir mal zu.
+Ihr habt ja gesehen, dass das jetzt die IP ist.
+Machen wir mal so.
+Das Debian selbst,
+das läuft auf
+dem Ceph Cluster.
+Hier sieht man es.
+Hardware.
+VM auf Kekl. Kekl ist der Ceph Storage.
+Wie man hier auch sieht.
+Und...
+Was wirklich...
+Was wirklich cool ist,
+was man schon mit 2 Nodes machen kann,
+ist Live Migration.
+Also sprich, geht mal davon aus,
+ihr wollt jetzt diesen Node hier runterfahren mit der VM drauf.
+Aber ihr wollt nicht, dass die VM ausgeht.
+Dann geht ihr einfach hier drauf.
+Also das hier ist Server Nummer 1,
+das ist Server Nummer 2. Das sind unterschiedliche Kisten.
+So, die VM läuft aktuell hier drauf.
+Dann kann ich sagen, Migrate.
+Wir wollen es rüber schieben auf PVE 1.
+Auf den anderen Node. Und jetzt passt mal auf.
+Wie lange es dauert,
+bis die VM rüber geschoben ist.
+Achso, ist übrigens schon fertig.
+Oder auch nicht.
+Jetzt, fertig.
+Gleich fertig.
+Aber ihr seht, es gehen keine Pings verloren.
+Und auch keine...
+Hier, guck mal. Hier wurde es migriert.
+Das hat 2 Millisekunden gedauert,
+das Migrieren.
+Von einem Node auf den anderen.
+Also das ist schon mal sehr nice.
+Geht allerdings auch nur mit Shared Storage.
+Ja, und mit
+mehreren Nodes. Und das coole ist,
+es gibt auch, also das finde ich,
+haben sie wirklich gut gemacht.
+In
+Proxmox. Also du hast mehrere Stufen
+davon. Du kannst das Ganze mit
+einem Cluster-File-System machen.
+Also mit Cluster. Ceph ist ja nicht wirklich Cluster.
+Mit so einem Shared-File-System
+wie Ceph kannst du das machen.
+Du kannst allerdings auch, wenn du nur
+Local Storage hast, der
+keine Ahnung, X4 formatiert ist.
+Du kannst auch die Noob-Variante
+davon machen. Du kannst Replication
+einschalten. Dann wird die Disk
+immer im Hintergrund alle 15 Minuten
+von einem Storage auf den anderen
+repliziert. Und sollte
+sich der hier wirklich mal verabschieden,
+kannst du die VM dann aus der Disk
+recreaten auf einem anderen.
+Ist aber nicht so schön, dass Ceph
+integriert ist.
+Ceph-FS muss man glaube ich sagen.
+Integriert ist es viel nicer.
+Also ihr habt es gesehen. Komplett
+ohne Downtime wurde das Ganze
+also fast schon, fast schon so gut
+wie bei einem Kubernetes-Rolling-Update.
+Nur dass es nach wie vor eine VM ist.
+Also das kann man nicht wirklich vergleichen. Aber es ist gut.
+Ist wirklich nicht schlecht. Also haben sie gut gemacht.
+Unter der Haube
+benutzen die anscheinend ziemlich
+Standard-Linux-Tools, habe ich gesehen.
+Es ist
+zur Virtualisierung KVM.
+LXC für Container.
+Es ist DABD für
+Netzwerk-Storage.
+Es ist Ceph für Netzwerk-Storage, ZFS,
+X4 Sachen für lokalen
+Storage.
+Wie heißt das?
+Wie heißt dieses andere Ding?
+NNB, ND oder so noch.
+Also die Standard-Dinger, die man kennt.
+Aber ordentlich
+vorkonfiguriert.
+Was mir bis jetzt nicht so gefallen hat,
+sind wie man Settings daran macht.
+Zum Beispiel, wenn man hier die...
+Ich bin mir nicht mehr sicher, wo das war.
+Ja, wenn man zum Beispiel
+den Host-Namen umbenennen will,
+dann muss man hier über das Web-Interface
+so eine Host-Datei editieren.
+Das ist schon ein bisschen weird.
+Und jemand, der das noch nicht gemacht hat, wüsste wahrscheinlich
+auch nicht, was er hier machen muss.
+Also wenn ihr jetzt den Node umbenennen wollt,
+dann müsst ihr nämlich hier den Host-Namen umbenennen.
+Und euch per SSH einloggen und
+auch ETC-Hostname umbenennen.
+Also, das ist nicht so schön.
+Vielleicht geht es aber auch anders.
+Aber ich habe es in der Hilfe-Seite gefunden.
+Die wollten, dass man sich per Shell einloggt.
+Das könnte man ein bisschen schöner machen.
+Das ist an sich bis jetzt echt nicht verkehrt.
+Ich werde es aber trotzdem,
+das kann ich auch sagen, egal wie erfolgreich
+das Ganze jetzt hier heute verläuft,
+noch mit dem dritten Node und sowas,
+ich werde es daheim nicht benutzen.
+Nicht, weil Proxmox schlecht ist,
+sondern weil ich nicht den
+Anwendungszweck bei mir daheim habe,
+der den Proxmox erfüllt.
+Proxmox ist hauptsächlich erstmal
+ein bisschen was in Richtung
+VMware ESX und WSphere obendruf
+und, hast du nicht gesehen,
+eine Virtualisierungslösung.
+Also ein VM-Management-System.
+Das habe ich aber
+bei mir daheim
+gar nicht als Hauptanforderung,
+weil ich habe eine Single-Node-Kiste
+und ein paar Raspberry Pis
+im Haus, die anderes Zeug machen
+und auf dieser Single-Node-Kiste
+will ich mit relativ easy Web-Interface
+VMs betreiben,
+Container betreiben,
+Storage betreiben,
+Backup machen und alles mögliche.
+Man kann sich das
+ohne Probleme selbst bauen.
+Aber das ist ja gerade das,
+was ich daheim nicht mehr machen will.
+Weil wenn ich mir das selbst bauen will,
+könnte ich mir einfach ein Raw Ubuntu
+oder ein Raw Debian auf die Ledungskiste hauen,
+hatte ich ja auch jahrelang hier daheim.
+Und mit Docker-Compose-Files
+oder einem Single-Node-Kubernetes
+oder was du nicht gesehen bauen,
+würde auch alles funktionieren.
+Mache ich aber nicht.
+Und nachdem halt Virtualisierung
+lohnt sich Proxmox für mich nicht so richtig.
+Aber ich muss sagen,
+das was ich gesehen habe hier
+mit Cluster und Live Migration
+ist easy Setup
+und funktioniert auch gut.
+Und das Ziel jetzt ist,
+ich baue noch einen dritten Node dabei,
+weil aktuell ist es so,
+ich zeige euch mal was.
+Was passiert, wenn dieser Node
+hier, welcher ist denn das überhaupt?
+Was passiert,
+wenn dieser Node down geht?
+2.31
+Was passiert, wenn der hier down geht?
+Dieser Node ist weg.
+Auf dem läuft gerade die VM.
+Normalerweise würde ich jetzt erwarten,
+okay, ich habe einen Shared Storage.
+Die VM wird automatisch
+rüber migriert, wird sie aber nicht.
+Das funktioniert nicht,
+wenn man nur zwei Nodes hat.
+Man braucht zwingend, es sei denn,
+man macht irgendwelche komischen Konfigurationsdinger,
+man braucht zwingend einen dritten Node.
+Was streng genommen
+auch Sinn macht,
+weil, Chat, wer es Pfeil fährt,
+was passiert bei einem Cluster
+oder warum spricht man von einem Cluster
+eigentlich erst ab drei Nodes aufwärts?
+Was ist das Problem, wenn du
+nur zwei Nodes hast in einem Cluster?
+Oder sagen wir mal so,
+das gibt mehrere Probleme.
+Was ist das Hauptproblem,
+wenn man ein Cluster hat mit nur zwei Nodes?
+Ich kann euch übrigens auch mal
+ein Beispiel aus der Praxis gleich erzählen.
+Im Prinzip ist das
+richtig, was ihr geschrieben habt.
+Jetzt überlegt euch mal,
+du hast jetzt hier
+guckt die VM,
+du kannst die auch nicht migrieren
+und sonst was,
+weil, weil
+äh,
+war der hier Master
+vielleicht? Ah ja, hat ein bisschen
+gedauert. Ja, guckt,
+der ist jetzt komplett dead,
+und da kannst du hier auch nix,
+geht nicht, kannst du auch nix migrieren.
+Obwohl, shared storage.
+Warum das von Hand nicht geht, verstehe ich nicht.
+Ich dachte, man könnte zumindest,
+aber gut, der weiß halt nicht, ob der hier wirklich dead ist
+und sowas. So, also,
+ein Problem, wenn du ein Cluster
+aufbaust mit nur zwei Nodes
+ist, nämlich genau das hier.
+Kann man sich jetzt erstmal nichts
+darunter vorstellen, aber ich werde es mal kurz erklären.
+Wir machen mal wieder,
+wir machen mal wieder folgendes,
+DrawIO.
+Was jetzt Diagramms.net heißt,
+was ein bescheuerter Name ist, jeder schreibt DrawIO.
+So, also,
+du hast jetzt hier zwei Kisten,
+sagen wir mal Loadbalancer, okay?
+Okay, äh, sagen wir mal,
+du hast zwei Loadbalancer.
+Ah, die war blau, okay.
+Das ist LB1 und das ist LB2.
+Und jetzt baust
+du ein Cluster. Wenn du ein Cluster baust,
+hast du dann,
+machen wir mal irgendwie so
+eine Wolke oder so.
+So, wenn du ein Cluster baust,
+hast du eine Cluster-IP. So was zum Beispiel.
+122168, keine Ahnung,
+44.1 oder so was.
+So.
+Und diese IP
+muss ja am Ende
+von einem der beiden Loadbalancer
+auf der Netzwerkkarte konfiguriert sein.
+Und irgendeiner der beiden
+Netzwerkkarten muss auf ARP-Requests,
+die reinkommen, antworten.
+Kennst du das Boo von Edward Snowden?
+Ne, kenn ich nicht.
+Also, das ist Shared.
+Oder nicht Shared,
+ja doch, Cluster.
+Cluster-IP nennen wir das mal.
+So, aktuell ist es so,
+dass
+in der Cluster-Config,
+die sich geeinigt haben,
+dass das hier aktuell
+der Masternode ist.
+Und ich nenne das auch so,
+falls wieder Leute getriggert sind,
+da wissen die meisten einfach, um was es geht.
+Das ist der Masternode.
+Der hat aktuell auf seinem Netzwerkinterface
+die Cluster-IP konfiguriert.
+Und wenn es irgendwelche
+ARP-Requests gibt,
+who has diese IP,
+dann antwortet der auch.
+Was ich jetzt machen kann ist,
+ich kann mich per Kommandozeile
+da einloggen.
+Ich kann mich da jetzt einloggen
+drauf, auf dem Cluster.
+Das ist mein Terminal hier, okay.
+Und auf dem Terminal schreibe ich jetzt so was wie
+switch oder sowas
+oder takeover
+und löse manuell
+ein Befehl
+ist jetzt manuell ein Befehl ab,
+dass der Masternode
+geschwenkt führt von LB1 auf LB2.
+Das ist überhaupt kein Problem.
+Die können ja, die sind ja
+beide da, die können beide miteinander kommunizieren.
+Wir machen das dann nochmal so.
+Switch.
+Ja, das ist jetzt ein Router, aber wir wollen jetzt mal nicht
+nicht mehr
+Disco förmlicher sein als notwendig.
+So.
+Also die
+haben gemeinsames Netzwerk, das ist überhaupt
+kein Problem.
+Die können miteinander reden und die stimmen sich
+jetzt ab und das heißt
+LB2 macht jetzt hier takeover
+als Master und dann ist
+halt danach
+der hier Masternode
+und der hier nicht mehr.
+So.
+Und sobald es den nächsten
+Uprequest gibt
+kommen dann eben die Packages
+hier raus. Ganz einfach.
+So, aber
+was
+passiert jetzt,
+wenn das Netzwerk wegfliegt?
+Was passiert, wenn das Netzwerk wegfliegt?
+Normalerweise
+muss
+jetzt entschieden
+werden,
+welcher der beiden Nodes Master wird.
+Weil es sieht ja kaputt aus, ja.
+Der Node sieht den nicht mehr
+und denkt automatisch, ja okay, der andere
+ist weg, ich muss Master bleiben.
+Und der hier sieht,
+oh, der andere ist weg.
+Das heißt, ich muss jetzt Master
+werden, weil ja der andere Node,
+der Master war, weg ist.
+Das heißt, wenn du Pech hast,
+wenn du Pech hast,
+hast du dann, und dann
+erscheint, dann sind die Netzwerk
+Ruckler sind vorbei, ja.
+Netzwerk Ruckler sind vorbei und auf einmal
+hast du 2
+2 LBs,
+die auf einmal Master
+sind, mit der IP.
+Und das kann ja nicht so richtig funktionieren.
+So,
+das ist eines der Hauptprobleme, was du hast,
+wenn du nur 2 Knoten hast.
+Wenn man ganz viel
+Geld sparen will, und ich kann euch, ich kann euch
+das berichten,
+und zwar
+damals, als ich noch beim Provider
+gearbeitet hab, da hatten die tatsächlich ein Setup
+aus
+2 Loadbalancern.
+Was ist der Fachbegriff? Split Brain.
+Das heißt wirklich so,
+wie es der Chat geschrieben hat.
+Gesplittetes Gehirn. Klingt ein bisschen
+eklig, aber das nennt sich so.
+Manche sagen auch Split Horizon,
+gibt's auch, oder
+ja,
+gibt bestimmt noch ein paar mehr
+Begriffe dafür.
+Du hast auf einmal 2
+Master Nodes und 2 DRP. So,
+und jetzt kann ich euch mal
+die Story erzählen.
+Wo ich noch beim Provider
+gearbeitet habe, hatten wir
+exakt dieses
+Problem.
+Wir hatten hier
+das so miteinander verbunden,
+und ich weiß noch,
+damals war es oftmals, also das war
+ziemlich genau das Setup, was wir hatten.
+So, und
+es hat tatsächlich manchmal das Netzwerk geruckelt,
+und
+wir hatten dann Split Brain Probleme, aber was
+viel problematischer war, und man hätte das
+ja verhindern können,
+man kann ja auch
+so eine Art Interconnect bauen. Also sprich,
+man schließt die Loadbalancer nicht
+nur ans gemeinsame Netzwerk an, sondern
+man verbindet die Loadbalancer
+nochmal mit einem Interconnect untereinander.
+Man legt quasi nochmal
+ein Kabel zwischen den beiden Loadbalancern,
+stöpselt die 2 zusammen,
+und gibt dem nochmal
+quasi so ein Interconnect-Netz.
+Dann ist es nicht schlimm,
+wenn die hier ruckeln. So.
+Und das... Nein, Heartbeat machen
+die auch so. Man macht wirklich ein extra
+physisches Kabel.
+Man baut noch eine zweite Netzwerkkarte
+ein und steckt ein Kabel dazwischen.
+Eigentlich müsste ich einen Pfeil machen, der
+auf beiden Seiten...
+Ich bin aber zu blöd, ich weiß nicht, wie das funktioniert.
+Ja, so.
+Ja.
+Also du ziehst hier wirklich noch ein Kabel,
+und jetzt hast du
+den Vorteil, okay, wenn das
+wegfällt, sehen die sich noch hier drüber,
+und wenn das wegfällt, sehen die sich noch hier drüber.
+Und...
+Das haben die sich damals
+gespart, und wir hatten öfters
+das Problem bei irgendwelchen Netzwerkrucklern
+oder anderen Sachen.
+Oder es sei ja auch nur, dass
+einer von denen stark ausgelastet war und nicht rechtzeitig
+geantwortet, was auch immer.
+Da gab's Probleme. So. Es gibt jetzt
+prinzipiell 2 Sachen. Das ist die Budget-Variante,
+die Budget-Variante, die ich hier gezeichnet hab.
+Man macht noch
+ein extra Interconnect-Netz,
+aber trotzdem schön ist das Ganze nicht.
+Man kann sich jetzt vorstellen, es gibt noch
+mehr Möglichkeiten, weil
+Netzwerk ist ja nicht
+das Einzige, worüber
+sich so Cluster-Member
+unterhalten können.
+Es gibt auch die Möglichkeit,
+dass die sich über ein gemeinsames Storage-Volume
+unterhalten können.
+Also man könnte beispielsweise auch noch hier
+eine Shared-Disk
+machen,
+worüber sich die unterschiedlichen
+Cluster-Member unterhalten können.
+Wichtig ist eigentlich
+nur,
+dass es nie zu der Situation
+kommen kann, oder sagen wir mal so, dass es
+nicht so einfach zu der Situation kommen kann,
+dass beide sich
+nicht mehr sehen.
+Weil dann hast du das Problem mit zweifachem Master,
+weil jeder denkt, der andere ist kaputt.
+So. Und um das wirklich
+ordentlich zu machen, brauchst du
+normalerweise drei Cluster-Nodes.
+Ich meine, das ist auch relativ logisch, wenn man sich das hier anguckt.
+Es gibt drei,
+du hast drei Cluster-Nodes. Und nach Möglichkeit
+verbindest du die auch mehrfach miteinander.
+Weil dann hast du
+immer noch einen Dritten,
+der mitentscheiden kann, was er sieht.
+Beziehungsweise halt, je nachdem.
+Also wenn die sich jetzt nicht mehr sehen,
+aber die sich über das Netzwerk noch den Dritten sehen,
+also du hast
+viel bessere Verbindungen
+und du wirst dir
+im Endeffekt irgendwo immer einig,
+wer neuer Master werden soll.
+Beziehungsweise was jetzt passieren soll.
+Natürlich im Zweifelsfall,
+wenn es ganz kacke läuft und alles weg ist
+und so.
+Aber das ist der Grund, warum du standardmäßig sagst,
+ein Cluster sollte eigentlich mindestens
+aus drei verschiedenen Knoten bestehen.
+Und im besten Fall
+sind diese drei Knoten oder zumindest
+einer von den drei Knoten
+noch an einem anderen Standort.
+Disk. Das hier unten ist die Disk.
+Ja. Am besten
+ist, du hast noch einen zweiten
+Standort oder vielleicht sogar einen dritten Standort.
+Dann
+machst du es richtig. Natürlich
+irgendwelche Sonderfälle, dass das
+mal eintritt, kann es immer geben.
+Aber in der Regel bist du mit so einem Setup relativ
+safe. So.
+Und das ist das Gleiche, warum
+Proxmox wohl sagt,
+man braucht
+drei Clustermember,
+dass das Ganze
+funktioniert mit automatischer
+Migration. Und das werden wir jetzt mal
+ausprobieren. Wir gehen jetzt mal hin. Cluster.
+Äh.
+Wo war das? Cluster.
+Ne. Cluster.
+Äh.
+Sollten die jetzt nicht irgendwas anzeigen?
+So von JoinInformation? Ach hier.
+JoinInformation. Genau. Das brauchen wir.
+Also neue
+Nodes in Proxmox aufzunehmen
+habe ich festgestellt, ist easy as
+fuck.
+Kopiert sich diese Clusterinformation.
+So.
+Lockt sich.
+Gucken wir mal, was das Ding für eine
+IP gekriegt hat.
+141.
+Lockt sich
+auf dem zu joinenden
+Node ein.
+Mit super secure Passwort, mit best practice
+Passwort.
+Äh. Achso. Was haben wir gestern
+noch gemacht?
+Ähm.
+Wir mussten doch noch ein paar Sachen umstellen, oder?
+Repositories mussten wir noch
+umstellen vorher.
+Hm.
+Wo war denn das?
+Äh. Options?
+Ne. Wo ist es denn?
+Cluster?
+Hä?
+Ach hier. Nicht auf Datacenter. Hier
+muss man hin.
+Repositories. Genau.
+So. Dann haben wir das Repository
+für Enterprise
+disabled.
+Disabled.
+Äh. Ne. Das brauchen wir gar nicht. Und haben
+das
+NoSubscription hinzugefügt.
+Dann haben wir
+die Shell aufgemacht.
+Update.
+Upgrade.
+Yes.
+Und jetzt haben wir den
+Cluster gejoined als nächstes.
+Genau. Okay.
+So. Gehen wir da hin. Cluster.
+War das hier?
+Join Cluster.
+1, 2, 3, 4, 5, 6.
+Join.
+Error. Hä?
+Wie? Das Ding heißt nochmal
+PVE? Ich hab das doch gar nicht
+PVE genannt. Ich hab das doch PVE3
+oder so genannt. Warum heißt
+uns das Ding jetzt nochmal PVE?
+Ich hab das doch bei
+der Installation ganz anders genannt.
+Hä?
+Okay. Dann müssen wir wieder den gleichen Mist
+machen vom letzten Mal.
+Oh ne. Okay.
+Da heißt er halt
+Minus 2 heißt er jetzt.
+Okay. Perfekt.
+Save.
+Und
+Shell.
+Okay. Ich hab die
+Ich hab genau den gleichen Mist gemacht wie gestern.
+Also.
+1, 2, 3, 4, 5, 6.
+VI, ETC, Hostname.
+PVE2.
+Okay. Reboot. Zack.
+So. Jetzt sollte er mit dem richtigen Hostname
+hochkommen. Und dann müsste man ihn eigentlich
+auch joinen können.
+Nenn es PVE. Äh. Nenn es PVP.
+Wir können es auch PVZ nennen.
+Auf so ein paar runden Plants vs. Zombies
+hätte ich wieder Bock.
+So. PVE2.
+Okay. Jetzt joinen wir den.
+Auf E.
+Cluster.
+Ne. Hier. Hä?
+Warum macht man das eigentlich hier?
+Join. 1, 2, 3, 4, 5, 6.
+Yep.
+Hat funktioniert.
+Ja.
+So. Jetzt sollte man
+eigentlich im Cluster gleich alles sehen.
+Was will denn das von mir gerade?
+Ich glaube das ist. Ich glaube wir sind
+einfach zu schnell.
+Ich glaube wir waren zu schnell.
+Ja.
+Genau. So. Und jetzt haben wir 3 Nodes
+im Cluster.
+Und nun. Laut
+Chat soll das mit dem.
+Ach ne. Wir brauchen noch ein Ceph. Oder?
+Wir haben ja noch kein Ceph hier drauf.
+Äh. Kekl kann ich übrigens mal
+wieder löschen. Das war doch mein.
+Das löschen wir mal.
+Wie löscht man Storage? Das ist jetzt
+die Frage. Kekl ist das
+ZF. Ne. Moment. Kekl ist
+das Ceph.
+Pogu Pool können wir wieder löschen.
+Remove.
+Yes.
+Ach jetzt ist alles
+weg.
+Okay. Wir machen nochmal beim dritten Node
+machen wir auch nochmal eine zweite Disk rein.
+Und geben dem auch nochmal 50G Speicherplatz.
+Und legen den Ceph.
+Oder machen jetzt in den
+Cluster noch das Volume rein.
+Mal gucken ob ich das noch kann.
+Wenn ich wieder vergessen hab wie das funktioniert.
+So.
+Jetzt müssen wir einmal rebooten.
+Den da.
+Aber nur den da.
+Yes.
+So. Also.
+Folgendes will ich heute ausprobieren.
+Also erstmal gucken ob das mit dem automatischen Migrieren
+funktioniert. Und was mich auch noch
+interessiert ist ob man mit Terraform
+Proxmox VMs aufbauen kann.
+Terraform
+ist so ein VM und
+Container und Cloud Provisioning Tool.
+Was
+ziemlich verbreitet ist. Also ich glaube es gibt
+kein Tool was so weit verbreitet ist wie Terraform
+in der Richtung.
+Es gibt ein paar Alternativen. Es gibt noch sowas
+wie Pulumi zum Beispiel. Aber im Prinzip
+kann man eigentlich sagen
+zum größten Teil ist Terraform
+das mit Abstand verbreitetste.
+Sind das jetzt drei verschiedene
+Maschinen auf der gleichen VM? Nö.
+Auf dem gleichen Host. Ja.
+Aber nicht auf der gleichen VM.
+So. Ist es wieder da?
+Ja. Wir sind wieder da.
+Er sollte es eigentlich auch gecheckt haben dass der dritte
+Node wieder da ist. Ja. Dritter Node ist da.
+So. Wenn wir jetzt hier mal bei Storage
+gucken. Disks.
+Unused. Okay.
+Zef. Wie ging das? Mal gucken ob
+ich das noch aus dem Kopf hinbekomme. Man geht auf
+Zef und sagt jetzt erstmal install Zef
+vom
+No Subscription. Okay.
+Ja das hier ist finde ich auch
+nicht schön gemacht. Ich meine
+normal als Linux Benutzer
+für mich ist das jetzt nicht wild. Dass ich
+hier ein Text Interface kriege was nach
+App Install aussieht. Aber eine schöne
+Experience ist das nicht. Das sollte einfach unter der
+Haube funktionieren und gut ist.
+Was mit Terraform geht. Aber du brauchst vorher
+Templates. Hab eine Repo wo ich mit
+äh. Kann ich hier einfach sagen
+ich stelle VM
+und benutze dafür dieses ISO oder sowas.
+Das muss ich mir gleich mal angucken.
+So. Next.
+Okay.
+Kann man nichts anklicken. Next.
+Success. Sollte das
+Warning jetzt nicht eigentlich weg gehen.
+Nee.
+Sollte es nicht. Weil
+wir müssen noch ein OSD erstellen.
+OSD ist das eigentliche
+Ding was dann aus der
+Disk ein Zef Member
+macht. Ja. Ich hab keine Ahnung
+was ich hier mache. Und hat
+das jetzt funktioniert? Ja.
+Nice. Okay.
+Wir haben ein Zef Storage mit 3
+Zef Memory Membern. Das heißt
+das sollte jetzt auch aufhören rum zu meckern.
+Ja.
+No Warning Errors.
+Active. Wunderbar.
+Okay. Wir haben ein Zef Storage.
+Und jetzt ist die Preisfrage
+Funktioniert jetzt das automatische
+Failover oder nicht?
+Chatgy. Was meint ihr?
+Wenn ich jetzt einfach diesen Node
+ausschalte.
+Funktioniert dann das automatische Takeover oder
+nicht? Also.
+Das Ziel ist. Dieser Server crashed.
+Ach ja.
+Bestimmt. Wir müssen noch irgendwelche Gruppen hinzufügen.
+Stimmt. Das
+hab ich gestern. Das hab ich gestern schon
+gefunden irgendwie. HA
+Groups. Create.
+Genau. Hier.
+Cute Chat Group.
+Create.
+Und jetzt
+sagen HA. So weil für die VM hab ich das
+schon eingerichtet. Da muss man glaube ich
+jetzt noch eine Group hinzufügen.
+Die VM hab ich schon eingerichtet, dass er automatisch
+das Takeover machen soll.
+Jetzt sollte das gehen oder?
+Was meint ihr?
+Auch mal an die Leute die Proxmox ein bisschen
+Ahnung von haben. Also von der
+Idee her sollte ich jetzt diesen Node ausschalten
+können. Und
+die VM sollte migriert
+werden. Wir testen das
+einmal noch live. Wir sagen
+Migrate zu PVE2.
+Warten wir mal ab bis es rübergeschoben ist.
+Ja.
+Kunst.
+VM ist rübergeschoben.
+Okay. Migrate.
+Wieder zurück zu PVE1.
+Und jetzt werde ich PVE1
+einfach mal hart ausschalten.
+Und jetzt gucken wir mal was passiert.
+Netzwerk ziehen reicht auch.
+Das stimmt. Du hast recht. Wir müssen den gar nicht hart ausschalten.
+Wir können auch einfach
+Disconnect vom Netzwerkadapter machen.
+Bam. Moin.
+ThePlayer97 ist am Start.
+So. Jetzt
+ich mach nix. Mal gucken was passiert.
+Wenn das funktioniert
+dann muss ich Proxmox echt mal loben.
+Dann haben sie es super easy
+und naheliegend
+gemacht für auch Kacknoobs.
+Aber wirklich passieren
+tut nix oder?
+PVE? HA? LM?
+Was?
+Sollte der das jetzt nicht starten?
+Hat er das hier nicht schon
+gemacht gerade? Hat er das nicht gerade sogar
+versucht schon?
+Ne. Das waren auch die alten oder?
+Was?
+Hä?
+Der CPU ist
+bin disabled?
+Der rebootet sich jetzt einfach. Der Kacknoob.
+Alter.
+Der soll sich nicht rebooten. Aber gut.
+Das ist egal ob der sich rebootet. Das ist eh egal.
+Failed. Warum geht das
+nicht? Warum migratet
+er das nicht?
+Haben nicht richtig aufgepasst. Aber auf welchem Storage liegen
+Daten? Auf einem Shared
+Storage. Warum migratet
+er jetzt nix? Ich dachte eigentlich das sollte
+jetzt funktionieren.
+Der hatte die Daten überall anders.
+Der konnte jetzt
+feststellen.
+Vm ist weg.
+Nur ein PVE hat kein Netzwerk.
+Genau.
+Die Oberfläche hat mich aktualisiert.
+Alter.
+Hahaha.
+Oder hat er das jetzt erst wirklich
+gemacht?
+Es kann auch sein dass er das jetzt erst gemacht hat.
+Das ist auch möglich.
+Das kann auch sein.
+Ne guck mal. Der ist immer noch
+am laufen hier.
+Ja.
+Error start. Was?
+Error failed start. Hä?
+Was?
+Konsole. Hallo?
+Konsole.
+Alter. Firefox. Mensch.
+Geh mal nicht auf den Sack.
+Firefox macht komische Dinge.
+Der konnte nicht starten.
+Oder?
+Ne. Guck mal.
+Da kann die Vm nicht starten.
+Warum nicht?
+Die Vm ist dead.
+Das hat nicht funktioniert.
+Oder doch?
+Uptime 1.19
+Uptime
+Zählen wir gleich?
+Ne.
+Die ist nicht richtig.
+1A.
+Angeblich ist die an.
+Okay. Ping.
+Ne.
+Wobei ich nicht weiß ob die gleiche IP gekriegt hat.
+Das hat nicht funktioniert.
+Wir machen jetzt mal
+Stop.
+Keine Ahnung.
+Stop sollte doch
+wenigstens funktionieren oder?
+Ne.
+Anhand von meiner CPU sollte das nicht liegen.
+Müsste ja komplett
+abstrahiert sein.
+So wirklich
+funktioniert das nicht oder?
+Doch jetzt ist er aus.
+Okay.
+Konsole. Start now.
+Ja. Start now.
+He does know he lacks
+critical information.
+Okay. Warum genau lässt sich das jetzt nicht starten?
+Hä?
+Ist das mega kaputt?
+Oder ist das
+Webinterface was rumspacken?
+Die VM geht an sich.
+Konsole geht auch nicht.
+Was ist denn da kaputt?
+Konsole geht nicht.
+Was hat das Ding für eine IP?
+Sieht man das hier irgendwie?
+IP sieht man nur mit
+Guest Agent.
+Schau mal ob das ZEV noch läuft.
+Ja.
+Das
+funktioniert.
+Der Node ist weg. Das mag er nicht.
+Aber das ist in Ordnung.
+An sich tut das ZEV noch.
+Ja ich weiß nicht
+welche IP das Ding hat.
+Das müsste die 144 haben.
+Hatte sie eben. Aber vielleicht hat sie eine andere
+bekommen. Ich bekomme ja keine
+Konsole. Ich kann ja nicht nachgucken.
+Aber ich mach jetzt einfach mal ein Chrome auf.
+Vielleicht ist es einfach noch verbuggt im Firefox.
+Naja.
+Ne.
+Das ist a broken.
+Gehen wir mal auf das andere
+Webinterface.
+Ok. Die 30 ist noch da.
+Auf der 30 läuft
+das Ding ja auch hier gerade.
+Das lädt auch schon super lahm.
+Da stimmt doch irgendwas nicht.
+Da ist doch schon irgendwas.
+Ne. Das ist dead.
+Ok. Wir schieben es
+einfach mal woanders hin.
+Migrate.
+Also an sich
+ist ja das Ding läuft alles. Es ist alles gut.
+So wirklich gut ist es aber nicht.
+Migration aborted.
+Ok. Warum?
+Unable to connect to
+QMP
+Die 4M ist dead.
+Keine Ahnung.
+Tja.
+Das hat wohl nicht so funktioniert
+wie wir uns das vorgestellt haben.
+Also das überzeugt mich
+jetzt nicht, weil der Chat gerade fragt.
+Aber ich muss sagen, ich habe es auch noch
+in keiner offiziellen Anleitung gemacht,
+sondern einfach ein bisschen rumgeklickt und probiert.
+Wobei ich jetzt nicht großartig
+sehen würde, wo man da was
+noch groß einstellen kann.
+Was hat er denn hier bei Failed?
+Failed
+Command.
+Er mag das nicht.
+Wir können das mal probieren.
+Ich kann den anderen wieder einschalten.
+Netzwerk. Connect.
+Aber das wäre ja
+unsinnig, wenn das nur da drauf geht.
+Gucken wir mal, ob wir die 4M überhaupt wieder
+dazu bewegen können.
+System CTL.
+Also das wäre Failed, wenn ich da von Hand
+ran müsste mit System CTL.
+Guck mal, der Node ist wieder da.
+Migrate.
+Wieder zurück auf den 1er.
+Ach, das geht jetzt,
+oder wie?
+Ja, aber das darf doch nicht sein.
+Das ist doch gerade der Sinn des Ganzen, dass wenn es im Arsch ist,
+dass ich es umziehen kann.
+Da ist irgendwas falsch geworden.
+Ich glaube, ich weiß nicht was.
+Da ist er. Da sind wir wieder.
+Ist er wieder am Start?
+Jetzt bin ich mal gespannt, was passiert denn,
+wenn ich den jetzt noch mal
+verschiebe. Jetzt ging ja alles.
+Okay, lass uns mal
+einen Ping machen.
+Okay, pingt auch alles wieder noch.
+Gut. Schiebe den mal wieder auf den anderen.
+Ist Zeff jetzt
+glücklich? Wahrscheinlich, ja.
+Aber Zeff muss auch mit 2 Nodes
+weiter funktionieren. Das ist ja gerade der Sinn davon.
+Das darf ja durchaus
+in einem degraded state laufen.
+Das funktioniert jetzt. Jetzt ist kein Problem mehr.
+Jetzt ist alles gut.
+Jetzt ist alles gut,
+wenn der Node wieder da ist.
+Zack, funzt.
+Ja, aber das kann es doch jetzt nicht wirklich sein, oder?
+Okay, probieren wir das
+noch mal aus.
+Wir testen es jetzt noch mal.
+Ich gehe jetzt auf den 31er.
+Und dann schalten wir den 30er aus.
+Das ist der erste Node. Mal gucken, was jetzt passiert.
+Keine Ahnung, vielleicht war es ja...
+Ja, ja. Vielleicht war es ja
+irgendeine einmalige Geschichte, dass es beim ersten Mal
+buggt. Was weiß ich.
+So, wir schalten
+jetzt den ersten Node aus.
+Was heißt wir schalten aus?
+Wir machen das Netzwerk weg.
+Ja, 30.
+Nee, komm.
+Es macht ja im Prinzip keinen Unterschied.
+Wir sind einfach mal
+ganz gemein und sagen hier
+Bam.
+Boom.
+Big Shuck.
+Node ist weg.
+Gucken, wie lange er braucht, bis das...
+Okay, VM ist weg.
+Das lasse ich mir gefallen, dass der ein bisschen braucht, bis er das checkt.
+Kann das sein, dass
+der ZEV-Node noch nicht fertig war?
+Ich meine, möglich.
+Aber...
+Ich meine, der muss 4 GB
+sinken lokal auf eine SSD.
+Das sollte er schon hinkriegen.
+Nein, die VMs sind auch
+auf dem ZEV.
+Man hat ja auch gesehen, dass es migrieren prinzipiell geht,
+aber die VM ging dann nicht.
+So.
+Noch ist die VM hier.
+Hast du den
+neuen PVE mit ins Quorum aufgenommen?
+Was heißt das? Du meinst in die
+HA-Group?
+Oder was ist das bei dir?
+Du meinst das hier, oder?
+Da sind alle 3 drinnen.
+Jetzt müssen wir warten.
+Ich glaube, das dauert 2 Minuten oder so,
+bis der anfängt, den Kram zu migrieren.
+Das dauert
+wohl ein bisschen, bis der anfängt.
+Eben hat es ja auch 2 Minuten gedauert.
+Guck, hier unten passiert noch nichts.
+Da müssen wir kurz warten,
+bis der jetzt anfängt,
+zu migraten.
+Der hat es noch nicht mitgekriegt.
+No root to host.
+No shitping.
+HA-Group und für die Replikation freigeben.
+Was?
+Bei Replication
+habe ich nichts drin stehen. Ich dachte, das brauche ich
+nicht mehr, wenn ich Ceph anhabe.
+Weil Ceph ja schon shared ist,
+ohne irgendwas zu replizieren.
+Ey, das brauche ich doch nicht, oder?
+Wo ist der Sinn davon,
+die Sachen nochmal zu replizieren,
+wenn ich sie schon auf dem shared disk
+habe?
+Was ist eigentlich mit dem Webinterface?
+Switcht das automatisch? Leider nicht.
+Und es gibt auch keinen Service mit
+Cluster-IP.
+Was man machen könnte ist,
+wenn man es hinbekommt,
+eine VM
+hochverfügbar zu machen,
+dass man auf die VM
+einen Proxy packt,
+der auf das Webinterface
+balancet. Das würde funktionieren.
+Leider hat es keinen Cluster-Service
+für die IP. Das wäre extrem cool.
+Macht es jetzt noch irgendwas?
+Guck mal, der hat gerade verschoben.
+Jetzt verschiebt er die VM.
+Aber es funktioniert
+wieder nicht.
+Es dauert schon viel zu lang.
+Es geht wieder nicht.
+Failed to start.
+Nice.
+G Eats.
+Start failed command.
+Migration.
+Fragen wir mal Google, was die dazu sagen.
+Task error.
+Okay.
+Genau das haben wir auch.
+Seems like you hit a timeout.
+Ja, ach.
+Iso eingebunden? Nee.
+Also, auf
+diesem Note noch, aber
+aber nicht in der VM.
+Komisch.
+Please do the following.
+Don't suspend the VM.
+Moment, will ich doch auch gar nicht.
+Dann weiß ich nicht,
+woran das liegt, dass das mit dem
+Migrieren nicht
+funktioniert.
+Genau, das manuelle Verschieben geht ja.
+Guck mal die komplette
+Meldung an. Okay.
+Ich kopiere das mal rein,
+dass man es sich sonderlich angucken kann.
+So, das ist die komplette Fehlermeldung.
+Failed start, KVM, ID, Name,
+Debug, HR, Dings.
+Bloop. Bloop.
+Bloop. Bloop.
+Ja, das ist das KVM-Kommando zum Starten.
+Das dürfte
+jetzt nicht allzu viel aussagen.
+Alter, sag mal,
+wie viel kommt denn da noch?
+Okay, das ist es wieder.
+Timeout.
+Ja, da kann ich vor allem nicht starten.
+Aus irgendwelchen Gründen.
+Man weiß halt nicht genau, welche.
+Was komisch ist, weil die normale Migration
+funktioniert ja auch.
+Die Platte liegt auf dem ZEV, ja.
+Mal gucken, was
+passiert, wenn ich
+den Node wieder hochfahre.
+Ich mein,
+ich kann das mal ausprobieren,
+ob ich tatsächlich noch irgendwie
+Replizierung einschalten muss.
+Ich brauche die Replizierung eben nicht mehr,
+wenn das alles auf dem ZEV liegt.
+Zumindest wäre dann die Fehlermeldung ziemlich hängen geblieben.
+Okay, der Node ist wieder da.
+Du musst höchstens die
+KVM für High Availability freischalten.
+Haben wir ja gemacht, sonst hätte ich sicher gar nicht
+versucht, automatisch zu migraten.
+Welcher ist der ZEV-Storage? Das hier ist der
+ZEV-Storage. Ja.
+Ach, guck mal, da ist er wieder.
+Der hat jetzt wieder zurück
+migriert und da funktioniert
+der Instant. Hä?
+Gibt es noch eine Alternative
+zu Proxmode? Ja, du kannst
+ESX kostenlos verwenden.
+Ich weiß gar nicht, was die
+abgespeckte ESX-Version nicht kann.
+Okay, das ist
+WeirdChamp.
+Ah, Xen und so Zeug kannst du auch
+verwenden, ja.
+Okay, aus irgendeinem Fall kann ich noch
+Replizierung einschalten.
+Ich mach das jetzt einfach mal.
+Nee, Moment, Target...
+Nee, nee, nee, nee.
+Dazu braucht man Replizierung, Help.
+Das ist Storage Replication.
+Ich brauch keine
+Storage Replication,
+weil ich jetzt auf dem ZEV fliegen hab.
+Der Storage muss nicht gesunkt
+sein, das ist ein Cluster
+Storage, quasi. Der ist
+gesunkt. Tja,
+keine Ahnung, was der für Schmerzen hat.
+Normale Migration geht
+nicht. Proxmogs...
+Fail migration
+Das ist ein Bug, solange
+die VM-ID 100 ist.
+Meinst du wirklich?
+Müsste da nicht bei allen im
+ZEV Storage die VM-Disk, der ist doch
+da, da, da.
+Aber
+letztendlich ist das egal.
+Also, solange noch...
+Also, der Storage
+funktioniert ja, auch wenn
+eine Node ausfällt. Sieht man ja auch hier
+in dieser Übersicht.
+Aber die VM-Disk
+ist drauf. Auf dem
+Cluster Storage. Also quasi auf dem hier.
+Nee, nee, daran liegt das nicht.
+Das wird nicht daran liegen.
+Das ist irgendwas anderes.
+Also, ich mein, vielleicht ist es wirklich so, dass
+die VM-ID nicht 100 sein darf.
+HA-Manager
+Oh, jetzt wird's advanced.
+Da bin ich mal gespannt, was macht das
+denn?
+HA-Manager-Status.
+Was auch immer das bedeutet,
+aber wahrscheinlich, dass PvE
+der Master ist.
+Das sieht okay aus.
+So.
+Ich mein, viel mehr kann man hier ja auch nicht
+machen. Wir haben
+also Replication für
+Storage brauchen wir nicht.
+Storage ist da.
+Shared.
+Enabled, alles gut. ZEV ist auch
+der Meinung, alles okay.
+Wenn eine Node down geht, dann nicht, aber das ist ja auch okay.
+HA hab ich.
+Ich vermute mal, dass das so
+geht, dass man die
+Cluster-Nodes reinpackt,
+wo das Zeug untereinander
+migriert werden darf.
+A resource can be restricted to run
+only on it. Ja, das ist ja in Ordnung.
+Das haben wir richtig gemacht.
+Ich erstelle eine neue VM.
+Ja, das mach ich. Vielleicht ist es wirklich ein Bug mit
+einer VM-ID 100. Wir erstellen
+jetzt einfach mal hier auf dem
+Neuen. Wir erstellen mal auf dem Neuen was.
+Läuft der
+ARM? Ja, der würde ja schon sagen,
+dass der Cluster nicht läuft.
+Okay. Klonen die andere
+ist wahrscheinlich schneller. Ja, du hast recht.
+Klonen.
+Target-Node
+PVE2,
+VM-ID 101, Name
+0W
+Resource Pool, Permanent
+Storage, same as.
+Läuft das Proxmox bei dir
+zu Hause? Ja.
+Oh, hab ich's auf PVE1
+erstellt. Ich wollte es eigentlich auf PVE2 erstellen.
+Da muss ich die gleich rüberschieben.
+Also Chat, ihr müsst nicht auf Google
+gucken und dann irgendwelche Sachen
+in Chat pasten.
+Ich erwarte von so einer
+VM-Manager-Geschichte,
+dass ich nicht auf der Kommandozeile
+einzelne VMs in den
+Cluster-Manager packen muss. Und das muss ich
+wahrscheinlich auch nicht, weil man das hier überall
+sieht, dass das wohl richtig
+konfiguriert ist.
+Zumindest sagt
+er nicht offensichtlich was von Fehler.
+Er erzählt, dass Ceph ordentlich funktioniert
+und er erzählt auch, dass der Cluster ordentlich funktioniert.
+Also das kann es
+eventuell sein, aber es dürfte
+es nicht sein. So, jetzt haben wir hier eine
+VM. Gucken wir doch mal an,
+ob das jetzt funktioniert. Vielleicht geht das jetzt ja mit der
+101er alles.
+0W wird gestartet.
+Console.
+Boah, geht mir Firefox auf den Keks.
+Group.
+Gut. 1, 2, 3, 4, 5, 6.
+IP-Add.
+Hier haben wir die IP.
+145.
+Ja, hallo.
+145.
+Nice. Funst. Alles gut.
+Okay. Dann würde ich sagen,
+probieren wir das Ganze noch mal.
+Das ist der neue Node, der kaputt ist.
+Der jetzt kaputt gehen darf.
+Der hier. Der darf jetzt einfach mal
+kurz verrecken.
+Power.
+Off. Bam.
+Okay. So.
+Schauen wir mal,
+was passiert. Ob das wirklich ein Bug mit der
+ID 101 ist.
+Okay, er hat erkannt. Node ist
+weg. Und jetzt dauert es
+zwei Minuten. Irgendwo habe ich gesehen,
+dass es zwei Minuten dauert,
+bis er die Migration startet.
+Das deckt sich ja auch
+ungefähr mit dem, was wir vorhin gesehen haben.
+Wahrscheinlich
+braucht er zwei Minuten,
+dass er sich sicher ist, okay, der Node kommt
+nicht wieder.
+Nee, hätten wir gar nicht gebraucht.
+Das letzte Mal hat er
+einfach, war einfach Zufall, dass ich in dem Moment
+draufgeklickt habe. So, jetzt müssen wir
+zwei Minuten warten, bis er
+das mitkriegt. Ich kann noch mal
+kurz hier in die Settings gucken.
+Okay.
+Replizierung muss man für
+High Availability und
+Live Migration nicht einschalten.
+Das ist für Oldschool Sachen zum
+Disk replizieren und sowas. Das brauchen wir auf jeden Fall
+nicht.
+Die VM ist in der HA-Gruppe, ja.
+Guck.
+Ach, shit, die Neue nicht.
+Fuck, die Alte ist in der HA-Gruppe.
+Die Neue nicht.
+Okay, das wird jetzt nicht funktionieren.
+Kann man das nachträglich machen?
+Mal gucken, was jetzt passiert,
+wenn ich das nachträglich hinzufüge.
+Oh, das wird
+er wahrscheinlich nicht richtig checken jetzt, oder?
+Dead...
+Das
+verstehe ich aber auch nicht, warum ich das nicht
+migraten kann, wenn das Ding down ist. Dafür habe ich
+doch meinen Shared Storage.
+Okay, wir warten jetzt noch eine Minute,
+aber es kann sein, dass es nicht funktioniert, weil
+ich den noch nicht in der Gruppe hatte.
+Sehr, sehr komisch.
+Habe da mal ein Off-Topic-Problem.
+Ich möchte gerne ein Backup von einem
+Plesk-Webserver runterladen,
+das ca. 7 GB groß ist.
+Leider bricht der Download immer exakt
+bei 1 GB ab. Hat jemand eine Idee,
+woran das liegen kann?
+Schon komisch, reproduzierbar bei 1 GB.
+Bestimmt irgendwelche
+Settings.
+Ja, klingt
+naheliegend, kann durchaus sein.
+Kenne ich mich nicht mit aus.
+Vielleicht kannst du es
+zumindest per FDP
+vielleicht, ja?
+Selbst nur nach 15
+Webspaces hat
+FDP.
+Das hat wieder nicht funktioniert, Leute.
+Ist wieder
+das Gleiche.
+Okay, jetzt bin ich echt mit meinem
+Latein am Ende. Ich habe ernsthaft
+keine Ahnung,
+warum das nicht
+funktioniert.
+Gibt es da einen Guide dazu?
+Proxmox?
+Fail...
+Failover
+Migration?
+Nah.
+Der ist wieder auf PVE
+gegangen.
+Nee, wir hatten den doch
+sogar schon mal ausgeschaltet, oder?
+Hatten wir nicht den
+sogar schon mal ausgeschaltet?
+Doch, den hatten wir das letzte Mal.
+Doch, das letzte Mal hatten wir PVE
+ausgeschaltet.
+Wir können das nochmal probieren.
+Ich kann
+immer den ersten ausschalten, aber
+ich bin mir relativ sicher, das letzte Mal hatten wir den ersten
+ausgeschaltet.
+Naja, bla bla bla.
+The first step is to enable HA for a resource.
+This is done by adding the resource to the
+HA resource configuration. You can do this by
+GUI. Haben wir gemacht.
+The HA stack
+now tries to start the resource and keep the
+Please note that you can't configure the request.
+Ne. Okay, haben
+wir gemacht.
+Er hat ja auch bei Status alles
+als okay angezeigt.
+So, es ist alles wieder da.
+Und jetzt wird er
+wahrscheinlich gleich zurückmigraten
+oder sowas. Guck, da. Bäm.
+Frunz ist wieder da.
+Ne, die
+VM geht sobald
+der andere
+Cluster Member wieder da ist.
+Das ergibt doch überhaupt keinen Sinn.
+Guck mal, die VM
+ist sogar noch auf dem ersten
+und nicht wieder zurückmigriert
+worden, aber jetzt geht sie?
+Hä?
+Da ist doch...
+Da ist doch irgendwas...
+Mach nochmal jetzt, wo sie...
+Ja, ich hab das schon fünfmal
+gemacht jetzt.
+Da ist irgendwas...
+Irgendwas ist da nicht richtig.
+Ne, der Name ist nicht
+doppelt. Da stimmt
+irgendwas nicht.
+Das ist schon sehr merkwürdig, dass sie jetzt
+wieder direkt on kommt, sobald...
+So, als hätte wirklich
+irgendwas von der Config gefehlt oder so.
+Und jetzt
+konnte das migrieren. Sehr,
+sehr merkwürdig.
+Ähm, beim
+Zev, ich hab einfach den Zev-Assistent durchgeklickt.
+Nicht, dass ich
+große Ahnung hätte, was er da macht.
+Aber er meint, er ist healthy
+und alles gut.
+Ja, das kommt mir auch so vor, als hat er Probleme
+mit der VM. Äh, mit
+der Config.
+Ich meine, gut, vielleicht hätten
+wir das auch einfach nach irgendeinem Tutorial
+machen sollen.
+Also das ist anscheinend gerade der Host, so wie
+er aussieht. Was auch immer
+ich da gerade sehe.
+Ja, weiß ich jetzt
+nicht, woran das liegt. Keine Ahnung.
+Fehlt mir auch die Proxmox
+Erfahrung, da irgendwie jetzt dahinter zu steigen,
+woran das liegen könnte.
+Das ist jetzt ein bisschen doof, weil der Rest
+fand ich eigentlich ganz gut.
+Das war auch easy
+fürs Setup. Aber das
+ist jetzt schon ein bisschen doof, dass das nicht funktioniert
+mit der Migration.
+Wir mussten die Nodes renamen,
+bevor man sie in Cluster aufnimmt.
+Sonst hättest du sie gar nicht in Cluster
+aufnehmen können. Okay, dann weiß
+ich nicht. Dann habe ich echt keine Ahnung mehr,
+warum
+es nicht funktioniert. Das ist schon
+komisch, ne?
+Ich schalte jetzt nochmal den Einser aus. Mal gucken,
+was passiert.
+Oh, bam. Einser
+ist aus.
+Guck, VM ist dead.
+Aber das wird jetzt auch nicht funktionieren.
+Macht ja auch keinen Sinn. Warum soll das jetzt auf einmal gehen?
+Ich denke auch, dass es an mir
+liegt, dass ich irgendwas falsch eingestellt habe.
+Aber ich weiß halt nicht, was.
+Wobei man das natürlich dann auch
+ein bisschen auf das Setup schieben könnte.
+Es steht überall
+Running und Up und alles ist gut,
+aber anscheinend ist noch nicht alles gut.
+Hast du noch
+ein Image eingebunden?
+Nee.
+Aber die Migration geht ja.
+Die VM startet plus
+nicht. Und die
+Fehlermeldung erzählt irgendwas von Timeout.
+Also da ist irgendwas grundsätzlich kaputt.
+Und ich habe keine Ahnung, was.
+Ist aber auch wurscht.
+Fest
+zu halten bleibt. Ganz so einfach
+ist das mit Failover und Clustering
+mit Proxmox dann doch nicht.
+Zumindest nicht ohne mal geizig anzugucken.
+Also ich gehe davon aus,
+dass das normalerweise ganz gut funktioniert.
+Welche Firewall? Hat das
+standardmäßig eine Firewall? Also sollte da
+eine Firewall Probleme machen, wäre das absoluter
+Fail. Ich meine, das ist
+der offizielle Cluster Wizard, den
+man da durchklickt.
+Nee, da kann auch keine Firewall Probleme machen.
+Die Live-Migration geht
+und der sagt
+auch überall Healthy und Cluster Manager läuft
+und sowas.
+Nee, nee, das kann's nicht sein.
+Ist der Host jeweils in Safety
+als Monitor eingetragen?
+Ja.
+Achso, das kann ich mal anklicken.
+Haben wir, glaube ich, eben schon geguckt.
+Mal gucken hier, Monitor
+am Start. Ah, Moment,
+jetzt habe ich sogar den
+Masternode ausgeschaltet.
+Jetzt ist er komplett im Arsch.
+Aber das müsste
+er eigentlich auch hinbekommen.
+Man sieht ja auch hier, dass er versucht
+was zu schwenken und sowas.
+Da ist er, ja. Da ist er, aber
+er geht nicht. Das ist ja das Problem.
+Die Migration funktioniert, aber die
+VM startet nicht.
+Datacenter Ceph? Okay, können wir gleich probieren.
+Aber die Migration wird
+wieder nicht funktionieren.
+Woah, woah, was ist jetzt? Windows, please.
+Was ist da los?
+Wir warten jetzt erstmal bis der Node... guck mal, guck mal!
+Leute, seht ihr das? Sobald der Node
+wieder da ist, geht das Netzwerk
+Instant, beziehungsweise die VM
+Instant. Ist das
+vielleicht irgendein Problem?
+Von, gar nicht mal
+von Proxmox, sondern
+von meinem Netzwerk-Setup,
+dass der irgendwie die
+neuen, dass der keine neuen
+Up-Requests schickt oder sowas
+und deswegen die neue Mac
+von der Netzwerkkarte nicht mitbekommt
+oder irgendwas in der Richtung.
+Das ist ja nicht auszuschließen
+bei so einem Setup. Ich mein,
+das ist komplett virtualisiert, wie ich das betreibe.
+Das kann ja schon mal sein, dass er da rumspackt.
+So, was soll ich
+machen? Datacenter Ceph?
+Und jetzt? Das gibt es
+nicht.
+Du schreibst von Monitor
+nicht
+existent.
+Das will eigentlich...
+Ja, der hat jetzt gerade wieder rebooted hier, ne?
+In PVR1, Ceph?
+Ja, da ist
+irgendwas eingetragen.
+Okay, der ist stoppt.
+Aber jetzt... Warum ist der stoppt?
+Eben war er noch nicht stoppt.
+Ach, der ist stoppt, weil das Ding gerade rebooted hat?
+Warum muss ich da überhaupt
+irgendwas von... Aktiv, jetzt ist er aktiv.
+An den Noten...
+Was? Create?
+Einen Manager? Ne, was?
+Ne, was soll ich machen? Warum?
+Und vor allem, warum soll ich das machen?
+Ja, das funktioniert.
+Vor allem verschieben ist überhaupt kein Problem,
+solange alle an sind. Das funktioniert.
+Ich hab halt keine Ahnung von Ceph.
+Was sagt uns das hier jetzt?
+Ein Monitor
+create? Mach ich.
+Chat, wenn ihr das sagt.
+Easy.
+Und auch noch einen Manager?
+Auch noch einen Manager?
+Keine Ahnung, wofür der da ist.
+Soll ich auch noch einen zweiten Manager anlegen?
+Ich weiß wirklich nicht, was das macht.
+Ja, wie?
+Schadet nicht. Okay, bam.
+Ich mach das jetzt einfach.
+Vielleicht liegt es ja daran.
+Und auf dem da...
+Create?
+Create.
+So.
+Der ist jetzt immer sowas von geklastert hier.
+Der hört überhaupt nicht mehr auf.
+Warum ist...
+Ah, okay. Nice.
+Ja, dann würde ich sagen...
+Gib ihm.
+Nochmal.
+Gucken, ob es jetzt funktioniert.
+Bam.
+Dead.
+Wir müssen gleich feststellen, dass der Note weg ist.
+Vielleicht liegt es ja wirklich daran.
+Das wäre dann ein typischer Fall
+von Peppkack, wie es schon jemand
+im Chat geschrieben hat, wenn es daran liegt.
+Chat, wer weiß, was Peppkack bedeutet?
+Ich fang mal an
+mit Problem exists
+between...
+Was ist kack?
+Nein, nicht Peppkack.
+Schreibt mal anders.
+Keyboard.
+Keyboard and share, richtig.
+Gut, jetzt müssen wir wieder eineinhalb Minuten warten,
+bis der das checkt.
+Ja, Naruto House, ich weiß.
+Was ich auch ein bisschen komisch finde, ist,
+dass es keine
+Möglichkeit gibt, das Webinterface
+auf eine Cluster-IP zu packen.
+Aber ich habe gestern
+schon gesucht, da gab es nichts in der Richtung.
+Is there a reason why there is no
+Cluster-IP for accessing the Webinterface?
+Das sind wie Leute,
+die nicht checken, was der will, Alter.
+Guck mal, das ist ja witzig.
+Die schlagen exakt das Gleiche vor,
+was ich mir auch gerade überlegt habe.
+Du machst eine HAVM und darauf installierst du
+einen Proxy. Ja, dass das funktioniert,
+ist mir auch klar. Aber das ist
+blöd, dass man das überhaupt machen muss.
+Nee, das ist
+doof. Also ich
+hätte schon damit gerechnet, dass das...
+Ah, guck mal hier.
+Die...
+Okay, okay. Nee, das dauert
+schon zu lang. Das geht wieder nicht.
+Das funktioniert wieder nicht.
+Es ist wieder dead. Nee, guck, geht nicht.
+Es wird wieder
+dead sein.
+Ich benutze eigentlich nie Chat-GPT.
+Frag mal Chat-GPT zu dem Problem.
+Da bin ich gespannt.
+Nee, das dauert zu...
+Timeout.
+Es ist möglich...
+Also...
+Es ist möglich,
+dass es an meinem Netzwerk-Setup liegt.
+Ich will es jetzt nicht Proxmox in die
+Schuhe schieben, dass es nicht funktioniert.
+Vielleicht liegt es an meinem
+Netzwerk-Setup. Kann sein.
+Normalerweise müsste
+der Node jetzt hier einen Up-Request raushauen
+oder die VM hier nochmal neu, dass ich jetzt
+die Mac... Wobei,
+die Mac hat sich doch wahrscheinlich gar nicht geändert, oder?
+Das ist doch immer die gleiche Hardware unten drunter.
+Oder vielleicht doch.
+Ja, dass sich die Mac
+geändert hat und da müsste noch ein Up-Request
+raushauen, dass das jetzt
+eine neue IP hat.
+Also das kann an meinem Netzwerk-Setup liegen.
+Komisch ist es trotzdem,
+dass es nicht geht.
+Welche Distro hast du denn da und die
+Arch-Linux?
+Arch-Linux, by the way.
+So wie die Profis das machen.
+By the way, ich nutze Arch.
+Ich sollte mal die
+Gelegenheit nutzen, euch das näher
+zu bringen, dass ihr auch
+Arch-Linux nutzen solltet.
+Weil wir sind uns ja alle einig,
+dass Arch-Linux die
+einzig wahre und beste Distribution
+überhaupt ist.
+Und es ist wichtig, dass wenn
+ihr dann auch mal irgendwann Arch-Linux nutzt,
+was ihr über kurz oder lang
+dann auch machen werdet,
+weil es eh das Beste ist,
+dann müsst ihr das allen erzählen,
+dass ihr Arch-Linux benutzt.
+Das ist wichtig. Das ist ein bisschen so wie bei Veganern.
+Könnte man sagen,
+was Arch-Linux-User und
+Veganer gemeinsam haben, man kriegt es
+erzählt, ob man danach fragt oder nicht.
+Das hat Einstein schon gesagt.
+I use Arch, by the way.
+Also,
+um mal auf deine Frage zurückzukommen,
+was das für eine Leiste oben ist.
+Also, das ist I3, als Window-Manager.
+Und die Statusleiste
+nennt sich
+Bumblebee-Status.
+Das da.
+Gibt's auch im GitHub-Projekt zu.
+Es gibt aber
+Tausende, das ist vielleicht
+ein bisschen übertrieben, aber schon einige
+solcher Status-Bar-
+Projekte.
+Und
+ich weiß gar nicht mehr, warum ich die
+genommen hab. Ich glaube,
+weil man dort relativ einfach
+selber Plugins für bauen konnte.
+Ich hab mir zum Beispiel diesen
+Timer hier gebaut, guck, wo man sich 5
+Minuten in den Wecker stellen kann
+für die Leiste.
+Den hab ich selbst gebaut, weil
+ich das für praktisch
+erachtet hab. Kannst auch Pause
+machen, weitermachen, resetten.
+Und um auf
+die nächste Frage, die jetzt zwangsläufig kommt,
+einzugehen ist. Meine
+Config findest du hier auf
+GitHub. Und die
+I3-Config ist hier und
+dort Config, I3
+Config und da ist auch
+die
+ganze Geschichte mit der
+Leiste oben.
+Wie lange hast du eigentlich vor zu
+arbeiten? Du meinst jetzt bis
+mein Alter?
+Hab ich mir ehrlich gesagt
+noch nicht so viel Gedanken zugemacht.
+Sicherlich nicht bis 65, 67.
+Garantiert
+nicht.
+Muss ich auch nicht. Dafür hab ich
+mittlerweile genug Kohle, bzw. hab bis dann
+ja noch ein bisschen mehr Kohle.
+Und ich hab ein Haus,
+wo ich, naja,
+kostenlos wohnen kann man's nicht nennen. Häuser kosten
+auch Geld.
+Aber wo ich wohnen kann, keine Ahnung.
+Solange ich Bock hab.
+Wenn ich
+keinen Bock mehr hab,
+dann mach ich ein bisschen
+YouTube und Twitch und gammel daheim rum.
+Den ganzen Tag.
+Und mach 24-7
+Kreiselcrind als Rentner.
+Wie heißt der
+Song? Das ist aus irgendeiner Mario-Playlist.
+Ja.
+Das ist aus irgendeinem
+Pokémon-Game ist das.
+Oder wie die Amis sagen, Pokémon.
+Pokémon.
+Ich kann das nicht aussprechen.
+Naja,
+nein, ausgesorgt nicht.
+Ausgesorgt kann man's nicht nennen. Also ich bin jetzt nicht
+XQC, der 100 Millionen bekommen hat,
+um auf Kick zu streamen.
+Nein, ganz so schlimm ist das bei mir auch nicht.
+Also ich könnte
+jetzt nicht einfach sagen, ich arbeite nicht
+mehr und
+ich gebe
+weiterhin ordentlich Geld aus und es reicht
+für immer. Ne, das nicht.
+Außerdem bin ich nicht vor kurzem erst 30
+geworden.
+Ich werd dieses Jahr 39.
+Ich hab den
+Note suspended.
+Das ist aber auch egal,
+weil ich die Note auch schon
+Netzwerk getrennt habe
+und shutdown habe.
+Ich hoffe so in 5 Jahren.
+Ja, du musst Big Stonks
+mit deiner Firma machen und die dann verkaufen
+für 20 Millionen. Und dann
+easy money.
+Easy.
+Big Stonks.
+Ja, bis 65
+arbeite ich sicherlich nicht.
+Das ist mir zu
+blöd.
+Hast du das so gemacht?
+Ne, hab ich nicht.
+Ja, ich hab
+ETFs,
+weil ich
+keinen Plan hab,
+was Investmentsachen angeht.
+Aber ich mein Geld
+nicht einfach auf der Bank rumgabbeln haben will.
+Aber
+ein Funding secure für Produktionsausbau.
+Heute Nachmittag.
+Ja, ist das wirklich so dein Plan?
+Dass du in ein paar Jahren sagst,
+ich lass mich ausbezahlen oder
+wir verkaufen den Kram für Big
+Stonks und dann easy?
+Also bleibst du lang wie du Bock hast und
+irgendwann sagst du, ich hau ab, gib money.
+Ich verkauf euch meine Anteile.
+Bei Scalable
+hab ich die ETFs.
+Oder so.
+Hab ich.
+Richtig.
+Ja, das ist dann eh das Beste.
+Dann kannst du auf Big
+Boss machen, der zweimal
+im Jahr in die Firma geht.
+Und Rest
+easy life.
+Ja, das wär doch nice, wenn das klappt.
+Ich denke, es muss sich schon
+irgendwie lohnen, auch mal so irgendwie
+ein Risiko einzugehen
+und was zu gründen. Und ich mein, es kann
+genauso in die Hose gehen. Ich find, es muss belohnt werden,
+wenn's klappt.
+Weil am Endeffekt, sonst würd's ja keiner machen.
+Und es ist wichtig, dass es Leute gibt, die das
+machen. Sonst tut sich
+innovationstechnisch nix.
+Wenn du Millionär bist, kannst du ja ein paar Subs giften.
+Nice.
+So.
+Tja, Chat. Also die Geschichte
+mit Take, wie er grad da ihr hatt.
+Dankeschön für den Sub.
+Tja, also mit Proxmox, ehrlich
+gesagt, also ich glaube nicht, dass ich das hier noch mit
+meinem Setup hinbekomme,
+das ordentlich zu migraten.
+Nee, funktioniert
+nicht. Ich will aber trotzdem noch
+mal was ausprobieren, bevor wir die
+Proxmox-Geschichte sein lassen.
+Noch mal ein paar Sachen ausprobieren.
+Und zwar, wie ist das denn mittlerweile
+die, nennen wir es mal,
+Container-Experience?
+Ja, haste.
+Wie legt man denn
+Container an? Wie ist das mittlerweile
+gemacht?
+Ja, create ct
+pve
+node
+hostname
+Ich muss Passwort
+angeben für einen Container?
+Okay, warum nicht?
+123456
+123456
+Okay, next.
+Template.
+Wie jetzt? Gibt's da standardmäßig nicht irgendwie
+Ubuntu, Debian, irgend etwas?
+Ist da nicht irgendwas
+vorgefertigtes?
+Wo kriegt man denn die Templates überhaupt her?
+Oh, jetzt nervt mich rum
+vor allem Werder.
+Auf den Local Storage klicken? Nee,
+auf den Cluster Storage klicken, oder?
+Nee, man muss wirklich auf den Local Storage klicken.
+Ah, hier.
+Nee.
+Templates.
+Ah, da noch.
+Ach, hier kann ich jetzt eins auswählen, oder wie?
+Äh, was haben wir denn da so?
+So Debian oder sowas?
+Wobei Debian Container ja
+irgendwie relativ sinnlos ist.
+Es sind halt
+einfach LXC
+Dinger. Das ist halt schon ein bisschen...
+Kann man da auch einfach Docker Images
+laden?
+Wahrscheinlich nicht, oder?
+Wahrscheinlich nicht. Nee, nee, das geht wahrscheinlich
+nicht. Wollte grad sagen.
+Kannst aber Docker in LXC installieren.
+Ja, das ist das, was ich schon
+gehört hab.
+Wobei ich da sagen muss, das ist für meinen
+Anwendungszweck, also ich verstehe
+in dem Kontext das schon,
+aber für meinen Anwendungszweck ist das nicht so geil,
+weil
+so ein einfaches
+Interface
+für ein paar Docker Images zum Beispiel,
+wie das die Synology
+NAS-Geräte haben,
+ist schon nice. Da würd's jetzt hier
+einfach sagen, Templates,
+ähm, tja,
+Container XY
+und gut ist
+Jubantu
+Debian.
+Debian Bookworm. Download.
+Weil so brauchst du jetzt
+einen Docker im Container
+und dann
+müsste ich da wieder dann irgendwie
+so was wie Docker Compose drinnen machen, was auch doof ist.
+Oder einen lokalen Kubernetes Cluster.
+Was nicht geht, du kannst kein Kubernetes
+in LXC installieren.
+Dafür brauchst du
+Volume Claims.
+Verstehe ich irgendwie sogar.
+Wahrscheinlich ist
+in Docker zu sehr das Problem,
+wie machst du beispielsweise
+das mit Volume Claims
+und sowas im Container gescheit.
+Also die haben wahrscheinlich
+da ihren Grund, warum das
+nur in AVM geht.
+Was natürlich mega der Seller
+wär wahrscheinlich,
+wenn die
+Kubernetes API
+hätten für Proxmox irgendwie.
+Also sprich, dass man
+sagen könnte,
+man fügt quasi
+seinen Proxmox Server hinzu
+und der
+handelt dann das Erstellen
+der Nodes für den Cluster und das Skalieren
+der Nodes und alles mögliche für ein.
+Das wär natürlich extrem
+Prog. Aber ich glaub sowas gibt's
+nicht. So wir probieren
+das mal schnell mit dem Container aus.
+Create CT
+Hostnames
+Passwort 1 2 3 4 5 6
+Highly secure
+Template
+Debian Standard
+Disks
+8G, ja das ist ok.
+Cores
+Network
+Auto
+Static
+RCP
+Bridge
+Finish
+Damit funktioniert das.
+Es ist klar, aber cooler wär's, wenn das halt unter
+der Haube für einen erledigt werden wird.
+Dass man mit Terraform sowas machen kann, ist
+klar. Wobei das auch
+auch ein bisschen ne Krücke ist, im Vergleich
+zu nem vollen Managed Cluster.
+Da sagst du dann einfach nur
+ok, so und so viele Ressourcen
+und das Ding stellt fest, Mist,
+meine bisherigen Nodes reichen nicht,
+ich starte jetzt einfach ne neue VM
+und füge den im Cluster hinzu.
+Bin ich auch immer der Ansicht, wenn's
+hier im Chat Fragen gibt, so
+soll ich mir selbst ein Kubernetes Cluster installieren?
+Sag ich immer nee, such dir irgendeinen Anbieter, der das
+für dich macht. Gerade wenn's im Business Umfeld
+ist, weil daheim ist das wieder was anderes.
+Aber gerade wenn's
+im Business Umfeld ist,
+es muss ja nicht unbedingt
+Google, Azure oder AWS
+sein. Wenn's
+günstiger sein soll, geht auch sowas wie DigitalOcean
+oder bestimmt noch jede Menge
+anderen Anbieter.
+Leider kein Managed Kubernetes, das wär cool.
+PrimeSub am Start.
+Starbucks, Dankeschön. POC Subscriptions, ja.
+So, haben wir jetzt
+ein Debian laufen hier?
+Start now, jawoll.
+Start successfully.
+PostChamp? Ok, das ist
+jetzt halt ein Container, der sehr
+VM-mäßig ist,
+aber eigentlich doch
+ein Container.
+Ich mein, was man machen könnte,
+ab install docker.io
+Ach, eigentlich
+find ich die Integration, wie sie's hier mit den
+Containern gemacht haben, doch ganz praktisch.
+Das ist
+aber nur für den Fall der Fälle, wenn man
+einen Container, sagen wir mal, als leicht
+gewichtigen VM-Ersatz verwenden möchte.
+Dann ist das eine coole
+Integration. Für alles andere
+brauchst du's
+nicht und meistens
+willst du Container eigentlich ja auch nicht so
+verwenden,
+sondern mit irgendeinem fertigen Service,
+der drin läuft.
+Du hast Docker auf den Proxmox
+hosten sehen. Ja klar, kann man
+machen. Das ist ja auch nur ein Debian, glaube ich.
+Debian 12 ist das mittlerweile. Aber
+trotzdem hast du dann
+immer noch kein schönes Webinterface.
+Wie beispielsweise,
+ich find's halt sehr nice im Heimbereich, wie
+beispielsweise, dass bei den
+Synology Nassgeräten gemacht ist.
+Da ist es halt super easy zu
+sagen, hey, ich brauch jetzt mal irgendwie
+einen Wiki.
+Du startest einen Docker-Container mit einem Wiki und gut ist.
+Hier müsstest du jetzt halt
+einen Wiki auf dem
+Container installieren.
+Über apt und sonst was.
+Oder du installierst
+einen Docker und machst irgendwie einen Docker-Compose. Aber
+Docker-Compose find ich mittlerweile echt eklig.
+Also seit ich mich an Kubernetes und
+Kubernetes-YAML und API gewöhnt hab, hab ich kein
+Bock mehr auf Docker-Compose.
+Proxmox-Helperscripts.
+Okay, guck hier, ein Docker läuft da ohne Probleme drauf.
+Aber das ist ja nicht das,
+was man haben will.
+Zumindest nicht im Heimbereich.
+Zumindest ich nicht im Heimbereich.
+Wenn jemand wirklich ein Virtualisierungskluster
+daheim laufen lassen will,
+ist denke ich mal Proxmox echt
+nicht schlecht.
+Ich weiß übrigens auch gar nicht,
+was die Beschränkungen von ESX sind.
+Von der kostenlosen ESX-E-Version.
+Programmierst du deine
+Web-UI selber für Docker?
+So was will ich was Fertiges haben.
+Unraid hat sowas zum Beispiel eingebaut.
+Ich war jahrelang kein Unraid-Fan
+und finde es auch immer noch ziemlich hakelig an manchen
+Stellen. Aber insgesamt finde
+ich es für den Heimbereich eine ziemlich gute
+Kombi aus
+relativ einfachem Management,
+was Storage angeht,
+was Shares angeht,
+relativ einfaches VM-Management
+und relativ easy Container-Management.
+Ja, du kannst
+eine ESX selber hosten, ich weiß.
+Aber ich weiß nicht, was die Einschränkungen
+sind mit ESX, mit der
+kostenlosen Variante.
+Das Proxmox Helper.
+Proxmox Helper-Skripts.
+5K-Sterne.
+Pog.
+These scripts enable you to build a Linux-Container
+or Virtual Machine Interface.
+Ach, das ist quasi ein
+ein Wizard.
+Ja.
+Also es ist quasi ein Wizard
+zum Erstellen von Containern.
+Oder wie jetzt?
+Hä? Okay, keine Ahnung.
+Das ist quasi
+immer die beste Idee,
+Sachen aus dem Internet zu wegappen, prinzipiell
+und dann direkt auszuführen.
+Pog, absolut beste Idee.
+Weil das in dem Fall okay ist, weil man
+weiß ja wahrscheinlich, was man ausführen will.
+Das ist quasi ein Install-Skript
+für vorgefertigte Sachen.
+Ja.
+Okay, probieren wir mal aus.
+Ich meine, kann ja nichts kaputt gehen.
+Aber das muss man wahrscheinlich auf dem Host
+ausführen, vermute ich mal.
+Ne, nicht da drauf.
+Da drauf.
+Aber die Dinger sind doch da. Okay, probieren wir einfach aus.
+Aber das ist trotzdem keine Lösung,
+die mir gefällt.
+This will create a new
+OMV-LXC.
+Jawohl, yes.
+Use default settings. Nein.
+To make a selection, use the spacebar.
+Okay.
+Okay.
+Okay.
+Unprivileged, okay.
+Good password, null.
+Jawohl.
+Jawohl. Jawohl. Jawohl.
+Jawohl. Jawohl.
+Perfekt.
+No.
+Weiter, weiter.
+Aber das legt mir das nicht irgendwie hochverfügbar an.
+Yes, wunderbar.
+No.
+Yes.
+Ja, aber Leute,
+das hat man in zwei Sekunden doch auch
+im Management-Interface zusammengeklickt.
+Na, wobei, nicht wirklich. Man hat ja nicht das
+Template von OMV da.
+Aber dann bist du auch wieder drauf angewiesen,
+dass dieser Typ der Install-Scripts dafür bereitstellt.
+Ich weiß nicht.
+Das ist alles eine Grücke,
+für was was fehlt.
+Ja, da sind mir Docker-Container auch lieber.
+Beziehungsweise, wenn man halt
+ein gescheites Management-Interface eingebaut hätte
+für Docker-Container.
+Man könnte natürlich immer noch mit so einem Crap wie
+Portainer anfangen, aber Leute, ich hasse Portainer.
+Ich würde das nie verwenden.
+Es gibt ein paar Sachen, dagegen habe ich
+richtig Abneigung. Portainer gehört dazu.
+Dann würde ich lieber einen
+Single-Node-Kubernetes-Cluster daheim betreiben
+und meine YAML-Files von Hand
+erstellen, bevor ich mit Portainer anfange,
+Alter.
+Ah, nice. Sogar kaputt.
+Sehr schön.
+Und man weiß nicht, warum. Nice.
+Sehr guter Eindruck.
+Das sind aber wirklich alles Krücken.
+Es ist cool, dass die Leute sich die Mühe machen,
+etwas zu bauen. Schon irgendwo.
+Aber das ist nichts, was ich auf Dauer benutzen würde.
+Wie lösche ich die Kiste
+jetzt eigentlich?
+Das ist eine gute Frage.
+Wie lösche ich das Teil jetzt?
+Aha.
+Please enter ID.
+103.
+Destroy.
+Merge. Bam.
+Weg ist es.
+Gibt es bei deiner Meinung eine gute Alternative zu Portainer?
+Ja.
+Naja.
+Für
+grafisches Docker-Management
+wenn
+du nichts verwendest, was schon
+was mitbringt,
+dann kann man das nehmen.
+Aber man braucht
+für Docker...
+Man braucht ja kein grafisches Frontend für.
+Wenn man
+Docker-Container starten stoppen will, dann kann man
+Compose verwenden oder die Dinger in irgendein
+Script hauen und dann irgendwie vorne von Hand starten
+oder von Hand anlegen.
+Ansonsten
+kann man eben das Eingebaute
+benutzen in...
+Wenn es Leute gibt, die Trunas verwenden, die haben
+beispielsweise... Ne, wobei Trunas plötzlich,
+Trunas hat Kubernetes mittlerweile dabei.
+Onboard. Und macht
+einen Helminstall.
+Ja.
+Also in Unraid haben die ein ganz gutes Docker-UI
+eingebaut, standardmäßig.
+In
+TechnologyNAS Geräten haben sie ein ganz
+brauchbares UI eingebaut.
+Klick nochmal auf deine
+VM und dann
+Manager. Ist alles
+eingefügt.
+Achso!
+Ach, dafür meinst du das?
+Ja ne, dann nimm doch Docker Desktop.
+Dafür ist es doch gemacht.
+Ich dachte jetzt um irgendwas dauerhaft laufendes.
+Du meinst auf dem Desktop? Ja, dann nimm doch Docker Desktop.
+Das ist doch easy.
+Bei der Gelegenheit können sie auch gleich ein bisschen
+Kubernetes üben mit Rancher Desktop.
+Dann nimm doch sowas hier. Das ist doch dann
+easy. Da haben sie ne UI.
+Die können
+sich freuen.
+Ich glaub Rancher
+Desktop macht das nämlich auch sogar Docker
+mittlerweile.
+Ich hab das ehrlich gesagt noch nie
+ausprobiert. Rancher
+Desktop.
+Keine Ahnung.
+Ich kenn das
+nicht. Ich hab das nicht
+bisher nie ausprobiert.
+Also es gibt
+Docker Desktop.
+Öh!
+Ne, das mein ich nicht.
+Ist das Windows auch nicht vielleicht?
+Ach, das ist quasi so
+ein
+Mini-Kubernetes
+Lokal. Ich hab das noch nie benutzt.
+How Rancher Desktop
+works.
+Container D. Ne.
+Das benutzt du unter der Haube schon.
+Noch Docker. Ich installier das
+jetzt einfach mal. Ich mach ein Snapshot vorher.
+Und dann
+guck ich mal, wie das ist. Ich hab das noch nie ausprobiert.
+Was ist
+die letzte Version?
+1.9. Ja, gut.
+NVM.
+Ist das der Node-Version-Manager?
+Yes.
+Yes.
+Oh!
+JavaScript-Based. Wir downloaden das
+halbe Internet.
+Da geht's schon los.
+Gut, dass ich den Snapshot
+vorher gemacht hab.
+Guckt euch das Elend an.
+Guckt euch
+dieses Elend an.
+Halbes Internet wird runtergeladen.
+Der installiert C++?
+Hab ich jetzt nix von gesehen.
+Niemand mag C++.
+C++ ist einfach nur
+ein Hanes-Champ.
+Ja, gute Idee, Leute.
+Was macht es da eigentlich gerade?
+Und was
+ist Reifi?
+Reifi?
+GitHub.
+Enable...
+Moment, was?
+Enable... Ah, von 2021.
+Toll.
+Enable ECMAScript in Node
+Today.
+Node kann doch schon seit Ewigkeiten
+das normale JavaScript
+importen.
+Oder nicht? Oder doch?
+Doch, oder?
+Ah, guck mal.
+Doch, doch, kam das schon lange.
+What the fuck, Alter?
+Was macht es da?
+Erst noch mal Go.
+Ja, genau.
+30 Milliarden JavaScript.
+Jetzt wird erst noch mal kurz Go kompiliert
+from scratch. Let's go.
+Noch mal NPM hinterher.
+Gib ihm.
+Okay, Leute, ich korrigiere mich.
+Es ist nicht das ganze Internet,
+es ist bloß 3 Viertel Internet, was der runterlädt.
+Der ist noch nicht fertig.
+Ja, PostChamp?
+PostChamp?
+Gab es da kein Minus?
+What? Was kommt denn jetzt?
+Golang-Elektron-Bindings
+oder was?
+Was nutzt ihr als Alternative zu Proxmox?
+Nee, der Klassiker ist ja
+ESX.
+Und es ist eher umgedreht, dass Proxmox die Alternative
+für ESX ist. Manche Leute
+verwenden auch Shitrix,
+wobei ich, glaube ich, Jahre kein Xen-Server
+mehr installiert habe.
+Nutanix CE?
+Ist das nicht auch Xen?
+Oder KVM?
+Oder was ist das?
+Podman soll ja sicherer sein als Docker.
+Ja, da ist schon
+was dran.
+Docker hast halt das Problem,
+wenn du den standardmäßig laufen lässt,
+wie es ist, bist du halt
+Root im Container, mehr oder weniger Root auf dem Host.
+So, übertrieben gesagt.
+Was nicht ganz
+stimmt, aber in die Richtung geht.
+Bei Podman kannst du ja auch die ganzen Sachen
+laufen lassen, ohne dass
+du einen Demon mit Rootrechten brauchst.
+Oh, wir haben es.
+1,5 Gigabyte ist das groß.
+Okay.
+Warum benutzt Max kein Podman?
+Ich glaube, wir haben sogar Podman installiert.
+Doch, wir haben auch schon
+Podman benutzt. Wir haben Podman letztens
+zum Bilden für irgendwelche Images benutzt.
+Okay, jetzt hier Rancher.
+Rancher Desktop.
+Noch nie ausprobiert.
+Das soll richtig cool sein für Leute,
+die GUI-Zeug mögen
+und kein Docker-CLI benutzen
+wollen. Hier.
+Oh, da ist es.
+Enable Kubernetes.
+Escort. Enable
+Kubernetes.
+Container-Engine. Docker
+ist okay. ConfigPath. Automatic.
+Da sind wir.
+Rancher Desktop.
+Diagnostics. Too failed.
+Ja, dann fix
+das halt mal.
+Okay, er hat es
+gefixt.
+So, und jetzt?
+Wie findest du das jetzt?
+Downloading Kubernetes.
+Gut, Leute.
+Gut, dass ich
+einen Snapshot gemacht habe. Ich habe jetzt sonst was
+alles installiert, Alter.
+Warum nicht Portainer?
+Ich hasse Portainer.
+Und auf dem Desktop
+ist das hier doch ganz nice. Gerade, wenn man auch
+in Kombination, dass man dann Kubernetes
+üben kann.
+Start in K3S.
+Okay,
+Images. Wie würde ich denn jetzt hier
+Container starten?
+Was?
+What?
+Ich weiß nicht genau, was der
+von mir will, aber okay.
+Okay, er ist fertig.
+Äh, okay, und
+File? Wie startet man denn hier jetzt
+überhaupt was drin? General?
+Wo hast du dein
+File? Bei Kong
+oder so hießen die. Kong-Key oder so.
+Aber
+kauft es bei irgendeinem ordentlichen Shop.
+Ähm, wie starte ich
+denn hier den falschen Container?
+Leute,
+ich checke schon mal.
+Ich checke noch
+nicht mal, wie man das überhaupt benutzt.
+What the fuck?
+Okay, das war ein Kubernetes-Dashboard.
+Wie würde
+man jetzt hier überhaupt Container starten?
+Siehste? Keine Ahnung, wie es funktioniert.
+One
+selected. Und jetzt?
+Muss ich jetzt irgendwas hinzufügen? Add Image?
+Okay.
+Hello World Docker.
+Ich brauche nur den Namen?
+Okay.
+Wisst ihr, das ist ein weiterer Grund,
+warum ich keine UIs verwende.
+Das ist so super
+umständlich und kompliziert immer alles.
+Okay, und wie erstelle ich jetzt
+da einen fucking Container draus?
+Ach, Image-Management.
+Aber warum habe ich dann hier dann
+eine Docker-Engine?
+Ey, keine Ahnung.
+Wisst ihr, das ist der Grund,
+warum ich einfach immer CLI für alles verwende.
+Da weißt du,
+was du machst.
+Weg damit. Alles Schrott.
+Braucht keiner.
+Git nur über CLI.
+Docker nur über CLI.
+Kubernetes nur über CLI.
+Ich bin übrigens auch von K9S
+und sowas weg. Einfach raw
+kubectl. Ich habe nur
+zwei Plugins bei kubectl.
+Link-Switch, Context-Switch. Fertig.
+Beste.
+Und ganz ehrlich, ich bin der Meinung,
+wer Git nicht über CLI macht,
+also nur mal
+davon abgesehen, dass der sehr viel Potential
+in der Handhabung verschenkt,
+der wird es auch nie richtig
+verstehen, was da eigentlich passiert.
+Wenn du es bunt magst,
+kannst du Asciiquarium nach
+Lolcat pipen. Dann hast du es auch bunt.
+Du brauchst
+immer noch kein grafisches Git-Tool
+oder sowas dafür.
+Der einzige
+Fall, wo ich
+nicht
+reine Git-CLI
+mache, ist bei einem
+größeren Diff.
+Aber ansonsten
+immer CLI.
+CLI ist das Beste.
+Okay, jetzt
+Chatge,
+überzeug mich mal. Was benutzt du
+an GitHub Desktop,
+was dir so einen Vorteil bringt,
+was du jetzt nicht auch easy über
+CLI machen kannst und zusätzlich
+halt
+nicht die ganzen CLI-Features
+verwenden kannst?
+Wieso, so viele große Diffs hast du
+nicht?
+Normalerweise hält sich das in Grenzen.
+Also Diffs,
+okay,
+was ich meine, sind Diffs von einem
+Merge-Konflikt, nicht einfach nur
+Diffs. Normale
+Diffs gucke ich mir auch ganz einfach mit
+gitlog-1-p zum Beispiel an
+im CLI. Das ist kein Ding.
+Bei größeren Merge-Requests,
+da gibt es ein paar ganz coole CLI-
+GUI-Tools, die sind
+okay.
+Zum Mergen ist auch, wie gesagt,
+das ist der einzige Fall, das meinte ich
+mit, wenn ich mir größere Diffs angucken muss.
+Aber wie gesagt,
+nicht für zwei, drei Zeilen
+und die meisten Merge-Requests
+sind glücklicherweise jetzt keine
+Sachbücher voll.
+Also, die Merge-Requests-
+Konflikte sind keine
+Sachbücher voll.
+Wie ist Potman einzuordnen? Was kann das alles?
+Potman kann im Prinzip das, was Docker
+auch kann. Ist nur von
+Red Hat. Hat ein paar andere
+Feinheiten, zum Beispiel,
+dass du Container laufen lassen kannst, ohne
+dass du Hut sein musst und sowas.
+Oder, dass du einen Dämon-Prozess laufen
+lassen musst, der Hut ist.
+Aber im Prinzip kannst du sagen, Potman
+ist Docker von Red Hat.
+Gut. Ich mein, ich bin kein hauptsächlicher
+Software-Entwickler, aber ich kann dir sagen, dass
+alle Merge-Requests, oder nicht alle, aber die meisten
+Merge-Requests, die ich kenne, sind deutlich kleiner
+als 10-30
+Files. Und von diesen 10-30
+Files, es geht ja um Merge-Konflikte,
+von 10-30 Files
+konflikten wahrscheinlich auch nicht 10-30,
+sondern
+tja,
+vielleicht 1, 2 und dann auch nur ein paar
+Zeilen. Man könnte übrigens
+auch sich das einfach
+bei GitLab oder bei GitHub
+oder bei Bitbucket oder so angucken,
+wenn man kein Merge-Request-Tool verwenden will.
+Aber die eigentliche Sache,
+der eigentliche Merge
+und irgendwelche Cherry-Picks oder
+Leute, habt ihr schon mal ein Cherry-Pick über irgendein
+komisches CLI-Tool gemacht, äh,
+über irgendein komisches GUI-Tool gemacht?
+Das muss doch ultra-abfuck sein, oder?
+Das können die meisten GUI-Tools
+wahrscheinlich gar nicht richtig.
+Aber das ist auch egal, selbst wenn
+die GUI-Tools das halbwegs gut hinbekommen.
+Wenn du Git-Kommandozeile verwendest,
+weißt du immer, was passiert und immer, was er macht.
+Du wirst es auch besser verstehen
+und du wirst auch, gerade Git ist nur
+wirklich relativ kryptisch manchmal
+mit Sachen, die passieren. Du wirst auch
+verstehen besser, was irgendwelche
+Fehlermeldungen bedeuten und eben was genau
+passiert.
+Weil Leute, die irgendwelche Plugins
+verwenden oder irgendwelche
+GUI-Tools verwenden, das sind auch die gleichen
+Leute, die standardmäßig
+zum Pushen sowas hier machen.
+Das hat ja mehrere Probleme.
+Das erste Problem ist gar nicht
+mal Force.
+Das erste Problem ist kein Remote angegeben
+und kein Branch angegeben.
+Das ist mittlerweile
+gar nicht so schlimm.
+Meistens hast du eh nur
+ein Remote drin, nämlich das
+von dem du geklont hast.
+Aber kein Branch anzugeben
+und je nach deinen
+Default-Settings kann richtig
+Probleme machen.
+Und Force natürlich auch.
+Aber ich kenn Leute, das ist den hier
+Standard-Push-Kommando.
+Und dann sind sie aus Versehen
+auf dem falschen Branch und
+pushen irgendwelche
+Dinger, die sie vielleicht gar nicht pushen
+wollen oder was auch immer.
+Ja, gibt's.
+Und das sind so Leute, die checken gar nicht, was sie machen,
+weil sie zu viel GUI verwenden für Git.
+Weißt du, was auch viel kann?
+Die offizielle
+Git-Kommando-Zeile.
+Die kann alles sogar.
+Ich wüsste beispielsweise gar nicht
+gescheit in einem GUI,
+wie ich dort ein Reset machen würde.
+Na gut,
+das ist relativ einfach wahrscheinlich.
+Reset, neues Comet.
+Ich geh da schon von aus, dass mit einem
+GUI im täglichen Gebrauch
+halbwegs klarkommt, aber man wird's halt letztendlich nie verstehen.
+Ich mag das nicht.
+Ganz ehrlich, Git
+nur per CLI, Docker
+nur per CLI, Kubernetes nur per CLI.
+Dann verstehst du wenigstens auch, was du machst.
+Ja, okay, das stimmt.
+Das stimmt wohl.
+Ich bin da vielleicht auch so ein bisschen,
+wie sagen die Amis, biased?
+Oder sowas.
+Also ich hab da so ein bisschen,
+was heißt das eigentlich auf Deutsch?
+Voreingenommen, genau, das wollte ich sagen.
+Ich bin da ein bisschen voreingenommen.
+Ich verwende Git halt schon seit,
+frag mich nicht, 2010
+oder so, also schon irgendwie lange.
+2011 vielleicht.
+Also wirklich schon sehr lange.
+Und ich hab halt damals mit CLI
+angefangen und hab den Kram gelernt
+und ich würde nie was anderes
+als Git-CLI wollen.
+Ich hab da schon so oft Dinger gefixt.
+Relativ easy.
+Weil ich genau wusste, was
+welcher Befehl macht.
+Das hätte ich mir alles nie über irgendein komisches GUI
+vorstellen können.
+Und es gibt ja super abgedrehte Sachen
+auch noch, was du über Git machen kannst.
+Weiß nicht, kennt ihr zum Beispiel,
+kennt ihr das?
+Chat-Git, wer kennt das?
+Braucht man nicht oft, aber wenn ist ganz praktisch.
+Okay, manche sind high IQ,
+die kennen das.
+Also was man damit
+machen kann ist folgendes.
+Stellt euch mal vor,
+es kommt jemand von
+der QS zu euch und sagt,
+seit...
+keine Ahnung...
+Wir haben grad getestet und
+es gibt irgendein
+Bug und wir wissen nicht, wo der herkommt.
+Aber beim letzten Test
+vor zwei Tagen ging's noch.
+Also, was macht man dann?
+Man sucht sich ein Comment raus
+von vor zwei Tagen,
+macht ein Bisect
+oder wie auch immer man das nennen mag drauf
+und Git
+versucht dann rauszufinden
+also mit
+Admin-Hilfe
+welches Comment
+die Software kaputt gemacht hat.
+So, das funktioniert dann folgendermaßen.
+Git
+sucht sich zwischen dem aktuellen
+Comment und dem Comment, den ihr markiert
+habt als funktioniert,
+sucht es sich random, oder wahrscheinlich
+fängt es in der Mitte an, ich weiß nicht, wie es das macht
+am Anfang, ja.
+Da sucht sich ein
+Comment in der Mitte raus
+und dann sagt er, okay, ich setze
+jetzt deinen Stand auf diesen Comment
+dann probierst du aus
+ob es geht.
+Wenn der Bug noch da ist,
+sagst du Bisect, nein, bei diesem Stand
+ist der Bug noch da, dann nimmt
+Git Bisect quasi wieder die Hälfte
+von den Comments, fragt dich, ist der Bug noch da?
+Dann sagst du, nein, der Bug ist nicht
+mehr da, dann nimmst du wieder die Hälfte
+zwischen dem, was du jetzt als funktionierend markiert hast
+und dem letzten, was kaputt war
+und so hast du innerhalb von
+5, 6
+7
+höchstens
+Iterationen den Bug
+gefunden. Binary Search,
+genau, ist ähnlich.
+Oder wie
+nennt man es korrekt? Divide and
+Conquer. Das ist halt
+extrem nice und praktisch.
+Und es gibt
+noch viel mehr solcher Dinger.
+Ja, zum Beispiel,
+ich erklär euch mal eine Sache,
+Leute, die beispielsweise
+immer nur Git-GUIs
+verwendet haben.
+Repo, ich mach mir hier keine Ahnung.
+CD, TMP,
+geben wir mal hier rein.
+Hab ich noch irgendeinen Git-Clone hier drinnen?
+Okay, was auch immer ich da geklont habe,
+ich klone das Ganze jetzt nochmal.
+So.
+Und die Leute haben das dann geklont
+und die denken
+zum Beispiel,
+dass Origin
+irgendein Magic-Begriff ist in Git.
+Was überhaupt nicht stimmt.
+Origin ist
+das Default-Remote,
+weil er irgendwie
+die Sache halt so nennen muss, von wo du geklont hast.
+Das wissen die Leute nicht.
+Und daran
+merkst du auch immer, wenn Leute
+da anfangen mit Git,
+Push, äh,
+Master, Slash,
+Origin, wie auch immer,
+die haben das System nicht kapiert.
+Die wissen nicht, dass Origin
+irgendein Git-Befehl ist, nicht irgendwas Magic-mäßiges ist,
+sondern einfach nur das Default-Remote,
+von dem du geklont hast.
+Was du übrigens auch
+umbenennen kannst. Du kannst auch einfach sagen,
+Git-Remote, ich glaub,
+MV ist es? Nee.
+Rename.
+Rename. Origin-Keckel.
+So.
+Ups. Was hab ich jetzt gemacht?
+Hä?
+Git-Remote-V.
+So als gibt es gar kein Origin mehr.
+Als gibt es nur noch Keckel.
+Ich weiß nicht, ob die Leute zu blöd sind.
+Ja, viele sind vielleicht
+zu blöd, aber es geht
+ja hier darum, nicht jetzt irgendwie
+zu verstehen,
+wie man eine Rakete baut.
+Sondern es geht darum, als
+Admin, Architekt, Software-
+Entwickler,
+DevOps-Typ,
+was auch immer,
+eines der essentiellsten
+Tools, die es in der IT gibt,
+zu beherrschen. Und ich glaube,
+Versionsverwaltung mit Git kann man
+da schon dabei zählen. Und da ist es
+doch nicht so viel verlangt,
+dass die Leute sich mal 2-3 Wochen
+damit beschäftigen. Mehr musst du doch gar
+nicht machen. Dann hast du den Kram kapiert
+und kommst klar. Klar, du kommst
+nicht in allen Details klar
+und wahrscheinlich können die wenigsten
+Leute jetzt im Chat mir erklären,
+was der Unterschied zwischen einem normalen
+Merge und einem Fast-Forward-Merge ist.
+Oder Chat, wer wüsste es? Seid ehrlich.
+Was ist der Unterschied zwischen einem normalen
+Merge und einem Fast-Forward-Merge?
+Das wisst ihr wahrscheinlich nicht.
+Das macht aber auch nichts,
+weil euch das normalerweise gar nicht großartig
+interessieren muss. Wie wär?
+Rebase ist einfach, das heißt
+1 zu 1 Rebase
+und
+Commit Squashen mach ich eh nicht, ich
+resette und committe neu. Aber gut, da kann man sich ja
+kann man ja machen, wie man will.
+Also, ich kann euch,
+wollt ihr wissen, was ein Fast-Forward-Merge ist?
+Git Merge
+minus minus noff gibt es
+zum Beispiel. Der sorgt dafür, dass es
+explizit keinen Fast-Forward-Merge
+gibt. Falls ihr euch mal
+gefragt habt, warum in eurer Git-History
+immer drinne steht,
+HerrEntwicklerXY
+merged Master into
+Master. Zwei Stunden später
+HerrXY merged Master into
+Master, merged Master into Master
+oder merged Feature into Feature oder
+was auch immer, dann liegt das daran,
+weil der Typ eben
+keine Fast-Forward-Merges
+macht. Beziehungsweise
+vorher die anderen Sachen nicht rebased
+oder pullt. Also,
+der Unterschied ist ganz einfach.
+Wenn du einen Merge machst in Git,
+dann entsteht normalerweise
+ein Merge-Commit.
+Das Merge-Commit hat zwei
+Vorgänger-Commits. Nämlich
+aus dem ursprünglichen Branch das
+letzte Commit und aus dem Branch
+in den du reinmerged das letzte Commit.
+Und diese zwei Stände werden in einem
+Merge-Commit zusammengeführt
+zu einem neuen Stand.
+So. Wenn du
+jetzt allerdings
+in einem der beiden Branches
+gar nichts gemacht hast,
+dann macht er einen Fast-Forward-Merge
+und schiebt einfach quasi
+den Pointer um.
+Auf den neuen, auf den
+Feature-Branch quasi.
+Da gibt es kein
+Merge-Commit. Das ist nicht
+unnützes Wissen. Weil es kann durchaus
+sein, dass es eine Policy gibt,
+die sagt, wir machen keine Fast-Forward-Merges,
+wir möchten immer sehen, wann, wie, wo gemerged wurde.
+Oder umgedreht,
+du möchtest deinen Feature-Branch
+clean halten und nicht mit 50.000
+Merged Feature-into-Feature
+rumsauen,
+wenn du da mit mehr als einem Entwickler
+dran bist. Und dann machst
+es halt ordentlich.
+Und rebase das
+vorher. Und machst deine
+Commits obendrauf. Also es ist
+nicht schlecht zu wissen, was passiert.
+Und auf der Kommando-Zeile weißt du,
+was passiert.
+Wenn du
+durchgestiegen bist,
+dann weißt du, was du machen willst und was du dann machen musst,
+um das Ergebnis zu erreichen, was du
+haben willst. Und kannst die passenden Kommandos dafür
+ausführen. Irgendwelche UIs
+machen in solchen Fällen den
+unsinnigsten Schwachsinn teilweise.
+Ich hab schon Entwickler bei uns gesehen, die haben
+Eclipse verwendet. Die haben laufend leere
+Commits erstellt, weil es ihr hässliches
+E-Git, nennt sich das Plugin für
+Eclipse übrigens, weil ihr E-Git
+der Meinung war, wir brauchen
+zwischendurch leere Commits.
+Also, ne.
+Deswegen, CLI-Git
+zu verstehen ist das Beste, was man machen kann.
+Ja.
+Deswegen hab ich mich auch freiwillig dazu bereit erklärt,
+bei mir auf der Arbeit, demnächst mal
+wahrscheinlich werden es
+wahrscheinlich werden es
+zwei Runden sein.
+Eine Runde Git-Basics
+zu machen,
+für alle, die auf den Git-Mount-Everest wollen.
+Und
+dann noch ein bisschen Tipps und Tricks,
+so, was ich so in den letzten 10 Jahre
+mir
+gemerkt hab.
+Und Chat,
+ihr könnt euch freuen, ihr kommt wahrscheinlich
+auch in den
+Genuss, diesen Vortrag zu
+hören, weil
+ich muss mir erst mal was überlegen,
+was ich da erzähle.
+Und damit das halbwegs brauchbar wird,
+muss ich das mal ein bisschen üben.
+Das heißt, ihr müsst hier als Versuchsobjekt agieren.
+Das heißt, ich werd euch das hier
+im Stream dann mal erzählen.
+Du hast nicht Unrecht,
+Git ist sicherlich nicht
+das Benutzerfreundlichste, das ist richtig.
+Das sieht man auch schon
+daran, dass vieles ziemlich inkonsistent ist.
+Manchmal ist es wirklich
+Origin-Slash-Master,
+manchmal ist es Leerzeichen-Master,
+manchmal ist es dann
+Doppelpunkt-Dings.
+Und mein Lieblingsbeispiel
+dafür, dass
+die Git-Sachen relativ
+kryptisch sind, ist immer die Manpage von
+GitPush. Ich mein,
+seriously, gibt es
+irgendjemand auf der Welt, der checkt,
+was einem diese Hilfe-Seite
+sagen soll?
+Okay Leute, also was macht GitPush?
+Update Remote Refs along with
+associated objects.
+Update Remote Refs
+using local refs while sending
+objects necessary to complete the given
+refs.
+Obviously, alles klar. Also cringe, wer es nicht
+verstanden hat. Und was ich auch immer
+sehr spannend finde, ist,
+you can make interesting things happen
+to a repository every time you push
+into it. Also, du hast
+nicht Unrecht, Git ist an vielen Stellen
+nicht unbedingt auf reine
+Benutzerfreundlichkeit ausgelegt,
+aber man muss sagen,
+so kompliziert, wie das
+gemacht wird, wenn man sich
+ein bisschen damit beschäftigt, ist es auch nicht.
+Es ist manchmal nicht ganz
+konsistent, außer vielleicht für die,
+für den Erfinder selbst.
+Der wird wissen, warum es manchmal ein Doppelpunkt
+ist, manchmal ein Leerzeichen, manchmal ein Slash.
+Aber
+es ist jetzt auch kein Hexenwerk.
+Also man kommt da einfach dahinter
+und dann weiß man wenigstens,
+was passiert.
+Im Gegensatz zu irgendwelchen Git-Guys.
+Ne.
+Es interessiert auf YouTube keinen, wenn ich ein Git-Tutorial
+mache.
+Außer will ich kein Tutorial machen, das einen Unterschied
+hat, ob man einen Vortrag hält, eine Demo zeigt oder ein Video
+Tutorial aufnimmt.
+Deswegen lässt man ja auch die ganzen Kack-Noobs
+nicht nach Master pushen oder nach
+Main. Ja, ich weiß,
+das ist eines meiner Lieblingssachen.
+Guck mal, ich habe vor 5 Jahren,
+das hören wir uns jetzt mal kurz an,
+ich habe vor 5 Jahren schon exakt das
+gleiche gesagt.
+Und jetzt kommt der beste
+Satz überhaupt.
+Das ist 5 Jahre alt, Leute.
+Recycle Story.
+Also, die Git-Man-Pages
+sind legendär verwirrend.
+Ja, ich habe vor 5 Jahren schon genau
+den gleichen Mist erzählt.
+Ah ja, was ich jetzt sagen wollte.
+Deswegen, das erste,
+was du einstellen solltest, in deinem
+Repo. Die meisten Leute
+verwenden ja mittlerweile als Web-Interfaces
+GitLab oder
+GitHub oder Bitbucket oder so.
+Da kann man ja das relativ einfach
+konfigurieren.
+Du verbietest erstmal allen Noobs nach Main
+zu pushen.
+Und dann machst du und noch
+1-2 andere, die ein bisschen Plan haben von dem,
+was sie machen, halt die
+Git-Master.
+Die Leute sollen ordentliche Merch-Requests machen.
+Das habe ich schon über 10 Jahre gemacht auf meiner alten Arbeit.
+Ich war hauptverantwortlich für unsere
+Software-Repos und für unsere
+ja, wie nennen wir es mal?
+Nennen wir es mal Release-Management.
+Wobei, wohlgemerkt
+nicht für Software-Deployments
+und solche Geschichten.
+Und
+es durfte auch keiner in Master merchen.
+Es durfte genau
+oder in Master-Branches merchen.
+Oder Main, wie das
+bei neueren Repos hieß.
+Es durften genau 3 Leute machen.
+Das ist das gleiche.
+Ursprünglich hieß das Master.
+Also im Prinzip sind
+ja, das kann ich dir erklären.
+Also ich mache jetzt erstmal das andere fertig.
+Äh, was wollte ich jetzt sagen?
+Genau, also im Prinzip durften bei uns
+3 Leute in Master-Branches
+oder Main-Branches merchen. Das war einmal ich.
+Das war mein Vertreter
+für diese ganzen Geschichten.
+Und
+noch ein anderer, der
+sehr viel Automatisierung gemacht hat
+und auch Durchblick hatte, was Git angeht.
+So.
+Unterschiede Main, Master
+und der Trend ist ganz einfach, also
+sowohl Main als auch Master
+sind in Git nichts besonderes. Das sind ganz
+normale Branchnamen.
+Es ist einfach so, dass
+standardmäßig das Ding
+früher Master hieß
+und heute Main.
+Wenn du ein Git-Repo anlegst.
+Also hier mkdir keckel
+git init
+Das ist standardmäßig sogar noch Master.
+Ich habe vergessen, was ich erzählt habe. Genau.
+Also, wenn du ein Git-Repo
+neu erstellst, ist der Standard-Branch
+einfach Master.
+Daher kommt der Name.
+Wenn du ein Repo klonst,
+dann hast du zusätzlich noch
+einen Remode drin, was sich Origin nennt.
+Das ist das Repo, von dem du geklont hast.
+So.
+Und woher der Trend kommt,
+das von Master in Main umzubenennen,
+kommt daher,
+weil es Leute gab, die der Meinung sind,
+Master wäre
+White Power und rassistisch
+und hast du nicht gesehen.
+Und das hat ein bisschen die Welle gemacht
+vor ein paar Jahren und deswegen
+sind manche Leute der Meinung, sie sind jetzt viel bessere
+Menschen, wenn sie Main anstatt Master
+verwenden.
+Letztendlich würde ich so handhaben,
+soll jeder machen,
+wie er das für richtig hält.
+Ich würde mich
+nicht weigern, an Repos
+mitzuarbeiten,
+die Master als Hauptbranche haben
+und ich würde auch nicht
+irgendwie rumstänkern,
+wenn es einer in Main umbenennt.
+Das wäre mir ehrlich gesagt wurscht.
+Genau, das kam so
+zu gleichen Zeiten auf,
+wo man auch gesagt hat, man sollte den Begriff
+Blacklist nicht mehr verwenden,
+sondern man soll jetzt Blocklist
+und sowas sagen in der Richtung.
+Ich glaube, die Leute haben schon,
+wie kann man das nennen, so ehrenhafte
+Intentionen dahinter.
+Ich glaube, die denken wirklich, sie machen die Welt besser.
+Ich persönlich denke, es macht überhaupt
+keinen Unterschied.
+Es ist jetzt nicht so, dass jeglicher Rassismus nicht mehr existent ist,
+nur weil das Ding jetzt Main anstatt Master heißt,
+aber okay. Ich denke, es soll jeder
+für sich selbst überlegen, wie er das macht.
+Aber daher kommt der Trend.
+Das hat vor ein paar Jahren große Welle gemacht
+und auf GitHub ist es jetzt so
+und ich glaube auf GitLab und Bitbucket
+mittlerweile auch, dass der
+Standardname
+mittlerweile Main ist,
+wenn du es da anlegst. Aber es ist ja auch kein großes
+Problem. Du kannst es ja auch einfach
+umbenennen.
+Touch,
+irgendeine Datei, git add
+m, git
+commit, minus a,
+minus m, init,
+so jetzt kannst du sagen, git branch,
+minus m, glaube ich, Master
+nach Main.
+Allerdings, und jetzt zeige ich euch mal, dass es vollkommen egal ist,
+wie das Ganze heißt,
+du kannst das Ding auch umbenennen in
+kegw.
+Also das sind einfach
+nur Namen. Und prinzipiell muss man
+ja auch sagen, in Git
+gibt es ja streng genommen
+eigentlich auch nur
+Comet IDs.
+Es gibt eigentlich nur Comet IDs.
+Und sowohl Branches
+als auch Tags,
+als Comet IDs
+selber auch, sind ja eigentlich
+nur Zeiger auf Comet IDs.
+Das kann ich euch
+auch beweisen.
+Das ist auch sowas, was Leute,
+ich zeige euch jetzt mal ein Beispiel,
+was Leute, die
+Git nur über CLI verwenden,
+auch wahrscheinlich nie verstehen werden.
+Ich mache jetzt noch mal ein paar
+Fake Comets.
+Wir brauchen mal irgendwie, keine Ahnung,
+echo 1, hängen wir an
+an die Datei,
+git commit minus a
+minus m
+keckel ist wurscht, wie das,
+na doch, wir machen keckel
+die Uhrzeit oder so.
+Wir machen irgendeinen Counter.
+Oh shit, Bash und
+Counter, das wird jetzt was.
+Wie war das nochmal, echo
+1 plus 1,
+nee, ah shit,
+alter, Bash und
+ah doch, doch, so funktioniert
+das, ok. Oh, wie macht man
+einen Counter in Bash nochmal?
+Ok, warte mal,
+i gleich 0,
+oh shit, kann man
+i plus plus machen?
+Nee.
+Oh, ich weiß es gar nicht mehr, wie man jetzt
+einen gescheiten Counter in Bash macht.
+Ich meine, was man bestimmt machen kann, ist
+i gleich, aber das
+geht bestimmt schöner.
+Nee, das funktioniert nicht.
+Ok.
+Ich hab keine Ahnung.
+Außen Kopf, wie man einen Counter ordentlich in Bash
+macht.
+Ich will mich da nicht so lange dran auffallen,
+aber darum sollte es jetzt ja eigentlich gar nicht gehen.
+Counter, Bash,
+wie ging das nochmal?
+Achso, er setzt i immer wieder auf 0,
+du hast recht, da plötzlich, wahrscheinlich geht es doch,
+es geht ja doch, was ich gemacht hab, easy.
+Ok.
+Ok.
+Komm mit.
+I.
+Dollar i.
+Ok, es funktioniert, nice.
+Sehr schön.
+So, wir machen
+mal ein paar Comments, ok?
+Das hat doch funktioniert, was ich gemacht hab,
+vielen Dank für den Sub.
+Ok, wir haben jetzt
+41 Comments.
+So, also,
+was ich jetzt machen kann, ist,
+wir haben einen Branch, der sich kekw nennt,
+ich mach davon jetzt mal einen zweiten Branch auf,
+Git-Checkout-B,
+den nennen wir mal ganz klassisch
+Dev. So, jetzt hab ich zwei Branches,
+die zeigen allerdings auf das gleiche
+Comment. Noch, noch.
+So,
+jetzt mach ich nochmal einen Tag,
+Git-Tag-A,
+das ist Version 1.0.
+Ja, so, machen wir noch einen Tag.
+So, und jetzt hab ich drei Sachen,
+die auf das gleiche Comment
+zeigen, das ist das eigentliche, was Git interessiert,
+die Comment-ID.
+Ich hab den Branch Dev, was drauf zeigt,
+ich hab den Branch DevDevs, was drauf zeigt,
+ich hab den Branch kekw, was drauf zeigt,
+und ich hab den Tag 1.0.0, was drauf zeigt.
+Was Head bedeutet,
+heißt, aktuell hab ich diesen
+Branch ausgecheckt, also mein Head,
+das, was ich gerade im Working Directory
+habe, nennt sich das, also was man hier auf der
+Platte liegen hat, nennt sich Working Directory in Git,
+und das zeigt er auch
+drauf. So, und was ich jetzt machen kann,
+ich mach jetzt mal ein paar weitere
+Comments nochmal oben drauf.
+So, zack, zack, zack.
+Jetzt haben wir noch mehr Comments.
+Hier bin ich gerade mit meinem Dev Branch,
+und hier unten hab ich meinen Tag.
+So,
+und jetzt kommt was, was wahrscheinlich
+alle Leute, die ein GUI
+benutzen,
+nie verstehen werden.
+Und zwar,
+jetzt kommt der Punkt, wo
+ich sage, okay,
+mich würde ja mal echt interessieren,
+wieso der
+Stand war zu diesem
+Comment. So, was die
+meisten Leute wissen ist,
+man kann ein Checkout auf Branches
+machen. Wenn ich ein Checkout
+auf Branches mach,
+das ist ja irgendwie klar, dass das funktioniert.
+Na, dann wechsle ich den Branch.
+Was schon ein bisschen weniger Leute wissen ist,
+dass ich Checkout auch auf Tags machen
+kann, was aber auch noch irgendwie logisch
+ist, weil
+Tags
+auch was sind zum
+Auschecken. So,
+jetzt haben wir den Tag ausgecheckt,
+sieht aber schon ein bisschen anders aus, aber wir können mal
+ins Loch gucken, wir sehen, das ist schon
+das Richtige.
+So, und man kann auch
+Tags und man kann auch Comments
+auschecken. Jaja, dass das über das GUI geht, glaube ich schon,
+aber ich glaube keiner checkt, was da unter der
+Haube passiert.
+Ich weiß, die coolen Leute benutzen
+die coolen Leute benutzen
+ähm
+nutzen Switch.
+So, und was viele nicht
+wissen ist, du kannst auch Comments auschecken.
+Also wenn du jetzt wissen willst,
+ey, was war denn zu diesem
+Zeitpunkt, dann sagst du
+git checkout
+äh
+auf ne Comment-ID. Das funktioniert auch.
+Ich bezweifle auch gar nicht, dass man das in nem UI
+machen kann, aber unter der Haube sind das
+alles nur Zeiger auf eigentliche
+Comment-IDs. Und es ist auch kein Unterschied,
+weil jetzt kommt nämlich das Eigentliche,
+was ich euch zeigen will.
+Ihr könnt nen Tag auschecken
+und mal angenommen, ihr wollt was ausprobieren.
+Es ist kein Unterschied
+zwischen den drei Dingern.
+Es macht keinen Unterschied. Es ist egal,
+ob ihr nen Tag auscheckt, es ist egal, ob ihr
+nen Branch auscheckt und es ist egal, ob ihr direkt
+nen Comment auscheckt. Also, ihr könnt
+direkt nen Comment auschecken
+oder nen Tag
+und dann könnt ihr da drauf
+zum Testen Sachen machen.
+Guck mal.
+Ich hab jetzt, ich hab jetzt nen Comment ausgecheckt
+und ein neues Comment
+obendrauf erzeugt. Das kann ich
+jetzt, kann ich ausprobieren, ob das funktioniert.
+Ich muss nicht in nem Branch
+sein, um da irgendwelche neuen Comments zu machen.
+So.
+Und mal angenommen, ich hab jetzt was gebaut, was funktioniert,
+kann ich nachträglich
+immer noch sagen, ich mach da draus
+nen Branch.
+Ja, das ist, das ist vorbei. Irgendwie bin ich jetzt grad
+so ein bisschen in Git-Gedöns gekommen.
+Und das werden, glaub ich, Leute in dem Zusammenhang,
+werden Leute, die nen GUI verwenden, nie kapieren.
+Die denken, glaub ich, ein Tag ist irgendwas Statisches.
+Ja, der Tag an sich ist ein statischer
+Zeiger auf nem Comment.
+Aber ich kann ohne Probleme
+Tags auschecken und mit dem
+Stand weiterarbeiten.
+Das ist ein Detached Tag,
+genau. Ich bin jetzt nämlich wieder weg,
+wenn ich raus bin.
+Und ich kann Comments auschecken.
+Das ist manchmal enorm praktisch,
+wenn ich Comments auschecken kann. Wisst ihr
+nämlich, wo das praktisch ist? Wenn ich weiß,
+dass ich Comments auschecken kann und
+ähm, dass ich auch in Comments
+weiter, äh, in, in, nicht Comments,
+dass ich Tags auschecken kann und in Tags
+weiterarbeiten kann, macht
+mal Hotfixes in Git.
+Stellt euch mal vor,
+ich hab jetzt Git-Check, ich hab
+jetzt den Einser, den Einser ausgecheckt.
+Hier, so.
+Ich hab jetzt, bin jetzt
+hier auf dem Stand von, äh, von dem
+Version-Einser-Tag.
+So, aber ich muss so nen Hotfix
+machen. Also, Version 1 ist das,
+was ich released habe, was aktuell
+alle Kunden verwenden.
+Aber, ich brauche jetzt
+unbedingt nen Hotfix. Und der Hotfix
+setzt sich zum Teil zusammen
+aus, äh, diesem Comment hier.
+Dann kann ich hier reingehen,
+git describe,
+guck ich mir an, welchen, welchen Stand ich hab.
+Und dann kann ich sagen, git cherrypick
+dieses
+Comment obendrauf. Das wird jetzt nicht funktionieren,
+weil die Zwischen-Comments fehlen.
+Ähm,
+und wenn ich das gemacht hab, also wir können
+jetzt ja mal hier reingucken,
+git, ähm, m,
+der wird jetzt hier ein bisschen meckern
+und sagt, äh, guck mal da, so viel
+gleiches Zeug und hat sich alles parallel geändert, aber
+ja, wunderbar, wir lösen jetzt den Konflikt.
+Konflikt gelöst, git add
+m.
+Und jetzt sag ich, git cherrypick
+äh, minus minus continue.
+Und wenn
+das hier fertig ist, sag ich noch mal,
+git tag
+1.0.1
+und schon hab ich den Hotfix gemacht.
+Guckt.
+Das heißt, ich hab jetzt den Tag ausgecheckt,
+hab da drauf was gefixt
+und hab ne neue Version released, quasi
+von einem alten Stand, der
+bisher nur als Tag
+noch existiert hat. Ähm, es muss kein
+Branch sein, das muss, das muss
+nix sein. Und da würde ich
+sagen, wird schon langsam schwierig,
+sowas über nen UI zu machen. Ich sag nicht, dass das
+nicht funktioniert, aber da wird, da musst du schon
+ein bisschen UI-Magic machen. Gehen tut das
+bestimmt immer noch, bezweifel ich.
+Es geht wahrscheinlich immer noch über nen UI.
+Da wird's aber schon ein bisschen schwierig. Da musst du
+schon genau wissen, wo du, wo du klickst,
+dass du sowas auf die Reihe kriegst.
+Und das ist eines der typischsten Art und Weise auch,
+wie man Hotfixes macht. Also
+zumindest aus meiner Sicht jemand Hotfixes
+macht, der halbwegs gecheckt hat,
+wie er git auf der Kommandozeile benutzt.
+Und da kannst du dir jetzt auch sicher sein, du hast
+nen absoluten clean State.
+Du hast wirklich nur
+den Stand von dem
+Einser-Release,
+plus das hier.
+Und sonst nix.
+Weißt du, solche Befehle nach
+drei Wochen, ja, weiß ich noch.
+Das ist ja auch der Grund, warum ich nur
+goodCLI verwende. Außerdem
+ist die beste Doku immer noch deine
+Shell-History. Ach ja,
+und jetzt zeig ich euch nochmal was,
+was wahrscheinlich auch einige Leute
+ähm
+mit GUI
+nicht so richtig auf die
+Reihe kriegen oder nicht wissen. Wobei das wahrscheinlich
+einfach im GUI sich anzugucken ist.
+Aber du musst erstmal wissen, dass es das gibt.
+Das sind ieds 2-3
+Klicks im GUI. Will ich gar nicht
+bezweifeln, kann ich mir vorstellen, ich würd mal sagen,
+wahrscheinlich ein paar mehr als 2-3. Aber du musst halt
+tatsächlich genau wissen, was du machst.
+Und keine GUI-Fallstricke.
+Und über keine GUI-Fallstricke fallen.
+Und leere Commits erzeugen
+und so'n Geschiss.
+Was ich schon öfters gesehen hab.
+Bei der Kommandozeile hast du halt den Vorteil,
+du weißt, weil es ist das,
+was die Git-Macher
+erstellt haben. Du weißt genau, was
+passiert. Bei meinem GUI bin ich mir
+nicht so sicher, was das macht.
+Ich weiß halt auch genau, was ich machen will. Ich will exakt
+diesen Stand auschecken, ein
+Commit oben drauf machen, vielleicht den Merch-Konflikt
+lösen, das neu taggen und pushen und gut ist.
+So, und jetzt zeig ich euch nochmal
+ne Sache. Wir machen jetzt
+wir machen jetzt nochmal nen Stand.
+So, wir gehen jetzt mal wieder
+in unseren Dev-Branch.
+Findest du Git-GUIs? Was findest du schlechter oder
+besser? Git-GUIs oder
+C++? Naja, gut, die Frage stellt
+sich nicht. Dann Git-GUIs. Es gibt eigentlich fast
+nichts, was schlimmer ist als C++ in der
+IT. Aber gut, das ist...
+Ich find beides kacke, aber C++ ist nochmal
+deutlich nerviger.
+Chat, ich les mir das gleich durch, aber das will ich euch
+nochmal zeigen. So, wir machen jetzt
+nochmal nen Branch auf.
+Keine Ahnung.
+Dev2. Immer schöne Namen.
+So, jetzt mach ich... Ich mach nochmal
+zwei Comets. Also wir haben jetzt noch
+Comet, Keckel 54,
+53 und 52. So.
+Git checkout dev. Ich geh jetzt
+in den normalen Dev und jetzt sag ich Git-Branch-D
+dev2.
+So.
+Chat-Gear. Dev ist weg.
+Aber
+mir fällt gerade auf,
+ich hab da drin
+was gemacht, was ich noch brauche.
+Beziehungsweise ich nachgucken will.
+Was macht ihr jetzt?
+Was macht ihr jetzt? Ihr habt den
+Branch schon gelöscht.
+Manche sind bestimmt schlau, die wissen's von euch.
+Ja! Alter.
+Guck mal, wir haben ein paar richtige Git
+Six-Heads am Start.
+Neu-Klonen. Ne, Neu-Klonen ist nicht. Du hast das nur
+lokal gemacht. Richtig. Du sagst
+Git-Ref-Log. Da habt ihr nämlich eine
+History, was übrigens
+nur bei euch lokal gespeichert
+wird, diese History.
+Ihr habt eine Edit-History. Also solltet
+ihr euren Git-Ordner löschen
+oder Neu-Klonen ist das weg.
+Also.
+Du machst ein Ref-Log und ein Ref-Log ist
+nicht der Log, nicht der Comet-Log
+von eurem Repo,
+sondern ein
+Change-Log lokal bei euch,
+was ihr gemacht habt.
+Und ihr seht hier zum Beispiel, okay,
+was hab ich gemacht? Ich bin hier
+von dev nach
+dev2, hab diese zwei Comets
+gemacht und dann bin ich
+zurück. Also was kann ich
+jetzt machen? Ich schnapp mir die Comet-ID
+und jetzt ergibt
+das Ganze auch wieder den Sinn, was ich euch vorher erzählt
+hab. Ich schnapp mir
+die Comet-ID und wenn man jetzt weiß,
+dass man ein Checkout machen kann, auch auf
+diese Comet-ID,
+dann kann ich mir den ganzen Kram angucken.
+Sagen wir, Git-Log-1-P guck ich
+mir das Diff an vom letzten Comet oder
+Minus-3 oder so für die letzten drei Comets.
+Ja.
+Und ich weiß
+mit CLI exakt, was passiert und exakt,
+was ich mache. So
+sieht's aus. Und das ist doch ganz
+nice. Stashen
+gibt's auch bei GUIs nicht immer.
+Ja, ist auch so
+ein Ding. Stash ist auch was sehr praktisches.
+Und zwar,
+stellt euch mal vor,
+wir gehen jetzt mal, wir gehen jetzt mal wieder
+in unseren, wir gehen jetzt mal in unseren Dev.
+Wir machen mal ein realistisches Beispiel. So.
+Wir sind in unserem Dev-Branch
+und wir sind grad
+am Editieren von so einem geilen neuen Feature.
+Und unser neues Feature ist, dass hier
+jetzt eine 2 steht, anstatt eine 1.
+Da hat die Welt drauf gewartet, also das ist
+das absolut nächste
+große Ding, dass da jetzt eine 2 steht.
+So, Git-Status,
+wir sind mitten am entwickeln. So, und jetzt
+kommt unser Chef rein. Unser Chef sagt, Max!
+Produktionsfehler!
+Wir brauchen unbedingt
+einen Hotfix von der letzten Version.
+Tja,
+ähm,
+eigentlich müsste ich jetzt sagen,
+Git-Checkout
+minus 1.0.1
+und da sagt er, ah nee, das geht ja nicht,
+weil ich hab ja noch uncommittete Changes
+und die passen ja auch nicht zu dem anderen Kram.
+Ähm,
+was mach ich denn jetzt?
+Gut, die einfachste Variante ist,
+ich hab verstanden, dass du
+ein geiler, äh, Drunken Myers, ich hab verstanden,
+dass du ein geiler GUI-Checker bist. Du musst das jetzt
+nicht bei jedem Ding schreiben, dass du das
+auch irgendwie über dein GUI machen kannst.
+Das geht jetzt allgemein drum.
+Ähm, aber ich bleib trotzdem dabei,
+einfacher und klarer, was passiert,
+ist es nach wie vor im GUI und ich kann nicht verstehen,
+äh, im CLI und ich kann nicht verstehen, wie man
+GUI verwendet.
+So, also jetzt musst du, normalerweise
+müsstest du jetzt den Tag auschecken und einen neuen Tag machen.
+Geht aber nicht. Jetzt hast du zwei Varianten.
+Entweder
+du committest das
+unfertig, so nach dem
+Motto, ja, äh,
+ich brauch ein neues Commit, ja,
+Chef kam gerade rein, hier
+Zwischenstand oder so, ja.
+Du committest das
+und dann kannst du das wechseln
+und dann kommst du das nächste Mal
+in den Branch zurück und du könntest beispielsweise
+das Ganze noch mit einem Reset
+wieder rückgängig machen, dann bist du wieder auf dem alten Stand,
+hast aber die Sache wieder in deinem Working Tree drinnen.
+Was du allerdings auch machen kannst,
+ist, ja, Merge Conflict
+Resolven finde ich GUIs sind auch
+ab einer gewissen Größe angebracht, ist aber auch wirklich
+der einzige Fall. So, was du allerdings
+machen kannst, ist Git Stash.
+Git Stash, speicher das
+in einem Zwischenstand,
+du kannst dich auch auflisten lassen
+und du siehst jetzt hier, guck mal da,
+Working State is clean,
+Git Checkout
+auf den letzten Produktionstag,
+ähm,
+dann fixt du die Sache,
+sagst okay, der Fix für Produktion ist
+hier muss diese Zeile raus,
+dann sagst du Commit, ja,
+Best,
+Best Fix Ever,
+dann wird das Ganze getaggt als
+1-0-2 und dann bist du fertig,
+dann wirst du das Ganze jetzt pushen
+und schon hättest du deinen Chef
+glücklich gemacht, dann gehst du zurück
+nach Dev, sagst
+Git Stash Pop
+und arbeitest weiter an der Stelle, wo du aufgehört hast.
+Ja, das sind so Feinheiten,
+die muss man nicht unbedingt können,
+man kann auch anerweilig mit
+Git glücklich werden, aber es ist schon
+enorm praktisch.
+Dann vergisst du am nächsten Morgen,
+dass du einen Stash hattest, nee, das vergisst du nicht,
+weil mein Prompt,
+weil mein Prompt mir das anzeigt, dass ich noch einen Stash
+habe, deswegen vergesse ich das nicht.
+Tja, vielleicht,
+vielleicht hatte ja der Mitte 40
+Dev in dem Fall recht,
+vielleicht auch nicht, ich meine, ich kenne den nicht,
+aber ich denke, der Vorteil
+sollte sich doch jedem erschließen,
+allein schon für
+den, also allein schon in dem Fall,
+dass du
+besser verstehst, was genau passiert
+und wenn du weißt,
+was du machen willst,
+dass du die Tools verwendest,
+die Hersteller sich
+gedacht haben, dafür zu verwenden
+und du dir sicher sein kannst, es passiert
+sonst nichts anderes.
+Ich meine, ich will keinen davon abhalten,
+einen GUI zu verwenden, aber ich kann's
+nicht verstehen, wie man lieber einen GUI verwenden kann.
+Zumal alle GUIs
+sich auch irgendwie anders bedienen.
+Deine Kommandozeile, deine Git-Kommandozeile
+sind sich immer gleich.
+Wenn du jetzt die Visual Studio Code
+Integration verwendest, funktioniert die anders
+wie die Emacs-Integration, anders wie die Eclipse-Integration
+und außerdem habe ich schon
+oft genug den Fall
+erlebt, ich weiß, nennt man ja
+so schön neudeutsch, wie
+wie nennt man das nochmal?
+Anekdotische Evidenz oder sowas,
+dass Leute mit ihren GUIs eben
+nicht richtig umgehen können und leere Commits
+und so einen Blödsinn erzeugen.
+Und was das macht im Hintergrund, lernst du einfach nur
+die Kommandozeile.
+Und du bist auch
+präziser und schneller mit der Kommandozeile,
+kann mir keiner irgendwas erzählen.
+Aber wenn du lieber GUIs verwendest,
+benutzt lieber GUIs, kann jeder machen, was er will.
+Also Merge-Request ist das
+Einzige, wo ich mir gefallen lasse, dass
+Wups, was ist das?
+Merge-Request ist das Einzige, wo ich mir das gefallen lasse.
+Für den Div.
+Eventuell auch, wenn du
+wirklich so abgedrehte Sachen machst,
+ähm,
+wie
+verschiedene, also mehrere,
+dass du nicht alles Commits, sondern
+mehrere Commits nacheinander erzeugst,
+mit exakt den Dateien drin
+und dann nur Teile von den Dateien,
+wenn man sowas macht,
+dann könnte ich mir das vorstellen, dass das vielleicht auch beim GUI
+ganz, ganz, ganz nice ist.
+Git Blame ist auch nicer
+in der UI.
+Naja.
+Okay, vielleicht.
+Aber das geht auf der Kommandozeile
+ganz gut, aber okay, das lasse ich mir noch irgendwie gefallen.
+Okay, Leute, ich lasse, wenn ich
+mir so recht überlege, ja, okay,
+es gibt noch mehr Fälle,
+als nur Merge-Requests.
+Also irgendwelche Graphen sich angucken,
+wie Sachen ineinander gemerged,
+das mache ich zum Beispiel auch mit einer GUI,
+wenn ich es denn mal mache, das stimmt.
+Und,
+ja, wenn ich mehrere Sachen einzeln,
+einzeln von Dateien in unterschiedliche
+Commits aufteilen würde, dann
+vielleicht auch über einen GUI, aber das mache ich sehr selten.
+Aber der Rest,
+wüsste ich immer noch nicht, warum ich
+einen GUI verwenden sollte.
+Git GUIs in C++,
+oh, das wäre, das wäre wirklich,
+das wäre wirklich der Hammer.
+Ne, ich meine, Leute, verwendet, was ihr wollt.
+Wichtig ist, dass euer Workflow
+funktioniert und wenn, wie hieß
+er nochmal,
+wenn der
+Trunken Myers einen GUI verwenden will,
+kann er einen GUI verwenden.
+Ich verwende für meine tägliche Arbeit auf jeden Fall keinen GUI.
+Oder nur für ganz bestimmte Anlässe.
+Einen GUI.
+Ich komme mit Git-Kommandozeilen einfach besser aus
+und ich bleibe dabei,
+zum Lernen, was passiert, ist Kommandozeile
+einfach deutlich besser.
+Und wenn man präzise weiß, was man machen will
+und es ist vielleicht jetzt auch nicht so super naheliegend ist,
+dann kann man sich bei der Kommandozeile
+darauf verlassen, dass exakt das passiert, was ich will.
+Keine leeren Commits entstehen
+oder
+auf irgendwelche falschen Sachen blöd
+rebased wird oder irgendwelche komischen
+Dinger,
+Merged Master into Master 50 mal,
+was auch immer, was ich alles schon gesehen habe.
+Ich bin eindeutig
+für CLI-Bedienung.
+Ja.
+Es gab, glaube ich, eine Sache, die ich
+euch gerade noch zeigen wollte, aber das habe ich
+vergessen jetzt.
+Reflog getagged
+haben wir.
+Ah, ich weiß nicht mehr.
+Nochmal kurz Questions checken.
+Was das ist, weiß ich noch nicht.
+Aus den Fingern saugen.
+Rebase.
+Na, das machen wir jetzt heute nicht mehr.
+Ein Rebase ist allerdings
+Nee, was
+erzähl ich denn?
+Warte mal.
+Ja, jetzt weiß ich, was ich sagen wollte.
+Ein Rebase gibt es ja eigentlich gar nicht.
+Das ist auch so was. Das lernst du wahrscheinlich
+nicht durch ein GUI benutzen.
+Da musst du dich schon ein bisschen
+mit Git und auch ein bisschen CLI auseinandersetzen.
+Ein Rebase gibt es ja eigentlich
+gar nicht.
+Ein Rebase ist ein Reset
+gefolgt von einer Schleife mit
+Cherrypicks drin.
+Also bei einem Rebase wird resettet auf den Stand
+auf den du rebasen willst und danach
+wird die Sachen, die du
+mehr hattest, per Cherrypick obendrauf
+applied.
+Ja, Bisekt hatten wir schon.
+Also ein Rebase im CLI
+gibt es eigentlich gar nicht mal.
+Ja, Leute, es ist gut verwendet.
+Ihr müsst mich nicht versuchen zu überzeugen.
+Ihr müsst mich nicht versuchen zu überzeugen.
+Ich benutze weiter Kommandozeile.
+Wenn ihr GUIs verwenden wollt, könnt ihr das ruhig machen.
+Aber ich denke,
+so ein paar Sachen
+waren hoffentlich trotzdem ganz einleuchtend.
+Ja.
+Unterm Strich könnt ihr verwenden, was ihr wollt.
+Ich werde euch dafür auch nicht bannen.
+Weil ihr Git-GUIs verwendet.
+Wenn ihr C++ mögt vielleicht,
+aber nicht, weil ihr Git-GUIs mögt.
+So, das hatten wir schon alles.
+Ja, mir auch nicht.
+Aber das ging heiß her.
+Wisst ihr, was meine Lieblings-Drama-
+Open-Source-Diskussion aller Zeiten ist?
+Der Weihnachtsmann-Hut
+bei VLC.
+Was passiert, wenn man Tags auf einem
+Branch macht, dann den Branch
+löscht? Nix, die bleiben da.
+Weil die Tags nicht an Branches
+gebunden sind, sondern auf
+Comments zeigen.
+Was, finde ich, man auch deutlich
+besser lernt, wenn man sich das Ganze in Ruhe
+anguckt und CLI benutzt.
+Ja, sehe ich genauso.
+Nur noch CLI.
+Man sollte es pragmatisch machen.
+Wenn es Anwendungsfälle gibt, wo eine UI
+sinnvoll ist, dann kann man es verwenden.
+Für Merge-Konflikte zum Beispiel.
+Oder für längere Diffs
+meinetwegen auch. Wenn man längere
+Git-Playmen hat oder
+irgendwie super komplizierte
+Ads braucht für einen
+Comment, wo man einzelne Zeilen markiert,
+hinzufügt die nächsten Zeilen im anderen Comment.
+Aber ansonsten
+99% CLI.
+Da weiß man wenigstens, was passiert.
+Oder Graphen anzeigen lassen und so.
+Lass ich mir gefallen, aber ansonsten 99%
+CLI.
+Magst du erklären, wie
+man ein Rebase rückgängig
+macht? Ja, das ist
+relativ einfach. Du resettest auf den Stand,
+bevor du den Rebase gemacht hast.
+Geht Revlog auf,
+falls du den Stand nicht mehr hast.
+Geht Reset-Hard
+auf die
+ID vorher.
+Ich zeig euch das, wenn wir
+Git-Stream machen.
+Das geht
+übrigens auch.
+Der bessere Weg ist
+wahrscheinlich Revlog gucken, welche ID
+hatte das Ding davor.
+Und dann Reset-Hard drauf. Fertig.
+Git-Rere
+hab ich auch an, wie ihr seht.
+Da sieht man daran, wenn ich
+Git-Loggeschreib
+dann sagt er hier, guck mal,
+du meintest doch sicherlich Log.
+Und das ist, glaube ich,
+Git-Rere als Feature. Oder war
+Rere die Geschichte mit dem
+Merge-Requests nochmal
+Applyen?
+Bin ich mir gerade aus dem Kopf nicht sicher.
+Also ich kann mir das noch alles merken.
+Ja, aber du hast doch sicherlich ähnliche Gründe
+wie ich, warum du CLI verwendest, oder?
+Das ist das jetzt sicherlich nicht
+die
+krassesten Git-Hacks aller Zeiten
+waren.
+Ist klar.
+Aber das war ja auch nicht der Sinn und Zweck der Sache.
+Aber selbst da hast du
+schon Probleme bei einigen Guis.
+Dass die komische Dinger machen.
+Also ich könnte mir vorstellen,
+wenn du
+nicht wirklich dir sicher bist mit der Bedienung
+von diesem UI und
+die Eigenheiten kennst,
+dass bei dem Punkt
+Tag auschecken,
+dann Commit von einem anderen Branch auswählen,
+den rüber Cherry picken, wahrscheinlich schon wieder
+irgendein Mist passieren kann.
+Also ich habe überhaupt keine guten Erfahrungen
+und auch nicht gute Erfahrungen
+mit Leuten gemacht,
+die Git-Guis verwenden.
+Die haben übelsten Blödsinn
+committet. Ich habe da auch schon Leute gesehen,
+die haben rebased auf irgendwas Falsches
+und da hatte ich ein Merge-Request mit 850
+Commits drin.
+Das ist kein Witz.
+850 Commits
+und die haben den Merge-Request erstellten,
+sich nicht gefragt, warum da so viel drin ist.
+Einen Überblick über alle Branches
+zu machen, okay. Also ich meine,
+du kannst Git-Branch machen, dann siehst du,
+was du lokal hast. Du kannst Git-Branch
+Branch-R machen, dann siehst du, was du noch
+Remote hast und dann machst
+ein Grab nach deinem Kürzel oder wie du den Kram
+benennst und das...
+Ich meine, ja, wenn man irgendwie
+150 Branches parallel von sich hat,
+aber wir hatten in unserem Repro
+bestimmt konstant
+150 Branches,
+also mit allen Features und so dabei, manchmal auch ein paar
+Langläufer, da hatte ich nie Schmerzen,
+das über CLI zu machen.
+Oder wahrscheinlich sogar mehr, weil die meisten
+Leute ihre alten Sachen nicht gelöscht haben. Wahrscheinlich
+hatten wir irgendwie 5000 oder so.
+Ich glaube, ich habe jetzt nichts übersehen.
+Ja, das kenne ich.
+Ja, darfste.
+Das kenne ich. Ja, das haben wir sogar
+aus Spaß
+ein paar Mal schon verwendet.
+Okay.
+Alles klar. Gut.
+Bettgeteim, Leute. Ich gehe jetzt pennen.
+Wir sehen uns die Tage.
+Vielleicht schon morgen. Bis dann. Macht's gut.
+See you.
