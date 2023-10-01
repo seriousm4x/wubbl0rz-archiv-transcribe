@@ -41,7 +41,7 @@ class ArchivWhisper:
         final_vtt = "WEBVTT\n"
         final_srt = ""
 
-        with tqdm(total=info.duration, unit="sec", bar_format="{l_bar}{bar} | {n:0.1f}/{total:0.1f} [{elapsed}<{remaining}, {rate_fmt}{postfix}]") as pbar:
+        with tqdm(total=info.duration, dynamic_ncols=True, unit="sec", bar_format="{l_bar}{bar} | {n:0.1f}/{total:0.1f} [{elapsed}<{remaining}, {rate_fmt}{postfix}]") as pbar:
             for segment in segments:
                 pbar.update(segment.end - pbar.n)
 
