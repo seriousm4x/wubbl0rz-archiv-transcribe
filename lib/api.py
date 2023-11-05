@@ -28,7 +28,7 @@ class ArchivApi:
         """Download vod and extract aac track"""
         print(colored("[api]", "blue"), f"Downloading vod...")
         cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-stats", "-i",
-               f"{self.api}/media/vods/{filename}-segments/{filename}.m3u8", "-vn",
+               f"{self.api}/vods/{filename}-segments/{filename}.m3u8", "-vn",
                "-c:a", "copy", "-bsf:a", "aac_adtstoasc", "-movflags",
                "frag_keyframe+empty_moov", "-y", f"{filename}.m4a"]
         subprocess.check_output(cmd)
