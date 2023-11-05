@@ -93,12 +93,11 @@ def run_transcribe():
 
 
 def run_post(vods_to_post: Optional[list] = None) -> None:
-    """Post transcriptions, vods and clips to meilisearch"""
+    """Post transcriptions and vods to meilisearch"""
     # read config from args
     config = read_config()
 
     api = ArchivApi(config[args.environment])
-    clips_to_post = api.get_clips()
     if not vods_to_post:
         # get vods in api
         vods_to_post = api.get_vods()
@@ -107,7 +106,6 @@ def run_post(vods_to_post: Optional[list] = None) -> None:
     meili = ArchivMeili(config[args.environment])
     meili.update_vods(vods_to_post)
     meili.update_transcripts(vods_to_post, args.output)
-    meili.update_clips(clips_to_post)
 
 
 def main() -> None:

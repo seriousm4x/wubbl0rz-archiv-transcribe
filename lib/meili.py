@@ -18,13 +18,12 @@ class ArchivMeili:
         """update or create vods"""
         print(colored("[meili]", "blue"), "Updating vods...")
         for vod in vods:
-            vod["date"] = int(datetime.datetime.fromisoformat(
-                vod["date"]).timestamp())
-            if vod.get("clips"):
-                del vod["clips"]
-            if vod.get("publish"):
-                del vod["publish"]
-        self.client.index("vods").update_documents(vods, "uuid")
+            del vod["created"]
+            del vod["updated"]
+            del vod["expand"]
+            vod["date"] = int(datetime.datetime.strptime(
+                vod["date"], "%Y-%m-%d %H:%M:%S.%fZ").timestamp())
+        self.client.index("vods").update_documents(vods)
 
     def update_transcripts(self, vods: dict, output: pathlib.Path) -> None:
         """update or create transcripts"""
@@ -38,11 +37,11 @@ class ArchivMeili:
                 data = json.load(f)
             for segment in data["segments"]:
                 segments.append({
-                    "id": f"{vod['uuid']}_{segment['id']}",
+                    "meili_id": f"{vod['id']}_{segment['id']}",
+                    "id": vod["id"],
                     "start": segment["start"],
                     "end": segment["end"],
                     "text": segment["text"],
-                    "uuid": vod["uuid"],
                     "title": vod["title"],
                     "filename": vod["filename"],
                     "date": vod["date"],
@@ -59,25 +58,3 @@ class ArchivMeili:
             print(colored("[meili]", "blue"),
                   f"Posting {len(segments)} segments")
             self.client.index("transcripts").update_documents(segments)
-
-    def update_clips(self, clips: dict) -> None:
-        """update or create clips"""
-        print(colored("[meili]", "blue"), "Updating clips...")
-        clips_to_post = []
-        for clip in clips:
-            clip["date"] = int(datetime.datetime.fromisoformat(
-                clip["date"]).timestamp())
-            if clip.get("creator"):
-                del clip["creator"]
-            if clip.get("game"):
-                del clip["game"]
-            if clip.get("vod"):
-                del clip["vod"]
-            clips_to_post.append(clip)
-            if len(clips_to_post) > 50000:
-                # avoid error "payload too large"
-                self.client.index('clips').update_documents(
-                    clips_to_post, "uuid")
-                clips_to_post = []
-        if len(clips_to_post) > 0:
-            self.client.index('clips').update_documents(clips_to_post, "uuid")
