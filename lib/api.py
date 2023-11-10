@@ -8,7 +8,8 @@ class ArchivApi:
     def __init__(self, env: dict) -> None:
         """Set class variables"""
         print(colored("[api]", "blue"), "Connecting to pocketbase...")
-        self.client = PocketBase(env["api_url"])
+        self.api = env["api_url"]
+        self.client = PocketBase(self.api)
 
     def get_vods(self) -> list:
         """Get all vods from api"""
