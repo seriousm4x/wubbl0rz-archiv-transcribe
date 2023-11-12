@@ -1,0 +1,2784 @@
+So, heute Five-Head-Time, Leute.
+Wir benchmarken heute mal ein paar Sachen.
+Und zwar...
+Ich zeige euch das, bevor ich jetzt lange erzähle.
+Wir haben ja auch im Stream schon ein bisschen mit Web...
+Ich muss mal ein bisschen leiser machen.
+Heute schon gesportet? Ja, heute moin.
+Allerdings...
+Die Lautstärke kann sich mal wieder nicht entscheiden.
+Okay.
+Aber heute nur 5,56 Kilometer.
+Nicht wieder 10 plus wie letzten Sonntag.
+Also ganz normale Runde, die ich sonst auch renne.
+Naja, wobei nicht exakt die gleiche.
+Meine normale Runde 6,2.
+Ich mach schon mal meine VM an.
+Ich muss jetzt erstmal, bevor es losgeht...
+Ich zeige euch jetzt, was wir machen.
+Und...
+Dann futtere ich nochmal zwei Plätzchen, die ich mitgebracht habe hier gerade.
+Aber in der Zwischenzeit können wir nochmal ein Package-Update auf der VM machen, falls es das in der Zwischenzeit schon gegeben hat.
+Weil ich glaube, zuletzt haben wir heute Morgen geupdatet.
+Also, ich zeige euch, was wir heute machen.
+Ich glaube, das wird recht spannend, zumindest interessieren mich die Ergebnisse auch.
+Und zwar, wir rufen heute von C-Sharp aus sowohl Rust-Funktionen auf, als auch Go-Funktionen.
+Was liegt daran?
+Ihr könnt euch vielleicht noch dran erinnern.
+Ich hab im Stream ja schon öfters mal ein bisschen mit WebRTC auf Serverseite rumgebastelt.
+Zum Beispiel, dass man sich connecten kann in den Browser und dann Webcams abspielen und solche Geschichten.
+Also ich hab ja schon öfters mal ein bisschen mit WebRTC rumgebastelt.
+Und ich hab die letzten Tage über mal so ein bisschen Just for Fun wieder ein bisschen rumgebaut mit WebRTC.
+Also WebRTC ist quasi Real-Time Video im Browser.
+Nicht Streaming, wohlgemerkt nicht Streaming.
+Also Streaming ist ja meistens HLS.
+Also HLS ist, was heißt das?
+Für was steht HLS eigentlich?
+Gute Frage.
+HTTP-Live-Streaming.
+Okay.
+Wusste ich gar nicht.
+Also die ganzen Streaming-Seiten, die funktionieren meistens über HLS.
+HLS ist relativ easy.
+HLS gibt es eine M3U8-Datei.
+Und da stehen dann URLs drin, die rotatet werden.
+Und alle paar Sekunden gibt es da einen neuen Eintrag drin.
+Und dann streamt das.
+Also es macht ab und zu mal ein Get und dann holt sich so ein 5-Sekunden-Häppchen vom Stream.
+Und dann macht es wieder ein Get neues 5-Sekunden-Häppchen.
+WebRTC ist tatsächlich Real-Time.
+On-End-Gerät zu End-Gerät.
+Das ist besonders gut, wenn man möglichst Latency-Free-Video haben will.
+Was cool ist für Audio-Calls.
+Also beispielsweise Microsoft Teams und sowas.
+Das läuft nach Möglichkeiten über WebRTC.
+Und halt auch für Videokameras.
+Wenn man zum Beispiel drauf gucken will, wer vor der Tür steht und sowas.
+Und das möglichst Latency-Free sehen will alles.
+Dann ist WebRTC gut.
+Aber das machen wir heute nicht.
+Ich sag nur, wie ich drauf gekommen bin.
+Und ich verwende für...
+Oh, ich habe irgendwas im Auge.
+Das ist ja super abartig.
+Razer, danke für den Sub.
+Und by the way, wir installieren gerade mal die neue JetBrains IDE für Rust.
+Erstmal hier updaten.
+Die Toolbox darf auch updaten.
+Genau, und normalerweise habe ich das immer mit dieser Library hier gemacht.
+Und die ist in Go.
+Die ist in Go.
+Und eine Sache, die mich in Go immer genervt hat.
+Stripes, dankeschön für den Sub.
+Eine Sache, die mich in Go immer genervt hat, ist, dass Go Interop mit anderen Sprachen so langsam ist.
+Die IDE ist absoluter Müll, echt.
+Hast du schon ausprobiert?
+Wie heißt denn das Ding überhaupt?
+Rust Rover.
+Was verwendest du, wenn das Kacke ist?
+Meistens sind die JetBrains-Dinger doch immer ganz gut.
+Aber zumindest Goland ist nice und Ryder ist nice.
+Moin.
+Was macht Visual Studio Code besser?
+Plätzchen, Stelz, Easy Light.
+Keine Ahnung, was die da treiben.
+Das denke ich persönlich auch.
+Es würde mich weniger interessieren, was Mr. Robot nicht gefallen hat.
+Beziehungsweise, was ihn wie das Code besser ist.
+Update ist raus, installieren wir das Ding.
+Das Ding buggt ja vor allem manchmal ein bisschen.
+So.
+Also, nachdem ich meine Plätzchen weggestelzt habe, kann ich weiter erzählen.
+Wie gesagt, ich sage euch gleich, wir machen heute nicht viel WebRTC.
+Wenn überhaupt, gar nicht.
+Das ist nur, wie ich auf die Idee gekommen bin.
+Und zwar, für WebRTC habe ich immer diese Library hier verwendet.
+Aber eine Sache, die mich an Go aufrufen aus anderen Sprachen immer extrem abgefuckt hat, ist,
+dass das, wenn man das öfters callt, ziemlich langsam ist.
+Es gibt zwei Varianten.
+Wenn man aus Go selber C-Funktionen aufruft, also quasi von Go andere Sprachen aufruft,
+dann ist das langsam, aber es hält sich noch halbwegs in Grenzen.
+Wenn man aus anderen Sprachen in Go rein callt, in Go-Code rein callt,
+dann ist das in der Vergangenheit zumindest extrem langsam gewesen.
+Also, wir reden hier von ein native function call von C-Sharp nach C-Sharp dauert, was weiß ich,
+keine Ahnung, eine halbe Nanosekunde oder so.
+Es ist kurz.
+Und ein call nach Go rein dauert irgendwie 300 Nanosekunden oder so.
+Also, Go ist sehr langsam, wenn es um Interop mit anderen Sprachen angeht.
+Das hat mich immer genervt, weil ich sende mehrfach, also ich sende 30 mal die Sekunde pro Kamera neue Videoframes nach Go
+und die WebRTC-Library verarbeitet die dann.
+Heißt, im Endeffekt, ich hab, sag mal, wenn du 30 FPS pro Kamera hast,
+hast du 10 Kameras, oder sagst du, du hast 100 Kameras,
+dann hast du 3000 Function Calls die Sekunde.
+Das ist nicht viel und das ist auch, ganz ehrlich,
+selbst wenn es richtig, richtig langsam ist in Go,
+nicht so wirklich das Bottleneck, aber mich nervt.
+Deswegen wollte ich das erstens mal ausprobieren.
+Naja, also es gibt noch nichts zu rewriten in Rust, aber wir probieren das mal in Rust aus.
+Also zumindest, wir machen heute kein komplettes WebRTC-Example, vielleicht nächsten Stream oder so,
+weil das geht erstmal zum Ausprobieren.
+Zumindest wollte ich erstmal ausprobieren, ob das schneller geworden ist mittlerweile.
+Also C und Go Interop.
+Ich sag C stellvertretend für alle anderen Sprachen, die es gibt,
+weil jede Sprache, oder sag mal so, mir fällt keine Sprache ein,
+die nicht Interop mit C machen kann.
+Wie C Funktionen aufruft, hat sich so ein bisschen als Standard etabliert in der Programmierwelt.
+Egal ob das jetzt Python ist, Node, C Sharp, was auch immer,
+alle können sie eigentlich dynamisch C Funktionen aufrufen.
+Also mir fällt keine Sprache ein, die nicht C Funktionen aufrufen kann.
+Sagen wir mal, kompilierte Sachen, die mit C Interface rausgefallen sind.
+Und das Ding ist, ich hab irgendwas im Auge, das ist wirklich richtig nervig.
+So, und das Ding ist, wir testen jetzt erstmal, ob das schneller geworden ist mit Go.
+Was hab ich eigentlich für eine Go-Version drauf hier?
+Go-Version, sieht man das?
+Ach nee, das ist die Minus-Version, nur so?
+Nee, das ist einfach nur Version.
+Warum macht das eigentlich jedes Command-Line-Tool irgendwie anders?
+Bei Java ist es glaube ich Minus-V oder so.
+Das kann man sich ja echt nicht merken.
+So, und Rust müssen wir auch gleich mal installieren.
+Nee, Rust ist schon installiert.
+So, und der Kompilierer für die deutsche Programmiersprache, oje.
+Ja, das mit dem einen Minus ist in der Go-Welt voll verbreitet.
+Ich verstehe es ehrlich gesagt nicht.
+Man hätte sich da ein bisschen an Lilux-Standards halten können.
+Und Lilux-Standard ist Minus Minus ausgeschrieben, einfaches Minus mit Abkürzung.
+Aber Go hat sich gedacht, scheiß drauf, wir lassen das einfach.
+Wobei, in dem Fall ist es ja sogar nicht nur einfaches Minus, sondern sogar ganz ohne Minus, also Sub-Command.
+Leute, wartet mal, ich muss mal kurz Wasser ins Auge machen, ey.
+I-Champ gefixt, hoffe ich.
+Ja, bei Git ist es auch so.
+Wobei, bei Git bin ich es gewöhnt.
+Gar nicht so schlimm, da muss ich einfach nur dran gewöhnen, dass Sub-Commands sind.
+Aber Version finde ich halt doof als Sub-Command, Minus Minus Version ist einfach viel intuitiver.
+So, also das ist das erste, was ich ausprobieren will.
+Ob Go-Interop mit anderen Sprachen immer noch so langsam ist.
+Und dann, ja, dann kam das nächste, wie ich auf Rust gekommen bin.
+Ich hab gesehen, dass es eine Rust-Reimplementation von dieser Go-Library gibt in Rust.
+Also das Ding ist ziemlich beliebt, 11.900 Sterne und das da 3.500 Sterne.
+Also fast so viel wie der Fiat-Champ.
+Hat da jemand sein Issue geschlossen, kann das sein?
+Guck mal, ich sag doch, keine Fehler, keine Fehler im Fiat-Champ.
+Einfach immer, versteht keiner, wie man es verwendet.
+So, und dann habe ich gefunden, dass es eine Reimplementierung von dieser WebRTC-Library in Rust gibt.
+Und dann habe ich mir überlegt, okay, jetzt wäre es doch mal an der Zeit,
+bevor ich irgendwie eine der beiden Libraries benutze,
+mal zu gucken, was sich prinzipiell angenehmer aus .NET aufrufen lässt.
+Rust oder Go.
+Ich persönlich tippe drauf, dass es meilenweit Rust sein wird.
+Sowohl easier zu benutzen als auch, also nicht zu schreiben, sondern anzusprechen,
+als auch deutlich höhere Performance vom Callen von C-Sharp aus.
+Aber so ganz sicher bin ich mir nicht.
+Ich gehe aber davon aus, dass Rust meilenweit vorne sein wird.
+Das Problem an Rust ist, dass Rust absolut abfuck zu schreiben ist.
+Aber der Interop mit C-Sharp sollte schneller sein.
+Deswegen probieren wir das jetzt überhaupt gar nicht, Leute.
+Ich bin ja schon seit MW1 der Meinung, dass das Kreativität komplett bankrott dort ist.
+MW2 war schon nochmal der Aufguss des Remake-Aufgusses.
+Und MW3 komplett.
+Ich habe heute bei Huskers in den Stream reingeguckt,
+habe festgestellt, die haben zwar teilweise Karten dabei,
+aber das Gameplay, was ich sehe, ist das gleiche Up-Aim-MW1-Reboot-Gameplay
+mit ultrahoher Time-to-Kill, also niedriger, niedriger, nicht hoher, niedriger Time-to-Kill.
+Also ich habe mir null davon angeguckt, das interessiert mich nicht und ich werde es mir auch nicht kaufen.
+Findest du ernsthaft? Ich finde Rust ist eklig.
+Ich meine, sowohl Go als auch Rust sind jetzt nicht gerade die schönsten Sprachen,
+aber ich finde Rust extrem umständlich.
+Deswegen werden wir das jetzt mal ausprobieren.
+So, also, was gibt es hier?
+Hey Max, kannst du eventuell berichten, wie es in dem Bankenwesen seine Ausbildung zum Anwendungsinformatiker zu machen?
+Weiß ich nicht, ich habe keine Ausbildung gemacht in der Finanzbranche,
+weder bei der Bank noch bei der Versicherung.
+Ich habe bei einem Internetprovider meine Ausbildung gemacht.
+Da hatte ich nicht direkt zumindest was damit zu tun.
+Nein, du solltest dich dort bewerben, wo die Stelle möglichst vielversprechend aussieht.
+Ich meine, der Laden, dass der dir vielleicht zusagen sollte, ist nicht verkehrt.
+Aber bewerb dich ruhig bei einer Bank oder bei einer Versicherung oder sowas.
+Finanzbranche ist gut, wenn du deinen Fuß in der Tür hast.
+Finanzbranche bezahlt mit Abstand am meisten, wenn man sich das anguckt.
+Es gibt so eine Tabelle.
+Ich glaube, das erste waren Banken, das zweite waren Versicherungen, das dritte war Pharmaindustrie in Deutschland.
+Ich glaube, das vierte Automobilindustrie oder sowas für IT-Kräfte.
+Es könnte auch umgedreht gewesen sein.
+Es könnte auch zuerst Automobil und dann Pharmaindustrie.
+Aber der erste Platz, der zweite Platz war auf jeden Fall Banken und das zweite war Versicherung.
+Das heißt, wenn du in der Finanzbranche irgendwie deinen Fuß in die Tür kriegst, ist sinnvoll.
+Und meistens sind die auch ein bisschen größer, was oftmals echt von Vorteil für die Ausbildung ist.
+Also je nachdem, was für eine kleine Klitsche das hier ist,
+da wird halt sehr viel so auf Gutmeinen gemacht.
+Ob es dann gut ist, weiß man nicht.
+Also bei den großen Läden kommt es halt weniger oft vor, dass keiner Plan hat, wie das bei einer Ausbildung laufen soll.
+Dass du keinen Ansprechpartner hast, dass sich keiner um dich kümmert und sowas.
+Das hast du bei großen Läden weniger.
+Und dann hast du in der Finanzbranche einen Fuß in der Tür, was immer gut ist, weil die bezahlen einfach gut.
+Also ganz ehrlich, wenn du die Möglichkeit hast, das zu machen, würde ich mir das angucken.
+So sieht es aus.
+Jetzt habe ich erklärt, was wir machen wollen.
+Jetzt probieren wir das Ganze mal aus.
+Also wir legen mal ein neues Projekt an.
+Also wie gesagt, wir fangen ganz simpel an.
+Wir machen ein Go-Projekt, exportieren dort eine Funktion, die nichts macht,
+rufen die FonziSharp auf und wir machen ein Rust-Projekt mit einer leeren Funktion
+und rufen die FonziSharp aus und dann benchmarken wir das erstmal und gucken, was da schneller ist.
+Beim reinen FunctionCall.
+Da wissen wir auch schon mal, dass das nicht daran liegt, dass die eine Sprache irgendwas besser kann,
+als die andere Sprache in der Implementierung, sondern einfach so der reine Funktionsaufruf.
+Mal gucken, wie schnell der ist.
+Ich würde erwarten, dass der saumäßig schnell ist.
+Vielleicht nicht so schnell wie ein Native-Aufruf, .net zu .net, aber immer noch schnell.
+Ich weiß aber aus Erfahrung, dass Go-Interop mit anderen Sprachen echt problematisch war in der Vergangenheit.
+Gerade wenn das was ist, was wirklich hunderttausendfach aufgerufen wird.
+Große Unternehmen haben Ausbildungsverantwortlichen, da passiert sowas eigentlich selten.
+Danke.
+Was ist für dich groß?
+50 Mann sind nicht groß.
+100 und 200 Mann sind auch nicht wirklich groß.
+Ich bin mir nicht sicher, ob das eine T-Bait-Frage ist oder ernst gemeint.
+Egal, ich sage dazu nichts, weil wenn ich damit anfange, dann höre ich halt nicht mehr auf.
+Das muss nicht sein.
+So, dann legen wir mal los.
+Ich lege mal ein neues BenchmarkChamp.
+Wir testen jetzt erstmal, wie schnell das Ganze ist.
+Und wenn das in Rust wirklich, und das ist ja zu erwarten, so viel schneller ist,
+dann werde ich demnächst mal etwas WebRTC in Rust programmieren.
+Wobei ich weiß jetzt schon, dass ich durchdrehen werde dabei.
+Ein gutes hat's, ein gutes hat's.
+Das ist quasi eine Rust-Reimplementation von der Go-Library hier.
+Das heißt, ich hoffe, wenn man die Go-Library ein bisschen kennt, kommt man hier auch ganz gut klar.
+Müssen wir mal schauen.
+Das ist ziemlich groß.
+Da gibt es doch eigentlich Ausbildungsbeauftragte und Leute, die dann einen Blick drauf machen.
+Also es ist selten, dass es so reingeschissen wird bei großen Unternehmen, was Ausbildung angeht.
+Das sehe ich eher gehäufter bei den kleinen.
+Okay, wir installieren mal eine neue .NET-Version.
+Wir haben mal Zeit, weil ich glaube, es gibt eine neue Preview-Version.
+Wenn ich das richtig sehe.
+Ja, es gibt 8.0.1, wobei 100 haben die glaube ich immer, RC2.
+RC2, 2.3.5.0.2.2.
+Sag mal, .NET-Team, wie viele Versionsnummern wollt ihr eigentlich noch haben?
+8.0, das lasse ich mir ja noch gefallen.
+8.0.100 ist schon ein bisschen pp-iger, aber auch noch okay.
+Aber 8.0.100-RC2.2.3.5.0.2.2.
+Also irgendwann ist auch mal gut.
+Also ich meine, bis hierhin geht es ja irgendwie noch halbwegs klar.
+Aber das dahinter ist schon komplett bescheuert.
+Das hat dann mit Semware auch nichts mehr zu tun.
+Das interessiert Microsoft eh nicht.
+Also, .NET-New-Console.
+Wir machen mal ein paar neue Ordner.
+Wir machen mkdir Rust, mkdir Go, mkdir Benchmark.
+Benchmark legen wir das .NET-Projekt an.
+Wow, der für Schmerzen.
+Blazer, wen interessiert Blazer?
+Wer auch immer das benutzt.
+Also Microsoft will das zur Zeit boosten wie sonst was.
+Aber auch wenn ich ein großer C-Sharp-Fan bin.
+Ehrlich, im Browser wie es bisher ist, brauche ich das nicht.
+So, dann haben wir hier Go und haben Rust.
+Dann kopieren wir uns mal das Verzeichnis.
+Und ich würde sagen, dann fangen wir mal ganz easy an.
+Öffnen wir das mal in Rider.
+Und tun mal so, als wüssten wir was wir machen.
+So, Repos, wie habe ich das genannt?
+Nicht Backup.
+Benchmark, Champ.
+Hier, da, öffnen.
+So, hier auf dem vierten Bildschirm machen wir Go Land auf.
+Und auf dem fünften, auf dem fünften.
+Boah, das kostet RAM, Leute.
+Das kostet RAM, Alter.
+Drei JetBrains Ideen ist offen.
+Ihr MonkaS Javer, Alter.
+Und hier machen wir das Rust-Ding auf.
+I confirm that I have Red X.
+Ja, ja, ja, ich konfirme.
+Ich konfirme alles hier.
+Wir wollen nichts senden.
+Rust-Version detected.
+173.0
+Perfekt, top.
+Wir wollen allerdings Location Repos.
+Benchmark, Champ.
+Rust.
+Da wollen wir rein.
+Binary Application.
+Standard Library.
+Egal.
+Die Standard Library von dieser Version halt.
+Ich weiß nicht, wo die ist.
+Rust.
+Let's go.
+Oh, geht ja gut los.
+Erstmal Minischrift.
+Und als nächstes irgendwelche komischen Errors.
+Nice.
+Rust am Start.
+Cargo failed.
+Sync Rust Project.
+Retrieving Rust Standard Lib.
+Hä, warum muss er die noch retrieven, bitteschön?
+Rust kommt mit der Standard Library dabei.
+Deswegen heißt es Standard Library.
+Rust up not found.
+Ja, und jetzt?
+Kann das sein, dass der Rust up braucht?
+Damit das hier funktioniert?
+Ich kann auch Rust up installieren, wenn es sein muss.
+Ja, easy.
+Rust up.
+Installieren wir Rust up, auch gut.
+Deinstallieren wir Rust, installieren wir Rust up.
+Top.
+Ist jetzt Cargo und so da?
+Was?
+Run Rust Default Stable.
+Okay, nice.
+Das mag ich.
+Das mag ich an Rust.
+Also unabhängig davon, dass die Sprache ein bisschen eklig zu schreiben ist.
+Die Command-Line-Tools
+und das wie das ausgeliefert ist,
+ist wirklich ziemlich gut gemacht.
+Das Ziel ist, sowohl Rust
+als auch Go aus die Sharp aus aufzurufen
+mit C-Interface und zu gucken, was
+schneller ist.
+Nur in diesem einen Fall.
+Also jetzt nicht die Sprache an sich,
+da dürfte Rust vorne liegen,
+sondern nur das Aufrufen aus der
+anderen Programmiersprache aus.
+Da dürfte allerdings Rust auch meilenweit vorne liegen,
+weil Go ist mega langsam.
+Interop mit anderen Sprachen.
+Zumindest war das in der Vergangenheit so.
+Es wird aufgerufen
+C-Sharp nach Go und C-Sharp nach Rust.
+Es wird nicht C-Sharp Go Rust aufgerufen.
+Es wird C-Sharp nach Go
+und dann C-Sharp nach Rust aufgerufen.
+Ich tippe einfach, dass Rust
+in allen Belangen komplett
+meilenweit ahead of Go ist,
+weil Go bekannt dafür ist, dass Go langsam ist
+als Interop mit anderen Sprachen.
+Also langsamer als ziemlich jede andere
+technisch bekannte Programmiersprache.
+Und Go ist super langsam, was das angeht.
+Also das ist langsamer
+als so ziemlich jede andere Sprache,
+die mir so einfällt.
+Das ist langsamer als
+Python, also nur in diesem
+einen Fall.
+Also Callen von und nach
+anderen Sprachen über irgendeinen
+C-Interface.
+Das ist langsamer als Python, als Java,
+als alles.
+Einfach nur Javascript.
+Das ist wirklich,
+Go ansonsten ist ja recht flott,
+aber in dem Bereich ist es wirklich
+pepega langsam.
+So, also, hat es jetzt,
+jetzt starten wir nochmal dieses Rusting,
+ob das jetzt besser funktioniert, nachdem ich
+Rustup installiert hab.
+Ja nice, scheint zu funktionieren.
+Was hat Go für Vorteile?
+Go hat
+ein paar Vorteile. Zum Beispiel
+ist Go relativ flott.
+Wie gesagt, was langsam ist,
+ist ja nur diese eine Sache, die ich gerade
+gesagt habe. Champ, schön vielen Dank für den
+Sub. Ansonsten
+ist Go relativ flott.
+Go ist richtig
+gut, wenn man self-contained
+binaries haben möchte, die rückwärtskompatibel
+einfach auf jedem Linux-System laufen.
+Da ist Go so ziemlich die beste Sprache,
+die es gibt, die existiert, die man dafür
+benutzen kann.
+Auch im Cloud-Umfeld
+ist Go
+sehr beliebt. Warum kann ich die
+Preise nicht ändern?
+Und? Ach, jetzt geht es
+auf einmal, okay.
+JetBrains Mono, meinetwegen.
+Aber
+ich glaube, die Schriftgröße ist ganz okay,
+oder? Ich glaube,
+Chatgy, ich muss mal kurz
+in meiner Vorschau gucken. Ja, die Schriftgröße ist
+gut. Ich sehe das gerade hier in der Vorschau,
+die ist okay, da kann man nichts sagen.
+Das ist eigentlich sehr
+angenehm zu lesen gerade. Ich gucke mir das gerade
+auf dem Vorschau-Monitor an.
+Auch nettes,
+recht nicht so ins Auge
+brennende Dark-Theme dabei,
+das ist okay. So,
+Main Print Hello World, ja, das kommt schon mal weg.
+Wir brauchen gar keine Main-Funktion.
+Ach so, ja, Moment.
+Ich muss das ja umstellen auf eine Library.
+Wir legen erst mal das Go-Projekt
+an. Was haben wir hier noch offen?
+New Session, New Message,
+Create Session,
+New Sender. Ach so, ah,
+ich weiß, das ist, ja, ja, ja, das
+haben wir mal gebaut. Das können wir wegmachen.
+Da müssen wir ein neues
+Projekt anlegen.
+Also legen wir ein neues Go-Projekt an.
+Wo ist das hier? Go,
+New, Project.
+Und zwar
+wollen wir nach Repos
+Benchmark
+Champ Go. Und jetzt
+wollen wir ein Go-Modules
+Projekt anlegen. Ich glaube, das macht er
+standardmäßig.
+Was ist Enable Vendoring Support?
+Äh,
+verstehe ich nicht.
+Sollte ich das an- oder ausschalten?
+Ich verstehe die Hilfe
+nicht. Kann weg.
+Ich habe keine Ahnung, was es mir überhaupt sagen
+soll, ehrlich gesagt.
+Okay, ihr habt auch keine Ahnung. Wenn der Chat
+keine Ahnung hat, dann beruhigt mich das immer.
+Okay, Create,
+this Window, Close.
+So, jetzt muss ich erst mal gucken, dass ich wieder ein bisschen
+anfange, Go zu checken.
+Go war doch so.
+So, wir gehen jetzt mal Repo,
+Benchmark Champ,
+Go. Und jetzt
+sagen wir
+Go Run. Und dann
+kackts ab. Weil,
+Missing Go Version in Modload.
+Nice.
+Achso, es fehlt ne Main, oder?
+Es fehlt einfach ne Main-Datei.
+Dann ist die Fehlermeldung, aber ppga.svg.
+Also New Go File
+Main.go
+Package.
+Moment, warum
+heißt das Projekt Go? Das ergibt doch
+gar keinen Sinn. Das Projekt
+soll heißen...
+Achso, das heißt so wie der Ordner.
+Und das hier heißt auch Rust.
+Das ist ja egal. Es sollte durchaus auch okay sein,
+dass das heißt. So, Package
+Main muss das ja sein.
+Weil wir sind ja hier in Go. Und dann brauchen wir
+Function
+Main. Und dann sagen wir so was wie
+fmt.brindln.
+kack wait.
+So, und das sollte jetzt kompilieren, oder?
+Nein. Warum nicht?
+Das darf bestimmt nicht so heißen,
+oder? Das ist bestimmt ppga.
+Weil der Ordner Go heißt. Garantiert
+kann das das nicht ab, weil der Ordner Go heißt.
+Könnte ich wetten mit euch.
+Was? Go mod init?
+Das muss man doch normalerweise nie machen.
+Äh.
+Mod?
+Already exists.
+Das ist 100 Pro. Ich wette mit euch.
+Das ist, weil der Ordner
+Go heißt.
+Go hat so komische Dinger.
+Das kann ich mir richtig gut vorstellen.
+Wir löschen das nochmal.
+Man zieht ja ins Terminal nicht.
+Ja, in dem Fall gibt es da eh nichts.
+Wir löschen das nochmal.
+Und machen mktl go app. Okay?
+So, das sollte
+nicht problematisch sein.
+Also, new project.
+Jetzt hat er das schon wieder.
+Jetzt lasse ich das mal enabled.
+Vielleicht macht es das dann richtig.
+Wir wollen nach benchmark champ
+go app
+und eigentlich da rein direkt. Genau.
+Create.
+Und jetzt sage ich
+go app
+go run Punkt.
+Jetzt funktioniert es auch.
+Ich weiß jetzt nicht, ob das an diesem automatischen
+Vendoring Support lag, was auch immer das macht.
+Oder weil das Ding...
+Ich tippe auf den Ordner Namen.
+Bei Go weißt du nie.
+Go hat so viele Magic Sachen,
+weil sie so sein müssen.
+Beispielsweise auch Klammern bei einem if oder so.
+Dass ich mir das gut vorstellen kann.
+Main Punkt Go.
+Das ist auch merkwürdig gemacht,
+dass das nicht so heißen darf wie die App.
+So, und jetzt machen wir hier
+Function main
+fmt prindeln
+check wait.
+Das sollte jetzt funktionieren.
+Okay, nice. Funktioniert.
+Mal kurz checken, ob Rust auch funktioniert.
+Seht ihr das Terminal hier,
+wenn ich da was tippe?
+Hier unten. Sieht man das?
+Da ist der Chat davor, gell?
+Dann machen wir es so.
+Dann seht ihr es auf jeden Fall.
+Jetzt ist genug Platz unter Chico
+hier rechts. Da sieht man nichts.
+Dann machen wir auch das Terminal
+hier unten drunter.
+So, ja.
+Also Repos, Benchmark,
+Champ, Rust.
+Und jetzt machen wir mal,
+ich glaube Cargo run ist es.
+Okay, Rust
+kompiliert fehlerfrei.
+Erstmal im Kalender anmarken.
+Tja,
+jetzt geht es schon los.
+Ich glaube,
+es ist prindeln, ne?
+Auch in Rust.
+Check wait.
+Okay, ja. Funktioniert. Nice.
+Okay, also.
+Jetzt kommt das nächste.
+Also das ist jetzt ja einfach nur,
+um zu gucken, ob alles richtig aufgesetzt ist.
+So, also.
+Was hat er hier für Schmerzen?
+Could not load.
+Ah, ja.
+Das liegt,
+nicht toll sein Bild.
+Das liegt daran, dass er meine .NET Version
+nicht erkannt hat. Warum auch immer.
+Reload project.
+Jetzt sollte es hoffentlich gleich gehen.
+Machen wir auch nochmal
+eine Konsole auf.
+CD, Repos, Benchmark,
+.NET,
+Run.
+Ja, Funzt. Okay.
+Alles klar.
+Also, was ich jetzt vorhabe, ist folgendes.
+Ich möchte jetzt sowas hier machen.
+Ich will jetzt, wir brauchen,
+wir machen mal
+den .NET Teil.
+Als erstes und dann den anderen.
+Wir machen jetzt mal eine Datei interop.cs
+Die kriegt
+eine public,
+eine uns,
+eine unsafe public
+static class.
+Warum unsafe?
+Naja, weil ich
+zähe Sachen mit Pointern und so in anderen Sprachen
+aufrufen will. Also das muss unsafe sein.
+Und damit das funktioniert,
+muss ich unsafe
+erlauben.
+Ich weiß eh nicht, warum das nicht standardmäßig
+an ist. Ich meine, wenn man es nicht verwendet, verwendet man es
+halt nicht. So.
+Und jetzt
+will ich beispielsweise sowas hier
+aufrufen.
+DLL-Import
+von, ja,
+RustLib
+will ich aufrufen.
+Eine Funktion, die
+boah, DLL-Import-Syntax
+Moment. Muss ich mir abgucken.
+Ich glaube, static-extern
+oder irgendwie so muss das aussehen.
+Public
+static-extern, genau.
+So, public static-extern.
+Das heißt ja hier irgendwie
+call me, so.
+Einfach nur call heißt das Ding.
+Also, was das macht,
+was noch nicht geht, weil es ist noch nicht da.
+Damit kann ich jetzt aus C-Sharp
+eine Funktion aufrufen,
+die in Rust, in einer
+Library, in einer
+Rust-Library, die mit C-Interface
+kompiliert wurde, existiert.
+Aufrufen.
+Void fehlt noch.
+Und hiermit
+kann ich, achso, die sollte ich vielleicht
+ein bisschen anders nennen.
+Call me Rust
+Call, oder einfach nur
+Call Go.
+Ich muss nur gucken, dass die Libraries
+am Ende dann richtig heißen. Also, das
+sucht jetzt nach einer Library, die
+RustLib heißt, irgendwo hier im Verzeichnis.
+Oder GoLib, die gibt es noch nicht.
+Die müssen wir anlegen.
+Und dort drin ruft es dann eine
+Funktion auf, die heißt Call Go
+und Call Rust. Das wird erstmal eine
+leere Funktion sein.
+Man kann mit C-Sharp DLLs
+erstellen, nein, man kann aber
+native Funktionen
+importieren, beziehungsweise aufrufen, die
+in DLLs
+oder in unter linux.so
+Dateien vorhanden sind.
+Also, dynamic
+loading. So, und mein
+Ziel ist dann sowas zu machen hier.
+Interop
+Punkt, Call
+Interop
+Call Rust.
+Wenn ich das jetzt aufrufe, wird Folgendes passieren.
+Bam!
+Er findet nämlich GoLib
+und
+RustLib nicht.
+Ist aber auch klar, die haben wir noch nicht angelegt.
+Die gibt es schlicht und ergreifend noch gar nicht.
+Ich würde sagen, wir fangen mal mit dem
+Go-Teil an. Da weiß ich noch
+ungefähr, so ganz grob,
+wie es aussehen muss,
+dass das funktioniert. Und zwar,
+wenn ich das richtig in Erinnerung habe,
+muss man jetzt Folgendes machen.
+Wir legen jetzt mal in Go was an.
+Die Main-Funktion brauchen wir nicht.
+Weil wir rufen, wir starten
+ja kein Binary, sondern wir
+callen FonziSharp in was rein,
+was in Go definiert ist. Also, das
+ist natürlich auch der Einstiegspunkt.
+Nicht Main, sondern der Einstiegspunkt in dem Fall ist
+Call Go, weil das ist, was wir aufrufen.
+So, wenn ich das noch richtig im Kopf habe,
+wie das funktioniert in Go, dann sagt man
+hier Function, die
+muss heißen Call Go, so wie
+hier. Also, so wie da.
+Und dann muss man, glaube ich,
+drüber schreiben
+Export
+Call Go. Entweder
+mit Leerzeichen, ne, ohne Leerzeichen.
+Und ich glaube, so muss man
+das machen, dass Go
+das als C-Interface exportiert.
+Aber das war noch
+nicht alles.
+Go run, ne, das geht natürlich nicht.
+Ähm, oh
+Shit. Go kompilieren
+als C-Library,
+beziehungsweise mit C-Interface. Wie ging das jetzt nochmal?
+Oh,
+meine Güte. Ähm, muss ich nachgucken.
+C Go Compile.
+Ach, Import C musste man
+auch noch machen. Ja, ja, okay.
+Genau, genau. Gut, dass wir in die
+Hilfe gucken. Das musste man auch
+noch machen am Anfang. Also,
+das braucht man,
+das braucht man in Go, damit man
+aus Go C-Libraries aufrufen kann.
+Und das hier braucht man,
+damit man aus anderen Sprachen Go
+Sachen aufrufen kann, über
+ein C-Interface, was generiert wird.
+Ich glaube,
+man braucht beides, oder?
+Egal, schadet auf jeden Fall nix.
+Was auch immer
+das da jetzt ist,
+keine Ahnung.
+Äh, what the...
+Ich suche
+den Go Build Aufruf dafür.
+Go Build, man muss irgendwie
+C Go Enable oder sowas machen.
+Ich hab das noch
+im Hinterkopf irgendwie.
+Go Build,
+ich weiß aber nur nicht mehr, hab ich das vielleicht
+hier irgendwo... Ne.
+Hab ich das vielleicht in der anderen
+VM noch
+als History?
+Kann GCC auch Go
+kompilieren? Ja,
+es gibt ein GCC
+Plugin für Go, aber das verwendet glaube ich
+meines Wissens nach so gut wie niemand.
+C Go?
+Gleich?
+Ah, shit,
+haben wir es auch nicht in der History mal drin.
+Wie war das denn
+jetzt nochmal?
+Hier, C Go Enable, genau.
+Ganz ehrlich, ich verstehe auch gar nicht,
+wozu das gut sein soll. Ja, C Go Enable,
+genau, das suche ich. C Go
+Enable. Aber
+die Frage ist, wie man es jetzt nochmal aufruft.
+Env
+Go OS Linux?
+C Go Enable.
+Okay, das
+ging irgendwie so. C...
+Es ist auf jeden Fall Env.
+C Go
+Enable
+gleich 1
+und dann sagt man glaube ich einfach Go Build?
+Ne.
+Aber ich bin ja auch falsch hier.
+Ich muss ja auch in mein Go Projekt.
+Ja, das wird jetzt ein bisschen abartig,
+bis das funktioniert.
+Im Moment halt einfach funktioniert gerade.
+Nein,
+das ist falsch.
+Der soll das als Library kompilieren.
+Äh,
+Build Mode, oh meine Güte, wie geht das?
+Go Shared
+Shared
+Library
+Shared Libraries in Go,
+how to use? Go Shared Libraries
+Ne, ne, ne, ne.
+Building
+Shared Libraries in Go.
+Genau, wie ging das nochmal?
+Ich hab das, das ist ja manchmal
+in der History gar nicht so gut.
+Weil,
+wenn man dann seine History nicht hat,
+hier,
+Build Mode gleich C Shared
+minus O Preload, ich hab keine Ahnung,
+was das bedeuten soll. Ich lass das einfach mal weg.
+Was?
+Okay, was auch immer.
+Also wahrscheinlich brauchen wir
+jetzt noch das hier dabei.
+Ach ne, das muss hier bei
+Go Build hin.
+Ja, schon besser, schon besser.
+Aber wo ist meine Library?
+Ach, Go App ist die Library.
+Okay, das Ding soll heißen,
+ach dem ist ja,
+ach, okay, also,
+äh,
+wenn ich,
+Moment, warum ist der Aufruf nicht in meiner History drin?
+What the?
+Ach so, weil ein Leerzeichen davor war.
+Lul.
+Ja, na, dann ist klar,
+dass das nicht drin steht.
+Minus O,
+der Output soll sein,
+wie hab ich das genannt in .NET?
+Golib.
+Golib.so
+Ja,
+sehr schön, genau, genau, genau, genau.
+So will ich das haben.
+Okay, Golib.so
+soll er bauen und dann
+soll er das Ganze moven,
+Golib.so
+moven hoch in das C Sharp
+Projekt.
+Golib.so, okay, nice.
+So, wenn ich Glück hab,
+klappt das jetzt schon.
+Fuck.
+Cannot open.
+Ah, ich weiß warum.
+Weil ich pp-ger bin.
+Ich muss die
+Build Action noch umstellen, dass der das
+ins Output Directory kopiert.
+Und jetzt scrollt's, präge Leute, präge.
+Ey,
+es funzt, es funzt.
+Ich kann euch auch beweisen, dass es funzt.
+Guckt mal, wir schreiben jetzt hier was
+in Go rein, okay?
+fmt, prindeln, lul,
+kompilieren das,
+und jetzt ruf ich's aus C Sharp
+auf,
+lul.
+Und ihr seht hier nirgends wo in C Sharp ist lul definiert,
+oder lul, die Ausgabe, die kommt aus Go.
+Also jetzt callt, jetzt callt
+C Sharp nach Go rein.
+Das ist nice.
+Wie mach ich in
+Chat, wie mach ich denn in Go
+ein Release Build?
+Ist das standardmäßig ein Release Build?
+Nee, nee, C Go
+brauch ich, auf jeden Fall.
+Weil ich will gleich noch versuchen,
+wie das ist, ob man auch in Struct returnen kann
+und sowas.
+Ähm, äh, was hab ich grade gesagt?
+Was wollt ich grade machen?
+Jetzt hab ich grad an was anderes gedacht, lul.
+Jetzt weiß ich, was ich grad machen wollt. Ähm,
+Chat, was hab ich vor zwei Sekunden gesagt?
+Oh, du aller Boomer hier, Mann.
+Achso, Release Build, ja.
+Achso, Release Build. Go, Build,
+Release.
+Auto Build.
+Achso.
+Strip Debug Symbols. Nö, nö, nö, nö.
+Ach, okay, es gibt gar kein
+Debug und Release Build bei Go. Gibt es nur,
+gibt es nur Release Builds, quasi.
+Was für eine Linungsliste
+ist drüber zugenommen? Das ist Arch, by the way.
+Wenn du es genau wissen willst,
+dafür hab ich natürlich schon mal mein Neo
+Fetch vorbereitet, damit ich euch regelmäßig
+sagen kann, dass ich Arch Linungs verwende.
+Das ist Arch Linungs, allerdings in der
+VM. Und
+das Terminal ist West Term.
+Das ist die 3 als
+Window Manager und ZSH
+als Shell.
+Wenn's dich
+genau interessiert, wie das alles konfiguriert
+ist und funktioniert, kannst du auf
+GitHub gucken, hier ist meine ganze
+Konfig. Und wenn du grad dabei
+bist, kann ich dir empfehlen,
+schnapp dir auch noch gleich die passenden Desktop
+Hintergründe,
+dass du auch
+White Paper Happy hast,
+im Hintergrund, so wie ich.
+Was ist One Fetch?
+Is One Fetch die coolere Neo
+Fetch Variante
+oder was?
+Command Line Git Information Tool.
+Was ist das?
+Written in Rust, natürlich!
+Die Krustentiere sind wieder am Start.
+Ach, da kriegt man
+Infos über das Repo angezeigt.
+Ja, das ist doch eigentlich auch ganz cool.
+So.
+Also das Call nach
+Go Code funktioniert schon einmal.
+So,
+wir können jetzt natürlich noch sagen, .NET
+Run minus
+C Release, dass es auch im Release Mode
+läuft, aber funzt.
+Gut, also erster Part
+ist geschafft.
+Jetzt könnt ihr euch aussuchen,
+Chat, ob wir als erstes
+den Go Part
+vollständig bauen, also vollständig
+bauen bedeutet zwei Sachen.
+Leider nicht aus Go die nächste
+Programmiersprache callen, aus C Sharp die nächste
+Programmiersprache callen.
+Also, was ich
+in den Sprachen machen will,
+ich will zwei Sachen jeweils in den Sprachen einbauen.
+Und zwar, das erste ist,
+eine leere Funktion, die wir aufrufen können.
+In dem Fall kommt das mit dem 0 wieder raus,
+weil ich will nicht 500 mal 0 ausgeben.
+Und
+das zweite ist eine Funktion, die
+nennen wir einfach hier irgendwie Call Go 2
+und die soll ein Struct
+returnen.
+Und da bin ich mal gespannt, wie ich das
+mache, ein Struct
+von Go zu returnen in C Sharp,
+was man dann dort
+auch als Struct quasi
+deserialisieren kann und benutzen kann.
+Das einfachste wäre natürlich alle seine Daten
+irgendwie als JSON String zu returnen
+und dann parsen, aber das ist ja langweilig.
+Wir wollen das ja richtig auf C eben
+Memory Bytes
+dann
+Casten zu irgendeinem Struct.
+Da bin ich mal gespannt, wie das geht, ich hab keinen Plan.
+Ne, auch nicht gRPC,
+das ist wirklich richtig, richtig Low Level Memory
+hin und her schieben soll das sein.
+So.
+Also ihr könnt euch jetzt aussuchen, wollen wir jetzt den
+Go Part noch implementieren, also sprich
+die Funktion in Go, die
+den Struct zurückliefert an C Sharp
+oder wollen wir jetzt erstmal gucken,
+wie man Rust
+callen kann von C Sharp aus.
+Könnt ihr euch aussuchen.
+War was? Rust,
+erstmal Go fertig.
+Go fertig. Go.
+Okay.
+Also, Tommy,
+die meisten Leute wollen Go haben.
+Ich denke nicht, dass das so lang
+dauert, wobei ich das noch nicht gemacht hab.
+Structs returnen
+von Go nach C Sharp.
+Ich würde sagen, wir fangen mal easy
+an, okay? Wir fangen mal easy
+an. Easy heißt,
+wir returnen hier jetzt ein
+Moment.
+Wie ging das nochmal?
+Ich glaube einfach
+sagen wir mal
+in den UN64
+returnen wir jetzt hier mal.
+So. Und jetzt sagen wir hier
+return 1.
+Mein einfacher geht's nicht mehr, okay?
+Return 1, kompiliert auch ohne
+Fehler. Und jetzt ist die Frage,
+das dürfte ziemlich easy
+sein. Jetzt gehe ich hier einfach hin,
+ich kommentiere mal das Rusting aus.
+Jetzt ist der return-Typ nicht
+void, sondern der return-Typ ist UN64.
+Das Ding ist nur, ich
+hab keine Ahnung, ob die
+Repräsentation im Speicher
+von einem C Sharp UN und einem
+C
+aus Go exportierten
+C UN die gleiche
+ist. Moment, geht das überhaupt so?
+Das geht doch
+eigentlich gar nicht. Ich will ja kein
+Rust UN exportieren,
+sondern ein C
+UN 64.
+Also es könnte sein, dass
+das funktioniert, wenn die
+Implementierungen einfach überall gleich sind.
+Probieren wir das mal
+aus, aber ich glaube nicht, dass das
+funktioniert. Machen wir mal I.
+Ups. Hä?
+Da sollte jetzt
+1 rauskommen. 1. Okay.
+Das funktioniert, aber ich glaube ganz
+korrekt ist das nicht.
+Das funktioniert wirklich nur,
+weil das Memory-Layout von einem
+UN 64 einfach in C Sharp
+und Go gleich ist.
+Ich glaube korrekt wäre
+hier gewesen zu returnen ein
+C Punkt UN 64
+oder sowas.
+Gibt es nicht. Ne, wie
+heißt das? T oder so, gell?
+Heißt das so? Ne, ah man.
+UN 64
+C. Wie heißt der Kram?
+UN
+64 T.
+Hab ich doch.
+Gibt es nicht.
+Was muss ich denn da inkluden dafür?
+Standard
+Int, Moment, was?
+std
+int.h, okay.
+Hey, Funst! Nice!
+Stack Overflow Triff and Copy Pasting.
+Okay, also einzelne
+Ints returnen von Go nach C.
+Vor allem nach, von
+Go
+über C nach C Sharp. Funst?
+Jetzt ist die Frage,
+wie machen wir das mit einem Struct?
+Das wird bestimmt etwas
+komplizierter.
+Könnte ich mir vorstellen, weil
+wir brauchen ja einen
+C Struct, kein Go Struct.
+Okay,
+Go Struct to C
+Struct.
+Layouts sind in C Sharp
+recht easy.
+Wenn du dem sagst, dass er
+wie heißt das?
+Serialisieren soll,
+dann ist es das gleiche Layout wie von C.
+Dann ist das eigentlich kein Ding.
+Hoff ich mal.
+Genau, genau, das meine ich.
+Damit ist das
+meistens nicht so ein großes Problem.
+Go Lang Struct
+with C Struct in C.
+Okay, okay, okay.
+Nee, der hat einen
+Go Struct
+mit C Types drinnen.
+Das will ich nicht.
+Okay, C Go
+Return Struct.
+How to return Struct
+from C Go?
+Ja, genau, das will ich haben.
+I have found a solution
+in C.
+Okay, der definiert ein Struct in C.
+Gibt es nicht C Pack Unpack?
+Ich hab keine Ahnung.
+Go C Pack?
+How to return a C Struct from a Go Function?
+Genau das will ich wissen.
+Okay, Struct Point.
+Ich muss das in C definieren
+auf jeden Fall.
+To access a Struct Type
+directly.
+Prefix it with Struct Underscore.
+Okay.
+C Punkt Struct Underscore.
+Oh meine Güte.
+Jetzt wird es aber Pepega Style.
+Also ich glaube, das wird in Rust
+deutlich angenehmer sein.
+Als in Go.
+Also sprich, wir brauchen jetzt...
+Nee, Moment.
+So.
+Und das muss, soweit ich weiß,
+dann auch direkt über Import C stehen.
+Sonst mag er nicht.
+Die Includes können wir dann hier rein machen.
+Massive Pepega.
+So, jetzt haben wir einen Struct Point.
+Wir wollen allerdings nicht Point Return.
+Wir wollen ein Struct...
+Okay, machen wir einfach mal sowas hier.
+Struct Session
+hat eine...
+Wir machen mal was, was von später
+auch sinnvoll irgendwie...
+Das einmal gibt es hier ein
+Int.
+Oder ein
+U
+Int. Machen wir es mal so.
+Ein U Int 64 T.
+Client ID.
+Und dann
+gibt es... Oh, jetzt wird es interessant.
+Jetzt gibt es einen String.
+Den nennen wir...
+Keine Ahnung. Name. Oder so.
+Ja. Client Name.
+Jetzt bin ich mal
+gespannt, wie ich
+einen Struct mit einem
+Char Pointer
+irgendwie rüberkriege in C Sharp.
+Ohne,
+wohlgemerkt, ohne
+Memory Leaks zu verursachen.
+Das wird...
+Ohje.
+Ich weiß leider mal,
+wie ich das über... Okay. Return.
+Also wie ging das jetzt? C Punkt
+Struct Underscore
+und dann Session
+Und jetzt durfte ich
+das so benennen mit
+ähm...
+Client Name
+Ich weiß überhaupt nicht, wie ist die Syntax?
+X. Ah, die Variable
+Variable zuerst. Okay.
+Ja. Ja, Tommy.
+Also Client ID. So.
+Das ist jetzt ein C Char
+Array oder so.
+Ich hoffe,
+dass... Nee.
+Nee, nee. Das fand ich schon mal nett.
+Ohje.
+Wie ist das Syntaktisch denn richtig?
+Nee, das ist eigentlich okay so.
+Und dann haben wir noch was.
+Ich weiß das... Moment. Client ID.
+Client ID ist 123.
+Und dann haben wir noch Client Name.
+Client Name ist dann...
+Das wird so definitiv nicht
+funktionieren, Leute. Das kann ich euch... Das kann ich euch sagen.
+Das wird nicht funktionieren.
+Okay. Das funktioniert schon mal nett.
+Also.
+Das ist falsch, weil das ist ja auch
+ein U Int.
+Also das hier muss ja auch
+ein sowas hier sein.
+Moment. Meine
+Go Skills verlassen mich. Ich glaube, das geht so,
+dass das
+funktioniert.
+Ja. Nee.
+Achso.
+Moment. Ich return ja gar kein Struct.
+Ich will das hier returnen.
+Okay. Schon besser.
+Schon besser. Hätte ich es auch einfach
+so returnen können, ohne dass der rummeckert?
+Anscheinend.
+So. Also das funktioniert nicht.
+Ich muss jetzt einen...
+Charakter Array
+in Go machen. Okay.
+Äh.
+C String
+C Go Return. Wie funzt das?
+Return Strings
+C Function in Go legen.
+C Punkt
+C String.
+Was ich mache?
+Ich rufe aus C Sharp Go
+auf über ein C Interface.
+Also machen wir es
+irgendwie sowas wie
+Let String
+C String
+Moment. Let. Wir sind...
+Achso.
+Nee. Go.
+Nee. Moment.
+Zu viele Programmiersprachen auf einmal.
+So, oder?
+Okay.
+Leute. Es kompiliert.
+Okay.
+Client Name ist Omega Lul
+Keckel HD
+XYZ 123.
+Könnte ein geiles Passwort sein. Das ist es aber nicht.
+Okay. Jetzt returne
+ich ein Struct aus Go.
+Heißt im Endeffekt, wenn ich
+das hier aufrufe, das sollte noch funktionieren.
+Weil das erst... Okay.
+Das ist schon mal gut.
+123 ist die Client ID, die ich hier gesetzt habe.
+Das funzt, weil in meinem Struct
+vorne immer noch
+die Client ID ist. Jetzt ist die große Preisfrage.
+Wie kriege ich hier raus
+ein Struct?
+Also machen wir mal.
+Das nennen wir auch Session.
+Public
+Uint64
+Tja.
+Client ID. Wir nennen das mal genauso.
+Public
+String
+Das kann ich mir so nicht
+vorstellen, dass das funktioniert.
+Und selbst wenn es funktioniert,
+passiert Memory Leaks.
+Das werden wir jetzt mal ausprobieren.
+Mal gucken, ob das
+C Sharp Interop
+Zeug so schlau ist
+und erkennt, dass man ja aus einem
+C String
+ein C Sharp String machen kann.
+Automatisch. Da bin ich mal gespannt.
+So und das Ding soll heißen
+Client Name. Übrigens, die Namen hier
+sind vollkommen egal.
+Die Namen sind vollkommen wurscht.
+Die müssen nicht die gleichen sein wie hier.
+Wichtig ist, die Byte Anzahl.
+Also dass das hier
+quasi so lang ist
+und das hier so lang ist und
+dass es dann passt im Endeffekt.
+Wie das hier heißt, ist vollkommen egal.
+Also das Layout im Speicher muss das gleiche sein.
+So und jetzt returnen
+wir hiervon kein Uint, sondern
+eine Session.
+Das funktioniert nicht, weil es nicht public ist.
+Okay. Session.
+Jetzt bin ich mal gespannt.
+Jetzt bin ich mal gespannt.
+Client ID. Ich hoffe,
+das geht noch. Okay, das funzt.
+Okay, das funzt.
+Was ist hier? Warum kann ich
+kein Konsole
+PPGA IDE gerade
+Client Name.
+Funzt einfach. Es funktioniert einfach.
+Moment.
+Der erkennt automatisch.
+Der weiß automatisch, wie man
+einen C String in einen C Sharp String
+Aber das hat 100
+pro Memory Leaks. Das hat
+sowas von Memory Leaks, Leute. Ich sag's euch.
+100 pro hat es
+Memory Leaks. Moment. Moment.
+Watch 3 minus
+H. Wir machen jetzt die simpelste
+Variante Memory Leaks zu erkennen.
+Passt mal auf. Wir machen jetzt folgendes.
+Wir gucken jetzt
+mal, ob es Memory Leaks hat.
+While true.
+While lulw.
+Okay. So.
+Wir gucken, ob es Memory
+Leaks hat. Wir rufen es einfach in der Schleife
+auf und gucken, ob
+Free runtergeht.
+Run. Oh, shit.
+Ich glaube, es hat
+Naja, nö.
+Oder doch. Doch.
+Ah. Das ist jetzt
+aktuell so gar nicht mal zu
+Das ist jetzt, das ist echt schwer.
+Der GC
+kann es nicht freen, weil der GC
+wahrscheinlich kein free...
+Nee, nee. Das hat Memory Leaks.
+Oder? Oder nicht?
+Das hat 100 pro Memory.
+Also, wenn das kein Memory Leak hat, dann wundert
+es mich extrem. Warum
+verursacht das nicht mehr CPU Last?
+Nee, macht es doch. Ja.
+Memory.
+Wir könnten doch einfach mal mit einem Debugger starten.
+Schwer zu sagen.
+Also, das könnte auch einfach
+kein Memory Leak. Aber das wundert
+mich. Woher will es
+sie scharf festen, wie man das
+Ei gibt?
+Moment. Moment.
+Moment. Moment. Moment. Moment. Hab ich das überhaupt
+schon kompiliert jetzt und dahin geschoben?
+Wie kann das sein, dass das kein
+Memory Leak gibt?
+Warum das .NET nicht freeen können soll?
+Weil .NET nicht zuständig ist dafür, das zu
+freen.
+Woher möchte .NET wissen
+an der Stelle, dass ich den eigentlichen
+Pointer, auf dem das basiert, das im Ursprungsprogramm
+nicht mehr verwende?
+Wenn ich das selbst
+aufrufen würde, dann ist okay.
+Aber, dass das
+Automatisch Fried wird er gibt Eigentlich Keinen sinn Aber anscheinend
+anscheinend funktioniert das
+Zappt!Con Danke Für. Den Stab also das ist das
+Irgendwas Falsch
+Interop Call
+Wir MüsSen Mal Kurz was Checken steht Da üBerhaupt was Drinne
+Session
+Name steht Da üBerhaupt was sinnvolles Drinne Jetzt Ja
+Ich bin leute ich bin hochgradig verwirrt dass das kein
+Kann das Sein dass es Einfach raus optimiert wird ich bin ich bin echt jetzt begeistert
+verwirrt und begeistert gleichzeitig dass es wohl anscheinend Kein
+Memory leak
+Ergibt
+Wir Können das hier nicht mit dem debugger starten und sehen an die ram auslastung also in Visual Studio gibt es
+In Visual Studio gibt es ein debugger mit ram auslastung ich weiß nicht wie das hier in
+den rider aussieht
+Was was Genau MöcHte rider von mir wo ist das wo ist das problem ach hier
+rider was willst du von mir
+Was hat er Für. Schmerzen mit war der weißt du wo mein dotnet zeug liegt
+Also ich würde gerne das kann man
+das muss doch hier irgendwie funktionieren benchmark
+Wo ist das hier ja richtig runtime korrekt
+exec pass korrekt
+der
+Ja Aber das hier ist doch dort nicht acht stimmt eigentlich
+Ja Ja der ruft das nicht der ruft das nicht mit mit dem richtigen mit dem richtigen
+mit der richtigen installation auf was aber äußerst pepega ist weil
+Hier checkt das hier checkt das ja
+Da ist IrGendwas Falsch Falsch
+Der benutzt meines ist meine meine system runtime was aber keinen sinn ergibt weil ich überall hier
+Überall hier das richtige eingestellt ist auch hier acht guck ich glaube irgendwie das packt rum
+Okay, wir probieren jetzt mal was anderes nur um sicherzustellen dass das irgendwie an mir liegt
+und zwar
+Guck mal was wir jetzt machen wir sind jetzt einfach mal das hier ist jetzt einfach kein string sondern in pointer
+Und spätestens jetzt sollte er es ja nicht aufräumen
+So mal gucken ob es jetzt memory leaks gibt also ich würde sagen es gibt memory leaks
+Ja, ja ja
+guck das geht
+das geht steil
+Ja, also im pointer gibt es memory leaks
+Aber wenn es ein string ist dann gibt das woher weiß der dass er das automatisch freigeben kann das ergibt für mich eigentlich überhaupt
+Nee guck im string checkt er das ich habe keine ahnung wie warum die runtime so 6 header ist
+Aber wenn man ihm sagt ist ein string dann freeter das automatisch
+Ich bin begeistert ich hätte nicht damit gerechnet dass das dort netto das dort netto schlauer ist und das kapiert
+Macht er da unter der haube irgendwie einen free drauf
+Aber woher weiß er überhaupt dass ein free drauf machen darf also das finde ich äußerst
+Spannend dass das funktioniert
+Der checkt das hätte ich nicht gedacht ich hätte gedacht ich muss das von hand machen also das ist das ist schlau
+Also dass das ist von der runtime wirklich schlau dass der den den string ja automatisch freien kann
+Das das ding ist nur das ding ist nur
+dass eigentlich er das eher nicht machen sollte weil
+Er hat keine ahnung ob ich das hier noch irgendwie verwende zum beispiel
+Machen wir doch mal was machen wir mal folgendes
+Machen wir mal hier das muss man jetzt mit wahr machen glaube ich
+Irgendwie so wahr
+Und der wird jetzt gefreed
+Wobei ne dann ist er wahrscheinlich so schlau
+Gute frage
+Entdeckt entdeckt
+Exposed
+Ja die runtime ist so schlau und ruft wirklich free unter der haube
+Das hätte ich nicht gedacht aber da sieht man auch schon das kann echt zu problemen führen wenn ich den string noch weiterverwende in dem
+Drunter liegenden go programm ich bin mir nicht so sicher ob das ein sinnvolles default verhalten ist dass das immer automatisch einen pointer freed
+Da bin ich mir nicht so sicher
+Aber ich glaube das ist ein sinnvolles default verhalten
+Ich glaube das ist ein sinnvolles default verhalten
+Ich glaube das ist ein sinnvolles default verhalten
+Da bin ich mir nicht so sicher
+Wie hast du das rausgefunden?
+Indem ich das einfach einmal global angelegt habe
+den string und immer den gleichen returne
+Und jetzt versucht ihr ihn zum zweiten mal zu freeen
+Und das geht natürlich nicht
+Also ihr habt . net versucht
+Also ich mein ok
+In gewisser logik hat das
+. net erkennt wir bekommen einen charakter pointer
+Und am Ende
+Erkennt wir wir bekommen einen character pointer
+Und am Ende
+Erkennt wir wir bekommen einen charakter pointer
+Charakterpointer und am wandelnden Charakterpointer um, kopieren quasi den Inhalt in einen .NET-String und dann fremen wir den ursprünglichen Pointer.
+Das ist aber eigentlich gar nicht so ungefährlich, weil
+.NET, weil es das automatisch macht, weiß doch überhaupt nicht, ob ich den darunter liegenden Characters,
+Charakter
+Pointer noch weiter verwende, hier beispielsweise.
+Also, weiß nicht.
+Da bin ich, da gehe ich nicht so d'accord mit,
+was das da macht, aber
+soll mir recht sein,
+in dem Fall funzt einfach ohne mein Zutun.
+Ja, wenn man es nicht direkt als String macht, geht das, kann man garantiert unterbinden.
+Wir haben es ja gesehen, man kann es schon unterbinden, indem ich hier einfach einen In-Pointer draus mache.
+Sobald ich hier einen In-Pointer draus mache, dann, dann wird Memory geleaked as fuck, guck.
+Ja,
+700 MB,
+160 MB, 1,2 Gig, 1,4 Gig, 1,7 Gig.
+Also da, also eigentlich hätte ich damit gerechnet, dass ich das eh so machen muss. Charakter-Pointer,
+selbst deserialisieren und dann fremen. Also eigentlich dachte ich, ich muss sowas hier machen, sinngemäß.
+Session,
+In-Pointer, das ist ja im Prinzip nur ein Pointer an die Stelle, wo das Charakter-Array steht,
+sondern ich dachte mir, ich muss, ich muss da jetzt sowas hier machen, zum Beispiel.
+Ähm,
+UTF-8, hier Pointer to String, UTF-8, Client Name. So, wenn ich das mache, sollte es auch Memory Leaks geben, hä?
+Das machen soll es auch Memory Leaks.
+Achso, Semi-Kolon.
+Das sollte auch Memory Leaks geben. Ja, ja, ja, ja, fette, fette Memory Leaks.
+250 MB Memory Leaks pro Sekunde.
+Ja, so und jetzt dachte ich eigentlich, ich, ich
+kopiere mir das hier im .NET String und danach, danach sage ich
+Native Memory Free.
+Das ist, das ist was Neues, das gibt es noch nicht so lange in C-Sharp, das ist, um
+die, den, die Standard, ja, C-Free-Funktion aufzurufen, in der Hoffnung, dass der Code, von dem ich den Pointer bekomme, das mit der Standard C-Free
+Geschichte, mit der Standard, Standard C Alloc-Geschichte allockiert hat, den Speicher. Also
+hoffen wir einfach mal und jetzt sagen wir hier Session Client Name und jetzt sollte ich,
+warum nicht?
+Ach, Unsave, ja, ja. Geht nicht, weil
+muss ein Void Pointer sein.
+Okay, so und jetzt sollte ich auch keine Memory Leaks mehr haben,
+weil jetzt mache ich das von Hand. Ich schnappe mir den Pointer, kopiere den in .NET String und
+dann free ich den Pointer. So müsste das eigentlich sein.
+Und siehe da, es gibt auch keine Memory Leaks mehr.
+Also das macht anscheinend, ernsthaft .NET unter der Haube. Das finde ich ehrlich gesagt ein bisschen
+merkwürdig,
+dass es das macht.
+Sehr komisch, sehr, sehr komisch auf jeden Fall, dass das macht. Wir probieren noch mal was, wir machen jetzt hier noch mal einen String
+draus und dann machen wir das, was der Chat sagt, das interessiert mich nämlich echt.
+S
+Unmanaged
+Unmanaged Type, nicht Bool.
+Char, ne Moment, was gibt es denn da überhaupt?
+Str
+Was haben wir? Oh, das ist Windows Shit.
+LP String, a single byte, null terminated on the character single. Dann haben wir
+LPT String, Unicode Character String.
+LPW String, zwei Byte, alles klar.
+B String, B-Wall-T String. Alter, Microsoft, es ist ja gut, man, übertreibt es halt nicht.
+LPUTF8 String, a pointer to UTF8, Unicode String. Okay, das klingt, das klingt schon mal ganz gut.
+Way too dank.
+Auch keine Memory Leaks. Okay, okay, das muss man wissen.
+Das muss man echt wissen, dass
+es ein automatisches Free macht. Ich weiß nicht, nach was ich suchen muss.
+Das ist Interessantes, also
+Damit hätte ich nicht gerechnet.
+Guck, kein Memory Leak.
+Das muss man in dem Fall wirklich wissen, weil damit rechnet man eigentlich nicht. Gut, also hätten wir den Part, ich muss sagen, das ging
+einfacher als gedacht.
+Jetzt benchmarken wir das Ganze mal, so auf die Schnelle.
+Wir können danach noch ein ordentliches Benchmark.net Projekt drumherum machen, um es beides zu vergleichen, aber
+probieren wir das mal aus.
+Übrigens, das da
+ist auch PPGA, das hier soll eigentlich die Funktion sein, die nichts returnt und
+GoCall2 soll die Funktion sein, die was returnt, sonst wird das nix.
+Jetzt müssen wir das hier anlegen, interop.
+Ja, kopieren wir das mal, GoCall2 und GoCall2 ist einfach nur Void.
+Okay, jetzt benchmarken wir das Ganze mal ganz kurz, auf die Schnelle, also
+Stopwatch
+Start.
+Okay, aus irgendwelchen Gründen funzt mein
+Console-Rightline-Makro nicht.
+Elapsed
+Total
+Seconds
+Stopwatch Stop und hier dazwischen rufen wir mal auf interop.
+So, das hier sollte so gering sein, ein einfacher Function Call, dass das gar nicht auffällt im Endeffekt, ja.
+Das ist jetzt, weil er zum ersten Mal aufgerufen wird, da wird ja nix drauf geben, wir machen da mal eine Schleife drum.
+So, machen wir mal
+100 Aufrufe davon und gucken, wie schnell das ist.
+Und einmal rufen wir es vor der Stopwatch auf, damit es nicht mitgezählt wird.
+Wo bist du überrascht, dass es Pointer gibt?
+Okay, ja, das ist sehr schnell jetzt.
+Gibt es in C-Sharp auch einen Typ für String-Pointer?
+In C-Sharp sind Strings immer Pointer. String ist ein Ref-Type.
+In C-Sharp ist ein String unter der Haube immer ein Pointer.
+Ohne, dass du explizit was hinschreibst. In C-Sharp ist eigentlich 90 Prozent der Sachen, die du verwendest, Pointer.
+Ohne Pointer-Syntax.
+Ich glaube, er meint aber über der, was, wie jetzt?
+Ach so, nee, das ist jetzt in dem Falle von Interop mit wirklich Raw-C-Pointern zu Managed-String-Objekten.
+Damit geht er echt nicht so um, wie erwartet.
+Ja, als dumm gibt es das nur, wenn ich es anscheinend nicht explizit sage. Also,
+was ich vermute, was hier passiert, sobald ich hier hinschreibe,
+sobald ich hier hinschreibe String,
+dann checkt er, wenn das ein
+oder, dann erwartet er einen Character-Pointer,
+kopiert sich den bis zu einem Null-Terminator in einen .NET-String und macht dann einen Free auf den ursprünglichen Pointer.
+Das ist Ultra-Magic unter der Haube, was da passiert.
+Und wenn du das nicht haben willst, dann musst du einfach sagen, mach keinen String draus,
+sondern nimm den, nimm den Raw-Pointer und dann kannst du ihn selbst auslesen und freen.
+Das, das muss ich echt sagen, das ist richtig krasse Magic unter der Haube.
+Also, ja, wenn du das in dumm haben willst,
+okay, dann was du machen kannst ist, ach, das war, meinst du, du kannst auch sowas machen, ja, das funktioniert auch.
+Muss sagen, Unsave-Character-Pointer. Das funktioniert auch, das ist dann, Moment, Moment, das, ha ha,
+Debated, nein, das ist nicht das Gleiche. Du musst einen Byte-Pointer,
+Pointer auf Start von einem Byte-Array setzen, weil, weil,
+das ist auch ein bisschen
+eine Verarschung, da müssten wir aufpassen, wenn man einen Character-Pointer macht, in C-Sharp ist das nicht das Gleiche wie ein Character-Pointer in C.
+Character und ein Byte ist in C das Gleiche. In C-Sharp ist ein Character zwei Byte, weil C-Sharp-Strings intern als UTF-16 speichert.
+Deswegen ist quasi in C,
+in C ist das da
+quasi mehr oder weniger das Gleiche wie das da und das da auch in C-Sharp, aber in C-Sharp ist
+Character-Pointer was anderes. Also das könntest du auch machen, das geht allerdings nur mit Unsave davor, weil sobald du Pointer-Matching machst,
+sagt C-Sharp, ah ja, das ist aber, könnt auch in die Hose gehen.
+Aber muss man in dem Fall gar nicht, weil tatsächlich die Managed-Implementierung von diesem,
+unter der, also unter der Haube machen, machen die schon das Richtige in dem, in dem einen Fall, ja.
+Umwandeln, kopieren einen .NET-String und da unten drunter Free-Callen, das ist schon sehr Magic-mäßig.
+Nee, nee, das ist egal, unter der Haube ist das alles das Gleiche.
+Die, die Interpretation der Daten ist da ein bisschen anders, zum Beispiel, dass du bei einem
+Byte
+kein Minus drin stehen haben kannst, aber bei einem S-Byte, bei einem Signed-Byte, könntest du theoretisch minus 180, aber das reine
+Interpretierungs-, reine Interpretationsfrage, es ist alles in C ein Byte.
+Egal, ob es ein Charakter, ein Byte oder, nee, ein Short ist 16, glaube ich, oder? Ist ein Short nicht in C
+nicht 2-Byte? Also 1 bis 16.000 noch etwas?
+Da bin ich mir jetzt aus dem Kopf nicht sicher. So, aber jetzt haben wir uns,
+jetzt haben wir uns etwas sidetracken lassen.
+Anscheinend ist .NET mittlerweile so
+Five-Head-schlau, dass es, wenn man so komische Dinger macht, wie ich, von denen ich nicht geahnt hätte, dass sie funktionieren,
+tatsächlich funktioniert
+ohne Memory-Leaks zu verursachen. Das hätte ich wirklich nicht gedacht.
+Okay, jetzt wollte ich das mal ganz kurz benchmarken. Wie schnell ist denn das Ganze?
+Okay, ein paar Nanosekunden, aber 100 ist ja auch nix.
+Machen wir mal 1000
+und dann machen wir mal eine Million. Es gibt übrigens ein nices Feature schon seit ein paar C-Sharp-Versionen. Kennt ihr das hier?
+Dass man
+Underscores in die Zahlen machen kann, die eigentlich nix ändern da dran,
+aber viel viel besser lesbar sind. Jetzt erkennt jeder, dass das hier,
+das ist eine Million, also dass das quasi zehn Millionen sind. Machen wir das mal weg. Dass das eine Million ist.
+Das kann man viel besser, viel besser lesen. Man darf übrigens nicht auf die Idee kommen, so zu versuchen,
+weil dann ist das ein Float beziehungsweise ein Double und also mit zwei Punkten geht es dann auch gar nicht.
+Aber das hier, aber das hier ist nice. Ja, das andere sind zehn Millionen gewesen.
+Es ist kein Unterschied. Also, ob ich so schreibe oder so, unter der Haube kommt genau das Gleiche raus, aber es ist besser lesbar.
+Man kann es auch so schreiben, das ist ein bisschen pp-iger, aber es würde auch funktionieren. Oder so, oder so, aber das macht eigentlich keiner.
+Also, das finde ich ganz nice, dass einfach Anderscores in Zahlen ignoriert werden. So eine Million Aufrufe.
+Oh, das ist schon recht langsam.
+90 Millisekunden für eine Million Function Aufrufe.
+Ist das ein Callback Function zu einer Go-Funktion?
+Das ist kein Callback, das ist ein direkter Call von einer Funktion in Go und zwar der hier.
+Guck.
+Wir haben eine leere Funktion in Go, die einfach nur Call Go heißt,
+die in eine Library reinkompiliert wird. Die Library wird in .NET geladen,
+definiert, dass es darin eine Funktion Call Go gibt und dann wird die aufgerufen.
+Unter welchen Umständen merkt man das? Naja, ganz ehrlich, eine Million Function Calls sind schon ganz schön viel.
+Das wird man normalerweise
+nicht wirklich merken. Es sei denn, es sei denn, man hat wirklich irgendwie so eine
+irgendein Parser oder so oder irgendwas, wo das millionenfach aufgerufen wird pro Durchgang, dann macht es schon
+performantechnisch einiges aus. Ich zeige euch jetzt mal den Unterschied. Wir machen jetzt mal eine
+eine Static Public, nennen wir es mal Call
+.NET, nennen wir das jetzt mal, okay.
+Static Public Void. Also, das ist jetzt eine .NET Funktion.
+Nichts irgendwie über Libraries, eine ganz normale .NET Funktion ist das. Und wenn ich die jetzt mal aufrufe hier,
+Call .NET, dann werden wir sehen, Bäm, 1,2 Millisekunden.
+Und mit Release-Modus wahrscheinlich sogar noch ein bisschen weniger, ja.
+Also 500, 500 Nanosekunden
+Versus, versus
+500 Nanosekunden versus
+80 Millisekunden.
+Okay, also
+C-Interop ist immer noch nicht das Allerschnellste, was man machen kann. Das ist, das ist echt lahm. Das ist wirklich lahm.
+80 Millisekunden für eine Million Funktionsaufrufe. Also von .NET nach .NET braucht das Ganze, braucht das Ganze
+500 Nanosekunden. Also hier 0,5 Millisekunden und
+von .NET nach Go braucht es 80 Millisekunden. In normalen Anwendungen, wo das nicht oft aufgerufen wird, ist es überhaupt gar kein Problem, ja.
+Aber so ist schon ordentlich Overhead.
+Ich meine, selbst bei meiner WebRTC-Anwendung, wenn man 30 FPS hat pro Kamera und 100 Kameras drin, dann sind das
+3000,
+3000 Function Calls pro
+Sekunde. Das ist halt nix im Endeffekt, nix.
+Das ist egal, ob ich Function, ob ich hier C-Go Overhead habe, das juckt einfach nicht.
+Für jeden Function Call einen neuen Thread starten,
+ist vielleicht ein bisschen Overkill, aber das würde,
+würde, würde zumindest teilweise die ganze Sache schneller machen, ja.
+Also besser parallel, aber also es ist schon,
+ja,
+schon ein bisschen, schon ein bisschen langsamer.
+Ich glaube, in dem Fall macht .NET gar nicht so viel Magie, sondern es ist eher Go, was die Magie macht. .NET macht in dem Fall ein relativ straight
+Call, wie man halt eine C-Funktion callt.
+Bisschen Magic bestimmt, aber Go macht halt extrem viel Magic für ihren Threads und, und Runtime-Scheduler,
+dass sich das nicht in die Quere kommt. Also C-Go ist
+berüchtigt, oder Go ist berüchtigt dafür, dass der Interop mit anderen Sprachen echt langsam ist.
+Du hast recht, du hast recht, wer auch immer das gesagt hat, du hast recht, deswegen, deswegen machen wir das jetzt mal im Debug-Modus, du hast recht,
+du hast recht. Also im Debug-Modus brauchen wir ungefähr
+82 Millisekunden, 85 Millisekunden Go und Call-NET
+brauchen wir
+eine Millisekunde, okay.
+Ja, du hast recht, das könnte durchaus sein, dass sie scharp schlau genug ist und die Funktion rausschmeißt im Release-Modus, weil es feststellt, okay,
+das ist eine, das ist eine Schleife mit nichts drinnen, also scheiß drauf, mach weg. Ja.
+Test mit einem Print. Print ist immer ganz schlecht für sowas.
+Print ist immer ganz, ganz mies.
+Print ist auf die Konsole und Single Output und so. Nee, der überspringt, ich hab's jetzt im Debug-Modus, da wird nix, da wird nix geskippt.
+Da wird nix geskippt.
+Der ruft die wirklich auf.
+Aber ganz ehrlich, das ist auch zu erwarten,
+dass ein Function Call von .NET nach .NET nahezu kein Overhead hat. Wäre ja auch, wäre ja auch schlimm, wenn nicht.
+Okay, also, dann haben wir das jetzt ausprobiert für Go.
+Wollen wir mal gucken, wie schnell das mit dem Struct ist.
+Oh, das ist natürlich noch mal eine ganze Ecke langsamer.
+Hoho.
+Ja, es schwankt ein bisschen.
+Wir machen gleich mal eine, wir machen gleich mal einen Benchmark. Komm, wir machen jetzt schon einen Benchmark draus.
+Wir machen jetzt schon einen Benchmark draus, bevor wir die Rust-Sache basteln.
+Nougat.
+Benchmark.net
+Bam. Mir gefällt C-Sharp auch enorm gut und ich bin wirklich kein Microsoft-Fan.
+Ich weiß, ich weiß. Wobei das, das ein uralter Artikel ist, das meinte ich ja, und das ist auch das, was ich am Anfang des Streams gesagt habe.
+Dass ich auch mal heute gucken will, wie sehr sich das, wie sehr sich das verbesserte, wie, wie sehr sich das
+verbessert hat. C, Go, Interop. Ich denke schon, dass es schneller geworden ist. Wir machen mal kurz eine Benchmark-Klasse.
+Public Class, Bench,
+Benchmark.
+Wie geht, Moment, Moment, wie ging das jetzt noch mal, Moment, Moment, irgendwie Benchmark, Runner, nee, nee, nee, Bench, Benchmark, Runner?
+Runner? Benchmark, Runner?
+Run, Benchmark, okay.
+Das hier oben kommt weg, das,
+ein Aufruf hier oben ist okay, das kommt da rein.
+Public, Void, das nennen wir jetzt einfach mal irgendwie Run,
+Run, Go oder so.
+Dann kommt das hier rein. Machen wir, machen wir aber mal nur, nur,
+ja doch, na komm, 1000, 1000 Aufrufe ist vielleicht besser, da kann das mehrfach, mehrfach die Funktion aufrufen.
+Okay, Go, Run.
+Und jetzt,
+ich glaube, jetzt muss man hier noch Benchmark drüber schreiben, ne?
+Okay, so und jetzt sollte er eine ordentliche Ausgabe haben, wie schnell der ist.
+Zack.
+Wow, wat?
+There are not any result runs, warum?
+Failed. Der erkennt wieder mein .NET nicht. Mann, was ist das für ein Upfuck? Okay, Export, hier, Path,
+Export, .NET, kann man hier drinnen, kann man hier drinnen relative Farbe verwenden?
+Gar nicht sicher. .NET,
+Version,
+Minus, Minus, Version, 7, nee.
+Also, Home,
+Max,
+Jetzt ist es 8, okay.
+Mach doch in die Bash-RC. Eigentlich will ich meine System.NET Version nicht überschreiben.
+So.
+Und jetzt sagen wir Run, Release, jetzt soll es hoffentlich gehen.
+Jetzt wird ordentlich gebenchmarkt, fast wie in einem Nick Chapsas Video hier. Der Benchmarkt auch immer.
+50 Mal.
+Falls dir jemand guckt.
+Da wird auch immer bis zum Umkippen gebenchmarkt.
+Wenn du Variable für die Anzahl machst, kannst du die Anzahl der Durchläufe testen.
+So, also, Go hat im Durchschnitt
+182
+Mikrosekunden.
+Also für
+1000 Aufrufe.
+Das ist jetzt halt nicht, nicht so schnell.
+Warum? Warum?
+Ich brauche ja keine Parameter, oder?
+Hast du dir mal das Video angeguckt? Da muss ich nicht das Video angucken, das habe ich oft genug erzählt, dass die .NET Versionierung
+beschissen ist. Da habe ich ja schon, da habe ich ja schon selbst oft genug gesagt, also, ach komm.
+Machen wir einfach, machen wir nur 100.
+Und wir callen jetzt das ohne Overhead, also das, was nix macht.
+So, und jetzt das Ganze noch einmal für Rust. Auf geht's.
+Krustentiere versammeln. Ah ja, ja, danke schön für den Sub.
+Bolgi19.
+Huge Subscription.
+Sorry, falls ich irgendjemanden übersehen habe, ich gucke mal kurz rein.
+Creator Dashboard.
+Der Karlzon, danke für den Sub, haben wir hier den ZeppCon.
+Shapeshifter und Stripes. Der Razer hat auch Subscribed vorhin noch, der Alfred auch.
+Gar nicht richtig gesehen, alles hier.
+Vomax heute morgen.
+So, also, es wird Zeit für Go.
+Wir kommentieren das hier gerade mal aus.
+Und ich sage jetzt mal,
+Call.
+Wir brauchen jetzt, wir brauchen jetzt Call
+Call Rust.
+Das wird nicht funktionieren, weil es das auch nicht gibt.
+Ja, bam, Crash, gibt es nicht. So, also, ich muss jetzt in Rust eine Library erzeugen, die RustLib heißt.
+Jetzt geht es los. Ich habe keine Ahnung, wirklich absolut keinen blassen Schimmer, wie ich das jetzt machen soll.
+Okay, also, müssen wir mal suchen. Rust
+FFI
+The Rustonomicon. Okay, jetzt kriegen wir es erklärt.
+Also, Calling Foreign Functions.
+Rust ist so eklig. Alter, wenn ich das hier schon sehe. Ich dreh aber.
+Create Type.
+Wie macht man das überhaupt? Da gab es doch mal irgendein GitHub.
+Rust FFI Examples.
+Gucken wir mal.
+Hat er denn? C Sharp to Rust, das ist doch schon mal ein gutes Beispiel.
+Ja, Cargo Tommel.
+Also, das braucht man. Lib.
+Okay, also, let's go. Wir müssen in unsere Cargo Tommel gehen.
+Und da jetzt ein Lib hinzufügen. Lib.
+Name ist einfach
+RustLib. RustLib, so wahrscheinlich, wie der Output heißen soll.
+CD Lib klingt gut.
+Und jetzt ist die Frage, wie funzt das? Source, Lib S.
+Ja, copy-pasten wir uns mal hier rein und nennen es Call Rust, aber wir haben kein Input und wir haben kein Output erst mal.
+No Mängel extern FN Call Rust.
+Das hier bedeutet, glaube ich, dass er die Namen genauso lässt, wie die Funktion heißt, sodass sie später aufgerufen werden kann.
+Und Main können wir eigentlich raus machen. No Main Function Found. Ja, ist doch klar, will ich auch nicht mehr.
+Cannot Find Library RustLib. Rename File zu...
+Okay. Source Main in Lib. S.
+Achso, Cargo Run geht natürlich. Cargo Build. Ohne Fehler hat es gebildet. Ich fass es nicht.
+Und jetzt, wo ist das Ganze? Target. Debug.
+Lib. Lib. Rust. Lib.
+Hört sich ein bisschen kacke vielleicht an, oder?
+Wie habe ich es genannt? Ich habe es einfach nur RustLib genannt. Also, dann heißt es hier einfach nur Rust.
+Build.
+Lib Rust Punkt S. Ja, meinetwegen, dann heißt es halt nicht RustLib, sondern Lib Rust.
+Auch gut, kann ich auch mit leben, okay?
+Und jetzt Build. Okay, Minus Minus Release.
+Wobei eigentlich wurscht es, wie ich das nenne. Wir können auch sagen Build Release. Dann sagen wir CP oder MV.
+Target. Build. Release. Lib Rust Punkt S. O. Hoch zu...
+Benchmark.
+Und dann soll das einfach heißen
+RustLib Punkt S. O. Ich benenne es einfach um.
+Doch, doch. Das ist eigentlich schon richtig. Ich habe es nur falschrum benannt. Ich habe es falschrum benannt. Lib, das ist auf jeden Fall
+so, so ist richtiger als meins. Mit Lib zuerst.
+Okay, so jetzt haben wir in unserem .NET Projekt noch eine RustLib. Die fügen wir hinzu in den Output.
+Dass er die auch findet, wenn er dann später, später läuft. Ja, so, also Build Action.
+Copy hier. Zack. So, und wenn wir Glück haben, funktioniert das jetzt schon.
+Hey, es läuft. Rust Aufruf. Funzt. So, Beweis. Moment. Beweis, dass es funktioniert.
+Source.
+Print.
+Was ist das? Module. Declaration. Reload. Immer. Restart. Hilft immer.
+Okay, nice. So, jetzt bin ich mal hier. Das Brindeln.
+Cack W.
+Build. Und jetzt aufrufen von .NET aus. Moment. Oh, zu viele Fenster. Aufrufen von .NET auf. Cack W.
+Funzt. Sehr gut.
+Exzellent. Okay, jetzt können wir mal testen, wie schnell das ist, in Go das, in Rust das Ganze zu machen.
+Und danach bauen wir das noch mit Rust und Struct zurückgeben.
+Also, wir sagen jetzt Interop. Call. Go.
+Und zwar mein Benchmark.
+Interop. Call. Net. Wir machen jetzt alle drei Sachen.
+So, also wir kopieren uns den Benchmark.
+Und den Benchmark. Sagen wir Run. Go. Run. Rust. Und Run. .NET. Das sollte ja eigentlich das Schnellste sein.
+Call. Net.
+Und hier Rust. Jetzt bin ich mal auf die Ergebnisse gespannt, was da rauskommt.
+C. Release. Wir machen es auch so schnell, wie geht. Zack.
+Lassen wir das mal kurz laufen und ich gucke in den Chat. Moin, bin aktuell auf Windows. Man würde gerne auf Linux rüber wechseln.
+OS gefällt mir sehr. Jedoch zweifle ich noch, da ich gerne zocke und ich weiß, wie gut das unter Linux funktioniert. Ganz ehrlich,
+wenn du viel spielst und je nachdem, was du spielst, wenn du Spiele beispielsweise mit Anti-Cheat spielst, also
+wobei CS ja wohl mittlerweile ganz gut funktioniert, aber wenn du sowas wie, sagen wir mal,
+Rainbow Six, Fortnite oder sowas spielst, dann hast du eigentlich verloren unter Linux.
+Ich würde dir empfehlen, mach das so wie ich erstmal. Benutz Windows als Host
+und auf dem zweiten Windows-Desktop eine Linux-VM mit Fullscreen, wo du zwischendrin hin- und herschalten kannst. Du machst in der Linux-VM alles, was du
+machen willst, was gut unter Linux ist und für Sachen wie
+Videos gucken,
+streamen, Videobearbeitung,
+irgendwelche
+Games, dann machst du es unter Windows. Da hast du, finde ich, das Beste aus beiden Welten und das Gute ist,
+du kannst dich ein bisschen an Linux gewöhnen, ohne dass du irgendwie Dualboot machen musst oder direkt ins kalte Wasser geworfen wirst.
+Also zum Anfang
+einfach nur eine VM und gut ist. So, aber was sagt der meine Benchmarks hier?
+Meine Benchmarks, Benchmarken noch.
+Ich bin mal gespannt, was rauskommt. Also ich meine, eigentlich kann ich es mir schon denken. .NET am schnellsten, gefolgt von Rust
+und dann Go hintendran.
+Also in diesem einen speziellen Fall jetzt. Was macht der da eigentlich so lange?
+So, ja, guck mal. Boah, alter, was ein Unterschied, man!
+Guckt euch das mal an. Okay, also unser Benchmark ist 100 Funktionsaufrufe, die nichts machen, ja. Also
+von einem Funktionsaufruf 100, nicht einer.
+100 Funktionsaufrufe von .NET nach .NET sind natürlich abfuck schnell.
+28,8 für Nanosekunden. Das ist mega schnell, ja.
+Das ist aber auch klar.
+Gefolgt von Rust. Call in Rust, also die haben ein super, super C-Interface, was einfach funktioniert, ohne viel Overhead.
+Nur
+125 Nanosekunden für 100 Aufrufe. Das ist auch im Prinzip
+Mix, eigentlich. Und jetzt kommt Go. Go braucht einfach mal, sehe ich das richtig, 8 Millisekunden.
+Also
+8114 Nanosekunden.
+Jetzt muss ich ein Video machen auf YouTube, dass Go stirbt, ja.
+Blazingly fast. Rust is destroying Go.
+Go will be dead soon. Oder irgendwas in der Regel. Wir brauchen noch ein bisschen mehr, mehr Klick.
+Wir brauchen, wir brauchen Klickbait. Go is dead. Here is why.
+Mikrosekunden. Ja, ja, Mikrosekunden. Wir sind hier in Bananosekunden.
+How Golang is destroying your performance. Genau.
+Mikrosekunden, nicht Millisekunden. Ja, ich hab mich vertan. Kann man auch mal durcheinander kommen. Also
+.NET, logischerweise in dem Fall das schnellste. 28 Nanosekunden. Rust
+125 Nanosekunden. Würde ich sagen, das ist so wirklich, da kannst du ohne Problem nach Rust callen. Und hier 8 Mikrosekunden.
+Nicht, dass 8 Mikrosekunden schnell wäre, aber es ist um Größenordnungen
+langsamer als Rust. .NET steht ja eigentlich gar nicht zur Auswahl, weil die WebRTC-Libraries für .NET,
+da gibt, es gibt SipSorcery für .NET, das ist auch nicht schlecht.
+Aber ich finde, dem fehlen noch ein paar Features, dass man sie komplett
+so gut benutzen kann, wie die Go-Library zum Beispiel. Und die Rust-Library weiß ich noch nicht.
+Das ist ein Nachbau von der Go-Library, die ich verwenden will, aber ich weiß nicht, wie feature-complete die schon ist.
+Mach die Übung mal anders, mit Rust als Base und import C-Sharp.
+Also, von Rust nach Go wird mehr oder weniger genauso sein.
+Aber von Rust nach C-Sharp ist gar nicht so einfach möglich,
+weil C-Sharp braucht eine .NET-Runtime, die läuft.
+Das heißt, ich müsste quasi eine .NET-Runtime in Rust hosten, was sicherlich geht.
+Ja, du kannst AOT machen, aber ich erzähle euch, wie es die ganze Zeit gewesen ist.
+Du bräuchst quasi, du musst quasi eine .NET-Runtime in Rust hosten. Ich glaube, das will man nicht machen.
+Seit den letzten,
+seit .NET 6, aber eher seit .NET 7 und noch spannender wird es mit .NET 8. .NET 8 kommt ja demnächst,
+quasi raus.
+Da unterstützen die ja auch Ahead-of-Time-Compilation, also im Prinzip das, was
+so ein Compiler macht.
+Normalerweise halt irgendwas native ausführbares rauswerfen. Dann kann man
+auch, Moment, da gibt es wirklich was, da kann man dann auch direkt Funktionen daraus aufrufen.
+Nee, das ist was anderes. Das ist was anderes. Das ist Rust zu
+IR-Kompilieren, was dann in .NET laufen kann. Das ist auch Six-Head, dass es sowas gibt,
+aber das ist andersrum.
+Das ist Rust in .NET. Wir wollen ja .NET von echtem Rust aufrufen.
+So, jetzt müssen wir aber nochmal,
+was ist IR-Intermediate? Also das ist quasi IL.
+IL und IR ist das, ist das, ist das gleiche quasi.
+Bin ich jetzt blöd?
+Ja, also IR und IL ist das gleiche im Endeffekt. Das ist nicht direkt
+ausführbar von deinem Rechner, aber ausführbar von der .NET-Runtime. Also C-Sharp kompiliert ja auch nicht direkt in
+ein Binary, was du ausführen kannst, sondern C-Sharp kompiliert in Bytecode,
+den .NET ausführen kann. Und wenn du in den C-Sharp-Binary startest, dann ist es in Wirklichkeit sehr, sehr, sehr, sehr, sehr, sehr, sehr, sehr, sehr
+so, dass erst mal
+.NET gestartet wird und .NET startet dann ein C-Sharp,
+liest dann das
+CLR, IR oder IL ein, je nachdem wie man es nennt und führt das aus.
+Und dort ist es so, dass quasi
+Rust zu IL umgewandelt wird und IL kann dann von der .NET-Runtime ausgeführt werden.
+Das ist halt echt schon richtig sick, Seth. Ich wüsste nicht genau, wozu das...
+Ich meine, ja, um Rust-Libraries in C-Sharp zu verwenden, aber es funktioniert noch nicht alles.
+Aber cool, dass das funktioniert.
+So, jetzt haben wir unser Benchmark-Zeug hier am Start. Das werde ich jetzt gerade einfach mal wieder auskommentieren.
+Und wir gucken uns mal an, wie man in Rust ein Struct baut und das Struct zurückgibt
+an C-Sharp. Also, Call Rust 2 brauchen wir jetzt noch.
+Das legen wir jetzt hier auch mal an.
+Ich prophezeie, dass es etwas einfacher wird als in Go, weil Rust-C-Interop ist ziemlich gut in der Regel.
+Aber Rust hat schon .NET-Libraries, oder nicht? Nee, Rust ist Rust und Rust ist nicht .NET normalerweise.
+Hast du einen coolen, vielleicht auch leichten Weg mit Rust? Ich habe keine Ahnung.
+Aber ich glaube, man muss ganz schön masochistisch sein, veranlagt sein, mit Rust Windows-UI-Anwendungen bauen zu wollen.
+Das ist einfach nur so mein Bauchgefühl dazu.
+Blazingly fast written in Rust. Musst du jetzt aber auch bei allen deinen Projekten dabeischreiben.
+Also, okay, wie macht man... Es geht ja schon mal los, Leute. Wie man überhaupt einen Struct in Rust macht.
+Struct. Okay, so...
+Nice, Max, super.
+Ich glaube, so weit wärt ihr wahrscheinlich auch schon gekommen, oder?
+Okay, aber...
+Wie geht es weiter? Rust, Struct.
+FFI, suchen wir mal danach.
+Ja, Complex Data Tabs and Rust FFI, genau.
+Okay, also, Inamstruct, hier, RepR, RepR, RepR, C.
+Okay, das ist so ein typisches Rust-Ding. Das können wir copy-pasten.
+Das ist eines der Gründe, warum Rust echt nicht schön zu lesen ist.
+Pupp, Pupp
+ist quasi was wie Public. Public Ausschreiben ist outdated, overrated. Also machen wir hier mal das gleiche. Session,
+Name. Okay, wir fangen einfach an. Wir machen wieder das gleiche.
+Hier, Client ID.
+Und...
+Nee, komm, wir sind A, B, heißt es jetzt. So, UINT, nee, Moment.
+Int. Moment, es ist Rust. Da ist es U64 einfach nur, gell?
+Ja, es ist Rust. Und hier noch mal, eh noch ein Bool oder so. Ja, okay, Build.
+Es bildet noch. Und jetzt, Return.
+Tja, das ist eine gute Frage. Ich weiß gar nicht, wie ich das
+So? A, 1, 2, 3.
+B, Moment.
+B, Schuhe.
+Ne? Ein Semikolon vielleicht?
+Ja.
+So? Hm.
+Was hat er denn für Schmerzen?
+Ah, ja, ja.
+Was hat er denn für Schmerzen?
+Ach so, weil ich kein Return-Type angegeben habe.
+Rust-Return-Type ist so, gell? Ja, okay, ist schon besser, schon besser.
+Übrigens, ich hab's verkackt. Ich hab's in der falschen Funktion gemacht. Das muss hier unten rein.
+Format.
+Okay, und das funktioniert jetzt. Moment, das funzt.
+Okay, jetzt bin ich mal gespannt, wie das, wie das zurückkommt in, in .NET.
+Wir brauchen, wir müssen das mal kurz ein bisschen ändern.
+Hier, Session, Rename, Rename, Session, äh, Go.
+Session, Rust. So, U, Int, und dann haben wir hier einen Bool.
+Und ja, A, B, wie's heißt, ist egal.
+Jetzt bin ich, jetzt bin ich mal gespannt, ob das, das ist ja die Basics. Das sind einfach nur Values zurückgeben.
+Und unser Ziel ist ja hier auch noch einen String zurückzugeben und sowas. Das wird dann schon ein bisschen komplizierter.
+Call Rust 2 zurück, bekommen wir eine Session.
+Okay, Call Rust 2.
+Session gleich.
+Session A
+und
+Session B. Und jetzt gucken wir mal, ob das funzt, was da rauskommt. 1, 2, 3 und True.
+True, Lulw. Ja, das funzt. Okay, das,
+das war schon ein bisschen einfacher als in Go an der Stelle.
+Weil Rust ist deutlich besser, also wir brauchen kein C, Go und C, Struct definieren und sowas.
+Das ist einfacher. So, und jetzt kommt ein String. Jetzt bin ich mal gespannt, wie das funzt.
+Kann ich, kann ich einfach sagen, String, das geht doch im Leben nicht, oder? Wenn ich hier einfach sage, ich returne ein String.
+Keck weh.
+Okay, jetzt kommt Rust-Gedöns.
+Warum kann ich einem Struct String kein String zuweisen?
+Weil man irgendwie sagen muss, Pass as String oder sowas. Ich erinnere mich dunkel.
+From String, from to String. Wo ist der Unterschied dazwischen?
+Aber das habe ich schon mal, das habe ich schon mal gesehen in Rust, ja.
+Das kompiliert zwar, aber das wird nicht funktionieren.
+Das wird, das wird so nicht funktionieren, weil die Rust-String-Repräsentation ganz anders ist.
+Als das, was sich C-Sharp vorstellt.
+Aber wir können es mal ausprobieren. Wir stellen uns einfach mal wieder doof und sagen, das ist ein String, okay.
+So, das wird nicht funzen.
+Es crasht sogar.
+Crasht es? Crasht es wirklich?
+Ja, es crasht.
+Okay, es crasht, es crasht komplett.
+Macht einfach gar nichts.
+Also das funzt so definitiv nicht.
+Aber das habe ich auch schon gedacht.
+Ich brauche, ich brauche ein c-string oder sowas. Oder einen, oder einen character array oder sowas.
+Wir gucken mal in die Hilfe von Rust. Ach hier guck mal.
+Const c, Const c char.
+Hat er importiert?
+hat er importiert?
+konsti
+das geht natürlich nicht
+kann man sowas machen wie pointer?
+es pointer
+aber das ist kein null
+terminierter string
+das
+das kann man sagen wie into pointer
+oder so
+rust magic
+das funzt nicht
+was ist konst
+konst u8
+das ist jetzt quasi ein byte array
+kompiliert
+ich bin mal gespannt was jetzt
+in C sharp rauskommt
+es crasht einfach wieder
+ok
+es crasht
+ok dann probieren wir was anderes
+dann probieren wir was anderes
+int pointer
+das sollte jetzt nicht mal crashen
+es crasht immer noch
+ich habe die
+go session bearbeitet
+ah
+ich bin ein kack noob
+ok das funzt
+also
+hier gibt es den int pointer
+hier kriege ich den int pointer
+zurück
+und was kann ich mit dem int pointer jetzt machen
+sicherlich nicht als string parsen
+oder
+marshall
+pointer to string
+bam geht nicht
+pointer
+to
+ey das funzt nicht
+das ergibt aber auch sinn dass das nicht funktioniert
+weil rust strings sind ja nicht null terminated
+und sonst wie das
+das klappt nicht
+mut u8 haben wir auch noch
+nicht dass das was ändert oder so
+ne ne das funzt nicht
+ok also ich muss da irgendwie mit
+c string hantieren
+c string new
+c unwrap
+das klingt sehr rust style
+machen wir es mal sowas hier
+let str gleich
+c string
+was
+new
+und jetzt hier sowas wie
+kack w oder so
+und an der stelle dann
+hier machen wir auch wieder char
+c char
+und an der stelle dann str
+ok ne funzt nicht
+warum
+expected const
+found
+ah nochmal unwrap
+unwrap
+unwrap muss da oben hin
+unwrap
+unwrap
+into raw
+into raw
+klingt doch sinnvoll oder
+s pointer
+zack kompiliert
+run
+oh
+das lookt nicht korrekt
+das lookt gar nicht korrekt
+das sieht nach
+wurde gefreed aus
+das ergibt
+auch sinn dass es nicht funktioniert
+weil rust
+wird das hier wahrscheinlich verwerfen
+sobald die funktion zu ende ist
+jetzt ist die große preisfrage
+wie kriege ich rust dazu
+dass es das
+überlebt
+wir gucken uns mal die hilfe von c
+string in rust an
+global definieren
+ne ne ne
+extracting a raw pointer
+s pointer
+also eins kann man rust ja meistens nicht vorwerfen
+dass uns zu wenig docs haben
+aber dass ich nicht durchblicke
+ist schon wieder
+s pointer
+ja so schlau bin ich auch
+safety
+ich muss
+ich muss dem ding jetzt
+bei rust ist es so
+rust ist super pingelig
+was lifetime von objekten angeht
+und rust ist schlau genug und weiß
+am ende dieses dings
+normalerweise müsste ich jetzt sowas machen
+ja irgendwie und also rust
+logisch da muss man dann und mut oder so
+komisches zeug da vormachen
+aber das also
+dass ich rust sage
+ich möchte
+quasi das ownership
+heißt das bei rust übertragen an den der aufruft
+aber ich weiß nicht wie das funktioniert
+geht mit nem apostrophe
+mit was
+so
+alter rust macht mich fertig
+ne ne das kanns nicht sein oder
+examples
+den hat man schon
+weg
+wenn du willst übergibst du einfach noch den c string noch mal als
+feldinstruct
+ich übergebe doch das
+feldinstruct
+hier
+oder du meinst hier c string
+ja aber das wird doch
+da nicht so funktionieren wie ich mir das gedacht
+hab oder
+so
+nee its not ffe safe
+das wird nicht funktionieren so
+siehste
+crasht einfach direkt ne ne ne ne
+so funzt das nicht
+ähm
+wir sind glaube ich
+im richtigen weg
+das ist glaube ich garnicht so verkehrt
+vielleicht muss ich auch einfach sagen
+mut
+hier oben anstatt konst
+in c sharp muss das in den session daten
+zu string geändert werden nee muss es nicht
+ich bekomme nen in pointer
+und den wandle ich dann selbst
+in den string um das muss auch funktionieren
+ok das geht nicht warum
+weil
+type differs in
+expected raw pointer
+und found raw pointer
+konst
+jetzt kommt richtig krasses
+nice backseating hier an start
+und das soll jetzt funktionieren
+da hab ich so meine zweifel
+dass das funzt
+und
+funzt nicht
+ich will dem sagen dass er hier
+ownership übertragen soll
+ok wie geht das
+was haben wir denn sonst noch hier
+from raw
+into raw
+consumes
+the c string and transfer
+ownership of the string to the c
+caller das ist das
+was ich wahrscheinlich will
+into
+into raw
+das gibt ein mut
+c char
+was ja auch durchaus ok ist ich kann ja da drin rum
+sauen wie ich will mach ich aber nicht aber könnte ich
+ok lässt sich
+kombinieren und jetzt und jetzt
+post champ
+post champ ich finde meine
+emotes grad nicht
+post champ time
+funzt easy
+kaum macht man es richtig
+easy as fuck
+easy
+easy
+easy as fuck
+hat funktioniert
+also so funzt das in rust
+c string
+moment
+und dann sagt man
+moment
+das ist go
+und dann sagt man
+into raw
+so was haben wir denn sonst noch
+the pointer
+which this function returns
+must be returned to rust
+and
+reconstituted using
+c string from
+raw
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+so
+Das ist schon ein See, quasi. Ohne was dazwischen.
+Zwei Sekunden, vier Gigabyte RAM, Alter.
+Mich würde nicht wundern, wenn irgendeine IDE abgekackt ist, jetzt, weil er zu viel RAM sich geschnappt hat.
+Halbe Forkbomb ist das schon, ohne sich zu forken. Gut.
+Also, was müssen wir machen?
+The pointer which is found must be returned to Rust and re-configured using C-String from raw to be properly deallocated.
+Da bin ich mal gespannt, ob das stimmt, was die da sagen.
+Wir machen jetzt da einfach mal ein String draus, weil dann wissen wir ja, dass der automatisch freet.
+Und jetzt sollten wir kein Memory Leak mehr haben.
+Wir haben kein Memory Leak mehr.
+Alles perfectly fine.
+Na, oder vielleicht doch so ein kleines Memory Leak vielleicht.
+Ne, wir haben kein Memory Leak.
+Aber, aber vielleicht doch ein kleines.
+Genau, C-Sharp macht wieder free.
+Profile ist doch... Ich weiß ehrlich gesagt gerade nicht, wie gescheit, weil...
+...mein Rider ist irgendwie der Meinung, Debugger funktioniert nicht.
+Warum auch immer, vielleicht geht er jetzt.
+Nö.
+Obwohl ich's mit... er versucht mein...
+...ihr .NET Location, ergibt überhaupt keinen Sinn, der soll mein .NET verwenden und nicht das falsche .NET.
+Ja, ist es nicht!
+Ist es eben nicht!
+Das Ganze ist ein .NET 8 Projekt und er zeigt's auch hier an, dass es .NET 8 ist.
+Aber Rider ist der Meinung, ne...
+...ist es nicht. Guck hier, .NET 8, .NET Version 8.
+Ich weiß nicht, keine Ahnung, ergibt keinen Sinn, ich glaub...
+...ich glaube fast, das ist ein Bug in Rider, was wir hier haben.
+.Memory.
+So, und jetzt lesen wir mal weiter, was hier steht.
+Ja, okay, hier.
+Specifically, one should not use the standard C3 function to deallocate the string.
+Das ist schon mal falsch, was wir da gerade machen.
+Failure to call CString from raw will lead to a memory leak.
+The C-Site must not modify the length of the string?
+Ja, okay.
+Also müssen wir noch das hier machen.
+Bedeutet im Endeffekt auch, so dass wir kein Memory leaken, brauche ich noch eine Funktion, die nennen...
+Ups.
+...brauche ich noch eine Funktion, die nennen wir jetzt einfach mal hier, ähm...
+...pre-stril oder so.
+Und da rufen wir jetzt auf...
+...CString from raw, okay, hier Pointer rein.
+Und dann wahrscheinlich, wahrscheinlich, äh, okay, Rust.
+Rust, geht das so?
+Achso, das muss in den Unsave-Block.
+Ist ja fast wie in .NET hier.
+Öh, das ist nicht einfach.
+Ich will das so haben.
+Warum, warum sieht der Unsave-Block hier so kacke aus?
+Ah, dann machen wir es so.
+Okay, und jetzt ist das, jetzt ist das safe.
+Da muss ich das aber noch dazu aufrufen, und zwar...
+...würde ich sagen...
+...muss ich dann hier noch...
+...was reinpacken, und zwar...
+...nicht call Rust, sondern...
+...pre-stril...
+...int Pointer...
+...äh...
+...so, und wenn ich jetzt das Memory-Leak vermeiden will...
+...sage ich interop pre-stril...
+...und gebe da Session meinen...
+...nee, nein, ich mein String, das funktioniert ja so jetzt nicht.
+Ja, okay, jetzt ergibt das Sinn, jetzt müssen wir es nämlich wirklich selbst machen.
+int Pointer...
+Ich hab schon wieder das Falsche editiert, man.
+Ich hab schon wieder die Go-Session editiert.
+int Pointer, wir benennen das übrigens mal gescheit, sonst kann ich es gar nicht mehr nicht merken.
+Client Name, so.
+Und jetzt sollte das Memory-Leak auch wieder weg sein.
+Ja, ja, ja, ja.
+Da liegt nix mehr.
+Ich mein, es ist offensichtlich, vorher hatten wir 4 Gigabyte pro 2 Sekunden und jetzt haben wir nix.
+Okay.
+.memory hab ich noch nie ausprobiert, kann man .memory vielleicht installieren über die Toolbox?
+.trace haben wir.
+.net performance profiler.
+Geht das damit auch?
+Hab ich noch nie, hab ich noch nie verwendet.
+Zeigt der mir auch die Memory-Usage?
+Eigentlich, ohne Scheiß...
+Eigentlich fucks mich übelst ab, dass der Ryder-Debugger nicht geht.
+Warum geht da Ryder? Okay, ich hab ne Idee, woran das liegt.
+Wir gehen jetzt mal hier auf Build & Tool Sets.
+Es ist eindeutig richtig eingestellt.
+Kann ich das systemweit speichern, einfach?
+Jetzt funzt's.
+Shit, warum benutzt der? Alter, was ist das für ein Kack?
+Warum benutzt der so ein alles outdatedes .net?
+Versteh ich nicht.
+Es ist irgendein Bug.
+Hier ist alles richtig eingestellt.
+Nee, der Ryder benutzt die Runtime, die ich ja ausgewählt hab normalerweise,
+aber anscheinend macht's das in dem Fall nicht, weil's irgendwie verbuggt ist.
+Was ziemlich suckt.
+Ich weiß es nicht.
+Das sind doch die richtigen Settings, oder was?
+Ich wüsste nicht, was hier dran...
+Weil die Runtime auch stimmt.
+Wir können hier nochmal die Runtime hinzufügen.
+maxhome.net
+.net
+Custom. So, Apply.
+Ah, jetzt geht's!
+Jetzt geht's.
+Glaub ich zumindest.
+Oder?
+Ja.
+Memory.
+Haben die nicht sowas?
+Chat Gil.
+Ich benutze den Debugger in Ryder sehr selten.
+Haben die nicht so eine Anzeige wie in Visual Studio Code,
+wo man einfach sehen kann live, was das für Memory verwendet?
+Anscheinend nicht, oder?
+Ja, stimmt auch wieder.
+Aber ist doch blöd, dass das nicht eingebaut ist, oder?
+Das ist dann tatsächlich eine Sache, wo ich sagen würde,
+da ist Visual Studio Code angenehmer.
+Äh, nicht Visual Studio Code, äh, Visual Studio angenehmer.
+Auf die drei Dots bei Debuggen.
+Du meinst hier, oder wo?
+Oder da?
+Profile with Sampling.
+Ah.
+Excellent.
+So, und wo seh ich jetzt den, den RAM-Verbrauch?
+Erst wenn ich's wieder geschlossen hab, oder...
+...seh ich das live?
+Da gibt's doch eins für Memory.
+Echt?
+Snapshot?
+Ey, das ist aber nicht die Memory-Size, oder?
+Äh, boah, da blinke ich nicht durch, das mit zu high IQ jetzt.
+Das mir, das ist mir massified zu high IQ, äh.
+Was ist jetzt CPU? Ja, ich hätte gerne Memory.
+Das massify IQ Zeug hier.
+Okay, stoppen wir mal.
+Profile with? Profile running process? Profile...
+Sampling? Memory!
+Ja, sowas such ich!
+Genau.
+Excellent.
+Genau das hab ich gesucht.
+Dass man sieht, wie viel Speicher das Ding verbraucht.
+Man sieht, wir haben absolut null Memory-Leaks.
+Gar nix.
+Null Memory-Leaks.
+Es ist einfach die ganze Zeit...
+...immer auf 43,59.
+So, wir können das, wir können das Ganze, Ganze nochmal...
+...checken, indem wir sagen...
+...wir lassen das, wir lassen das Free mal weg, aber...
+...wir machen...
+...wenn man in Sleep kurz rein...
+...von...
+...einer Millisekunde...
+...das ist...
+...jetzt hatten wir es mehrfach drauf, dass es nicht sich komplett in die...
+...in die, in die Quere kommt, ja.
+So, und jetzt sagen wir...
+...Profile with Memory.
+Ich hätte jetzt eigentlich erwartet...
+...ich hätte jetzt eigentlich erwartet, dass das...
+...irgendwie...
+Es geht hoch, ja es geht hoch, guckt Leute.
+Es geht hoch.
+Langsam, weil eine Millisekunde Sleep dazwischen...
+...und eine Millisekunde ist verdammt viel...
+...wenn der Millionen Aufrufe pro Sekunde macht normalerweise.
+Ja.
+Jetzt sieht man, dass ein Memory-Leak drin ist.
+Guckt, es geht immer ein bisschen weiter hoch.
+Nice, nice.
+Okay, heute, das ist wirklich nice...
+...dass ihr wusstet, wo das ist, weil...
+...ähm...
+...wir können aber sagen, Timespan...
+...Brom...
+...Microseconds...
+...jede Mikrosekunde...
+...einfach, bam.
+Profile Memory.
+Oh ja, guckt Leute.
+Jetzt geht's steil.
+Jetzt geht's steil.
+Die Speicher aus Gigabyte.
+1,2 Gigabyte, 1,4, 1,6, 1,7.
+Ja, jetzt wird Memory-Leaked as fuck.
+Jetzt hat man's, jetzt hat man's wirklich gut gesehen.
+So, und jetzt machen wir das Free rein.
+Jetzt machen wir das Free rein.
+Aber Chat, da habt ihr mal was Gutes gezeigt.
+Das wusste ich gar nicht, dass es das gibt.
+Das ist mega praktisch dafür.
+Rider ist einfach echt beste.
+So, guckt, und jetzt kein Memory-Leak mehr.
+Es bleibt einfach bei 44 MB Memory total used.
+Excellent, Leute.
+Excellent, excellent.
+Okay.
+So, und was lernen wir daraus?
+Okay, wir machen jetzt nochmal einen abschließenden...
+...wie krieg ich denn das hier minimiert, so?
+Jetzt machen wir nochmal einen abschließenden Vergleich...
+...zu diesem ganzen Campbell.
+Wir schmeißen das hier raus.
+Wir sagen...
+...Duster wird einmal aufgerufen.
+Dann wird Interop...
+...Call Rust einmal aufgerufen.
+Interop Call Rust 2.
+Und Interop Call Go.
+So, jetzt lassen wir uns einmal noch Benchmark-Ergebnisse...
+...generaten.
+Zum Vergleich...
+Das kommt weg.
+Also, den .NET-Vergleich, den machen wir mal wieder raus.
+Den braucht eigentlich niemand an der Stelle.
+Wir wissen, dass .NET schnell ist.
+Von .NET zu .NET.
+Ja, also hier Run.
+Gucken wir uns das nochmal abschließend an.
+Go 2.
+Und...
+...Run Rust 2.
+Wobei wir da...
+...tatsächlich noch einen Free machen müssen.
+Der in Go unter der Haube passiert.
+Aber das ist ja nicht schlimm.
+So.
+Und jetzt können wir nochmal den Benchmark laufen lassen.
+Und uns freuen...
+...dass wir eine tolle Benchmark-Ausgabe kriegen.
+Glaube ich zumindest, dass ich nichts falsch gemacht habe.
+Oh, doch.
+Run, Run Rust.
+Fehlt noch das normale...
+...Call Rust.
+So, okay.
+Wenn man jetzt noch richtig schreiben könnte, wäre perfekt.
+Gibt es überhaupt Go 2, ja?
+Gibt es?
+Go 2 macht das mit dem Struct.
+So, ich bin mal gespannt.
+Habst du da High IQ Stream heute?
+Ja, stimmt schon.
+Übrigens schön, dass so viele Leute wieder am Start sind.
+Ich meine, das ist ja nicht selbstverständlich...
+...dass quasi die ganze Zeit über 200 Leute zugucken...
+...bei so einem Kram hier, ja?
+Muss man beim Struct in Rust nicht auch die Namen anpassen...
+...oder hattest du das schon gemacht?
+Ne, warum brauche ich die Namen anpassen?
+Was meinst du?
+Du meinst, weil das in C Sharp...
+...heißt...
+...Session Rust und Session Go?
+Das ist Wurscht.
+Wichtig ist einfach nur, dass die...
+...das Speicher-Layout das gleiche ist.
+Ich könnte es auch ein...
+...ich könnte es auch...
+...Cacquait, QChat, Ajaja nennen.
+Das Struct.
+Vollkommen egal, wie das...
+...wie das in C Sharp heißt.
+A Client ID ist der Name auch egal.
+Der Typ ist das Wichtige.
+Also hauptsache, dass das Struct...
+...denn das ist das richtige Memory-Layout.
+Also dass es in Rust A und B heißt, ist vollkommen egal.
+Wichtig ist, dass es ein Struct ist...
+...dass als erstes ein Bool kommt...
+...als zweites ein Int...
+...als drittes ein String oder sowas.
+Das muss stimmen in beiden Sprachen.
+Wie das heißt, ist vollkommen egal.
+Weil die...
+...denn die Namen stehen dann irgendwo drinne.
+Was der sich einfach merkt, ist...
+...die Size von dem Struct...
+...und wie er das dann quasi...
+...casten muss in den eigentlichen Managed-Typ...
+...vom...
+...von der Speicher-Aufteilung her.
+Ja, ich mag die Streams auch.
+Ich meine, ich kann natürlich eben nicht immer...
+...so Sachen aus dem Ärmel schütteln, ja.
+Immer nur, wenn was ansteht.
+So, ich bin mal gespannt, was bei den Benchmarks rauskommt.
+Wobei, eigentlich bin ich nicht gespannt.
+Wir wissen alle, was rauskommt.
+Rust schneller.
+Ja.
+Um Längen schneller.
+Guckt mal.
+Also...
+...die Funktion...
+...hier...
+...die pure Rust-Funktion aufrufen...
+...ist einfach 124 Nanosekunden zu 8,5 Mikrosekunden.
+Und hier ist...
+Go braucht für die Geschichte mit dem Struct...
+...18...
+...Nanosekunden...
+...18.000 Nanosekunden...
+...ne, Moment.
+18.000 Nanosekunden...
+...also 18 Millisekunden, sehe ich das richtig?
+Chat?
+Ne, Mikrosekunden.
+Mikrosekunden, nicht Millisekunden.
+Meine Güte!
+Boah!
+Einheiten!
+Keck, wait!
+18 Mikrosekunden...
+...und Rust braucht einfach nur 2.
+Ist schon eine ganze Ecke schneller.
+Und hier haben wir...
+...und das dürfen wir nicht vergessen...
+...hier haben wir 2 Calls...
+...drinne.
+Wir haben...
+...in der...
+...und es sind trotzdem schneller.
+Wir haben 2 Calls.
+Wir haben den...
+...eigentlichen...
+...Call zum Struct erzeugen...
+...und wir haben den Call zum Free noch drinne.
+Nimm mal String als Type und nicht Pointer.
+Lass ihn Free callen.
+Sollte schneller sein.
+Ne.
+Also, ja.
+Ne.
+Also, ja.
+Vielleicht ist das...
+...ein Ticken schneller.
+Weil .NET das Free macht...
+...und nicht Rust gecallt wird.
+Aber...
+...die Rust-Docs sagen explizit...
+...man soll nicht Free callen, sondern...
+...soll das zurück an Rust geben...
+...und Rust soll es freeen.
+Sonst Memory Leak.
+Es ist...
+...also du hast Recht, das ist schneller.
+Aber wir können das ausprobieren.
+Schade nix.
+Wir können das ausprobieren.
+Ich lass das...
+...ich lass das mal weg.
+Und wir ändern den hier zu String.
+Wir haben ja gesehen...
+...wir haben auch nahezu kein Memory Leak...
+...und führen das Ganze nochmal...
+...ööö...
+...ja.
+Jetzt sollte er schneller sein...
+...aber wir haben potenziell ein Memory Leak.
+Zumindest...
+...sagen die Rust...
+...sagt die Rust-Doku das...
+...dass wir dann einen Memory Leak haben.
+Wenn wir das nicht so machen.
+Also Arduino plus Rust...
+...hab ich noch nie gemacht.
+Ich bin eher der ESP32-Enjoyer.
+Und da ist Rust ja auch nur...
+...sagen wir mal so...
+...sehr rudimentär.
+Vieles geht ja in Rust noch nicht.
+Ich glaube, Rust und WiFi...
+...geht glaube ich auch noch nicht...
+...auf dem...
+...auf dem ESP32.
+Ja, genau.
+Das...
+...das...
+...genau deshalb denke ich auch.
+Es kann ja auch möglich sein...
+...dass Rust nicht einfach...
+...den...
+...den...
+...das Memory...
+...allocated...
+...über die...
+...das normale C-Malloc...
+...sondern irgendwas eigenes macht.
+Und dann bringt ja normales C-Free...
+...an der Stelle ja auch wenig.
+Wenn da noch Sachen nestet...
+...irgendwie anderweitig allokiert sind...
+...von denen nur Rust was weiß.
+Also das ergibt schon Sinn.
+Und dass das auch ein Memory-Leak hat...
+...gehe ich auch von aus...
+...aber es dürften wahrscheinlich...
+...nur ein paar Bytes sein.
+Über Unsafe sollte WLAN gehen.
+Sofern man die...
+...eingebauten...
+...ESP-C-Sachen aufrufen kann aus Rust...
+...dann vielleicht, ja.
+Aber ehrlich gesagt...
+...muss ich...
+...muss ich sagen...
+...Plattform-IO...
+...und auch wenn da unter der Haube...
+...C++ für den ESP32 ist...
+...ist recht angenehm.
+Ich glaube ehrlich gesagt...
+...dass in dem Fall C++...
+...und ich sag's nur ungern, ja...
+...aber C++ für solche Sachen...
+...angenehmer ist.
+Rust plus...
+...plus Arduino...
+...gibt's da denn ein gutes Projekt für?
+Wir hatten das...
+...wir hatten das geschrieben.
+Gibt's da ein gutes Projekt für?
+Kannst mal schicken...
+...vielleicht können wir uns das wirklich angucken.
+So.
+Leute, ich weiß nicht warum...
+...aber das Ganze ist jetzt langsamer geworden...
+...wenn wir C-Sharp freen lassen.
+Okay?
+Also es ist schneller...
+...es ist schneller Rust freen zu lassen als...
+...als C-Sharp freen zu lassen.
+Okay?
+Ah ja.
+Meinetwegen...
+...soll mir recht sein, okay.
+Der Benchmark hier unten...
+...ist aber für meine Sachen...
+...eh nicht sonderlich relevant...
+...weil die Funktion...
+...die ich wirklich schnell in der Schleife aufrufe...
+...ist nichts was Strings oder so returnt...
+...sondern das returnt gar nichts.
+Bekommt einfach nur nen...
+...nen Pointer als Parameter übergeben...
+...den es auch nicht selbst freen muss.
+Also insofern ist das hier eigentlich für mich...
+...die, die, der relevantere Benchmark...
+...und da ist Rust meilenweit schneller.
+.NET ist noch einen Ticken schneller...
+...also .NET zu .NET ist logischerweise...
+...schneller als .NET zu Rust...
+...aber Rust ist um Welten schneller als Go.
+Überrascht mich aber auch nicht...
+...weil ich wusste dass C-Go langsam ist...
+...und ich wollte einfach mal gucken...
+...ob es mittlerweile besser geworden ist.
+Ich würde sagen es ist besser geworden...
+...aber es ist immer noch ziemlich...
+...ziemlich lahm...
+...wenn man Millionenfach das aufruft.
+Wenn man das jetzt einfach nur...
+...ein paar tausend mal aufruft oder so...
+...drauf geschissen...
+...da macht es ein bisschen Overhead auch nicht aus.
+Aber wenn man das Millionenfach...
+...pro Sekunde aufruft...
+...dann macht es schon einiges aus.
+Was ich übrigens auch nicht machen werde.
+Also...
+...also für meine Verhältnisse...
+...könnte ich auch einfach...
+...die Go Library verwenden...
+...aber warum?
+Ich meine...
+...wir können...
+...das machen wir dann...
+...einmal nächsten Streams...
+...da machen wir dann...
+...WebRTC in Rust.
+Sind auch Aufrufe von Go nach C langsam?
+Ja, ja, auch...
+Theoretisch sind die ein Ticken schneller...
+...also früher war es so...
+...Aufrufe von Go nach C...
+...waren langsam...
+...also auch langsamer als von anderen Sprachen...
+...von anderer Sprache nach C...
+...aber...
+...in Go reinkollen von C aus...
+...war nochmal eine Ecke langsamer.
+Mittlerweile...
+...mittlerweile ist es glaube ich...
+...ungefähr gleich langsam.
+Aber das ist auch langsam, ja...
+...es ist vielleicht nicht ganz so langsam...
+...wie von anderer Sprache zu Go...
+...aber auch langsam.
+Go hat mit...
+...mit...
+...den langsamsten Interop...
+...mit anderen Sprachen...
+...von allen Programmiersprachen...
+...die es gibt.
+Go an sich ist relativ flott...
+...aber...
+...was hier alles immer über irgendeinen C-Interface geht...
+...da ist Go richtig langsam...
+...was auch ein Problem ist...
+...weil...
+...die ganzen...
+...Wrapper-Libraries für SQLite...
+...oder für irgendwelche anderen Low-Level-Sachen...
+...die sind potenziell in Go einfach arschlangsam...
+...weil...
+...C-Go langsam ist.
+Also wenn man ordentlich Load drauf hat...
+...und...
+...und...
+...und...
+...und...
+...und...
+...und...
+...also wenn man ordentlich Load drauf hat, ja...
+...deswegen gibt es beispielsweise für SQLite...
+...ein Projekt...
+...das SQLite...
+...transpiled nach Go...
+...damit es native Go kompiliert werden kann...
+...und nicht mit C-Function-Calls...
+...weil SQLite unter ordentlich Last wohl...
+...eine nicht zu unterschätzende Overhead hat...
+...weil es sehr viele C-Calls macht in Go...
+...weil SQLite halt eine C-Library ist.
+Ja.
+Also macht Probleme...
+...Go ist schnell, solange man sich innerhalb von Go bewegt.
+Und gibt es noch ein paar Examples?
+Examples?
+Plattform-IO.
+Nice.
+Ach, haben die das jetzt offiziell in Plattform-IO drin, ne?
+Ne, das ist das ganz normale...
+...ESP-IDF...
+...Source...
+...Main-AS.
+Okay, ja, da haben sie Rapper um Sachen gebaut, okay.
+Ja, also anscheinend kann man...
+...in den Makro-Zeug...
+...also anscheinend kann man auch...
+...ESP mit Rust programmieren, aber ganz im Ernst, das...
+...tue ich mir nicht an.
+Jo.
+Nice, Chat.
+Fast drei Stunden...
+...heute ganz schön lang gestreamt, heute Morgen drei Stunden, jetzt drei Stunden...
+...das Maurice-Video.
+Jo.
+Chat.
+Wir sind fertig für heute.
+Schön, dass ihr am Start wart.
+Guckt mal kurz, ob wir irgendjemand hosten können.
+Ich hoffe, euch hat der Stream heute gefallen.
+Wir haben...
+...okay.
+Hier haben wir...
+...hier haben wir einen am Start, vielleicht hoste ich den, zeigt mal.
+Der macht...
+...ja, ja, Fake-Email.
+Der macht...
+...Devops plus Kubernetes.
+Oh.
+Der...
+Ich glaube, der macht auch gerade seinen Stream aus, weil er Stream-Manager ist.
+Na gut.
+Dann nicht.
+Okay, Chat.
+Dann gehe ich auf.
+Bis denn, macht's gut.
+See you.
+Winke-Winke.
