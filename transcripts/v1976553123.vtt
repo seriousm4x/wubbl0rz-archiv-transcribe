@@ -1,0 +1,5830 @@
+WEBVTT
+
+00:33.390 --> 01:40.760
+Ich weiß, dass mich das heute extrem aufregen wird, weil Rust ist so ne, also bei Pearl hat
+
+01:40.760 --> 01:51.640
+man immer gesagt, write only, aber Rust ist nicht write only, Rust ist, also eigentlich
+
+01:51.640 --> 01:57.320
+weder write noch read. Es gibt ein paar Verrückte, die gerne Rust programmieren und es gibt
+
+01:57.320 --> 02:15.320
+auch ein paar Verrückte, die gerne Rust lesen, aber die meisten Leute eher nicht. So, kurzer
+
+02:15.320 --> 02:21.720
+Z entknotet. Rust ist pain only, wobei man das auch nicht sagen kann, Rust ist für die
+
+02:21.720 --> 02:27.440
+eine Sache, also für diese eine Nische, wofür es auch gemacht ist, wirklich gut. Ja, Rust
+
+02:27.440 --> 02:33.280
+ist ja im Endeffekt, es kommt nicht umsonst von Mozilla, oder Mozilla, die coolen Leute
+
+02:33.280 --> 02:41.040
+sprechen, sprechen das ja alles immer besonders cool betont aus. Und das kommt nicht umsonst
+
+02:41.040 --> 02:45.480
+von Mozilla, das ist für diese eine Nische wirklich gut, wo du nämlich mehr oder weniger
+
+02:45.480 --> 02:51.720
+kompromisslose Performance brauchst und so gut wie möglich Memory Safety, also dementsprechend
+
+02:51.720 --> 02:57.320
+weniger Sicherheitslücken. Dafür ist Rust gut, für alles andere nicht. Leider wird
+
+02:57.320 --> 03:04.120
+Rust heute irgendwie für so nahezu alles verwendet, auch ohne wirklich einen guten
+
+03:04.120 --> 03:13.780
+Grund dafür zu haben, weil Hauptsache Plays really fast, written in Rust. Gatchi roll,
+
+03:15.540 --> 03:24.550
+gatchi, gatchi, gatchi roll. Schauen wir mal die VM an. Also, wie immer, ihr müsst beim
+
+03:26.030 --> 03:29.830
+Stream gestern nicht dabei gewesen sein, wir machen nicht wirklich an der Stelle weiter,
+
+03:29.830 --> 03:34.910
+wo wir gestern aufgehört haben. Wir erstellen ein neues Projekt und kopieren uns zwei Sachen
+
+03:34.910 --> 03:39.910
+von gestern. War ja nicht, ist ja in der Summe nicht viel bei rumgekommen. Obwohl wir viel
+
+03:39.910 --> 03:50.840
+gemacht haben, aber nicht viel was wir brauchen. Zick, oder Sick hat er es auch. Habe ich natürlich
+
+03:50.840 --> 03:59.840
+nicht verwendet, weil bei uns geht es ja immer First Try, da braucht man keine Tests. Weil,
+
+04:00.160 --> 04:11.380
+es gibt wirklich wenig Sprachen. Ja, wirklich wenig Sprachen. Okay, Go, ja, Go. Also bei
+
+04:21.220 --> 04:29.710
+Go ist das, Go Test ist ja irgendwie mit eingebaut, glaube ich. Ansonsten, Frexor, hast du ja aus
+
+04:29.710 --> 04:36.710
+gehabt. So ist es richtig. So ist es richtig. Wenn Tests kaputt liegen, muss das prinzipiell
+
+04:37.030 --> 04:41.150
+an den Tests liegen und nicht daran, dass vielleicht was kaputt ist. Immer, immer, immer
+
+04:41.150 --> 04:47.670
+die Tests ändern, dass sie immer grün sind. Und am besten darauf schieben, dass die Leute
+
+04:47.670 --> 04:52.510
+einfach nur unfähig waren, die die Tests entwickelt haben. Blöd, wenn man es selbst war. Ja gut,
+
+04:52.510 --> 04:56.630
+man kann auch mal einen schlechten Tag gehabt haben. So, ich muss mal kurz andere Musik
+
+04:56.630 --> 05:01.910
+anmachen. Wir machen die Playlist vom letzten Mal an. Die fand ich eigentlich ganz entspannt.
+
+05:01.910 --> 05:08.910
+Also nicht die hier. Wir machen wieder die Playlist vom letzten Mal an. Die war sehr
+
+05:14.030 --> 05:33.610
+angenehm, Background mäßig. Es gibt ja, besser gesagt, das war ja eine Zeit lang im
+
+05:33.810 --> 05:40.450
+Trend, dass man Test Driven Development macht. Und da ist es ja in der reinen Lehre so, du
+
+05:40.490 --> 05:45.490
+definierst, was die Software machen soll, dann erstellst du Tests und dann baust du
+
+05:45.490 --> 05:50.290
+die Software zu. In der Praxis, so hundertprozentig funktioniert das nicht, weil man einfach viel
+
+05:50.290 --> 05:53.970
+zu langsam ist. Und gerade, wenn man noch am Basteln ist und nicht genau weiß, was
+
+05:53.970 --> 05:59.370
+am Ende rauskommen soll, ist das kein allzu praktikabler Ansatz. Aber es gibt ja sogar
+
+05:59.370 --> 06:06.370
+was, was danach benannt ist. Also insofern, ganz so verkehrt ist das sicher nicht. So,
+
+06:06.370 --> 06:13.940
+start x. Nochmal Package Update machen. Also heute bauen wir ein bisschen was in Rust.
+
+06:13.940 --> 06:22.310
+Oh, ich hab nix zu trinken hier. Chadke? Zack? Zack, ich muss mir was zu trinken holen. Sonst
+
+06:23.550 --> 07:07.860
+wird das hier nix. Alles klar, bin schon wieder da. Also, damit hab ich noch nie was gemacht
+
+07:07.860 --> 07:18.220
+mit Elixier. Funktional bedeutet in der Regel ganz viele nestete Klammern. Zumindest meistens.
+
+07:18.740 --> 07:25.740
+Also ich hab beispielsweise schon mal Erlang, bisschen mehr gesehen. Und wie heißt das
+
+07:26.500 --> 07:33.500
+auf Bajava? Closure oder so? Gibt's da noch? Das hat auch saumäßig viele Klammern. Elixier
+
+07:37.410 --> 07:49.940
+hat Ruby Sündag. Ja, das ist gut. Ruby Sündag ist Pog. Den Zusammenhang verstehe ich nicht,
+
+07:50.940 --> 07:56.540
+über ein halbes Jahr kein Backup und ein Dreivierteljahr kein Backup. Das ist vielleicht
+
+07:56.540 --> 08:04.140
+nicht so schlau. Es sei denn, es gab in der Zwischenzeit nix Neues dabei. So, hauen wir
+
+08:04.140 --> 08:10.260
+hier mal zu. Firefox auf. Dann sage ich euch, was wir machen. Also, ich glaube wirklich
+
+08:10.260 --> 08:15.780
+großartig viel sehen wird man heute nicht. Wir rufen wieder unseren Rust-Code aus .NET
+
+08:15.780 --> 08:20.500
+auf und gucken dann, ob was Gescheites zurückkommt. Wie das Prinzipiell geht, haben wir gestern
+
+08:20.500 --> 08:27.500
+schon ausprobiert. Deswegen erstellen wir da jetzt ein neues Projekt. Ziel ist es mal
+
+08:28.660 --> 08:35.660
+am Ende, dass ich per WebRTC Video rüberschicken kann von FFmpeg in einen Browser. Dass das
+
+08:36.820 --> 08:41.820
+geht, das weiß ich. Das habe ich schon oft genug gemacht. Aber diesmal mit Rust-WebRTC-Library.
+
+08:41.820 --> 08:48.820
+Soweit werden wir heute aber nicht kommen. Ich werde schon am Verzweifeln sein, Basics
+
+08:49.460 --> 08:56.180
+in Rust hinzubekommen. Rust ist so echt. Schön ist was anderes. Außerdem habe ich nicht
+
+08:56.180 --> 09:01.180
+sonderlich viel Ahnung von Rust. Das kommt ja noch dabei. So, hier nochmal Update. Oh
+
+09:01.180 --> 09:08.180
+Gott, Kernel-Update müssen wir auch gleich rebooten. Nochmal. Also, Ruby Syntax ist äußerst
+
+09:09.260 --> 09:14.260
+pock. Max, danke für den Sub. Ne, gar kein Sub. Was ist hier los? Keck, wait. An String
+
+09:14.260 --> 09:26.860
+hören. Erledigt. Achja, wo wir gerade beim Thema sind. Sprachen mit integrierten Tests.
+
+09:27.140 --> 09:32.980
+Ich glaube, dass Javascript sogar mit Node mittlerweile Tests integriert hat. Kann das
+
+09:32.980 --> 09:38.420
+sein? Ich bilde mir ein. Ich habe da was gelesen. Ich bilde mir ein. Node bringt jetzt ein Standard
+
+09:38.420 --> 09:47.370
+Test Framework und ein Standard Test Runner mit. Ist dies korrekt? Fiver Chat. Ich habe
+
+09:51.580 --> 10:00.400
+es nicht ausprobiert. Also insofern. YouTube, seid ihr euch sicher, dass ihr mir das empfehlen
+
+10:01.880 --> 10:11.150
+wollt? Eine Stunde, 42 Lecture, Programmieren in C++. Ich glaube, dass Dr. Best hält die.
+
+10:15.590 --> 10:22.590
+Ach ne, Dr. Bast. Dr. Best ist C++ Programmierer. Würde mich auch nicht wundern. Dr. Best hat
+
+10:22.630 --> 10:39.460
+auch so komische Ecken im Mund. Dem traue ich alles zu. Mittlerweile hat Node echt vieles
+
+10:40.220 --> 10:51.700
+Teuflch reingewurschtet. So, dann wollen wir das mal starten. Du darfst ruhig dir zugehen,
+
+10:51.700 --> 10:56.900
+dass du dir Offstream C++ anschaust. Ich schaue mir Offstream tatsächlich ab und zu C++ an,
+
+10:56.900 --> 11:02.660
+allerdings nicht selbst, sondern ich gucke mir die ein oder anderen C++ Talks an und
+
+11:02.660 --> 11:09.660
+bin regelmäßig absolut am Abkecken, was das für eine scheiß Sprache ist. Es ist
+
+11:10.700 --> 11:17.700
+ja normal bei mir, dass wir die ersten paar Minuten im Stream meistens nichts Sinnvolles
+
+11:18.220 --> 11:25.220
+auf die Reihe kriegen. Lasst mich mal kurz in meiner History gucken. Kann man seine History
+
+11:25.540 --> 11:41.080
+eigentlich durchsuchen? Ich habe letztens ein C++ Talk gesehen und da habe ich mir gedacht,
+
+11:41.200 --> 11:49.580
+ihr seid doch echt nicht ganz dicht. Ihr seid wirklich nicht mehr normal. War das das
+
+12:04.520 --> 12:37.220
+Video? Ich bin mir jetzt gar nicht sicher, ob das das ist. Ich finde es nicht. Mir ist
+
+12:37.380 --> 12:48.250
+auch egal. Ich muss euch das ja nicht beweisen. Ihr wisst alle, dass C++ kacke ist. Ich meine,
+
+12:48.530 --> 12:53.210
+wir hatten oft genug den Beweis schon im Stream. Ich finde es jetzt leider nicht. Ich muss
+
+12:53.250 --> 12:59.250
+mal gucken. Ich habe letztens ein C++ Konferenz Talk geguckt und da ging es quasi darum, dass
+
+12:59.250 --> 13:06.250
+der erzählt hat, was dachte sich der Programmierer bei diesem Code und dann erklärt er, dass
+
+13:06.490 --> 13:12.090
+es nicht nur schlecht gedacht ist, sondern in C++ noch schlechter umgesetzt. By the way,
+
+13:12.090 --> 13:16.890
+wusstet ihr, dass eigentlich C++ 26 demnächst am Start ist? Naja, wir haben sogar schon
+
+13:16.890 --> 13:23.890
+nachgeguckt. C++ 26 gibt es jetzt. Dann gibt es noch mehr abgedrehtes Zeug, was keiner
+
+13:26.530 --> 13:42.300
+mehr versteht. Irgendjemand kam ja auch mal auf die Idee, D zu machen. Nur D benutzt niemand.
+
+13:42.300 --> 13:54.660
+Also, wo sind wir das letzte Mal stehen geblieben? Ja, das ist dieses Google-Ding, wo ich auch
+
+13:54.660 --> 14:03.030
+nicht glaube, dass das eine nennenswerte Verbreitung findet. Schau mal, wie viele. Ich glaube nicht,
+
+14:03.030 --> 14:09.710
+dass sich da viel tut. Nee, habe ich nicht. Ich hoffe, dass noch ein paar der coolen Features
+
+14:09.710 --> 14:16.270
+von F-Sharp nach C-Sharp rüberkommen. Also vor allem so Union Types und sowas. Aber dann
+
+14:16.270 --> 14:22.900
+braucht man eigentlich F-Sharp gar nicht mehr. F-Sharp ist so, hat auch jemand mal auf einem
+
+14:22.900 --> 14:29.300
+Konferenz Talk gesagt, das fand ich eigentlich ganz treffend. F-Sharp ist die schönste Programmiersprache,
+
+14:29.300 --> 14:33.780
+die nie jemand benutzt hat. Oder F-Sharp ist die schönste Programmiersprache, die keiner
+
+14:33.780 --> 14:39.100
+benutzt. Das hat schon seinen Grund, warum es keiner benutzt. Aber sie muss wohl ganz
+
+14:39.100 --> 14:47.600
+nice sein. Aber es benutzt sie trotzdem keiner. Ja, also das ist die Library, die wir verwenden
+
+14:47.600 --> 14:56.120
+werden. Das ist eine pure Rust-Implementation auf WebRTC. Und damit das Ganze nicht zu einfach
+
+14:56.120 --> 15:00.880
+wird, ist der Plan folgender. Ich mache mal das Projekt von gestern auf. Aber wie gesagt,
+
+15:00.880 --> 15:07.600
+da machen wir nicht weiter. Also doch schon, aber in einem neuen Projekt. Also ich mache
+
+15:07.600 --> 15:14.960
+nochmal das von gestern auf. Also der Plan ist folgendes. Wir programmieren den WebRTC-Teil
+
+15:14.960 --> 15:25.480
+in Rust. Die Web-Anwendung in ASP.NET Core, also in C-Sharp. Und wir rufen Rust von C-Sharp
+
+15:25.480 --> 15:32.400
+aus auf. Dass das prinzipiell funktioniert, habe ich gestern hier ausprobiert. Das heißt,
+
+15:32.400 --> 15:37.360
+wir müssen gucken, also wenn wir gut sind, Leute, wenn wir gut sind, bekommen wir heut
+
+15:37.360 --> 15:44.360
+folgendes hin. Das Initialisieren von den Standard-Settings, was man so braucht für
+
+15:44.360 --> 15:49.680
+WebRTC. Und vielleicht eine Connection, die wir erstellen können. Oder zumindest die
+
+15:49.680 --> 15:53.160
+Connection-Anfrage, die wir dann an den Client schicken können. Also sprich, da brauchen
+
+15:53.160 --> 16:00.280
+wir ein paar Strings von Rust zu C und dann nach C-Sharp. Moin, cute boy. Ne, sorry, cute
+
+16:00.280 --> 16:29.380
+ahoy. Fast. Lul. Sack, Leute. So. Und mein Ziel ist, und ja, ich werde das Open Source
+
+16:29.380 --> 16:32.220
+machen auf GitHub, aber ihr kennt mich, ich werde es nicht supporten. Ich werde das so
+
+16:32.220 --> 16:38.180
+bauen, dass es für mich funktioniert und dann ist gut. Das Ziel ist, Webcams, die ich
+
+16:38.180 --> 16:43.700
+hier im Haus und im Hof habe, in den Browser zu streamen. Ich habe sowas schon gemacht
+
+16:43.700 --> 16:50.340
+mit C-Sharp, mit Go. Aber ich wollte jetzt was wirklich Kleines, Simples, was einfach
+
+16:50.340 --> 16:57.260
+funktioniert und sich als extra, ja als iFrame in Home Assistant embedden lässt. Weil so
+
+16:57.260 --> 17:02.540
+ziemlich alles, was es an dieser Software in dieser Richtung gibt, das sich in Home
+
+17:02.540 --> 17:07.260
+Assistant einbauen lässt, funktioniert einfach nur schrottig. Ich habe nichts gefunden bisher,
+
+17:07.340 --> 17:11.540
+was meine Kameras Realtime per Web RT10 Home Assistant richtig anzeigen lassen kann. Es
+
+17:11.540 --> 17:15.300
+gibt ein paar Projekte, aber alles irgendwie Müll. Ich brauche einfach nur eine Website,
+
+17:15.300 --> 17:20.700
+wo untereinander die Webcams möglichst verzögerungsfrei dargestellt werden. Ich habe sowas ja schon
+
+17:20.700 --> 17:25.660
+mal selbst gebaut, habe es dann aber wieder eingestampft, weil der Support in Home Assistant
+
+17:25.660 --> 17:31.100
+immer besser wurde und jetzt habe ich festgestellt, nach so einer 1-2 Jahren, das taugt einfach
+
+17:31.100 --> 17:37.180
+nix. Ich baue mir eine statische Webseite, die einfach 5 Videoplayer anzeigt und da rein
+
+17:37.180 --> 17:43.980
+per Web RT10 meine Kameras streamt und fertig. Wieso landet bei dir in der Uhr dann immer
+
+17:43.980 --> 17:54.870
+eine 1, die du immer löscht, weil es mir danach ist? Nein, das geht nicht. Die meisten Kameras
+
+17:54.870 --> 18:03.310
+können RTSP und darüber, wie heißt das, RTP oder sowas. Das kann man nicht direkt
+
+18:03.310 --> 18:12.430
+an den Browser senden. Man braucht irgendwas, das die abfragt, den Stream ausliest und dann
+
+18:12.430 --> 18:18.670
+ohne Read to Encode das Ganze als Web RTC pusht zum Beispiel. Oder man könnte auch
+
+18:18.670 --> 18:30.040
+einen HLS Videostream draus machen, aber da hast du ein bisschen mehr Lag. So wird das
+
+18:30.040 --> 18:33.880
+jetzt gemacht und außerdem lernen wir ein bisschen Rust und nebenbei noch ein bisschen
+
+18:33.880 --> 18:39.480
+Web RTC. Aber wie gesagt, das Ziel ist heute nicht, da einen funktionierenden Prototypen
+
+18:39.480 --> 18:43.280
+hinzukriegen, sondern einfach nur mal zu gucken, wie man die Basics in Rust machen kann, damit
+
+18:43.280 --> 18:52.160
+ich die Library verwenden kann. Gut, wir erstellen mal ein neues Project und zwar gehen wir mal
+
+18:52.160 --> 19:00.520
+nach Repos, mkdir, der CamChamp. Ich glaube der Name ist noch frei. CamChamp. Da gibt
+
+19:00.520 --> 19:05.600
+es einmal ein Verzeichnis Backend, da kommt mein .NET Zeug rein. Dann gibt es ein Verzeichnis,
+
+19:05.600 --> 19:13.720
+tja, wie nennt man das? Wurscht, ja, perfekt. Ah, ein GachiBuzz Enjoyer, ich seh's schon.
+
+19:13.720 --> 19:22.980
+Nice. Da bist du genau richtig. Und wie nennen wir denn die Rust App? Ich will sie nicht
+
+19:22.980 --> 19:31.250
+RustLib nennen, sondern wir nennen sie, wir nennen sie einfach RTC. Ich nenne die absichtlich
+
+19:31.250 --> 19:37.410
+mal nur RTC und nicht WebRTC, weil die Library, die ich verwenden will, WebRTC heißt und
+
+19:37.410 --> 19:43.650
+es gibt mit Rust garantiert Probleme und gab's ja mit Go auch, wenn die Library und eine
+
+19:43.650 --> 19:50.170
+externe Dependency und das Package alles gleich heißt. Es ist einfach nur mal RTC. So, und
+
+19:50.170 --> 19:56.810
+dann brauchen wir irgendwann noch ein Frontend. Das ist im Prinzip ein statisches HTML, bisschen
+
+19:56.810 --> 20:03.850
+Javascript drin und fertig. Gut, so, gehen wir mal in den Backend Ordner und sagen New
+
+20:03.850 --> 20:11.560
+Console App. Das war's, wir brauchen nicht. Dann machen wir Rider hier auf oder vielleicht
+
+20:11.560 --> 20:17.880
+machen wir es auch mal mit HTMX. Keine schlechte Idee, Chatge, keine schlechte Idee, weil,
+
+20:17.880 --> 20:23.480
+wobei HTMX bringt mir bei WebRTC Streaming jetzt relativ wenig, aber wir brauchen da
+
+20:23.480 --> 20:30.280
+jetzt nicht irgendwie kein Views-Welt-React-Angular-Sonstwas, es gibt ein paar Zeilen Javascript und ein
+
+20:30.280 --> 20:33.800
+paar Videoplayer auf der Seite, also da brauchen wir noch nicht mal irgendein Framework für.
+
+20:33.800 --> 20:41.000
+So, Open. Also wir haben noch nicht angefangen, ihr seid frisch dabei, falls irgendjemand
+
+20:41.000 --> 20:45.720
+sich jetzt Gedanken macht, dass er nicht mitkommt. Also ihr müsst euch keine Gedanken machen,
+
+20:45.720 --> 20:50.120
+dass ihr nicht mitkommt, weil ich komme auch nicht mit. Ich habe echt wenig Ahnung von
+
+20:50.120 --> 20:53.720
+was. Das wird ganz, ganz grausam, glaube ich, heute. Was ist jetzt schon wieder hier
+
+20:53.720 --> 21:08.820
+das Problem? Achso, Rider spackt wieder rum, weil es wieder denkt, dass ich das falsche
+
+21:08.820 --> 21:22.250
+.NET habe. Hier ist das richtige .NET. Sehr gut. Save. Und jetzt das Projekt reloaden.
+
+21:22.330 --> 21:30.890
+Man sollte es hoffentlich funktionieren. Ja, nice. Sehr gut. Machen wir mal ein Bild.
+
+21:30.890 --> 21:46.380
+Repos. Backend.NET. Run. Ja, haben wir nicht Release-Bild. Okay, Hello World passt. Projekt
+
+21:46.380 --> 21:50.940
+Setup beendet. Auf jeden Fall Unsave-Code einschalten, weil wie sollen wir sonst ordentliche
+
+21:50.940 --> 21:59.620
+Rust-Interrupt machen? Dann gehen wir hier hin und starten die Rust-IDE. Wir starten
+
+21:59.620 --> 22:04.420
+die Rust-IDE, die schreibe ich mal auf Platz 7. Wir starten die Rust-IDE mehrfach, weil
+
+22:04.420 --> 22:11.700
+ich mir ein paar Sachen von gestern abgucken muss. New Project. Wir wollen nach Repos.
+
+22:11.700 --> 22:21.780
+Camp Champ. RTC. Da wollen wir hin. Wir wollen eine Library erstellen. Neues Window. Das
+
+22:21.780 --> 22:34.260
+kommt auf 3. CD. Was ist denn das? Nein, nein, keine Tipps. RTC. Okay. Cargo Run. Ach, geht
+
+22:34.420 --> 22:42.340
+nicht. Cargo Build. Kunst. Okay, ich würde sagen, Setup Complete. Let's go. Tests werden
+
+22:42.340 --> 22:49.860
+wir entfernen, weil niemand braucht Tests. Overrated, outdated, jebaited. Gut, wir klauen
+
+22:49.860 --> 22:53.220
+uns mal was von gestern, was wir gestern gemacht haben. Also ich erkläre das jetzt nochmal,
+
+22:53.220 --> 22:58.020
+was der Plan für heute ist. Also wie gesagt, zu Videos abspielen werden wir heute gar nicht
+
+22:58.020 --> 23:08.260
+kommen oder sowas. Der Plan ist, eine .NET-Backend-Anwendung zu erstellen, die WebRTC mit dem Browser
+
+23:08.260 --> 23:16.420
+spricht. Nachdem es für .NET zwar ganz gute WebRTC-Libraries gibt, aber die nicht so feature-complete
+
+23:16.420 --> 23:22.100
+sind wie die Libraries für Go und Rust, habe ich mir gedacht, machen wir den WebRTC-Teil,
+
+23:22.100 --> 23:25.980
+also mit der Go-Library kenne ich mich aus, mit der Rust-Library nicht so wirklich. Habe
+
+23:25.980 --> 23:30.380
+ich mir gedacht, machen wir den WebRTC-Teil in Rust und zwar mit dieser Library. Man sieht
+
+23:30.380 --> 23:37.260
+es auch relativ beliebt. Das ist eine Neu-Implementierung in Rust von dieser Go-Library und die kenne
+
+23:37.260 --> 23:45.830
+ich. Also hoffe ich, ich komme da halbwegs durch, wie man das in Rust macht. Die kenne
+
+23:45.830 --> 23:50.390
+ich, mit der habe ich schon einige Sachen gemacht. Das war jetzt auch schon wieder zwei
+
+23:50.390 --> 23:55.270
+Jahre her, da hat sich viel geändert, aber da blicke ich halbwegs durch. Wo ich nicht
+
+23:55.270 --> 24:00.470
+durchblicke ist Rust. Ich hoffe, die haben ganz gute Beispiele. Ich habe vorhin den Ordner
+
+24:00.470 --> 24:03.590
+aufgemacht und durchgescrollt und da habe ich gesehen, das sind mehr oder weniger die
+
+24:03.590 --> 24:15.050
+gleichen Beispiele, die es auch für die Go-Library gibt, mit der Rust-Neu-Implementierung nachgebaut.
+
+24:15.050 --> 24:19.050
+Teilst du ein bisschen Pfeiffered Rust-Knowledge während du das zusammendrehst? Ich habe keine
+
+24:19.050 --> 24:24.130
+Rust-Knowledge, das ist ja das Problem dabei. Also meine Rust-Knowledge hält sich extrem
+
+24:24.130 --> 24:33.260
+mit Grenzen. Keine Rust-Knowledge. Also das können wir schon mal rüber kopieren. Oder
+
+24:33.260 --> 24:44.180
+das da, das ist besser. Das kopieren wir rüber. Oh Moment, Sek. Falsch. Das kopieren wir rüber.
+
+24:44.180 --> 24:50.460
+Wir machen eine falsche Idee. Session kommt weg. Das Ding heißt anders. So. Und jetzt
+
+24:50.620 --> 24:57.420
+müssen wir noch. Also okay. Ich teile Rust-Knowledge. Alles klar. Also Cargo.toml. Ich
+
+24:57.420 --> 25:02.460
+erzähle euch jetzt die Basics Sachen. Der Basics, weil ich auch keine Ahnung von Rust habe. Aber
+
+25:02.460 --> 25:09.020
+ich kann euch so ein paar Kleinigkeiten erzählen. Also komplettes Projekt-Setup passiert in Rust in
+
+25:09.020 --> 25:16.140
+dieser Cargo.toml. Warum heißt das Ding Cargo? Keine Ahnung. Die wollten lustig sein und haben
+
+25:16.140 --> 25:23.340
+ihr mit ausgeliefertes Command-Line-Tool halt Cargo genannt. Cargo ist quasi so ein bisschen
+
+25:23.340 --> 25:33.420
+das NPM von Rust. Beziehungsweise das Gem, wie bei Ruby von Rust. Oder so ein bisschen wie das
+
+25:33.420 --> 25:37.820
+Nougat von C-Sharp. Wobei Nougat ja eigentlich nur ein reiner Package-Manager ist. Cargo kann
+
+25:37.820 --> 25:43.180
+ein bisschen mehr. Cargo kann Tests ran, Projekte bilden und Libraries hinzufügen und Dependencies
+
+25:43.180 --> 25:53.000
+und sowas in der Richtung. Und bei Rust ist es so, dass es... Rust hat ganz gerne für alles
+
+25:53.000 --> 25:58.480
+irgendwelche eigenen Namen. Also das Command-Line-Tool heißt Cargo. Ein Package heißt nicht
+
+25:58.480 --> 26:08.520
+etwa Package. Man könnte denken, dass es Package heißt. Das ist aber zu einfach. In Rust heißt ein
+
+26:08.680 --> 26:18.280
+Package Crate. Also Crate, so wie Kiste. Obwohl es hier Package heißt. Warum es nicht Crate heißt,
+
+26:18.280 --> 26:26.640
+ich weiß es nicht. Weil Rust, Krustentiere Pfeifert, die können das im Kopf alles. Und das
+
+26:26.640 --> 26:32.840
+hier ist im Prinzip deine NPM-Jason. Oder deine, ne Moment. Wie heißt es unter Javascript? Package
+
+26:32.840 --> 26:40.040
+Jason. Nicht NPM Jason. Package Jason. Genau. Slick. So sieht es aus. Package Jason. So, und da können wir
+
+26:40.040 --> 26:47.700
+jetzt schon mal die erste Dependency hinzufügen. Und zwar die Dependency hier rauf. Wir sehen, es ist
+
+26:47.700 --> 27:01.340
+aktuell Version 0.9.0. Und das ist quasi hier Crates.io. Das ist das NPM von Rust. Das ist das NPM von Rust.
+
+27:01.340 --> 27:09.620
+Und da sieht man auch immer hier oben das Kommando, was man eingeben muss, damit Cargo das hinzufügt.
+
+27:09.620 --> 27:16.100
+So, jetzt haben wir Cargo add WebRTC. Und da seht ihr schon, Cargo hat es hinzugefügt. Jetzt haben wir als
+
+27:16.100 --> 27:26.700
+Dependency WebRTC dabei. Sehr schön. Nice. Ja, und der Plan ist, wie gesagt, C-Sharp Backend mit ASP.NET Core.
+
+27:26.700 --> 27:37.700
+Rust. Low-Level-Zeug für WebRTC. Und Frontend halt mit ein bisschen Javascript und HTML. Ohne großartige
+
+27:37.700 --> 27:42.900
+Funktion. Einfach nur 7, 8 Videoplayer, was dann alle Kameras anzeigt. Aber wie gesagt, ich sag's euch gleich,
+
+27:42.900 --> 27:53.580
+soweit werden wir heute nicht kommen. Was jetzt auch neu ist, das gab es früher nicht. Zumindest war mir das
+
+27:53.580 --> 28:00.580
+nicht so präsent. Crates können mittlerweile Features haben in Rust, was ich ganz nice finde. Du brauchst keine,
+
+28:00.580 --> 28:09.580
+du brauchst jetzt nicht wie in C oder C++ irgendwie 30 verschiedene Builds oder irgendwelche Compile-Time-If-Else-Dinger
+
+28:09.580 --> 28:15.580
+oder sonst was. Du kannst beispielsweise sagen, wenn du einen Crate installierst, was für Features du dazu haben willst.
+
+28:15.580 --> 28:22.580
+Und dann hast du halt ein paar zusätzliche Interfaces dabei, die das machen. Werden wir wahrscheinlich früher oder
+
+28:22.580 --> 28:45.050
+später sehen. Also, Cargo-Build. What the f... Ist ja schlimmer als Javascript, man. 238 Packages hat er einfach
+
+28:45.050 --> 28:58.770
+hinzugefügt. Alter, damit hab ich jetzt nicht gerechnet, man. Ich hab eine Dependency hinzugefügt. Leute, das ist ja fast
+
+28:58.770 --> 29:07.770
+schlimmer als bei Node, äh, ja, bei Javascript. Wobei, kann man nicht sagen. Bei Node-Modules wären es wahrscheinlich
+
+29:07.770 --> 29:21.260
+800 gewesen oder 1300 oder sowas. Okay, guck mal. Schmoll, Schmoll-String fügt er hinzu als Package. Was zum Teufel ist das?
+
+29:21.260 --> 29:35.730
+Schmoll, Schmoll-String. Okay, Leute. Das muss ich nachgucken, was das ist. Schmoll, Schmoll-String-Rust hat 306 Github-Sterne.
+
+29:35.730 --> 29:45.730
+Geile. Schmoll-String. Äh, äh, Schmoll-String ist das String, das die folgenden Properties hat. SizeOf, was? Alter, die Rust-Programmierer,
+
+29:45.730 --> 29:54.730
+die sind so krass 5-Head. Die schreiben nicht einfach, wofür die Library ist. Die schreiben, er has the following properties.
+
+29:54.730 --> 30:07.730
+SizeOf gleich gleich 24. Also, daraus folgt SizeOf on 64 Bit. Ähm, äh, Klon ist, äh, okay, also es ist quasi, äh, ne, ähm, wie nennt man das korrekt?
+
+30:07.730 --> 30:16.730
+Mathe, Mathe-Studenten, Informatik-Studenten, 5-Head. Laufzeit von O1 bedeutet quasi instant, direkt. Wie heißt's? Konstant, konstant.
+
+30:16.730 --> 30:28.730
+Konstant, das hab ich gesucht, das hab ich gesucht. Excellent Chat. Da, da, da schlägt sich, da schlägt sich der, der hohe IQ durch die ganzen Prime-Subs schon wieder direkt durch.
+
+30:28.730 --> 30:40.870
+Konstant, das ist das Wort, was mir gefehlt hat. Strings-Up, die, die können doch einfach schreiben, egal. Muss uns nicht interessieren, die Library hat da Abhängigkeiten zu.
+
+30:45.940 --> 30:55.940
+Was machen die da alles? Okay, wir bilden das Ganze auch gleich mal in Release, weil ansonsten dauert das wieder 3 Stunden. Ach ne, Moment, wir sind nicht in, wir sind nicht in .NET. Ähm, Moment.
+
+30:55.940 --> 31:06.940
+Wie macht man, wie macht man ein Release-Build mit Cargo? Das hab ich gestern bestimmt gemacht. So, so macht man, Minus, Minus Release. Cargo-Build, Minus, Minus Release.
+
+31:06.940 --> 31:46.750
+Das ist ja das halbe Internet, man, was da hinterherkommt. Landau-Symbol, ja, das ist die, die O-Notation und die O-Notation, sagen die da im Englischen dazu. Die Big O-Notation.
+
+31:46.750 --> 32:04.420
+So, und jetzt haben wir hier Target, Release, äh, ah, wir haben noch nicht eingestellt, dass er das als Library kommt. Okay, also, nächstes, nächstes, Cargo, Cargo.toml, ne, nur für FiveHeads.
+
+32:04.420 --> 32:15.420
+Da definiert man seine Dependencies und man stellt gleichermaßen auch ein, wie das Projekt gebildet werden soll. Und da muss das hier rein. Warum? Weil wir es gestern ausprobiert haben.
+
+32:15.420 --> 32:31.860
+Da muss man einstellen, den Namen der Library, die man beim Erzeugen und, dass es, dass, dass es das als, unter Windows würde es DLL heißen und unter Linux heißt es, ja, die Datei heißt .so.
+
+32:31.860 --> 32:47.750
+Halt, dynamische Library versus, also, das andere wäre eine statische Library, das ist ein Archiv, wo alles mit drin ist. Shared Object, ja, genau, genau. Das, das meine ich.
+
+32:47.750 --> 33:05.750
+So, dann bilden wir das nochmal. Jetzt haben wir hier unter Target, Release, eine LibR, ne, LibRTC.so. Die brauchen wir und die brauchen wir im .NET Projekt, dass wir es von dort aufrufen können.
+
+33:05.750 --> 33:25.750
+Ich glaube, jetzt haben wir hier schon mehr oder weniger alles abgeguckt, was wir uns abgucken müssen. Machen wir das zu. Das brauchen wir hier im .NET Projekt, das heißt, wir machen ein Cargo Bild jedes Mal. Dann machen wir im Prinzip genau das, was ich gestern auch gemacht habe, nur, dass das Ding LibRTC.so heißt.
+
+33:25.750 --> 33:59.100
+Und das kopieren wir ein Verzeichnis oben drüber nach in den Backend Ordner und jetzt sollte es im .NET Projekt erscheinen, jawoll. Und im .NET Projekt stellen wir ein, dass die Datei mit beim Bild reinkopiert wird. Äh, ja, das ist leer. Gut, so, ich würde sagen, Setup ist soweit fertig. Checken wir mal. Das ist ein Monorepo, ist alles im gleichen Repo drin.
+
+34:01.100 --> 34:16.540
+Guck, alles hier drinnen, alles, alles, also es gibt noch kein Repo, aber alles, alles im gleichen. Moment, hier ist, hä, das habe ich aber nicht angelegt. Hat das Cargo oder, ne, das hat.
+
+34:16.540 --> 34:54.260
+Rust, wie heißt das Ding? Wie heißt die Idee? Rust, Rust Rover. Warum genau ist das Icon ein Rd? Rust Dover oder was? Moment, das ist eher R. Was? Das Icon ist einfach PPGa da oben. Ach, Moment, ich bin in Rider. Ah, das ergibt Sinn.
+
+34:58.260 --> 35:13.340
+Ah, ja, okay, da können wir schon mal durcheinander kommen. So, Check B. So, ich zeige euch jetzt, ich zeige euch jetzt, dass es funktioniert. Wir bilden jetzt, wir nennen das mal gleich richtig, nennen wir mal init, weil wir brauchen ein paar Sachen.
+
+35:13.340 --> 35:33.340
+So, ich bilde jetzt das Rust-Projekt. Ich gehe ins C-Sharp-Projekt rein. Wir legen jetzt hier eine Datei an, wie gestern. Das haben wir nämlich gestern ausprobiert. Interop.cs. Public, Static, Interop. Und da gibt es jetzt eine Public, Moment, das, das, ah, das hätte ich mir von gestern kopieren können.
+
+35:33.340 --> 36:09.050
+DLL, Import. Okay, wenn man kaum macht, was richtig funktioniert. DLL, Import. So, wie heißt das Ding? LibRTC. Und da brauchen wir jetzt Public, Static, Extern. Und das Ding heißt init. Void, Void, init.
+
+36:09.050 --> 36:35.050
+So, was das jetzt hier macht, ist folgendes. Ich, ich ruf das mal auf. Ich zeige, ich zeige euch mal, dass es funktioniert. Interop, init. So, wenn ich jetzt .NET ausführe, dann kommt ein Keckw und das Keckw kommt aus Rust. Also, was das macht, ist folgendes. Das importiert die Library, beziehungsweise macht unter der Haube ein DLOpen.
+
+36:35.050 --> 36:57.050
+Es ist im Prinzip sowas, also das ist sowas, unter Windows wäre es eine DLL, unter Linux ist es ein .SO, quasi ein Shared Object. Es ist eine Library, die man laden kann und dann sagt man hiermit, okay, such die Library mit dem Namen, also such das Shared Object mit dem Namen.
+
+36:57.050 --> 37:17.050
+Dann fliegt der hier rum, findet er ja. Und darin ruft jetzt eine Methode auf, die init heißt. Und das ist das, was wir hier gemacht haben in Rust. Hier haben wir das Ding definiert und in C-Sharp haben wir das importiert und rufen das auf. Das geht nur, also normalerweise hat C-Sharp keine Ahnung von Rust und von Rust hat von C-Sharp keine Ahnung.
+
+37:17.050 --> 37:40.050
+Das funktioniert nur, weil wir hier gesagt haben, extern c und hier oben drüber no mangle. Das bedeutet, dass im Output, in der Output Library, also hier in librtc.so, der Funktionsname nicht randomised wird, sondern gleich bleibt. Und dementsprechend ist der Funktionsname gleich, das heißt ich weiß, ich kann es mit init aufrufen und kann es hier reinschreiben.
+
+37:41.050 --> 38:07.530
+Soweit, soweit die Basics. Das funktioniert schon mal, das heißt jetzt können wir anfangen. Ich bin mir nicht ganz sicher, wie wir, wie wir gescheit anfangen. Kannst du den Pfad irgendwo definieren? Ja, du kannst zum Beispiel sagen Punkt Slash. Ich glaube, du kannst auch sagen Punkt Punkt. Ich glaube, man kann hier, ja guck, jetzt sagt er hier, er findet es nicht.
+
+38:07.530 --> 38:29.400
+Ich glaube, man kann hier Pfade angeben drin. Ich bin mir aber nicht sicher, wie komplex das werden kann. In der Regel, in der Regel ist es immer gut, wenn die Datei im gleichen Verzeichnis liegt wie das andere, dann muss es nicht groß suchen. Und so funktioniert das jetzt.
+
+38:29.400 --> 38:56.400
+Wir können noch, wir machen noch was anderes. In C-Sharp sollte das eher init heißen. Das wird er mir hier wahrscheinlich auch vorschlagen. Was? Convert to Library Import. Oh, das ist neu. Wir können Library Import benutzen, tatsächlich. Library Import ist neu. Das benutzt für diese ganzen Sachen kein dynamisches Laden mehr zur Laufzeit, sondern per Source Code Generator zur Compile Zeit.
+
+38:56.400 --> 39:24.460
+Das ist eigentlich mega nice. Das können wir tatsächlich mal ausprobieren. Was wir noch machen können ist, in C-Sharp heißen so Dinger oftmals gerne, stimmt doch überhaupt nicht. Warte mal, jetzt stehe ich gerade noch mal. Nee, oder? Doch, Methoden heißen groß. Ja, ich habe zu viel, ich habe zu viel unter, unterschiedliches Zeug, ey.
+
+39:24.460 --> 39:47.460
+Gestern Go, Rust, C-Sharp und jetzt zu viel. So, es ist groß. Jetzt findet er das nicht mehr, deswegen kann man hier sagen, entweder sagt man Exact Spelling oder man sagt direkt Entry Point und sagt ihm, wie das in der Native Library heißt und dann funktioniert es. Dann funktioniert es auch, wenn man das so macht.
+
+39:48.460 --> 40:09.900
+So als Beweis, wenn ich da jetzt was anderes reinschreibe, dann geht es nicht, weil es nicht, findet er nicht. Dann kackt es halt einfach ab und crasht. Gut, also, let's go. Was ich vorhabe, äh, machen wir das hier mal alles dicht. So, wir gucken uns mal die Examples an. Das wird, das wird grausam.
+
+40:09.900 --> 40:34.900
+Also, folgendes, jetzt muss ich euch ein bisschen, muss ich euch ein bisschen was zu WebRTC erklären. Wir halten es aber wirklich kurz. WebRTC funktioniert so, es werden erstmal Infos ausgetauscht zwischen Client und, also eigentlich gibt es bei WebRTC nur Clients. Es gibt eigentlich keinen Server in dem Sinn, weil WebRTC als Realtime Kommunikationsprotokoll gedacht ist zwischen Clients.
+
+40:34.900 --> 40:50.900
+Zum Beispiel für Videokonferenz, also jeder Client ist automatisch Server und Client. Das ist quasi so ein, also WebRTC ist gedacht als Peer-to-Peer Echtzeitkommunikation, ja, für Chat, für Video, für Audio.
+
+40:50.900 --> 41:04.900
+Wenn ihr zum Beispiel in Teams telefoniert, ist die Chance sehr hoch, dass das Video und das Audio auch über WebRTC geht. Ich gehe mal davon aus, dass Teams ein Fallback hat, wenn es irgendwie nicht geht, alte Browser oder irgendwie Probleme sind.
+
+41:04.900 --> 41:30.900
+So, das Ding bei WebRTC ist, nachdem es keinen zentralen Server gibt, wie jetzt beispielsweise bei Twitch, wo ich hinstreame und dann ruft ihr das Video alle von da ab, geht das Peer-to-Peer. Das heißt, es gibt erstmal einen Verbindungsaufbau, wo sich beide Seiten Informationen darüber austauschen, was sie für Videoformate unterstützen, sich dann auf ein Videoformat einigen und dann noch Ports austauschen.
+
+41:30.900 --> 41:49.900
+Wo das, also das passiert alles in einem Schritt. Ports austauschen, wie sie erreichbar sind. Ihr fragt euch jetzt sicherlich, wie geht das Ganze über NAT? Geht auch, geht auch, müssen uns aber glücklicherweise nicht großartig mit beschäftigen. Geht auch, machen die ganzen Libraries glücklicherweise für einen.
+
+41:49.900 --> 42:15.590
+Bei ganz hartnäckigen Verbindungen brauchst du noch so einen externen Tunnelserver, über den du Löcher ins NAT machen kannst. Aber das brauchen wir nicht, alles lokal hier bei mir. Aber über das Internet habe ich das auch schon gemacht, dass das funktioniert. So, und das Ding ist, dass die Ports bei WebRTC randomised sind. Das sind randomised UDP-Ports.
+
+42:15.590 --> 42:35.590
+So, und jetzt habe ich mal eine Frage an euch, Chat. Wer ist so schlau? Für was sind randomised UDP-Ports eher nervig als gut? Also randomised UDP-Ports hat den riesen Vorteil, du hast halt im Prinzip immer einen freien Port. Aber für was sind randomised UDP-Ports schlecht?
+
+42:35.590 --> 42:56.100
+Also, wem macht das Arbeit, randomised UDP-Ports? Firewall, korrekt. Genau darauf wollte ich raus. Randomised UDP-Ports sind doof, um sie freizuschalten in der Firewall. Normalerweise ist das kein Problem, weil normalerweise redet man bei randomised Ports von Source-Ports.
+
+42:56.100 --> 43:22.560
+Source-Ports, ah ja, hau rein, Woblosz Certified Stream. Normalerweise sind das Source-Ports. Und Source-Ports sind kein Problem. Firewalls interessieren sich in 99% der Fälle nicht für Source-Ports, sondern nur für Destination-Ports. Ja, das kann man auch machen, das kann man auch machen. Randomised in einem gewissen Range und nur das weiterleiten. Aber generell sind einfach mehrere Ports doof.
+
+43:22.560 --> 43:53.770
+In dem Fall müssen ja beide Seiten miteinander reden können. Ja, streng genommen ist es der Browser dann, der die Sachen geschickt bekommt am Ende, aber er muss einmal halt zu den Ports, also die müssen zueinander hinkommen auf den Ports. Und das ist sehr doof freizuschalten.
+
+43:53.770 --> 44:18.780
+So, und was es dafür gibt ist ein Feature, das nennt sich UDP-Mux. Die Dokumentation ist schon mal grausam, habe ich hier schon nachgeguckt. Du findest dazu nichts, aber die können UDP-Mux. Und bei UDP-Mux kann man, ich hoffe ich finde hier ein Beispiel zu, weil ich habe auf die Schnelle nichts gefunden hier.
+
+44:18.780 --> 44:44.780
+Da kann man folgendes machen, da kann man einen Port sich ausdenken, der frei ist und dann multiplext der, also das macht die Library für mich glücklicherweise, das muss ich nicht selbst machen, dann multiplext der quasi mehrere WebRTC-Streams, beziehungsweise Peer-Connections heißt das da, mehrere WebRTC-Connections über den gleichen UDP-Port.
+
+44:45.780 --> 44:56.780
+Jetzt fragt sich sicherlich einer UDP-Mux, gibt es nicht auch TCP-Mux? Ja gibt es, kannst du auch machen, das kann die Library aber noch nicht. Ist aber auch nicht schlimm, mir ist eigentlich egal worüber das geht.
+
+44:56.780 --> 45:13.780
+Peon kann das beispielsweise schon, der kann auch über TCP gehen anstatt UDP, wobei man auch mal ganz ehrlich sagen muss, in dem Fall, weil es ja hier quasi um Echtzeit-Video-Übertragung geht, ist UDP eigentlich vielleicht schon fast das bessere Protokoll.
+
+45:13.780 --> 45:38.860
+Es mag seine Vorteile haben, vielleicht wenn man hohen Packet-Loss oder sowas hat, auf der anderen Seite bei Video ist Packet-Loss meistens eh so, wenn das Paket zu spät ankommt, juckt dich eh nicht, da geht halt die Bandbreite richtig hoch, vielleicht muss man gucken, aber bei einer normalen ordentlichen Verbindung sollte es weniger Probleme geben, mit UDP auch gut funktionieren.
+
+45:39.860 --> 46:02.880
+Nach welchen Kriterien sortiert er dann die Sachen wieder auseinander, wenn nicht nach Port? Ich vermute mal, der macht das ähnlich wie NAT, ich habe keine Ahnung, ich rate das einfach mal nur, ich vermute das macht er ähnlich wie bei NAT, der merkt sich die Quell-IPs und die Quell-Ports, um es wieder zuordnen zu können.
+
+46:02.880 --> 46:16.880
+Vermute ich jetzt mal, ich habe ehrlich gesagt keine Ahnung, ich denke mal, der wird sich die Quell-IP plus den Quell-Port merken von der anderen Seite und es dementsprechend zuordnen können, rate ich jetzt, kein Plas und Schimmer.
+
+46:16.880 --> 46:46.190
+Moin Max, jetzt ist natürlich bloß die Preisfrage, müssen wir mal bei Examples gucken, also hier gibt es beispielsweise ein schönes Exampel, das nennt sich Single-Port, also so sieht das ganze in Go aus, was wir jetzt probieren zu bauen, in Go ist es tatsächlich relativ easy, in Go sagt man, das wird in Rust, ich wette mit euch, in Rust wird das abartig viel komplizierter als hier in Go.
+
+46:46.190 --> 47:08.390
+In Go macht man folgendes, in Go sagt man hier blablabla Settings-Engine, New-Multi-UDP-Mux-Box-was auch immer-Port und dann startet man das, das ist gut, das ist alles was man in Go machen muss, ich wette mit euch, das ist in Rust deutlich komplizierter.
+
+47:08.390 --> 47:31.390
+Und das ist das allererste, was wir machen müssen, bevor wir überhaupt anfangen können, wirklich WebRTC zu Client-Kommunikation zu machen, wir müssen einen festen Port definieren, über den das ganze WebRTC-Zeug geht, weil ich werde garantiert nicht bei mir hier im Router 65.530, stimmt das?
+
+47:32.390 --> 47:39.390
+Ports-UDP freischalten auf eine interne IP, einer ist ok.
+
+47:40.390 --> 47:47.470
+So, wir brauchen jetzt irgendwie mal ein Beispiel, wie man das macht.
+
+47:48.470 --> 48:13.740
+UDP-Mux, gibt es nicht irgendwie mal ein paar gescheite Docs dazu? Ah, super, man klickt das an und landet in einem Deprecated-Repo, ja, POG, nice, sehr gut, da wissen wir gleich Bescheid.
+
+48:14.740 --> 48:39.190
+So, das ist das erste, was ich rauskriegen muss und dazu gibt es leider Updated-Docs-2, das klingt gut, Upgedated-Docs sind immer gut.
+
+48:48.480 --> 48:57.200
+Äh, nice, geht schon gut los, ich habe keine Ahnung, wie man überhaupt die einfachsten Sachen machen soll, man.
+
+48:58.200 --> 49:03.200
+Top, top, nice, wir wissen mal Bescheid.
+
+49:03.200 --> 49:06.200
+Wir wissen mal Bescheid, wie verwendet man den Shit denn überhaupt?
+
+49:07.200 --> 49:14.960
+Specify public IP, set not, ich will keine public IP specifieren.
+
+49:18.360 --> 49:23.800
+Shit, ok, komm jetzt, Updated-Docs, vielleicht ist da was drin.
+
+49:24.800 --> 49:25.800
+Ne.
+
+49:26.800 --> 49:40.220
+Ok, das fängt schon sehr gut an, ich habe keine Ahnung, wie ich mit Port-Def, also ich meine, können tut es das, aber ich weiß nicht, wie es funktioniert.
+
+49:40.220 --> 49:44.300
+Also gucken wir hier nochmal durch.
+
+49:45.300 --> 49:47.300
+UDP-Sockets not closed, haben wir da irgendwie ein Codesample drin?
+
+49:48.300 --> 49:54.690
+Moment, da ist ein Beispiel?
+
+49:55.690 --> 49:56.690
+UDP?
+
+49:59.510 --> 50:02.510
+Alter, das geht, das geht schon gut los, man.
+
+50:03.510 --> 50:12.040
+Doc? Docs?
+
+50:20.300 --> 50:21.300
+Was?
+
+50:21.300 --> 50:34.680
+Zum Thema Ports, eine Arbeitskollegin von mir wollte über SSH getunnelte Ports freigeben, hatte aber immer einen Fehler im Putty, wenn du merkst, dass der Port über 65,000 weißt du, dass es nicht funktioniert.
+
+50:35.680 --> 50:36.680
+Ja, das stimmt.
+
+50:37.680 --> 50:39.680
+Das, das, das tut, das tut nicht.
+
+50:40.680 --> 50:45.680
+Oh man, alter, gibt es hier nicht irgendwie ein Beispiel für?
+
+50:50.360 --> 50:51.360
+Ok, hier, hier steht was.
+
+50:51.360 --> 50:53.360
+Not controllable through settings engine.
+
+50:54.360 --> 50:57.360
+Use, upgrade, Moment, was soll ich machen?
+
+50:58.360 --> 50:59.360
+What?
+
+51:00.360 --> 51:03.440
+UDP-Network.
+
+51:04.440 --> 51:09.710
+Ah, Documentation für UDP-Network.
+
+51:10.710 --> 51:11.710
+Ja, da guck mal an.
+
+51:12.710 --> 51:13.710
+Und hier ist ein Exempel.
+
+51:14.710 --> 51:15.710
+Easy.
+
+51:16.710 --> 51:18.710
+Nächste? Gut, bisschen, bisschen doc.
+
+51:23.010 --> 51:25.010
+Ok, das sieht doch schon mal ganz gut aus.
+
+51:25.010 --> 51:30.010
+UDP-Socket, Bind, Ports, UDP-Mux, Default.
+
+51:31.010 --> 51:34.010
+Ich copy-paste mir das jetzt einfach und hoffe irgendwie, dass das funktioniert.
+
+51:35.010 --> 51:39.010
+Aber das wird garantiert nicht kompilieren, Leute, ich sag's euch, so sicher wie das Arm in der Kirche.
+
+51:40.010 --> 51:41.010
+Ja, klar.
+
+51:42.010 --> 51:44.010
+Na klar, wird es nicht kompilieren.
+
+51:45.010 --> 51:48.010
+Ok, wir müssen Rust, oh shit, what the fuck, Alter.
+
+51:49.010 --> 51:50.010
+What?
+
+51:51.010 --> 51:53.010
+Ach, use of undeclared type, ja gut, da komm.
+
+51:53.010 --> 51:54.010
+Import.
+
+51:55.010 --> 51:56.010
+Import.
+
+51:57.010 --> 51:58.010
+Await.
+
+51:59.010 --> 52:03.010
+Await is only allowed inside async functions.
+
+52:04.010 --> 52:09.500
+Ok, wir hangeln uns Zeile für Zeile durch.
+
+52:11.500 --> 52:12.500
+Await, Await geht nicht.
+
+52:13.500 --> 52:16.500
+Ok, Port muss, mach mal Port 35353 oder sowas.
+
+52:17.500 --> 52:19.500
+Await lassen wir einfach mal weg und gucken, was passiert.
+
+52:20.500 --> 52:22.500
+Ok, ok, es kompiliert, das kompiliert schon mal ganz gut.
+
+52:22.500 --> 52:24.500
+Wir wissen ja, bei Rust, sobald es kompiliert, funktioniert das auch.
+
+52:25.500 --> 52:26.500
+Ah, shit.
+
+52:33.100 --> 52:34.100
+Ah, die schönen Rust-Fehlermeldungen.
+
+52:37.560 --> 52:38.560
+Ok, also, was hat der für Schmerze?
+
+52:39.560 --> 52:42.560
+The trade con is not implemented for Result.
+
+52:43.560 --> 52:44.560
+Ah, ich muss unwrap machen wahrscheinlich.
+
+52:45.560 --> 52:46.560
+Result unwrap.
+
+52:47.560 --> 52:50.560
+Das Einzige, was ich in Go und Rust kann, ist Fehler ignorieren.
+
+52:51.560 --> 52:52.560
+Geht immer noch nicht.
+
+52:54.870 --> 52:55.870
+Warum?
+
+52:55.870 --> 52:57.870
+The trade... Moment mal.
+
+52:58.870 --> 53:03.870
+The trade UDP socket con is not satisfied.
+
+53:07.460 --> 53:14.850
+Ich habe legit keine Ahnung, was mir Rust sagen will.
+
+53:15.850 --> 53:19.120
+This trade...
+
+53:20.120 --> 53:23.120
+The trade con is not implemented for UDP socket.
+
+53:24.120 --> 53:26.120
+Aber das ist exakt das Beispiel von dem Dude.
+
+53:27.120 --> 53:30.430
+Ok, machen wir das mal weg.
+
+53:31.430 --> 53:32.430
+Machen wir mal nur das hier.
+
+53:33.430 --> 53:36.130
+Shit.
+
+53:36.130 --> 53:37.130
+Let, blub.
+
+53:42.580 --> 53:43.580
+Geht nicht.
+
+53:44.580 --> 53:46.580
+Jetzt gucken wir mal, was brauchen das hier für einen new con.
+
+53:47.580 --> 53:53.960
+Alter, Rust, man, das versteht doch keiner.
+
+53:54.960 --> 53:55.960
+Rust ist einfach zu big brain.
+
+53:56.960 --> 53:57.960
+Was soll das hier überhaupt bedeuten?
+
+53:58.960 --> 53:59.960
+Was sehe ich hier überhaupt?
+
+54:03.620 --> 54:04.620
+What?
+
+54:05.620 --> 54:08.620
+Das ist so ein generic constrain wie in C-Sharp oder sowas in der Richtung?
+
+54:09.620 --> 54:11.620
+Was bin ich hier überhaupt sehend, Alter?
+
+54:14.570 --> 54:15.570
+Das kann doch keiner lesen.
+
+54:16.570 --> 54:21.650
+C-Doppel-Con plus send plus sync plus...
+
+54:24.650 --> 54:25.650
+Na, wie heißt's?
+
+54:26.650 --> 54:27.650
+Single quote static.
+
+54:28.650 --> 54:34.740
+Ach, du Scheiße.
+
+54:35.740 --> 54:38.740
+Ja, was will der denn hier haben überhaupt als type?
+
+54:40.740 --> 54:41.740
+Was will der als type haben?
+
+54:43.740 --> 54:45.740
+Wie sieht man überhaupt, was der als type haben will?
+
+54:46.740 --> 54:47.740
+Alter, IDE, please.
+
+54:48.740 --> 54:49.740
+Zeig doch an, was der haben will.
+
+54:49.740 --> 54:51.740
+Ne, der will einfach irgendwas haben, was con ist.
+
+54:52.740 --> 54:53.740
+Was con implementiert.
+
+54:54.740 --> 54:56.740
+Und UDP-Socket implementiert anscheinend nicht con.
+
+54:57.740 --> 54:59.740
+Aber warum implementiert UDP-Socket nicht con,
+
+55:00.740 --> 55:03.740
+obwohl angeblich ich UDP-Socket verwenden soll?
+
+55:04.740 --> 55:05.740
+Boah, Rust.
+
+55:06.740 --> 55:07.740
+Alter, es geht schon gut los.
+
+55:08.740 --> 55:10.740
+Guck mal, ich krieg nicht zwei Zeilen in Rust hin,
+
+55:11.740 --> 55:13.740
+ohne dass ich irgendwelche compile errors habe.
+
+55:15.740 --> 55:17.740
+Also, was für UDP-Socket?
+
+55:17.740 --> 55:18.740
+Also, was für UDP?
+
+55:19.740 --> 55:20.740
+Wir gucken mal.
+
+55:21.740 --> 55:22.740
+Leute, ich hab ne Idee.
+
+55:23.740 --> 55:25.740
+Was für UDP-Socket verwendet der?
+
+55:26.740 --> 55:28.740
+Ah, ha.
+
+55:30.740 --> 55:34.740
+Der verwendet gar nicht den Standard-Library-UDP-Socket wie ich.
+
+55:35.740 --> 55:39.740
+Der verwendet Tokio-Net-UDP-Socket.
+
+55:40.740 --> 55:41.740
+Aha.
+
+55:42.740 --> 55:43.740
+Das hab ich nicht installiert.
+
+55:46.500 --> 55:47.500
+Brauch ich jetzt noch ne weitere Dependence?
+
+55:47.500 --> 55:48.500
+Was hab ich hier gerade ausgeschaltet?
+
+55:49.500 --> 55:51.500
+Leute, was war das? Was hab ich hier gerade ausgeschaltet?
+
+55:52.500 --> 55:53.500
+Ähm.
+
+55:54.500 --> 55:56.500
+Ich brauch anscheinend noch ne zweite Library dafür.
+
+55:57.500 --> 55:58.500
+Okay.
+
+55:59.500 --> 56:02.500
+Dann fügen wir Tokio mal hinzu.
+
+56:05.640 --> 56:06.640
+Ja, mit Reload war da Button.
+
+56:13.430 --> 56:14.430
+Okay, add Tokio to dependencies.
+
+56:15.430 --> 56:16.430
+Die Idee ist schlau genug.
+
+56:17.430 --> 56:18.430
+Die checkt das von sich aus.
+
+56:21.000 --> 56:22.000
+Steht das jetzt in der Cargo?
+
+56:23.000 --> 56:24.000
+Cargo-Tummel haben wir jetzt Tokio drin.
+
+56:25.000 --> 56:26.000
+Rust, Tokio.
+
+56:27.000 --> 56:29.000
+An asynchronous Rust-Runtime.
+
+56:30.000 --> 56:36.790
+Alles klar.
+
+56:39.100 --> 56:43.100
+Ich dachte eigentlich Async und sowas kann Rust ohne Zusatz-Library.
+
+56:44.100 --> 56:46.100
+1.3.4 ist das aktuelle, hat er hier auch drin.
+
+56:48.670 --> 56:49.670
+Okay, nice.
+
+56:50.670 --> 56:51.670
+Ich hab immer noch keinen Plan.
+
+56:52.670 --> 56:54.670
+Aber immerhin sollte das jetzt kompili...
+
+56:55.670 --> 56:58.670
+Mann, was ist das Problem, Alter?
+
+56:59.670 --> 57:01.670
+Okay, jetzt muss ich das so machen wie der Typ hier im...
+
+57:02.670 --> 57:03.670
+Ja.
+
+57:03.670 --> 57:05.670
+UDP Socket Await?
+
+57:06.670 --> 57:08.670
+Nice Syntax, Rust.
+
+57:09.670 --> 57:14.160
+Das funktioniert nicht.
+
+57:15.160 --> 57:16.160
+Hopp.
+
+57:20.200 --> 57:21.200
+Alter, das ist so kompliziert, Rust.
+
+57:22.200 --> 57:26.960
+Okay, Await, das muss Async sein.
+
+57:27.960 --> 57:28.960
+Das verstehe ich auch noch.
+
+57:29.960 --> 57:30.960
+Okay, geht das jetzt?
+
+57:31.960 --> 57:32.960
+Es hat keine Fehler mehr im Editor.
+
+57:33.960 --> 57:34.960
+Aber es kompiliert natürlich nichts, klar.
+
+57:35.960 --> 57:38.960
+Cannot use ? Operator in Async Function.
+
+57:38.960 --> 57:49.520
+This function should return a result or a option.
+
+57:50.520 --> 57:52.520
+Ja, nee, das will ich nicht.
+
+57:53.520 --> 57:56.520
+Ich will kein Result return, weil das eine C-Function ist.
+
+57:57.520 --> 58:00.520
+Da bringt mir das nichts, wenn ich irgendein Rust-Result returne.
+
+58:01.520 --> 58:03.520
+Await unwrap.
+
+58:04.520 --> 58:06.520
+Nicht so?
+
+58:07.520 --> 58:10.520
+Await unwrap.
+
+58:11.520 --> 58:13.520
+Das liest sich schon einfach falsch, die Zeile.
+
+58:13.520 --> 58:15.520
+Geht Tokio überhaupt in einem C-Block?
+
+58:18.410 --> 58:19.410
+Ich hoffe mal.
+
+58:20.410 --> 58:21.410
+Not FFE safe.
+
+58:22.410 --> 58:23.410
+Pff.
+
+58:24.410 --> 58:25.410
+Wen juckt's?
+
+58:26.410 --> 58:38.960
+Okay, weiter.
+
+58:42.170 --> 58:43.170
+Next.
+
+58:44.170 --> 58:45.170
+Hey, das kompiliert auch schon mal.
+
+58:46.170 --> 58:47.170
+Pogu.
+
+58:48.170 --> 58:49.170
+Was ist FFE?
+
+58:50.170 --> 58:51.170
+Foreign Function Interface.
+
+58:52.170 --> 58:53.170
+In der Regel ist damit gemeint,
+
+58:54.170 --> 58:57.170
+dass du von einer Programmiersprache in die andere programmierst.
+
+58:57.170 --> 59:00.170
+Und in der Regel geht das so, wie C das früher auch gemacht hat.
+
+59:01.170 --> 59:04.170
+Also quasi die C-Calling-Convention ist so Baseline,
+
+59:05.170 --> 59:06.170
+was jede Sprache kann.
+
+59:07.170 --> 59:10.170
+Also jede Sprache kann quasi angesprochen werden wie C.
+
+59:11.170 --> 59:14.170
+Und dementsprechend kann man jede Sprache aus jeder Sprache ansprechen,
+
+59:15.170 --> 59:18.170
+wie als wäre es auf der anderen Seite eine C-Library.
+
+59:19.170 --> 59:21.170
+Also bis jetzt scheint es ja zu funktionieren.
+
+59:22.170 --> 59:23.170
+Wie geht das jetzt hier?
+
+59:23.170 --> 59:28.810
+Let UDP-Mux.
+
+59:29.810 --> 59:30.810
+Alles klar.
+
+59:31.810 --> 59:32.810
+UDP-Mux.
+
+59:33.810 --> 59:34.810
+Bam. Funzt.
+
+59:35.810 --> 59:36.810
+Weiter.
+
+59:37.810 --> 59:40.810
+Ich bin mir zwar unschlüssig, was ich da jetzt genau getrieben habe,
+
+59:41.810 --> 59:45.820
+aber es scheint immerhin zu funktionieren.
+
+59:46.820 --> 59:47.820
+Jetzt die große Preisfrage.
+
+59:48.820 --> 59:49.820
+Wie geht es jetzt weiter?
+
+59:50.820 --> 59:58.770
+UDP-Socket Unwrap.
+
+59:59.770 --> 01:00:01.770
+Und wie setze ich das Ganze an?
+
+01:00:02.770 --> 01:00:03.770
+Okay.
+
+01:00:03.770 --> 01:00:05.770
+Jetzt gibt es UDP-Network Muxed.
+
+01:00:06.770 --> 01:00:08.770
+Und was mache ich damit jetzt?
+
+01:00:09.770 --> 01:00:10.770
+Agent-Config?
+
+01:00:11.770 --> 01:00:12.770
+What?
+
+01:00:13.770 --> 01:00:15.770
+Gibt es vielleicht das Gleiche wie in der ...
+
+01:00:16.770 --> 01:00:22.360
+Ich meine, das ist ja eine Neuimplementierung von der Go-Library.
+
+01:00:23.360 --> 01:00:27.360
+In der Go-Library funktioniert das folgendermaßen.
+
+01:00:28.360 --> 01:00:31.360
+In der Go-Library funktioniert das folgendermaßen.
+
+01:00:36.300 --> 01:00:37.300
+Ja.
+
+01:00:37.300 --> 01:00:39.300
+In der Go-Library funktioniert das folgendermaßen.
+
+01:00:40.300 --> 01:00:41.300
+Ja. Eine Zeile halt.
+
+01:00:42.300 --> 01:00:43.300
+Ähm.
+
+01:00:46.310 --> 01:00:49.310
+Settings-Engine Set Ice-Mux.
+
+01:00:51.820 --> 01:00:53.820
+Alles klar. Wo kriege ich denn Settings-Engine her?
+
+01:00:54.820 --> 01:00:55.820
+Settings. Settings-Engine.
+
+01:00:56.820 --> 01:00:57.820
+Okay. Moment, Moment. Das ist ...
+
+01:00:58.820 --> 01:00:59.820
+Ah, fuck. Das ist Go.
+
+01:01:00.820 --> 01:01:01.820
+Oh, ich bin verwirrt. Settings.
+
+01:01:02.820 --> 01:01:03.820
+Okay. Settings-Engine. Gibt es das hier auch?
+
+01:01:04.820 --> 01:01:07.510
+Settings.
+
+01:01:08.510 --> 01:01:09.510
+Settings-Engine.
+
+01:01:10.510 --> 01:01:11.510
+Settings-Engine.
+
+01:01:12.510 --> 01:01:14.510
+Set Settings-Engine.
+
+01:01:15.510 --> 01:01:18.510
+Wobei, coole Leute in Rust schreiben da einfach nur S, weil die so faul sind.
+
+01:01:19.510 --> 01:01:20.510
+Settings-Engine. Und jetzt?
+
+01:01:23.210 --> 01:01:25.210
+Default? Fragezeichen?
+
+01:01:27.210 --> 01:01:28.210
+Okay.
+
+01:01:32.250 --> 01:01:33.250
+Geht das noch?
+
+01:01:34.250 --> 01:01:37.250
+Okay, okay. Es kompilt noch. Es soll mir recht sein.
+
+01:01:38.250 --> 01:01:40.250
+Okay. Settings-Engine.
+
+01:01:41.250 --> 01:01:42.250
+Und jetzt?
+
+01:01:43.250 --> 01:01:45.250
+Set UDP ...
+
+01:01:45.250 --> 01:01:46.250
+Ah, okay. Da ...
+
+01:01:47.250 --> 01:01:49.750
+Was mache ich damit jetzt?
+
+01:01:51.750 --> 01:01:53.750
+Haben die hier irgendwas drin stehen?
+
+01:01:57.540 --> 01:01:58.540
+Parking ...
+
+01:01:59.540 --> 01:02:00.540
+What the ...
+
+01:02:07.140 --> 01:02:11.140
+Ich will doch einfach nur, dass der auf Port 3-5-3-5-3-5 lauscht.
+
+01:02:18.570 --> 01:02:19.570
+Ah, guck mal. Was haben wir denn hier?
+
+01:02:20.570 --> 01:02:22.570
+UDP Network Muxed.
+
+01:02:23.570 --> 01:02:27.570
+Und dann einfach das hier? Das stand nämlich beim anderen auch drin.
+
+01:02:28.570 --> 01:02:29.570
+Okay, das geht nicht, weil ...
+
+01:02:29.570 --> 01:02:32.570
+Cannot borrow immutable local ...
+
+01:02:33.570 --> 01:02:35.570
+Ah, es ist Go.
+
+01:02:36.570 --> 01:02:37.570
+Nicht Go, es ist Rust.
+
+01:02:38.570 --> 01:02:39.570
+Das heißt, da muss Mut davor.
+
+01:02:40.570 --> 01:02:43.570
+Es kompiliert noch, es kompiliert noch. Nice, nice, nice, nice.
+
+01:02:44.570 --> 01:02:45.570
+So weit, so gut.
+
+01:02:48.460 --> 01:02:50.460
+Müsste der jetzt schon den Port offen haben?
+
+01:03:01.660 --> 01:03:06.300
+Nee, ich habe schon ein bisschen was in Rust gemacht, aber ...
+
+01:03:07.300 --> 01:03:09.610
+hält sich in Grenzen.
+
+01:03:10.610 --> 01:03:13.610
+Und außerdem, das, wo ich schon ein bisschen mehr mit Rust gemacht habe, ist Jahre her.
+
+01:03:14.610 --> 01:03:19.460
+Rust ist nix, das man schnell ausprobiert.
+
+01:03:20.460 --> 01:03:22.460
+Naja, irgendwo musst du mal anfangen. Das geht schon.
+
+01:03:23.460 --> 01:03:25.460
+Guck mal, wir haben ... Jetzt mal ernsthaft.
+
+01:03:26.460 --> 01:03:29.460
+Wir haben sogar Cobol First Try im Stream hingekriegt.
+
+01:03:30.460 --> 01:03:31.460
+Ein paar Sachen.
+
+01:03:32.460 --> 01:03:34.460
+Und wenn man Cobol First Try im Stream hingekriegt,
+
+01:03:35.460 --> 01:03:38.460
+dann kriegt man auch Rust First Try ein bisschen was im Stream hin.
+
+01:03:39.460 --> 01:03:40.460
+Außerdem ist es nicht First Try.
+
+01:03:44.560 --> 01:03:46.560
+Also ich glaube, schlimmer als Cobol kann es kaum werden.
+
+01:03:49.960 --> 01:03:50.960
+So.
+
+01:03:50.960 --> 01:03:51.960
+Also das kompiliert immerhin noch mal.
+
+01:03:52.960 --> 01:03:55.960
+Und wie wir wissen, wenn Rust kompiliert, dann geht es auch.
+
+01:03:57.960 --> 01:03:58.960
+So, wie geht das jetzt weiter?
+
+01:03:59.960 --> 01:04:01.960
+Hat der jetzt schon, hat der jetzt schon den Port offen?
+
+01:04:03.960 --> 01:04:05.960
+Gibt es, gibt es sowas wie, gibt es sowas wie, ähm,
+
+01:04:06.960 --> 01:04:08.960
+äh, Thread Sleep oder sowas?
+
+01:04:09.960 --> 01:04:10.960
+Thread Sleep? Nee.
+
+01:04:11.960 --> 01:04:12.960
+Ah, ne Moment, Doppelpunkt, hä?
+
+01:04:13.960 --> 01:04:17.040
+Sleep? Shit.
+
+01:04:18.040 --> 01:04:20.040
+Thread Sleep Rust.
+
+01:04:20.040 --> 01:04:22.040
+Ich weiß, das macht man nicht, aber ...
+
+01:04:23.040 --> 01:04:25.040
+Ich will einfach nur wissen, ob es funktioniert.
+
+01:04:26.040 --> 01:04:27.040
+Ja.
+
+01:04:28.040 --> 01:04:29.040
+Achso, klein geschrieben.
+
+01:04:30.040 --> 01:04:31.040
+Thread.
+
+01:04:32.040 --> 01:04:33.040
+Sleep.
+
+01:04:34.040 --> 01:04:35.040
+Milliseconds, das ist gut.
+
+01:04:36.040 --> 01:04:38.040
+Zehntausend, zehntausend Milliseconds.
+
+01:04:39.040 --> 01:04:41.040
+So, ich will jetzt einfach nur mal checken,
+
+01:04:42.040 --> 01:04:45.040
+ob das jetzt schon den Port offen hat an der Stelle oder nicht.
+
+01:04:46.040 --> 01:04:48.480
+Rufen wir es mal auf.
+
+01:04:48.480 --> 01:04:49.480
+Äh.
+
+01:04:50.480 --> 01:04:51.480
+Okay.
+
+01:04:52.480 --> 01:04:56.430
+Einfach, einfach blocken, macht einfach gar nichts.
+
+01:04:57.430 --> 01:04:58.430
+Ah, wahrscheinlich, weil das Async ist.
+
+01:05:00.740 --> 01:05:01.740
+In Async kann ich nicht sleepen, oder?
+
+01:05:02.740 --> 01:05:03.740
+Das, das wird nicht funktionieren.
+
+01:05:08.300 --> 01:05:15.960
+Oder? Das, das, das wird das doch wahrscheinlich sein,
+
+01:05:16.960 --> 01:05:17.960
+dass ich nicht, dass ich nicht richtig,
+
+01:05:18.960 --> 01:05:19.960
+dass ich nicht sleepen kann in ...
+
+01:05:20.960 --> 01:05:28.070
+Du musst join und dann sleepen.
+
+01:05:29.070 --> 01:05:30.070
+What?
+
+01:05:31.070 --> 01:05:33.770
+Was muss ich join?
+
+01:05:34.770 --> 01:05:41.050
+Was muss ...
+
+01:05:42.050 --> 01:05:44.050
+Tokyo Sleep, sehr gute Idee.
+
+01:05:45.050 --> 01:05:46.050
+Nee, gibt's nicht.
+
+01:05:48.050 --> 01:05:49.050
+Okay, das, das funktioniert so nicht wie ...
+
+01:05:50.050 --> 01:05:52.050
+Aber Moment, muss ich das hier vielleicht awaiten, oder so?
+
+01:05:53.050 --> 01:05:54.050
+Nee, okay.
+
+01:06:01.860 --> 01:06:02.860
+Ich, ich würde gern sleepen.
+
+01:06:03.860 --> 01:06:04.860
+In ...
+
+01:06:05.860 --> 01:06:06.860
+Ich mein, ich, ich könnte auch einfach mal sagen,
+
+01:06:07.860 --> 01:06:08.860
+hier, task, delay.
+
+01:06:09.860 --> 01:06:10.860
+Hier zehntausend.
+
+01:06:11.860 --> 01:06:12.860
+Und mal gucken, ob der Port dann offen ist,
+
+01:06:13.860 --> 01:06:14.860
+wenn ich es ausgeführt hab.
+
+01:06:14.860 --> 01:06:16.860
+Port drei, fünf, nee, UDP-Port sind unten.
+
+01:06:17.860 --> 01:06:18.860
+Nee, Port ist nicht offen.
+
+01:06:19.860 --> 01:06:25.380
+So wird das schon mal nix.
+
+01:06:27.380 --> 01:06:28.380
+Okay, was, was, Chatge?
+
+01:06:29.380 --> 01:06:32.380
+Tokyo, time, sleep.
+
+01:06:33.380 --> 01:06:34.380
+Oh, exzellent.
+
+01:06:36.380 --> 01:06:37.380
+What? Await.
+
+01:06:38.380 --> 01:06:39.380
+Unwrap, immer unwrap dahinter.
+
+01:06:40.380 --> 01:06:41.380
+Und jetzt sleep, was?
+
+01:06:42.380 --> 01:06:43.380
+Duration.
+
+01:06:44.380 --> 01:06:45.380
+Okay, what?
+
+01:06:46.380 --> 01:06:47.380
+Warum kann man sich hier eigentlich nicht anzeigen lassen,
+
+01:06:47.380 --> 01:06:48.380
+was der da eintragen soll, man?
+
+01:06:52.990 --> 01:06:53.990
+Rust ist superfrustrierend.
+
+01:06:54.990 --> 01:06:55.990
+Was, was ...
+
+01:06:56.990 --> 01:07:01.350
+Duration.
+
+01:07:02.350 --> 01:07:03.350
+Duration.
+
+01:07:04.350 --> 01:07:05.350
+From.
+
+01:07:06.350 --> 01:07:07.350
+Seconds.
+
+01:07:08.350 --> 01:07:09.350
+Äh, äh, zehn.
+
+01:07:10.350 --> 01:07:11.350
+Exzellent.
+
+01:07:13.350 --> 01:07:15.350
+Und ich hoffe, ich hoffe, das hängt jetzt an der Stelle.
+
+01:07:17.350 --> 01:07:18.350
+Fuck, warum blockt das nicht?
+
+01:07:19.350 --> 01:07:23.330
+Bestimmt, weil's async ist.
+
+01:07:24.330 --> 01:07:25.330
+Und, und ich irgendwie nix ...
+
+01:07:25.330 --> 01:07:26.330
+Okay, keine Ahnung.
+
+01:07:32.480 --> 01:07:33.480
+Sag mal, kann das sein, dass das vielleicht ...
+
+01:07:35.980 --> 01:07:36.980
+Okay, wir müssen jetzt mal was ausprobieren.
+
+01:07:37.980 --> 01:07:44.600
+Ähm, wir gucken mal, ob das überhaupt bis hierhin kommt.
+
+01:07:45.600 --> 01:07:48.600
+Beste, beste, beste Debug-Sache per Command Line.
+
+01:07:49.600 --> 01:07:50.600
+Nee, guck mal, das kackt vorher ab.
+
+01:07:51.600 --> 01:07:52.600
+Das kackt vorher ab.
+
+01:07:53.600 --> 01:07:54.600
+Wo kackt denn das ab?
+
+01:07:55.600 --> 01:08:01.050
+Oh, öh, öh.
+
+01:08:02.050 --> 01:08:04.050
+Moment, ich muss Keymap umstellen.
+
+01:08:05.050 --> 01:08:06.050
+Äh, Keymap.
+
+01:08:07.050 --> 01:08:08.050
+Visual Studio.
+
+01:08:08.050 --> 01:08:12.220
+Visual Studio.
+
+01:08:13.220 --> 01:08:16.740
+Und ...
+
+01:08:17.740 --> 01:08:18.740
+Shortcuts.
+
+01:08:19.740 --> 01:08:20.740
+What?
+
+01:08:28.300 --> 01:08:29.300
+Keymap.
+
+01:08:30.300 --> 01:08:31.300
+Ich will, äh, Move Line ...
+
+01:08:33.870 --> 01:08:34.870
+Move Line ...
+
+01:08:35.870 --> 01:08:36.870
+Down.
+
+01:08:38.870 --> 01:08:41.870
+Ist, äh, Alt und Pfeiltaste.
+
+01:08:42.870 --> 01:08:43.870
+Und Up ist ...
+
+01:08:44.870 --> 01:08:45.870
+Alt und Pfeiltaste.
+
+01:08:46.870 --> 01:08:50.020
+So, wo kackt der denn jetzt ab?
+
+01:08:51.020 --> 01:08:52.020
+Kackt der hier schon ab bei ...
+
+01:08:52.020 --> 01:08:53.020
+Okay, da kackt Instant ab.
+
+01:08:54.020 --> 01:08:56.020
+Interessiert das überhaupt nicht, was ich hier mache.
+
+01:08:57.020 --> 01:08:59.020
+So, wenn ich das hier alles auskommentiere ...
+
+01:09:00.020 --> 01:09:01.020
+Bestimmt, weil es Async ist.
+
+01:09:02.020 --> 01:09:03.020
+Kann ich Async-Zeug überhaupt callen?
+
+01:09:04.020 --> 01:09:05.020
+Irgendwie aus ... aus ...
+
+01:09:06.020 --> 01:09:07.020
+Nee.
+
+01:09:08.020 --> 01:09:09.020
+Ja, geil. Top.
+
+01:09:16.510 --> 01:09:19.510
+Okay, ich kann auf C Sharp halt nicht Rust Awaiten.
+
+01:09:20.510 --> 01:09:21.510
+Wie soll das funktionieren?
+
+01:09:22.510 --> 01:09:26.360
+Wie macht, wie mach ...
+
+01:09:27.360 --> 01:09:28.360
+Okay, wie machen die das hier?
+
+01:09:29.360 --> 01:09:30.360
+Was haben, was haben ...
+
+01:09:31.360 --> 01:09:32.360
+Was, was, was machen die denn?
+
+01:09:33.360 --> 01:09:34.360
+Remove Händler.
+
+01:09:36.360 --> 01:09:37.360
+Was ist das?
+
+01:09:38.360 --> 01:09:39.360
+Tokyo Main.
+
+01:09:40.360 --> 01:09:55.060
+Marks Async Function to be executed by the selected runtime.
+
+01:09:56.060 --> 01:09:57.060
+This macro helps ...
+
+01:09:58.060 --> 01:10:02.650
+Was bin ich lesend überhaupt?
+
+01:10:03.650 --> 01:10:11.020
+Tokyo Block on.
+
+01:10:12.020 --> 01:10:13.020
+What?
+
+01:10:14.020 --> 01:10:15.020
+Ja, Moment.
+
+01:10:15.020 --> 01:10:17.020
+Ist das überhaupt Tokio-mäßig schon was gerade?
+
+01:10:18.020 --> 01:10:40.170
+Händler Block.
+
+01:10:42.170 --> 01:10:43.170
+Tokyo Runtime?
+
+01:10:44.170 --> 01:10:45.170
+Runtime?
+
+01:10:56.950 --> 01:10:59.950
+Alter, ich will ein Port aufmachen und listen lassen.
+
+01:11:00.950 --> 01:11:04.740
+Rust.
+
+01:11:06.740 --> 01:11:07.740
+Was ist los, Mann?
+
+01:11:09.740 --> 01:11:11.740
+Warum brauche ich dafür Tokio?
+
+01:11:12.740 --> 01:11:13.740
+Und ...
+
+01:11:14.740 --> 01:11:16.740
+Und was ist Tokio überhaupt, Mann?
+
+01:11:23.660 --> 01:11:25.660
+So, ich kopiere das jetzt einfach mal hier oben hin.
+
+01:11:26.660 --> 01:11:27.660
+Wie geht das? Tokio Main.
+
+01:11:28.660 --> 01:11:29.660
+Tokio Main. Beste.
+
+01:11:31.660 --> 01:11:32.660
+Tokio ist eine Async Runtime.
+
+01:11:33.660 --> 01:11:35.660
+Okay, Chat, jetzt weiß ich sofort Bescheid.
+
+01:11:36.660 --> 01:11:37.660
+Oder? Ihr sicher auch.
+
+01:11:38.660 --> 01:11:39.660
+Ich glaube jetzt ...
+
+01:11:40.660 --> 01:11:42.660
+Also, Chat, ich glaube, hier nach Bedarf ist absolut keine Erklärung mehr.
+
+01:11:43.660 --> 01:11:44.660
+Tokio ist eine Async Runtime.
+
+01:11:45.660 --> 01:11:46.660
+Jetzt ist alles klar, jetzt weiß ich sofort, wie es geht.
+
+01:11:47.660 --> 01:11:58.990
+Easy.
+
+01:11:59.990 --> 01:12:00.990
+Wait a minute, es geht jetzt?
+
+01:12:00.990 --> 01:12:09.960
+Es geht?
+
+01:12:14.000 --> 01:12:17.000
+Ich habe absolut keine Ahnung, warum das funktioniert.
+
+01:12:18.000 --> 01:12:20.000
+Aber es funktioniert.
+
+01:12:23.660 --> 01:12:25.660
+Aber du kannst ja nicht Main bei allen Funktionen hinschreiben.
+
+01:12:26.660 --> 01:12:28.660
+Wer sagt das, dass ich das nicht kann?
+
+01:12:32.890 --> 01:12:33.890
+Warum soll ich das nicht können?
+
+01:12:36.650 --> 01:12:37.650
+Ich kann es zumindest probieren.
+
+01:12:39.650 --> 01:12:42.650
+Okay, aus irgendwelchen Gründen funktioniert das jetzt, was ich hier gebaut habe.
+
+01:12:43.650 --> 01:12:45.650
+Ich habe wirklich keine Ahnung, warum, aber es funktioniert.
+
+01:12:46.650 --> 01:12:50.150
+So, okay, jetzt können wir das auch mal probieren.
+
+01:12:51.150 --> 01:12:52.150
+Threat.
+
+01:12:53.150 --> 01:12:54.150
+Sleep.
+
+01:12:55.150 --> 01:12:56.150
+Nee, Sleep MS war es.
+
+01:12:57.150 --> 01:12:59.150
+10.000, jetzt hoffe ich mal, dass das funktioniert.
+
+01:13:00.150 --> 01:13:01.150
+Alles klar.
+
+01:13:02.150 --> 01:13:03.150
+Okay, run.
+
+01:13:04.150 --> 01:13:05.150
+Es sleept, Leute!
+
+01:13:06.150 --> 01:13:07.150
+Es sleept!
+
+01:13:08.150 --> 01:13:09.150
+Sleepge, Bedge macht es.
+
+01:13:10.150 --> 01:13:11.150
+Netstat?
+
+01:13:12.150 --> 01:13:13.150
+Und der Port ist auf.
+
+01:13:14.150 --> 01:13:15.150
+Alter, massive.
+
+01:13:16.150 --> 01:13:17.150
+Das war ja eindeutig zu easy.
+
+01:13:18.150 --> 01:13:19.150
+Viel zu easy.
+
+01:13:20.150 --> 01:13:21.150
+Easy as fuck.
+
+01:13:24.870 --> 01:13:25.870
+Viel zu easy.
+
+01:13:26.870 --> 01:13:27.870
+Extremst easy.
+
+01:13:28.870 --> 01:13:32.870
+Also, wenn das nicht selbsterklärend ist, dann weiß ich auch nicht.
+
+01:13:34.870 --> 01:13:38.870
+Ihr müsst sagen, Chat, das hat sich eigentlich fast von alleine geschrieben, oder?
+
+01:13:39.870 --> 01:13:42.870
+Es ist so obvious, was hier passiert, es bedarf keiner Erklärung mehr.
+
+01:13:47.040 --> 01:13:48.040
+So, und wie geht das jetzt weiter?
+
+01:13:49.040 --> 01:13:53.950
+Ich will das gar nicht lesen, Hauptsache es funktioniert.
+
+01:13:54.950 --> 01:14:07.760
+Aber das ging ja nicht.
+
+01:14:07.760 --> 01:14:08.760
+Nein, das ging ja nicht.
+
+01:14:09.760 --> 01:14:10.760
+Ähm, UDP Socket.
+
+01:14:11.760 --> 01:14:12.760
+Ja, das haben wir jetzt gemacht.
+
+01:14:13.760 --> 01:14:17.290
+So, und das haben wir.
+
+01:14:18.290 --> 01:14:20.290
+Okay, also, wir haben unseren UDP Socket auf.
+
+01:14:21.290 --> 01:14:22.290
+Jetzt ist halt das Ding.
+
+01:14:23.290 --> 01:14:25.660
+Ähm.
+
+01:14:30.660 --> 01:14:31.660
+Der muss ja offen bleiben.
+
+01:14:32.660 --> 01:14:34.660
+Der kann sich ja nicht einfach beenden, wenn die Methode fertig ist.
+
+01:14:35.660 --> 01:14:41.660
+Und ich kann ja da auch kein Sleep 90 Millionen reinschreiben, dass das einfach immer offen bleibt.
+
+01:14:45.770 --> 01:14:47.770
+Alter, die Rust Elite ist im Chat, Mann!
+
+01:14:48.770 --> 01:14:49.770
+Ich schau mal wieder ein.
+
+01:14:50.770 --> 01:14:52.770
+Die Rust Elite ist da, guckt es euch an.
+
+01:14:53.770 --> 01:14:56.770
+Guckt es euch an, wie sie sich geil finden wieder alle hier.
+
+01:14:57.770 --> 01:15:07.200
+Rust Async Return eines Futures.
+
+01:15:09.200 --> 01:15:11.200
+Ja gut, das ist es ja in fast jeder Sprache.
+
+01:15:12.200 --> 01:15:14.200
+Das ist in Javascript so, das ist sogar in C Sharp auch so.
+
+01:15:15.200 --> 01:15:16.200
+In C Sharp heißt das Task.
+
+01:15:17.200 --> 01:15:18.200
+In Javascript heißt das Promise.
+
+01:15:19.200 --> 01:15:26.980
+Das Future muss dann aber von einem Executor asynchron ausgeführt werden, blöd gesagt.
+
+01:15:27.980 --> 01:15:29.980
+Ach, das ist dann ein bisschen wie...
+
+01:15:30.980 --> 01:15:32.980
+Ähm, wie heißt das in Python?
+
+01:15:33.980 --> 01:15:35.980
+AsyncIO oder so?
+
+01:15:36.980 --> 01:15:37.980
+Ne, wie hieß dieses Ding?
+
+01:15:38.980 --> 01:15:39.980
+Haben wir doch auch mal was mitgemacht.
+
+01:15:40.980 --> 01:15:41.980
+Asio oder so?
+
+01:15:42.980 --> 01:15:46.260
+Ne.
+
+01:15:47.260 --> 01:15:48.260
+AIO? Irgendwie sowas in der Richtung?
+
+01:15:50.950 --> 01:15:51.950
+Das ist dann auch sowas, hä?
+
+01:15:52.950 --> 01:15:53.950
+AsyncIO, das meine ich.
+
+01:15:54.950 --> 01:15:55.950
+Ja, das meine ich.
+
+01:15:56.950 --> 01:15:57.950
+Das ist dann quasi sowas wie AsyncIO.
+
+01:15:58.950 --> 01:16:03.760
+Tokyo ist der beliebteste.
+
+01:16:03.760 --> 01:16:10.460
+Wir wollen es ja mal nicht übertreiben, ja?
+
+01:16:11.460 --> 01:16:12.460
+Wir wollen es ja mal nicht übertreiben.
+
+01:16:13.460 --> 01:16:14.460
+So, also.
+
+01:16:15.460 --> 01:16:16.460
+Rust-Logik ist jetzt...
+
+01:16:17.460 --> 01:16:19.460
+Also, normalerweise hätte ich jetzt gesagt, ich bin einfach...
+
+01:16:20.460 --> 01:16:21.460
+Ich gebe mir keine Mühe,
+
+01:16:22.460 --> 01:16:24.460
+mache eine globale Variable, wo ich die Settings Engine reinschreibe
+
+01:16:25.460 --> 01:16:26.460
+und dann bleibt die für immer an.
+
+01:16:27.460 --> 01:16:28.460
+Aber, das muss ich gar nicht probieren,
+
+01:16:29.460 --> 01:16:34.460
+weil Laufzeit-mäßig und Object-Lifetime-mäßig wird das in Rust mit globaler Variable
+
+01:16:35.460 --> 01:16:37.460
+garantiert nicht funktioniert.
+
+01:16:39.460 --> 01:16:41.460
+Da ist Rust äußerst pingelig.
+
+01:16:43.460 --> 01:16:44.460
+Okay, also, wie geht denn das weiter?
+
+01:16:45.460 --> 01:16:47.460
+Wie erstelle ich denn hier überhaupt eine Connection?
+
+01:16:48.460 --> 01:16:50.460
+Lass uns doch mal in den Examples nachgucken.
+
+01:16:51.460 --> 01:16:52.460
+Examples.
+
+01:16:53.460 --> 01:16:54.460
+So irgendwie simpel, simpler hier.
+
+01:16:55.460 --> 01:16:56.460
+Play from Disk.
+
+01:16:57.460 --> 01:16:58.460
+Oder sowas.
+
+01:16:59.460 --> 01:17:00.460
+Ja, genau. Play from Disk. Sehr gut.
+
+01:17:03.540 --> 01:17:04.540
+Way too easy.
+
+01:17:05.540 --> 01:17:06.540
+818 Zeilen.
+
+01:17:07.540 --> 01:17:08.540
+Was zum...
+
+01:17:08.540 --> 01:17:10.540
+Gibt es hier so irgendwas wie Pair-Connection oder sowas?
+
+01:17:12.540 --> 01:17:13.540
+Hier, Pair-Connection.
+
+01:17:14.540 --> 01:17:16.540
+API-New-Pair-Connection.
+
+01:17:17.540 --> 01:17:18.540
+Das brauche ich.
+
+01:17:19.540 --> 01:17:20.540
+Wie lege ich eine API an?
+
+01:17:24.330 --> 01:17:25.330
+API-Builder.
+
+01:17:26.330 --> 01:17:27.330
+With Media Engine.
+
+01:17:30.730 --> 01:17:31.730
+Brauche ich die?
+
+01:17:32.730 --> 01:17:33.730
+Okay, API-Builder.
+
+01:17:34.730 --> 01:17:35.730
+API-Builder.
+
+01:17:37.730 --> 01:17:38.730
+New, oder? Ja.
+
+01:17:39.730 --> 01:17:40.730
+Oder Default.
+
+01:17:43.170 --> 01:17:44.170
+Also, New.
+
+01:17:45.170 --> 01:17:46.170
+With Media Engine.
+
+01:17:47.170 --> 01:17:48.170
+Ach, gucke mal.
+
+01:17:49.170 --> 01:17:50.170
+With Settings Engine.
+
+01:17:51.170 --> 01:17:55.780
+Jetzt wird es wild, ja.
+
+01:17:56.780 --> 01:18:00.780
+Mach es leicht mit der globalen Variable Scheiß-auf-Rust-Convention für das Projekt.
+
+01:18:01.780 --> 01:18:04.780
+Willst du mir damit sagen, ich soll das nehmen, oder wie?
+
+01:18:05.780 --> 01:18:06.780
+Lazy. Das kenne ich sogar noch.
+
+01:18:07.780 --> 01:18:08.780
+Das gab es vor Jahren schon.
+
+01:18:09.780 --> 01:18:10.780
+Das habe ich schon mal benutzt.
+
+01:18:13.740 --> 01:18:14.740
+Static Ref.
+
+01:18:17.180 --> 01:18:24.290
+Okay.
+
+01:18:25.290 --> 01:18:26.290
+New Settings Engine.
+
+01:18:26.290 --> 01:18:27.290
+New Settings Engine.
+
+01:18:28.290 --> 01:18:29.290
+Settings Engine.
+
+01:18:30.290 --> 01:18:31.290
+Und dann am Ende?
+
+01:18:32.290 --> 01:18:33.290
+Build.
+
+01:18:34.290 --> 01:18:37.290
+Vielleicht sollte ich auch noch eine Media Engine für Codecs.
+
+01:18:38.290 --> 01:18:39.290
+Hier, Media Engine.
+
+01:18:40.290 --> 01:18:41.290
+Machen wir das auch mal.
+
+01:18:42.290 --> 01:18:43.290
+Brauchen wir bestimmt noch.
+
+01:18:44.290 --> 01:18:46.730
+Media Engine.
+
+01:18:47.730 --> 01:18:51.730
+Warum sind die Rust-Leute eigentlich so wortkarg bei Variablen?
+
+01:18:52.730 --> 01:18:57.300
+Ich meine, warum nennt man es nicht Media Engine, sondern M?
+
+01:18:57.300 --> 01:19:01.500
+Spart das Bytes im Output.
+
+01:19:02.500 --> 01:19:03.500
+Im Output taucht es eh nicht auf.
+
+01:19:04.500 --> 01:19:05.500
+Okay, dann machen wir mit.
+
+01:19:06.500 --> 01:19:07.500
+Media Engine auch noch.
+
+01:19:08.500 --> 01:19:09.500
+Machen wir Zeilenumbruch hierhin.
+
+01:19:10.500 --> 01:19:11.500
+Damit das ordentlich aussieht.
+
+01:19:12.500 --> 01:19:13.500
+Okay, es ist kaputt. Warum ist es kaputt?
+
+01:19:14.500 --> 01:19:16.500
+Weil es dem Codon gefehlt hat.
+
+01:19:17.500 --> 01:19:18.500
+Bildet das noch?
+
+01:19:19.500 --> 01:19:20.500
+Okay, nice, nice, nice.
+
+01:19:21.500 --> 01:19:26.250
+Okay.
+
+01:19:27.250 --> 01:19:28.250
+Es kompiliert noch.
+
+01:19:29.250 --> 01:19:30.250
+Das ist immer ein gutes Zeichen in Rust.
+
+01:19:30.250 --> 01:19:32.250
+Okay, let API.
+
+01:19:33.250 --> 01:19:34.250
+So.
+
+01:19:35.250 --> 01:19:36.250
+Kompiliert immer noch.
+
+01:19:37.250 --> 01:19:47.750
+Und jetzt.
+
+01:19:48.750 --> 01:19:56.440
+Und.
+
+01:19:57.440 --> 01:19:59.440
+Ich brauche eine Art globale Variable.
+
+01:20:00.440 --> 01:20:02.440
+Weil die API, die brauche ich jetzt für new.
+
+01:20:03.440 --> 01:20:04.440
+New Pair Connection.
+
+01:20:05.440 --> 01:20:06.440
+So.
+
+01:20:07.440 --> 01:20:08.440
+Und die Pair Connection will ich ja nicht hier aufmachen,
+
+01:20:09.440 --> 01:20:11.440
+sondern da will ich eine neue Funktion haben,
+
+01:20:12.440 --> 01:20:14.440
+die sich nennt Create Connection.
+
+01:20:14.440 --> 01:20:15.440
+So.
+
+01:20:16.440 --> 01:20:18.440
+Das heißt, ich brauche so eine Art globale Variable.
+
+01:20:19.440 --> 01:20:21.440
+Ich brauche quasi sowas.
+
+01:20:22.440 --> 01:20:23.440
+Ähm, war.
+
+01:20:24.440 --> 01:20:25.440
+Ach nee, Moment.
+
+01:20:26.440 --> 01:20:27.440
+Irgendwie sowas. Let.
+
+01:20:28.440 --> 01:20:29.440
+API.
+
+01:20:30.440 --> 01:20:32.440
+Das wird so natürlich nicht funktionieren, ja?
+
+01:20:33.440 --> 01:20:35.440
+Aber sowas in der Richtung bräuchte ich jetzt.
+
+01:20:36.440 --> 01:20:37.440
+Globale.
+
+01:20:43.020 --> 01:20:44.020
+Doch, das hier rufe ich ja nur einmal auf.
+
+01:20:45.020 --> 01:20:46.020
+Das hier rufe ich ja nur einmal auf am Start.
+
+01:20:47.020 --> 01:20:48.020
+Das reicht ja.
+
+01:20:49.020 --> 01:20:57.640
+Du machst einfach keine Fehler in C.
+
+01:20:58.640 --> 01:20:59.640
+Da bist du hier richtig.
+
+01:21:00.640 --> 01:21:01.640
+Wir machen prinzipiell keine Fehler hier.
+
+01:21:02.640 --> 01:21:03.640
+Dementsprechend schreiben wir auch keine Comments
+
+01:21:04.640 --> 01:21:05.640
+und auch keine Tests.
+
+01:21:06.640 --> 01:21:07.640
+Weil, ne, also.
+
+01:21:08.640 --> 01:21:09.640
+Fehlerfrei dokumentiert sich selbst
+
+01:21:10.640 --> 01:21:11.640
+und braucht im Prinzip auch keine Tests,
+
+01:21:12.640 --> 01:21:13.640
+weil es einfach funktioniert.
+
+01:21:14.640 --> 01:21:20.020
+Sehe ich auch so.
+
+01:21:21.020 --> 01:21:22.020
+Wieso der erhalten bleiben soll?
+
+01:21:23.020 --> 01:21:24.020
+Naja, weil ich es hier drinne speicher.
+
+01:21:25.020 --> 01:21:26.020
+Ja, und jetzt würde ich gerne dann sowas machen
+
+01:21:27.020 --> 01:21:28.020
+wie API Punkt irgendwas.
+
+01:21:28.020 --> 01:21:29.020
+Funktioniert ja so nett.
+
+01:21:30.020 --> 01:21:33.020
+Wie macht man globale Variablen in Rust?
+
+01:21:34.020 --> 01:21:39.320
+Es hat doch eben jemand irgendwas geschickt.
+
+01:21:40.320 --> 01:21:41.320
+Lazy Static Rust.
+
+01:21:42.320 --> 01:21:43.320
+Gar nicht.
+
+01:21:44.320 --> 01:21:45.320
+Ja, aber ohne wird es nicht gehen.
+
+01:21:48.340 --> 01:21:49.340
+Ich rufe das aus.
+
+01:21:50.340 --> 01:21:51.340
+Ich rufe das auf von C.
+
+01:21:52.340 --> 01:21:53.340
+Und danach rufe ich das auf von C.
+
+01:21:54.340 --> 01:21:55.340
+Und ich will nix
+
+01:21:57.340 --> 01:21:59.340
+irgendwie an Pointern hier rausbekommen,
+
+01:22:00.340 --> 01:22:01.340
+um es dann da wieder reinstecken zu können.
+
+01:22:02.340 --> 01:22:06.500
+Ne, ne, ne, ne, ne, ne.
+
+01:22:07.500 --> 01:22:08.500
+Wird's nicht.
+
+01:22:09.500 --> 01:22:10.500
+Nein, nein, nein, nein.
+
+01:22:11.500 --> 01:22:12.500
+Ne, ne, gar nicht.
+
+01:22:13.500 --> 01:22:14.500
+Es wird nur das gemacht, was du aufrufst.
+
+01:22:15.500 --> 01:22:16.500
+Nicht alles drumherum.
+
+01:22:17.500 --> 01:22:18.500
+Doch, na klar.
+
+01:22:19.500 --> 01:22:20.500
+Na klar.
+
+01:22:21.500 --> 01:22:22.500
+Wenn du Speicher, wenn du Speicher
+
+01:22:23.500 --> 01:22:24.500
+anforderst,
+
+01:22:25.500 --> 01:22:26.500
+der nicht auf dem Stack ist,
+
+01:22:27.500 --> 01:22:28.500
+sondern
+
+01:22:29.500 --> 01:22:30.500
+quasi
+
+01:22:31.500 --> 01:22:32.500
+allokiert ist global,
+
+01:22:32.500 --> 01:22:33.500
+dann bleibt er auch erhalten
+
+01:22:34.500 --> 01:22:35.500
+zwischen zwei Funktionsaufrufen.
+
+01:22:36.500 --> 01:22:37.500
+Doch, klar.
+
+01:22:38.500 --> 01:22:39.500
+Solange das eigentliche Programm läuft.
+
+01:22:40.500 --> 01:22:41.500
+Ja, ja.
+
+01:22:42.500 --> 01:22:43.500
+Also das wäre sehr merkwürdig,
+
+01:22:44.500 --> 01:22:45.500
+sollte das in Rust nicht so sein.
+
+01:22:47.880 --> 01:22:48.880
+Das kann sich Rust ja auch gar nicht aussuchen.
+
+01:22:51.580 --> 01:22:52.580
+Du brauchst One Cell.
+
+01:22:53.580 --> 01:22:54.580
+Brauch ich das?
+
+01:22:55.580 --> 01:22:56.580
+Okay, brauch ich Lazy Static
+
+01:22:57.580 --> 01:22:58.580
+oder brauch ich One Cell?
+
+01:22:59.580 --> 01:23:00.580
+Was brauch ich?
+
+01:23:01.580 --> 01:23:02.580
+Was zum Teufel ist vor allem
+
+01:23:02.580 --> 01:23:03.580
+Lazy Evaluated Statics
+
+01:23:04.580 --> 01:23:05.580
+using which it is possible
+
+01:23:06.580 --> 01:23:07.580
+to have statics that require
+
+01:23:08.580 --> 01:23:09.580
+code to be executed at runtime.
+
+01:23:10.580 --> 01:23:11.580
+Ja doch, sowas will ich haben.
+
+01:23:14.210 --> 01:23:15.210
+Das ist One Cell, du initst einmal
+
+01:23:16.210 --> 01:23:17.210
+und es ist globale Variable dann.
+
+01:23:19.520 --> 01:23:20.520
+Ja, das würde mir auch reichen.
+
+01:23:21.520 --> 01:23:22.520
+Dann brauch ich,
+
+01:23:23.520 --> 01:23:24.520
+dann brauch ich kein Lazy Static.
+
+01:23:37.460 --> 01:23:38.460
+Ja Moment, das funktioniert ja gar nicht.
+
+01:23:39.460 --> 01:23:41.460
+Ich würde das ja aus meinem init setzen wollen
+
+01:23:42.460 --> 01:23:43.460
+und nicht hier irgendwo.
+
+01:23:47.050 --> 01:23:48.050
+Also, okay, okay.
+
+01:23:48.050 --> 01:23:49.050
+Im Endeffekt,
+
+01:23:50.050 --> 01:23:51.050
+im Endeffekt brauch ich das,
+
+01:23:52.050 --> 01:23:53.050
+was Slick sagt.
+
+01:23:54.050 --> 01:23:55.050
+Nur habe ich keine Ahnung,
+
+01:23:56.050 --> 01:23:57.050
+wie das funktioniert.
+
+01:23:58.050 --> 01:23:59.050
+Also brauch ich, wie heißt das?
+
+01:24:00.050 --> 01:24:01.050
+Rust One Cell.
+
+01:24:02.050 --> 01:24:03.050
+Ach nee, Once.
+
+01:24:04.050 --> 01:24:05.050
+Once Cell.
+
+01:24:06.050 --> 01:24:10.600
+Ach ja, hier, genau.
+
+01:24:11.600 --> 01:24:12.600
+Das ist sowas brauch ich.
+
+01:24:13.600 --> 01:24:14.600
+Ja, genau.
+
+01:24:15.600 --> 01:24:16.600
+Ja, ja, ja, ja, genau.
+
+01:24:17.600 --> 01:24:18.600
+Excellent.
+
+01:24:19.600 --> 01:24:20.600
+Fivehead Chat wieder voll dabei.
+
+01:24:21.600 --> 01:24:22.600
+Okay.
+
+01:24:23.600 --> 01:24:24.600
+Static.
+
+01:24:25.600 --> 01:24:26.600
+Erstmal API.
+
+01:24:27.600 --> 01:24:28.600
+Was ist das für eine Sündach?
+
+01:24:29.600 --> 01:24:30.600
+Das ist Rust.
+
+01:24:31.600 --> 01:24:32.600
+Rust Sündachs ist halt super abenteuerlich.
+
+01:24:33.600 --> 01:24:38.340
+Chatkill.
+
+01:24:39.340 --> 01:24:40.340
+Tokyo oder Standard?
+
+01:24:42.340 --> 01:24:43.340
+Standard, oder?
+
+01:24:48.410 --> 01:24:49.410
+API?
+
+01:24:50.410 --> 01:24:51.410
+Warum geht das nicht?
+
+01:24:57.940 --> 01:24:58.940
+Ah, das darf nicht API heißen.
+
+01:24:59.940 --> 01:25:00.940
+Das darf nicht API heißen,
+
+01:25:01.940 --> 01:25:02.940
+das muss Blub heißen.
+
+01:25:02.940 --> 01:25:03.940
+Ja, ja, okay.
+
+01:25:05.940 --> 01:25:08.900
+Moment, heißt das überhaupt API?
+
+01:25:09.900 --> 01:25:10.900
+Warte mal.
+
+01:25:11.900 --> 01:25:12.900
+Let, was kommt denn hier zurück?
+
+01:25:13.900 --> 01:25:22.480
+API, ist doch richtig.
+
+01:25:23.480 --> 01:25:24.480
+Ah, das war nicht importiert, deswegen.
+
+01:25:25.480 --> 01:25:26.480
+Funzt das jetzt trotzdem?
+
+01:25:27.480 --> 01:25:28.480
+Nice.
+
+01:25:29.480 --> 01:25:30.480
+Okay, und jetzt mache ich wie?
+
+01:25:31.480 --> 01:25:32.480
+Was stand da?
+
+01:25:33.480 --> 01:25:34.480
+Set.
+
+01:25:35.480 --> 01:25:36.480
+Set Unwrap.
+
+01:25:37.480 --> 01:25:38.480
+Okay, API, Set.
+
+01:25:39.480 --> 01:25:40.480
+Machen wir es mal so,
+
+01:25:40.480 --> 01:25:41.480
+weil API, Unwrap.
+
+01:25:47.240 --> 01:25:48.240
+Okay, und jetzt ist alles gut?
+
+01:25:49.240 --> 01:25:50.240
+Ne.
+
+01:25:51.240 --> 01:25:52.240
+Das wäre ja auch zu einfach gewesen.
+
+01:25:55.240 --> 01:25:56.240
+Das wäre jetzt auch zu einfach gewesen,
+
+01:25:57.240 --> 01:25:58.240
+wenn das einfach funktioniert.
+
+01:25:59.240 --> 01:26:00.240
+Also da muss ich mal sagen,
+
+01:26:01.240 --> 01:26:02.240
+da bekleckert sich aber die Rust-IDE
+
+01:26:03.240 --> 01:26:04.240
+nicht wirklich mit,
+
+01:26:11.030 --> 01:26:12.030
+da bekleckert sich die Rust-IDE
+
+01:26:13.030 --> 01:26:14.030
+jetzt nicht wirklich mit Room,
+
+01:26:15.030 --> 01:26:16.030
+wenn es anzeigt,
+
+01:26:16.030 --> 01:26:17.030
+dass das Problem funktioniert
+
+01:26:18.030 --> 01:26:19.030
+und erst beim Kompilieren das abkackt.
+
+01:26:20.030 --> 01:26:24.140
+Okay, warum kackt der ab?
+
+01:26:25.140 --> 01:26:26.140
+Was hat er für Schmerzen?
+
+01:26:27.140 --> 01:26:28.140
+Standard Cell,
+
+01:26:37.420 --> 01:26:38.420
+One Cell cannot be shared
+
+01:26:39.420 --> 01:26:40.420
+between threads safely.
+
+01:26:41.420 --> 01:26:42.420
+If you want to do aliasing
+
+01:26:43.420 --> 01:26:44.420
+and mutation
+
+01:26:45.420 --> 01:26:46.420
+between multiple threads,
+
+01:26:47.420 --> 01:26:50.380
+use once lock.
+
+01:26:51.380 --> 01:26:52.380
+Okay?
+
+01:26:53.380 --> 01:26:54.380
+Ich habe absolut keine Ahnung,
+
+01:26:55.380 --> 01:26:56.380
+was das von mir wird.
+
+01:26:57.380 --> 01:26:58.380
+Wir benutzen jetzt einfach
+
+01:26:59.380 --> 01:27:00.380
+once lock.
+
+01:27:01.380 --> 01:27:02.380
+Pass mal auf, jetzt geht es, easy.
+
+01:27:03.380 --> 01:27:04.380
+Ne, das wäre auch zu einfach.
+
+01:27:12.320 --> 01:27:18.090
+Was?
+
+01:27:19.090 --> 01:27:20.090
+Was?
+
+01:27:21.090 --> 01:27:22.090
+API cannot be formatted?
+
+01:27:24.780 --> 01:27:25.780
+API cannot be formatted.
+
+01:27:35.260 --> 01:27:36.260
+Was will der von mir?
+
+01:27:37.260 --> 01:27:38.260
+Ich gebe das nirgendswo aus.
+
+01:27:40.260 --> 01:27:41.260
+Soll...
+
+01:27:42.260 --> 01:27:43.260
+Soll ich das...
+
+01:27:44.260 --> 01:27:45.260
+Okay, wisst ihr was?
+
+01:27:46.260 --> 01:27:47.260
+Ich lasse das Unwrap einfach weg.
+
+01:27:48.260 --> 01:27:49.260
+Easy, kompiliert.
+
+01:27:49.260 --> 01:27:50.260
+Was?
+
+01:27:51.260 --> 01:27:52.260
+Let underscore gleich.
+
+01:27:53.260 --> 01:27:59.990
+Zack, easy, funs.
+
+01:28:00.990 --> 01:28:01.990
+Ähm...
+
+01:28:02.990 --> 01:28:03.990
+Da kann ich das mut entfernen.
+
+01:28:04.990 --> 01:28:05.990
+Okay, ja.
+
+01:28:08.500 --> 01:28:09.500
+Kann man unused imports?
+
+01:28:11.500 --> 01:28:12.500
+Ja.
+
+01:28:13.500 --> 01:28:14.500
+Bis auf den einzigen...
+
+01:28:15.500 --> 01:28:16.500
+Das ist auch geil.
+
+01:28:17.500 --> 01:28:18.500
+Remove unused imports.
+
+01:28:26.380 --> 01:28:29.580
+Hä?
+
+01:28:30.580 --> 01:28:31.580
+JetBrains, was ist jetzt los?
+
+01:28:32.580 --> 01:28:33.580
+Eben gab es das doch noch.
+
+01:28:33.580 --> 01:28:34.580
+Es kompiliert, Leute.
+
+01:28:48.520 --> 01:28:50.520
+Und Rust heißt automatisch, es kompiliert, es geht.
+
+01:28:51.520 --> 01:28:53.520
+Das wäre was für unseren ehemaligen Azubi gewesen.
+
+01:28:54.520 --> 01:28:55.520
+Okay, await task delay.
+
+01:28:56.520 --> 01:28:57.520
+Zehn Sekunden.
+
+01:29:00.090 --> 01:29:01.090
+Jetzt bin ich gespannt.
+
+01:29:02.090 --> 01:29:03.090
+Für init mal zweimal aus...
+
+01:29:04.090 --> 01:29:05.090
+Ne, das heißt nicht umsonst init.
+
+01:29:07.090 --> 01:29:08.090
+Das wird nur einmal ausgeführt.
+
+01:29:10.090 --> 01:29:12.090
+Und der Port ist offen und bleibt offen.
+
+01:29:13.090 --> 01:29:14.090
+Ja, nice.
+
+01:29:14.090 --> 01:29:15.090
+Rust in C-Sharp, ja.
+
+01:29:16.090 --> 01:29:17.090
+Ganz abgedrehter Shit.
+
+01:29:18.090 --> 01:29:19.090
+Es funktioniert.
+
+01:29:21.090 --> 01:29:22.090
+Es funktioniert, Leute.
+
+01:29:24.090 --> 01:29:25.090
+So.
+
+01:29:26.090 --> 01:29:27.090
+Das können wir weitermachen.
+
+01:29:28.090 --> 01:29:29.090
+Eats.
+
+01:29:30.090 --> 01:29:31.090
+Als nächstes...
+
+01:29:32.090 --> 01:29:33.090
+Create connection.
+
+01:29:34.090 --> 01:29:35.090
+Zack, create connection.
+
+01:29:40.670 --> 01:29:43.670
+Und in C-Sharp heißt das Ding create connection.
+
+01:29:44.670 --> 01:29:45.670
+Easy.
+
+01:29:45.670 --> 01:29:48.180
+Let's go.
+
+01:29:50.870 --> 01:29:52.870
+Also, das heißt, erstmal brauchen wir die RP.
+
+01:29:53.870 --> 01:29:54.870
+Die müssen wir uns hier wiederholen.
+
+01:29:55.870 --> 01:29:56.870
+Das ist ein OnceLock.
+
+01:29:57.870 --> 01:29:58.870
+OnceLock heißt im Endeffekt...
+
+01:29:59.870 --> 01:30:15.180
+Ähm...
+
+01:30:16.180 --> 01:30:17.180
+Get? Fragezeichen?
+
+01:30:18.180 --> 01:30:20.740
+Take?
+
+01:30:24.980 --> 01:30:25.980
+Okay, nur Rust-Logik.
+
+01:30:26.980 --> 01:30:27.980
+Rust-Logik.
+
+01:30:28.980 --> 01:30:29.980
+Get bedeutet...
+
+01:30:30.980 --> 01:30:32.980
+Ich kriege eine Referenz auf RP.
+
+01:30:33.980 --> 01:30:34.980
+Als Option.
+
+01:30:35.980 --> 01:30:36.980
+Das heißt im Endeffekt...
+
+01:30:37.980 --> 01:30:39.980
+Es könnte auch nichts drin sein.
+
+01:30:40.980 --> 01:30:41.980
+Was ja auch sinnvoll ist.
+
+01:30:42.980 --> 01:30:43.980
+Weil an der Stelle weiß ich gar nicht...
+
+01:30:44.980 --> 01:30:45.980
+Wurde das schon initialisiert oder nicht.
+
+01:30:46.980 --> 01:30:47.980
+So.
+
+01:30:48.980 --> 01:30:49.980
+Take?
+
+01:30:50.980 --> 01:30:51.980
+ServerPy. Dankeschön für den Sub.
+
+01:30:52.980 --> 01:30:53.980
+Sorry an alle, die ich irgendwie vergessen habe.
+
+01:30:54.980 --> 01:30:55.980
+Ich habe gar nicht reingeguckt.
+
+01:30:56.980 --> 01:30:57.980
+Ich war zu sehr mit Rust beschäftigt.
+
+01:31:01.250 --> 01:31:02.250
+Credo wieder am Start.
+
+01:31:03.250 --> 01:31:05.250
+Der dicke Kappa von Twitter ist am Start, oder?
+
+01:31:06.250 --> 01:31:07.250
+Nicht, dass ich durcheinander spreche.
+
+01:31:08.250 --> 01:31:09.250
+Ich glaube schon.
+
+01:31:10.250 --> 01:31:11.250
+Der echte Olli ist auch da.
+
+01:31:12.250 --> 01:31:13.250
+Dankeschön für die Subs, Leute.
+
+01:31:17.420 --> 01:31:18.420
+Odolmed?
+
+01:31:19.420 --> 01:31:20.420
+Dankeschön für den Sub.
+
+01:31:24.970 --> 01:31:25.970
+Poggers Subscription.
+
+01:31:26.970 --> 01:31:29.730
+Also.
+
+01:31:30.730 --> 01:31:31.730
+Nur mal so um Rust-Logik.
+
+01:31:32.730 --> 01:31:33.730
+So. Get?
+
+01:31:34.730 --> 01:31:35.730
+Was war das gerade?
+
+01:31:36.730 --> 01:31:37.730
+Ah, der Scam-Train ist am Start.
+
+01:31:38.730 --> 01:31:39.730
+Ach nee, Bits.
+
+01:31:40.730 --> 01:31:41.730
+Poggers. 30 Milliarden.
+
+01:31:42.730 --> 01:31:43.730
+Nice Sniper.
+
+01:31:44.730 --> 01:31:45.730
+NRW. 84.
+
+01:31:46.730 --> 01:31:47.730
+84 klingt nach Geburtsjahr, oder?
+
+01:31:55.540 --> 01:31:57.540
+Du bist ganz schön alt, wenn du 1984 geboren bist.
+
+01:31:58.540 --> 01:32:03.780
+Schätz mal, was mein Geburtsjahr ist.
+
+01:32:16.840 --> 01:32:17.840
+Das gilt jetzt nur für den Sniper.
+
+01:32:18.840 --> 01:32:19.840
+NRW. 84.
+
+01:32:27.210 --> 01:32:28.210
+1998. Ja. Close. Close.
+
+01:32:29.210 --> 01:32:37.020
+Nee, es ist auch 1984.
+
+01:32:38.020 --> 01:32:39.020
+Deswegen wollte ich darauf raus.
+
+01:32:40.020 --> 01:32:45.260
+Wir sind mehr oder weniger gleich alt, wahrscheinlich.
+
+01:32:46.260 --> 01:32:48.260
+Richtig Boomer, Alter.
+
+01:32:49.260 --> 01:32:53.270
+Und ihr wisst, in 45 Minuten wird der Boomer müde
+
+01:32:54.270 --> 01:32:55.270
+und dann muss er ins Bett.
+
+01:32:59.310 --> 01:33:00.310
+Mal eine random Frage.
+
+01:33:00.310 --> 01:33:02.310
+Kann man sich eine Instanz von deinem Linux-OS holen,
+
+01:33:03.310 --> 01:33:04.310
+um das in einer VM zu betreiben?
+
+01:33:06.310 --> 01:33:08.310
+Du meinst eine Kopie von meiner VM?
+
+01:33:09.310 --> 01:33:11.310
+Du kannst sowas ähnliches machen.
+
+01:33:12.310 --> 01:33:13.310
+Du bekommst keine Kopie von meiner VM,
+
+01:33:14.310 --> 01:33:15.310
+aber was du auf GitHub bekommst, ist,
+
+01:33:16.310 --> 01:33:20.310
+du bekommst eine Kopie meiner Config-Files.
+
+01:33:21.310 --> 01:33:24.310
+Und damit hast du ja fast schon meine VM.
+
+01:33:29.950 --> 01:33:31.950
+Dann bist du ein paar Monate älter als ich.
+
+01:33:31.950 --> 01:33:43.840
+So, also, okay, nochmal Rust-Geschichten.
+
+01:33:44.840 --> 01:33:46.840
+Das hier gibt eine Referenz.
+
+01:33:47.840 --> 01:33:53.150
+Das hier takt Ownership aus dem Inneren.
+
+01:33:54.150 --> 01:33:56.150
+Aber dann ist er ja wieder uninitialisiert, oder?
+
+01:33:57.150 --> 01:33:58.150
+Wenn ich das take.
+
+01:33:59.150 --> 01:34:01.150
+Ach, okay. Rust ist mir einfach zu pfeiffert.
+
+01:34:02.150 --> 01:34:03.150
+Ich gehe mal davon aus, es ist Get.
+
+01:34:04.150 --> 01:34:08.000
+Und dann Unreal.
+
+01:34:09.000 --> 01:34:10.000
+Leute, ich habe im Hinterkopf,
+
+01:34:11.000 --> 01:34:15.000
+dass man in Rust-Options eigentlich irgendwie so gehandelt hat.
+
+01:34:16.000 --> 01:34:17.000
+Oder?
+
+01:34:18.000 --> 01:34:19.000
+War das was anderes jetzt?
+
+01:34:20.000 --> 01:34:22.000
+Moment, ist das eine Option-Option?
+
+01:34:23.000 --> 01:34:26.000
+Ach, nee, das ist um selbst Ergebnisse in Options zu wrappen.
+
+01:34:27.000 --> 01:34:28.000
+So rum war das, genau.
+
+01:34:29.000 --> 01:34:31.000
+Jetzt muss ich unwrap machen,
+
+01:34:32.000 --> 01:34:34.000
+dass ich die AP aus der Option rauskriege.
+
+01:34:35.000 --> 01:34:39.210
+Das ist Archlinux, by the way.
+
+01:34:40.210 --> 01:34:42.210
+Hier, für dich einmal NeoFetch.
+
+01:34:43.210 --> 01:34:45.210
+Es ist Archlinux auf einer VM
+
+01:34:45.210 --> 01:34:51.840
+mit West Term als Terminal und I3 als Oberfläche.
+
+01:34:52.840 --> 01:34:55.280
+Als Window-Manager.
+
+01:34:56.280 --> 01:34:57.280
+Ich wollte sagen, als Desktop.
+
+01:34:58.280 --> 01:34:59.280
+Aber das ergibt keinen Sinn,
+
+01:35:00.280 --> 01:35:01.280
+weil das hat noch nicht mal einen Desktop.
+
+01:35:02.280 --> 01:35:03.280
+Ja, guck, der hat Albträume, der Pepo, Mann.
+
+01:35:04.280 --> 01:35:13.160
+Ja, und meine Desktop-Hintergründe
+
+01:35:14.160 --> 01:35:15.160
+kriegst du übrigens auch auf GitHub.
+
+01:35:16.160 --> 01:35:18.600
+Die gibt es hier.
+
+01:35:19.600 --> 01:35:20.600
+Hast du für jeden Anwendungszweck ein.
+
+01:35:21.600 --> 01:35:24.490
+Okay, unwrap.
+
+01:35:24.490 --> 01:35:33.020
+Und jetzt sage ich api new pair-connection.
+
+01:35:34.020 --> 01:35:36.020
+Ich gucke mal, ob es bis hierhin noch kompiliert.
+
+01:35:37.020 --> 01:35:38.020
+Ja, macht's, nice.
+
+01:35:39.020 --> 01:35:41.020
+Okay, also api new pair-connection.
+
+01:35:42.020 --> 01:35:43.020
+Und wie geht es jetzt weiter?
+
+01:35:44.020 --> 01:36:00.860
+New pair-connection.
+
+01:36:02.860 --> 01:36:04.860
+Warum macht er das als Arc?
+
+01:36:05.860 --> 01:36:06.860
+Also da kann ich mich noch dran erinnern.
+
+01:36:07.860 --> 01:36:09.860
+Das ist ein Reference-Counter.
+
+01:36:09.860 --> 01:36:10.860
+Was ich nicht mehr weiß aus dem Kopf,
+
+01:36:11.860 --> 01:36:15.860
+den Unterschied zwischen Arc und nur RC,
+
+01:36:16.860 --> 01:36:18.860
+also zwischen einem Atomic, wahrscheinlich,
+
+01:36:19.860 --> 01:36:21.860
+Reference-Counter und einem Reference-Counter,
+
+01:36:22.860 --> 01:36:23.860
+da blick ich nicht so ganz durch aus dem Kopf,
+
+01:36:24.860 --> 01:36:25.860
+was das in Rust gewesen ist.
+
+01:36:26.860 --> 01:36:27.860
+Ich weiß, dass es beides gab.
+
+01:36:28.860 --> 01:36:32.860
+Okay, api new pair-connection machen wir jetzt.
+
+01:36:33.860 --> 01:36:37.860
+Und dafür brauchen wir eine RTC-Configuration.
+
+01:36:37.860 --> 01:36:39.860
+RTC-Configuration.
+
+01:36:42.810 --> 01:36:44.810
+Wo kriegen wir die her?
+
+01:36:45.810 --> 01:36:46.810
+Konfig, RTC.
+
+01:36:47.810 --> 01:36:49.810
+Kann man die nicht einfach irgendwie leer lassen?
+
+01:36:50.810 --> 01:36:52.810
+RTC-Configuration.
+
+01:36:53.810 --> 01:36:55.810
+Kann man die nicht einfach so machen, wie in Go?
+
+01:36:56.810 --> 01:36:57.810
+Oder nee, Moment.
+
+01:36:58.810 --> 01:36:59.810
+Default kann man machen. Easy.
+
+01:37:00.810 --> 01:37:01.810
+So, jetzt haben wir eine neue pair-connection.
+
+01:37:02.810 --> 01:37:03.810
+Die mag nicht.
+
+01:37:04.810 --> 01:37:05.810
+Weil, warum mag die nicht?
+
+01:37:06.810 --> 01:37:07.810
+Weil, weil, Awaiting.
+
+01:37:07.810 --> 01:37:10.310
+Und jetzt unwrappen.
+
+01:37:11.310 --> 01:37:14.840
+Die Syntax macht mich fertig.
+
+01:37:15.840 --> 01:37:20.070
+Arc is thread-safe.
+
+01:37:21.070 --> 01:37:25.070
+Okay, aber, aber warum sollte ich einen Reference-Counter verwenden,
+
+01:37:26.070 --> 01:37:31.580
+überhaupt, wenn ich nicht multithreaded das mache?
+
+01:37:32.580 --> 01:37:34.580
+Da kann ich doch einfach eine ganz normale Referenz taken und gut ist.
+
+01:37:35.580 --> 01:37:36.580
+Warum muss ich die dann irgendwie counten?
+
+01:37:37.580 --> 01:37:39.580
+Bestimmt irgendwas mit Objekt-Lifetime-Geschichten oder so.
+
+01:37:40.580 --> 01:37:41.580
+Weil da ist ja Rust super pingelig.
+
+01:37:42.580 --> 01:37:46.530
+Rust is ugly as fuck, das stimmt.
+
+01:37:46.530 --> 01:37:47.530
+Aber einen Vorteil hat Rust.
+
+01:37:48.530 --> 01:37:49.530
+Ihr habt es heute auch schon gesehen.
+
+01:37:50.530 --> 01:37:52.530
+Wenn es kompiliert, macht es meistens das, was man denkt.
+
+01:37:53.530 --> 01:37:55.530
+Dadurch, dass es so viele Compile-Time-Checks hat.
+
+01:37:56.530 --> 01:37:59.670
+Aber es ist eklig.
+
+01:38:00.670 --> 01:38:01.670
+Aber es ist eklig, da gebe ich dir recht.
+
+01:38:02.670 --> 01:38:04.670
+Also das hier, das ist wirklich absolute Zumutung, das hier zu lesen.
+
+01:38:05.670 --> 01:38:10.670
+So, jetzt haben wir eine neue pair-connection.
+
+01:38:11.670 --> 01:38:12.670
+Wallet.
+
+01:38:13.670 --> 01:38:14.670
+Komm, ich kürze das ab.
+
+01:38:15.670 --> 01:38:16.670
+Ich bin faul.
+
+01:38:17.670 --> 01:38:18.670
+Komm, M-E.
+
+01:38:19.670 --> 01:38:20.670
+S-E.
+
+01:38:21.670 --> 01:38:22.670
+Komm, wir sind nett.
+
+01:38:23.670 --> 01:38:24.670
+Wir sind nett, Phil, wir nennen das Pair.
+
+01:38:25.670 --> 01:38:30.670
+Warum kann eigentlich die Rust-Idee nichts vorschlagen?
+
+01:38:31.670 --> 01:38:32.670
+Weil Ryder kann das ganz gut.
+
+01:38:33.670 --> 01:38:35.670
+Nicht vorschlagen, wie das Zeug heißen soll.
+
+01:38:36.670 --> 01:38:46.870
+Warum ist Rust so unglaublich beliebt, so unintuitiv, wie das ist?
+
+01:38:48.870 --> 01:38:49.870
+Das verstehe ich auch.
+
+01:38:50.870 --> 01:38:51.870
+Ich glaube, das liegt daran.
+
+01:38:52.870 --> 01:38:53.870
+Zwei Sachen.
+
+01:38:54.870 --> 01:38:55.870
+Das liegt an zwei Sachen.
+
+01:38:55.870 --> 01:39:01.870
+Dass Rust eine ziemlich gute Sprache ist, für den Einsatzzweck, wofür es gemacht wurde.
+
+01:39:02.870 --> 01:39:07.870
+Und auskommend aus diesem Einsatzzweck hat sich so ein kleiner Kult um Rust entwickelt.
+
+01:39:08.870 --> 01:39:12.870
+Die jetzt Rust für alles und jenen und überall promoten wie verrückt.
+
+01:39:13.870 --> 01:39:14.870
+Ich glaube, daher kommt das.
+
+01:39:15.870 --> 01:39:19.870
+Weil Rust ist eine super Sprache für genau einen Anwendungszweck.
+
+01:39:20.870 --> 01:39:23.870
+Und er ist, wie gesagt, ich habe es am Anfang des Streams gesagt, es kommt nicht umsonst vom Mozilla.
+
+01:39:24.870 --> 01:39:28.870
+Wenn man beispielsweise irgendwelche Browser-Sachen programmieren möchte.
+
+01:39:29.870 --> 01:39:34.870
+Ich glaube, eines der ersten Anwendungsgebiete für Rust war, glaube ich, CSS in Firefox.
+
+01:39:35.870 --> 01:39:37.870
+Die haben irgendwas für CSS in Firefox mit Rust gemacht.
+
+01:39:38.870 --> 01:39:42.530
+Rust ist sehr beliebt.
+
+01:39:43.530 --> 01:39:44.530
+Musst ihr die Stackoverflow-Umfrage angucken.
+
+01:39:45.530 --> 01:39:50.530
+Rust ist die most-loved-Technologie, die die Leute mögen, aber nicht professionell einsetzen.
+
+01:39:51.530 --> 01:39:54.530
+Sobald sie sie professionell einsetzen, sinkt das wahrscheinlich.
+
+01:39:54.530 --> 01:39:56.530
+Er ist immer noch ein Mozilla-Projekt.
+
+01:39:57.530 --> 01:40:01.530
+So und was für eine Anforderung hat ein Browser-Hersteller?
+
+01:40:03.530 --> 01:40:05.530
+Chat, welche Anforderung hat ein Browser-Hersteller?
+
+01:40:06.530 --> 01:40:07.530
+Mehr als die meisten anderen.
+
+01:40:08.530 --> 01:40:15.530
+Ein Browser-Hersteller braucht wirklich schnelles Zeug und nach Möglichkeit möglichst sicheres Zeug.
+
+01:40:16.530 --> 01:40:19.840
+Und genau dafür ist Rust gut.
+
+01:40:19.840 --> 01:40:31.840
+Rust braucht ganz wenige, hat es zwar auch, aber ganz wenige Runtime-Checks, um irgendwie Speicherprobleme auszuschließen.
+
+01:40:32.840 --> 01:40:37.840
+Du kannst auch so machen wie C, einfach gar nichts checken und es crasht oder es gibt irgendwelche Sicherheitslücken.
+
+01:40:38.840 --> 01:40:39.840
+Aber das willst du ja nicht in einem Browser.
+
+01:40:40.840 --> 01:40:44.840
+In einem Browser möchtest du möglichst wenig Runtime checken müssen, weil es Performance frisst.
+
+01:40:45.840 --> 01:40:54.840
+Du möchtest dir aber gleichermaßen sicher sein, schon zur Compile-Zeit, dass du keine Memory, Out of Bounds, was auch immer Sachen verursacht.
+
+01:40:55.840 --> 01:40:58.840
+Wo dann irgendjemand aus seiner Browser-Sandbox vielleicht mit ausbrechen könnte.
+
+01:40:59.840 --> 01:41:03.840
+Also du brauchst weitgehende Memory-Safety und schnelle Performance.
+
+01:41:04.840 --> 01:41:07.840
+Das brauchst du als Browser-Hersteller und dafür ist Rust wirklich gut.
+
+01:41:08.840 --> 01:41:13.840
+Das Problem ist nur, dass das für das meiste an Software, zumindest meiner Meinung nach,
+
+01:41:14.840 --> 01:41:18.840
+für die meiste Software gar nicht wirklich so essentiell ist.
+
+01:41:19.840 --> 01:41:22.840
+Performance lasse ich mir gefallen, Performance ist eigentlich für jede Art von Software wichtig.
+
+01:41:24.840 --> 01:41:30.840
+Ich weiß, sagt das den Leuten, die Elektronen basteln und 800 MB RAM für eine Notizanwendung haben.
+
+01:41:31.840 --> 01:41:33.840
+Aber Performance ist prinzipiell überall wichtig.
+
+01:41:34.840 --> 01:41:36.840
+Wichtig und richtig.
+
+01:41:37.840 --> 01:41:42.840
+Aber diese ganze Memory-Safety-Geschichte ist bei so vielen Sachen gar nicht mal so essentiell.
+
+01:41:42.840 --> 01:41:48.470
+Es ist nice to have, aber im schlimmsten Fall crasht ihr halt deine Anwendung.
+
+01:41:49.470 --> 01:41:50.470
+So what?
+
+01:41:55.540 --> 01:41:57.540
+Solange du nicht gerade irgendwelche sicherheitskritische Zeugs machst.
+
+01:41:58.540 --> 01:42:02.540
+Wenn dir das in einem Spiel passiert, ist das kein Ding, da crasht ihr das Game.
+
+01:42:03.540 --> 01:42:05.540
+Es gibt allerdings wieder Bereiche, da ist das sinnvoll.
+
+01:42:06.540 --> 01:42:12.540
+Zum Beispiel erinnert sich noch einer an die alten Call of Duties, die alle Peer-to-Peer-Hosting hatten.
+
+01:42:13.540 --> 01:42:15.540
+Also wo einer Random Server wurde.
+
+01:42:15.540 --> 01:42:22.540
+Da ist es natürlich fatal, wenn derjenige das Server wurde und eine Sicherheitslücke im Spiel es erlaubt,
+
+01:42:23.540 --> 01:42:27.540
+quasi aus dem Spiel selbst auszubrechen mit manipulierten Anfragen.
+
+01:42:28.540 --> 01:42:35.540
+Dann könnte ja potenziell jemand Malware einschleusen, quasi über den Multiplayer von einem Peer-to-Peer-gehosteten Spiel.
+
+01:42:36.540 --> 01:42:42.940
+In solchen sicherheitskritischen Sachen wäre Rustern wieder mega nice.
+
+01:42:42.940 --> 01:42:52.510
+Oder du verwendest eine Managed-Sprache, da hast du die Probleme nicht und wahrscheinlich reicht dir die Performance auch aus.
+
+01:42:53.510 --> 01:42:56.720
+Genau, ja.
+
+01:42:57.720 --> 01:43:03.340
+So, wir machen jetzt mal kurz weiter, ich habe nämlich nur eine halbe Stunde Zeit.
+
+01:43:04.340 --> 01:43:07.340
+Peer-Connection, Peer-Connection default.
+
+01:43:08.340 --> 01:43:13.350
+So, und jetzt will ich, nur mal um zu testen, ob das alles funktioniert.
+
+01:43:14.350 --> 01:43:15.350
+Jetzt sagen wir Peer-Connection.
+
+01:43:16.350 --> 01:43:17.350
+Ah, ich brauche noch Tracks.
+
+01:43:18.350 --> 01:43:19.350
+Ich habe noch keine Tracks.
+
+01:43:20.350 --> 01:43:21.350
+Also ein Track ist quasi ein Videostream.
+
+01:43:22.350 --> 01:43:27.350
+Und ich habe noch keinen, also auch wenn er leer ist, noch keinen Videostream angelegt, den ich übertragen will.
+
+01:43:28.350 --> 01:43:29.350
+Was wir programmieren ist folgendes.
+
+01:43:30.350 --> 01:43:32.350
+Also, noch ist ja da nicht viel.
+
+01:43:33.350 --> 01:43:38.350
+Wir programmieren eine C-Sharp, eine C-Sharp Back, äh, ASP.NET Core Backend-Anwendung,
+
+01:43:39.350 --> 01:43:43.350
+die eine Low-Level in Rust programmierte WebRTC-Library nimmt,
+
+01:43:44.350 --> 01:43:48.350
+um Webcam-Streams real-time in den Browser streamen zu können.
+
+01:43:48.350 --> 01:43:53.350
+Es gibt eine Backend-Anwendung in .NET.
+
+01:43:54.350 --> 01:43:56.350
+Es gibt Low-Level WebRTC-Kram in Rust.
+
+01:43:57.350 --> 01:43:59.350
+Und es gibt ein bisschen Javascript und HTML im Frontend.
+
+01:44:00.350 --> 01:44:09.810
+Warum? Bei den meisten Spielen ist es doch vollkommen egal.
+
+01:44:10.810 --> 01:44:12.810
+In Crash die halt das Game. Und? Weiter.
+
+01:44:13.810 --> 01:44:19.380
+Dafür hast du das Spiel in zwei Jahren entwickelt und mit Rust bräuchtest du fünf für.
+
+01:44:20.380 --> 01:44:21.380
+Ne, ne, ne, ne, ne.
+
+01:44:25.100 --> 01:44:27.100
+Web-Anwendung in Rust, das werde ich mir nicht antun.
+
+01:44:28.100 --> 01:44:29.100
+Garantiert nicht.
+
+01:44:30.100 --> 01:44:31.100
+Im Leben nicht.
+
+01:44:32.100 --> 01:44:33.100
+Da müsste ich auch FFM-Pack in Rust machen.
+
+01:44:34.100 --> 01:44:35.100
+Ne, ne, ne, ne, ne, ne.
+
+01:44:36.100 --> 01:44:38.100
+Das halte ich geistig nicht aus.
+
+01:44:49.430 --> 01:44:51.430
+Okay, Per-Connection. Wir probieren das jetzt mal weiter aus.
+
+01:44:52.430 --> 01:44:53.430
+Hier. Offer.
+
+01:44:54.430 --> 01:44:55.430
+Das ist das Ding, was man braucht.
+
+01:44:56.430 --> 01:44:58.430
+Also, bei WebRTC läuft das folgendermaßen.
+
+01:44:59.430 --> 01:45:00.430
+Das hier ist alles nur vorgeplänkelt.
+
+01:45:01.430 --> 01:45:02.430
+Was man bei WebRTC macht, ist folgendes.
+
+01:45:03.430 --> 01:45:05.430
+Man erzeugt eine WebRTC-Connection.
+
+01:45:06.430 --> 01:45:08.430
+Auf einer Seite fängt man damit an.
+
+01:45:08.430 --> 01:45:10.430
+Ist eigentlich egal, auf welcher Seite man damit anfängt.
+
+01:45:11.430 --> 01:45:14.430
+Mit dieser Per-Connection erzeugt man eine Offer.
+
+01:45:15.430 --> 01:45:16.430
+Das ist so ein langer Text-String.
+
+01:45:17.430 --> 01:45:21.430
+Da steht dann zum Beispiel drin, auf welchen Codex der jeweilige Client unterstützt.
+
+01:45:22.430 --> 01:45:26.430
+Und auf welchen Ports das Ganze läuft, mit welcher Bitrate und sowas.
+
+01:45:27.430 --> 01:45:29.430
+Das schickst du an die andere Seite, an den anderen Client.
+
+01:45:30.430 --> 01:45:33.430
+Also jeder Client ist gleichzeitig Client und Server bei WebRTC.
+
+01:45:34.430 --> 01:45:36.430
+Weil es um Echtzeit-Videokommunikation geht.
+
+01:45:36.430 --> 01:45:39.260
+So, und...
+
+01:45:41.760 --> 01:45:43.760
+Wie gesagt, bei Multiplayer-Spielen habe ich ja gesagt.
+
+01:45:44.760 --> 01:45:48.760
+Bei Multiplayer-Spielen ist das natürlich wieder etwas anderes.
+
+01:45:51.650 --> 01:45:55.650
+Bei irgendeinem Singleplayer-Game oder so ist das nicht so wild.
+
+01:45:56.650 --> 01:46:03.250
+So.
+
+01:46:04.250 --> 01:46:08.250
+Bei Spielen spielt dann auch sehr viel der Entwicklungskomfort eine Rolle.
+
+01:46:09.250 --> 01:46:11.250
+Und das ist halt in Rust echt ein bisschen problematisch.
+
+01:46:12.250 --> 01:46:14.250
+So, und diese Offer schickst du dann rüber.
+
+01:46:15.250 --> 01:46:16.250
+Das ist ein ganz langer Text-String.
+
+01:46:17.250 --> 01:46:19.250
+Du schickst die andere Seite eine Antwort.
+
+01:46:20.250 --> 01:46:21.250
+Und die musst du dann bei dir einfügen.
+
+01:46:22.250 --> 01:46:24.250
+Und dann haben beide Seiten sich ausgetauscht, was sie für Codex unterstützen.
+
+01:46:25.250 --> 01:46:26.250
+Und können sich anfangen Videostreams zu schicken.
+
+01:46:27.250 --> 01:46:32.250
+Das heißt, jetzt muss ich erstmal eine Pair-Connection anlegen.
+
+01:46:33.250 --> 01:46:35.250
+Und eine Offer createn.
+
+01:46:36.250 --> 01:46:37.250
+So, das machen wir jetzt mal.
+
+01:46:38.250 --> 01:46:39.250
+Und das muss jetzt gleich zurück nach C-Sharp.
+
+01:46:40.250 --> 01:46:43.250
+Dass ich das dann über meine Web-Anwendung an den Client schicken kann.
+
+01:46:44.250 --> 01:46:45.250
+Wie funktioniert das?
+
+01:46:45.250 --> 01:46:46.250
+Pair-Connection-Create-Offer.
+
+01:46:53.740 --> 01:46:57.740
+Ja, du, ganz ehrlich, in der reinen Lehre gebe ich dir recht.
+
+01:46:58.740 --> 01:47:02.740
+In der reinen Lehre sollten Spiele aber auch erst released werden, wenn sie fertig sind.
+
+01:47:05.060 --> 01:47:09.060
+Und nicht irgendeinen Scheiß eingebaut werden, nur weil man es gerade nicht besser hinkriegt.
+
+01:47:10.060 --> 01:47:11.060
+Das ist aber nicht so.
+
+01:47:12.060 --> 01:47:15.390
+In der Praxis.
+
+01:47:16.390 --> 01:47:20.390
+Das heißt, es ist schon von Belang, ob die Entwicklung zwei Jahre dauert.
+
+01:47:20.390 --> 01:47:22.390
+Oder drei Jahre.
+
+01:47:23.390 --> 01:47:29.390
+Dadurch, dass man eine sichere, aber dafür schwieriger zu programmierende Sprache benutzt.
+
+01:47:32.790 --> 01:47:35.790
+Und das wird der Spieleherstellung dementsprechend garantiert nicht auf Rust fallen.
+
+01:47:36.790 --> 01:47:42.790
+Es sei denn, irgendwann mal sind alle so gut und so nice und so fit in Rust, dass die schon das im Kopf alles machen und man ist genauso schnell.
+
+01:47:46.000 --> 01:47:48.000
+Nee, einfach nur, was ich so observiere bei Rust.
+
+01:47:49.000 --> 01:47:50.000
+Okay, Pair-Create-Offer.
+
+01:47:51.000 --> 01:47:52.000
+Machen wir mal weiter.
+
+01:47:53.000 --> 01:47:54.000
+Was kommt da?
+
+01:47:55.000 --> 01:47:57.000
+Ah, das muss ich bestimmt wieder Awaiten, hä?
+
+01:47:58.000 --> 01:47:59.000
+Await.
+
+01:48:00.000 --> 01:48:03.000
+Nee, nee, nicht Await. Unwrap. Ich will alles unwrappen immer.
+
+01:48:04.000 --> 01:48:05.000
+Oder einen Fehler schmeißen.
+
+01:48:06.000 --> 01:48:07.000
+Was kommt denn in Options? Was?
+
+01:48:08.000 --> 01:48:09.000
+RTC-Offer-Options.
+
+01:48:11.000 --> 01:48:16.420
+What? Ah, das steht natürlich nicht drin.
+
+01:48:17.420 --> 01:48:18.420
+Create. Haben wir irgendwas mit Create?
+
+01:48:19.420 --> 01:48:21.420
+Create-Answer ist doch bestimmt genauso.
+
+01:48:23.420 --> 01:48:24.420
+None. Kann man das hier auch machen?
+
+01:48:25.420 --> 01:48:26.420
+None.
+
+01:48:27.420 --> 01:48:28.420
+Ah ja, nice.
+
+01:48:29.420 --> 01:48:34.420
+Leute, was ist denn der Unterschied zwischen Unwrap und Await-Fragezeichen?
+
+01:48:35.420 --> 01:48:43.040
+Ach so, Await-Fragezeichen geht nur, wenn ich ein Result returne anscheinend.
+
+01:48:45.350 --> 01:48:46.350
+Mein Offer.
+
+01:48:47.350 --> 01:48:48.350
+Okay, ist kompiliert. Nice.
+
+01:48:50.350 --> 01:48:52.350
+Und jetzt daraus ein C-String.
+
+01:48:54.920 --> 01:48:56.920
+Probieren wir das mal aus. Print.
+
+01:48:57.920 --> 01:48:58.920
+Offer.
+
+01:48:58.920 --> 01:49:03.740
+Ach Moment, das ist ja gar kein String. Das ist ein...
+
+01:49:04.740 --> 01:49:06.740
+RTC-Session-Description-Objekt.
+
+01:49:07.740 --> 01:49:12.590
+Ah, aber die verwendet kaum einer.
+
+01:49:17.530 --> 01:49:18.530
+String. Da ist doch hier das.
+
+01:49:19.530 --> 01:49:20.530
+Das brauchen wir.
+
+01:49:25.340 --> 01:49:28.340
+Okay. Jetzt bin ich mal gespannt, ob das funktioniert.
+
+01:49:29.340 --> 01:49:30.340
+Init.
+
+01:49:31.340 --> 01:49:32.340
+Interop.
+
+01:49:33.340 --> 01:49:34.340
+Create-Connection.
+
+01:49:35.340 --> 01:49:39.340
+Chat-Gib. Meint ihr, da kommt jetzt was raus oder es crasht?
+
+01:49:39.340 --> 01:49:40.340
+Ihr dürft raten.
+
+01:49:41.340 --> 01:49:44.780
+Prage. Prage auf jeden Fall. Prage.
+
+01:49:45.780 --> 01:49:46.780
+Crash? Okay.
+
+01:49:47.780 --> 01:49:50.340
+Ne, es funktioniert.
+
+01:49:51.340 --> 01:49:56.190
+Das hättet ihr nicht gedacht, oder?
+
+01:49:57.190 --> 01:49:59.190
+Das habt ihr nicht? Ihr habt gedacht, es crasht.
+
+01:50:00.190 --> 01:50:02.190
+Ich hab ehrlich gesagt auch gedacht, dass es crasht.
+
+01:50:03.190 --> 01:50:06.190
+Ja, so sieht so eine Web-RTC-Offer aus.
+
+01:50:08.190 --> 01:50:10.190
+Okay, da sind keinerlei Codecs und so drin.
+
+01:50:10.190 --> 01:50:16.190
+Das liegt daran, weil ich wahrscheinlich in meiner Media-Engine keine Codecs registriert habe.
+
+01:50:17.190 --> 01:50:18.190
+Vermute ich mal.
+
+01:50:19.190 --> 01:50:22.340
+Media-Engine.
+
+01:50:23.340 --> 01:50:28.350
+Register-Codec. Das habe ich vorhin schon gesehen. Und was jetzt?
+
+01:50:29.350 --> 01:50:32.350
+RTC? Was? RTC? RTP?
+
+01:50:33.350 --> 01:50:34.350
+Was?
+
+01:50:35.350 --> 01:50:37.350
+RTP-Codec-Parameters.
+
+01:50:38.350 --> 01:50:42.330
+Payload-Type?
+
+01:50:43.330 --> 01:50:47.690
+102.
+
+01:50:47.690 --> 01:50:48.690
+102.
+
+01:50:49.690 --> 01:50:50.690
+Ja, klar. Was sonst?
+
+01:50:51.690 --> 01:50:53.690
+Obviously. 102, oder, Leute?
+
+01:50:54.690 --> 01:50:56.690
+Würdet ihr nicht auch sagen, 102?
+
+01:50:58.690 --> 01:50:59.690
+Easy, gell?
+
+01:51:05.260 --> 01:51:06.260
+Easy.
+
+01:51:07.260 --> 01:51:08.260
+102.
+
+01:51:09.260 --> 01:51:10.260
+102.
+
+01:51:11.260 --> 01:51:12.260
+102.
+
+01:51:14.260 --> 01:51:15.260
+Capabilities.
+
+01:51:16.260 --> 01:51:18.260
+Ich copy-paste mir das jetzt hier einfach mal.
+
+01:51:21.660 --> 01:51:22.660
+Import.
+
+01:51:23.660 --> 01:51:24.660
+Import.
+
+01:51:25.660 --> 01:51:27.660
+Ich weiß gar nicht, was importiere ich hier eigentlich?
+
+01:51:28.660 --> 01:51:29.660
+Einen E-Namen? Nee.
+
+01:51:30.660 --> 01:51:31.660
+Ein Strr.
+
+01:51:32.660 --> 01:51:33.660
+Video H264.
+
+01:51:34.660 --> 01:51:35.660
+Ein Strr.
+
+01:51:38.980 --> 01:51:46.100
+Was hat der jetzt noch für Schmerzen?
+
+01:51:47.100 --> 01:51:48.100
+Ah, Stats-ID.
+
+01:51:49.100 --> 01:51:50.100
+Ja, String-Empty.
+
+01:51:51.100 --> 01:51:52.100
+Ah, nee.
+
+01:51:53.100 --> 01:51:54.100
+Was machen die hier?
+
+01:51:56.860 --> 01:51:57.860
+Default.
+
+01:51:58.860 --> 01:51:59.860
+Default.
+
+01:52:00.860 --> 01:52:01.860
+Was ist das für...
+
+01:52:02.860 --> 01:52:03.860
+Alter, sag mal.
+
+01:52:04.860 --> 01:52:07.860
+Also, die Rust-Syntax ist ja wirklich grausam.
+
+01:52:08.860 --> 01:52:10.860
+Die haben sich ja von allem irgendwas zusammengewurstet,
+
+01:52:11.860 --> 01:52:13.860
+so dass es... Du verstehst ja nix.
+
+01:52:14.860 --> 01:52:17.860
+Ich vermute mal, dass das so was ähnliches Spread-Operator aus JavaScript jetzt ist.
+
+01:52:18.860 --> 01:52:20.860
+So was in der Richtung.
+
+01:52:21.860 --> 01:52:23.860
+Oder was auch immer es ist.
+
+01:52:24.860 --> 01:52:26.860
+Das funktioniert nicht. Warum nicht? Weil?
+
+01:52:26.860 --> 01:52:28.860
+Ah, weil es nicht mutt ist.
+
+01:52:29.860 --> 01:52:30.860
+Jetzt ist es aber mutt.
+
+01:52:31.860 --> 01:52:32.860
+Jetzt fehlt aber immer noch was.
+
+01:52:33.860 --> 01:52:34.860
+Was fehlt jetzt?
+
+01:52:35.860 --> 01:52:37.860
+Unused... Ah, Unwrap. Unwrap.
+
+01:52:38.860 --> 01:52:41.360
+Okay.
+
+01:52:45.460 --> 01:52:46.460
+RTP-Codec-Video.
+
+01:52:47.460 --> 01:53:01.460
+Und das soll jetzt funktionieren?
+
+01:53:02.460 --> 01:53:03.460
+Ja, anscheinend.
+
+01:53:04.460 --> 01:53:05.460
+Easy. Easy.
+
+01:53:06.460 --> 01:53:07.460
+Geht einfach.
+
+01:53:10.160 --> 01:53:13.160
+So, kommt jetzt in .NET mehr raus, nachdem ich das hinzugefügt hab? Nö.
+
+01:53:14.160 --> 01:53:17.160
+Wahrscheinlich, weil ich keine Tracks drinne habe. Vermutlich.
+
+01:53:19.160 --> 01:53:21.160
+Das heißt, wir müssen jetzt noch Tracks hinzufügen.
+
+01:53:22.160 --> 01:53:25.160
+Ich bin mir nicht sicher, ob ich das geistig heute auf die Reihe...
+
+01:53:26.160 --> 01:53:27.160
+Ja, doch, komm.
+
+01:53:28.160 --> 01:53:32.620
+Ne, das brauchen wir auf jeden Fall noch.
+
+01:53:33.620 --> 01:53:36.830
+Ey, Moment.
+
+01:53:37.830 --> 01:53:39.830
+Monarch-S-GitHub. Moment mal.
+
+01:53:40.830 --> 01:53:43.830
+Ich hab doch ein paar von meinen WebRTC-Experimenten noch auf GitHub.
+
+01:53:44.830 --> 01:53:48.980
+Und wir haben doch hier irgendwo...
+
+01:53:49.980 --> 01:53:52.540
+Bestes Logo übrigens.
+
+01:53:56.540 --> 01:54:00.540
+Und wir haben doch hier irgendwo, was diese WebRTC-Geschichte angeht.
+
+01:54:01.540 --> 01:54:24.820
+Keine Ahnung, Max. Alter, wo hab ich das...
+
+01:54:25.820 --> 01:54:28.260
+Wo haben wir das WebRTC?
+
+01:54:29.260 --> 01:54:31.260
+Alter, GraphQL, was zum Teufel hab ich da gebaut?
+
+01:54:33.260 --> 01:54:35.260
+Für undurchsichtigen Shit, man.
+
+01:54:36.260 --> 01:54:40.940
+FFmpeg.
+
+01:54:41.940 --> 01:54:44.940
+Ey, ich würd hier gerne mal suchen nach...
+
+01:54:44.940 --> 01:54:46.940
+Tier-Connection oder sowas?
+
+01:54:47.940 --> 01:54:48.940
+Ach, keine Ahnung.
+
+01:54:51.510 --> 01:54:53.510
+Ja, aber die Suche von GitHub ist kacke.
+
+01:54:54.510 --> 01:54:57.510
+Außerdem kann man den Code nicht richtig durchsuchen, wenn man nicht eingeloggt ist.
+
+01:54:58.510 --> 01:54:59.510
+Weil...
+
+01:55:00.510 --> 01:55:03.510
+Ich wollte gucken, wie ich hier die Packages zusammengebaut hab.
+
+01:55:04.510 --> 01:55:08.140
+Aber das ist FFmpeg-Zeug?
+
+01:55:10.140 --> 01:55:15.140
+Moment, kann das sein, dass ich hier das mit dem Streaming noch gar nicht gebaut habe?
+
+01:55:15.140 --> 01:55:17.140
+Okay, das ist noch eine Vue.js-App.
+
+01:55:19.840 --> 01:55:20.840
+Ah!
+
+01:55:21.840 --> 01:55:23.840
+Ich glaube, so weit sind wir nie gekommen.
+
+01:55:26.410 --> 01:55:32.790
+Moment, doch, doch, sind wir Vues?
+
+01:55:33.790 --> 01:55:34.790
+Index?
+
+01:55:35.790 --> 01:55:39.680
+Videoplayer? Doch, tatsächlich.
+
+01:55:40.680 --> 01:55:44.120
+Components? Videoplayer?
+
+01:55:45.120 --> 01:55:51.440
+Ey, wo mach ich denn das WebRTC-Zeug?
+
+01:55:52.440 --> 01:55:58.350
+Alter, was hab ich da gebaut, man? Ich check's nicht mehr.
+
+01:55:59.350 --> 01:56:00.350
+Vues?
+
+01:56:01.350 --> 01:56:02.350
+Home?
+
+01:56:05.300 --> 01:56:07.300
+Ja, WebRTC-Pair-Connection.
+
+01:56:09.300 --> 01:56:10.300
+Okay, also...
+
+01:56:11.300 --> 01:56:12.300
+Doch!
+
+01:56:13.300 --> 01:56:15.300
+Okay, über Signal A geht das Ganze.
+
+01:56:16.300 --> 01:56:18.300
+Aha, aha, also gibt's hier sowas?
+
+01:56:20.870 --> 01:56:23.380
+Gar nicht.
+
+01:56:24.380 --> 01:56:26.380
+Max, ich checke null, was ich da gebaut hab.
+
+01:56:27.380 --> 01:56:34.440
+Obviously, bester wartbarer Code aller Zeiten.
+
+01:56:44.440 --> 01:56:45.440
+Er...
+
+01:56:46.440 --> 01:56:47.440
+Aha!
+
+01:56:47.440 --> 01:56:50.440
+Hier kommen wir doch mit der ganzen Sache näher.
+
+01:56:51.440 --> 01:56:52.440
+RTC-Configuration?
+
+01:56:53.440 --> 01:56:58.700
+Certificates?
+
+01:57:06.130 --> 01:57:07.130
+RTC-Pair-Connection.
+
+01:57:08.130 --> 01:57:13.230
+Okay, wenigstens alles schön in einem...
+
+01:57:14.230 --> 01:57:19.550
+Ach, hier, guck mal!
+
+01:57:20.550 --> 01:57:21.550
+Hier, da ist es doch!
+
+01:57:22.550 --> 01:57:24.550
+Okay, 102! Es muss anscheinend 102 sein.
+
+01:57:25.550 --> 01:57:26.550
+Ich hab hier auch 102 verwendet.
+
+01:57:29.550 --> 01:57:32.550
+102, Leute, 102 ist das Richtige. Perfekt.
+
+01:57:32.550 --> 01:57:35.930
+Ich hab keine Ahnung, wofür es steht,
+
+01:57:36.930 --> 01:57:38.930
+irgendwelche WebRTC-Geschichten, aber 102 muss es sein, okay?
+
+01:57:39.930 --> 01:57:41.930
+So, und dann muss man anscheinend das da senden,
+
+01:57:42.930 --> 01:57:44.930
+weil das da ist ganz toll.
+
+01:57:45.930 --> 01:57:46.930
+FMTP?
+
+01:57:47.930 --> 01:57:49.930
+Konnte man das hier senden? Ja, FMTP.
+
+01:57:50.930 --> 01:57:51.930
+Okay, top.
+
+01:57:52.930 --> 01:57:55.930
+Chat, wisst ihr, ich bin mir echt unschlüssig.
+
+01:57:56.930 --> 01:57:57.930
+Es gibt...
+
+01:57:59.930 --> 01:58:01.930
+Es gibt toOwned, es gibt toString,
+
+01:58:01.930 --> 01:58:04.930
+es gibt stringnew, und es gibt stringfrom.
+
+01:58:05.930 --> 01:58:06.930
+Und ich hab legit keine Ahnung,
+
+01:58:07.930 --> 01:58:09.930
+was der Unterschied zwischen den Dingern ist.
+
+01:58:10.930 --> 01:58:27.060
+Es muss 102 sein, ja.
+
+01:58:28.060 --> 01:58:30.060
+Wir sind uns einig, Leute, es muss 102 sein.
+
+01:58:31.060 --> 01:58:35.720
+Warum, kann ich nicht hier auch sagen?
+
+01:58:36.720 --> 01:58:37.720
+Stringfrom?
+
+01:58:38.720 --> 01:58:40.720
+Oder machen die coolen Leute toOwned?
+
+01:58:41.720 --> 01:58:43.720
+Die coolen Leute machen bestimmt toOwned, hä?
+
+01:58:44.720 --> 01:58:47.420
+toOwned.
+
+01:58:48.420 --> 01:58:49.420
+Aber warum toString?
+
+01:58:49.420 --> 01:58:51.420
+Ah, Moment, das ist static?
+
+01:58:52.420 --> 01:58:53.420
+Das eine ist ein static String,
+
+01:58:54.420 --> 01:58:57.420
+und das andere ist ein nicht-static String?
+
+01:58:58.420 --> 01:59:07.060
+Okay.
+
+01:59:08.060 --> 01:59:09.060
+Ich bin ja froh, dass es nicht nur in C-Sharp 1000 Wege gibt,
+
+01:59:10.060 --> 01:59:11.060
+was zu machen.
+
+01:59:12.060 --> 01:59:13.060
+Okay, das hat funktioniert.
+
+01:59:14.060 --> 01:59:17.060
+Gucken wir mal, ob der Output in C-Sharp jetzt anders aussieht.
+
+01:59:18.060 --> 01:59:20.890
+Nee.
+
+01:59:21.890 --> 01:59:22.890
+Okay, wir brauchen tatsächlich Tracks.
+
+01:59:23.890 --> 01:59:25.890
+Sonst steht da nichts drin.
+
+01:59:25.890 --> 01:59:26.890
+So, machen wir mal einen Krempel zu hier.
+
+01:59:27.890 --> 01:59:28.890
+Track.
+
+01:59:31.390 --> 01:59:32.390
+Track.
+
+01:59:37.840 --> 01:59:38.840
+Gibt es Add?
+
+01:59:39.840 --> 01:59:40.840
+Add Track?
+
+01:59:41.840 --> 01:59:42.840
+Also, von der Idee her,
+
+01:59:43.840 --> 01:59:45.840
+muss man jetzt für jeden Videostream ein Track hinzufügen.
+
+01:59:46.840 --> 01:59:49.840
+Die Tracks sind allerdings global und nichts...
+
+01:59:50.840 --> 01:59:54.840
+Also, man könnte sagen, jeder Webcam-Stream ist ein Track.
+
+01:59:56.840 --> 01:59:59.840
+Diesen Track kann man per Connection hinzufügen.
+
+01:59:59.840 --> 02:00:00.840
+Per Connection ist das,
+
+02:00:01.840 --> 02:00:02.840
+was man zwischen zwei Clients hat,
+
+02:00:03.840 --> 02:00:04.840
+die Videos miteinander austauschen.
+
+02:00:05.840 --> 02:00:06.840
+Oder sagen wir, zwischen einem Server und einem Client.
+
+02:00:07.840 --> 02:00:08.840
+Man kann allerdings den gleichen Track
+
+02:00:09.840 --> 02:00:10.840
+mehreren Connections hinzufügen.
+
+02:00:11.840 --> 02:00:12.840
+Ist ja auch logisch.
+
+02:00:13.840 --> 02:00:14.840
+Es wäre ja blöd,
+
+02:00:15.840 --> 02:00:16.840
+wenn man eine Webcam nur exakt an einen schicken könnte.
+
+02:00:17.840 --> 02:00:18.840
+So, das heißt, man kann jetzt hier sagen,
+
+02:00:19.840 --> 02:00:20.840
+per Connection,
+
+02:00:21.840 --> 02:00:22.840
+zumindest ist es in der Go-Library so,
+
+02:00:23.840 --> 02:00:24.840
+Add Track.
+
+02:00:25.840 --> 02:00:26.840
+So, und das müssen wir jetzt machen.
+
+02:00:27.840 --> 02:00:28.840
+Heißt aber im Endeffekt auch,
+
+02:00:29.840 --> 02:00:30.840
+neben dem hier,
+
+02:00:31.840 --> 02:00:32.840
+noch eine...
+
+02:00:33.840 --> 02:00:34.840
+noch was weiteres.
+
+02:00:36.840 --> 02:00:37.840
+Track gleich Concurrent Pipe.
+
+02:00:38.840 --> 02:00:39.840
+Was weiß ich, was dahinter steckt.
+
+02:00:40.840 --> 02:00:43.840
+So, und das muss hier Create Track heißen.
+
+02:00:45.840 --> 02:00:46.840
+So, und so ein Track...
+
+02:00:47.840 --> 02:00:48.840
+Ich weiß halt, das Problem ist halt,
+
+02:00:50.840 --> 02:00:52.840
+wir müssen das wieder global speichern.
+
+02:00:53.840 --> 02:00:54.840
+Das muss auch...
+
+02:00:55.840 --> 02:01:06.090
+Theoretisch brauchen wir noch Tracks.
+
+02:01:07.090 --> 02:01:08.090
+Aber das suckt halt.
+
+02:01:09.090 --> 02:01:10.090
+Chat, wäre es nicht sinnvoller,
+
+02:01:11.090 --> 02:01:12.090
+ich mache einen Struct,
+
+02:01:13.090 --> 02:01:14.090
+wenn ich das eh global machen muss.
+
+02:01:15.090 --> 02:01:16.090
+Wäre es nicht sinnvoller,
+
+02:01:17.090 --> 02:01:18.090
+ich mache einen Struct,
+
+02:01:19.090 --> 02:01:20.090
+den wir irgendwie AppState oder so nennen.
+
+02:01:21.090 --> 02:01:22.090
+Und da...
+
+02:01:23.090 --> 02:01:24.090
+oder PubStruct.
+
+02:01:25.090 --> 02:01:26.090
+Ne, PubStruct, AppState.
+
+02:01:27.090 --> 02:01:28.090
+Und da drinnen mache ich dann
+
+02:01:29.090 --> 02:01:31.090
+RP, Tracks und Clients und sowas.
+
+02:01:33.090 --> 02:01:36.090
+Anstatt jedes Mal so eine globale Variable dafür zu machen.
+
+02:01:37.090 --> 02:01:38.090
+Ich glaube, das ist besser.
+
+02:01:39.090 --> 02:01:47.030
+Aber, damit wir das hinkriegen,
+
+02:01:48.030 --> 02:01:49.030
+bevor ich ins Bett gehe,
+
+02:01:50.030 --> 02:01:51.030
+wir probieren das jetzt mal anders aus.
+
+02:01:52.030 --> 02:01:53.030
+Wir sagen Create Track,
+
+02:01:54.030 --> 02:01:55.030
+wir müssen nämlich erstmal gucken,
+
+02:01:56.030 --> 02:01:58.540
+wie das überhaupt funktioniert.
+
+02:01:59.540 --> 02:02:00.540
+Also mit der RP brauchen wir da schon mal nichts.
+
+02:02:01.540 --> 02:02:02.540
+Track.
+
+02:02:05.300 --> 02:02:06.300
+Local Static Sample.
+
+02:02:09.300 --> 02:02:10.300
+Ich gehe stark von aus,
+
+02:02:11.300 --> 02:02:12.300
+dass wir das brauchen,
+
+02:02:13.300 --> 02:02:14.300
+weil ich kenne das von der Go Library.
+
+02:02:15.300 --> 02:02:16.300
+Also wahrscheinlich brauchen wir das hier.
+
+02:02:17.300 --> 02:02:18.300
+Warum das so PP gerade benannt ist,
+
+02:02:19.300 --> 02:02:20.300
+weiß ich nicht,
+
+02:02:21.300 --> 02:02:22.300
+aber da kann man dann Videoframes reinschmeißen,
+
+02:02:23.300 --> 02:02:24.300
+die er rüber schicken soll.
+
+02:02:26.800 --> 02:02:27.800
+New.
+
+02:02:33.120 --> 02:02:35.120
+Ja, das trifft es eigentlich ganz gut.
+
+02:02:36.120 --> 02:02:37.120
+Also,
+
+02:02:38.120 --> 02:02:39.120
+FFmpeg.
+
+02:02:40.120 --> 02:02:42.120
+Also wir bauen eine ASP.NET Core Web-Anwendung,
+
+02:02:44.120 --> 02:02:49.120
+die über FFmpeg per RTSP Webcams ausliest.
+
+02:02:50.120 --> 02:02:51.120
+Das haben wir übrigens schon mal im Stream
+
+02:02:52.120 --> 02:02:53.120
+sowas ähnliches gebaut,
+
+02:02:53.120 --> 02:02:55.120
+aber damals, glaube ich, rein mit .NET
+
+02:02:56.120 --> 02:02:57.120
+und vielleicht noch ein bisschen mit Go.
+
+02:02:58.120 --> 02:02:59.120
+So, und
+
+02:03:00.120 --> 02:03:03.120
+das Web-RTC-Zeug wird von einer Rust Library gehandelt.
+
+02:03:04.120 --> 02:03:10.250
+Und dann ist da ein bisschen der JavaScript.
+
+02:03:11.250 --> 02:03:12.250
+Wen ist er denn drin?
+
+02:03:14.250 --> 02:03:15.250
+Okay.
+
+02:03:16.250 --> 02:03:17.250
+Nee, H265 brauche ich nicht.
+
+02:03:18.250 --> 02:03:19.250
+Meine Webcams können das alle nicht.
+
+02:03:20.250 --> 02:03:21.250
+Wann ist morgen Daily Scrum?
+
+02:03:23.250 --> 02:03:25.250
+Morgen weiß ich gar nicht, ob ich Stream-Zonen kann.
+
+02:03:25.250 --> 02:03:26.250
+Ja doch, kann ich auf jeden Fall.
+
+02:03:27.250 --> 02:03:28.250
+Ich muss morgen Vormittag zum Tierarzt.
+
+02:03:29.250 --> 02:03:30.250
+Mit Chico.
+
+02:03:31.250 --> 02:03:37.340
+Also ich war heute,
+
+02:03:38.340 --> 02:03:39.340
+ich habe heute einen Tierarzt heimbestellt,
+
+02:03:40.340 --> 02:03:42.340
+mich angerufen, die sind auch vorbeigekommen.
+
+02:03:43.340 --> 02:03:44.340
+Die haben ein richtig, richtig großes Auto
+
+02:03:45.340 --> 02:03:47.340
+und haben sich wirklich mega Mühe gegeben mit Chico.
+
+02:03:48.340 --> 02:03:50.340
+Die haben Blutdruck gemessen bei Chico
+
+02:03:51.340 --> 02:03:53.340
+und die haben
+
+02:03:54.340 --> 02:03:56.340
+sich das Auge angeguckt von Chico
+
+02:03:57.340 --> 02:03:58.340
+und die haben gesagt,
+
+02:03:58.340 --> 02:04:00.340
+dass Chico zu hohen Blutdruck hat.
+
+02:04:02.340 --> 02:04:04.340
+Chico hat zu hohen Blutdruck.
+
+02:04:05.340 --> 02:04:06.340
+Chico ist alt, Chico ist fast 13.
+
+02:04:07.340 --> 02:04:11.100
+Die kriegt Nieren-Diätfutter.
+
+02:04:13.100 --> 02:04:14.100
+Allein schon deswegen.
+
+02:04:15.100 --> 02:04:16.100
+Mittlerweile ist es gut,
+
+02:04:17.100 --> 02:04:18.100
+die hat ein bisschen Nierenprobleme
+
+02:04:19.100 --> 02:04:21.100
+und anscheinend hat die auch ziemlich hohen Blutdruck.
+
+02:04:22.100 --> 02:04:24.660
+Die waren heute da,
+
+02:04:25.660 --> 02:04:26.660
+Chico hat sich erstmal nicht
+
+02:04:27.660 --> 02:04:29.660
+ordentlich Blutdruck messen lassen.
+
+02:04:29.660 --> 02:04:31.660
+Da kriegt man so eine Manschette um den Schwanz.
+
+02:04:32.660 --> 02:04:33.660
+Wer will sowas schon?
+
+02:04:34.660 --> 02:04:35.660
+Zumindest...
+
+02:04:43.070 --> 02:04:44.070
+Dann haben sie es doch hingekriegt,
+
+02:04:45.070 --> 02:04:46.070
+das zu messen an der Pfote
+
+02:04:47.070 --> 02:04:48.070
+und am Schwanz von der Katz
+
+02:04:49.070 --> 02:04:50.070
+und haben gesagt,
+
+02:04:51.070 --> 02:04:52.070
+Chico hat viel zu hohen Blutdruck
+
+02:04:53.070 --> 02:04:54.070
+und selbst wenn sie abziehen,
+
+02:04:55.070 --> 02:04:56.070
+dass Chico sehr aufgeregt ist,
+
+02:04:57.070 --> 02:04:58.070
+hat Chico immer noch zu hohen Blutdruck
+
+02:04:59.070 --> 02:05:01.070
+und jetzt kriegt Chico eine Blutdruck-Tablette
+
+02:05:02.070 --> 02:05:03.070
+einmal am Tag.
+
+02:05:03.070 --> 02:05:04.070
+Äh, zwei.
+
+02:05:05.070 --> 02:05:06.070
+Einmal am Tag.
+
+02:05:07.070 --> 02:05:08.070
+Einmal am Tag.
+
+02:05:09.070 --> 02:05:10.070
+Mal gucken, wie das funktioniert.
+
+02:05:22.730 --> 02:05:23.730
+Und morgen muss ich nochmal zum Tierarzt
+
+02:05:24.730 --> 02:05:25.730
+und die müssen sich das Auge angucken.
+
+02:05:26.730 --> 02:05:27.730
+Also wie ich da überhaupt drauf gekommen bin,
+
+02:05:28.730 --> 02:05:29.730
+ist folgendes.
+
+02:05:30.730 --> 02:05:34.230
+Chico saß bei mir hier auf dem Schrank
+
+02:05:35.230 --> 02:05:36.230
+und
+
+02:05:37.230 --> 02:05:38.230
+ich gucke meine Katze an
+
+02:05:39.230 --> 02:05:40.230
+und denke mir,
+
+02:05:41.230 --> 02:05:42.230
+Chico, du hast da irgendwas im Auge.
+
+02:05:43.230 --> 02:05:44.230
+Ey, die könnte sich durchaus
+
+02:05:45.230 --> 02:05:46.230
+mal mehr bewegen, die Katz, ja?
+
+02:05:47.230 --> 02:05:48.230
+Ich denke mir so, Chico,
+
+02:05:49.230 --> 02:05:50.230
+du hast da was im Auge.
+
+02:05:51.230 --> 02:05:52.230
+Und da bin ich zur Katze hin,
+
+02:05:53.230 --> 02:05:54.230
+hab mir das Angehörige festgestellt,
+
+02:05:55.230 --> 02:05:56.230
+Chico hat nix im Auge direkt.
+
+02:05:57.230 --> 02:05:58.230
+Chico hat ein bisschen Blut im Auge.
+
+02:05:59.230 --> 02:06:00.230
+Und dann hab ich natürlich gegoogelt.
+
+02:06:01.230 --> 02:06:02.230
+Zack, zack.
+
+02:06:03.230 --> 02:06:04.230
+Und das Erste, was du findest ist
+
+02:06:05.230 --> 02:06:06.230
+natürlich Verletzungen nach Revierkämpfen
+
+02:06:07.230 --> 02:06:08.230
+und sowas.
+
+02:06:09.230 --> 02:06:10.230
+Aber wenn Katzen hohen Blutdruck haben,
+
+02:06:11.230 --> 02:06:12.230
+dann sieht man das oftmals zuerst
+
+02:06:13.230 --> 02:06:14.230
+an den Augen,
+
+02:06:15.230 --> 02:06:16.230
+wenn Katzen empfindlich sind.
+
+02:06:17.230 --> 02:06:18.230
+Und es kann sein,
+
+02:06:19.230 --> 02:06:20.230
+wenn die Katze zu hohen Blutdruck hat,
+
+02:06:21.230 --> 02:06:22.230
+dass dann, ja wahrscheinlich,
+
+02:06:23.230 --> 02:06:24.230
+dass dann kleinere Sachen im Auge platzen,
+
+02:06:25.230 --> 02:06:26.230
+dass die Katze ein bisschen Blut im Auge hat.
+
+02:06:27.230 --> 02:06:28.230
+Und da muss man aufpassen,
+
+02:06:29.230 --> 02:06:30.230
+weil gerade ältere Katzen
+
+02:06:31.230 --> 02:06:32.230
+und Katzen mit Nierenproblemen
+
+02:06:33.230 --> 02:06:34.230
+neigen zu hohem Blutdruck.
+
+02:06:35.230 --> 02:06:36.230
+Deswegen hab ich heute beim Tierarzt angerufen,
+
+02:06:37.230 --> 02:06:40.570
+die kamen dann vorbei und haben das gemacht.
+
+02:06:41.570 --> 02:06:42.570
+Und es kam raus,
+
+02:06:43.570 --> 02:06:44.570
+Chico hat saumäßig hohen Blutdruck.
+
+02:06:45.570 --> 02:06:46.570
+Natürlich kann es auch sein,
+
+02:06:47.570 --> 02:06:48.570
+dass Chico aufgeregt war und alles.
+
+02:06:54.020 --> 02:06:56.020
+Aber der Tierarzt meinte,
+
+02:06:57.020 --> 02:06:58.020
+das ist so hoch der Blutdruck,
+
+02:06:59.020 --> 02:07:00.020
+selbst wenn die abzieht,
+
+02:07:01.020 --> 02:07:02.020
+dass Chico aufgeregt war,
+
+02:07:03.020 --> 02:07:04.020
+ist trotzdem zu hoher Blutdruck.
+
+02:07:05.020 --> 02:07:06.020
+Deswegen kriegt die jetzt,
+
+02:07:07.020 --> 02:07:08.020
+ja fast so,
+
+02:07:10.520 --> 02:07:12.520
+fast so als würde sie C++ programmieren, ja.
+
+02:07:13.520 --> 02:07:17.410
+Ja, es ist im Prinzip
+
+02:07:18.410 --> 02:07:20.410
+die Aufregung schon mit eingerechnet
+
+02:07:21.410 --> 02:07:22.410
+und es ist immer noch zu hoch.
+
+02:07:22.410 --> 02:07:23.410
+Und deswegen
+
+02:07:26.170 --> 02:07:28.170
+gehen wir morgen nochmal zum Augenarzt.
+
+02:07:29.170 --> 02:07:30.170
+Sowas gibt es für Katzen,
+
+02:07:31.170 --> 02:07:32.170
+stellt euch das mal vor, ja.
+
+02:07:33.170 --> 02:07:34.170
+Wusste ich auch nicht, aber eigentlich nice.
+
+02:07:35.170 --> 02:07:36.170
+Gehen wir morgen nochmal zum Augenarzt.
+
+02:07:37.170 --> 02:07:38.170
+Die guckt sich das Auge an,
+
+02:07:39.170 --> 02:07:40.170
+ob da alles okay ist,
+
+02:07:41.170 --> 02:07:42.170
+weil bei Katzen kann es auch sein,
+
+02:07:43.170 --> 02:07:44.170
+dass die Netzhautprobleme kriegen
+
+02:07:45.170 --> 02:07:46.170
+und was zu spontaner Erblindung führen kann.
+
+02:07:47.170 --> 02:07:48.170
+Und das will ich ja für Chico wirklich nicht.
+
+02:07:50.670 --> 02:07:51.670
+Gehen wir morgen nochmal zum Augenarzt für die Katz.
+
+02:07:52.670 --> 02:07:53.670
+Lassen sie sich das alles angucken,
+
+02:07:53.670 --> 02:07:54.670
+ob alles in Ordnung ist
+
+02:07:55.670 --> 02:07:56.670
+und dort auch nochmal Blutdruck messen,
+
+02:07:57.670 --> 02:07:58.670
+weil heute hat die ja schon eine Pille gekriegt,
+
+02:07:59.670 --> 02:08:00.670
+dass dann morgen der Blutdruck hoffentlich
+
+02:08:01.670 --> 02:08:02.670
+eventuell ein bisschen runtergegangen ist.
+
+02:08:03.670 --> 02:08:07.300
+So sieht es aus bei Chico.
+
+02:08:08.300 --> 02:08:11.640
+So, wie geht denn das hier jetzt weiter?
+
+02:08:13.640 --> 02:08:14.640
+Oh Leute, ich kann nicht mehr heute.
+
+02:08:15.640 --> 02:08:16.640
+Zu viel, zu viel Rust, zu viel Rust.
+
+02:08:18.640 --> 02:08:19.640
+Das kriege ich die letzten 10 Minuten nicht mehr hin.
+
+02:08:20.640 --> 02:08:21.640
+Wir machen es das nächste Mal weiter.
+
+02:08:22.640 --> 02:08:23.640
+Und Chat, mal eine Frage an euch.
+
+02:08:24.640 --> 02:08:25.640
+Für alle, die heute zum ersten Mal Rust gesehen haben,
+
+02:08:26.640 --> 02:08:28.640
+wie hoch ist euer Bock, selbst Rust zu machen?
+
+02:08:29.640 --> 02:08:51.700
+Okay, manche haben keinen Bock, manche wollen.
+
+02:08:52.700 --> 02:08:54.700
+Also ich muss sagen, die Sonntags ist schon ein bisschen hässlich, ja.
+
+02:08:55.700 --> 02:09:01.090
+Aber es hat doch, also für das,
+
+02:09:02.090 --> 02:09:04.090
+wie wenig Plan ich habe von Rust, ja,
+
+02:09:05.090 --> 02:09:07.090
+hat es doch eigentlich ganz gut funktioniert.
+
+02:09:08.090 --> 02:09:09.090
+Es ist zwar sehr weird,
+
+02:09:10.090 --> 02:09:11.090
+mit dem ganzen Unwrap-Zeug,
+
+02:09:12.090 --> 02:09:13.090
+mit den Variablen hier oben
+
+02:09:14.090 --> 02:09:17.090
+und dann mit dem Await-Unwrap-Tokio-Main.
+
+02:09:18.090 --> 02:09:19.090
+Das hat ja die meiste Zeit,
+
+02:09:20.090 --> 02:09:21.090
+gekostet heute im Stream,
+
+02:09:22.090 --> 02:09:23.090
+bis ich herausgefunden habe,
+
+02:09:24.090 --> 02:09:25.090
+dass da Tokio-Main oben dran stehen muss.
+
+02:09:26.090 --> 02:09:27.090
+Und sie, wir haben übrigens auch herausgefunden,
+
+02:09:28.090 --> 02:09:29.090
+man kann mehrere Tokio-Mains oben hinschreiben.
+
+02:09:30.090 --> 02:09:32.090
+Was hat genervt an Rust?
+
+02:09:33.090 --> 02:09:34.090
+Ja, zum Beispiel, dass man Tokio-Main
+
+02:09:35.090 --> 02:09:36.090
+da oben dran schreiben muss, damit es funktioniert.
+
+02:09:37.090 --> 02:09:38.090
+Und ich keine Ahnung habe bis jetzt eigentlich so,
+
+02:09:39.090 --> 02:09:40.090
+was es genau ist.
+
+02:09:43.870 --> 02:09:44.870
+Aber es lief doch trotzdem ganz gut.
+
+02:09:45.870 --> 02:09:46.870
+Und das obwohl, und das obwohl natürlich
+
+02:09:47.870 --> 02:09:48.870
+wieder irgendwelche Leute im Chat waren.
+
+02:09:49.870 --> 02:09:51.870
+Also Max, Rust kann man sich nicht so einfach nehmen.
+
+02:09:52.870 --> 02:09:53.870
+Bei angucken.
+
+02:09:54.870 --> 02:09:55.870
+Das muss man richtig angehen.
+
+02:09:56.870 --> 02:09:57.870
+Das war klar, das ist ja immer so.
+
+02:09:58.870 --> 02:09:59.870
+Also gerade bei Rust, gerade bei Rust
+
+02:10:00.870 --> 02:10:02.870
+ist die Rust-Task-Force immer direkt am Start.
+
+02:10:03.870 --> 02:10:04.870
+Die einem das erklären will,
+
+02:10:05.870 --> 02:10:20.860
+wie das richtig funktioniert.
+
+02:10:21.860 --> 02:10:23.860
+Ich möchte mit Embedded-Programming C++ Giga...
+
+02:10:32.500 --> 02:10:35.500
+Also C++ ist alles, bloß nicht Giga-Chat.
+
+02:10:36.500 --> 02:10:38.500
+Aber wenn du mit C++ anfangen willst,
+
+02:10:39.500 --> 02:10:41.500
+dann gibt es eigentlich eine Top-Kombination.
+
+02:10:41.500 --> 02:10:43.500
+Hol dir ein ESP32 und leg los.
+
+02:10:45.500 --> 02:10:49.500
+NodeMCU, ESP32, so ein Teil.
+
+02:10:51.500 --> 02:10:53.500
+Kostet bei AliExpress 3,50,
+
+02:10:54.500 --> 02:10:55.500
+bei Amazon wahrscheinlich 8 Euro oder so.
+
+02:10:56.500 --> 02:10:58.500
+Alter, was kostet der Scheiß mittlerweile?
+
+02:10:59.500 --> 02:11:00.500
+What the fuck?
+
+02:11:01.500 --> 02:11:02.500
+Wollen die ein...
+
+02:11:03.500 --> 02:11:05.500
+Alter, 24 Euro für ein ESP...
+
+02:11:06.500 --> 02:11:07.500
+Das sind drei Stück, okay.
+
+02:11:07.500 --> 02:11:08.500
+Aber trotzdem.
+
+02:11:09.500 --> 02:11:10.500
+Das ist ja mega teuer geworden.
+
+02:11:11.500 --> 02:11:14.500
+Aber die würde ich dir tatsächlich empfehlen.
+
+02:11:18.610 --> 02:11:19.610
+Ich weine, ich weine.
+
+02:11:21.610 --> 02:11:24.300
+8 Euro.
+
+02:11:25.300 --> 02:11:26.300
+Das ist jetzt nicht super teuer,
+
+02:11:27.300 --> 02:11:28.300
+aber es geht schon.
+
+02:11:29.300 --> 02:11:30.300
+Also die würde ich dir empfehlen.
+
+02:11:31.300 --> 02:11:32.300
+Tatsächlich auch genau dieses Board,
+
+02:11:33.300 --> 02:11:34.300
+weil das ist ziemlich beliebt
+
+02:11:35.300 --> 02:11:37.300
+und du hast halt alles schon als Pins rausgeführt,
+
+02:11:38.300 --> 02:11:39.300
+was du brauchst.
+
+02:11:40.300 --> 02:11:41.300
+Es hat auch einen USB-Anschluss,
+
+02:11:42.300 --> 02:11:44.300
+wo du einen Rechner stöpseln kannst zum Flashen.
+
+02:11:45.300 --> 02:11:46.300
+Ja, für Batterie-Projekte ist das nix,
+
+02:11:47.300 --> 02:11:49.300
+aber du willst ja bestimmt nicht mit einem Standalone-Batteriegerät,
+
+02:11:50.300 --> 02:11:51.300
+was irgendwo nicht am Strom hängt, anfangen.
+
+02:11:52.300 --> 02:11:55.300
+Also die Dinger sind wirklich zum Entwickeln mega nice.
+
+02:11:57.300 --> 02:11:58.300
+Das Schöne am ESP32 ist,
+
+02:11:59.300 --> 02:12:00.300
+Wifi direkt auf dem Board.
+
+02:12:03.260 --> 02:12:04.260
+Und das ist top.
+
+02:12:05.260 --> 02:12:08.260
+Du fängst dann allerdings nicht unbedingt direkt an,
+
+02:12:09.260 --> 02:12:12.260
+da Ultra-Low-Level-Zeug zu bauen,
+
+02:12:12.260 --> 02:12:14.260
+sondern ich würde dir empfehlen,
+
+02:12:15.260 --> 02:12:16.260
+fang an mit Plattform-IO.
+
+02:12:18.260 --> 02:12:20.260
+Also Plattform-IO.
+
+02:12:21.260 --> 02:12:23.260
+Und dort mit den Arduino-Bindings.
+
+02:12:25.260 --> 02:12:26.260
+Simulator ist sackig.
+
+02:12:27.260 --> 02:12:28.260
+Das hier ist viel besser.
+
+02:12:29.260 --> 02:12:30.260
+Visual Studio Code installieren,
+
+02:12:31.260 --> 02:12:32.260
+Plattform-IO-Plugin reinhauen
+
+02:12:33.260 --> 02:12:35.260
+und mit den Arduino-Bindings anfangen,
+
+02:12:36.260 --> 02:12:38.260
+weil es gibt eine Arduino-Implementierung für ESP32.
+
+02:12:39.260 --> 02:12:40.260
+Dann findest du ganz viele Libraries für
+
+02:12:40.260 --> 02:12:41.260
+und du findest auch ganz viele Beispiele für.
+
+02:12:42.260 --> 02:12:45.260
+ESP32 ist mit die beliebteste und bekannteste Plattform
+
+02:12:46.260 --> 02:12:47.260
+eigentlich so Hobby-mäßig zum Basteln,
+
+02:12:48.260 --> 02:12:49.260
+was das Microcontroller-Zeug angeht.
+
+02:12:50.260 --> 02:12:52.260
+Aus meiner Sicht auch deutlich angenehmer
+
+02:12:53.260 --> 02:12:54.260
+als der Raspberry Pi.
+
+02:12:55.260 --> 02:12:56.260
+Nicht, dass ich jetzt Mist erzähle.
+
+02:12:57.260 --> 02:12:58.260
+Pico.
+
+02:13:01.780 --> 02:13:02.780
+Und es ist C++.
+
+02:13:03.780 --> 02:13:04.780
+Die ESP-Libraries sind C,
+
+02:13:05.780 --> 02:13:06.780
+aber die Arduino-Sachen sind C++.
+
+02:13:07.780 --> 02:13:08.780
+Das heißt, du kannst komplett C++ basteln.
+
+02:13:09.780 --> 02:13:10.780
+Also das würde ich dir empfehlen.
+
+02:13:11.780 --> 02:13:12.780
+Zechro, danke schön für den Sub.
+
+02:13:13.780 --> 02:13:14.780
+Für heute bin ich fertig mit Rust.
+
+02:13:15.780 --> 02:13:16.780
+Das halte ich heute nicht mehr aus,
+
+02:13:17.780 --> 02:13:18.780
+noch die letzten 5 Minuten.
+
+02:13:19.780 --> 02:13:20.780
+Aber ich glaube, wir haben es schon ganz gut auf die Reihe gekriegt.
+
+02:13:21.780 --> 02:13:22.780
+Demnächst geht es weiter.
+
+02:13:23.780 --> 02:13:24.780
+Das heißt, wenn ihr es nicht verpassen wollt,
+
+02:13:25.780 --> 02:13:26.780
+ein bisschen eigener Sellout,
+
+02:13:27.780 --> 02:13:28.780
+könnt ihr mir natürlich gerne folgen auf Twitch.
+
+02:13:29.780 --> 02:13:30.780
+Wobei ich sagen muss,
+
+02:13:31.780 --> 02:13:32.780
+ich mache nicht jeden Stream Rust
+
+02:13:33.780 --> 02:13:34.780
+und nicht jeden Stream Programmierzeug.
+
+02:13:35.780 --> 02:13:36.780
+Wir machen auch alle möglichen anderen Krempel.
+
+02:13:37.780 --> 02:13:38.780
+Nur Gaming machen wir in letzter Zeit enorm wenig.
+
+02:13:39.780 --> 02:13:40.780
+Was auch daran liegt,
+
+02:13:41.780 --> 02:13:42.780
+dass es gerade nicht so viel gibt,
+
+02:13:43.780 --> 02:13:44.780
+wo ich Bock drauf habe.
+
+02:13:45.780 --> 02:13:46.780
+Ab Dezember wird MMO-Kreiselgrind gemacht.
+
+02:13:47.780 --> 02:13:48.780
+Da seht ihr mich wahrscheinlich wieder den Monat nicht,
+
+02:13:49.780 --> 02:13:50.780
+weil ich MMO-Kreiselgrind machen muss auf Stream.
+
+02:13:52.780 --> 02:13:53.780
+Grappling ist nicht abgehoben.
+
+02:13:55.780 --> 02:13:58.740
+Battlefield.
+
+02:13:59.740 --> 02:14:00.740
+Ja, Season 6 wollte ich echt wieder reingucken,
+
+02:14:01.740 --> 02:14:02.740
+aber ich habe es bis jetzt
+
+02:14:03.740 --> 02:14:07.070
+noch nicht auf die Reihe gekriegt
+
+02:14:08.070 --> 02:14:09.070
+und ich weiß nicht, ob es sich noch lohnt.
+
+02:14:10.070 --> 02:14:11.070
+Okay.
+
+02:14:11.070 --> 02:14:12.070
+Spielerzahlen sind immer,
+
+02:14:13.070 --> 02:14:14.070
+na gut, die üblichen Sachen.
+
+02:14:16.070 --> 02:14:17.070
+Hast du The Finals probiert?
+
+02:14:18.070 --> 02:14:19.070
+Nee, Battle Royale mag ich nicht.
+
+02:14:20.070 --> 02:14:26.420
+So.
+
+02:14:27.420 --> 02:14:28.420
+Was macht eigentlich No Mangle?
+
+02:14:29.420 --> 02:14:30.420
+Das sorgt dafür, dass,
+
+02:14:31.420 --> 02:14:32.420
+springen wir mal kurz rüber.
+
+02:14:33.420 --> 02:14:34.420
+Das sorgt dafür,
+
+02:14:35.420 --> 02:14:36.420
+dass die Funktionsnamen
+
+02:14:37.420 --> 02:14:40.300
+ist nicht Battle Royale.
+
+02:14:41.300 --> 02:14:42.300
+Schlimm, man denkt mittlerweile
+
+02:14:43.300 --> 02:14:44.300
+jedes neue Game, was rauskommt, ist Battle Royale.
+
+02:14:45.300 --> 02:14:46.300
+Ist es ein Extraction Shooter?
+
+02:14:46.300 --> 02:14:47.300
+Da habe ich auch keinen Bock drauf.
+
+02:14:48.300 --> 02:14:49.300
+Es gibt anscheinend nur noch
+
+02:14:50.300 --> 02:14:51.300
+Extraction Shooter und Battle Royale.
+
+02:14:52.300 --> 02:14:53.300
+Also, was No Mangle macht,
+
+02:14:54.300 --> 02:14:55.300
+besorgt dafür, dass die Funktionsnamen
+
+02:14:56.300 --> 02:14:57.300
+in der kompilierten Library erhalten bleiben.
+
+02:14:58.300 --> 02:14:59.300
+Normalerweise würde Rust,
+
+02:15:00.300 --> 02:15:03.300
+wenn man das zu einem Binary kompiliert,
+
+02:15:04.300 --> 02:15:05.300
+die Funktionsnamen randomisen
+
+02:15:06.300 --> 02:15:07.300
+oder kürzer machen,
+
+02:15:08.300 --> 02:15:09.300
+dass es weniger Platz braucht,
+
+02:15:10.300 --> 02:15:11.300
+dass es schneller ist,
+
+02:15:12.300 --> 02:15:13.300
+aber No Mangle sorgt dafür,
+
+02:15:14.300 --> 02:15:15.300
+dass die Funktion im Binary
+
+02:15:16.300 --> 02:15:17.300
+Create Connection heißt
+
+02:15:18.300 --> 02:15:19.300
+und nicht Blub1.
+
+02:15:20.300 --> 02:15:21.300
+Das ist wichtig,
+
+02:15:22.300 --> 02:15:24.300
+wenn man das Ganze aus C Sharp aufrufen will,
+
+02:15:25.300 --> 02:15:26.300
+muss man dem nämlich sagen,
+
+02:15:27.300 --> 02:15:29.300
+in welcher Library er welche Funktion findet
+
+02:15:30.300 --> 02:15:31.300
+und wenn Rust beim Kompilieren
+
+02:15:32.300 --> 02:15:34.300
+die Funktionen umbenennt,
+
+02:15:35.300 --> 02:15:36.300
+dann funktioniert das nicht mehr,
+
+02:15:37.300 --> 02:15:38.300
+weil er die nicht mehr findet.
+
+02:15:39.300 --> 02:15:40.300
+Deswegen braucht man das darüber,
+
+02:15:41.300 --> 02:15:42.300
+sonst geht es nicht.
+
+02:15:57.670 --> 02:15:58.670
+Ach, The Finals ist das,
+
+02:15:58.670 --> 02:16:01.670
+was die ehemaligen DICE-Leute angekündigt haben.
+
+02:16:02.670 --> 02:16:03.670
+Achso, das wusste ich gar nicht.
+
+02:16:04.670 --> 02:16:05.670
+Ich habe gesehen,
+
+02:16:06.670 --> 02:16:07.670
+dass die etwas vor einer Weile angekündigt haben,
+
+02:16:08.670 --> 02:16:09.670
+aber dass es The Finals war,
+
+02:16:10.670 --> 02:16:11.670
+ist das schon raus?
+
+02:16:12.670 --> 02:16:20.810
+Ach, Embark Studios, genau.
+
+02:16:21.810 --> 02:16:30.650
+Beta.
+
+02:16:35.900 --> 02:16:36.900
+Mal gucken.
+
+02:16:37.900 --> 02:16:38.900
+Schauen wir mal, bis das raus ist.
+
+02:16:41.920 --> 02:16:42.920
+Du kannst auch einen Exeggutor
+
+02:16:43.920 --> 02:16:44.920
+manuell starten aus Tokio Main.
+
+02:16:45.920 --> 02:16:46.920
+Ganz ehrlich,
+
+02:16:47.920 --> 02:16:48.920
+alles was ich nicht selbst schreiben muss
+
+02:16:50.920 --> 02:16:51.920
+ist alles anders anwenderfreundlich.
+
+02:16:52.920 --> 02:16:53.920
+Das kann man echt sagen.
+
+02:16:54.920 --> 02:17:02.930
+Nehmen wir Plattform IO
+
+02:17:03.930 --> 02:17:04.930
+mit den Arduino Bindings zum Einstieg.
+
+02:17:05.930 --> 02:17:06.930
+Das ist deutlich angenehmer.
+
+02:17:07.930 --> 02:17:10.930
+Und die beste Kombination aus meiner Sicht
+
+02:17:11.930 --> 02:17:12.930
+ist tatsächlich Plattform IO
+
+02:17:13.930 --> 02:17:14.930
+mit ESP-IDF
+
+02:17:15.930 --> 02:17:17.930
+plus Arduino obendrauf.
+
+02:17:18.930 --> 02:17:20.930
+Weil dann kannst du die Basics konfigurieren
+
+02:17:21.930 --> 02:17:22.930
+in ESP-IDF,
+
+02:17:23.930 --> 02:17:24.930
+den du zusätzlich brauchst.
+
+02:17:24.930 --> 02:17:27.930
+Zum Beispiel das Partitionslayout
+
+02:17:28.930 --> 02:17:30.930
+vom Flash-Speicher,
+
+02:17:31.930 --> 02:17:33.930
+die Taktfrequenz,
+
+02:17:34.930 --> 02:17:38.930
+zusätzliche Library-Funktionen einschalten,
+
+02:17:39.930 --> 02:17:40.930
+die nicht default sind
+
+02:17:41.930 --> 02:17:42.930
+und dann Arduino obendrüber.
+
+02:17:43.930 --> 02:17:44.930
+Das ist für mich die beste Kombination.
+
+02:17:45.930 --> 02:17:49.930
+Plattform IO mit ESP-IDF-Projekt
+
+02:17:50.930 --> 02:17:51.930
+plus Arduino obendrauf.
+
+02:17:51.930 --> 02:18:00.830
+Zeh Kronen für den Sub.
+
+02:18:01.830 --> 02:18:06.900
+Hehehe.
+
+02:18:07.900 --> 02:18:08.900
+Ja, wundert mich nicht.
+
+02:18:09.900 --> 02:18:10.900
+Das Game juckt mich auch gar nicht.
+
+02:18:11.900 --> 02:18:16.260
+Ja.
+
+02:18:17.260 --> 02:18:18.260
+Ich hab schon gehört,
+
+02:18:19.260 --> 02:18:20.260
+dass es ziemlich
+
+02:18:21.260 --> 02:18:22.260
+da hinten losgegangen sein muss.
+
+02:18:23.260 --> 02:18:24.260
+Das interessiert mich tatsächlich,
+
+02:18:25.260 --> 02:18:26.260
+ist aber glaube ich auch noch nicht raus.
+
+02:18:27.260 --> 02:19:08.740
+Was, Embark sind doch die Rust-Leute?
+
+02:19:09.740 --> 02:19:10.740
+Ne.
+
+02:19:11.740 --> 02:19:14.740
+Embark sind ein paar ehemalige DICE-Leute.
+
+02:19:14.740 --> 02:19:15.740
+Rust, das Game?
+
+02:19:16.740 --> 02:19:17.740
+Weiß ich gar nicht,
+
+02:19:18.740 --> 02:19:19.740
+wie das Studio dahinter heißt.
+
+02:19:20.740 --> 02:19:22.740
+Wenn ich es lese, weiß ich es bestimmt,
+
+02:19:23.740 --> 02:19:27.740
+aber aus dem Kopf fällt es mir nicht ein.
+
+02:19:30.370 --> 02:19:31.370
+Keine Ahnung.
+
+02:19:32.370 --> 02:19:33.370
+Facepunch heißen die?
+
+02:19:37.150 --> 02:19:39.530
+Du hast jetzt einfach gegoogelt, oder?
+
+02:19:40.530 --> 02:19:41.530
+In der Zeit hat man locker googeln können.
+
+02:19:42.530 --> 02:19:44.530
+Ach so, die sponsoren einige Rust-Projekte.
+
+02:19:48.380 --> 02:19:49.380
+Ja, ist heute ein bisschen doppeldeutig,
+
+02:19:50.380 --> 02:19:51.380
+weil ich weiß nicht,
+
+02:19:51.380 --> 02:19:52.380
+was mit Rust gemeint sein kann.
+
+02:19:53.380 --> 02:19:54.380
+Es kann durchaus sein,
+
+02:19:55.380 --> 02:19:56.380
+dass die Facepunch heißen.
+
+02:19:57.380 --> 02:19:58.380
+Ich hätte eigentlich gedacht,
+
+02:20:01.650 --> 02:20:02.650
+wenn ich den Namen lese, weiß ich es,
+
+02:20:03.650 --> 02:20:04.650
+aber es kann sein.
+
+02:20:05.650 --> 02:20:06.650
+Ich bin mir immer noch nicht sicher,
+
+02:20:07.650 --> 02:20:08.650
+selbst wenn es... ist ja auch wurscht.
+
+02:20:09.650 --> 02:20:10.650
+Ah, Leute.
+
+02:20:11.650 --> 02:20:12.650
+Okay, 22 Uhr.
+
+02:20:13.650 --> 02:20:14.650
+Wisst ihr, was jetzt ist?
+
+02:20:15.650 --> 02:20:16.650
+Oh nein, es ist nicht Lachs mit Nudel.
+
+02:20:19.280 --> 02:20:20.280
+Jetzt ist Boomer-Time.
+
+02:20:31.040 --> 02:20:32.040
+Preige, dann Bettge.
+
+02:20:33.040 --> 02:20:34.040
+Ne, Preige bestimmt nicht.
+
+02:20:37.310 --> 02:20:38.310
+Oder möchtet ihr,
+
+02:20:39.310 --> 02:20:40.310
+dass wir zusammen ein Abendgebet durchführen?
+
+02:20:42.310 --> 02:20:43.310
+MonkaChrist.
+
+02:20:48.260 --> 02:20:49.260
+Nein, nein, nein.
+
+02:20:50.260 --> 02:20:51.260
+Es gibt eine Sache,
+
+02:20:52.260 --> 02:20:53.260
+die werdet ihr nicht erleben,
+
+02:20:54.260 --> 02:21:06.880
+dann ist es das, ey.
+
+02:21:07.880 --> 02:21:08.880
+Auch nicht für 60k.
+
+02:21:09.880 --> 02:21:10.880
+Für 60k Subs?
+
+02:21:11.880 --> 02:21:18.670
+Euro.
+
+02:21:19.670 --> 02:21:20.670
+Für 60.000 Euro
+
+02:21:21.670 --> 02:21:22.670
+mache ich da auch ein Abendgebet,
+
+02:21:23.670 --> 02:21:24.670
+da habe ich kein Problem mit.
+
+02:21:24.670 --> 02:21:25.670
+Das ist easy.
+
+02:21:34.940 --> 02:21:35.940
+Da bin ich käuflich.
+
+02:21:36.940 --> 02:21:37.940
+Für 60k bin ich käuflich.
+
+02:21:41.140 --> 02:21:42.140
+Nicht für alles,
+
+02:21:43.140 --> 02:21:44.140
+aber für so easy Sachen
+
+02:21:45.140 --> 02:21:46.140
+habe ich kein Problem.
+
+02:21:49.160 --> 02:21:50.160
+Ja, eine Million Abos-Special mit FaceLeak,
+
+02:21:51.160 --> 02:21:52.160
+das habe ich ja schon angekündigt.
+
+02:21:53.160 --> 02:21:54.160
+Eine Million Abos-Special mit FaceLeak
+
+02:21:55.160 --> 02:21:56.160
+auf YouTube gibt es dann.
+
+02:21:57.160 --> 02:21:58.160
+Aber nachdem ich sehr wahrscheinlich
+
+02:21:59.160 --> 02:22:00.160
+nie eine Million Abos knacken werde,
+
+02:22:01.160 --> 02:22:03.160
+ein 300k dauert schon lange,
+
+02:22:04.160 --> 02:22:05.160
+zumal ich in letzter Zeit
+
+02:22:06.160 --> 02:22:07.160
+so viel abgeladen habe,
+
+02:22:08.160 --> 02:22:11.560
+dass ich wieder Minus-Abos gemacht habe,
+
+02:22:14.260 --> 02:22:15.260
+wird das nichts.
+
+02:22:18.080 --> 02:22:19.080
+Bedgetime, Leute.
+
+02:22:20.080 --> 02:22:21.080
+Rossi, mach dir keine Gedanken.
+
+02:22:22.080 --> 02:22:23.080
+Wenn du mir die 60k überwiesen hast,
+
+02:22:24.080 --> 02:22:25.080
+sehe ich das und dann machen wir
+
+02:22:26.080 --> 02:22:27.080
+Abendgebet nächsten Stream.
+
+02:22:28.080 --> 02:22:29.080
+Also, Chat, Praygetime,
+
+02:22:30.080 --> 02:22:33.420
+jeder für sich.
+
+02:22:34.420 --> 02:22:36.980
+Wir sehen uns.
+
+02:22:37.980 --> 02:22:38.980
+Bis zum nächsten Stream.
+
+02:22:39.980 --> 02:22:42.620
+Gib mir mal deine Bankdaten.
+
+02:22:43.620 --> 02:22:44.620
+Geh doch PayPal.
+
+02:22:45.620 --> 02:22:46.620
+Nächsten Stream kriegst du die.
+
+02:22:47.620 --> 02:22:48.620
+Also, bis dann.
+
+02:22:49.620 --> 02:22:50.620
+Wir sehen uns.
+
+02:22:51.620 --> 02:22:52.620
+Macht's gut, CU.

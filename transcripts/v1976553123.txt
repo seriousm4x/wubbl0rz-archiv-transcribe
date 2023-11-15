@@ -1,0 +1,1943 @@
+Ich weiß, dass mich das heute extrem aufregen wird, weil Rust ist so ne, also bei Pearl hat
+man immer gesagt, write only, aber Rust ist nicht write only, Rust ist, also eigentlich
+weder write noch read. Es gibt ein paar Verrückte, die gerne Rust programmieren und es gibt
+auch ein paar Verrückte, die gerne Rust lesen, aber die meisten Leute eher nicht. So, kurzer
+Z entknotet. Rust ist pain only, wobei man das auch nicht sagen kann, Rust ist für die
+eine Sache, also für diese eine Nische, wofür es auch gemacht ist, wirklich gut. Ja, Rust
+ist ja im Endeffekt, es kommt nicht umsonst von Mozilla, oder Mozilla, die coolen Leute
+sprechen, sprechen das ja alles immer besonders cool betont aus. Und das kommt nicht umsonst
+von Mozilla, das ist für diese eine Nische wirklich gut, wo du nämlich mehr oder weniger
+kompromisslose Performance brauchst und so gut wie möglich Memory Safety, also dementsprechend
+weniger Sicherheitslücken. Dafür ist Rust gut, für alles andere nicht. Leider wird
+Rust heute irgendwie für so nahezu alles verwendet, auch ohne wirklich einen guten
+Grund dafür zu haben, weil Hauptsache Plays really fast, written in Rust. Gatchi roll,
+gatchi, gatchi, gatchi roll. Schauen wir mal die VM an. Also, wie immer, ihr müsst beim
+Stream gestern nicht dabei gewesen sein, wir machen nicht wirklich an der Stelle weiter,
+wo wir gestern aufgehört haben. Wir erstellen ein neues Projekt und kopieren uns zwei Sachen
+von gestern. War ja nicht, ist ja in der Summe nicht viel bei rumgekommen. Obwohl wir viel
+gemacht haben, aber nicht viel was wir brauchen. Zick, oder Sick hat er es auch. Habe ich natürlich
+nicht verwendet, weil bei uns geht es ja immer First Try, da braucht man keine Tests. Weil,
+es gibt wirklich wenig Sprachen. Ja, wirklich wenig Sprachen. Okay, Go, ja, Go. Also bei
+Go ist das, Go Test ist ja irgendwie mit eingebaut, glaube ich. Ansonsten, Frexor, hast du ja aus
+gehabt. So ist es richtig. So ist es richtig. Wenn Tests kaputt liegen, muss das prinzipiell
+an den Tests liegen und nicht daran, dass vielleicht was kaputt ist. Immer, immer, immer
+die Tests ändern, dass sie immer grün sind. Und am besten darauf schieben, dass die Leute
+einfach nur unfähig waren, die die Tests entwickelt haben. Blöd, wenn man es selbst war. Ja gut,
+man kann auch mal einen schlechten Tag gehabt haben. So, ich muss mal kurz andere Musik
+anmachen. Wir machen die Playlist vom letzten Mal an. Die fand ich eigentlich ganz entspannt.
+Also nicht die hier. Wir machen wieder die Playlist vom letzten Mal an. Die war sehr
+angenehm, Background mäßig. Es gibt ja, besser gesagt, das war ja eine Zeit lang im
+Trend, dass man Test Driven Development macht. Und da ist es ja in der reinen Lehre so, du
+definierst, was die Software machen soll, dann erstellst du Tests und dann baust du
+die Software zu. In der Praxis, so hundertprozentig funktioniert das nicht, weil man einfach viel
+zu langsam ist. Und gerade, wenn man noch am Basteln ist und nicht genau weiß, was
+am Ende rauskommen soll, ist das kein allzu praktikabler Ansatz. Aber es gibt ja sogar
+was, was danach benannt ist. Also insofern, ganz so verkehrt ist das sicher nicht. So,
+start x. Nochmal Package Update machen. Also heute bauen wir ein bisschen was in Rust.
+Oh, ich hab nix zu trinken hier. Chadke? Zack? Zack, ich muss mir was zu trinken holen. Sonst
+wird das hier nix. Alles klar, bin schon wieder da. Also, damit hab ich noch nie was gemacht
+mit Elixier. Funktional bedeutet in der Regel ganz viele nestete Klammern. Zumindest meistens.
+Also ich hab beispielsweise schon mal Erlang, bisschen mehr gesehen. Und wie heißt das
+auf Bajava? Closure oder so? Gibt's da noch? Das hat auch saumäßig viele Klammern. Elixier
+hat Ruby Sündag. Ja, das ist gut. Ruby Sündag ist Pog. Den Zusammenhang verstehe ich nicht,
+über ein halbes Jahr kein Backup und ein Dreivierteljahr kein Backup. Das ist vielleicht
+nicht so schlau. Es sei denn, es gab in der Zwischenzeit nix Neues dabei. So, hauen wir
+hier mal zu. Firefox auf. Dann sage ich euch, was wir machen. Also, ich glaube wirklich
+großartig viel sehen wird man heute nicht. Wir rufen wieder unseren Rust-Code aus .NET
+auf und gucken dann, ob was Gescheites zurückkommt. Wie das Prinzipiell geht, haben wir gestern
+schon ausprobiert. Deswegen erstellen wir da jetzt ein neues Projekt. Ziel ist es mal
+am Ende, dass ich per WebRTC Video rüberschicken kann von FFmpeg in einen Browser. Dass das
+geht, das weiß ich. Das habe ich schon oft genug gemacht. Aber diesmal mit Rust-WebRTC-Library.
+Soweit werden wir heute aber nicht kommen. Ich werde schon am Verzweifeln sein, Basics
+in Rust hinzubekommen. Rust ist so echt. Schön ist was anderes. Außerdem habe ich nicht
+sonderlich viel Ahnung von Rust. Das kommt ja noch dabei. So, hier nochmal Update. Oh
+Gott, Kernel-Update müssen wir auch gleich rebooten. Nochmal. Also, Ruby Syntax ist äußerst
+pock. Max, danke für den Sub. Ne, gar kein Sub. Was ist hier los? Keck, wait. An String
+hören. Erledigt. Achja, wo wir gerade beim Thema sind. Sprachen mit integrierten Tests.
+Ich glaube, dass Javascript sogar mit Node mittlerweile Tests integriert hat. Kann das
+sein? Ich bilde mir ein. Ich habe da was gelesen. Ich bilde mir ein. Node bringt jetzt ein Standard
+Test Framework und ein Standard Test Runner mit. Ist dies korrekt? Fiver Chat. Ich habe
+es nicht ausprobiert. Also insofern. YouTube, seid ihr euch sicher, dass ihr mir das empfehlen
+wollt? Eine Stunde, 42 Lecture, Programmieren in C++. Ich glaube, dass Dr. Best hält die.
+Ach ne, Dr. Bast. Dr. Best ist C++ Programmierer. Würde mich auch nicht wundern. Dr. Best hat
+auch so komische Ecken im Mund. Dem traue ich alles zu. Mittlerweile hat Node echt vieles
+Teuflch reingewurschtet. So, dann wollen wir das mal starten. Du darfst ruhig dir zugehen,
+dass du dir Offstream C++ anschaust. Ich schaue mir Offstream tatsächlich ab und zu C++ an,
+allerdings nicht selbst, sondern ich gucke mir die ein oder anderen C++ Talks an und
+bin regelmäßig absolut am Abkecken, was das für eine scheiß Sprache ist. Es ist
+ja normal bei mir, dass wir die ersten paar Minuten im Stream meistens nichts Sinnvolles
+auf die Reihe kriegen. Lasst mich mal kurz in meiner History gucken. Kann man seine History
+eigentlich durchsuchen? Ich habe letztens ein C++ Talk gesehen und da habe ich mir gedacht,
+ihr seid doch echt nicht ganz dicht. Ihr seid wirklich nicht mehr normal. War das das
+Video? Ich bin mir jetzt gar nicht sicher, ob das das ist. Ich finde es nicht. Mir ist
+auch egal. Ich muss euch das ja nicht beweisen. Ihr wisst alle, dass C++ kacke ist. Ich meine,
+wir hatten oft genug den Beweis schon im Stream. Ich finde es jetzt leider nicht. Ich muss
+mal gucken. Ich habe letztens ein C++ Konferenz Talk geguckt und da ging es quasi darum, dass
+der erzählt hat, was dachte sich der Programmierer bei diesem Code und dann erklärt er, dass
+es nicht nur schlecht gedacht ist, sondern in C++ noch schlechter umgesetzt. By the way,
+wusstet ihr, dass eigentlich C++ 26 demnächst am Start ist? Naja, wir haben sogar schon
+nachgeguckt. C++ 26 gibt es jetzt. Dann gibt es noch mehr abgedrehtes Zeug, was keiner
+mehr versteht. Irgendjemand kam ja auch mal auf die Idee, D zu machen. Nur D benutzt niemand.
+Also, wo sind wir das letzte Mal stehen geblieben? Ja, das ist dieses Google-Ding, wo ich auch
+nicht glaube, dass das eine nennenswerte Verbreitung findet. Schau mal, wie viele. Ich glaube nicht,
+dass sich da viel tut. Nee, habe ich nicht. Ich hoffe, dass noch ein paar der coolen Features
+von F-Sharp nach C-Sharp rüberkommen. Also vor allem so Union Types und sowas. Aber dann
+braucht man eigentlich F-Sharp gar nicht mehr. F-Sharp ist so, hat auch jemand mal auf einem
+Konferenz Talk gesagt, das fand ich eigentlich ganz treffend. F-Sharp ist die schönste Programmiersprache,
+die nie jemand benutzt hat. Oder F-Sharp ist die schönste Programmiersprache, die keiner
+benutzt. Das hat schon seinen Grund, warum es keiner benutzt. Aber sie muss wohl ganz
+nice sein. Aber es benutzt sie trotzdem keiner. Ja, also das ist die Library, die wir verwenden
+werden. Das ist eine pure Rust-Implementation auf WebRTC. Und damit das Ganze nicht zu einfach
+wird, ist der Plan folgender. Ich mache mal das Projekt von gestern auf. Aber wie gesagt,
+da machen wir nicht weiter. Also doch schon, aber in einem neuen Projekt. Also ich mache
+nochmal das von gestern auf. Also der Plan ist folgendes. Wir programmieren den WebRTC-Teil
+in Rust. Die Web-Anwendung in ASP.NET Core, also in C-Sharp. Und wir rufen Rust von C-Sharp
+aus auf. Dass das prinzipiell funktioniert, habe ich gestern hier ausprobiert. Das heißt,
+wir müssen gucken, also wenn wir gut sind, Leute, wenn wir gut sind, bekommen wir heut
+folgendes hin. Das Initialisieren von den Standard-Settings, was man so braucht für
+WebRTC. Und vielleicht eine Connection, die wir erstellen können. Oder zumindest die
+Connection-Anfrage, die wir dann an den Client schicken können. Also sprich, da brauchen
+wir ein paar Strings von Rust zu C und dann nach C-Sharp. Moin, cute boy. Ne, sorry, cute
+ahoy. Fast. Lul. Sack, Leute. So. Und mein Ziel ist, und ja, ich werde das Open Source
+machen auf GitHub, aber ihr kennt mich, ich werde es nicht supporten. Ich werde das so
+bauen, dass es für mich funktioniert und dann ist gut. Das Ziel ist, Webcams, die ich
+hier im Haus und im Hof habe, in den Browser zu streamen. Ich habe sowas schon gemacht
+mit C-Sharp, mit Go. Aber ich wollte jetzt was wirklich Kleines, Simples, was einfach
+funktioniert und sich als extra, ja als iFrame in Home Assistant embedden lässt. Weil so
+ziemlich alles, was es an dieser Software in dieser Richtung gibt, das sich in Home
+Assistant einbauen lässt, funktioniert einfach nur schrottig. Ich habe nichts gefunden bisher,
+was meine Kameras Realtime per Web RT10 Home Assistant richtig anzeigen lassen kann. Es
+gibt ein paar Projekte, aber alles irgendwie Müll. Ich brauche einfach nur eine Website,
+wo untereinander die Webcams möglichst verzögerungsfrei dargestellt werden. Ich habe sowas ja schon
+mal selbst gebaut, habe es dann aber wieder eingestampft, weil der Support in Home Assistant
+immer besser wurde und jetzt habe ich festgestellt, nach so einer 1-2 Jahren, das taugt einfach
+nix. Ich baue mir eine statische Webseite, die einfach 5 Videoplayer anzeigt und da rein
+per Web RT10 meine Kameras streamt und fertig. Wieso landet bei dir in der Uhr dann immer
+eine 1, die du immer löscht, weil es mir danach ist? Nein, das geht nicht. Die meisten Kameras
+können RTSP und darüber, wie heißt das, RTP oder sowas. Das kann man nicht direkt
+an den Browser senden. Man braucht irgendwas, das die abfragt, den Stream ausliest und dann
+ohne Read to Encode das Ganze als Web RTC pusht zum Beispiel. Oder man könnte auch
+einen HLS Videostream draus machen, aber da hast du ein bisschen mehr Lag. So wird das
+jetzt gemacht und außerdem lernen wir ein bisschen Rust und nebenbei noch ein bisschen
+Web RTC. Aber wie gesagt, das Ziel ist heute nicht, da einen funktionierenden Prototypen
+hinzukriegen, sondern einfach nur mal zu gucken, wie man die Basics in Rust machen kann, damit
+ich die Library verwenden kann. Gut, wir erstellen mal ein neues Project und zwar gehen wir mal
+nach Repos, mkdir, der CamChamp. Ich glaube der Name ist noch frei. CamChamp. Da gibt
+es einmal ein Verzeichnis Backend, da kommt mein .NET Zeug rein. Dann gibt es ein Verzeichnis,
+tja, wie nennt man das? Wurscht, ja, perfekt. Ah, ein GachiBuzz Enjoyer, ich seh's schon.
+Nice. Da bist du genau richtig. Und wie nennen wir denn die Rust App? Ich will sie nicht
+RustLib nennen, sondern wir nennen sie, wir nennen sie einfach RTC. Ich nenne die absichtlich
+mal nur RTC und nicht WebRTC, weil die Library, die ich verwenden will, WebRTC heißt und
+es gibt mit Rust garantiert Probleme und gab's ja mit Go auch, wenn die Library und eine
+externe Dependency und das Package alles gleich heißt. Es ist einfach nur mal RTC. So, und
+dann brauchen wir irgendwann noch ein Frontend. Das ist im Prinzip ein statisches HTML, bisschen
+Javascript drin und fertig. Gut, so, gehen wir mal in den Backend Ordner und sagen New
+Console App. Das war's, wir brauchen nicht. Dann machen wir Rider hier auf oder vielleicht
+machen wir es auch mal mit HTMX. Keine schlechte Idee, Chatge, keine schlechte Idee, weil,
+wobei HTMX bringt mir bei WebRTC Streaming jetzt relativ wenig, aber wir brauchen da
+jetzt nicht irgendwie kein Views-Welt-React-Angular-Sonstwas, es gibt ein paar Zeilen Javascript und ein
+paar Videoplayer auf der Seite, also da brauchen wir noch nicht mal irgendein Framework für.
+So, Open. Also wir haben noch nicht angefangen, ihr seid frisch dabei, falls irgendjemand
+sich jetzt Gedanken macht, dass er nicht mitkommt. Also ihr müsst euch keine Gedanken machen,
+dass ihr nicht mitkommt, weil ich komme auch nicht mit. Ich habe echt wenig Ahnung von
+was. Das wird ganz, ganz grausam, glaube ich, heute. Was ist jetzt schon wieder hier
+das Problem? Achso, Rider spackt wieder rum, weil es wieder denkt, dass ich das falsche
+.NET habe. Hier ist das richtige .NET. Sehr gut. Save. Und jetzt das Projekt reloaden.
+Man sollte es hoffentlich funktionieren. Ja, nice. Sehr gut. Machen wir mal ein Bild.
+Repos. Backend.NET. Run. Ja, haben wir nicht Release-Bild. Okay, Hello World passt. Projekt
+Setup beendet. Auf jeden Fall Unsave-Code einschalten, weil wie sollen wir sonst ordentliche
+Rust-Interrupt machen? Dann gehen wir hier hin und starten die Rust-IDE. Wir starten
+die Rust-IDE, die schreibe ich mal auf Platz 7. Wir starten die Rust-IDE mehrfach, weil
+ich mir ein paar Sachen von gestern abgucken muss. New Project. Wir wollen nach Repos.
+Camp Champ. RTC. Da wollen wir hin. Wir wollen eine Library erstellen. Neues Window. Das
+kommt auf 3. CD. Was ist denn das? Nein, nein, keine Tipps. RTC. Okay. Cargo Run. Ach, geht
+nicht. Cargo Build. Kunst. Okay, ich würde sagen, Setup Complete. Let's go. Tests werden
+wir entfernen, weil niemand braucht Tests. Overrated, outdated, jebaited. Gut, wir klauen
+uns mal was von gestern, was wir gestern gemacht haben. Also ich erkläre das jetzt nochmal,
+was der Plan für heute ist. Also wie gesagt, zu Videos abspielen werden wir heute gar nicht
+kommen oder sowas. Der Plan ist, eine .NET-Backend-Anwendung zu erstellen, die WebRTC mit dem Browser
+spricht. Nachdem es für .NET zwar ganz gute WebRTC-Libraries gibt, aber die nicht so feature-complete
+sind wie die Libraries für Go und Rust, habe ich mir gedacht, machen wir den WebRTC-Teil,
+also mit der Go-Library kenne ich mich aus, mit der Rust-Library nicht so wirklich. Habe
+ich mir gedacht, machen wir den WebRTC-Teil in Rust und zwar mit dieser Library. Man sieht
+es auch relativ beliebt. Das ist eine Neu-Implementierung in Rust von dieser Go-Library und die kenne
+ich. Also hoffe ich, ich komme da halbwegs durch, wie man das in Rust macht. Die kenne
+ich, mit der habe ich schon einige Sachen gemacht. Das war jetzt auch schon wieder zwei
+Jahre her, da hat sich viel geändert, aber da blicke ich halbwegs durch. Wo ich nicht
+durchblicke ist Rust. Ich hoffe, die haben ganz gute Beispiele. Ich habe vorhin den Ordner
+aufgemacht und durchgescrollt und da habe ich gesehen, das sind mehr oder weniger die
+gleichen Beispiele, die es auch für die Go-Library gibt, mit der Rust-Neu-Implementierung nachgebaut.
+Teilst du ein bisschen Pfeiffered Rust-Knowledge während du das zusammendrehst? Ich habe keine
+Rust-Knowledge, das ist ja das Problem dabei. Also meine Rust-Knowledge hält sich extrem
+mit Grenzen. Keine Rust-Knowledge. Also das können wir schon mal rüber kopieren. Oder
+das da, das ist besser. Das kopieren wir rüber. Oh Moment, Sek. Falsch. Das kopieren wir rüber.
+Wir machen eine falsche Idee. Session kommt weg. Das Ding heißt anders. So. Und jetzt
+müssen wir noch. Also okay. Ich teile Rust-Knowledge. Alles klar. Also Cargo.toml. Ich
+erzähle euch jetzt die Basics Sachen. Der Basics, weil ich auch keine Ahnung von Rust habe. Aber
+ich kann euch so ein paar Kleinigkeiten erzählen. Also komplettes Projekt-Setup passiert in Rust in
+dieser Cargo.toml. Warum heißt das Ding Cargo? Keine Ahnung. Die wollten lustig sein und haben
+ihr mit ausgeliefertes Command-Line-Tool halt Cargo genannt. Cargo ist quasi so ein bisschen
+das NPM von Rust. Beziehungsweise das Gem, wie bei Ruby von Rust. Oder so ein bisschen wie das
+Nougat von C-Sharp. Wobei Nougat ja eigentlich nur ein reiner Package-Manager ist. Cargo kann
+ein bisschen mehr. Cargo kann Tests ran, Projekte bilden und Libraries hinzufügen und Dependencies
+und sowas in der Richtung. Und bei Rust ist es so, dass es... Rust hat ganz gerne für alles
+irgendwelche eigenen Namen. Also das Command-Line-Tool heißt Cargo. Ein Package heißt nicht
+etwa Package. Man könnte denken, dass es Package heißt. Das ist aber zu einfach. In Rust heißt ein
+Package Crate. Also Crate, so wie Kiste. Obwohl es hier Package heißt. Warum es nicht Crate heißt,
+ich weiß es nicht. Weil Rust, Krustentiere Pfeifert, die können das im Kopf alles. Und das
+hier ist im Prinzip deine NPM-Jason. Oder deine, ne Moment. Wie heißt es unter Javascript? Package
+Jason. Nicht NPM Jason. Package Jason. Genau. Slick. So sieht es aus. Package Jason. So, und da können wir
+jetzt schon mal die erste Dependency hinzufügen. Und zwar die Dependency hier rauf. Wir sehen, es ist
+aktuell Version 0.9.0. Und das ist quasi hier Crates.io. Das ist das NPM von Rust. Das ist das NPM von Rust.
+Und da sieht man auch immer hier oben das Kommando, was man eingeben muss, damit Cargo das hinzufügt.
+So, jetzt haben wir Cargo add WebRTC. Und da seht ihr schon, Cargo hat es hinzugefügt. Jetzt haben wir als
+Dependency WebRTC dabei. Sehr schön. Nice. Ja, und der Plan ist, wie gesagt, C-Sharp Backend mit ASP.NET Core.
+Rust. Low-Level-Zeug für WebRTC. Und Frontend halt mit ein bisschen Javascript und HTML. Ohne großartige
+Funktion. Einfach nur 7, 8 Videoplayer, was dann alle Kameras anzeigt. Aber wie gesagt, ich sag's euch gleich,
+soweit werden wir heute nicht kommen. Was jetzt auch neu ist, das gab es früher nicht. Zumindest war mir das
+nicht so präsent. Crates können mittlerweile Features haben in Rust, was ich ganz nice finde. Du brauchst keine,
+du brauchst jetzt nicht wie in C oder C++ irgendwie 30 verschiedene Builds oder irgendwelche Compile-Time-If-Else-Dinger
+oder sonst was. Du kannst beispielsweise sagen, wenn du einen Crate installierst, was für Features du dazu haben willst.
+Und dann hast du halt ein paar zusätzliche Interfaces dabei, die das machen. Werden wir wahrscheinlich früher oder
+später sehen. Also, Cargo-Build. What the f... Ist ja schlimmer als Javascript, man. 238 Packages hat er einfach
+hinzugefügt. Alter, damit hab ich jetzt nicht gerechnet, man. Ich hab eine Dependency hinzugefügt. Leute, das ist ja fast
+schlimmer als bei Node, äh, ja, bei Javascript. Wobei, kann man nicht sagen. Bei Node-Modules wären es wahrscheinlich
+800 gewesen oder 1300 oder sowas. Okay, guck mal. Schmoll, Schmoll-String fügt er hinzu als Package. Was zum Teufel ist das?
+Schmoll, Schmoll-String. Okay, Leute. Das muss ich nachgucken, was das ist. Schmoll, Schmoll-String-Rust hat 306 Github-Sterne.
+Geile. Schmoll-String. Äh, äh, Schmoll-String ist das String, das die folgenden Properties hat. SizeOf, was? Alter, die Rust-Programmierer,
+die sind so krass 5-Head. Die schreiben nicht einfach, wofür die Library ist. Die schreiben, er has the following properties.
+SizeOf gleich gleich 24. Also, daraus folgt SizeOf on 64 Bit. Ähm, äh, Klon ist, äh, okay, also es ist quasi, äh, ne, ähm, wie nennt man das korrekt?
+Mathe, Mathe-Studenten, Informatik-Studenten, 5-Head. Laufzeit von O1 bedeutet quasi instant, direkt. Wie heißt's? Konstant, konstant.
+Konstant, das hab ich gesucht, das hab ich gesucht. Excellent Chat. Da, da, da schlägt sich, da schlägt sich der, der hohe IQ durch die ganzen Prime-Subs schon wieder direkt durch.
+Konstant, das ist das Wort, was mir gefehlt hat. Strings-Up, die, die können doch einfach schreiben, egal. Muss uns nicht interessieren, die Library hat da Abhängigkeiten zu.
+Was machen die da alles? Okay, wir bilden das Ganze auch gleich mal in Release, weil ansonsten dauert das wieder 3 Stunden. Ach ne, Moment, wir sind nicht in, wir sind nicht in .NET. Ähm, Moment.
+Wie macht man, wie macht man ein Release-Build mit Cargo? Das hab ich gestern bestimmt gemacht. So, so macht man, Minus, Minus Release. Cargo-Build, Minus, Minus Release.
+Das ist ja das halbe Internet, man, was da hinterherkommt. Landau-Symbol, ja, das ist die, die O-Notation und die O-Notation, sagen die da im Englischen dazu. Die Big O-Notation.
+So, und jetzt haben wir hier Target, Release, äh, ah, wir haben noch nicht eingestellt, dass er das als Library kommt. Okay, also, nächstes, nächstes, Cargo, Cargo.toml, ne, nur für FiveHeads.
+Da definiert man seine Dependencies und man stellt gleichermaßen auch ein, wie das Projekt gebildet werden soll. Und da muss das hier rein. Warum? Weil wir es gestern ausprobiert haben.
+Da muss man einstellen, den Namen der Library, die man beim Erzeugen und, dass es, dass, dass es das als, unter Windows würde es DLL heißen und unter Linux heißt es, ja, die Datei heißt .so.
+Halt, dynamische Library versus, also, das andere wäre eine statische Library, das ist ein Archiv, wo alles mit drin ist. Shared Object, ja, genau, genau. Das, das meine ich.
+So, dann bilden wir das nochmal. Jetzt haben wir hier unter Target, Release, eine LibR, ne, LibRTC.so. Die brauchen wir und die brauchen wir im .NET Projekt, dass wir es von dort aufrufen können.
+Ich glaube, jetzt haben wir hier schon mehr oder weniger alles abgeguckt, was wir uns abgucken müssen. Machen wir das zu. Das brauchen wir hier im .NET Projekt, das heißt, wir machen ein Cargo Bild jedes Mal. Dann machen wir im Prinzip genau das, was ich gestern auch gemacht habe, nur, dass das Ding LibRTC.so heißt.
+Und das kopieren wir ein Verzeichnis oben drüber nach in den Backend Ordner und jetzt sollte es im .NET Projekt erscheinen, jawoll. Und im .NET Projekt stellen wir ein, dass die Datei mit beim Bild reinkopiert wird. Äh, ja, das ist leer. Gut, so, ich würde sagen, Setup ist soweit fertig. Checken wir mal. Das ist ein Monorepo, ist alles im gleichen Repo drin.
+Guck, alles hier drinnen, alles, alles, also es gibt noch kein Repo, aber alles, alles im gleichen. Moment, hier ist, hä, das habe ich aber nicht angelegt. Hat das Cargo oder, ne, das hat.
+Rust, wie heißt das Ding? Wie heißt die Idee? Rust, Rust Rover. Warum genau ist das Icon ein Rd? Rust Dover oder was? Moment, das ist eher R. Was? Das Icon ist einfach PPGa da oben. Ach, Moment, ich bin in Rider. Ah, das ergibt Sinn.
+Ah, ja, okay, da können wir schon mal durcheinander kommen. So, Check B. So, ich zeige euch jetzt, ich zeige euch jetzt, dass es funktioniert. Wir bilden jetzt, wir nennen das mal gleich richtig, nennen wir mal init, weil wir brauchen ein paar Sachen.
+So, ich bilde jetzt das Rust-Projekt. Ich gehe ins C-Sharp-Projekt rein. Wir legen jetzt hier eine Datei an, wie gestern. Das haben wir nämlich gestern ausprobiert. Interop.cs. Public, Static, Interop. Und da gibt es jetzt eine Public, Moment, das, das, ah, das hätte ich mir von gestern kopieren können.
+DLL, Import. Okay, wenn man kaum macht, was richtig funktioniert. DLL, Import. So, wie heißt das Ding? LibRTC. Und da brauchen wir jetzt Public, Static, Extern. Und das Ding heißt init. Void, Void, init.
+So, was das jetzt hier macht, ist folgendes. Ich, ich ruf das mal auf. Ich zeige, ich zeige euch mal, dass es funktioniert. Interop, init. So, wenn ich jetzt .NET ausführe, dann kommt ein Keckw und das Keckw kommt aus Rust. Also, was das macht, ist folgendes. Das importiert die Library, beziehungsweise macht unter der Haube ein DLOpen.
+Es ist im Prinzip sowas, also das ist sowas, unter Windows wäre es eine DLL, unter Linux ist es ein .SO, quasi ein Shared Object. Es ist eine Library, die man laden kann und dann sagt man hiermit, okay, such die Library mit dem Namen, also such das Shared Object mit dem Namen.
+Dann fliegt der hier rum, findet er ja. Und darin ruft jetzt eine Methode auf, die init heißt. Und das ist das, was wir hier gemacht haben in Rust. Hier haben wir das Ding definiert und in C-Sharp haben wir das importiert und rufen das auf. Das geht nur, also normalerweise hat C-Sharp keine Ahnung von Rust und von Rust hat von C-Sharp keine Ahnung.
+Das funktioniert nur, weil wir hier gesagt haben, extern c und hier oben drüber no mangle. Das bedeutet, dass im Output, in der Output Library, also hier in librtc.so, der Funktionsname nicht randomised wird, sondern gleich bleibt. Und dementsprechend ist der Funktionsname gleich, das heißt ich weiß, ich kann es mit init aufrufen und kann es hier reinschreiben.
+Soweit, soweit die Basics. Das funktioniert schon mal, das heißt jetzt können wir anfangen. Ich bin mir nicht ganz sicher, wie wir, wie wir gescheit anfangen. Kannst du den Pfad irgendwo definieren? Ja, du kannst zum Beispiel sagen Punkt Slash. Ich glaube, du kannst auch sagen Punkt Punkt. Ich glaube, man kann hier, ja guck, jetzt sagt er hier, er findet es nicht.
+Ich glaube, man kann hier Pfade angeben drin. Ich bin mir aber nicht sicher, wie komplex das werden kann. In der Regel, in der Regel ist es immer gut, wenn die Datei im gleichen Verzeichnis liegt wie das andere, dann muss es nicht groß suchen. Und so funktioniert das jetzt.
+Wir können noch, wir machen noch was anderes. In C-Sharp sollte das eher init heißen. Das wird er mir hier wahrscheinlich auch vorschlagen. Was? Convert to Library Import. Oh, das ist neu. Wir können Library Import benutzen, tatsächlich. Library Import ist neu. Das benutzt für diese ganzen Sachen kein dynamisches Laden mehr zur Laufzeit, sondern per Source Code Generator zur Compile Zeit.
+Das ist eigentlich mega nice. Das können wir tatsächlich mal ausprobieren. Was wir noch machen können ist, in C-Sharp heißen so Dinger oftmals gerne, stimmt doch überhaupt nicht. Warte mal, jetzt stehe ich gerade noch mal. Nee, oder? Doch, Methoden heißen groß. Ja, ich habe zu viel, ich habe zu viel unter, unterschiedliches Zeug, ey.
+Gestern Go, Rust, C-Sharp und jetzt zu viel. So, es ist groß. Jetzt findet er das nicht mehr, deswegen kann man hier sagen, entweder sagt man Exact Spelling oder man sagt direkt Entry Point und sagt ihm, wie das in der Native Library heißt und dann funktioniert es. Dann funktioniert es auch, wenn man das so macht.
+So als Beweis, wenn ich da jetzt was anderes reinschreibe, dann geht es nicht, weil es nicht, findet er nicht. Dann kackt es halt einfach ab und crasht. Gut, also, let's go. Was ich vorhabe, äh, machen wir das hier mal alles dicht. So, wir gucken uns mal die Examples an. Das wird, das wird grausam.
+Also, folgendes, jetzt muss ich euch ein bisschen, muss ich euch ein bisschen was zu WebRTC erklären. Wir halten es aber wirklich kurz. WebRTC funktioniert so, es werden erstmal Infos ausgetauscht zwischen Client und, also eigentlich gibt es bei WebRTC nur Clients. Es gibt eigentlich keinen Server in dem Sinn, weil WebRTC als Realtime Kommunikationsprotokoll gedacht ist zwischen Clients.
+Zum Beispiel für Videokonferenz, also jeder Client ist automatisch Server und Client. Das ist quasi so ein, also WebRTC ist gedacht als Peer-to-Peer Echtzeitkommunikation, ja, für Chat, für Video, für Audio.
+Wenn ihr zum Beispiel in Teams telefoniert, ist die Chance sehr hoch, dass das Video und das Audio auch über WebRTC geht. Ich gehe mal davon aus, dass Teams ein Fallback hat, wenn es irgendwie nicht geht, alte Browser oder irgendwie Probleme sind.
+So, das Ding bei WebRTC ist, nachdem es keinen zentralen Server gibt, wie jetzt beispielsweise bei Twitch, wo ich hinstreame und dann ruft ihr das Video alle von da ab, geht das Peer-to-Peer. Das heißt, es gibt erstmal einen Verbindungsaufbau, wo sich beide Seiten Informationen darüber austauschen, was sie für Videoformate unterstützen, sich dann auf ein Videoformat einigen und dann noch Ports austauschen.
+Wo das, also das passiert alles in einem Schritt. Ports austauschen, wie sie erreichbar sind. Ihr fragt euch jetzt sicherlich, wie geht das Ganze über NAT? Geht auch, geht auch, müssen uns aber glücklicherweise nicht großartig mit beschäftigen. Geht auch, machen die ganzen Libraries glücklicherweise für einen.
+Bei ganz hartnäckigen Verbindungen brauchst du noch so einen externen Tunnelserver, über den du Löcher ins NAT machen kannst. Aber das brauchen wir nicht, alles lokal hier bei mir. Aber über das Internet habe ich das auch schon gemacht, dass das funktioniert. So, und das Ding ist, dass die Ports bei WebRTC randomised sind. Das sind randomised UDP-Ports.
+So, und jetzt habe ich mal eine Frage an euch, Chat. Wer ist so schlau? Für was sind randomised UDP-Ports eher nervig als gut? Also randomised UDP-Ports hat den riesen Vorteil, du hast halt im Prinzip immer einen freien Port. Aber für was sind randomised UDP-Ports schlecht?
+Also, wem macht das Arbeit, randomised UDP-Ports? Firewall, korrekt. Genau darauf wollte ich raus. Randomised UDP-Ports sind doof, um sie freizuschalten in der Firewall. Normalerweise ist das kein Problem, weil normalerweise redet man bei randomised Ports von Source-Ports.
+Source-Ports, ah ja, hau rein, Woblosz Certified Stream. Normalerweise sind das Source-Ports. Und Source-Ports sind kein Problem. Firewalls interessieren sich in 99% der Fälle nicht für Source-Ports, sondern nur für Destination-Ports. Ja, das kann man auch machen, das kann man auch machen. Randomised in einem gewissen Range und nur das weiterleiten. Aber generell sind einfach mehrere Ports doof.
+In dem Fall müssen ja beide Seiten miteinander reden können. Ja, streng genommen ist es der Browser dann, der die Sachen geschickt bekommt am Ende, aber er muss einmal halt zu den Ports, also die müssen zueinander hinkommen auf den Ports. Und das ist sehr doof freizuschalten.
+So, und was es dafür gibt ist ein Feature, das nennt sich UDP-Mux. Die Dokumentation ist schon mal grausam, habe ich hier schon nachgeguckt. Du findest dazu nichts, aber die können UDP-Mux. Und bei UDP-Mux kann man, ich hoffe ich finde hier ein Beispiel zu, weil ich habe auf die Schnelle nichts gefunden hier.
+Da kann man folgendes machen, da kann man einen Port sich ausdenken, der frei ist und dann multiplext der, also das macht die Library für mich glücklicherweise, das muss ich nicht selbst machen, dann multiplext der quasi mehrere WebRTC-Streams, beziehungsweise Peer-Connections heißt das da, mehrere WebRTC-Connections über den gleichen UDP-Port.
+Jetzt fragt sich sicherlich einer UDP-Mux, gibt es nicht auch TCP-Mux? Ja gibt es, kannst du auch machen, das kann die Library aber noch nicht. Ist aber auch nicht schlimm, mir ist eigentlich egal worüber das geht.
+Peon kann das beispielsweise schon, der kann auch über TCP gehen anstatt UDP, wobei man auch mal ganz ehrlich sagen muss, in dem Fall, weil es ja hier quasi um Echtzeit-Video-Übertragung geht, ist UDP eigentlich vielleicht schon fast das bessere Protokoll.
+Es mag seine Vorteile haben, vielleicht wenn man hohen Packet-Loss oder sowas hat, auf der anderen Seite bei Video ist Packet-Loss meistens eh so, wenn das Paket zu spät ankommt, juckt dich eh nicht, da geht halt die Bandbreite richtig hoch, vielleicht muss man gucken, aber bei einer normalen ordentlichen Verbindung sollte es weniger Probleme geben, mit UDP auch gut funktionieren.
+Nach welchen Kriterien sortiert er dann die Sachen wieder auseinander, wenn nicht nach Port? Ich vermute mal, der macht das ähnlich wie NAT, ich habe keine Ahnung, ich rate das einfach mal nur, ich vermute das macht er ähnlich wie bei NAT, der merkt sich die Quell-IPs und die Quell-Ports, um es wieder zuordnen zu können.
+Vermute ich jetzt mal, ich habe ehrlich gesagt keine Ahnung, ich denke mal, der wird sich die Quell-IP plus den Quell-Port merken von der anderen Seite und es dementsprechend zuordnen können, rate ich jetzt, kein Plas und Schimmer.
+Moin Max, jetzt ist natürlich bloß die Preisfrage, müssen wir mal bei Examples gucken, also hier gibt es beispielsweise ein schönes Exampel, das nennt sich Single-Port, also so sieht das ganze in Go aus, was wir jetzt probieren zu bauen, in Go ist es tatsächlich relativ easy, in Go sagt man, das wird in Rust, ich wette mit euch, in Rust wird das abartig viel komplizierter als hier in Go.
+In Go macht man folgendes, in Go sagt man hier blablabla Settings-Engine, New-Multi-UDP-Mux-Box-was auch immer-Port und dann startet man das, das ist gut, das ist alles was man in Go machen muss, ich wette mit euch, das ist in Rust deutlich komplizierter.
+Und das ist das allererste, was wir machen müssen, bevor wir überhaupt anfangen können, wirklich WebRTC zu Client-Kommunikation zu machen, wir müssen einen festen Port definieren, über den das ganze WebRTC-Zeug geht, weil ich werde garantiert nicht bei mir hier im Router 65.530, stimmt das?
+Ports-UDP freischalten auf eine interne IP, einer ist ok.
+So, wir brauchen jetzt irgendwie mal ein Beispiel, wie man das macht.
+UDP-Mux, gibt es nicht irgendwie mal ein paar gescheite Docs dazu? Ah, super, man klickt das an und landet in einem Deprecated-Repo, ja, POG, nice, sehr gut, da wissen wir gleich Bescheid.
+So, das ist das erste, was ich rauskriegen muss und dazu gibt es leider Updated-Docs-2, das klingt gut, Upgedated-Docs sind immer gut.
+Äh, nice, geht schon gut los, ich habe keine Ahnung, wie man überhaupt die einfachsten Sachen machen soll, man.
+Top, top, nice, wir wissen mal Bescheid.
+Wir wissen mal Bescheid, wie verwendet man den Shit denn überhaupt?
+Specify public IP, set not, ich will keine public IP specifieren.
+Shit, ok, komm jetzt, Updated-Docs, vielleicht ist da was drin.
+Ne.
+Ok, das fängt schon sehr gut an, ich habe keine Ahnung, wie ich mit Port-Def, also ich meine, können tut es das, aber ich weiß nicht, wie es funktioniert.
+Also gucken wir hier nochmal durch.
+UDP-Sockets not closed, haben wir da irgendwie ein Codesample drin?
+Moment, da ist ein Beispiel?
+UDP?
+Alter, das geht, das geht schon gut los, man.
+Doc? Docs?
+Was?
+Zum Thema Ports, eine Arbeitskollegin von mir wollte über SSH getunnelte Ports freigeben, hatte aber immer einen Fehler im Putty, wenn du merkst, dass der Port über 65,000 weißt du, dass es nicht funktioniert.
+Ja, das stimmt.
+Das, das, das tut, das tut nicht.
+Oh man, alter, gibt es hier nicht irgendwie ein Beispiel für?
+Ok, hier, hier steht was.
+Not controllable through settings engine.
+Use, upgrade, Moment, was soll ich machen?
+What?
+UDP-Network.
+Ah, Documentation für UDP-Network.
+Ja, da guck mal an.
+Und hier ist ein Exempel.
+Easy.
+Nächste? Gut, bisschen, bisschen doc.
+Ok, das sieht doch schon mal ganz gut aus.
+UDP-Socket, Bind, Ports, UDP-Mux, Default.
+Ich copy-paste mir das jetzt einfach und hoffe irgendwie, dass das funktioniert.
+Aber das wird garantiert nicht kompilieren, Leute, ich sag's euch, so sicher wie das Arm in der Kirche.
+Ja, klar.
+Na klar, wird es nicht kompilieren.
+Ok, wir müssen Rust, oh shit, what the fuck, Alter.
+What?
+Ach, use of undeclared type, ja gut, da komm.
+Import.
+Import.
+Await.
+Await is only allowed inside async functions.
+Ok, wir hangeln uns Zeile für Zeile durch.
+Await, Await geht nicht.
+Ok, Port muss, mach mal Port 35353 oder sowas.
+Await lassen wir einfach mal weg und gucken, was passiert.
+Ok, ok, es kompiliert, das kompiliert schon mal ganz gut.
+Wir wissen ja, bei Rust, sobald es kompiliert, funktioniert das auch.
+Ah, shit.
+Ah, die schönen Rust-Fehlermeldungen.
+Ok, also, was hat der für Schmerze?
+The trade con is not implemented for Result.
+Ah, ich muss unwrap machen wahrscheinlich.
+Result unwrap.
+Das Einzige, was ich in Go und Rust kann, ist Fehler ignorieren.
+Geht immer noch nicht.
+Warum?
+The trade... Moment mal.
+The trade UDP socket con is not satisfied.
+Ich habe legit keine Ahnung, was mir Rust sagen will.
+This trade...
+The trade con is not implemented for UDP socket.
+Aber das ist exakt das Beispiel von dem Dude.
+Ok, machen wir das mal weg.
+Machen wir mal nur das hier.
+Shit.
+Let, blub.
+Geht nicht.
+Jetzt gucken wir mal, was brauchen das hier für einen new con.
+Alter, Rust, man, das versteht doch keiner.
+Rust ist einfach zu big brain.
+Was soll das hier überhaupt bedeuten?
+Was sehe ich hier überhaupt?
+What?
+Das ist so ein generic constrain wie in C-Sharp oder sowas in der Richtung?
+Was bin ich hier überhaupt sehend, Alter?
+Das kann doch keiner lesen.
+C-Doppel-Con plus send plus sync plus...
+Na, wie heißt's?
+Single quote static.
+Ach, du Scheiße.
+Ja, was will der denn hier haben überhaupt als type?
+Was will der als type haben?
+Wie sieht man überhaupt, was der als type haben will?
+Alter, IDE, please.
+Zeig doch an, was der haben will.
+Ne, der will einfach irgendwas haben, was con ist.
+Was con implementiert.
+Und UDP-Socket implementiert anscheinend nicht con.
+Aber warum implementiert UDP-Socket nicht con,
+obwohl angeblich ich UDP-Socket verwenden soll?
+Boah, Rust.
+Alter, es geht schon gut los.
+Guck mal, ich krieg nicht zwei Zeilen in Rust hin,
+ohne dass ich irgendwelche compile errors habe.
+Also, was für UDP-Socket?
+Also, was für UDP?
+Wir gucken mal.
+Leute, ich hab ne Idee.
+Was für UDP-Socket verwendet der?
+Ah, ha.
+Der verwendet gar nicht den Standard-Library-UDP-Socket wie ich.
+Der verwendet Tokio-Net-UDP-Socket.
+Aha.
+Das hab ich nicht installiert.
+Brauch ich jetzt noch ne weitere Dependence?
+Was hab ich hier gerade ausgeschaltet?
+Leute, was war das? Was hab ich hier gerade ausgeschaltet?
+Ähm.
+Ich brauch anscheinend noch ne zweite Library dafür.
+Okay.
+Dann fügen wir Tokio mal hinzu.
+Ja, mit Reload war da Button.
+Okay, add Tokio to dependencies.
+Die Idee ist schlau genug.
+Die checkt das von sich aus.
+Steht das jetzt in der Cargo?
+Cargo-Tummel haben wir jetzt Tokio drin.
+Rust, Tokio.
+An asynchronous Rust-Runtime.
+Alles klar.
+Ich dachte eigentlich Async und sowas kann Rust ohne Zusatz-Library.
+1.3.4 ist das aktuelle, hat er hier auch drin.
+Okay, nice.
+Ich hab immer noch keinen Plan.
+Aber immerhin sollte das jetzt kompili...
+Mann, was ist das Problem, Alter?
+Okay, jetzt muss ich das so machen wie der Typ hier im...
+Ja.
+UDP Socket Await?
+Nice Syntax, Rust.
+Das funktioniert nicht.
+Hopp.
+Alter, das ist so kompliziert, Rust.
+Okay, Await, das muss Async sein.
+Das verstehe ich auch noch.
+Okay, geht das jetzt?
+Es hat keine Fehler mehr im Editor.
+Aber es kompiliert natürlich nichts, klar.
+Cannot use ? Operator in Async Function.
+This function should return a result or a option.
+Ja, nee, das will ich nicht.
+Ich will kein Result return, weil das eine C-Function ist.
+Da bringt mir das nichts, wenn ich irgendein Rust-Result returne.
+Await unwrap.
+Nicht so?
+Await unwrap.
+Das liest sich schon einfach falsch, die Zeile.
+Geht Tokio überhaupt in einem C-Block?
+Ich hoffe mal.
+Not FFE safe.
+Pff.
+Wen juckt's?
+Okay, weiter.
+Next.
+Hey, das kompiliert auch schon mal.
+Pogu.
+Was ist FFE?
+Foreign Function Interface.
+In der Regel ist damit gemeint,
+dass du von einer Programmiersprache in die andere programmierst.
+Und in der Regel geht das so, wie C das früher auch gemacht hat.
+Also quasi die C-Calling-Convention ist so Baseline,
+was jede Sprache kann.
+Also jede Sprache kann quasi angesprochen werden wie C.
+Und dementsprechend kann man jede Sprache aus jeder Sprache ansprechen,
+wie als wäre es auf der anderen Seite eine C-Library.
+Also bis jetzt scheint es ja zu funktionieren.
+Wie geht das jetzt hier?
+Let UDP-Mux.
+Alles klar.
+UDP-Mux.
+Bam. Funzt.
+Weiter.
+Ich bin mir zwar unschlüssig, was ich da jetzt genau getrieben habe,
+aber es scheint immerhin zu funktionieren.
+Jetzt die große Preisfrage.
+Wie geht es jetzt weiter?
+UDP-Socket Unwrap.
+Und wie setze ich das Ganze an?
+Okay.
+Jetzt gibt es UDP-Network Muxed.
+Und was mache ich damit jetzt?
+Agent-Config?
+What?
+Gibt es vielleicht das Gleiche wie in der ...
+Ich meine, das ist ja eine Neuimplementierung von der Go-Library.
+In der Go-Library funktioniert das folgendermaßen.
+In der Go-Library funktioniert das folgendermaßen.
+Ja.
+In der Go-Library funktioniert das folgendermaßen.
+Ja. Eine Zeile halt.
+Ähm.
+Settings-Engine Set Ice-Mux.
+Alles klar. Wo kriege ich denn Settings-Engine her?
+Settings. Settings-Engine.
+Okay. Moment, Moment. Das ist ...
+Ah, fuck. Das ist Go.
+Oh, ich bin verwirrt. Settings.
+Okay. Settings-Engine. Gibt es das hier auch?
+Settings.
+Settings-Engine.
+Settings-Engine.
+Set Settings-Engine.
+Wobei, coole Leute in Rust schreiben da einfach nur S, weil die so faul sind.
+Settings-Engine. Und jetzt?
+Default? Fragezeichen?
+Okay.
+Geht das noch?
+Okay, okay. Es kompilt noch. Es soll mir recht sein.
+Okay. Settings-Engine.
+Und jetzt?
+Set UDP ...
+Ah, okay. Da ...
+Was mache ich damit jetzt?
+Haben die hier irgendwas drin stehen?
+Parking ...
+What the ...
+Ich will doch einfach nur, dass der auf Port 3-5-3-5-3-5 lauscht.
+Ah, guck mal. Was haben wir denn hier?
+UDP Network Muxed.
+Und dann einfach das hier? Das stand nämlich beim anderen auch drin.
+Okay, das geht nicht, weil ...
+Cannot borrow immutable local ...
+Ah, es ist Go.
+Nicht Go, es ist Rust.
+Das heißt, da muss Mut davor.
+Es kompiliert noch, es kompiliert noch. Nice, nice, nice, nice.
+So weit, so gut.
+Müsste der jetzt schon den Port offen haben?
+Nee, ich habe schon ein bisschen was in Rust gemacht, aber ...
+hält sich in Grenzen.
+Und außerdem, das, wo ich schon ein bisschen mehr mit Rust gemacht habe, ist Jahre her.
+Rust ist nix, das man schnell ausprobiert.
+Naja, irgendwo musst du mal anfangen. Das geht schon.
+Guck mal, wir haben ... Jetzt mal ernsthaft.
+Wir haben sogar Cobol First Try im Stream hingekriegt.
+Ein paar Sachen.
+Und wenn man Cobol First Try im Stream hingekriegt,
+dann kriegt man auch Rust First Try ein bisschen was im Stream hin.
+Außerdem ist es nicht First Try.
+Also ich glaube, schlimmer als Cobol kann es kaum werden.
+So.
+Also das kompiliert immerhin noch mal.
+Und wie wir wissen, wenn Rust kompiliert, dann geht es auch.
+So, wie geht das jetzt weiter?
+Hat der jetzt schon, hat der jetzt schon den Port offen?
+Gibt es, gibt es sowas wie, gibt es sowas wie, ähm,
+äh, Thread Sleep oder sowas?
+Thread Sleep? Nee.
+Ah, ne Moment, Doppelpunkt, hä?
+Sleep? Shit.
+Thread Sleep Rust.
+Ich weiß, das macht man nicht, aber ...
+Ich will einfach nur wissen, ob es funktioniert.
+Ja.
+Achso, klein geschrieben.
+Thread.
+Sleep.
+Milliseconds, das ist gut.
+Zehntausend, zehntausend Milliseconds.
+So, ich will jetzt einfach nur mal checken,
+ob das jetzt schon den Port offen hat an der Stelle oder nicht.
+Rufen wir es mal auf.
+Äh.
+Okay.
+Einfach, einfach blocken, macht einfach gar nichts.
+Ah, wahrscheinlich, weil das Async ist.
+In Async kann ich nicht sleepen, oder?
+Das, das wird nicht funktionieren.
+Oder? Das, das, das wird das doch wahrscheinlich sein,
+dass ich nicht, dass ich nicht richtig,
+dass ich nicht sleepen kann in ...
+Du musst join und dann sleepen.
+What?
+Was muss ich join?
+Was muss ...
+Tokyo Sleep, sehr gute Idee.
+Nee, gibt's nicht.
+Okay, das, das funktioniert so nicht wie ...
+Aber Moment, muss ich das hier vielleicht awaiten, oder so?
+Nee, okay.
+Ich, ich würde gern sleepen.
+In ...
+Ich mein, ich, ich könnte auch einfach mal sagen,
+hier, task, delay.
+Hier zehntausend.
+Und mal gucken, ob der Port dann offen ist,
+wenn ich es ausgeführt hab.
+Port drei, fünf, nee, UDP-Port sind unten.
+Nee, Port ist nicht offen.
+So wird das schon mal nix.
+Okay, was, was, Chatge?
+Tokyo, time, sleep.
+Oh, exzellent.
+What? Await.
+Unwrap, immer unwrap dahinter.
+Und jetzt sleep, was?
+Duration.
+Okay, what?
+Warum kann man sich hier eigentlich nicht anzeigen lassen,
+was der da eintragen soll, man?
+Rust ist superfrustrierend.
+Was, was ...
+Duration.
+Duration.
+From.
+Seconds.
+Äh, äh, zehn.
+Exzellent.
+Und ich hoffe, ich hoffe, das hängt jetzt an der Stelle.
+Fuck, warum blockt das nicht?
+Bestimmt, weil's async ist.
+Und, und ich irgendwie nix ...
+Okay, keine Ahnung.
+Sag mal, kann das sein, dass das vielleicht ...
+Okay, wir müssen jetzt mal was ausprobieren.
+Ähm, wir gucken mal, ob das überhaupt bis hierhin kommt.
+Beste, beste, beste Debug-Sache per Command Line.
+Nee, guck mal, das kackt vorher ab.
+Das kackt vorher ab.
+Wo kackt denn das ab?
+Oh, öh, öh.
+Moment, ich muss Keymap umstellen.
+Äh, Keymap.
+Visual Studio.
+Visual Studio.
+Und ...
+Shortcuts.
+What?
+Keymap.
+Ich will, äh, Move Line ...
+Move Line ...
+Down.
+Ist, äh, Alt und Pfeiltaste.
+Und Up ist ...
+Alt und Pfeiltaste.
+So, wo kackt der denn jetzt ab?
+Kackt der hier schon ab bei ...
+Okay, da kackt Instant ab.
+Interessiert das überhaupt nicht, was ich hier mache.
+So, wenn ich das hier alles auskommentiere ...
+Bestimmt, weil es Async ist.
+Kann ich Async-Zeug überhaupt callen?
+Irgendwie aus ... aus ...
+Nee.
+Ja, geil. Top.
+Okay, ich kann auf C Sharp halt nicht Rust Awaiten.
+Wie soll das funktionieren?
+Wie macht, wie mach ...
+Okay, wie machen die das hier?
+Was haben, was haben ...
+Was, was, was machen die denn?
+Remove Händler.
+Was ist das?
+Tokyo Main.
+Marks Async Function to be executed by the selected runtime.
+This macro helps ...
+Was bin ich lesend überhaupt?
+Tokyo Block on.
+What?
+Ja, Moment.
+Ist das überhaupt Tokio-mäßig schon was gerade?
+Händler Block.
+Tokyo Runtime?
+Runtime?
+Alter, ich will ein Port aufmachen und listen lassen.
+Rust.
+Was ist los, Mann?
+Warum brauche ich dafür Tokio?
+Und ...
+Und was ist Tokio überhaupt, Mann?
+So, ich kopiere das jetzt einfach mal hier oben hin.
+Wie geht das? Tokio Main.
+Tokio Main. Beste.
+Tokio ist eine Async Runtime.
+Okay, Chat, jetzt weiß ich sofort Bescheid.
+Oder? Ihr sicher auch.
+Ich glaube jetzt ...
+Also, Chat, ich glaube, hier nach Bedarf ist absolut keine Erklärung mehr.
+Tokio ist eine Async Runtime.
+Jetzt ist alles klar, jetzt weiß ich sofort, wie es geht.
+Easy.
+Wait a minute, es geht jetzt?
+Es geht?
+Ich habe absolut keine Ahnung, warum das funktioniert.
+Aber es funktioniert.
+Aber du kannst ja nicht Main bei allen Funktionen hinschreiben.
+Wer sagt das, dass ich das nicht kann?
+Warum soll ich das nicht können?
+Ich kann es zumindest probieren.
+Okay, aus irgendwelchen Gründen funktioniert das jetzt, was ich hier gebaut habe.
+Ich habe wirklich keine Ahnung, warum, aber es funktioniert.
+So, okay, jetzt können wir das auch mal probieren.
+Threat.
+Sleep.
+Nee, Sleep MS war es.
+10.000, jetzt hoffe ich mal, dass das funktioniert.
+Alles klar.
+Okay, run.
+Es sleept, Leute!
+Es sleept!
+Sleepge, Bedge macht es.
+Netstat?
+Und der Port ist auf.
+Alter, massive.
+Das war ja eindeutig zu easy.
+Viel zu easy.
+Easy as fuck.
+Viel zu easy.
+Extremst easy.
+Also, wenn das nicht selbsterklärend ist, dann weiß ich auch nicht.
+Ihr müsst sagen, Chat, das hat sich eigentlich fast von alleine geschrieben, oder?
+Es ist so obvious, was hier passiert, es bedarf keiner Erklärung mehr.
+So, und wie geht das jetzt weiter?
+Ich will das gar nicht lesen, Hauptsache es funktioniert.
+Aber das ging ja nicht.
+Nein, das ging ja nicht.
+Ähm, UDP Socket.
+Ja, das haben wir jetzt gemacht.
+So, und das haben wir.
+Okay, also, wir haben unseren UDP Socket auf.
+Jetzt ist halt das Ding.
+Ähm.
+Der muss ja offen bleiben.
+Der kann sich ja nicht einfach beenden, wenn die Methode fertig ist.
+Und ich kann ja da auch kein Sleep 90 Millionen reinschreiben, dass das einfach immer offen bleibt.
+Alter, die Rust Elite ist im Chat, Mann!
+Ich schau mal wieder ein.
+Die Rust Elite ist da, guckt es euch an.
+Guckt es euch an, wie sie sich geil finden wieder alle hier.
+Rust Async Return eines Futures.
+Ja gut, das ist es ja in fast jeder Sprache.
+Das ist in Javascript so, das ist sogar in C Sharp auch so.
+In C Sharp heißt das Task.
+In Javascript heißt das Promise.
+Das Future muss dann aber von einem Executor asynchron ausgeführt werden, blöd gesagt.
+Ach, das ist dann ein bisschen wie...
+Ähm, wie heißt das in Python?
+AsyncIO oder so?
+Ne, wie hieß dieses Ding?
+Haben wir doch auch mal was mitgemacht.
+Asio oder so?
+Ne.
+AIO? Irgendwie sowas in der Richtung?
+Das ist dann auch sowas, hä?
+AsyncIO, das meine ich.
+Ja, das meine ich.
+Das ist dann quasi sowas wie AsyncIO.
+Tokyo ist der beliebteste.
+Wir wollen es ja mal nicht übertreiben, ja?
+Wir wollen es ja mal nicht übertreiben.
+So, also.
+Rust-Logik ist jetzt...
+Also, normalerweise hätte ich jetzt gesagt, ich bin einfach...
+Ich gebe mir keine Mühe,
+mache eine globale Variable, wo ich die Settings Engine reinschreibe
+und dann bleibt die für immer an.
+Aber, das muss ich gar nicht probieren,
+weil Laufzeit-mäßig und Object-Lifetime-mäßig wird das in Rust mit globaler Variable
+garantiert nicht funktioniert.
+Da ist Rust äußerst pingelig.
+Okay, also, wie geht denn das weiter?
+Wie erstelle ich denn hier überhaupt eine Connection?
+Lass uns doch mal in den Examples nachgucken.
+Examples.
+So irgendwie simpel, simpler hier.
+Play from Disk.
+Oder sowas.
+Ja, genau. Play from Disk. Sehr gut.
+Way too easy.
+818 Zeilen.
+Was zum...
+Gibt es hier so irgendwas wie Pair-Connection oder sowas?
+Hier, Pair-Connection.
+API-New-Pair-Connection.
+Das brauche ich.
+Wie lege ich eine API an?
+API-Builder.
+With Media Engine.
+Brauche ich die?
+Okay, API-Builder.
+API-Builder.
+New, oder? Ja.
+Oder Default.
+Also, New.
+With Media Engine.
+Ach, gucke mal.
+With Settings Engine.
+Jetzt wird es wild, ja.
+Mach es leicht mit der globalen Variable Scheiß-auf-Rust-Convention für das Projekt.
+Willst du mir damit sagen, ich soll das nehmen, oder wie?
+Lazy. Das kenne ich sogar noch.
+Das gab es vor Jahren schon.
+Das habe ich schon mal benutzt.
+Static Ref.
+Okay.
+New Settings Engine.
+New Settings Engine.
+Settings Engine.
+Und dann am Ende?
+Build.
+Vielleicht sollte ich auch noch eine Media Engine für Codecs.
+Hier, Media Engine.
+Machen wir das auch mal.
+Brauchen wir bestimmt noch.
+Media Engine.
+Warum sind die Rust-Leute eigentlich so wortkarg bei Variablen?
+Ich meine, warum nennt man es nicht Media Engine, sondern M?
+Spart das Bytes im Output.
+Im Output taucht es eh nicht auf.
+Okay, dann machen wir mit.
+Media Engine auch noch.
+Machen wir Zeilenumbruch hierhin.
+Damit das ordentlich aussieht.
+Okay, es ist kaputt. Warum ist es kaputt?
+Weil es dem Codon gefehlt hat.
+Bildet das noch?
+Okay, nice, nice, nice.
+Okay.
+Es kompiliert noch.
+Das ist immer ein gutes Zeichen in Rust.
+Okay, let API.
+So.
+Kompiliert immer noch.
+Und jetzt.
+Und.
+Ich brauche eine Art globale Variable.
+Weil die API, die brauche ich jetzt für new.
+New Pair Connection.
+So.
+Und die Pair Connection will ich ja nicht hier aufmachen,
+sondern da will ich eine neue Funktion haben,
+die sich nennt Create Connection.
+So.
+Das heißt, ich brauche so eine Art globale Variable.
+Ich brauche quasi sowas.
+Ähm, war.
+Ach nee, Moment.
+Irgendwie sowas. Let.
+API.
+Das wird so natürlich nicht funktionieren, ja?
+Aber sowas in der Richtung bräuchte ich jetzt.
+Globale.
+Doch, das hier rufe ich ja nur einmal auf.
+Das hier rufe ich ja nur einmal auf am Start.
+Das reicht ja.
+Du machst einfach keine Fehler in C.
+Da bist du hier richtig.
+Wir machen prinzipiell keine Fehler hier.
+Dementsprechend schreiben wir auch keine Comments
+und auch keine Tests.
+Weil, ne, also.
+Fehlerfrei dokumentiert sich selbst
+und braucht im Prinzip auch keine Tests,
+weil es einfach funktioniert.
+Sehe ich auch so.
+Wieso der erhalten bleiben soll?
+Naja, weil ich es hier drinne speicher.
+Ja, und jetzt würde ich gerne dann sowas machen
+wie API Punkt irgendwas.
+Funktioniert ja so nett.
+Wie macht man globale Variablen in Rust?
+Es hat doch eben jemand irgendwas geschickt.
+Lazy Static Rust.
+Gar nicht.
+Ja, aber ohne wird es nicht gehen.
+Ich rufe das aus.
+Ich rufe das auf von C.
+Und danach rufe ich das auf von C.
+Und ich will nix
+irgendwie an Pointern hier rausbekommen,
+um es dann da wieder reinstecken zu können.
+Ne, ne, ne, ne, ne, ne.
+Wird's nicht.
+Nein, nein, nein, nein.
+Ne, ne, gar nicht.
+Es wird nur das gemacht, was du aufrufst.
+Nicht alles drumherum.
+Doch, na klar.
+Na klar.
+Wenn du Speicher, wenn du Speicher
+anforderst,
+der nicht auf dem Stack ist,
+sondern
+quasi
+allokiert ist global,
+dann bleibt er auch erhalten
+zwischen zwei Funktionsaufrufen.
+Doch, klar.
+Solange das eigentliche Programm läuft.
+Ja, ja.
+Also das wäre sehr merkwürdig,
+sollte das in Rust nicht so sein.
+Das kann sich Rust ja auch gar nicht aussuchen.
+Du brauchst One Cell.
+Brauch ich das?
+Okay, brauch ich Lazy Static
+oder brauch ich One Cell?
+Was brauch ich?
+Was zum Teufel ist vor allem
+Lazy Evaluated Statics
+using which it is possible
+to have statics that require
+code to be executed at runtime.
+Ja doch, sowas will ich haben.
+Das ist One Cell, du initst einmal
+und es ist globale Variable dann.
+Ja, das würde mir auch reichen.
+Dann brauch ich,
+dann brauch ich kein Lazy Static.
+Ja Moment, das funktioniert ja gar nicht.
+Ich würde das ja aus meinem init setzen wollen
+und nicht hier irgendwo.
+Also, okay, okay.
+Im Endeffekt,
+im Endeffekt brauch ich das,
+was Slick sagt.
+Nur habe ich keine Ahnung,
+wie das funktioniert.
+Also brauch ich, wie heißt das?
+Rust One Cell.
+Ach nee, Once.
+Once Cell.
+Ach ja, hier, genau.
+Das ist sowas brauch ich.
+Ja, genau.
+Ja, ja, ja, ja, genau.
+Excellent.
+Fivehead Chat wieder voll dabei.
+Okay.
+Static.
+Erstmal API.
+Was ist das für eine Sündach?
+Das ist Rust.
+Rust Sündachs ist halt super abenteuerlich.
+Chatkill.
+Tokyo oder Standard?
+Standard, oder?
+API?
+Warum geht das nicht?
+Ah, das darf nicht API heißen.
+Das darf nicht API heißen,
+das muss Blub heißen.
+Ja, ja, okay.
+Moment, heißt das überhaupt API?
+Warte mal.
+Let, was kommt denn hier zurück?
+API, ist doch richtig.
+Ah, das war nicht importiert, deswegen.
+Funzt das jetzt trotzdem?
+Nice.
+Okay, und jetzt mache ich wie?
+Was stand da?
+Set.
+Set Unwrap.
+Okay, API, Set.
+Machen wir es mal so,
+weil API, Unwrap.
+Okay, und jetzt ist alles gut?
+Ne.
+Das wäre ja auch zu einfach gewesen.
+Das wäre jetzt auch zu einfach gewesen,
+wenn das einfach funktioniert.
+Also da muss ich mal sagen,
+da bekleckert sich aber die Rust-IDE
+nicht wirklich mit,
+da bekleckert sich die Rust-IDE
+jetzt nicht wirklich mit Room,
+wenn es anzeigt,
+dass das Problem funktioniert
+und erst beim Kompilieren das abkackt.
+Okay, warum kackt der ab?
+Was hat er für Schmerzen?
+Standard Cell,
+One Cell cannot be shared
+between threads safely.
+If you want to do aliasing
+and mutation
+between multiple threads,
+use once lock.
+Okay?
+Ich habe absolut keine Ahnung,
+was das von mir wird.
+Wir benutzen jetzt einfach
+once lock.
+Pass mal auf, jetzt geht es, easy.
+Ne, das wäre auch zu einfach.
+Was?
+Was?
+API cannot be formatted?
+API cannot be formatted.
+Was will der von mir?
+Ich gebe das nirgendswo aus.
+Soll...
+Soll ich das...
+Okay, wisst ihr was?
+Ich lasse das Unwrap einfach weg.
+Easy, kompiliert.
+Was?
+Let underscore gleich.
+Zack, easy, funs.
+Ähm...
+Da kann ich das mut entfernen.
+Okay, ja.
+Kann man unused imports?
+Ja.
+Bis auf den einzigen...
+Das ist auch geil.
+Remove unused imports.
+Hä?
+JetBrains, was ist jetzt los?
+Eben gab es das doch noch.
+Es kompiliert, Leute.
+Und Rust heißt automatisch, es kompiliert, es geht.
+Das wäre was für unseren ehemaligen Azubi gewesen.
+Okay, await task delay.
+Zehn Sekunden.
+Jetzt bin ich gespannt.
+Für init mal zweimal aus...
+Ne, das heißt nicht umsonst init.
+Das wird nur einmal ausgeführt.
+Und der Port ist offen und bleibt offen.
+Ja, nice.
+Rust in C-Sharp, ja.
+Ganz abgedrehter Shit.
+Es funktioniert.
+Es funktioniert, Leute.
+So.
+Das können wir weitermachen.
+Eats.
+Als nächstes...
+Create connection.
+Zack, create connection.
+Und in C-Sharp heißt das Ding create connection.
+Easy.
+Let's go.
+Also, das heißt, erstmal brauchen wir die RP.
+Die müssen wir uns hier wiederholen.
+Das ist ein OnceLock.
+OnceLock heißt im Endeffekt...
+Ähm...
+Get? Fragezeichen?
+Take?
+Okay, nur Rust-Logik.
+Rust-Logik.
+Get bedeutet...
+Ich kriege eine Referenz auf RP.
+Als Option.
+Das heißt im Endeffekt...
+Es könnte auch nichts drin sein.
+Was ja auch sinnvoll ist.
+Weil an der Stelle weiß ich gar nicht...
+Wurde das schon initialisiert oder nicht.
+So.
+Take?
+ServerPy. Dankeschön für den Sub.
+Sorry an alle, die ich irgendwie vergessen habe.
+Ich habe gar nicht reingeguckt.
+Ich war zu sehr mit Rust beschäftigt.
+Credo wieder am Start.
+Der dicke Kappa von Twitter ist am Start, oder?
+Nicht, dass ich durcheinander spreche.
+Ich glaube schon.
+Der echte Olli ist auch da.
+Dankeschön für die Subs, Leute.
+Odolmed?
+Dankeschön für den Sub.
+Poggers Subscription.
+Also.
+Nur mal so um Rust-Logik.
+So. Get?
+Was war das gerade?
+Ah, der Scam-Train ist am Start.
+Ach nee, Bits.
+Poggers. 30 Milliarden.
+Nice Sniper.
+NRW. 84.
+84 klingt nach Geburtsjahr, oder?
+Du bist ganz schön alt, wenn du 1984 geboren bist.
+Schätz mal, was mein Geburtsjahr ist.
+Das gilt jetzt nur für den Sniper.
+NRW. 84.
+1998. Ja. Close. Close.
+Nee, es ist auch 1984.
+Deswegen wollte ich darauf raus.
+Wir sind mehr oder weniger gleich alt, wahrscheinlich.
+Richtig Boomer, Alter.
+Und ihr wisst, in 45 Minuten wird der Boomer müde
+und dann muss er ins Bett.
+Mal eine random Frage.
+Kann man sich eine Instanz von deinem Linux-OS holen,
+um das in einer VM zu betreiben?
+Du meinst eine Kopie von meiner VM?
+Du kannst sowas ähnliches machen.
+Du bekommst keine Kopie von meiner VM,
+aber was du auf GitHub bekommst, ist,
+du bekommst eine Kopie meiner Config-Files.
+Und damit hast du ja fast schon meine VM.
+Dann bist du ein paar Monate älter als ich.
+So, also, okay, nochmal Rust-Geschichten.
+Das hier gibt eine Referenz.
+Das hier takt Ownership aus dem Inneren.
+Aber dann ist er ja wieder uninitialisiert, oder?
+Wenn ich das take.
+Ach, okay. Rust ist mir einfach zu pfeiffert.
+Ich gehe mal davon aus, es ist Get.
+Und dann Unreal.
+Leute, ich habe im Hinterkopf,
+dass man in Rust-Options eigentlich irgendwie so gehandelt hat.
+Oder?
+War das was anderes jetzt?
+Moment, ist das eine Option-Option?
+Ach, nee, das ist um selbst Ergebnisse in Options zu wrappen.
+So rum war das, genau.
+Jetzt muss ich unwrap machen,
+dass ich die AP aus der Option rauskriege.
+Das ist Archlinux, by the way.
+Hier, für dich einmal NeoFetch.
+Es ist Archlinux auf einer VM
+mit West Term als Terminal und I3 als Oberfläche.
+Als Window-Manager.
+Ich wollte sagen, als Desktop.
+Aber das ergibt keinen Sinn,
+weil das hat noch nicht mal einen Desktop.
+Ja, guck, der hat Albträume, der Pepo, Mann.
+Ja, und meine Desktop-Hintergründe
+kriegst du übrigens auch auf GitHub.
+Die gibt es hier.
+Hast du für jeden Anwendungszweck ein.
+Okay, unwrap.
+Und jetzt sage ich api new pair-connection.
+Ich gucke mal, ob es bis hierhin noch kompiliert.
+Ja, macht's, nice.
+Okay, also api new pair-connection.
+Und wie geht es jetzt weiter?
+New pair-connection.
+Warum macht er das als Arc?
+Also da kann ich mich noch dran erinnern.
+Das ist ein Reference-Counter.
+Was ich nicht mehr weiß aus dem Kopf,
+den Unterschied zwischen Arc und nur RC,
+also zwischen einem Atomic, wahrscheinlich,
+Reference-Counter und einem Reference-Counter,
+da blick ich nicht so ganz durch aus dem Kopf,
+was das in Rust gewesen ist.
+Ich weiß, dass es beides gab.
+Okay, api new pair-connection machen wir jetzt.
+Und dafür brauchen wir eine RTC-Configuration.
+RTC-Configuration.
+Wo kriegen wir die her?
+Konfig, RTC.
+Kann man die nicht einfach irgendwie leer lassen?
+RTC-Configuration.
+Kann man die nicht einfach so machen, wie in Go?
+Oder nee, Moment.
+Default kann man machen. Easy.
+So, jetzt haben wir eine neue pair-connection.
+Die mag nicht.
+Weil, warum mag die nicht?
+Weil, weil, Awaiting.
+Und jetzt unwrappen.
+Die Syntax macht mich fertig.
+Arc is thread-safe.
+Okay, aber, aber warum sollte ich einen Reference-Counter verwenden,
+überhaupt, wenn ich nicht multithreaded das mache?
+Da kann ich doch einfach eine ganz normale Referenz taken und gut ist.
+Warum muss ich die dann irgendwie counten?
+Bestimmt irgendwas mit Objekt-Lifetime-Geschichten oder so.
+Weil da ist ja Rust super pingelig.
+Rust is ugly as fuck, das stimmt.
+Aber einen Vorteil hat Rust.
+Ihr habt es heute auch schon gesehen.
+Wenn es kompiliert, macht es meistens das, was man denkt.
+Dadurch, dass es so viele Compile-Time-Checks hat.
+Aber es ist eklig.
+Aber es ist eklig, da gebe ich dir recht.
+Also das hier, das ist wirklich absolute Zumutung, das hier zu lesen.
+So, jetzt haben wir eine neue pair-connection.
+Wallet.
+Komm, ich kürze das ab.
+Ich bin faul.
+Komm, M-E.
+S-E.
+Komm, wir sind nett.
+Wir sind nett, Phil, wir nennen das Pair.
+Warum kann eigentlich die Rust-Idee nichts vorschlagen?
+Weil Ryder kann das ganz gut.
+Nicht vorschlagen, wie das Zeug heißen soll.
+Warum ist Rust so unglaublich beliebt, so unintuitiv, wie das ist?
+Das verstehe ich auch.
+Ich glaube, das liegt daran.
+Zwei Sachen.
+Das liegt an zwei Sachen.
+Dass Rust eine ziemlich gute Sprache ist, für den Einsatzzweck, wofür es gemacht wurde.
+Und auskommend aus diesem Einsatzzweck hat sich so ein kleiner Kult um Rust entwickelt.
+Die jetzt Rust für alles und jenen und überall promoten wie verrückt.
+Ich glaube, daher kommt das.
+Weil Rust ist eine super Sprache für genau einen Anwendungszweck.
+Und er ist, wie gesagt, ich habe es am Anfang des Streams gesagt, es kommt nicht umsonst vom Mozilla.
+Wenn man beispielsweise irgendwelche Browser-Sachen programmieren möchte.
+Ich glaube, eines der ersten Anwendungsgebiete für Rust war, glaube ich, CSS in Firefox.
+Die haben irgendwas für CSS in Firefox mit Rust gemacht.
+Rust ist sehr beliebt.
+Musst ihr die Stackoverflow-Umfrage angucken.
+Rust ist die most-loved-Technologie, die die Leute mögen, aber nicht professionell einsetzen.
+Sobald sie sie professionell einsetzen, sinkt das wahrscheinlich.
+Er ist immer noch ein Mozilla-Projekt.
+So und was für eine Anforderung hat ein Browser-Hersteller?
+Chat, welche Anforderung hat ein Browser-Hersteller?
+Mehr als die meisten anderen.
+Ein Browser-Hersteller braucht wirklich schnelles Zeug und nach Möglichkeit möglichst sicheres Zeug.
+Und genau dafür ist Rust gut.
+Rust braucht ganz wenige, hat es zwar auch, aber ganz wenige Runtime-Checks, um irgendwie Speicherprobleme auszuschließen.
+Du kannst auch so machen wie C, einfach gar nichts checken und es crasht oder es gibt irgendwelche Sicherheitslücken.
+Aber das willst du ja nicht in einem Browser.
+In einem Browser möchtest du möglichst wenig Runtime checken müssen, weil es Performance frisst.
+Du möchtest dir aber gleichermaßen sicher sein, schon zur Compile-Zeit, dass du keine Memory, Out of Bounds, was auch immer Sachen verursacht.
+Wo dann irgendjemand aus seiner Browser-Sandbox vielleicht mit ausbrechen könnte.
+Also du brauchst weitgehende Memory-Safety und schnelle Performance.
+Das brauchst du als Browser-Hersteller und dafür ist Rust wirklich gut.
+Das Problem ist nur, dass das für das meiste an Software, zumindest meiner Meinung nach,
+für die meiste Software gar nicht wirklich so essentiell ist.
+Performance lasse ich mir gefallen, Performance ist eigentlich für jede Art von Software wichtig.
+Ich weiß, sagt das den Leuten, die Elektronen basteln und 800 MB RAM für eine Notizanwendung haben.
+Aber Performance ist prinzipiell überall wichtig.
+Wichtig und richtig.
+Aber diese ganze Memory-Safety-Geschichte ist bei so vielen Sachen gar nicht mal so essentiell.
+Es ist nice to have, aber im schlimmsten Fall crasht ihr halt deine Anwendung.
+So what?
+Solange du nicht gerade irgendwelche sicherheitskritische Zeugs machst.
+Wenn dir das in einem Spiel passiert, ist das kein Ding, da crasht ihr das Game.
+Es gibt allerdings wieder Bereiche, da ist das sinnvoll.
+Zum Beispiel erinnert sich noch einer an die alten Call of Duties, die alle Peer-to-Peer-Hosting hatten.
+Also wo einer Random Server wurde.
+Da ist es natürlich fatal, wenn derjenige das Server wurde und eine Sicherheitslücke im Spiel es erlaubt,
+quasi aus dem Spiel selbst auszubrechen mit manipulierten Anfragen.
+Dann könnte ja potenziell jemand Malware einschleusen, quasi über den Multiplayer von einem Peer-to-Peer-gehosteten Spiel.
+In solchen sicherheitskritischen Sachen wäre Rustern wieder mega nice.
+Oder du verwendest eine Managed-Sprache, da hast du die Probleme nicht und wahrscheinlich reicht dir die Performance auch aus.
+Genau, ja.
+So, wir machen jetzt mal kurz weiter, ich habe nämlich nur eine halbe Stunde Zeit.
+Peer-Connection, Peer-Connection default.
+So, und jetzt will ich, nur mal um zu testen, ob das alles funktioniert.
+Jetzt sagen wir Peer-Connection.
+Ah, ich brauche noch Tracks.
+Ich habe noch keine Tracks.
+Also ein Track ist quasi ein Videostream.
+Und ich habe noch keinen, also auch wenn er leer ist, noch keinen Videostream angelegt, den ich übertragen will.
+Was wir programmieren ist folgendes.
+Also, noch ist ja da nicht viel.
+Wir programmieren eine C-Sharp, eine C-Sharp Back, äh, ASP.NET Core Backend-Anwendung,
+die eine Low-Level in Rust programmierte WebRTC-Library nimmt,
+um Webcam-Streams real-time in den Browser streamen zu können.
+Es gibt eine Backend-Anwendung in .NET.
+Es gibt Low-Level WebRTC-Kram in Rust.
+Und es gibt ein bisschen Javascript und HTML im Frontend.
+Warum? Bei den meisten Spielen ist es doch vollkommen egal.
+In Crash die halt das Game. Und? Weiter.
+Dafür hast du das Spiel in zwei Jahren entwickelt und mit Rust bräuchtest du fünf für.
+Ne, ne, ne, ne, ne.
+Web-Anwendung in Rust, das werde ich mir nicht antun.
+Garantiert nicht.
+Im Leben nicht.
+Da müsste ich auch FFM-Pack in Rust machen.
+Ne, ne, ne, ne, ne, ne.
+Das halte ich geistig nicht aus.
+Okay, Per-Connection. Wir probieren das jetzt mal weiter aus.
+Hier. Offer.
+Das ist das Ding, was man braucht.
+Also, bei WebRTC läuft das folgendermaßen.
+Das hier ist alles nur vorgeplänkelt.
+Was man bei WebRTC macht, ist folgendes.
+Man erzeugt eine WebRTC-Connection.
+Auf einer Seite fängt man damit an.
+Ist eigentlich egal, auf welcher Seite man damit anfängt.
+Mit dieser Per-Connection erzeugt man eine Offer.
+Das ist so ein langer Text-String.
+Da steht dann zum Beispiel drin, auf welchen Codex der jeweilige Client unterstützt.
+Und auf welchen Ports das Ganze läuft, mit welcher Bitrate und sowas.
+Das schickst du an die andere Seite, an den anderen Client.
+Also jeder Client ist gleichzeitig Client und Server bei WebRTC.
+Weil es um Echtzeit-Videokommunikation geht.
+So, und...
+Wie gesagt, bei Multiplayer-Spielen habe ich ja gesagt.
+Bei Multiplayer-Spielen ist das natürlich wieder etwas anderes.
+Bei irgendeinem Singleplayer-Game oder so ist das nicht so wild.
+So.
+Bei Spielen spielt dann auch sehr viel der Entwicklungskomfort eine Rolle.
+Und das ist halt in Rust echt ein bisschen problematisch.
+So, und diese Offer schickst du dann rüber.
+Das ist ein ganz langer Text-String.
+Du schickst die andere Seite eine Antwort.
+Und die musst du dann bei dir einfügen.
+Und dann haben beide Seiten sich ausgetauscht, was sie für Codex unterstützen.
+Und können sich anfangen Videostreams zu schicken.
+Das heißt, jetzt muss ich erstmal eine Pair-Connection anlegen.
+Und eine Offer createn.
+So, das machen wir jetzt mal.
+Und das muss jetzt gleich zurück nach C-Sharp.
+Dass ich das dann über meine Web-Anwendung an den Client schicken kann.
+Wie funktioniert das?
+Pair-Connection-Create-Offer.
+Ja, du, ganz ehrlich, in der reinen Lehre gebe ich dir recht.
+In der reinen Lehre sollten Spiele aber auch erst released werden, wenn sie fertig sind.
+Und nicht irgendeinen Scheiß eingebaut werden, nur weil man es gerade nicht besser hinkriegt.
+Das ist aber nicht so.
+In der Praxis.
+Das heißt, es ist schon von Belang, ob die Entwicklung zwei Jahre dauert.
+Oder drei Jahre.
+Dadurch, dass man eine sichere, aber dafür schwieriger zu programmierende Sprache benutzt.
+Und das wird der Spieleherstellung dementsprechend garantiert nicht auf Rust fallen.
+Es sei denn, irgendwann mal sind alle so gut und so nice und so fit in Rust, dass die schon das im Kopf alles machen und man ist genauso schnell.
+Nee, einfach nur, was ich so observiere bei Rust.
+Okay, Pair-Create-Offer.
+Machen wir mal weiter.
+Was kommt da?
+Ah, das muss ich bestimmt wieder Awaiten, hä?
+Await.
+Nee, nee, nicht Await. Unwrap. Ich will alles unwrappen immer.
+Oder einen Fehler schmeißen.
+Was kommt denn in Options? Was?
+RTC-Offer-Options.
+What? Ah, das steht natürlich nicht drin.
+Create. Haben wir irgendwas mit Create?
+Create-Answer ist doch bestimmt genauso.
+None. Kann man das hier auch machen?
+None.
+Ah ja, nice.
+Leute, was ist denn der Unterschied zwischen Unwrap und Await-Fragezeichen?
+Ach so, Await-Fragezeichen geht nur, wenn ich ein Result returne anscheinend.
+Mein Offer.
+Okay, ist kompiliert. Nice.
+Und jetzt daraus ein C-String.
+Probieren wir das mal aus. Print.
+Offer.
+Ach Moment, das ist ja gar kein String. Das ist ein...
+RTC-Session-Description-Objekt.
+Ah, aber die verwendet kaum einer.
+String. Da ist doch hier das.
+Das brauchen wir.
+Okay. Jetzt bin ich mal gespannt, ob das funktioniert.
+Init.
+Interop.
+Create-Connection.
+Chat-Gib. Meint ihr, da kommt jetzt was raus oder es crasht?
+Ihr dürft raten.
+Prage. Prage auf jeden Fall. Prage.
+Crash? Okay.
+Ne, es funktioniert.
+Das hättet ihr nicht gedacht, oder?
+Das habt ihr nicht? Ihr habt gedacht, es crasht.
+Ich hab ehrlich gesagt auch gedacht, dass es crasht.
+Ja, so sieht so eine Web-RTC-Offer aus.
+Okay, da sind keinerlei Codecs und so drin.
+Das liegt daran, weil ich wahrscheinlich in meiner Media-Engine keine Codecs registriert habe.
+Vermute ich mal.
+Media-Engine.
+Register-Codec. Das habe ich vorhin schon gesehen. Und was jetzt?
+RTC? Was? RTC? RTP?
+Was?
+RTP-Codec-Parameters.
+Payload-Type?
+102.
+102.
+Ja, klar. Was sonst?
+Obviously. 102, oder, Leute?
+Würdet ihr nicht auch sagen, 102?
+Easy, gell?
+Easy.
+102.
+102.
+102.
+Capabilities.
+Ich copy-paste mir das jetzt hier einfach mal.
+Import.
+Import.
+Ich weiß gar nicht, was importiere ich hier eigentlich?
+Einen E-Namen? Nee.
+Ein Strr.
+Video H264.
+Ein Strr.
+Was hat der jetzt noch für Schmerzen?
+Ah, Stats-ID.
+Ja, String-Empty.
+Ah, nee.
+Was machen die hier?
+Default.
+Default.
+Was ist das für...
+Alter, sag mal.
+Also, die Rust-Syntax ist ja wirklich grausam.
+Die haben sich ja von allem irgendwas zusammengewurstet,
+so dass es... Du verstehst ja nix.
+Ich vermute mal, dass das so was ähnliches Spread-Operator aus JavaScript jetzt ist.
+So was in der Richtung.
+Oder was auch immer es ist.
+Das funktioniert nicht. Warum nicht? Weil?
+Ah, weil es nicht mutt ist.
+Jetzt ist es aber mutt.
+Jetzt fehlt aber immer noch was.
+Was fehlt jetzt?
+Unused... Ah, Unwrap. Unwrap.
+Okay.
+RTP-Codec-Video.
+Und das soll jetzt funktionieren?
+Ja, anscheinend.
+Easy. Easy.
+Geht einfach.
+So, kommt jetzt in .NET mehr raus, nachdem ich das hinzugefügt hab? Nö.
+Wahrscheinlich, weil ich keine Tracks drinne habe. Vermutlich.
+Das heißt, wir müssen jetzt noch Tracks hinzufügen.
+Ich bin mir nicht sicher, ob ich das geistig heute auf die Reihe...
+Ja, doch, komm.
+Ne, das brauchen wir auf jeden Fall noch.
+Ey, Moment.
+Monarch-S-GitHub. Moment mal.
+Ich hab doch ein paar von meinen WebRTC-Experimenten noch auf GitHub.
+Und wir haben doch hier irgendwo...
+Bestes Logo übrigens.
+Und wir haben doch hier irgendwo, was diese WebRTC-Geschichte angeht.
+Keine Ahnung, Max. Alter, wo hab ich das...
+Wo haben wir das WebRTC?
+Alter, GraphQL, was zum Teufel hab ich da gebaut?
+Für undurchsichtigen Shit, man.
+FFmpeg.
+Ey, ich würd hier gerne mal suchen nach...
+Tier-Connection oder sowas?
+Ach, keine Ahnung.
+Ja, aber die Suche von GitHub ist kacke.
+Außerdem kann man den Code nicht richtig durchsuchen, wenn man nicht eingeloggt ist.
+Weil...
+Ich wollte gucken, wie ich hier die Packages zusammengebaut hab.
+Aber das ist FFmpeg-Zeug?
+Moment, kann das sein, dass ich hier das mit dem Streaming noch gar nicht gebaut habe?
+Okay, das ist noch eine Vue.js-App.
+Ah!
+Ich glaube, so weit sind wir nie gekommen.
+Moment, doch, doch, sind wir Vues?
+Index?
+Videoplayer? Doch, tatsächlich.
+Components? Videoplayer?
+Ey, wo mach ich denn das WebRTC-Zeug?
+Alter, was hab ich da gebaut, man? Ich check's nicht mehr.
+Vues?
+Home?
+Ja, WebRTC-Pair-Connection.
+Okay, also...
+Doch!
+Okay, über Signal A geht das Ganze.
+Aha, aha, also gibt's hier sowas?
+Gar nicht.
+Max, ich checke null, was ich da gebaut hab.
+Obviously, bester wartbarer Code aller Zeiten.
+Er...
+Aha!
+Hier kommen wir doch mit der ganzen Sache näher.
+RTC-Configuration?
+Certificates?
+RTC-Pair-Connection.
+Okay, wenigstens alles schön in einem...
+Ach, hier, guck mal!
+Hier, da ist es doch!
+Okay, 102! Es muss anscheinend 102 sein.
+Ich hab hier auch 102 verwendet.
+102, Leute, 102 ist das Richtige. Perfekt.
+Ich hab keine Ahnung, wofür es steht,
+irgendwelche WebRTC-Geschichten, aber 102 muss es sein, okay?
+So, und dann muss man anscheinend das da senden,
+weil das da ist ganz toll.
+FMTP?
+Konnte man das hier senden? Ja, FMTP.
+Okay, top.
+Chat, wisst ihr, ich bin mir echt unschlüssig.
+Es gibt...
+Es gibt toOwned, es gibt toString,
+es gibt stringnew, und es gibt stringfrom.
+Und ich hab legit keine Ahnung,
+was der Unterschied zwischen den Dingern ist.
+Es muss 102 sein, ja.
+Wir sind uns einig, Leute, es muss 102 sein.
+Warum, kann ich nicht hier auch sagen?
+Stringfrom?
+Oder machen die coolen Leute toOwned?
+Die coolen Leute machen bestimmt toOwned, hä?
+toOwned.
+Aber warum toString?
+Ah, Moment, das ist static?
+Das eine ist ein static String,
+und das andere ist ein nicht-static String?
+Okay.
+Ich bin ja froh, dass es nicht nur in C-Sharp 1000 Wege gibt,
+was zu machen.
+Okay, das hat funktioniert.
+Gucken wir mal, ob der Output in C-Sharp jetzt anders aussieht.
+Nee.
+Okay, wir brauchen tatsächlich Tracks.
+Sonst steht da nichts drin.
+So, machen wir mal einen Krempel zu hier.
+Track.
+Track.
+Gibt es Add?
+Add Track?
+Also, von der Idee her,
+muss man jetzt für jeden Videostream ein Track hinzufügen.
+Die Tracks sind allerdings global und nichts...
+Also, man könnte sagen, jeder Webcam-Stream ist ein Track.
+Diesen Track kann man per Connection hinzufügen.
+Per Connection ist das,
+was man zwischen zwei Clients hat,
+die Videos miteinander austauschen.
+Oder sagen wir, zwischen einem Server und einem Client.
+Man kann allerdings den gleichen Track
+mehreren Connections hinzufügen.
+Ist ja auch logisch.
+Es wäre ja blöd,
+wenn man eine Webcam nur exakt an einen schicken könnte.
+So, das heißt, man kann jetzt hier sagen,
+per Connection,
+zumindest ist es in der Go-Library so,
+Add Track.
+So, und das müssen wir jetzt machen.
+Heißt aber im Endeffekt auch,
+neben dem hier,
+noch eine...
+noch was weiteres.
+Track gleich Concurrent Pipe.
+Was weiß ich, was dahinter steckt.
+So, und das muss hier Create Track heißen.
+So, und so ein Track...
+Ich weiß halt, das Problem ist halt,
+wir müssen das wieder global speichern.
+Das muss auch...
+Theoretisch brauchen wir noch Tracks.
+Aber das suckt halt.
+Chat, wäre es nicht sinnvoller,
+ich mache einen Struct,
+wenn ich das eh global machen muss.
+Wäre es nicht sinnvoller,
+ich mache einen Struct,
+den wir irgendwie AppState oder so nennen.
+Und da...
+oder PubStruct.
+Ne, PubStruct, AppState.
+Und da drinnen mache ich dann
+RP, Tracks und Clients und sowas.
+Anstatt jedes Mal so eine globale Variable dafür zu machen.
+Ich glaube, das ist besser.
+Aber, damit wir das hinkriegen,
+bevor ich ins Bett gehe,
+wir probieren das jetzt mal anders aus.
+Wir sagen Create Track,
+wir müssen nämlich erstmal gucken,
+wie das überhaupt funktioniert.
+Also mit der RP brauchen wir da schon mal nichts.
+Track.
+Local Static Sample.
+Ich gehe stark von aus,
+dass wir das brauchen,
+weil ich kenne das von der Go Library.
+Also wahrscheinlich brauchen wir das hier.
+Warum das so PP gerade benannt ist,
+weiß ich nicht,
+aber da kann man dann Videoframes reinschmeißen,
+die er rüber schicken soll.
+New.
+Ja, das trifft es eigentlich ganz gut.
+Also,
+FFmpeg.
+Also wir bauen eine ASP.NET Core Web-Anwendung,
+die über FFmpeg per RTSP Webcams ausliest.
+Das haben wir übrigens schon mal im Stream
+sowas ähnliches gebaut,
+aber damals, glaube ich, rein mit .NET
+und vielleicht noch ein bisschen mit Go.
+So, und
+das Web-RTC-Zeug wird von einer Rust Library gehandelt.
+Und dann ist da ein bisschen der JavaScript.
+Wen ist er denn drin?
+Okay.
+Nee, H265 brauche ich nicht.
+Meine Webcams können das alle nicht.
+Wann ist morgen Daily Scrum?
+Morgen weiß ich gar nicht, ob ich Stream-Zonen kann.
+Ja doch, kann ich auf jeden Fall.
+Ich muss morgen Vormittag zum Tierarzt.
+Mit Chico.
+Also ich war heute,
+ich habe heute einen Tierarzt heimbestellt,
+mich angerufen, die sind auch vorbeigekommen.
+Die haben ein richtig, richtig großes Auto
+und haben sich wirklich mega Mühe gegeben mit Chico.
+Die haben Blutdruck gemessen bei Chico
+und die haben
+sich das Auge angeguckt von Chico
+und die haben gesagt,
+dass Chico zu hohen Blutdruck hat.
+Chico hat zu hohen Blutdruck.
+Chico ist alt, Chico ist fast 13.
+Die kriegt Nieren-Diätfutter.
+Allein schon deswegen.
+Mittlerweile ist es gut,
+die hat ein bisschen Nierenprobleme
+und anscheinend hat die auch ziemlich hohen Blutdruck.
+Die waren heute da,
+Chico hat sich erstmal nicht
+ordentlich Blutdruck messen lassen.
+Da kriegt man so eine Manschette um den Schwanz.
+Wer will sowas schon?
+Zumindest...
+Dann haben sie es doch hingekriegt,
+das zu messen an der Pfote
+und am Schwanz von der Katz
+und haben gesagt,
+Chico hat viel zu hohen Blutdruck
+und selbst wenn sie abziehen,
+dass Chico sehr aufgeregt ist,
+hat Chico immer noch zu hohen Blutdruck
+und jetzt kriegt Chico eine Blutdruck-Tablette
+einmal am Tag.
+Äh, zwei.
+Einmal am Tag.
+Einmal am Tag.
+Mal gucken, wie das funktioniert.
+Und morgen muss ich nochmal zum Tierarzt
+und die müssen sich das Auge angucken.
+Also wie ich da überhaupt drauf gekommen bin,
+ist folgendes.
+Chico saß bei mir hier auf dem Schrank
+und
+ich gucke meine Katze an
+und denke mir,
+Chico, du hast da irgendwas im Auge.
+Ey, die könnte sich durchaus
+mal mehr bewegen, die Katz, ja?
+Ich denke mir so, Chico,
+du hast da was im Auge.
+Und da bin ich zur Katze hin,
+hab mir das Angehörige festgestellt,
+Chico hat nix im Auge direkt.
+Chico hat ein bisschen Blut im Auge.
+Und dann hab ich natürlich gegoogelt.
+Zack, zack.
+Und das Erste, was du findest ist
+natürlich Verletzungen nach Revierkämpfen
+und sowas.
+Aber wenn Katzen hohen Blutdruck haben,
+dann sieht man das oftmals zuerst
+an den Augen,
+wenn Katzen empfindlich sind.
+Und es kann sein,
+wenn die Katze zu hohen Blutdruck hat,
+dass dann, ja wahrscheinlich,
+dass dann kleinere Sachen im Auge platzen,
+dass die Katze ein bisschen Blut im Auge hat.
+Und da muss man aufpassen,
+weil gerade ältere Katzen
+und Katzen mit Nierenproblemen
+neigen zu hohem Blutdruck.
+Deswegen hab ich heute beim Tierarzt angerufen,
+die kamen dann vorbei und haben das gemacht.
+Und es kam raus,
+Chico hat saumäßig hohen Blutdruck.
+Natürlich kann es auch sein,
+dass Chico aufgeregt war und alles.
+Aber der Tierarzt meinte,
+das ist so hoch der Blutdruck,
+selbst wenn die abzieht,
+dass Chico aufgeregt war,
+ist trotzdem zu hoher Blutdruck.
+Deswegen kriegt die jetzt,
+ja fast so,
+fast so als würde sie C++ programmieren, ja.
+Ja, es ist im Prinzip
+die Aufregung schon mit eingerechnet
+und es ist immer noch zu hoch.
+Und deswegen
+gehen wir morgen nochmal zum Augenarzt.
+Sowas gibt es für Katzen,
+stellt euch das mal vor, ja.
+Wusste ich auch nicht, aber eigentlich nice.
+Gehen wir morgen nochmal zum Augenarzt.
+Die guckt sich das Auge an,
+ob da alles okay ist,
+weil bei Katzen kann es auch sein,
+dass die Netzhautprobleme kriegen
+und was zu spontaner Erblindung führen kann.
+Und das will ich ja für Chico wirklich nicht.
+Gehen wir morgen nochmal zum Augenarzt für die Katz.
+Lassen sie sich das alles angucken,
+ob alles in Ordnung ist
+und dort auch nochmal Blutdruck messen,
+weil heute hat die ja schon eine Pille gekriegt,
+dass dann morgen der Blutdruck hoffentlich
+eventuell ein bisschen runtergegangen ist.
+So sieht es aus bei Chico.
+So, wie geht denn das hier jetzt weiter?
+Oh Leute, ich kann nicht mehr heute.
+Zu viel, zu viel Rust, zu viel Rust.
+Das kriege ich die letzten 10 Minuten nicht mehr hin.
+Wir machen es das nächste Mal weiter.
+Und Chat, mal eine Frage an euch.
+Für alle, die heute zum ersten Mal Rust gesehen haben,
+wie hoch ist euer Bock, selbst Rust zu machen?
+Okay, manche haben keinen Bock, manche wollen.
+Also ich muss sagen, die Sonntags ist schon ein bisschen hässlich, ja.
+Aber es hat doch, also für das,
+wie wenig Plan ich habe von Rust, ja,
+hat es doch eigentlich ganz gut funktioniert.
+Es ist zwar sehr weird,
+mit dem ganzen Unwrap-Zeug,
+mit den Variablen hier oben
+und dann mit dem Await-Unwrap-Tokio-Main.
+Das hat ja die meiste Zeit,
+gekostet heute im Stream,
+bis ich herausgefunden habe,
+dass da Tokio-Main oben dran stehen muss.
+Und sie, wir haben übrigens auch herausgefunden,
+man kann mehrere Tokio-Mains oben hinschreiben.
+Was hat genervt an Rust?
+Ja, zum Beispiel, dass man Tokio-Main
+da oben dran schreiben muss, damit es funktioniert.
+Und ich keine Ahnung habe bis jetzt eigentlich so,
+was es genau ist.
+Aber es lief doch trotzdem ganz gut.
+Und das obwohl, und das obwohl natürlich
+wieder irgendwelche Leute im Chat waren.
+Also Max, Rust kann man sich nicht so einfach nehmen.
+Bei angucken.
+Das muss man richtig angehen.
+Das war klar, das ist ja immer so.
+Also gerade bei Rust, gerade bei Rust
+ist die Rust-Task-Force immer direkt am Start.
+Die einem das erklären will,
+wie das richtig funktioniert.
+Ich möchte mit Embedded-Programming C++ Giga...
+Also C++ ist alles, bloß nicht Giga-Chat.
+Aber wenn du mit C++ anfangen willst,
+dann gibt es eigentlich eine Top-Kombination.
+Hol dir ein ESP32 und leg los.
+NodeMCU, ESP32, so ein Teil.
+Kostet bei AliExpress 3,50,
+bei Amazon wahrscheinlich 8 Euro oder so.
+Alter, was kostet der Scheiß mittlerweile?
+What the fuck?
+Wollen die ein...
+Alter, 24 Euro für ein ESP...
+Das sind drei Stück, okay.
+Aber trotzdem.
+Das ist ja mega teuer geworden.
+Aber die würde ich dir tatsächlich empfehlen.
+Ich weine, ich weine.
+8 Euro.
+Das ist jetzt nicht super teuer,
+aber es geht schon.
+Also die würde ich dir empfehlen.
+Tatsächlich auch genau dieses Board,
+weil das ist ziemlich beliebt
+und du hast halt alles schon als Pins rausgeführt,
+was du brauchst.
+Es hat auch einen USB-Anschluss,
+wo du einen Rechner stöpseln kannst zum Flashen.
+Ja, für Batterie-Projekte ist das nix,
+aber du willst ja bestimmt nicht mit einem Standalone-Batteriegerät,
+was irgendwo nicht am Strom hängt, anfangen.
+Also die Dinger sind wirklich zum Entwickeln mega nice.
+Das Schöne am ESP32 ist,
+Wifi direkt auf dem Board.
+Und das ist top.
+Du fängst dann allerdings nicht unbedingt direkt an,
+da Ultra-Low-Level-Zeug zu bauen,
+sondern ich würde dir empfehlen,
+fang an mit Plattform-IO.
+Also Plattform-IO.
+Und dort mit den Arduino-Bindings.
+Simulator ist sackig.
+Das hier ist viel besser.
+Visual Studio Code installieren,
+Plattform-IO-Plugin reinhauen
+und mit den Arduino-Bindings anfangen,
+weil es gibt eine Arduino-Implementierung für ESP32.
+Dann findest du ganz viele Libraries für
+und du findest auch ganz viele Beispiele für.
+ESP32 ist mit die beliebteste und bekannteste Plattform
+eigentlich so Hobby-mäßig zum Basteln,
+was das Microcontroller-Zeug angeht.
+Aus meiner Sicht auch deutlich angenehmer
+als der Raspberry Pi.
+Nicht, dass ich jetzt Mist erzähle.
+Pico.
+Und es ist C++.
+Die ESP-Libraries sind C,
+aber die Arduino-Sachen sind C++.
+Das heißt, du kannst komplett C++ basteln.
+Also das würde ich dir empfehlen.
+Zechro, danke schön für den Sub.
+Für heute bin ich fertig mit Rust.
+Das halte ich heute nicht mehr aus,
+noch die letzten 5 Minuten.
+Aber ich glaube, wir haben es schon ganz gut auf die Reihe gekriegt.
+Demnächst geht es weiter.
+Das heißt, wenn ihr es nicht verpassen wollt,
+ein bisschen eigener Sellout,
+könnt ihr mir natürlich gerne folgen auf Twitch.
+Wobei ich sagen muss,
+ich mache nicht jeden Stream Rust
+und nicht jeden Stream Programmierzeug.
+Wir machen auch alle möglichen anderen Krempel.
+Nur Gaming machen wir in letzter Zeit enorm wenig.
+Was auch daran liegt,
+dass es gerade nicht so viel gibt,
+wo ich Bock drauf habe.
+Ab Dezember wird MMO-Kreiselgrind gemacht.
+Da seht ihr mich wahrscheinlich wieder den Monat nicht,
+weil ich MMO-Kreiselgrind machen muss auf Stream.
+Grappling ist nicht abgehoben.
+Battlefield.
+Ja, Season 6 wollte ich echt wieder reingucken,
+aber ich habe es bis jetzt
+noch nicht auf die Reihe gekriegt
+und ich weiß nicht, ob es sich noch lohnt.
+Okay.
+Spielerzahlen sind immer,
+na gut, die üblichen Sachen.
+Hast du The Finals probiert?
+Nee, Battle Royale mag ich nicht.
+So.
+Was macht eigentlich No Mangle?
+Das sorgt dafür, dass,
+springen wir mal kurz rüber.
+Das sorgt dafür,
+dass die Funktionsnamen
+ist nicht Battle Royale.
+Schlimm, man denkt mittlerweile
+jedes neue Game, was rauskommt, ist Battle Royale.
+Ist es ein Extraction Shooter?
+Da habe ich auch keinen Bock drauf.
+Es gibt anscheinend nur noch
+Extraction Shooter und Battle Royale.
+Also, was No Mangle macht,
+besorgt dafür, dass die Funktionsnamen
+in der kompilierten Library erhalten bleiben.
+Normalerweise würde Rust,
+wenn man das zu einem Binary kompiliert,
+die Funktionsnamen randomisen
+oder kürzer machen,
+dass es weniger Platz braucht,
+dass es schneller ist,
+aber No Mangle sorgt dafür,
+dass die Funktion im Binary
+Create Connection heißt
+und nicht Blub1.
+Das ist wichtig,
+wenn man das Ganze aus C Sharp aufrufen will,
+muss man dem nämlich sagen,
+in welcher Library er welche Funktion findet
+und wenn Rust beim Kompilieren
+die Funktionen umbenennt,
+dann funktioniert das nicht mehr,
+weil er die nicht mehr findet.
+Deswegen braucht man das darüber,
+sonst geht es nicht.
+Ach, The Finals ist das,
+was die ehemaligen DICE-Leute angekündigt haben.
+Achso, das wusste ich gar nicht.
+Ich habe gesehen,
+dass die etwas vor einer Weile angekündigt haben,
+aber dass es The Finals war,
+ist das schon raus?
+Ach, Embark Studios, genau.
+Beta.
+Mal gucken.
+Schauen wir mal, bis das raus ist.
+Du kannst auch einen Exeggutor
+manuell starten aus Tokio Main.
+Ganz ehrlich,
+alles was ich nicht selbst schreiben muss
+ist alles anders anwenderfreundlich.
+Das kann man echt sagen.
+Nehmen wir Plattform IO
+mit den Arduino Bindings zum Einstieg.
+Das ist deutlich angenehmer.
+Und die beste Kombination aus meiner Sicht
+ist tatsächlich Plattform IO
+mit ESP-IDF
+plus Arduino obendrauf.
+Weil dann kannst du die Basics konfigurieren
+in ESP-IDF,
+den du zusätzlich brauchst.
+Zum Beispiel das Partitionslayout
+vom Flash-Speicher,
+die Taktfrequenz,
+zusätzliche Library-Funktionen einschalten,
+die nicht default sind
+und dann Arduino obendrüber.
+Das ist für mich die beste Kombination.
+Plattform IO mit ESP-IDF-Projekt
+plus Arduino obendrauf.
+Zeh Kronen für den Sub.
+Hehehe.
+Ja, wundert mich nicht.
+Das Game juckt mich auch gar nicht.
+Ja.
+Ich hab schon gehört,
+dass es ziemlich
+da hinten losgegangen sein muss.
+Das interessiert mich tatsächlich,
+ist aber glaube ich auch noch nicht raus.
+Was, Embark sind doch die Rust-Leute?
+Ne.
+Embark sind ein paar ehemalige DICE-Leute.
+Rust, das Game?
+Weiß ich gar nicht,
+wie das Studio dahinter heißt.
+Wenn ich es lese, weiß ich es bestimmt,
+aber aus dem Kopf fällt es mir nicht ein.
+Keine Ahnung.
+Facepunch heißen die?
+Du hast jetzt einfach gegoogelt, oder?
+In der Zeit hat man locker googeln können.
+Ach so, die sponsoren einige Rust-Projekte.
+Ja, ist heute ein bisschen doppeldeutig,
+weil ich weiß nicht,
+was mit Rust gemeint sein kann.
+Es kann durchaus sein,
+dass die Facepunch heißen.
+Ich hätte eigentlich gedacht,
+wenn ich den Namen lese, weiß ich es,
+aber es kann sein.
+Ich bin mir immer noch nicht sicher,
+selbst wenn es... ist ja auch wurscht.
+Ah, Leute.
+Okay, 22 Uhr.
+Wisst ihr, was jetzt ist?
+Oh nein, es ist nicht Lachs mit Nudel.
+Jetzt ist Boomer-Time.
+Preige, dann Bettge.
+Ne, Preige bestimmt nicht.
+Oder möchtet ihr,
+dass wir zusammen ein Abendgebet durchführen?
+MonkaChrist.
+Nein, nein, nein.
+Es gibt eine Sache,
+die werdet ihr nicht erleben,
+dann ist es das, ey.
+Auch nicht für 60k.
+Für 60k Subs?
+Euro.
+Für 60.000 Euro
+mache ich da auch ein Abendgebet,
+da habe ich kein Problem mit.
+Das ist easy.
+Da bin ich käuflich.
+Für 60k bin ich käuflich.
+Nicht für alles,
+aber für so easy Sachen
+habe ich kein Problem.
+Ja, eine Million Abos-Special mit FaceLeak,
+das habe ich ja schon angekündigt.
+Eine Million Abos-Special mit FaceLeak
+auf YouTube gibt es dann.
+Aber nachdem ich sehr wahrscheinlich
+nie eine Million Abos knacken werde,
+ein 300k dauert schon lange,
+zumal ich in letzter Zeit
+so viel abgeladen habe,
+dass ich wieder Minus-Abos gemacht habe,
+wird das nichts.
+Bedgetime, Leute.
+Rossi, mach dir keine Gedanken.
+Wenn du mir die 60k überwiesen hast,
+sehe ich das und dann machen wir
+Abendgebet nächsten Stream.
+Also, Chat, Praygetime,
+jeder für sich.
+Wir sehen uns.
+Bis zum nächsten Stream.
+Gib mir mal deine Bankdaten.
+Geh doch PayPal.
+Nächsten Stream kriegst du die.
+Also, bis dann.
+Wir sehen uns.
+Macht's gut, CU.
