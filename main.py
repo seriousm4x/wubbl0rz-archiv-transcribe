@@ -131,8 +131,8 @@ if __name__ == "__main__":
     transcribe_parser = subparsers.add_parser(
         "transcribe",  help="Run whisper to transcribe vods to text")
     transcribe_parser.add_argument("-m", "--model", choices=["tiny", "tiny.en", "base", "base.en", "small", "small.en",
-                                   "medium", "medium.en", "large-v1", "large-v2"], default="large-v2", type=str,
-                                   help="Whisper language model")
+                                   "medium", "medium.en", "large-v1", "large-v2", "large-v3"], default="large-v3",
+                                   type=str, help="Whisper language model")
 
     # parser for post
     post_parser = subparsers.add_parser(
