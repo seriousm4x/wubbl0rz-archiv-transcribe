@@ -1,0 +1,3401 @@
+So, da bin ich wieder.
+Wir probieren heute mal was aus.
+Gucken, ob das taugt.
+Und gucken, ob das ohne irgendwie App Store Registrierung oder hast du nicht gesehen, funktioniert.
+Ich habe noch keine große Ahnung.
+Ich habe nur vorhin gesehen, dass die ein öffentlich verfügbares SDK haben.
+Für Garmin-Uren und für die Garmin-Fitness-Uhren und für die Fahrradcomputer und sowas.
+Und ich bin ja gestern eine Runde Fahrrad gefahren und ich habe mir gedacht, so eine Sache wäre cool.
+Und dann gucken wir mal, ob ich sowas selbst programmieren kann.
+Mal schauen, wie das funktioniert. Ich bin mal gespannt.
+Mon KS.
+Wir machen schon mal die VM an.
+Ist Twitch richtig gecheckt, dass der Stream online ist?
+Aktuell, weiß ich nicht, neun Leute.
+Da hat Twitch auf jeden Fall noch keine Notifications.
+Wir machen mal den Stream an.
+Arch, by the way, erst mal eine Runde Package-Updates und dann gucken wir mal.
+SebiDev, moin.
+Ich glaube, jetzt hat Twitch kapiert, dass der Stream online ist.
+Kernel-Update dabei.
+Ah, dann können wir es so lassen.
+Moment, das muss ein bisschen advanceder sein.
+Was wir machen, ist folgendes.
+Zumindest was wir probieren werden, ist folgendes.
+Guckt mal.
+Nehmt mal.
+Bei deinem Kinderarzt lief Asciiquarium. Ernsthaft?
+Also nehmt mal beispielsweise so einen Garmin-Fahrrad-Computer hier als Beispiel.
+Da gibt es ja solche.
+Also die Bilder davon sehen nicht so aus wie in der Realität.
+Äh, Datafield.
+Ja doch, da oben. Hier, hier, hier sieht man es ganz gut.
+So, guck mal. Also guck mal, Leute.
+Es gibt, es gibt.
+Es gibt auf Garmin-Uhren und generell auf Garmin-Geräten solche Customizable-Layouts, wo man Data-Fields reinpacken kann.
+Und diese Data-Fields kann man mit dem Garmin-SDK selbst entwickeln.
+Beziehungsweise man kann auch komplette Apps für das Ding entwickeln.
+Und das will ich mal ausprobieren, weil, ich zeige euch auch mal warum, nicht wirklich, ja so ungefähr.
+Das ist ein ganz gutes Beispiel, guckt mal.
+Also, wenn du die Navigation-Funktion benutzt, dann hat man, okay man hat hier eine Anzeige für den Berg.
+Das hat man nicht immer, weil man sieht mal von der Karte nichts.
+Aber, Garmin erlaubt, hier oben...
+Hier unten nur zwei Customizable-Data-Fields.
+Und das ist ein bisschen wenig, ja.
+Also, ich hätte schon ganz gerne, auch wenn ich die Karte auf habe, hätte ich sowas wie Geschwindigkeit, Herzfrequenz.
+Und die Herzfrequenz muss ich gar nicht haben.
+Es reicht mir eine Anzeige mit der Farbe oder eben halt auch einen Timer oder irgendwie sowas.
+Also, mehr als zwei Data-Fields da unten wäre schon ganz cool.
+So, und was ich mir gedacht habe, was wir ausprobieren können.
+Ich habe keine Ahnung, ob das, ob und wie das funktioniert.
+Wir können ein großes Custom-Data-Field bauen, was wiederum die anderen Daten in etwas kleiner anzeigen kann.
+Dass das prinzipiell funktioniert, habe ich schon gesehen im Garmin-Store, dass es da sowas gibt.
+Aber ich habe mir gedacht, man kann ja mal probieren, das selbst zu bauen.
+Welche Smartwatch?
+Also, ich habe eine Forerunner 255, auf der kann man das auch ausprobieren.
+Aber mir geht es hauptsächlich um den Fahrradcomputer für Data-Field.
+Aber auf der Uhr geht es genauso.
+Letztendlich ist es aber auch egal, weil das funktioniert auf beiden Geräten.
+Hoffe ich mal zumindest.
+Wie gesagt, ich will ein Data-Feld machen, was im Kleinen mehrere Data-Fields anzeigen kann.
+Das wäre natürlich sehr praktisch.
+Vielleicht ein bisschen schlecht lesbar.
+Aber auf jeden Fall besser, als die Informationen gar nicht drauf haben.
+Also, aktuell Android? Nein, nicht Android.
+Wie kommst du auf Android?
+Das läuft auf den Garmin-Geräten, das ist irgendein Embedded-Zeug.
+Keine Ahnung.
+Ich glaube, man muss das sogar in C++ programmieren.
+Das wird was.
+Komm, wir machen mal ein bisschen was anderes.
+Das hatten wir doch letztens.
+Epic Chill-Step-Collection.
+Was machen wir denn?
+Komm, bisschen wupp wupp.
+Also, das Garmin-Zeug, könnte ich wetten, ist kein Android.
+Das ist so customisable und das wirkt so low-level, dass ich, ich könnte wetten, dass es nicht Android wird.
+Das ist irgendwas spezielles von Garmin.
+Was auch das heißt, dass es nicht Android wird.
+Das muss doch dazu passen, wir...
+Äh.
+Äh.
+Äh, wo kommt die Musik her?
+Cake Wait, Alter.
+Das würde auch widersprechen, dass das Android VR ist.
+Oder VR ist, weil das irgendein Custom-Garmin-SDK braucht.
+Ich weiß nicht, wie advanced die sind.
+Ob die einen Device-Emulator haben, ob ich dann meine Uhr per USB anschließen muss oder den Fahrrad komme.
+Beides hier liegen.
+Äh, glaub ich. Ja, beides hier liegen. Ne, die Uhr nicht.
+Aber den Fahrrad-Computer hier liegen.
+Um das auszuprobieren.
+Ich bin mal, ich bin mal gespannt, ob das funktioniert.
+Also, mein Ziel ist es, ein Custom-Data-Field zu bauen.
+Ähnlich zu dem hier.
+Warte mal, ich hab nämlich sowas gefunden.
+Und das war eine super, super nice...
+Super nice Idee, aber mit der Umsetzung bin ich nicht ganz zufrieden.
+Also, ich will sowas ähnliches bauen.
+Kann man das hier nicht nach Trending oder sowas sortieren?
+Warum ist die, warum ist die Web, die Web-Ausgabe für diesen Shop...
+So...
+So kacke.
+Also, ich würde gerne was installi...
+Also, ich würde gerne was machen, ähnlich...
+Zu dem da.
+Genau.
+Hier, das ist ein gutes Beispiel.
+Guck mal.
+Der Dude hat genau das gleiche gebaut.
+Das hier unten ist ein Custom-Data-Field.
+Also, wenn ihr das hier seht.
+Der hat einfach ein großes Feld gemacht,
+wo er selbst in klein Sachen anzeigen lassen kann.
+Sowas in der Richtung.
+Will ich auch bauen.
+Nur, dass ich nicht so viele Sachen anzeigen möchte.
+Und einfach...
+Mich interessiert auch einfach, wie das funktioniert.
+Ja.
+Nur, dass ich nicht so viele Sachen anzeigen will.
+Weil die werden zu klein.
+Ich hab das von...
+Ich hab das Data-Field von dem hier mal ausprobiert.
+Das ist mini.
+Du kannst kaum was erkennen, wenn er normal auf dem Fahrrad drauf sitzt.
+Dafür passten hier 6 Felder hin.
+Anstatt wie offiziell bei Garmin nur 2.
+Also, ist schon...
+Ist schon...
+Ist schon ne coole Sache.
+Und ich wollte mir das eh mal angucken, wie das funktioniert.
+Da bin ich mal gespannt.
+Nein, das ist...
+Ich bin mir relativ sicher, dass das nicht Android-Wir ist.
+Aber das ist...
+Das ist da way.
+Nee, das ist das Ziel heute.
+Kann man auf dem Fahrradcomputer Docker laufen lassen?
+Nee.
+Ich geh mal ganz stark davon aus,
+dass es auch noch nicht mal auf Linux-Basis ist,
+sondern irgendein Embedded-Ding.
+Ich hab ehrlich gesagt keine Ahnung,
+ob man da irgendwie was weiß.
+Guck mal, ob man irgendwie was weiß.
+What's the CPU?
+Ja, zeig doch mal her.
+Custom Socks.
+Okay.
+Also, man hat keine Ahnung.
+Man hat...
+Okay, man hat keine Ahnung, was in den...
+Was in den Dingern drin ist.
+Wisst ihr, man hat keine Ahnung.
+Nicht FireRunner.
+Also, man...
+Okay.
+Okay, von 2016.
+Okay, von 2016.
+Das bringt nix.
+Benchmark Results.
+Wie die machen Benchmarks auf ihrer Uhr?
+Schraub mal auf.
+Nee, nee, nee.
+Also, man hat, glaube ich, echt keine Ahnung,
+was da drin ist.
+Ach, hier! Armkiste.
+Zumindest...
+Zumindest in der Phoenix-Uhr.
+Ich glaube nicht, dass da gescheit
+Android draufläuft.
+Keine Ahnung, was da drauf ist.
+Letztendlich ist es aber auch vollkommen egal,
+was da drauf ist.
+Weil wir werden das offizielle SDK von denen verwenden.
+Also...
+Das könnte ich mir... Moment, Moment, Moment.
+Das kann ich mir vorstellen, dass es das sogar gibt.
+Ohne Scheiß.
+Doom gibt es überall.
+Wartet mal.
+Doom.
+Wobei...
+Moment, das ist nicht Doom.
+Das ist, glaube ich, einfach... Ach, das ist nur...
+Nee, okay. Es ist gar nicht Doom.
+Es ist einfach nur die Zahlen
+des Fonts, der Doom-Font.
+Aber,
+ey, mich hätte es wirklich nicht gewundert,
+wenn... Ja, vorbei.
+Keine Ahnung. Also, mich hätte es wirklich nicht...
+Nee, nee, nee.
+Mich hätte es wirklich nicht gewundert, wenn es Doom auf der Uhr gibt.
+Also, möglich wäre
+das wahrscheinlich.
+Ich meine, Doom läuft auf dem Schwangerschaftstest.
+Wobei, das war
+nur Fake. Aber trotzdem.
+Also, mich würde es echt nicht wundern,
+wenn da irgendeiner Doom zum Laufen
+bekommt auf der Uhr.
+Garmin Watch Doom.
+Siehste? Siehste, es gibt schon Leute.
+Data Field
+von Ga...
+Ach, nee, nee, okay.
+Naja, also...
+Also, das würde mich nicht wundern,
+wenn es das gibt. Durchaus möglich,
+dass irgendwelche verrückten Leute
+auf ihrer Garmin-Uhr
+es laufen lassen haben.
+So, also, probieren wir das mal aus.
+Es gibt irgendwo ein offizielles
+Garmin SDK.
+Ich mache mal einen Snapshot.
+Nee, das kriege ich
+nicht hin. Ich mache mal einen Snapshot von meiner
+VM. Warum habe ich da so
+viele Snapshots gerade?
+Ah, nein.
+Snapshot 2 und 3, aber
+Snapshot 1 gibt es nicht.
+Warum genau habe ich hier nochmal
+gesnapshottet?
+Ach so, wegen Mojo-Installation.
+Ich glaube... So, machen wir
+das mal weg. Snapshots verbrauchen. Gerade umso
+älter sie werden, umso größer das Diff wird,
+wir brauchen Snapshots. Immer unsinnig
+viel Speicherplatz.
+Auf, geh weg. Siehste?
+Ist schon ein bisschen größer, der Snapshot.
+Snapshoot.
+Forever.
+Also, let's go.
+Erstmal das SDK
+runterladen. Get the Connect
+IQ. Siehste, die wissen schon mal Bescheid.
+Only 5 Header.
+Hey Max. Moment, was?
+Hey Max, bin seit 1.9.
+Das ist quasi seit einem Monat.
+Pog.
+In der Ausbildung zum Fachinformatiker
+Anwendungsentwicklung. Wollte mich bedanken,
+dass du mich dafür begeistern kannst.
+Ja, das ist nice. Ich hoffe, dir gefällt's.
+Wie war so der erste Monat?
+Schon ein Plan, was deine App können soll.
+Ja, ich hab das ja gerade eben
+gezeigt. Ich will sowas hier in der Richtung bauen.
+Also nicht mit der Map und so.
+Also, es gibt auf den
+Fahrradcomputern, auf den Uhren gibt es so
+customizable data fields.
+Und gerade
+was mich ein bisschen nervt, ist auf der
+Map-Übersicht kann man nur 2 data fields
+einblenden. Und ich wollte
+sowas ähnliches bauen, wie der Dude hier.
+Der quasi ein custom data-Feld gebaut hat,
+in dem er selbst wiederum kleinere data fields
+anzeigt, sodass quasi
+anstatt 2 in diesen
+Space hier, dann 6
+Stück passen. Nur, dass mir das hier so nicht gefällt,
+weil es doch sehr klein
+und pixelige Schrift ist.
+Mir würden ja 3 Stück reichen.
+Oder sagen wir mal vielleicht 4.
+Da hat man ein bisschen mehr Platz.
+Und außerdem interessiert mich
+einfach nur
+wie das funktioniert.
+Ich glaube aber nicht, dass wir heute da wirklich
+was sinnvolles auf die Reihe kriegen.
+Ich muss erstmal das Garmin SDK runterladen
+und dann guck mal hier. Also, da steht doch wie das
+funktioniert hier. Install SDK.
+Launch SDK
+Manager bla bla bla.
+Installing... Moment, was?
+Monkey C.
+Haben die nen eigenen
+C-Dialekt, um den Kram zu programmieren?
+Was zum Teufel ist
+Monkey C?
+Ich mein, Holy C würde
+ich ja noch verstehen.
+Okay, hat mit C anscheinend gar nichts zu tun.
+Das Buch ist ja äußerst beliebt.
+Nein.
+Poggers Buch.
+Okay.
+Download and accept for Linux.
+Das ging aber schnell. 3,2 MB?
+Das ist...
+Blazingly fast embedded Kram.
+Nicht
+Repos. Downloads.
+Garmin.
+Pog.
+So.
+Da wurde es entpackt.
+Und was muss man jetzt machen?
+Launch SDK Manager
+from chosen download location.
+Also wahrscheinlich das hier.
+Okay, was?
+Webkit GTK.
+What? Ernsthaft?
+Okay.
+Webkit GTK.
+Im Prinzip ist es wahrscheinlich
+wirklich nur...
+Hätten sie auch Elektron machen können, oder?
+Ja.
+Accepted ihr auch die
+Terms of Service?
+Also ich find die Terms of Service sind schon sehr nice.
+Och nee.
+Och nee.
+Alter.
+Das funktioniert
+nicht.
+Ja, das ist schon mal scheiße.
+Wie soll ich...
+Ich vermute mal, hier ist ein User
+Feld. Hier ist ein...
+Passwort Feld.
+Und hier ist ein...
+Okay, das...
+Okay, Leute, es könnte schon mal scheitern.
+An ganz grundlegenden Sachen.
+Webkit GTK.
+Kann ich vielleicht
+noch was anderes installieren?
+Was ist denn das?
+242?
+2...
+411?
+Legacy? Legacy?
+Wobei, nee, wir brauchen Webkit
+GTK 2...
+Äh...
+Ähm... Ja, ich weiß, das ist
+das habe ich eben installiert.
+Also mein GTK
+Theme ist eigentlich legit.
+Ähm...
+NWG Look.
+Okay, ich ändere mal mein
+Theme.
+Machen wir...
+Wir machen das Default Theme.
+Guck mal hier, Icons.
+Und Icons...
+Wir machen mal das Default Theme hier.
+Nee.
+Okay.
+Als Flatpack User ausführen.
+Was? Gibt es das als Flatpack?
+Okay, das funktioniert
+nicht.
+Das geht schon... Das geht schon gut los.
+Das ist weiße Schrift auf
+weißem Hintergrund. Ja, würde ich auch so sehen.
+Ähm...
+Leute, ich...
+Ich sehe irgendwie, dass das nichts wird.
+Ähm...
+Also...
+Okay, Moment, Moment.
+Webkit GTK
+White. Wir suchen mal danach.
+White Text und White Background. Alles klar.
+Okay.
+Aha.
+Was?
+Was zum Teufel interessiert mich?
+Evolution. Das...
+Ähm...
+Das ist das E-Mail-Programm.
+Okay, das ist wohl ein Known Bug.
+Oder sowas. Fixed.
+Nee, es ist Fixed.
+Ähm... Okay, ich habe eine
+Idee, was wir machen.
+Ich habe eine Idee, was wir machen.
+Webkit GTK.
+Wir aninstallieren das nochmal.
+Und jetzt...
+Das hatten wir gerade installiert, ne?
+Nee, das ist immer noch installiert.
+Hä?
+Okay, Webkit GTK.
+Was hatte ich eben installiert?
+Das hier. Das hier hatte ich
+installiert.
+Dann installieren wir doch einfach mal das hier.
+Vielleicht funktioniert das aus irgendwelchen
+Gründen besser.
+Warum hat das vor allem die gleiche Versionsnummer?
+Ich hatte alle drei
+installiert. Wirklich? Ach, Moment.
+Wir brauchen auch noch das Vierer.
+Ach, Shit.
+Äh, Gott.
+Geht schon.
+Geht schon gut los.
+Dann installiere ich jetzt einfach das da aus dem
+aus dem Auer.
+Ohje, wenn man
+ein Webkit selbst
+kompilieren muss, das dauert doch bestimmt jetzt drei Stunden,
+oder? Schauen wir mal.
+Schauen wir mal. Ich weiß nicht,
+wie schnell man ein Webkit selbst kompilieren kann.
+Und...
+Ja, das ist aber
+eine VM.
+Und Browser-Kompilieren dauert immer drei,
+dreieinhalb Stunden.
+Weil vielleicht geht das ja hier gerade. Schauen wir mal.
+Schauen wir mal.
+Es ist ja gar nicht gesagt, dass es danach tut.
+Lass uns lieber noch mal kurz googeln, was das Problem
+ist.
+White Background.
+Wir suchen einfach
+nach GTK
+no content.
+Ja, nice.
+Ja, angeblich
+wurde das ja gefixt, ne?
+Das bringt mir nur jetzt nicht allzu viel.
+Kann man
+irgendwie Disable
+Hardware Acceleration oder so?
+Vielleicht liegt das
+daran, dass der irgendwie komisch rendert?
+Web... Okay, was?
+Webkit Force... Okay, Moment.
+Was? Webkit?
+Webkit Force
+Composition Mode. Force
+Accelerated Compose to be always
+on, to be always
+off.
+Jetzt das... Oh, das wird gebastelt,
+Leute, ich sag's euch.
+Okay, Webkit Kompilieren läuft.
+Die volle
+Open Source Linux Developer
+Experience heute.
+Also ich geb dem mal fünf
+Minuten Zeit.
+Wenn er dann nicht fertig ist, dann lass ich's
+bleiben und installiere das andere wieder
+und wir probieren mal die
+Environment Variables
+aus.
+Ob die was machen.
+Ach so, wie sieht's eigentlich aus? Hessen
+mal 2023
+Hochrechnungen.
+Mal gucken, ob der Markt das regelt
+oder nicht.
+Ergebnisse.
+Okay, CDU 35%.
+Wir hatten Vergleich
+zum letzten Mal vielleicht.
+Okay, Grüne minus SPD, Grüne CDU
+massig plus AfD plus FDP
+minus. Oh nein.
+Der Markt regelt doch nicht.
+Ich hoffe, der Markt
+regelt noch.
+Zumindest über 5%.
+Oh, was jetzt?
+Das wollte ich nicht.
+Ja,
+zum Glück, vielleicht hängt's an meiner
+Stimme am Ende, dass es wird
+oder nicht. Was ist schlimmer, Garmin
+Monkeys See oder Mon... Weiß ich nicht.
+Ich konnte bis jetzt beides ja nicht ausprobieren.
+Atheno, Dankeschön für den Sub.
+Hab ich komplett übersehen. Sorry, falls
+irgendwie noch jemand übersehen hat, aber ich glaub nicht.
+Stimmt, wie sieht's
+in Bayern aus?
+Bayern Wahl
+2023.
+Hochrechnungen.
+Die
+CSU liegt vorne. Ja, das ist Bayern. Da liegt
+die CSU immer vorne. Das geht gar nicht.
+Das ist Patty Falls so.
+Okay, um 19.06
+gab's CDU, äh, nein,
+sorry nicht CDU, CSU ist es ja in Bayern.
+36%.
+Ah, der Markt regelt nicht in Bayern.
+Die AfD einfach mal die Hälfte fast von
+der CSU.
+Okay, die komische Bayern-Partei ist nicht am
+Start. Und die Freien Wähler
+gehen auch gut ab, immer in Bayern.
+Wie sieht denn die Regierung aktuell in
+Bayern aus? Ist das CSU und Freie Wähler?
+Glaub schon, oder?
+Keine Ahnung, was in Bayern abgeht.
+Hessen interessiert mich mehr.
+Boah, ey, ich hab keinen Bock
+Webkit beim Kompilieren zuzugucken.
+Das geht auch
+so langsam. Wenn ich
+das jetzt abbreche, hab ich so ein halbkompiliertes
+Webkit auf der Platte.
+Wobei das nicht schlimm ist, ich hab ja einen Snapshot
+gemacht. Okay,
+ich lass das da oben mal kurz kompilieren,
+das stört ja nicht großartig.
+Installieren wir nochmal Webkit
+GTK. Das da
+brauchen wir. So wie es aussieht.
+Fünf, fünf brauchen wir, ne?
+Webkit GTK.
+So, und jetzt
+setzen wir, was war das?
+Webkit Disable
+Composition Mode.
+Auf 1. Nicht auf True, auf 1.
+Wobei das eigentlich aufs Gleiche rauskommen muss.
+Bin Garmin...
+What? Hab ich doch grad installiert.
+Das muss ich auch noch installieren.
+Ich mag ja nicht.
+Fuck.
+Easy. Easy.
+Fixed.
+Easy as fuck.
+Easy. Easy.
+Easy as fuck.
+Easy. Easy.
+Easy. Easy.
+Easy.
+So, da können wir das komische Webkit
+Kompilierungszeug hier oben abbrechen.
+Okay, also jetzt brauch ich ein Webkit
+Account. Nein, kein Webkit Account.
+Nein, ich habe kein Account.
+Kann ich das,
+kann ich das nicht im Browser irgendwie machen?
+Äh, Garmin
+Developer Account.
+Wir machen wieder ein Fake.
+Garmin Developer.
+Okay.
+Wo erstelle ich mir hier ein Account?
+Account. Developer Forum.
+Account.
+Äh.
+Ja, Developer Programm.
+Okay, das ist super kompliziert
+schon mal das Richtige zu finden.
+Account.
+Muss man das über die komische App,
+muss man das wirklich hier drüber machen?
+Okay, create a new Account.
+Okay, also, ich habe die Terms,
+ich habe die Terms gelesen und kriege
+Max
+Wupp
+E-Mail-Adresse, okay.
+10-Minute-Mail
+Beste E-Mail-Adresse
+überhaupt, die will ich haben.
+Oh, man darf da nicht
+copy-pasten, Mann, ist das nervig.
+Z-Bock
+Passwort.
+Okay, ähm.
+Mal kurz aufschreiben.
+So.
+Germany, create Account.
+Ach, man muss doch nicht mal bestätigen.
+Na, umso besser.
+Man muss doch nicht mal bestätigen,
+das ist gut.
+Logged in as Max Wupp.
+Next. Automatic Updates.
+Automatic Downloads.
+Automatic Updates, jawoll.
+Ähm.
+Watches, Bikes, Wearables, alles.
+New Devices.
+Devices are being downloaded.
+Nice.
+Okay.
+Dann fetcht mal.
+Yes.
+Okay, das ist ja
+gar nicht so schlecht gemacht.
+Kriege ich erstmal 300 Emulatoren installiert?
+Okay.
+Oh, im Hintergrund geht da schon mal gut was ab.
+Ehrlich gesagt, ich brauche gar nicht
+die 1000 Sachen und Devices.
+Aber gut, wir lassen ihn mal.
+Wir lassen ihn mal kurz machen.
+Ähm.
+Also,
+ehrlich gesagt,
+ich glaube, das kann man auch gar nicht
+abbrechen. Ich glaube, wir müssen den jetzt mal
+kurz zwei Minuten in Ruhe lassen
+und den Kram installieren.
+Weiß ich nicht wirklich, was der gerade da
+im Hintergrund treibt.
+Also, wenn das in dem Tempo weiter geht,
+dann sitzen wir morgen noch da.
+Gucken, ob das überhaupt irgendwas macht
+im Background.
+Sieht jetzt für mich nämlich nicht so aus.
+Öh.
+Es ist noch am Downloaden und dann dauert es wahrscheinlich
+nur wegen dem Download ein bisschen.
+Das liegt am
+Download, gehe ich mal von aus.
+Das wird wahrscheinlich
+unterschiedlich groß sein und der Download nicht so
+schnell. Ich gehe davon aus, dass es alles dann
+mehr oder weniger zeitgleich fertig
+wird. Ich meine, es wäre
+ja auch ganz sinnvoll, Preferences.
+Wir machen einfach mal nur by Computer.
+Aber dann bricht der trotzdem nicht ab.
+Ich schau mal, ob ich das beschleunigen kann,
+wenn ich quitte und nochmal starte.
+Was?
+Oh, ist das schlecht, Alter.
+Was habe ich für eine E-Mail-Adresse?
+Okay, zbog.
+Okay, immerhin.
+Guck mal, er downloadet jetzt tatsächlich
+nur noch das, was ich haben will.
+Okay, man musste...
+Das wirkt aber ziemlich fragil,
+was sie da gebaut haben.
+Hast du geschaut, ob es eine Bestätigungs-E-Mail
+gibt?
+Mit sowas geben die sich das
+gar nicht ab. Wer braucht schon
+Bestätigungs-E-Mails?
+Okay, das scheint ein bisschen schneller zu gehen.
+So, wie geht's denn dann weiter?
+So, als erstes
+getten wir das Garmin SDK.
+Complete First Time Setup Process.
+Download Latest
+Connect IQ SDK.
+Download Complete.
+Klick Yes.
+Klick der SD... Close der
+SDK Manager. Okay, wir können da schon mal
+den nächsten Schritt machen.
+In Visual Studio Code, go to
+Extensions, Insta... Monkey
+Sea, Alter, was ich mal...
+Was wird schon wieder, dass ich hier alles
+geben muss?
+Könnten die... Können die nicht...
+Also, könnten die nicht irgendeine
+normale Programmiersprache
+nehmen? JavaScript, Python, sonst was?
+Warum muss es
+Monkey Sea sein?
+Nice FFmpeg HiRes GIF.
+Okay, wir installieren die Monkey
+Sea Extension. Gut, gut,
+dass ich den Snapshot gemacht hab.
+Moment, es gibt zwei Sachen.
+Es gibt das.
+Das ist das Offizielle
+von Garmin und das hier ist
+von Alexander Fedora.
+Changelog ohne Datum ist
+auch immer geil.
+Hier, 2020.
+Okay, das ist auf jeden Fall das Sinnigere.
+Okay,
+wir sind fertig.
+Close. Das ist der Cousin
+von... Der Cousin vor allem.
+Btop ist
+zu fancy.
+Install Button.
+Restart Visual Studio Code. Okay.
+After Restart
+Summon the Command Plate.
+Verify
+Installation and select
+Verify
+Installation.
+Okay, Cousin
+ist dumm, der macht das. Genau.
+Verify Installation.
+Generate Developer
+Key? Was
+mache ich gerade?
+Downloads.
+Garmin POC. Haben wir mal hier
+einen Ordner? Irgendwie
+Projects oder so?
+Keine Ahnung. Open.
+Ja.
+Java.
+Okay.
+Java. Open JDK.
+Was ist denn da
+der Default mittlerweile?
+Was installiert man denn, wenn man Java installieren will?
+Open. Was ist das hier?
+Open JDK 19.
+21.
+Was haben die da zusammen geschustert?
+Ja, das frage ich mich
+auch gerade.
+Das frage ich mich auch.
+Okay.
+Nochmal Visual Studio Code starten.
+Verify
+Installation.
+Okay. MonkeySee
+Installation verified. Ganz toll.
+Und jetzt?
+Get the Connect IQ Mobile SDK.
+Ne.
+Das brauche ich nicht.
+Und, und, und
+jetzt?
+Ich meine,
+der Guide ist etwas
+incomplete, oder?
+Das SDK ist auch ein geiles
+SDK. Es hat einfach keine
+Beispiele oder sonst irgendwas dabei.
+Okay.
+Wir machen, wir gehen erstmal hier in
+Projects und öffnen Visual Studio Code da.
+Ja, ja.
+Wir trusten. Oh, guck mal. Da ist mal ein
+Developer Key. Den sollte ich, den sollte ich
+vielleicht nicht leaken. Also machen wir hier
+Projects 2.
+So.
+Okay. Visual Studio Code.
+Ich truste.
+Okay. Wie geht das jetzt?
+Monkey. MonkeySee.
+Clean Projects
+Launch New Project.
+Set Project
+Name. Kackel.
+Data Field Widget
+Watch App.
+Okay, Leute. Ich würde sagen, wir tun
+erstmal so, weil ich glaube, da kommt man
+am besten damit rein, als würden
+wir eine Watch App
+programmieren, weil ich hoffe, da ist so
+eine Art Simulator oder sowas dabei.
+Alternativ können wir auch einen
+Monkey Barrel entwickeln, was auch immer
+das ist. Vielleicht ein fancy Name für ein
+Package. Watch Face.
+Wir tun mal so, als wollen wir eine
+Application. Ich will eigentlich
+gar keine App, sondern ein Data Field bauen.
+Mini. Na, immer beste,
+neueste, geilste API.
+Select the products to support.
+Edge 840.
+Project 2.
+Ganz toll.
+Nice.
+Gibt es Hello World oder so?
+Irgendwie.
+Kackel App MC.
+Uiuiui.
+Es hat ein bisschen was von Dart, oder?
+Findet ihr nicht auch?
+Ein bisschen.
+Es sieht.
+Haben wir Autocomplete?
+Ja. Hey.
+Huiuiui.
+Massive. Okay.
+Gibt es sowas? Monkey.
+Es muss ja irgendwie ein Run oder so.
+Run.
+Launch.
+Configure Monkey Barrel.
+What?
+Build current project.
+No device
+available.
+Ich habe doch Edge runtergeladen.
+Äh.
+Monkeys.
+SDK Manager.
+Da ist er.
+Wie oft muss ich das noch machen?
+Meine E-Mail Adresse. Sekunde.
+Oh fuck.
+Ähm.
+Chat, hat jemand aufgepasst?
+Z-Bock irgendwas?
+Ah, da ist sie hier.
+Z-Bock. Muss ich mir auch mal aufschreiben.
+Wie oft muss ich das noch machen?
+Okay, finish.
+Hab ich doch hier. Guck mal.
+Und was haben wir jetzt hier?
+Manifests.
+Was ist ein Data Field?
+Sowas hier.
+Eines dieser Kästchen hier unten.
+Sollte ich den vielleicht im Hintergrund
+einfach auch nochmal
+die Uhren runterladen lassen.
+Also eine zumindest.
+Ja, Forerunner 255
+hab ich.
+Ich hab nen Watch. Ich hab nen App
+Projekt erstellt.
+Das ist glaube ich nicht,
+dass sie einen Unterschied machen zwischen
+Resources
+Manifests.
+Warum haben wir hier zweimal Kekkel?
+Wir haben Projects Kekkel und
+ich bin verwirrt. Warum
+haben wir das hier doppelt offen?
+Ich mach das mal kurz zu. Das ist komisch.
+Monkey Jungle.
+Boah ey, ich raste aus.
+Können die nicht irgendwas
+benutzen, was jeder versteht?
+Da stand Watch UI.
+Ich denke mal, das heißt halt einfach so.
+Okay, was haben wir hier?
+Use the following from
+Visual Studio Code Command Palette
+to edit build targets.
+Set product
+touch by computers
+Ach einfach alles, bam.
+Okay, easy.
+Siehste?
+Zack.
+Jetzt haben wir alle Support.
+Build current project für Edge.
+Easy.
+Jetzt ist nur
+die Frage, wie man das in irgendeinem Simulator
+starten kann.
+Ich hab gesehen, dass
+die sowas haben.
+Launch complication.
+Compilation?
+Complication?
+What?
+Was wird hier gelauncht?
+Okay, keine Ahnung.
+Okay, build for device. Haben wir gemacht.
+Edit application.
+Edit export
+project. Open.
+Wieso heißt das Ding Monkey Sea und warum
+brauchst du Java? Musst du Garmin fragen.
+Okay, wir müssen mal
+die Hilfeseite mal abchecken.
+Okay.
+Connect IQ basics.
+Your first app.
+Ist das Eclipse?
+Okay.
+Select project watch face.
+Okay, select simple template.
+Select minimum RP.
+Run the
+program. Okay, wie geht das?
+Select
+run without debugging.
+Run?
+Run without debugging.
+Oh, es runnt.
+Es runnt.
+Easy.
+Easy.
+Easy.
+Ey, komm mal an.
+Der device emulator
+emulated.
+Oh, was ist nu?
+Data fields, layout, invalid.
+HDB connection.
+Nee, nee, nee, bestimmt nicht.
+Okay.
+Ich hab nen Garmin Uhr und nen
+Fahrradcomputer, ja.
+Ich find die Dinger nice.
+Activity data.
+Sleep mode.
+Okay, also wie hab ich das jetzt gemacht?
+Run without debugging, also
+Control F5.
+Hat das Hot Reload?
+Leute, das müssen wir jetzt mal ausprobieren.
+Hat das so ne Art Hot Reload?
+Ähm.
+Ähm.
+Wie kann ich denn das jetzt ausprobieren?
+Resources,
+Strings,
+Appname, Kekke,
+Kekke W heißt die App jetzt.
+Nee.
+Ah, ah.
+Okay, das hat's nicht gecheckt.
+Vielleicht muss ich erst
+Build machen.
+Das ist gar nicht so schlecht, Leute.
+Das hätte ich mir jetzt schlimmer
+vorgestellt.
+Was ist denn der Knopf da unten?
+Data playback.
+Backlight.
+Das ist doch gar nicht so kacke.
+Das geht doch
+voll klar.
+Gut, dann kann ich tatsächlich nochmal
+ein neues Projekt machen, nachdem ich jetzt weiß,
+wie das funktioniert.
+Ups, das hätte ich gar nicht schließen müssen.
+New Project
+Monkey C, und zwar
+Ja, keine Ahnung, Data Field
+nenne ich das einfach mal.
+Ich will ein Data Field entwickeln.
+Äh, Data Field
+that extends the simple
+Data Field Class.
+A Data Field that extends
+the Data Field Class.
+Wir machen erstmal
+Select Minimum Supported
+API.
+Ja, ich mein,
+ich hab eh die neueste Version, so Edge.
+Äh, und wohin?
+Hier rein.
+Ja.
+Wollen wir das nochmal schließen.
+Nach Data Field
+Oh, what?
+Hä?
+Wart mal, ich bin verwirrt.
+Hab ich das jetzt da rein erstellt, oder wie?
+Ah ja.
+Data Field eins nach oben.
+Data Field
+Und jetzt Visual Studio Code
+hier drinnen öffnen.
+Das da down save, zack.
+Nice.
+So, das sieht
+jetzt deutlich, deutlich
+weniger aus.
+Schauen wir mal, Build
+Current Project
+Und jetzt
+Ne, was? Wie war das? Run?
+Run without debugging.
+MonkeySea
+Bin ich ja mal gespannt.
+Hey, das Fundst?
+Das, das Fundst
+Data Fields Layout
+Ja?
+Also so würde das dann
+Also eins davon wäre halt
+nur mal ein Data Field und
+realistisch, realistisch betrachtet
+will ich eigentlich
+4x4, weil ich ein breites
+Ich will, ich will ein Data Field machen, was
+ein zweier Data Field ausnutzt.
+Wobei eher, eher
+in der Größe würde ich sagen.
+Das ist realistischer.
+Ja, das funktioniert doch gar nicht mal
+so mies.
+Ganz gut, klar.
+So, also mein Data Field muss gut aussehen
+in dieser
+in dieser Größe
+weil mein Data Field
+soll
+hier unterhalb von der Map
+angezeigt werden können.
+Also Chat, was sagt ihr?
+Ich finde, das ist gar nicht mal schlecht
+wie die das bis jetzt gemacht haben.
+Ich finde, das geht
+echt klar, ja.
+Das können wir noch ein bisschen kleiner machen hier.
+So.
+Ich finde das
+Ich finde, das geht voll klar.
+Ja.
+So soll mein Data Field später aussehen.
+Genau so.
+Ein breites hier, wie das da.
+Ja, wir haben auch schon schlimmeres
+gesehen.
+Jetzt ist natürlich die Frage, wie funktioniert
+das? Also wir haben jetzt
+ja bisher nur das ganze eingerichtet.
+Wie programmiert
+man den Kram? Ok, Data Field App
+Extends Application Base.
+Data Field View.
+Jetzt schauen wir mal, wie gut
+die Autocompletion ist.
+Simple Data Field.
+Ok, sie funktioniert
+schon mal.
+Noch
+besser als das Rust Plugin noch vor
+kurzer Zeit.
+Ich habe natürlich absolut keine Ahnung von der API.
+So, woher kommt
+das überhaupt, dass es ein Label
+gibt?
+Woher weiß ich denn, dass es ein Label gibt?
+Hat vielleicht
+hat vielleicht das, vielleicht ist
+das ein Base.
+Gibt es sowas wie Base oder This oder so?
+Vielleicht
+kommt das ja vom Simple Data
+Field.
+Ok, Jump 2 gibt es schon
+mal nicht.
+Das heißt, wir müssen jetzt mal in die API
+Docs reingucken. Zeig mal kurz, was
+in Hessen so abgeht. Hochrechnung in
+Hessen 1924.
+Die CDU geht übelst ab.
+Der Markt regelt immer noch bei 5%.
+So, SDK.
+API
+Docs.
+MonkeySea.
+Containers.
+Arrays in MonkeySea.
+Ja, ok, ok, ok.
+Coding
+Conventions.
+Das finde ich jetzt alles nicht so spannend.
+Core Topics.
+Glances, Layouts.
+Field.
+Was?
+Ja, wie?
+Was gucke ich denn da jetzt am besten?
+API Docs?
+Hier, Simple.
+Simple Data Field. Da haben wir es doch.
+Simple Data Field.
+Was jetzt?
+Ist einfach ein Browser aufgegangen bei mir.
+Monks.
+Einfach random.
+Chat, wer von euch war das
+wieder?
+Wer hat gerade random
+Explorer geöffnet?
+Ja, Sauerei.
+Ok.
+Ah, hier, guck mal.
+Simple Data Field that displays current heart rate.
+Return Info.
+Specified
+Activity Info to display in the field
+here. Function Compute.
+Ah, ich
+jetzt verstehe ich halbwegs, wie das
+funktioniert. Das ist ein bisschen
+wie, ja,
+das ist, naja, ok.
+Es ist ein bisschen
+wie ein Custom
+Windows Forms
+Element.
+So nach dem Motto onDraw und dann
+da drin das machen. Und Compute ist
+wahrscheinlich einfach der Text, der
+zurückkommt.
+Ähm, übrigens Format funktioniert
+schon mal nicht richtig. Format.
+No Formatter for MonkeySee.
+Ja gut, das wundert mich
+jetzt nicht wirklich. Ok.
+0.0 Return. Also sprich
+Info. Info.
+Heart Rate.
+Ach, das ist ja nice, ok.
+Da sieht man alles, was es gibt.
+Dann returnen wir das doch mal.
+Current Heart Rate. Ich mein, die ist 0,
+weil da ist sonst nix, aber ok.
+So, dann schauen wir doch mal. Jetzt machen wir
+Build.
+Build Current Project und
+Restart.
+Wenn wir Glück haben, steht jetzt meine Heart Rate drinne.
+Was ich aktuell mach? Ein Custom Data
+Field für Garmin Devices bauen.
+Ok, da gibt's wahrscheinlich einfach
+keine Daten aktuell.
+Ok, Label können wir machen.
+Hier. Heart Rate.
+Ja, lass wir's.
+Ja, wobei ist eigentlich egal.
+Die Keck V Rate ist das.
+So, Build.
+Wenn es fertig ist, einmal Shift
+Ctrl F5.
+Vielleicht kann man das in der Simulation einstellen.
+Ja, muss ich mal gleich gucken.
+Keck V Heart Rate. Simulation.
+Activity Data.
+Wow. Das macht einfach was.
+Lab Timer.
+Ok, wir haben die
+Simulation gestartet anscheinend.
+Na gut, das
+generatet einfach random Werte.
+Es soll mir ja recht
+sein. Random Werte. Vollkommen ok.
+Hast du ein Power Meter?
+Nein. Da würde ich aber überlegen, wie ich
+das am besten mache. Gibt's ja verschiedene Systeme.
+Gibt's ja Pedale. Gibt es
+ja Kurbeldinger und
+komplette
+so Sets.
+Weil, aber ganz ehrlich.
+Erstmal ordentlich
+Fahrrad fahren. Üben wieder.
+So, das ist schon mal nice.
+Das gefällt mir schon mal.
+So, jetzt
+kann ich, jetzt können wir mal was ausprobieren.
+Ok, also übrigens Leute.
+Ihr könnt alles ignorieren.
+Außer das da.
+Also
+das ist.
+Man kann glaube ich die Data Field
+hier drinnen nicht anpassen.
+Kann das Layout ändern
+und. Oh.
+Jetzt ist es gecrashed. Das war zu viel auf einmal.
+Jetzt haben wir es kaputt gemacht.
+Oh, was kann man da noch alles
+einstellen? Time Units,
+Language, Connection Type.
+Nein, gut.
+Das ist jetzt nix.
+Wetter, Position,
+Sensors. Du kannst echt
+ziemlich viel einstellen.
+Eigentlich ganz cool.
+So, wo war das mit Simulation?
+Ja.
+So, ok. Wir lassen
+das einfach mal so. Das wird
+ja ganz sinnig angezeigt.
+Ok, also. Jetzt der
+Test. Jetzt testen wir einfach mal ein bisschen was.
+Also es. Kann man
+den View auf die
+Navigationsanzeige umschalten?
+Running, Sailing.
+Ja, das ist jetzt mir
+eigentlich ziemlich egal.
+Navigation Data. Aber
+das wird keine Map Anzeigen
+hier drinnen. Das Go. Nein.
+Nein. Das ist Monkey See.
+Warum auch immer.
+Kann man nicht.
+Dann lassen wir das mal so.
+Ok, also. Jetzt.
+Jetzt probieren wir das mal ein bisschen aus.
+Also sagen wir mal.
+Ich würde gerne.
+Das ist richtig eklig. Wobei.
+Ich muss sagen. Es macht einen ganz brauchbaren Eindruck.
+Also was ich gerne machen würde ist.
+In meinem Widget.
+Anzeigen.
+Wir stellen die Data Fields doch nochmal
+um. Hier. Was hatten wir?
+4a oder so?
+Ne. 5a?
+B?
+Ich hatte doch sowas, wo das eine
+groß ist. Ja.
+Das da.
+So. Das ist das
+obere. Komm. Wir machen eins.
+Also. Eine Sache.
+Ich würde gerne. Ne. Ich muss das
+mit Rand.
+Ich muss es mit Rand anzeigen.
+Two Fields. Ja.
+Von der Idee her. Ich will das der Rand
+oder zumindest irgendwas
+angezeigt wird. Wenn.
+Ich will die Zone anzeigen.
+Von der Heart Rate.
+Also sprich.
+Das was bei Garmin
+standardmäßig. Grau. Blau.
+Grün. Oh.
+Mein Timer ist abgelaufen.
+Äh. Grau. Blau.
+Grün. Orange. Und Rot ist.
+Ja. Timer ist
+gut. Und das. Und das will ich.
+Das. Das. Irgendwie.
+Mal anzeigen. So. Also. Der Typ ist ganz schön.
+Ganz schön am strampeln mit 152
+Puls. Oh. Noch
+mehr. So. Wie kriege
+ich denn das jetzt raus? Also. Wie kriege
+ich. Wie kriege ich Heart Rate Zonen raus?
+Zonen? Okay.
+HR Zone. Man hat leider keine Hilfe
+dafür. Das wäre natürlich zu easy.
+Wie macht man denn eine Debug
+Ausgabe?
+Wie macht man eine
+Debug
+Ausgabe?
+HR Zone Biking zum Beispiel.
+So. Wir stellen
+die Activity mal ein.
+Activity Select.
+Wir machen jetzt. Das ist ein Fahrradcomputer.
+Wir machen.
+Bike.
+Oder Cycling
+heißt das. Cycling.
+Was genau ist egal hier.
+So. Wie macht man hier eine
+Konsolenausgabe? Console.
+Nein. System. System.
+System ist immer gut. System.
+Right. Rightline.
+Nein.
+Output. Nein.
+Console. Nein. Okay. Ich muss nachgucken.
+Print. Print. Könnte natürlich
+auch noch sein. Print.
+Tatsächlich. Printeln.
+Keck W.
+Okay. Build.
+Restart.
+Debug
+Console. Output.
+Ach hier.
+Da ist es. Da ist die
+Ausgabe.
+Nice. Der Carlson.
+Okay. Das
+funktioniert. Es sieht für mich so aus
+als wird das einmal pro Sekunde
+gecallt. Was im Endeffekt auch
+heißt. Man sollte hier drinnen keine
+Endlosschleife fabrizieren. Weil dann
+kann man das Device zum Hängen bringen.
+Vermute ich jetzt einfach mal.
+Wollen wir das mal ausprobieren.
+For. Each.
+For.
+Wie macht man hier eine Schleife?
+Monkey C.
+Loops. Monkey C.
+Loop. Wie sieht denn da eine Loop aus?
+Loop. While true. Ja.
+Hier. Do. While.
+While loop. Okay. Dann machen wir das wirklich so.
+While.
+True.
+Falls das so geht.
+While true.
+Kekwe. Beste Output.
+Build.
+Hat funktioniert.
+Ist schon mal richtig. Und jetzt. Okay.
+Endlosschleife.
+Jetzt wird es abkacken gleich.
+Ja. Oh.
+Wow.
+Oh. Es ist gecrashed.
+Crash. Oh.
+Fuck. Jetzt ist es komplett dead.
+Okay. Endlosschleifen
+in Data Fields sind keine gute Idee.
+Das habe ich jetzt
+gelernt. Vielleicht. Generell sind so
+Locking Sachen
+auf Embedded System
+meistens keine allzu gute
+Idee. Das sind ja
+meistens ein Main Thread
+und vielleicht ein paar Background Sachen. Aber die haben
+bestimmt nicht ein Thread
+für
+jedes Data Field. Das wäre
+viel zu krass dafür.
+Simulator starten.
+Data Field.
+Wir hatten 5A.
+Okay.
+Und jetzt müssen wir noch starten.
+Activities. Ne.
+Cycling.
+Ich crashe es
+jetzt auch nicht mehr.
+Wo ging das jetzt nochmal?
+Was?
+Wo ging das jetzt nochmal
+mit den
+Activity Data. Genau.
+Okay.
+Excellent.
+Okay. Also. Hard Raid.
+Biking.
+Das gebe ich
+doch mal aus. Mal gucken was
+der mir da jetzt anzeigt.
+Ist es gecrashed?
+Error.
+Ja wie jetzt? Was jetzt?
+Could not find Symbol.
+Oder kann ich das
+bloß nicht printen?
+Okay. Das findest du nicht.
+Findest du nicht.
+War. Blub. Gleich. Geht sowas?
+Cannot find Symbol. HR.
+Zone. Sport. Running.
+Ja. Ich würde aber gerne meine Herzfrequenz
+Zone wissen. Weil anhand dessen kann ich dann
+einen Balken drum
+herum malen. Oder auch
+nicht.
+Api Level. Ja.
+Das haben wir. Das sind wir.
+Ach. Moment.
+Das ist irgendein
+Inam. Das ist nicht wirklich
+der
+die Zone. Sondern.
+Okay. Hier. Get Hard Raid
+Zone. Kann man
+da drauf zugreifen? Ach so.
+Moment.
+Jetzt bin ich hochgradig
+verwirrt. Wie funktioniert
+das jetzt?
+Get Hard Raid
+Zone. So. Und wir können da
+theoretisch für Bike. Sagen wir 2.
+Und jetzt bilden
+wir das ganze mal.
+Cannot find Symbol. Get Hard on Time.
+Äh.
+Hä?
+Warum gibts das nicht?
+Wir haben doch eine Api Version die
+viel viel neuer ist.
+Wie. Wie das hier.
+Moment. Vielleicht
+meckert er auch. Wie ich das. Dass ich das
+falsch aufrufe.
+Oh. Dann weiß ich auch nicht. Haben die vielleicht
+einen. Okay.
+Das sollte aber gehen. Get Current Sport.
+Ups.
+Get Current Sport.
+Äh. Das sollte ja schon
+funktionieren. Hä?
+Muss ich irgendwas. Muss ich irgendwas
+importen vielleicht?
+Irgendwas.
+Module. Toybox User Profile.
+Ah. Leute. Ich muss. Ich muss.
+Ich muss irgendwas importieren.
+Okay. Import.
+Toybox
+User
+Profile. Aha.
+Sister.
+Cannot find Symbol.
+Okay.
+Info as Activity Info. Das ist.
+Das ist ne Variable von dem.
+Okay. Das hat.
+Das hat funktioniert.
+Ah.
+Muss ich das vielleicht. So.
+Okay. User was born in year.
+Das ist. Das ist ein gutes. Gutes
+Exempel. System out
+Brindeln. Was?
+Ah. Die. Die.
+Die Docs sacken einfach.
+Permission User Profile required
+for Toybox.
+Oh. Permission.
+Edit Permissions.
+User Profile.
+Leute.
+Ich rate das übrigens auch hier gerade nur ganz
+hart alles. Nicht das es jetzt irgendwie so
+wirkt als wüsste ich was ich mache.
+Okay. Es hat funktioniert. Es hat
+kompiliert.
+Reload. Bin ich ja mal
+gespannt.
+User was born in 1980.
+Nice. Profile.
+Get current
+Sport.
+Kann man das jetzt so machen?
+Get current Sport.
+Error. Hä. Alter.
+Das ist ja super
+pepega. Ja. Gibt
+es.
+Es gibt ne API um.
+Um.
+Die. Ne das nicht. Es gibt
+ne API um die.
+Übersetzung anzuzeigen.
+Zum Beispiel.
+Also das weiß ich nicht ob das geht.
+Eher nicht oder. Also.
+Ne das geht nicht. Ich weiß warum das nicht
+geht. Weil die. Die.
+DI2 is read only.
+Die senden nur Daten. Die können keine
+empfangen. Jetzt muss ich sagen. Jetzt
+bin ich ein bisschen planlos. Warum
+er. Mein API Level 1 0.
+Wir sind auf API 4 2. Das sollte er
+nur wirklich mal.
+Gar kein Problem sein.
+Ich gehe davon aus dass ich nicht
+alles. Ich gehe davon aus
+dass ich nicht alles importiert
+habe was ich importieren muss.
+Guck mal. Man kann das auch einfach so
+ausgeben. Cannot find
+symbol. Das ist total weird
+champ. Alter.
+Das ist total weird champ.
+Ok. Profile. Was kann man denn
+hier alles machen im Profile.
+Ich sage mal. Leute. Kann das
+sein dass das überhaupt nicht.
+Kontextsensitiv
+ist. Das es einfach
+immer alles anzeigt.
+Und deswegen
+Cannot find symbol. Das zeigt.
+Ok. Die Autocompletion ist kacke.
+Die
+Autocompletion ist dumm. Die zeigt
+einfach immer das gleiche an.
+Für alles.
+Ja das ist dumm. Ok. Hier.
+User Profiles.
+Du hast ja die Zeile schon.
+Was soll ich hier gucken.
+Profile Activity Class.
+Aber die haben doch hier auch drinnen
+stehen.
+Das ist der Typ den das
+zurück liefert. Oder?
+Ok. Get Current.
+Hier.
+Moment. Was?
+Ok. Das ergibt ja gar keinen.
+Ich meine Profile. Get Profile check ich
+noch. Aber Profile
+Get Current Sport. What?
+Ach da ist sogar. Guck mal. Da ist sogar
+ein Beispiel. Man ruft
+das auf dem User Profile
+Objekt auf.
+Ha?
+Ok. HR
+Sport Bike. Ok.
+Das ist sehr sehr
+merkwürdig. Die Logik dahinter.
+Aber es funktioniert. Ok.
+Herzfrequenz. Zone. Anzeigen
+in der Konsole. Auf gehts.
+Ja. Kunst.
+He. Ok.
+Alter. Der wills aber wissen.
+255
+Herzfrequenz.
+Detke würde ich sagen.
+Aber gut. Das ist ja nur zum testen.
+Ok.
+Es ist bisschen weird. Man muss sich dran gewöhnen.
+Ist bisschen weird. Aber
+an sich nicht verkehrt.
+Also. Heißt im Endeffekt
+auch. Das heißt. Gut.
+Heißt. Ok. Guck mal. Sag mal.
+Zone. Beim
+Fahrradfahren. Herz. Also
+Herzfrequenz Zone beim Fahrradfahren.
+Jetzt ist die Frage. Wie kann ich
+anhand der Zone hier was rein
+malen. Draw.
+Draw Bitmap.
+Draw Rectangle.
+Draw Rectangle. Das klingt doch gut.
+Draw Rectangle.
+Braucht man überhaupt?
+Semicolons.
+Ok. Draw Rectangle.
+Von oben links.
+100
+100 Pixel.
+Weiß auch immer ob das Pixel sind. Ich weiß nicht.
+Wahrscheinlich ist das übrigens wieder
+das erfindet er das jetzt nicht.
+Ja. Error. Undefined.
+Was?
+Achso.
+Cannot find Symbol. Draw Rectangle. Ja gut.
+Garmin.
+Was das für eine Programmiersprache
+ist. Das
+ist Monkey
+Sea. Weil Garmin der Meinung ist
+Monkey Sea.
+Frag nicht.
+DC
+Graphics. Haben wir ein Beispiel
+dafür vielleicht?
+Using Graphics.
+Using Graphics.
+Moment. Using. Import.
+Ja was denn jetzt?
+Ok. Ist das jetzt Using oder ist das
+Monkey Sea
+Using Import.
+Ich sag mal
+Import. Ok.
+Could not draw. Function on
+Update.
+Das muss ich aber doch bestimmt nicht im Data
+Field machen. Mach ich das in der App?
+Wie male ich
+ein
+Ja. Geht.
+Wie male ich ein Rectangle.
+Fatal.
+Draw hello world
+on the center of the screen. Ok.
+Using Toybox
+Graphics. DC.
+Das muss man on update machen.
+Also nicht hier rein, sondern
+ich weiß nicht ob es hier rein muss.
+On update.
+Wahrscheinlich nicht.
+And build successfully.
+Wait a minute. Funktioniert das jetzt?
+Nicht wirklich.
+Wo muss ich denn on update überhaupt reinpacken?
+Und was ich sehr verwirrend
+finde. Warum ist es using
+oder import? Geht da
+vielleicht beides?
+Ja es geht beides. Ok. Das ist
+das ist wir. Wenn es das gleiche
+Keyword gibt. Sehr gute Idee.
+Ja.
+Poolcam App
+für die Uhr.
+Also das funktioniert so schon mal
+nicht. Garmin on update
+und show on update.
+Moment. Das ist ja auch
+verkehrt.
+Das muss ich bestimmt hier drinnen machen.
+Ja. Muss bestimmt hier rein.
+Build successfully.
+Ok.
+Garmin data field
+on update.
+Wir können ja mal testen ob das
+überhaupt. Hier.
+On update.
+On. On.
+Update.
+The system will call on update method.
+From view when a data field is displayed by
+because compute and update are asynchronous.
+There is no guarantee that compute will be called before
+on update.
+Ok. Man heißt man
+weiß nicht was zuerst geladen wird.
+Vielleicht wird das überschrieben.
+Und was passiert hier überhaupt?
+View. Pint.
+Trouble. By ID.
+Uh.
+Ich würde vorschlagen wir machen das mal anders.
+Wir löschen das hier wieder.
+Wir gucken erstmal ob das
+überhaupt aufgerufen wird.
+Wir gucken mal
+ob das überhaupt aufgerufen wird.
+On update.
+Dann sagen wir jetzt einfach
+System. Printline.
+Update.
+Ok. So. Build.
+Build successfully.
+Restart. Output.
+Kann man das Leute. Visual Studio Kenner.
+Kann man das irgendwie so splitten.
+Dass ich beides mir anzeigen lassen kann.
+Den
+Bild Output und die
+Konsole.
+Wie splitte ich denn das gescheit?
+Habt ihr da eine Ahnung von wie das funzt?
+Ups. Oh je.
+Hab ich zugemacht.
+Ok. On update. On update wird schon mal
+nicht aufgerufen. On update juckt das
+nicht. Es wird
+aufgerufen.
+Current heart rate. Ok. Vielleicht ist
+watch UI simple data field
+nicht das richtige. Sondern ich muss
+data field in inherit
+error.
+So schon mal nicht. Ok.
+Guck mal. Man muss data field
+Ich copy paste mir mal
+kurz die Beispiel App hier.
+Äh.
+Moment. Jetzt geht natürlich
+main. Jetzt geht natürlich die main App nicht.
+Wie hieß das vorher?
+Data field view.
+Und jetzt heißt es.
+Ah. Jetzt heißt
+es. Moment. Wie heißt das? My HR
+field. Ok.
+Build.
+Undefined symbol. Main layout.
+Main
+layout. Ist undefined.
+Sehr nice
+example. Kann ich das einfach
+rauskommentieren?
+Gucken ob es jetzt läuft.
+Shit man.
+Oh Gott.
+Abartig.
+Das funzt so schon mal nicht richtig.
+Ok. Kann ich wenigstens alte
+wieder bilden? Was?
+Undefined symbol detected?
+Achso.
+Ja.
+Update.
+Was über view?
+Oder rechts oben am
+Tabrand?
+Achso. Das Terminal.
+So. Also simple
+simple on update
+simple data field.
+Ich
+Ich glaube
+das
+funktioniert mit einem simple data
+field nicht.
+Wobei direct known
+subclasses. Das muss
+also auch in dem simple
+data field
+funktionieren.
+Ja.
+Keine Ahnung.
+Ähm.
+Mir fällt jetzt gar nichts anderes
+ein als
+nochmal eine neue App zu
+erstellen.
+Ah ne. Das geht ja nur mit code.
+Und einfach data field auszuwählen.
+New project.
+Ah.
+Five head.
+Data field
+complex data field.
+Und nehmen wir wieder die
+aktuelle API.
+Edge. Ok.
+Und das ganze kommt
+hier rein.
+Project 2. Gut.
+Das kann sich mal wieder verpissen.
+So.
+Sources.
+Five head view. On layout.
+Compute. On update.
+Hier haben wir jetzt ne on update.
+Ja. Also anscheinend
+muss man das wirklich im
+muss das wirklich in normales data field.
+Aber das ist doof, dass das nicht mit nem
+mit nem simple
+data field geht. Gut.
+Wie auch immer. Bild.
+Äh.
+Habe ich da irgendwo ausversehen ne 5 grad
+reingepastet oder so?
+What?
+Oh nein.
+Der unterstützt five head nicht.
+Die Dinger dürfen nicht mit 5.
+Die dürfen keine Zahlen drin haben.
+Ok.
+Ähm.
+Five head heißt es dann jetzt halt.
+Hehehe.
+Oh Mann.
+Ok. Bild.
+Bild.
+Ok. Jetzt hat es funktioniert.
+Run.
+In dem Repo. Hat der nen simple data field in seinem Repo?
+Das on update
+funktioniert?
+Was für ein Window Manager? Das ist i3. Ok.
+Das funktioniert schon mal. Also.
+On update.
+Das haben wir vorhin nicht gemacht.
+Daran lag es wahrscheinlich.
+Wir haben nicht das parent
+Wir haben nicht das parent on update
+gecallt. Deswegen ist nix
+passiert. Ok. Wir drawen
+jetzt eine Rectangle.
+Rect.
+Rectangle wird jetzt gedrawt.
+Und zwar sagen wir
+jetzt mal. Hier.
+Wie man das jetzt gescheit macht. Draw.
+Ne. Wie geht das?
+DC. Draw.
+Rectangle.
+Ähm. Moment.
+Leute.
+Woher weiß der überhaupt? Was ist denn
+Value?
+View find drawable by
+ID. Value. What?
+Kann ich sowas?
+Bildet das jetzt?
+Ok.
+Immerhin. Es bildet. Reload.
+Mal gucken ob wir jetzt n Rectangle in irgendeine
+Art. Ich muss ja die Color noch irgendwie
+setzen. Und? Rectangle?
+Nein. Kein Rectangle
+da. Sowas wie DC.
+Set Color. Ok.
+Oh meine Güte ey. Das ist nicht so
+einfach. Graphics.
+Da war doch eben irgendwo ein Beispiel.
+Ja.
+DC. Set Color. Blue
+Black. Ah.
+Fill Rectangle dann.
+Ok. Dann lassen wir die ganzen
+Shit mal weg und machen so wie im Beispiel.
+Bild. Ok.
+Reload. Moment. Der fängt
+schon bei 100 an. Ähm.
+Wir wollen auch bei 0 anfangen. Bei 0
+und dann. Ja aber das scheint
+nicht zu funktionieren. Ah.
+Eine
+Blur Rectangle.
+Nice.
+Warum. Warum ist mein.
+Warum wird das jetzt
+angezeigt?
+Ok. Ok.
+Nice. Nice. Nice. Nice.
+Das ist doch schon mal. Das ist doch schon mal nicht schlecht.
+So. Und
+funzt.
+Funzt das denn auch mit
+dem
+Simple Data Field?
+Source? Data Field?
+Oh mein. Ne. Moment.
+Es wurde ja mit dem Simple Data Field
+nie das Update aufgerufen. Ne. Funktioniert
+nicht.
+Wie wirbst du dich bei Garmin? Ja klar. Ganz bestimmt.
+Warum das Rectangle nicht quadratisch
+ist. Das ist äh.
+Wahrscheinlich. Weil
+das schlicht und ergreifend abgeschnitten ist.
+Weil das nicht so weit. Weil das keine 100
+Pixel hat. Guck mal.
+Probieren wir das mal aus. Machen wir mal 20x20.
+Reloaden.
+Ups. Run.
+Äh. Ok.
+Guck. Jetzt ist es quadratisch.
+Das wurde einfach geklippt unten.
+Was ist das für eine Sprache? Das ist Monkey
+Sea. Das ist irgendwas von.
+Irgendwas eigenes von Garmin.
+Ok. Also mal zurück
+zu der eigentlichen Sache die ich ausprobieren
+wollte.
+Wir wissen jetzt wie wir farbige
+farbige
+Rechtecke malen. Ok.
+Also. Dann.
+Warte mal. Ich mach nochmal ein neues Visual Studio
+Code auf. Und öffne hier mal
+das Data Field. Da können wir uns das nämlich
+abgucken. Hier.
+Heart Rate.
+Heart Rate Zone.
+Ok. Das gibt nen Array.
+Das muss man. Vorher muss man irgendwie
+Using User Profile oder irgendwas.
+User Profile.
+Nein. Das ist. Das ist irgendein.
+Unter der Haube macht der Java
+Zeug. Ich hab keine Ahnung was das
+eigentlich wirklich ist.
+Five Head Background.
+Find ich nen guter Name. Five Head Background.
+Ok.
+So. Jetzt haben wir die Heart Rate.
+Und wie haben die nochmal hier jetzt was.
+Muss ich grad mal checken.
+Oh ne. Ich kann nicht mal weiter zurück.
+No.
+Wie haben die das mit Find Draw. Oh nein.
+Hab ich. Hab ich.
+Ach. Weil ich es geschlossen
+hab. Ah. Ist ja doof.
+Wie haben die das gemacht. Find Draw.
+Und. Und dann irgendwie.
+So. Weil. Weil.
+Von der Idee her. Ich würd jetzt ja gerne.
+Ich würd jetzt ja gerne nochmal nen Text malen.
+So. Das haben die doch irgendwie gemacht.
+Irgendwie View. Find.
+Drawable. By ID.
+Value. Oder. Oder sowas.
+In der Richtung.
+Ich bin mir da nicht mehr sicher. Irgendwie so lief das doch.
+Ne.
+Achso. Permission. Permission.
+User Profile.
+Ah ja.
+Nein.
+Build Project.
+Successful. Nice.
+Okay. View.
+Find Drawable.
+Da muss ich mir die
+Docs angucken. Find Drawable. By ID.
+Ja.
+Find Drawable. By ID. Time Label.
+Set Text.
+Nennen wir es mal. Eval. Set Text.
+Cackle.
+Okay. So. Mal gucken ob das jetzt funzt.
+Error.
+Set Text. Okay.
+Nice. GG Eats.
+Okay. Ich copy paste mir das mal.
+Glaub das besser funktioniert.
+Ah ne. Timestring.
+Set Text. Okay. Das Example
+Sucked. Wie sahen das aus?
+Okay. Chat.
+Wir gucken jetzt einfach mal kurz bei mir ins Stream.
+Ins Watt.
+Da hat mans ja. Da hat mans
+ja eben gesehen.
+Ja. Ja. Da wars doch.
+Was hab ich hier für ein Projekt offen?
+Date is a
+simple data field.
+Hier. Da wars doch. Hier.
+Find Drawable.
+Hier. On Update.
+Ah.
+Value.
+Das hab ich doch. S Text. Aha.
+Da war das doch
+gar nicht so. S.
+Das ist ein Cast oder
+sowas.
+Okay. Bisschen weird champ ist das schon.
+Aber jetzt bildet das.
+Jetzt muss ich. Ich musste doch noch irgendwas
+machen.
+Jetzt muss ich noch sagen. View.
+View on Update
+DC.
+View on
+Update DC.
+Warum man nicht sein Smartphone
+als Fahrradcomputer nimmt.
+Die offensichtlichste Sache ist
+Laufzeit.
+Und Features.
+Aber
+Laufzeit dürfte wahrscheinlich so das Argument
+sein was jedem einleuchtet.
+Mach mal 3 Stunden
+Navigation mit ordentlicher Bildung.
+Bildhelligkeit beim Smartphone.
+Aha.
+Okay. Das ist schon mal dumm.
+Das ist schon mal richtig dumm.
+Wenn ich
+nicht
+nicht zeichnen
+muss ich das
+Moment. Muss ich das vielleicht nacheinander machen?
+Muss ich zuerst das updaten
+und dann hinten dran die
+Rectangle malen.
+Nur mal so.
+Das es auf die Reihenfolge ankommt.
+Kann ja sein.
+Ah. Nice.
+Was warnt er mich denn hier?
+Ach ist not used.
+Bin doch egal.
+System.
+Brindeln.
+Zone.
+So. Wie kriege ich das jetzt hin?
+Also mein Ziel ist.
+Das meine Hardrate da steht.
+Das jetzt nur zum testen.
+Und hier unten ein Rectangle gemalt wird.
+Mit
+der passenden Farbe.
+Eigentlich. Eigentlich will ich
+gar kein Rectangle.
+Ich will eigentlich einmal drum herum
+sowas malen.
+Aber ich meine wir können auch erstmal das
+hier oben
+einfärben dann.
+Was ist das für ein Emulator.
+Das was beim Garmin SDK dabei ist.
+Also. Heißt im Endeffekt auch.
+If.
+Und wie sieht denn das.
+Mal reloaden.
+Chat. Wie funzt denn das jetzt nochmal?
+Konnte man das hier irgendwie splitten?
+Oder so. Das ging doch. Man konnte doch irgendwie
+sagen.
+Man konnte doch irgendwie
+sagen das man.
+Das ist Panel.
+Ich will nämlich beides
+anzeigen. Das ist Monkey
+Sea. Das ist so ein.
+So ein Garmin Ding.
+Oh. Graphics. Color. Black.
+Ne Moment.
+Ist das.
+Set Color. Warum sind
+das zwei? Vordergrund
+und Hintergrund? Oder.
+Oder wie?
+Hä?
+Set Color. Ah ja.
+Foreground. Background. Ok.
+Foreground. Background.
+White.
+Color. White.
+Auf Garmin. Reloade.
+Ok. Das funktioniert.
+Wobei ich.
+Das hier ja gar nicht brauche.
+Das ist schon durchaus ok gewesen.
+Background Color gibt's
+ja. Background Color
+gibt's ja in dem Fall nicht. Wie machen die das
+hier? Value.
+Value.
+Value. Set Color.
+Black. Ok. Also sagen wir hier.
+Value. Set Color.
+So. Dass der Text wenigstens
+auch gescheit aussieht.
+Und jetzt können wir sagen. If.
+Sollen wir mal ausprobieren.
+Ja. Äh. Sieht.
+Sieht auch nicht besser aus. Der Text sieht
+ziemlich. Ziemlich pepega broken aus.
+Hm.
+Moment. Das da oben ist ja nur das
+Label oder?
+Da steht ja gar nicht
+Keckel. Da steht My Value.
+Das ist ja auch verkehrt hier. Oder?
+Value. Set Text.
+Warum halten
+der nix? Warum? Hä?
+Ich mach das doch genauso
+wie die das machen.
+Ahmet. Geh mir nicht auf den Keks.
+Warum sagt. Warum
+setzt der denn das Value nicht?
+Set Color.
+Muss man das jetzt verstehen?
+Set Text.
+Seht ihr irgendwie den.
+Ach. Guck mal hier.
+Find Trouble by ID as Text.
+Set Color. Aha. Ok.
+Das ist ja so.
+Ok. Das ist ja wirklich übelst.
+Moment.
+Ach. Background. Muss man das noch?
+Alter.
+Das muss mal einer checken.
+Ok. Was?
+Background?
+Was haben sie denn sich da
+ausgedacht?
+Ich steig da auch nicht so wirklich durch.
+So. Das ist ja im Prinzip das Kopieren.
+Set Background Color.
+Hehe.
+Get Background Color.
+So.
+Reload.
+Ob das jetzt irgendwas
+gebracht hat?
+Ha?
+Nö.
+Ok. Wir machen.
+Color. Color. Color. Color.
+Color Blue.
+Nicht Blau. Blue.
+Moment. Ob der irgendwas anzeigen kann?
+Ah.
+Background.
+Ja. Deswegen ist es dumm.
+Sowas mit Strings zu machen.
+Oh. Error. Was?
+No Viable Alternative.
+Was?
+Was ist denn jetzt schon wieder das Problem, Mann?
+Aber.
+Ich habe es doch genau so gemacht. View.
+Find Trouble as Text. Set Color.
+Ach. Hier. Da fehlt ein.
+Error. Alter.
+Schnell ab, Mann.
+Ok. Es ist Graphics. Color.
+Build successful.
+Nice. So. Brake.
+Einfach funktionieren.
+Ok.
+Jetzt macht es gar nichts mehr.
+Geil. Top.
+Moment. Der Emulator ist abgekackt.
+Ach.
+Jetzt geht es auf einmal.
+Ok. Leute. Ich check nichts.
+Aber solange es funktioniert,
+soll mir das Recht sein.
+Ok.
+Also. Dann.
+If.
+Jetzt können wir endlich mal ein bisschen Logik bauen.
+Also. If.
+Macht man überhaupt so ein If
+in dieser komischen Sprache?
+Monkey C. If.
+Language Reference.
+If.
+If.
+Ok. Ja. Macht man.
+Also. If.
+Sound.
+K.
+Orph Array.
+Syntax ist so was hier in der Richtung.
+Also.
+So. Moment.
+Wie hat man die Herzfrequenz ausgelesen?
+Info. Current Heartrate.
+Ok. Heartrate.
+Wenn.
+Current Heartrate.
+Kleiner gleich.
+Sagt, wenn ich Mist mache.
+Eh. Kleiner gleich.
+Die erste Zahl ist.
+Dann gibt kein Pattern Matching.
+Ja, das wird mich auch nicht.
+Achso.
+Also wenn das die erste Zahl ist, dann will ich Color.
+Machen wir einfach mal so.
+Color gleich.
+Die Default Color ist einfach Graphics Color Gray.
+Oder Gray.
+Wie schreiben die das?
+Gray.
+Oh Leute, was habe ich da gesehen?
+Triggert.
+Manche bestimmt schon.
+Gray.
+DK Gray?
+LT Gray.
+Light Dark Gray vielleicht?
+Machen wir Light Gray.
+Dark Gray.
+Okay, das ist Default.
+Das brauchen wir nicht, weil es Default mäßig Gray ist.
+Alles klar.
+Also, wenn das kleiner ist, als Heartrate Zone 2, dann wird Color Blue.
+Ja.
+So.
+Else is.
+If.
+Wenn Heartrate kleiner als Zone 2, dann Green.
+Und wenn Heartrate kleiner gleich Zone 3, dann Color Orange.
+So, das reicht jetzt erstmal zum Ausdruck.
+Und ansonsten Else.
+Ah, ne.
+Muss ich schon noch mit dem 11 Else machen, weil den Default Fall habe ich hier oben schon.
+Äh, Moment.
+Ne.
+Äh, ne.
+Else.
+Schon okay.
+Else Rot.
+So.
+Color Red.
+Und dann muss ich hier oben noch was einbauen.
+Das da.
+Ähm.
+0.
+Gray.
+Okay.
+So.
+Äh, Zone 4 gibt es.
+Moment.
+Achso, es gibt ja noch mehr.
+Warte mal.
+0.
+1.
+2.
+3.
+4.
+Moment.
+Es gibt.
+Ach, es gibt da noch 5?
+Ich dachte Garmin hat bloß.
+1.
+1.
+Achso, 5, ja.
+Ja, na gut, passt doch.
+Danach gibt es, danach gibt, danach gibt es, Else, das ist der Else-Zweig, ja, das passt doch.
+Okay, Color.
+Dann hier.
+Hier die Color und für die, und für die Rectangle die Color.
+Bild.
+Error.
+Was ist jetzt schon wieder das Problem?
+Info.
+Äh, was habe ich verkehrt gemacht?
+Moment.
+Ah, äh, Activity Info.
+Das muss ich importieren.
+Oder?
+Tollbox Activity, okay.
+Ah.
+Ne, ist doch.
+Ist doch.
+Was ist das Problem?
+Activity.
+Muss ich sagen, Activity Info?
+Muss ich das so machen?
+Ach man.
+Garmin.
+SDK.
+Ah, okay.
+Aha.
+Aha.
+Activity Get Activity Info ist es in dem Fall.
+Da musst du erst mal drauf kommen.
+Okay, hat funktioniert.
+Was?
+Äh, was?
+Was genau ist jetzt das Problem?
+Okay, wir müssen eine Runde Printline Debugging machen.
+System.
+Print.
+Hardrate.
+Und System Print Zone.
+Oh, Mann, Alter.
+Vielleicht kann Hardrate nicht ausgelesen werden.
+Das könnte natürlich sein.
+Und dass er deswegen.
+Dass er Permissions für Activities braucht.
+Könnte das sein?
+Dass er keine, dass er keine Permissions hat für Activities?
+Das ist null.
+Die Hardrate ist null.
+Okay.
+Permissions.
+Äh, Sensor vielleicht?
+Lass uns mal gucken.
+Was hat das Ding hier für Permissions?
+Permissions.
+Nee, das hat auch nur.
+Es nun Merrick.
+Or duration or String.
+Okay, Activity Info funktioniert schon mal nicht.
+Ach so, vielleicht ist die Hardrate Simulation nicht an.
+Ja, das wird's.
+Wahrscheinlich sein Simulation.
+Wo war das jetzt?
+Ah, das war das Problem.
+Das war nicht an.
+Okay, das müssen wir aber auf jeden Fall bedenken.
+Es müssen wir auf jeden Fall bedenken, was das Null sein kann.
+Weil dann.
+Funktioniert es nicht.
+Wo stand hier was?
+Hardrate works fine steht da.
+First to get.
+You want to check that?
+First to check.
+Ähm, aber die Farbe stimmt nicht.
+Oh, bei oder vielleicht stimmt die Farbe ja doch.
+Ah, jetzt.
+Okay, wir müssen das erst mal checken, ob das Null ist.
+If.
+Ganz einfach.
+If.
+HR Null.
+Ich hoffe, das macht man so.
+Then return.
+Nein.
+Das macht man nicht so.
+Doch, das macht man so.
+Zeile 77.
+Was denn?
+Okay, System.
+Print.
+Print line.
+Die Hardrate.
+Dass ich weiß, was abgeht.
+Und jetzt sagen wir run without debugging.
+Ja, 82.
+Was ist da?
+Ah, Moment, ich habe doppelt if hier stehen.
+Moment, wait a minute.
+Ja.
+Aber es ergibt trotzdem keinen Sinn, warum das.
+Ja doch, 123 ist blue.
+Ne, Moment.
+123.
+Ist.
+124.
+Ist unterhalb von Zone.
+Von Zone 1.
+Okay, da müsste es, dann müsste es Cray sein.
+Okay, das war.
+Das war der Bug.
+Okay, alles gut.
+Restart.
+So, jetzt.
+Ja, ja.
+So, der Typ, der muss mal ein bisschen, ein bisschen schaffen hier.
+Ein bisschen anstrengen.
+Funktioniert.
+So, der müsste jetzt mal ein bisschen höhere Herzfrequenz bekommen.
+Das ist jetzt.
+153 wird er so schnell nicht kriegen.
+Zumindest.
+Zum testen müsste der mal ein bisschen höhere Herzfrequenz bekommen, der Dude.
+Was zum?
+Bin ich hier gelandet?
+Ich wollte wupp wupp wieder anmachen.
+Ah, guck mal.
+131.
+Jetzt wird es, jetzt wird es blau.
+Okay, sehr schön.
+Das funktioniert ja.
+Das ist im Prinzip genau das, was ich haben will.
+Also, ich will jetzt nicht wirklich die Zahlen hier anzeigen.
+Aber ich will eine Rectangle malen.
+Anhand der jeweiligen Herzfrequenz.
+Ne.
+Ne, das ist gut.
+Jetzt hat er 151.
+Moment, 151 ist immer noch hier drunter.
+Der hat ziemlich krasse Herzfrequenzzonen.
+Der Demo-Typ.
+Oh.
+Okay, jetzt können wir mal die Rectangle an irgendeiner sinnvollen Stelle positionieren.
+Ich würde, ich würde ja gerne,
+ehrlich gesagt,
+einfach nur einen Streifen malen.
+Ich würde ja am liebsten
+einen Streifen.
+Ich will ja nicht einfach da oben sowas.
+Einen Streifen, ja.
+Einen Streifen sollte ja reichen.
+Also mal Fill Rectangle.
+Am besten unten.
+Unten oder oben.
+Oben ist halt am einfachsten.
+Ach guck mal, jetzt wirds grün.
+Jetzt wirds grün.
+Es funktioniert alles.
+Okay, nice. Das finde ich cool.
+Also am besten wäre natürlich, wenn er
+unten, oben, links, rechts.
+Keine Ahnung, wo da das beste ist.
+Wir machen es oben.
+Oben dürfte es am einfachsten sein.
+Ein grüner Strich.
+Okay, was ist was?
+Fill Rectangle ist
+Referenz von
+Ja.
+Breite, Höhe.
+Okay, also
+Höhe, sagen wir mal 4 Pixel.
+Breite.
+Es wäre cool, wenn man irgendwie relative Einheiten
+machen könnte, aber kann man anscheinend nicht.
+Okay, 4 Pixel, Höhe
+und irgendwie, keine Ahnung, 2000
+Pixel wide. Das sollte glaube ich
+reichen. Das wird dann zwar abgeschnitten, aber
+das macht ja nichts. Das will ich ja.
+Ja. Sehr schön, sehr schön.
+Jetzt wird oben
+in dem jeweiligen Data Field
+eine Linie angezeigt,
+die die
+Herzfrequenz
+quasi
+symbolisiert.
+Ich brauche ja gar kein
+Label, wo das angezeigt
+wird.
+Je nachdem, wenn sich das
+ändert. Machen wir nochmal
+eine andere Herzfrequenz. Ja genau, 133.
+Dann wird das
+blau oder grau oder sonst was.
+Das finde ich eigentlich gar nicht so
+schlecht, weil ich will ja ein paar, ich will ja
+ein bisschen mehr Werte anzeigen können
+und die Pulsfrequenz, die brauche ich
+nicht unbedingt direkt
+als Zahl. Die reicht eigentlich
+als Strich. Und jetzt
+müssen wir das irgendwie Layout mäßig
+so machen, dass ich drei
+da müssen wir uns Layouts
+angucken, dass ich quasi das hier dreifach
+gleichmäßig unter
+unterteilt bekomme.
+Da müssen wir mal
+in den Guide gucken.
+Layout
+Set Layout
+Main Layout
+Was passiert
+hier?
+On Layout
+Compute
+On Layout
+Set Layout
+Top Left Layout
+Top Right
+Ah, Moment.
+Ne, das ist nicht mein Layout.
+Das ist, ich kann
+mein, ich kann das anpassen
+je nachdem, was der Typ
+was der User für Layouts ausgewählt
+hat. Ey, das sind die
+Default Garmin Farben.
+So.
+Mit der Devicebreite, ja, aber da muss ich das selbst
+ausrechnen. Das ist doch blöd.
+Es wäre doch viel besser, wenn es was Fertiges gibt.
+Aktuell
+interessiert sich
+das ist jetzt erstmal
+nicht so, nicht so wild.
+Ich will
+ein Layout haben, innerhalb
+von meinem Data Field.
+Ich will, ich will quasi so eine Art Grid
+haben.
+Falls es sowas gibt.
+Gibt es ein Grid?
+Max, wie war das mit den Demo?
+Wo war das Demo Repo?
+Das geht bestimmt.
+Das geht bestimmt. Man muss nur wissen,
+nach was man sucht. Also Layout
+ist auf jeden Fall schonmal falsch. Irgendwas
+mit Box vielleicht?
+Bauen Ding Box.
+Check Box Menü.
+Data Field.
+Warte hier. On Update
+Clear Clip.
+Was auch immer.
+Was da geklippt wird.
+Ey, der Typ hat ja richtig krass viele, viele
+Beispiele. Aber wie man
+wie man da irgendwelche
+Trouble, wie man da irgendwelche Layouts macht.
+Auch nicht, ne?
+Ich mein natürlich kann ich das, kann ich das selbst
+irgendwie ausrechnen. So
+Devicebreite durch 3
+oder sowas. Okay.
+Wie kriege ich, wie kriege ich die Breite
+von dem Device
+raus?
+Get Text? Get Width?
+Okay. Ja.
+DC Get Width.
+Gucken wir uns das mal an.
+DC. Schauen
+wir mal.
+Was das, was das sagt.
+Was das ausgibt.
+Achso, das da.
+246.
+So, also da könnte ich
+natürlich schon sagen.
+With.
+Man könnte das quasi durch 3 teilen,
+wenn ich 3 Sachen anzeigen möchte.
+Ja und dann, dann hat man
+irgendwie Cell Width oder sowas.
+Und dann habe ich
+für, dann weiß ich
+wo die Begrenzung ist.
+Das erste ist
+0 bis.
+Das nächste ist
+ja, das plus das.
+Und beim nächsten ist Schluss bei
+Breite. Breite minus Width.
+Ja, das könnte man machen. Da könnte man
+quasi anhand dessen ausrechnen,
+wo man was hinmalen
+möchte. Das können wir jetzt ja mal
+kurz ausprobieren, ob das funktioniert.
+Also.
+Ja, das
+funktioniert aber so schon mal nicht.
+Weil der hier irgendwelche festen
+Labels setzt.
+Das ist halt, zack.
+Ne, wo hier?
+Wo setzt, wo setzt
+der überhaupt hier die Sache mit dem? Ach hier
+Value. View Value.
+Wo hat er das
+überhaupt her?
+Kann es sein, dass es schlicht und ergreifend
+jedes Data Field
+sowas bekommt?
+Ohne, dass man das
+selbst einfügen muss? Wahrscheinlich.
+Wahrscheinlich hat jedes Data Field
+einmal Label und einmal
+Text. Das
+doofe ist, das kann ich jetzt ja gar nicht verwenden.
+Wobei doch, guck mal.
+Ich kann, aber
+ich brauche ja mehrere Values. Das funktioniert
+schon mal nicht. Ich glaube, ich muss das
+komplett selbst malen.
+Keine Chance. Also eigentlich
+bringt mir das hier gar nichts.
+Das Zeug. Das kann ich
+theoretisch komplett
+Cu
+M Value. Benutzt das doch
+irgendwo was? Kann man hier
+irgendwas machen? Was gibt
+es denn? Moment, guck mal. Data Field
+Data Field
+Es geht ja aktuell ums
+Display. Was hat denn das für
+Methoden?
+Dude Master, danke schön für den Sub.
+Compute Create Field
+Aha.
+Create a
+New Custom Fit Field.
+What?
+Ok.
+Ich probiere das jetzt einfach mal aus.
+Data Field
+Create Field
+Name
+Ah, hier kann ich
+Ok. Name. Bloop.
+Field ID. Ja.
+Keine Ahnung. 2.
+Type. Man weiß es nicht.
+Create Field
+Unique Field Identifier.
+Ok. Komm. 69.
+Der ist bestimmt noch frei. Type.
+Data Type.
+Wir machen mal Data Type String.
+Data Type String und
+Options. Gibt es noch was? Count.
+Message Type.
+Das ist Optional.
+Optional kommt weg. Bam.
+Error.
+No Viable Alternative
+Add Input Data Field
+Create. Ok.
+Es ist Optional, aber ich muss trotzdem
+irgendwas eingeben.
+Also
+Äh.
+0?
+Wenn es Optional ist.
+1? Hä?
+Alter.
+Das wird zu Six Head, Alter.
+Der Kram. Garmin.
+Haben wir da nicht irgendwie ein Beispiel?
+Hat der Typ in GitHub, hier in diesem
+GitHub Repo. Ich bin
+keine Ahnung, wie das funktioniert.
+What the f...
+Permission Fit Contributor?
+Ich bin mir
+nicht sicher, ob das wirklich das ist, was ich
+haben will. Moment.
+Das ist ein Data Field für Garmin Connect.
+Das ist
+was ganz anderes.
+Moment. Das ist für die Zusammenarbeit
+mit der Mobile App.
+Ne. Das ist gar nicht das, was ich haben will.
+Ok. Das ist
+falsch. Also
+die Docs sind auch nicht so
+Aussage
+kräftig.
+Create a new Fit Field.
+Field records
+custom fit data
+to a fit file on a device
+Ok. Das ist auf jeden Fall nicht
+das, was ich haben will. Das ist
+pp egal.
+Nein, nein, nein. Das brauchen wir nicht. Ok. Dann
+zurück zum eigentlichen Plan.
+Das da kommt alles weg.
+So.
+Und im Endeffekt
+Was ist denn hier? Warum ist
+das rot?
+Weil der das nicht gecheckt hat.
+So.
+Heißt im Endeffekt
+aber auch
+Ich muss das wirklich
+Ich muss das wirklich selbst berechnen.
+Das heißt ich kann mir das hier
+komplett sparen und muss das alles
+selbst malen.
+Draw text.
+Dachte ich mir, dass das so heißt. So.
+Ok. Das ist jetzt natürlich was, wo ich
+gar keinen Plan habe, wie man das
+gescheit macht.
+Ok. Oben an der linken Ecke
+Ne.
+An sechster
+Moment. Links
+Von oben
+So.
+Font
+Ja. Aber die haben bestimmt ein Beispiel
+für.
+Nö. Natürlich nicht. Font.
+Graphics font type. The font to use.
+Graphics font
+Font
+Font
+Fonts
+Oh no.
+Gibt es da nicht. Da muss es doch schon
+irgendwie ein Default Font geben oder?
+Hier. Font.
+Font small. Font large.
+Font medium.
+Ich hoffe das tut so. Ok.
+Text. Blub.
+Justification.
+Graphics.
+Text.
+Justify.
+Left.
+Das funktioniert doch jetzt im Leben so nicht.
+Der meckert doch wieder rum, dass ich irgendwas
+verkehrt gemacht
+habe. Und. Error.
+Cannot find Symbol Fonts.
+Vielleicht ist es einfach Fonts Medium.
+Graphics Fonts Medium.
+Hey. Es hat funktioniert.
+Bam. Vielleicht sollte ich noch die
+Color vielleicht mal ändern. So.
+Ne.
+Es hat funktioniert Leute.
+Er hat Blub gedroht.
+So. Wir sollten das hier noch ändern.
+Color Black.
+Graphics Color.
+So.
+Ja. Nice. Das funktioniert.
+Wir lassen es vielleicht noch.
+Komm. Wir lassen es mal noch ein bisschen weiter
+unten anfangen. Das sieht sonst ziemlich
+beschissen aus.
+Hängt so an dem Strich dran.
+Ja. Ja. Sieht gar nicht mal so übel aus.
+Oder? Boah. Mein Arsch läuft.
+So.
+Rectangle. Malen
+wir jetzt eine neue.
+Wir müssen das jetzt
+aufsplitten. Das Ding. In drei
+Unterfelder.
+Unterfelder. Also.
+Wir malen den Text.
+Jetzt malen wir eine Rectangle.
+Von links.
+Ab 10 sagen wir mal.
+Ja. Höhe.
+Polle. Pulle.
+Und
+Breite. Machen wir mal
+2. Das sollte reichen.
+Moment. Ne. Ne. Ne.
+Nicht X0.
+X. X. Hier.
+Ne. Wie habe ich nicht. Cell. With.
+Da will ich das malen.
+Ja. Das ist nur ein Simulator.
+Das ist nicht das echte Gerät.
+Das hat mit dem echten Gerät wahrscheinlich gar nichts zu tun.
+So. Jetzt sollten wir
+hier irgendwie so in der Mitte. Ja. Okay.
+Schon mal nicht schlecht.
+Warum auch
+immer. Ach so. Moment.
+Das ist der Text wo wir das anfangen.
+Viertens kannst du. Kann das anfangen.
+So. Das ist schon mal gar nicht so
+schlecht. Die Feldhöhe.
+Ja.
+So. Das nächste ist.
+So. Und das. Das reicht dann
+eigentlich.
+Jetzt müsste das. Jetzt müsste das passen.
+Wir können auch Cell. With. Mal 2
+machen. Das ist dann vielleicht schöner an der Stelle.
+Ja.
+Ja gut. Das klappt doch schon mal
+ganz gut.
+Mal gucken wie man das hier vielleicht zentriert oder so.
+Arrow Child. Danke für den Sub.
+Was die App kann.
+Kann dir einen Strich anzeigen für deine
+Herzfrequenz und 3 Werte anstatt
+wie Garmin standardmäßig 2.
+An der Stelle.
+So. Das ist doch schon mal
+ganz ganz nice. Oder?
+Jetzt wirds. Jetzt wirds
+kompliziert Leute. Also.
+Ich könnte wetten. Es gibt
+für sowas schon fertige Layouts
+die ich innerhalb von dem
+Datafield benutzen kann. Es wäre
+weirdchampig wenn nicht.
+Aber mal davon abgesehen. Wir können das
+ja auch mal selbst zentrieren.
+Ich weiß nicht ob da so spät noch meine
+meine Hirnzellen für
+reichen. Also wir zentrieren das erstmal
+vertikal. Das heißt
+wir brauchen tatsächlich
+die Device Höhe.
+Get.
+Ja.
+Äh nicht die Device Höhe. Die
+Feld. Die Feldhöhe.
+Brauchen wir. Das Ding bei Text
+ist. Man muss jetzt erstmal wissen
+wie hoch was ist.
+Gibt es Get High
+für Text? Gibt es sowas hier in der Richtung?
+Also ich muss ja.
+Ich muss dem ja sagen. Ich muss
+jetzt checken wie hoch der
+Get High. Ah ne Moment. Äh.
+Nudel mit Lachs. Der
+kommt immer rechts oben her. Kommt übers
+ganze Device. Weil ihr werdet gleich sehen
+das funktioniert sonst nicht.
+Das funktioniert
+nicht. Ich hab zwar die Höhe. Aber wenn
+ich jetzt sage zum Beispiel.
+Sagen wir mal die. Ich will
+den Text malen. Angefangen
+von
+also ich von
+Device Höhe
+durch 2. So.
+Das kommt ungefähr hin. Aber
+nicht so richtig.
+Ihr werdet sehen der Text ist ein bisschen unter
+unterhalb der Mitte. Weil ich
+muss die Mitte vom Text
+eigentlich noch dazu rechnen.
+Guckt. Es ist
+halbwegs zentriert. Aber die Mitte
+vom Text. Also ich müsste mir ausgeben
+lassen können. Wie hoch der Text
+ist. Davon die Mitte nehmen.
+Und hier nochmal drauf rechnen.
+Dann wäre da. Also
+Minus. Abziehen müsste ich das. Oder?
+Ne. Drauf rechnen.
+Also ich müsste plus.
+Das hier.
+Plus. Ja. Ich weiß nicht
+wie hoch der Text ist. Das heißt wie kriegt man.
+Wie kriegt man. Ne 3 in Error
+bringt dir nix in dem Fall.
+Weil du hast ja unterschiedliche
+Device Höhe.
+Get Text with in Pixel.
+Haben wir auch sowas wie
+Get Text
+Hier.
+Dimensions.
+Ja. Ja.
+Text Dimensions. Genau das brauche ich.
+Get Text
+Dimensions. Und
+von wo? Von DC?
+Wo
+aus? System.
+Rindeln.
+DC. Get
+Get Text Dimensions.
+Und dann.
+Ok. String.
+Und Font.
+Nicht Font.
+Ist ja kein
+Stonks. Ok.
+Nice. Jetzt bin ich mal
+gespannt. Da was sinnvolles
+bei rauskommt. Ja.
+Passt.
+Das ist die Höhe. 19.
+Also. Wir brauchen
+Text Dimension.
+Text Dimension. So.
+Plus.
+Das zweite ist die Höhe.
+Und das auch nochmal durch
+2. So. Und jetzt
+sollte der Text.
+Ich hoffe das rundet automatisch für
+mich. Das ich da nix machen muss.
+Zum nächsten Pixel.
+Weil halbe Pixel gibt es halt nicht.
+So. Und jetzt sollte der Text
+genau zentriert sein.
+Ne.
+Chatge
+habe ich irgendwie.
+Moment. Ich will Minus.
+Minus. Nicht Plus.
+Minus. Ja. Fast.
+Hier. Perfection.
+Das sieht übrigens
+falsch aus. Es ist aber nicht falsch.
+Wir müssen am Ende noch
+die 4 Pixel für den grünen Strich
+oben drauf rechnen.
+Plus. Hier.
+Und dann ist es
+Top.
+Top aligned.
+Also. Perfekt aligned.
+Ja. Zack. Exakt.
+In der Mitte.
+So muss das sein.
+Ne. So.
+Und jetzt kommt das nächste.
+Wie kriegen wir das ganze?
+Horizontal aligned.
+Das müsste ja von der Idee her ähnlich
+sein. Oder?
+Das scheint aber the way
+zu sein. Ja.
+Draw line. Font.
+Top row. Bottom row.
+Ja. Ja.
+Im Prinzip macht der das ähnlich. Ne.
+Ah. Moment.
+Der macht Text aligned. Center.
+Ja. Das ist natürlich
+Three hat, dass ich das
+nicht mache. Da kann ich mir das
+Zentrieren sparen.
+Moment. Text aligned.
+Text. Justify.
+Center. Moment. V center
+gibt es auch?
+Habe ich das richtig gesehen? Ah. Ich habe nicht gebildet.
+Bild.
+Jetzt ist es broken.
+Ich glaube mein. Ah. Ne. Doch.
+Jetzt geht er.
+Ja. Das funktioniert ja nicht.
+Weil.
+Ich muss doch manuell centern.
+Weil der aligned ist ja
+an der gesamten Breite.
+Der weiß ja von meinen.
+Der weiß ja von meinen Feldern nichts.
+Und der macht es
+in rows. Ne. Ne. Ne.
+Justify left.
+Also müssen wir es doch
+von Hand machen.
+Also.
+Die Breite durch zwei.
+Minus.
+Minus.
+Text dimension
+null durch zwei.
+So. Ist es jetzt. Leute was meint ihr?
+Klappt es jetzt?
+Ist es jetzt horizontal aligned?
+Es ist nicht an der Stelle wo es
+sein soll.
+Weil ich.
+Ach so. Ja. Weil die erste.
+Also es ist fast richtig.
+Es ist. Es ist fast richtig.
+Es muss.
+Oh shit.
+Moment. Moment.
+Es ist ja auch width. Ist ja auch falsch.
+Es muss ja auch sell.
+Sell width durch zwei sein.
+Aber man sieht das das
+Zentrieren prinzipiell funktioniert.
+Ja. Hä?
+Das ist nice.
+Schön gesentert hier.
+Wir tun jetzt einfach mal so.
+Als wäre das jetzt hier die Uhrzeit.
+So.
+Fake Uhrzeit.
+Wobei. Wie kriegt man denn die Uhrzeit überhaupt?
+Time.
+Oder Clock.
+Get clock time.
+Get the current clock time.
+Okay.
+Garmin.
+System. Get clock time.
+Ach hier. Da kann man das Format.
+Naja. Das machen wir jetzt nicht.
+Wir machen jetzt erstmal fake Daten rein.
+Äh. Wait a minute.
+Sollte da jetzt nicht.
+Zehn. Fünf.
+Au. Au. Au. Au. Au.
+Moment Leute.
+Das ist richtig.
+PPGaTime.
+N45.
+Wie? Schwer kann sowas für eine Honor
+Smartwatch sein. Das ist Android oder?
+Wahrscheinlich.
+Wahrscheinlich.
+Bei komplexen Sachen einfacher.
+Bei einfachen Sachen schwieriger.
+Weil du erst noch eine Android App bauen musst dafür.
+Das ist cool.
+Das ist nice. Das gefällt mir. Das ist tatsächlich relativ easy.
+So.
+Bei dem ersten zeigen wir die Uhrzeit an.
+Bei dem zweiten.
+Ich meine ich zeige jetzt irgendwelche Fake Werte an.
+So. Bei dem zweiten zeige ich.
+Keine Ahnung.
+Prozent der Steigung an.
+Oder irgendwie sowas.
+Wir müssen eine Schleife über einen Array machen.
+Wie macht man.
+Okay. Okay.
+Monkey C.
+For each.
+Kann das sowas?
+Loop.
+0++ und so.
+Loop.
+While.
+For each gibt es nicht oder?
+Äh.
+For each ist outdated.
+Overrated.
+Das möchte er nicht.
+Wir wollen ja 3
+Datenfelder haben.
+So. For each.
+So. Machen wir mal hier.
+Ähm.
+Ich hoffe man macht das so.
+Also.
+Values.
+10 Uhr 45.
+15% Steigung.
+Und. Tja.
+Speed. Speed. Keine Ahnung.
+24,5.
+Weiß gar nicht.
+Wie zeigt ein Garmin standardmäßig den Speed an?
+Ja.
+KMH so untereinander.
+Nee das ist gar nicht Garmin.
+Doch hier. Ja.
+Gucken.
+Die haben bestimmt irgendeinen Unit Helper.
+Die haben bestimmt irgendeinen Unit.
+Unit Helper für sowas.
+Machen wir das einfach mal so.
+Values. So. Values. Size.
+War. Value. Gleich.
+Values. Äh.
+I. So jetzt müssen wir das nämlich
+hier irgendwie mal reinpacken.
+Sonst wird das zu
+zu pepega.
+Also. Okay.
+Value.
+Jetzt mal gucken ob das prinzipiell funktioniert
+noch was ich hier baue.
+Build. Error.
+Miss. Was?
+Input for. Expecting.
+What?
+Alter ich hab das legit 1 zu 1.
+Achso. Okay ich hab nix gesagt.
+Das ist einfach nur pepega
+Fehlermeldung.
+Ups.
+Okay es funktioniert. Natürlich sind
+die Felder noch nicht an der richtigen Stelle.
+Das müssen wir jetzt ausrechnen.
+Das müssen wir jetzt
+ausrechnen. Also.
+Chatgear. Da müsst ihr mir mal mit eurem
+Five Header Chat
+Schwarmintelligenz helfen.
+Wie rechnen wir jetzt das passende
+Die passende
+Position aus für den
+Also. Das hier bleibt immer
+gleich.
+Die vertikale Zentrierung.
+Das ist easy.
+Das können wir so lassen. Aber das hier ist
+tatsächlich ein bisschen komplizierter.
+Also.
+Es ist
+Cell width
+Mal I
+Oder?
+Also das erste ist dann halt
+Das erste ist dann halt 0 durch
+2 ist 0.
+Das ist nicht so ganz richtig.
+Aber wir können ja mal prinzipiell
+gucken ob es dann für die anderen funktionieren
+würde.
+Beim ersten hat er wahrscheinlich noch ein paar Probleme.
+Äh. Ne.
+Pepega
+Five Heads Low IQ Time.
+Leute was ist hier verkehrt?
+Achso. Moment.
+Ich weiß was verkehrt ist.
+Wir machen I gleich 1.
+Values
+Minus 1.
+Mir fällt gerade nichts anderes ein.
+Jetzt müsste es doch passen. Oder?
+Das geht 1.
+Dann die Hälfte von
+Pass auf. Pass auf. Und und
+Ne.
+Ok. Da bin ich eindeutig
+zu dumm jetzt gerade für.
+Die erste. Das erste stimmt.
+Ah. Ich weiß was das Problem ist.
+Plus
+Ah. Plus
+Das muss nicht mal
+Sell with. Es muss mal
+Sell with plus
+Sell with sein. Oder?
+Oh Mann. Jetzt playen
+ich mal durch. So.
+Ich hasse solche Sachen Mann.
+Ja. Ne.
+Oh wie ich solche Alignment Sachen
+hasse ey. Da dreh ich immer durch bei.
+Kennt ihr
+Chasm Workspaces?
+I wieder 0.
+Ok. Try and Error
+Time.
+Ne. Ich glaub meine Logik ist noch nicht so
+ganz ähm
+ausgereift.
+Das durch 2 ist das Problem.
+Warte mal.
+Ja. Tatsächlich.
+Das durch 2
+ist. Ok.
+Jaja. Jaja. Moment. Es ist immer.
+Moment. Es ist immer
+Sell with durch 2.
+Ne. Moment Leute. Es ist immer
+Sell with durch 2.
+Weil die Dinger sind immer gleich breit.
+Und ich möchte es immer.
+Sell with durch 2 ist immer die Mitte.
+Ja. Also. Also
+das hier
+für sich genommen
+ist schon mal richtig.
+Das hier ist immer die Mitte
+minus
+der Text.
+Allerdings ist nur
+die Frage wo er anfängt.
+Und eigentlich müsste es
+wahrscheinlich. Ja.
+Müsste Sell with dann pro
+Schleifen durch. Also pro
+Schleifendurchlauf 1 hochgehen.
+Das passt jetzt noch nicht genau.
+Aber es sollte für
+1 und 2 passen.
+Ja.
+Das ist schon mal gut.
+Das ist schon mal gut.
+Und jetzt
+mal i.
+Das funktioniert beim ersten nicht.
+Aber danach.
+Jetzt haben wir es irgendwie.
+Jetzt haben wir es irgendwie zerstört.
+Easy as fuck.
+Easy. Easy.
+Easy. Easy.
+Easy. Easy.
+Okay.
+Einmal ordentlich drüber nachgedacht und schon
+funktioniert es.
+Das finde ich sehr gut.
+Excellent ist das.
+Excellent.
+Exquisite.
+Five hat time.
+Ja. Das ist doch schon mal
+nice oder?
+Morgen muss ich mir angucken wie ich das
+sideloaded bekomme auf meinen Fahrradcomputer.
+Kann es bestimmt per USB
+anschließen das Ding und drauf sideloaden. Ohne.
+Ohne Connect IQ Store
+oder sonst was.
+Das finde ich. Das finde ich sehr, sehr nice.
+Hm. Natürlich ist hier
+gerade nichts dynamisch dran.
+Das ist ja klar.
+Tatsächliche Werte anzeigen.
+Ja.
+Können wir machen. Also.
+Nehmen wir mal beispielsweise hier die
+die Steigung
+die man gerade unterwegs ist.
+Wie great. Ne weiß ich gar nicht
+wie man das rauskriegt.
+Ja oder.
+Elevation. Wie schreibt man
+Elevation?
+Oh.
+Methods.
+Elevation. Great.
+Oh.
+Da ist halt die Frage wie man das
+auswertet.
+Get Elevation
+History. Ne das will ich nicht.
+Ich will eigentlich Sensor.
+Hier Sensor. Was haben wir denn da?
+Sensor Info.
+Ne Altitude
+müsste es dann wenn schon sein.
+Altitude.
+Ok.
+Hm.
+Also sofern ich diese
+Garmin Dinger irgendwie gecheckt habe.
+Da müsste es quasi sowas sein
+wie. Ja sowas wie
+Sensor.
+Ne. Get
+Bin ich verwirrt? Was?
+Sensor Info.
+On Sensor. What?
+Ok. Sensor Get Info.
+Ist es dann. Get Info.
+Also wenn ich die
+Garmin Sachen irgendwie halbwegs gecheckt
+habe. Sensor. Get Info.
+Und jetzt.
+Altitude.
+Wahrscheinlich brauche ich noch Permissions dafür.
+Ja.
+Permission Sensor.
+Ja. Dachte ich mir.
+Sensor.
+Ja. Save.
+Nein nein nein nein. Build.
+Successful. Jawoll.
+Reload.
+Guck mal. Vielleicht. Vielleicht.
+Vielleicht reicht das ja schon.
+Oh no. Get Info not
+available to data fields.
+Ok.
+Dann muss man das irgendwie anders
+auswählen.
+Ich meine. Die echten
+Werte anzeigen ist ja
+nur noch eine Formsache
+mit dem man raus bekommt wo man die
+herkriegt. Ja.
+Also anscheinend geht das so in einem
+Data Field schon mal nicht.
+Wie kriegt man sonst noch die Höhe?
+Activity Info.
+Ja.
+Das ist doch gut. Die haben wir doch schon.
+Die haben wir doch schon.
+Activity Info.
+Ja.
+Ja. Dann machen wir das mal anders hier.
+Activity Info.
+Heart Rate.
+Current Heart Rate.
+Haben wir das da weg?
+Ah.
+Alt.
+So. Genau.
+Und jetzt.
+Wenn ich hier irgendwo was vergessen habe.
+Ein Build
+Successful.
+Jetzt sollte das funktionieren.
+Sofern er nicht wieder irgendwas zu meckern hat.
+Gucken wir mal.
+Ob er abkackt oder nicht.
+Moment.
+Habe ich noch Get Info irgendwo drin?
+Ach fast.
+By the way.
+Warum bricht immer das Run
+ab?
+Oder nicht immer. Manchmal.
+So. Brage.
+Was?
+Expected String. Given Float.
+Okay.
+Ähm.
+Wie caste ich
+nen Float zu nem String?
+S String?
+Fragezeichen.
+Okay. Anscheinend.
+Ja.
+Das geht aber wahrscheinlich so netter.
+Und?
+Hahaha.
+Expected String. Given Float.
+Wie jetzt?
+Das ist Monkey C.
+Das eigene von Garmin.
+Okay. Garmin SDK.
+Float to String.
+Float.
+To String. Moment.
+Float.
+Format.
+Prozent.
+Okay.
+Format.
+Prozent.
+Prozent D.
+Vielleicht. Ja. Ja.
+Okay.
+Moment.
+Okay.
+War ein bisschen zu naheliegend.
+Was?
+Heiz. Moment.
+So nicht. Run.
+Ja.
+Wir sind auf Tau 1079 Meter.
+Leute.
+Falls ihr das noch nicht wusstet.
+Das ist nice. Also. Chat.
+Was sagt ihr?
+Für die allerersten Gehversuche mit dem Garmin SDK gar nicht mal schlecht.
+Und ich muss sagen.
+brauchbaren Emulator.
+Die Sprache ist jetzt vielleicht nicht unbedingt
+mein Favorit, aber
+geht irgendwie auch
+noch ganz gut klar.
+Oh, das können wir alles löschen.
+Das werden wir eh nicht verwenden.
+Also das... Ich dachte auch
+nicht, dass wir das alles so heute hinkriegen.
+Vollkommen fein, oder?
+Mit C++ wäre das
+deutlich ätzender gewesen.
+So viel kann ich schon mal sagen.
+Ja, die Dokumente sind nicht so geil,
+aber immerhin. Ich meine, man
+kommt halbwegs durch.
+Ich denke, das kann man so lassen.
+Ich werde das mal morgen
+Just for Fun sideloaden auf
+meinen Fahrradcomputer. Vielleicht machen wir
+das auch im Stream. Und dann gucken wir
+das uns mal mit echten Werten an.
+Allerdings ohne, dass ich meine GPS-Position
+leake.
+Aber schon mal praktisch.
+Gefällt mir echt gut.
+Jetzt müssen wir nur noch gucken.
+Das machen wir aber nicht heute.
+Unit.
+Hier.
+Distance-Unit.
+Weil
+dieses Kilometer pro Stunde,
+diese...
+Was ist denn eine Complication?
+Kann mir das irgendjemand erklären?
+Subscribe and publish
+to Complication.
+Weil
+man braucht ja garantiert...
+Also es muss irgendwo den Unit-Text
+und so zum Malen geben.
+Das kann nicht sein,
+dass man das selbst machen muss.
+Also ein Widget.
+Okay.
+Weil guckt,
+wie das hier Garmin malt,
+die schreiben hier KMH so.
+Und das gibt es doch garantiert
+schon fertig.
+Als
+so irgendwie
+drawable.
+Da muss man mal gucken hier.
+Text, da kann man garantiert
+irgendeine Unit
+direkt
+drawen lassen.
+Das muss bestimmt nicht jeder Data-Fielder
+entwickler.
+Denn eigene, eigene Einheiten malen.
+Gibt es bestimmt schon irgendwas Fertiges.
+Okay.
+Schön, dass ihr dabei wart.
+Reicht für heute.
+Wir haben wirklich was auf die Reihe gekriegt.
+Ich bin begeistert.
+Das ging, das ging wirklich ernsthaft jetzt deutlich angenehmer, als ich mir das gedacht
+habe.
+Guck mal und sogar, sogar die Puls-Anzeige funktioniert.
+Ich werde jetzt nicht mehr so viel reden.
+Ich werde jetzt pennen gehen.
+Bett getimed.
+Boomer müde, Boomer schlafen.
+Bis die Tage, Leute.
+Macht's gut.
+Bis denn.
+Cu.
+Ja, mal wieder endlich, endlich mal Proggas Bastel streamen.
+Bis denn.
+Macht's gut.
+Cu.

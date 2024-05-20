@@ -1,0 +1,10204 @@
+WEBVTT
+
+01:02.320 --> 01:03.500
+So, da bin ich wieder.
+
+01:07.040 --> 01:08.540
+Wir probieren heute mal was aus.
+
+01:10.860 --> 01:12.060
+Gucken, ob das taugt.
+
+01:12.880 --> 01:20.540
+Und gucken, ob das ohne irgendwie App Store Registrierung oder hast du nicht gesehen, funktioniert.
+
+01:20.960 --> 01:22.720
+Ich habe noch keine große Ahnung.
+
+01:22.720 --> 01:28.560
+Ich habe nur vorhin gesehen, dass die ein öffentlich verfügbares SDK haben.
+
+01:29.100 --> 01:34.780
+Für Garmin-Uren und für die Garmin-Fitness-Uhren und für die Fahrradcomputer und sowas.
+
+01:34.780 --> 01:43.580
+Und ich bin ja gestern eine Runde Fahrrad gefahren und ich habe mir gedacht, so eine Sache wäre cool.
+
+01:43.700 --> 01:46.480
+Und dann gucken wir mal, ob ich sowas selbst programmieren kann.
+
+01:50.400 --> 01:52.820
+Mal schauen, wie das funktioniert. Ich bin mal gespannt.
+
+01:58.420 --> 01:58.920
+Mon KS.
+
+02:03.410 --> 02:06.050
+Wir machen schon mal die VM an.
+
+02:06.410 --> 02:08.650
+Ist Twitch richtig gecheckt, dass der Stream online ist?
+
+02:09.510 --> 02:11.250
+Aktuell, weiß ich nicht, neun Leute.
+
+02:11.250 --> 02:13.410
+Da hat Twitch auf jeden Fall noch keine Notifications.
+
+02:13.450 --> 02:15.450
+Wir machen mal den Stream an.
+
+02:15.450 --> 02:20.450
+Arch, by the way, erst mal eine Runde Package-Updates und dann gucken wir mal.
+
+02:20.450 --> 02:23.960
+SebiDev, moin.
+
+02:23.960 --> 02:27.960
+Ich glaube, jetzt hat Twitch kapiert, dass der Stream online ist.
+
+02:27.960 --> 02:36.320
+Kernel-Update dabei.
+
+02:36.320 --> 02:38.320
+Ah, dann können wir es so lassen.
+
+02:38.320 --> 02:49.630
+Moment, das muss ein bisschen advanceder sein.
+
+02:49.630 --> 03:06.320
+Was wir machen, ist folgendes.
+
+03:06.320 --> 03:08.320
+Zumindest was wir probieren werden, ist folgendes.
+
+03:08.320 --> 03:10.320
+Guckt mal.
+
+03:10.320 --> 03:11.320
+Nehmt mal.
+
+03:11.320 --> 03:16.320
+Bei deinem Kinderarzt lief Asciiquarium. Ernsthaft?
+
+03:16.320 --> 03:21.320
+Also nehmt mal beispielsweise so einen Garmin-Fahrrad-Computer hier als Beispiel.
+
+03:21.320 --> 03:26.320
+Da gibt es ja solche.
+
+03:26.320 --> 03:31.320
+Also die Bilder davon sehen nicht so aus wie in der Realität.
+
+03:31.320 --> 03:35.320
+Äh, Datafield.
+
+03:35.320 --> 03:37.320
+Ja doch, da oben. Hier, hier, hier sieht man es ganz gut.
+
+03:37.320 --> 03:39.320
+So, guck mal. Also guck mal, Leute.
+
+03:39.320 --> 03:40.320
+Es gibt, es gibt.
+
+03:40.320 --> 03:52.400
+Es gibt auf Garmin-Uhren und generell auf Garmin-Geräten solche Customizable-Layouts, wo man Data-Fields reinpacken kann.
+
+03:53.320 --> 03:57.620
+Und diese Data-Fields kann man mit dem Garmin-SDK selbst entwickeln.
+
+03:57.760 --> 03:59.900
+Beziehungsweise man kann auch komplette Apps für das Ding entwickeln.
+
+03:59.900 --> 04:20.450
+Und das will ich mal ausprobieren, weil, ich zeige euch auch mal warum, nicht wirklich, ja so ungefähr.
+
+04:20.630 --> 04:22.730
+Das ist ein ganz gutes Beispiel, guckt mal.
+
+04:23.290 --> 04:32.490
+Also, wenn du die Navigation-Funktion benutzt, dann hat man, okay man hat hier eine Anzeige für den Berg.
+
+04:32.490 --> 04:36.430
+Das hat man nicht immer, weil man sieht mal von der Karte nichts.
+
+04:36.570 --> 04:38.490
+Aber, Garmin erlaubt, hier oben...
+
+04:39.050 --> 04:44.030
+Hier unten nur zwei Customizable-Data-Fields.
+
+04:44.450 --> 04:46.050
+Und das ist ein bisschen wenig, ja.
+
+04:46.130 --> 04:53.030
+Also, ich hätte schon ganz gerne, auch wenn ich die Karte auf habe, hätte ich sowas wie Geschwindigkeit, Herzfrequenz.
+
+04:53.090 --> 04:54.690
+Und die Herzfrequenz muss ich gar nicht haben.
+
+04:55.070 --> 05:00.150
+Es reicht mir eine Anzeige mit der Farbe oder eben halt auch einen Timer oder irgendwie sowas.
+
+05:00.230 --> 05:03.570
+Also, mehr als zwei Data-Fields da unten wäre schon ganz cool.
+
+05:04.110 --> 05:06.090
+So, und was ich mir gedacht habe, was wir ausprobieren können.
+
+05:06.150 --> 05:08.930
+Ich habe keine Ahnung, ob das, ob und wie das funktioniert.
+
+05:09.050 --> 05:18.190
+Wir können ein großes Custom-Data-Field bauen, was wiederum die anderen Daten in etwas kleiner anzeigen kann.
+
+05:18.810 --> 05:24.130
+Dass das prinzipiell funktioniert, habe ich schon gesehen im Garmin-Store, dass es da sowas gibt.
+
+05:24.590 --> 05:28.950
+Aber ich habe mir gedacht, man kann ja mal probieren, das selbst zu bauen.
+
+05:29.030 --> 05:29.890
+Welche Smartwatch?
+
+05:30.370 --> 05:33.950
+Also, ich habe eine Forerunner 255, auf der kann man das auch ausprobieren.
+
+05:34.070 --> 05:37.350
+Aber mir geht es hauptsächlich um den Fahrradcomputer für Data-Field.
+
+05:37.350 --> 05:39.030
+Aber auf der Uhr geht es genauso.
+
+05:39.590 --> 05:43.270
+Letztendlich ist es aber auch egal, weil das funktioniert auf beiden Geräten.
+
+05:43.450 --> 05:44.270
+Hoffe ich mal zumindest.
+
+05:44.830 --> 05:50.770
+Wie gesagt, ich will ein Data-Feld machen, was im Kleinen mehrere Data-Fields anzeigen kann.
+
+05:50.870 --> 05:51.850
+Das wäre natürlich sehr praktisch.
+
+05:52.190 --> 05:53.430
+Vielleicht ein bisschen schlecht lesbar.
+
+05:54.130 --> 05:56.730
+Aber auf jeden Fall besser, als die Informationen gar nicht drauf haben.
+
+06:01.060 --> 06:05.020
+Also, aktuell Android? Nein, nicht Android.
+
+06:07.770 --> 06:08.690
+Wie kommst du auf Android?
+
+06:09.830 --> 06:12.530
+Das läuft auf den Garmin-Geräten, das ist irgendein Embedded-Zeug.
+
+06:12.530 --> 06:13.150
+Keine Ahnung.
+
+06:14.550 --> 06:16.550
+Ich glaube, man muss das sogar in C++ programmieren.
+
+06:16.550 --> 06:26.900
+Das wird was.
+
+06:26.900 --> 06:28.900
+Komm, wir machen mal ein bisschen was anderes.
+
+06:28.900 --> 06:34.870
+Das hatten wir doch letztens.
+
+06:34.870 --> 06:36.870
+Epic Chill-Step-Collection.
+
+06:36.870 --> 06:40.760
+Was machen wir denn?
+
+06:40.760 --> 06:46.380
+Komm, bisschen wupp wupp.
+
+06:46.380 --> 06:50.380
+Also, das Garmin-Zeug, könnte ich wetten, ist kein Android.
+
+06:50.380 --> 06:58.380
+Das ist so customisable und das wirkt so low-level, dass ich, ich könnte wetten, dass es nicht Android wird.
+
+06:58.380 --> 07:00.380
+Das ist irgendwas spezielles von Garmin.
+
+07:00.380 --> 07:02.220
+Was auch das heißt, dass es nicht Android wird.
+
+07:02.220 --> 07:04.220
+Das muss doch dazu passen, wir...
+
+07:04.220 --> 07:08.100
+Äh.
+
+07:08.100 --> 07:10.100
+Äh.
+
+07:10.100 --> 07:12.100
+Äh, wo kommt die Musik her?
+
+07:12.100 --> 07:18.620
+Cake Wait, Alter.
+
+07:18.620 --> 07:20.620
+Das würde auch widersprechen, dass das Android VR ist.
+
+07:20.620 --> 07:26.620
+Oder VR ist, weil das irgendein Custom-Garmin-SDK braucht.
+
+07:26.620 --> 07:28.620
+Ich weiß nicht, wie advanced die sind.
+
+07:28.620 --> 07:34.620
+Ob die einen Device-Emulator haben, ob ich dann meine Uhr per USB anschließen muss oder den Fahrrad komme.
+
+07:34.620 --> 07:36.620
+Beides hier liegen.
+
+07:36.620 --> 07:38.620
+Äh, glaub ich. Ja, beides hier liegen. Ne, die Uhr nicht.
+
+07:38.620 --> 07:40.620
+Aber den Fahrrad-Computer hier liegen.
+
+07:40.620 --> 07:42.620
+Um das auszuprobieren.
+
+07:42.620 --> 07:44.620
+Ich bin mal, ich bin mal gespannt, ob das funktioniert.
+
+07:44.620 --> 07:46.620
+Also, mein Ziel ist es, ein Custom-Data-Field zu bauen.
+
+07:46.620 --> 07:48.620
+Ähnlich zu dem hier.
+
+07:48.620 --> 07:50.620
+Warte mal, ich hab nämlich sowas gefunden.
+
+07:50.620 --> 07:52.620
+Und das war eine super, super nice...
+
+07:52.620 --> 07:56.620
+Super nice Idee, aber mit der Umsetzung bin ich nicht ganz zufrieden.
+
+07:56.620 --> 08:00.620
+Also, ich will sowas ähnliches bauen.
+
+08:00.620 --> 08:11.880
+Kann man das hier nicht nach Trending oder sowas sortieren?
+
+08:11.880 --> 08:13.880
+Warum ist die, warum ist die Web, die Web-Ausgabe für diesen Shop...
+
+08:13.880 --> 08:15.880
+So...
+
+08:15.880 --> 08:17.880
+So kacke.
+
+08:17.880 --> 08:22.730
+Also, ich würde gerne was installi...
+
+08:22.730 --> 08:24.730
+Also, ich würde gerne was machen, ähnlich...
+
+08:24.730 --> 08:26.730
+Zu dem da.
+
+08:26.730 --> 08:31.190
+Genau.
+
+08:31.190 --> 08:33.190
+Hier, das ist ein gutes Beispiel.
+
+08:33.190 --> 08:35.190
+Guck mal.
+
+08:35.190 --> 08:37.190
+Der Dude hat genau das gleiche gebaut.
+
+08:37.190 --> 08:39.190
+Das hier unten ist ein Custom-Data-Field.
+
+08:39.190 --> 08:41.190
+Also, wenn ihr das hier seht.
+
+08:41.190 --> 08:43.190
+Der hat einfach ein großes Feld gemacht,
+
+08:43.190 --> 08:45.190
+wo er selbst in klein Sachen anzeigen lassen kann.
+
+08:45.190 --> 08:47.190
+Sowas in der Richtung.
+
+08:47.190 --> 08:49.190
+Will ich auch bauen.
+
+08:49.190 --> 08:51.190
+Nur, dass ich nicht so viele Sachen anzeigen möchte.
+
+08:51.190 --> 08:53.190
+Und einfach...
+
+08:53.190 --> 08:55.190
+Mich interessiert auch einfach, wie das funktioniert.
+
+08:55.190 --> 08:57.190
+Ja.
+
+08:57.190 --> 08:59.190
+Nur, dass ich nicht so viele Sachen anzeigen will.
+
+08:59.190 --> 09:01.190
+Weil die werden zu klein.
+
+09:01.190 --> 09:03.190
+Ich hab das von...
+
+09:03.190 --> 09:05.190
+Ich hab das Data-Field von dem hier mal ausprobiert.
+
+09:05.190 --> 09:07.190
+Das ist mini.
+
+09:07.190 --> 09:09.190
+Du kannst kaum was erkennen, wenn er normal auf dem Fahrrad drauf sitzt.
+
+09:09.190 --> 09:11.190
+Dafür passten hier 6 Felder hin.
+
+09:11.190 --> 09:13.190
+Anstatt wie offiziell bei Garmin nur 2.
+
+09:13.190 --> 09:15.190
+Also, ist schon...
+
+09:15.190 --> 09:17.190
+Ist schon...
+
+09:17.190 --> 09:19.190
+Ist schon ne coole Sache.
+
+09:19.190 --> 09:21.190
+Und ich wollte mir das eh mal angucken, wie das funktioniert.
+
+09:21.190 --> 09:23.190
+Da bin ich mal gespannt.
+
+09:25.190 --> 09:27.190
+Nein, das ist...
+
+09:27.190 --> 09:29.190
+Ich bin mir relativ sicher, dass das nicht Android-Wir ist.
+
+09:29.190 --> 09:31.190
+Aber das ist...
+
+09:31.190 --> 09:33.190
+Das ist da way.
+
+09:33.190 --> 09:37.460
+Nee, das ist das Ziel heute.
+
+09:37.460 --> 09:39.460
+Kann man auf dem Fahrradcomputer Docker laufen lassen?
+
+09:39.460 --> 09:41.460
+Nee.
+
+09:41.460 --> 09:43.460
+Ich geh mal ganz stark davon aus,
+
+09:43.460 --> 09:45.460
+dass es auch noch nicht mal auf Linux-Basis ist,
+
+09:45.460 --> 09:47.460
+sondern irgendein Embedded-Ding.
+
+09:47.460 --> 09:49.460
+Ich hab ehrlich gesagt keine Ahnung,
+
+09:49.460 --> 09:55.210
+ob man da irgendwie was weiß.
+
+09:55.210 --> 09:57.210
+Guck mal, ob man irgendwie was weiß.
+
+09:57.210 --> 09:59.210
+What's the CPU?
+
+09:59.210 --> 10:01.210
+Ja, zeig doch mal her.
+
+10:01.210 --> 10:03.210
+Custom Socks.
+
+10:03.210 --> 10:15.670
+Okay.
+
+10:15.670 --> 10:17.670
+Also, man hat keine Ahnung.
+
+10:17.670 --> 10:19.670
+Man hat...
+
+10:19.670 --> 10:21.670
+Okay, man hat keine Ahnung, was in den...
+
+10:21.670 --> 10:31.900
+Was in den Dingern drin ist.
+
+10:31.900 --> 10:51.370
+Wisst ihr, man hat keine Ahnung.
+
+10:51.370 --> 10:53.370
+Nicht FireRunner.
+
+10:53.370 --> 10:55.370
+Also, man...
+
+10:55.370 --> 11:00.220
+Okay.
+
+11:00.220 --> 11:02.220
+Okay, von 2016.
+
+11:02.220 --> 11:04.220
+Okay, von 2016.
+
+11:04.220 --> 11:09.380
+Das bringt nix.
+
+11:09.380 --> 11:14.740
+Benchmark Results.
+
+11:14.740 --> 11:16.740
+Wie die machen Benchmarks auf ihrer Uhr?
+
+11:16.740 --> 11:18.740
+Schraub mal auf.
+
+11:18.740 --> 11:20.740
+Nee, nee, nee.
+
+11:20.740 --> 11:22.740
+Also, man hat, glaube ich, echt keine Ahnung,
+
+11:22.740 --> 11:24.740
+was da drin ist.
+
+11:24.740 --> 11:26.740
+Ach, hier! Armkiste.
+
+11:26.740 --> 11:30.440
+Zumindest...
+
+11:30.440 --> 11:34.200
+Zumindest in der Phoenix-Uhr.
+
+11:34.200 --> 11:36.200
+Ich glaube nicht, dass da gescheit
+
+11:36.200 --> 11:42.070
+Android draufläuft.
+
+11:42.070 --> 11:44.070
+Keine Ahnung, was da drauf ist.
+
+11:44.070 --> 11:46.070
+Letztendlich ist es aber auch vollkommen egal,
+
+11:46.070 --> 11:48.070
+was da drauf ist.
+
+11:48.070 --> 11:50.070
+Weil wir werden das offizielle SDK von denen verwenden.
+
+11:50.070 --> 11:52.070
+Also...
+
+11:52.070 --> 11:54.070
+Das könnte ich mir... Moment, Moment, Moment.
+
+11:54.070 --> 11:56.070
+Das kann ich mir vorstellen, dass es das sogar gibt.
+
+11:56.070 --> 11:58.070
+Ohne Scheiß.
+
+11:58.070 --> 12:00.070
+Doom gibt es überall.
+
+12:00.070 --> 12:02.070
+Wartet mal.
+
+12:02.070 --> 12:13.580
+Doom.
+
+12:13.580 --> 12:15.580
+Wobei...
+
+12:15.580 --> 12:17.580
+Moment, das ist nicht Doom.
+
+12:17.580 --> 12:19.580
+Das ist, glaube ich, einfach... Ach, das ist nur...
+
+12:19.580 --> 12:21.580
+Nee, okay. Es ist gar nicht Doom.
+
+12:21.580 --> 12:23.580
+Es ist einfach nur die Zahlen
+
+12:23.580 --> 12:25.580
+des Fonts, der Doom-Font.
+
+12:25.580 --> 12:27.580
+Aber,
+
+12:27.580 --> 12:29.580
+ey, mich hätte es wirklich nicht gewundert,
+
+12:29.580 --> 12:31.580
+wenn... Ja, vorbei.
+
+12:31.580 --> 12:33.580
+Keine Ahnung. Also, mich hätte es wirklich nicht...
+
+12:33.580 --> 12:35.580
+Nee, nee, nee.
+
+12:35.580 --> 12:37.580
+Mich hätte es wirklich nicht gewundert, wenn es Doom auf der Uhr gibt.
+
+12:37.580 --> 12:39.580
+Also, möglich wäre
+
+12:39.580 --> 12:41.580
+das wahrscheinlich.
+
+12:41.580 --> 12:43.580
+Ich meine, Doom läuft auf dem Schwangerschaftstest.
+
+12:43.580 --> 12:45.580
+Wobei, das war
+
+12:45.580 --> 12:47.580
+nur Fake. Aber trotzdem.
+
+12:47.580 --> 12:52.490
+Also, mich würde es echt nicht wundern,
+
+12:52.490 --> 12:54.490
+wenn da irgendeiner Doom zum Laufen
+
+12:54.490 --> 12:59.720
+bekommt auf der Uhr.
+
+12:59.720 --> 13:01.720
+Garmin Watch Doom.
+
+13:01.720 --> 13:11.430
+Siehste? Siehste, es gibt schon Leute.
+
+13:11.430 --> 13:13.430
+Data Field
+
+13:13.430 --> 13:15.430
+von Ga...
+
+13:15.430 --> 13:17.430
+Ach, nee, nee, okay.
+
+13:17.430 --> 13:22.790
+Naja, also...
+
+13:22.790 --> 13:35.190
+Also, das würde mich nicht wundern,
+
+13:35.190 --> 13:37.190
+wenn es das gibt. Durchaus möglich,
+
+13:37.190 --> 13:39.190
+dass irgendwelche verrückten Leute
+
+13:39.190 --> 13:41.190
+auf ihrer Garmin-Uhr
+
+13:41.190 --> 13:43.190
+es laufen lassen haben.
+
+13:43.190 --> 13:45.190
+So, also, probieren wir das mal aus.
+
+13:45.190 --> 13:47.190
+Es gibt irgendwo ein offizielles
+
+13:47.190 --> 13:49.190
+Garmin SDK.
+
+13:49.190 --> 13:51.190
+Ich mache mal einen Snapshot.
+
+13:51.190 --> 13:53.190
+Nee, das kriege ich
+
+13:53.190 --> 13:55.190
+nicht hin. Ich mache mal einen Snapshot von meiner
+
+13:55.190 --> 13:57.190
+VM. Warum habe ich da so
+
+13:57.190 --> 13:59.190
+viele Snapshots gerade?
+
+13:59.190 --> 14:01.190
+Ah, nein.
+
+14:01.190 --> 14:03.190
+Snapshot 2 und 3, aber
+
+14:03.190 --> 14:05.190
+Snapshot 1 gibt es nicht.
+
+14:05.190 --> 14:07.190
+Warum genau habe ich hier nochmal
+
+14:07.190 --> 14:09.190
+gesnapshottet?
+
+14:09.190 --> 14:11.190
+Ach so, wegen Mojo-Installation.
+
+14:11.190 --> 14:21.290
+Ich glaube... So, machen wir
+
+14:21.290 --> 14:23.290
+das mal weg. Snapshots verbrauchen. Gerade umso
+
+14:23.290 --> 14:25.290
+älter sie werden, umso größer das Diff wird,
+
+14:25.290 --> 14:27.290
+wir brauchen Snapshots. Immer unsinnig
+
+14:27.290 --> 14:37.380
+viel Speicherplatz.
+
+14:37.380 --> 14:43.770
+Auf, geh weg. Siehste?
+
+14:43.770 --> 14:45.770
+Ist schon ein bisschen größer, der Snapshot.
+
+14:45.770 --> 14:47.770
+Snapshoot.
+
+14:47.770 --> 14:56.460
+Forever.
+
+14:56.460 --> 14:58.460
+Also, let's go.
+
+14:58.460 --> 15:00.460
+Erstmal das SDK
+
+15:00.460 --> 15:02.460
+runterladen. Get the Connect
+
+15:02.460 --> 15:04.460
+IQ. Siehste, die wissen schon mal Bescheid.
+
+15:04.460 --> 15:08.410
+Only 5 Header.
+
+15:08.410 --> 15:10.410
+Hey Max. Moment, was?
+
+15:10.410 --> 15:12.410
+Hey Max, bin seit 1.9.
+
+15:12.410 --> 15:14.410
+Das ist quasi seit einem Monat.
+
+15:14.410 --> 15:16.410
+Pog.
+
+15:16.410 --> 15:18.410
+In der Ausbildung zum Fachinformatiker
+
+15:18.410 --> 15:20.410
+Anwendungsentwicklung. Wollte mich bedanken,
+
+15:20.410 --> 15:22.410
+dass du mich dafür begeistern kannst.
+
+15:22.410 --> 15:24.410
+Ja, das ist nice. Ich hoffe, dir gefällt's.
+
+15:24.410 --> 15:26.410
+Wie war so der erste Monat?
+
+15:26.410 --> 15:28.410
+Schon ein Plan, was deine App können soll.
+
+15:28.410 --> 15:30.410
+Ja, ich hab das ja gerade eben
+
+15:30.410 --> 15:32.410
+gezeigt. Ich will sowas hier in der Richtung bauen.
+
+15:32.410 --> 15:34.410
+Also nicht mit der Map und so.
+
+15:34.410 --> 15:36.410
+Also, es gibt auf den
+
+15:36.410 --> 15:38.410
+Fahrradcomputern, auf den Uhren gibt es so
+
+15:38.410 --> 15:40.410
+customizable data fields.
+
+15:40.410 --> 15:42.410
+Und gerade
+
+15:42.410 --> 15:44.410
+was mich ein bisschen nervt, ist auf der
+
+15:44.410 --> 15:46.410
+Map-Übersicht kann man nur 2 data fields
+
+15:46.410 --> 15:48.410
+einblenden. Und ich wollte
+
+15:48.410 --> 15:50.410
+sowas ähnliches bauen, wie der Dude hier.
+
+15:52.410 --> 15:54.410
+Der quasi ein custom data-Feld gebaut hat,
+
+15:54.410 --> 15:56.410
+in dem er selbst wiederum kleinere data fields
+
+15:56.410 --> 15:58.410
+anzeigt, sodass quasi
+
+15:58.410 --> 16:00.410
+anstatt 2 in diesen
+
+16:00.410 --> 16:02.410
+Space hier, dann 6
+
+16:02.410 --> 16:04.410
+Stück passen. Nur, dass mir das hier so nicht gefällt,
+
+16:04.410 --> 16:06.410
+weil es doch sehr klein
+
+16:06.410 --> 16:08.410
+und pixelige Schrift ist.
+
+16:08.410 --> 16:10.410
+Mir würden ja 3 Stück reichen.
+
+16:10.410 --> 16:12.410
+Oder sagen wir mal vielleicht 4.
+
+16:12.410 --> 16:14.410
+Da hat man ein bisschen mehr Platz.
+
+16:14.410 --> 16:16.410
+Und außerdem interessiert mich
+
+16:16.410 --> 16:18.410
+einfach nur
+
+16:18.410 --> 16:20.410
+wie das funktioniert.
+
+16:20.410 --> 16:25.770
+Ich glaube aber nicht, dass wir heute da wirklich
+
+16:25.770 --> 16:27.770
+was sinnvolles auf die Reihe kriegen.
+
+16:27.770 --> 16:29.770
+Ich muss erstmal das Garmin SDK runterladen
+
+16:29.770 --> 16:31.770
+und dann guck mal hier. Also, da steht doch wie das
+
+16:31.770 --> 16:33.770
+funktioniert hier. Install SDK.
+
+16:33.770 --> 16:35.770
+Launch SDK
+
+16:35.770 --> 16:37.770
+Manager bla bla bla.
+
+16:37.770 --> 16:39.770
+Installing... Moment, was?
+
+16:39.770 --> 16:41.770
+Monkey C.
+
+16:41.770 --> 16:43.770
+Haben die nen eigenen
+
+16:43.770 --> 16:45.770
+C-Dialekt, um den Kram zu programmieren?
+
+16:45.770 --> 16:49.780
+Was zum Teufel ist
+
+16:49.780 --> 16:51.780
+Monkey C?
+
+16:51.780 --> 16:53.780
+Ich mein, Holy C würde
+
+16:53.780 --> 16:58.700
+ich ja noch verstehen.
+
+16:58.700 --> 17:00.700
+Okay, hat mit C anscheinend gar nichts zu tun.
+
+17:00.700 --> 17:04.780
+Das Buch ist ja äußerst beliebt.
+
+17:04.780 --> 17:06.780
+Nein.
+
+17:06.780 --> 17:08.780
+Poggers Buch.
+
+17:08.780 --> 17:14.330
+Okay.
+
+17:14.330 --> 17:16.330
+Download and accept for Linux.
+
+17:16.330 --> 17:18.330
+Das ging aber schnell. 3,2 MB?
+
+17:18.330 --> 17:28.940
+Das ist...
+
+17:28.940 --> 17:30.940
+Blazingly fast embedded Kram.
+
+17:30.940 --> 17:32.940
+Nicht
+
+17:32.940 --> 17:34.940
+Repos. Downloads.
+
+17:34.940 --> 17:36.940
+Garmin.
+
+17:36.940 --> 17:46.390
+Pog.
+
+17:46.390 --> 17:48.390
+So.
+
+17:48.390 --> 17:50.390
+Da wurde es entpackt.
+
+17:50.390 --> 17:52.390
+Und was muss man jetzt machen?
+
+17:52.390 --> 17:54.390
+Launch SDK Manager
+
+17:54.390 --> 17:56.390
+from chosen download location.
+
+17:56.390 --> 18:04.570
+Also wahrscheinlich das hier.
+
+18:04.570 --> 18:06.570
+Okay, was?
+
+18:06.570 --> 18:12.890
+Webkit GTK.
+
+18:12.890 --> 18:14.890
+What? Ernsthaft?
+
+18:14.890 --> 18:16.890
+Okay.
+
+18:16.890 --> 18:20.200
+Webkit GTK.
+
+18:20.200 --> 18:22.200
+Im Prinzip ist es wahrscheinlich
+
+18:22.200 --> 18:24.200
+wirklich nur...
+
+18:24.200 --> 18:27.960
+Hätten sie auch Elektron machen können, oder?
+
+18:27.960 --> 18:29.960
+Ja.
+
+18:29.960 --> 18:31.960
+Accepted ihr auch die
+
+18:31.960 --> 18:35.460
+Terms of Service?
+
+18:35.460 --> 18:37.460
+Also ich find die Terms of Service sind schon sehr nice.
+
+18:37.460 --> 18:43.530
+Och nee.
+
+18:43.530 --> 18:47.420
+Och nee.
+
+18:49.420 --> 18:51.420
+Alter.
+
+18:51.420 --> 18:53.420
+Das funktioniert
+
+18:53.420 --> 18:55.420
+nicht.
+
+18:55.420 --> 18:57.420
+Ja, das ist schon mal scheiße.
+
+18:57.420 --> 19:03.860
+Wie soll ich...
+
+19:03.860 --> 19:05.860
+Ich vermute mal, hier ist ein User
+
+19:05.860 --> 19:07.860
+Feld. Hier ist ein...
+
+19:07.860 --> 19:09.860
+Passwort Feld.
+
+19:09.860 --> 19:11.860
+Und hier ist ein...
+
+19:11.860 --> 19:13.860
+Okay, das...
+
+19:13.860 --> 19:17.820
+Okay, Leute, es könnte schon mal scheitern.
+
+19:17.820 --> 19:19.820
+An ganz grundlegenden Sachen.
+
+19:19.820 --> 19:21.820
+Webkit GTK.
+
+19:21.820 --> 19:23.820
+Kann ich vielleicht
+
+19:23.820 --> 19:25.820
+noch was anderes installieren?
+
+19:25.820 --> 19:32.900
+Was ist denn das?
+
+19:32.900 --> 19:34.900
+242?
+
+19:34.900 --> 19:36.900
+2...
+
+19:36.900 --> 19:38.900
+411?
+
+19:38.900 --> 19:40.900
+Legacy? Legacy?
+
+19:40.900 --> 19:42.900
+Wobei, nee, wir brauchen Webkit
+
+19:42.900 --> 19:44.900
+GTK 2...
+
+19:44.900 --> 19:55.450
+Äh...
+
+19:55.450 --> 19:58.890
+Ähm... Ja, ich weiß, das ist
+
+19:58.890 --> 20:00.890
+das habe ich eben installiert.
+
+20:00.890 --> 20:02.890
+Also mein GTK
+
+20:02.890 --> 20:04.890
+Theme ist eigentlich legit.
+
+20:04.890 --> 20:15.400
+Ähm...
+
+20:15.400 --> 20:17.400
+NWG Look.
+
+20:17.400 --> 20:19.400
+Okay, ich ändere mal mein
+
+20:19.400 --> 20:21.400
+Theme.
+
+20:21.400 --> 20:23.400
+Machen wir...
+
+20:23.400 --> 20:25.400
+Wir machen das Default Theme.
+
+20:25.400 --> 20:27.400
+Guck mal hier, Icons.
+
+20:27.400 --> 20:34.870
+Und Icons...
+
+20:34.870 --> 20:36.870
+Wir machen mal das Default Theme hier.
+
+20:36.870 --> 20:45.460
+Nee.
+
+20:45.460 --> 20:50.570
+Okay.
+
+20:50.570 --> 20:52.570
+Als Flatpack User ausführen.
+
+20:52.570 --> 20:54.570
+Was? Gibt es das als Flatpack?
+
+20:54.570 --> 20:58.580
+Okay, das funktioniert
+
+20:58.580 --> 21:00.580
+nicht.
+
+21:00.580 --> 21:02.580
+Das geht schon... Das geht schon gut los.
+
+21:02.580 --> 21:06.920
+Das ist weiße Schrift auf
+
+21:06.920 --> 21:08.920
+weißem Hintergrund. Ja, würde ich auch so sehen.
+
+21:08.920 --> 21:10.920
+Ähm...
+
+21:10.920 --> 21:16.470
+Leute, ich...
+
+21:16.470 --> 21:18.470
+Ich sehe irgendwie, dass das nichts wird.
+
+21:18.470 --> 21:20.470
+Ähm...
+
+21:20.470 --> 21:24.230
+Also...
+
+21:24.230 --> 21:26.230
+Okay, Moment, Moment.
+
+21:26.230 --> 21:28.230
+Webkit GTK
+
+21:28.230 --> 21:30.230
+White. Wir suchen mal danach.
+
+21:30.230 --> 21:32.230
+White Text und White Background. Alles klar.
+
+21:32.230 --> 21:34.230
+Okay.
+
+21:34.230 --> 21:40.040
+Aha.
+
+21:40.040 --> 21:48.730
+Was?
+
+21:48.730 --> 21:50.730
+Was zum Teufel interessiert mich?
+
+21:50.730 --> 21:52.730
+Evolution. Das...
+
+21:52.730 --> 21:54.730
+Ähm...
+
+21:54.730 --> 21:59.900
+Das ist das E-Mail-Programm.
+
+21:59.900 --> 22:01.900
+Okay, das ist wohl ein Known Bug.
+
+22:01.900 --> 22:03.900
+Oder sowas. Fixed.
+
+22:03.900 --> 22:09.130
+Nee, es ist Fixed.
+
+22:09.130 --> 22:14.040
+Ähm... Okay, ich habe eine
+
+22:14.040 --> 22:19.910
+Idee, was wir machen.
+
+22:19.910 --> 22:21.910
+Ich habe eine Idee, was wir machen.
+
+22:21.910 --> 22:23.910
+Webkit GTK.
+
+22:23.910 --> 22:25.910
+Wir aninstallieren das nochmal.
+
+22:25.910 --> 22:31.210
+Und jetzt...
+
+22:31.210 --> 22:35.670
+Das hatten wir gerade installiert, ne?
+
+22:35.670 --> 22:37.670
+Nee, das ist immer noch installiert.
+
+22:37.670 --> 22:50.680
+Hä?
+
+22:50.680 --> 22:52.680
+Okay, Webkit GTK.
+
+22:52.680 --> 22:54.680
+Was hatte ich eben installiert?
+
+22:54.680 --> 22:56.680
+Das hier. Das hier hatte ich
+
+22:56.680 --> 22:58.680
+installiert.
+
+22:58.680 --> 23:00.680
+Dann installieren wir doch einfach mal das hier.
+
+23:00.680 --> 23:02.680
+Vielleicht funktioniert das aus irgendwelchen
+
+23:02.680 --> 23:04.680
+Gründen besser.
+
+23:04.680 --> 23:06.680
+Warum hat das vor allem die gleiche Versionsnummer?
+
+23:06.680 --> 23:13.190
+Ich hatte alle drei
+
+23:13.190 --> 23:17.910
+installiert. Wirklich? Ach, Moment.
+
+23:17.910 --> 23:19.910
+Wir brauchen auch noch das Vierer.
+
+23:19.910 --> 23:26.740
+Ach, Shit.
+
+23:26.740 --> 23:28.740
+Äh, Gott.
+
+23:28.740 --> 23:30.740
+Geht schon.
+
+23:30.740 --> 23:32.740
+Geht schon gut los.
+
+23:32.740 --> 23:34.740
+Dann installiere ich jetzt einfach das da aus dem
+
+23:34.740 --> 23:36.740
+aus dem Auer.
+
+23:36.740 --> 23:41.460
+Ohje, wenn man
+
+23:41.460 --> 23:43.460
+ein Webkit selbst
+
+23:43.460 --> 23:45.460
+kompilieren muss, das dauert doch bestimmt jetzt drei Stunden,
+
+23:45.460 --> 23:50.180
+oder? Schauen wir mal.
+
+23:50.180 --> 23:52.180
+Schauen wir mal. Ich weiß nicht,
+
+23:52.180 --> 23:54.180
+wie schnell man ein Webkit selbst kompilieren kann.
+
+23:54.180 --> 23:56.180
+Und...
+
+23:56.180 --> 23:58.180
+Ja, das ist aber
+
+23:58.180 --> 24:00.180
+eine VM.
+
+24:00.180 --> 24:02.180
+Und Browser-Kompilieren dauert immer drei,
+
+24:02.180 --> 24:04.180
+dreieinhalb Stunden.
+
+24:04.180 --> 24:06.180
+Weil vielleicht geht das ja hier gerade. Schauen wir mal.
+
+24:06.180 --> 24:08.180
+Schauen wir mal.
+
+24:08.180 --> 24:10.180
+Es ist ja gar nicht gesagt, dass es danach tut.
+
+24:10.180 --> 24:12.180
+Lass uns lieber noch mal kurz googeln, was das Problem
+
+24:12.180 --> 24:16.070
+ist.
+
+24:16.070 --> 24:19.380
+White Background.
+
+24:19.380 --> 24:21.380
+Wir suchen einfach
+
+24:21.380 --> 24:23.380
+nach GTK
+
+24:23.380 --> 24:25.380
+no content.
+
+24:25.380 --> 24:35.610
+Ja, nice.
+
+24:35.610 --> 24:41.540
+Ja, angeblich
+
+24:41.540 --> 24:43.540
+wurde das ja gefixt, ne?
+
+24:43.540 --> 24:46.920
+Das bringt mir nur jetzt nicht allzu viel.
+
+24:46.920 --> 24:57.460
+Kann man
+
+24:57.460 --> 24:59.460
+irgendwie Disable
+
+24:59.460 --> 25:01.460
+Hardware Acceleration oder so?
+
+25:01.460 --> 25:15.210
+Vielleicht liegt das
+
+25:15.210 --> 25:17.210
+daran, dass der irgendwie komisch rendert?
+
+25:17.210 --> 25:23.080
+Web... Okay, was?
+
+25:23.080 --> 25:25.080
+Webkit Force... Okay, Moment.
+
+25:25.080 --> 25:27.080
+Was? Webkit?
+
+25:27.080 --> 25:30.650
+Webkit Force
+
+25:30.650 --> 25:32.650
+Composition Mode. Force
+
+25:32.650 --> 25:34.650
+Accelerated Compose to be always
+
+25:34.650 --> 25:36.650
+on, to be always
+
+25:36.650 --> 25:38.650
+off.
+
+25:38.650 --> 25:40.650
+Jetzt das... Oh, das wird gebastelt,
+
+25:40.650 --> 25:45.880
+Leute, ich sag's euch.
+
+25:45.880 --> 25:47.880
+Okay, Webkit Kompilieren läuft.
+
+25:47.880 --> 25:51.700
+Die volle
+
+25:51.700 --> 25:53.700
+Open Source Linux Developer
+
+25:53.700 --> 25:55.700
+Experience heute.
+
+25:55.700 --> 25:57.700
+Also ich geb dem mal fünf
+
+25:57.700 --> 25:59.700
+Minuten Zeit.
+
+25:59.700 --> 26:01.700
+Wenn er dann nicht fertig ist, dann lass ich's
+
+26:01.700 --> 26:03.700
+bleiben und installiere das andere wieder
+
+26:03.700 --> 26:05.700
+und wir probieren mal die
+
+26:05.700 --> 26:07.700
+Environment Variables
+
+26:07.700 --> 26:09.700
+aus.
+
+26:09.700 --> 26:17.940
+Ob die was machen.
+
+26:17.940 --> 26:19.940
+Ach so, wie sieht's eigentlich aus? Hessen
+
+26:19.940 --> 26:21.940
+mal 2023
+
+26:21.940 --> 26:23.940
+Hochrechnungen.
+
+26:23.940 --> 26:25.940
+Mal gucken, ob der Markt das regelt
+
+26:25.940 --> 26:31.300
+oder nicht.
+
+26:31.300 --> 26:38.810
+Ergebnisse.
+
+26:38.810 --> 26:40.810
+Okay, CDU 35%.
+
+26:40.810 --> 26:42.810
+Wir hatten Vergleich
+
+26:42.810 --> 26:47.140
+zum letzten Mal vielleicht.
+
+26:47.140 --> 26:49.140
+Okay, Grüne minus SPD, Grüne CDU
+
+26:49.140 --> 26:51.140
+massig plus AfD plus FDP
+
+26:51.140 --> 26:53.140
+minus. Oh nein.
+
+26:53.140 --> 26:55.140
+Der Markt regelt doch nicht.
+
+26:55.140 --> 27:02.420
+Ich hoffe, der Markt
+
+27:02.420 --> 27:04.420
+regelt noch.
+
+27:04.420 --> 27:06.420
+Zumindest über 5%.
+
+27:06.420 --> 27:08.420
+Oh, was jetzt?
+
+27:08.420 --> 27:10.420
+Das wollte ich nicht.
+
+27:10.420 --> 27:12.420
+Ja,
+
+27:12.420 --> 27:14.420
+zum Glück, vielleicht hängt's an meiner
+
+27:14.420 --> 27:16.420
+Stimme am Ende, dass es wird
+
+27:16.420 --> 27:18.420
+oder nicht. Was ist schlimmer, Garmin
+
+27:18.420 --> 27:20.420
+Monkeys See oder Mon... Weiß ich nicht.
+
+27:20.420 --> 27:22.420
+Ich konnte bis jetzt beides ja nicht ausprobieren.
+
+27:22.420 --> 27:27.020
+Atheno, Dankeschön für den Sub.
+
+27:27.020 --> 27:29.020
+Hab ich komplett übersehen. Sorry, falls
+
+27:29.020 --> 27:31.020
+irgendwie noch jemand übersehen hat, aber ich glaub nicht.
+
+27:31.020 --> 27:35.160
+Stimmt, wie sieht's
+
+27:35.160 --> 27:37.160
+in Bayern aus?
+
+27:37.160 --> 27:39.160
+Bayern Wahl
+
+27:39.160 --> 27:41.160
+2023.
+
+27:41.160 --> 27:43.160
+Hochrechnungen.
+
+27:43.160 --> 27:49.420
+Die
+
+27:49.420 --> 27:51.420
+CSU liegt vorne. Ja, das ist Bayern. Da liegt
+
+27:51.420 --> 27:53.420
+die CSU immer vorne. Das geht gar nicht.
+
+27:53.420 --> 27:55.420
+Das ist Patty Falls so.
+
+27:55.420 --> 27:57.420
+Okay, um 19.06
+
+27:57.420 --> 27:59.420
+gab's CDU, äh, nein,
+
+27:59.420 --> 28:01.420
+sorry nicht CDU, CSU ist es ja in Bayern.
+
+28:01.420 --> 28:03.420
+36%.
+
+28:03.420 --> 28:05.420
+Ah, der Markt regelt nicht in Bayern.
+
+28:05.420 --> 28:07.420
+Die AfD einfach mal die Hälfte fast von
+
+28:07.420 --> 28:09.420
+der CSU.
+
+28:09.420 --> 28:11.420
+Okay, die komische Bayern-Partei ist nicht am
+
+28:11.420 --> 28:15.620
+Start. Und die Freien Wähler
+
+28:15.620 --> 28:17.620
+gehen auch gut ab, immer in Bayern.
+
+28:17.620 --> 28:37.700
+Wie sieht denn die Regierung aktuell in
+
+28:37.700 --> 28:39.700
+Bayern aus? Ist das CSU und Freie Wähler?
+
+28:39.700 --> 28:41.700
+Glaub schon, oder?
+
+28:41.700 --> 28:47.770
+Keine Ahnung, was in Bayern abgeht.
+
+28:47.770 --> 28:49.770
+Hessen interessiert mich mehr.
+
+28:49.770 --> 28:51.770
+Boah, ey, ich hab keinen Bock
+
+28:51.770 --> 28:53.770
+Webkit beim Kompilieren zuzugucken.
+
+28:53.770 --> 28:58.300
+Das geht auch
+
+28:58.300 --> 29:02.890
+so langsam. Wenn ich
+
+29:02.890 --> 29:04.890
+das jetzt abbreche, hab ich so ein halbkompiliertes
+
+29:04.890 --> 29:06.890
+Webkit auf der Platte.
+
+29:06.890 --> 29:08.890
+Wobei das nicht schlimm ist, ich hab ja einen Snapshot
+
+29:08.890 --> 29:14.760
+gemacht. Okay,
+
+29:14.760 --> 29:16.760
+ich lass das da oben mal kurz kompilieren,
+
+29:16.760 --> 29:18.760
+das stört ja nicht großartig.
+
+29:18.760 --> 29:20.760
+Installieren wir nochmal Webkit
+
+29:20.760 --> 29:22.760
+GTK. Das da
+
+29:22.760 --> 29:28.180
+brauchen wir. So wie es aussieht.
+
+29:28.180 --> 29:30.180
+Fünf, fünf brauchen wir, ne?
+
+29:30.180 --> 29:32.180
+Webkit GTK.
+
+29:32.180 --> 29:34.180
+So, und jetzt
+
+29:34.180 --> 29:36.180
+setzen wir, was war das?
+
+29:36.180 --> 29:40.780
+Webkit Disable
+
+29:40.780 --> 29:44.410
+Composition Mode.
+
+29:44.410 --> 29:46.410
+Auf 1. Nicht auf True, auf 1.
+
+29:46.410 --> 29:48.410
+Wobei das eigentlich aufs Gleiche rauskommen muss.
+
+29:48.410 --> 29:52.100
+Bin Garmin...
+
+29:52.100 --> 29:55.800
+What? Hab ich doch grad installiert.
+
+29:55.800 --> 30:02.120
+Das muss ich auch noch installieren.
+
+30:02.120 --> 30:08.280
+Ich mag ja nicht.
+
+30:08.280 --> 30:10.280
+Fuck.
+
+30:10.280 --> 30:18.970
+Easy. Easy.
+
+30:18.970 --> 30:20.970
+Fixed.
+
+30:20.970 --> 30:22.970
+Easy as fuck.
+
+30:22.970 --> 30:24.970
+Easy. Easy.
+
+30:24.970 --> 30:26.970
+Easy as fuck.
+
+30:26.970 --> 30:28.970
+Easy. Easy.
+
+30:28.970 --> 30:30.970
+Easy. Easy.
+
+30:30.970 --> 30:32.970
+Easy.
+
+30:32.970 --> 30:34.970
+So, da können wir das komische Webkit
+
+30:34.970 --> 30:36.970
+Kompilierungszeug hier oben abbrechen.
+
+30:36.970 --> 30:38.970
+Okay, also jetzt brauch ich ein Webkit
+
+30:38.970 --> 30:40.970
+Account. Nein, kein Webkit Account.
+
+30:40.970 --> 30:42.970
+Nein, ich habe kein Account.
+
+30:42.970 --> 30:44.970
+Kann ich das,
+
+30:44.970 --> 30:46.970
+kann ich das nicht im Browser irgendwie machen?
+
+30:46.970 --> 30:48.970
+Äh, Garmin
+
+30:48.970 --> 30:50.970
+Developer Account.
+
+30:50.970 --> 30:55.620
+Wir machen wieder ein Fake.
+
+30:55.620 --> 30:57.620
+Garmin Developer.
+
+30:57.620 --> 30:59.620
+Okay.
+
+30:59.620 --> 31:03.000
+Wo erstelle ich mir hier ein Account?
+
+31:03.000 --> 31:05.000
+Account. Developer Forum.
+
+31:05.000 --> 31:08.890
+Account.
+
+31:08.890 --> 31:10.890
+Äh.
+
+31:10.890 --> 31:18.100
+Ja, Developer Programm.
+
+31:18.100 --> 31:23.340
+Okay, das ist super kompliziert
+
+31:23.340 --> 31:25.340
+schon mal das Richtige zu finden.
+
+31:25.340 --> 31:27.340
+Account.
+
+31:27.340 --> 31:30.840
+Muss man das über die komische App,
+
+31:30.840 --> 31:32.840
+muss man das wirklich hier drüber machen?
+
+31:32.840 --> 31:34.840
+Okay, create a new Account.
+
+31:34.840 --> 31:36.840
+Okay, also, ich habe die Terms,
+
+31:36.840 --> 31:38.840
+ich habe die Terms gelesen und kriege
+
+31:38.840 --> 31:40.840
+Max
+
+31:40.840 --> 31:42.840
+Wupp
+
+31:42.840 --> 31:44.840
+E-Mail-Adresse, okay.
+
+31:44.840 --> 31:46.840
+10-Minute-Mail
+
+31:46.840 --> 31:48.840
+Beste E-Mail-Adresse
+
+31:48.840 --> 31:53.180
+überhaupt, die will ich haben.
+
+31:53.180 --> 31:55.180
+Oh, man darf da nicht
+
+31:55.180 --> 31:57.180
+copy-pasten, Mann, ist das nervig.
+
+31:57.180 --> 31:59.180
+Z-Bock
+
+31:59.180 --> 32:01.180
+Passwort.
+
+32:01.180 --> 32:11.850
+Okay, ähm.
+
+32:11.850 --> 32:16.760
+Mal kurz aufschreiben.
+
+32:16.760 --> 32:18.760
+So.
+
+32:18.760 --> 32:24.120
+Germany, create Account.
+
+32:24.120 --> 32:26.120
+Ach, man muss doch nicht mal bestätigen.
+
+32:26.120 --> 32:34.040
+Na, umso besser.
+
+32:34.040 --> 32:36.040
+Man muss doch nicht mal bestätigen,
+
+32:36.040 --> 32:38.040
+das ist gut.
+
+32:38.040 --> 32:40.040
+Logged in as Max Wupp.
+
+32:40.040 --> 32:42.040
+Next. Automatic Updates.
+
+32:42.040 --> 32:44.040
+Automatic Downloads.
+
+32:44.040 --> 32:46.040
+Automatic Updates, jawoll.
+
+32:46.040 --> 32:48.040
+Ähm.
+
+32:48.040 --> 32:50.040
+Watches, Bikes, Wearables, alles.
+
+32:50.040 --> 32:52.040
+New Devices.
+
+32:52.040 --> 32:54.040
+Devices are being downloaded.
+
+32:54.040 --> 32:56.040
+Nice.
+
+32:56.040 --> 32:58.040
+Okay.
+
+32:58.040 --> 33:00.040
+Dann fetcht mal.
+
+33:00.040 --> 33:05.910
+Yes.
+
+33:05.910 --> 33:07.910
+Okay, das ist ja
+
+33:07.910 --> 33:12.440
+gar nicht so schlecht gemacht.
+
+33:12.440 --> 33:14.440
+Kriege ich erstmal 300 Emulatoren installiert?
+
+33:14.440 --> 33:19.670
+Okay.
+
+33:19.670 --> 33:21.670
+Oh, im Hintergrund geht da schon mal gut was ab.
+
+33:21.670 --> 33:36.820
+Ehrlich gesagt, ich brauche gar nicht
+
+33:36.820 --> 33:38.820
+die 1000 Sachen und Devices.
+
+33:38.820 --> 33:40.820
+Aber gut, wir lassen ihn mal.
+
+33:40.820 --> 33:42.820
+Wir lassen ihn mal kurz machen.
+
+33:42.820 --> 33:44.820
+Ähm.
+
+33:44.820 --> 33:46.820
+Also,
+
+33:46.820 --> 33:48.820
+ehrlich gesagt,
+
+33:48.820 --> 33:50.820
+ich glaube, das kann man auch gar nicht
+
+33:50.820 --> 33:52.820
+abbrechen. Ich glaube, wir müssen den jetzt mal
+
+33:52.820 --> 33:54.820
+kurz zwei Minuten in Ruhe lassen
+
+33:54.820 --> 34:01.530
+und den Kram installieren.
+
+34:01.530 --> 34:03.530
+Weiß ich nicht wirklich, was der gerade da
+
+34:03.530 --> 34:08.630
+im Hintergrund treibt.
+
+34:08.630 --> 34:10.630
+Also, wenn das in dem Tempo weiter geht,
+
+34:10.630 --> 34:12.630
+dann sitzen wir morgen noch da.
+
+34:12.630 --> 34:14.630
+Gucken, ob das überhaupt irgendwas macht
+
+34:14.630 --> 34:16.630
+im Background.
+
+34:16.630 --> 34:18.630
+Sieht jetzt für mich nämlich nicht so aus.
+
+34:18.630 --> 34:20.630
+Öh.
+
+34:20.630 --> 34:22.630
+Es ist noch am Downloaden und dann dauert es wahrscheinlich
+
+34:22.630 --> 34:24.630
+nur wegen dem Download ein bisschen.
+
+34:24.630 --> 34:33.060
+Das liegt am
+
+34:33.060 --> 34:35.060
+Download, gehe ich mal von aus.
+
+34:35.060 --> 34:37.060
+Das wird wahrscheinlich
+
+34:37.060 --> 34:39.060
+unterschiedlich groß sein und der Download nicht so
+
+34:39.060 --> 34:41.060
+schnell. Ich gehe davon aus, dass es alles dann
+
+34:41.060 --> 34:43.060
+mehr oder weniger zeitgleich fertig
+
+34:43.060 --> 34:53.030
+wird. Ich meine, es wäre
+
+34:53.030 --> 34:55.030
+ja auch ganz sinnvoll, Preferences.
+
+34:55.030 --> 35:03.660
+Wir machen einfach mal nur by Computer.
+
+35:05.660 --> 35:13.060
+Aber dann bricht der trotzdem nicht ab.
+
+35:13.060 --> 35:15.060
+Ich schau mal, ob ich das beschleunigen kann,
+
+35:15.060 --> 35:17.060
+wenn ich quitte und nochmal starte.
+
+35:17.060 --> 35:20.760
+Was?
+
+35:20.760 --> 35:22.760
+Oh, ist das schlecht, Alter.
+
+35:22.760 --> 35:24.760
+Was habe ich für eine E-Mail-Adresse?
+
+35:24.760 --> 35:26.760
+Okay, zbog.
+
+35:26.760 --> 35:42.070
+Okay, immerhin.
+
+35:42.070 --> 35:44.070
+Guck mal, er downloadet jetzt tatsächlich
+
+35:44.070 --> 35:46.070
+nur noch das, was ich haben will.
+
+35:46.070 --> 35:48.070
+Okay, man musste...
+
+35:48.070 --> 35:50.070
+Das wirkt aber ziemlich fragil,
+
+35:50.070 --> 35:52.070
+was sie da gebaut haben.
+
+35:52.070 --> 35:54.070
+Hast du geschaut, ob es eine Bestätigungs-E-Mail
+
+35:54.070 --> 35:56.070
+gibt?
+
+35:56.070 --> 35:59.960
+Mit sowas geben die sich das
+
+35:59.960 --> 36:01.960
+gar nicht ab. Wer braucht schon
+
+36:01.960 --> 36:11.990
+Bestätigungs-E-Mails?
+
+36:11.990 --> 36:13.990
+Okay, das scheint ein bisschen schneller zu gehen.
+
+36:13.990 --> 36:19.030
+So, wie geht's denn dann weiter?
+
+36:19.030 --> 36:21.030
+So, als erstes
+
+36:21.030 --> 36:23.030
+getten wir das Garmin SDK.
+
+36:23.030 --> 36:25.030
+Complete First Time Setup Process.
+
+36:25.030 --> 36:27.030
+Download Latest
+
+36:27.030 --> 36:29.030
+Connect IQ SDK.
+
+36:29.030 --> 36:31.030
+Download Complete.
+
+36:31.030 --> 36:33.030
+Klick Yes.
+
+36:33.030 --> 36:35.030
+Klick der SD... Close der
+
+36:35.030 --> 36:37.030
+SDK Manager. Okay, wir können da schon mal
+
+36:37.030 --> 36:39.030
+den nächsten Schritt machen.
+
+36:39.030 --> 36:41.030
+In Visual Studio Code, go to
+
+36:41.030 --> 36:43.030
+Extensions, Insta... Monkey
+
+36:43.030 --> 36:45.030
+Sea, Alter, was ich mal...
+
+36:45.030 --> 36:47.030
+Was wird schon wieder, dass ich hier alles
+
+36:47.030 --> 36:49.030
+geben muss?
+
+36:49.030 --> 36:51.030
+Könnten die... Können die nicht...
+
+36:51.030 --> 36:53.030
+Also, könnten die nicht irgendeine
+
+36:53.030 --> 36:55.030
+normale Programmiersprache
+
+36:55.030 --> 36:57.030
+nehmen? JavaScript, Python, sonst was?
+
+36:57.030 --> 36:59.030
+Warum muss es
+
+36:59.030 --> 37:06.250
+Monkey Sea sein?
+
+37:06.250 --> 37:08.250
+Nice FFmpeg HiRes GIF.
+
+37:08.250 --> 37:11.820
+Okay, wir installieren die Monkey
+
+37:11.820 --> 37:15.640
+Sea Extension. Gut, gut,
+
+37:15.640 --> 37:22.540
+dass ich den Snapshot gemacht hab.
+
+37:22.540 --> 37:24.540
+Moment, es gibt zwei Sachen.
+
+37:24.540 --> 37:31.300
+Es gibt das.
+
+37:31.300 --> 37:33.300
+Das ist das Offizielle
+
+37:33.300 --> 37:35.300
+von Garmin und das hier ist
+
+37:35.300 --> 37:37.300
+von Alexander Fedora.
+
+37:37.300 --> 37:43.820
+Changelog ohne Datum ist
+
+37:43.820 --> 37:47.320
+auch immer geil.
+
+37:47.320 --> 37:49.320
+Hier, 2020.
+
+37:49.320 --> 37:51.320
+Okay, das ist auf jeden Fall das Sinnigere.
+
+37:51.320 --> 37:53.320
+Okay,
+
+37:53.320 --> 37:57.720
+wir sind fertig.
+
+37:57.720 --> 38:04.360
+Close. Das ist der Cousin
+
+38:04.360 --> 38:06.360
+von... Der Cousin vor allem.
+
+38:06.360 --> 38:10.380
+Btop ist
+
+38:10.380 --> 38:12.380
+zu fancy.
+
+38:12.380 --> 38:14.380
+Install Button.
+
+38:14.380 --> 38:16.380
+Restart Visual Studio Code. Okay.
+
+38:16.380 --> 38:18.380
+After Restart
+
+38:18.380 --> 38:20.380
+Summon the Command Plate.
+
+38:20.380 --> 38:22.380
+Verify
+
+38:22.380 --> 38:24.380
+Installation and select
+
+38:24.380 --> 38:26.380
+Verify
+
+38:26.380 --> 38:28.380
+Installation.
+
+38:28.380 --> 38:30.380
+Okay, Cousin
+
+38:30.380 --> 38:32.380
+ist dumm, der macht das. Genau.
+
+38:32.380 --> 38:37.030
+Verify Installation.
+
+38:39.030 --> 38:45.160
+Generate Developer
+
+38:45.160 --> 38:51.220
+Key? Was
+
+38:51.220 --> 38:56.710
+mache ich gerade?
+
+38:56.710 --> 39:00.090
+Downloads.
+
+39:00.090 --> 39:02.090
+Garmin POC. Haben wir mal hier
+
+39:02.090 --> 39:04.090
+einen Ordner? Irgendwie
+
+39:04.090 --> 39:06.090
+Projects oder so?
+
+39:06.090 --> 39:08.090
+Keine Ahnung. Open.
+
+39:08.090 --> 39:10.090
+Ja.
+
+39:10.090 --> 39:21.980
+Java.
+
+39:21.980 --> 39:25.420
+Okay.
+
+39:25.420 --> 39:32.120
+Java. Open JDK.
+
+39:32.120 --> 39:36.260
+Was ist denn da
+
+39:36.260 --> 39:38.260
+der Default mittlerweile?
+
+39:38.260 --> 39:40.260
+Was installiert man denn, wenn man Java installieren will?
+
+39:40.260 --> 39:42.260
+Open. Was ist das hier?
+
+39:42.260 --> 39:47.050
+Open JDK 19.
+
+39:47.050 --> 39:49.050
+21.
+
+39:49.050 --> 39:51.050
+Was haben die da zusammen geschustert?
+
+39:51.050 --> 39:53.050
+Ja, das frage ich mich
+
+39:53.050 --> 39:59.560
+auch gerade.
+
+39:59.560 --> 40:01.560
+Das frage ich mich auch.
+
+40:01.560 --> 40:03.560
+Okay.
+
+40:03.560 --> 40:05.560
+Nochmal Visual Studio Code starten.
+
+40:05.560 --> 40:10.340
+Verify
+
+40:10.340 --> 40:12.340
+Installation.
+
+40:12.340 --> 40:14.340
+Okay. MonkeySee
+
+40:14.340 --> 40:16.340
+Installation verified. Ganz toll.
+
+40:16.340 --> 40:22.340
+Und jetzt?
+
+40:22.340 --> 40:24.340
+Get the Connect IQ Mobile SDK.
+
+40:24.340 --> 40:28.420
+Ne.
+
+40:28.420 --> 40:30.420
+Das brauche ich nicht.
+
+40:30.420 --> 40:32.420
+Und, und, und
+
+40:32.420 --> 40:34.420
+jetzt?
+
+40:34.420 --> 40:36.420
+Ich meine,
+
+40:36.420 --> 40:38.420
+der Guide ist etwas
+
+40:38.420 --> 40:44.550
+incomplete, oder?
+
+40:44.550 --> 40:46.550
+Das SDK ist auch ein geiles
+
+40:46.550 --> 40:48.550
+SDK. Es hat einfach keine
+
+40:48.550 --> 40:50.550
+Beispiele oder sonst irgendwas dabei.
+
+40:50.550 --> 40:52.550
+Okay.
+
+40:52.550 --> 40:54.550
+Wir machen, wir gehen erstmal hier in
+
+40:54.550 --> 40:56.550
+Projects und öffnen Visual Studio Code da.
+
+40:56.550 --> 40:58.550
+Ja, ja.
+
+40:58.550 --> 41:00.550
+Wir trusten. Oh, guck mal. Da ist mal ein
+
+41:00.550 --> 41:02.550
+Developer Key. Den sollte ich, den sollte ich
+
+41:02.550 --> 41:04.550
+vielleicht nicht leaken. Also machen wir hier
+
+41:04.550 --> 41:06.550
+Projects 2.
+
+41:06.550 --> 41:08.550
+So.
+
+41:08.550 --> 41:10.550
+Okay. Visual Studio Code.
+
+41:10.550 --> 41:12.550
+Ich truste.
+
+41:12.550 --> 41:14.550
+Okay. Wie geht das jetzt?
+
+41:14.550 --> 41:16.550
+Monkey. MonkeySee.
+
+41:16.550 --> 41:18.550
+Clean Projects
+
+41:18.550 --> 41:20.550
+Launch New Project.
+
+41:20.550 --> 41:25.080
+Set Project
+
+41:25.080 --> 41:27.080
+Name. Kackel.
+
+41:27.080 --> 41:29.080
+Data Field Widget
+
+41:29.080 --> 41:31.080
+Watch App.
+
+41:31.080 --> 41:33.080
+Okay, Leute. Ich würde sagen, wir tun
+
+41:33.080 --> 41:35.080
+erstmal so, weil ich glaube, da kommt man
+
+41:35.080 --> 41:37.080
+am besten damit rein, als würden
+
+41:37.080 --> 41:39.080
+wir eine Watch App
+
+41:39.080 --> 41:41.080
+programmieren, weil ich hoffe, da ist so
+
+41:41.080 --> 41:43.080
+eine Art Simulator oder sowas dabei.
+
+41:43.080 --> 41:51.060
+Alternativ können wir auch einen
+
+41:51.060 --> 41:53.060
+Monkey Barrel entwickeln, was auch immer
+
+41:53.060 --> 41:55.060
+das ist. Vielleicht ein fancy Name für ein
+
+41:55.060 --> 41:58.890
+Package. Watch Face.
+
+41:58.890 --> 42:00.890
+Wir tun mal so, als wollen wir eine
+
+42:00.890 --> 42:04.390
+Application. Ich will eigentlich
+
+42:04.390 --> 42:06.390
+gar keine App, sondern ein Data Field bauen.
+
+42:06.390 --> 42:10.150
+Mini. Na, immer beste,
+
+42:10.150 --> 42:13.530
+neueste, geilste API.
+
+42:13.530 --> 42:15.530
+Select the products to support.
+
+42:15.530 --> 42:17.530
+Edge 840.
+
+42:17.530 --> 42:19.530
+Project 2.
+
+42:19.530 --> 42:21.530
+Ganz toll.
+
+42:21.530 --> 42:25.930
+Nice.
+
+42:25.930 --> 42:27.930
+Gibt es Hello World oder so?
+
+42:27.930 --> 42:29.930
+Irgendwie.
+
+42:29.930 --> 42:31.930
+Kackel App MC.
+
+42:31.930 --> 42:39.110
+Uiuiui.
+
+42:39.110 --> 42:41.110
+Es hat ein bisschen was von Dart, oder?
+
+42:41.110 --> 42:43.110
+Findet ihr nicht auch?
+
+42:43.110 --> 42:45.110
+Ein bisschen.
+
+42:45.110 --> 42:48.490
+Es sieht.
+
+42:48.490 --> 42:50.490
+Haben wir Autocomplete?
+
+42:50.490 --> 42:52.490
+Ja. Hey.
+
+42:52.490 --> 42:54.490
+Huiuiui.
+
+42:54.490 --> 42:56.490
+Massive. Okay.
+
+42:56.490 --> 42:58.490
+Gibt es sowas? Monkey.
+
+42:58.490 --> 43:00.490
+Es muss ja irgendwie ein Run oder so.
+
+43:00.490 --> 43:02.490
+Run.
+
+43:02.490 --> 43:06.950
+Launch.
+
+43:06.950 --> 43:08.950
+Configure Monkey Barrel.
+
+43:08.950 --> 43:12.900
+What?
+
+43:12.900 --> 43:16.410
+Build current project.
+
+43:16.410 --> 43:23.370
+No device
+
+43:23.370 --> 43:27.190
+available.
+
+43:27.190 --> 43:33.900
+Ich habe doch Edge runtergeladen.
+
+43:33.900 --> 43:38.230
+Äh.
+
+43:38.230 --> 43:44.170
+Monkeys.
+
+43:44.170 --> 43:46.170
+SDK Manager.
+
+43:46.170 --> 43:48.170
+Da ist er.
+
+43:48.170 --> 43:51.800
+Wie oft muss ich das noch machen?
+
+43:51.800 --> 43:53.800
+Meine E-Mail Adresse. Sekunde.
+
+43:53.800 --> 43:55.800
+Oh fuck.
+
+43:55.800 --> 43:57.800
+Ähm.
+
+43:57.800 --> 43:59.800
+Chat, hat jemand aufgepasst?
+
+43:59.800 --> 44:05.350
+Z-Bock irgendwas?
+
+44:05.350 --> 44:07.350
+Ah, da ist sie hier.
+
+44:07.350 --> 44:09.350
+Z-Bock. Muss ich mir auch mal aufschreiben.
+
+44:09.350 --> 44:15.290
+Wie oft muss ich das noch machen?
+
+44:15.290 --> 44:25.060
+Okay, finish.
+
+44:25.060 --> 44:43.420
+Hab ich doch hier. Guck mal.
+
+44:43.420 --> 44:48.010
+Und was haben wir jetzt hier?
+
+44:48.010 --> 44:50.010
+Manifests.
+
+44:50.010 --> 44:54.220
+Was ist ein Data Field?
+
+44:54.220 --> 44:56.220
+Sowas hier.
+
+44:56.220 --> 45:00.940
+Eines dieser Kästchen hier unten.
+
+45:00.940 --> 45:07.260
+Sollte ich den vielleicht im Hintergrund
+
+45:07.260 --> 45:09.260
+einfach auch nochmal
+
+45:09.260 --> 45:11.260
+die Uhren runterladen lassen.
+
+45:11.260 --> 45:13.260
+Also eine zumindest.
+
+45:13.260 --> 45:15.260
+Ja, Forerunner 255
+
+45:15.260 --> 45:20.680
+hab ich.
+
+45:20.680 --> 45:22.680
+Ich hab nen Watch. Ich hab nen App
+
+45:22.680 --> 45:24.680
+Projekt erstellt.
+
+45:24.680 --> 45:26.680
+Das ist glaube ich nicht,
+
+45:26.680 --> 45:28.680
+dass sie einen Unterschied machen zwischen
+
+45:30.680 --> 45:34.380
+Resources
+
+45:34.380 --> 45:42.170
+Manifests.
+
+45:42.170 --> 45:47.140
+Warum haben wir hier zweimal Kekkel?
+
+45:47.140 --> 45:49.140
+Wir haben Projects Kekkel und
+
+45:49.140 --> 45:58.340
+ich bin verwirrt. Warum
+
+45:58.340 --> 46:00.340
+haben wir das hier doppelt offen?
+
+46:00.340 --> 46:02.340
+Ich mach das mal kurz zu. Das ist komisch.
+
+46:02.340 --> 46:07.190
+Monkey Jungle.
+
+46:07.190 --> 46:09.190
+Boah ey, ich raste aus.
+
+46:09.190 --> 46:13.210
+Können die nicht irgendwas
+
+46:13.210 --> 46:15.210
+benutzen, was jeder versteht?
+
+46:15.210 --> 46:28.250
+Da stand Watch UI.
+
+46:28.250 --> 46:30.250
+Ich denke mal, das heißt halt einfach so.
+
+46:37.850 --> 46:39.850
+Okay, was haben wir hier?
+
+46:39.850 --> 46:41.850
+Use the following from
+
+46:41.850 --> 46:43.850
+Visual Studio Code Command Palette
+
+46:43.850 --> 46:45.850
+to edit build targets.
+
+46:45.850 --> 46:49.480
+Set product
+
+46:49.480 --> 46:57.400
+touch by computers
+
+46:59.400 --> 47:01.400
+Ach einfach alles, bam.
+
+47:01.400 --> 47:03.400
+Okay, easy.
+
+47:03.400 --> 47:05.400
+Siehste?
+
+47:05.400 --> 47:07.400
+Zack.
+
+47:07.400 --> 47:10.900
+Jetzt haben wir alle Support.
+
+47:10.900 --> 47:12.900
+Build current project für Edge.
+
+47:12.900 --> 47:18.460
+Easy.
+
+47:18.460 --> 47:20.460
+Jetzt ist nur
+
+47:20.460 --> 47:22.460
+die Frage, wie man das in irgendeinem Simulator
+
+47:22.460 --> 47:24.460
+starten kann.
+
+47:24.460 --> 47:32.570
+Ich hab gesehen, dass
+
+47:32.570 --> 47:39.140
+die sowas haben.
+
+47:39.140 --> 47:42.650
+Launch complication.
+
+47:42.650 --> 47:44.650
+Compilation?
+
+47:44.650 --> 47:46.650
+Complication?
+
+47:46.650 --> 47:48.650
+What?
+
+47:48.650 --> 47:53.370
+Was wird hier gelauncht?
+
+47:53.370 --> 47:55.370
+Okay, keine Ahnung.
+
+47:57.370 --> 47:59.370
+Okay, build for device. Haben wir gemacht.
+
+47:59.370 --> 48:01.370
+Edit application.
+
+48:01.370 --> 48:03.370
+Edit export
+
+48:03.370 --> 48:11.990
+project. Open.
+
+48:11.990 --> 48:13.990
+Wieso heißt das Ding Monkey Sea und warum
+
+48:13.990 --> 48:15.990
+brauchst du Java? Musst du Garmin fragen.
+
+48:15.990 --> 48:22.700
+Okay, wir müssen mal
+
+48:22.700 --> 48:24.700
+die Hilfeseite mal abchecken.
+
+48:24.700 --> 48:28.140
+Okay.
+
+48:28.140 --> 48:30.140
+Connect IQ basics.
+
+48:30.140 --> 48:32.140
+Your first app.
+
+48:32.140 --> 48:42.650
+Ist das Eclipse?
+
+48:42.650 --> 48:44.650
+Okay.
+
+48:44.650 --> 48:46.650
+Select project watch face.
+
+48:46.650 --> 48:48.650
+Okay, select simple template.
+
+48:48.650 --> 48:50.650
+Select minimum RP.
+
+48:50.650 --> 48:57.610
+Run the
+
+48:57.610 --> 48:59.610
+program. Okay, wie geht das?
+
+48:59.610 --> 49:01.610
+Select
+
+49:01.610 --> 49:03.610
+run without debugging.
+
+49:03.610 --> 49:13.830
+Run?
+
+49:13.830 --> 49:15.830
+Run without debugging.
+
+49:15.830 --> 49:21.260
+Oh, es runnt.
+
+49:21.260 --> 49:24.820
+Es runnt.
+
+49:24.820 --> 49:29.740
+Easy.
+
+49:29.740 --> 49:31.740
+Easy.
+
+49:31.740 --> 49:38.180
+Easy.
+
+49:38.180 --> 49:41.690
+Ey, komm mal an.
+
+49:41.690 --> 49:47.110
+Der device emulator
+
+49:47.110 --> 49:51.060
+emulated.
+
+49:51.060 --> 49:56.170
+Oh, was ist nu?
+
+49:56.170 --> 49:58.170
+Data fields, layout, invalid.
+
+49:58.170 --> 50:00.170
+HDB connection.
+
+50:00.170 --> 50:10.140
+Nee, nee, nee, bestimmt nicht.
+
+50:10.140 --> 50:13.510
+Okay.
+
+50:13.510 --> 50:15.510
+Ich hab nen Garmin Uhr und nen
+
+50:15.510 --> 50:17.510
+Fahrradcomputer, ja.
+
+50:17.510 --> 50:19.510
+Ich find die Dinger nice.
+
+50:19.510 --> 50:23.660
+Activity data.
+
+50:23.660 --> 50:25.660
+Sleep mode.
+
+50:25.660 --> 50:27.660
+Okay, also wie hab ich das jetzt gemacht?
+
+50:27.660 --> 50:29.660
+Run without debugging, also
+
+50:29.660 --> 50:41.030
+Control F5.
+
+50:41.030 --> 50:43.030
+Hat das Hot Reload?
+
+50:43.030 --> 50:45.030
+Leute, das müssen wir jetzt mal ausprobieren.
+
+50:45.030 --> 50:47.030
+Hat das so ne Art Hot Reload?
+
+50:47.030 --> 50:49.030
+Ähm.
+
+50:49.030 --> 50:51.030
+Ähm.
+
+50:51.030 --> 50:53.030
+Wie kann ich denn das jetzt ausprobieren?
+
+50:53.030 --> 50:55.030
+Resources,
+
+50:55.030 --> 50:57.030
+Strings,
+
+50:57.030 --> 50:59.030
+Appname, Kekke,
+
+50:59.030 --> 51:01.030
+Kekke W heißt die App jetzt.
+
+51:01.030 --> 51:03.030
+Nee.
+
+51:03.030 --> 51:16.710
+Ah, ah.
+
+51:16.710 --> 51:18.710
+Okay, das hat's nicht gecheckt.
+
+51:18.710 --> 51:20.710
+Vielleicht muss ich erst
+
+51:20.710 --> 51:36.760
+Build machen.
+
+51:36.760 --> 51:38.760
+Das ist gar nicht so schlecht, Leute.
+
+51:40.760 --> 51:42.760
+Das hätte ich mir jetzt schlimmer
+
+51:42.760 --> 51:44.760
+vorgestellt.
+
+51:44.760 --> 51:46.760
+Was ist denn der Knopf da unten?
+
+51:46.760 --> 51:48.760
+Data playback.
+
+51:48.760 --> 51:52.900
+Backlight.
+
+51:52.900 --> 51:54.900
+Das ist doch gar nicht so kacke.
+
+51:54.900 --> 51:56.900
+Das geht doch
+
+51:56.900 --> 52:00.340
+voll klar.
+
+52:00.340 --> 52:02.340
+Gut, dann kann ich tatsächlich nochmal
+
+52:02.340 --> 52:04.340
+ein neues Projekt machen, nachdem ich jetzt weiß,
+
+52:04.340 --> 52:09.190
+wie das funktioniert.
+
+52:09.190 --> 52:11.190
+Ups, das hätte ich gar nicht schließen müssen.
+
+52:11.190 --> 52:15.020
+New Project
+
+52:15.020 --> 52:17.020
+Monkey C, und zwar
+
+52:19.020 --> 52:21.020
+Ja, keine Ahnung, Data Field
+
+52:21.020 --> 52:23.020
+nenne ich das einfach mal.
+
+52:23.020 --> 52:25.020
+Ich will ein Data Field entwickeln.
+
+52:25.020 --> 52:27.020
+Äh, Data Field
+
+52:27.020 --> 52:29.020
+that extends the simple
+
+52:29.020 --> 52:34.820
+Data Field Class.
+
+52:34.820 --> 52:36.820
+A Data Field that extends
+
+52:36.820 --> 52:38.820
+the Data Field Class.
+
+52:38.820 --> 52:40.820
+Wir machen erstmal
+
+52:40.820 --> 52:42.820
+Select Minimum Supported
+
+52:42.820 --> 52:44.820
+API.
+
+52:44.820 --> 52:46.820
+Ja, ich mein,
+
+52:46.820 --> 52:48.820
+ich hab eh die neueste Version, so Edge.
+
+52:48.820 --> 52:52.580
+Äh, und wohin?
+
+52:52.580 --> 52:57.690
+Hier rein.
+
+52:57.690 --> 52:59.690
+Ja.
+
+52:59.690 --> 53:01.690
+Wollen wir das nochmal schließen.
+
+53:01.690 --> 53:03.690
+Nach Data Field
+
+53:03.690 --> 53:05.690
+Oh, what?
+
+53:05.690 --> 53:10.540
+Hä?
+
+53:10.540 --> 53:12.540
+Wart mal, ich bin verwirrt.
+
+53:14.540 --> 53:16.540
+Hab ich das jetzt da rein erstellt, oder wie?
+
+53:16.540 --> 53:18.540
+Ah ja.
+
+53:18.540 --> 53:20.540
+Data Field eins nach oben.
+
+53:20.540 --> 53:22.540
+Data Field
+
+53:22.540 --> 53:24.540
+Und jetzt Visual Studio Code
+
+53:24.540 --> 53:26.540
+hier drinnen öffnen.
+
+53:26.540 --> 53:28.540
+Das da down save, zack.
+
+53:28.540 --> 53:30.540
+Nice.
+
+53:30.540 --> 53:32.540
+So, das sieht
+
+53:32.540 --> 53:34.540
+jetzt deutlich, deutlich
+
+53:34.540 --> 53:36.540
+weniger aus.
+
+53:36.540 --> 53:38.540
+Schauen wir mal, Build
+
+53:38.540 --> 53:44.920
+Current Project
+
+53:44.920 --> 53:48.680
+Und jetzt
+
+53:48.680 --> 53:50.680
+Ne, was? Wie war das? Run?
+
+53:50.680 --> 53:52.680
+Run without debugging.
+
+53:52.680 --> 53:54.680
+MonkeySea
+
+53:54.680 --> 54:01.700
+Bin ich ja mal gespannt.
+
+54:01.700 --> 54:03.700
+Hey, das Fundst?
+
+54:03.700 --> 54:05.700
+Das, das Fundst
+
+54:05.700 --> 54:07.700
+Data Fields Layout
+
+54:07.700 --> 54:11.210
+Ja?
+
+54:11.210 --> 54:13.210
+Also so würde das dann
+
+54:13.210 --> 54:15.210
+Also eins davon wäre halt
+
+54:15.210 --> 54:17.210
+nur mal ein Data Field und
+
+54:17.210 --> 54:19.210
+realistisch, realistisch betrachtet
+
+54:19.210 --> 54:21.210
+will ich eigentlich
+
+54:21.210 --> 54:23.210
+4x4, weil ich ein breites
+
+54:23.210 --> 54:25.210
+Ich will, ich will ein Data Field machen, was
+
+54:25.210 --> 54:27.210
+ein zweier Data Field ausnutzt.
+
+54:27.210 --> 54:33.400
+Wobei eher, eher
+
+54:33.400 --> 54:35.400
+in der Größe würde ich sagen.
+
+54:35.400 --> 54:41.850
+Das ist realistischer.
+
+54:41.850 --> 54:43.850
+Ja, das funktioniert doch gar nicht mal
+
+54:43.850 --> 54:45.850
+so mies.
+
+54:45.850 --> 54:47.850
+Ganz gut, klar.
+
+54:47.850 --> 54:49.850
+So, also mein Data Field muss gut aussehen
+
+54:49.850 --> 54:51.850
+in dieser
+
+54:51.850 --> 54:53.850
+in dieser Größe
+
+54:53.850 --> 54:55.850
+weil mein Data Field
+
+54:55.850 --> 54:57.850
+soll
+
+54:57.850 --> 54:59.850
+hier unterhalb von der Map
+
+54:59.850 --> 55:01.850
+angezeigt werden können.
+
+55:01.850 --> 55:03.850
+Also Chat, was sagt ihr?
+
+55:03.850 --> 55:05.850
+Ich finde, das ist gar nicht mal schlecht
+
+55:05.850 --> 55:07.850
+wie die das bis jetzt gemacht haben.
+
+55:07.850 --> 55:09.850
+Ich finde, das geht
+
+55:09.850 --> 55:11.850
+echt klar, ja.
+
+55:11.850 --> 55:13.850
+Das können wir noch ein bisschen kleiner machen hier.
+
+55:13.850 --> 55:24.580
+So.
+
+55:24.580 --> 55:26.580
+Ich finde das
+
+55:26.580 --> 55:28.580
+Ich finde, das geht voll klar.
+
+55:28.580 --> 55:40.020
+Ja.
+
+55:40.020 --> 55:42.020
+So soll mein Data Field später aussehen.
+
+55:42.020 --> 55:44.020
+Genau so.
+
+55:44.020 --> 55:46.020
+Ein breites hier, wie das da.
+
+55:46.020 --> 55:52.920
+Ja, wir haben auch schon schlimmeres
+
+55:52.920 --> 55:57.320
+gesehen.
+
+55:57.320 --> 55:59.320
+Jetzt ist natürlich die Frage, wie funktioniert
+
+55:59.320 --> 56:01.320
+das? Also wir haben jetzt
+
+56:01.320 --> 56:03.320
+ja bisher nur das ganze eingerichtet.
+
+56:03.320 --> 56:05.320
+Wie programmiert
+
+56:05.320 --> 56:07.320
+man den Kram? Ok, Data Field App
+
+56:07.320 --> 56:09.320
+Extends Application Base.
+
+56:09.320 --> 56:11.320
+Data Field View.
+
+56:11.320 --> 56:13.320
+Jetzt schauen wir mal, wie gut
+
+56:13.320 --> 56:15.320
+die Autocompletion ist.
+
+56:15.320 --> 56:17.320
+Simple Data Field.
+
+56:17.320 --> 56:19.320
+Ok, sie funktioniert
+
+56:19.320 --> 56:21.320
+schon mal.
+
+56:21.320 --> 56:23.320
+Noch
+
+56:23.320 --> 56:25.320
+besser als das Rust Plugin noch vor
+
+56:25.320 --> 56:28.820
+kurzer Zeit.
+
+56:28.820 --> 56:30.820
+Ich habe natürlich absolut keine Ahnung von der API.
+
+56:30.820 --> 56:32.820
+So, woher kommt
+
+56:32.820 --> 56:34.820
+das überhaupt, dass es ein Label
+
+56:34.820 --> 56:36.820
+gibt?
+
+56:36.820 --> 56:38.820
+Woher weiß ich denn, dass es ein Label gibt?
+
+56:38.820 --> 56:40.820
+Hat vielleicht
+
+56:40.820 --> 56:42.820
+hat vielleicht das, vielleicht ist
+
+56:42.820 --> 56:44.820
+das ein Base.
+
+56:44.820 --> 56:46.820
+Gibt es sowas wie Base oder This oder so?
+
+56:46.820 --> 56:48.820
+Vielleicht
+
+56:48.820 --> 56:50.820
+kommt das ja vom Simple Data
+
+56:50.820 --> 56:52.820
+Field.
+
+56:52.820 --> 56:54.820
+Ok, Jump 2 gibt es schon
+
+56:54.820 --> 56:56.820
+mal nicht.
+
+56:56.820 --> 56:58.820
+Das heißt, wir müssen jetzt mal in die API
+
+56:58.820 --> 57:00.820
+Docs reingucken. Zeig mal kurz, was
+
+57:00.820 --> 57:02.820
+in Hessen so abgeht. Hochrechnung in
+
+57:02.820 --> 57:04.820
+Hessen 1924.
+
+57:04.820 --> 57:06.820
+Die CDU geht übelst ab.
+
+57:06.820 --> 57:08.820
+Der Markt regelt immer noch bei 5%.
+
+57:08.820 --> 57:10.820
+So, SDK.
+
+57:10.820 --> 57:12.820
+API
+
+57:12.820 --> 57:14.820
+Docs.
+
+57:14.820 --> 57:16.820
+MonkeySea.
+
+57:16.820 --> 57:21.740
+Containers.
+
+57:21.740 --> 57:23.740
+Arrays in MonkeySea.
+
+57:23.740 --> 57:25.740
+Ja, ok, ok, ok.
+
+57:25.740 --> 57:27.740
+Coding
+
+57:27.740 --> 57:32.580
+Conventions.
+
+57:32.580 --> 57:34.580
+Das finde ich jetzt alles nicht so spannend.
+
+57:34.580 --> 57:36.580
+Core Topics.
+
+57:36.580 --> 57:38.580
+Glances, Layouts.
+
+57:38.580 --> 57:46.600
+Field.
+
+57:46.600 --> 57:58.940
+Was?
+
+57:58.940 --> 58:00.940
+Ja, wie?
+
+58:00.940 --> 58:02.940
+Was gucke ich denn da jetzt am besten?
+
+58:02.940 --> 58:04.940
+API Docs?
+
+58:04.940 --> 58:06.940
+Hier, Simple.
+
+58:06.940 --> 58:11.400
+Simple Data Field. Da haben wir es doch.
+
+58:11.400 --> 58:13.400
+Simple Data Field.
+
+58:13.400 --> 58:17.100
+Was jetzt?
+
+58:17.100 --> 58:19.100
+Ist einfach ein Browser aufgegangen bei mir.
+
+58:19.100 --> 58:21.100
+Monks.
+
+58:21.100 --> 58:23.100
+Einfach random.
+
+58:23.100 --> 58:25.100
+Chat, wer von euch war das
+
+58:25.100 --> 58:27.100
+wieder?
+
+58:27.100 --> 58:30.920
+Wer hat gerade random
+
+58:30.920 --> 58:38.330
+Explorer geöffnet?
+
+58:38.330 --> 58:40.330
+Ja, Sauerei.
+
+58:40.330 --> 58:42.330
+Ok.
+
+58:42.330 --> 58:44.330
+Ah, hier, guck mal.
+
+58:44.330 --> 58:46.330
+Simple Data Field that displays current heart rate.
+
+58:46.330 --> 58:50.340
+Return Info.
+
+58:50.340 --> 58:52.340
+Specified
+
+58:52.340 --> 58:54.340
+Activity Info to display in the field
+
+58:54.340 --> 58:56.340
+here. Function Compute.
+
+58:56.340 --> 58:58.340
+Ah, ich
+
+58:58.340 --> 59:00.340
+jetzt verstehe ich halbwegs, wie das
+
+59:00.340 --> 59:02.340
+funktioniert. Das ist ein bisschen
+
+59:02.340 --> 59:04.340
+wie, ja,
+
+59:04.340 --> 59:06.340
+das ist, naja, ok.
+
+59:06.340 --> 59:08.340
+Es ist ein bisschen
+
+59:08.340 --> 59:10.340
+wie ein Custom
+
+59:10.340 --> 59:12.340
+Windows Forms
+
+59:12.340 --> 59:14.340
+Element.
+
+59:14.340 --> 59:16.340
+So nach dem Motto onDraw und dann
+
+59:16.340 --> 59:18.340
+da drin das machen. Und Compute ist
+
+59:18.340 --> 59:20.340
+wahrscheinlich einfach der Text, der
+
+59:20.340 --> 59:22.340
+zurückkommt.
+
+59:22.340 --> 59:24.340
+Ähm, übrigens Format funktioniert
+
+59:24.340 --> 59:28.420
+schon mal nicht richtig. Format.
+
+59:28.420 --> 59:30.420
+No Formatter for MonkeySee.
+
+59:30.420 --> 59:32.420
+Ja gut, das wundert mich
+
+59:32.420 --> 59:36.440
+jetzt nicht wirklich. Ok.
+
+59:36.440 --> 59:38.440
+0.0 Return. Also sprich
+
+59:38.440 --> 59:40.440
+Info. Info.
+
+59:40.440 --> 59:44.200
+Heart Rate.
+
+59:44.200 --> 59:46.200
+Ach, das ist ja nice, ok.
+
+59:46.200 --> 59:48.200
+Da sieht man alles, was es gibt.
+
+59:48.200 --> 59:50.200
+Dann returnen wir das doch mal.
+
+59:50.200 --> 59:52.200
+Current Heart Rate. Ich mein, die ist 0,
+
+59:52.200 --> 59:54.200
+weil da ist sonst nix, aber ok.
+
+59:54.200 --> 59:56.200
+So, dann schauen wir doch mal. Jetzt machen wir
+
+59:56.200 --> 59:59.700
+Build.
+
+59:59.700 --> 01:00:01.700
+Build Current Project und
+
+01:00:01.700 --> 01:00:03.700
+Restart.
+
+01:00:03.700 --> 01:00:05.700
+Wenn wir Glück haben, steht jetzt meine Heart Rate drinne.
+
+01:00:05.700 --> 01:00:07.700
+Was ich aktuell mach? Ein Custom Data
+
+01:00:07.700 --> 01:00:09.700
+Field für Garmin Devices bauen.
+
+01:00:09.700 --> 01:00:17.240
+Ok, da gibt's wahrscheinlich einfach
+
+01:00:17.240 --> 01:00:19.240
+keine Daten aktuell.
+
+01:00:19.240 --> 01:00:21.240
+Ok, Label können wir machen.
+
+01:00:21.240 --> 01:00:23.240
+Hier. Heart Rate.
+
+01:00:23.240 --> 01:00:25.240
+Ja, lass wir's.
+
+01:00:25.240 --> 01:00:27.240
+Ja, wobei ist eigentlich egal.
+
+01:00:27.240 --> 01:00:29.240
+Die Keck V Rate ist das.
+
+01:00:29.240 --> 01:00:31.240
+So, Build.
+
+01:00:31.240 --> 01:00:33.240
+Wenn es fertig ist, einmal Shift
+
+01:00:33.240 --> 01:00:36.940
+Ctrl F5.
+
+01:00:36.940 --> 01:00:38.940
+Vielleicht kann man das in der Simulation einstellen.
+
+01:00:38.940 --> 01:00:42.820
+Ja, muss ich mal gleich gucken.
+
+01:00:42.820 --> 01:00:46.330
+Keck V Heart Rate. Simulation.
+
+01:00:46.330 --> 01:00:55.980
+Activity Data.
+
+01:00:55.980 --> 01:01:03.260
+Wow. Das macht einfach was.
+
+01:01:03.260 --> 01:01:23.880
+Lab Timer.
+
+01:01:23.880 --> 01:01:25.880
+Ok, wir haben die
+
+01:01:25.880 --> 01:01:27.880
+Simulation gestartet anscheinend.
+
+01:01:27.880 --> 01:01:36.500
+Na gut, das
+
+01:01:36.500 --> 01:01:38.500
+generatet einfach random Werte.
+
+01:01:38.500 --> 01:01:41.940
+Es soll mir ja recht
+
+01:01:41.940 --> 01:01:43.940
+sein. Random Werte. Vollkommen ok.
+
+01:01:43.940 --> 01:01:49.880
+Hast du ein Power Meter?
+
+01:01:49.880 --> 01:01:51.880
+Nein. Da würde ich aber überlegen, wie ich
+
+01:01:51.880 --> 01:01:53.880
+das am besten mache. Gibt's ja verschiedene Systeme.
+
+01:01:53.880 --> 01:01:55.880
+Gibt's ja Pedale. Gibt es
+
+01:01:55.880 --> 01:01:57.880
+ja Kurbeldinger und
+
+01:01:57.880 --> 01:01:59.880
+komplette
+
+01:01:59.880 --> 01:02:01.880
+so Sets.
+
+01:02:01.880 --> 01:02:03.880
+Weil, aber ganz ehrlich.
+
+01:02:03.880 --> 01:02:05.880
+Erstmal ordentlich
+
+01:02:05.880 --> 01:02:07.880
+Fahrrad fahren. Üben wieder.
+
+01:02:07.880 --> 01:02:12.470
+So, das ist schon mal nice.
+
+01:02:12.470 --> 01:02:14.470
+Das gefällt mir schon mal.
+
+01:02:14.470 --> 01:02:16.470
+So, jetzt
+
+01:02:16.470 --> 01:02:18.470
+kann ich, jetzt können wir mal was ausprobieren.
+
+01:02:18.470 --> 01:02:20.470
+Ok, also übrigens Leute.
+
+01:02:20.470 --> 01:02:22.470
+Ihr könnt alles ignorieren.
+
+01:02:22.470 --> 01:02:25.850
+Außer das da.
+
+01:02:25.850 --> 01:02:27.850
+Also
+
+01:02:27.850 --> 01:02:29.850
+das ist.
+
+01:02:29.850 --> 01:02:31.850
+Man kann glaube ich die Data Field
+
+01:02:31.850 --> 01:02:33.850
+hier drinnen nicht anpassen.
+
+01:02:33.850 --> 01:02:35.850
+Kann das Layout ändern
+
+01:02:35.850 --> 01:02:42.230
+und. Oh.
+
+01:02:42.230 --> 01:02:44.230
+Jetzt ist es gecrashed. Das war zu viel auf einmal.
+
+01:02:44.230 --> 01:02:52.540
+Jetzt haben wir es kaputt gemacht.
+
+01:02:52.540 --> 01:03:01.740
+Oh, was kann man da noch alles
+
+01:03:01.740 --> 01:03:03.740
+einstellen? Time Units,
+
+01:03:03.740 --> 01:03:05.740
+Language, Connection Type.
+
+01:03:05.740 --> 01:03:07.740
+Nein, gut.
+
+01:03:07.740 --> 01:03:09.740
+Das ist jetzt nix.
+
+01:03:09.740 --> 01:03:14.330
+Wetter, Position,
+
+01:03:14.330 --> 01:03:16.330
+Sensors. Du kannst echt
+
+01:03:16.330 --> 01:03:24.700
+ziemlich viel einstellen.
+
+01:03:24.700 --> 01:03:33.700
+Eigentlich ganz cool.
+
+01:03:33.700 --> 01:03:35.700
+So, wo war das mit Simulation?
+
+01:03:35.700 --> 01:03:37.700
+Ja.
+
+01:03:37.700 --> 01:03:43.190
+So, ok. Wir lassen
+
+01:03:43.190 --> 01:03:45.190
+das einfach mal so. Das wird
+
+01:03:45.190 --> 01:03:47.190
+ja ganz sinnig angezeigt.
+
+01:03:47.190 --> 01:03:49.190
+Ok, also. Jetzt der
+
+01:03:49.190 --> 01:03:51.190
+Test. Jetzt testen wir einfach mal ein bisschen was.
+
+01:03:51.190 --> 01:03:53.190
+Also es. Kann man
+
+01:03:53.190 --> 01:03:55.190
+den View auf die
+
+01:03:55.190 --> 01:03:57.190
+Navigationsanzeige umschalten?
+
+01:03:57.190 --> 01:04:02.420
+Running, Sailing.
+
+01:04:02.420 --> 01:04:04.420
+Ja, das ist jetzt mir
+
+01:04:04.420 --> 01:04:06.420
+eigentlich ziemlich egal.
+
+01:04:06.420 --> 01:04:14.090
+Navigation Data. Aber
+
+01:04:14.090 --> 01:04:16.090
+das wird keine Map Anzeigen
+
+01:04:16.090 --> 01:04:20.170
+hier drinnen. Das Go. Nein.
+
+01:04:20.170 --> 01:04:22.170
+Nein. Das ist Monkey See.
+
+01:04:22.170 --> 01:04:24.170
+Warum auch immer.
+
+01:04:24.170 --> 01:04:29.910
+Kann man nicht.
+
+01:04:29.910 --> 01:04:31.910
+Dann lassen wir das mal so.
+
+01:04:31.910 --> 01:04:33.910
+Ok, also. Jetzt.
+
+01:04:33.910 --> 01:04:35.910
+Jetzt probieren wir das mal ein bisschen aus.
+
+01:04:35.910 --> 01:04:37.910
+Also sagen wir mal.
+
+01:04:37.910 --> 01:04:39.910
+Ich würde gerne.
+
+01:04:39.910 --> 01:04:41.910
+Das ist richtig eklig. Wobei.
+
+01:04:41.910 --> 01:04:43.910
+Ich muss sagen. Es macht einen ganz brauchbaren Eindruck.
+
+01:04:43.910 --> 01:04:45.910
+Also was ich gerne machen würde ist.
+
+01:04:45.910 --> 01:04:47.910
+In meinem Widget.
+
+01:04:47.910 --> 01:04:49.910
+Anzeigen.
+
+01:04:49.910 --> 01:04:51.910
+Wir stellen die Data Fields doch nochmal
+
+01:04:51.910 --> 01:04:53.910
+um. Hier. Was hatten wir?
+
+01:04:53.910 --> 01:04:57.540
+4a oder so?
+
+01:04:57.540 --> 01:05:02.010
+Ne. 5a?
+
+01:05:02.010 --> 01:05:04.010
+B?
+
+01:05:04.010 --> 01:05:09.690
+Ich hatte doch sowas, wo das eine
+
+01:05:09.690 --> 01:05:11.690
+groß ist. Ja.
+
+01:05:11.690 --> 01:05:13.690
+Das da.
+
+01:05:13.690 --> 01:05:15.690
+So. Das ist das
+
+01:05:15.690 --> 01:05:23.030
+obere. Komm. Wir machen eins.
+
+01:05:23.030 --> 01:05:25.030
+Also. Eine Sache.
+
+01:05:25.030 --> 01:05:27.030
+Ich würde gerne. Ne. Ich muss das
+
+01:05:27.030 --> 01:05:29.030
+mit Rand.
+
+01:05:29.030 --> 01:05:31.030
+Ich muss es mit Rand anzeigen.
+
+01:05:31.030 --> 01:05:33.030
+Two Fields. Ja.
+
+01:05:33.030 --> 01:05:35.030
+Von der Idee her. Ich will das der Rand
+
+01:05:35.030 --> 01:05:37.030
+oder zumindest irgendwas
+
+01:05:37.030 --> 01:05:39.030
+angezeigt wird. Wenn.
+
+01:05:39.030 --> 01:05:41.030
+Ich will die Zone anzeigen.
+
+01:05:41.030 --> 01:05:43.030
+Von der Heart Rate.
+
+01:05:45.030 --> 01:05:47.030
+Also sprich.
+
+01:05:47.030 --> 01:05:49.030
+Das was bei Garmin
+
+01:05:49.030 --> 01:05:51.030
+standardmäßig. Grau. Blau.
+
+01:05:51.030 --> 01:05:53.030
+Grün. Oh.
+
+01:05:53.030 --> 01:05:55.030
+Mein Timer ist abgelaufen.
+
+01:05:55.030 --> 01:05:57.030
+Äh. Grau. Blau.
+
+01:05:57.030 --> 01:05:59.030
+Grün. Orange. Und Rot ist.
+
+01:05:59.030 --> 01:06:01.030
+Ja. Timer ist
+
+01:06:01.030 --> 01:06:09.590
+gut. Und das. Und das will ich.
+
+01:06:09.590 --> 01:06:11.590
+Das. Das. Irgendwie.
+
+01:06:11.590 --> 01:06:13.590
+Mal anzeigen. So. Also. Der Typ ist ganz schön.
+
+01:06:13.590 --> 01:06:15.590
+Ganz schön am strampeln mit 152
+
+01:06:15.590 --> 01:06:26.260
+Puls. Oh. Noch
+
+01:06:26.260 --> 01:06:28.260
+mehr. So. Wie kriege
+
+01:06:28.260 --> 01:06:30.260
+ich denn das jetzt raus? Also. Wie kriege
+
+01:06:30.260 --> 01:06:32.260
+ich. Wie kriege ich Heart Rate Zonen raus?
+
+01:06:32.260 --> 01:06:34.260
+Zonen? Okay.
+
+01:06:36.260 --> 01:06:38.260
+HR Zone. Man hat leider keine Hilfe
+
+01:06:38.260 --> 01:06:40.260
+dafür. Das wäre natürlich zu easy.
+
+01:06:40.260 --> 01:06:42.260
+Wie macht man denn eine Debug
+
+01:06:42.260 --> 01:06:44.260
+Ausgabe?
+
+01:06:44.260 --> 01:06:46.260
+Wie macht man eine
+
+01:06:46.260 --> 01:06:48.260
+Debug
+
+01:06:48.260 --> 01:06:50.260
+Ausgabe?
+
+01:06:50.260 --> 01:06:52.260
+HR Zone Biking zum Beispiel.
+
+01:06:52.260 --> 01:06:54.260
+So. Wir stellen
+
+01:06:54.260 --> 01:06:56.260
+die Activity mal ein.
+
+01:06:56.260 --> 01:06:58.260
+Activity Select.
+
+01:06:58.260 --> 01:07:00.260
+Wir machen jetzt. Das ist ein Fahrradcomputer.
+
+01:07:00.260 --> 01:07:02.260
+Wir machen.
+
+01:07:02.260 --> 01:07:04.260
+Bike.
+
+01:07:04.260 --> 01:07:06.260
+Oder Cycling
+
+01:07:06.260 --> 01:07:09.900
+heißt das. Cycling.
+
+01:07:09.900 --> 01:07:11.900
+Was genau ist egal hier.
+
+01:07:11.900 --> 01:07:21.540
+So. Wie macht man hier eine
+
+01:07:21.540 --> 01:07:23.540
+Konsolenausgabe? Console.
+
+01:07:23.540 --> 01:07:25.540
+Nein. System. System.
+
+01:07:25.540 --> 01:07:27.540
+System ist immer gut. System.
+
+01:07:27.540 --> 01:07:29.540
+Right. Rightline.
+
+01:07:29.540 --> 01:07:31.540
+Nein.
+
+01:07:31.540 --> 01:07:33.540
+Output. Nein.
+
+01:07:33.540 --> 01:07:35.540
+Console. Nein. Okay. Ich muss nachgucken.
+
+01:07:35.540 --> 01:07:41.160
+Print. Print. Könnte natürlich
+
+01:07:41.160 --> 01:07:43.160
+auch noch sein. Print.
+
+01:07:43.160 --> 01:07:45.160
+Tatsächlich. Printeln.
+
+01:07:45.160 --> 01:07:47.160
+Keck W.
+
+01:07:47.160 --> 01:07:50.470
+Okay. Build.
+
+01:07:50.470 --> 01:07:55.960
+Restart.
+
+01:07:55.960 --> 01:07:57.960
+Debug
+
+01:07:57.960 --> 01:08:03.640
+Console. Output.
+
+01:08:03.640 --> 01:08:05.640
+Ach hier.
+
+01:08:05.640 --> 01:08:07.640
+Da ist es. Da ist die
+
+01:08:07.640 --> 01:08:09.640
+Ausgabe.
+
+01:08:09.640 --> 01:08:11.640
+Nice. Der Carlson.
+
+01:08:11.640 --> 01:08:13.640
+Okay. Das
+
+01:08:13.640 --> 01:08:15.640
+funktioniert. Es sieht für mich so aus
+
+01:08:15.640 --> 01:08:17.640
+als wird das einmal pro Sekunde
+
+01:08:17.640 --> 01:08:19.640
+gecallt. Was im Endeffekt auch
+
+01:08:19.640 --> 01:08:21.640
+heißt. Man sollte hier drinnen keine
+
+01:08:21.640 --> 01:08:23.640
+Endlosschleife fabrizieren. Weil dann
+
+01:08:23.640 --> 01:08:25.640
+kann man das Device zum Hängen bringen.
+
+01:08:25.640 --> 01:08:27.640
+Vermute ich jetzt einfach mal.
+
+01:08:27.640 --> 01:08:29.640
+Wollen wir das mal ausprobieren.
+
+01:08:29.640 --> 01:08:31.640
+For. Each.
+
+01:08:31.640 --> 01:08:33.640
+For.
+
+01:08:33.640 --> 01:08:35.640
+Wie macht man hier eine Schleife?
+
+01:08:35.640 --> 01:08:37.640
+Monkey C.
+
+01:08:37.640 --> 01:08:41.780
+Loops. Monkey C.
+
+01:08:41.780 --> 01:08:43.780
+Loop. Wie sieht denn da eine Loop aus?
+
+01:08:45.780 --> 01:08:47.780
+Loop. While true. Ja.
+
+01:08:47.780 --> 01:08:49.780
+Hier. Do. While.
+
+01:08:49.780 --> 01:08:51.780
+While loop. Okay. Dann machen wir das wirklich so.
+
+01:08:51.780 --> 01:08:53.780
+While.
+
+01:08:53.780 --> 01:08:55.780
+True.
+
+01:08:55.780 --> 01:08:57.780
+Falls das so geht.
+
+01:08:57.780 --> 01:08:59.780
+While true.
+
+01:08:59.780 --> 01:09:01.780
+Kekwe. Beste Output.
+
+01:09:01.780 --> 01:09:03.780
+Build.
+
+01:09:03.780 --> 01:09:07.670
+Hat funktioniert.
+
+01:09:07.670 --> 01:09:09.670
+Ist schon mal richtig. Und jetzt. Okay.
+
+01:09:09.670 --> 01:09:13.180
+Endlosschleife.
+
+01:09:13.180 --> 01:09:15.180
+Jetzt wird es abkacken gleich.
+
+01:09:15.180 --> 01:09:20.730
+Ja. Oh.
+
+01:09:20.730 --> 01:09:30.380
+Wow.
+
+01:09:30.380 --> 01:09:32.380
+Oh. Es ist gecrashed.
+
+01:09:32.380 --> 01:09:34.380
+Crash. Oh.
+
+01:09:34.380 --> 01:09:48.950
+Fuck. Jetzt ist es komplett dead.
+
+01:09:48.950 --> 01:09:53.420
+Okay. Endlosschleifen
+
+01:09:53.420 --> 01:09:55.420
+in Data Fields sind keine gute Idee.
+
+01:09:55.420 --> 01:09:57.420
+Das habe ich jetzt
+
+01:09:57.420 --> 01:09:59.420
+gelernt. Vielleicht. Generell sind so
+
+01:09:59.420 --> 01:10:01.420
+Locking Sachen
+
+01:10:01.420 --> 01:10:03.420
+auf Embedded System
+
+01:10:03.420 --> 01:10:05.420
+meistens keine allzu gute
+
+01:10:05.420 --> 01:10:07.420
+Idee. Das sind ja
+
+01:10:07.420 --> 01:10:09.420
+meistens ein Main Thread
+
+01:10:09.420 --> 01:10:11.420
+und vielleicht ein paar Background Sachen. Aber die haben
+
+01:10:11.420 --> 01:10:13.420
+bestimmt nicht ein Thread
+
+01:10:13.420 --> 01:10:15.420
+für
+
+01:10:15.420 --> 01:10:17.420
+jedes Data Field. Das wäre
+
+01:10:17.420 --> 01:10:25.590
+viel zu krass dafür.
+
+01:10:25.590 --> 01:10:27.590
+Simulator starten.
+
+01:10:27.590 --> 01:10:29.590
+Data Field.
+
+01:10:29.590 --> 01:10:31.590
+Wir hatten 5A.
+
+01:10:31.590 --> 01:10:34.900
+Okay.
+
+01:10:34.900 --> 01:10:36.900
+Und jetzt müssen wir noch starten.
+
+01:10:36.900 --> 01:10:38.900
+Activities. Ne.
+
+01:10:38.900 --> 01:10:44.940
+Cycling.
+
+01:10:44.940 --> 01:10:46.940
+Ich crashe es
+
+01:10:46.940 --> 01:10:50.250
+jetzt auch nicht mehr.
+
+01:10:50.250 --> 01:10:54.580
+Wo ging das jetzt nochmal?
+
+01:10:54.580 --> 01:10:56.580
+Was?
+
+01:10:56.580 --> 01:10:58.580
+Wo ging das jetzt nochmal
+
+01:10:58.580 --> 01:11:00.580
+mit den
+
+01:11:00.580 --> 01:11:02.580
+Activity Data. Genau.
+
+01:11:02.580 --> 01:11:04.580
+Okay.
+
+01:11:04.580 --> 01:11:11.420
+Excellent.
+
+01:11:11.420 --> 01:11:13.420
+Okay. Also. Hard Raid.
+
+01:11:13.420 --> 01:11:15.420
+Biking.
+
+01:11:15.420 --> 01:11:17.420
+Das gebe ich
+
+01:11:17.420 --> 01:11:19.420
+doch mal aus. Mal gucken was
+
+01:11:19.420 --> 01:11:24.710
+der mir da jetzt anzeigt.
+
+01:11:24.710 --> 01:11:26.710
+Ist es gecrashed?
+
+01:11:26.710 --> 01:11:28.710
+Error.
+
+01:11:28.710 --> 01:11:36.500
+Ja wie jetzt? Was jetzt?
+
+01:11:36.500 --> 01:11:38.500
+Could not find Symbol.
+
+01:11:38.500 --> 01:11:47.900
+Oder kann ich das
+
+01:11:47.900 --> 01:11:56.520
+bloß nicht printen?
+
+01:11:56.520 --> 01:11:58.520
+Okay. Das findest du nicht.
+
+01:11:58.520 --> 01:12:00.520
+Findest du nicht.
+
+01:12:00.520 --> 01:12:08.060
+War. Blub. Gleich. Geht sowas?
+
+01:12:08.060 --> 01:12:10.060
+Cannot find Symbol. HR.
+
+01:12:10.060 --> 01:12:12.060
+Zone. Sport. Running.
+
+01:12:12.060 --> 01:12:14.060
+Ja. Ich würde aber gerne meine Herzfrequenz
+
+01:12:14.060 --> 01:12:16.060
+Zone wissen. Weil anhand dessen kann ich dann
+
+01:12:16.060 --> 01:12:18.060
+einen Balken drum
+
+01:12:18.060 --> 01:12:20.060
+herum malen. Oder auch
+
+01:12:20.060 --> 01:12:26.890
+nicht.
+
+01:12:26.890 --> 01:12:28.890
+Api Level. Ja.
+
+01:12:28.890 --> 01:12:30.890
+Das haben wir. Das sind wir.
+
+01:12:30.890 --> 01:12:32.890
+Ach. Moment.
+
+01:12:32.890 --> 01:12:34.890
+Das ist irgendein
+
+01:12:34.890 --> 01:12:36.890
+Inam. Das ist nicht wirklich
+
+01:12:36.890 --> 01:12:38.890
+der
+
+01:12:38.890 --> 01:12:40.890
+die Zone. Sondern.
+
+01:12:40.890 --> 01:12:42.890
+Okay. Hier. Get Hard Raid
+
+01:12:42.890 --> 01:12:46.710
+Zone. Kann man
+
+01:12:46.710 --> 01:12:51.110
+da drauf zugreifen? Ach so.
+
+01:12:51.110 --> 01:12:57.880
+Moment.
+
+01:12:57.880 --> 01:12:59.880
+Jetzt bin ich hochgradig
+
+01:12:59.880 --> 01:13:01.880
+verwirrt. Wie funktioniert
+
+01:13:01.880 --> 01:13:03.880
+das jetzt?
+
+01:13:03.880 --> 01:13:05.880
+Get Hard Raid
+
+01:13:05.880 --> 01:13:07.880
+Zone. So. Und wir können da
+
+01:13:07.880 --> 01:13:09.880
+theoretisch für Bike. Sagen wir 2.
+
+01:13:09.880 --> 01:13:11.880
+Und jetzt bilden
+
+01:13:11.880 --> 01:13:16.340
+wir das ganze mal.
+
+01:13:16.340 --> 01:13:18.340
+Cannot find Symbol. Get Hard on Time.
+
+01:13:18.340 --> 01:13:20.340
+Äh.
+
+01:13:20.340 --> 01:13:29.540
+Hä?
+
+01:13:29.540 --> 01:13:31.540
+Warum gibts das nicht?
+
+01:13:31.540 --> 01:13:33.540
+Wir haben doch eine Api Version die
+
+01:13:33.540 --> 01:13:35.540
+viel viel neuer ist.
+
+01:13:35.540 --> 01:13:37.540
+Wie. Wie das hier.
+
+01:13:37.540 --> 01:13:45.210
+Moment. Vielleicht
+
+01:13:45.210 --> 01:13:47.210
+meckert er auch. Wie ich das. Dass ich das
+
+01:13:47.210 --> 01:13:57.690
+falsch aufrufe.
+
+01:13:57.690 --> 01:13:59.690
+Oh. Dann weiß ich auch nicht. Haben die vielleicht
+
+01:13:59.690 --> 01:14:03.450
+einen. Okay.
+
+01:14:03.450 --> 01:14:05.450
+Das sollte aber gehen. Get Current Sport.
+
+01:14:05.450 --> 01:14:09.210
+Ups.
+
+01:14:09.210 --> 01:14:11.210
+Get Current Sport.
+
+01:14:11.210 --> 01:14:13.210
+Äh. Das sollte ja schon
+
+01:14:13.210 --> 01:14:17.100
+funktionieren. Hä?
+
+01:14:17.100 --> 01:14:19.100
+Muss ich irgendwas. Muss ich irgendwas
+
+01:14:19.100 --> 01:14:21.100
+importen vielleicht?
+
+01:14:21.100 --> 01:14:23.100
+Irgendwas.
+
+01:14:23.100 --> 01:14:25.100
+Module. Toybox User Profile.
+
+01:14:25.100 --> 01:14:27.100
+Ah. Leute. Ich muss. Ich muss.
+
+01:14:27.100 --> 01:14:29.100
+Ich muss irgendwas importieren.
+
+01:14:29.100 --> 01:14:31.100
+Okay. Import.
+
+01:14:31.100 --> 01:14:33.100
+Toybox
+
+01:14:33.100 --> 01:14:35.100
+User
+
+01:14:35.100 --> 01:14:37.100
+Profile. Aha.
+
+01:14:37.100 --> 01:14:39.100
+Sister.
+
+01:14:39.100 --> 01:14:43.240
+Cannot find Symbol.
+
+01:14:43.240 --> 01:14:52.920
+Okay.
+
+01:14:52.920 --> 01:14:54.920
+Info as Activity Info. Das ist.
+
+01:14:54.920 --> 01:14:56.920
+Das ist ne Variable von dem.
+
+01:14:56.920 --> 01:14:58.920
+Okay. Das hat.
+
+01:14:58.920 --> 01:15:08.250
+Das hat funktioniert.
+
+01:15:08.250 --> 01:15:10.250
+Ah.
+
+01:15:10.250 --> 01:15:12.250
+Muss ich das vielleicht. So.
+
+01:15:12.250 --> 01:15:14.250
+Okay. User was born in year.
+
+01:15:14.250 --> 01:15:16.250
+Das ist. Das ist ein gutes. Gutes
+
+01:15:16.250 --> 01:15:18.250
+Exempel. System out
+
+01:15:18.250 --> 01:15:25.460
+Brindeln. Was?
+
+01:15:25.460 --> 01:15:28.780
+Ah. Die. Die.
+
+01:15:28.780 --> 01:15:33.820
+Die Docs sacken einfach.
+
+01:15:33.820 --> 01:15:35.820
+Permission User Profile required
+
+01:15:35.820 --> 01:15:37.820
+for Toybox.
+
+01:15:37.820 --> 01:15:39.820
+Oh. Permission.
+
+01:15:39.820 --> 01:15:41.820
+Edit Permissions.
+
+01:15:41.820 --> 01:15:43.820
+User Profile.
+
+01:15:43.820 --> 01:15:45.820
+Leute.
+
+01:15:45.820 --> 01:15:47.820
+Ich rate das übrigens auch hier gerade nur ganz
+
+01:15:47.820 --> 01:15:49.820
+hart alles. Nicht das es jetzt irgendwie so
+
+01:15:49.820 --> 01:15:51.820
+wirkt als wüsste ich was ich mache.
+
+01:15:51.820 --> 01:15:53.820
+Okay. Es hat funktioniert. Es hat
+
+01:15:53.820 --> 01:15:55.820
+kompiliert.
+
+01:15:55.820 --> 01:15:59.510
+Reload. Bin ich ja mal
+
+01:15:59.510 --> 01:16:06.600
+gespannt.
+
+01:16:06.600 --> 01:16:08.600
+User was born in 1980.
+
+01:16:08.600 --> 01:16:12.100
+Nice. Profile.
+
+01:16:12.100 --> 01:16:15.420
+Get current
+
+01:16:15.420 --> 01:16:17.420
+Sport.
+
+01:16:17.420 --> 01:16:21.500
+Kann man das jetzt so machen?
+
+01:16:21.500 --> 01:16:27.050
+Get current Sport.
+
+01:16:27.050 --> 01:16:29.050
+Error. Hä. Alter.
+
+01:16:29.050 --> 01:16:31.050
+Das ist ja super
+
+01:16:31.050 --> 01:16:40.630
+pepega. Ja. Gibt
+
+01:16:40.630 --> 01:16:42.630
+es.
+
+01:16:42.630 --> 01:16:44.630
+Es gibt ne API um.
+
+01:16:44.630 --> 01:16:46.630
+Um.
+
+01:16:46.630 --> 01:16:48.630
+Die. Ne das nicht. Es gibt
+
+01:16:48.630 --> 01:16:50.630
+ne API um die.
+
+01:16:50.630 --> 01:16:52.630
+Übersetzung anzuzeigen.
+
+01:16:52.630 --> 01:16:54.630
+Zum Beispiel.
+
+01:16:54.630 --> 01:16:56.630
+Also das weiß ich nicht ob das geht.
+
+01:16:56.630 --> 01:16:58.630
+Eher nicht oder. Also.
+
+01:16:58.630 --> 01:17:00.630
+Ne das geht nicht. Ich weiß warum das nicht
+
+01:17:00.630 --> 01:17:02.630
+geht. Weil die. Die.
+
+01:17:02.630 --> 01:17:04.630
+DI2 is read only.
+
+01:17:04.630 --> 01:17:06.630
+Die senden nur Daten. Die können keine
+
+01:17:06.630 --> 01:17:11.350
+empfangen. Jetzt muss ich sagen. Jetzt
+
+01:17:11.350 --> 01:17:13.350
+bin ich ein bisschen planlos. Warum
+
+01:17:13.350 --> 01:17:15.350
+er. Mein API Level 1 0.
+
+01:17:15.350 --> 01:17:17.350
+Wir sind auf API 4 2. Das sollte er
+
+01:17:17.350 --> 01:17:19.350
+nur wirklich mal.
+
+01:17:19.350 --> 01:17:21.350
+Gar kein Problem sein.
+
+01:17:21.350 --> 01:17:23.350
+Ich gehe davon aus dass ich nicht
+
+01:17:23.350 --> 01:17:26.920
+alles. Ich gehe davon aus
+
+01:17:26.920 --> 01:17:28.920
+dass ich nicht alles importiert
+
+01:17:28.920 --> 01:17:30.920
+habe was ich importieren muss.
+
+01:17:30.920 --> 01:17:35.190
+Guck mal. Man kann das auch einfach so
+
+01:17:35.190 --> 01:17:44.970
+ausgeben. Cannot find
+
+01:17:44.970 --> 01:17:46.970
+symbol. Das ist total weird
+
+01:17:46.970 --> 01:17:55.910
+champ. Alter.
+
+01:17:55.910 --> 01:17:57.910
+Das ist total weird champ.
+
+01:17:57.910 --> 01:18:01.350
+Ok. Profile. Was kann man denn
+
+01:18:01.350 --> 01:18:03.350
+hier alles machen im Profile.
+
+01:18:03.350 --> 01:18:06.920
+Ich sage mal. Leute. Kann das
+
+01:18:06.920 --> 01:18:08.920
+sein dass das überhaupt nicht.
+
+01:18:08.920 --> 01:18:10.920
+Kontextsensitiv
+
+01:18:10.920 --> 01:18:12.920
+ist. Das es einfach
+
+01:18:12.920 --> 01:18:14.920
+immer alles anzeigt.
+
+01:18:14.920 --> 01:18:16.920
+Und deswegen
+
+01:18:16.920 --> 01:18:18.920
+Cannot find symbol. Das zeigt.
+
+01:18:18.920 --> 01:18:20.920
+Ok. Die Autocompletion ist kacke.
+
+01:18:20.920 --> 01:18:22.920
+Die
+
+01:18:22.920 --> 01:18:24.920
+Autocompletion ist dumm. Die zeigt
+
+01:18:24.920 --> 01:18:26.920
+einfach immer das gleiche an.
+
+01:18:26.920 --> 01:18:31.700
+Für alles.
+
+01:18:31.700 --> 01:18:33.700
+Ja das ist dumm. Ok. Hier.
+
+01:18:33.700 --> 01:18:43.540
+User Profiles.
+
+01:18:43.540 --> 01:18:45.540
+Du hast ja die Zeile schon.
+
+01:18:47.540 --> 01:18:52.260
+Was soll ich hier gucken.
+
+01:18:52.260 --> 01:18:54.260
+Profile Activity Class.
+
+01:18:54.260 --> 01:19:02.120
+Aber die haben doch hier auch drinnen
+
+01:19:02.120 --> 01:19:04.120
+stehen.
+
+01:19:04.120 --> 01:19:20.420
+Das ist der Typ den das
+
+01:19:20.420 --> 01:19:27.380
+zurück liefert. Oder?
+
+01:19:27.380 --> 01:19:29.380
+Ok. Get Current.
+
+01:19:29.380 --> 01:19:31.380
+Hier.
+
+01:19:31.380 --> 01:19:39.690
+Moment. Was?
+
+01:19:39.690 --> 01:19:41.690
+Ok. Das ergibt ja gar keinen.
+
+01:19:43.690 --> 01:19:45.690
+Ich meine Profile. Get Profile check ich
+
+01:19:45.690 --> 01:19:47.690
+noch. Aber Profile
+
+01:19:47.690 --> 01:19:49.690
+Get Current Sport. What?
+
+01:19:49.690 --> 01:20:07.270
+Ach da ist sogar. Guck mal. Da ist sogar
+
+01:20:07.270 --> 01:20:09.270
+ein Beispiel. Man ruft
+
+01:20:09.270 --> 01:20:11.270
+das auf dem User Profile
+
+01:20:11.270 --> 01:20:16.760
+Objekt auf.
+
+01:20:16.760 --> 01:20:18.760
+Ha?
+
+01:20:18.760 --> 01:20:23.860
+Ok. HR
+
+01:20:23.860 --> 01:20:30.180
+Sport Bike. Ok.
+
+01:20:30.180 --> 01:20:32.180
+Das ist sehr sehr
+
+01:20:32.180 --> 01:20:34.180
+merkwürdig. Die Logik dahinter.
+
+01:20:34.180 --> 01:20:36.180
+Aber es funktioniert. Ok.
+
+01:20:36.180 --> 01:20:38.180
+Herzfrequenz. Zone. Anzeigen
+
+01:20:38.180 --> 01:20:43.540
+in der Konsole. Auf gehts.
+
+01:20:43.540 --> 01:20:46.920
+Ja. Kunst.
+
+01:20:46.920 --> 01:20:48.920
+He. Ok.
+
+01:20:48.920 --> 01:20:50.920
+Alter. Der wills aber wissen.
+
+01:20:50.920 --> 01:20:54.360
+255
+
+01:20:54.360 --> 01:20:56.360
+Herzfrequenz.
+
+01:20:56.360 --> 01:20:58.360
+Detke würde ich sagen.
+
+01:20:58.360 --> 01:21:02.950
+Aber gut. Das ist ja nur zum testen.
+
+01:21:02.950 --> 01:21:04.950
+Ok.
+
+01:21:04.950 --> 01:21:06.950
+Es ist bisschen weird. Man muss sich dran gewöhnen.
+
+01:21:06.950 --> 01:21:10.390
+Ist bisschen weird. Aber
+
+01:21:10.390 --> 01:21:12.390
+an sich nicht verkehrt.
+
+01:21:12.390 --> 01:21:16.280
+Also. Heißt im Endeffekt
+
+01:21:16.280 --> 01:21:18.280
+auch. Das heißt. Gut.
+
+01:21:18.280 --> 01:21:20.280
+Heißt. Ok. Guck mal. Sag mal.
+
+01:21:20.280 --> 01:21:22.280
+Zone. Beim
+
+01:21:22.280 --> 01:21:24.280
+Fahrradfahren. Herz. Also
+
+01:21:24.280 --> 01:21:26.280
+Herzfrequenz Zone beim Fahrradfahren.
+
+01:21:26.280 --> 01:21:30.360
+Jetzt ist die Frage. Wie kann ich
+
+01:21:30.360 --> 01:21:32.360
+anhand der Zone hier was rein
+
+01:21:32.360 --> 01:21:34.360
+malen. Draw.
+
+01:21:34.360 --> 01:21:36.360
+Draw Bitmap.
+
+01:21:36.360 --> 01:21:38.360
+Draw Rectangle.
+
+01:21:38.360 --> 01:21:40.360
+Draw Rectangle. Das klingt doch gut.
+
+01:21:40.360 --> 01:21:43.800
+Draw Rectangle.
+
+01:21:43.800 --> 01:21:47.620
+Braucht man überhaupt?
+
+01:21:47.620 --> 01:21:49.620
+Semicolons.
+
+01:21:49.620 --> 01:21:51.620
+Ok. Draw Rectangle.
+
+01:21:51.620 --> 01:21:53.620
+Von oben links.
+
+01:21:53.620 --> 01:21:55.620
+100
+
+01:21:55.620 --> 01:21:57.620
+100 Pixel.
+
+01:21:57.620 --> 01:21:59.620
+Weiß auch immer ob das Pixel sind. Ich weiß nicht.
+
+01:21:59.620 --> 01:22:01.620
+Wahrscheinlich ist das übrigens wieder
+
+01:22:01.620 --> 01:22:03.620
+das erfindet er das jetzt nicht.
+
+01:22:03.620 --> 01:22:05.620
+Ja. Error. Undefined.
+
+01:22:05.620 --> 01:22:07.620
+Was?
+
+01:22:07.620 --> 01:22:13.240
+Achso.
+
+01:22:13.240 --> 01:22:15.240
+Cannot find Symbol. Draw Rectangle. Ja gut.
+
+01:22:15.240 --> 01:22:17.240
+Garmin.
+
+01:22:17.240 --> 01:22:19.240
+Was das für eine Programmiersprache
+
+01:22:19.240 --> 01:22:21.240
+ist. Das
+
+01:22:21.240 --> 01:22:23.240
+ist Monkey
+
+01:22:23.240 --> 01:22:25.240
+Sea. Weil Garmin der Meinung ist
+
+01:22:25.240 --> 01:22:27.240
+Monkey Sea.
+
+01:22:27.240 --> 01:22:29.240
+Frag nicht.
+
+01:22:29.240 --> 01:22:31.240
+DC
+
+01:22:31.240 --> 01:22:33.240
+Graphics. Haben wir ein Beispiel
+
+01:22:33.240 --> 01:22:36.680
+dafür vielleicht?
+
+01:22:36.680 --> 01:22:38.680
+Using Graphics.
+
+01:22:38.680 --> 01:22:40.680
+Using Graphics.
+
+01:22:40.680 --> 01:22:42.680
+Moment. Using. Import.
+
+01:22:42.680 --> 01:22:48.420
+Ja was denn jetzt?
+
+01:22:48.420 --> 01:22:50.420
+Ok. Ist das jetzt Using oder ist das
+
+01:22:50.420 --> 01:22:54.380
+Monkey Sea
+
+01:22:54.380 --> 01:23:03.900
+Using Import.
+
+01:23:03.900 --> 01:23:05.900
+Ich sag mal
+
+01:23:05.900 --> 01:23:10.810
+Import. Ok.
+
+01:23:10.810 --> 01:23:12.810
+Could not draw. Function on
+
+01:23:12.810 --> 01:23:14.810
+Update.
+
+01:23:14.810 --> 01:23:16.810
+Das muss ich aber doch bestimmt nicht im Data
+
+01:23:16.810 --> 01:23:18.810
+Field machen. Mach ich das in der App?
+
+01:23:18.810 --> 01:23:25.380
+Wie male ich
+
+01:23:25.380 --> 01:23:34.460
+ein
+
+01:23:34.460 --> 01:23:39.940
+Ja. Geht.
+
+01:23:39.940 --> 01:23:41.940
+Wie male ich ein Rectangle.
+
+01:23:41.940 --> 01:23:47.370
+Fatal.
+
+01:23:47.370 --> 01:23:49.370
+Draw hello world
+
+01:23:49.370 --> 01:23:51.370
+on the center of the screen. Ok.
+
+01:23:51.370 --> 01:23:53.370
+Using Toybox
+
+01:23:53.370 --> 01:23:55.370
+Graphics. DC.
+
+01:23:55.370 --> 01:23:57.370
+Das muss man on update machen.
+
+01:23:59.370 --> 01:24:01.370
+Also nicht hier rein, sondern
+
+01:24:01.370 --> 01:24:03.370
+ich weiß nicht ob es hier rein muss.
+
+01:24:03.370 --> 01:24:05.370
+On update.
+
+01:24:05.370 --> 01:24:07.370
+Wahrscheinlich nicht.
+
+01:24:09.370 --> 01:24:11.370
+And build successfully.
+
+01:24:11.370 --> 01:24:13.370
+Wait a minute. Funktioniert das jetzt?
+
+01:24:13.370 --> 01:24:40.710
+Nicht wirklich.
+
+01:24:40.710 --> 01:24:42.710
+Wo muss ich denn on update überhaupt reinpacken?
+
+01:24:42.710 --> 01:24:47.370
+Und was ich sehr verwirrend
+
+01:24:47.370 --> 01:24:49.370
+finde. Warum ist es using
+
+01:24:49.370 --> 01:24:51.370
+oder import? Geht da
+
+01:24:51.370 --> 01:24:55.640
+vielleicht beides?
+
+01:24:55.640 --> 01:24:57.640
+Ja es geht beides. Ok. Das ist
+
+01:24:57.640 --> 01:24:59.640
+das ist wir. Wenn es das gleiche
+
+01:24:59.640 --> 01:25:03.660
+Keyword gibt. Sehr gute Idee.
+
+01:25:03.660 --> 01:25:05.660
+Ja.
+
+01:25:05.660 --> 01:25:07.660
+Poolcam App
+
+01:25:07.660 --> 01:25:14.170
+für die Uhr.
+
+01:25:14.170 --> 01:25:16.170
+Also das funktioniert so schon mal
+
+01:25:16.170 --> 01:25:18.170
+nicht. Garmin on update
+
+01:25:18.170 --> 01:25:26.730
+und show on update.
+
+01:25:26.730 --> 01:25:31.450
+Moment. Das ist ja auch
+
+01:25:31.450 --> 01:25:33.450
+verkehrt.
+
+01:25:33.450 --> 01:25:35.450
+Das muss ich bestimmt hier drinnen machen.
+
+01:25:35.450 --> 01:25:40.230
+Ja. Muss bestimmt hier rein.
+
+01:25:40.230 --> 01:25:44.890
+Build successfully.
+
+01:25:44.890 --> 01:26:01.640
+Ok.
+
+01:26:01.640 --> 01:26:05.270
+Garmin data field
+
+01:26:05.270 --> 01:26:07.270
+on update.
+
+01:26:07.270 --> 01:26:09.270
+Wir können ja mal testen ob das
+
+01:26:09.270 --> 01:26:11.270
+überhaupt. Hier.
+
+01:26:11.270 --> 01:26:13.270
+On update.
+
+01:26:13.270 --> 01:26:15.270
+On. On.
+
+01:26:15.270 --> 01:26:17.270
+Update.
+
+01:26:17.270 --> 01:26:19.270
+The system will call on update method.
+
+01:26:19.270 --> 01:26:21.270
+From view when a data field is displayed by
+
+01:26:21.270 --> 01:26:23.270
+because compute and update are asynchronous.
+
+01:26:23.270 --> 01:26:25.270
+There is no guarantee that compute will be called before
+
+01:26:25.270 --> 01:26:27.270
+on update.
+
+01:26:27.270 --> 01:26:29.270
+Ok. Man heißt man
+
+01:26:29.270 --> 01:26:31.270
+weiß nicht was zuerst geladen wird.
+
+01:26:31.270 --> 01:26:33.270
+Vielleicht wird das überschrieben.
+
+01:26:33.270 --> 01:26:41.130
+Und was passiert hier überhaupt?
+
+01:26:41.130 --> 01:26:43.130
+View. Pint.
+
+01:26:43.130 --> 01:26:45.130
+Trouble. By ID.
+
+01:26:45.130 --> 01:26:50.490
+Uh.
+
+01:26:50.490 --> 01:26:52.490
+Ich würde vorschlagen wir machen das mal anders.
+
+01:26:52.490 --> 01:26:54.490
+Wir löschen das hier wieder.
+
+01:26:54.490 --> 01:26:56.490
+Wir gucken erstmal ob das
+
+01:26:56.490 --> 01:26:58.490
+überhaupt aufgerufen wird.
+
+01:26:58.490 --> 01:27:00.490
+Wir gucken mal
+
+01:27:00.490 --> 01:27:02.490
+ob das überhaupt aufgerufen wird.
+
+01:27:02.490 --> 01:27:04.490
+On update.
+
+01:27:04.490 --> 01:27:09.140
+Dann sagen wir jetzt einfach
+
+01:27:09.140 --> 01:27:11.140
+System. Printline.
+
+01:27:11.140 --> 01:27:13.140
+Update.
+
+01:27:13.140 --> 01:27:15.140
+Ok. So. Build.
+
+01:27:15.140 --> 01:27:17.140
+Build successfully.
+
+01:27:17.140 --> 01:27:20.460
+Restart. Output.
+
+01:27:20.460 --> 01:27:22.460
+Kann man das Leute. Visual Studio Kenner.
+
+01:27:22.460 --> 01:27:24.460
+Kann man das irgendwie so splitten.
+
+01:27:24.460 --> 01:27:26.460
+Dass ich beides mir anzeigen lassen kann.
+
+01:27:26.460 --> 01:27:28.460
+Den
+
+01:27:28.460 --> 01:27:30.460
+Bild Output und die
+
+01:27:30.460 --> 01:27:32.460
+Konsole.
+
+01:27:32.460 --> 01:27:34.460
+Wie splitte ich denn das gescheit?
+
+01:27:34.460 --> 01:27:36.460
+Habt ihr da eine Ahnung von wie das funzt?
+
+01:27:36.460 --> 01:27:38.460
+Ups. Oh je.
+
+01:27:38.460 --> 01:27:45.670
+Hab ich zugemacht.
+
+01:27:45.670 --> 01:27:47.670
+Ok. On update. On update wird schon mal
+
+01:27:47.670 --> 01:27:49.670
+nicht aufgerufen. On update juckt das
+
+01:27:49.670 --> 01:27:53.370
+nicht. Es wird
+
+01:27:53.370 --> 01:27:55.370
+aufgerufen.
+
+01:27:55.370 --> 01:27:57.370
+Current heart rate. Ok. Vielleicht ist
+
+01:27:57.370 --> 01:27:59.370
+watch UI simple data field
+
+01:27:59.370 --> 01:28:01.370
+nicht das richtige. Sondern ich muss
+
+01:28:01.370 --> 01:28:03.370
+data field in inherit
+
+01:28:03.370 --> 01:28:09.850
+error.
+
+01:28:09.850 --> 01:28:14.440
+So schon mal nicht. Ok.
+
+01:28:14.440 --> 01:28:16.440
+Guck mal. Man muss data field
+
+01:28:16.440 --> 01:28:21.160
+Ich copy paste mir mal
+
+01:28:21.160 --> 01:28:23.160
+kurz die Beispiel App hier.
+
+01:28:23.160 --> 01:28:36.520
+Äh.
+
+01:28:36.520 --> 01:28:38.520
+Moment. Jetzt geht natürlich
+
+01:28:38.520 --> 01:28:40.520
+main. Jetzt geht natürlich die main App nicht.
+
+01:28:40.520 --> 01:28:45.300
+Wie hieß das vorher?
+
+01:28:45.300 --> 01:28:48.870
+Data field view.
+
+01:28:48.870 --> 01:28:50.870
+Und jetzt heißt es.
+
+01:28:50.870 --> 01:28:52.870
+Ah. Jetzt heißt
+
+01:28:52.870 --> 01:28:54.870
+es. Moment. Wie heißt das? My HR
+
+01:28:54.870 --> 01:28:56.870
+field. Ok.
+
+01:28:56.870 --> 01:29:00.760
+Build.
+
+01:29:00.760 --> 01:29:02.760
+Undefined symbol. Main layout.
+
+01:29:02.760 --> 01:29:07.610
+Main
+
+01:29:07.610 --> 01:29:09.610
+layout. Ist undefined.
+
+01:29:11.610 --> 01:29:13.610
+Sehr nice
+
+01:29:13.610 --> 01:29:17.560
+example. Kann ich das einfach
+
+01:29:17.560 --> 01:29:19.560
+rauskommentieren?
+
+01:29:19.560 --> 01:29:21.560
+Gucken ob es jetzt läuft.
+
+01:29:21.560 --> 01:29:23.560
+Shit man.
+
+01:29:23.560 --> 01:29:25.560
+Oh Gott.
+
+01:29:25.560 --> 01:29:30.150
+Abartig.
+
+01:29:30.150 --> 01:29:32.150
+Das funzt so schon mal nicht richtig.
+
+01:29:32.150 --> 01:29:37.320
+Ok. Kann ich wenigstens alte
+
+01:29:37.320 --> 01:29:41.660
+wieder bilden? Was?
+
+01:29:41.660 --> 01:29:43.660
+Undefined symbol detected?
+
+01:29:43.660 --> 01:29:45.660
+Achso.
+
+01:29:45.660 --> 01:29:47.660
+Ja.
+
+01:29:47.660 --> 01:29:54.680
+Update.
+
+01:29:54.680 --> 01:29:56.680
+Was über view?
+
+01:29:56.680 --> 01:29:58.680
+Oder rechts oben am
+
+01:29:58.680 --> 01:30:00.680
+Tabrand?
+
+01:30:00.680 --> 01:30:02.680
+Achso. Das Terminal.
+
+01:30:02.680 --> 01:30:04.680
+So. Also simple
+
+01:30:04.680 --> 01:30:06.680
+simple on update
+
+01:30:06.680 --> 01:30:08.680
+simple data field.
+
+01:30:08.680 --> 01:30:17.300
+Ich
+
+01:30:17.300 --> 01:30:19.300
+Ich glaube
+
+01:30:19.300 --> 01:30:23.130
+das
+
+01:30:23.130 --> 01:30:25.130
+funktioniert mit einem simple data
+
+01:30:25.130 --> 01:30:27.130
+field nicht.
+
+01:30:27.130 --> 01:30:29.130
+Wobei direct known
+
+01:30:29.130 --> 01:30:31.130
+subclasses. Das muss
+
+01:30:31.130 --> 01:30:33.130
+also auch in dem simple
+
+01:30:33.130 --> 01:30:35.130
+data field
+
+01:30:35.130 --> 01:30:37.130
+funktionieren.
+
+01:30:37.130 --> 01:30:46.330
+Ja.
+
+01:30:46.330 --> 01:30:48.330
+Keine Ahnung.
+
+01:30:48.330 --> 01:30:50.330
+Ähm.
+
+01:30:50.330 --> 01:30:52.330
+Mir fällt jetzt gar nichts anderes
+
+01:30:52.330 --> 01:30:54.330
+ein als
+
+01:30:54.330 --> 01:30:58.730
+nochmal eine neue App zu
+
+01:30:58.730 --> 01:31:00.730
+erstellen.
+
+01:31:00.730 --> 01:31:02.730
+Ah ne. Das geht ja nur mit code.
+
+01:31:02.730 --> 01:31:04.730
+Und einfach data field auszuwählen.
+
+01:31:04.730 --> 01:31:06.730
+New project.
+
+01:31:06.730 --> 01:31:08.730
+Ah.
+
+01:31:08.730 --> 01:31:10.730
+Five head.
+
+01:31:10.730 --> 01:31:12.730
+Data field
+
+01:31:12.730 --> 01:31:14.730
+complex data field.
+
+01:31:14.730 --> 01:31:19.320
+Und nehmen wir wieder die
+
+01:31:19.320 --> 01:31:21.320
+aktuelle API.
+
+01:31:21.320 --> 01:31:23.320
+Edge. Ok.
+
+01:31:23.320 --> 01:31:25.320
+Und das ganze kommt
+
+01:31:25.320 --> 01:31:29.080
+hier rein.
+
+01:31:29.080 --> 01:31:37.380
+Project 2. Gut.
+
+01:31:37.380 --> 01:31:39.380
+Das kann sich mal wieder verpissen.
+
+01:31:39.380 --> 01:31:41.380
+So.
+
+01:31:41.380 --> 01:31:43.380
+Sources.
+
+01:31:43.380 --> 01:31:45.380
+Five head view. On layout.
+
+01:31:45.380 --> 01:31:47.380
+Compute. On update.
+
+01:31:47.380 --> 01:31:49.380
+Hier haben wir jetzt ne on update.
+
+01:31:49.380 --> 01:31:53.590
+Ja. Also anscheinend
+
+01:31:53.590 --> 01:31:57.420
+muss man das wirklich im
+
+01:31:57.420 --> 01:31:59.420
+muss das wirklich in normales data field.
+
+01:31:59.420 --> 01:32:01.420
+Aber das ist doof, dass das nicht mit nem
+
+01:32:01.420 --> 01:32:05.430
+mit nem simple
+
+01:32:05.430 --> 01:32:07.430
+data field geht. Gut.
+
+01:32:07.430 --> 01:32:17.720
+Wie auch immer. Bild.
+
+01:32:17.720 --> 01:32:19.720
+Äh.
+
+01:32:19.720 --> 01:32:21.720
+Habe ich da irgendwo ausversehen ne 5 grad
+
+01:32:21.720 --> 01:32:23.720
+reingepastet oder so?
+
+01:32:23.720 --> 01:32:25.720
+What?
+
+01:32:25.720 --> 01:32:27.720
+Oh nein.
+
+01:32:27.720 --> 01:32:29.720
+Der unterstützt five head nicht.
+
+01:32:29.720 --> 01:32:31.720
+Die Dinger dürfen nicht mit 5.
+
+01:32:31.720 --> 01:32:35.030
+Die dürfen keine Zahlen drin haben.
+
+01:32:35.030 --> 01:32:37.030
+Ok.
+
+01:32:37.030 --> 01:32:39.030
+Ähm.
+
+01:32:39.030 --> 01:32:44.970
+Five head heißt es dann jetzt halt.
+
+01:32:44.970 --> 01:32:46.970
+Hehehe.
+
+01:32:46.970 --> 01:33:00.330
+Oh Mann.
+
+01:33:00.330 --> 01:33:02.330
+Ok. Bild.
+
+01:33:02.330 --> 01:33:06.090
+Bild.
+
+01:33:06.090 --> 01:33:08.090
+Ok. Jetzt hat es funktioniert.
+
+01:33:08.090 --> 01:33:24.010
+Run.
+
+01:33:24.010 --> 01:33:26.010
+In dem Repo. Hat der nen simple data field in seinem Repo?
+
+01:33:26.010 --> 01:33:28.010
+Das on update
+
+01:33:28.010 --> 01:33:30.010
+funktioniert?
+
+01:33:30.010 --> 01:33:32.010
+Was für ein Window Manager? Das ist i3. Ok.
+
+01:33:32.010 --> 01:33:34.010
+Das funktioniert schon mal. Also.
+
+01:33:34.010 --> 01:33:42.760
+On update.
+
+01:33:42.760 --> 01:33:44.760
+Das haben wir vorhin nicht gemacht.
+
+01:33:44.760 --> 01:33:46.760
+Daran lag es wahrscheinlich.
+
+01:33:46.760 --> 01:33:48.760
+Wir haben nicht das parent
+
+01:33:48.760 --> 01:33:50.760
+Wir haben nicht das parent on update
+
+01:33:50.760 --> 01:33:54.200
+gecallt. Deswegen ist nix
+
+01:33:54.200 --> 01:33:56.200
+passiert. Ok. Wir drawen
+
+01:33:56.200 --> 01:33:58.200
+jetzt eine Rectangle.
+
+01:33:58.200 --> 01:34:00.200
+Rect.
+
+01:34:00.200 --> 01:34:02.200
+Rectangle wird jetzt gedrawt.
+
+01:34:02.200 --> 01:34:04.200
+Und zwar sagen wir
+
+01:34:04.200 --> 01:34:06.200
+jetzt mal. Hier.
+
+01:34:06.200 --> 01:34:08.200
+Wie man das jetzt gescheit macht. Draw.
+
+01:34:08.200 --> 01:34:10.200
+Ne. Wie geht das?
+
+01:34:10.200 --> 01:34:12.200
+DC. Draw.
+
+01:34:12.200 --> 01:34:18.330
+Rectangle.
+
+01:34:18.330 --> 01:34:22.980
+Ähm. Moment.
+
+01:34:22.980 --> 01:34:24.980
+Leute.
+
+01:34:24.980 --> 01:34:26.980
+Woher weiß der überhaupt? Was ist denn
+
+01:34:26.980 --> 01:34:28.980
+Value?
+
+01:34:28.980 --> 01:34:30.980
+View find drawable by
+
+01:34:30.980 --> 01:34:39.610
+ID. Value. What?
+
+01:34:39.610 --> 01:34:47.720
+Kann ich sowas?
+
+01:34:47.720 --> 01:34:49.720
+Bildet das jetzt?
+
+01:34:49.720 --> 01:34:51.720
+Ok.
+
+01:34:51.720 --> 01:34:53.720
+Immerhin. Es bildet. Reload.
+
+01:34:53.720 --> 01:34:55.720
+Mal gucken ob wir jetzt n Rectangle in irgendeine
+
+01:34:55.720 --> 01:34:57.720
+Art. Ich muss ja die Color noch irgendwie
+
+01:34:57.720 --> 01:35:01.670
+setzen. Und? Rectangle?
+
+01:35:01.670 --> 01:35:03.670
+Nein. Kein Rectangle
+
+01:35:03.670 --> 01:35:07.750
+da. Sowas wie DC.
+
+01:35:07.750 --> 01:35:14.900
+Set Color. Ok.
+
+01:35:14.900 --> 01:35:16.900
+Oh meine Güte ey. Das ist nicht so
+
+01:35:16.900 --> 01:35:24.120
+einfach. Graphics.
+
+01:35:24.120 --> 01:35:26.120
+Da war doch eben irgendwo ein Beispiel.
+
+01:35:26.120 --> 01:35:31.100
+Ja.
+
+01:35:31.100 --> 01:35:33.100
+DC. Set Color. Blue
+
+01:35:33.100 --> 01:35:35.100
+Black. Ah.
+
+01:35:35.100 --> 01:35:37.100
+Fill Rectangle dann.
+
+01:35:37.100 --> 01:35:39.100
+Ok. Dann lassen wir die ganzen
+
+01:35:39.100 --> 01:35:41.100
+Shit mal weg und machen so wie im Beispiel.
+
+01:35:41.100 --> 01:35:47.640
+Bild. Ok.
+
+01:35:47.640 --> 01:35:51.340
+Reload. Moment. Der fängt
+
+01:35:51.340 --> 01:36:01.690
+schon bei 100 an. Ähm.
+
+01:36:01.690 --> 01:36:03.690
+Wir wollen auch bei 0 anfangen. Bei 0
+
+01:36:03.690 --> 01:36:16.280
+und dann. Ja aber das scheint
+
+01:36:16.280 --> 01:36:18.280
+nicht zu funktionieren. Ah.
+
+01:36:18.280 --> 01:36:20.280
+Eine
+
+01:36:20.280 --> 01:36:22.280
+Blur Rectangle.
+
+01:36:22.280 --> 01:36:27.510
+Nice.
+
+01:36:27.510 --> 01:36:32.810
+Warum. Warum ist mein.
+
+01:36:32.810 --> 01:36:34.810
+Warum wird das jetzt
+
+01:36:34.810 --> 01:36:36.810
+angezeigt?
+
+01:36:36.810 --> 01:36:38.810
+Ok. Ok.
+
+01:36:38.810 --> 01:36:40.810
+Nice. Nice. Nice. Nice.
+
+01:36:40.810 --> 01:36:42.810
+Das ist doch schon mal. Das ist doch schon mal nicht schlecht.
+
+01:36:42.810 --> 01:36:44.810
+So. Und
+
+01:36:44.810 --> 01:36:46.810
+funzt.
+
+01:36:46.810 --> 01:36:48.810
+Funzt das denn auch mit
+
+01:36:48.810 --> 01:36:50.810
+dem
+
+01:36:50.810 --> 01:36:58.660
+Simple Data Field?
+
+01:36:58.660 --> 01:37:00.660
+Source? Data Field?
+
+01:37:02.660 --> 01:37:04.660
+Oh mein. Ne. Moment.
+
+01:37:04.660 --> 01:37:06.660
+Es wurde ja mit dem Simple Data Field
+
+01:37:06.660 --> 01:37:08.660
+nie das Update aufgerufen. Ne. Funktioniert
+
+01:37:08.660 --> 01:37:10.660
+nicht.
+
+01:37:10.660 --> 01:37:12.660
+Wie wirbst du dich bei Garmin? Ja klar. Ganz bestimmt.
+
+01:37:14.660 --> 01:37:16.660
+Warum das Rectangle nicht quadratisch
+
+01:37:16.660 --> 01:37:21.960
+ist. Das ist äh.
+
+01:37:21.960 --> 01:37:23.960
+Wahrscheinlich. Weil
+
+01:37:23.960 --> 01:37:25.960
+das schlicht und ergreifend abgeschnitten ist.
+
+01:37:25.960 --> 01:37:27.960
+Weil das nicht so weit. Weil das keine 100
+
+01:37:27.960 --> 01:37:29.960
+Pixel hat. Guck mal.
+
+01:37:29.960 --> 01:37:31.960
+Probieren wir das mal aus. Machen wir mal 20x20.
+
+01:37:31.960 --> 01:37:33.960
+Reloaden.
+
+01:37:33.960 --> 01:37:41.940
+Ups. Run.
+
+01:37:41.940 --> 01:37:45.700
+Äh. Ok.
+
+01:37:45.700 --> 01:37:47.700
+Guck. Jetzt ist es quadratisch.
+
+01:37:47.700 --> 01:37:49.700
+Das wurde einfach geklippt unten.
+
+01:37:49.700 --> 01:37:51.700
+Was ist das für eine Sprache? Das ist Monkey
+
+01:37:51.700 --> 01:37:53.700
+Sea. Das ist irgendwas von.
+
+01:37:53.700 --> 01:37:55.700
+Irgendwas eigenes von Garmin.
+
+01:37:55.700 --> 01:37:57.700
+Ok. Also mal zurück
+
+01:37:57.700 --> 01:37:59.700
+zu der eigentlichen Sache die ich ausprobieren
+
+01:37:59.700 --> 01:38:01.700
+wollte.
+
+01:38:01.700 --> 01:38:03.700
+Wir wissen jetzt wie wir farbige
+
+01:38:03.700 --> 01:38:05.700
+farbige
+
+01:38:05.700 --> 01:38:07.700
+Rechtecke malen. Ok.
+
+01:38:07.700 --> 01:38:12.170
+Also. Dann.
+
+01:38:12.170 --> 01:38:14.170
+Warte mal. Ich mach nochmal ein neues Visual Studio
+
+01:38:14.170 --> 01:38:16.170
+Code auf. Und öffne hier mal
+
+01:38:16.170 --> 01:38:18.170
+das Data Field. Da können wir uns das nämlich
+
+01:38:18.170 --> 01:38:22.440
+abgucken. Hier.
+
+01:38:22.440 --> 01:38:24.440
+Heart Rate.
+
+01:38:24.440 --> 01:38:26.440
+Heart Rate Zone.
+
+01:38:26.440 --> 01:38:32.500
+Ok. Das gibt nen Array.
+
+01:38:32.500 --> 01:38:34.500
+Das muss man. Vorher muss man irgendwie
+
+01:38:34.500 --> 01:38:36.500
+Using User Profile oder irgendwas.
+
+01:38:36.500 --> 01:38:40.330
+User Profile.
+
+01:38:40.330 --> 01:38:46.260
+Nein. Das ist. Das ist irgendein.
+
+01:38:46.260 --> 01:38:48.260
+Unter der Haube macht der Java
+
+01:38:48.260 --> 01:38:50.260
+Zeug. Ich hab keine Ahnung was das
+
+01:38:50.260 --> 01:38:52.260
+eigentlich wirklich ist.
+
+01:38:52.260 --> 01:38:54.260
+Five Head Background.
+
+01:38:54.260 --> 01:38:56.260
+Find ich nen guter Name. Five Head Background.
+
+01:38:56.260 --> 01:39:02.140
+Ok.
+
+01:39:02.140 --> 01:39:04.140
+So. Jetzt haben wir die Heart Rate.
+
+01:39:04.140 --> 01:39:06.140
+Und wie haben die nochmal hier jetzt was.
+
+01:39:06.140 --> 01:39:08.140
+Muss ich grad mal checken.
+
+01:39:08.140 --> 01:39:10.140
+Oh ne. Ich kann nicht mal weiter zurück.
+
+01:39:10.140 --> 01:39:12.140
+No.
+
+01:39:12.140 --> 01:39:14.140
+Wie haben die das mit Find Draw. Oh nein.
+
+01:39:14.140 --> 01:39:16.140
+Hab ich. Hab ich.
+
+01:39:16.140 --> 01:39:18.140
+Ach. Weil ich es geschlossen
+
+01:39:18.140 --> 01:39:20.140
+hab. Ah. Ist ja doof.
+
+01:39:20.140 --> 01:39:22.140
+Wie haben die das gemacht. Find Draw.
+
+01:39:22.140 --> 01:39:24.140
+Und. Und dann irgendwie.
+
+01:39:24.140 --> 01:39:26.140
+So. Weil. Weil.
+
+01:39:26.140 --> 01:39:28.140
+Von der Idee her. Ich würd jetzt ja gerne.
+
+01:39:28.140 --> 01:39:30.140
+Ich würd jetzt ja gerne nochmal nen Text malen.
+
+01:39:30.140 --> 01:39:32.140
+So. Das haben die doch irgendwie gemacht.
+
+01:39:32.140 --> 01:39:34.140
+Irgendwie View. Find.
+
+01:39:34.140 --> 01:39:36.140
+Drawable. By ID.
+
+01:39:36.140 --> 01:39:38.140
+Value. Oder. Oder sowas.
+
+01:39:38.140 --> 01:39:40.140
+In der Richtung.
+
+01:39:40.140 --> 01:39:42.140
+Ich bin mir da nicht mehr sicher. Irgendwie so lief das doch.
+
+01:39:42.140 --> 01:39:50.220
+Ne.
+
+01:39:50.220 --> 01:39:52.220
+Achso. Permission. Permission.
+
+01:39:52.220 --> 01:39:54.220
+User Profile.
+
+01:39:54.220 --> 01:39:58.360
+Ah ja.
+
+01:39:58.360 --> 01:40:00.360
+Nein.
+
+01:40:00.360 --> 01:40:02.360
+Build Project.
+
+01:40:02.360 --> 01:40:04.360
+Successful. Nice.
+
+01:40:04.360 --> 01:40:06.360
+Okay. View.
+
+01:40:06.360 --> 01:40:08.360
+Find Drawable.
+
+01:40:08.360 --> 01:40:10.360
+Da muss ich mir die
+
+01:40:10.360 --> 01:40:12.360
+Docs angucken. Find Drawable. By ID.
+
+01:40:12.360 --> 01:40:14.360
+Ja.
+
+01:40:14.360 --> 01:40:16.360
+Find Drawable. By ID. Time Label.
+
+01:40:16.360 --> 01:40:21.080
+Set Text.
+
+01:40:21.080 --> 01:40:23.080
+Nennen wir es mal. Eval. Set Text.
+
+01:40:23.080 --> 01:40:25.080
+Cackle.
+
+01:40:25.080 --> 01:40:27.080
+Okay. So. Mal gucken ob das jetzt funzt.
+
+01:40:27.080 --> 01:40:30.580
+Error.
+
+01:40:30.580 --> 01:40:32.580
+Set Text. Okay.
+
+01:40:32.580 --> 01:40:41.720
+Nice. GG Eats.
+
+01:40:41.720 --> 01:40:43.720
+Okay. Ich copy paste mir das mal.
+
+01:40:43.720 --> 01:40:49.780
+Glaub das besser funktioniert.
+
+01:40:49.780 --> 01:40:55.720
+Ah ne. Timestring.
+
+01:40:55.720 --> 01:40:57.720
+Set Text. Okay. Das Example
+
+01:40:57.720 --> 01:41:05.190
+Sucked. Wie sahen das aus?
+
+01:41:05.190 --> 01:41:07.190
+Okay. Chat.
+
+01:41:07.190 --> 01:41:09.190
+Wir gucken jetzt einfach mal kurz bei mir ins Stream.
+
+01:41:09.190 --> 01:41:11.190
+Ins Watt.
+
+01:41:11.190 --> 01:41:13.190
+Da hat mans ja. Da hat mans
+
+01:41:13.190 --> 01:41:20.860
+ja eben gesehen.
+
+01:41:20.860 --> 01:41:22.860
+Ja. Ja. Da wars doch.
+
+01:41:22.860 --> 01:41:29.050
+Was hab ich hier für ein Projekt offen?
+
+01:41:29.050 --> 01:41:31.050
+Date is a
+
+01:41:31.050 --> 01:41:35.000
+simple data field.
+
+01:41:35.000 --> 01:41:44.200
+Hier. Da wars doch. Hier.
+
+01:41:44.200 --> 01:41:50.520
+Find Drawable.
+
+01:41:50.520 --> 01:41:52.520
+Hier. On Update.
+
+01:41:52.520 --> 01:41:54.520
+Ah.
+
+01:41:54.520 --> 01:41:56.520
+Value.
+
+01:41:56.520 --> 01:41:58.520
+Das hab ich doch. S Text. Aha.
+
+01:41:58.520 --> 01:42:02.340
+Da war das doch
+
+01:42:02.340 --> 01:42:04.340
+gar nicht so. S.
+
+01:42:04.340 --> 01:42:06.340
+Das ist ein Cast oder
+
+01:42:06.340 --> 01:42:08.340
+sowas.
+
+01:42:08.340 --> 01:42:10.340
+Okay. Bisschen weird champ ist das schon.
+
+01:42:10.340 --> 01:42:18.330
+Aber jetzt bildet das.
+
+01:42:18.330 --> 01:42:20.330
+Jetzt muss ich. Ich musste doch noch irgendwas
+
+01:42:20.330 --> 01:42:22.330
+machen.
+
+01:42:22.330 --> 01:42:24.330
+Jetzt muss ich noch sagen. View.
+
+01:42:24.330 --> 01:42:26.330
+View on Update
+
+01:42:26.330 --> 01:42:32.010
+DC.
+
+01:42:32.010 --> 01:42:34.010
+View on
+
+01:42:34.010 --> 01:42:36.010
+Update DC.
+
+01:42:36.010 --> 01:42:42.900
+Warum man nicht sein Smartphone
+
+01:42:42.900 --> 01:42:44.900
+als Fahrradcomputer nimmt.
+
+01:42:44.900 --> 01:42:46.900
+Die offensichtlichste Sache ist
+
+01:42:46.900 --> 01:42:51.750
+Laufzeit.
+
+01:42:51.750 --> 01:42:53.750
+Und Features.
+
+01:42:53.750 --> 01:42:55.750
+Aber
+
+01:42:55.750 --> 01:42:57.750
+Laufzeit dürfte wahrscheinlich so das Argument
+
+01:42:57.750 --> 01:42:59.750
+sein was jedem einleuchtet.
+
+01:42:59.750 --> 01:43:05.300
+Mach mal 3 Stunden
+
+01:43:05.300 --> 01:43:07.300
+Navigation mit ordentlicher Bildung.
+
+01:43:07.300 --> 01:43:09.300
+Bildhelligkeit beim Smartphone.
+
+01:43:09.300 --> 01:43:11.300
+Aha.
+
+01:43:11.300 --> 01:43:13.300
+Okay. Das ist schon mal dumm.
+
+01:43:13.300 --> 01:43:15.300
+Das ist schon mal richtig dumm.
+
+01:43:15.300 --> 01:43:17.300
+Wenn ich
+
+01:43:17.300 --> 01:43:19.300
+nicht
+
+01:43:19.300 --> 01:43:21.300
+nicht zeichnen
+
+01:43:21.300 --> 01:43:23.300
+muss ich das
+
+01:43:23.300 --> 01:43:25.300
+Moment. Muss ich das vielleicht nacheinander machen?
+
+01:43:25.300 --> 01:43:27.300
+Muss ich zuerst das updaten
+
+01:43:27.300 --> 01:43:29.300
+und dann hinten dran die
+
+01:43:29.300 --> 01:43:32.680
+Rectangle malen.
+
+01:43:32.680 --> 01:43:34.680
+Nur mal so.
+
+01:43:34.680 --> 01:43:39.020
+Das es auf die Reihenfolge ankommt.
+
+01:43:39.020 --> 01:43:41.020
+Kann ja sein.
+
+01:43:41.020 --> 01:43:43.020
+Ah. Nice.
+
+01:43:43.020 --> 01:43:45.020
+Was warnt er mich denn hier?
+
+01:43:45.020 --> 01:43:47.020
+Ach ist not used.
+
+01:43:47.020 --> 01:43:56.730
+Bin doch egal.
+
+01:43:56.730 --> 01:44:00.550
+System.
+
+01:44:00.550 --> 01:44:04.820
+Brindeln.
+
+01:44:04.820 --> 01:44:06.820
+Zone.
+
+01:44:06.820 --> 01:44:08.820
+So. Wie kriege ich das jetzt hin?
+
+01:44:08.820 --> 01:44:10.820
+Also mein Ziel ist.
+
+01:44:10.820 --> 01:44:12.820
+Das meine Hardrate da steht.
+
+01:44:12.820 --> 01:44:14.820
+Das jetzt nur zum testen.
+
+01:44:14.820 --> 01:44:16.820
+Und hier unten ein Rectangle gemalt wird.
+
+01:44:16.820 --> 01:44:18.820
+Mit
+
+01:44:18.820 --> 01:44:20.820
+der passenden Farbe.
+
+01:44:20.820 --> 01:44:22.820
+Eigentlich. Eigentlich will ich
+
+01:44:22.820 --> 01:44:24.820
+gar kein Rectangle.
+
+01:44:24.820 --> 01:44:26.820
+Ich will eigentlich einmal drum herum
+
+01:44:26.820 --> 01:44:28.820
+sowas malen.
+
+01:44:28.820 --> 01:44:30.820
+Aber ich meine wir können auch erstmal das
+
+01:44:30.820 --> 01:44:32.820
+hier oben
+
+01:44:32.820 --> 01:44:34.820
+einfärben dann.
+
+01:44:34.820 --> 01:44:36.820
+Was ist das für ein Emulator.
+
+01:44:36.820 --> 01:44:40.970
+Das was beim Garmin SDK dabei ist.
+
+01:44:40.970 --> 01:44:42.970
+Also. Heißt im Endeffekt auch.
+
+01:44:42.970 --> 01:44:46.860
+If.
+
+01:44:46.860 --> 01:44:50.620
+Und wie sieht denn das.
+
+01:44:50.620 --> 01:44:53.990
+Mal reloaden.
+
+01:44:53.990 --> 01:44:55.990
+Chat. Wie funzt denn das jetzt nochmal?
+
+01:44:55.990 --> 01:44:57.990
+Konnte man das hier irgendwie splitten?
+
+01:44:57.990 --> 01:44:59.990
+Oder so. Das ging doch. Man konnte doch irgendwie
+
+01:44:59.990 --> 01:45:01.990
+sagen.
+
+01:45:01.990 --> 01:45:05.560
+Man konnte doch irgendwie
+
+01:45:05.560 --> 01:45:07.560
+sagen das man.
+
+01:45:07.560 --> 01:45:09.560
+Das ist Panel.
+
+01:45:09.560 --> 01:45:20.490
+Ich will nämlich beides
+
+01:45:20.490 --> 01:45:24.500
+anzeigen. Das ist Monkey
+
+01:45:24.500 --> 01:45:26.500
+Sea. Das ist so ein.
+
+01:45:26.500 --> 01:45:30.010
+So ein Garmin Ding.
+
+01:45:30.010 --> 01:45:32.010
+Oh. Graphics. Color. Black.
+
+01:45:32.010 --> 01:45:34.010
+Ne Moment.
+
+01:45:34.010 --> 01:45:37.380
+Ist das.
+
+01:45:39.380 --> 01:45:41.380
+Set Color. Warum sind
+
+01:45:41.380 --> 01:45:43.380
+das zwei? Vordergrund
+
+01:45:43.380 --> 01:45:45.380
+und Hintergrund? Oder.
+
+01:45:45.380 --> 01:45:47.380
+Oder wie?
+
+01:45:47.380 --> 01:45:51.850
+Hä?
+
+01:45:51.850 --> 01:45:53.850
+Set Color. Ah ja.
+
+01:45:53.850 --> 01:45:55.850
+Foreground. Background. Ok.
+
+01:45:55.850 --> 01:45:57.850
+Foreground. Background.
+
+01:45:57.850 --> 01:46:01.290
+White.
+
+01:46:01.290 --> 01:46:12.860
+Color. White.
+
+01:46:12.860 --> 01:46:16.940
+Auf Garmin. Reloade.
+
+01:46:16.940 --> 01:46:20.250
+Ok. Das funktioniert.
+
+01:46:20.250 --> 01:46:25.290
+Wobei ich.
+
+01:46:25.290 --> 01:46:27.290
+Das hier ja gar nicht brauche.
+
+01:46:27.290 --> 01:46:29.290
+Das ist schon durchaus ok gewesen.
+
+01:46:29.290 --> 01:46:33.180
+Background Color gibt's
+
+01:46:33.180 --> 01:46:35.180
+ja. Background Color
+
+01:46:35.180 --> 01:46:37.180
+gibt's ja in dem Fall nicht. Wie machen die das
+
+01:46:37.180 --> 01:46:44.580
+hier? Value.
+
+01:46:44.580 --> 01:46:46.580
+Value.
+
+01:46:46.580 --> 01:46:48.580
+Value. Set Color.
+
+01:46:48.580 --> 01:46:50.580
+Black. Ok. Also sagen wir hier.
+
+01:46:50.580 --> 01:46:52.580
+Value. Set Color.
+
+01:46:52.580 --> 01:46:57.820
+So. Dass der Text wenigstens
+
+01:46:57.820 --> 01:47:02.220
+auch gescheit aussieht.
+
+01:47:02.220 --> 01:47:04.220
+Und jetzt können wir sagen. If.
+
+01:47:04.220 --> 01:47:09.000
+Sollen wir mal ausprobieren.
+
+01:47:09.000 --> 01:47:11.000
+Ja. Äh. Sieht.
+
+01:47:11.000 --> 01:47:13.000
+Sieht auch nicht besser aus. Der Text sieht
+
+01:47:13.000 --> 01:47:15.000
+ziemlich. Ziemlich pepega broken aus.
+
+01:47:15.000 --> 01:47:26.950
+Hm.
+
+01:47:26.950 --> 01:47:30.970
+Moment. Das da oben ist ja nur das
+
+01:47:30.970 --> 01:47:37.540
+Label oder?
+
+01:47:37.540 --> 01:47:39.540
+Da steht ja gar nicht
+
+01:47:39.540 --> 01:47:41.540
+Keckel. Da steht My Value.
+
+01:47:41.540 --> 01:47:43.540
+Das ist ja auch verkehrt hier. Oder?
+
+01:47:43.540 --> 01:47:46.980
+Value. Set Text.
+
+01:47:46.980 --> 01:47:55.030
+Warum halten
+
+01:47:55.030 --> 01:48:04.300
+der nix? Warum? Hä?
+
+01:48:04.300 --> 01:48:06.300
+Ich mach das doch genauso
+
+01:48:06.300 --> 01:48:08.300
+wie die das machen.
+
+01:48:08.300 --> 01:48:10.300
+Ahmet. Geh mir nicht auf den Keks.
+
+01:48:10.300 --> 01:48:14.180
+Warum sagt. Warum
+
+01:48:14.180 --> 01:48:16.180
+setzt der denn das Value nicht?
+
+01:48:16.180 --> 01:48:20.390
+Set Color.
+
+01:48:20.390 --> 01:48:25.500
+Muss man das jetzt verstehen?
+
+01:48:25.500 --> 01:48:35.430
+Set Text.
+
+01:48:35.430 --> 01:48:37.430
+Seht ihr irgendwie den.
+
+01:48:37.430 --> 01:48:39.430
+Ach. Guck mal hier.
+
+01:48:39.430 --> 01:48:41.430
+Find Trouble by ID as Text.
+
+01:48:41.430 --> 01:48:43.430
+Set Color. Aha. Ok.
+
+01:48:43.430 --> 01:48:45.430
+Das ist ja so.
+
+01:48:45.430 --> 01:48:47.430
+Ok. Das ist ja wirklich übelst.
+
+01:48:47.430 --> 01:48:52.470
+Moment.
+
+01:48:52.470 --> 01:48:54.470
+Ach. Background. Muss man das noch?
+
+01:48:54.470 --> 01:48:58.040
+Alter.
+
+01:48:58.040 --> 01:49:00.040
+Das muss mal einer checken.
+
+01:49:00.040 --> 01:49:02.040
+Ok. Was?
+
+01:49:02.040 --> 01:49:04.040
+Background?
+
+01:49:04.040 --> 01:49:06.040
+Was haben sie denn sich da
+
+01:49:06.040 --> 01:49:10.570
+ausgedacht?
+
+01:49:10.570 --> 01:49:12.570
+Ich steig da auch nicht so wirklich durch.
+
+01:49:12.570 --> 01:49:14.570
+So. Das ist ja im Prinzip das Kopieren.
+
+01:49:14.570 --> 01:49:16.570
+Set Background Color.
+
+01:49:18.570 --> 01:49:20.570
+Hehe.
+
+01:49:20.570 --> 01:49:22.570
+Get Background Color.
+
+01:49:22.570 --> 01:49:27.990
+So.
+
+01:49:27.990 --> 01:49:29.990
+Reload.
+
+01:49:29.990 --> 01:49:34.010
+Ob das jetzt irgendwas
+
+01:49:34.010 --> 01:49:36.010
+gebracht hat?
+
+01:49:36.010 --> 01:49:38.010
+Ha?
+
+01:49:38.010 --> 01:49:40.010
+Nö.
+
+01:49:40.010 --> 01:49:42.010
+Ok. Wir machen.
+
+01:49:42.010 --> 01:49:44.010
+Color. Color. Color. Color.
+
+01:49:44.010 --> 01:49:46.010
+Color Blue.
+
+01:49:46.010 --> 01:49:48.010
+Nicht Blau. Blue.
+
+01:49:48.010 --> 01:49:50.010
+Moment. Ob der irgendwas anzeigen kann?
+
+01:49:50.010 --> 01:49:56.840
+Ah.
+
+01:49:56.840 --> 01:49:58.840
+Background.
+
+01:49:58.840 --> 01:50:00.840
+Ja. Deswegen ist es dumm.
+
+01:50:00.840 --> 01:50:02.840
+Sowas mit Strings zu machen.
+
+01:50:02.840 --> 01:50:07.940
+Oh. Error. Was?
+
+01:50:07.940 --> 01:50:09.940
+No Viable Alternative.
+
+01:50:09.940 --> 01:50:14.730
+Was?
+
+01:50:14.730 --> 01:50:16.730
+Was ist denn jetzt schon wieder das Problem, Mann?
+
+01:50:16.730 --> 01:50:18.730
+Aber.
+
+01:50:18.730 --> 01:50:20.730
+Ich habe es doch genau so gemacht. View.
+
+01:50:20.730 --> 01:50:24.300
+Find Trouble as Text. Set Color.
+
+01:50:24.300 --> 01:50:29.530
+Ach. Hier. Da fehlt ein.
+
+01:50:29.530 --> 01:50:33.030
+Error. Alter.
+
+01:50:33.030 --> 01:50:35.030
+Schnell ab, Mann.
+
+01:50:35.030 --> 01:50:37.030
+Ok. Es ist Graphics. Color.
+
+01:50:37.030 --> 01:50:44.820
+Build successful.
+
+01:50:44.820 --> 01:50:46.820
+Nice. So. Brake.
+
+01:50:46.820 --> 01:50:56.980
+Einfach funktionieren.
+
+01:51:16.300 --> 01:51:18.300
+Ok.
+
+01:51:18.300 --> 01:51:20.300
+Jetzt macht es gar nichts mehr.
+
+01:51:20.300 --> 01:51:25.460
+Geil. Top.
+
+01:51:25.460 --> 01:51:27.460
+Moment. Der Emulator ist abgekackt.
+
+01:51:27.460 --> 01:51:42.740
+Ach.
+
+01:51:42.740 --> 01:51:47.780
+Jetzt geht es auf einmal.
+
+01:51:47.780 --> 01:51:49.780
+Ok. Leute. Ich check nichts.
+
+01:51:49.780 --> 01:51:51.780
+Aber solange es funktioniert,
+
+01:51:51.780 --> 01:51:56.500
+soll mir das Recht sein.
+
+01:51:56.500 --> 01:51:58.500
+Ok.
+
+01:51:58.500 --> 01:52:00.500
+Also. Dann.
+
+01:52:00.500 --> 01:52:02.500
+If.
+
+01:52:02.500 --> 01:52:04.500
+Jetzt können wir endlich mal ein bisschen Logik bauen.
+
+01:52:04.500 --> 01:52:06.500
+Also. If.
+
+01:52:06.500 --> 01:52:08.500
+Macht man überhaupt so ein If
+
+01:52:08.500 --> 01:52:10.500
+in dieser komischen Sprache?
+
+01:52:10.500 --> 01:52:12.500
+Monkey C. If.
+
+01:52:12.500 --> 01:52:14.500
+Language Reference.
+
+01:52:14.500 --> 01:52:16.500
+If.
+
+01:52:16.500 --> 01:52:18.500
+If.
+
+01:52:18.500 --> 01:52:20.500
+Ok. Ja. Macht man.
+
+01:52:20.500 --> 01:52:22.500
+Also. If.
+
+01:52:22.500 --> 01:52:24.500
+Sound.
+
+01:52:24.500 --> 01:52:26.500
+K.
+
+01:52:26.500 --> 01:52:28.500
+Orph Array.
+
+01:52:28.500 --> 01:52:30.500
+Syntax ist so was hier in der Richtung.
+
+01:52:30.500 --> 01:52:32.500
+Also.
+
+01:52:32.500 --> 01:52:34.500
+So. Moment.
+
+01:52:34.500 --> 01:52:36.500
+Wie hat man die Herzfrequenz ausgelesen?
+
+01:52:36.500 --> 01:52:38.500
+Info. Current Heartrate.
+
+01:52:38.500 --> 01:52:40.500
+Ok. Heartrate.
+
+01:52:40.500 --> 01:52:44.710
+Wenn.
+
+01:52:44.710 --> 01:52:48.860
+Current Heartrate.
+
+01:52:48.860 --> 01:52:50.860
+Kleiner gleich.
+
+01:52:50.860 --> 01:52:52.860
+Sagt, wenn ich Mist mache.
+
+01:52:52.860 --> 01:52:54.860
+Eh. Kleiner gleich.
+
+01:52:54.860 --> 01:52:56.860
+Die erste Zahl ist.
+
+01:52:56.860 --> 01:53:01.820
+Dann gibt kein Pattern Matching.
+
+01:53:01.960 --> 01:53:03.000
+Ja, das wird mich auch nicht.
+
+01:53:05.790 --> 01:53:06.090
+Achso.
+
+01:53:08.780 --> 01:53:13.300
+Also wenn das die erste Zahl ist, dann will ich Color.
+
+01:53:13.480 --> 01:53:14.240
+Machen wir einfach mal so.
+
+01:53:14.480 --> 01:53:15.360
+Color gleich.
+
+01:53:15.840 --> 01:53:20.800
+Die Default Color ist einfach Graphics Color Gray.
+
+01:53:24.310 --> 01:53:24.990
+Oder Gray.
+
+01:53:25.110 --> 01:53:25.670
+Wie schreiben die das?
+
+01:53:26.470 --> 01:53:26.950
+Gray.
+
+01:53:28.050 --> 01:53:29.390
+Oh Leute, was habe ich da gesehen?
+
+01:53:32.000 --> 01:53:32.520
+Triggert.
+
+01:53:32.900 --> 01:53:33.740
+Manche bestimmt schon.
+
+01:53:34.580 --> 01:53:35.180
+Gray.
+
+01:53:37.960 --> 01:53:38.900
+DK Gray?
+
+01:53:39.140 --> 01:53:40.240
+LT Gray.
+
+01:53:40.520 --> 01:53:42.680
+Light Dark Gray vielleicht?
+
+01:53:43.060 --> 01:53:44.560
+Machen wir Light Gray.
+
+01:53:45.360 --> 01:53:46.140
+Dark Gray.
+
+01:53:46.680 --> 01:53:48.040
+Okay, das ist Default.
+
+01:53:48.900 --> 01:53:52.020
+Das brauchen wir nicht, weil es Default mäßig Gray ist.
+
+01:53:52.180 --> 01:53:52.640
+Alles klar.
+
+01:53:53.180 --> 01:54:02.420
+Also, wenn das kleiner ist, als Heartrate Zone 2, dann wird Color Blue.
+
+01:54:04.500 --> 01:54:04.700
+Ja.
+
+01:54:06.620 --> 01:54:06.900
+So.
+
+01:54:08.180 --> 01:54:08.900
+Else is.
+
+01:54:09.140 --> 01:54:09.380
+If.
+
+01:54:12.070 --> 01:54:25.190
+Wenn Heartrate kleiner als Zone 2, dann Green.
+
+01:54:32.290 --> 01:54:38.110
+Und wenn Heartrate kleiner gleich Zone 3, dann Color Orange.
+
+01:54:38.730 --> 01:54:40.010
+So, das reicht jetzt erstmal zum Ausdruck.
+
+01:54:40.290 --> 01:54:41.730
+Und ansonsten Else.
+
+01:54:46.000 --> 01:54:46.380
+Ah, ne.
+
+01:54:47.720 --> 01:54:51.480
+Muss ich schon noch mit dem 11 Else machen, weil den Default Fall habe ich hier oben schon.
+
+01:54:55.850 --> 01:54:56.210
+Äh, Moment.
+
+01:54:56.930 --> 01:54:57.170
+Ne.
+
+01:54:57.610 --> 01:54:59.790
+Äh, ne.
+
+01:55:00.030 --> 01:55:00.510
+Else.
+
+01:55:00.850 --> 01:55:01.430
+Schon okay.
+
+01:55:02.190 --> 01:55:02.890
+Else Rot.
+
+01:55:03.150 --> 01:55:03.270
+So.
+
+01:55:05.550 --> 01:55:06.650
+Color Red.
+
+01:55:08.010 --> 01:55:09.850
+Und dann muss ich hier oben noch was einbauen.
+
+01:55:12.750 --> 01:55:13.290
+Das da.
+
+01:55:15.870 --> 01:55:16.230
+Ähm.
+
+01:55:16.950 --> 01:55:17.370
+0.
+
+01:55:18.830 --> 01:55:19.270
+Gray.
+
+01:55:19.890 --> 01:55:20.090
+Okay.
+
+01:55:20.410 --> 01:55:20.530
+So.
+
+01:55:25.820 --> 01:55:26.840
+Äh, Zone 4 gibt es.
+
+01:55:26.920 --> 01:55:27.080
+Moment.
+
+01:55:27.260 --> 01:55:28.100
+Achso, es gibt ja noch mehr.
+
+01:55:28.440 --> 01:55:28.780
+Warte mal.
+
+01:55:29.160 --> 01:55:29.540
+0.
+
+01:55:29.800 --> 01:55:30.240
+1.
+
+01:55:30.360 --> 01:55:30.620
+2.
+
+01:55:30.780 --> 01:55:31.080
+3.
+
+01:55:31.220 --> 01:55:31.380
+4.
+
+01:55:31.380 --> 01:55:31.540
+Moment.
+
+01:55:31.640 --> 01:55:31.880
+Es gibt.
+
+01:55:32.080 --> 01:55:33.200
+Ach, es gibt da noch 5?
+
+01:55:36.750 --> 01:55:38.250
+Ich dachte Garmin hat bloß.
+
+01:55:41.220 --> 01:55:41.600
+1.
+
+01:55:42.080 --> 01:55:42.420
+1.
+
+01:55:43.900 --> 01:55:44.900
+Achso, 5, ja.
+
+01:55:45.280 --> 01:55:46.280
+Ja, na gut, passt doch.
+
+01:55:46.480 --> 01:55:50.480
+Danach gibt es, danach gibt, danach gibt es, Else, das ist der Else-Zweig, ja, das passt doch.
+
+01:55:51.060 --> 01:55:51.960
+Okay, Color.
+
+01:55:53.660 --> 01:55:54.660
+Dann hier.
+
+01:55:56.800 --> 01:56:01.580
+Hier die Color und für die, und für die Rectangle die Color.
+
+01:56:02.760 --> 01:56:03.260
+Bild.
+
+01:56:04.660 --> 01:56:05.160
+Error.
+
+01:56:05.400 --> 01:56:06.760
+Was ist jetzt schon wieder das Problem?
+
+01:56:08.040 --> 01:56:08.720
+Info.
+
+01:56:14.500 --> 01:56:16.100
+Äh, was habe ich verkehrt gemacht?
+
+01:56:16.160 --> 01:56:16.660
+Moment.
+
+01:56:21.720 --> 01:56:23.360
+Ah, äh, Activity Info.
+
+01:56:23.680 --> 01:56:24.640
+Das muss ich importieren.
+
+01:56:24.640 --> 01:56:25.140
+Oder?
+
+01:56:27.500 --> 01:56:29.180
+Tollbox Activity, okay.
+
+01:56:29.620 --> 01:56:30.120
+Ah.
+
+01:56:30.800 --> 01:56:31.300
+Ne, ist doch.
+
+01:56:32.340 --> 01:56:32.840
+Ist doch.
+
+01:56:33.460 --> 01:56:34.240
+Was ist das Problem?
+
+01:56:34.320 --> 01:56:34.820
+Activity.
+
+01:56:35.080 --> 01:56:36.740
+Muss ich sagen, Activity Info?
+
+01:56:42.330 --> 01:56:43.170
+Muss ich das so machen?
+
+01:56:50.400 --> 01:56:50.900
+Ach man.
+
+01:56:51.500 --> 01:56:52.000
+Garmin.
+
+01:56:55.610 --> 01:56:56.610
+SDK.
+
+01:57:04.440 --> 01:57:04.940
+Ah, okay.
+
+01:57:05.780 --> 01:57:06.280
+Aha.
+
+01:57:06.560 --> 01:57:07.060
+Aha.
+
+01:57:07.500 --> 01:57:11.580
+Activity Get Activity Info ist es in dem Fall.
+
+01:57:15.790 --> 01:57:16.950
+Da musst du erst mal drauf kommen.
+
+01:57:17.570 --> 01:57:18.510
+Okay, hat funktioniert.
+
+01:57:36.180 --> 01:57:36.680
+Was?
+
+01:57:57.110 --> 01:57:57.690
+Äh, was?
+
+01:57:57.690 --> 01:57:59.690
+Was genau ist jetzt das Problem?
+
+01:58:06.390 --> 01:58:08.750
+Okay, wir müssen eine Runde Printline Debugging machen.
+
+01:58:09.230 --> 01:58:09.730
+System.
+
+01:58:10.830 --> 01:58:11.330
+Print.
+
+01:58:13.550 --> 01:58:14.270
+Hardrate.
+
+01:58:16.870 --> 01:58:18.510
+Und System Print Zone.
+
+01:58:23.460 --> 01:58:25.180
+Oh, Mann, Alter.
+
+01:58:33.180 --> 01:58:35.340
+Vielleicht kann Hardrate nicht ausgelesen werden.
+
+01:58:35.740 --> 01:58:37.220
+Das könnte natürlich sein.
+
+01:58:39.400 --> 01:58:40.680
+Und dass er deswegen.
+
+01:58:41.680 --> 01:58:43.800
+Dass er Permissions für Activities braucht.
+
+01:58:44.720 --> 01:58:45.520
+Könnte das sein?
+
+01:58:48.360 --> 01:58:51.160
+Dass er keine, dass er keine Permissions hat für Activities?
+
+01:58:51.160 --> 01:58:52.400
+Das ist null.
+
+01:58:52.880 --> 01:58:54.020
+Die Hardrate ist null.
+
+01:58:54.020 --> 01:58:54.520
+Okay.
+
+01:58:54.920 --> 01:58:55.760
+Permissions.
+
+01:58:57.560 --> 01:58:59.880
+Äh, Sensor vielleicht?
+
+01:59:02.190 --> 01:59:02.910
+Lass uns mal gucken.
+
+01:59:02.910 --> 01:59:04.590
+Was hat das Ding hier für Permissions?
+
+01:59:05.390 --> 01:59:06.150
+Permissions.
+
+01:59:06.670 --> 01:59:07.910
+Nee, das hat auch nur.
+
+01:59:11.040 --> 01:59:12.080
+Es nun Merrick.
+
+01:59:13.360 --> 01:59:15.080
+Or duration or String.
+
+01:59:17.780 --> 01:59:20.220
+Okay, Activity Info funktioniert schon mal nicht.
+
+01:59:42.400 --> 01:59:45.840
+Ach so, vielleicht ist die Hardrate Simulation nicht an.
+
+01:59:46.240 --> 01:59:47.000
+Ja, das wird's.
+
+01:59:47.000 --> 01:59:49.600
+Wahrscheinlich sein Simulation.
+
+01:59:54.280 --> 01:59:55.280
+Wo war das jetzt?
+
+01:59:59.940 --> 02:00:02.220
+Ah, das war das Problem.
+
+02:00:03.660 --> 02:00:04.620
+Das war nicht an.
+
+02:00:04.940 --> 02:00:07.500
+Okay, das müssen wir aber auf jeden Fall bedenken.
+
+02:00:11.730 --> 02:00:17.360
+Es müssen wir auf jeden Fall bedenken, was das Null sein kann.
+
+02:00:18.800 --> 02:00:19.280
+Weil dann.
+
+02:00:20.680 --> 02:00:21.720
+Funktioniert es nicht.
+
+02:00:34.260 --> 02:00:35.420
+Wo stand hier was?
+
+02:00:36.180 --> 02:00:37.820
+Hardrate works fine steht da.
+
+02:00:42.780 --> 02:00:44.180
+First to get.
+
+02:00:44.180 --> 02:00:45.860
+You want to check that?
+
+02:00:45.860 --> 02:00:52.010
+First to check.
+
+02:00:52.010 --> 02:00:57.130
+Ähm, aber die Farbe stimmt nicht.
+
+02:00:57.130 --> 02:01:03.820
+Oh, bei oder vielleicht stimmt die Farbe ja doch.
+
+02:01:03.820 --> 02:01:04.820
+Ah, jetzt.
+
+02:01:04.820 --> 02:01:07.260
+Okay, wir müssen das erst mal checken, ob das Null ist.
+
+02:01:07.260 --> 02:01:08.260
+If.
+
+02:01:08.260 --> 02:01:09.260
+Ganz einfach.
+
+02:01:09.260 --> 02:01:11.260
+If.
+
+02:01:11.260 --> 02:01:13.260
+HR Null.
+
+02:01:13.260 --> 02:01:15.260
+Ich hoffe, das macht man so.
+
+02:01:15.260 --> 02:01:17.260
+Then return.
+
+02:01:17.260 --> 02:01:24.920
+Nein.
+
+02:01:24.920 --> 02:01:26.920
+Das macht man nicht so.
+
+02:01:26.920 --> 02:01:34.010
+Doch, das macht man so.
+
+02:01:34.010 --> 02:01:38.980
+Zeile 77.
+
+02:01:38.980 --> 02:01:42.860
+Was denn?
+
+02:01:42.860 --> 02:01:51.740
+Okay, System.
+
+02:01:51.740 --> 02:01:53.740
+Print.
+
+02:01:53.740 --> 02:01:57.250
+Print line.
+
+02:01:57.250 --> 02:01:59.250
+Die Hardrate.
+
+02:01:59.250 --> 02:02:01.250
+Dass ich weiß, was abgeht.
+
+02:02:01.250 --> 02:02:08.480
+Und jetzt sagen wir run without debugging.
+
+02:02:08.480 --> 02:02:12.300
+Ja, 82.
+
+02:02:12.300 --> 02:02:20.990
+Was ist da?
+
+02:02:20.990 --> 02:02:22.990
+Ah, Moment, ich habe doppelt if hier stehen.
+
+02:02:22.990 --> 02:02:26.620
+Moment, wait a minute.
+
+02:02:26.620 --> 02:02:28.620
+Ja.
+
+02:02:28.620 --> 02:02:30.620
+Aber es ergibt trotzdem keinen Sinn, warum das.
+
+02:02:30.620 --> 02:02:32.620
+Ja doch, 123 ist blue.
+
+02:02:32.620 --> 02:02:33.620
+Ne, Moment.
+
+02:02:33.620 --> 02:02:35.620
+123.
+
+02:02:35.620 --> 02:02:37.620
+Ist.
+
+02:02:37.620 --> 02:02:39.620
+124.
+
+02:02:39.620 --> 02:02:41.620
+Ist unterhalb von Zone.
+
+02:02:41.620 --> 02:02:43.620
+Von Zone 1.
+
+02:02:43.620 --> 02:02:45.620
+Okay, da müsste es, dann müsste es Cray sein.
+
+02:02:45.620 --> 02:02:47.620
+Okay, das war.
+
+02:02:47.620 --> 02:02:49.620
+Das war der Bug.
+
+02:02:49.620 --> 02:02:51.620
+Okay, alles gut.
+
+02:02:51.620 --> 02:03:01.020
+Restart.
+
+02:03:01.020 --> 02:03:04.710
+So, jetzt.
+
+02:03:04.710 --> 02:03:06.710
+Ja, ja.
+
+02:03:06.710 --> 02:03:08.710
+So, der Typ, der muss mal ein bisschen, ein bisschen schaffen hier.
+
+02:03:08.710 --> 02:03:10.710
+Ein bisschen anstrengen.
+
+02:03:10.710 --> 02:03:31.620
+Funktioniert.
+
+02:03:31.620 --> 02:03:35.620
+So, der müsste jetzt mal ein bisschen höhere Herzfrequenz bekommen.
+
+02:03:35.620 --> 02:03:37.620
+Das ist jetzt.
+
+02:03:37.620 --> 02:03:39.620
+153 wird er so schnell nicht kriegen.
+
+02:03:39.620 --> 02:03:41.620
+Zumindest.
+
+02:03:41.620 --> 02:03:47.620
+Zum testen müsste der mal ein bisschen höhere Herzfrequenz bekommen, der Dude.
+
+02:03:47.620 --> 02:03:49.620
+Was zum?
+
+02:03:49.620 --> 02:03:53.510
+Bin ich hier gelandet?
+
+02:03:53.510 --> 02:03:55.510
+Ich wollte wupp wupp wieder anmachen.
+
+02:03:55.510 --> 02:03:57.510
+Ah, guck mal.
+
+02:03:57.510 --> 02:03:59.510
+131.
+
+02:03:59.510 --> 02:04:01.510
+Jetzt wird es, jetzt wird es blau.
+
+02:04:01.510 --> 02:04:03.510
+Okay, sehr schön.
+
+02:04:03.510 --> 02:04:05.510
+Das funktioniert ja.
+
+02:04:05.510 --> 02:04:07.510
+Das ist im Prinzip genau das, was ich haben will.
+
+02:04:07.510 --> 02:04:09.510
+Also, ich will jetzt nicht wirklich die Zahlen hier anzeigen.
+
+02:04:09.510 --> 02:04:11.510
+Aber ich will eine Rectangle malen.
+
+02:04:11.510 --> 02:04:13.510
+Anhand der jeweiligen Herzfrequenz.
+
+02:04:13.510 --> 02:04:21.300
+Ne.
+
+02:04:21.300 --> 02:04:28.520
+Ne, das ist gut.
+
+02:04:28.520 --> 02:04:32.410
+Jetzt hat er 151.
+
+02:04:32.410 --> 02:04:34.410
+Moment, 151 ist immer noch hier drunter.
+
+02:04:36.410 --> 02:04:38.410
+Der hat ziemlich krasse Herzfrequenzzonen.
+
+02:04:38.410 --> 02:04:40.410
+Der Demo-Typ.
+
+02:04:40.410 --> 02:04:54.380
+Oh.
+
+02:04:54.380 --> 02:04:58.380
+Okay, jetzt können wir mal die Rectangle an irgendeiner sinnvollen Stelle positionieren.
+
+02:04:58.380 --> 02:05:00.380
+Ich würde, ich würde ja gerne,
+
+02:05:00.380 --> 02:05:02.380
+ehrlich gesagt,
+
+02:05:02.380 --> 02:05:04.380
+einfach nur einen Streifen malen.
+
+02:05:04.380 --> 02:05:11.780
+Ich würde ja am liebsten
+
+02:05:11.780 --> 02:05:13.780
+einen Streifen.
+
+02:05:13.780 --> 02:05:15.780
+Ich will ja nicht einfach da oben sowas.
+
+02:05:15.780 --> 02:05:17.780
+Einen Streifen, ja.
+
+02:05:17.780 --> 02:05:19.780
+Einen Streifen sollte ja reichen.
+
+02:05:19.780 --> 02:05:23.160
+Also mal Fill Rectangle.
+
+02:05:23.160 --> 02:05:25.160
+Am besten unten.
+
+02:05:25.160 --> 02:05:27.160
+Unten oder oben.
+
+02:05:27.160 --> 02:05:29.160
+Oben ist halt am einfachsten.
+
+02:05:29.160 --> 02:05:31.160
+Ach guck mal, jetzt wirds grün.
+
+02:05:31.160 --> 02:05:33.160
+Jetzt wirds grün.
+
+02:05:33.160 --> 02:05:35.160
+Es funktioniert alles.
+
+02:05:35.160 --> 02:05:37.160
+Okay, nice. Das finde ich cool.
+
+02:05:37.160 --> 02:05:39.160
+Also am besten wäre natürlich, wenn er
+
+02:05:39.160 --> 02:05:41.160
+unten, oben, links, rechts.
+
+02:05:41.160 --> 02:05:47.220
+Keine Ahnung, wo da das beste ist.
+
+02:05:47.220 --> 02:05:49.220
+Wir machen es oben.
+
+02:05:49.220 --> 02:05:51.220
+Oben dürfte es am einfachsten sein.
+
+02:05:51.220 --> 02:05:55.880
+Ein grüner Strich.
+
+02:05:55.880 --> 02:05:57.880
+Okay, was ist was?
+
+02:05:57.880 --> 02:05:59.880
+Fill Rectangle ist
+
+02:05:59.880 --> 02:06:09.530
+Referenz von
+
+02:06:09.530 --> 02:06:11.530
+Ja.
+
+02:06:11.530 --> 02:06:13.530
+Breite, Höhe.
+
+02:06:13.530 --> 02:06:15.530
+Okay, also
+
+02:06:15.530 --> 02:06:17.530
+Höhe, sagen wir mal 4 Pixel.
+
+02:06:17.530 --> 02:06:19.530
+Breite.
+
+02:06:19.530 --> 02:06:21.530
+Es wäre cool, wenn man irgendwie relative Einheiten
+
+02:06:21.530 --> 02:06:23.530
+machen könnte, aber kann man anscheinend nicht.
+
+02:06:23.530 --> 02:06:25.530
+Okay, 4 Pixel, Höhe
+
+02:06:25.530 --> 02:06:27.530
+und irgendwie, keine Ahnung, 2000
+
+02:06:27.530 --> 02:06:29.530
+Pixel wide. Das sollte glaube ich
+
+02:06:29.530 --> 02:06:31.530
+reichen. Das wird dann zwar abgeschnitten, aber
+
+02:06:31.530 --> 02:06:43.160
+das macht ja nichts. Das will ich ja.
+
+02:06:43.160 --> 02:06:45.160
+Ja. Sehr schön, sehr schön.
+
+02:06:45.160 --> 02:06:47.160
+Jetzt wird oben
+
+02:06:47.160 --> 02:06:49.160
+in dem jeweiligen Data Field
+
+02:06:49.160 --> 02:06:51.160
+eine Linie angezeigt,
+
+02:06:51.160 --> 02:06:53.160
+die die
+
+02:06:53.160 --> 02:06:55.160
+Herzfrequenz
+
+02:06:55.160 --> 02:06:57.160
+quasi
+
+02:06:57.160 --> 02:06:59.160
+symbolisiert.
+
+02:06:59.160 --> 02:07:01.160
+Ich brauche ja gar kein
+
+02:07:01.160 --> 02:07:03.160
+Label, wo das angezeigt
+
+02:07:03.160 --> 02:07:05.160
+wird.
+
+02:07:05.160 --> 02:07:07.160
+Je nachdem, wenn sich das
+
+02:07:07.160 --> 02:07:09.160
+ändert. Machen wir nochmal
+
+02:07:09.160 --> 02:07:11.160
+eine andere Herzfrequenz. Ja genau, 133.
+
+02:07:11.160 --> 02:07:13.160
+Dann wird das
+
+02:07:13.160 --> 02:07:15.160
+blau oder grau oder sonst was.
+
+02:07:15.160 --> 02:07:17.160
+Das finde ich eigentlich gar nicht so
+
+02:07:17.160 --> 02:07:19.160
+schlecht, weil ich will ja ein paar, ich will ja
+
+02:07:19.160 --> 02:07:21.160
+ein bisschen mehr Werte anzeigen können
+
+02:07:21.160 --> 02:07:23.160
+und die Pulsfrequenz, die brauche ich
+
+02:07:23.160 --> 02:07:25.160
+nicht unbedingt direkt
+
+02:07:25.160 --> 02:07:27.160
+als Zahl. Die reicht eigentlich
+
+02:07:27.160 --> 02:07:32.330
+als Strich. Und jetzt
+
+02:07:32.330 --> 02:07:34.330
+müssen wir das irgendwie Layout mäßig
+
+02:07:34.330 --> 02:07:36.330
+so machen, dass ich drei
+
+02:07:36.330 --> 02:07:38.330
+da müssen wir uns Layouts
+
+02:07:38.330 --> 02:07:40.330
+angucken, dass ich quasi das hier dreifach
+
+02:07:40.330 --> 02:07:42.330
+gleichmäßig unter
+
+02:07:42.330 --> 02:07:44.330
+unterteilt bekomme.
+
+02:07:44.330 --> 02:07:46.330
+Da müssen wir mal
+
+02:07:46.330 --> 02:07:48.330
+in den Guide gucken.
+
+02:07:48.330 --> 02:07:56.020
+Layout
+
+02:07:56.020 --> 02:07:58.020
+Set Layout
+
+02:07:58.020 --> 02:08:00.020
+Main Layout
+
+02:08:00.020 --> 02:08:02.020
+Was passiert
+
+02:08:02.020 --> 02:08:04.020
+hier?
+
+02:08:04.020 --> 02:08:06.020
+On Layout
+
+02:08:06.020 --> 02:08:10.300
+Compute
+
+02:08:10.300 --> 02:08:12.300
+On Layout
+
+02:08:12.300 --> 02:08:16.380
+Set Layout
+
+02:08:16.380 --> 02:08:18.380
+Top Left Layout
+
+02:08:18.380 --> 02:08:23.030
+Top Right
+
+02:08:23.030 --> 02:08:25.030
+Ah, Moment.
+
+02:08:25.030 --> 02:08:27.030
+Ne, das ist nicht mein Layout.
+
+02:08:27.030 --> 02:08:29.030
+Das ist, ich kann
+
+02:08:29.030 --> 02:08:32.410
+mein, ich kann das anpassen
+
+02:08:32.410 --> 02:08:34.410
+je nachdem, was der Typ
+
+02:08:34.410 --> 02:08:36.410
+was der User für Layouts ausgewählt
+
+02:08:36.410 --> 02:08:47.270
+hat. Ey, das sind die
+
+02:08:47.270 --> 02:08:55.580
+Default Garmin Farben.
+
+02:08:55.580 --> 02:08:57.580
+So.
+
+02:08:57.580 --> 02:08:59.580
+Mit der Devicebreite, ja, aber da muss ich das selbst
+
+02:08:59.580 --> 02:09:01.580
+ausrechnen. Das ist doch blöd.
+
+02:09:01.580 --> 02:09:03.580
+Es wäre doch viel besser, wenn es was Fertiges gibt.
+
+02:09:03.580 --> 02:09:08.420
+Aktuell
+
+02:09:08.420 --> 02:09:32.470
+interessiert sich
+
+02:09:32.470 --> 02:09:41.220
+das ist jetzt erstmal
+
+02:09:41.220 --> 02:09:43.220
+nicht so, nicht so wild.
+
+02:09:43.220 --> 02:09:46.600
+Ich will
+
+02:09:46.600 --> 02:09:48.600
+ein Layout haben, innerhalb
+
+02:09:48.600 --> 02:09:50.600
+von meinem Data Field.
+
+02:09:50.600 --> 02:09:52.600
+Ich will, ich will quasi so eine Art Grid
+
+02:09:52.600 --> 02:09:54.600
+haben.
+
+02:09:54.600 --> 02:10:06.360
+Falls es sowas gibt.
+
+02:10:06.360 --> 02:10:10.380
+Gibt es ein Grid?
+
+02:10:10.380 --> 02:10:19.510
+Max, wie war das mit den Demo?
+
+02:10:19.510 --> 02:10:23.210
+Wo war das Demo Repo?
+
+02:10:23.210 --> 02:10:25.210
+Das geht bestimmt.
+
+02:10:25.210 --> 02:10:27.210
+Das geht bestimmt. Man muss nur wissen,
+
+02:10:27.210 --> 02:10:29.210
+nach was man sucht. Also Layout
+
+02:10:29.210 --> 02:10:31.210
+ist auf jeden Fall schonmal falsch. Irgendwas
+
+02:10:31.210 --> 02:10:33.210
+mit Box vielleicht?
+
+02:10:33.210 --> 02:10:39.400
+Bauen Ding Box.
+
+02:10:39.400 --> 02:10:47.830
+Check Box Menü.
+
+02:10:47.830 --> 02:11:06.180
+Data Field.
+
+02:11:06.180 --> 02:11:08.180
+Warte hier. On Update
+
+02:11:08.180 --> 02:11:10.180
+Clear Clip.
+
+02:11:10.180 --> 02:11:12.180
+Was auch immer.
+
+02:11:12.180 --> 02:11:22.540
+Was da geklippt wird.
+
+02:11:22.540 --> 02:11:24.540
+Ey, der Typ hat ja richtig krass viele, viele
+
+02:11:24.540 --> 02:11:37.770
+Beispiele. Aber wie man
+
+02:11:37.770 --> 02:11:42.680
+wie man da irgendwelche
+
+02:11:42.680 --> 02:11:44.680
+Trouble, wie man da irgendwelche Layouts macht.
+
+02:11:44.680 --> 02:11:46.680
+Auch nicht, ne?
+
+02:11:46.680 --> 02:11:48.680
+Ich mein natürlich kann ich das, kann ich das selbst
+
+02:11:48.680 --> 02:11:50.680
+irgendwie ausrechnen. So
+
+02:11:50.680 --> 02:11:52.680
+Devicebreite durch 3
+
+02:11:52.680 --> 02:11:54.680
+oder sowas. Okay.
+
+02:11:54.680 --> 02:11:56.680
+Wie kriege ich, wie kriege ich die Breite
+
+02:11:56.680 --> 02:11:58.680
+von dem Device
+
+02:11:58.680 --> 02:12:00.680
+raus?
+
+02:12:00.680 --> 02:12:07.380
+Get Text? Get Width?
+
+02:12:07.380 --> 02:12:09.380
+Okay. Ja.
+
+02:12:09.380 --> 02:12:11.380
+DC Get Width.
+
+02:12:11.380 --> 02:12:13.380
+Gucken wir uns das mal an.
+
+02:12:13.380 --> 02:12:20.920
+DC. Schauen
+
+02:12:20.920 --> 02:12:22.920
+wir mal.
+
+02:12:22.920 --> 02:12:28.980
+Was das, was das sagt.
+
+02:12:28.980 --> 02:12:51.560
+Was das ausgibt.
+
+02:12:51.560 --> 02:12:53.560
+Achso, das da.
+
+02:12:53.560 --> 02:12:55.560
+246.
+
+02:12:55.560 --> 02:12:57.560
+So, also da könnte ich
+
+02:12:57.560 --> 02:13:01.580
+natürlich schon sagen.
+
+02:13:01.580 --> 02:13:03.580
+With.
+
+02:13:03.580 --> 02:13:05.580
+Man könnte das quasi durch 3 teilen,
+
+02:13:05.580 --> 02:13:07.580
+wenn ich 3 Sachen anzeigen möchte.
+
+02:13:07.580 --> 02:13:09.580
+Ja und dann, dann hat man
+
+02:13:09.580 --> 02:13:11.580
+irgendwie Cell Width oder sowas.
+
+02:13:11.580 --> 02:13:13.580
+Und dann habe ich
+
+02:13:13.580 --> 02:13:15.580
+für, dann weiß ich
+
+02:13:15.580 --> 02:13:17.580
+wo die Begrenzung ist.
+
+02:13:17.580 --> 02:13:19.580
+Das erste ist
+
+02:13:19.580 --> 02:13:21.580
+0 bis.
+
+02:13:21.580 --> 02:13:25.530
+Das nächste ist
+
+02:13:25.530 --> 02:13:27.530
+ja, das plus das.
+
+02:13:29.530 --> 02:13:31.530
+Und beim nächsten ist Schluss bei
+
+02:13:31.530 --> 02:13:33.530
+Breite. Breite minus Width.
+
+02:13:33.530 --> 02:13:35.530
+Ja, das könnte man machen. Da könnte man
+
+02:13:35.530 --> 02:13:37.530
+quasi anhand dessen ausrechnen,
+
+02:13:37.530 --> 02:13:39.530
+wo man was hinmalen
+
+02:13:39.530 --> 02:13:41.530
+möchte. Das können wir jetzt ja mal
+
+02:13:41.530 --> 02:13:43.530
+kurz ausprobieren, ob das funktioniert.
+
+02:13:43.530 --> 02:13:45.530
+Also.
+
+02:13:45.530 --> 02:13:48.900
+Ja, das
+
+02:13:48.900 --> 02:13:53.370
+funktioniert aber so schon mal nicht.
+
+02:13:53.370 --> 02:13:55.370
+Weil der hier irgendwelche festen
+
+02:13:55.370 --> 02:13:57.370
+Labels setzt.
+
+02:13:57.370 --> 02:13:59.370
+Das ist halt, zack.
+
+02:13:59.370 --> 02:14:09.080
+Ne, wo hier?
+
+02:14:09.080 --> 02:14:12.460
+Wo setzt, wo setzt
+
+02:14:12.460 --> 02:14:14.460
+der überhaupt hier die Sache mit dem? Ach hier
+
+02:14:14.460 --> 02:14:16.460
+Value. View Value.
+
+02:14:16.460 --> 02:14:18.460
+Wo hat er das
+
+02:14:18.460 --> 02:14:25.990
+überhaupt her?
+
+02:14:25.990 --> 02:14:27.990
+Kann es sein, dass es schlicht und ergreifend
+
+02:14:27.990 --> 02:14:29.990
+jedes Data Field
+
+02:14:29.990 --> 02:14:31.990
+sowas bekommt?
+
+02:14:31.990 --> 02:14:33.990
+Ohne, dass man das
+
+02:14:33.990 --> 02:14:35.990
+selbst einfügen muss? Wahrscheinlich.
+
+02:14:35.990 --> 02:14:37.990
+Wahrscheinlich hat jedes Data Field
+
+02:14:37.990 --> 02:14:39.990
+einmal Label und einmal
+
+02:14:39.990 --> 02:14:41.990
+Text. Das
+
+02:14:41.990 --> 02:14:43.990
+doofe ist, das kann ich jetzt ja gar nicht verwenden.
+
+02:14:43.990 --> 02:14:47.940
+Wobei doch, guck mal.
+
+02:14:47.940 --> 02:14:49.940
+Ich kann, aber
+
+02:14:49.940 --> 02:14:51.940
+ich brauche ja mehrere Values. Das funktioniert
+
+02:14:51.940 --> 02:14:53.940
+schon mal nicht. Ich glaube, ich muss das
+
+02:14:53.940 --> 02:14:55.940
+komplett selbst malen.
+
+02:14:55.940 --> 02:14:57.940
+Keine Chance. Also eigentlich
+
+02:14:57.940 --> 02:14:59.940
+bringt mir das hier gar nichts.
+
+02:14:59.940 --> 02:15:01.940
+Das Zeug. Das kann ich
+
+02:15:01.940 --> 02:15:03.940
+theoretisch komplett
+
+02:15:03.940 --> 02:15:11.860
+Cu
+
+02:15:11.860 --> 02:15:13.860
+M Value. Benutzt das doch
+
+02:15:13.860 --> 02:15:17.820
+irgendwo was? Kann man hier
+
+02:15:17.820 --> 02:15:19.820
+irgendwas machen? Was gibt
+
+02:15:19.820 --> 02:15:21.820
+es denn? Moment, guck mal. Data Field
+
+02:15:21.820 --> 02:15:25.510
+Data Field
+
+02:15:25.510 --> 02:15:38.620
+Es geht ja aktuell ums
+
+02:15:38.620 --> 02:15:40.620
+Display. Was hat denn das für
+
+02:15:40.620 --> 02:15:42.620
+Methoden?
+
+02:15:42.620 --> 02:15:44.620
+Dude Master, danke schön für den Sub.
+
+02:15:44.620 --> 02:15:48.120
+Compute Create Field
+
+02:15:48.120 --> 02:15:50.120
+Aha.
+
+02:15:50.120 --> 02:15:52.120
+Create a
+
+02:15:52.120 --> 02:15:54.120
+New Custom Fit Field.
+
+02:15:54.120 --> 02:15:56.120
+What?
+
+02:15:56.120 --> 02:16:03.340
+Ok.
+
+02:16:03.340 --> 02:16:05.340
+Ich probiere das jetzt einfach mal aus.
+
+02:16:05.340 --> 02:16:14.470
+Data Field
+
+02:16:14.470 --> 02:16:16.470
+Create Field
+
+02:16:16.470 --> 02:16:18.470
+Name
+
+02:16:18.470 --> 02:16:20.470
+Ah, hier kann ich
+
+02:16:20.470 --> 02:16:22.470
+Ok. Name. Bloop.
+
+02:16:22.470 --> 02:16:24.470
+Field ID. Ja.
+
+02:16:24.470 --> 02:16:26.470
+Keine Ahnung. 2.
+
+02:16:26.470 --> 02:16:28.470
+Type. Man weiß es nicht.
+
+02:16:28.470 --> 02:16:30.470
+Create Field
+
+02:16:30.470 --> 02:16:32.470
+Unique Field Identifier.
+
+02:16:32.470 --> 02:16:34.470
+Ok. Komm. 69.
+
+02:16:34.470 --> 02:16:36.470
+Der ist bestimmt noch frei. Type.
+
+02:16:36.470 --> 02:16:58.760
+Data Type.
+
+02:16:58.760 --> 02:17:00.760
+Wir machen mal Data Type String.
+
+02:17:00.760 --> 02:17:04.260
+Data Type String und
+
+02:17:04.260 --> 02:17:06.260
+Options. Gibt es noch was? Count.
+
+02:17:06.260 --> 02:17:09.770
+Message Type.
+
+02:17:09.770 --> 02:17:11.770
+Das ist Optional.
+
+02:17:11.770 --> 02:17:13.770
+Optional kommt weg. Bam.
+
+02:17:13.770 --> 02:17:17.530
+Error.
+
+02:17:17.530 --> 02:17:19.530
+No Viable Alternative
+
+02:17:19.530 --> 02:17:21.530
+Add Input Data Field
+
+02:17:21.530 --> 02:17:23.530
+Create. Ok.
+
+02:17:23.530 --> 02:17:25.530
+Es ist Optional, aber ich muss trotzdem
+
+02:17:25.530 --> 02:17:30.760
+irgendwas eingeben.
+
+02:17:30.760 --> 02:17:37.590
+Also
+
+02:17:37.590 --> 02:17:39.590
+Äh.
+
+02:17:39.590 --> 02:17:41.590
+0?
+
+02:17:41.590 --> 02:17:57.900
+Wenn es Optional ist.
+
+02:17:57.900 --> 02:18:02.170
+1? Hä?
+
+02:18:02.170 --> 02:18:09.450
+Alter.
+
+02:18:09.450 --> 02:18:11.450
+Das wird zu Six Head, Alter.
+
+02:18:11.450 --> 02:18:27.750
+Der Kram. Garmin.
+
+02:18:27.750 --> 02:18:29.750
+Haben wir da nicht irgendwie ein Beispiel?
+
+02:18:29.750 --> 02:18:31.750
+Hat der Typ in GitHub, hier in diesem
+
+02:18:31.750 --> 02:18:38.390
+GitHub Repo. Ich bin
+
+02:18:38.390 --> 02:18:40.390
+keine Ahnung, wie das funktioniert.
+
+02:18:40.390 --> 02:18:56.950
+What the f...
+
+02:18:56.950 --> 02:19:12.490
+Permission Fit Contributor?
+
+02:19:12.490 --> 02:19:19.060
+Ich bin mir
+
+02:19:19.060 --> 02:19:21.060
+nicht sicher, ob das wirklich das ist, was ich
+
+02:19:21.060 --> 02:19:28.790
+haben will. Moment.
+
+02:19:28.790 --> 02:19:30.790
+Das ist ein Data Field für Garmin Connect.
+
+02:19:30.790 --> 02:19:32.790
+Das ist
+
+02:19:32.790 --> 02:19:38.280
+was ganz anderes.
+
+02:19:38.280 --> 02:19:40.280
+Moment. Das ist für die Zusammenarbeit
+
+02:19:40.280 --> 02:19:46.470
+mit der Mobile App.
+
+02:19:46.470 --> 02:19:48.470
+Ne. Das ist gar nicht das, was ich haben will.
+
+02:19:48.470 --> 02:19:52.420
+Ok. Das ist
+
+02:19:52.420 --> 02:20:01.240
+falsch. Also
+
+02:20:01.240 --> 02:20:03.240
+die Docs sind auch nicht so
+
+02:20:03.240 --> 02:20:05.240
+Aussage
+
+02:20:05.240 --> 02:20:15.530
+kräftig.
+
+02:20:15.530 --> 02:20:17.530
+Create a new Fit Field.
+
+02:20:17.530 --> 02:20:19.530
+Field records
+
+02:20:19.530 --> 02:20:21.530
+custom fit data
+
+02:20:21.530 --> 02:20:23.530
+to a fit file on a device
+
+02:20:23.530 --> 02:20:25.530
+Ok. Das ist auf jeden Fall nicht
+
+02:20:25.530 --> 02:20:27.530
+das, was ich haben will. Das ist
+
+02:20:27.530 --> 02:20:29.530
+pp egal.
+
+02:20:29.530 --> 02:20:31.530
+Nein, nein, nein. Das brauchen wir nicht. Ok. Dann
+
+02:20:31.530 --> 02:20:33.530
+zurück zum eigentlichen Plan.
+
+02:20:33.530 --> 02:20:35.530
+Das da kommt alles weg.
+
+02:20:35.530 --> 02:20:37.530
+So.
+
+02:20:37.530 --> 02:20:39.530
+Und im Endeffekt
+
+02:20:39.530 --> 02:20:41.530
+Was ist denn hier? Warum ist
+
+02:20:41.530 --> 02:20:43.530
+das rot?
+
+02:20:43.530 --> 02:20:45.530
+Weil der das nicht gecheckt hat.
+
+02:20:45.530 --> 02:20:47.530
+So.
+
+02:20:47.530 --> 02:20:52.380
+Heißt im Endeffekt
+
+02:20:52.380 --> 02:20:54.380
+aber auch
+
+02:20:54.380 --> 02:20:58.460
+Ich muss das wirklich
+
+02:20:58.460 --> 02:21:00.460
+Ich muss das wirklich selbst berechnen.
+
+02:21:00.460 --> 02:21:06.070
+Das heißt ich kann mir das hier
+
+02:21:06.070 --> 02:21:08.070
+komplett sparen und muss das alles
+
+02:21:08.070 --> 02:21:10.070
+selbst malen.
+
+02:21:10.070 --> 02:21:12.070
+Draw text.
+
+02:21:12.070 --> 02:21:14.070
+Dachte ich mir, dass das so heißt. So.
+
+02:21:14.070 --> 02:21:16.070
+Ok. Das ist jetzt natürlich was, wo ich
+
+02:21:16.070 --> 02:21:18.070
+gar keinen Plan habe, wie man das
+
+02:21:18.070 --> 02:21:20.070
+gescheit macht.
+
+02:21:20.070 --> 02:21:22.070
+Ok. Oben an der linken Ecke
+
+02:21:22.070 --> 02:21:24.070
+Ne.
+
+02:21:24.070 --> 02:21:26.070
+An sechster
+
+02:21:26.070 --> 02:21:28.070
+Moment. Links
+
+02:21:28.070 --> 02:21:30.070
+Von oben
+
+02:21:30.070 --> 02:21:32.070
+So.
+
+02:21:32.070 --> 02:21:34.070
+Font
+
+02:21:34.070 --> 02:21:36.070
+Ja. Aber die haben bestimmt ein Beispiel
+
+02:21:36.070 --> 02:21:40.090
+für.
+
+02:21:40.090 --> 02:21:42.090
+Nö. Natürlich nicht. Font.
+
+02:21:42.090 --> 02:21:44.090
+Graphics font type. The font to use.
+
+02:21:44.090 --> 02:21:49.580
+Graphics font
+
+02:21:49.580 --> 02:21:53.780
+Font
+
+02:21:53.780 --> 02:21:57.800
+Font
+
+02:21:57.800 --> 02:21:59.800
+Fonts
+
+02:21:59.800 --> 02:22:01.800
+Oh no.
+
+02:22:01.800 --> 02:22:07.480
+Gibt es da nicht. Da muss es doch schon
+
+02:22:07.480 --> 02:22:09.480
+irgendwie ein Default Font geben oder?
+
+02:22:09.480 --> 02:22:16.950
+Hier. Font.
+
+02:22:16.950 --> 02:22:18.950
+Font small. Font large.
+
+02:22:18.950 --> 02:22:27.830
+Font medium.
+
+02:22:27.830 --> 02:22:29.830
+Ich hoffe das tut so. Ok.
+
+02:22:29.830 --> 02:22:31.830
+Text. Blub.
+
+02:22:31.830 --> 02:22:33.830
+Justification.
+
+02:22:33.830 --> 02:22:35.830
+Graphics.
+
+02:22:35.830 --> 02:22:37.830
+Text.
+
+02:22:37.830 --> 02:22:39.830
+Justify.
+
+02:22:39.830 --> 02:22:41.830
+Left.
+
+02:22:41.830 --> 02:22:43.830
+Das funktioniert doch jetzt im Leben so nicht.
+
+02:22:43.830 --> 02:22:45.830
+Der meckert doch wieder rum, dass ich irgendwas
+
+02:22:45.830 --> 02:22:47.830
+verkehrt gemacht
+
+02:22:47.830 --> 02:22:49.830
+habe. Und. Error.
+
+02:22:49.830 --> 02:22:51.830
+Cannot find Symbol Fonts.
+
+02:22:53.830 --> 02:22:55.830
+Vielleicht ist es einfach Fonts Medium.
+
+02:22:55.830 --> 02:22:57.830
+Graphics Fonts Medium.
+
+02:22:57.830 --> 02:22:59.830
+Hey. Es hat funktioniert.
+
+02:22:59.830 --> 02:23:04.100
+Bam. Vielleicht sollte ich noch die
+
+02:23:04.100 --> 02:23:07.800
+Color vielleicht mal ändern. So.
+
+02:23:07.800 --> 02:23:09.800
+Ne.
+
+02:23:09.800 --> 02:23:11.800
+Es hat funktioniert Leute.
+
+02:23:11.800 --> 02:23:17.420
+Er hat Blub gedroht.
+
+02:23:17.420 --> 02:23:19.420
+So. Wir sollten das hier noch ändern.
+
+02:23:19.420 --> 02:23:21.420
+Color Black.
+
+02:23:21.420 --> 02:23:23.420
+Graphics Color.
+
+02:23:23.420 --> 02:23:31.460
+So.
+
+02:23:31.460 --> 02:23:38.040
+Ja. Nice. Das funktioniert.
+
+02:23:38.040 --> 02:23:40.040
+Wir lassen es vielleicht noch.
+
+02:23:40.040 --> 02:23:42.040
+Komm. Wir lassen es mal noch ein bisschen weiter
+
+02:23:42.040 --> 02:23:44.040
+unten anfangen. Das sieht sonst ziemlich
+
+02:23:44.040 --> 02:23:46.040
+beschissen aus.
+
+02:23:46.040 --> 02:23:55.370
+Hängt so an dem Strich dran.
+
+02:23:55.370 --> 02:23:57.370
+Ja. Ja. Sieht gar nicht mal so übel aus.
+
+02:23:57.370 --> 02:24:03.430
+Oder? Boah. Mein Arsch läuft.
+
+02:24:03.430 --> 02:24:05.430
+So.
+
+02:24:05.430 --> 02:24:07.430
+Rectangle. Malen
+
+02:24:07.430 --> 02:24:09.430
+wir jetzt eine neue.
+
+02:24:09.430 --> 02:24:11.430
+Wir müssen das jetzt
+
+02:24:11.430 --> 02:24:13.430
+aufsplitten. Das Ding. In drei
+
+02:24:13.430 --> 02:24:15.430
+Unterfelder.
+
+02:24:15.430 --> 02:24:17.430
+Unterfelder. Also.
+
+02:24:17.430 --> 02:24:19.430
+Wir malen den Text.
+
+02:24:19.430 --> 02:24:21.430
+Jetzt malen wir eine Rectangle.
+
+02:24:21.430 --> 02:24:23.430
+Von links.
+
+02:24:23.430 --> 02:24:25.430
+Ab 10 sagen wir mal.
+
+02:24:25.430 --> 02:24:31.560
+Ja. Höhe.
+
+02:24:31.560 --> 02:24:33.560
+Polle. Pulle.
+
+02:24:33.560 --> 02:24:35.560
+Und
+
+02:24:35.560 --> 02:24:37.560
+Breite. Machen wir mal
+
+02:24:37.560 --> 02:24:39.560
+2. Das sollte reichen.
+
+02:24:39.560 --> 02:24:46.580
+Moment. Ne. Ne. Ne.
+
+02:24:46.580 --> 02:24:48.580
+Nicht X0.
+
+02:24:48.580 --> 02:24:52.090
+X. X. Hier.
+
+02:24:52.090 --> 02:24:54.090
+Ne. Wie habe ich nicht. Cell. With.
+
+02:24:54.090 --> 02:24:56.090
+Da will ich das malen.
+
+02:24:56.090 --> 02:25:02.280
+Ja. Das ist nur ein Simulator.
+
+02:25:02.280 --> 02:25:04.280
+Das ist nicht das echte Gerät.
+
+02:25:04.280 --> 02:25:06.280
+Das hat mit dem echten Gerät wahrscheinlich gar nichts zu tun.
+
+02:25:06.280 --> 02:25:08.280
+So. Jetzt sollten wir
+
+02:25:08.280 --> 02:25:10.280
+hier irgendwie so in der Mitte. Ja. Okay.
+
+02:25:10.280 --> 02:25:12.280
+Schon mal nicht schlecht.
+
+02:25:12.280 --> 02:25:14.280
+Warum auch
+
+02:25:14.280 --> 02:25:19.700
+immer. Ach so. Moment.
+
+02:25:19.700 --> 02:25:26.280
+Das ist der Text wo wir das anfangen.
+
+02:25:26.280 --> 02:25:28.280
+Viertens kannst du. Kann das anfangen.
+
+02:25:28.280 --> 02:25:30.280
+So. Das ist schon mal gar nicht so
+
+02:25:30.280 --> 02:25:37.050
+schlecht. Die Feldhöhe.
+
+02:25:37.050 --> 02:25:39.050
+Ja.
+
+02:25:39.050 --> 02:25:41.050
+So. Das nächste ist.
+
+02:25:41.050 --> 02:25:46.660
+So. Und das. Das reicht dann
+
+02:25:46.660 --> 02:25:48.660
+eigentlich.
+
+02:25:48.660 --> 02:25:50.660
+Jetzt müsste das. Jetzt müsste das passen.
+
+02:25:50.660 --> 02:25:55.510
+Wir können auch Cell. With. Mal 2
+
+02:25:55.510 --> 02:25:57.510
+machen. Das ist dann vielleicht schöner an der Stelle.
+
+02:25:57.510 --> 02:25:59.510
+Ja.
+
+02:25:59.510 --> 02:26:01.510
+Ja gut. Das klappt doch schon mal
+
+02:26:01.510 --> 02:26:05.460
+ganz gut.
+
+02:26:05.460 --> 02:26:07.460
+Mal gucken wie man das hier vielleicht zentriert oder so.
+
+02:26:07.460 --> 02:26:15.770
+Arrow Child. Danke für den Sub.
+
+02:26:15.770 --> 02:26:17.770
+Was die App kann.
+
+02:26:17.770 --> 02:26:19.770
+Kann dir einen Strich anzeigen für deine
+
+02:26:19.770 --> 02:26:21.770
+Herzfrequenz und 3 Werte anstatt
+
+02:26:21.770 --> 02:26:23.770
+wie Garmin standardmäßig 2.
+
+02:26:23.770 --> 02:26:25.770
+An der Stelle.
+
+02:26:25.770 --> 02:26:34.840
+So. Das ist doch schon mal
+
+02:26:34.840 --> 02:26:36.840
+ganz ganz nice. Oder?
+
+02:26:36.840 --> 02:26:41.300
+Jetzt wirds. Jetzt wirds
+
+02:26:41.300 --> 02:26:43.300
+kompliziert Leute. Also.
+
+02:26:43.300 --> 02:26:45.300
+Ich könnte wetten. Es gibt
+
+02:26:45.300 --> 02:26:47.300
+für sowas schon fertige Layouts
+
+02:26:47.300 --> 02:26:49.300
+die ich innerhalb von dem
+
+02:26:49.300 --> 02:26:51.300
+Datafield benutzen kann. Es wäre
+
+02:26:51.300 --> 02:26:53.300
+weirdchampig wenn nicht.
+
+02:26:53.300 --> 02:26:55.300
+Aber mal davon abgesehen. Wir können das
+
+02:26:55.300 --> 02:26:57.300
+ja auch mal selbst zentrieren.
+
+02:26:57.300 --> 02:26:59.300
+Ich weiß nicht ob da so spät noch meine
+
+02:26:59.300 --> 02:27:02.680
+meine Hirnzellen für
+
+02:27:02.680 --> 02:27:04.680
+reichen. Also wir zentrieren das erstmal
+
+02:27:04.680 --> 02:27:06.680
+vertikal. Das heißt
+
+02:27:06.680 --> 02:27:08.680
+wir brauchen tatsächlich
+
+02:27:08.680 --> 02:27:10.680
+die Device Höhe.
+
+02:27:10.680 --> 02:27:12.680
+Get.
+
+02:27:12.680 --> 02:27:16.180
+Ja.
+
+02:27:16.180 --> 02:27:18.180
+Äh nicht die Device Höhe. Die
+
+02:27:18.180 --> 02:27:20.180
+Feld. Die Feldhöhe.
+
+02:27:20.180 --> 02:27:30.730
+Brauchen wir. Das Ding bei Text
+
+02:27:30.730 --> 02:27:32.730
+ist. Man muss jetzt erstmal wissen
+
+02:27:32.730 --> 02:27:34.730
+wie hoch was ist.
+
+02:27:34.730 --> 02:27:38.620
+Gibt es Get High
+
+02:27:38.620 --> 02:27:40.620
+für Text? Gibt es sowas hier in der Richtung?
+
+02:27:40.620 --> 02:27:42.620
+Also ich muss ja.
+
+02:27:42.620 --> 02:27:44.620
+Ich muss dem ja sagen. Ich muss
+
+02:27:44.620 --> 02:27:46.620
+jetzt checken wie hoch der
+
+02:27:46.620 --> 02:27:51.660
+Get High. Ah ne Moment. Äh.
+
+02:27:51.660 --> 02:27:58.740
+Nudel mit Lachs. Der
+
+02:27:58.740 --> 02:28:00.740
+kommt immer rechts oben her. Kommt übers
+
+02:28:00.740 --> 02:28:02.740
+ganze Device. Weil ihr werdet gleich sehen
+
+02:28:02.740 --> 02:28:04.740
+das funktioniert sonst nicht.
+
+02:28:04.740 --> 02:28:06.740
+Das funktioniert
+
+02:28:06.740 --> 02:28:08.740
+nicht. Ich hab zwar die Höhe. Aber wenn
+
+02:28:08.740 --> 02:28:10.740
+ich jetzt sage zum Beispiel.
+
+02:28:10.740 --> 02:28:12.740
+Sagen wir mal die. Ich will
+
+02:28:12.740 --> 02:28:14.740
+den Text malen. Angefangen
+
+02:28:14.740 --> 02:28:16.740
+von
+
+02:28:16.740 --> 02:28:18.740
+also ich von
+
+02:28:18.740 --> 02:28:20.740
+Device Höhe
+
+02:28:20.740 --> 02:28:22.740
+durch 2. So.
+
+02:28:22.740 --> 02:28:24.740
+Das kommt ungefähr hin. Aber
+
+02:28:24.740 --> 02:28:26.740
+nicht so richtig.
+
+02:28:26.740 --> 02:28:28.740
+Ihr werdet sehen der Text ist ein bisschen unter
+
+02:28:28.740 --> 02:28:30.740
+unterhalb der Mitte. Weil ich
+
+02:28:30.740 --> 02:28:32.740
+muss die Mitte vom Text
+
+02:28:32.740 --> 02:28:34.740
+eigentlich noch dazu rechnen.
+
+02:28:34.740 --> 02:28:36.740
+Guckt. Es ist
+
+02:28:36.740 --> 02:28:38.740
+halbwegs zentriert. Aber die Mitte
+
+02:28:38.740 --> 02:28:40.740
+vom Text. Also ich müsste mir ausgeben
+
+02:28:40.740 --> 02:28:42.740
+lassen können. Wie hoch der Text
+
+02:28:42.740 --> 02:28:44.740
+ist. Davon die Mitte nehmen.
+
+02:28:44.740 --> 02:28:46.740
+Und hier nochmal drauf rechnen.
+
+02:28:46.740 --> 02:28:48.740
+Dann wäre da. Also
+
+02:28:48.740 --> 02:28:50.740
+Minus. Abziehen müsste ich das. Oder?
+
+02:28:50.740 --> 02:28:52.740
+Ne. Drauf rechnen.
+
+02:28:52.740 --> 02:28:54.740
+Also ich müsste plus.
+
+02:28:54.740 --> 02:28:56.740
+Das hier.
+
+02:28:56.740 --> 02:28:58.740
+Plus. Ja. Ich weiß nicht
+
+02:28:58.740 --> 02:29:00.740
+wie hoch der Text ist. Das heißt wie kriegt man.
+
+02:29:00.740 --> 02:29:13.460
+Wie kriegt man. Ne 3 in Error
+
+02:29:13.460 --> 02:29:15.460
+bringt dir nix in dem Fall.
+
+02:29:15.460 --> 02:29:17.460
+Weil du hast ja unterschiedliche
+
+02:29:17.460 --> 02:29:19.460
+Device Höhe.
+
+02:29:19.460 --> 02:29:21.460
+Get Text with in Pixel.
+
+02:29:21.460 --> 02:29:23.460
+Haben wir auch sowas wie
+
+02:29:23.460 --> 02:29:25.460
+Get Text
+
+02:29:25.460 --> 02:29:27.460
+Hier.
+
+02:29:27.460 --> 02:29:29.460
+Dimensions.
+
+02:29:29.460 --> 02:29:31.460
+Ja. Ja.
+
+02:29:31.460 --> 02:29:33.460
+Text Dimensions. Genau das brauche ich.
+
+02:29:33.460 --> 02:29:35.460
+Get Text
+
+02:29:35.460 --> 02:29:37.460
+Dimensions. Und
+
+02:29:37.460 --> 02:29:39.460
+von wo? Von DC?
+
+02:29:39.460 --> 02:29:41.460
+Wo
+
+02:29:41.460 --> 02:29:43.460
+aus? System.
+
+02:29:43.460 --> 02:29:48.890
+Rindeln.
+
+02:29:48.890 --> 02:29:50.890
+DC. Get
+
+02:29:50.890 --> 02:29:52.890
+Get Text Dimensions.
+
+02:29:52.890 --> 02:29:57.220
+Und dann.
+
+02:29:57.220 --> 02:29:59.220
+Ok. String.
+
+02:29:59.220 --> 02:30:01.220
+Und Font.
+
+02:30:01.220 --> 02:30:03.220
+Nicht Font.
+
+02:30:03.220 --> 02:30:05.220
+Ist ja kein
+
+02:30:05.220 --> 02:30:11.030
+Stonks. Ok.
+
+02:30:11.030 --> 02:30:13.030
+Nice. Jetzt bin ich mal
+
+02:30:13.030 --> 02:30:17.500
+gespannt. Da was sinnvolles
+
+02:30:17.500 --> 02:30:21.700
+bei rauskommt. Ja.
+
+02:30:21.700 --> 02:30:29.080
+Passt.
+
+02:30:29.080 --> 02:30:31.080
+Das ist die Höhe. 19.
+
+02:30:31.080 --> 02:30:33.080
+Also. Wir brauchen
+
+02:30:33.080 --> 02:30:39.140
+Text Dimension.
+
+02:30:39.140 --> 02:30:41.140
+Text Dimension. So.
+
+02:30:41.140 --> 02:30:43.140
+Plus.
+
+02:30:43.140 --> 02:30:45.140
+Das zweite ist die Höhe.
+
+02:30:45.140 --> 02:30:47.140
+Und das auch nochmal durch
+
+02:30:47.140 --> 02:30:49.140
+2. So. Und jetzt
+
+02:30:49.140 --> 02:30:55.460
+sollte der Text.
+
+02:30:55.460 --> 02:30:57.460
+Ich hoffe das rundet automatisch für
+
+02:30:57.460 --> 02:30:59.460
+mich. Das ich da nix machen muss.
+
+02:30:59.460 --> 02:31:01.460
+Zum nächsten Pixel.
+
+02:31:01.460 --> 02:31:03.460
+Weil halbe Pixel gibt es halt nicht.
+
+02:31:03.460 --> 02:31:05.460
+So. Und jetzt sollte der Text
+
+02:31:05.460 --> 02:31:07.460
+genau zentriert sein.
+
+02:31:07.460 --> 02:31:09.460
+Ne.
+
+02:31:09.460 --> 02:31:11.460
+Chatge
+
+02:31:11.460 --> 02:31:13.460
+habe ich irgendwie.
+
+02:31:13.460 --> 02:31:15.460
+Moment. Ich will Minus.
+
+02:31:15.460 --> 02:31:21.340
+Minus. Nicht Plus.
+
+02:31:21.340 --> 02:31:25.670
+Minus. Ja. Fast.
+
+02:31:25.670 --> 02:31:31.860
+Hier. Perfection.
+
+02:31:31.860 --> 02:31:33.860
+Das sieht übrigens
+
+02:31:33.860 --> 02:31:35.860
+falsch aus. Es ist aber nicht falsch.
+
+02:31:35.860 --> 02:31:37.860
+Wir müssen am Ende noch
+
+02:31:37.860 --> 02:31:39.860
+die 4 Pixel für den grünen Strich
+
+02:31:39.860 --> 02:31:44.580
+oben drauf rechnen.
+
+02:31:44.580 --> 02:31:46.580
+Plus. Hier.
+
+02:31:46.580 --> 02:31:50.980
+Und dann ist es
+
+02:31:50.980 --> 02:31:52.980
+Top.
+
+02:31:52.980 --> 02:31:54.980
+Top aligned.
+
+02:31:54.980 --> 02:32:01.240
+Also. Perfekt aligned.
+
+02:32:01.240 --> 02:32:03.240
+Ja. Zack. Exakt.
+
+02:32:03.240 --> 02:32:05.240
+In der Mitte.
+
+02:32:05.240 --> 02:32:09.830
+So muss das sein.
+
+02:32:09.830 --> 02:32:11.830
+Ne. So.
+
+02:32:11.830 --> 02:32:13.830
+Und jetzt kommt das nächste.
+
+02:32:15.830 --> 02:32:17.830
+Wie kriegen wir das ganze?
+
+02:32:17.830 --> 02:32:19.830
+Horizontal aligned.
+
+02:32:19.830 --> 02:32:21.830
+Das müsste ja von der Idee her ähnlich
+
+02:32:21.830 --> 02:32:27.900
+sein. Oder?
+
+02:32:27.900 --> 02:32:29.900
+Das scheint aber the way
+
+02:32:29.900 --> 02:32:37.050
+zu sein. Ja.
+
+02:32:37.050 --> 02:32:39.050
+Draw line. Font.
+
+02:32:39.050 --> 02:32:45.300
+Top row. Bottom row.
+
+02:32:45.300 --> 02:32:50.730
+Ja. Ja.
+
+02:32:50.730 --> 02:32:52.730
+Im Prinzip macht der das ähnlich. Ne.
+
+02:32:52.730 --> 02:32:56.490
+Ah. Moment.
+
+02:32:56.490 --> 02:32:58.490
+Der macht Text aligned. Center.
+
+02:32:58.490 --> 02:33:00.490
+Ja. Das ist natürlich
+
+02:33:00.490 --> 02:33:02.490
+Three hat, dass ich das
+
+02:33:02.490 --> 02:33:04.490
+nicht mache. Da kann ich mir das
+
+02:33:04.490 --> 02:33:06.490
+Zentrieren sparen.
+
+02:33:06.490 --> 02:33:08.490
+Moment. Text aligned.
+
+02:33:08.490 --> 02:33:10.490
+Text. Justify.
+
+02:33:10.490 --> 02:33:12.490
+Center. Moment. V center
+
+02:33:12.490 --> 02:33:16.060
+gibt es auch?
+
+02:33:16.060 --> 02:33:18.060
+Habe ich das richtig gesehen? Ah. Ich habe nicht gebildet.
+
+02:33:18.060 --> 02:33:20.060
+Bild.
+
+02:33:20.060 --> 02:33:32.580
+Jetzt ist es broken.
+
+02:33:32.580 --> 02:33:34.580
+Ich glaube mein. Ah. Ne. Doch.
+
+02:33:34.580 --> 02:33:36.580
+Jetzt geht er.
+
+02:33:36.580 --> 02:33:43.800
+Ja. Das funktioniert ja nicht.
+
+02:33:43.800 --> 02:33:45.800
+Weil.
+
+02:33:49.800 --> 02:33:51.800
+Ich muss doch manuell centern.
+
+02:33:51.800 --> 02:33:55.430
+Weil der aligned ist ja
+
+02:33:55.430 --> 02:33:57.430
+an der gesamten Breite.
+
+02:33:57.430 --> 02:33:59.430
+Der weiß ja von meinen.
+
+02:33:59.430 --> 02:34:01.430
+Der weiß ja von meinen Feldern nichts.
+
+02:34:01.430 --> 02:34:03.430
+Und der macht es
+
+02:34:03.430 --> 02:34:05.430
+in rows. Ne. Ne. Ne.
+
+02:34:05.430 --> 02:34:07.430
+Justify left.
+
+02:34:07.430 --> 02:34:11.260
+Also müssen wir es doch
+
+02:34:11.260 --> 02:34:13.260
+von Hand machen.
+
+02:34:13.260 --> 02:34:15.260
+Also.
+
+02:34:15.260 --> 02:34:17.260
+Die Breite durch zwei.
+
+02:34:17.260 --> 02:34:19.260
+Minus.
+
+02:34:19.260 --> 02:34:23.020
+Minus.
+
+02:34:23.020 --> 02:34:29.270
+Text dimension
+
+02:34:29.270 --> 02:34:32.650
+null durch zwei.
+
+02:34:32.650 --> 02:34:34.650
+So. Ist es jetzt. Leute was meint ihr?
+
+02:34:34.650 --> 02:34:36.650
+Klappt es jetzt?
+
+02:34:36.650 --> 02:34:43.420
+Ist es jetzt horizontal aligned?
+
+02:34:43.420 --> 02:34:45.420
+Es ist nicht an der Stelle wo es
+
+02:34:45.420 --> 02:34:47.420
+sein soll.
+
+02:34:47.420 --> 02:34:52.200
+Weil ich.
+
+02:34:52.200 --> 02:34:54.200
+Ach so. Ja. Weil die erste.
+
+02:34:54.200 --> 02:34:56.200
+Also es ist fast richtig.
+
+02:34:56.200 --> 02:34:58.200
+Es ist. Es ist fast richtig.
+
+02:34:58.200 --> 02:35:00.200
+Es muss.
+
+02:35:00.200 --> 02:35:02.200
+Oh shit.
+
+02:35:02.200 --> 02:35:05.770
+Moment. Moment.
+
+02:35:05.770 --> 02:35:07.770
+Es ist ja auch width. Ist ja auch falsch.
+
+02:35:07.770 --> 02:35:09.770
+Es muss ja auch sell.
+
+02:35:09.770 --> 02:35:11.770
+Sell width durch zwei sein.
+
+02:35:11.770 --> 02:35:21.100
+Aber man sieht das das
+
+02:35:21.100 --> 02:35:23.100
+Zentrieren prinzipiell funktioniert.
+
+02:35:23.100 --> 02:35:31.460
+Ja. Hä?
+
+02:35:31.460 --> 02:35:33.460
+Das ist nice.
+
+02:35:33.460 --> 02:35:38.950
+Schön gesentert hier.
+
+02:35:38.950 --> 02:35:40.950
+Wir tun jetzt einfach mal so.
+
+02:35:40.950 --> 02:35:45.220
+Als wäre das jetzt hier die Uhrzeit.
+
+02:35:45.220 --> 02:35:47.220
+So.
+
+02:35:47.220 --> 02:35:49.220
+Fake Uhrzeit.
+
+02:35:49.220 --> 02:35:51.220
+Wobei. Wie kriegt man denn die Uhrzeit überhaupt?
+
+02:35:51.220 --> 02:35:55.240
+Time.
+
+02:35:55.240 --> 02:35:57.240
+Oder Clock.
+
+02:35:57.240 --> 02:35:59.240
+Get clock time.
+
+02:35:59.240 --> 02:36:04.410
+Get the current clock time.
+
+02:36:04.410 --> 02:36:16.940
+Okay.
+
+02:36:16.940 --> 02:36:22.520
+Garmin.
+
+02:36:22.520 --> 02:36:24.520
+System. Get clock time.
+
+02:36:24.520 --> 02:36:30.260
+Ach hier. Da kann man das Format.
+
+02:36:30.260 --> 02:36:33.830
+Naja. Das machen wir jetzt nicht.
+
+02:36:33.830 --> 02:36:35.830
+Wir machen jetzt erstmal fake Daten rein.
+
+02:36:35.830 --> 02:36:37.830
+Äh. Wait a minute.
+
+02:36:37.830 --> 02:36:39.830
+Sollte da jetzt nicht.
+
+02:36:39.830 --> 02:36:41.830
+Zehn. Fünf.
+
+02:36:41.830 --> 02:36:43.830
+Au. Au. Au. Au. Au.
+
+02:36:43.830 --> 02:36:45.830
+Moment Leute.
+
+02:36:45.830 --> 02:36:47.830
+Das ist richtig.
+
+02:36:47.830 --> 02:36:51.530
+PPGaTime.
+
+02:36:51.530 --> 02:37:02.420
+N45.
+
+02:37:02.420 --> 02:37:04.420
+Wie? Schwer kann sowas für eine Honor
+
+02:37:04.420 --> 02:37:06.420
+Smartwatch sein. Das ist Android oder?
+
+02:37:06.420 --> 02:37:08.420
+Wahrscheinlich.
+
+02:37:08.420 --> 02:37:10.420
+Wahrscheinlich.
+
+02:37:10.420 --> 02:37:12.420
+Bei komplexen Sachen einfacher.
+
+02:37:12.420 --> 02:37:14.420
+Bei einfachen Sachen schwieriger.
+
+02:37:14.420 --> 02:37:16.420
+Weil du erst noch eine Android App bauen musst dafür.
+
+02:37:16.420 --> 02:37:18.420
+Das ist cool.
+
+02:37:18.420 --> 02:37:20.420
+Das ist nice. Das gefällt mir. Das ist tatsächlich relativ easy.
+
+02:37:20.420 --> 02:37:22.420
+So.
+
+02:37:22.420 --> 02:37:24.420
+Bei dem ersten zeigen wir die Uhrzeit an.
+
+02:37:24.420 --> 02:37:26.420
+Bei dem zweiten.
+
+02:37:26.420 --> 02:37:28.420
+Ich meine ich zeige jetzt irgendwelche Fake Werte an.
+
+02:37:28.420 --> 02:37:30.420
+So. Bei dem zweiten zeige ich.
+
+02:37:30.420 --> 02:37:32.420
+Keine Ahnung.
+
+02:37:32.420 --> 02:37:34.420
+Prozent der Steigung an.
+
+02:37:34.420 --> 02:37:41.580
+Oder irgendwie sowas.
+
+02:37:41.580 --> 02:37:43.580
+Wir müssen eine Schleife über einen Array machen.
+
+02:37:43.580 --> 02:37:51.370
+Wie macht man.
+
+02:37:51.370 --> 02:37:53.370
+Okay. Okay.
+
+02:37:53.370 --> 02:37:55.370
+Monkey C.
+
+02:37:55.370 --> 02:37:57.370
+For each.
+
+02:37:57.370 --> 02:38:02.220
+Kann das sowas?
+
+02:38:02.220 --> 02:38:05.850
+Loop.
+
+02:38:05.850 --> 02:38:07.850
+0++ und so.
+
+02:38:07.850 --> 02:38:09.850
+Loop.
+
+02:38:09.850 --> 02:38:18.730
+While.
+
+02:38:18.730 --> 02:38:20.730
+For each gibt es nicht oder?
+
+02:38:20.730 --> 02:38:22.730
+Äh.
+
+02:38:22.730 --> 02:38:24.730
+For each ist outdated.
+
+02:38:24.730 --> 02:38:26.730
+Overrated.
+
+02:38:26.730 --> 02:38:28.730
+Das möchte er nicht.
+
+02:38:28.730 --> 02:38:30.730
+Wir wollen ja 3
+
+02:38:30.730 --> 02:38:32.730
+Datenfelder haben.
+
+02:38:32.730 --> 02:38:34.730
+So. For each.
+
+02:38:34.730 --> 02:38:36.730
+So. Machen wir mal hier.
+
+02:38:36.730 --> 02:38:38.730
+Ähm.
+
+02:38:38.730 --> 02:38:40.730
+Ich hoffe man macht das so.
+
+02:38:40.730 --> 02:38:42.730
+Also.
+
+02:38:42.730 --> 02:38:44.730
+Values.
+
+02:38:44.730 --> 02:38:46.730
+10 Uhr 45.
+
+02:38:46.730 --> 02:38:48.730
+15% Steigung.
+
+02:38:48.730 --> 02:38:54.090
+Und. Tja.
+
+02:38:54.090 --> 02:38:56.090
+Speed. Speed. Keine Ahnung.
+
+02:38:56.090 --> 02:38:58.090
+24,5.
+
+02:38:58.090 --> 02:39:00.090
+Weiß gar nicht.
+
+02:39:00.090 --> 02:39:02.090
+Wie zeigt ein Garmin standardmäßig den Speed an?
+
+02:39:02.090 --> 02:39:04.090
+Ja.
+
+02:39:04.090 --> 02:39:08.360
+KMH so untereinander.
+
+02:39:08.360 --> 02:39:10.360
+Nee das ist gar nicht Garmin.
+
+02:39:10.360 --> 02:39:12.360
+Doch hier. Ja.
+
+02:39:12.360 --> 02:39:14.360
+Gucken.
+
+02:39:14.360 --> 02:39:16.360
+Die haben bestimmt irgendeinen Unit Helper.
+
+02:39:16.360 --> 02:39:34.200
+Die haben bestimmt irgendeinen Unit.
+
+02:39:34.200 --> 02:39:36.200
+Unit Helper für sowas.
+
+02:39:36.200 --> 02:39:38.200
+Machen wir das einfach mal so.
+
+02:39:38.200 --> 02:39:40.200
+Values. So. Values. Size.
+
+02:39:40.200 --> 02:39:42.200
+War. Value. Gleich.
+
+02:39:42.200 --> 02:39:44.200
+Values. Äh.
+
+02:39:44.200 --> 02:39:46.200
+I. So jetzt müssen wir das nämlich
+
+02:39:46.200 --> 02:39:48.200
+hier irgendwie mal reinpacken.
+
+02:39:48.200 --> 02:39:50.200
+Sonst wird das zu
+
+02:39:50.200 --> 02:39:54.860
+zu pepega.
+
+02:39:54.860 --> 02:40:00.920
+Also. Okay.
+
+02:40:00.920 --> 02:40:02.920
+Value.
+
+02:40:02.920 --> 02:40:04.920
+Jetzt mal gucken ob das prinzipiell funktioniert
+
+02:40:04.920 --> 02:40:08.550
+noch was ich hier baue.
+
+02:40:08.550 --> 02:40:10.550
+Build. Error.
+
+02:40:10.550 --> 02:40:12.550
+Miss. Was?
+
+02:40:12.550 --> 02:40:14.550
+Input for. Expecting.
+
+02:40:14.550 --> 02:40:20.460
+What?
+
+02:40:20.460 --> 02:40:22.460
+Alter ich hab das legit 1 zu 1.
+
+02:40:22.460 --> 02:40:24.460
+Achso. Okay ich hab nix gesagt.
+
+02:40:24.460 --> 02:40:26.460
+Das ist einfach nur pepega
+
+02:40:26.460 --> 02:40:28.460
+Fehlermeldung.
+
+02:40:28.460 --> 02:40:37.080
+Ups.
+
+02:40:37.080 --> 02:40:39.080
+Okay es funktioniert. Natürlich sind
+
+02:40:39.080 --> 02:40:41.080
+die Felder noch nicht an der richtigen Stelle.
+
+02:40:41.080 --> 02:40:43.080
+Das müssen wir jetzt ausrechnen.
+
+02:40:43.080 --> 02:40:48.180
+Das müssen wir jetzt
+
+02:40:48.180 --> 02:40:50.180
+ausrechnen. Also.
+
+02:40:50.180 --> 02:40:52.180
+Chatgear. Da müsst ihr mir mal mit eurem
+
+02:40:52.180 --> 02:40:54.180
+Five Header Chat
+
+02:40:54.180 --> 02:40:56.180
+Schwarmintelligenz helfen.
+
+02:40:56.180 --> 02:40:59.880
+Wie rechnen wir jetzt das passende
+
+02:40:59.880 --> 02:41:01.880
+Die passende
+
+02:41:01.880 --> 02:41:03.880
+Position aus für den
+
+02:41:03.880 --> 02:41:05.880
+Also. Das hier bleibt immer
+
+02:41:05.880 --> 02:41:07.880
+gleich.
+
+02:41:07.880 --> 02:41:09.880
+Die vertikale Zentrierung.
+
+02:41:09.880 --> 02:41:11.880
+Das ist easy.
+
+02:41:11.880 --> 02:41:13.880
+Das können wir so lassen. Aber das hier ist
+
+02:41:13.880 --> 02:41:15.880
+tatsächlich ein bisschen komplizierter.
+
+02:41:15.880 --> 02:41:17.880
+Also.
+
+02:41:17.880 --> 02:41:21.640
+Es ist
+
+02:41:21.640 --> 02:41:26.940
+Cell width
+
+02:41:26.940 --> 02:41:28.940
+Mal I
+
+02:41:28.940 --> 02:41:30.940
+Oder?
+
+02:41:30.940 --> 02:41:34.700
+Also das erste ist dann halt
+
+02:41:34.700 --> 02:41:36.700
+Das erste ist dann halt 0 durch
+
+02:41:36.700 --> 02:41:38.700
+2 ist 0.
+
+02:41:38.700 --> 02:41:40.700
+Das ist nicht so ganz richtig.
+
+02:41:40.700 --> 02:41:42.700
+Aber wir können ja mal prinzipiell
+
+02:41:42.700 --> 02:41:44.700
+gucken ob es dann für die anderen funktionieren
+
+02:41:44.700 --> 02:41:46.700
+würde.
+
+02:41:46.700 --> 02:41:48.700
+Beim ersten hat er wahrscheinlich noch ein paar Probleme.
+
+02:41:48.700 --> 02:41:56.360
+Äh. Ne.
+
+02:41:56.360 --> 02:42:04.920
+Pepega
+
+02:42:04.920 --> 02:42:06.920
+Five Heads Low IQ Time.
+
+02:42:06.920 --> 02:42:08.920
+Leute was ist hier verkehrt?
+
+02:42:08.920 --> 02:42:13.960
+Achso. Moment.
+
+02:42:13.960 --> 02:42:15.960
+Ich weiß was verkehrt ist.
+
+02:42:15.960 --> 02:42:17.960
+Wir machen I gleich 1.
+
+02:42:17.960 --> 02:42:19.960
+Values
+
+02:42:19.960 --> 02:42:21.960
+Minus 1.
+
+02:42:21.960 --> 02:42:23.960
+Mir fällt gerade nichts anderes ein.
+
+02:42:23.960 --> 02:42:25.960
+Jetzt müsste es doch passen. Oder?
+
+02:42:25.960 --> 02:42:35.220
+Das geht 1.
+
+02:42:35.220 --> 02:42:37.220
+Dann die Hälfte von
+
+02:42:37.220 --> 02:42:41.500
+Pass auf. Pass auf. Und und
+
+02:42:41.500 --> 02:42:43.500
+Ne.
+
+02:42:43.500 --> 02:42:47.380
+Ok. Da bin ich eindeutig
+
+02:42:47.380 --> 02:42:56.010
+zu dumm jetzt gerade für.
+
+02:42:56.010 --> 02:42:58.010
+Die erste. Das erste stimmt.
+
+02:42:58.010 --> 02:43:00.010
+Ah. Ich weiß was das Problem ist.
+
+02:43:00.010 --> 02:43:02.010
+Plus
+
+02:43:02.010 --> 02:43:04.010
+Ah. Plus
+
+02:43:04.010 --> 02:43:06.010
+Das muss nicht mal
+
+02:43:06.010 --> 02:43:08.010
+Sell with. Es muss mal
+
+02:43:08.010 --> 02:43:10.010
+Sell with plus
+
+02:43:10.010 --> 02:43:17.160
+Sell with sein. Oder?
+
+02:43:17.160 --> 02:43:19.160
+Oh Mann. Jetzt playen
+
+02:43:19.160 --> 02:43:22.470
+ich mal durch. So.
+
+02:43:22.470 --> 02:43:35.700
+Ich hasse solche Sachen Mann.
+
+02:43:35.700 --> 02:43:50.180
+Ja. Ne.
+
+02:43:50.180 --> 02:43:52.180
+Oh wie ich solche Alignment Sachen
+
+02:43:52.180 --> 02:43:54.180
+hasse ey. Da dreh ich immer durch bei.
+
+02:43:54.180 --> 02:43:58.460
+Kennt ihr
+
+02:43:58.460 --> 02:44:02.020
+Chasm Workspaces?
+
+02:44:02.020 --> 02:44:04.020
+I wieder 0.
+
+02:44:04.020 --> 02:44:09.130
+Ok. Try and Error
+
+02:44:09.130 --> 02:44:11.130
+Time.
+
+02:44:11.130 --> 02:44:13.130
+Ne. Ich glaub meine Logik ist noch nicht so
+
+02:44:13.130 --> 02:44:15.130
+ganz ähm
+
+02:44:15.130 --> 02:44:22.020
+ausgereift.
+
+02:44:22.020 --> 02:44:24.020
+Das durch 2 ist das Problem.
+
+02:44:24.020 --> 02:44:26.020
+Warte mal.
+
+02:44:26.020 --> 02:44:28.020
+Ja. Tatsächlich.
+
+02:44:28.020 --> 02:44:30.020
+Das durch 2
+
+02:44:30.020 --> 02:44:39.930
+ist. Ok.
+
+02:44:39.930 --> 02:44:41.930
+Jaja. Jaja. Moment. Es ist immer.
+
+02:44:41.930 --> 02:44:43.930
+Moment. Es ist immer
+
+02:44:43.930 --> 02:44:45.930
+Sell with durch 2.
+
+02:44:45.930 --> 02:44:49.940
+Ne. Moment Leute. Es ist immer
+
+02:44:49.940 --> 02:44:51.940
+Sell with durch 2.
+
+02:44:51.940 --> 02:44:53.940
+Weil die Dinger sind immer gleich breit.
+
+02:44:53.940 --> 02:44:57.770
+Und ich möchte es immer.
+
+02:44:57.770 --> 02:44:59.770
+Sell with durch 2 ist immer die Mitte.
+
+02:44:59.770 --> 02:45:01.770
+Ja. Also. Also
+
+02:45:01.770 --> 02:45:03.770
+das hier
+
+02:45:03.770 --> 02:45:05.770
+für sich genommen
+
+02:45:05.770 --> 02:45:07.770
+ist schon mal richtig.
+
+02:45:07.770 --> 02:45:09.770
+Das hier ist immer die Mitte
+
+02:45:09.770 --> 02:45:11.770
+minus
+
+02:45:11.770 --> 02:45:16.040
+der Text.
+
+02:45:16.040 --> 02:45:18.040
+Allerdings ist nur
+
+02:45:18.040 --> 02:45:20.040
+die Frage wo er anfängt.
+
+02:45:20.040 --> 02:45:22.040
+Und eigentlich müsste es
+
+02:45:22.040 --> 02:45:25.610
+wahrscheinlich. Ja.
+
+02:45:25.610 --> 02:45:27.610
+Müsste Sell with dann pro
+
+02:45:27.610 --> 02:45:29.610
+Schleifen durch. Also pro
+
+02:45:29.610 --> 02:45:31.610
+Schleifendurchlauf 1 hochgehen.
+
+02:45:31.610 --> 02:45:33.610
+Das passt jetzt noch nicht genau.
+
+02:45:33.610 --> 02:45:35.610
+Aber es sollte für
+
+02:45:35.610 --> 02:45:52.100
+1 und 2 passen.
+
+02:45:52.100 --> 02:45:54.100
+Ja.
+
+02:45:54.100 --> 02:45:56.100
+Das ist schon mal gut.
+
+02:45:56.100 --> 02:45:58.100
+Das ist schon mal gut.
+
+02:45:58.100 --> 02:46:02.890
+Und jetzt
+
+02:46:02.890 --> 02:46:04.890
+mal i.
+
+02:46:04.890 --> 02:46:14.980
+Das funktioniert beim ersten nicht.
+
+02:46:14.980 --> 02:46:26.680
+Aber danach.
+
+02:46:26.680 --> 02:46:30.180
+Jetzt haben wir es irgendwie.
+
+02:46:30.180 --> 02:46:52.310
+Jetzt haben wir es irgendwie zerstört.
+
+02:46:52.310 --> 02:46:54.310
+Easy as fuck.
+
+02:46:54.310 --> 02:46:56.310
+Easy. Easy.
+
+02:46:56.310 --> 02:46:58.310
+Easy. Easy.
+
+02:46:58.310 --> 02:47:00.310
+Easy. Easy.
+
+02:47:00.310 --> 02:47:04.780
+Okay.
+
+02:47:04.780 --> 02:47:06.780
+Einmal ordentlich drüber nachgedacht und schon
+
+02:47:06.780 --> 02:47:08.780
+funktioniert es.
+
+02:47:08.780 --> 02:47:10.780
+Das finde ich sehr gut.
+
+02:47:10.780 --> 02:47:12.780
+Excellent ist das.
+
+02:47:12.780 --> 02:47:14.780
+Excellent.
+
+02:47:14.780 --> 02:47:16.780
+Exquisite.
+
+02:47:16.780 --> 02:47:22.070
+Five hat time.
+
+02:47:22.070 --> 02:47:25.900
+Ja. Das ist doch schon mal
+
+02:47:25.900 --> 02:47:29.910
+nice oder?
+
+02:47:29.910 --> 02:47:31.910
+Morgen muss ich mir angucken wie ich das
+
+02:47:31.910 --> 02:47:33.910
+sideloaded bekomme auf meinen Fahrradcomputer.
+
+02:47:33.910 --> 02:47:35.910
+Kann es bestimmt per USB
+
+02:47:35.910 --> 02:47:37.910
+anschließen das Ding und drauf sideloaden. Ohne.
+
+02:47:37.910 --> 02:47:39.910
+Ohne Connect IQ Store
+
+02:47:39.910 --> 02:47:50.970
+oder sonst was.
+
+02:47:50.970 --> 02:47:54.470
+Das finde ich. Das finde ich sehr, sehr nice.
+
+02:47:54.470 --> 02:47:56.470
+Hm. Natürlich ist hier
+
+02:47:56.470 --> 02:47:58.470
+gerade nichts dynamisch dran.
+
+02:47:58.470 --> 02:48:00.470
+Das ist ja klar.
+
+02:48:00.470 --> 02:48:02.470
+Tatsächliche Werte anzeigen.
+
+02:48:02.470 --> 02:48:04.470
+Ja.
+
+02:48:04.470 --> 02:48:06.470
+Können wir machen. Also.
+
+02:48:06.470 --> 02:48:08.470
+Nehmen wir mal beispielsweise hier die
+
+02:48:08.470 --> 02:48:10.470
+die Steigung
+
+02:48:10.470 --> 02:48:12.470
+die man gerade unterwegs ist.
+
+02:48:12.470 --> 02:48:14.470
+Wie great. Ne weiß ich gar nicht
+
+02:48:14.470 --> 02:48:23.290
+wie man das rauskriegt.
+
+02:48:23.290 --> 02:48:27.820
+Ja oder.
+
+02:48:27.820 --> 02:48:29.820
+Elevation. Wie schreibt man
+
+02:48:29.820 --> 02:48:31.820
+Elevation?
+
+02:48:31.820 --> 02:48:33.820
+Oh.
+
+02:48:33.820 --> 02:48:35.820
+Methods.
+
+02:48:35.820 --> 02:48:37.820
+Elevation. Great.
+
+02:48:37.820 --> 02:48:44.260
+Oh.
+
+02:48:44.260 --> 02:48:46.260
+Da ist halt die Frage wie man das
+
+02:48:46.260 --> 02:48:48.260
+auswertet.
+
+02:48:48.260 --> 02:48:50.260
+Get Elevation
+
+02:48:50.260 --> 02:48:52.260
+History. Ne das will ich nicht.
+
+02:48:52.260 --> 02:48:54.260
+Ich will eigentlich Sensor.
+
+02:48:54.260 --> 02:48:56.260
+Hier Sensor. Was haben wir denn da?
+
+02:48:56.260 --> 02:48:58.260
+Sensor Info.
+
+02:48:58.260 --> 02:49:00.260
+Ne Altitude
+
+02:49:00.260 --> 02:49:02.260
+müsste es dann wenn schon sein.
+
+02:49:02.260 --> 02:49:04.260
+Altitude.
+
+02:49:04.260 --> 02:49:17.080
+Ok.
+
+02:49:17.080 --> 02:49:19.080
+Hm.
+
+02:49:19.080 --> 02:49:21.080
+Also sofern ich diese
+
+02:49:21.080 --> 02:49:23.080
+Garmin Dinger irgendwie gecheckt habe.
+
+02:49:23.080 --> 02:49:25.080
+Da müsste es quasi sowas sein
+
+02:49:25.080 --> 02:49:28.780
+wie. Ja sowas wie
+
+02:49:28.780 --> 02:49:32.920
+Sensor.
+
+02:49:32.920 --> 02:49:36.360
+Ne. Get
+
+02:49:38.360 --> 02:49:42.060
+Bin ich verwirrt? Was?
+
+02:49:42.060 --> 02:49:45.430
+Sensor Info.
+
+02:49:45.430 --> 02:50:05.060
+On Sensor. What?
+
+02:50:05.060 --> 02:50:07.060
+Ok. Sensor Get Info.
+
+02:50:07.060 --> 02:50:09.060
+Ist es dann. Get Info.
+
+02:50:09.060 --> 02:50:15.450
+Also wenn ich die
+
+02:50:15.450 --> 02:50:17.450
+Garmin Sachen irgendwie halbwegs gecheckt
+
+02:50:17.450 --> 02:50:19.450
+habe. Sensor. Get Info.
+
+02:50:19.450 --> 02:50:21.450
+Und jetzt.
+
+02:50:21.450 --> 02:50:23.450
+Altitude.
+
+02:50:23.450 --> 02:50:25.450
+Wahrscheinlich brauche ich noch Permissions dafür.
+
+02:50:25.450 --> 02:50:27.450
+Ja.
+
+02:50:27.450 --> 02:50:29.450
+Permission Sensor.
+
+02:50:29.450 --> 02:50:31.450
+Ja. Dachte ich mir.
+
+02:50:31.450 --> 02:50:33.450
+Sensor.
+
+02:50:33.450 --> 02:50:35.450
+Ja. Save.
+
+02:50:35.450 --> 02:50:37.450
+Nein nein nein nein. Build.
+
+02:50:37.450 --> 02:50:41.020
+Successful. Jawoll.
+
+02:50:41.020 --> 02:50:43.020
+Reload.
+
+02:50:43.020 --> 02:50:45.020
+Guck mal. Vielleicht. Vielleicht.
+
+02:50:45.020 --> 02:50:53.450
+Vielleicht reicht das ja schon.
+
+02:50:53.450 --> 02:51:00.220
+Oh no. Get Info not
+
+02:51:00.220 --> 02:51:02.220
+available to data fields.
+
+02:51:02.220 --> 02:51:04.220
+Ok.
+
+02:51:04.220 --> 02:51:12.840
+Dann muss man das irgendwie anders
+
+02:51:12.840 --> 02:51:20.630
+auswählen.
+
+02:51:20.630 --> 02:51:22.630
+Ich meine. Die echten
+
+02:51:22.630 --> 02:51:24.630
+Werte anzeigen ist ja
+
+02:51:24.630 --> 02:51:26.630
+nur noch eine Formsache
+
+02:51:26.630 --> 02:51:28.630
+mit dem man raus bekommt wo man die
+
+02:51:28.630 --> 02:51:30.630
+herkriegt. Ja.
+
+02:51:30.630 --> 02:51:32.630
+Also anscheinend geht das so in einem
+
+02:51:32.630 --> 02:51:48.940
+Data Field schon mal nicht.
+
+02:51:48.940 --> 02:51:50.940
+Wie kriegt man sonst noch die Höhe?
+
+02:51:50.940 --> 02:51:52.940
+Activity Info.
+
+02:51:52.940 --> 02:51:54.940
+Ja.
+
+02:51:54.940 --> 02:51:56.940
+Das ist doch gut. Die haben wir doch schon.
+
+02:51:56.940 --> 02:51:58.940
+Die haben wir doch schon.
+
+02:51:58.940 --> 02:52:00.940
+Activity Info.
+
+02:52:00.940 --> 02:52:06.140
+Ja.
+
+02:52:06.140 --> 02:52:08.140
+Ja. Dann machen wir das mal anders hier.
+
+02:52:08.140 --> 02:52:11.640
+Activity Info.
+
+02:52:11.640 --> 02:52:15.980
+Heart Rate.
+
+02:52:15.980 --> 02:52:17.980
+Current Heart Rate.
+
+02:52:17.980 --> 02:52:19.980
+Haben wir das da weg?
+
+02:52:19.980 --> 02:52:21.980
+Ah.
+
+02:52:21.980 --> 02:52:23.980
+Alt.
+
+02:52:23.980 --> 02:52:27.610
+So. Genau.
+
+02:52:27.610 --> 02:52:31.370
+Und jetzt.
+
+02:52:31.370 --> 02:52:33.370
+Wenn ich hier irgendwo was vergessen habe.
+
+02:52:33.370 --> 02:52:35.370
+Ein Build
+
+02:52:35.370 --> 02:52:40.730
+Successful.
+
+02:52:40.730 --> 02:52:42.730
+Jetzt sollte das funktionieren.
+
+02:52:42.730 --> 02:52:44.730
+Sofern er nicht wieder irgendwas zu meckern hat.
+
+02:52:44.730 --> 02:52:46.730
+Gucken wir mal.
+
+02:52:46.730 --> 02:52:48.730
+Ob er abkackt oder nicht.
+
+02:52:48.730 --> 02:52:50.730
+Moment.
+
+02:52:50.730 --> 02:52:52.730
+Habe ich noch Get Info irgendwo drin?
+
+02:52:52.730 --> 02:52:57.320
+Ach fast.
+
+02:52:57.320 --> 02:52:59.320
+By the way.
+
+02:52:59.320 --> 02:53:01.320
+Warum bricht immer das Run
+
+02:53:01.320 --> 02:53:03.320
+ab?
+
+02:53:03.320 --> 02:53:07.400
+Oder nicht immer. Manchmal.
+
+02:53:07.400 --> 02:53:09.400
+So. Brage.
+
+02:53:09.400 --> 02:53:13.990
+Was?
+
+02:53:13.990 --> 02:53:15.990
+Expected String. Given Float.
+
+02:53:15.990 --> 02:53:17.990
+Okay.
+
+02:53:17.990 --> 02:53:19.990
+Ähm.
+
+02:53:19.990 --> 02:53:21.990
+Wie caste ich
+
+02:53:21.990 --> 02:53:23.990
+nen Float zu nem String?
+
+02:53:23.990 --> 02:53:25.990
+S String?
+
+02:53:25.990 --> 02:53:29.560
+Fragezeichen.
+
+02:53:29.560 --> 02:53:31.560
+Okay. Anscheinend.
+
+02:53:31.560 --> 02:53:35.190
+Ja.
+
+02:53:35.190 --> 02:53:42.600
+Das geht aber wahrscheinlich so netter.
+
+02:53:42.600 --> 02:53:44.600
+Und?
+
+02:53:44.600 --> 02:53:46.600
+Hahaha.
+
+02:53:46.600 --> 02:53:48.600
+Expected String. Given Float.
+
+02:53:48.600 --> 02:53:55.500
+Wie jetzt?
+
+02:53:55.500 --> 02:53:57.500
+Das ist Monkey C.
+
+02:53:57.500 --> 02:53:59.500
+Das eigene von Garmin.
+
+02:53:59.500 --> 02:54:01.500
+Okay. Garmin SDK.
+
+02:54:01.500 --> 02:54:03.500
+Float to String.
+
+02:54:03.500 --> 02:54:23.610
+Float.
+
+02:54:23.610 --> 02:54:25.610
+To String. Moment.
+
+02:54:25.610 --> 02:54:30.970
+Float.
+
+02:54:30.970 --> 02:54:45.480
+Format.
+
+02:54:45.480 --> 02:54:49.370
+Prozent.
+
+02:54:49.370 --> 02:54:51.370
+Okay.
+
+02:54:51.370 --> 02:54:53.370
+Format.
+
+02:54:53.370 --> 02:54:55.370
+Prozent.
+
+02:54:55.370 --> 02:54:57.370
+Prozent D.
+
+02:54:57.370 --> 02:55:01.190
+Vielleicht. Ja. Ja.
+
+02:55:01.190 --> 02:55:08.470
+Okay.
+
+02:55:08.470 --> 02:55:10.470
+Moment.
+
+02:55:10.470 --> 02:55:14.170
+Okay.
+
+02:55:14.170 --> 02:55:25.290
+War ein bisschen zu naheliegend.
+
+02:55:25.290 --> 02:55:27.290
+Was?
+
+02:55:27.290 --> 02:55:29.290
+Heiz. Moment.
+
+02:55:29.290 --> 02:55:31.290
+So nicht. Run.
+
+02:55:31.290 --> 02:55:33.290
+Ja.
+
+02:55:33.290 --> 02:55:40.180
+Wir sind auf Tau 1079 Meter.
+
+02:55:40.180 --> 02:55:42.180
+Leute.
+
+02:55:42.180 --> 02:55:44.180
+Falls ihr das noch nicht wusstet.
+
+02:55:44.180 --> 02:55:46.180
+Das ist nice. Also. Chat.
+
+02:55:46.180 --> 02:55:48.180
+Was sagt ihr?
+
+02:55:48.180 --> 02:55:50.180
+Für die allerersten Gehversuche mit dem Garmin SDK gar nicht mal schlecht.
+
+02:55:50.180 --> 02:55:52.180
+Und ich muss sagen.
+
+02:55:52.180 --> 02:55:53.540
+brauchbaren Emulator.
+
+02:55:54.120 --> 02:55:56.200
+Die Sprache ist jetzt vielleicht nicht unbedingt
+
+02:55:56.200 --> 02:55:57.860
+mein Favorit, aber
+
+02:55:57.860 --> 02:56:00.280
+geht irgendwie auch
+
+02:56:00.280 --> 02:56:01.580
+noch ganz gut klar.
+
+02:56:03.120 --> 02:56:04.240
+Oh, das können wir alles löschen.
+
+02:56:04.300 --> 02:56:05.340
+Das werden wir eh nicht verwenden.
+
+02:56:10.610 --> 02:56:15.470
+Also das... Ich dachte auch
+
+02:56:15.470 --> 02:56:17.150
+nicht, dass wir das alles so heute hinkriegen.
+
+02:56:20.310 --> 02:56:21.410
+Vollkommen fein, oder?
+
+02:56:22.410 --> 02:56:23.570
+Mit C++ wäre das
+
+02:56:23.570 --> 02:56:24.850
+deutlich ätzender gewesen.
+
+02:56:25.750 --> 02:56:27.110
+So viel kann ich schon mal sagen.
+
+02:56:34.300 --> 02:56:36.020
+Ja, die Dokumente sind nicht so geil,
+
+02:56:36.220 --> 02:56:37.860
+aber immerhin. Ich meine, man
+
+02:56:37.860 --> 02:56:39.180
+kommt halbwegs durch.
+
+02:56:42.680 --> 02:56:44.300
+Ich denke, das kann man so lassen.
+
+02:56:45.580 --> 02:56:46.480
+Ich werde das mal morgen
+
+02:56:46.480 --> 02:56:48.140
+Just for Fun sideloaden auf
+
+02:56:48.140 --> 02:56:50.320
+meinen Fahrradcomputer. Vielleicht machen wir
+
+02:56:50.320 --> 02:56:52.300
+das auch im Stream. Und dann gucken wir
+
+02:56:52.300 --> 02:56:54.400
+das uns mal mit echten Werten an.
+
+02:56:56.380 --> 02:56:58.660
+Allerdings ohne, dass ich meine GPS-Position
+
+02:56:58.660 --> 02:56:59.060
+leake.
+
+02:57:03.040 --> 02:57:04.280
+Aber schon mal praktisch.
+
+02:57:04.360 --> 02:57:05.280
+Gefällt mir echt gut.
+
+02:57:13.000 --> 02:57:14.580
+Jetzt müssen wir nur noch gucken.
+
+02:57:14.680 --> 02:57:15.780
+Das machen wir aber nicht heute.
+
+02:57:16.000 --> 02:57:16.360
+Unit.
+
+02:57:20.290 --> 02:57:20.650
+Hier.
+
+02:57:21.230 --> 02:57:22.210
+Distance-Unit.
+
+02:57:22.530 --> 02:57:22.910
+Weil
+
+02:57:22.910 --> 02:57:26.690
+dieses Kilometer pro Stunde,
+
+02:57:26.950 --> 02:57:28.650
+diese...
+
+02:57:28.650 --> 02:57:30.690
+Was ist denn eine Complication?
+
+02:57:30.790 --> 02:57:32.070
+Kann mir das irgendjemand erklären?
+
+02:57:34.650 --> 02:57:36.390
+Subscribe and publish
+
+02:57:36.390 --> 02:57:37.630
+to Complication.
+
+02:57:41.910 --> 02:57:42.210
+Weil
+
+02:57:42.210 --> 02:57:44.990
+man braucht ja garantiert...
+
+02:57:44.990 --> 02:57:47.830
+Also es muss irgendwo den Unit-Text
+
+02:57:47.830 --> 02:57:49.770
+und so zum Malen geben.
+
+02:57:50.610 --> 02:57:51.350
+Das kann nicht sein,
+
+02:57:51.350 --> 02:57:53.170
+dass man das selbst machen muss.
+
+02:58:11.260 --> 02:58:12.120
+Also ein Widget.
+
+02:58:12.360 --> 02:58:12.500
+Okay.
+
+02:58:21.740 --> 02:58:22.620
+Weil guckt,
+
+02:58:23.240 --> 02:58:26.220
+wie das hier Garmin malt,
+
+02:58:27.100 --> 02:58:28.860
+die schreiben hier KMH so.
+
+02:58:29.260 --> 02:58:30.840
+Und das gibt es doch garantiert
+
+02:58:30.840 --> 02:58:31.780
+schon fertig.
+
+02:58:33.160 --> 02:58:33.540
+Als
+
+02:58:33.540 --> 02:58:35.200
+so irgendwie
+
+02:58:35.200 --> 02:58:38.580
+drawable.
+
+02:58:47.680 --> 02:58:48.920
+Da muss man mal gucken hier.
+
+02:58:49.060 --> 02:58:50.520
+Text, da kann man garantiert
+
+02:58:50.520 --> 02:58:52.580
+irgendeine Unit
+
+02:58:52.580 --> 02:58:53.960
+direkt
+
+02:58:53.960 --> 02:58:55.320
+drawen lassen.
+
+02:58:56.220 --> 02:58:58.580
+Das muss bestimmt nicht jeder Data-Fielder
+
+02:58:58.900 --> 02:58:59.900
+entwickler.
+
+02:58:59.900 --> 02:59:04.660
+Denn eigene, eigene Einheiten malen.
+
+02:59:04.660 --> 02:59:06.900
+Gibt es bestimmt schon irgendwas Fertiges.
+
+02:59:06.900 --> 02:59:08.900
+Okay.
+
+02:59:08.900 --> 02:59:12.060
+Schön, dass ihr dabei wart.
+
+02:59:12.060 --> 02:59:14.060
+Reicht für heute.
+
+02:59:14.060 --> 02:59:16.560
+Wir haben wirklich was auf die Reihe gekriegt.
+
+02:59:16.560 --> 02:59:17.560
+Ich bin begeistert.
+
+02:59:17.560 --> 02:59:22.980
+Das ging, das ging wirklich ernsthaft jetzt deutlich angenehmer, als ich mir das gedacht
+
+02:59:22.980 --> 02:59:23.980
+habe.
+
+02:59:23.980 --> 02:59:31.910
+Guck mal und sogar, sogar die Puls-Anzeige funktioniert.
+
+02:59:31.910 --> 02:59:38.940
+Ich werde jetzt nicht mehr so viel reden.
+
+02:59:38.940 --> 02:59:39.940
+Ich werde jetzt pennen gehen.
+
+02:59:39.940 --> 02:59:40.940
+Bett getimed.
+
+02:59:40.940 --> 02:59:44.440
+Boomer müde, Boomer schlafen.
+
+02:59:44.440 --> 02:59:46.940
+Bis die Tage, Leute.
+
+02:59:46.940 --> 02:59:47.940
+Macht's gut.
+
+02:59:47.940 --> 02:59:48.940
+Bis denn.
+
+02:59:48.940 --> 02:59:49.940
+Cu.
+
+02:59:49.940 --> 02:59:51.940
+Ja, mal wieder endlich, endlich mal Proggas Bastel streamen.
+
+02:59:51.940 --> 02:59:52.940
+Bis denn.
+
+02:59:52.940 --> 02:59:53.940
+Macht's gut.
+
+02:59:53.940 --> 02:59:54.940
+Cu.
