@@ -1,0 +1,4122 @@
+So, jetzt aber, Moment, Moment, ganz kurz noch, so, nur aber, meine Güte, wenn du genervt wirst, gerade zwei Sekunden nachdem man den Stream angemacht hat, also, wie gesagt, ich bin kein großer Go-Kenner, ich habe schon ein paar Sachen in Go gemacht, aber ich dachte mir, zur Erheiterung des Chats und dadurch, dass Go natürlich auch die letzten Jahre über ziemlich wichtig geworden ist,
+schadet sicherlich nicht, das mal sich ein bisschen wieder anzugucken.
+Was ist jetzt auf einmal Kekkel? Ja, Kekkel ist das hier, das hier ist KekW, das hier ist Kekkel, ist doch eindeutig, ist doch logisch. Also, Chat, KekWaid, das hier ist KekW, das hier ist KekLove, das hier ist KekWaid, das hier ist PauseChamp, das hier ist Kekkel, das muss man doch wissen, Twitch Basics, Leute, die absoluten Basics von Twitch, Kekkel, ist ja Wahnsinn.
+ChillFreak, danke für den Sub, Tribulon ist auch schon ewig da hier, MassiveHyperSubscription, meine Emotes sind falsch sortiert, hier, ChainLore ist auch am Start, heute auf die Sekunde pünktlich, nice, die FormoundEverest, genau, FormoundEverest, BattlefieldPlayerStats, soll ich mal gucken, weil du es bist, ChainLore, naja,
+ist halt, ist halt nach diesem kurzen Peak wieder mehr oder weniger da, wo ich es auch erwartet hätte, ja, Peter ist agil, ups, was habe ich jetzt angeklickt? Wollte ich gar nicht anklicken, hatte gerade im richtigen Moment gepostet hier, Streamer's Coloring Book, Emotes, Moment, ist das ein, ein, ein Ausmal, ein Malbuch für Twitch Emotes?
+Warum hat das keinen Sinn?
+Keine Bewertung, Streamer's Coloring Book, ja, das ist so ein, so ein Ausmalbuch, ich weiß nicht, wie man das genau nennt auf Deutsch, achso, ähm, der, nö, keine Ahnung, wer das ist, ich denke immer noch, es war ChainLore, aber ChainLore sagt, er war es nicht, so, jetzt muss man gerade mal ein bisschen was anderes anmachen, komm, wir machen wieder ein bisschen was, ein bisschen was Entspannenderes an für heute, neue Bits, Bits, Bits, GIFs, wilder, wilder Igel, ich habe erst gelesen, wilde Riegel,
+Dankeschön für 20 Milliarden, Pock, ja, also, Game Up, danke für den Sub, also, die Sache ist folgendes, ich habe mir überlegt, ich habe mir ein bisschen Gedanken gemacht, so, Mini, Mini Go Projekt, was man machen könnte, irgendwas, also nicht was wirklich sinnvoll ist, sondern wo man ein bisschen was lernt, und ich habe mir überlegt, wir machen ein, äh, wir machen eine Web-Anwendung, die heißt,
+Pepo Fetter, und die zeigt dir einfach ein random generiertes Essen an, mit Bild, also, das wird, das wird nicht sonderlich kompliziert, also, sprich, wir nehmen irgendeine SQLite Datenbank, irgendeinen Fake-Daten-Generator, äh, irgendeinen Go-Web-Framework, ich habe keine Ahnung, was man da geschaut, gescheit nimmt,
+letztens im Chat waren die Leute der Meinung, man muss Standard-Library nehmen,
+oder man muss Fiber nehmen, ich habe keine Ahnung, Based-Cookie, aber die haben keine, die haben keine Bilder, warum so viele Tabs offen, Moment, Moment, also, ich habe zwei Browser-Fenster mit vielen Tabs offen, ja, und pass mal auf, ich, ich wette mit dir, äh, Sletter, wenn du, wenn du meine Tabs magst, dann, ähm, dann magst du bestimmt auch meinen Desktop, vermute ich jetzt einfach mal, mein Desktop ist ja immer ein Highlight jedes, jedes Streams,
+die Leute mögen meinen Desktop, ich kann meinen Desktop im Endeffekt auch gar nicht aufräumen, weil sonst, sonst, sonst fällt ja dieser Running-Gag mit dem Desktop weg, wird das je ein Aufräum, ne, wisst ihr, wisst ihr, wie, wie ich das mache, wenn mein Desktop zu voll wird, das ist kein Witz, mach ich wirklich so, wenn mein Desktop irgendwann zu voll wird, mache ich so, wie, das ist sortiert, Kackel, Alter, und ich move das einfach hier rein, aber, das mache ich jetzt nicht, weil der Desktop ist ja noch nicht zu voll,
+ich habe weißes Design, was habe ich, im Light-Mode, ne, achso, ich habe halbe, halbe, ich habe, ähm, die Leiste und den Kram in, in, äh, Dark und die Fenster in Light, ja, das stimmt, ne, mach ich nicht,
+das sieht unter Windows nicht gut aus, beziehungsweise, was heißt nicht gut aus, das sieht an sich eh schon nicht gut aus, aber ich finde, das ist in Windows nicht gut umgesetzt, so, wir machen mal die VM an,
+also, wir machen heute eine Web-Anwendung, Pepo Fetter, die random, äh, ja, random Gerichte oder random Essen generiert und, und Bilder davon anzeigt, also,
+ich weiß es, wahrscheinlich werde ich Goland verwenden und mal gucken, wie wir das machen, also, Chat, wichtigste, wichtigste Frage, was, was nehmen denn die coolen Go-Leute für Web-Anwendungen und für Datenbanken,
+also, für Web-Anwendungen habe ich letztes Mal gefragt im Stream und da war so, so 50-50 oder sagen wir mal so, es war ein bisschen, ein bisschen, ja, ein bisschen mehr, aber viele Leute haben gesagt, Standard-Lib und andere haben gesagt, Fiber,
+was ist denn cooler, was ist denn, was ist dann mehr, mehr im Trend, also, wo kann man besser mit Posen, wenn man es kann, Fiber oder Standard-Lib, ich meine, für das, was wir machen, ist Standard-Lib wahrscheinlich,
+absolut ausreichend, ja, ich meine, es gibt, ehrlich gesagt, es gibt wahrscheinlich einen Endpunkt oder so, random Rezept, ich meine, für einen, einen Get-Endpunkt brauche ich wahrscheinlich keine Library,
+aber, wie gesagt, wir müssen da mehr machen, also, wir müssen erstmal eine SQLite-Datenbank erzeugen mit Rezepten drin und,
+dann, oh, wobei, wir könnten das auch bei, per, per API-Aufruf erzeugen, irgendwie die Rezepte oder so, aber ich will es, ehrlich gesagt, lieber in die Datenbank schreiben, weil ich dann mal gucken kann, wie man SQLite in Go gescheit verwendet, ich weiß, dass es lange Zeit etwas problematisch war mit SQLite in Go,
+also, wenn man, also, für, für, nicht für sowas, wie ich mache, sondern für so wirklich High-Performance-Dinger, weil Go lange Zeit ziemlich einen Overhead hatte, wenn du C-Interop gemacht hast,
+mittlerweile ist es wohl besser, aber noch nicht ganz toll, Super Eats, ja, Gorm, Gorm habe ich auch gesehen schon, oder, oder Go, G-O-R-M, naja, eigentlich, okay, das ist ja der Gag, dass es O-R-M ist und Go, also, Gorm, ja, ja, ja, C, also, es muss nicht C sein, aber alles quasi mit, wie nennt man das, diesem C-Call-Interface, also, der C-Style, wie man Funktionen aufruft,
+also, das war so ziemlich so, wie jede, jede Programmiersprache kann, um mit jeder anderen Programmiersprache zusammenzuarbeiten, ist in Go nicht so einfach, wenn du von Go, genau, mit, mit, mit C-Go-Bindings haben die da irgendwas gemacht, also, wenn du von Go C-Libraries oder C-Funktionen aufrufst, dann ist das langsamer, als wenn du Go-Funktionen aufrufst, weil C-Go Gedöns macht, keine Ahnung, was aber noch viel schlimmer ist, ist, wenn du Callbacks hast von C nach Go,
+da muss das ganz langsam sein, also, ganz langsam, also, da reden wir von ein paar Nanosekunden oder so, was so ein normaler Function-Call braucht zu, naja, Millisekunden nicht, aber schon deutlich mehr, also, es ist irgendwie tausendmal langsamer, als irgendwie ne Go-Funktion aufzurufen, da gibt's ziemliche Probleme,
+hey, ich habe eine Windows XP, VM, aber der Sound ist kaputt, seit VM-Werk geht VM-Audio nicht mehr, äh, keine Ahnung,
+ich habe, glaube ich, noch nicht 16.2, was ist denn VM-Audio-Back, das kenne ich gar nicht, zeig mal, was ist VM-Audio-Back, Workaround for VMware-Guest-Audio-Distortion, ach, Windows, okay, das Problem habe ich mit der Linux-VM wahrscheinlich nicht, braucht man da überhaupt einen Workaround,
+da bin, ja, da bin ich mir auch nicht so ganz sicher, ob die den Overhead auch haben oder nicht, es könnte ja sein,
+dass die,
+die den nicht haben, weil die auf irgendwelche zusätzlichen Absicherungen verzichten, weil sie sagen, das haben wir selbst gebaut und wir wissen, dass wir keinen Mist bauen, also, ich habe da mal, ich habe da mal über diese ganze C-Go-Geschichte, ähm, ich habe da mal ein Konferenztalk drüber gesehen und eines der Hauptprobleme oder eines der Haupt-Performance-Einbußen, wenn man von Go-C aufruft oder vor allem, wenn man von C-Go aufruft, ist wohl,
+ist wohl, dass die irgendwelche Logs machen müssen, dass du im richtigen Thread landest, weil, wenn du, ja, weil du könntest ja beispielsweise ein, ein, könntest ja C aufrufen, dort einen Thread starten und von dort wieder in Go callen und dann kommst du, dann kackt Go im Zweifelsfall ab, so, und das, und das wollen sie nicht und dementsprechend machen sie irgendwie zig Checks, wenn du callbackst in Go, ob du im richtigen Thread bist und haben irgendwelche Logs und, und alles mögliche, man kann diese Sicherung allerdings,
+auch nicht abschalten, das ist, das war, aber ich, wie gesagt, das ist jetzt alles nur von diesem Talk, den ich mal vor zwei Jahren gesehen habe, also, wie genau ich das noch im Kopf habe und ob das noch so ist, sei mal dahingestellt, ja, leider gibt es wohl keine Möglichkeit, das abzuschalten, so nach dem Motto, ja, ich weiß, ich sorge dafür, dass ich im richtigen Thread bin und keinen Mist calle, ja, naja, doch, man braucht das, man braucht das manchmal, also jetzt, wir brauchen es nicht, weil wahrscheinlich der SQ Light Rapper oder was auch immer das schon für uns macht, aber ich habe mal, ähm,
+Go, ich habe mal eine Go Library gerappt, dass ich sie von .NET aufrufen konnte, nämlich die hier, guck mal, ähm, Go hat nämlich so ziemlich die einzig brauchbare WebRTC-Implementierung für Serverseite, wenn man nicht gerade die offizielle C++-Geschichte verwenden will und das ist wirklich nice, wenn, wenn man mal WebRTC machen will, haben wir, glaube ich, sogar im Stream schon verwendet und da mussten wir Go aufrufen von .NET, also, das im Prinzip mussten wir Go, Go-Funktionen,
+exportieren mit einem C-Interface zum, zum Callen und ich sage euch, Leute, wir haben es damals ausprobiert, es war schon eine ganze Ecke langsamer als Native Function Calls, allerdings jetzt nicht in der Größenordnung, dass es unbenutzbar wäre, hat sich, es hat sich aber bestimmt auch, es hat sich bestimmt auch einiges da getan die letzten Jahre, ja, du, SQL kann schon immer In-Memory-Database, allerdings ist die, glaube ich, limitiert standardisiert,
+auf 2 Terabyte, äh, nicht Terabyte, 2 Terabyte wäre es jetzt, ich glaube, das wäre kaum eine Limitierung, ähm, auf 2 Gigabyte ist das, glaube ich, limitiert, ich glaube, Go-In-Memory-Database kann maximal 2 Gigabyte sein, so, gehen wir mal in die VM, aha, da gibt es Sonnenblumen, Pog, Moment, Leute, habe ich die VM neu gestartet oder war die schon gestartet, ich habe die neu gestartet, das heißt, heute ist Bing Image of the Day Sonnenblumen, ja, wir lernen Go,
+ich richte mein Go mal ein bisschen auf, weil so viel habe ich damit noch nicht gemacht, ich kann den Kram lesen, ich kann damit auch ein bisschen was schreiben, aber ein bisschen was, ein bisschen was Größeres, so, Updates, Go-Land, ist das schon alles, habe ich schon alles geupdatet, Go-Land 2022.1.3, das sieht, ehrlich gesagt, ziemlich gut aus, warum ist Rider nicht aktuell, was ist da los, Max, bist du auf Linokis, ja, bin ich,
+und, und, und, pass mal auf,
+und jetzt bin ich wieder auf Windows, ja, warum, ich habe mir den ganzen Chatbrains-Kram gekauft, warum soll ich dann Visual Studio Code verwenden, wie das, guck mal, es gibt verschiedene Desktops, kannst du mittlerweile machen seit Windows 10, auf jeden Fall, vielleicht auch schon seit Windows 8, du kannst verschiedene Desktops machen und dann machst du einfach eine VM im Fullscreen auf Desktop 2 und dann switchst du mit Tastenkombination zwischen Windows und Linux hin und her,
+das heißt, du kannst alles machen, was du willst unter Linux, außer, außer Hardware-Zugriffe, also GPU-Decoding und so ist da nicht, wie alt ich bin, ich bin 37, also ich bin massive, pepo old, ja, ist so, die Frage kommt oft, die Frage kommt so oft, dass wir da sogar extra schon einen Clip für haben, die Antwort, ganz kurz, dass du dir den Clip nicht angucken musst,
+ähm,
+nee, kannst du nicht, kannst du nicht, ähm, ähm, ganz kurz, also, ich habe mir das angewöhnt und die Angewohnheit habe ich schon jahrelang und ich, du wirst auch nicht, warum ich hier wieder abgewöhnen soll, ja, nee, also du kannst die GPU nicht durchreichen, das funktioniert nicht, nein, GPU-Pass-Through geht nicht, vor allem bei Workstation unter Windows kann keine GPU durchreichen,
+was du machen könntest, ist Hyper-V oder so verwenden, wobei ich mir nicht sicher bin, ob das Hyper-V unter Windows 10 GPU-Pass-Through kann, du könntest Linux als Host nehmen, GPU-Pass-Through machen und Windows virtualisieren, wobei du dann wieder andere Probleme hast, also für mich ist dieses Setup hier mit Abstand am besten, ich habe es, ich habe mittlerweile um die 7 VMs ungefähr, die ich regelmäßig verwende,
+ich habe, also, ich habe hier meine fertige, also die hier meine ich jetzt nicht, ja, das sind ja so ein paar Testdinger, die wir mal im Stream hier gemacht haben und die Q, ihr werdet, ihr werdet es nicht glauben, aber die Qt4M verwende ich nicht regelmäßig, weil ihr seid Chat, eine Runde, eine Runde für euch heute nochmal, Qt4M, 10 Sekunden, länger, länger halte ich es wahrscheinlich nicht aus, aber muss, muss mal wieder sein, okay, okay, Qt4M, genug Qt gewesen, wieder aus,
+Next. Bin ich denn stehen geblieben?
+JetBrains ist der Hersteller.
+JetBrains ist der Hersteller.
+JetBrains macht mehrere Tools.
+Unter anderem machen die auch
+IntelliJ und PyCharm
+und Rider
+und wo haben die denn die Übersicht?
+Das hier ist so mehr oder weniger der ganze Kram,
+was die haben. WebStorm. Haben wir irgendwelche
+WebStormers bei uns im Chat?
+WebStorm. RubyMine habe ich vor
+Jahren mal verwendet.
+Rider für .NET, PyCharm,
+Python, Web, PHP,
+Java-Gedöns, Go,
+ihre Visual Studio Code Konkurrenz,
+Dataspel, Datacrypt, keine Ahnung,
+C
+und C++. Rust-Plugins
+haben sie.
+Was ist denn RiderFlow?
+Was zum... Ist das irgendwie
+Unity?
+Das ist irgendein Unity-Zeug.
+Das muss irgendein Unity-Zeug sein.
+Wieso machen die nicht eine IDE
+für alles?
+Wahrscheinlich, weil das nicht so einfach ist
+und sie versuchen ja gerade Fleet
+zu...
+Ich weiß gar nicht, wie da der aktuelle Stand ist.
+Ich habe von Fleet schon
+länger nichts gehört.
+Das versuchen sie gerade. Also Fleet ist wohl
+standardmäßig ein ziemlich
+Basic-Text-Editor,
+den du aber mit Plugins
+zu allem möglichen aufbauen kannst.
+Nee, Rider ist
+nicht für alles. Rider ist für .NET.
+Du kannst IntelliJ ziemlich aufbauen, aber ich glaube
+.NET kannst du nicht in IntelliJ machen,
+oder?
+Also du kannst, ich glaube, das kannst du auch nicht alles installieren.
+Du brauchst, glaube ich, IntelliJ Ultimate oder sowas.
+Ach, kein Schimmer.
+Ist mir wurscht.
+Ich verwende...
+Also ich verwende von denen
+C-Lion, Go-Land und Rider und ab und zu Pycha und C-Lion auch noch relativ selten, weil
+ich mache großen Bogen um C++, aber manchmal kommt man halt nicht drumherum.
+Also das ist der Hersteller.
+Ja.
+Und jetzt noch mal was zu GPU-Passthrough.
+Das funktioniert nicht.
+Und selbst wenn du sagen würdest, du virtualisierst es umgedreht, also du virtualisierst Windows
+unter Linux, dann musst du, dann musst du andere Probleme, dann musst du andere Probleme
+lösen.
+Was davon ist für C-Sharp Rider?
+Das ist .NET.
+C-Sharp ist quasi so die Haupt .NET-Programmiersprache.
+Ich meine, du hast noch sowas wie F-Sharp und du hast auch noch sowas, ich trau's mich kaum
+auszusprechen.
+Du hast auch noch sowas wie vb.net.
+Ja.
+Und sowas.
+Wobei das eigentlich nicht Pepo Hands ist, das ist eher, das ist, das ist eigentlich eher
+so.
+vb.net.
+Ich glaube, vb.net weint keiner nach, weint keinem, keiner.
+Keiner weint, keine und kein, keiner und kein, keine und keiner, wie auch immer, weint vb.net
+nach.
+Ja.
+Genau.
+Aber hier noch mal, Leute, zu der Virtualisierung.
+Also selbst wenn du jetzt sagen würdest, man macht es umgedreht.
+Man virtualisiert Windows unter Linux oder Linux hauptsächlich drauf.
+Selbst dann hast du Probleme, die du lösen musst.
+Zum Beispiel, wie machst du das, wenn du GPU-Pass-through machst mit deinem Hausbetriebssystem?
+Dann bräuchtest du ja zwei GPUs und, also ne, für dein Hausbetriebssystem und für die
+durchgereichte GPU oder du machst sowas richtig abgedrehtes wie Hyper-V und diese NVIDIA Grafikkarten-Partitionierung.
+Frag mich nicht, wie der Kram heißt.
+Ja.
+Ja.
+Ja.
+Ich weiß nicht, wie der Kram heißt.
+Vielleicht weiß es einer von euch.
+Es gibt von NVIDIA in ihren Workstation-Server Grafikkarten, gibt so die Möglichkeit quasi
+die Grafikkarte zu teilen zwischen mehreren VMs.
+Da gibt es so eine pizzerlegie...
+Aber das kostet Tausende.
+Das ist Grid.
+Ja, ich glaube, Grid.
+Grid kann sein.
+Das ist aber richtig...
+Ist aber richtig teuer.
+So.
+Also du brauchst...
+Du brauchst quasi zwei GPUs, es sei denn und das ist das Nächste.
+Wie gesagt, es gibt ja für die meisten Sachen irgendwelche Lösungen.
+Du machst solche Sachen wie Looking Glass oder sowas, also du kopierst dann quasi die Frames von der VM auf den Host und sowas, aber ganz im Ernst, ganz im Ernst, der Einfachheit halber ist mir das so deutlich lieber und ich brauche nicht für alles irgendwelche Workarounds,
+weil ganz im Ernst, ich verwende zu bestimmt 60-70% hier daheim Windows, einfach für Steam, Videoschnittgeschichten und sonst was, Video Capturing und alles mögliche und wenn ich irgendwas programmieren will oder wenn ich irgendwas basteln will oder so, dann switche ich einfach auf Linux.
+Also für mich ist die Kombination aus Windows als Host und Linux in der VM vom Handling her das Beste.
+Das heißt nicht zwangsläufig, dass das für euch das Beste sein muss, aber ich finde das Setup gut und ich finde es für mich oder insgesamt, ehrlich gesagt, besser als Windows unter Linux.
+Windows unter Linux, finde ich, kann man machen, vielleicht wenn man sowas hat wie meine Steuersoftware läuft nur unter Windows und ich benutze das Ding einmal im Jahr oder so, dann vielleicht, aber ansonsten würde ich es nicht machen.
+Also wenn man alles hat, was unter Linux gut funktioniert und man braucht Applikationen.
+Ab und zu mal was unter Windows, dann eine Windows VM, okay, das kann man machen, aber schön ist was anderes.
+Ja, aber was du damit nicht hinkriegst, sind zum Beispiel GPU-Decoding und sowas.
+Also wenn du Videos guckst, es hat alles seine Tücken.
+Es gibt für vieles Workarounds, die es aber im Handling her ekliger machen.
+Dualboot ist allerdings das Letzte, was ich machen würde.
+Gibt ja Leute, die sagen noch, ja, ja, ich will auf Linux umsteigen machen, aber machen mal du.
+Ne, also Dualboot ist wirklich das Letzte, was ich machen würde.
+Dualboot ist eklig.
+Ich kann es auch nicht.
+Ich kann nicht verstehen, wie die Leute das auf ihrem Mac sich antun.
+So ab und zu mal in Windows booten, um da was zu machen und dann wieder zurück in Mac.
+Also das würde ich nicht aushalten.
+Dualboot ist ja wirklich bescheuert.
+Du musst viele Sachen doppelt haben auf beiden Betriebssystemen, ja, von Instant Messenger, E-Mail und sonst was.
+Weil vielleicht bist du mal drei Stunden in dem einen Betrieb, willst deine Mails nachgucken, Instant Messenger.
+Ja, du musst vieles doppelt machen.
+Und immer dieses zwischendurch an- und ausschalten ist auch nervig.
+Also Dualboot ist abfuck.
+Also Dualboot, Dualboot würde ich nicht machen.
+Ich würde immer gucken.
+Dass ich das, was ich brauche, virtualisiert kriege.
+Einzige Plattform, die man schlecht virtualisieren kann, ist Mac OS.
+Also wenn man jetzt sagt, ich möchte gerne alle drei Betriebssysteme verwenden, dann bleibt dir eigentlich nur die Möglichkeit, Mac, den Mac zu kaufen und darauf den anderen Kram zu virtualisieren.
+Wobei ich mir da auch nicht sicher bin, wie gut das unter neuen Macs funktioniert, seitdem die nicht mehr Intel CPUs drin haben.
+Da bin ich aber überfragt, wie gut das tut.
+Ich mache keinen Dualboot.
+Ich habe, ich habe, ich habe eine 4M auf dem zweiten Desktop.
+Warum kann WebStorm das gleiche wie PHPStorm?
+Ich dachte, PHPStorm ist halt für PHP und das hier ist für JavaScript gedöhnt.
+Ja, IntelliJ ist, glaube ich, echt das Beste für Java.
+Haben wir noch irgendwelche Eclipse-Benutzer hier?
+Ich weiß, bei uns auf der Arbeit, wir haben so ein paar richtige Oldschool-Boomer-Entwickler, die immer Eclipse aufhaben im Fullscreen.
+Und ich bilde mir ein.
+Ich bin mir nicht ganz sicher, aber ich bilde mir sogar ein.
+Ich habe mal jemand gesehen von denen, der hatte einen Webbrowser in Eclipse auf.
+Da hat es dann bei mir aufgehört.
+Da habe ich gedacht, was ist denn mit euch los?
+Welche Virtualisierung-Software fändest du?
+Das ist Forever Workstation.
+Das habe ich mal vor Jahren gekauft und das war, also bei einem Key-Shop für irgendwie 8 Euro oder so.
+Und das war eine gute Investition.
+Ich wechsel die Bildschirme nicht.
+Ich habe mehrere.
+Desktops.
+Guck da.
+Da ist auf dem Desktop ist die VMware und hier ist das normale Windows.
+Ach so, ja genau.
+Control-Alt- und Pfeiltasten kannst du hin und her wechseln.
+Guck.
+Zack, zack.
+Erster Desktop, zweiter Desktop, dritter Desktop, dritter Desktop, zweiter Desktop, erster Desktop.
+Benutzt du auf der Arbeit mittlerweile Windows?
+Ja und nein.
+Ich verwende weiterhin zum größten Teil Linux.
+Aber ich habe auch ein Windows allein schon für diese ganzen Unternehmensanwendungen von Raumbuchung bis Outlook bis Geschiss.
+Da brauchst du ab und zu.
+Zumal ein Windows oder irgendwelche offiziellen PDFs, die du nur gescheit mit Windows ausfüllen kannst.
+Hast du UV, ÜV, was?
+Weiß ich nicht, was das ist.
+Also ich habe Mac mal virtualisiert unter VirtualBox.
+Das lief, aber es gab halt keine gescheite GPU-Virtualisierung und dementsprechend lief es langsam.
+Das da, das ist ein Terminal, was nicht so eklig ist wie das Windows-Terminal.
+Mittlerweile kann man aber auch.
+Auch wenn man will, dass das offizielle neue Microsoft-Terminal verwenden.
+Tut auch.
+Das ist Half-Life.
+Genau.
+Unreleasedes Half-Life-Add-On habe ich nur ich auf dem Rechner.
+Mein Beileid.
+Okay, das kann ich verstehen.
+Ja, gerade bei Embedded-Zeug bewegt sich die Zeit geht langsamer.
+So, also auf geht's.
+Was?
+Hat das wirklich expired?
+Weil hier gibt's doch regelmäßig.
+Ja gut, so, also gehen wir jetzt mal hier in die Links voran, klären den ganzen Krempel und machen mal ein Go-Land auf.
+Also mein Plan, was ich machen will.
+Do not import settings.
+Nein, nein, wir brauchen keine Settings.
+Bin doch eingeloggt.
+Was?
+Ja, das ist richtig.
+Ich habe vor ein paar Tagen mein Account-Passwort geändert.
+Das ist korrekt.
+Oh, shit, Alter.
+Ja.
+Ich habe das Passwort nicht hier.
+Moment.
+Nein, nein, das ist ein sinnvolles Passwort.
+Ich verstehe immer noch nicht, wie man leicht zwischen Linux und Windows wechseln kann.
+Also, jetzt zum Mitschreiben für dich.
+Also, du klickst hier unten drauf.
+Ja.
+Und du machst dir noch einen zweiten Desktop.
+Ups.
+Du machst dir noch einen weiteren Desktop.
+Dann gehst du auf diesen zweiten Desktop.
+Und dann startest du dort vor allem bei Workstation und installierst dir ein Linux drinnen.
+Und dann kannst du die Desktops wechseln mit Control-Windows-Taste, Pfeiltaste nach links und Control-Windows- und Pfeiltaste nach rechts.
+So, jetzt habe ich ein Problem.
+Ich muss mein Passwort resetten, Leute.
+Das ist ja abfuck.
+Okay.
+Jet Brains.
+Wartet mal.
+Ich muss das mal kurz ausmachen.
+Ich muss kurz mein Passwort resetten.
+Meinung zu CodeWithMe habe ich noch nicht ausprobiert.
+Es ist Control-Windows-Pfeiltaste.
+Also, Account.
+So, Forgot Password.
+Ja, ich habe mein Passwort vergessen.
+Ja, ja.
+Forgot your Password.
+So, Passwort reset.
+Okay, jetzt kriege ich eine Mail für Passwort reset.
+So.
+Reset your Jet Brains Account.
+Jawohl.
+Copy link.
+So, Leute, es dauert jetzt kurz eine Minute, bis ich mein Passwort reset.
+So, neues Passwort.
+Okay, ich denke mir jetzt mal eins aus, kurz.
+Nee, irgendwas, irgendwas, was ich schreiben kann.
+Weil ich will es nicht kopieren.
+Pasten.
+Das Passwort wird enthalten.
+Kappa.
+Mehr verrate ich nicht.
+Okay.
+Passwort.
+Passwort is strong, sagt Jet Brains.
+Alles klar.
+Wenn es ein stronges Passwort ist.
+Fuck.
+Your Password has changed successfully.
+Na dann, logge ich mich mal wieder ein.
+Dann mache ich euch mal aus.
+Ihr dürft jetzt nicht zugucken.
+Weil ich will nicht irgendwie Mist eintippen.
+Mist eintippen.
+Und mich nicht vertippen.
+Und ihr seht es dann.
+So.
+Kappa.
+So, ich bin eingeloggt.
+Authorization is successful.
+Das geht nicht.
+Was ist denn das für eine Scheiße?
+You can close this page.
+Habe ich.
+Ging nicht.
+Meine Güte, ey.
+Was ist das für ein Scheiß?
+Geht das nicht?
+Exit.
+Jetzt muss ich GoLand sogar schließen.
+Muss ich das jetzt nochmal machen, oder wie?
+Okay, nochmal.
+So, jetzt hat es funktioniert.
+Okay.
+Jetzt hat es funktioniert.
+Subscription active.
+Okay.
+Ich kann euch wieder einschalten.
+Alles klar.
+So, auf geht's.
+Wir können anfangen.
+Sollte jetzt funktionieren.
+Okay, nice.
+Login hat funktioniert.
+Also, neues Projekt.
+Da geht es schon los.
+Was habe ich überhaupt?
+Habe ich überhaupt aktuelles Go installiert?
+Äh.
+Heißt es vielleicht einfach nur Go?
+Pacman minus S, Go.
+Ich habe Go gar nicht installiert.
+Okay, vielleicht soll ich erst Go installieren, bevor ich Go.
+Ach so, deswegen findet er auch kein Go.
+Go Path?
+Also, ich kann mich dunkel daran erinnern.
+Das hier ist die Modul-Variante und das hier ist die old school Go Path Variante.
+Ich muss jetzt aber mal canceln, weil ich muss ja Go erstmal installieren.
+Yes.
+Ist denn Go erstmal installiert?
+Ist denn Go 2.1.18 die aktuelle?
+Äh, nee.
+Nicht 2.1.18.
+1.1.18.
+1.18.4.
+1.8.
+Oh, ich bin einer meiner, meiner Version hinten dran.
+MonkaS.
+So.
+Also, Goland.
+Neues Projekt.
+Er hat es auch gefunden.
+Das ist doch schon mal gut.
+Was ist denn Depp?
+Was ist Go Depp?
+Ein Dependency Manager.
+Ein Dependency Management Tool.
+Es ist aber deprecated.
+Ach, jetzt haben sie Go Modules verwendet.
+Okay.
+Ist ja auch geil.
+Einfach mal ein 13K Github Projekt deprecated.
+Also, wir wollen Go.
+So, es heißt nicht Awesome Project, sondern es heißt Pepo Fetter, habe ich mir überlegt.
+Passiert da noch was?
+Ach nee, das war es schon.
+Ich weiß, es gibt ein eingebautes Terminal.
+Aber das suckt.
+Benutzt lieber ein ordentliches.
+So, jetzt geht es, jetzt geht es schon los.
+Ich glaube, man muss jetzt eine main.go anlegen.
+Simple Application ist ein gutes Beispiel.
+Main.
+Alles klar.
+Okay.
+So.
+Go Pass is empty.
+Chat, ist das, ist das, ist das jetzt gut oder ist das schlecht?
+Ist das egal?
+Font größer.
+Ja, ja, wir machen gleich.
+Wir machen gleich die Schrift größer.
+Passt.
+Passt.
+Okay.
+Don't show.
+Also Font.
+Okay.
+What?
+Font.
+Jet Brains Mono.
+Nein, nein, nein, nein.
+Hack.
+Hack 16.
+Hack.
+Warum ist das 18?
+Ist immer noch ein bisschen klein, oder?
+Chat ist okay so?
+Oder komm, 20.
+Gebe ihm.
+Ah, yes.
+So ist, so ist gut.
+So ist gut.
+So erkennt man was.
+So.
+Meine, meine.
+Ach ja.
+So.
+So.
+So.
+So.
+So.
+Ach ja.
+Go legt ja da immer ziemlich viel Wert drauf, dass die so irgendeinen Default haben.
+Und ich vermute mal, dass Tabs der Default sind, weil das verwendet Temps.
+Tabs.
+Genau.
+Also das Einzige, wo ich mich jetzt an Go so spontan dran erinnern kann, was man sagen
+kann.
+FMT.
+Genau.
+Print.
+Brindeln.
+Keckel zum Beispiel.
+Und ich bin mir gar nicht mehr sicher.
+Braucht man Semikola?
+Nein.
+Braucht man nicht.
+Okay.
+So.
+Also.
+Goland.
+Projects.
+Pepo.
+Fetter.
+Go.
+Was ist?
+Go run?
+Ach ne.
+Man muss Main.
+Go angeben, ne?
+Okay.
+Funktioniert.
+Okay.
+Gibt es sowas wie Go watch run?
+Nein.
+Go watch run?
+Missing watch mode for Go commands.
+Zusätzliche Sachen will ich nicht installieren.
+Warum executest du das im Terminal?
+Weil ich das Terminal in der IDE nicht mag.
+Ach so.
+Du meinst für Debugger.
+Wozu?
+Ich muss nix debuggen.
+Das funktioniert auch so alles.
+Mal gucken.
+Go.
+Build.
+Wie groß ist das Binary?
+Ja.
+Zwei Fenster ist viel besser.
+Ganz ehrlich.
+Ich mag das eingebaute Terminal nicht.
+Ich finde mein Terminal viel besser.
+1,7 MB.
+Gut.
+Ich meine, es ist ein sehr guter Terminal.
+Also.
+Also.
+Also.
+Also.
+Also.
+Also.
+Also.
+Also.
+Also.
+Also.
+Das ist 1 MB.
+Gut.
+Ich meine, es ist ein Hallo Welt.
+Der Zepor-Kamera würde sagen, alles über 400 Bytes ist bloated.
+Go build Punkt.
+Ah.
+Dann guckt der wahrscheinlich, ob es Main gibt.
+Kann man sowas machen, Moment Leute.
+Moment.
+Kann man sowas machen wie go build minus out build oder so?
+Ne.
+Dass man ihm sagt wo er was bilden soll.
+Go build output.
+Wa.
+War richtig?
+Muss ich vielleicht Minus O vorher machen?
+ah ok nee nee ich meine das output directory nicht wieder output heißen soll output directory
+meine ich directory aber macht den pfad vorne dran also sage ich jetzt zum beispiel bild und
+das ist was ist wenn ich einfach nur so machen rm bild ich muss dann was ein angeben ok wunderbar
+so bild alles da funktioniert ok verstehe sehr schön ich glaube nicht kann ich nach installieren
+gibt es das hier sind das run arbiter ach so das ist so was wie wie guard oder so ach
+wenn ich jetzt mal so ein pfad einstellen kann dann kann ich so ein pfad einstellen
+ach so das ist so was wie wie guard oder so ach wenn ich jetzt mal so ein pfad einstellen kann dann
+verstehe der stream ist deutsch nee nee das passt schon so also alles klar machen wir mal
+weiter also wir wollen ja nicht einfach nur fmt print im kegel ausgeben pfad damit gelöscht bild
+alles gut passt also wie würden wir dann das ganze jetzt angehen als erstes würde ich vorschlagen
+wir gucken mal wie man eine web anwendung überhaupt startet go lang wie heißt das ding lib http
+ne net net http heißt das net http jetzt ist jetzt ist halt die frage chat da müssen wir fast eine
+umfrage machen feiber oder net http ich meine ich brauche irgendwie drei api endpunkte das sollte
+das sollte eigentlich mit allem möglich sein und wieso das hier sieht doch super easy aus wird warum
+braucht man da noch mehr das sieht doch eigentlich relativ simpel aus wir probieren wir probieren es
+jetzt mal mit dem eingebau
+package also wie würde man das jetzt mal gibt es ein vollständiges sample wie das funktioniert wie
+das ist kein server http händel doch das ist beides ok so so moment ach hier ist ein minimal
+beispiel ok also blablabla das da muss dann wasch moment warte man das muss alles in main reingel so
+http
+хотите
+wie ist denn die kann man das nehmen wie schreibt man wie schreibt man sowas in
+line visit und das in go aus die zeile darunter
+ach hier ach so sekund quasi verstehe ok alles klar also das heißt wie gebe ich da jetzt an ob es
+get oder post
+oder sowas ist.
+Egal, probieren wir das mal aus.
+Also, pepo
+go run main.
+Listend der jetzt?
+Curl
+local host
+8080. Ach ne.
+Äh, bar.
+Ja, funktioniert.
+Funst. Seht ihr noch was,
+Chat, wenn ich das hier unten rechts so mache?
+Ja, ganz knapp, gell? Ganz knapp
+sieht man das noch. Okay, also
+jetzt haben wir einen Webserver. Das ist ja tatsächlich
+schon mal relativ easy gewesen.
+Handle, funk, bar. Okay, also
+ich
+will eine simple
+Webseite machen, die
+random Essen-Sachen
+mit Bildern anzeigt.
+Einfach nur, dass ich irgendwas,
+naja, sinnvoll ist es nicht, aber irgendwas
+machen kann. Das heißt,
+wir brauchen jetzt im Prinzip eigentlich nur
+ein
+API-Endpunkt.
+Ach so, wie serve ich denn static
+Files überhaupt?
+Ich muss ja mein HTML irgendwie ausliefern.
+Äh, net
+http surf static
+surfing static
+files with go. Ja, wo ist
+das Beispiel?
+HTTP-Files, aber okay, das ist tatsächlich
+relativ easy.
+Wir copy-pasten uns unsere Sache zusammen.
+Also, slash static
+naja, www-root
+wir nennen das, wenn schon, gescheit.
+Also, pepo fetter
+Ordner, www-root.
+Oder gibt's irgendeinen coolen Namen, was die
+krassen Golang-Leute verwenden
+für ihr HTML-Zeug?
+So, new html-file
+index.html
+Das Einzige, was jetzt da draufsteht
+im Kickel, äh,
+im Titel
+Keckel, pepo, fet.
+Lul, weh.
+So, das muss jetzt erstmal reichen und gucken, ob's
+funktioniert. Gibt doch extra
+Go-Templates.
+Wie, Templates? Was?
+Ich will statische Webseiten surfen,
+ich will keine Templates.
+Schau dir mal wirklich
+Gox und GT an. Naja, das sind
+Projekte mit tausend, hunderttausenden
+Zeilen Sourcecode, was soll ich mir da angucken?
+Ich mein, ich kann's mir vorstellen,
+die werden einige Serverseit rendern.
+Und dann mit Templates.
+Aber will ich ja nicht. Ich will ja
+nix serverseitig rendern. Ich will ja
+einfach nur statisches HTML
+ausliefern und dann ein bisschen JavaScript reinbasteln,
+was hier mein Zeug abfragt.
+Also, von der Idee her,
+sollte ich jetzt,
+wenn ich das abfrage,
+mein HTML bekommen.
+Ja, ist doch easy. Also,
+localhost port 8080
+kriegen wir unser
+HTML. Sehr schön, ist doch alles. Mehr brauchen wir
+doch erstmal gar nicht.
+So, Index HTML.
+Nee, wir brauchen auf keinen Fall irgendwelche
+Templates. Nein, ich bin
+Wummblost.
+Eindeutig. Wir haben bloß
+zufällig den gleichen Avatar
+und wir hören uns nur zufällig
+genau gleich an, aber
+ansonsten gibt es keine weiteren.
+Und wir können auch beide die Bahn nicht leiden,
+aber ansonsten gibt es keine weiteren Überschneidungen.
+Boah, gestern habe ich es ein bisschen
+übertrieben, glaube ich.
+Gestern war ich ein bisschen...
+Das ist wahrscheinlich schon wieder
+Content, den man auf Twitch nicht zeigen darf.
+Gestern habe ich
+schon ein bisschen übertrieben wieder.
+Oh man.
+Gestern habe ich es ein bisschen übertrieben.
+Es ging aber schon wieder
+gut los.
+Zug ist angeblich laut der App da
+und Zug ist laut der App schon abgefahren,
+aber Zug war noch nicht in Sichtweite.
+Und ich habe 10 Minuten rumgestanden.
+Das Ding kam 10 Minuten zu spät.
+Angeblich war der Zug schon 2 Stationen weiter.
+Ja, also es ist echt...
+Dieser Laden, das ist so...
+Das sind solche
+abgefuckten Pisser, Alter.
+Das kann man nicht anders sagen.
+Ich hasse die Bahn. Es ist unglaublich.
+Es gibt nichts...
+Das ist jetzt wirklich kein Übertreiben.
+Es gibt nichts,
+was ich so sehr hasse
+wie die Bahn.
+Ja, es gibt Leute, mit denen verstehe ich mich nicht.
+Es gibt Leute, die kann ich auch überhaupt nicht leiden.
+Aber so richtigen
+Hass habe ich eigentlich
+nur gegen die Bahn. Gegen sonst nichts.
+Und wisst ihr, was das Lustige ist,
+Leute?
+Wenn ich auf Twitter lese, wenn Leute mit der Bahn
+fahren, die haben alle immer die gleichen
+Probleme. Und dann machen die auch noch
+Werbung so nach dem Motto,
+ja, in Urlaub fahre ich mit der Bahn.
+Entspannt und
+günstig ankommend. Es ist weder günstig
+noch ist es entspannt.
+Mit dem 9-Euro-Ticket ist es günstig, ja.
+Aber du kannst kein ICE fahren, du kommst da erst recht nicht an.
+So wird das nix mit der
+DevOps-Engineerstelle bei der DB.
+Das ist richtig. Ich habe ja auch gesagt,
+auch wenn die Stellen von der Bahn noch so gut
+passen, ich bewerbe mich nicht
+bei der Bahn. Übrigens, es gibt ein
+Ruby-Projekt auf
+GitHub,
+was so heißt wie du,
+um Software zu deployen.
+Und
+das heißt genau so.
+Mit was wechselst du zwischen Windows und
+Linux?
+Dass beides VMs sind?
+Nee, es sind nicht beides VMs.
+Es ist nur Linux und VM.
+Windows ist, Windows ist der Host.
+Ich wechsel über die in Windows eingebaute
+Multiple Desktop Funktion.
+Du kannst unter Windows mehrere Desktops haben.
+Und ich drücke einfach Control Windows,
+Pfeiltaste rechts, komme ich auf die
+Linux Desktop.
+Nochmal Pfeiltaste rechts, komme ich auf den
+freien Desktop und Pfeiltaste links wieder zu.
+Es ist nur, es ist nur Vmware.
+Guck, so erkennt man es, glaube ich, besser.
+Hier, hier ist Windows, hier ist Vmware,
+hier ist leerer Desktop.
+So, also weiter, weiter im Leer.
+Ja, das wird nicht von Vm.
+Ach so, doch, du hast recht.
+Ich hab dir, ich hab was vergessen zu erwähnen.
+Ja, normalerweise, du hast recht.
+Ich, ich drückte schon so automatisch.
+Ich denke da nicht dran.
+Wenn ich in der Vm Control Windows drücke,
+dann geht es in die Vm.
+Du musst vorher Control
+Alt drücken.
+Guck mal, Control Alt, da siehst du ja auch
+am Mauszeiger.
+Guck, ich drück Control Alt.
+Das ist das Escape, der Standard Escape Sequenz,
+die Standard Escape Sequenz für Vmware.
+Control Alt, dann lässt Vmware den Fokus,
+macht den Fokus raus von Tastatur und dann
+drückst du Control Windows links, rechts.
+Also sprich, ich mache, ich drücke eigentlich
+relativ schnell beides hintereinander.
+Ich habe das mir schon so angewöhnt.
+Ja, also ich drück Control Alt, Control Windows,
+Teil Taste, aber das liegt halt direkt nebeneinander.
+Deswegen ist das nicht so schwierig.
+Du könntest wahrscheinlich Vmware den Escape Button umstellen
+auf Control Windows.
+Das funktioniert vielleicht.
+Ne, zurück in die Vm ist einfach,
+zurück in die Vm einfach reinklicken.
+Ja, genau.
+Das ist aber eine gute Frage.
+Kann man diesen Escape, diese Escape Sequenz umstellen?
+Ja. Hotkey.
+Provide.
+Shortcut.
+Probieren wir mal.
+Vielleicht brauche ich das gar nicht mehr.
+Guck mal, stellen wir mal um auf Control Windows.
+Ne, das geht nicht.
+Das funktioniert nicht, weil du musst, du musst loslassen, dass das,
+das ist das frisst.
+Also ich kann jetzt Control Windows, Control Windows drücken,
+aber dann bleibe ich lieber bei dem, woran ich mich gewöhnt habe.
+Wenn es bei Key Down wäre, das wäre natürlich cool, weil dann wird es gleich rausspringen.
+Okay.
+Naja, aber die Hand an der Tastatur lässt du doch eh nicht, weil du zu 90 Prozent, wenn
+du nicht gerade da am Basteln bist, mit der Maus im Browser bist.
+Ach so, wobei, du hast nicht unrecht, wenn man Pfeiltaste drückt, benutzt man ja eh meistens
+die rechte Hand.
+Ja, hast recht.
+Hast recht.
+Da muss man nicht.
+Ja, du bist wahrscheinlich gar nicht so schlecht.
+Ja.
+Hey, das ist gut.
+Chat.
+High IQ Chat wieder hier.
+Massive.
+Massive Brain.
+Das finde ich gar nicht schlecht.
+Guck mal.
+Man würde jetzt einfach sagen.
+Control Windows rechts und dann drücke ich einfach Control G und bin wieder in der VM.
+Das ist cool.
+Das finde ich.
+Okay, da muss ich mich dran gewöhnen.
+Das ist gut.
+Das ist praktischer als zwischen Pfeiltaste und Maus hin und her zu greifen.
+Desktop.
+Bester Desktop.
+Very clean.
+Das wollte ich jetzt noch gerade sagen zu dem Thema vorher.
+Control G.
+Control G.
+Für die.
+Für die.
+Ach ja.
+Was anderes.
+Ich hatte mal ein Makro für die Maus, dass der erkannt hat, wenn du in Vmware bist, dass
+dann, dass ich, ich konnte mit der Maustaste umschalten.
+Ich hatte mir ein Makro gebaut in dieser Logitech Software, wenn er erkannt hat, dass ich in
+Vmware bin, konnte ich Maustaste drücken, also die Seitentasten und konnte zwischen
+Desktops hin und her schicken.
+Weil Maus Makros gehen ja von der Maus aus.
+Low Level.
+Die kann Windows und Vmware nicht abfangen.
+Und da hatte ich dann quasi in eine Maus Makro eingebaut, dass es für mich schon Control
+Alt drückt und den Switch macht.
+Aber.
+Ja.
+Benutze ich nicht mehr.
+Ist auch egal.
+Jetzt müssen wir mal hier langsam ein bisschen Pepo fett api.
+Also wir haben einen File Server, der statisches HTML ausliefern kann.
+So und so registriert man sich Get Funktionen.
+Oder.
+Wie würde ich denn daraus jetzt ein Post machen?
+Was ist denn, wenn ich jetzt sage, ich will ein Post machen?
+Ist das dann auch da drin?
+Da drin?
+Ach, das ist beides registriert für Post und Get.
+Ja gut.
+Ach so, man registriert das hier nicht mit Get, sondern man müsste, müsste dann quasi
+selbst die Abfrage machen, ob es Get oder Post ist.
+Also sprich, selbst wenn ich so was abgedrehtes mache wie Delete oder oder.
+Hatch oder so.
+Dann ist es okay.
+Ah, da müsste ich die.
+Das ist.
+Das ist erst mal ein bisschen gewöhnungsbedürftig, aber.
+Gibt Schlimmeres.
+Warum kann ich hier eigentlich ein Händler angeben?
+Für was ist denn der Händler hier gut?
+Gibt es irgendwie Hilfe, wenn man das auf Händler?
+Weiß du nicht, was es?
+Gibt es da irgendwie eine Hilfe?
+Was?
+Was ist?
+Ist das so Default Händler für alles?
+Oder.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Oder so.
+Nee, dann weiß ich dich.
+Oder ist das, wenn ich irgendwie eine Routing, den Library oder so registrieren will?
+Ja, ja.
+Okay, dann vielleicht.
+Also, wenn ich selbst händeln will, wohin was geht, bevor es in die Funktion reingeht.
+Wir haben einen attack Server für ihn erst had 30 selbst gebaut.
+So ein ganz, ganz minimalistischen, der nur geht, konnte und und.
+Nichts, nicht viel.
+Ok.
+Okay, also jetzt lass mal überlegen, Leute.
+Big Brain Time.
+Also das ist ja schon mal Blödsinn, was da steht.
+Das brauchen wir nicht.
+Also statische Sachen ausliefern, alles gut.
+www-Root ist unser Index drin.
+So, also wir brauchen wahrscheinlich einen Endpunkt.
+Und jetzt müssen wir erstmal uns gucken, wie man eine SQLite-Datenbank macht.
+Also wir brauchen einen Endpunkt und der heißt einfach nur Food.
+Random Food.
+So, und da gibt es dann eine JSON-Response.
+Wie macht man eine JSON-Response?
+Okay, jetzt wird es, jetzt wird es advanceder.
+Also, Writer, Write, Byte.
+Moment.
+FNT?
+Wait a minute, was machen die da überhaupt?
+F-Print.
+Ah, das ist quasi was, um in Streams oder so reinzuschreiben anscheinend.
+Vermute ich mal.
+Okay, also.
+Jace, wie macht man?
+Ich muss mir jetzt im Tutorial angucken.
+Golang, JSON.
+Wie funktioniert das?
+Okay, da habt ihr recht.
+Den Header können wir schon mal setzen.
+Header.
+Dann was?
+Write.
+Nee, Set.
+Set, ah ja, okay.
+Content-Type.
+Muss man?
+Ist das eigentlich Pflicht, dass man das groß und klein schreibt?
+Oder geht das auch so?
+Da müssen wir mal in den Standard gucken.
+Application JSON.
+So.
+Ach so, ich habe ja noch nicht neu gestartet.
+Starten wir mal neu.
+Gucken wir mal, ob der den Header ordentlich setzt.
+Ich gebe dir Header, Alter.
+Lahn.
+So.
+One-on-one Rust.
+Quickscope only.
+Was?
+Not found?
+Ach, Food heißt es jetzt ja.
+Ähm.
+Header.
+Application JSON.
+Okay, passt.
+Das ist richtig so.
+Alles gut.
+Okay.
+Ähm, Content-Type.
+So, JSON, wie geht das?
+Golang JSON.
+Complete Guide to JSON in Golang with Examples.
+Alles klar.
+Wow.
+Das ist ja...
+Fivehead.
+Sowas wie Dynamic gibt es da nicht, hä?
+Decoding JSON into structs.
+Nested Objects.
+Primitive Types.
+Maps.
+Boah, nee, das will ich nicht machen.
+Das ist eklig.
+Das will ich tatsächlich nicht machen, nee.
+Ähm.
+Nee, nee.
+Also, das heißt, von der Idee her brauche ich jetzt einen Typ,
+der so aussieht wie das, was ich zurückliefern will.
+Also, sowas hier, oder?
+Also, sprich, ich bräuchte dann sowas hier.
+Type.
+Nicht Food.
+Äh, String.
+Name.
+Äh, Description.
+Ja, ist okay.
+Okay.
+Description.
+Ähm.
+Image.
+Äh, Image, Image URL.
+So.
+So in der Richtung, würde ich sagen.
+So, und...
+Und wie kriege ich...
+Punkt...
+Nee, nee.
+Ma...
+Was?
+Marschall?
+Hier, so.
+Was?
+JSON?
+Bird Type?
+Okay, das werden wir mal ausprobieren.
+Mal ausprobieren.
+Also, ich lege jetzt erstmal eine Food an.
+So.
+Ein Food, was nicht geht.
+Unused Variable.
+Ja, ich weiß, ich hab's ja nur nirgendswo eingesetzt.
+Ähm, also machen wir mal was.
+Testen.
+Name.
+Keckel.
+Description.
+Null W.
+Größer.
+Keg W.
+Image URL.
+Ist, äh,
+blub.png.
+Ist vollkommen wurscht.
+Muss da abschließend das Komma hin?
+Aha.
+So.
+Äh...
+Hippophat?
+Äh...
+Nee, Moment.
+Mann, das, das mach ich mal.
+Gucken wir mal, gucken wir mal, ob ich das jetzt...
+Nein, nein, mal gucken wir mal, ob ich das jetzt auf die Reihe krieg.
+Also...
+JSON, wahrscheinlich?
+Decoder?
+Encoder?
+Was?
+Nee, das, das ist falsch.
+Das ist falsch.
+Marschall?
+Moment, es ist ja auch...
+Äh, und wie geht das jetzt?
+Data.
+Data?
+So, das hier ist der Fehlercode.
+Geh ich mal von aus.
+Wenn ich mich richtig entsinne...
+Also, das hier ist der Error, der mich nicht interessiert, weil ich einfach von ausgehen lasse, dass es funktioniert.
+So, und wie krieg ich jetzt den Data, das Data zurück?
+Aha, anscheinend, anscheinend so.
+F-M-T-F-Brindef...
+Ähm...
+Kann ich, kann ich da einfach jetzt so?
+Nee.
+Moment, nee, nee.
+Das, das, das muss doch...
+Das muss doch anders gehen.
+Das muss doch irgendwie gehen mit W-Write oder sowas.
+So.
+Ah.
+Das geht?
+Woher weiß ich, dass das geht?
+Ich hab einfach geraten.
+Ah, Bytes.
+Okay.
+Alles klar.
+Easy.
+Easy.
+So, jetzt nur noch mal hoffen, dass das jetzt auch funktioniert.
+Hey, funktioniert.
+Guck mal.
+0W größer Keck W Image Url.
+Okay, das ist tatsächlich relativ nett zu benutzen.
+Das ist jetzt doch, ist doch ganz okay.
+Gibt's nix, wo ich mich jetzt, also bis jetzt nix, wo ich mich beschweren könnte.
+Was hat er hier für Schmerzen?
+Unhandled Error.
+Handle Error.
+Äh.
+Wie unused variable.
+Das ist...
+Was returnt denn das Ding überhaupt?
+Ach, wie viel er geschrieben hatte.
+Das ist mir egal.
+Kann man das auch ignoren?
+Kann ich das auch ignoren, indem ich irgendwie sowas mache oder so?
+Nee, oder?
+Go, ignore, return.
+Ach, man muss jedes Element doppelt angeben, oder was?
+Also quasi...
+Was ist denn jetzt der Unterschied?
+Was ist denn jetzt da der Unterschied?
+Also das hier...
+Nee.
+Aber sowas hier geht nicht, oder?
+Einfach alles ignorieren.
+Naja, anscheinend.
+Aber das sieht schon ziemlich kacke aus, oder?
+Müsst ihr zugeben.
+Also ist das hier normal?
+Also macht man das in Go so?
+Also ist das so?
+Sieht man das häufig in Go-Code?
+Wenn du alles ignorieren willst, stimmt.
+Da kann ich es einfach weglassen, oder?
+Da sagt er mir halt hier unhandled Error.
+Aber solange der beim Kompilieren nicht rummeckert, ist ja alles okay.
+Wie soll ich auf diesen Error reagieren, Leute?
+Meine Reaktion auf diesen Error war, ich breche den Request ab.
+Was wahrscheinlich aber auch bei einem Error vorkommt.
+Also mir fällt nicht ein, wie ich auf diesen Error sinnvoll reagieren sollte.
+Okay, aber ich muss sagen, so vom Handling her, so bis jetzt ist das doch alles ganz...
+Ach ja, wie macht man überhaupt die Schreibweise in Go?
+Schreibt man den Kram überhaupt so an Feldern von Structs?
+Oder schreibt man Image-Url?
+Wie schreibt man das jetzt eigentlich?
+So?
+Also hier...
+Also kein Kebab-Case und kein Snake-Case und sonst was.
+Sondern im Prinzip so Pascal-Case, wie das...
+...sich auch mag.
+Image-URL?
+Das wäre Convention.
+Ja.
+Warum?
+Warum ist das Convention?
+Also warum URL alles groß?
+Ach so.
+Ja, wenn ihr das sagt, dann machen wir das so.
+Ja, ach so, übrigens, was mit Kebab-Case gemeint ist, ist so, dass wir die Leute das in JavaScript machen irgendwie so.
+Also ich...
+Data...
+Data...
+Cute Chat.
+So.
+Das wäre...
+Das wäre Kebab-Case.
+Warum ist das Kebab-Case?
+Weil das so ein Spieß ist.
+Weil das bisschen aussieht wie so ein Döner.
+So ein Dönerspieß.
+Hehehehe.
+Ich hab mir das nicht ausgedacht.
+Okay.
+Also so funktioniert das jetzt.
+Jetzt wissen wir schon mal Bescheid.
+So würden wir ein...
+Äh...
+Objekt da serialisieren.
+Gut.
+Jetzt, damit wir überhaupt ein bisschen Frontend-Zeug machen können, müssen wir irgendwie eine SQLite-Datenbank...
+...datenbank...
+...füllen...
+...mit...
+...Food.
+Und dazu habe ich schon mal was im Vorfeld gesucht.
+Aber bevor ich euch das zeige...
+Was verwendet man in Go als Fake-Daten-Generator?
+Ich habe vorhin hier mal gesucht.
+Da gibt es ja auch wieder...
+...tausend solcher Listen.
+Und diese Liste hat nur 84.000 Sterne.
+Und da habe ich mal nach Faker gesucht und habe festgestellt, die Faker-Libraries, die Faker heißen, sind nicht so gut.
+Die in Go sind doof, aber es gibt eine gute Library, die Fake-It oder so hieß, und die macht einen ganz guten Eindruck.
+Was verwendet ihr zum Fake-Daten generieren?
+Go Fake-It, okay.
+Also das, das dann taugt das.
+Also ich verwende bei .NET meistens das.
+Das ist ziemlich pog.
+Okay, Go Fake-It ist das Beste.
+Das ist schön, dass ihr das auch so seht, weil Go Fake-It hat...
+...das ist für mich sehr praktisch...
+...Dinner...
+...Dinner...
+...Food.
+Ah, mit NN, ja.
+Dinner.
+Da kann man sich random Essen generieren lassen.
+Was natürlich für unsere random Food-Seite sinnvoll ist.
+Tja.
+Und jetzt stehe ich auf dem Schlauch, Leute.
+Wie kriege ich das hinzugefügt zu meinem Projekt?
+Nicht verraten.
+Ich komme da selbst drauf.
+Ach so, einfach import.
+Kackel, okay, das ist ja easy.
+Was zum...
+Ah, Moment.
+Sync dependency of pepo fatter.
+Was ist das jetzt?
+Okay, das scheint funktioniert zu haben.
+Gut, okay.
+Alles klar.
+Okay, also...
+Faker?
+Gab es nicht mal einen LOL-Spieler, der so hieß?
+So, Name.
+Food.
+Mein...
+Minecraft-Food?
+Ja gut, warum nicht, ja.
+Ach so, nee, einfach Dinner.
+Okay.
+Also, füllen wir es mal neu aus.
+Garlic Herb... Was?
+Garlic Herb Roasted Red Skin Potatoes.
+Alles klar, nächstes.
+TGI Friday's Mudslide?
+Was auch immer das ist.
+Spinach Salad with Feta Cheese.
+Asian Broccoli Sal...
+Broccoli, Alter.
+Hoisin?
+Hoisin?
+Ah, das ist irgendwas Chinesisches, oder?
+Hoisin Marinated Wing Pieces.
+Chicken Wings, quasi.
+Sweet and Sour Pork Balls.
+Alles klar, okay.
+Random Essen Generator funktioniert schon.
+Was kann der denn sonst noch alles generieren?
+Hier, warte mal.
+Dinner.
+Was hat der denn sonst noch generiert?
+Snack.
+Dessert.
+Food.
+Und was macht der denn sonst noch alles?
+Minecraft Food.
+Ich generiere mal kurz Minecraft Food.
+Ich will wissen, was da...
+Ich will einfach nur wissen, was der da generiert.
+Was kommt denn da raus?
+Golden Carrot.
+Honey Bottle.
+Sweetberry, okay.
+Das ist anscheinend das, was es in Minecraft gibt für Pepo Fett.
+Okay, Description.
+Gibt es sowas wie Lorem...
+Ja, beste, ja.
+Lorem Ipsum.
+Word Count 20.
+Wir brauchen irgendwas auf der Webseite zum Anzeigen.
+Okay, wunderbar.
+Perfekt.
+Also, wir haben Crock Pot Caramelized Onion Pot Roast.
+Und das ist dann die Beschreibung.
+Das ist die Imageurl.
+Okay, das passt eigentlich ganz gut.
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Bevor ich das mit dem Bild mache...
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Bevor ich das mit dem Bild mache...
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Bevor ich das mit dem Bild mache...
+Nee, Moment.
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Wie mache ich das jetzt mit dem Bild?
+Nee, Moment.
+Bevor ich das mit dem Bild mache...
+Wie kriege ich das jetzt...
+Wie kriege ich das alles in der SQLite-Datenbank?
+Okay, also wie hieß das Ding?
+Gorm.
+Was der Chat vorhin erzählt hat.
+Gorm.
+Fantastic ORM Library for Golang.
+Okay, ich mag das, dass die sich selbst schon mal geil finden.
+Das ist schon mal gut.
+Examples.
+SQLite.
+SQLite.
+Connecting to Database.
+Gorm is Pains Champ.
+Okay, was ist besser?
+Oder warum?
+Ich habe da keine Ahnung von.
+Äh.
+SQLite.
+Okay, also.
+Gorm IO Driver SQLite.
+Ach hier.
+Ach hier.
+Ach hier.
+Okay.
+Raw SQL.
+Nee.
+Wir brauchen das.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Nee.
+Kackel, Alter, wer hat schon Errors?
+Ähm
+OpenSQL Lite, also
+Gut, DB
+Error, richtig bloated, ja
+Kann ich jetzt
+Okay, ich mach mal irgendein Query
+Was es ja nicht gibt
+Ne, okay, da geht's schon los
+Sekunde, wie frag ich da jetzt was ab draus?
+Weil sowas wie DB-Kontext
+Ist wahrscheinlich nicht, ne
+Find
+Ah ja, find
+First
+Okay, find, aber ich hab keine Ahnung
+Wie ich find verwende
+Find und User
+Und User?
+Der hat doch User hier nirgendwo angelegt, oder?
+Äh, was ist denn
+User in dem Fall?
+Oder ist User der Typ?
+Also müsste ich jetzt quasi sowas hier sagen
+Ähm
+Also quasi
+Gut? Ne
+Ich hab keine Ahnung, wie das funktioniert
+Find
+Gut?
+Was soll denn das jetzt sein?
+Legt der jetzt ein leeres
+Tract an, oder wie?
+Aber, okay, das check ich nicht
+Ne, das Ergebnis
+Kommt doch hier als
+Ähm, irgendwie
+Result, oder?
+Ach so, der schreibt das
+Da rein
+Ach so, okay, das ist
+Irgendwie umständlich
+Das ist doch bestimmt nur, weil Go keine Generics konnte
+Bis jetzt, oder?
+Also sprich, ich müsste jetzt quasi
+Äh, sowas hier anlegen
+Result
+Gleich
+Gut?
+Sowas hier?
+Ach, und da schreibt er das jetzt rein
+Okay, verstehe
+Ich hab in meiner SQLite-Datenbank nichts drinnen stehen
+Aber, soweit, ja, okay
+Wie? Connection refused?
+Äh, warum ist die?
+Warum?
+Hätte ich irgendwas kaputt gemacht, oder so großartig?
+Wait a minute
+Der hat einfach so lange gebraucht, jetzt die Datenbank zu erstellen, oder was?
+Hat der gerade wirklich irgendwie
+Zehn Sekunden meine Datenbank erstellt?
+Ja, anscheinend
+Wie groß ist denn die jetzt?
+Die müsste ja leer sein
+Null
+Okay, alles klar, ich glaube, ich hab's verstanden
+Das heißt
+So, das heißt, wir füllen jetzt erstmal
+Die Datenbank mit random
+Food
+Zumindest mal zum
+Zum Beispiel, ich glaube, ich habe es verstanden
+Zum Ausprobieren, gut
+Das heißt, ich kommentiere mal diesen ganzen Krempel hier unten aus
+Ähm, tja
+Ich weiß jetzt nicht
+Der Shortcut da drinnen für auskommentieren
+Comment, jawohl, wunderbar
+Also, ähm, okay
+Vorschleife
+Oh, go, Vorschleife
+PyFed, Range
+Ne, Moment, wie ging das nochmal?
+Vor, X
+Ne, Range
+Oh, je
+Ich hab keine Ahnung, wie das funktioniert
+1 zu 5
+Ne
+Ah ja, X gleich, Range
+Range, okay
+Range
+Und jetzt so?
+Ne, okay, Go, For Loop, da muss ich nachgucken
+Keine Ahnung, 5 Basic
+5 Basic Go Pattern
+Ach, man kann auch eine stinknormale Schleife machen
+While Loop
+Moment, eine While Loop, die mit Vor anfängt
+Krasse While Loop
+Range
+Ich weiß nicht, was das ist
+Ich will einfach eine Schleife haben
+Die von 1 bis 100 läuft
+Das heißt
+Ich mache einfach sowas hier, oder?
+Also, ich mache doch einfach sowas
+Also irgendwie
+100 Gerichte
+So, und jetzt sage ich
+DB, Create
+So, und jetzt muss ich wahrscheinlich
+Ich vermute mal
+By the way, kann mir irgendjemand schlüssig erklären
+Warum man auch mit VAR Variablen anlegen kann
+In Go?
+Ich kann jetzt ja auch sowas machen
+Wie Food gleich
+Food
+food ja das funktioniert ja auch aber ich habe keine ahnung warum ist das überhaupt also warum
+geht das so was würde niemand schreiben denke ich mir aber warum gibt es das was das ist wenn
+man nicht selber initialisieren will also ist in das hier quasi war es ohne dass ich davor
+geschrieben habe oder stimmt wie würde man eigentlich die fall values geben geht das
+überhaupt kann man die fall values geben wieso so nee oder ghost truck die fall value what das
+ist ein konstrukteur oder sowas so eine art konstrukteur ist das ok naja dann dann halt
+keine default ja aber jetzt mal dumm dumme frage wenn das keine default values gibt auf was steht
+das denn hier denn ist es dann ein null point
+oder auf was steht es muss eben wenn ich das truck anlegen kann ohne zu initialisieren ist
+auf irgendwas muss es ja stehen in c ist es relativ einfach es ist an die feind es ist
+irgendwas was da halt mal vorher stand auf den default value des types naja das heißt jeder
+type muss ein default value haben so ok jetzt kriegen wir 100 100 fuß leute ich muss mal ganz
+schnell was zu trinken holt spielt gleich wieder hier
+auch nicht doch doch jetzt also weiter open das also wir haben jetzt so würde man 100 100 100
+random foods anlegen wobei da ja nichts drin steht das heißt hier müsste ich jetzt eigentlich das da
+machen ok alles klar verstehe verstehe gibt es nicht irgendwie eine gut moment da gibt es auch
+free free api
+free api wir suchen jetzt einfach eine api mit mit food bildern achtung moment du musst db auto
+migrate benutzen damit er eine tabelle für den typ erstellt das stand hier irgendwo drinnen das habe
+ich eben gerade gesehen migrate hier aaaah sqlite muss ich das ja muss ich anscheinend ok also sprich gut aber dieses wir legen in leere
+strakt dann oder so ist schon ein bisschen pepega also so muss man das machen okay eros eros werden
+natürlich prinzipiell prinzipiell ignored bei mir so aber gut kann er ruhig kann er ruhig anzeigen also
+so blub also gibt es gibt es eine food image api oder sowas bacon mock up was nicht alles gibt random pictures of god
+random pictures of god
+random pictures of god
+random pictures of god
+random pictures of god
+also wir brauchen etwas ohne ohne authentifizierung
+random pictures of coffee
+klar
+u-dish
+rand random picture of dishes das ist genau so was brauche ich moment das gibt's aber gar nicht ja doch sowas so was so was top random random food random
+ne
+warte da sind nur 572 drinnen
+ok
+Okay, was haben wir sonst noch?
+Wir können auch mal nach
+Meal oder Dinner oder so suchen.
+Gibt keine Projektbeschreibung
+heute. Ich übe ein bisschen
+Go und wir machen eine Webseite,
+die random Essen anzeigt.
+Die Webseite heißt Treffen Pepo
+Fetter. So, was haben wir sonst noch hier?
+Fruit?
+Supermarkt Data.
+Food Products
+Database.
+Das ist die gesamte Datenbank
+oder was?
+Es gibt es auch als
+XML. Ja, da habe ich ja drauf gewartet.
+Taco Fancy.
+Ski Hunter.
+Nee, gibt es was mit Meal vielleicht?
+Meal DB. Das klingt ja schon mal
+nicht verkehrt. Meal DB.
+Ich brauche
+eigentlich nur Bilder von Essen, sonst nichts.
+Random. Hier.
+Look up a single random
+Meal. Moment, es gibt sogar
+ein YouTube Video,
+wie das zubereitet wird.
+Image.
+Ja.
+Das ist doch ganz
+okay.
+Wir ziehen uns einfach von dort
+ein Image. Da können wir auch gleich lernen,
+wie man
+gleich lernen, wie man HTTP Request
+macht. Und dann müssen wir...
+Okay, jetzt ist natürlich die Frage.
+Machen wir es schön oder machen wir es
+einfach? Also sprich, speichern
+wir die Bilder in der SQLite Datenbank
+oder speichern wir die Bilder im
+Filesystem und schreiben in die SQLite Datenbank
+bloß ein
+Name rein?
+Ich würde sagen,
+wir schreiben bloß den Name in die SQLite
+Datenbank rein, um es gut ist.
+Oder Chat, was sagt ihr?
+Ich speichere
+nur den Fad, ja. Okay, also
+wir haben jetzt einen Random Generator
+für Essen, Namen und
+irgendwie Random Text.
+Okay, jetzt ist
+die große Preisfrage.
+Wie mache ich ein
+Get Request
+in Go?
+Also wahrscheinlich HTTP?
+Nee, HTTP
+Get? Wie einfach, so?
+Das wäre aber ganz schön easy.
+Result, so?
+Wäre das, ist das, nee.
+Ist das, ist das alles?
+Jetzt machen wir FMT,
+Brindeln,
+Result.
+Nee, nee, das wäre zu einfach.
+Ach so, Error.
+Lul, Error.
+Tackle, Alter, wer
+interessiert Errors?
+Access Control.
+Was, was?
+Wait a minute.
+Ach nee, das sind die Header. Ich brauche sowas wie
+Body oder sowas. Ach, guck mal
+hier, Body. Gut, okay.
+Ja, ja, vielleicht verstehe ich.
+Äh,
+Function oder?
+Ähm,
+Read?
+Okay, da muss ich jetzt mal, da muss ich googeln.
+Das war ich nicht. Go HTTP Get.
+So.
+HTTP Get.
+Get.
+Response.
+HTTP Response.
+Was?
+I, oh, Read All.
+Okay.
+Da wäre ich im Leben nicht drauf gekommen.
+Das,
+das hätte ich
+nicht gecheckt.
+Okay, dann nenne ich es Resp.
+Äh,
+Error.
+Warte mal, wo kommt denn jetzt der Body her?
+Ah, nee, das legt er ja hier an.
+Der meckert, dass ich es nicht verwende.
+So, kann ich, kann ich es jetzt ausgeben?
+What the f...
+Moment.
+Äh, I, oh, Read String?
+Oder so, vielleicht?
+Okay, nee, nee, so einfach ist es nicht.
+Ähm,
+was, einfach casten oder was?
+Woher weiß ich, wann ich was
+casten muss und wann nicht?
+Huh.
+Das ist, ich weiß nicht,
+das ist irgendwie erst das...
+noch nicht so, weiß ich nicht,
+noch nicht so klar irgendwie im Handling.
+Gibt es, gibt es, warum gibt es denn kein Read,
+Read String oder sowas?
+Ich meine, das ist doch was, was man 99%
+der, der, der Zeit verwenden will.
+Okay, also,
+ich habe noch eine andere Idee. Also, sprich,
+wir müssten das jetzt ja
+deserialisieren, das
+Jason, was da zurückkommt.
+So, ähm,
+in welchem Format
+kommt denn das Jason da
+zurück? Random?
+Ist er nur mit Casten los?
+Ja, das frage ich mich auch.
+Von dem habe ich ewig nichts mehr gehört.
+Also, ich meine, ich kenne das, das Video, ja.
+Aber ich frage mich, was der Master Crabber
+so treibt. Moment, man kriegt
+ein Array zurück mit nur einem Element.
+Das ist ja schon mal Hardcore-Pepega.
+Wie? Okay.
+Okay, also, das heißt, ich bräuchte
+jetzt noch einen neuen Type.
+Ähm, das nenne ich dann mal irgendwie,
+keine Ahnung, Meal-AP
+Response
+oder so. So, und das Ding
+hat eine Image.
+Ich, strr, Meal-Sump.
+Ja, das.
+Strr, Meal-Sump-String.
+So, und das heißt, ich kann
+das lesen dann
+mit...
+Okay, Moment. Ja, Moment. Jetzt, jetzt
+muss ich mal gucken. Wie würde man das jetzt
+korrekt machen? Man sagt jetzt
+Jason, äh,
+D, nee, nee.
+Was ist das Gegenteil
+von Marshal? End, End-Marshal?
+An, An,
+An-Marshal? An-Marshal.
+Okay, alles klar. Okay, Body,
+so, und
+dann zu...
+Das muss ich mir, das muss ich mir in dem, in der
+Anleitung nochmal angucken, wie das, wie das funktioniert
+hat.
+Wir hatten doch hier irgendwie so einen
+Decoding, was...
+Und my stored variable, also
+quasi,
+äh, Meal,
+also quasi sowas hier, oder was?
+Nur mal, nur mal testweise.
+So?
+Ah, ja.
+Moment, und hier will er aber nicht Body
+haben, sondern
+er will, äh, nee, er will was,
+was will er denn haben?
+Byte Array.
+Also quasi
+das da jetzt.
+Sehe ich das richtig? Ja?
+Ist das so? Nee. Ach so!
+Ah ja, das gibt ja noch
+einen Error-Code zu... Boah, das ist ja, äh,
+das ist ja eklig.
+Also sprich, müsste ich
+irgendwie... Okay, das muss man auf jeden Fall eine eigene
+Funktion machen, das ist, das ist zu, zu viel
+auf einmal. Gut, Body,
+Lose kann ich mir wahrscheinlich sparen.
+Read All kann ich mir auch sparen.
+Ja, aber das ist doch insofern,
+ist das doch komplett in Ordnung, wäre das doch
+komplett in Ordnung. Also, also
+sag ich mir hier, keine Ahnung, Bytes,
+so, jetzt, jetzt ist so...
+Was ist denn jetzt schon
+wieder das Problem?
+Ach so, weil ich den Error-Code
+vergessen hab, okay.
+Okay, ich glaub mit Go werde ich nicht so richtig
+warm. So, ähm,
+Calculus, aber mit nem Und,
+was, was macht er denn,
+wenn ich das ohne Und mache? Das probieren wir
+jetzt mal aus. So, Unmarschel,
+links.
+Und hier steht jetzt das Result drinnen, oder
+wie?
+Also hier kann ich mir jetzt quasi ausgeben lassen.
+Okay, das funktioniert nicht.
+Also machen wir es mit nem Und.
+Das funktioniert nicht. Okay.
+Warum?
+Kennst du dich mit Java gut aus? Nein.
+Irgendjemand im Clore richtet dir,
+warum das jetzt nicht funktioniert?
+Äh, also ich
+hab keine Ahnung.
+Ah, das gibt nen Array zurück, du hast
+Recht. Du hast Recht,
+das gibt nen Array zurück. Also
+eigentlich will ich...
+Boah, das ist ja eklig.
+Das heißt, eigentlich will ich sowas
+haben wie...
+Äh, irgendwie sowas.
+Irgendwie so.
+Ähm,
+und jetzt nen Array.
+Okay, Fifehead.
+Array-Syntax.
+Moment, du wolltest nicht verraten, Chat.
+Meal.
+Meal.
+Meal-RP-Item.
+So.
+Result.
+Nee.
+Ach du Scheiße, Mann.
+Wie ist die richtige Syntax?
+Type from Jason. Sehr gute Idee.
+Sehr gute Idee.
+Ähm, das ist tatsächlich ne gute Idee.
+Das machen wir.
+Pass mal auf.
+Pass mal auf.
+Bam.
+Generate. Go type from Jason. Yes.
+Easy.
+Easy.
+Easy as fuck.
+E-e-e-easy.
+Aber das will ich ja alles gar nicht haben.
+Type T-Struct.
+Moment, was zum...
+Was macht der da alles?
+Moment, wo ist mein Image? Das will ich ja alles gar nicht.
+Ich will einfach nur
+das Image, das Thumbnail haben.
+Warum ist das... Ah, hier, den Rest brauche ich ja gar nicht.
+Okay, das ist
+jetzt für mich zu high IQ.
+Wie?
+Was macht das Ding da überhaupt?
+Was ist das, was ich hier sehe?
+Type T-Struct.
+Meals, Dings.
+Ist das irgendwie so
+nested, nested
+Typ-Definition
+oder sowas?
+Aber richtig lost, ja.
+Oder ist das irgendwie
+generic oder was ist...
+Was ist das?
+Was sagt uns das T an der Stelle?
+T ist quasi
+so der Root-Type oder
+MonkaS, Alter.
+Also so müsste ich das... Ne.
+Achso, das habe ich schon mal.
+Alles klar.
+Ob das jetzt funktioniert?
+Ob das tut? Ich habe da so
+meine Zweifel, okay.
+Also, null.
+Ne. Ach ne, Moment, nicht so.
+Hier, Meals, null.
+So, jetzt bin ich mal
+gespannt, ob das klappt, ey.
+Hey!
+Easy! Okay, wenn man weiß,
+wie es geht, dann ist das durchaus
+brauchbar.
+Das ist okay, das ist okay.
+Okay, also, Fetch.
+Fetch.
+Ach ja, Go schreibt, weil es so
+oder, oder, oder
+so.
+Wie macht man Functions?
+Fetch, ähm...
+Images.
+Wunderbar.
+So, okay.
+Okay, dann kopieren wir das hier mal rein.
+So, das da.
+Wie macht man
+Return-Werte?
+Das ist wahrscheinlich nicht in Rust, also ist es
+wahrscheinlich, ist es nicht,
+ist es nicht sowas, sondern es ist einfach nur wahrscheinlich so.
+Okay.
+Eigentlich einfach nur so.
+Error-Handling-Keckel.
+Braucht man nicht.
+Okay, ähm, also.
+Hat das, hat das Auto-Vorschläge
+für Variablen? Ne.
+Naja, eigentlich müssen wir das
+API respon...ja, tja, tja.
+Wie nennt man das jetzt eigentlich?
+Äh, wie, wie könnte man das nennen?
+Jetzt aufpassen.
+So, ähm...
+API respon...ja, Response haben wir ja
+schon hier, deswegen passt das irgendwie nicht.
+So ist, ist in Ordnung.
+Kann man mit...So.
+Kann man das jetzt noch irgendwie schöner schreiben?
+Also sprich, braucht man, braucht
+man diese Dinger? Braucht man diese
+drei? Oder gibt es irgendwie
+ne Abkürzung in, in
+was weiß ich, so, so in...
+in dieser Form
+oder so? Ne, wahrscheinlich
+nicht. Ja, das ist echt
+größter Struggle, wie man das benennt.
+Moment, hier würde man aber var api root mit, was? Also nur, dass ich das jetzt richtig verstehe, das war mir im Vorfeld auch schon klar. Also es gibt gleich, es gibt Doppelpunkt gleich und es gibt var.
+Doppelpunkt gleich ist, Variable anlegen und gleich was reinschreiben, gleich ist, wenn es die Variable schon gibt, was reinschreiben und var ist, alles mit 0 initialisiert anlegen.
+Warum braucht man da drei verschiedene Sachen für? Warum nicht immer so? Ich meine, warum gibt es, was ist eigentlich die Daseinsberechtigung davon? Warum nicht einfach sowas?
+Das könnte man direkt lesen. Das geht doch bestimmt auch, oder? Ja, das geht doch genauso.
+Kürzer, naja, aber das ist doch, also wenn man doch sowas einführt, aber nachdem das auch geht, na, da kann man sich jetzt aber echt drüber streiten.
+Na, aber okay, mein Go stellt es, einetwegen. So, ich glaube, das können wir eigentlich alles untereinander schreiben.
+Alles klar, so, jetzt kriegen wir hier die Adresse für das Bild.
+Das ist drin, weil es sonst keine Streitpunkte gäbe. Ja, das muss man sagen, gewisserweise hat es ja schon was Wahres, was Wahres dran, an dem, was du sagst.
+Ich meine, die haben standardmäßig drinne, wie der Text formatiert wird. Die haben standardmäßig drinne, wie die Einrückung sein muss.
+Die haben standardmäßig drinne, in welcher Reihenfolge die Imports sein müssen und sowas. Das ist schon recht einheitlich. Das hat auch seine Vorteile, ja.
+Okay, so, und jetzt müssen wir den Kram speichern. Wir brauchen mal ein Bild.
+Wir brauchen Ordner für Bilder.
+Images. Moment, aber nicht, aber nicht dort, sondern unterhalb von www.root.
+Images. Okay, und jetzt muss ich das downloaden.
+Also sprich, das hier, also sprich, okay, okay, okay.
+Das heißt, wir machen nochmal, wir sagen nochmal get.
+Allerdings jetzt getten wir das da.
+Ne, Moment, schwarze, schwarze. Das da getten wir.
+Das getten wir.
+Ähm, massive get, ja.
+Das müssen wir, jetzt müssen wir den Kram wirklich anders nennen.
+Denn ap-resp, ähm, dann ist das hier, keine Ahnung, image-resp.
+Punktgleich.
+So, und jetzt, okay, jetzt kommt der nächste.
+Jetzt sehe ich, wie würde ich das in einem File speichern?
+Also, ich würde mal vermuten, man macht io read.
+Read, body, und dann macht man sowas wie File.
+Ne, File, fs, fs, File, klingt gut.
+Ne, aber es könnte ja durchaus ein read, read, string geben.
+fs, File, ne, fs, File, File, read.
+Okay, äh, golang fs, File.
+Wollen wir was anderes machen.
+Golang, write, File.
+Writing, Files.
+OS, write, File.
+Okay, der Chat sagt, io, util, write, File, oder OS, File.
+Warum gibt es da zwei verschiedene Varianten?
+Io, ne, io, util.
+Warum gibt das, write.
+Ach, das kümmert sich auch ums Closen, okay.
+Write, File.
+Okay, also heißt im Endeffekt, ähm, ich will nach Punkt, slash, www.
+Gut, ähm, Images, ähm, so, und jetzt braucht, jetzt braucht das Image irgendein, irgendeine
+Guid, oder so.
+Golang, Guid.
+Was haben wir denn da?
+Gibt's da, gibt's da irgendwas Eingebautes?
+Io, Tills ist nicht so gerne gesehen.
+Weil?
+Warum nicht?
+Warum ist es nicht gerne gesehen?
+Macht doch einen sinnvollen Eindruck.
+Aber, wobei, random reicht ja auch.
+Random.
+Wobei, ja.
+Äh, S of Go, okay, Moment.
+S of Go 1.16, okay, das ist noch nicht so alt.
+Same functionality is now provided by package IO or package OS.
+Ähm, okay.
+Also, also, OS, write, File, oder wie?
+IO, write, File?
+Naja, gut.
+Macht ja, macht ja keinen...
+Wirklichen Unterschied.
+Da nehmen wir halt, nehmen wir halt OS, OS, write, File, ist auch okay.
+Ähm, nochmal, nochmal, was für was anderes?
+Wie sah hier nochmal die Response von aus?
+Neil, API.
+Das ist doch schon Unique hintendran, oder?
+Da müssen wir...
+Ach, doch, doch, wir machen das.
+Äh, generate, guid, go.
+Muss mal kurz Klimaanlage anmachen.
+Viel zu warm hier.
+Was haben wir denn?
+Kenn ich nicht.
+Aber 27 Grad, oder so.
+Okay.
+Google, guid.
+Ups, was jetzt?
+Sync.
+Nicht sort, Alter.
+Sync.
+Sync.
+ID, new.
+Ja, okay, alles klar.
+So, ich hoffe, dass er passt irgendwie, ist irgendwie sinnig, was wir jetzt hier machen.
+Äh, ID.
+So, und jetzt sagen wir OS, OS, und wie war das?
+Write, File, okay.
+Also, das heißt, wir brauchen sowas hier.
+Und, äh, wie, wie, wie sind Template Strings in, in, äh, Go?
+Gibt's da sowas?
+Sowas in der Richtung?
+Gibt's da, gibt's da sowas?
+Golang Template Strings.
+Was?
+Nee, oder das, nee, Moment, das, das muss irgendwie einfacher, einfacher gehen.
+Ja, sowas, genau.
+Ah, Moment, Moment, nur, dass ich das jetzt richtig verstehe.
+String Formatierung ist in Go.
+Noch schlimmer als in C++?
+Kann ja gar nicht sein.
+Es kann eigentlich nix schlimmer sein als in C++.
+Gut, in C++ ist es auch nur nicht so schlimm, weil die sich das von Python abgeguckt haben.
+Muss man das wirklich so machen?
+Ich mein, ich, ich, ich könnte doch bestimmt auch so machen, oder?
+Ach, das geht auch nicht?
+Und was will er, was will er sonst noch haben?
+Data.
+Äh, ich bin, ich bin verwirrt.
+Sekunde.
+Warte mal, Image, Image, Image Response.
+Ja, das ist, das ist doof, dass man das nicht inline schreiben kann.
+Jetzt müsste ich, jetzt bräuchte ich zweimal Bytes.
+Ja, jetzt bräuchte ich zweimal, müsste ich, jetzt bräuchte ich zweimal so und einmal so.
+Das ist doch bestimmt verpönt in Go, oder?
+Sowas doppelt zu benutzen an Variablen.
+Ist das jetzt ein String?
+Nee, String.
+So.
+Okay.
+So, Bytes.
+Und was will er jetzt?
+Was hat er jetzt noch für Schmerzen?
+Permission File Mode.
+Was will er, was will er denn da haben?
+Ähm, Unix Permissions oder so.
+Also irgendwie sowas, was ich, 6.0.0 oder, oder so.
+Schau mal her, zeig mal her.
+Also, ja super.
+Ah, Example.
+Alles klar, okay.
+Alles klar, ja, dann, ja, sollen wir recht sein.
+Ganz ehrlich, das reicht mir so.
+Okay.
+Okay.
+Das ist aber Müll.
+Wie das formatiert ist.
+Also, wie müsste man das jetzt richtig formulieren?
+S, Print, F.
+Nee.
+S, nee, F, M, T, S, Print, F.
+Format String.
+Okay.
+Prozent S.
+Hoffentlich macht das richtig.
+So?
+Chat, ergibt das Sinn?
+Passt das so?
+Ist das richtig?
+Okay.
+Okay.
+Also.
+So, ich hab das schon geredet.
+Okay.
+Und jetzt gibt es den Pfad.
+Nee, Moment.
+Ich muss das tatsächlich außerhalb, außerhalb machen.
+Äh, Pass.
+So.
+Okay, alles gut.
+Und dann gehen wir den Pfad zurück, weil den müssen wir in die Datenbank schreiben,
+dass wir wissen, was Sache ist.
+Wo fehlen Klammern?
+Ah, da fehlt eine Klammer.
+Okay, wunderbar.
+So, also, wir lesen Sachen ein.
+Random laden das Buch.
+Also, wir lesen das Buch.
+Okay.
+Also, wir lesen das Buch.
+Also, wir lesen das Buch.
+Also, wir lesen das Buch.
+Also, wir lesen das Buch.
+Also, wir lesen das Buch.
+Also, wir lesen das Buch.
+Also, wir lesen Sachen ein.
+Random laden das Bild runter.
+Speichern das Bild im Images-Folder.
+Wir machen, Leute, wir machen mal nur fünf.
+Das reicht erstmal.
+Okay?
+Ähm, so, db create sparen wir uns auch, sondern machen einfach nur fünf mal, jetzt muss ich
+das da auch auskommentieren, äh, machen wir einfach nur compassionate images, Îff...
+fair.
+Let's take a look.
+Sam missing myinte.
+Eww.
+Let's see.
+brindeln moment warum gibt es print klein und und fmt printlein okay so
+jetzt sollten wir fünf images bekommen wenn das funktioniert was ich da gemacht
+habe vier images es geht leute das funktioniert einfach da guckt vier
+images pepo pepo fett images easy so und jetzt schreiben wir das jetzt schreiben
+wir das in die datenbar jetzt schreiben wir das in die datenbank also patch
+images wobei patch image ist eigentlich falsch ist das patch image muss das
+heißen so patch image uuid patch image so image url ist jetzt so wieso fakest du denn die
+daten eigentlich weil ich zuerst gefakt habe
+bevor ich die daten gefaket habe
+bevor ich die api abgefragt habe ich habe die api es später gefunden für die
+bilder aber ich will das ja auch nicht eins zu eins aus der api übernehmen und
+familie datenbank schreiben oder so wann wozu ich will da gar nicht so viel den
+da jetzt request schicken sonst muss ich am ende noch ein api holen und ab dabei
+so wir kriegen jetzt eine datenbank mit mit vier bildern mit vier mit vier
+einträgen schaut euch mal die datenbank mit vier bildern mit vier einträgen
+schauen wir mal ob das ob das muss ich noch safe oder sowas machen
+gorm muss man das muss man noch speichern create muss ich noch was machen die db safe
+einfach nur safe was safe oder speicherte das oder speicherte das von
+alleine wenn ich da nicht safe safe callen
+ok probieren wir mal kriegen wir jetzt eine datenbank alles klar schauen wir mal sqlite
+Browser FoodDB
+Äh
+Warum genau hat er da so viele Einträge
+Achso weil ich es vorher schon ein paar mal
+Hab laufen lassen
+Und da unten sind die neue
+4 neue PepoFat Food Einträge
+Okay
+Das ist nicht in Memory
+Man könnte in Memory
+Machen
+Aber ne wir machen nicht in Memory
+Weil dann wird bei jedem Start
+Wir machen das nicht in Memory
+Da wird bei jedem Start diese Food API abgefragt
+Und dann brauche ich irgendwann noch ein API Key
+Ne ne wir
+Wir löschen die Datenbank mal
+Und
+Lassen da jetzt 100
+100 Sachen anlegen
+Und fertig und gut ist
+Ich überlege gerade noch
+Ist das sinnvoll
+Was ist denn das beste Format zum zurückgeben
+An irgendeine Web API
+Ohne Punkt davor
+Eigentlich einfach nur so
+So
+Und das sollte der ja auch checken
+Wenn wir hier
+Sind
+Okay also
+Go run
+Machen wir mal ne Anzeige wie weit wir sind
+100
+Lieber den Leading Slash
+Okay wenn ich den Leading Slash hier mach
+Dann muss ich auf jeden Fall
+Noch ein Punkt hier davor machen
+Weil ansonsten
+Schreibt er das nach Slash
+Was es nicht gibt bei mir
+Ist jetzt zwar ein bisschen eklig
+Zu lesen aber okay
+Alles klar
+X Fatal
+Dankeschön für den Sub
+Also run
+Wir machen nochmal kurz
+FMT Brindeln
+I
+Dass wir wissen
+Okay ich muss gerade an diese Formatsyntax
+Geben
+Creating Food Item
+Und jetzt Prozent
+Okay lass mich raten
+Prozent D wie in C
+Oder ist es Prozent I
+Okay
+Das ist wahrscheinlich Prozent I
+Kackel
+Was ist denn Prozent V
+Ne Prozent V ist doch bestimmt irgendein Blödsinn Chat
+Ihr jebaitet mich
+FMT Print F
+V ist Value
+Ach ich mach das ja auch hier falsch
+Es ist ja auch Print F
+Okay Print Feln gibt es nicht
+Verstehe kein Print Feln
+So
+Ok
+Dann sehen wir uns dann beim 1.
+Dann sehen wir uns dann beim 2.
+Dasss.....
+K��ck thick
+gut ich bin aber weg fällt mir gerade ein sei ich total hängen geblieben
+so muss das sein also das da das da muss eigentlich davor ansonsten also klappt
+das nicht gibt es was die path combine
+go pass combine ich darf das hier nicht ich darf das hier nicht nicht passen
+wenn ich es etwas passt oder sondern das kann ich
+join path join ist es das dann nämlich viel besser in dem fall ist es wurscht
+aber so viel besser
+so f
+wie
+images muss ich auch noch mal alle löschen sich toll alle weg please 103
+files flog return fs path alles klar es ist nicht wirklich etwas passt das ist
+total bescheuert rail pass ne db pass
+mit spaß egal
+mit spaß egal
+mit spaß�� Haus
+und die ja echt da weil das war doch ein pair
+przypannige
+das bist du hast die Duncan
+lustig
+nochmal
+guck mal
+zig
+point
+ank
+thanked
+es ist 0
+land
+Massive
+100 Food Items
+Spicy Chicken Soup
+With Hint of Lemon Cress
+And Coconut Milk
+Und dann sinnloser Random Text
+Ja, die erhöhen den Preis
+Aber ich hab zum Glück
+Relativ lange Laufzeit noch
+Aber ja, es wird teurer
+Leider
+Gut, also Function Fetch Image, das funktioniert soweit
+Passt, gut, also Chat, wir haben ne Datenbank
+Und jetzt brauche ich
+Irgendeinen Command Line Switch
+Gibt es sowas wie Arcs oder sowas?
+Ne?
+Ich möchte das hier nicht jedes Mal bei jedem Start machen
+Ich möchte das eigentlich nur machen
+Wenn ich einen speziellen Command Line Switch angegeben hab
+So Minus Minus Seed oder sowas
+Golang Arcs
+Command Line Arguments
+Command Line Flags
+What?
+Das ist mir zu High IQ
+Flag String, Word for String
+Also im Prinzip
+Eigentlich nur sowas hier, oder?
+Also quasi
+Seed
+Default Value ist das hier wahrscheinlich
+False
+Usage
+Was weiß ich
+Seed, Data
+Database and Image Directory
+Sowas
+Ähm
+Pointer
+Is Seed Mode
+Ähm, okay
+If
+Und dann machen wir diesen Kram nämlich nur
+Ähm, okay, dann machen wir diesen Kram nämlich nur
+Okay, das funktioniert nicht
+Was?
+Das ist ein Pointer?
+Warum ist das ein Pointer?
+Blackpool, ja, also ein paar
+Du musst nicht so krass backseaten
+Ich muss mir das erstmal selbst überlegen
+Und wenn ich da nicht draufkomme, dann frage ich schon
+Ist Seed
+Warum ist das ein Pointer?
+Warum ist das
+Wo ist der Sinn davon, dass das ein Pointer ist?
+Achso, das ist ja ein Objekt
+Wo noch mehrere Sachen drinstehen
+Aber trotzdem
+Warum ist das ein Pointer?
+Warum ist das ein Pointer?
+Okay, das passt
+Ich hätte eher gesagt, dass man irgendwie sagen muss
+Is Seed Mode
+Warum KS, Alter?
+Nee, Objekte hat das nicht
+Ich hinterfrag das jetzt einfach mal gar nicht
+Ich nehm das einfach so zur Kenntnis
+Dass das so funktioniert
+Weil
+Wenn ich das jetzt ausführe
+Dann macht er nichts
+Genau
+So, und wenn ich das Seeden will
+Dann würde ich jetzt nämlich
+Alles löschen, nochmal
+Also sprich
+Wir sagen
+Wir sagen OS Remove
+OS Remove All
+www.root.com
+Slash Images
+Removed er dann den Verzeih
+Removed er das Verzeichnis
+Oder nur
+Das was drin ist
+Der macht das ganze Verzeichnis wahrscheinlich weg
+Also muss ich sagen
+Create
+Muss ich dann wahrscheinlich nochmal sagen
+Also muss ich sagen
+Moment
+Create Directory
+Nee
+Directory
+Hm
+MKDier
+Okay
+Das könnte ja sein, dass ich das alles mal wegschmeißen will
+Remove
+Haben wir noch
+Punkt Slash Food Punkt DB
+Soll ich halt tunlichst nicht im falschen Verzeichnis ausführen
+Das Ding, ne
+So, als würde er wahrscheinlich alles wegschmeißen
+An Bildern
+Wird die Datenbank löschen
+Wird die Datenbank neu anlegen
+Ja, das sollte funktionieren
+Das ist aber auch okay
+Das passt
+Jetzt haben wir eine Datenbank mit ganz viel
+Mit ganz viel Food drinne
+Jetzt können wir uns mal der Web-Anwendung wieder widmen
+Also wir haben eine Datenbank
+Achso, hier muss ich dann vielleicht so wie Return
+oder so
+So
+Alles klar
+So, hier kriegen wir unser statisches
+Unser statisches Zeugs
+Die Bilder
+Und
+Hier kriegen wir ein Random Food aus der Datenbank
+Das heißt im Endeffekt
+Hier muss ich jetzt einmal aus der Datenbank random was auslesen
+Wie lese ich random am besten aus der Datenbank was aus
+Hm
+Random
+Also ich lese quasi
+Ich gucke wie viel Einträge sind
+Achso, wie sieht denn das eigentlich aus?
+Haben die denn ordentlich durchnummeriert?
+Einen ordentlich durchnummerierten Primary Key?
+Ne
+Ach Scheiße
+Ne doch, da
+Haben sie
+Die haben eine ID
+Ich hoffe das ist eine ID
+Ist das eine ID?
+Oder ist das
+Ne, das ist einfach nur die Einträge, gell?
+Äh
+Und wie sieht das aus?
+Ich habe nicht wirklich Ahnung von Datenbank
+Aber was
+Einmal eine Primary Key brauchst du doch
+Was davon ist denn jetzt der Primary Key?
+Name?
+Oh, das ist eine gute Idee, Sarex
+Du hast Recht
+Ja, das machen wir besser so
+Du hast, du hast Recht
+Kurze mal
+Ne, Moment
+Du hast Recht
+Aber das braucht eh irgendwas
+Muss doch der Primary Key sein, oder?
+Machen wir das hier oben hin
+Jetzt sagen wir DB
+Kann ich eine Datenbank droppen, nachdem ich sie geopend habe?
+Ja, ich muss sie ja erst openen
+Openen, dass ich sie droppen kann
+Also würde ich dann quasi sagen
+DB
+Äh, nicht DP
+DP, DB Drop
+Ne, was sagst du?
+Migrator
+Drop
+Table
+Und Food
+Ok, das ist Five Head-ig
+Das ist, das ist Massive Five Head
+Gorm Model
+Ah
+Ah, das ist gut, das ist gut zu wissen
+Dann will ich das haben
+Dann, dann will ich das haben
+Das heißt, das brauchen wir hier gar nicht
+Dann will ich das haben
+Also sprich, ich müsste das jetzt quasi
+Äh, erben oder was
+Also sprich, Gorm
+Ne
+Ok
+Jetzt wird's advanced
+Gorm Model
+Es hat eine Row ID
+Das würde, das würde auch
+Moment
+Gorm ID
+Created at
+Aber sowas denn? Gorm?
+Ne
+Wie, wie, wie erbt man was in, in, in Go?
+Geht das überhaupt?
+Oder was heißt erben oder
+Sagen, dass er das als Interface
+Also oder besser gesagt
+Das Interface implementieren davon
+Ok
+Golang Implement Interface
+Gorm Models
+Type User Struct
+Moment
+Äh
+Also ich hau das einfach nur hier rein?
+Und dann macht er das alles für mich oder wie?
+Ok
+Da muss ich mich jetzt dran gewöhnen
+Das ist wirklich mal komplett anders
+Wie sagen wir in C Sharp oder so
+Weil in .NET wäre das relativ easy gewesen
+Da hätte ich hier irgendwie sowas gemacht
+Wie Doppelpunkt was weiß ich
+Base Model
+Und dann hätte ich Ctrl Alt gedrückt
+Hätte gesagt Implement Interface
+Oder Implement Missing
+Oder, oder, oder I Base Model
+Oder was auch immer
+Ok
+Verstehe
+Alles klar
+Das ist nicht schlecht
+Das ist nice
+Gut zu wissen
+Da können wir auch gleich checken
+Comment
+Können wir auch gleich checken
+Ob unsere Seed Function ordentlich funktioniert
+Also nochmal kurz durchgehen
+Ob das sinnvoll ist
+Also ich entferne erstmal alle Images
+Aus wwwroot Images
+Und dann lege ich das Verzeichnis neu an
+Dann droppe ich die Table
+Dann lege ich das alles neu an
+Und dann ok
+Also sprich
+Minus Minus
+Wahrscheinlich muss man so machen
+Minus Minus Seed
+Nope
+Äh
+Ok
+Äh
+Warum erkennt er meine Parameter nicht
+Pool Flag
+Reicht
+Ja aber das müsste beides funktionieren oder
+Ja
+Ähm
+Hm
+Dann sind wir
+Wir sind mal so frei
+Und machen fmt
+Prindeln
+Is Seed Mode
+Was er dann sagt
+Ach Moment Moment
+Pulse
+Trudge Systems
+Danke für den
+Für den
+Ok warte mal
+Golang
+Flags
+Bool
+Bool
+Flags
+Bool
+Pass
+Hab ich auch
+Ah gucke mal da
+Black Pass
+Also
+Einfach so
+Aha
+Ah ja ja gut
+Ok ok
+Alles klar
+Muss man wissen
+Ergibt
+Ergibt irgendwo auch Sinn
+Wenn mans weiß
+Seed
+Creating Food Item
+Guck mal
+Er hat die alten Items gelöscht
+Und legt jetzt die neuen Items an
+Hoffe ich
+Dass er das macht
+Hoffe ich
+Dass er das macht
+Äh
+Images ist leer
+Wie genau kann Images leer sein
+Äh
+Das wär
+Ich glaub nicht
+Dass ich im RP Rate Limit bin
+Ich mein
+Wir können ja mal hier
+Ein bisschen
+Ein bisschen Debug Ausgabe machen
+Äh
+Warte
+Stimmt nicht beim Schreiben
+Ja aber warum
+Vorhin hat er auch gestimmt
+WWW Root Images
+Ich will das jetzt nicht noch
+Ich will das jetzt nicht noch
+Noch öfters ausführen
+Weil sonst lande ich wirklich im
+Es ist eigentlich komplett richtig
+Was der macht
+Chat warum macht der denn
+So komische Dinger
+Es ist nicht da
+Soll ich mal das da weglassen
+Wobei das ja eigentlich
+Nichts damit zu tun haben
+Weil das kommt ja später
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+Der
+das denn? Okay, vorher hatte
+ich es ja so stehen.
+Es war zwar nicht schön, aber
+hat funktioniert.
+What the fuck?
+Vielleicht was
+unter Bild?
+Ist doch egal. Also, ich
+vermute tatsächlich jetzt auch, vielleicht haben wir echt
+API Rate Limit oder so.
+Also,
+wo haben wir denn die JSON Response?
+Hier.
+API Route. Also,
+das hier scheint ja zu,
+machen wir das mal rückgängig,
+das hier scheint, wir müssen jetzt wirklich
+debuggen, glaube ich.
+Äh.
+Was zum?
+Hä? Ich hatte das doch
+vorhin so. Ach, der springt
+dann gleich eins runter. Okay, das ist pepega.
+Also,
+wir setzen mal, wie setzt man
+hier Breakpoints? So.
+Okay, also wir gucken mal rein
+an der Stelle.
+Was? Add Configuration?
+Was hat er jetzt für
+Schmerzen?
+Excellent, alles klar. Go
+Build? Einfach so?
+Ja.
+Ach so, äh,
+ja, der geht ja da gar nicht rein.
+Moment. Ähm.
+Ja, not. Auch okay.
+Okay, so, jetzt ist
+Debugger-Time angesagt.
+Also, was ist denn hier jetzt was?
+UUID
+ist, alles klar,
+das funktioniert.
+Bytes? Funktioniert.
+Auch.
+Das funktioniert.
+Ja, das, da ist, das, der macht
+da wirklich was. Der müsste das
+anlegen. Und er schreibt auch was.
+Sag mal, Leute, bin ich im falschen
+Verzeichnis einfach nur?
+Nee. Jetzt blicke ich aber echt
+nicht mehr durch. Warum, wo ist denn
+jetzt das Problem? UUID?
+Passt auch?
+Ich meine, das hier ist ja das Wichtige. Da sind Bytes,
+was drinnen steht.
+Ja, also, der hat den, der hat den, das ist, das ist, das ist
+dieses Image, Image Data.
+Ja.
+Das hat wohl funktioniert an der Stelle.
+Moment. Hä? Das muss doch
+was ganz Offensichtliches sein, dass ich
+ins falsche Verzeichnis schreibe, oder
+so.
+Bin ich jetzt total hängen geblieben, oder was ist denn hier
+los? OS-Write-Files.
+Okay.
+Wir machen das mal anders.
+Home, Max,
+wo sind wir denn
+hier? Wir machen das, wir machen
+das ja so, dass er das gar nicht falsch schreiben kann.
+So, Home, Max,
+P, Profet, www,
+gut, Slash,
+so, und dann
+Images, Images,
+und dann das Image hinten dran.
+So, Run.
+Ups.
+What the fuck?
+Wo ist das?
+Was zum?
+Wie geht das in Go?
+So, nee.
+So, was?
+Doppel Slash? Wo ist Doppel Slash?
+Was?
+Nee, deswegen benutze ich ja Pass Join, dass er das,
+dass er das wegmacht.
+Das sollte Pass Join ja schon checken, dass es doppelt ist.
+So, also, fmt, brindeln,
+Error, falls wir ein Error haben.
+Geht das so?
+Macht man das so? Weiß nicht.
+Open.
+Ah, ich weiß, woran es liegt.
+Ich weiß, woran es liegt.
+Guckt mal, ich kann es euch sagen.
+Weil es 600er,
+und das ist klar, 600er Permissions
+ist ja auch für einen Ordner falsch.
+Falsch, Ordner müssen 700er Permission haben.
+Sonst funktioniert es nicht.
+nicht. Wo lege ich den Ordner
+nochmal an?
+Hier, hier, MKD.
+Da, 700 muss das sein.
+Ordner brauchen immer
+Execute-Rechte. Ohne Execute-Rechte
+kannst du in Ordner nicht rein.
+Da wäre ich ja nie drauf gekommen jetzt, äh.
+Peckel,
+Alter, da ist es. Okay, passt.
+Meine Güte, äh.
+Das war jetzt, das war jetzt
+schwere Geburt.
+So, jetzt kann man Error wieder
+ignoren, alles gut. Error, Error,
+Error hat sein Ziel erfüllt.
+Ja, ist so. Du musst,
+äh, du musst,
+ja genau, funktioniert. Guckt.
+Ja. Du musst,
+ähm, 70, äh, du musst
+Execute machen auf der, also, der
+User oder die Gruppe braucht
+Execute-Rechte, dass man in Ordner rein
+kann. Ja, Error-Check
+wieder weg. Okay,
+das war jetzt wirklich schwer,
+schwere Geburt. Wir können
+übrigens noch was machen. Guck mal, man könnte,
+man,
+man kann sich lieber da wieder aus.
+Wie machen wir das? Guck mal, wir machen nicht
+Bool, wir machen ein
+Int. Default-Value
+ist
+100.
+So, und, und,
+äh, was ist denn das jetzt?
+Muss ich jetzt sowas hier machen, wie ist, äh,
+wait a minute, ähm,
+wenn das
+jetzt ein optionales Flag
+ist,
+wobei, nee, ein Flag, ein Flag
+kann doch gar kein Int sein, oder?
+Sonst,
+das ist ja kein Flag.
+Golang-Flags-Int,
+geht das? Geht tatsächlich.
+Flag-Int.
+Aber wie lese ich denn jetzt
+aus, ob das überhaupt gesetzt ist?
+Das meine ich ja, das ist kein Flag,
+das ist dann eher so eine Option, quasi.
+Naja, das, das, das meine ich
+dem. Also, eigentlich müsste ich da zwei Sachen
+draus machen. Nö, du hast
+nicht so, doch, du hast verpasst, dass wir
+jetzt die, die Datenbanken und
+Datenbank gefüllt haben und Bilder drin haben.
+Naja, weil jetzt ist Default-Value
+100, aber ich will ja nur,
+ich will, ich will es ja angeben können
+oder nicht.
+Äh, Golang-Int-Flag-
+Optional.
+Ob,
+Optional.
+Oder muss ich quasi dann sowas machen,
+wie Minus, Minus 1 und dann
+checken, und dann checken, ob es,
+ob es, ob es nicht Minus
+1 ist? Aber ich will
+es ja haben, also sprich, wenn ich es
+angebe, wenn ich das angebe,
+dann will ich ja, dass es Default 100 ist.
+Weißt du was? Ich bleib, ich, ich bleib bei
+Bool fertig aus.
+Äh, die erste Sprache, äh, ich
+hab relativ, also
+ich hab mal vor Ur-Ur-Uhr-Zeiten
+mal C ein bisschen gemacht, aber da hab ich nichts
+mit anfangen können. Das war aber, ist ja auch
+keine gute Einsteiger-Sprache.
+Und dann hab ich irgendwann mal mit .NET angefangen,
+2002 oder sowas.
+Einfach, weil ich irgendwie,
+weil's mich interessiert hat. Und
+mich interessiert's bis heute noch, mir neue Sachen
+anzugucken, sonst würd ich mir jetzt nicht irgendwelche Go-Sachen
+geben.
+Okay, also, wir, wir, wir füllen
+jetzt die Datenbank mal.
+Okay, Stack Overflow sagt Flag Command Line
+Lookup Actuals...
+What? Okay, das ist,
+das ist hochgradig kryptisch.
+Also was?
+Flag Command Line
+Lookup...
+Ja, aber Stack Over, wenn es Stack Overflow
+schreibt, dann muss es richtig sein. Stack Overflow
+liegt nie falsch,
+genauso wenig wie der Twitch Chat.
+Flag Visit?
+Moment.
+Das ist noch was anderes.
+Was zum? Das, das ist, das ist...
+Das, das hier find ich tatsächlich
+die schönere Variante, was, was er schreibt.
+Also.
+Okay, dann machen, dann probieren wir's nochmal.
+Ist, ist Seed Mode, oder ist, ist ja blöd.
+Ja, Seed Mode, äh,
+Int, Default Value
+ist 100, und jetzt
+will ich checken, if,
+also quasi das
+da, if,
+ah, kommt da rein, okay, alles gut.
+Nachdem ich returne, kann ich
+den Rest sparen. Äh,
+Lookup,
+so, so,
+so wahrscheinlich, ja.
+So, und dann ist hier,
+ah, nee, erst mal
+die, die, die Referenzen.
+Wir machen mal zwei, ob das funktioniert.
+Zwei.
+Jetzt mal ne doofe Frage.
+Warum muss ich
+denn da jetzt überhaupt was angeben,
+wenn ich doch in Default Value gesetzt hab?
+Ich wollte
+es eigentlich so machen, dass ich, dass ich
+wieder so angeben kann, er macht 100, oder
+ich geb so an, und er macht, das muss ich mit
+zwei Flags machen wahrscheinlich.
+Guck mal, er sagt, er sagt,
+Default 2,
+aber,
+wenn ich nix angebe, mag er's
+nicht? Die Logik versteh
+ich nicht, was der Sinn von Default ist an
+der Stelle. Da kann ich nämlich
+einfach bei Bool bleiben.
+Aber es funktioniert, prinzipiell, schau mal.
+Da, ich, ich mach das rückgängig.
+Komm hier, weg damit.
+Nicht so lange mit dem Krempel hier aufhalten, so passt.
+Also, äh,
+alles klar. So, jetzt
+legen wir erst mal wieder die Datenbank an und machen
+jetzt mal mit der, mit der, der Web-Anwendung weiter.
+Sqlite Explorer
+gleich anschmeißen, gucken, ob das alles
+passt. Gucken wir mal.
+So, also, wenn
+jetzt hier in der, in der Datenbank alles drin
+steht, ach
+ja, guckte mal, jetzt ist der ganze Krempel drin.
+Die ID ist drinne,
+Created At ist drinne,
+Deleted Flag ist drinne, was
+bescheuert ist, was wir gerade gar nicht brauchen.
+Ähm, Name
+vom Essen ist drinne, Description vom Essen
+ist drinne und ein
+Link zum Bild ist drinne.
+Jetzt ist alles gut, wunderbar, so muss
+das sein. Sehr schön.
+Gut, dann können wir uns das jetzt
+ja sparen, können wir den Kram wieder ausführen
+und gucken, ob es passt.
+Okay, so, jetzt kommen wir mal
+zur Web-Anwendung weiter im Text,
+nämlich das, was ich eigentlich machen wollte.
+Ähm,
+ankommend?
+Das ist eine gute Frage. Ich, ich gehe mal
+davon aus, das da würde nicht funktionieren,
+weil, ähm,
+das, das ist ja meistens
+die Kurzvariante, also sprich,
+so oder halt, äh,
+also das Minus S wäre
+eine Kurzvariante. Ich glaube,
+das müsste man wahrscheinlich hier noch
+definieren bei dem,
+weiß nicht, ob der
+auch die Kurzschreibweise definieren
+kann. Wie kann
+man sich eigentlich die Hilfe anzeigen lassen?
+Hiervon jetzt, äh, String.
+Backseating Chat.
+Wie macht man hiervon jetzt die Kurzvariante?
+Das hier ist Minus Minus Seat
+und wie würde ich jetzt definieren, dass das
+Minus S ist, die Kurzvariante?
+Wahrscheinlich einfach zweimal Flex.
+Wahrscheinlich müsste ich dann beides anlegen.
+Naja, gut.
+Okay, jetzt müssen wir aus der Daten, jetzt müssen wir random
+aus der Datenbank was auslesen.
+Irgendjemand hat gesagt,
+SQLite kein random.
+Random Order.
+Aber,
+ich glaube nicht, dass wir das
+Ich mein,
+an sich ist die Idee ziemlich cool. Da können wir auch gleich
+mal gucken, wie wir ein raw SQL Query
+da drin absetzen können.
+Also, wir
+surfen alle Files
+aus www root
+und haben einen Endpunkt slash food.
+So, und wenn ich slash food
+aufrufe mit curl,
+dann will ich ein random food Eintrag
+aus der Datenbank zurückbekommen.
+Also, data is
+db.
+Und was war das jetzt?
+Find?
+Nee.
+First?
+Ach, first or create
+gibt es da auch. Aha.
+Also sprich, ich könnte abfragen und wenn es
+nicht da ist, auch einfügen.
+Das finde ich ganz praktisch.
+Gibt es sowas wie select?
+Ah, sehr schön. Das ist gut.
+Wo haben wir denn nochmal die
+Gorm, die Gorm Hilfe
+Seite hier? Select.
+Okay, ich brauch mal ein Beispiel.
+Query. Also.
+Take. Take one record. No
+specified order.
+First ID
+1?
+Nee, order by ID so. Last
+first row.
+Hm, ich bin jetzt gerade noch nicht...
+Wie kriege ich da am besten einen random
+Wert raus? Ich meine, ich könnte gucken,
+was ist die letzte ID
+und dann einen random in der...
+Aber schön ist das nicht, oder?
+Okay, hier kann
+man auch die IDs angeben.
+Also, ich könnte
+jetzt theoretisch sowas machen.
+Ich meine, ich weiß ja, dass das 100 sind.
+Aber...
+Wie ist das mit select?
+Es gab ja...
+Es gibt ja hier wohl irgendwie einen select.
+Was macht das?
+Select? Ach nee, das sind die...
+Das sind, wenn ich nur verschiedene
+Felder abfragen will, also...
+Nee, das ist was anderes.
+Also, ich will wahrscheinlich first haben. Ich will
+first. First food.
+Okay,
+wie war das? Ich muss food verwenden,
+wenn ich es nicht initialisiere.
+So, hm?
+Und food.
+So, ID.
+Und jetzt kommt was, wo ich mir nicht ganz sicher
+bin, wie man das am besten machen.
+Random? Moment,
+Faker kann auch einen random int?
+Nee, nee.
+Math, math
+random, oder?
+Random?
+Random?
+Random int.
+Moment, ich will aber doch
+sagen, von bis.
+Going random
+int from to.
+Genau.
+Hä?
+Monka, was?
+No, god, please,
+no! No!
+No! Was ist denn das?
+Das ist jetzt... Das ist jetzt doch nicht
+den hier im Ernst, oder?
+Das ist... Was?
+Es gibt ent...
+Moment, es gibt int?
+Ach so!
+Moment, int ein und...
+Ach so, weil
+es exclusive ist, oder wie?
+Int 31?
+Also, die
+Benahmung könnte man auch ein bisschen verbessern.
+Ich glaube, die wollen uns sagen, weil es
+wahrscheinlich nicht
+inclusive 0 ist, oder so.
+Man muss sein random seeden...
+Nee, müssen muss man
+wahrscheinlich nicht.
+Geht bestimmt auch so.
+Also, int...
+Und das ist jetzt quasi...
+Also, das mag ich nicht.
+Ich meine, warum
+können die das nicht ordentlich benennen?
+Ich meine, n. Warum steht da nicht
+zum Beispiel sowas
+up to n
+inclusive, oder sowas?
+Dass man wenigstens weiß, was damit
+gemeint ist.
+Okay, int first
+und jetzt die id, int.
+Ist das
+inklusive 0?
+Ist das inklusive 100?
+Oder ohne 100?
+Oder...
+Int...
+Returns in int as non negative...
+Okay, also 0 ist dabei.
+Es ist 0 bis 99
+quasi.
+So, das
+geht schon mal nicht 0 bis 99,
+weil...
+Wait a minute.
+Ah, wir machen nur 100, okay.
+0 ist auf jeden Fall
+nicht okay.
+Also müssen wir quasi 99 machen.
+Plus 1.
+Ne? So.
+Dann kommt dann maximal 99
+raus, aber nie 0.
+Das ist wichtig. Das ist das
+allerwichtigste. Das ist bei Go,
+bei Go und bei Rust-Projekten.
+Dann ist es eigentlich weniger wichtig,
+was das Projekt macht, sondern
+es ist wichtig, dass gleich in der ersten Zeile drin
+steht, written in Go, written in Rust.
+Also, und vor allem
+umso abgedrehter und seltener
+die Programmiersprache ist, umso größer
+musst du das hervorheben, dass es written in
+einer speziellen Programmiersprache ist.
+Ja, das ist, wenn ich, was ich
+übergebe,
+minus 0 ist, hier.
+Aber,
+ich will ja sicherstellen, dass es von 1
+bis 99 ist,
+inklusive. Ne,
+muss ich nicht, weil es ist
+exklusive 99.
+Und das heißt, es kann maximal
+98 plus 1, 99
+rauskommen.
+Irgendwann kommt noch,
+Go Runtime, written in Rust.
+Das wird dann alles erfüllen.
+Fantastic.
+Fantastically
+blazing fast.
+Die Rakete
+muss rein. Ganz wichtig.
+Das Raketen
+Emoji.
+Genau.
+Guckt euch mal
+den Streamtitel von heute an,
+dann wisst ihr Bescheid.
+Turbocharged ist auch sehr beliebt, aktuell.
+Turbocharged is your development
+experience, schreiben wir dann rein.
+Turbocharging and blazingly
+fast.
+Ich hab nicht unendlich viel RAM, aber ich hab
+32 GB RAM, was gar nicht so wenig
+ist.
+Batteries included. Ja, das ist gut. Das stand
+ja früher
+sogar bei der Python Standard Library
+dabei. Okay, also, Moment, jetzt mal langsam.
+Ich hab jetzt hier einmal Food
+ausgelesen. Das heißt, von
+der Idee her, wenn ich das jetzt starte,
+nur mal so, dass ich
+jetzt nicht den Faden komplett
+verliere. Wenn ich das starte und ich ruf
+jetzt hier mal ein Food-Item ab,
+sollte ich ein random Food-Item bekommen.
+Das klappt.
+Guckt mal, Leute. Passt mal auf. Wir gucken
+mal, wie performant das ist.
+Gib ihm. Gib ihm.
+Ehrlich gesagt ist hauptsächlich
+das Terminal, das Curl
+braucht mehr als das Go. Guckt's euch mal an.
+Wobei, die coolen Leute verwenden ja
+B-Top mittlerweile. Ja, guck mal.
+Curl und B-Top machen die CPU
+Auslastung. Rest?
+Go? Go langweilt sich.
+Können wir mal H-Top machen.
+Na ja, Go
+langweilt sich. Na ja, okay, geht so.
+Kubernetes
+und nen SQLite
+Cluster.
+Leute.
+Ein SQLite Cluster. Und wenn ihr sagt, Max,
+das ergibt keinen Sinn.
+Doch, das gibt es.
+Nennt sich GitHub.
+Nennt sich so. Das ist ein Aufsatz
+für Clustering von SQLite.
+Und es hat
+10.000 GitHub-Sterne.
+Aber die Idee ist cool. Die Idee ist
+wirklich nice. Man denkt bloß nicht, dass es sowas
+gibt. Geklustertes
+SQLite, ja.
+Pog. Okay, wir können.
+Leute, wir machen jetzt mal richtige Auslastung.
+Richtig, richtig,
+richtig Pog-Auslastung. Machen wir jetzt mal.
+Hey. Nehmen wir mal Hey. Wie ging das?
+Hey 100.
+Localhosts.
+Localhosts.
+Ähm.
+8080.
+Oh, oh, oh, oh.
+What?
+Ah, HTTP
+muss davor.
+SP-Wangebob.
+Wangebob.
+Dankeschön für den Zap, Pog.
+Okay, mal gucken, wie hoch
+die Auslastung jetzt gleich ist.
+100%
+CPU-Last. Aber ich
+meine, es sind auch,
+es sind halt auch 2 Millionen Requests.
+2 Millionen Requests
+sind halt schon ein bisschen was.
+Blazingly fast,
+Leute. Blazingly fast.
+Okay, aber guckt mal.
+Jetzt, wir können das auch
+ein bisschen realistischer machen. Wir können
+auch mal, äh, keine Ahnung. Wir machen 200
+Requests. Oder machen wir mal
+2000 Requests.
+Oder machen wir mal 20.000 Requests.
+Ja.
+Also, wir kriegen, wir kriegen recht
+viel, wir kriegen ordentlich viele Requests
+durch. Guckt mal.
+Ja. Also, hier, guckt mal.
+Wir haben, ähm,
+Summary pro Request.
+Wir kriegen 39.000
+Requests die Sekunde durch.
+Response-Time
+schwankt halt
+ein bisschen. Aber, tja.
+Von außen zu gehen. Aber
+die meisten haben kaum. Ach ja,
+man muss ja Slash-Food hinten dran machen.
+Ich noob. Ist ja gar keine
+Datenbank-Abfrage dabei.
+Ja.
+Okay, ist ein bisschen langsamer gewesen.
+Aber,
+jetzt kriegen wir
+nur 17.000 Requests.
+Stimmt, und es läuft sogar noch im
+Debug-Mode, Leute. Es geht sogar noch
+schneller. Wir müssen einfach sagen
+Go, Run, äh, Go, Run,
+Release-Mode. Wie macht man das?
+Auto-Build.
+Ne, ne, nicht Build.
+Gibt es in Go überhaupt
+sowas? Debug und Release-Builds?
+Gibt es sowas überhaupt?
+Also,
+he doesn't, wirklich not know.
+Es gibt's nicht?
+Okay, also es ist immer, es ist, es ist,
+es ist immer so, okay.
+Also, ich muss nix, ich muss nix machen.
+Debated, ja.
+Also,
+das heißt, wir können uns das hier angucken. Ich clear das
+nochmal, so. Okay,
+also, wir haben, ups.
+You can remove simple
+and debug info, na gut, das brauch ich
+jetzt nicht, das ist beinahe ein bisschen kleiner.
+Also, wir haben 17.000
+Requests die Sekunde.
+Ich würd sagen, das ist
+in Ordnung, zumal wir's
+ja vom gleichen Rechner ausführen.
+Heute nächsten Stream deployen
+wir das auf die Indie-Hetzner-Cloud
+und dann testen wir, wie schnell
+es wirklich ist.
+Okay, weiter, weiter im Text. Also,
+das ist, also ich muss sagen,
+geschwindigkeitstechnisch geht das,
+geht das durchaus in Ordnung, ja,
+17.000 Requests die Sekunde.
+Ich mein, wir machen ja auch nix, wir machen ne Datenbank,
+random, randomized Datenbank
+Abfrage.
+Irgendjemand hat gesagt, ich muss
+mein random seeden.
+Wenn ich den nicht seede, ist es dann immer
+null? Das können wir ja relativ einfach
+ausprobieren, ne. Curl,
+ups, oh, nein, nein,
+so, warte, nochmal stoppen, nochmal starten.
+Curl,
+curl.
+So, wir kriegen als
+erstes ID 24. Nochmal neu starten.
+Wir kriegen ID
+24.
+Wait a minute,
+ich muss wirklich den random generator
+seeden, dass es nicht immer die gleiche
+Reihenfolge ist? Warum macht
+der das denn nicht von sich aus?
+Auf der anderen Seite, eigentlich,
+eigentlich ist das gar nicht so schlecht.
+Ja, alles was explizit
+dasteht, ist keine Magic unter der
+Haube. Das ist, ist okay.
+Lass ich, lass ich mir gefallen.
+Also muss ich, muss ich jetzt hier erstmal
+was machen, wie, ähm,
+Rand
+Seed,
+was war das? Unix?
+Nano? Ne.
+Nano?
+Okay, ich hab vergessen.
+Time, Now,
+Unix, Nano, alles klar.
+Massive Seed,
+Run, ja.
+Jetzt ist es auch richtig random.
+Also es ist vorher auch,
+nein, es ist nie richtig random
+und es war vorher auch nicht richtig,
+richtig random. Und es war vorher
+genauso random wie jetzt, nur dass er jetzt
+immer an einer anderen Stelle startet.
+Oder mit einem anderen
+Seed startet. Okay, wunderbar.
+So, also, wir haben unsere Food-API
+am Start. Schaut euch das mal an.
+Unsere Food-API
+gibt jetzt, wenn man abfragt, immer
+die ID, create that, delete that,
+name, das
+den Basilikum Tomatensalat
+mit einem Bild dazu. Ich wette
+mit euch, das Bild ist definitiv kein
+Basilikum Tomatensalat.
+Ist halt irgendein random Bild,
+ja. Okay, das funktioniert.
+Wunderbar.
+Jetzt müssen wir noch irgendwie mal checken,
+ob wir das auf der Webseite angezeigt kriegen.
+Müssen wir backend-technisch noch irgendwas
+machen? Nö, oder? Passt doch eigentlich.
+Ach ja, doch.
+Ich will das doch eigentlich gar nicht
+ans Frontend
+verteilen alles.
+Von der Lernkurve.
+Naja, dank dem HiIQ
+hat Chat alles in Ordnung.
+Kann ich dem irgendwie sagen, dass er das
+Okay, golang
+jason ignore. Ist das
+random 5? Ja.
+Das haben die damals,
+diesen Gag, haben
+die damals gebracht zum Debian
+random generator. Falls sich
+noch irgendjemand an den kaputten random
+generator erinnert.
+Remove fields from struct hiding.
+Was?
+Jason Doppelpunkt Minus?
+Kann man das so dahinter machen?
+Ne, ne?
+Was?
+Warum muss man?
+Okay, jetzt wird mir die Syntax
+aber ein bisschen abgedreht.
+Backticks Jason
+Doppelpunkt Quotes Minus.
+Also
+jetzt haben sie es
+echt ein bisschen übertrieben.
+So ein bisschen, bisschen übertrieben.
+Ja.
+Aber es funktioniert.
+Es funktioniert. Okay.
+Wir kriegen jetzt wirklich bloß ein Name.
+Was sind Kitten Calls?
+Essen die da irgendwie
+Katzen oder was? Ne.
+Was sind Kitten Calls?
+Deutsch.
+Lachssalat Sandwich.
+Ne.
+Ach, das ist irgendeine Supermarktkette.
+Kann das sein?
+Oder was ist das?
+Kitten Calls?
+Wer ist Kitten Call?
+Das ist Kitten Call?
+Nein.
+Kein Schimmer, wer Kitten Call ist, aber
+Kitten Calls Tender Microwave
+Corn with Husks on.
+Ich lecke tatsächlich Critical Information.
+Max Riss. Da ist er.
+Massive.
+Dankeschön für den Sub.
+Facebook.
+Alles klar.
+So, also jetzt unsere API
+macht jetzt schon mal, was es soll.
+Wir kriegen ein Essen, sinnlosen Text
+und ein Bild. So, jetzt müssen wir mal kurz
+gucken, dass wir das auf unserer Webseite angezeigt haben.
+Leute, ich mache keine Frontend
+Frameworks oder sonst was. Das wird
+eine, das wird die billigste Webseite,
+die ihr je gesehen habt.
+Auch hier im Stream.
+Ähm.
+Four Spaces?
+Eigentlich wollte ich Two Space.
+Ich mache jetzt nicht Visual Studio Code dafür auf.
+Wir machen kein Svelte. Wir machen auch
+kein Vue. Wir machen, ähm,
+gar nichts.
+Hippo Fetter. Wir machen
+Script.
+Ich mache nie.
+Ich mache nie in.
+Befrontend ist tatsächlich Visual Studio Code.
+Das, was ich verwende.
+Fetch. So. Fetch.
+Okay. Fetch.
+Äh.
+Food.
+Await.
+Ach, Moment. Top. Gibt es schon
+Top Level Await?
+Äh. Browser Support.
+Nee, oder? Das kann auch kein
+Browser.
+Noch nicht.
+Ja, Moment. Modules. Modules.
+Das ist ja wieder was anderes.
+Doch, doch, doch.
+Gibt es anscheinend schon.
+Aber nur, nur in Modules.
+Module?
+Nee. Module?
+Oh, wie schon?
+Ich weiß nicht mal, wie man das macht.
+So.
+Ekel, Alter.
+So. Wir brauchen
+kurz noch einen Browser hier. Es wird, es wird langsam
+ganz schön voll. Mal hier neben
+uns blenden. Es wird, es wird langsam unübersichtlich.
+Local Host.
+8080.
+Pepo Fetter. Alles klar.
+Noch eine Debug-Konsole?
+Das brauchen wir nicht mehr.
+Top Level Await.
+Ach, Type.
+Module.
+Okay, das hat funktioniert.
+Äh. Let.
+Response.
+Jason gleich
+Jason
+Await.
+Jetzt habe ich natürlich noch nicht mal Autoreload.
+Leute, cooles Autoreload-Plugin für, für
+äh
+JetBrains-Dinger. Normalerweise mache ich
+das mit, wenn überhaupt, mit dem Visual Studio
+Code Dev Server oder eben mit dem, was im jeweiligen
+Framework eingebaut ist.
+Ah, es läuft. Es läuft. Alles gut.
+Äh. Log.
+Jason.
+Hey. Es funktioniert.
+Guck mal. Wir kriegen unseren Krempel
+in den Browser. Description
+und Images.
+Alles klar.
+Jetzt fällt mir wieder auf, dass ich
+von RAW-JavaScript absolut keinen Plan
+habe. Äh. Wie
+macht man denn jetzt sowas hier richtig?
+Div. Mal ein bisschen, mal ein bisschen
+RAW-JavaScript kann ja auch nichts schaden.
+Hallo? Ich will...
+What the fuck?
+Okay.
+Äh. Div. Jetzt müssen
+wir IDs verwenden, oder?
+Hier. Title.
+Desk.
+Oh je. Jetzt...
+Das wird... Oh je. Das wird was.
+Ähm. Also.
+Wie geht das jetzt? Document.
+Get Element
+by ID.
+Name.
+Äh. Moment. Log.
+Ja, das funktioniert. Alles klar.
+Also.
+Äh. Element.
+So. Und jetzt Text.
+Ne. Inner... Inner
+Text ist es, glaube, ne?
+Inner Text gleich.
+Wesen. Punkt.
+Ähm. Name.
+Okay. Was habe ich falsch gemacht?
+Ach. Es heißt Name.
+Da haben wir es doch.
+Name.
+Kahlua Hot Chocolate. Alles klar.
+So. Inner Text. Dann
+brauchen wir noch, ähm...
+Boah. Alter. Das ist ja eklig.
+Moment. Ich muss es mal kurz anders machen.
+Function. Set Text.
+Element Name.
+Wir basteln uns jetzt
+ein eigenes jQuery.
+Ich bin schlechter.
+Weil ich keine Sachen verwenden will.
+Set Text.
+Name.
+Achso. Äh.
+Ne. Sekunde.
+Ach. Fuck. Moment.
+Ähm.
+Text.
+Jason. Name.
+Okay. Funktioniert.
+Und. Äh.
+Description.
+Description.
+Oh. Ja. Funktioniert.
+Funktioniert. Ja. Ja. Ist. Ist. Ist.
+Ist ja schon mal was.
+Unresolvable Vari...
+Was? Laber nicht rum.
+Ähm. Okay. Und jetzt kommt
+das Wichtigste. Das Image.
+Image.
+Wie mache ich denn überhaupt. Wie mache ich jetzt
+ein Image denn?
+Div.
+MonkaS.
+Äh.
+Image.
+Das muss ich. Muss ich
+selbst erzeugendes Element und
+und und was äh da einfügen.
+Ja.
+Oh. Jetzt wird's. Jetzt wird's. Jetzt wird's.
+Jetzt wird's advanced. Also sprich.
+Ach. Ne. Image. Source. Du hast recht. Stimmt.
+Das kann man ja tatsächlich setzen.
+Image.
+ID. Image.
+Weil man kann natürlich so machen.
+Das könnte man übrigens hier überall so machen.
+By the way.
+Oder auch nicht.
+Dann halt nicht.
+Ist okay.
+Closing Tag is redundant.
+Äh. Wie darf man einfach so Image
+schreiben oder was?
+Ach so. Source is required. Das ist mir doch egal
+ob Source required ist.
+Äh. Ich will
+Document. Get Element
+by I. Oh Gott.
+Raw JavaScript. Alter.
+Image. Source.
+Source gleich Keckel.
+Nur mal gucken ob es jetzt einen Fehler gibt.
+Not found Keckel.
+Schon mal gut. Schon mal gut.
+So. Und jetzt
+Source. Jason.
+opportunckredit.
+strenge Dhp und
+jetzt macht's
+So gibt's
+ein
+strenge
+Solid approved
+so
+, is
+okay,
+also
+also
+übrigens, das ist ein griechischer Salat,
+falls ihr das nicht erkannt habt.
+Und das hier ist, das ist Chocolate
+Coconut Dream Bars, falls
+Also die Bilder, die sind mir bewusst,
+die passen nicht
+dazu, aber darum ging es ja auch nicht.
+So.
+Wollen wir noch so nett sein
+und es ein bisschen CSS stylen?
+Weil das sieht jetzt halt schon
+mega beschissen aus.
+Blazingly fast, Leute. Blazingly
+fast.
+Favicon braucht kein Mensch. Komm, ein bisschen
+stylen können wir es noch.
+Äh.
+Wie stylt man das so? Style?
+Ne. Okay.
+Raw CSS ohne was.
+Style is not allowed here.
+Okay.
+Wo Style in hat?
+Ne.
+Doch.
+OMG.
+Also.
+Name.
+Is.
+Font. Size.
+XXX
+Large.
+Jawoll.
+Guck mal. So sieht Jalapeno
+Pepper Jelly Chicken aus. Okay.
+Das könnte, ohne Mist,
+das könnte noch am ehesten hinkommen von dem,
+was wir bisher hatten. Ich mein, weißt du, ob da
+Jalapenos und Hähnchen vielleicht drin
+sind? Kann doch sein.
+Möglich. Sieht zwar nicht
+so aus, aber
+dass das hier kein German Apple Cake
+ist, das sollte man, glaube ich, erkennen.
+Das ist nicht Sea Lion, das ist
+Go Land.
+So. Okay. Jetzt haben wir schon mal ne Überschrift. Wir brauchen noch
+ne ordentliche Schriftart.
+Ähm.
+Wie macht man ne Default-Schriftart? So?
+Body?
+Font? Family?
+Ja, hier. Areal.
+Beste, Alter.
+Ah, okay. Ja, Roboto
+haben die wenigsten halt installiert.
+Wenn ich das halt...
+Wenn ich halt Roboto schreiben würde,
+dann
+würden das halt nur Leute bekommen, die Roboto
+installiert haben. Ich bleib mal
+bei Areal. Areal haben sie alle.
+So. Als nächstes,
+nächste, nächste, übrigens hier, ist
+Description. Description. Okay,
+sehen wir mal nichts. Wir machen mal XXLarge.
+Und das ist XXLarge.
+Nur, nur XXLarge. Alles klar.
+Okay, das sieht, das sieht mega kacke aus.
+Einfach nur Large.
+Ja.
+Okay. Kann ich mitleben.
+Ähm.
+Margin.
+Bottom.
+2 EM.
+Ähm, bisschen viel.
+Was ist der Unterschied zwischen Rem und M?
+Das eine macht
+eben noch DPI und das andere nicht, oder?
+Relative.
+Okay, das sieht tatsächlich
+ganz brauchbar aus jetzt.
+Ein schönes was anderes, aber
+ist okay. Wir machen das Bild, wir machen
+das Bild noch einen Ticken kleiner.
+Ähm.
+Ähm, Image.
+So.
+Image-Sizen. Okay.
+Das ist mo-, das ist komplett
+mobile-first. Guck mal. Guck mal, wie
+respon-, seht ihr das? Guck mal, wie
+responsive sich das an die, an die
+Bildschirmbreite anpasst. Huge responsiveness.
+Mehr, mehr
+responsive geht ja kaum.
+So, aber wir können noch das Image sagen, wir können
+noch sagen, Breite von dem Bild
+ist, ähm, Screen.
+Nee. Nee, oh, ähm,
+wie ging das? Haarscreen? Nee.
+Nee.
+Screen?
+Oh, hm. Ähm.
+V-, V-Screen?
+Nee. Ah, nee,
+das war Tailwind. 100 View war
+das Richtige. Genau.
+Guck mal jetzt. Jetzt ist es richtig responsive.
+Jetzt, jetzt sized, sized das Image mit.
+Massive, massive Image, Image
+Resize. Guck mal hier.
+Pogge. Hide.
+Hide. Was?
+Hide. Auto. Macht das
+das nicht standardmäßig? Kein Unterschied.
+So, bam.
+Also, massive.
+Hier.
+Nice Food-RP mit Go.
+Oh, hier. Blazingly fast,
+Leute.
+Wollen wir mal gucken, wie schnell ich refreshen kann. Achtung,
+wir, wir testen es mal. Blaze-
+Oh, oh, Mist. Blazingly fast,
+Leute. Massive.
+Huge fast. Also, okay,
+Leute, ich geb zu. Die Webseite ist sicherlich
+nicht die schönste, die es jetzt irgendwie auf der Welt
+gibt. Aber ich finde,
+durchaus ganz
+in Ordnung, ja.
+Wie kriegt man das Bild jetzt in die Mitte?
+Wie kriege
+ich das Bild jetzt aligned in der Mitte
+von der Seite? Normalerweise würde ich
+einfach Flexbox drumherum machen.
+Aber, das dürfte
+tatsächlich relativ easy sein.
+Was? Margin 0? Geht das automatisch?
+Ja. Margin
+0 Auto.
+Der Chat ist high IQ, der weiß sowas.
+Ne, geht nicht. Reicht nicht.
+Bringt, bringt nix.
+Also, ich dachte, wir
+könnten jetzt sowas hier vielleicht
+machen.
+Was? Und jetzt soll ich nochmal probieren.
+Margin
+0 Auto. Wenn der Chat das sagt,
+dann klau... Ne, geht immer noch nicht.
+Ähm,
+ich hätte jetzt gesagt, wir machen jetzt hier sowas.
+Passt mal auf, wir machen jetzt
+Inline-Style.
+Äh, Flex?
+Ne.
+Äh. Geht das überhaupt?
+Ich kenn bloß noch die Tailwind-
+Abkürzungen. Ich weiß
+gar nicht, wie man ordentlich
+normales Flexbox macht.
+Ach, Display Flex.
+Flex. So, und jetzt
+muss ich Items align.
+Flex align? Heißt das so? Ne, ne.
+Align.
+Align Items Center.
+Align Content Center.
+Bin mir gar nicht sicher, ob das...
+Okay, das funktioniert nicht.
+Weil ich zu blöd bin.
+Um normales TSS zu machen.
+Aber so müsste man das eigentlich machen.
+Wenn man jetzt noch die richtigen
+Sachen wüsste, ja.
+Justify Content, ist es?
+Justify
+Content?
+Ah, ja. Yes.
+Excellent. So ist es.
+Genau. So.
+Beste
+Image-Randomizer-Seite
+überhaupt.
+Und ich sag euch, demnächst wird's in die Cloud
+deployed mit Clustered SQLite.
+Für die Cloud-Datenbank.
+Für noch mehr
+performance.
+Also, was haben wir denn gelernt?
+Lasst doch mal gucken. Wir haben gelernt, wie man in Go
+einen
+Webserver macht.
+Da fehlt noch...
+Was fehlt noch?
+Das Favicon fehlt ja, aber ich hab doch gar keins.
+Also du meinst, ich muss einfach noch
+die Rakete auf die Seite machen?
+Du meinst ich soll...
+Okay, okay, okay.
+Es ist gut.
+Es muss sein. Ja, ihr habt recht.
+Gewisse Sachen sollten so
+sein, ja. Wo macht man das hin?
+Hier in Head?
+Favicon? Jetzt sagt er mir wahrscheinlich,
+dass er es nicht laden kann. Ist ja klar.
+Ich will bloß wissen, ob er es nicht laden
+kann. Ja. So.
+Und jetzt...
+Rocket
+Emoji
+Rocket. Ja.
+Welche nehmen wir denn?
+Twitter.
+Twitter Emojis.
+Beste.
+Oder welche Rakete...
+Oh, guck mal. Skype ist sogar animiert.
+Ja, das ist Twitter, was wir im Chat haben, Leute.
+Das ist Twitter. Das ist das da.
+Achtung.
+CD www root
+wget
+mv rocket
+2. Wie hab ich gesagt?
+Na, nicht SVG, alter. PNG.
+Ach so. PNG.
+Zack. Leute.
+Rakete am Start. Also, jetzt...
+Jetzt ist kaum noch zu übertreffen.
+Es ist noch blazingly faster.
+Roasted Brokkoli.
+Okay.
+Wo genau?
+Okay, also, lass mal kurz gucken.
+Was haben wir gelernt?
+Wir haben gelernt, wie man bei Goan einen Webserver macht.
+Also, im Prinzip haben wir alles hier gelernt,
+weil ich keine Ahnung davon hatte.
+So macht man den Goan einen Webserver, registriert
+sich... Jetzt aber Chat noch mal eine andere
+Frage. Was genau ist jetzt der Vorteil davon,
+irgendwelche Frameworks zu verwenden?
+Ähm...
+Also, mal angenommen, ich würde sowas wie Fiber
+oder so verwenden. Was wäre jetzt der Vorteil?
+Dass ich beispielsweise nicht mehr jeden
+einzelnen Schritt wie, wie ähm...
+Wie JSON-Serialize von Hand machen
+muss oder äh...
+Headersetzen von Hand machen muss und sowas.
+Ja, okay.
+Ich verstehe.
+Ja, okay. Ja, alles klar. Verstanden.
+Ja. Leuchtet ein.
+Also, wir haben geguckt, wie man...
+Wie man einen Webserver startet, wie man...
+Ähm...
+Registriert, wie man
+random Zeugs macht,
+wie man JSON
+serialisiert, deserialisiert,
+wie man eine Datenbank mit einem
+ORM-Mapper verwendet,
+ein Header setzt,
+wie man statische Files
+surft, wie man eine Datenbank
+seedet, dass der
+Ordner 7.0.0 Berechtigungen braucht,
+dass es in Go drei verschiedene
+Sachen gibt, Variablen anzulegen,
+wie man JSON ignort, ganz
+ehrlich, also da haben sie echt übertrieben. Das ist...
+Das ist ja mal wirklich absolut reudiges Syntax.
+Da muss ich sagen,
+in .NET hätte man das so gemacht.
+Nur mal so als Beispiel.
+In .NET hätte man sowas gemacht.
+Was ich irgendwie schöner finde.
+Als... als das da.
+Bäh, das ist wirklich eklig.
+Dass man Errors nicht braucht.
+Korrekt. Bloated Errors.
+Das nächste Mal
+dann Kontext für Timeout und
+Cancellation. Ja.
+Wär vielleicht gar nicht so schlecht. Jetzt nicht.
+Es gibt jetzt auch noch grad hier nicht viel, was
+Timeouten kann. Nix längeres,
+aber... So, wie man
+HTTP-Requests macht, haben wir
+gelernt. Wie man Files
+speichert in Go, haben wir gelernt.
+Dass man ganz
+viele Imports braucht.
+Packages habe ich gelernt.
+Na, das muss man halt sagen.
+In dem Fall
+wir hätten, wenn wir sowas
+wie ASP.NET
+Core verwendet hätten, wir hätten
+nichts an Zusatz-Packages gebraucht.
+Das wäre eingebaut.
+Das wäre ein...
+Doch, doch. Faker.
+Bugos hätten wir gebraucht. Ja, das hätten wir gebraucht.
+Tatsächlich.
+Ansonsten halt keine.
+Moin, Mischi. Lieber CSS
+leiten. Du brauchst...
+Um CSS ein bisschen
+kommt man nicht drum herum. Ich meine, ich habe auch
+keine große Ahnung von CSS. Guckt euch das
+hier mal an.
+Da habe ich schon schwer gekannt, aber
+ein bisschen Ahnung
+wie man was macht, ist nicht verkehrt.
+Ich persönlich mag ja Tailwind,
+weil es CSS ist.
+Aber halt nicht ganz so
+painstampig zu schreiben wie
+CSS. Aber sowas wie
+Bootstrap ist auch nicht verkehrt.
+Aber ein bisschen
+CSS, so wie man
+beispielsweise
+was weiß ich, wie man Grid macht oder wie man
+Flexbox verwendet oder wie man was
+zentriert
+und sowas, das sollte man sich
+schon mal angucken, weil das wird man bei
+Bootstrap auch ab und an brauchen.
+Das kenne ich. Das wird aber leider
+nicht mal weiterentwickelt.
+Das letzte Update war von 2014
+oder so. Ja, siehste?
+Da gibt es mittlerweile
+neuere Sachen.
+Haben die das geforkt oder was?
+Jo.
+Es gibt CSS
+Sachen gibt es massig. Und
+selbst Bootstrap, ich meine mit Bootstrap
+hat dieser ganze CSS Framework
+Sachen
+so richtig angefangen. Aber es gibt
+ja so viele Sachen mittlerweile,
+was CSS Frameworks gibt.
+Stimmt wohl.
+Da gibt es tausende
+mittlerweile.
+Und manche sind auch
+noch irgendwie Framework
+spezifisch. Also es gibt allein
+für React gibt es ja schon
+irgendwie 20 verschiedene
+CSS UI
+Frameworks. Gut, das ist dann die Kombination aus
+CSS und React Komponenten.
+Für Vue gibt es auch ein paar.
+Also da
+gibt es so viel. Ich glaube, wenn man nach
+CSS... Moment. Da gibt es doch
+bestimmt eine Liste von.
+Es war so
+klar, dass es da schon wieder irgendeine
+Liste von gibt. Ja.
+Agile Content Management.
+Wunderbar.
+Furchtbar agil alles.
+Ich meine,
+guckt euch das mal an.
+Es gibt so viel.
+Okay, warte. Es gibt Classless.
+Okay, Classless bedeutet
+im Endeffekt, das
+stylt die Default Elemente und alles andere musst du
+selbst machen. Dann hast du
+Very Lightweight. Das sind die, da musst du
+selbst Classless eintragen. Aber
+du musst dich selbst drum kümmern.
+Und dann hast du
+General Purpose. Da ist dann Bootstrap
+dabei, Foundation dabei,
+UIKit. Ich dachte UIKit
+ist...
+React, oder?
+Bring ich das jetzt durcheinander?
+Nee, anscheinend nicht.
+Foundation.
+Foundation gibt es
+richtig lang. Foundation war damals so ein bisschen
+die Konkurrenz zu Bootstrap.
+Das gibt es schon seit 10 Jahren oder so.
+Carbon Components.
+Das ist die Microsoft-Geschichte,
+gell? Carbon Compon...
+Ah nee, IBM. IBM.
+Ich hätte ja auch nicht gedacht, dass IBM
+mal ein CSS-Framework hat.
+Fomantic.
+Pico CSS
+Blaze UI
+Base, Turret
+Vanilla Framework
+Material Design Framework. Okay, Tailwind
+ist tatsächlich cool. Das passt hier gar nicht so
+wirklich rein, weil man muss halt CSS
+machen.
+Nur, dass es ein bisschen besser zu
+schreiben ist. Und das sind
+bei weitem
+noch nicht alle, wette ich mit euch.
+Ja, so, ich bin jetzt 3 Stunden
+45 on. Ich glaube, das reicht für
+heute. Morgen früh
+ihr müsst
+aufwachen streamen.
+Wieder wie immer so kurz
+vor 9 um 9 rum.
+Eigentlich wollte ich noch ein Video machen
+heute, aber ich glaube, jetzt ist es ein bisschen spät.
+Wir haben 7 Uhr, 17 Uhr
+5. Ich wollte eigentlich
+ein Video heute machen.
+Das habe ich euch ja gestern kurz erzählt.
+Also, YouTube ist
+gerade der Meinung, mein Windows 11
+Video...
+Warte mal.
+Nee.
+Die promoten das gerade wie
+verrückt. Das hat innerhalb
+von paar Tagen irgendwie
+50.000 Views bekommen oder so
+drauf.
+Also,
+das hatte vorher schon irgendwie so
+60k oder so oder 60, 70k
+und jetzt geht es voll ab.
+Und hier schreiben so viele
+Leute, ich will auf
+Linux, ich will auf Linux und sonst was.
+Und ich wollte einfach
+ein Video machen,
+dass für viele Leute Linux nicht die Lösung
+ist für ihre Windows-Probleme.
+Viele Leute erwarten, dass
+quasi dann, dass sie dann quasi
+ein Windows bekommen, ohne die
+Probleme von Windows. Aber das ist nicht so.
+Das ist ein komplett anderes System.
+Und wenn man sich nicht darauf einlässt, dass das ein anderes
+System ist, dann wird das auch nichts.
+Die meisten Leute wären tatsächlich,
+wenn sie keinen Bock mehr auf Windows
+haben und einfach was haben wollen, was
+funktioniert und wo sie auch
+ja vielleicht ein bisschen Videoschnitt und
+Kram, vielleicht...
+Programme, die sie schon haben, weiterverwenden
+können teilweise.
+Da sind die wahrscheinlich wirklich,
+wenn sie keinen Bock haben auf Windows,
+mit Mac noch
+besser bedient als mit
+Linux. Das coole
+an Mac ist,
+dass es eine ganz nette
+Kombination ist aus
+sinnvollem User Interface,
+aber
+auch
+halbwegs gutem
+Unix Unterbau.
+Also du hast ein ordentliches Terminal, du hast deine
+Shell Befehle, du kannst vieles im Terminal
+machen, du hast einen ordentlichen Package
+Manager fürs Terminal. Also aus
+den Gesichtspunkten ist Mac OS um
+Vielfaches
+besser geeignet für Windows
+Umsteiger erstmal als Linux. Man
+kostet was und mittlerweile brauchst du halt
+auch wahrscheinlich
+an Apple Hardware kommst du ja im Endeffekt auch nicht vorbei.
+Das heißt
+ja Geldtechnisch
+ist so ein Ding.
+Alles Linux Desktop ist höchstens in
+WSL. Apple Hardware
+ist arm CPU ja und man ist
+arm, wenn man sie gekauft hat.
+Glaube ich nicht.
+Ja das sind aber
+wahrscheinlich auch nicht so die Leute mit dem
+typischen Windows Workload.
+Also die typischen Windows Benutzer
+das sind ja nicht welche, die nur
+Mails lesen oder
+also Leute, die wirklich nur Mails
+lesen und surfen, die kommen wahrscheinlich
+mit einem Tablet heutzutage aus.
+Ja ich glaube die meisten Windows
+User haben so eine relativ
+durchwachsene
+ähm
+User
+Verhalten ja. Die wollen
+ab und zu mal
+Fortnite spielen oder ein paar
+neue Spiele auf Steam spielen. Vielleicht
+wollen die irgendwelche Adobe Programme
+verwenden oder
+ein paar
+Video
+ein paar Bilder
+Sachen zusammen klicken.
+Ähm dann wollen sie vielleicht
+den Fitness Tracker anschließen. Sie wollen
+ihr Telefon synken und
+solche Dinger.
+Also wenn die wirklich nur
+surfen und so, dann ist das alles kein Problem.
+Da kommst du mit mehr oder weniger jedem Betriebssystem hin,
+was ein Browser hat.
+Aber wie gesagt, ich glaube die meisten Windows User machen halt
+eher das, was ich gerade gesagt habe.
+Und
+da wirst du über kurz oder lang
+wenn du
+rangehst an Linux mit, es ist ein besserer
+Windows Ersatz. Nicht glücklich, weil es ist
+kein Windows und es ist auch kein Windows Ersatz.
+Allein schon, dass
+der 0815 Anwender Angst hat
+vorm Terminal. Und warum hat der Windows
+der 0815 Anwender Angst vorm Terminal?
+Wegen diesem Ding hier unter Windows.
+Weil Microsoft diesen Rotz hier
+ausliefert
+seit Jahren.
+Mittlerweile gibt es aber zum Glück was besseres.
+Und ähm die Leute Panik bekommen,
+wenn sie dieses Fenster sehen.
+Ich denke auch, dass vielen heute tatsächlich
+ein Tablet reicht und ich könnte mir vorstellen,
+dass sogar relativ viele Leute nicht mal
+mehr ein Desktop PC haben.
+Die machen alles über das Tablet.
+Für ganz normale Leute, die
+vielleicht, sagen wir mal, sogar in diesem
+Apple-Kosmos
+leben, die ein iPhone
+haben und ein iPad haben,
+vielleicht ein Apple Fitness Zeug,
+die kommen damit doch auch wunderbar klar.
+Und selbst mit einem Android
+Smartphone und passendem Gehen,
+du kommst theoretisch relativ gut klar
+ohne Desktop.
+Zumindest so die 0815 Sachen.
+Ja doch,
+Anti-Cheat ist tatsächlich schwierig,
+es sei denn, es ist Anti-Cheat,
+was ein bisschen da mitspielt.
+Ich glaube BattleEye spielt mit
+und der Valve Anti-Cheat
+spielt halbwegs mit.
+Wenn du sowas wie Valorant probierst
+oder ganz abgedrehte Sachen
+mail.ru
+anti-cheat
+guck mal, proton db valorant
+Valorant
+Ach Moment, es sind nur
+Steam.
+Wurde nicht aktualisiert,
+aber kannst du wahrscheinlich vergessen.
+It's fun
+when it works.
+Das Problem dabei ist halt auch,
+dass du dich nicht drauf verlassen
+kannst, dass es funktioniert.
+Wenn du Windows hast,
+kannst du Steam, Epic Store, GOG
+es gibt GOG, gibt es übrigens glaube ich auch nicht für Linux,
+kannst du dich halt drauf verlassen,
+du kaufst ein Spiel, installierst das Spiel
+und das geht.
+Bei Linux kannst du sagen,
+ja, es gibt viele Spiele, die funktionieren,
+aber wenn du ein neues Spiel kaufst,
+das ist dann erstmal,
+du kannst dir halt nicht sicher sein.
+Deswegen denke ich, die meisten Leute sind
+relativ schnell wieder unter Windows.
+Wenn sie das als
+Windows-Ersatz nehmen,
+einfach nur sagen, ja, ich will halt ein Windows,
+was nicht die Windows-Probleme hat.
+Ja, hat der recht.
+Du hast dann halt auch immer so Leute,
+ich will das jetzt gar nicht unterstellen,
+aber ich kenne das, gerade auf Reddit
+und in Foren, dann posten die Leute
+sowas wie, das und das funktioniert
+bei mir nicht, und da kommen als
+ersten Antwort immer
+als Antwort so,
+also ich weiß nicht, was bei dir los ist,
+aber bei mir funktioniert das alles in den
+höchsten Settings ohne Probleme.
+War im Wild-Pockchain, war ich schon
+morgen schon. Die Sache ist halt einfach,
+dass du dich nicht drauf verlassen
+kannst. Das ist schon
+allein für die meisten Leute
+dann nicht brauchbar,
+weil, wenn du dir ein Spiel auf Steam
+kaufst, den die Leute gewöhnt, du klickst auf Install
+und du spielst das und musst nicht erst noch eine Woche warten
+oder vielleicht irgendwelche krassen
+Wine-Hacks und Tweaks machen,
+dass es funktioniert,
+das ist jedes Mal so ein bisschen Zitterpartie.
+Ja, neues Release, geht's oder geht's nicht?
+Klar, es geht schon viel mehr, als es noch
+vor 10 Jahren ging, keine Frage, aber
+immer noch nicht genug. Alles
+hog aktuell.
+Nee, nee, nee,
+der Typ hat das ganz gut zusammengefasst.
+Wenn's geht, ist
+es gut.
+Problematisch ist nur, wenn's nicht geht.
+Ähm, Twice Baked Potatoes,
+ja, so sieht das aus, alles klar.
+Ey, das kann aber auch nur so
+viel machen, wie's machen kann, ja, also
+dort muss es erst mal Hacks
+geben, es muss erst mal
+bekannt sein, dann müssen sie ihre
+Datenbank updaten, ja,
+es gibt vieles, was man machen kann, aber es ist
+einfach weit davon entfernt zu sagen, jawoll,
+ich kauf das und kann mich dann drauf verlassen,
+dass es geht. Es ist eher so, ich kauf
+das und ich
+denke, mit ein bisschen Glück
+geht's. Ja, Switch.
+Was hat denn jetzt die Switch mit dem
+Steam Deck zu tun? Ich mein, das Steam Deck
+ist ein PC.
+Mit Steam OS drauf und
+die Switch ist eine Nintendo
+Konsole mit eigenen Spielen dafür.
+Ist, ist verfügbar.
+Also, danke, falls du gesubbt hast,
+ich hab's übersehen. Also, es ist
+halt ein bisschen
+Pains Champ noch, ja.
+Und bei anderen
+Sachen, ganz im Ernst, ich
+weiß nicht, wie es aussieht, wenn's Leute
+gibt, die tatsächlich sagen, hey,
+ich hab irgendwie ein Adobe-Abo
+und will den Kram unter Linux verwenden,
+ich hab keine Ahnung, ob das annehmbar läuft
+aktuell. Ich würde darauf tippen
+nicht. Und spätestens, wo's
+aussteigt, ist wahrscheinlich, wenn
+du, ähm, dann mit GPU
+rendern willst oder sowas.
+Es ist halt so ein Zitterding, du weißt nicht,
+ob's geht, ja. Leute, die beispielsweise
+ihre Steuersoftware verwenden,
+da wär ich
+vorsichtig, ob ich die über
+laufen lassen würde.
+Die meiste Steuersoftware ist ja
+0815 Windows-Anwendung, die ganz gut laufen,
+aber ganz ehrlich,
+ich weiß nicht, ob ich's bei sowas
+risikoreichem wie Steuern riskieren würde,
+dass das irgendeine Library
+nicht richtig lädt und vielleicht nicht ordentlich
+rechnet oder was weiß ich.
+Nee, ich würde einfach, ich würde der Sache nicht
+trauen, dass das
+hundertprozentig, dass das
+das richtige Ergebnis rauskommt.
+Ja, oder? Also, deswegen,
+das ist ja das, was ich sage, wenn du
+alles im Browser verwendest,
+dann ist nahezu egal, welches
+Betriebssystem du verwendest. Da können sogar
+TempleOS, wobei, hat TempleOS,
+hat das einen Browser?
+TempleOS
+Browser?
+Haben die sowas? Oh!
+Moment, TempleOS ist,
+Gnu mag TempleOS nicht.
+Was ist da los? Nee, es
+gibt kein, es gibt keinen Browser
+auf TempleOS.
+Ja, Jesus braucht keinen Browser.
+Das braucht das TempleOS auch nicht.
+So, Leute, vier Stunden
+bin ich am Start. Passt, passt auf
+die Sekunde. Ich gehe jetzt
+off.
+Und wir sehen uns morgen früh spätestens.
+Bis denn, macht's gut. See you.
