@@ -43,7 +43,11 @@ class ArchivWhisper:
 
         with tqdm(total=info.duration, dynamic_ncols=True, unit="sec", bar_format="{l_bar}{bar} | {n:0.1f}/{total:0.1f} [{elapsed}<{remaining}, {rate_fmt}{postfix}]") as pbar:
             for segment in segments:
-                pbar.update(segment.end - pbar.n)
+                # sometimes update failes due to invalid values. update is not important, so just pass the error
+                try:
+                    pbar.update(segment.end - pbar.n)
+                except:
+                    pass
 
                 # json
                 final_json["text"] += segment.text.strip() + "\n"
