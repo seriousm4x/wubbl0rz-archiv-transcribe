@@ -1,0 +1,2031 @@
+1
+00:06:20,660 --> 00:06:22,020
+Nehmer mich gestellt,
+
+2
+00:06:22,640 --> 00:06:24,180
+dass ich den auch einen ausschalten kann.
+
+3
+00:06:25,480 --> 00:06:26,620
+Wir werden überprüfen,
+
+4
+00:06:26,800 --> 00:06:27,520
+wir werden uns
+
+5
+00:06:27,520 --> 00:06:30,840
+meinen Router auslesen,
+
+6
+00:06:31,260 --> 00:06:32,420
+wir werden vom Raspberry
+
+7
+00:06:32,420 --> 00:06:33,140
+sowas wie,
+
+8
+00:06:33,960 --> 00:06:35,480
+versuchen wir zumindest,
+
+9
+00:06:36,060 --> 00:06:38,520
+sowas wie RAM-Belegung und
+
+10
+00:06:38,520 --> 00:06:40,880
+Disk-Usage und sowas auszulesen
+
+11
+00:06:40,880 --> 00:06:42,500
+und dann
+
+12
+00:06:42,500 --> 00:06:44,620
+einmal was zu bauen, wo einfach drinnen steht
+
+13
+00:06:44,620 --> 00:06:46,900
+alles gut oder host up, host down
+
+14
+00:06:46,900 --> 00:06:47,920
+und wir werden so ein bisschen
+
+15
+00:06:47,920 --> 00:06:50,280
+Grafenauswertung machen
+
+16
+00:06:50,280 --> 00:06:52,300
+was über meinen Router drüber geht
+
+17
+00:06:52,300 --> 00:06:53,840
+und wie schnell zum Beispiel
+
+18
+00:06:53,840 --> 00:06:56,360
+die Festplatte von meinem Raspberry
+
+19
+00:06:56,360 --> 00:06:58,020
+die SD-Karte von meinem Raspberry vollläuft,
+
+20
+00:06:58,420 --> 00:06:59,780
+dass das Ding nicht wieder abkackt, weil
+
+21
+00:06:59,780 --> 00:07:02,360
+ich hab das so vor, dass mir das Ding
+
+22
+00:07:02,360 --> 00:07:04,240
+dann halt Bescheid sagt, hey
+
+23
+00:07:04,240 --> 00:07:06,700
+Raspberry, guck mal, System, über 90%
+
+24
+00:07:06,700 --> 00:07:07,740
+Festplattenplatz und
+
+25
+00:07:07,740 --> 00:07:10,000
+es kackt demnächst ab
+
+26
+00:07:10,000 --> 00:07:12,680
+und ich will nix großartig aufgeblähtes
+
+27
+00:07:12,680 --> 00:07:14,420
+haben, ich will kein Zabbix oder ich will kein
+
+28
+00:07:14,420 --> 00:07:16,640
+Nagios oder irgendwas, ich will was
+
+29
+00:07:16,640 --> 00:07:18,640
+ganz einfaches, simples
+
+30
+00:07:18,640 --> 00:07:20,240
+haben, was ich auch
+
+31
+00:07:20,240 --> 00:07:21,500
+nach einem Jahr noch kapiere
+
+32
+00:07:21,500 --> 00:07:23,960
+soweit dazu, ne
+
+33
+00:07:23,960 --> 00:07:26,500
+Warst du auf der
+
+34
+00:07:26,500 --> 00:07:27,580
+Artikel 13 Demo?
+
+35
+00:07:28,080 --> 00:07:30,340
+Ich war nicht auf der Hauptdemo
+
+36
+00:07:30,340 --> 00:07:31,360
+ich war an der Hauptwache
+
+37
+00:07:31,360 --> 00:07:34,320
+vor ein paar Tagen davor war das
+
+38
+00:07:34,320 --> 00:07:36,300
+das war so zwei Wochen
+
+39
+00:07:36,300 --> 00:07:37,500
+davor, abends
+
+40
+00:07:37,500 --> 00:07:40,100
+auf der Hauptdemo war ich nicht
+
+41
+00:07:40,100 --> 00:07:42,140
+ihr wisst ja, ich hab's nicht so sehr mit
+
+42
+00:07:42,140 --> 00:07:44,240
+Kontakt mit echten Leuten
+
+43
+00:07:44,240 --> 00:07:46,280
+mit echten Leuten
+
+44
+00:07:46,280 --> 00:07:48,420
+vor allem nicht, wenn das ganz viele
+
+45
+00:07:48,420 --> 00:07:49,880
+Leute sind, die ich erstens nicht kenne und zweitens
+
+46
+00:07:50,240 --> 00:07:52,240
+die so viel auf engem Raum sind
+
+47
+00:07:52,240 --> 00:07:55,240
+das ist nicht meins, das wisst ihr ja vielleicht schon
+
+48
+00:07:55,240 --> 00:07:56,840
+also die, die öfters
+
+49
+00:07:56,840 --> 00:07:58,240
+reingucken, wissen das
+
+50
+00:07:58,240 --> 00:08:00,780
+die Katze sitzt jetzt auf dem
+
+51
+00:08:00,780 --> 00:08:02,500
+Schrank und putzt sich
+
+52
+00:08:02,500 --> 00:08:03,700
+so geht das
+
+53
+00:08:03,700 --> 00:08:08,770
+wir sind alle Bots, ja genau
+
+54
+00:08:08,770 --> 00:08:10,450
+dieses Thema, eigentlich wollte ich
+
+55
+00:08:10,450 --> 00:08:15,030
+dazu ja, ich wollte dazu eigentlich gar nichts sagen
+
+56
+00:08:15,030 --> 00:08:18,140
+eigentlich wollte ich dazu dieser ganze
+
+57
+00:08:18,140 --> 00:08:19,780
+Artikel 13 Geschichte gar nichts sagen
+
+58
+00:08:19,780 --> 00:08:21,860
+aber wenn ich mir angucke
+
+59
+00:08:21,860 --> 00:08:24,340
+wie dreist das teilweise
+
+60
+00:08:24,340 --> 00:08:25,360
+ignoriert wird
+
+61
+00:08:25,840 --> 00:08:28,300
+was die Leute, was Leute wollen
+
+62
+00:08:28,300 --> 00:08:29,440
+beziehungsweise
+
+63
+00:08:29,440 --> 00:08:32,400
+das abgetan wird mit den bescheuertsten Gründen
+
+64
+00:08:32,400 --> 00:08:35,240
+zuerst wurde ja erzählt so nach dem Motto
+
+65
+00:08:35,240 --> 00:08:37,040
+ähm
+
+66
+00:08:37,040 --> 00:08:39,640
+genau, das erste, das erste was erzählt hat
+
+67
+00:08:39,640 --> 00:08:41,340
+da war der Voss ganz vorne mit dabei wieder
+
+68
+00:08:41,340 --> 00:08:44,840
+der hat ja auch, der hat jetzt auch den Ruf weg
+
+69
+00:08:44,840 --> 00:08:45,640
+das ist egal
+
+70
+00:08:45,640 --> 00:08:48,340
+der kann höchstens noch irgendwann mal zu Axel Springer in Aufsichtsrat gehen
+
+71
+00:08:48,340 --> 00:08:50,060
+oder sowas in der Richtung, aber ansonsten
+
+72
+00:08:50,060 --> 00:08:53,460
+sonst will den Typ keiner mehr sehen, als erstes haben sie irgendwie erzählt
+
+73
+00:08:53,460 --> 00:08:55,640
+wie es gibt Leute, die dagegen sind
+
+74
+00:08:55,840 --> 00:08:59,540
+das kann ich mir überhaupt nicht vorstellen, dass es Leute gibt, die gegen Artikel 13 sind
+
+75
+00:08:59,540 --> 00:09:00,760
+das kann, das kann nicht sein
+
+76
+00:09:00,760 --> 00:09:02,860
+ich habe jetzt da keinen Widerspruch gehört
+
+77
+00:09:02,860 --> 00:09:04,800
+da haben die Leute rumgeschrien so nach dem Motto
+
+78
+00:09:04,800 --> 00:09:06,540
+Alter, hier Widerspruch
+
+79
+00:09:06,540 --> 00:09:08,240
+das ist ja der Moment, Moment, Moment
+
+80
+00:09:08,240 --> 00:09:09,460
+das kann ja auch nicht sein, weil
+
+81
+00:09:09,460 --> 00:09:11,520
+das kam ja alles von englischen
+
+82
+00:09:11,520 --> 00:09:14,240
+von US-E-Mail-Adressen
+
+83
+00:09:14,240 --> 00:09:16,340
+weil es Google Mail ist und das, nein das geht auch nicht
+
+84
+00:09:16,340 --> 00:09:18,080
+das kann nicht sein und das ist ja
+
+85
+00:09:18,080 --> 00:09:19,860
+das ist ja auch, ja und dann
+
+86
+00:09:19,860 --> 00:09:22,240
+Hallo Leute, Protest, wir wollen, wir wollen den Scheiß nicht
+
+87
+00:09:22,240 --> 00:09:24,640
+ne, also das ist mit Sicherheit eingekauft
+
+88
+00:09:24,640 --> 00:09:25,820
+das kann nicht sein, also das ist ja auch nicht so, das kann nicht sein
+
+89
+00:09:25,820 --> 00:09:27,680
+das ist nicht möglich, ja zwischendrin waren wir auch noch Bots
+
+90
+00:09:27,680 --> 00:09:28,900
+ja, das habe ich ganz vergessen
+
+91
+00:09:28,900 --> 00:09:30,360
+ähm
+
+92
+00:09:30,360 --> 00:09:32,980
+und ich frage mich halt
+
+93
+00:09:32,980 --> 00:09:35,500
+wie dreist man sein kann, dass man so
+
+94
+00:09:35,500 --> 00:09:37,160
+extrem an
+
+95
+00:09:37,160 --> 00:09:38,860
+dem vorbei
+
+96
+00:09:38,860 --> 00:09:41,880
+entscheidet, beziehungsweise
+
+97
+00:09:41,880 --> 00:09:43,760
+ähm
+
+98
+00:09:43,760 --> 00:09:45,860
+geistig in komplett anderen Sphären
+
+99
+00:09:45,860 --> 00:09:47,780
+irgendwie schwebt, wie das, was die
+
+100
+00:09:47,780 --> 00:09:49,720
+Leute vor einer Woche davor
+
+101
+00:09:49,720 --> 00:09:51,280
+noch erzählt haben, ich meine klar
+
+102
+00:09:51,280 --> 00:09:53,680
+es muss nicht unbedingt so sein, dass nur
+
+103
+00:09:53,680 --> 00:09:55,640
+weil jemand der Lauteste ist, unbedingt auch
+
+104
+00:09:55,820 --> 00:09:57,680
+wenige ist, der Recht hat, allerdings
+
+105
+00:09:57,680 --> 00:09:59,800
+in dem Fall, äh, ich habe
+
+106
+00:09:59,800 --> 00:10:01,740
+keinerlei Protest dafür
+
+107
+00:10:01,740 --> 00:10:03,800
+gesehen, ehrlich gesagt, sondern nur dagegen
+
+108
+00:10:03,800 --> 00:10:06,020
+und eigentlich auch so ziemlich jeden, den du fragst
+
+109
+00:10:06,020 --> 00:10:06,680
+der ist
+
+110
+00:10:06,680 --> 00:10:09,220
+entweder neutral oder
+
+111
+00:10:09,220 --> 00:10:11,520
+dagegen, so wirklich glühende
+
+112
+00:10:11,520 --> 00:10:13,180
+Verfechter davon sehe ich jetzt
+
+113
+00:10:13,180 --> 00:10:14,880
+relativ wenig
+
+114
+00:10:14,880 --> 00:10:17,580
+und ich bin eh der Ansicht
+
+115
+00:10:17,580 --> 00:10:19,880
+die haben einen großen Fehler begangen
+
+116
+00:10:19,880 --> 00:10:21,580
+mit dieser Artikel 13 Geschichte
+
+117
+00:10:21,580 --> 00:10:23,780
+und das hat mit Artikel 13 überhaupt
+
+118
+00:10:23,780 --> 00:10:24,740
+nichts zu tun
+
+119
+00:10:25,820 --> 00:10:28,220
+und zwar, die haben Millionen junger
+
+120
+00:10:28,220 --> 00:10:29,320
+Leute aufgeweckt
+
+121
+00:10:29,320 --> 00:10:31,700
+die sich jetzt auf einmal dafür interessieren
+
+122
+00:10:31,700 --> 00:10:34,120
+das sind Millionen Leute, die
+
+123
+00:10:34,120 --> 00:10:36,000
+früher gesagt haben, die noch vor wenigen Monaten
+
+124
+00:10:36,000 --> 00:10:37,800
+gesagt haben, scheiß drauf
+
+125
+00:10:37,800 --> 00:10:40,100
+ähm, interessiert mich alles
+
+126
+00:10:40,100 --> 00:10:42,220
+nicht und haben links und rechts
+
+127
+00:10:42,220 --> 00:10:44,000
+alle machen lassen, wie sie wollten
+
+128
+00:10:44,000 --> 00:10:46,040
+und jetzt haben sie
+
+129
+00:10:46,040 --> 00:10:48,340
+quasi Millionen junger Bots aufgeweckt
+
+130
+00:10:48,340 --> 00:10:49,920
+die sich auf einmal dafür interessieren
+
+131
+00:10:49,920 --> 00:10:51,000
+mal gucken, wie lange das anhält
+
+132
+00:10:51,000 --> 00:10:53,940
+ähm, ich nehme die
+
+133
+00:10:53,940 --> 00:10:55,760
+meisten Sachen ja normalerweise nicht so ernstlich
+
+134
+00:10:55,820 --> 00:10:58,420
+ja, also ich gehe bei vielen Sachen
+
+135
+00:10:58,420 --> 00:11:00,080
+wo erzählt wird so nach dem Motto
+
+136
+00:11:00,080 --> 00:11:01,920
+oh, das sind bahnbrechende Erkenntnisse
+
+137
+00:11:01,920 --> 00:11:04,360
+oh, das wird einschneidende Auswirkungen haben
+
+138
+00:11:04,360 --> 00:11:05,620
+und hier und bla und sonst was
+
+139
+00:11:05,620 --> 00:11:08,360
+ähm, gehe ich erstmal davon aus, dass das eigentlich
+
+140
+00:11:08,360 --> 00:11:10,320
+äh, nichts viel
+
+141
+00:11:10,320 --> 00:11:12,180
+nicht viel machen wird, aber bei dieser
+
+142
+00:11:12,180 --> 00:11:14,280
+Geschichte, ich will nicht sagen
+
+143
+00:11:14,280 --> 00:11:16,480
+der Anfang vom Ende, das ist viel zu überzogen
+
+144
+00:11:16,480 --> 00:11:17,720
+aber ich könnte mir vorstellen
+
+145
+00:11:17,720 --> 00:11:20,140
+dass diese Sache jetzt
+
+146
+00:11:20,140 --> 00:11:22,400
+ähm, dazu
+
+147
+00:11:22,400 --> 00:11:23,520
+führen könnte
+
+148
+00:11:23,520 --> 00:11:27,700
+dass es in ein paar Jahren
+
+149
+00:11:27,900 --> 00:11:30,040
+komplett anders aussieht, wie das auf
+
+150
+00:11:30,040 --> 00:11:31,620
+europäischer Ebene läuft
+
+151
+00:11:31,620 --> 00:11:34,000
+von der Zusammensetzung her
+
+152
+00:11:34,000 --> 00:11:35,340
+oder auch vom
+
+153
+00:11:35,340 --> 00:11:37,980
+ja, vom gesamten Apparat her, weil ich meine
+
+154
+00:11:37,980 --> 00:11:40,380
+du kannst nicht auf einmal Millionen junger Leute
+
+155
+00:11:40,380 --> 00:11:42,160
+das eher, guck mal, die Leute
+
+156
+00:11:42,160 --> 00:11:44,120
+die da jetzt dabei waren, die dürfen zum ersten Mal
+
+157
+00:11:44,120 --> 00:11:46,020
+wählen gehen und vor allem hat sie es bisher nicht
+
+158
+00:11:46,020 --> 00:11:47,680
+interessiert und das erste
+
+159
+00:11:47,680 --> 00:11:50,060
+die hat es bisher nicht interessiert und im Hinterkopf
+
+160
+00:11:50,060 --> 00:11:51,720
+hatten sie immer den Gedanken so nach dem Motto
+
+161
+00:11:51,720 --> 00:11:53,720
+okay, die werden das schon ordentlich machen
+
+162
+00:11:53,720 --> 00:11:55,980
+das ist ja auch das, womit man mit, sagen wir mal
+
+163
+00:11:55,980 --> 00:11:57,400
+normalem, ähm,
+
+164
+00:11:57,900 --> 00:11:59,760
+Weltbild hier, wenn man hier aufgewachsen ist
+
+165
+00:11:59,760 --> 00:12:00,960
+so rangeht, so nach dem Motto, okay
+
+166
+00:12:00,960 --> 00:12:03,620
+ähm, ich gehe erstmal standardmäßig
+
+167
+00:12:03,620 --> 00:12:05,560
+davon aus, dass, ähm
+
+168
+00:12:05,560 --> 00:12:07,800
+die Leute, die, ich sag mal, die Profis
+
+169
+00:12:07,800 --> 00:12:09,780
+in dem Gebiet, ja, dass die Leute sich damit richtig
+
+170
+00:12:09,780 --> 00:12:11,900
+beschäftigen und das ordentlich machen
+
+171
+00:12:11,900 --> 00:12:13,720
+das ist das erste, wovon man eigentlich
+
+172
+00:12:13,720 --> 00:12:15,560
+so im Hinterkopf ausgeht, solange man noch nichts anderes
+
+173
+00:12:15,560 --> 00:12:17,720
+mitgekriegt hat und jetzt ist das
+
+174
+00:12:17,720 --> 00:12:19,620
+Problem, dass sie Millionen
+
+175
+00:12:19,620 --> 00:12:21,680
+junger Leute aufgeweckt haben und das erste
+
+176
+00:12:21,680 --> 00:12:23,660
+womit sie in Kontakt kommen ist, dass
+
+177
+00:12:23,660 --> 00:12:25,540
+sie angeschissen werden, dass sie belogen werden
+
+178
+00:12:25,540 --> 00:12:27,660
+beschissen werden, ähm, ihnen der
+
+179
+00:12:27,660 --> 00:12:29,500
+größte Mist erzählt wird, dass sie nicht ernst
+
+180
+00:12:29,500 --> 00:12:31,520
+genommen werden, dass versucht wird, alles
+
+181
+00:12:31,520 --> 00:12:33,540
+abzutun, wofür sie sich
+
+182
+00:12:33,540 --> 00:12:35,460
+eingesetzt haben, sprich das erste, womit die Leute
+
+183
+00:12:35,460 --> 00:12:37,600
+in Kontakt gekommen sind, ist, es sackt
+
+184
+00:12:37,600 --> 00:12:39,760
+und ihr wisst, wie
+
+185
+00:12:39,760 --> 00:12:41,600
+schwerwiegend so der erste Eindruck ist
+
+186
+00:12:41,600 --> 00:12:43,600
+oder wie schwer es ist, den ersten Eindruck
+
+187
+00:12:43,600 --> 00:12:45,780
+wieder, ähm, wegzukriegen
+
+188
+00:12:45,780 --> 00:12:47,500
+das heißt, die haben jetzt nicht nur
+
+189
+00:12:47,500 --> 00:12:49,420
+Millionen Leute aufgeweckt, die haben jetzt Millionen
+
+190
+00:12:49,420 --> 00:12:51,320
+Leute den Ersteindruck verpasst
+
+191
+00:12:51,320 --> 00:12:53,280
+sie sind die größten Spasten ever
+
+192
+00:12:53,280 --> 00:12:54,900
+und, ähm,
+
+193
+00:12:55,560 --> 00:12:57,540
+es wird alles getan, um nicht
+
+194
+00:12:57,540 --> 00:12:57,640
+zu
+
+195
+00:12:57,660 --> 00:12:58,300
+quasi
+
+196
+00:12:58,300 --> 00:13:01,020
+das zu machen, was die jungen Leute sich wünschen
+
+197
+00:13:01,020 --> 00:13:02,920
+und
+
+198
+00:13:02,920 --> 00:13:05,580
+das könnte ich mir vorstellen
+
+199
+00:13:05,580 --> 00:13:07,560
+dass das dazu führen wird, dass das in ein paar
+
+200
+00:13:07,560 --> 00:13:09,000
+Jahren alles anders aussehen wird
+
+201
+00:13:09,000 --> 00:13:11,740
+und wovon ich auch ausgehe
+
+202
+00:13:11,740 --> 00:13:13,500
+ist, dass es weiter
+
+203
+00:13:13,500 --> 00:13:15,360
+Zuspruch geben wird, für
+
+204
+00:13:15,360 --> 00:13:17,780
+extrem, aber für
+
+205
+00:13:17,780 --> 00:13:19,520
+ähm, zumindest nicht
+
+206
+00:13:19,520 --> 00:13:21,480
+den etablierten Parteien, sondern ich könnte mir vorstellen
+
+207
+00:13:21,480 --> 00:13:23,540
+dass zum Beispiel die AfD jede Menge neue
+
+208
+00:13:23,540 --> 00:13:25,460
+Wähler bekommen wird, so wie das zum Beispiel, die hat gerade
+
+209
+00:13:25,460 --> 00:13:27,540
+auch einer im Chat geschrieben, weil es
+
+210
+00:13:27,540 --> 00:13:29,560
+ist einfach so, die müssen, also ich
+
+211
+00:13:29,560 --> 00:13:31,620
+bin der Ansicht nach, man muss sich langsam nicht mehr wundern
+
+212
+00:13:31,620 --> 00:13:33,380
+man kann sich doch nicht wundern
+
+213
+00:13:33,380 --> 00:13:35,480
+huch, wo rennen denn die ganzen Leute hin
+
+214
+00:13:35,480 --> 00:13:37,560
+huch, warum mag uns denn keiner, huch, warum wählt uns denn mehr
+
+215
+00:13:37,560 --> 00:13:39,140
+keiner, wenn man quasi
+
+216
+00:13:39,140 --> 00:13:40,840
+konsistent
+
+217
+00:13:40,840 --> 00:13:43,380
+die letzten Jahre über hinweg, sich
+
+218
+00:13:43,380 --> 00:13:45,740
+nicht mit den Sachen auseinandersetzt
+
+219
+00:13:45,740 --> 00:13:47,180
+die die Leute interessieren
+
+220
+00:13:47,180 --> 00:13:49,320
+also
+
+221
+00:13:49,320 --> 00:13:50,760
+da muss man sich doch nicht wundern
+
+222
+00:13:50,760 --> 00:13:53,300
+ja, und man darf sich
+
+223
+00:13:53,300 --> 00:13:55,360
+nicht vormachen, dass das jetzt irgendjemand vielleicht
+
+224
+00:13:55,360 --> 00:13:57,420
+irgendwie besser wüsste, ja, es
+
+225
+00:13:57,420 --> 00:13:59,480
+ist vollkommen egal, ob es jetzt die Linken sind, die AfD
+
+226
+00:13:59,480 --> 00:14:01,420
+die Grünen, wer auch immer, die wissen das auch nicht
+
+227
+00:14:01,420 --> 00:14:03,500
+besser, die Sache ist bloß die, dass
+
+228
+00:14:03,500 --> 00:14:05,140
+ähm, dass
+
+229
+00:14:05,140 --> 00:14:07,420
+zumindest die Leute, glaube ich, zumindest den Eindruck
+
+230
+00:14:07,420 --> 00:14:09,340
+haben, dass sich die etablierten Parteien
+
+231
+00:14:09,340 --> 00:14:11,000
+noch nicht mal mehr dafür interessieren
+
+232
+00:14:11,000 --> 00:14:13,160
+oder noch nicht mal mehr überhaupt zuhören wollen
+
+233
+00:14:13,160 --> 00:14:15,520
+was die Leute denn wirklich, äh, bewegt
+
+234
+00:14:15,520 --> 00:14:17,380
+ja, und wenn du die Auswahl hast
+
+235
+00:14:17,380 --> 00:14:18,800
+zwischen einem, der dir zuhört
+
+236
+00:14:18,800 --> 00:14:21,300
+und dann vielleicht, ähm, nichts macht
+
+237
+00:14:21,300 --> 00:14:22,860
+oder einen, der von Anfang an sagt
+
+238
+00:14:22,860 --> 00:14:25,260
+leck mich am Arsch, es interessiert mich überhaupt nicht, was du sagst
+
+239
+00:14:25,260 --> 00:14:26,880
+dann entscheidest du dich natürlich für den
+
+240
+00:14:27,420 --> 00:14:29,120
+was man zumindest so tut, als würde dir zuhören
+
+241
+00:14:29,120 --> 00:14:32,540
+ja, das ist, äh
+
+242
+00:14:32,540 --> 00:14:33,860
+äh
+
+243
+00:14:33,860 --> 00:14:35,700
+wie man, wie man geistig
+
+244
+00:14:35,700 --> 00:14:37,740
+so abgehoben sein kann im Kopf, ja
+
+245
+00:14:37,740 --> 00:14:39,460
+und, äh, dass
+
+246
+00:14:39,460 --> 00:14:41,700
+das auch, das auch noch verteidigt
+
+247
+00:14:41,700 --> 00:14:43,520
+und im Nachhinein dann sagt, ja
+
+248
+00:14:43,520 --> 00:14:45,620
+im Nachhinein dann sagt, so nach dem Motto
+
+249
+00:14:45,620 --> 00:14:46,660
+ja, also
+
+250
+00:14:46,660 --> 00:14:49,200
+ich hab jetzt dafür gestimmt
+
+251
+00:14:49,200 --> 00:14:51,260
+aber eigentlich
+
+252
+00:14:51,260 --> 00:14:53,480
+eigentlich finde ich's doch kack, aber ich hab
+
+253
+00:14:53,480 --> 00:14:55,500
+dafür gestimmt, ja, ich mein, was musst du denn für
+
+254
+00:14:55,500 --> 00:14:57,320
+ein Spaß sein, was musst du denn
+
+255
+00:14:57,420 --> 00:14:59,440
+für der übelste Lappen sein, ich mein, wenn du davon
+
+256
+00:14:59,440 --> 00:15:01,520
+überzeugt bist, ich mein, dafür sitzt du doch
+
+257
+00:15:01,520 --> 00:15:03,780
+da letztendlich, wenn du davon überzeugt
+
+258
+00:15:03,780 --> 00:15:04,920
+bist, dass es Mist ist
+
+259
+00:15:04,920 --> 00:15:07,560
+ne, entweder nimmst du ein bisschen Stress auf
+
+260
+00:15:07,560 --> 00:15:09,540
+dich und sagst, okay, ich entscheide mich jetzt gegen
+
+261
+00:15:09,540 --> 00:15:11,420
+das, was vielleicht mein Chef will, aber
+
+262
+00:15:11,420 --> 00:15:13,600
+ich bin ja hier letztendlich nicht, weil ich
+
+263
+00:15:13,600 --> 00:15:15,340
+meinen Chef, äh, zufriedenstellen soll
+
+264
+00:15:15,340 --> 00:15:17,100
+sondern vielleicht, weil ich
+
+265
+00:15:17,100 --> 00:15:19,080
+die Leute vertreten will, die mich gewählt haben
+
+266
+00:15:19,080 --> 00:15:21,520
+dann musst du dich hinstellen und sagen, hä, ich bin
+
+267
+00:15:21,520 --> 00:15:23,580
+dagegen, das hat, was einer, einer von
+
+268
+00:15:23,580 --> 00:15:25,560
+der CDU, CSU gemacht hat, einer hat dagegen
+
+269
+00:15:25,560 --> 00:15:27,140
+gestimmt, ähm,
+
+270
+00:15:27,420 --> 00:15:29,040
+oder, aber du machst einfach mit
+
+271
+00:15:29,040 --> 00:15:31,060
+ohne, ohne Sinn und Verstand
+
+272
+00:15:31,060 --> 00:15:33,280
+Habt ihr zufällig, dass
+
+273
+00:15:33,280 --> 00:15:34,880
+diese, den Ausschnitt
+
+274
+00:15:34,880 --> 00:15:37,220
+mit Dehner bei dieser einen Talkshow
+
+275
+00:15:37,220 --> 00:15:39,340
+gesehen? Also ich mein,
+
+276
+00:15:39,360 --> 00:15:40,640
+jetzt nicht den Teppichhändler, sondern
+
+277
+00:15:40,640 --> 00:15:43,340
+den Minecraft-Dehner, der gar
+
+278
+00:15:43,340 --> 00:15:45,280
+kennt, der, ne, ich sag nicht mehr der Minecraft-Dehner, das ist ja
+
+279
+00:15:45,280 --> 00:15:47,320
+der, der Rennfahrer-Dehner ist es jetzt ja mittlerweile
+
+280
+00:15:47,320 --> 00:15:48,880
+soweit ich das mitkrieg
+
+281
+00:15:48,880 --> 00:15:58,540
+muss grad mal Vorschau gucken, hab ich, hab ich
+
+282
+00:15:58,540 --> 00:16:02,320
+Low-Latency-Stream an? Ja, müsste
+
+283
+00:16:02,320 --> 00:16:03,080
+ich eigentlich haben
+
+284
+00:16:03,800 --> 00:16:04,820
+Habt ihr das gesehen?
+
+285
+00:16:05,820 --> 00:16:06,240
+Mit
+
+286
+00:16:06,380 --> 00:16:07,240
+Dehner bei einer Talkshow?
+
+287
+00:16:13,600 --> 00:16:13,900
+Ja
+
+288
+00:16:13,900 --> 00:16:17,160
+Das fand ich echt gut, ähm,
+
+289
+00:16:17,820 --> 00:16:19,520
+das, also der hat das wirklich gut gemacht
+
+290
+00:16:19,520 --> 00:16:21,700
+Es ist nicht einfach, ja
+
+291
+00:16:21,700 --> 00:16:23,840
+sich da hinzustellen, vor allem
+
+292
+00:16:23,840 --> 00:16:25,940
+es ist, es ist
+
+293
+00:16:25,940 --> 00:16:26,440
+ein Unterschied
+
+294
+00:16:26,440 --> 00:16:29,840
+ob du, ob man Erfahrung hat
+
+295
+00:16:29,840 --> 00:16:31,780
+in sowas oder nicht. Ich geh mal davon
+
+296
+00:16:31,780 --> 00:16:33,820
+aus, er hat schon ein bisschen Erfahrung in dem
+
+297
+00:16:33,820 --> 00:16:35,880
+Gebiet, aber ich mein, die Typen, die da gesessen
+
+298
+00:16:35,880 --> 00:16:37,560
+haben, haben jahrelang Erfahrung
+
+299
+00:16:37,560 --> 00:16:39,440
+quasi eben vor der Kamera sitzen und
+
+300
+00:16:39,440 --> 00:16:43,090
+öffentlich labern. Und dafür
+
+301
+00:16:43,610 --> 00:16:46,510
+hat sich gut gemacht. Es geht bei solchen Talkshows
+
+302
+00:16:46,510 --> 00:16:49,850
+nicht darum, ähm, ob du, ob du recht hast oder
+
+303
+00:16:49,850 --> 00:16:51,770
+nicht recht hast oder so. Es geht halt darum, das
+
+304
+00:16:51,770 --> 00:16:54,070
+irgendwie gut zu verkaufen. Und die Leute, die da
+
+305
+00:16:54,070 --> 00:16:56,010
+gesessen haben, hatten in der Regel eigentlich
+
+306
+00:16:56,010 --> 00:16:58,250
+jahrelang Übung, Sachen gut zu verkaufen, egal wie
+
+307
+00:16:58,250 --> 00:17:03,150
+groß das Schwachsinn ist. Und, äh, letztendlich, ähm,
+
+308
+00:17:03,150 --> 00:17:06,730
+konnte Dehner da schon ordentlich punkten, ja.
+
+309
+00:17:06,730 --> 00:17:07,730
+Ich glaub, die Leute haben das immer noch nicht so
+
+310
+00:17:07,730 --> 00:17:09,670
+ganz gecheckt. Vor allem auch die Sache, die er
+
+311
+00:17:09,670 --> 00:17:11,670
+erzählt hat, dass es ja jetzt schon so ist und
+
+312
+00:17:11,670 --> 00:17:13,170
+das ist auch eine Sache, die ich nicht verstehe,
+
+313
+00:17:13,170 --> 00:17:15,550
+dass das, dass da drüber nicht diskutiert wird.
+
+314
+00:17:15,550 --> 00:17:17,470
+Zum Beispiel, es ist ja jetzt schon so, dass wenn
+
+315
+00:17:17,470 --> 00:17:20,370
+ich in meinem YouTube-Video irgendwie, äh, was weiß
+
+316
+00:17:20,370 --> 00:17:24,030
+ich, um so übertrieben zu sagen, äh, mein Nachbar
+
+317
+00:17:24,030 --> 00:17:27,090
+spielt im Hof den Epic Sucks Guy und ich nehm grad
+
+318
+00:17:27,090 --> 00:17:29,710
+ein Video in meinem Garten auf, dann, ne, hab ich
+
+319
+00:17:29,710 --> 00:17:33,350
+schon Content-ID-Probleme. Und das ist ja jetzt
+
+320
+00:17:33,350 --> 00:17:36,390
+schon eigentlich viel zu übertrieben. Das ist ja
+
+321
+00:17:36,390 --> 00:17:38,070
+der, das kommt ja auch noch dabei. Es ist jetzt
+
+322
+00:17:38,070 --> 00:17:41,470
+schon teilweise viel zu krass. Aber jetzt, jetzt kommt,
+
+323
+00:17:41,470 --> 00:17:43,930
+ja, aber das ist egal. Die tun jetzt dann quasi so,
+
+324
+00:17:43,930 --> 00:17:46,750
+als ist das jetzt erst so. Dabei ist das schon die
+
+325
+00:17:46,750 --> 00:17:54,300
+ganze Zeit so. Sind alle ins Wort gefalle? Ja, gut.
+
+326
+00:17:54,300 --> 00:17:57,540
+Das, das ist, das, das, äh, ist irgendwie so Sitte
+
+327
+00:17:57,540 --> 00:17:59,280
+bei denen. Ich weiß auch ehrlich gesagt nicht, warum.
+
+328
+00:17:59,280 --> 00:18:04,260
+Ähm, das, das, das führt weder dazu, dass man die
+
+329
+00:18:04,260 --> 00:18:06,000
+Leute besser von seiner Sache noch von einer anderen
+
+330
+00:18:06,000 --> 00:18:13,060
+Sache überzeugen kann. Ähm, ja. Gut. Ähm, jetzt
+
+331
+00:18:13,060 --> 00:18:14,780
+aber, sind wir ein bisschen abgeschweift von der
+
+332
+00:18:14,780 --> 00:18:15,580
+ganzen Sache, ja.
+
+333
+00:18:15,660 --> 00:18:28,080
+Der ohne Kohl. Nice. Ja. Ähm, ich wollte jetzt mal
+
+334
+00:18:28,080 --> 00:18:31,440
+gucken, hab ich irgendwas, ähm, äh, Chat überlesen.
+
+335
+00:18:31,440 --> 00:18:38,890
+Was ist eigentlich aus, äh, aus deinem Do Yourself
+
+336
+00:18:38,890 --> 00:18:42,250
+nass geworden? Ähm, ich hab, ich hab das gebaut, aber
+
+337
+00:18:42,250 --> 00:18:44,590
+das steht immer noch rum. Weil, das kann ich auch
+
+338
+00:18:44,590 --> 00:18:46,930
+gleich, kann ich, kann ich, kann ich was zu sagen. Ich
+
+339
+00:18:46,930 --> 00:18:51,010
+will nämlich noch, ich würde mir gerne sowas hier
+
+340
+00:18:51,010 --> 00:19:00,800
+kaufen. Das würde ich mir gerne kaufen. Das Problem
+
+341
+00:19:00,800 --> 00:19:02,120
+ist, das gibt's gerade nicht.
+
+342
+00:19:02,780 --> 00:19:05,060
+Das ist die gleiche Plattform, wie wir gerade haben,
+
+343
+00:19:05,060 --> 00:19:09,620
+nur, dass die einen vierfach PCI Express hat und, ähm,
+
+344
+00:19:09,620 --> 00:19:12,980
+einen Vierkern, Vierkern-CPU. Und die aktuellen Boards,
+
+345
+00:19:12,980 --> 00:19:16,340
+die es für mein Nass gab, hatten entweder, ähm, eine
+
+346
+00:19:16,340 --> 00:19:18,680
+ordentliche PCI Express-Anbindung und nur zwei
+
+347
+00:19:18,680 --> 00:19:22,160
+Kerne oder aber vier Kerne und kein ordentliches PCI
+
+348
+00:19:22,160 --> 00:19:24,860
+Express. Und das Board ist eigentlich ziemlich gut. Es
+
+349
+00:19:24,860 --> 00:19:29,060
+ist, es kostet 40 Euro mehr als die anderen. Ähm, das
+
+350
+00:19:29,060 --> 00:19:32,260
+ist ziemlich gut. Du hast vierfach PCI Express, zweimal
+
+351
+00:19:32,780 --> 00:19:36,200
+Computer, ähm, die man, die, die, die, die man erweitern
+
+352
+00:19:36,200 --> 00:19:39,680
+kann. Ähm, und vier, viermal PCI Express, also kannst du
+
+353
+00:19:39,680 --> 00:19:42,520
+mit einem, mit einem Multiplier, äh, mit einem Port-Multiplier
+
+354
+00:19:42,520 --> 00:19:49,360
+erweitern auf, ich glaub, bis zu zehn. Ähm, und das ist
+
+355
+00:19:49,360 --> 00:19:52,120
+eigentlich eine bessere Plattform. Aber ich, das ist, es
+
+356
+00:19:52,120 --> 00:19:56,120
+läuft immer noch, ja. Ich hab mir übrigens bei AliExpress
+
+357
+00:19:56,120 --> 00:19:58,720
+ein paar Starter-Port-Multiplier gekauft, die sind bis
+
+358
+00:19:58,720 --> 00:20:05,400
+heute nicht angekommen. Hast du eigentlich wieder Kabel-Internet bekommen?
+
+359
+00:20:05,400 --> 00:20:11,300
+Im Juni endlich VDSL 100. Ja, ich bin über Unity-Media grad drin, aber das ist noch die
+
+360
+00:20:11,300 --> 00:20:16,540
+alte Unity-Media-Leitung. Ähm, ich kann, ich, ich bin, die Telekom bin ich erst ab
+
+361
+00:20:16,540 --> 00:20:23,070
+August los. Telekom bin ich erst ab August los. Aber ich hab's, ich hab's so gemacht,
+
+362
+00:20:23,070 --> 00:20:32,330
+wie wir im Stream geplant haben. Ähm, mein, mein VoIP-Anschluss geht zu denen hier. Also
+
+363
+00:20:32,330 --> 00:20:37,410
+sprich, das Festnetz, das geht zu denen hier. Das da. Drei Euro im Monat. Telefoniere eh
+
+364
+00:20:37,410 --> 00:20:41,530
+nicht. Geht einfach nur darum, dass man eine Festnetz-Summe hat. Hier geht meine VoIP-Nummer
+
+365
+00:20:41,530 --> 00:20:50,290
+von der Telekom hin. Und, ähm, Internet geht, Unity-Media. Internet geht komplett zu Unity-Media.
+
+366
+00:20:50,290 --> 00:20:58,110
+Und die haben ja auch schon zugesichert, dass ich meinen, äh, vollwertigen IPv4 oder alternativ
+
+367
+00:20:58,110 --> 00:21:05,880
+sogar einen vollwertigen Dual-Stack-Anschluss behalten kann. Und wenn man das schriftlich
+
+368
+00:21:05,880 --> 00:21:09,160
+hat, ist schon mal ganz gut. Dann, dann, wenn die das nicht machen, dann werde ich auf Twitter
+
+369
+00:21:09,160 --> 00:21:10,620
+wieder monatelang durch den Dreck zerfallen.
+
+370
+00:21:10,640 --> 00:21:19,760
+So, und zumindest als Paket hab ich jetzt, ähm, das stimmt überhaupt nicht. Ich hab
+
+371
+00:21:19,760 --> 00:21:31,590
+weder das noch das da. Ja, genau. Ich hab das hier mit Upload, mit Mega-Upload, mit,
+
+372
+00:21:31,590 --> 00:21:39,280
+ähm, Power-Upload oder wie der, wie der Krempel heißt. Äh, wo kommt man das überhaupt einstellen
+
+373
+00:21:39,280 --> 00:21:43,700
+mit Power-Upload jetzt? Ich will mal zeigen, was das kostet. Hier, Details, was ist das?
+
+374
+00:21:43,700 --> 00:21:49,800
+Wahrscheinlich. Mit Power-Upload, genau. Dann, warte mal, wir tun mal so, als wollen
+
+375
+00:21:49,800 --> 00:21:53,880
+wir es bestellen, äh, in den Warenkorb. Also, das hier ist das wichtige 50 Euro monatlich
+
+376
+00:21:53,880 --> 00:21:56,900
+und das stimmt, das stimmt ja auch nicht. Das ist ja auch nur schön gerechnet, ne?
+
+377
+00:21:57,380 --> 00:22:03,420
+Mit den 50 Euro monatlich. Das sind 50 Euro monatlich für den, für den Anschluss. Dann
+
+378
+00:22:03,420 --> 00:22:16,580
+kommen, hallo? Okay, was, was auch immer. Dann kommen nochmal irgendwie 2 Euro oder
+
+379
+00:22:16,580 --> 00:22:19,400
+so dabei für den Power-Upload.
+
+380
+00:22:21,600 --> 00:22:27,900
+Ist die Unity-Media-Seite, spack gerade übelst rum. Ähm, für den Power-Upload. Ähm, dann
+
+381
+00:22:27,900 --> 00:22:38,140
+kommen noch, ich glaub, 20 Euro dabei für den Kabelanschluss. Also, sprich, das kostet
+
+382
+00:22:38,140 --> 00:22:43,040
+irgendwie 75 Euro oder sowas im Monat. Plus nochmal, plus nochmal die Gebühr für, für
+
+383
+00:22:43,040 --> 00:22:47,720
+VoIP bei EasyBell. Also, ich bezahl irgendwie 77 Euro oder sowas im Monat und hab dafür
+
+384
+00:22:47,720 --> 00:22:51,420
+halt, äh, 100 Down, 40 Up und bin die Telekom los.
+
+385
+00:22:51,600 --> 00:22:52,680
+Und einen ordentlichen Anschluss.
+
+386
+00:23:02,920 --> 00:23:05,480
+Muss mal kurz. Äh, schon Battlefield 5 Firestorm gespielt? Nee.
+
+387
+00:23:09,920 --> 00:23:10,560
+Honker Shake.
+
+388
+00:23:12,540 --> 00:23:15,980
+Dual Stack, Dual Stack Light, beste. Ja, so eine Kacke, äh.
+
+389
+00:23:19,950 --> 00:23:21,710
+Adblock muss aus, ich hab überhaupt keinen Adblock an.
+
+390
+00:23:27,180 --> 00:23:27,980
+Wieso 50 Euro?
+
+391
+00:23:29,560 --> 00:23:33,300
+Äh, ab dem, weil es ab dem, ich, ich rechne das immer ab dem, was es dann eigentlich kostet, ne?
+
+392
+00:23:33,540 --> 00:23:38,480
+Ich meine, das stimmt ja nicht. Das ist ja richtig. Eigentlich bezahlt man weniger und ich bezahle jetzt auch nicht,
+
+393
+00:23:38,480 --> 00:23:40,520
+weil ich, wie gesagt, ich hab ja, ich hab ja geschrieben,
+
+394
+00:23:40,540 --> 00:23:45,540
+ich will kündigen. Ähm, ich bezahle auch das erste Jahr nicht die, äh, 50 Euro.
+
+395
+00:23:46,660 --> 00:23:52,740
+Ähm, aber es sind ja eigentlich mehr. Der Kabelanschluss kommt eh noch oben drauf und sowas.
+
+396
+00:23:53,380 --> 00:23:59,240
+So. Ähm, hab ich jetzt noch irgendwas vergessen? Bevor wir anfangen.
+
+397
+00:24:01,560 --> 00:24:05,640
+Also, ne? Ich, ich hab ja schon erzählt, was ich machen will. Ich will meinen, ich könnte mal den Raspberry einschalten.
+
+398
+00:24:05,640 --> 00:24:09,980
+Fällt mir grad ein. Ich schalte mal, ich schalte mal den Raspberry ein.
+
+399
+00:24:10,040 --> 00:24:10,520
+Das wird grad.
+
+400
+00:24:10,520 --> 00:24:12,520
+Ich schalte mal schon den...
+
+401
+00:24:14,300 --> 00:24:14,780
+So.
+
+402
+00:24:16,640 --> 00:24:18,260
+Dass der schon mal starten kann.
+
+403
+00:24:21,060 --> 00:24:23,800
+Hab mittlerweile eingesehen, dass Battle Royale nichts für mich ist.
+
+404
+00:24:24,740 --> 00:24:26,160
+Das hab ich schon ziemlich schnell eingesehen.
+
+405
+00:24:27,160 --> 00:24:30,600
+Oder beziehungsweise, das hab ich schon relativ schnell gemerkt, dass Battle Royale ist.
+
+406
+00:24:30,660 --> 00:24:31,700
+Das ist nicht mein Spielmodus.
+
+407
+00:24:31,960 --> 00:24:35,320
+Was ich interessant finde ist, hab ich eigentlich schon ein Bild von meiner neuen Katz gezeigt?
+
+408
+00:24:37,000 --> 00:24:37,400
+Ähm.
+
+409
+00:24:39,060 --> 00:24:42,000
+Ich, ich find ja auch, dass der Apex-Hype wieder, wieder...
+
+410
+00:24:42,160 --> 00:24:42,700
+...weg ist.
+
+411
+00:24:43,600 --> 00:24:45,600
+Na, der Apex-Hype hat sich schon erledigt.
+
+412
+00:24:49,830 --> 00:24:51,170
+Ist Hanau asozial?
+
+413
+00:24:51,670 --> 00:24:52,670
+Ähm.
+
+414
+00:24:53,290 --> 00:24:55,290
+Also, Hanau in der Innenstadt? Ja.
+
+415
+00:25:00,170 --> 00:25:01,170
+Dicke Katze, guck mal.
+
+416
+00:25:01,770 --> 00:25:02,270
+Da isser.
+
+417
+00:25:02,410 --> 00:25:06,850
+Wobei, die, die, das Bild, ne? Die sieht auf dem Bild viel, viel dicker aus, als sie letztendlich ist.
+
+418
+00:25:11,180 --> 00:25:13,880
+Da, da sieht sie nicht so dick aus. Hier sieht sie auch nicht so dick aus.
+
+419
+00:25:15,300 --> 00:25:15,800
+Ja.
+
+420
+00:25:17,750 --> 00:25:18,250
+Chico.
+
+421
+00:25:20,290 --> 00:25:23,650
+Also, sie heißt Chico, weil der, die ehemalige Besitzerin, glaube ich, hat sich...
+
+422
+00:25:23,650 --> 00:25:25,650
+...äh, ich weiß nicht.
+
+423
+00:25:28,350 --> 00:25:32,070
+Das ist nicht Katzor V2, das ist wenn schon Katzor, äh, äh, V3.
+
+424
+00:25:33,610 --> 00:25:34,970
+Das hier ist die Originale.
+
+425
+00:25:35,710 --> 00:25:37,070
+Das ist die Originale gewesen.
+
+426
+00:25:39,070 --> 00:25:39,570
+Das hier.
+
+427
+00:25:39,910 --> 00:25:40,830
+Meine erste Katz.
+
+428
+00:25:41,410 --> 00:25:42,610
+Das hier ist die zweite Katz.
+
+429
+00:25:43,410 --> 00:25:45,410
+Und, äh, Chico ist die dritte Katz.
+
+430
+00:25:46,290 --> 00:25:49,990
+Ja, ich hatte ein bisschen Pech mit meinen Katzen, oder die Katzen mit mir, weil...
+
+431
+00:25:50,950 --> 00:25:52,330
+...eigentlich ging's denen bei mir immer gut.
+
+432
+00:25:52,750 --> 00:25:55,310
+Und ich glaub denen hat's auch gefallen, aber irgendwie waren die halt alle...
+
+433
+00:25:55,310 --> 00:26:00,350
+...alt und krank und, äh, und jetzt ist, äh, Chico ist ein bisschen jünger, aber ich hoffe, ne, Chico...
+
+434
+00:26:01,550 --> 00:26:05,790
+...guckt sie zu, als wüsste sie, dass ich über sie rede, äh, also ich hoffe, Chico macht's ein bisschen länger.
+
+435
+00:26:10,450 --> 00:26:13,110
+So, ähm, jetzt fangen wir mal mit der eigentlichen Geschichte an, was wir machen wollen.
+
+436
+00:26:13,110 --> 00:26:16,630
+Also, wie gesagt, ich, ich, ich werde, ich versuche mal mit, ähm...
+
+437
+00:26:19,210 --> 00:26:21,210
+...äh, oh, was hat denn der Raspberry für eine IP gehabt?
+
+438
+00:26:24,400 --> 00:26:24,900
+So.
+
+439
+00:26:26,540 --> 00:26:27,040
+Haha!
+
+440
+00:26:27,660 --> 00:26:28,160
+Tatsächlich.
+
+441
+00:26:28,840 --> 00:26:29,340
+Ähm...
+
+442
+00:26:29,340 --> 00:26:45,570
+Also, wie gesagt, außer den Konferenz-Vortrag kenne ich mich damit nicht sonderlich gut aus.
+
+443
+00:26:46,210 --> 00:26:48,470
+Ich glaub, den Vortrag hier hab ich irgendwie geguckt.
+
+444
+00:26:49,030 --> 00:26:51,010
+Also, von der Idee her machen wir halt sowas hier.
+
+445
+00:26:51,910 --> 00:26:55,590
+Wir wollen eine Tabelle haben, wo drin steht, ob meine Raspberries an oder aus sind.
+
+446
+00:26:56,730 --> 00:27:03,590
+Ähm, und wir wollen ein paar Graphen, also, ne, nachdem ich rausgekriegt hab, ob meine Raspberries an oder aus sind...
+
+447
+00:27:03,590 --> 00:27:08,090
+...beziehungsweise darauf irgendwelche Services abgekackt sind oder sowas, oder wie, wie voll die Festplatte ist oder sowas...
+
+448
+00:27:08,210 --> 00:27:30,870
+...will ich, will ich ne Übersicht haben, ähm, haust up, down, und ich will ne Übersicht haben, so nach dem Motto Festplattenplatz, so und so viel frei, so und so viel belegt, und wenn über, sag mal über 90% ist, ähm, dann sollte es halt rot werden oder irgendwie sowas in der Richtung, muss ich mir mal genau angucken, ähm, da guck ich da einfach abends mal drauf oder lass mir ne Nachricht schicken, dann weiß ich.
+
+449
+00:27:30,870 --> 00:27:37,790
+Nicht, dass das Ding wieder kaputt ist, weil, wie gesagt, das ist, ähm, der Raspberry im Keller ist vollgelaufen, die SD-Karte.
+
+450
+00:27:38,210 --> 00:27:40,210
+Und dann ist er abgekackt.
+
+451
+00:27:41,150 --> 00:27:42,430
+Beziehungsweise man hat's nicht mal weitergemacht.
+
+452
+00:27:42,830 --> 00:27:48,070
+Und der Raspberry im Keller ist ja eigentlich da, um historische Statistiken für, von der Heizung zu sammeln.
+
+453
+00:27:48,770 --> 00:27:51,970
+Und dann an meinen Home Assistant, an meine Heimatomatisierung zu schicken.
+
+454
+00:27:52,290 --> 00:27:53,190
+Und das hat er jetzt nicht gemacht.
+
+455
+00:27:54,230 --> 00:28:00,270
+Das hab ich auch zu spät gesehen, jetzt hab ich irgendwie so ungefähr ne Woche keine Statistiken und ich hätte jetzt auch nicht festgestellt, wenn die Heizung irgendein Problem hat.
+
+456
+00:28:00,470 --> 00:28:02,390
+Weil ich mein, das ist, äh, also...
+
+457
+00:28:02,390 --> 00:28:05,790
+Stromverbrauch, ja? Stromverbrauch leider noch nicht.
+
+458
+00:28:05,790 --> 00:28:08,190
+Da bin ich grad dabei zu gucken, wie man das...
+
+459
+00:28:08,210 --> 00:28:12,330
+...am besten macht und das gibt's viele Lösungen und irgendwie gefällt mir davon nix so richtig.
+
+460
+00:28:13,990 --> 00:28:15,390
+Ja, und...
+
+461
+00:28:15,390 --> 00:28:19,050
+...daswegen hab ich mir gedacht, es wird jetzt mal an der Zeit, dass ich mitkriege, wenn meine Raspberries abkacken.
+
+462
+00:28:19,950 --> 00:28:24,630
+Ja, wenn jetzt zum Beispiel der, das TV-Head an der TV-Server abkackt oder so, ist kein Problem.
+
+463
+00:28:25,290 --> 00:28:25,910
+Da krieg ich mit.
+
+464
+00:28:28,660 --> 00:28:31,120
+Ja, spätestens wenn einer schreit, dass der Fernseher nicht geht.
+
+465
+00:28:32,000 --> 00:28:34,560
+Aber ob das Ding jetzt im Keller funktioniert oder nicht, krieg ich nicht mit.
+
+466
+00:28:35,720 --> 00:28:37,120
+Und das, das probieren wir jetzt mal.
+
+467
+00:28:37,800 --> 00:28:39,880
+Also, wir müssen übrigens gar nicht auf den Raspberry-Head schauen.
+
+468
+00:28:39,880 --> 00:28:41,520
+Wir machen uns jetzt erst mal...
+
+469
+00:28:41,520 --> 00:28:43,880
+Wir machen uns jetzt erst mal einen neuen Container.
+
+470
+00:28:45,740 --> 00:28:52,120
+Wir machen uns jetzt erst mal einen neuen Rechner oder einen neuen Container zum Testen von Prometheus und von Grafana.
+
+471
+00:28:52,920 --> 00:28:54,420
+Und dann basteln wir ein bisschen damit rum.
+
+472
+00:28:54,520 --> 00:28:57,140
+Wie gesagt, ich bin da kein Profi, was das angeht.
+
+473
+00:28:57,220 --> 00:28:58,220
+Ich hab damit wenig gemacht.
+
+474
+00:28:59,000 --> 00:29:00,880
+Äh, LXC-Launch...
+
+475
+00:29:01,760 --> 00:29:03,500
+Oh, wie ging das nochmal? Ich kann mir das immer nicht merken.
+
+476
+00:29:05,260 --> 00:29:05,620
+Launch...
+
+477
+00:29:05,620 --> 00:29:07,240
+Ich guck mal nach.
+
+478
+00:29:09,000 --> 00:29:09,700
+Ich kann mir das...
+
+479
+00:29:09,700 --> 00:29:11,420
+So, so, genau.
+
+480
+00:29:12,780 --> 00:29:15,680
+So, allerdings nicht, äh, nennen wir das Neueste.
+
+481
+00:29:15,820 --> 00:29:16,700
+Kommen wir dem 1810.
+
+482
+00:29:17,660 --> 00:29:21,540
+Wobei, müsste, müsste nicht jetzt demnächst das neue Ubuntu rauskommen?
+
+483
+00:29:21,700 --> 00:29:23,640
+Also, müsste doch jetzt eigentlich soweit sein.
+
+484
+00:29:25,060 --> 00:29:26,400
+Beta von Ubuntu veröffentlicht, ja.
+
+485
+00:29:27,200 --> 00:29:27,920
+Wann ist denn...
+
+486
+00:29:27,920 --> 00:29:30,480
+Das kommt wahrscheinlich Ende April oder so, müsste es...
+
+487
+00:29:30,480 --> 00:29:31,340
+Disco Ding...
+
+488
+00:29:31,340 --> 00:29:32,200
+Ach du Scheiße.
+
+489
+00:29:34,840 --> 00:29:36,120
+Disco Dingo, ey.
+
+490
+00:29:38,740 --> 00:29:39,580
+Oh Gott.
+
+491
+00:29:39,580 --> 00:29:42,580
+Ja, das wird auch langsam immer...
+
+492
+00:29:42,580 --> 00:29:50,020
+Naja, ähm...
+
+493
+00:29:50,020 --> 00:29:51,340
+Am 18. April, okay.
+
+494
+00:29:53,100 --> 00:29:53,800
+Okay, so geht das.
+
+495
+00:29:53,880 --> 00:29:58,990
+Also, wir haben 1810 und nennen das Ganze jetzt mal Container, ähm...
+
+496
+00:29:58,990 --> 00:29:59,370
+Monitor.
+
+497
+00:30:05,560 --> 00:30:07,500
+Warum gab es nie ein 15.10?
+
+498
+00:30:08,880 --> 00:30:09,620
+Gab's das nicht?
+
+499
+00:30:13,940 --> 00:30:16,260
+Also, von der Logik her müsste es das doch eigentlich geben, oder?
+
+500
+00:30:24,560 --> 00:30:25,440
+Wieso? Gibt's doch.
+
+501
+00:30:27,440 --> 00:30:27,940
+Oder hab ich...
+
+502
+00:30:27,940 --> 00:30:29,500
+Ich glaube, ich hab den Gag nicht verstanden.
+
+503
+00:30:39,200 --> 00:30:40,520
+Beta ist auf Production-Servern.
+
+504
+00:30:40,520 --> 00:30:44,200
+So, ähm...
+
+505
+00:30:44,200 --> 00:30:45,000
+Okay, ähm...
+
+506
+00:30:45,000 --> 00:30:45,800
+Jetzt kommen wir mal...
+
+507
+00:30:45,800 --> 00:30:46,340
+Lists.
+
+508
+00:30:55,960 --> 00:30:57,440
+Äh, äh...
