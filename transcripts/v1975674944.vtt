@@ -1,0 +1,9493 @@
+WEBVTT
+
+02:29.230 --> 02:44.790
+So, heute Pfeiffer-Time, Leute.
+
+02:47.690 --> 02:48.450
+Broggers, ja.
+
+02:49.170 --> 02:50.870
+Wir benchmarken heute mal ein paar Sachen.
+
+02:52.130 --> 02:55.910
+Und zwar, ich glaube, ich zeige euch das.
+
+02:55.990 --> 02:57.650
+Bevor ich jetzt lange erzähle, ich zeige euch das einfach.
+
+02:58.930 --> 03:04.600
+Also, wir haben ja auch im Stream schon ein bisschen mit Web...
+
+03:04.600 --> 03:06.520
+Ich muss mal ein bisschen leiser machen.
+
+03:07.700 --> 03:09.560
+Heute schon gesportet, ja, heute Morgen.
+
+03:09.560 --> 03:21.770
+Und, allerdings, die Lautstärke kann zwar wieder nicht entscheiden.
+
+03:24.610 --> 03:24.910
+Okay.
+
+03:25.950 --> 03:29.510
+Aber heute nur 5,56 Kilometer.
+
+03:30.150 --> 03:32.510
+Nicht wieder 10 plus wie letzten Sonntag.
+
+03:33.730 --> 03:36.290
+Also, ganz normale Runde, die ich sonst auch renne.
+
+03:36.910 --> 03:38.970
+Die, naja, wobei nicht exakt die gleiche.
+
+03:38.990 --> 03:40.430
+Meine normale Runde 6,2.
+
+03:44.150 --> 03:45.890
+Ich mach schon mal meine VM an.
+
+03:45.890 --> 03:49.950
+Ich muss jetzt erstmal, bevor es losgeht, ich zeige euch jetzt, was wir machen.
+
+03:50.730 --> 03:58.090
+Und, dann futter ich nochmal zwei Plätzchen, die ich mitgebracht habe, hier gerade.
+
+03:59.330 --> 04:02.250
+Aber in der Zwischenzeit können wir nochmal Package-Update auf der VM machen,
+
+04:02.350 --> 04:04.310
+falls es es in der Zwischenzeit schon gegeben hat.
+
+04:05.050 --> 04:07.610
+Weil, ich glaube, zuletzt haben wir heute Morgen geupdatet.
+
+04:08.910 --> 04:10.450
+Also, ich zeige euch, was wir heute machen.
+
+04:10.550 --> 04:11.790
+Ich glaube, das wird recht spannend.
+
+04:11.910 --> 04:13.910
+Zumindest interessieren mich die Ergebnisse auch.
+
+04:17.050 --> 04:20.270
+Und zwar, wir rufen heute von C-Sharp aus,
+
+04:20.830 --> 04:22.030
+sowohl Rusty, als auch von C-Sharp, aus.
+
+04:22.030 --> 04:22.530
+Sowohl Rusty, als auch von C-Sharp, aus.
+
+04:22.550 --> 04:25.550
+Sowohl Rust Funktionen auf, als auch Go-Funktionen.
+
+04:26.030 --> 04:30.170
+Das liegt daran, ihr könnt euch vielleicht noch dran erinnern,
+
+04:30.690 --> 04:35.310
+ich hab im Stream ja schon öfters mal ein bisschen mit WebRTC auf Serverseite rumgebastelt.
+
+04:35.710 --> 04:41.970
+Zum Beispiel, dass man sich connecten kann in einem Browser und dann Webcams abspielen und solche Geschichten.
+
+04:42.050 --> 04:44.530
+Also, ich hab ja schon öfters mal ein bisschen mit WebRTC rumgebastelt.
+
+04:45.470 --> 04:50.170
+Und ich hab die letzten Tage über mal so ein bisschen Just for Fun wieder ein bisschen rumgebaut mit WebRTC.
+
+04:50.390 --> 04:52.170
+Also, WebRTC ist quasi...
+
+04:52.550 --> 04:55.210
+Realtime Video im Browser
+
+04:55.210 --> 04:58.030
+Nicht Streaming, wohlgemerkt, nicht Streaming
+
+04:58.030 --> 04:59.810
+Sondern, also Streaming
+
+04:59.810 --> 05:00.850
+Ist ja meistens HLS
+
+05:00.850 --> 05:03.110
+Also HLS ist
+
+05:03.110 --> 05:03.830
+Was heißt das?
+
+05:05.010 --> 05:06.650
+Für was steht HLS eigentlich?
+
+05:08.880 --> 05:09.500
+Gute Frage
+
+05:09.500 --> 05:12.860
+HTTP Live Streaming, okay
+
+05:12.860 --> 05:15.080
+Wusste ich gar nicht
+
+05:15.080 --> 05:17.040
+Also die ganzen Streaming Seiten
+
+05:17.040 --> 05:18.520
+Die funktionieren meistens über HLS
+
+05:18.520 --> 05:21.140
+HLS ist relativ easy, HLS gibt es
+
+05:21.140 --> 05:21.580
+Eine
+
+05:21.580 --> 05:25.020
+M3U8 Datei
+
+05:25.020 --> 05:26.580
+Und da stehen dann URLs drin
+
+05:26.580 --> 05:28.760
+Die rotated werden und alle paar
+
+05:28.760 --> 05:30.920
+Sekunden gibt es da
+
+05:30.920 --> 05:32.340
+Einen neuen Eintrag drin und dann
+
+05:32.340 --> 05:34.720
+Streamt das, also das macht ab und zu mal ein Get
+
+05:34.720 --> 05:37.140
+Und dann holt sich so ein 5 Sekunden Häppchen vom Stream
+
+05:37.140 --> 05:38.800
+Und dann macht es wieder ein Get
+
+05:38.800 --> 05:39.980
+Neues 5 Sekunden Häppchen
+
+05:39.980 --> 05:42.920
+WebRTC ist tatsächlich Realtime
+
+05:42.920 --> 05:45.300
+Von Endgerät zu Endgerät
+
+05:45.300 --> 05:46.740
+Das ist besonders gut, wenn man
+
+05:46.740 --> 05:48.660
+Möglichst Latency Free Video haben will
+
+05:48.660 --> 05:50.020
+Was cool ist für
+
+05:50.020 --> 05:52.640
+Ja Audio Calls
+
+05:52.640 --> 05:54.120
+Also beispielsweise Microsoft Teams
+
+05:54.120 --> 05:56.320
+Und sowas, das läuft nach Möglichkeiten über WebRTC
+
+05:56.320 --> 05:58.280
+Und halt auch
+
+05:58.280 --> 06:00.220
+Für Videokameras
+
+06:00.220 --> 06:02.520
+Wenn man zum Beispiel drauf gucken will, wer vor der Tür steht
+
+06:02.520 --> 06:03.020
+Und sowas
+
+06:03.020 --> 06:06.220
+Und das möglichst Latency Free sehen will
+
+06:06.220 --> 06:07.840
+Alles, dann ist WebRTC gut
+
+06:07.840 --> 06:09.500
+Aber das machen wir heute nicht, ich sag nur
+
+06:09.500 --> 06:10.700
+Wie ich drauf gekommen bin
+
+06:10.700 --> 06:14.120
+Und ich verwende für
+
+06:14.120 --> 06:16.200
+Oh ich hab irgendwas im Auge, das ist ja super
+
+06:16.200 --> 06:17.100
+Abartig ey
+
+06:17.100 --> 06:21.040
+Razer, danke für den Sub
+
+06:21.040 --> 06:25.480
+Und by the way, wir installieren gerade mal
+
+06:25.480 --> 06:26.440
+Die neue
+
+06:26.440 --> 06:28.640
+Die neue Jetbrains
+
+06:28.640 --> 06:32.120
+IDE für Rust
+
+06:32.120 --> 06:34.660
+Erstmal
+
+06:34.660 --> 06:35.740
+Erstmal hier updaten
+
+06:35.740 --> 06:38.020
+Die Toolbox darf auch updaten
+
+06:38.020 --> 06:39.720
+Genau und normalerweise
+
+06:39.720 --> 06:42.000
+Hab ich das immer mit dieser Library hier gemacht
+
+06:42.000 --> 06:45.280
+Und die ist in Go
+
+06:45.280 --> 06:47.940
+Die ist in Go
+
+06:47.940 --> 06:51.280
+Und eine Sache, die mich in Go
+
+06:51.280 --> 06:53.460
+Immer genervt hat, ist Stripes, danke schön für den Sub
+
+06:53.460 --> 06:55.340
+Eine Sache, die mich in Go
+
+06:55.340 --> 06:56.600
+Immer genervt hat, ist
+
+06:56.600 --> 06:58.840
+Dass Go
+
+06:58.840 --> 07:01.160
+Interopt mit anderen Sprachen
+
+07:01.160 --> 07:02.900
+So langsam ist
+
+07:02.900 --> 07:05.540
+Die IDE ist absoluter Müll
+
+07:05.540 --> 07:07.500
+Echt, hast du schon ausprobiert?
+
+07:08.740 --> 07:09.620
+Wie heißt denn das Ding überhaupt?
+
+07:09.740 --> 07:11.460
+Hier, Rust Rover
+
+07:11.460 --> 07:15.040
+Was verwendest du, wenn das kacke ist?
+
+07:16.500 --> 07:17.620
+Meistens sind die Jetbrains
+
+07:17.620 --> 07:19.480
+Singer doch immer ganz gut, ja
+
+07:19.480 --> 07:21.520
+Zumindest Goland ist nice
+
+07:21.520 --> 07:22.600
+Und Rider ist nice
+
+07:22.600 --> 07:37.760
+Oh Max
+
+07:42.210 --> 08:00.100
+Was macht Visual Studio Code besser?
+
+08:00.100 --> 08:29.430
+Plätzchen, Stealth
+
+08:29.430 --> 08:39.930
+Easy Light, keine Ahnung was die da treiben
+
+08:39.930 --> 08:45.260
+Das denke ich persönlich auch
+
+08:45.260 --> 08:47.180
+Es würde mich wegen der interessieren
+
+08:47.180 --> 08:50.660
+Was Mr. Robot nicht gefallen hat, beziehungsweise
+
+08:50.660 --> 08:59.600
+Was ist denn wie das Code besser ist?
+
+08:59.600 --> 09:06.250
+Okay, Update ist raus, installieren wir das
+
+09:06.250 --> 09:15.880
+Das Ding buggt in der VR manchmal ein bisschen
+
+09:15.880 --> 09:18.780
+Also, nachdem ich meine Plätzchen weggestellt habe jetzt
+
+09:18.780 --> 09:20.000
+Kann ich weiter erzählen
+
+09:20.000 --> 09:21.600
+Genau und die Library, die ich immer
+
+09:21.600 --> 09:22.480
+Wie gesagt, ich sage euch gleich
+
+09:22.480 --> 09:23.920
+Wir machen heute nicht viel WebRTC
+
+09:23.920 --> 09:25.000
+Wenn überhaupt, gar nicht
+
+09:25.000 --> 09:27.380
+Es ist nur nicht, wie ich auf die Idee gekommen bin
+
+09:27.380 --> 09:31.500
+Und zwar, für WebRTC habe ich immer diese Library hier verwendet
+
+09:31.500 --> 09:37.280
+Aber eine Sache, die mich an Go aufrufen aus anderen Sprachen
+
+09:37.280 --> 09:38.960
+Immer extrem abgefuckt hat, ist
+
+09:38.960 --> 09:44.400
+Dass das, wenn man das öfters callt, ziemlich langsam ist
+
+09:44.400 --> 09:46.160
+Es gibt zwei Varianten
+
+09:46.160 --> 09:50.000
+Wenn man aus Go selber C-Funktionen aufruft
+
+09:50.000 --> 09:52.460
+Also quasi von Go auf Go
+
+09:52.480 --> 09:54.240
+Andere Sprachen aufruft
+
+09:54.240 --> 09:55.140
+Dann ist das langsam
+
+09:55.140 --> 09:58.760
+Aber es hält sich noch halbwegs in Grenzen
+
+09:58.760 --> 10:02.280
+Wenn man aus anderen Sprachen in Go reincallt
+
+10:02.280 --> 10:03.760
+In Go-Code reincallt
+
+10:03.760 --> 10:07.620
+Dann ist das in der Vergangenheit zumindest extrem langsam gewesen
+
+10:07.620 --> 10:11.340
+Also, wir reden hier von
+
+10:11.340 --> 10:15.400
+Ein Native Function Call von C-Sharp nach C-Sharp dauert
+
+10:15.400 --> 10:17.540
+Was weiß ich
+
+10:17.540 --> 10:19.380
+Keine Ahnung
+
+10:19.380 --> 10:21.600
+Eine halbe Nanosekunde oder so?
+
+10:22.480 --> 10:24.240
+Es ist kurz
+
+10:24.240 --> 10:29.480
+Und ein Call nach Go rein dauert irgendwie 300 Nanosekunden
+
+10:29.480 --> 10:32.240
+Also, Go ist sehr langsam
+
+10:32.240 --> 10:35.720
+Wenn es um Interop mit anderen Sprachen angeht
+
+10:35.720 --> 10:38.240
+Das hat mich immer genervt, weil
+
+10:38.240 --> 10:41.360
+Ich sende mehrfach
+
+10:41.360 --> 10:47.280
+Also ich sende 30 mal die Sekunde pro Kamera
+
+10:47.280 --> 10:52.340
+Neue Video Frames nach Go und die WebRTC Library verarbeitet
+
+10:52.340 --> 10:53.340
+Die dann
+
+10:53.340 --> 10:54.340
+Im Endeffekt
+
+10:54.340 --> 10:58.340
+Ich habe, sag mal, wenn du 30 FPS pro Kamera hast
+
+10:58.340 --> 10:59.340
+Hast 10 Kameras
+
+10:59.340 --> 11:02.340
+Was sagst du, hast du 100 Kameras?
+
+11:02.340 --> 11:06.340
+Hast du 3000 Function Calls die Sekunde
+
+11:06.340 --> 11:07.340
+Das ist nicht viel
+
+11:07.340 --> 11:10.340
+Und das ist auch, ganz ehrlich
+
+11:10.340 --> 11:16.340
+Selbst wenn es richtig, richtig langsam ist in Go
+
+11:16.340 --> 11:18.340
+Nicht so wirklich das Bottleneck
+
+11:18.340 --> 11:19.340
+Aber mich nervt
+
+11:19.340 --> 11:21.100
+Deswegen wollte ich das erstens mal ausprobieren
+
+11:21.100 --> 11:22.100
+Naja
+
+11:22.100 --> 11:24.100
+Also es gibt noch nichts zu rewriten in Rust
+
+11:24.100 --> 11:26.100
+Aber wir probieren das mal in Rust aus
+
+11:26.100 --> 11:29.100
+Also zumindest wir machen heute kein komplettes WebRTC-Example
+
+11:29.100 --> 11:31.100
+Vielleicht im nächsten Stream oder so
+
+11:31.100 --> 11:33.100
+Aber das geht erstmal zum ausprobieren
+
+11:33.100 --> 11:34.100
+Zumindest
+
+11:34.100 --> 11:36.100
+Wollte ich erstmal ausprobieren
+
+11:36.100 --> 11:39.100
+Ob das schneller geworden ist mittlerweile
+
+11:39.100 --> 11:41.100
+Also C und Go Interop
+
+11:41.100 --> 11:43.100
+Ich sag C stellvertretend
+
+11:43.100 --> 11:45.100
+Für alle anderen Sprachen die es gibt
+
+11:45.100 --> 11:47.100
+Weil jede Sprache
+
+11:47.100 --> 11:48.100
+Oder sagen wir so
+
+11:48.100 --> 11:49.100
+Mir fällt keine Sprache ein
+
+11:49.100 --> 11:50.100
+Die nicht
+
+11:50.100 --> 11:51.100
+Interop mit C macht
+
+11:51.100 --> 11:52.100
+Wie C Funktionen aufruft
+
+11:52.100 --> 11:53.100
+Hat sich so ein bisschen als Standard etabliert
+
+11:53.100 --> 11:54.100
+In der Programmierwelt
+
+11:54.100 --> 11:55.100
+Ist egal ob das jetzt Python ist
+
+11:55.100 --> 11:56.100
+Node
+
+11:56.100 --> 11:57.100
+C Sharp
+
+11:57.100 --> 11:58.100
+Was auch immer
+
+11:58.100 --> 11:59.100
+Alle können sie eigentlich
+
+11:59.100 --> 12:00.100
+Dynamisch C Funktionen aufrufen
+
+12:00.100 --> 12:01.100
+Also mir fällt keine Sprache ein
+
+12:01.100 --> 12:02.100
+Die nicht
+
+12:02.100 --> 12:03.100
+C Funktionen aufrufen kann
+
+12:03.100 --> 12:04.100
+Sagen wir mal
+
+12:04.100 --> 12:05.100
+Kompilierte Sachen
+
+12:05.100 --> 12:24.480
+Die mit C Interop
+
+12:24.480 --> 12:26.480
+Interface rausgefallen sind
+
+12:26.480 --> 12:29.480
+Und das Ding ist
+
+12:29.480 --> 12:31.480
+Ich hab irgendwas im Auge
+
+12:31.480 --> 12:33.480
+Das ist wirklich richtig nervig
+
+12:33.480 --> 12:42.170
+So und
+
+12:42.170 --> 12:44.170
+Das Ding ist
+
+12:44.170 --> 12:46.170
+Wir testen jetzt erstmal
+
+12:46.170 --> 12:47.170
+Ob das schneller geworden ist
+
+12:47.170 --> 12:48.170
+Mit Go
+
+12:48.170 --> 12:51.170
+Was hab ich eigentlich für eine Go Version drauf hier
+
+12:51.170 --> 12:53.170
+Go minus minus Version
+
+12:53.170 --> 12:55.170
+Sieht man das
+
+12:55.170 --> 12:57.170
+Ah ne das ist die Minus Minus Minus Version nur so
+
+12:57.170 --> 12:59.170
+Ne das ist einfach nur Version
+
+12:59.170 --> 13:00.170
+Warum macht jetzt eigentlich jeden
+
+13:00.170 --> 13:02.170
+Command Line Tool
+
+13:02.170 --> 13:03.170
+Irgendwie anders
+
+13:03.170 --> 13:04.170
+Das ist so
+
+13:04.170 --> 13:05.170
+Bei Java ist es glaube ich
+
+13:05.170 --> 13:06.170
+Minus groß V
+
+13:06.170 --> 13:07.170
+Oder so
+
+13:07.170 --> 13:10.170
+Das kann man sich ja echt nicht merken
+
+13:10.170 --> 13:12.170
+So und Rust müssen wir auch gleich mal installieren
+
+13:12.170 --> 13:15.170
+Ne Rust ist schon installiert
+
+13:15.170 --> 13:17.860
+So
+
+13:17.860 --> 13:18.860
+Und
+
+13:18.860 --> 13:23.500
+Das
+
+13:23.500 --> 13:26.500
+Der Kompilierer für die deutsche Programmiersprache
+
+13:26.500 --> 13:27.500
+Oh je
+
+13:27.500 --> 13:46.680
+Ja das mit dem einen
+
+13:46.680 --> 13:47.680
+Mit dem einen Minus
+
+13:47.680 --> 13:49.680
+Ist in der Go Welt
+
+13:49.680 --> 13:51.680
+Voll verbreitet
+
+13:51.680 --> 13:53.680
+Ich versteh es ehrlich gesagt nicht
+
+13:53.680 --> 13:56.680
+Man hätte sich da ein bisschen an Lilux Standards halten können
+
+13:56.680 --> 13:58.680
+Und Lilux Standard ist
+
+13:58.680 --> 13:59.680
+Minus Minus ausgeschrieben
+
+13:59.680 --> 14:01.680
+Einfaches Minus mit Abkürzung
+
+14:01.680 --> 14:03.680
+Aber Go hat sich gedacht
+
+14:03.680 --> 14:05.680
+Scheiß drauf wir lassen das einfach
+
+14:05.680 --> 14:10.780
+Und
+
+14:10.780 --> 14:12.780
+Wobei in dem Fall ist es ja sogar nicht nur einfaches Minus
+
+14:12.780 --> 14:14.780
+Sondern sogar
+
+14:14.780 --> 14:16.780
+Ganz ohne Minus also Sub Command
+
+14:16.780 --> 14:18.780
+Leute wartet mal
+
+14:18.780 --> 14:20.780
+Muss mal kurz
+
+14:20.780 --> 14:22.780
+Wasser ins Auge machen ey
+
+14:22.780 --> 15:16.120
+Ey Champ gefixt
+
+15:16.120 --> 15:17.120
+Hoffe ich
+
+15:17.120 --> 15:21.900
+Aber geht das auch so
+
+15:21.900 --> 15:23.900
+Wobei bei Git bin ich es gewöhnt
+
+15:23.900 --> 15:24.900
+Ich finde das gar nicht so schlimm
+
+15:24.900 --> 15:25.900
+Man muss sich einfach nur dran gewöhnen
+
+15:25.900 --> 15:27.900
+Dass Sub Commands sind
+
+15:27.900 --> 15:29.900
+Aber Version finde ich halt doof als Sub Command
+
+15:29.900 --> 15:32.900
+Minus Minus Version ist einfach viel intuitiver
+
+15:32.900 --> 15:37.790
+So also das ist das erste was ich ausprobieren will
+
+15:37.790 --> 15:41.790
+Ob Go Interop mit anderen Sprachen immer noch so langsam ist
+
+15:41.790 --> 15:43.790
+Und dann
+
+15:43.790 --> 15:45.790
+Ja dann kam das nächste wie ich auf Rust gekommen bin
+
+15:45.790 --> 15:47.790
+Ich hab gesehen
+
+15:47.790 --> 15:49.790
+Das es eine Rust
+
+15:49.790 --> 15:51.790
+Reimplementation
+
+15:51.790 --> 15:53.790
+Von dieser Go Library
+
+15:53.790 --> 15:55.790
+Gibt in Rust
+
+15:55.790 --> 15:57.790
+Also das Ding ist ziemlich beliebt
+
+15:57.790 --> 15:59.790
+11.900 Sterne und das da
+
+15:59.790 --> 16:01.790
+3500 Sterne also fast so viel
+
+16:01.790 --> 16:07.660
+Wie der Fiat Champ
+
+16:07.660 --> 16:09.660
+Hat da jemand sein Issue geschlossen kann das sein
+
+16:09.660 --> 16:18.220
+Guck mal ich sag doch
+
+16:18.220 --> 16:20.220
+Keine Fehler im Fiat Champ
+
+16:20.220 --> 16:22.220
+Einfach immer
+
+16:22.220 --> 16:30.140
+Versteht keiner wie man es verwendet
+
+16:30.140 --> 16:32.140
+So und dann hab ich gefunden
+
+16:32.140 --> 16:34.140
+Dass es eine Reimplementierung
+
+16:34.140 --> 16:36.140
+Von dieser WebRTC Library in Rust gibt
+
+16:36.140 --> 16:38.140
+Und dann hab ich mir überlegt
+
+16:38.140 --> 16:40.140
+Okay jetzt wärs doch mal an der Zeit
+
+16:40.140 --> 16:42.140
+Bevor ich irgendwie
+
+16:42.140 --> 16:44.140
+Eine der beiden Libraries benutze
+
+16:44.140 --> 16:46.140
+Mal zu gucken
+
+16:46.140 --> 16:48.140
+Was sich prinzipiell angenehmer aus .NET
+
+16:48.140 --> 16:50.140
+Aufrufen lässt Rust oder Go
+
+16:50.140 --> 16:52.140
+Ich persönlich tippe drauf
+
+16:52.140 --> 16:54.140
+Dass es meilenweit Rust
+
+16:54.140 --> 16:56.140
+Sein wird
+
+16:56.140 --> 16:58.140
+Sowohl easy easier zu benutzen
+
+16:58.140 --> 17:00.140
+Als auch also nicht zu schreiben
+
+17:00.140 --> 17:02.140
+Sondern anzusprechen
+
+17:02.140 --> 17:04.140
+Es ist auch deutlich höhere Performance
+
+17:04.140 --> 17:06.140
+Vom Callen von C-Sharp aus
+
+17:06.140 --> 17:08.140
+Aber so sicher
+
+17:08.140 --> 17:10.140
+Ganz sicher bin ich mir nicht
+
+17:10.140 --> 17:12.140
+Ich geh aber davon aus dass Rust meilenweit vorne sein wird
+
+17:12.140 --> 17:14.140
+Das Problem an Rust ist
+
+17:14.140 --> 17:16.140
+Dass Rust absolut abfuck zu schreiben ist
+
+17:16.140 --> 17:18.140
+Aber
+
+17:18.140 --> 17:20.140
+Der Interop mit C-Sharp
+
+17:20.140 --> 17:22.140
+Sollte schneller sein
+
+17:22.140 --> 17:24.140
+Deswegen probieren wir das jetzt überhaupt gar nicht
+
+17:24.140 --> 17:26.140
+Leute
+
+17:26.140 --> 17:28.140
+Ich bin ja schon seit MW1
+
+17:28.140 --> 17:30.140
+Der Meinung dass das Kreativität
+
+17:30.140 --> 17:32.140
+Komplett bankrott dort ist
+
+17:32.140 --> 17:34.140
+MW2
+
+17:34.140 --> 17:36.140
+War schon nochmal der Aufguss
+
+17:36.140 --> 17:38.140
+Remake Aufguss
+
+17:38.140 --> 17:40.140
+Und MW3 komplett
+
+17:40.140 --> 17:42.140
+Ich hab heute bei Huskers in den Stream reingeguckt
+
+17:42.140 --> 17:44.140
+Hab festgestellt
+
+17:44.140 --> 17:46.140
+Die haben zwar teilweise Karten dabei
+
+17:46.140 --> 17:48.140
+Aber das Gameplay was ich sehe
+
+17:48.140 --> 17:50.140
+Ist das gleiche
+
+17:50.140 --> 17:52.140
+Up Aim
+
+17:52.140 --> 17:54.140
+MW1
+
+17:54.140 --> 17:56.140
+Reboot Gameplay
+
+17:56.140 --> 17:58.140
+Mit ultra hoher Time to Kill
+
+17:58.140 --> 18:00.140
+Also niedriger
+
+18:00.140 --> 18:02.140
+Also ich hab's
+
+18:02.140 --> 18:04.140
+Ich hab mir null davon angeguckt
+
+18:04.140 --> 18:06.140
+Das interessiert mich nicht
+
+18:06.140 --> 18:11.570
+Findest du ernsthaft
+
+18:11.570 --> 18:13.570
+Ich find Rust ist eklig
+
+18:13.570 --> 18:15.570
+Sowohl Go als auch Rust sind jetzt nicht gerade die schönsten Sprachen
+
+18:15.570 --> 18:17.570
+Aber ich find Rust extrem umständlich
+
+18:17.570 --> 18:19.570
+Deswegen werden wir das jetzt mal ausprobieren
+
+18:19.570 --> 18:21.570
+So also
+
+18:21.570 --> 18:23.570
+Hey Max
+
+18:23.570 --> 18:25.570
+Kannst du eventuell berichten wie es in dem Bankenwesen
+
+18:25.570 --> 18:27.570
+Seine Ausbildung zum Anwendungsinformatiker zu machen
+
+18:27.570 --> 18:29.570
+Weiß ich nicht
+
+18:29.570 --> 18:31.570
+Ich hab keine Ausbildung gemacht
+
+18:31.570 --> 18:33.570
+Bei der Versicherung
+
+18:33.570 --> 18:35.570
+Ich habe bei einem Internet Provider
+
+18:35.570 --> 18:37.570
+Meine Ausbildung gemacht
+
+18:37.570 --> 18:39.570
+Da hatte ich
+
+18:39.570 --> 18:41.570
+Nicht direkt zumindest
+
+18:41.570 --> 18:48.660
+Was damit zu tun
+
+18:48.660 --> 18:50.660
+Nein du solltest dich dort bewerben
+
+18:50.660 --> 18:52.660
+Wo die Stelle möglichst vielversprechend aussieht
+
+18:52.660 --> 18:54.660
+Ich mein der Laden
+
+18:54.660 --> 18:56.660
+Dass der dir vielleicht zusagen sollte
+
+18:56.660 --> 18:58.660
+Ist nicht verkehrt
+
+18:58.660 --> 19:00.660
+Aber bewerb dich ruhig bei einer Bank
+
+19:00.660 --> 19:02.660
+Oder bei einer Versicherung oder sowas
+
+19:02.660 --> 19:04.660
+Finanzbranche ist gut
+
+19:04.660 --> 19:06.660
+Wenn du deinen Fuß in der Tür hast
+
+19:06.660 --> 19:08.660
+Es gibt so eine Tabelle
+
+19:08.660 --> 19:10.660
+Ich glaub das erste waren Banken
+
+19:10.660 --> 19:12.660
+Das zweite waren Versicherungen
+
+19:12.660 --> 19:14.660
+Das dritte war Pharmaindustrie in Deutschland
+
+19:14.660 --> 19:16.660
+Ich glaub das vierte Automobilindustrie
+
+19:16.660 --> 19:18.660
+Oder sowas für IT Kräfte
+
+19:18.660 --> 19:20.660
+Es könnte auch umgedreht gewesen sein
+
+19:20.660 --> 19:22.660
+Es könnte auch zuerst Automobil
+
+19:22.660 --> 19:24.660
+Und dann Pharmaindustrie
+
+19:24.660 --> 19:26.660
+Aber erster Platz, zweiter Platz war auf jeden Fall Banken
+
+19:26.660 --> 19:28.660
+Und zweiter war Versicherung
+
+19:28.660 --> 19:30.660
+Das heißt wenn du in der Finanzbranche irgendwie deinen Fuß in die Tür kriegst
+
+19:30.660 --> 19:32.660
+Ist sinnvoll
+
+19:32.660 --> 19:34.660
+Und meistens
+
+19:34.660 --> 19:36.660
+Sind die auch ein bisschen größer
+
+19:36.660 --> 19:38.660
+Was oftmals echt von Vorteil für die Ausbildung ist
+
+19:38.660 --> 19:40.660
+Also
+
+19:40.660 --> 19:42.660
+Je nachdem was für eine kleine Klitsche das hier ist
+
+19:42.660 --> 19:44.660
+Da wird halt sehr viel so auf
+
+19:44.660 --> 19:46.660
+Gut meinen gemacht
+
+19:46.660 --> 19:48.660
+Ob es dann gut ist
+
+19:48.660 --> 19:50.660
+Weiß man nicht
+
+19:50.660 --> 19:52.660
+Bei den großen Läden kommt es halt weniger
+
+19:52.660 --> 19:54.660
+Oft vor
+
+19:54.660 --> 19:56.660
+Dass keiner Plan hat
+
+19:56.660 --> 19:58.660
+Wie das bei einer Ausbildung laufen soll
+
+19:58.660 --> 20:00.660
+Dass du keinen Ansprechpartner hast
+
+20:00.660 --> 20:02.660
+Dass sich keiner um dich kümmert
+
+20:02.660 --> 20:04.660
+Das hast du bei großen Läden weniger
+
+20:04.660 --> 20:06.660
+Und dann hast du in der Finanzbranche einen Fuß in der Tür
+
+20:06.660 --> 20:08.660
+Weil die bezahlen einfach gut
+
+20:08.660 --> 20:10.660
+Also ganz ehrlich
+
+20:10.660 --> 20:12.660
+Wenn du die Möglichkeit hast das zu machen
+
+20:12.660 --> 20:38.720
+Würde ich mir das angucken
+
+20:38.720 --> 20:40.720
+So sieht es aus
+
+20:40.720 --> 20:42.720
+Jetzt habe ich erklärt was wir machen wollen
+
+20:42.720 --> 20:44.720
+Jetzt probieren wir das ganze mal aus
+
+20:44.720 --> 20:46.720
+Also wir legen mal ein neues Projekt an
+
+20:46.720 --> 20:48.720
+Also wie gesagt
+
+20:48.720 --> 20:50.720
+Wir fangen ganz simpel an
+
+20:50.720 --> 20:52.720
+Wir machen ein Go-Projekt
+
+20:52.720 --> 20:54.720
+Exportieren dort
+
+20:54.720 --> 20:56.720
+Eine Funktion die nichts macht
+
+20:56.720 --> 20:58.720
+Rufen die von C-Sharp auf
+
+20:58.720 --> 21:02.720
+Und wir machen ein Rust Projekt
+
+21:02.720 --> 21:04.720
+Mit einer leeren Funktion
+
+21:04.720 --> 21:06.720
+Und rufen die von C-Sharp aus
+
+21:06.720 --> 21:08.720
+Und dann benchmarken wir das erstmal
+
+21:08.720 --> 21:10.720
+Und gucken was da schneller ist
+
+21:10.720 --> 21:12.720
+Beim reinen Function Call
+
+21:12.720 --> 21:14.720
+Da wissen wir auch schon mal
+
+21:14.720 --> 21:16.720
+Dass das nicht daran liegt
+
+21:16.720 --> 21:18.720
+Dass die eine Sprache irgendwas besser kann
+
+21:18.720 --> 21:20.720
+Als die andere Sprache in der Implementierung
+
+21:20.720 --> 21:22.720
+Sondern einfach so der reine Funktionsaufruf
+
+21:22.720 --> 21:24.720
+Mal gucken wie schnell der ist
+
+21:24.720 --> 21:26.720
+Man würde erwarten dass der saumäßig schnell ist
+
+21:26.720 --> 21:28.720
+Vielleicht nicht so schnell wie der Native Aufruf
+
+21:28.720 --> 21:30.720
+Aber immer noch schnell
+
+21:30.720 --> 21:32.720
+Ich weiß aber aus Erfahrung
+
+21:32.720 --> 21:34.720
+Das Go Interop mit anderen Sprachen
+
+21:34.720 --> 21:36.720
+Echt problematisch war
+
+21:36.720 --> 21:38.720
+In der Vergangenheit
+
+21:38.720 --> 21:40.720
+Gerade wenn das was ist was wirklich
+
+21:40.720 --> 21:42.720
+Hunderttausendfach aufgerufen wird
+
+21:42.720 --> 22:01.710
+Die haben
+
+22:01.710 --> 22:03.710
+Große Unternehmen haben Ausbildungsverantwortlichen
+
+22:03.710 --> 22:09.840
+Da passiert sowas eigentlich selten
+
+22:09.840 --> 22:11.840
+Danke
+
+22:11.840 --> 22:13.840
+Was ist für dich groß
+
+22:13.840 --> 22:15.840
+50 Mann sind nicht groß
+
+22:15.840 --> 22:17.840
+100 und 200 Mann sind auch nicht wirklich groß
+
+22:17.840 --> 22:25.890
+Ich bin mir nicht sicher
+
+22:25.890 --> 22:27.890
+Ob das eine T-Bait Frage ist
+
+22:27.890 --> 22:29.890
+Oder ernst gemeint
+
+22:29.890 --> 22:31.890
+Egal ich sag dazu nix
+
+22:31.890 --> 22:33.890
+Weil wenn ich damit anfange
+
+22:33.890 --> 22:50.060
+Dann hör ich heute nicht mehr auf
+
+22:50.060 --> 22:52.060
+Das muss nicht sein
+
+22:52.060 --> 22:54.060
+So dann legen wir mal los
+
+22:54.060 --> 22:56.060
+Ich leg mal neues
+
+22:56.060 --> 22:59.700
+Benchmark Champ
+
+22:59.700 --> 23:01.700
+Wir testen jetzt erstmal
+
+23:01.700 --> 23:03.700
+Wie schnell das ganze ist
+
+23:03.700 --> 23:05.700
+Und wenn das in Rust wirklich
+
+23:05.700 --> 23:07.700
+Und das ist ja zu erwarten
+
+23:07.700 --> 23:09.700
+So viel schneller ist
+
+23:09.700 --> 23:11.700
+Dann kann ich das ganze WebRTC in Rust programmieren
+
+23:11.700 --> 23:13.700
+Wobei ich weiß jetzt schon
+
+23:13.700 --> 23:15.700
+Das ich durchdrehen werde dabei
+
+23:15.700 --> 23:17.700
+Ein gutes hat's
+
+23:17.700 --> 23:19.700
+Das ist quasi eine
+
+23:19.700 --> 23:21.700
+Rust Reimplementation
+
+23:21.700 --> 23:23.700
+Von der
+
+23:23.700 --> 23:25.700
+Go Library hier
+
+23:25.700 --> 23:27.700
+Das heißt ich hoffe
+
+23:27.700 --> 23:29.700
+Wenn man die Go Library ein bisschen kennt
+
+23:29.700 --> 23:37.040
+Kommt man ja auch ganz gut klar
+
+23:37.040 --> 23:40.480
+Müssen wir mal schauen
+
+23:40.480 --> 23:42.480
+Das ist ziemlich groß
+
+23:42.480 --> 23:44.480
+Da gibt es doch eigentlich Ausbildungsbeauftragte
+
+23:44.480 --> 23:46.480
+Und Leute die dann
+
+23:46.480 --> 23:48.480
+Das es so
+
+23:48.480 --> 23:50.480
+Reingeschissen wird
+
+23:50.480 --> 23:52.480
+Bei großen Unternehmen was Ausbildung angeht
+
+23:52.480 --> 23:54.480
+Das sehe ich eher gehäufter bei den kleinen
+
+23:54.480 --> 23:56.480
+Okay
+
+23:56.480 --> 23:59.860
+Wir installieren mal eine neue .NET Version
+
+23:59.860 --> 24:01.860
+Wird mal Zeit
+
+24:01.860 --> 24:03.860
+Weil ich glaube es gibt eine neue Preview Version
+
+24:03.860 --> 24:05.860
+Wenn ich das richtig sehe
+
+24:05.860 --> 24:07.860
+Ja es gibt
+
+24:07.860 --> 24:09.860
+801
+
+24:09.860 --> 24:11.860
+Wobei 100 haben die glaube ich immer
+
+24:11.860 --> 24:13.860
+RC2
+
+24:13.860 --> 24:15.860
+RC2 23502.2
+
+24:15.860 --> 24:17.860
+Sag mal .NET Team
+
+24:17.860 --> 24:19.860
+Wie viele Versionsnummern wollt ihr eigentlich noch haben
+
+24:19.860 --> 24:21.860
+8.0
+
+24:21.860 --> 24:23.860
+Das lass ich mir ja noch gefallen
+
+24:23.860 --> 24:25.860
+8.0.100
+
+24:25.860 --> 24:27.860
+Ist schon ein bisschen pepege aber auch noch okay
+
+24:27.860 --> 24:29.860
+Aber 8.0.100
+
+24:29.860 --> 24:31.860
+Minus RC2
+
+24:31.860 --> 24:33.860
+.23502.2
+
+24:33.860 --> 24:35.860
+.23502.2
+
+24:35.860 --> 24:37.860
+Also
+
+24:37.860 --> 24:46.930
+Irgendwann ist auch mal gut
+
+24:46.930 --> 24:48.930
+Also ich mein bis hierhin geht's ja irgendwie
+
+24:48.930 --> 24:50.930
+Nur halbwegs klar
+
+24:50.930 --> 24:52.930
+Aber das dahinter ist schon komplett bescheuert
+
+24:52.930 --> 24:56.430
+Das hat dann mit
+
+24:56.430 --> 24:58.430
+M wäre auch nix mehr zu tun
+
+24:58.430 --> 25:00.430
+Weil das interessiert Microsoft eh nicht
+
+25:00.430 --> 25:02.430
+Also .NET
+
+25:02.430 --> 25:04.430
+New Console
+
+25:04.430 --> 25:06.430
+Wir machen mal
+
+25:06.430 --> 25:08.430
+Wir machen mal ein paar neue Ordner
+
+25:08.430 --> 25:10.430
+Mkdir Rust
+
+25:10.430 --> 25:12.430
+Mkdir Go
+
+25:12.430 --> 25:16.060
+Mkdir Benchmark
+
+25:16.060 --> 25:18.060
+So irgendwie
+
+25:18.060 --> 25:20.060
+Benchmark legen wir das
+
+25:20.060 --> 25:22.060
+Das .NET Projekt an
+
+25:22.060 --> 25:24.060
+Wow
+
+25:24.060 --> 25:26.060
+Wer interessiert Blazor
+
+25:26.060 --> 25:28.060
+Wer auch immer das benutzt
+
+25:28.060 --> 25:30.060
+Also Microsoft will das zurzeit
+
+25:30.060 --> 25:32.060
+Boosten wie sonstwas
+
+25:32.060 --> 25:34.060
+Aber auch wenn ich
+
+25:34.060 --> 25:36.060
+Großer C Sharp Fan bin
+
+25:36.060 --> 25:38.060
+Ehrlich im Browser wie es bisher ist
+
+25:38.060 --> 25:40.060
+Brauch ich das nicht
+
+25:40.060 --> 25:42.060
+So dann haben wir hier Go und haben Rust
+
+25:42.060 --> 25:44.060
+Dann kopieren wir uns mal das Verzeichnis
+
+25:44.060 --> 25:46.060
+Und ich würd sagen
+
+25:46.060 --> 25:50.780
+Dann fangen wir mal ganz easy an
+
+25:50.780 --> 25:56.020
+Mit
+
+25:56.020 --> 25:58.020
+Und öffnen wir das mal in Rider
+
+25:58.020 --> 26:00.020
+Und tun mal so als wüssten wir was von machen
+
+26:00.020 --> 26:02.020
+So Repos wie hab ich das genannt
+
+26:02.020 --> 26:04.020
+Benchmark
+
+26:04.020 --> 26:06.020
+Champ
+
+26:06.020 --> 26:08.020
+Ah hier da öffnen
+
+26:08.020 --> 26:13.060
+So hier
+
+26:13.060 --> 26:15.060
+Auf dem vierten Bildschirm machen wir Go Land auf
+
+26:15.060 --> 26:17.060
+Und auf dem fünften
+
+26:17.060 --> 26:19.060
+Auf dem fünften
+
+26:19.060 --> 26:21.060
+Boah das kostet Ramm Leute
+
+26:21.060 --> 26:23.060
+Das kostet Ramm
+
+26:23.060 --> 26:25.060
+3 Jetbrain Ideen ist offen
+
+26:25.060 --> 26:27.060
+MonkaS Java
+
+26:27.060 --> 26:29.060
+Und hier machen wir das Rust Ding auf
+
+26:29.060 --> 26:32.940
+I confirm that I have Red Angst
+
+26:32.940 --> 26:34.940
+Ja ja ja ich
+
+26:34.940 --> 26:36.940
+Ich confirme alles hier
+
+26:36.940 --> 26:38.940
+Wir wollen nix senden
+
+26:38.940 --> 26:40.940
+Ok New Project was haben wir hier
+
+26:40.940 --> 26:42.940
+Rust Version detected 173.0
+
+26:42.940 --> 26:44.940
+Ja perfekt top
+
+26:44.940 --> 26:46.940
+Wir wollen allerdings
+
+26:46.940 --> 26:48.940
+Location Repos
+
+26:48.940 --> 26:50.940
+Benchmark Champ
+
+26:50.940 --> 26:52.940
+Rust
+
+26:52.940 --> 26:54.940
+Da wollen wir rein
+
+26:54.940 --> 26:56.940
+Binary Application
+
+26:56.940 --> 26:58.940
+Standard Library
+
+26:58.940 --> 27:00.940
+Egal
+
+27:00.940 --> 27:02.940
+Die Standard Library von dieser Version halt
+
+27:02.940 --> 27:04.940
+Weiß nicht wo die ist
+
+27:04.940 --> 27:06.940
+Rust
+
+27:06.940 --> 27:11.280
+Zack Create
+
+27:11.280 --> 27:13.280
+Let's go
+
+27:13.280 --> 27:15.280
+Oh geht ja gut los
+
+27:15.280 --> 27:17.280
+Erstmal Minischrift
+
+27:17.280 --> 27:19.280
+Und als nächstes irgendwelche komischen Errors
+
+27:19.280 --> 27:21.280
+Nice
+
+27:21.280 --> 27:23.280
+Rust am Start
+
+27:23.280 --> 27:25.280
+Cargo failed
+
+27:25.280 --> 27:27.280
+Sync Rust Project
+
+27:27.280 --> 27:29.280
+Retrieving Rust Standard Lib
+
+27:29.280 --> 27:31.280
+Hä warum muss er die noch retrieven bitte schön
+
+27:31.280 --> 27:33.280
+Rust kommt mit der Standard Library dabei
+
+27:33.280 --> 27:35.280
+Deswegen heißt es Standard Library
+
+27:35.280 --> 27:40.260
+Rust up not found
+
+27:40.260 --> 27:43.890
+Ja und jetzt
+
+27:43.890 --> 27:45.890
+Was der Rust up braucht
+
+27:45.890 --> 27:47.890
+Damit das hier funktioniert
+
+27:47.890 --> 27:49.890
+Ich kann auch Rust up installieren wenn es sein muss
+
+27:49.890 --> 27:54.290
+Easy
+
+27:54.290 --> 27:56.290
+Tag installieren wir Rust up
+
+27:56.290 --> 27:58.290
+Auch gut
+
+27:58.290 --> 28:00.290
+Deinstallieren wir Rust installieren wir Rust up
+
+28:00.290 --> 28:02.290
+Top
+
+28:02.290 --> 28:08.540
+Ist jetzt Cargo und so da
+
+28:08.540 --> 28:10.540
+Run Rust
+
+28:10.540 --> 28:12.540
+Default Stable
+
+28:12.540 --> 28:14.540
+Ok nice
+
+28:14.540 --> 28:16.540
+Also das mag ich
+
+28:16.540 --> 28:18.540
+Das mag ich an Rust
+
+28:18.540 --> 28:28.420
+Ich hab ja auch nicht so viel
+
+28:28.420 --> 28:30.420
+Ich hab ausgemacht
+
+28:30.420 --> 28:32.420
+Und ab und zu
+
+28:32.420 --> 28:34.420
+Ich muss jetzt mal
+
+28:34.420 --> 28:36.420
+Ich muss jetzt rufen
+
+28:36.420 --> 28:38.420
+Da wird ausgeliefert
+
+28:38.420 --> 28:40.420
+Das ist z.B.
+
+28:40.420 --> 28:42.420
+Screenplay
+
+28:42.420 --> 28:44.420
+Einfach
+
+28:44.420 --> 28:46.420
+Da wird es
+
+28:46.420 --> 28:48.420
+Genau so
+
+28:48.420 --> 28:50.420
+Also jetzt mal
+
+28:50.420 --> 28:52.460
+anderen Sprachen. Zumindest war das in der Vergangenheit
+
+28:52.460 --> 28:52.720
+so.
+
+28:54.380 --> 28:56.460
+Es wird aufgerufen, C-Sharp nach Go
+
+28:56.460 --> 28:58.340
+und C-Sharp nach Rust. Es wird
+
+28:58.340 --> 29:00.060
+nicht C-Sharp Go Rust aufgerufen.
+
+29:00.520 --> 29:02.400
+Es wird C-Sharp nach Go und dann C-Sharp nach Rust
+
+29:02.400 --> 29:04.380
+aufgerufen. Wir gucken mal, was schneller ist. Ich tippe
+
+29:04.380 --> 29:06.320
+einfach, dass Rust in allen Belangen
+
+29:06.320 --> 29:08.340
+komplett meilenweit ahead
+
+29:08.340 --> 29:10.260
+of Go ist, weil Go bekannt
+
+29:10.260 --> 29:12.340
+dafür ist, dass Go langsam ist als Interop
+
+29:12.340 --> 29:14.180
+mit anderen Sprachen. Also langsamer als ziemlich
+
+29:14.180 --> 29:15.820
+jede andere halbwegs
+
+29:15.820 --> 29:18.040
+bekannte Programmiersprache. Und Go ist
+
+29:18.040 --> 29:19.500
+super langsam, was das angeht.
+
+29:20.420 --> 29:22.140
+Also das ist langsamer als so ziemlich
+
+29:22.140 --> 29:24.120
+jede andere Sprache, die mir so einfällt.
+
+29:25.140 --> 29:26.260
+Das ist langsamer als
+
+29:26.260 --> 29:28.640
+Python, langsamer
+
+29:28.640 --> 29:30.380
+also nur in diesem einen Fall, ja.
+
+29:30.940 --> 29:32.140
+Also Callen
+
+29:32.140 --> 29:33.800
+von und nach anderen
+
+29:33.800 --> 29:36.160
+Sprachen über irgendein C-Interface.
+
+29:37.000 --> 29:38.360
+Das ist langsamer als Python,
+
+29:38.540 --> 29:39.780
+als Java, als
+
+29:39.780 --> 29:41.760
+alles einfach nur.
+
+29:42.920 --> 29:43.320
+JavaScript.
+
+29:45.080 --> 29:45.920
+Das ist wirklich
+
+29:45.920 --> 29:47.380
+Go ansonsten ist ja recht flott,
+
+29:47.760 --> 29:49.300
+aber in dem Bereich ist es wirklich
+
+29:49.300 --> 29:50.400
+PP.
+
+29:50.420 --> 29:52.140
+Mega langsam. So, also
+
+29:52.140 --> 29:54.160
+hat es jetzt, jetzt
+
+29:54.160 --> 29:56.240
+starten wir nochmal dieses Rust-Ding, ob das jetzt
+
+29:56.240 --> 29:58.300
+besser funktioniert, nachdem ich Rust-Up installiert
+
+29:58.300 --> 30:02.710
+habe. Ja, nice, scheint zu funktionieren.
+
+30:04.330 --> 30:05.730
+Was hat Go für Vorteile?
+
+30:06.590 --> 30:08.350
+Go hat ein paar
+
+30:08.350 --> 30:10.430
+Vorteile. Zum Beispiel ist Go relativ
+
+30:10.430 --> 30:10.730
+flott.
+
+30:12.330 --> 30:14.230
+Wie gesagt, was langsam ist, ist ja nur diese
+
+30:14.230 --> 30:16.150
+eine Sache, die ich gerade gesagt habe.
+
+30:16.810 --> 30:17.950
+Champshifter, danke für den Sub.
+
+30:19.250 --> 30:20.370
+Ansonsten ist Go relativ
+
+30:20.370 --> 30:22.370
+flott. Go ist
+
+30:22.570 --> 30:24.330
+richtig gut, wenn man
+
+30:24.330 --> 30:26.490
+Self-Contained Binaries haben
+
+30:26.490 --> 30:28.570
+möchte, die rückwärtskompatibel einfach auf jedem
+
+30:28.570 --> 30:30.450
+Linux-System laufen. Da ist Go so
+
+30:30.450 --> 30:32.050
+ziemlich die beste Sprache, die es gibt,
+
+30:32.570 --> 30:33.910
+die existiert, die man dafür
+
+30:33.910 --> 30:35.490
+benutzen kann.
+
+30:36.650 --> 30:38.050
+Auch im Cloud-Umfeld
+
+30:38.050 --> 30:40.610
+ist Go sehr beliebt.
+
+30:40.810 --> 30:42.530
+Warum kann ich die Font-Size nicht ändern?
+
+30:44.290 --> 30:44.530
+Und?
+
+30:54.460 --> 30:55.820
+Ach, jetzt geht's auf einmal, okay.
+
+30:58.160 --> 30:59.280
+Okay, JetBrains
+
+30:59.280 --> 31:00.400
+Mono, meinetwegen.
+
+31:01.760 --> 31:03.280
+Oh, aber ich glaube,
+
+31:03.320 --> 31:04.840
+die Schriftgröße ist ganz okay, oder?
+
+31:05.820 --> 31:06.940
+Ich glaube, Jetge,
+
+31:07.660 --> 31:09.240
+ich muss mal kurz in meiner Vorschau...
+
+31:09.240 --> 31:10.680
+Ja, die Schriftgröße ist gut.
+
+31:11.320 --> 31:13.000
+Ich sehe das gerade hier in der Vorschau, die ist okay.
+
+31:13.160 --> 31:13.940
+Da kann man nichts sagen.
+
+31:15.620 --> 31:17.320
+Das ist eigentlich sehr angenehm zu lesen
+
+31:17.320 --> 31:18.740
+gerade. Ich gucke mir das gerade auf der
+
+31:18.740 --> 31:19.960
+Vorschau-Monitor an.
+
+31:20.840 --> 31:22.880
+Auch nettes, recht
+
+31:22.880 --> 31:25.300
+nicht so ins Augen brennende
+
+31:25.300 --> 31:27.220
+Dark-Theme dabei, das ist okay.
+
+31:29.930 --> 31:30.950
+So, MainPrint,
+
+31:31.030 --> 31:32.390
+hallo World, ja, das kommt schon mal weg.
+
+31:32.850 --> 31:34.410
+Wir brauchen gar keine Main-Funktion.
+
+31:34.650 --> 31:35.090
+Ach,
+
+31:35.210 --> 31:37.050
+so, ja, Moment, ich muss das ja
+
+31:37.050 --> 31:38.070
+umstellen auf eine Library.
+
+31:39.190 --> 31:41.130
+Wir legen erst mal das Go-Projekt an.
+
+31:41.550 --> 31:42.470
+Was haben wir hier noch offen?
+
+31:42.570 --> 31:44.590
+New Session, New Message,
+
+31:48.040 --> 31:49.540
+Create Session, New Sender.
+
+31:52.080 --> 31:53.260
+Ach so, ah, ich weiß,
+
+31:53.400 --> 31:55.420
+das ist, ja, ja, ja, das haben wir mal
+
+31:55.420 --> 31:56.620
+gebaut, naja, das können wir wegmachen.
+
+31:58.160 --> 31:59.500
+Da müssen wir ein neues Projekt anlegen.
+
+32:00.720 --> 32:01.440
+Also legen wir ein neues
+
+32:01.440 --> 32:02.480
+Go-Projekt an.
+
+32:04.940 --> 32:06.160
+Wo ist das hier? Go,
+
+32:06.160 --> 32:08.160
+New Project,
+
+32:09.000 --> 32:10.820
+und zwar wollen wir
+
+32:10.820 --> 32:12.060
+nach Repos
+
+32:12.060 --> 32:14.580
+Benchmark Champ
+
+32:14.580 --> 32:16.520
+Go. Und jetzt wollen wir
+
+32:16.520 --> 32:18.560
+ein Go-Modules-Projekt
+
+32:18.560 --> 32:20.940
+anlegen. Ich glaube, das macht er standardmäßig.
+
+32:22.420 --> 32:22.800
+Was ist
+
+32:22.800 --> 32:24.320
+Enable Vendoring Support?
+
+32:38.840 --> 32:41.740
+Äh, verstehe ich
+
+32:41.740 --> 32:42.020
+nicht.
+
+32:43.840 --> 32:45.360
+Sollte ich das an- oder ausschalten?
+
+32:45.460 --> 32:47.420
+Ich verstehe die Hilfe nicht.
+
+32:48.320 --> 32:48.860
+Kann weg.
+
+32:49.500 --> 32:51.500
+Ich habe keine Ahnung, was es mir überhaupt sagen soll,
+
+32:51.500 --> 32:58.600
+ehrlich gesagt. Okay, ihr habt auch
+
+32:58.600 --> 33:00.720
+keine Ahnung. Wenn der Chat keine Ahnung hat,
+
+33:00.820 --> 33:01.680
+dann beruhigt mich das immer.
+
+33:05.430 --> 33:07.630
+Okay, create this window.
+
+33:11.410 --> 33:12.470
+Close. So, jetzt muss ich
+
+33:12.470 --> 33:14.190
+erstmal gucken, dass ich wieder ein bisschen
+
+33:14.190 --> 33:16.050
+anfange, Go zu checken.
+
+33:17.490 --> 33:18.350
+Go war doch so.
+
+33:18.470 --> 33:19.770
+So, wir gehen jetzt mal Repo,
+
+33:20.410 --> 33:22.430
+Benchmark Champ, Go.
+
+33:23.490 --> 33:24.790
+Und jetzt sagen wir
+
+33:24.790 --> 33:26.570
+Go run.
+
+33:27.610 --> 33:28.710
+Und dann kackt's ab.
+
+33:29.390 --> 33:29.710
+Weil
+
+33:29.710 --> 33:32.290
+Missing Go Version Modload.
+
+33:34.810 --> 33:35.210
+Nice.
+
+33:38.390 --> 33:39.910
+Ach so, es fehlt eine Main, oder?
+
+33:40.810 --> 33:43.150
+Einfach eine Main-Datei. Dann ist die Fehlermeldung
+
+33:43.150 --> 33:44.390
+aber pepega as fuck.
+
+33:44.930 --> 33:46.270
+Also, new Go-File
+
+33:46.270 --> 33:47.710
+main.go
+
+33:47.710 --> 33:49.630
+package
+
+33:49.630 --> 33:52.930
+Moment, warum heißt das Projekt
+
+33:52.930 --> 33:54.810
+Go? Das ergibt doch gar keinen Sinn.
+
+33:55.290 --> 33:56.830
+Das Projekt soll
+
+33:56.830 --> 33:58.910
+heißen... Ach so, das heißt so
+
+33:58.910 --> 33:59.550
+wie der Ordner.
+
+33:59.930 --> 34:01.870
+Und das hier heißt auch Rust.
+
+34:02.230 --> 34:05.150
+Es sollte durchaus auch okay sein, dass das
+
+34:05.150 --> 34:07.110
+heißt. So, Package Main muss das
+
+34:07.110 --> 34:09.170
+ja sein, weil wir sind ja hier in Go.
+
+34:09.570 --> 34:10.650
+Und dann braucht man...
+
+34:10.650 --> 34:13.010
+Function Main.
+
+34:13.130 --> 34:14.530
+Und dann sagen wir sowas wie FMT
+
+34:14.530 --> 34:15.790
+Brindeln
+
+34:15.790 --> 34:19.030
+Keg Wait. So, und das sollte
+
+34:19.030 --> 34:20.710
+jetzt kompilieren, oder? Nein.
+
+34:21.490 --> 34:22.030
+Warum nicht?
+
+34:28.660 --> 34:30.380
+Das darf bestimmt nicht so heißen, oder?
+
+34:30.980 --> 34:32.620
+Das ist bestimmt pepega, weil der Ordner
+
+34:32.620 --> 34:34.680
+Go heißt. Garantiert kann das das nicht
+
+34:34.680 --> 34:36.640
+ab, weil der Ordner Go heißt. Könnte ich wetten
+
+34:36.640 --> 34:38.320
+mit euch. Was?
+
+34:39.080 --> 34:40.500
+Go Mod Init? Das muss man doch
+
+34:40.500 --> 34:41.560
+normalerweise nie machen.
+
+34:43.160 --> 34:43.420
+Äh.
+
+34:44.380 --> 34:44.700
+Mod?
+
+34:46.500 --> 34:48.740
+Das ist 100
+
+34:48.740 --> 34:50.260
+Pro. Ich wette mit euch.
+
+34:50.680 --> 34:52.740
+Das ist, weil der Ordner Go heißt.
+
+34:58.510 --> 34:59.670
+Go hat so komische
+
+34:59.670 --> 35:01.530
+Dinger. Das kann ich mir richtig
+
+35:01.530 --> 35:02.230
+gut vorstellen.
+
+35:05.250 --> 35:06.870
+Wir löschen das nochmal.
+
+35:13.450 --> 35:15.250
+Man sieht ja ins Terminal nicht. Ja, in dem Fall
+
+35:15.250 --> 35:16.910
+gibt es da eh nichts. Wir löschen
+
+35:16.910 --> 35:19.090
+das nochmal und machen MKT
+
+35:19.090 --> 35:20.830
+Go App. Okay? So.
+
+35:21.170 --> 35:22.830
+Das sollte nicht
+
+35:22.830 --> 35:24.430
+problematisch sein.
+
+35:29.780 --> 35:30.900
+Also, New Project.
+
+35:31.920 --> 35:32.680
+Jetzt hat er das schon wieder.
+
+35:33.460 --> 35:35.480
+Lass ich das mal enabled. Vielleicht macht es das dann
+
+35:35.480 --> 35:40.040
+richtig. So, wir wollen
+
+35:40.040 --> 35:41.360
+nach Benchmark Champ
+
+35:41.360 --> 35:44.040
+Go App. Und eigentlich
+
+35:44.040 --> 35:45.540
+da rein direkt. Genau.
+
+35:46.820 --> 35:47.260
+Create.
+
+35:50.290 --> 35:51.250
+Und jetzt sage ich
+
+35:51.250 --> 35:54.530
+Go App. Go Run Punkt.
+
+35:54.890 --> 35:56.330
+Ja, siehste? Siehste? Jetzt funktioniert
+
+35:56.330 --> 35:58.310
+es auch. Ich weiß jetzt nicht, ob das an diesem
+
+35:58.310 --> 36:00.190
+automatischen Vendoring Support
+
+36:00.190 --> 36:01.350
+lag. Was auch immer das macht.
+
+36:02.090 --> 36:04.310
+Oder weil das Ding. Ich tippe auf den Ordner
+
+36:04.310 --> 36:06.290
+Namen. Ich tippe auf den. Bei Go weißt
+
+36:06.290 --> 36:07.690
+du nie. Go hat so viele
+
+36:07.690 --> 36:10.150
+Magic Sachen, die so sein müssen.
+
+36:10.250 --> 36:12.090
+Weil sie so sein müssen. Beispielsweise auch Klammern
+
+36:12.090 --> 36:14.070
+bei einem If oder so. Dass ich mir das gut
+
+36:14.070 --> 36:16.330
+vorstellen kann. So, Main Punkt
+
+36:16.330 --> 36:19.800
+Go. So, das ist
+
+36:19.800 --> 36:21.540
+auch merkwürdig gemacht, dass das
+
+36:21.540 --> 36:23.400
+nicht so heißen darf wie die App, sondern
+
+36:23.400 --> 36:25.020
+So, und jetzt machen wir hier
+
+36:25.020 --> 36:27.120
+Function Main
+
+36:27.120 --> 36:28.940
+FMT Prindeln
+
+36:28.940 --> 36:31.580
+Keg Wait. So, und das sollte
+
+36:31.580 --> 36:35.870
+jetzt funktionieren. Ja, okay.
+
+36:36.010 --> 36:37.810
+Nice. Funktioniert. Mal kurz checken,
+
+36:37.870 --> 36:38.970
+ob Rust auch funktioniert.
+
+36:38.970 --> 36:42.860
+Seht ihr das Terminal hier, wenn ich da
+
+36:42.860 --> 36:44.880
+was tippe? Leute, hier unten. Sieht man
+
+36:44.880 --> 36:45.040
+das?
+
+36:46.540 --> 36:47.920
+Ne, da ist der Chat davor, gell?
+
+36:48.760 --> 36:50.720
+Dann machen wir es so. Wir machen so. Dann
+
+36:50.720 --> 36:51.640
+seht ihr es auf jeden Fall.
+
+36:53.730 --> 36:55.930
+Jetzt ist genug Platz unter Chico
+
+36:55.930 --> 36:57.570
+hier rechts. Da sieht man nichts.
+
+36:58.590 --> 37:00.070
+Dann machen wir auch das Terminal
+
+37:00.070 --> 37:00.850
+hier unten drunter.
+
+37:02.410 --> 37:02.750
+So, ja.
+
+37:04.110 --> 37:06.150
+Also, Repos, Benchmark, Champ,
+
+37:06.250 --> 37:06.570
+Rust.
+
+37:08.510 --> 37:09.910
+Und jetzt machen wir mal, ich glaube
+
+37:09.910 --> 37:11.570
+Cargo Run ist es.
+
+37:11.590 --> 37:14.110
+Okay, Rust
+
+37:14.110 --> 37:15.150
+Kompiliert fehlerfrei
+
+37:15.150 --> 37:18.370
+Erstmal im Kalender anmarken
+
+37:18.370 --> 37:19.510
+Tja
+
+37:19.510 --> 37:21.770
+Jetzt geht's schon los
+
+37:21.770 --> 37:24.190
+Ich glaube
+
+37:24.190 --> 37:26.010
+Es ist Brindeln, ne
+
+37:26.010 --> 37:29.860
+Auch in Rust
+
+37:29.860 --> 37:31.520
+Kick, wait
+
+37:31.520 --> 37:36.290
+Okay, ja, funktioniert, nice
+
+37:36.290 --> 37:38.130
+Okay, also
+
+37:38.130 --> 37:39.490
+Jetzt kommt das nächste
+
+37:39.490 --> 37:42.490
+Also das ist jetzt ja einfach nur um zu gucken
+
+37:42.490 --> 37:44.190
+Ob alles richtig aufgesetzt ist
+
+37:44.190 --> 37:47.670
+So
+
+37:47.670 --> 37:50.730
+Also, das Ding, was hat er hier für Schmerzen
+
+37:50.730 --> 37:52.810
+Could not load
+
+37:52.810 --> 37:53.290
+Ah ja
+
+37:53.290 --> 37:56.390
+Das liegt, nicht toll
+
+37:56.390 --> 37:57.270
+Bild
+
+37:57.270 --> 38:04.470
+Das liegt daran, dass er meine .NET Version
+
+38:04.470 --> 38:06.490
+Nicht erkannt hat, warum auch immer
+
+38:06.490 --> 38:08.530
+Reload
+
+38:08.530 --> 38:10.230
+Project, jetzt sollte es hoffentlich
+
+38:10.230 --> 38:12.150
+Gleich gehen, machen wir auch nochmal
+
+38:12.150 --> 38:13.110
+Eine Konsole auf
+
+38:13.110 --> 38:16.110
+CD, Repos, Benchmark
+
+38:16.110 --> 38:19.290
+.NET
+
+38:19.290 --> 38:21.790
+Run
+
+38:21.790 --> 38:25.270
+Ja, Funst, okay
+
+38:25.270 --> 38:26.870
+Alles klar
+
+38:26.870 --> 38:28.990
+So, also, was ich jetzt vorhabe
+
+38:28.990 --> 38:29.650
+Ist folgendes
+
+38:29.650 --> 38:32.010
+Ich möchte jetzt sowas hier machen
+
+38:32.010 --> 38:32.710
+Ich will jetzt
+
+38:32.710 --> 38:34.350
+Wir brauchen, wir brauchen
+
+38:34.350 --> 38:36.650
+Wir machen mal den .NET Teil
+
+38:36.650 --> 38:38.530
+Als erstes
+
+38:38.530 --> 38:39.630
+Und dann den anderen
+
+38:39.630 --> 38:40.830
+Wir machen jetzt mal eine Datei
+
+38:40.830 --> 38:42.130
+Interop.cs
+
+38:42.130 --> 38:44.410
+Die kriegt eine Public
+
+38:44.410 --> 38:46.390
+Eine
+
+38:46.390 --> 38:48.950
+Unsave
+
+38:48.950 --> 38:51.150
+Public Static Class
+
+38:51.790 --> 38:53.790
+Warum Unsave?
+
+38:53.790 --> 38:54.470
+Naja, weil ich
+
+38:54.470 --> 38:57.030
+C-Sachen mit Pointern und so
+
+38:57.030 --> 38:58.430
+In anderen Sprachen aufrufen will
+
+38:58.430 --> 38:59.710
+Also das muss Unsave sein
+
+38:59.710 --> 39:01.790
+Und damit das funktioniert
+
+39:01.790 --> 39:04.670
+Muss ich Unsave erlauben
+
+39:04.670 --> 39:07.030
+Ich weiß eh nicht, warum das nicht
+
+39:07.030 --> 39:08.030
+Standardmäßig an ist
+
+39:08.030 --> 39:10.070
+Ich meine, wenn man es nicht verwendet, verwendet man es halt nicht
+
+39:10.070 --> 39:12.830
+So
+
+39:12.830 --> 39:16.050
+Und jetzt will ich
+
+39:16.050 --> 39:18.150
+Beispielsweise sowas hier aufrufen
+
+39:18.150 --> 39:21.050
+DLL Import
+
+39:21.050 --> 39:22.190
+Von, ja
+
+39:22.190 --> 39:23.530
+Rusty
+
+39:23.550 --> 39:25.550
+Slip
+
+39:25.550 --> 39:27.550
+Will ich aufrufen
+
+39:27.550 --> 39:29.550
+Eine Funktion, die
+
+39:29.550 --> 39:31.550
+Boah, DLL Import Syntax
+
+39:31.550 --> 39:32.550
+Moment
+
+39:32.550 --> 39:33.550
+Muss ich mir abgucken
+
+39:33.550 --> 39:37.550
+Ich glaube Static Extern oder irgendwie so muss das aussehen
+
+39:37.550 --> 39:40.550
+Public Static Extern
+
+39:40.550 --> 39:41.550
+Genau
+
+39:41.550 --> 39:46.270
+So, Public Static Extern
+
+39:46.270 --> 39:48.270
+Das heißt ja auch hier irgendwie
+
+39:48.270 --> 39:50.270
+Call me, so
+
+39:50.270 --> 39:52.270
+Einfach nur Call heißt das Ding
+
+39:52.270 --> 39:54.270
+Also, was das macht
+
+39:54.270 --> 39:56.270
+Das ist was noch nicht geht, weil es ist noch nicht da
+
+39:56.270 --> 39:58.270
+Damit kann ich jetzt aus C-Sharp
+
+39:58.270 --> 40:00.270
+Eine Funktion aufrufen, die in Rust
+
+40:00.270 --> 40:02.270
+In einer Library
+
+40:02.270 --> 40:05.780
+In einer
+
+40:05.780 --> 40:07.780
+In einer Rust Library, die mit C-Interface
+
+40:07.780 --> 40:09.780
+Kompiliert wurde, existiert
+
+40:09.780 --> 40:11.780
+Aufrufen
+
+40:11.780 --> 40:13.780
+Void fehlt noch
+
+40:13.780 --> 40:15.780
+Und hiermit
+
+40:15.780 --> 40:17.780
+Kann ich, achso die sollte ich vielleicht
+
+40:17.780 --> 40:19.780
+Ein bisschen anders nennen
+
+40:19.780 --> 40:21.780
+Call me Rust
+
+40:21.780 --> 40:23.780
+Call oder einfach nur Call
+
+40:23.780 --> 40:27.220
+Go und
+
+40:27.220 --> 40:29.220
+Ich muss nur gucken, dass die Libraries
+
+40:29.220 --> 40:31.220
+Am Ende dann richtig heißen
+
+40:31.220 --> 40:33.220
+Also das sucht jetzt nach einer Library
+
+40:33.220 --> 40:35.220
+Die Rustlib heißt, irgendwo hier im Verzeichnis
+
+40:35.220 --> 40:37.220
+Oder Golib, die gibt es noch nicht
+
+40:37.220 --> 40:39.220
+Die müssen wir anlegen
+
+40:39.220 --> 40:41.220
+Und dort drinnen ruft es dann eine Funktion auf
+
+40:41.220 --> 40:43.220
+Die heißt Call Go
+
+40:43.220 --> 40:45.220
+Und Call Rust
+
+40:45.220 --> 40:47.220
+Das wird erstmal eine leere Funktion sein
+
+40:47.220 --> 40:49.220
+Man kann mit C-Sharp DLLs erstellen
+
+40:49.220 --> 40:51.220
+Nein, man kann aber
+
+40:51.220 --> 40:53.220
+Native Funktionen
+
+40:53.220 --> 40:55.220
+Importieren, beziehungsweise aufrufen
+
+40:55.220 --> 40:57.220
+In DLLs
+
+40:57.220 --> 40:59.220
+Oder in unter Linux sind das
+
+40:59.220 --> 41:01.220
+.so Dateien vorhanden sind
+
+41:01.220 --> 41:03.220
+Also Dynamic Loading
+
+41:03.220 --> 41:07.680
+So und mein Ziel
+
+41:07.680 --> 41:09.680
+Ist dann sowas zu machen hier
+
+41:09.680 --> 41:11.680
+Interop
+
+41:11.680 --> 41:13.680
+Punkt Call
+
+41:13.680 --> 41:15.680
+Interop
+
+41:15.680 --> 41:17.680
+Call Rust
+
+41:17.680 --> 41:19.680
+Wenn ich das jetzt aufrufe, wird folgendes passieren
+
+41:19.680 --> 41:21.680
+Bam
+
+41:21.680 --> 41:23.680
+Er findet nämlich Golib
+
+41:23.680 --> 41:25.680
+Und ähm
+
+41:25.680 --> 41:27.680
+Rustlib nicht
+
+41:27.680 --> 41:29.680
+Aber auch klar, die haben wir noch nicht angelegt
+
+41:29.680 --> 41:31.680
+Die gibt es schlicht und ergreifend noch gar nicht
+
+41:31.680 --> 41:33.680
+Ich würde sagen, wir fangen mal mit dem Go Teil an
+
+41:33.680 --> 41:35.680
+Da weiß ich noch
+
+41:35.680 --> 41:37.680
+Ungefähr, so ganz grob
+
+41:37.680 --> 41:39.680
+Wie es aussehen muss
+
+41:39.680 --> 41:41.680
+Dass das funktioniert
+
+41:41.680 --> 41:43.680
+Und zwar, wenn ich das richtig in Erinnerung habe
+
+41:43.680 --> 41:45.680
+Muss man jetzt folgendes machen
+
+41:45.680 --> 41:47.680
+Also wir legen jetzt mal in Go was an
+
+41:47.680 --> 41:49.680
+Die Main Funktion brauchen wir nicht
+
+41:49.680 --> 41:51.680
+Weil wir starten ja
+
+41:51.680 --> 41:53.680
+Kein Binary, sondern
+
+41:53.680 --> 41:55.680
+Wir callen von C-Sharp in was rein
+
+41:55.680 --> 41:57.680
+Was in Go definiert ist
+
+41:57.680 --> 41:59.680
+Ist natürlich auch der Einstiegspunkt
+
+41:59.680 --> 42:01.680
+Nicht Main, sondern der Einstiegspunkt in dem Fall ist
+
+42:01.680 --> 42:03.680
+Call Go, weil das ist das was wir aufrufen
+
+42:03.680 --> 42:05.680
+So, wenn ich das noch richtig im Kopf habe
+
+42:05.680 --> 42:07.680
+Wie das funktioniert in Go
+
+42:07.680 --> 42:09.680
+Dann sagt man hier Function
+
+42:09.680 --> 42:11.680
+Die muss heißen Call Go
+
+42:11.680 --> 42:13.680
+So wie hier
+
+42:13.680 --> 42:15.680
+Also so wie da
+
+42:15.680 --> 42:17.680
+Und dann muss man glaube ich drüber schreiben
+
+42:17.680 --> 42:19.680
+Export
+
+42:19.680 --> 42:21.680
+Call Go
+
+42:21.680 --> 42:23.680
+Entweder mit Leerzeichen, ne ohne Leerzeichen
+
+42:23.680 --> 42:25.680
+Und ich glaube
+
+42:25.680 --> 42:27.680
+So muss man das machen
+
+42:27.680 --> 42:29.680
+Man muss das als C-Interface exportieren
+
+42:29.680 --> 42:31.680
+Aber das war noch nicht alles
+
+42:31.680 --> 42:35.180
+Go run
+
+42:35.180 --> 42:37.180
+Ne das geht natürlich nicht
+
+42:37.180 --> 42:41.520
+Oh shit
+
+42:41.520 --> 42:43.520
+Go kompilieren
+
+42:43.520 --> 42:45.520
+Als C-Library
+
+42:45.520 --> 42:47.520
+Beziehungsweise mit C-Interface
+
+42:47.520 --> 42:49.520
+Wie ging das jetzt nochmal
+
+42:49.520 --> 42:51.520
+Oh meine Güte
+
+42:51.520 --> 42:53.520
+Muss ich nachgucken
+
+42:53.520 --> 42:58.750
+C-Go-Compile
+
+42:58.750 --> 43:00.750
+Ach Import C musste man auch noch machen
+
+43:00.750 --> 43:02.750
+Ja ja ok
+
+43:02.750 --> 43:04.750
+Das musste man auch noch machen
+
+43:04.750 --> 43:06.750
+Am Anfang
+
+43:06.750 --> 43:08.750
+Also das braucht man
+
+43:08.750 --> 43:10.750
+Das braucht man in Go
+
+43:10.750 --> 43:12.750
+Damit man aus Go C-Libraries aufrufen kann
+
+43:12.750 --> 43:14.750
+Und das hier braucht man
+
+43:14.750 --> 43:16.750
+Damit man aus anderen Sprachen
+
+43:16.750 --> 43:18.750
+Go Sachen aufrufen kann
+
+43:18.750 --> 43:20.750
+Über ein C-Interface was generiert wird
+
+43:22.750 --> 43:24.750
+Ich glaube man braucht beides oder
+
+43:24.750 --> 43:26.750
+Egal schadet auf jeden Fall nichts
+
+43:26.750 --> 43:31.860
+Was auch immer
+
+43:31.860 --> 43:33.860
+Das da jetzt ist
+
+43:33.860 --> 43:46.960
+Keine Ahnung
+
+43:46.960 --> 43:48.960
+Äh
+
+43:48.960 --> 43:50.960
+What the
+
+43:50.960 --> 43:52.960
+Ich such den Go-Build Aufruf dafür
+
+43:52.960 --> 43:57.940
+Go-Build
+
+43:57.940 --> 43:59.940
+Man muss irgendwie C-Go-Enable oder sowas machen
+
+43:59.940 --> 44:07.660
+Ich hab das noch
+
+44:07.660 --> 44:09.660
+Ich hab das noch im Hinterkopf irgendwie
+
+44:09.660 --> 44:11.660
+Go-Build
+
+44:11.660 --> 44:13.660
+Ich weiß aber nur nicht mehr
+
+44:13.660 --> 44:15.660
+Hab ich das vielleicht hier irgendwo
+
+44:15.660 --> 44:17.660
+Ne
+
+44:17.660 --> 44:19.660
+Hab ich das vielleicht in der anderen VM
+
+44:19.660 --> 44:21.660
+Noch als History
+
+44:21.660 --> 44:23.660
+Kann GCC auch Go kompilieren
+
+44:23.660 --> 44:25.660
+Ja
+
+44:25.660 --> 44:27.660
+Es gibt ein GCC Plugin für Go
+
+44:27.660 --> 44:29.660
+Aber das verwendet glaube ich
+
+44:29.660 --> 44:31.660
+Meines Wissens nach so gut wie niemand
+
+44:31.660 --> 44:33.660
+C-Go
+
+44:35.660 --> 44:37.660
+Gleich
+
+44:37.660 --> 44:39.660
+Ah Shit haben wir es auch nicht
+
+44:39.660 --> 44:43.300
+In der History mal drin
+
+44:43.300 --> 44:45.300
+Oh wie war das denn jetzt nochmal
+
+44:45.300 --> 44:47.300
+Hier C-Go-Enable genau
+
+44:47.300 --> 44:51.060
+Ganz ehrlich ich versteh auch gar nicht
+
+44:51.060 --> 44:53.060
+Wozu das gut sein soll
+
+44:53.060 --> 44:55.060
+Ja C-Go-Enable genau das such ich
+
+44:55.060 --> 44:57.060
+C-Go-Enable
+
+44:57.060 --> 44:59.060
+Aber die Frage ist wie man es jetzt nochmal aufruft
+
+44:59.060 --> 45:01.060
+Env
+
+45:01.060 --> 45:04.370
+Go-OS-Linux
+
+45:04.370 --> 45:07.740
+C-Go-Enable
+
+45:07.740 --> 45:12.020
+Ok
+
+45:12.020 --> 45:14.020
+Das ging irgendwie so
+
+45:14.020 --> 45:16.020
+Ne es ist auf jeden Fall Env
+
+45:16.020 --> 45:18.020
+Da unter C
+
+45:18.020 --> 45:20.020
+C-Go-Enable
+
+45:20.020 --> 45:22.020
+Gleich 1
+
+45:22.020 --> 45:24.020
+Und dann sagt man glaube ich einfach Go-Build
+
+45:24.020 --> 45:27.970
+Ne
+
+45:27.970 --> 45:29.970
+Aber ich bin ja auch falsch hier
+
+45:29.970 --> 45:31.970
+Ich muss ja auch in mein Go-Projekt
+
+45:31.970 --> 45:33.970
+Ja das wird jetzt ein bisschen abartig bei mir
+
+45:33.970 --> 45:38.880
+Bis das funktioniert
+
+45:38.880 --> 45:40.880
+Ne im Moment hat er einfach funktioniert gerade
+
+45:40.880 --> 45:45.980
+Äh
+
+45:45.980 --> 45:47.980
+Nein das ist falsch
+
+45:47.980 --> 45:49.980
+Der soll das als Library kompilieren
+
+45:49.980 --> 45:51.980
+Äh
+
+45:51.980 --> 45:53.980
+Build Mode
+
+45:53.980 --> 45:55.980
+Oh meine Güte wie geht das Go
+
+45:55.980 --> 45:57.980
+Shared
+
+45:57.980 --> 45:59.980
+Shared Library
+
+45:59.980 --> 46:05.280
+Shared Libraries in Go
+
+46:05.280 --> 46:07.280
+How to use Go Shared Library
+
+46:07.280 --> 46:09.280
+Ne ne ne ne
+
+46:09.280 --> 46:11.280
+Building Shared Libraries in Go
+
+46:11.280 --> 46:13.280
+Shared Libraries in Go
+
+46:13.280 --> 46:17.550
+Genau wie ging das nochmal
+
+46:17.550 --> 46:19.550
+Ich hab das
+
+46:19.550 --> 46:21.550
+Manchmal ist Brain in der History gar nicht so gut
+
+46:21.550 --> 46:23.550
+Weil
+
+46:23.550 --> 46:25.550
+Wenn man dann seine History nicht hat
+
+46:25.550 --> 46:27.550
+Hier
+
+46:27.550 --> 46:29.550
+Build Mode gleich C Shared
+
+46:29.550 --> 46:31.550
+Minus O Preload
+
+46:31.550 --> 46:33.550
+Ich hab keine Ahnung was das bedeuten soll
+
+46:33.550 --> 46:35.550
+Ich lass das einfach mal weg
+
+46:35.550 --> 46:44.430
+Was
+
+46:44.430 --> 46:46.430
+Ok was auch immer
+
+46:46.430 --> 46:48.430
+Also wahrscheinlich brauchen wir jetzt noch
+
+46:48.430 --> 46:50.430
+Das hier dabei
+
+46:50.430 --> 46:57.460
+Go Build hin
+
+46:57.460 --> 46:59.460
+Ja schon besser schon besser
+
+46:59.460 --> 47:03.090
+Aber wo ist meine Library
+
+47:03.090 --> 47:07.170
+Ach Go App ist die Library
+
+47:07.170 --> 47:09.170
+Ok das Ding soll heißen
+
+47:09.170 --> 47:11.170
+Nach dem es ja
+
+47:11.170 --> 47:13.170
+Ok also
+
+47:13.170 --> 47:20.030
+Äh
+
+47:20.030 --> 47:25.010
+Bin ich
+
+47:25.010 --> 47:27.010
+Moment warum ist der Aufruf nicht mehr in meiner History drin
+
+47:27.010 --> 47:29.010
+What the
+
+47:31.010 --> 47:33.010
+Achso weil ein Leerzeichen davor war
+
+47:33.010 --> 47:35.010
+Lul
+
+47:35.010 --> 47:37.010
+Ja dann ist klar das das nicht drin steht
+
+47:37.010 --> 47:39.010
+Ok Minus O
+
+47:39.010 --> 47:41.010
+Minus O
+
+47:41.010 --> 47:43.010
+Der Output soll sein
+
+47:43.010 --> 47:45.010
+Wie hab ich das genannt in .NET
+
+47:45.010 --> 47:51.460
+GoLib
+
+47:51.460 --> 47:53.460
+GoLib.so
+
+47:53.460 --> 47:57.920
+Ja sehr schön
+
+47:57.920 --> 47:59.920
+Genau genau genau
+
+47:59.920 --> 48:01.920
+So will ich das haben
+
+48:01.920 --> 48:03.920
+Ok GoLib.so
+
+48:03.920 --> 48:05.920
+Soll er bauen
+
+48:05.920 --> 48:07.920
+Und dann soll er das ganze Moven
+
+48:07.920 --> 48:09.920
+GoLib.so
+
+48:09.920 --> 48:11.920
+Moven hoch in das
+
+48:11.920 --> 48:16.770
+Sharp Projekt
+
+48:16.770 --> 48:18.770
+GoLib.so ok
+
+48:18.770 --> 48:20.770
+Nice
+
+48:20.770 --> 48:22.770
+So wenn ich Glück hab klappt das jetzt schon
+
+48:22.770 --> 48:24.770
+Fuck
+
+48:24.770 --> 48:26.770
+Cannot open
+
+48:26.770 --> 48:30.660
+Ah ich weiß warum
+
+48:30.660 --> 48:32.660
+Weil ich
+
+48:32.660 --> 48:34.660
+Ppega bin
+
+48:34.660 --> 48:36.660
+Ich muss die Build Action auch umstellen
+
+48:36.660 --> 48:38.660
+Das der das ins Output Directory kopiert
+
+48:38.660 --> 48:40.660
+Und jetzt kommt
+
+48:40.660 --> 48:42.660
+Pregge Leute Pregge
+
+48:42.660 --> 48:44.660
+Ey es funzt
+
+48:44.660 --> 48:46.660
+Ich kann euch auch beweisen das es funzt
+
+48:46.660 --> 48:48.660
+Guckt mal
+
+48:48.660 --> 48:50.660
+Wir schreiben jetzt hier was in Go rein
+
+48:50.660 --> 48:52.660
+Ok
+
+48:52.660 --> 48:54.660
+Fmt printeln Lul
+
+48:54.660 --> 48:56.660
+Kompilieren das
+
+48:56.660 --> 48:58.660
+Und jetzt rufe ich es aus C Sharp auf
+
+48:58.660 --> 49:00.660
+Lul
+
+49:00.660 --> 49:02.660
+Und ihr seht hier nirgends wo in C Sharp ist Lul definiert
+
+49:02.660 --> 49:04.660
+Oder Lul die Ausgabe die kommt aus Go
+
+49:04.660 --> 49:06.660
+Also jetzt callt
+
+49:06.660 --> 49:12.400
+Jetzt callt C Sharp nach Go rein
+
+49:12.400 --> 49:16.540
+Das ist nice
+
+49:16.540 --> 49:18.540
+Ähm
+
+49:18.540 --> 49:20.540
+Wie mach ich denn
+
+49:20.540 --> 49:22.540
+Ein Release Build
+
+49:22.540 --> 49:24.540
+Ist das standardmäßig ein Release Build
+
+49:24.540 --> 49:35.340
+Ne ne C
+
+49:35.340 --> 49:37.340
+Go brauche ich auf jeden Fall
+
+49:37.340 --> 49:39.340
+Weil ich will gleich noch versuchen
+
+49:39.340 --> 49:41.340
+Wie das ist ob man auch ein Struct returnen kann
+
+49:41.340 --> 49:46.380
+Und sowas
+
+49:46.380 --> 49:49.760
+Ähm was habe ich gerade gesagt
+
+49:49.760 --> 49:51.760
+Was wollte ich gerade machen
+
+49:51.760 --> 49:53.760
+Jetzt habe ich gerade an was anderes gedacht Lul
+
+49:53.760 --> 49:55.760
+Jetzt weiß ich was ich gerade machen wollte
+
+49:55.760 --> 50:00.160
+Ähm Chat was habe ich vor 2 Sekunden gesagt
+
+50:00.160 --> 50:02.160
+Lolo alle Boomer hier
+
+50:02.160 --> 50:04.160
+Achso Release Build ja
+
+50:04.160 --> 50:06.160
+Go Build Release
+
+50:06.160 --> 50:08.160
+House of Build
+
+50:08.160 --> 50:10.160
+Achso
+
+50:10.160 --> 50:23.360
+Strip Debug Symbols
+
+50:23.360 --> 50:25.360
+Nö nö nö
+
+50:25.360 --> 50:28.990
+Ach ok es gibt gar kein Debug und Release Build
+
+50:28.990 --> 50:30.990
+Bei Go gibt es nur
+
+50:30.990 --> 50:32.990
+Gibt es nur Release Builds quasi
+
+50:32.990 --> 50:38.610
+Was für eine Linungsdistribution ist das
+
+50:38.610 --> 50:40.610
+Arch by the way
+
+50:40.610 --> 50:42.610
+Wenn du es genau wissen willst
+
+50:42.610 --> 50:44.610
+Dafür habe ich natürlich nochmal mein Neo Fetch vorbereitet
+
+50:44.610 --> 50:46.610
+Damit ich euch regelmäßig sagen kann
+
+50:46.610 --> 50:48.610
+Dass ich Arch Linungs verwende
+
+50:48.610 --> 50:50.610
+Das ist Arch Linungs allerdings in der Form
+
+50:50.610 --> 50:52.610
+UVM
+
+50:52.610 --> 50:54.610
+Und das Terminal ist West Term
+
+50:54.610 --> 50:56.610
+Das ist E3 als
+
+50:56.610 --> 50:58.610
+Window Manager und ZSH
+
+50:58.610 --> 51:00.610
+Als Shell
+
+51:00.610 --> 51:02.610
+Wenn es dich
+
+51:02.610 --> 51:04.610
+Genau interessiert wie das alles konfiguriert
+
+51:04.610 --> 51:06.610
+Ist und funktioniert kannst du auf
+
+51:06.610 --> 51:08.610
+Github gucken hier ist meine ganze
+
+51:08.610 --> 51:12.110
+Config und wenn du gerade dabei bist
+
+51:12.110 --> 51:14.110
+Kann ich dir empfehlen
+
+51:14.110 --> 51:16.110
+Schnapp dir auch noch gleich die passenden Desktop Hintergründe
+
+51:18.110 --> 51:20.110
+Das du auch
+
+51:20.110 --> 51:22.110
+White Paper Happy hast
+
+51:22.110 --> 51:34.900
+Im Hintergrund so wie ich
+
+51:34.900 --> 51:36.900
+Was ist One Fetch
+
+51:36.900 --> 51:38.900
+Ist One Fetch die coolere Neo
+
+51:38.900 --> 51:40.900
+Neo Fetch Variante
+
+51:40.900 --> 51:42.900
+Oder was
+
+51:42.900 --> 51:44.900
+Command Line Git Information Tool
+
+51:44.900 --> 51:53.360
+Was ist das
+
+51:53.360 --> 51:55.360
+Written in Rust
+
+51:55.360 --> 51:57.360
+Natürlich die Krustentiere sind wieder am Start
+
+51:57.360 --> 52:03.490
+Ach da kriegt man
+
+52:03.490 --> 52:05.490
+Infos über das Repo angezeigt
+
+52:05.490 --> 52:07.490
+Ja das ist doch eigentlich auch ganz cool
+
+52:07.490 --> 52:13.550
+So
+
+52:13.550 --> 52:15.550
+Also das Call nach
+
+52:15.550 --> 52:17.550
+Go Code funktioniert schon einmal
+
+52:17.550 --> 52:19.550
+So
+
+52:19.550 --> 52:21.550
+Wir können jetzt natürlich noch sagen
+
+52:21.550 --> 52:23.550
+.NET Run Minus
+
+52:23.550 --> 52:25.550
+C Release
+
+52:25.550 --> 52:27.550
+Das es auch im Release Mode läuft
+
+52:27.550 --> 52:29.550
+Gut also erster
+
+52:29.550 --> 52:31.550
+Part ist geschafft
+
+52:31.550 --> 52:33.550
+Jetzt könnt ihr euch aussuchen
+
+52:33.550 --> 52:35.550
+Chat ob wir als erstes
+
+52:35.550 --> 52:37.550
+Den Go Part
+
+52:37.550 --> 52:39.550
+Vollständig bauen also vollständig
+
+52:39.550 --> 52:41.550
+Bauen bedeutet zwei Sachen
+
+52:41.550 --> 52:43.550
+Leider nicht aus Go die nächste
+
+52:43.550 --> 52:45.550
+Programmiersprache Callen
+
+52:45.550 --> 52:47.550
+Die nächste Programmiersprache Callen
+
+52:47.550 --> 52:49.550
+Also was ich in den
+
+52:49.550 --> 52:51.550
+Sprachen machen will
+
+52:51.550 --> 52:53.550
+Ich will zwei Sachen jeweils in den Sprachen einbauen
+
+52:53.550 --> 52:55.550
+Und zwar das erste ist
+
+52:55.550 --> 52:57.550
+Eine leere Funktion die wir aufrufen können
+
+52:57.550 --> 52:59.550
+In dem Fall kommt das mit dem 0 wieder raus
+
+52:59.550 --> 53:01.550
+Weil ich will nicht 500 mal 0 ausgeben
+
+53:01.550 --> 53:03.550
+Und
+
+53:03.550 --> 53:05.550
+Das zweite ist eine Funktion
+
+53:05.550 --> 53:07.550
+Die nennen wir einfach hier irgendwie Call Go 2
+
+53:07.550 --> 53:09.550
+Und die soll ein Struct
+
+53:09.550 --> 53:11.550
+Returnen
+
+53:11.550 --> 53:13.550
+Und da bin ich mal gespannt wie ich das
+
+53:13.550 --> 53:15.550
+Mache ein Struct
+
+53:15.550 --> 53:17.550
+Von Go zu Return in C Sharp
+
+53:17.550 --> 53:19.550
+Was man dann da dort
+
+53:19.550 --> 53:21.550
+Auch als Struct quasi
+
+53:21.550 --> 53:23.550
+Deserialisieren kann und benutzen kann
+
+53:23.550 --> 53:25.550
+Das einfachste wäre natürlich alle seine Daten
+
+53:25.550 --> 53:27.550
+Irgendwie als JSON String zu Returnen
+
+53:27.550 --> 53:29.550
+Und dann Parse aber das ist ja langweilig
+
+53:29.550 --> 53:31.550
+Wir wollen das ja richtig auf C Ebene machen
+
+53:31.550 --> 53:33.550
+Also quasi Memory Bytes
+
+53:33.550 --> 53:36.860
+Dann
+
+53:36.860 --> 53:38.860
+Casten zu irgendeinem Struct
+
+53:38.860 --> 53:40.860
+Da bin ich mal gespannt wie das geht ich hab kein Plan
+
+53:40.860 --> 53:42.860
+Ne auch nicht GRPC
+
+53:42.860 --> 53:44.860
+Das ist wirklich richtig richtig Low Level
+
+53:44.860 --> 53:46.860
+Soll das sein
+
+53:46.860 --> 53:48.860
+So
+
+53:48.860 --> 53:50.860
+Also ihr könnt euch jetzt aussuchen
+
+53:50.860 --> 53:52.860
+Wollen wir jetzt den Go Part noch implementieren
+
+53:52.860 --> 53:54.860
+Also sprich die Funktion in Go
+
+53:54.860 --> 53:56.860
+Die in den Struct zurück liefert an C Sharp
+
+53:56.860 --> 53:58.860
+Oder wollen wir jetzt erstmal gucken
+
+53:58.860 --> 54:00.860
+Wie man Rust
+
+54:00.860 --> 54:02.860
+Callen kann von C Sharp aus
+
+54:02.860 --> 54:04.860
+Könnt ihr euch aussuchen
+
+54:04.860 --> 54:12.850
+Ich trink mal was
+
+54:12.850 --> 54:16.800
+Rust erstmal Go fertig
+
+54:16.800 --> 54:18.800
+Go fertig
+
+54:18.800 --> 54:20.800
+Okay
+
+54:20.800 --> 54:22.800
+Also
+
+54:22.800 --> 54:24.800
+Die meisten Leute wollen Go haben
+
+54:24.800 --> 54:26.800
+Ich denke dass es nicht so lange dauert
+
+54:26.800 --> 54:28.800
+Wobei ich das noch nicht gemacht habe
+
+54:28.800 --> 54:30.800
+Structs Returnen
+
+54:30.800 --> 54:32.800
+Von Go nach C Sharp
+
+54:32.800 --> 54:34.800
+Ich würde sagen wir fangen mal easy an
+
+54:34.800 --> 54:36.800
+Okay wir fangen mal easy an
+
+54:36.800 --> 54:38.800
+Easy heißt
+
+54:38.800 --> 54:40.800
+Wir returnen hier jetzt ein
+
+54:40.800 --> 54:42.800
+Moment wie
+
+54:42.800 --> 54:44.800
+Ach shit wie ging das nochmal
+
+54:44.800 --> 54:46.800
+Ich glaube einfach
+
+54:46.800 --> 54:48.800
+Sagen wir mal
+
+54:48.800 --> 54:50.800
+In den UN64
+
+54:50.800 --> 54:55.970
+Returnen wir jetzt hier mal
+
+54:55.970 --> 54:57.970
+So
+
+54:57.970 --> 54:59.970
+Und jetzt sagen wir hier
+
+54:59.970 --> 55:01.970
+Return 1
+
+55:01.970 --> 55:03.970
+Mein einfacher geht es nicht mehr
+
+55:03.970 --> 55:05.970
+Return 1
+
+55:05.970 --> 55:07.970
+Kompiliert auch ohne Fehler
+
+55:07.970 --> 55:09.970
+Und jetzt ist die Frage
+
+55:09.970 --> 55:11.970
+Das dürfte ziemlich easy sein
+
+55:11.970 --> 55:13.970
+Jetzt gehe ich hier einfach hin
+
+55:13.970 --> 55:15.970
+Ich kommentiere mal das Rust aus
+
+55:15.970 --> 55:17.970
+Jetzt ist der Return Typ nicht void
+
+55:17.970 --> 55:19.970
+Sondern der Return Typ ist UN64
+
+55:19.970 --> 55:21.970
+Das Ding ist nur
+
+55:21.970 --> 55:23.970
+Ich habe keine Ahnung
+
+55:23.970 --> 55:25.970
+Ich glaube das ist ein
+
+55:25.970 --> 55:27.970
+C aus Go
+
+55:27.970 --> 55:29.970
+Exportiert ein C UNt
+
+55:29.970 --> 55:31.970
+Die gleiche ist
+
+55:31.970 --> 55:33.970
+Moment geht das überhaupt so
+
+55:33.970 --> 55:35.970
+Das geht doch eigentlich gar nicht
+
+55:35.970 --> 55:37.970
+Ich will ja kein Rust UNt
+
+55:37.970 --> 55:39.970
+Exportieren
+
+55:39.970 --> 55:41.970
+Sondern ein C UNt
+
+55:41.970 --> 55:43.970
+UN64
+
+55:43.970 --> 55:45.970
+Also es könnte sein dass das funktioniert
+
+55:45.970 --> 55:47.970
+Wenn die Implementierung einfach überall
+
+55:47.970 --> 55:49.970
+Gleich sind
+
+55:49.970 --> 55:51.970
+Probieren wir das mal aus
+
+55:51.970 --> 55:53.970
+Aber ich glaube nicht dass das funktioniert
+
+55:53.970 --> 55:55.970
+Ups
+
+55:55.970 --> 55:59.540
+Da sollte jetzt 1 rauskommen
+
+55:59.540 --> 56:01.540
+1
+
+56:01.540 --> 56:03.540
+Das funktioniert aber ich glaube ganz
+
+56:03.540 --> 56:05.540
+Korrekt ist das nicht
+
+56:05.540 --> 56:07.540
+Das funktioniert wirklich nur
+
+56:07.540 --> 56:09.540
+Weil das Memory Layout
+
+56:09.540 --> 56:11.540
+Von einem UN64 einfach in C Sharp
+
+56:11.540 --> 56:13.540
+Und Go gleich ist
+
+56:13.540 --> 56:15.540
+Ich glaube korrekter wäre
+
+56:15.540 --> 56:17.540
+Hier gewesen zu returnen ein
+
+56:17.540 --> 56:19.540
+C.UN64
+
+56:19.540 --> 56:21.540
+Oder sowas
+
+56:21.540 --> 56:23.540
+Gibt es
+
+56:23.540 --> 56:25.540
+Wie heißt das T oder so
+
+56:25.540 --> 56:27.540
+Ist das so
+
+56:27.540 --> 56:29.540
+Uint64C
+
+56:29.540 --> 56:31.540
+Wie heißt das Kram
+
+56:31.540 --> 56:36.190
+Uint64T
+
+56:36.190 --> 56:38.190
+Habe ich doch
+
+56:38.190 --> 56:44.640
+Gibt es nicht
+
+56:44.640 --> 56:46.640
+Was muss ich denn da
+
+56:46.640 --> 56:48.640
+Includen dafür
+
+56:48.640 --> 56:53.620
+Standard
+
+56:53.620 --> 56:55.620
+Stdint.h
+
+56:55.620 --> 57:00.340
+Stdint.h
+
+57:00.340 --> 57:02.340
+Stdint.h
+
+57:02.340 --> 57:04.340
+Hey Funst
+
+57:04.340 --> 57:06.340
+Nice
+
+57:06.340 --> 57:10.030
+Ok also einzelne ins return
+
+57:10.030 --> 57:12.030
+Von Go nach C
+
+57:12.030 --> 57:14.030
+Von Go
+
+57:14.030 --> 57:16.030
+Über C nach C Sharp
+
+57:16.030 --> 57:18.030
+Funst
+
+57:18.030 --> 57:22.820
+Jetzt ist die Frage
+
+57:22.820 --> 57:24.820
+Wie machen wir das mit einem Struct
+
+57:24.820 --> 57:26.820
+Das wird bestimmt etwas komplizierter
+
+57:26.820 --> 57:28.820
+Könnte ich mir vorstellen
+
+57:28.820 --> 57:30.820
+Weil wir brauchen ja
+
+57:30.820 --> 57:32.820
+Wir brauchen ja einen C Struct
+
+57:32.820 --> 57:34.820
+Kein Go Struct
+
+57:34.820 --> 57:36.820
+Ok Go Struct
+
+57:36.820 --> 57:38.820
+To C
+
+57:38.820 --> 57:40.820
+Struct
+
+57:40.820 --> 57:45.410
+Layouts sind in C Sharp
+
+57:45.410 --> 57:47.410
+Recht easy
+
+57:47.410 --> 57:49.410
+Wenn du dem sagst das er
+
+57:51.410 --> 57:53.410
+Wie heißt das
+
+57:53.410 --> 57:55.410
+Sequenziell serialisieren soll
+
+57:55.410 --> 57:57.410
+Dann ist es das gleiche Layout wie von C
+
+57:57.410 --> 57:59.410
+Dann ist das eigentlich kein Ding
+
+57:59.410 --> 58:05.660
+Hoff ich mal
+
+58:05.660 --> 58:07.660
+Ja genau genau das meine ich
+
+58:07.660 --> 58:09.660
+Ja damit ist das
+
+58:09.660 --> 58:11.660
+Meistens nicht so ein großes Problem
+
+58:11.660 --> 58:13.660
+Go lang Struct
+
+58:13.660 --> 58:15.660
+With C Struct
+
+58:15.660 --> 58:30.880
+Ok ok ok
+
+58:30.880 --> 58:32.880
+Ne der hat nen
+
+58:32.880 --> 58:34.880
+Go Struct
+
+58:34.880 --> 58:36.880
+Mit C Types drinnen
+
+58:36.880 --> 58:38.880
+Das will ich nicht
+
+58:38.880 --> 58:40.880
+Ok C Go
+
+58:40.880 --> 58:45.920
+Return Struct
+
+58:45.920 --> 58:47.920
+How to return Struct
+
+58:47.920 --> 58:49.920
+Vom C Go
+
+58:49.920 --> 58:51.920
+Ja genau das will ich haben
+
+58:51.920 --> 58:56.130
+I have found a solution
+
+58:56.130 --> 59:02.060
+In C
+
+59:02.060 --> 59:07.040
+Ok der definiert ein Struct in C
+
+59:07.040 --> 59:09.040
+Gibt es nicht C Pack Unpack
+
+59:09.040 --> 59:11.040
+Ich hab keine Ahnung
+
+59:11.040 --> 59:26.960
+Pack?
+
+59:26.960 --> 59:28.960
+How to return a C Struct from a Go Function
+
+59:28.960 --> 59:30.960
+Genau das will ich wissen
+
+59:30.960 --> 59:32.960
+Ok Struct Point
+
+59:32.960 --> 59:34.960
+Man muss das in C definieren
+
+59:34.960 --> 59:41.020
+Auf jeden Fall
+
+59:41.020 --> 59:43.020
+To access a Struct
+
+59:43.020 --> 59:45.020
+Type directly
+
+59:45.020 --> 59:47.020
+Prefix it with Struct
+
+59:47.020 --> 59:49.020
+Underscore
+
+59:49.020 --> 59:51.020
+Ok C Punkt Struct
+
+59:51.020 --> 59:53.020
+Underscore
+
+59:53.020 --> 59:57.100
+Oh meine Güte
+
+59:57.100 --> 59:59.100
+Also ich glaube das wird in Rust
+
+59:59.100 --> 01:00:01.100
+Eigentlich angenehmer sein
+
+01:00:01.100 --> 01:00:03.100
+Als in Go
+
+01:00:03.100 --> 01:00:05.100
+Also sprich wir brauchen jetzt
+
+01:00:05.100 --> 01:00:07.100
+Ne Moment das muss man
+
+01:00:07.100 --> 01:00:09.100
+So
+
+01:00:09.100 --> 01:00:11.100
+Und das muss soweit ich weiß
+
+01:00:11.100 --> 01:00:13.100
+Dann auch direkt über Import C stehen
+
+01:00:13.100 --> 01:00:15.100
+Sonst mag er nicht
+
+01:00:15.100 --> 01:00:20.270
+So die Includes können wir dann hier rein machen
+
+01:00:20.270 --> 01:00:28.190
+Massive Pepega
+
+01:00:28.190 --> 01:00:30.190
+So jetzt haben wir nen Struct Point
+
+01:00:30.190 --> 01:00:32.190
+Wir wollen allerdings nicht Point Return
+
+01:00:32.190 --> 01:00:34.190
+Wir wollen ein Struct
+
+01:00:34.190 --> 01:00:36.190
+Ok machen wir einfach mal sowas hier
+
+01:00:36.190 --> 01:00:38.190
+Struct Session
+
+01:00:38.190 --> 01:00:40.190
+Hat eine
+
+01:00:40.190 --> 01:00:42.190
+Wir machen mal was was man später auch irgendwie
+
+01:00:42.190 --> 01:00:44.190
+Sinnvoll irgendwie
+
+01:00:44.190 --> 01:00:46.190
+So das einmal gibt es hier ein
+
+01:00:46.190 --> 01:00:49.630
+Int
+
+01:00:49.630 --> 01:00:51.630
+Oder ein
+
+01:00:51.630 --> 01:00:53.630
+U
+
+01:00:53.630 --> 01:00:55.630
+Int machen wir es mal so
+
+01:00:55.630 --> 01:00:57.630
+Ein Uint64T
+
+01:00:57.630 --> 01:01:01.200
+Client ID
+
+01:01:01.200 --> 01:01:04.900
+Und
+
+01:01:04.900 --> 01:01:06.900
+Dann gibt es oh jetzt wird es interessant
+
+01:01:06.900 --> 01:01:08.900
+Jetzt gibt es nen String
+
+01:01:08.900 --> 01:01:10.900
+Den nennen wir
+
+01:01:10.900 --> 01:01:12.900
+Keine Ahnung Name oder so
+
+01:01:12.900 --> 01:01:14.900
+Ja Client Name
+
+01:01:14.900 --> 01:01:16.900
+Jetzt bin ich mal gespannt
+
+01:01:16.900 --> 01:01:18.900
+Wie ich ein Struct
+
+01:01:18.900 --> 01:01:20.900
+Mit nem
+
+01:01:20.900 --> 01:01:22.900
+Sharp Pointer
+
+01:01:22.900 --> 01:01:24.900
+Irgendwie rüber kriege ins die Sharp
+
+01:01:24.900 --> 01:01:26.900
+Ohne
+
+01:01:26.900 --> 01:01:28.900
+Wohlgemerkt
+
+01:01:28.900 --> 01:01:33.230
+Ohne Memory Leaks zu verursachen
+
+01:01:33.230 --> 01:01:35.230
+Das wird
+
+01:01:35.230 --> 01:01:37.230
+Oje
+
+01:01:37.230 --> 01:01:39.230
+Ich weiß ja nicht einmal
+
+01:01:39.230 --> 01:01:41.230
+Wie ich das über ok Return
+
+01:01:41.230 --> 01:01:43.230
+Also wie ging das jetzt
+
+01:01:43.230 --> 01:01:45.230
+C Punkt Struct Underscore
+
+01:01:45.230 --> 01:01:47.230
+Und dann Session
+
+01:01:47.230 --> 01:01:49.230
+Und jetzt durfte ich
+
+01:01:49.230 --> 01:01:51.230
+Das so benennen mit
+
+01:01:51.230 --> 01:01:53.230
+Ehm
+
+01:01:53.230 --> 01:01:55.230
+Client Name
+
+01:01:55.230 --> 01:01:57.230
+Ich weiß überhaupt nicht wie ist die Syntax
+
+01:01:57.230 --> 01:02:01.180
+X
+
+01:02:01.180 --> 01:02:03.180
+Variable Variable zuerst
+
+01:02:03.180 --> 01:02:07.140
+Ok
+
+01:02:07.140 --> 01:02:09.140
+Also Client ID
+
+01:02:09.140 --> 01:02:11.140
+So das ist jetzt ein C Char
+
+01:02:11.140 --> 01:02:13.140
+Array oder so
+
+01:02:13.140 --> 01:02:15.140
+Ich hoffe
+
+01:02:15.140 --> 01:02:17.140
+Das
+
+01:02:17.140 --> 01:02:19.140
+Ne ne das funktioniert schon mal nicht
+
+01:02:19.140 --> 01:02:21.140
+Oje
+
+01:02:21.140 --> 01:02:23.140
+Wie ist das syntaktisch denn richtig
+
+01:02:23.140 --> 01:02:25.140
+Ne das ist eigentlich ok so
+
+01:02:25.140 --> 01:02:29.340
+Und dann haben wir noch was
+
+01:02:29.340 --> 01:02:31.340
+Ich weiß einen Moment Client ID
+
+01:02:31.340 --> 01:02:33.340
+Client ID ist 123
+
+01:02:33.340 --> 01:02:35.340
+Und dann haben wir noch Client Name
+
+01:02:35.340 --> 01:02:37.340
+Client Name ist dann 0w
+
+01:02:37.340 --> 01:02:39.340
+Das wird so definitiv nicht funktionieren
+
+01:02:39.340 --> 01:02:41.340
+Leute das kann ich euch sagen
+
+01:02:41.340 --> 01:02:43.340
+Das wird nicht funktionieren
+
+01:02:43.340 --> 01:02:50.560
+Ok das funktioniert schon mal nicht
+
+01:02:50.560 --> 01:02:52.560
+Also
+
+01:02:52.560 --> 01:02:54.560
+Das ist falsch weil das ist ja auch
+
+01:02:54.560 --> 01:02:56.560
+Ein Uint
+
+01:02:56.560 --> 01:02:58.560
+Also das hier muss ja auch
+
+01:02:58.560 --> 01:03:00.560
+Ein sowas hier sein
+
+01:03:00.560 --> 01:03:02.560
+Moment meine Go
+
+01:03:02.560 --> 01:03:04.560
+Skills verlassen mich ich glaube das geht so
+
+01:03:04.560 --> 01:03:06.560
+Das das funktioniert
+
+01:03:06.560 --> 01:03:08.560
+Ja
+
+01:03:08.560 --> 01:03:10.560
+Ne
+
+01:03:10.560 --> 01:03:12.560
+Achso Moment
+
+01:03:12.560 --> 01:03:14.560
+Ich return ja gar kein Struct
+
+01:03:14.560 --> 01:03:16.560
+Ich will das hier return
+
+01:03:16.560 --> 01:03:21.790
+Ok schon besser
+
+01:03:21.790 --> 01:03:23.790
+Schon besser hätte ich es auch einfach so
+
+01:03:23.790 --> 01:03:25.790
+Returnen können ohne das der rummeckert
+
+01:03:25.790 --> 01:03:27.790
+Anscheinend
+
+01:03:27.790 --> 01:03:29.790
+So also das funktioniert nicht
+
+01:03:29.790 --> 01:03:31.790
+Ich muss jetzt einen
+
+01:03:31.790 --> 01:03:33.790
+Charakter Array
+
+01:03:33.790 --> 01:03:35.790
+In Go mach ok
+
+01:03:35.790 --> 01:03:37.790
+Äh
+
+01:03:37.790 --> 01:03:39.790
+C String
+
+01:03:39.790 --> 01:03:41.790
+C Go return wie fandst du das
+
+01:03:41.790 --> 01:03:43.790
+Return String
+
+01:03:43.790 --> 01:03:45.790
+C Function in Go legen
+
+01:03:45.790 --> 01:03:47.790
+C Punkt
+
+01:03:47.790 --> 01:03:49.790
+C String
+
+01:03:49.790 --> 01:03:51.790
+Was ich mache
+
+01:03:51.790 --> 01:03:53.790
+Ich rufe aus C Sharp Go
+
+01:03:53.790 --> 01:03:55.790
+Code auf über ein C Interface
+
+01:03:55.790 --> 01:03:57.790
+Also
+
+01:03:57.790 --> 01:03:59.790
+Irgendwie sowas wie
+
+01:03:59.790 --> 01:04:01.790
+C String
+
+01:04:01.790 --> 01:04:03.790
+C String
+
+01:04:03.790 --> 01:04:05.790
+Ne Moment
+
+01:04:05.790 --> 01:04:07.790
+Wir sind
+
+01:04:07.790 --> 01:04:09.790
+Ne
+
+01:04:09.790 --> 01:04:11.790
+Go
+
+01:04:11.790 --> 01:04:13.790
+Ne Moment
+
+01:04:13.790 --> 01:04:15.790
+Zu viele Programmiersprachen auf einmal
+
+01:04:15.790 --> 01:04:23.650
+So oder
+
+01:04:23.650 --> 01:04:25.650
+Ok
+
+01:04:25.650 --> 01:04:27.650
+Leute es
+
+01:04:27.650 --> 01:04:29.650
+Es kompiliert
+
+01:04:29.650 --> 01:04:31.650
+Client Name ist
+
+01:04:31.650 --> 01:04:33.650
+HDXYZ123
+
+01:04:33.650 --> 01:04:35.650
+Ok
+
+01:04:35.650 --> 01:04:37.650
+Könnte ein geiles Passwort sein
+
+01:04:37.650 --> 01:04:41.660
+Ist es aber nicht
+
+01:04:41.660 --> 01:04:43.660
+Ok jetzt returne ich ein Struct aus Go
+
+01:04:43.660 --> 01:04:45.660
+Heißt im Endeffekt
+
+01:04:45.660 --> 01:04:47.660
+Wenn ich das hier aufrufe das sollte noch funktionieren
+
+01:04:47.660 --> 01:04:49.660
+Weil das erst
+
+01:04:49.660 --> 01:04:51.660
+Ok das ist schon mal gut
+
+01:04:51.660 --> 01:04:53.660
+123 ist die Client ID die ich hier gesetzt habe
+
+01:04:53.660 --> 01:04:55.660
+Das funzt weil in meinem Struct
+
+01:04:55.660 --> 01:04:57.660
+Vorne immer noch
+
+01:04:57.660 --> 01:04:59.660
+Die Client ID ist
+
+01:04:59.660 --> 01:05:01.660
+Jetzt ist die große Preisfrage
+
+01:05:01.660 --> 01:05:03.660
+Wie kriege ich hier raus ein Struct
+
+01:05:03.660 --> 01:05:05.660
+Also machen wir mal in C Sharp ein Struct
+
+01:05:05.660 --> 01:05:07.660
+Das nennen wir auch Session
+
+01:05:07.660 --> 01:05:09.660
+Public
+
+01:05:09.660 --> 01:05:11.660
+Uint64
+
+01:05:11.660 --> 01:05:13.660
+Tja
+
+01:05:13.660 --> 01:05:15.660
+Client ID nennen wir es mal genauso
+
+01:05:15.660 --> 01:05:17.660
+Public
+
+01:05:17.660 --> 01:05:19.660
+String
+
+01:05:19.660 --> 01:05:21.660
+Kann ich mir so nicht vorstellen
+
+01:05:21.660 --> 01:05:23.660
+Dass das funktioniert
+
+01:05:23.660 --> 01:05:25.660
+Und selbst wenn es funktioniert
+
+01:05:25.660 --> 01:05:27.660
+Hat es garantiert Memory Leaks
+
+01:05:27.660 --> 01:05:29.660
+Das werden wir jetzt mal ausprobieren
+
+01:05:29.660 --> 01:05:31.660
+Mal gucken
+
+01:05:31.660 --> 01:05:33.660
+Ob das C Sharp Interoption
+
+01:05:33.660 --> 01:05:35.660
+Zeug so schlau ist
+
+01:05:35.660 --> 01:05:37.660
+Und erkennt das man ja aus einem
+
+01:05:37.660 --> 01:05:39.660
+C String
+
+01:05:39.660 --> 01:05:43.360
+Ein C Sharp String machen kann
+
+01:05:43.360 --> 01:05:45.360
+Automatisch
+
+01:05:45.360 --> 01:05:47.360
+Da bin ich mal gespannt
+
+01:05:47.360 --> 01:05:49.360
+So und das Ding soll heißen Client Name
+
+01:05:49.360 --> 01:05:51.360
+Übrigens die Namen hier sind vollkommen egal
+
+01:05:51.360 --> 01:05:53.360
+Die Namen sind vollkommen wurscht
+
+01:05:53.360 --> 01:05:55.360
+Die müssen nicht die gleichen sein wie hier
+
+01:05:55.360 --> 01:05:57.360
+Wichtig ist die Byte Anzahl
+
+01:05:57.360 --> 01:05:59.360
+Also dass das hier
+
+01:05:59.360 --> 01:06:01.360
+Quasi so lang ist
+
+01:06:01.360 --> 01:06:03.360
+Und das hier so lang ist
+
+01:06:03.360 --> 01:06:05.360
+Dass es dann passt im Endeffekt
+
+01:06:05.360 --> 01:06:07.360
+Wie das hier heißt ist vollkommen egal
+
+01:06:07.360 --> 01:06:09.360
+Also das Layout im Speicher muss das gleiche sein
+
+01:06:09.360 --> 01:06:11.360
+So und jetzt
+
+01:06:11.360 --> 01:06:13.360
+Returnen wir hiervon kein Uint
+
+01:06:13.360 --> 01:06:15.360
+Sondern eine Session
+
+01:06:15.360 --> 01:06:17.360
+Das funktioniert nicht weil es nicht Public ist
+
+01:06:17.360 --> 01:06:22.400
+Ok Session
+
+01:06:22.400 --> 01:06:26.350
+Jetzt bin ich mal gespannt
+
+01:06:26.350 --> 01:06:28.350
+Jetzt bin ich mal gespannt
+
+01:06:28.350 --> 01:06:30.350
+So Session Client ID
+
+01:06:30.350 --> 01:06:32.350
+Ich hoffe das geht noch
+
+01:06:32.350 --> 01:06:34.350
+Ok das funzt
+
+01:06:34.350 --> 01:06:36.350
+Was ist hier
+
+01:06:36.350 --> 01:06:38.350
+Client Name
+
+01:06:38.350 --> 01:06:40.350
+Client Name
+
+01:06:40.350 --> 01:06:44.690
+Client Name
+
+01:06:44.690 --> 01:06:50.110
+Funktioniert einfach
+
+01:06:50.110 --> 01:06:52.110
+Funktioniert einfach
+
+01:06:52.110 --> 01:06:54.110
+Moment der erkennt automatisch
+
+01:06:54.110 --> 01:06:56.110
+Der weiß automatisch wie man ein C String
+
+01:06:56.110 --> 01:06:58.110
+In ein C Sharp String
+
+01:06:58.110 --> 01:07:00.110
+Aber das hat 100 pro Memory Leaks
+
+01:07:00.110 --> 01:07:02.110
+Das hat sowas von Memory Leaks
+
+01:07:02.110 --> 01:07:04.110
+Leute ich sags euch
+
+01:07:04.110 --> 01:07:06.110
+100 pro hat das Memory Leaks
+
+01:07:06.110 --> 01:07:08.110
+Moment Moment
+
+01:07:08.110 --> 01:07:10.110
+Watch Free minus H
+
+01:07:10.110 --> 01:07:12.110
+Wir machen jetzt die
+
+01:07:12.110 --> 01:07:14.110
+Erkenntnis
+
+01:07:14.110 --> 01:07:16.110
+Wir machen jetzt folgendes
+
+01:07:16.110 --> 01:07:18.110
+Wir gucken jetzt mal
+
+01:07:18.110 --> 01:07:20.110
+Ob es Memory Leaks hat
+
+01:07:20.110 --> 01:07:22.110
+While True
+
+01:07:22.110 --> 01:07:24.110
+While 0w
+
+01:07:24.110 --> 01:07:27.490
+Ok so
+
+01:07:27.490 --> 01:07:29.490
+Wir gucken ob es Memory Leaks hat
+
+01:07:29.490 --> 01:07:31.490
+Wir rufen es einfach in der Schleife auf
+
+01:07:31.490 --> 01:07:33.490
+Und gucken ob
+
+01:07:33.490 --> 01:07:37.630
+Free runter geht
+
+01:07:37.630 --> 01:07:41.460
+Run
+
+01:07:41.460 --> 01:07:43.460
+Oh Shit
+
+01:07:43.460 --> 01:07:45.460
+Ich glaube es hat
+
+01:07:45.460 --> 01:07:49.090
+Naja nö oder doch
+
+01:07:49.090 --> 01:07:51.090
+Ah
+
+01:07:51.090 --> 01:08:03.100
+Das ist jetzt aktuell so gar nicht mal zu
+
+01:08:03.100 --> 01:08:05.100
+Das ist jetzt echt schwer
+
+01:08:05.100 --> 01:08:07.100
+Der GC
+
+01:08:07.100 --> 01:08:09.100
+Kann das nicht freen
+
+01:08:09.100 --> 01:08:17.090
+Weil der GC wahrscheinlich kein free
+
+01:08:17.090 --> 01:08:19.090
+Ne ne das hat ein Memory Leak
+
+01:08:19.090 --> 01:08:27.620
+Oder?
+
+01:08:27.620 --> 01:08:29.620
+Oder nicht
+
+01:08:29.620 --> 01:08:31.620
+Also wenn das kein Memory Leak hat
+
+01:08:31.620 --> 01:08:49.780
+Dann wundert es mich extrem
+
+01:08:49.780 --> 01:08:51.780
+Warum verursacht es nicht mehr CPU Last
+
+01:08:51.780 --> 01:08:55.410
+Ne macht es doch
+
+01:08:55.410 --> 01:08:59.680
+Memory
+
+01:08:59.680 --> 01:09:01.680
+Wir könnten doch einfach mal mit einem Debugger starten
+
+01:09:01.680 --> 01:09:21.820
+Schwer zu sagen
+
+01:09:21.820 --> 01:09:23.820
+Also das könnte auch einfach
+
+01:09:23.820 --> 01:09:25.820
+Kein Memory Leak
+
+01:09:25.820 --> 01:09:29.580
+Aber das wundert mich
+
+01:09:29.580 --> 01:09:31.580
+Woher will es die Sharp wissen
+
+01:09:31.580 --> 01:09:33.580
+Wie man das
+
+01:09:33.580 --> 01:09:39.840
+Eigibt
+
+01:09:39.840 --> 01:09:41.840
+Moment Moment Moment
+
+01:09:41.840 --> 01:09:43.840
+Habe ich das überhaupt schon kompiliert jetzt
+
+01:09:43.840 --> 01:10:05.390
+Und dahin geschoben
+
+01:10:05.390 --> 01:10:16.260
+Wie kann das sein dass das kein Memory Leak gibt
+
+01:10:16.260 --> 01:10:18.260
+Warum das .NET nicht freeen können soll
+
+01:10:18.260 --> 01:10:20.260
+Weil .NET nicht zuständig ist dafür
+
+01:10:20.260 --> 01:10:22.260
+Das zu freeen
+
+01:10:22.260 --> 01:10:24.260
+Woher möchte .NET wissen
+
+01:10:24.260 --> 01:10:26.260
+An der Stelle
+
+01:10:26.260 --> 01:10:28.260
+Dass ich den eigentlichen Pointer auf dem das passiert
+
+01:10:28.260 --> 01:10:30.260
+Das im Ursprungsprogramm nicht mehr verwende
+
+01:10:30.260 --> 01:10:32.260
+Wenn ich das selbst
+
+01:10:32.260 --> 01:10:34.260
+Aufrufen würde dann ist okay
+
+01:10:34.260 --> 01:10:36.260
+Aber dass das
+
+01:10:36.260 --> 01:10:38.260
+Automatisch freed wird
+
+01:10:38.260 --> 01:10:42.270
+Ergibt eigentlich keinen Sinn
+
+01:10:42.270 --> 01:10:44.270
+Aber anscheinend
+
+01:10:44.270 --> 01:10:46.270
+Anscheinend funktioniert
+
+01:10:46.270 --> 01:10:54.450
+Das
+
+01:10:54.450 --> 01:10:57.820
+Also das ist
+
+01:10:57.820 --> 01:10:59.820
+Mache ich irgendwas falsch
+
+01:10:59.820 --> 01:11:01.820
+Interop
+
+01:11:01.820 --> 01:11:03.820
+Hall
+
+01:11:03.820 --> 01:11:14.210
+Go
+
+01:11:14.210 --> 01:11:16.210
+Nö
+
+01:11:16.210 --> 01:11:18.210
+Wir müssen mal kurz was checken
+
+01:11:18.210 --> 01:11:20.210
+Steht da überhaupt was drin
+
+01:11:20.210 --> 01:11:22.210
+Session
+
+01:11:22.210 --> 01:11:24.210
+Name
+
+01:11:24.210 --> 01:11:31.420
+Ja
+
+01:11:31.420 --> 01:11:33.420
+Ich bin Leute
+
+01:11:33.420 --> 01:11:35.420
+Ich bin hochgradig verwirrt
+
+01:11:35.420 --> 01:11:37.420
+Kann das sein
+
+01:11:37.420 --> 01:11:52.580
+Dass das einfach rausoptimiert wird
+
+01:11:52.580 --> 01:11:54.580
+Ich bin echt
+
+01:11:54.580 --> 01:11:56.580
+Verwirrt und begeistert
+
+01:11:56.580 --> 01:11:58.580
+Gleichzeitig dass es wohl anscheinend
+
+01:11:58.580 --> 01:12:00.580
+Memory Leak
+
+01:12:00.580 --> 01:12:02.580
+Ergibt
+
+01:12:02.580 --> 01:12:04.580
+Können wir das hier nicht mit dem Debugger starten
+
+01:12:04.580 --> 01:12:06.580
+Und sehen dann die RAM Auslastung
+
+01:12:06.580 --> 01:12:08.580
+Also in Visual Studio gibt es
+
+01:12:08.580 --> 01:12:10.580
+In Visual Studio gibt es einen Debugger mit RAM Auslastung
+
+01:12:10.580 --> 01:12:12.580
+Ich weiß nicht wie das hier in
+
+01:12:12.580 --> 01:12:18.260
+In Rider aussieht
+
+01:12:18.260 --> 01:12:26.940
+Was
+
+01:12:26.940 --> 01:12:42.670
+Was genau möchte Rider von mir
+
+01:12:42.670 --> 01:12:46.620
+Wo ist das Problem
+
+01:12:46.620 --> 01:12:54.610
+Ach hier
+
+01:12:54.610 --> 01:13:05.660
+Hey Rider was willst du von mir
+
+01:13:05.660 --> 01:13:07.660
+Was hat der für Schmerzen
+
+01:13:07.660 --> 01:13:09.660
+Der weiß doch wo mein .NET Zeug liegt
+
+01:13:09.660 --> 01:13:16.750
+Keine Ahnung
+
+01:13:16.750 --> 01:13:29.340
+Also ich würde gerne
+
+01:13:29.340 --> 01:13:31.340
+Das kann man
+
+01:13:31.340 --> 01:13:33.340
+Das muss doch hier irgendwie funktionieren
+
+01:13:33.340 --> 01:13:35.340
+Benchmark
+
+01:13:35.340 --> 01:13:37.340
+Wo ist das Problem
+
+01:13:37.340 --> 01:13:39.340
+Ja richtig Runtime korrekt
+
+01:13:39.340 --> 01:13:42.720
+Exec Path korrekt
+
+01:13:42.720 --> 01:13:49.970
+Der
+
+01:13:49.970 --> 01:13:51.970
+Ja aber das hier ist doch .NET 8
+
+01:13:51.970 --> 01:13:58.100
+Stimmt doch eigentlich
+
+01:13:58.100 --> 01:14:00.100
+Jaja der ruft das nicht
+
+01:14:00.100 --> 01:14:02.100
+Mit dem richtigen
+
+01:14:02.100 --> 01:14:04.100
+Mit der richtigen
+
+01:14:04.100 --> 01:14:06.100
+.NET Installation auf
+
+01:14:06.100 --> 01:14:08.100
+Was aber äußerst pepega ist
+
+01:14:08.100 --> 01:14:14.930
+Weil hier checkt das
+
+01:14:14.930 --> 01:14:19.140
+Hier checkt das
+
+01:14:19.140 --> 01:14:21.140
+Da ist irgendwas falsch
+
+01:14:21.140 --> 01:14:28.420
+Jaja
+
+01:14:28.420 --> 01:14:30.420
+Der benutzt meine System Runtime
+
+01:14:30.420 --> 01:14:32.420
+Was aber keinen Sinn ergibt
+
+01:14:32.420 --> 01:14:34.420
+Weil ich überall hier
+
+01:14:34.420 --> 01:14:36.420
+Überall hier das richtige eingestellt ist
+
+01:14:36.420 --> 01:14:42.100
+Auch hier 8 guck
+
+01:14:42.100 --> 01:14:44.100
+Ich glaub irgendwie das bugt rum
+
+01:14:44.100 --> 01:14:46.100
+Ok
+
+01:14:46.100 --> 01:14:48.100
+Wir probieren jetzt mal was anderes
+
+01:14:48.100 --> 01:14:50.100
+Nur um sicherzustellen dass das irgendwie an mir liegt
+
+01:14:50.100 --> 01:14:52.100
+Und zwar
+
+01:14:52.100 --> 01:14:54.100
+Guck mal was wir jetzt machen
+
+01:14:54.100 --> 01:14:56.100
+Das hier ist jetzt einfach kein String
+
+01:14:56.100 --> 01:14:58.100
+Sondern ein Inpointer
+
+01:14:58.100 --> 01:15:00.100
+Und spätestens jetzt sollte er es ja nicht aufräumen
+
+01:15:00.100 --> 01:15:02.100
+So mal gucken ob es jetzt Memory Leaks gibt
+
+01:15:02.100 --> 01:15:15.520
+Also ich würde sagen
+
+01:15:15.520 --> 01:15:32.140
+Es gibt Memory Leaks
+
+01:15:32.140 --> 01:15:37.380
+Jaja
+
+01:15:37.380 --> 01:15:39.380
+Guck das geht
+
+01:15:39.380 --> 01:15:44.420
+Das geht steil
+
+01:15:44.420 --> 01:15:48.560
+Also im Inpointer gibt es Memory Leaks
+
+01:15:48.560 --> 01:15:50.560
+Aber wenn es ein String ist
+
+01:15:50.560 --> 01:15:52.560
+Dann gibt das
+
+01:15:52.560 --> 01:15:54.560
+Automatisch frei geben kann
+
+01:15:54.560 --> 01:16:01.840
+Das ergibt für mich eigentlich überhaupt keinen Sinn
+
+01:16:01.840 --> 01:16:03.840
+Ne guck mal im String checkt er das
+
+01:16:03.840 --> 01:16:05.840
+Ich hab keine Ahnung wie
+
+01:16:05.840 --> 01:16:07.840
+Warum die Runtime so 6 Header ist
+
+01:16:07.840 --> 01:16:09.840
+Aber
+
+01:16:09.840 --> 01:16:11.840
+Wenn man ihm sagt es ist ein String
+
+01:16:11.840 --> 01:16:13.840
+Dann freet er das automatisch
+
+01:16:13.840 --> 01:16:15.840
+Ich bin begeistert
+
+01:16:15.840 --> 01:16:17.840
+Ich hätte nicht damit gerechnet
+
+01:16:17.840 --> 01:16:23.650
+Dass das .NET so schlau ist
+
+01:16:23.650 --> 01:16:25.650
+Und das kapiert
+
+01:16:25.650 --> 01:16:27.650
+Macht der da unter der Haube irgendwie einen Free drauf
+
+01:16:27.650 --> 01:16:29.650
+Aber woher weiß er überhaupt
+
+01:16:29.650 --> 01:16:31.650
+Also das finde ich äußerst
+
+01:16:31.650 --> 01:16:33.650
+Spannend
+
+01:16:33.650 --> 01:16:37.790
+Dass das funktioniert
+
+01:16:37.790 --> 01:16:39.790
+Der checkt das
+
+01:16:39.790 --> 01:16:41.790
+Hätte ich nicht gedacht
+
+01:16:41.790 --> 01:16:43.790
+Ich hätte gedacht ich muss das von Hand machen
+
+01:16:43.790 --> 01:16:47.300
+Also das ist schlau
+
+01:16:47.300 --> 01:16:49.300
+Also das ist von der Runtime wirklich schlau
+
+01:16:49.300 --> 01:16:51.300
+Dass der den String hier automatisch freeen kann
+
+01:16:51.300 --> 01:16:53.300
+Das Ding ist nur
+
+01:16:53.300 --> 01:16:55.300
+Das Ding ist nur
+
+01:16:55.300 --> 01:16:57.300
+Das eigentlich er das
+
+01:16:57.300 --> 01:16:59.300
+Eher nicht machen sollte
+
+01:16:59.300 --> 01:17:01.300
+Weil
+
+01:17:01.300 --> 01:17:03.300
+Er hat keine Ahnung
+
+01:17:03.300 --> 01:17:05.300
+Was ich verwende
+
+01:17:05.300 --> 01:17:07.300
+Zum Beispiel machen wir doch mal was
+
+01:17:07.300 --> 01:17:09.300
+Machen wir mal folgendes
+
+01:17:09.300 --> 01:17:11.300
+Machen wir mal hier
+
+01:17:11.300 --> 01:17:14.670
+Das muss man jetzt mit war machen
+
+01:17:14.670 --> 01:17:20.480
+Irgendwie so
+
+01:17:20.480 --> 01:17:24.750
+Und der wird jetzt gefreed
+
+01:17:24.750 --> 01:17:26.750
+Wobei ne dann ist er wahrscheinlich so schlau
+
+01:17:26.750 --> 01:17:28.750
+Das ist eine gute Frage
+
+01:17:28.750 --> 01:17:36.540
+Aha
+
+01:17:36.540 --> 01:17:38.540
+Entdeckt
+
+01:17:38.540 --> 01:17:40.540
+Exposed
+
+01:17:40.540 --> 01:17:42.540
+Ja
+
+01:17:42.540 --> 01:17:44.540
+Die Runtime ist so schlau
+
+01:17:44.540 --> 01:17:46.540
+Und ruft wirklich free unter der Haube auf
+
+01:17:46.540 --> 01:17:48.540
+Für den
+
+01:17:48.540 --> 01:17:50.540
+Pointer den sie kriegt
+
+01:17:50.540 --> 01:17:52.540
+Hä
+
+01:17:52.540 --> 01:17:54.540
+Das hätte ich
+
+01:17:54.540 --> 01:17:56.540
+Nicht gedacht
+
+01:17:56.540 --> 01:17:58.540
+Aber da sieht man auch schon
+
+01:17:58.540 --> 01:18:00.540
+Das kann echt zu Problemen führen
+
+01:18:00.540 --> 01:18:02.540
+Wenn ich den String noch weiter verwende
+
+01:18:02.540 --> 01:18:04.540
+In dem drunterliegenden Go Programm
+
+01:18:04.540 --> 01:18:06.540
+Ich bin mir nicht so sicher
+
+01:18:06.540 --> 01:18:08.540
+Ob das ein sinnvolles Default Verhalten ist
+
+01:18:08.540 --> 01:18:10.540
+Dass das immer automatisch
+
+01:18:10.540 --> 01:18:12.540
+Den Pointer freeet
+
+01:18:12.540 --> 01:18:14.540
+Da bin ich mir nicht so sicher
+
+01:18:14.540 --> 01:18:16.540
+Wie hast du das rausgefunden
+
+01:18:16.540 --> 01:18:18.540
+Indem ich das einfach
+
+01:18:18.540 --> 01:18:20.540
+Einmal global angelegt hab den String
+
+01:18:20.540 --> 01:18:22.540
+Und immer den gleichen returne
+
+01:18:22.540 --> 01:18:24.540
+Und jetzt versucht ihr ihn zum zweiten mal zu freeen
+
+01:18:24.540 --> 01:18:26.540
+Und
+
+01:18:26.540 --> 01:18:28.540
+Das geht natürlich nicht
+
+01:18:28.540 --> 01:18:30.540
+Also ihr habt
+
+01:18:30.540 --> 01:18:32.540
+.NET versucht
+
+01:18:32.540 --> 01:18:34.540
+Also ich mein okay
+
+01:18:34.540 --> 01:18:36.540
+In gewisser Logik hat das
+
+01:18:36.540 --> 01:18:38.540
+.NET erkennt wir bekommen nen Character Pointer
+
+01:18:38.540 --> 01:18:40.540
+Und
+
+01:18:40.540 --> 01:18:42.540
+Wandeln den Character Pointer um
+
+01:18:42.540 --> 01:18:44.540
+Kopieren quasi den Inhalt in den .NET String
+
+01:18:44.540 --> 01:18:46.540
+Und dann freeen wir den ursprünglichen Pointer
+
+01:18:46.540 --> 01:18:48.540
+Das ist aber eigentlich gar nicht so ungefährlich
+
+01:18:48.540 --> 01:18:50.540
+Weil .NET
+
+01:18:50.540 --> 01:18:52.540
+Weil es das automatisch macht
+
+01:18:52.540 --> 01:18:54.540
+Weiß doch überhaupt nicht
+
+01:18:54.540 --> 01:18:56.540
+Ob ich den darunterliegenden Character Pointer
+
+01:18:56.540 --> 01:18:58.540
+Noch weiter verwende
+
+01:18:58.540 --> 01:19:00.540
+Hier beispielsweise
+
+01:19:00.540 --> 01:19:02.540
+Also
+
+01:19:02.540 --> 01:19:04.540
+Weiß nicht
+
+01:19:04.540 --> 01:19:06.540
+Da bin ich
+
+01:19:06.540 --> 01:19:08.540
+Da gehe ich nicht so dacor mit
+
+01:19:08.540 --> 01:19:13.070
+Was das da macht
+
+01:19:13.070 --> 01:19:17.980
+Aber soll mir recht sein
+
+01:19:17.980 --> 01:19:19.980
+In dem Fall funzt es einfach ohne mein zutun
+
+01:19:19.980 --> 01:19:24.190
+Ja wenn man es nicht direkt als String macht
+
+01:19:24.190 --> 01:19:26.190
+Das kann man garantiert unterbinden
+
+01:19:26.190 --> 01:19:28.190
+Wir haben es ja gesehen man kann es schon unterbinden
+
+01:19:28.190 --> 01:19:30.190
+Indem ich hier einfach nen Inpointer draus mache
+
+01:19:30.190 --> 01:19:32.190
+Sobald ich hier nen
+
+01:19:32.190 --> 01:19:34.190
+Inpointer draus mache
+
+01:19:34.190 --> 01:19:36.190
+Dann wird Memory geleaked as fuck
+
+01:19:36.190 --> 01:19:38.190
+Guck
+
+01:19:38.190 --> 01:19:42.140
+Ja 700 MB
+
+01:19:42.140 --> 01:19:44.140
+960 MB
+
+01:19:44.140 --> 01:19:46.140
+1,2 Gig
+
+01:19:46.140 --> 01:19:48.140
+1,4 Gig
+
+01:19:48.140 --> 01:19:51.520
+1,7 Gig
+
+01:19:51.520 --> 01:19:53.520
+Also eigentlich hätte ich damit gerechnet
+
+01:19:53.520 --> 01:19:55.520
+Das ich das eh so machen muss
+
+01:19:55.520 --> 01:19:57.520
+Das ich den Pointer selbst deserialisieren
+
+01:19:57.520 --> 01:19:59.520
+Und dann freeen
+
+01:19:59.520 --> 01:20:01.520
+Also eigentlich dachte ich
+
+01:20:01.520 --> 01:20:03.520
+Ich muss sowas hier machen sinngemäß
+
+01:20:03.520 --> 01:20:06.900
+Session
+
+01:20:06.900 --> 01:20:08.900
+Inpoint
+
+01:20:08.900 --> 01:20:10.900
+Das ist ja im Prinzip nur nen Pointer
+
+01:20:10.900 --> 01:20:12.900
+An die Stelle wo das Character Array steht
+
+01:20:12.900 --> 01:20:14.900
+So und ich dachte mir
+
+01:20:14.900 --> 01:20:16.900
+Ich muss da jetzt sowas hier machen
+
+01:20:16.900 --> 01:20:18.900
+Zum Beispiel
+
+01:20:18.900 --> 01:20:20.900
+UTF-8
+
+01:20:20.900 --> 01:20:22.900
+Pointer to String UTF-8
+
+01:20:22.900 --> 01:20:32.420
+Client Name
+
+01:20:32.420 --> 01:20:34.420
+So wenn ich das mache sollte es auch Memory Leaks geben
+
+01:20:34.420 --> 01:20:36.420
+Achso
+
+01:20:36.420 --> 01:20:38.420
+Semicolon
+
+01:20:38.420 --> 01:20:42.940
+Das sollte auch Memory Leaks geben
+
+01:20:42.940 --> 01:20:44.940
+Ja ja ja fette fette Memory Leaks
+
+01:20:44.940 --> 01:20:46.940
+250 MB
+
+01:20:46.940 --> 01:20:48.940
+Memory Leak pro Sekunde
+
+01:20:48.940 --> 01:20:50.940
+Ja so und jetzt dachte ich eigentlich
+
+01:20:50.940 --> 01:20:52.940
+Ich
+
+01:20:52.940 --> 01:20:54.940
+Kopiere mir das hier in .NET String
+
+01:20:54.940 --> 01:20:56.940
+Und danach sage ich
+
+01:20:56.940 --> 01:20:58.940
+Native Memory Free
+
+01:20:58.940 --> 01:21:00.940
+Das ist was neues
+
+01:21:00.940 --> 01:21:02.940
+Das gibt es noch nicht so lange in C Sharp
+
+01:21:02.940 --> 01:21:04.940
+Das ist um die Standard
+
+01:21:04.940 --> 01:21:06.940
+C Free Funktion aufzurufen in der Hoffnung
+
+01:21:06.940 --> 01:21:08.940
+Dass der Code von dem ich den Pointer bekomme
+
+01:21:08.940 --> 01:21:10.940
+Das mit der Standard C Free
+
+01:21:10.940 --> 01:21:12.940
+Geschichte
+
+01:21:12.940 --> 01:21:14.940
+Mit der Standard C Alloc
+
+01:21:14.940 --> 01:21:16.940
+Geschichte allockiert hat
+
+01:21:16.940 --> 01:21:18.940
+Den Speicher
+
+01:21:18.940 --> 01:21:20.940
+Also hoffen wir einfach mal
+
+01:21:20.940 --> 01:21:22.940
+Und jetzt sagen wir hier Session Client Name
+
+01:21:22.940 --> 01:21:24.940
+Und jetzt sollte ich
+
+01:21:24.940 --> 01:21:26.940
+Warum nicht
+
+01:21:26.940 --> 01:21:32.180
+Ach unsave
+
+01:21:32.180 --> 01:21:34.180
+Geht nicht weil
+
+01:21:34.180 --> 01:21:36.180
+Muss ein Void Pointer sein
+
+01:21:36.180 --> 01:21:38.180
+Ok
+
+01:21:38.180 --> 01:21:40.180
+Jetzt sollte ich auch keine Memory Leaks mehr haben
+
+01:21:40.180 --> 01:21:42.180
+Weil jetzt mache ich das von Hand
+
+01:21:42.180 --> 01:21:44.180
+Ich schnappe mir den Pointer
+
+01:21:44.180 --> 01:21:46.180
+Kopiere den in .NET String
+
+01:21:46.180 --> 01:21:48.180
+Und dann Free ich den Pointer
+
+01:21:48.180 --> 01:21:51.940
+So müsste das eigentlich sein
+
+01:21:51.940 --> 01:21:53.940
+Und siehe da es gibt auch keine Memory Leaks mehr
+
+01:21:53.940 --> 01:22:00.260
+Also das macht anscheinend
+
+01:22:00.260 --> 01:22:02.260
+Ernsthaft .NET unter der Haube
+
+01:22:02.260 --> 01:22:04.260
+Das finde ich ehrlich gesagt
+
+01:22:04.260 --> 01:22:08.460
+Ein bisschen
+
+01:22:08.460 --> 01:22:14.080
+Merkwürdig
+
+01:22:14.080 --> 01:22:25.650
+Das es das macht
+
+01:22:25.650 --> 01:22:27.650
+Sehr komisch
+
+01:22:27.650 --> 01:22:29.650
+Wir probieren nochmal was
+
+01:22:29.650 --> 01:22:31.650
+Wir machen jetzt hier nochmal einen String draus
+
+01:22:31.650 --> 01:22:33.650
+Und dann machen wir das was der Chat sagt
+
+01:22:33.650 --> 01:22:35.650
+Das interessiert mich nämlich echt
+
+01:22:35.650 --> 01:22:40.430
+S
+
+01:22:40.430 --> 01:22:42.430
+Unmanaged
+
+01:22:42.430 --> 01:22:44.430
+Unmanaged Type nicht Bool
+
+01:22:44.430 --> 01:22:46.430
+Äh
+
+01:22:46.430 --> 01:22:48.430
+Char
+
+01:22:48.430 --> 01:22:50.430
+Ne Moment was gibt es denn da überhaupt
+
+01:22:50.430 --> 01:22:52.430
+Str
+
+01:22:52.430 --> 01:22:54.430
+Oh das ist Windows Shit
+
+01:22:54.430 --> 01:22:56.430
+LP String
+
+01:22:56.430 --> 01:22:58.430
+A Single By 0 Terminated on the Character Single
+
+01:22:58.430 --> 01:23:02.260
+Dann haben wir
+
+01:23:02.260 --> 01:23:04.260
+LPT String
+
+01:23:04.260 --> 01:23:06.260
+Unicode Character String
+
+01:23:06.260 --> 01:23:12.190
+What
+
+01:23:12.190 --> 01:23:14.190
+LPW String
+
+01:23:14.190 --> 01:23:16.190
+2 Byte
+
+01:23:16.190 --> 01:23:26.160
+Alles klar
+
+01:23:26.160 --> 01:23:32.030
+B String
+
+01:23:32.030 --> 01:23:34.030
+BVAL T String
+
+01:23:34.030 --> 01:23:36.030
+Alter Microsoft es ist ja gut
+
+01:23:36.030 --> 01:23:38.030
+Man übertreibt es halt nicht
+
+01:23:38.030 --> 01:23:40.030
+LP
+
+01:23:40.030 --> 01:23:42.030
+UTF8 String
+
+01:23:42.030 --> 01:23:44.030
+A Pointer to UTF8 Encoder String
+
+01:23:44.030 --> 01:23:46.030
+Okay das klingt
+
+01:23:46.030 --> 01:23:48.030
+Das klingt schonmal ganz gut
+
+01:23:48.030 --> 01:23:50.030
+Way to dank
+
+01:23:50.030 --> 01:23:54.240
+Auch keine Memory
+
+01:23:54.240 --> 01:23:56.240
+Okay das muss man wissen
+
+01:23:56.240 --> 01:23:58.240
+Das muss man echt wissen
+
+01:23:58.240 --> 01:24:06.670
+Das
+
+01:24:06.670 --> 01:24:08.670
+Das es ein automatisches Free macht
+
+01:24:08.670 --> 01:24:13.260
+Weiß nicht nach was ich suchen muss
+
+01:24:13.260 --> 01:24:17.600
+Das ist interessant
+
+01:24:17.600 --> 01:24:19.600
+Also
+
+01:24:19.600 --> 01:24:21.600
+Damit hätte ich nicht gerechnet
+
+01:24:21.600 --> 01:24:23.600
+Guck kein
+
+01:24:23.600 --> 01:24:27.300
+Memory Leak
+
+01:24:27.300 --> 01:24:29.300
+Das muss man in dem Fall wirklich wissen
+
+01:24:29.300 --> 01:24:31.300
+Weil damit rechnet man eigentlich nicht
+
+01:24:31.300 --> 01:24:33.300
+Gut also hätten wir den Part ich muss sagen
+
+01:24:33.300 --> 01:24:35.300
+Das ging einfacher als gedacht
+
+01:24:35.300 --> 01:24:37.300
+Jetzt benchmarken wir das ganze mal
+
+01:24:37.300 --> 01:24:39.300
+So auf die schnelle
+
+01:24:39.300 --> 01:24:41.300
+Wir können danach noch ein ordentliches
+
+01:24:41.300 --> 01:24:43.300
+Benchmark dot net Projekt drum rum machen
+
+01:24:43.300 --> 01:24:45.300
+Um das beides zu vergleichen
+
+01:24:45.300 --> 01:24:47.300
+Aber
+
+01:24:47.300 --> 01:24:49.300
+Probieren wir das mal aus
+
+01:24:49.300 --> 01:24:51.300
+Übrigens das da
+
+01:24:51.300 --> 01:24:53.300
+Auch PPGar
+
+01:24:53.300 --> 01:24:55.300
+Das hier soll eigentlich die Funktion sein
+
+01:24:55.300 --> 01:24:57.300
+Die nichts returnt
+
+01:24:57.300 --> 01:24:59.300
+Und Go Call 2 soll die Funktion sein
+
+01:24:59.300 --> 01:25:04.210
+Die was returnt
+
+01:25:04.210 --> 01:25:06.210
+Sonst wird das nix
+
+01:25:06.210 --> 01:25:08.210
+Jetzt müssen wir das hier anlegen
+
+01:25:08.210 --> 01:25:10.210
+Interop
+
+01:25:10.210 --> 01:25:12.210
+Kopieren wir das mal Call Go 2
+
+01:25:12.210 --> 01:25:14.210
+Und Call Go ist einfach nur Void
+
+01:25:14.210 --> 01:25:16.210
+Okay
+
+01:25:16.210 --> 01:25:18.210
+Jetzt benchmarken wir das ganze mal
+
+01:25:18.210 --> 01:25:20.210
+Ganz kurz
+
+01:25:20.210 --> 01:25:22.210
+Auf die Schnelle also
+
+01:25:22.210 --> 01:25:24.210
+Stop Watch
+
+01:25:24.210 --> 01:25:28.220
+Start
+
+01:25:28.220 --> 01:25:30.220
+Okay aus irgendwelchen Stunden
+
+01:25:30.220 --> 01:25:32.220
+Alter aus irgendwelchen Gründen funzt mein
+
+01:25:32.220 --> 01:25:34.220
+Console Rightline Makro nicht
+
+01:25:34.220 --> 01:25:36.220
+Elapsed
+
+01:25:36.220 --> 01:25:38.220
+Total
+
+01:25:38.220 --> 01:25:40.220
+30 Seconds
+
+01:25:40.220 --> 01:25:42.220
+Stop Watch Stop
+
+01:25:42.220 --> 01:25:44.220
+Und hier darunter hier dazwischen rufen wir mal auf
+
+01:25:44.220 --> 01:25:46.220
+Interop
+
+01:25:46.220 --> 01:25:48.220
+So das hier sollte so gering sein
+
+01:25:48.220 --> 01:25:50.220
+Ein einfacher Function Call das das gar nicht auffällt
+
+01:25:50.220 --> 01:25:52.220
+Im Endeffekt ja
+
+01:25:52.220 --> 01:25:54.220
+Das ist jetzt weil er zum ersten mal aufgerufen wird
+
+01:25:54.220 --> 01:25:56.220
+Da wird ja nix drauf geben
+
+01:25:56.220 --> 01:25:58.220
+Wir machen da mal ne Schleife drum
+
+01:25:58.220 --> 01:26:00.220
+So machen wir mal
+
+01:26:00.220 --> 01:26:02.220
+100 Aufrufe davon
+
+01:26:02.220 --> 01:26:04.220
+Und gucken wie schnell das ist
+
+01:26:04.220 --> 01:26:06.220
+Und einmal rufen wir es vor der Stop Watch auf
+
+01:26:06.220 --> 01:26:11.070
+Damit es nicht mitgezählt wird
+
+01:26:11.070 --> 01:26:13.070
+Wo bist du überrascht das es Pointer gibt
+
+01:26:13.070 --> 01:26:16.510
+Okay ja das ist sehr schnell jetzt
+
+01:26:16.510 --> 01:26:22.060
+Gibt es in C Sharp auch
+
+01:26:22.060 --> 01:26:24.060
+Einen Typ für String Pointer
+
+01:26:24.060 --> 01:26:26.060
+Ähm in
+
+01:26:26.060 --> 01:26:28.060
+In C Sharp sind Strings immer Pointer
+
+01:26:28.060 --> 01:26:30.060
+String ist ein
+
+01:26:30.060 --> 01:26:36.190
+Raph Type
+
+01:26:36.190 --> 01:26:38.190
+In C Sharp ist ein String unter der Haube immer ein Pointer
+
+01:26:38.190 --> 01:26:40.190
+Ohne das du explizit
+
+01:26:40.190 --> 01:26:42.190
+Was hinschreibst
+
+01:26:42.190 --> 01:26:44.190
+In C Sharp ist eigentlich 90% der Sachen
+
+01:26:44.190 --> 01:26:46.190
+Die du verwendest Pointer
+
+01:26:46.190 --> 01:26:48.190
+Ohne Pointer Syntax
+
+01:26:48.190 --> 01:26:59.060
+Ich glaube er meint aber über der
+
+01:26:59.060 --> 01:27:13.820
+Was wie jetzt
+
+01:27:13.820 --> 01:27:15.820
+Achso ne das ist jetzt in dem Falle
+
+01:27:15.820 --> 01:27:17.820
+Von Interop mit wirklich
+
+01:27:17.820 --> 01:27:19.820
+Raw C Pointer
+
+01:27:19.820 --> 01:27:21.820
+Zu Managed String Objekten
+
+01:27:21.820 --> 01:27:23.820
+Damit geht er echt nicht so um wie erwartet
+
+01:27:23.820 --> 01:27:30.080
+Ja das
+
+01:27:30.080 --> 01:27:32.080
+Als dumm gibts das nur wenn ich anscheinend
+
+01:27:32.080 --> 01:27:34.080
+Nicht explizit sage
+
+01:27:34.080 --> 01:27:36.080
+Was ich vermute was hier passiert
+
+01:27:36.080 --> 01:27:38.080
+Sobald ich hier hinschreibe
+
+01:27:38.080 --> 01:27:40.080
+Sobald ich hier hinschreibe
+
+01:27:40.080 --> 01:27:42.080
+String dann checkt er
+
+01:27:42.080 --> 01:27:44.080
+Wenn das ein
+
+01:27:44.080 --> 01:27:46.080
+Oder
+
+01:27:46.080 --> 01:27:48.080
+Dann erwartet er einen Character Pointer
+
+01:27:48.080 --> 01:27:50.080
+Kopiert sich
+
+01:27:50.080 --> 01:27:52.080
+Den bis zu einem Null
+
+01:27:52.080 --> 01:27:54.080
+Terminator in einen .NET String
+
+01:27:54.080 --> 01:27:56.080
+Und macht dann einen Free auf den ursprünglichen
+
+01:27:56.080 --> 01:27:58.080
+Pointer
+
+01:27:58.080 --> 01:28:00.080
+Das ist Ultra Magic unter der Haube
+
+01:28:00.080 --> 01:28:03.970
+Was da passiert
+
+01:28:03.970 --> 01:28:05.970
+Und wenn du das nicht haben willst
+
+01:28:05.970 --> 01:28:07.970
+Dann musst du einfach sagen mach kein String draus
+
+01:28:07.970 --> 01:28:09.970
+Sondern nimm den Raw Pointer
+
+01:28:09.970 --> 01:28:11.970
+Und dann kannst du den selbst auslesen und freen
+
+01:28:11.970 --> 01:28:13.970
+Das muss ich echt sagen
+
+01:28:13.970 --> 01:28:17.280
+Wenn du das in dumm haben willst
+
+01:28:17.280 --> 01:28:19.280
+Okay dann was du machen kannst ist
+
+01:28:19.280 --> 01:28:21.280
+Ach das meinst du
+
+01:28:21.280 --> 01:28:23.280
+Du kannst auch sowas machen
+
+01:28:23.280 --> 01:28:25.280
+Das funktioniert auch
+
+01:28:25.280 --> 01:28:27.280
+Unsafe Character Pointer
+
+01:28:27.280 --> 01:28:29.280
+Das funktioniert auch
+
+01:28:29.280 --> 01:28:31.280
+Moment
+
+01:28:31.280 --> 01:28:33.280
+Haha
+
+01:28:33.280 --> 01:28:35.280
+Nein das ist nicht das gleiche
+
+01:28:35.280 --> 01:28:37.280
+Du musst einen Byte Pointer
+
+01:28:37.280 --> 01:28:39.280
+Pointer auf Start von einem Byte Array setzen
+
+01:28:39.280 --> 01:28:41.280
+Weil
+
+01:28:41.280 --> 01:28:43.280
+Das ist auch ein bisschen Verarschung
+
+01:28:43.280 --> 01:28:45.280
+Da müssten wir aufpassen
+
+01:28:45.280 --> 01:28:47.280
+Wenn man einen Character Pointer macht
+
+01:28:47.280 --> 01:28:49.280
+In C Sharp ist das nicht das gleiche
+
+01:28:49.280 --> 01:28:51.280
+Wie ein Character Pointer in C
+
+01:28:51.280 --> 01:28:53.280
+Und ein Byte ist in C das gleiche
+
+01:28:53.280 --> 01:28:55.280
+In C Sharp ist ein Character 2 Byte
+
+01:28:55.280 --> 01:28:57.280
+Weil
+
+01:28:57.280 --> 01:28:59.280
+C Sharp Strings intern als UTF 16 speichert
+
+01:28:59.280 --> 01:29:01.280
+Deswegen ist quasi
+
+01:29:01.280 --> 01:29:03.280
+In C
+
+01:29:03.280 --> 01:29:05.280
+In C ist das da
+
+01:29:05.280 --> 01:29:07.280
+Quasi mehr oder weniger
+
+01:29:07.280 --> 01:29:09.280
+Das gleiche wie das da
+
+01:29:09.280 --> 01:29:11.280
+Und das da auch in C Sharp
+
+01:29:11.280 --> 01:29:13.280
+Aber in C Sharp ist Character Pointer was anderes
+
+01:29:13.280 --> 01:29:15.280
+Also das könntest du auch machen
+
+01:29:15.280 --> 01:29:17.280
+Das geht allerdings nur mit Unsafe davor
+
+01:29:17.280 --> 01:29:19.280
+Weil sobald du Pointer Magic machst
+
+01:29:19.280 --> 01:29:21.280
+Sagt C Sharp
+
+01:29:21.280 --> 01:29:23.280
+Könnt auch in die Hose gehen
+
+01:29:23.280 --> 01:29:25.280
+Aber muss man in dem Fall gar nicht
+
+01:29:25.280 --> 01:29:27.280
+Weil tatsächlich die Managed Implementierung
+
+01:29:27.280 --> 01:29:29.280
+Von diesem
+
+01:29:29.280 --> 01:29:31.280
+Also unter der Haube machen die schon das richtige
+
+01:29:31.280 --> 01:29:33.280
+In dem einen Fall
+
+01:29:33.280 --> 01:29:35.280
+Ja
+
+01:29:35.280 --> 01:29:37.280
+Umwandeln, kopieren in den .NET String
+
+01:29:37.280 --> 01:29:39.280
+Und da unten drunter Free Callen
+
+01:29:39.280 --> 01:29:41.280
+Das ist schon sehr Magic mäßig
+
+01:29:41.280 --> 01:29:46.510
+Ne ne das ist egal
+
+01:29:46.510 --> 01:29:48.510
+Unter der Haube ist das alles das gleiche
+
+01:29:48.510 --> 01:29:50.510
+Die Interpretation
+
+01:29:50.510 --> 01:29:52.510
+Der Daten ist dann ein bisschen anders
+
+01:29:52.510 --> 01:29:54.510
+Zum Beispiel das du bei einem
+
+01:29:54.510 --> 01:29:59.170
+Byte
+
+01:29:59.170 --> 01:30:01.170
+Kein Minus drinstehen haben kannst
+
+01:30:01.170 --> 01:30:03.170
+Aber bei einem S Byte
+
+01:30:03.170 --> 01:30:05.170
+Bei einem signed Byte
+
+01:30:05.170 --> 01:30:07.170
+Aber das ist reine Interpretationsfrage
+
+01:30:07.170 --> 01:30:09.170
+Es ist alles in C
+
+01:30:09.170 --> 01:30:11.170
+Ein Byte
+
+01:30:11.170 --> 01:30:13.170
+Egal ob es ein Character ein Byte
+
+01:30:13.170 --> 01:30:15.170
+Ne ein Short ist 16 glaube ich
+
+01:30:15.170 --> 01:30:17.170
+Ist ein Short nicht in C 2 Byte
+
+01:30:17.170 --> 01:30:19.170
+Also
+
+01:30:19.170 --> 01:30:21.170
+1 bis 16.000 noch etwas
+
+01:30:21.170 --> 01:30:23.170
+Da bin ich mir jetzt aus dem Kopf nicht sicher
+
+01:30:23.170 --> 01:30:25.170
+So
+
+01:30:25.170 --> 01:30:28.860
+Aber jetzt haben wir uns
+
+01:30:28.860 --> 01:30:30.860
+Jetzt haben wir uns etwas
+
+01:30:30.860 --> 01:30:32.860
+Side Tracken lassen
+
+01:30:32.860 --> 01:30:34.860
+Anscheinend ist .NET mittlerweile so
+
+01:30:34.860 --> 01:30:36.860
+Five Head schlau
+
+01:30:36.860 --> 01:30:38.860
+Das ist wenn man so komische Dinger
+
+01:30:38.860 --> 01:30:40.860
+Macht wie ich
+
+01:30:40.860 --> 01:30:42.860
+Von denen ich nicht geahnt hätte
+
+01:30:42.860 --> 01:30:44.860
+Dass sie funktionieren
+
+01:30:44.860 --> 01:30:46.860
+Tatsächlich funktioniert
+
+01:30:46.860 --> 01:30:48.860
+Ohne Memory Leaks zu verursachen
+
+01:30:48.860 --> 01:30:50.860
+Das hätte ich wirklich nicht gedacht
+
+01:30:50.860 --> 01:30:52.860
+Ok
+
+01:30:52.860 --> 01:30:54.860
+Jetzt wollte ich das mal ganz kurz Benchmarken
+
+01:30:54.860 --> 01:31:03.620
+Wie schnell ist denn das ganze
+
+01:31:03.620 --> 01:31:05.620
+Ok ein paar Nanosekunden
+
+01:31:05.620 --> 01:31:07.620
+Aber 100 ist ja auch nichts
+
+01:31:07.620 --> 01:31:09.620
+Machen wir mal 1000
+
+01:31:09.620 --> 01:31:11.620
+Oder machen wir mal eine Million
+
+01:31:11.620 --> 01:31:13.620
+Es gibt übrigens ein nice Feature
+
+01:31:13.620 --> 01:31:15.620
+Von Seiten Passy Sharp Version
+
+01:31:15.620 --> 01:31:19.440
+Kennt ihr das hier
+
+01:31:19.440 --> 01:31:21.440
+Das man Underscores in die Zahlen machen kann
+
+01:31:21.440 --> 01:31:23.440
+Die eigentlich nichts ändern da dran
+
+01:31:23.440 --> 01:31:25.440
+Aber viel viel besser lesbar sind
+
+01:31:25.440 --> 01:31:27.440
+Ja jetzt erkennt jeder das hier
+
+01:31:27.440 --> 01:31:29.440
+Dass das hier
+
+01:31:29.440 --> 01:31:31.440
+Das ist eine Million
+
+01:31:31.440 --> 01:31:33.440
+Also das ist quasi 10 Millionen
+
+01:31:33.440 --> 01:31:35.440
+Machen wir das mal weg
+
+01:31:35.440 --> 01:31:37.440
+Dass das eine Million ist
+
+01:31:37.440 --> 01:31:39.440
+Das kann man viel besser lesen
+
+01:31:39.440 --> 01:31:41.440
+Man darf übrigens nicht auf die Idee kommen
+
+01:31:41.440 --> 01:31:43.440
+So zu versuchen
+
+01:31:43.440 --> 01:31:46.750
+Weil dann ist das ein Float
+
+01:31:46.750 --> 01:31:48.750
+Beziehungsweise ein Double
+
+01:31:48.750 --> 01:31:50.750
+Also mit 2 Punkten geht es dann auch gar nicht
+
+01:31:50.750 --> 01:31:52.750
+Aber das hier ist nice
+
+01:31:52.750 --> 01:31:54.750
+Das andere wären 10 Millionen gewesen
+
+01:31:54.750 --> 01:31:56.750
+Es ist kein Unterschied
+
+01:31:56.750 --> 01:31:58.750
+Aber man kann es auch so schreiben
+
+01:31:58.750 --> 01:32:00.750
+Das ist ein bisschen pepega
+
+01:32:00.750 --> 01:32:02.750
+Aber es würde auch funktionieren
+
+01:32:02.750 --> 01:32:04.750
+Oder so oder so
+
+01:32:04.750 --> 01:32:06.750
+Aber das macht eigentlich keiner
+
+01:32:06.750 --> 01:32:08.750
+Also das finde ich ganz nice
+
+01:32:08.750 --> 01:32:10.750
+Dass einfach Underscores in Zahlen ignoriert werden
+
+01:32:10.750 --> 01:32:12.750
+So eine Million Aufrufe
+
+01:32:12.750 --> 01:32:14.750
+Oh das ist schon recht langsam
+
+01:32:14.750 --> 01:32:16.750
+90 Millisekunden
+
+01:32:16.750 --> 01:32:24.290
+Für eine Million Function Aufrufe
+
+01:32:24.290 --> 01:32:26.290
+Ist das ein Callback Function
+
+01:32:26.290 --> 01:32:28.290
+Zu einer Go Funktion
+
+01:32:28.290 --> 01:32:30.290
+Das ist kein Callback
+
+01:32:30.290 --> 01:32:32.290
+Wir haben eine Funktion in Go
+
+01:32:32.290 --> 01:32:34.290
+Und zwar der hier
+
+01:32:34.290 --> 01:32:36.290
+Guck
+
+01:32:36.290 --> 01:32:38.290
+Wir haben eine leere Funktion in Go
+
+01:32:38.290 --> 01:32:40.290
+Die einfach nur Call Go heißt
+
+01:32:40.290 --> 01:32:42.290
+Die in die Library reinkompiliert wird
+
+01:32:42.290 --> 01:32:44.290
+Die Library wird in .NET
+
+01:32:44.290 --> 01:32:46.290
+Geladen
+
+01:32:46.290 --> 01:32:48.290
+Definiert dass es darin eine Funktion
+
+01:32:48.290 --> 01:32:50.290
+Call Go gibt
+
+01:32:50.290 --> 01:32:56.290
+Und dann wird die aufgerufen
+
+01:32:56.290 --> 01:32:58.290
+Unter welchen Umständen merkt man das
+
+01:32:58.290 --> 01:33:00.290
+Naja ganz ehrlich
+
+01:33:00.290 --> 01:33:02.290
+Eine Million Function Calls
+
+01:33:02.290 --> 01:33:04.290
+Sind schon ganz schön viel
+
+01:33:04.290 --> 01:33:06.290
+Nicht wirklich merken
+
+01:33:06.290 --> 01:33:08.290
+Es sei denn
+
+01:33:08.290 --> 01:33:10.290
+Man hat wirklich irgendwie so
+
+01:33:10.290 --> 01:33:12.290
+Irgendeinen Parser oder so
+
+01:33:12.290 --> 01:33:14.290
+Wo das millionenfach aufgerufen wird
+
+01:33:14.290 --> 01:33:16.290
+Pro Durchgang
+
+01:33:16.290 --> 01:33:18.290
+Dann macht es schon Performance
+
+01:33:18.290 --> 01:33:20.290
+Ich zeige euch jetzt mal den Unterschied
+
+01:33:20.290 --> 01:33:22.290
+Wir machen jetzt mal eine
+
+01:33:22.290 --> 01:33:24.290
+Static
+
+01:33:24.290 --> 01:33:26.290
+Public
+
+01:33:26.290 --> 01:33:28.290
+Nennen wir es mal
+
+01:33:28.290 --> 01:33:30.290
+Call
+
+01:33:30.290 --> 01:33:32.290
+.NET
+
+01:33:32.290 --> 01:33:34.290
+Nennen wir das jetzt mal
+
+01:33:34.290 --> 01:33:36.290
+Also das ist jetzt eine .NET Funktion
+
+01:33:36.290 --> 01:33:38.290
+Mix irgendwie über Library
+
+01:33:38.290 --> 01:33:40.290
+Ist eine ganz normale .NET Funktion
+
+01:33:40.290 --> 01:33:42.290
+Ist das
+
+01:33:42.290 --> 01:33:44.290
+Und wenn ich die jetzt mal aufrufe hier
+
+01:33:44.290 --> 01:33:46.290
+Call.NET
+
+01:33:46.290 --> 01:33:48.290
+Dann werden wir sehen
+
+01:33:48.290 --> 01:33:50.290
+Bam 1,2 Millisekunden
+
+01:33:50.290 --> 01:33:52.290
+Und mit Release Modus
+
+01:33:52.290 --> 01:33:54.290
+Wahrscheinlich sogar noch ein bisschen weniger
+
+01:33:54.290 --> 01:33:56.290
+Ja
+
+01:33:56.290 --> 01:33:58.290
+Also 500
+
+01:33:58.290 --> 01:34:00.290
+Nanosekunden
+
+01:34:00.290 --> 01:34:02.290
+Versus
+
+01:34:02.290 --> 01:34:06.110
+500 Nanosekunden
+
+01:34:06.110 --> 01:34:08.110
+Versus
+
+01:34:08.110 --> 01:34:10.110
+80 Millisekunden
+
+01:34:10.110 --> 01:34:12.110
+Ok also
+
+01:34:12.110 --> 01:34:14.110
+Cinterop ist immer noch nicht das
+
+01:34:14.110 --> 01:34:18.450
+Allerschnellste was man machen kann
+
+01:34:18.450 --> 01:34:20.450
+Das ist echt lahm
+
+01:34:20.450 --> 01:34:22.450
+Das ist wirklich lahm
+
+01:34:22.450 --> 01:34:24.450
+80 Millisekunden für eine Million
+
+01:34:24.450 --> 01:34:26.450
+Funktionsaufrufe
+
+01:34:26.450 --> 01:34:28.450
+Also von .NET nach .NET
+
+01:34:28.450 --> 01:34:30.450
+Braucht das ganze
+
+01:34:30.450 --> 01:34:32.450
+500 Nanosekunden
+
+01:34:32.450 --> 01:34:34.450
+Also hier 0,5 Millisekunden
+
+01:34:34.450 --> 01:34:36.450
+Und
+
+01:34:36.450 --> 01:34:38.450
+Von .NET nach Go
+
+01:34:38.450 --> 01:34:40.450
+80 Millisekunden
+
+01:34:40.450 --> 01:34:42.450
+In normalen Anwendungen wo das nicht oft aufgerufen wird
+
+01:34:42.450 --> 01:34:44.450
+Ist das überhaupt gar kein Problem
+
+01:34:44.450 --> 01:34:46.450
+Ja
+
+01:34:46.450 --> 01:34:48.450
+Aber so
+
+01:34:48.450 --> 01:34:50.450
+Ist schon ordentlich
+
+01:34:50.450 --> 01:34:52.450
+Overhead
+
+01:34:52.450 --> 01:34:54.450
+Ich mein selbst bei meiner WebRTC Anwendung
+
+01:34:54.450 --> 01:34:56.450
+Wenn man 30 FPS
+
+01:34:56.450 --> 01:34:58.450
+Hat pro Kamera
+
+01:34:58.450 --> 01:35:00.450
+Und 100 Kameras drin dann sind das 3000
+
+01:35:00.450 --> 01:35:02.450
+3000 Function Calls
+
+01:35:02.450 --> 01:35:04.450
+Pro
+
+01:35:04.450 --> 01:35:06.450
+Sekunde
+
+01:35:06.450 --> 01:35:08.450
+Ist halt nix im Endeffekt
+
+01:35:08.450 --> 01:35:10.450
+Nix
+
+01:35:10.450 --> 01:35:12.450
+Das ist egal ob ich Function
+
+01:35:12.450 --> 01:35:14.450
+Ob ich hier C Go Overhead habe
+
+01:35:14.450 --> 01:35:21.470
+Das juckt einfach nicht
+
+01:35:21.470 --> 01:35:23.470
+Für jeden Function Call einen neuen Thread starten
+
+01:35:23.470 --> 01:35:25.470
+Ist vielleicht ein bisschen Overkill
+
+01:35:25.470 --> 01:35:27.470
+Aber das würde
+
+01:35:27.470 --> 01:35:29.470
+Zumindest teilweise die ganze Sache
+
+01:35:29.470 --> 01:35:34.190
+Schneller machen
+
+01:35:34.190 --> 01:35:36.190
+Also besser parallel
+
+01:35:36.190 --> 01:35:40.850
+Also es ist schon
+
+01:35:40.850 --> 01:35:42.850
+Ja
+
+01:35:42.850 --> 01:35:46.800
+Schon ein bisschen langsamer
+
+01:35:46.800 --> 01:35:48.800
+Ich glaube in dem Fall macht .NET gar nicht
+
+01:35:48.800 --> 01:35:50.800
+Magie sondern es ist eher Go was die Magie macht
+
+01:35:50.800 --> 01:35:52.800
+.NET macht in dem Fall
+
+01:35:52.800 --> 01:35:54.800
+Ein relativ straight
+
+01:35:54.800 --> 01:35:56.800
+Call wie man halt eine C Funktion
+
+01:35:56.800 --> 01:35:58.800
+Callt bisschen Magic
+
+01:35:58.800 --> 01:36:00.800
+Bestimmt aber Go macht halt extrem
+
+01:36:00.800 --> 01:36:02.800
+Viel Magic für ihren Thread
+
+01:36:02.800 --> 01:36:04.800
+Und Runtime Scheduler
+
+01:36:04.800 --> 01:36:06.800
+Das sich das nicht in die Quere kommt
+
+01:36:06.800 --> 01:36:08.800
+Also C Go ist
+
+01:36:08.800 --> 01:36:10.800
+Berüchtigt oder Go ist berüchtigt dafür
+
+01:36:10.800 --> 01:36:12.800
+Das der Interop mit anderen Sprachen
+
+01:36:12.800 --> 01:36:29.170
+Echt langsam ist
+
+01:36:29.170 --> 01:36:31.170
+Du hast Recht du hast Recht
+
+01:36:31.170 --> 01:36:33.170
+Deswegen machen wir das jetzt mal
+
+01:36:33.170 --> 01:36:35.170
+Im Debug Modus
+
+01:36:35.170 --> 01:36:37.170
+Du hast Recht
+
+01:36:37.170 --> 01:36:39.170
+Also im Debug Modus brauchen wir ungefähr
+
+01:36:39.170 --> 01:36:41.170
+82 Millisekunden 85 Millisekunden
+
+01:36:41.170 --> 01:36:43.170
+Go und Call .NET
+
+01:36:43.170 --> 01:36:45.170
+Brauchen wir
+
+01:36:45.170 --> 01:36:47.170
+Eine Millisekunde
+
+01:36:47.170 --> 01:36:49.170
+Ja du hast Recht
+
+01:36:49.170 --> 01:36:51.170
+Das könnte durchaus sein
+
+01:36:51.170 --> 01:36:53.170
+Das die Sharp schlau genug ist
+
+01:36:53.170 --> 01:36:55.170
+Und die Funktion rausschmeißt im Release Modus
+
+01:36:55.170 --> 01:36:57.170
+Weil es feststellt okay
+
+01:36:57.170 --> 01:36:59.170
+Das ist eine Schleife mit nichts drin
+
+01:36:59.170 --> 01:37:04.720
+Also scheiß drauf mach weg
+
+01:37:04.720 --> 01:37:06.720
+Test mit einem Print
+
+01:37:06.720 --> 01:37:08.720
+Print ist immer ganz ganz mies
+
+01:37:08.720 --> 01:37:10.720
+Print ist auf die Konsole
+
+01:37:10.720 --> 01:37:12.720
+Und Single Output und so
+
+01:37:12.720 --> 01:37:14.720
+Ne der überspringt
+
+01:37:14.720 --> 01:37:16.720
+Ich habs jetzt im Debug Modus
+
+01:37:16.720 --> 01:37:18.720
+Da wird nichts geskippt
+
+01:37:18.720 --> 01:37:22.420
+Da wird nichts geskippt
+
+01:37:22.420 --> 01:37:24.420
+Der ruft die wirklich auf
+
+01:37:24.420 --> 01:37:30.540
+Aber ganz ehrlich
+
+01:37:30.540 --> 01:37:32.540
+Das ist auch zu erwarten
+
+01:37:32.540 --> 01:37:34.540
+Das ein Function Call von .NET
+
+01:37:34.540 --> 01:37:36.540
+Nach .NET nahezu kein Overhead hat
+
+01:37:36.540 --> 01:37:38.540
+Wäre ja auch schlimm wenn nicht
+
+01:37:38.540 --> 01:37:40.540
+Okay also
+
+01:37:40.540 --> 01:37:42.540
+Dann haben wir das jetzt ausprobiert für Go
+
+01:37:42.540 --> 01:37:44.540
+Wollen wir mal gucken wie schnell
+
+01:37:44.540 --> 01:37:46.540
+Das mit dem Struct ist
+
+01:37:46.540 --> 01:37:50.370
+Oh das ist natürlich noch mal
+
+01:37:50.370 --> 01:37:52.370
+Eine ganze Ecke langsamer
+
+01:37:52.370 --> 01:37:58.430
+Haha
+
+01:37:58.430 --> 01:38:00.430
+Ja es schwankt ein bisschen
+
+01:38:00.430 --> 01:38:02.430
+Wir machen gleich mal
+
+01:38:02.430 --> 01:38:04.430
+Wir machen gleich mal ein Benchmark
+
+01:38:04.430 --> 01:38:06.430
+Komm wir machen jetzt schon ein Benchmark draus
+
+01:38:06.430 --> 01:38:08.430
+Wir machen jetzt schon ein Benchmark draus
+
+01:38:08.430 --> 01:38:10.430
+Bevor wir die Rust Sache basteln
+
+01:38:10.430 --> 01:38:12.430
+Nougat
+
+01:38:12.430 --> 01:38:14.430
+Benchmark
+
+01:38:14.430 --> 01:38:16.430
+.NET
+
+01:38:16.430 --> 01:38:21.540
+Bam
+
+01:38:21.540 --> 01:38:31.540
+.NET
+
+01:38:31.540 --> 01:38:33.540
+.NET
+
+01:38:33.540 --> 01:38:35.540
+.NET
+
+01:38:35.540 --> 01:38:39.360
+.NET
+
+01:38:39.360 --> 01:38:41.360
+.NET
+
+01:38:41.360 --> 01:38:43.360
+.NET
+
+01:38:43.360 --> 01:38:45.360
+.NET
+
+01:38:45.360 --> 01:38:47.360
+.ăn
+
+01:38:47.360 --> 01:38:49.360
+. маш
+
+01:38:49.360 --> 01:38:51.360
+.NET
+
+01:38:51.360 --> 01:38:52.880
+.NET
+
+01:38:53.360 --> 01:39:18.040
+Wie geht, Moment, Moment, wie ging das jetzt nochmal, Moment, Moment, irgendwie Benchmark, Runner, ne, ne, ne, Benchmark, Runner, Runner, Benchmark, Runner, Run, Benchmark, okay, das hier oben kommt weg, das, ein Aufruf hier oben ist okay,
+
+01:39:18.040 --> 01:39:56.100
+okay, das kommt da rein, Public, Void, das nennen wir jetzt einfach mal irgendwie Run, Run, Go oder so, dann kommt das hier rein, machen wir, machen wir aber mal nur, nur, ja doch, na komm, 1000, 1000 Aufrufe ist vielleicht besser, da kann das mehrfach, mehrfach die Funktion aufrufen, okay, Go, Run, äh, und jetzt, ich glaube, jetzt muss man hier noch Benchmark drüber schreiben, ne, okay,
+
+01:39:56.660 --> 01:39:58.100
+so, und jetzt sollte der in Ordnung sein,
+
+01:39:58.120 --> 01:40:43.820
+dass wir eine ordentliche Ausgabe haben, wie schnell der ist, zack, wow, what, there are not any result runs, warum, failed, der erkennt wieder mein .NET nicht, man, was ist das für ein Abfuck, okay, Export, hier, Path, Export, .NET, kann man hier drinnen, kann man hier drinnen relative Fade verwenden, gar nicht sicher, .NET,
+
+01:40:46.300 --> 01:41:19.660
+version, minus, minus, version, 7, ne, also, Home, Max, jetzt ist es 8, okay, mach doch in die Bash RC, eigentlich will ich meine System.NET Version nicht überschreiben, so, und jetzt sagen wir Run Release, jetzt soll es hoffentlich gehen, ja, jetzt wird ordentlich gebenchmarked, fast wie in einem Nick Chapsas Video hier,
+
+01:41:21.420 --> 01:41:57.580
+da wird auch immer, 50 mal, falls dir jemand guckt, da wird auch immer bis zum Umkippen gebenchmarked, wenn du eine Variable für die Anzahl machst, kannst du die Anzahl der Durchläufe testen, so, also, Go hat im Durchschnitt 182 Mikrosekunden,
+
+01:41:57.580 --> 01:42:02.580
+also für 1000 Aufrufe,
+
+01:42:03.540 --> 01:42:35.220
+und das ist jetzt halt nicht, nicht so schnell, äh, warum, warum, ich brauch ja keine Parameter, oder, hast du dir mal das Video angeguckt, da muss ich nicht das Video angucken, das hab ich oft genug erzählt, dass die .NET Versionierung beschissen ist,
+
+01:42:35.220 --> 01:42:58.790
+da hab ich ja schon, hab ich ja schon selbst oft genug gesagt, also, ach, komm, machen wir einfach, machen wir nur 100, komm, so, und wir callen jetzt das ohne Overhead, also das, das nix macht,
+
+01:42:59.270 --> 01:43:42.100
+so, und jetzt das Ganze nochmal für Rust, auf geht's, Krustentiere versammeln, ah, ja, ja, danke schön für den Sub, Bolgi19, huge Subscription,
+
+01:43:42.100 --> 01:44:00.150
+sorry, falls ich irgendjemanden übersehen hab, ich guck mal kurz rein, Creator Dashboard, der Karlsson, danke für den Sub, hab ich den Zappcon,
+
+01:44:02.070 --> 01:44:10.930
+Schifter, und Stripes, der Razer hat auch Subscribed vorhin noch, der Alfred auch, gar nicht richtig gesehen alles hier,
+
+01:44:10.930 --> 01:44:43.120
+so, also, es wird Zeit für Go, wir kommentieren das hier gerade mal aus, und ich sag jetzt mal, call, wir brauchen jetzt, wir brauchen jetzt, call, call Rust,
+
+01:44:43.300 --> 01:44:55.110
+das wird nicht funktionieren, weil es das auch nicht gibt, ja, bam, Crash, gibt es nicht, so, also, ich muss jetzt in Rust eine Library erzeugen, die Rustlib heißt,
+
+01:44:55.110 --> 01:45:06.070
+jetzt geht's los, ich hab keine Ahnung, wirklich absolut keinen blassen Schimmer, wie ich das jetzt machen soll, okay, also, müssen wir, müssen wir mal suchen, Rust, ähm, FFI,
+
+01:45:06.070 --> 01:45:15.070
+The Rustonomicon, okay, jetzt kriegen wir, jetzt kriegen wir es erklärt, also, Calling Foreign Functions,
+
+01:45:15.190 --> 01:45:44.360
+ah, oh, Rust ist so eklig, Alter, wenn ich das hier schon sehe, ich dreh, dreh aber, Crate Type, äh, wie, wie macht man das überhaupt, da gab's doch mal irgendein GitHub, Rust FFI Examples,
+
+01:45:44.360 --> 01:45:57.560
+guck mal mal, hat er denn, C Sharp to Rust, das ist doch schon mal ein gutes Beispiel, ja, Cargo Tommel, also, das braucht man,
+
+01:45:57.900 --> 01:46:12.060
+Lip, okay, also, let's go, wir müssen in unsere Cargo Tommel gehen, und da jetzt ein Lip hinzufügen, Lip, äh, Name ist einfach, äh, Rustlib,
+
+01:46:12.060 --> 01:46:29.910
+oh, Rustlib, so, wahrscheinlich wie der Output heißen soll, CD Lip klingt gut, und jetzt ist die Frage, wie funzt das Source, Lipass, ja, Copy-Pasten wir uns mal hier rein,
+
+01:46:30.170 --> 01:46:51.460
+und nennen es Call Rust, aber wir haben kein Input und wir haben kein Output erstmal, no Mängel, extern, FN, Call Rust, okay, das hier bedeutet, glaube ich, dass er die Namen genauso lässt, wie die Funktion heißt, sodass sie später aufgerufen werden kann,
+
+01:46:51.460 --> 01:46:57.460
+und Main können wir eigentlich rausmachen, no Main Function found, ja, ist doch klar, will ich auch nicht mehr,
+
+01:47:02.060 --> 01:47:14.580
+okay, Source, Main, in Lip.js, achso, Cargo Run geht natürlich, Cargo Build, ohne Fehler hat es gebildet, ich weiß es nicht,
+
+01:47:14.580 --> 01:47:31.280
+hm, und jetzt, wo ist das Ganze, Target, Debug, Lip, Lip, Rust, Lip, hört sich ein bisschen kacke vielleicht an, oder, wie habe ich es genannt,
+
+01:47:32.060 --> 01:47:50.120
+einfach nur Rust Lip genannt, also, dann heißt es hier einfach nur Rust, Build, Lip, Rust.so, ja, meinetwegen, dann heißt es halt nicht Rust Lip, sondern Lip Rust, auch gut, kann ich auch mitleben, okay,
+
+01:47:50.120 --> 01:48:07.070
+und jetzt Build, okay, Minus, Minus, Release, wobei eigentlich wurscht es, wie ich das nenne, wir können auch sagen, Build Release, dann sagen wir CP, oder MV, ähm, Target, Build,
+
+01:48:07.530 --> 01:48:28.350
+Release, Lip, Rust.so, hoch zu, ähm, Benchmark, und dann soll das einfach heißen, Rust Lip.so, ich benenne es einfach um, doch, doch, das ist eigentlich schon richtig, ich habe es nur falschrum benannt,
+
+01:48:28.350 --> 01:48:43.280
+ich habe es falschrum benannt, Lip, das ist auf jeden Fall, so, so ist richtiger als meins, mit Lip zuerst, okay, so, jetzt haben wir in unserem .NET Projekt noch eine Rust Lip, die fügen wir hinzu in den Output,
+
+01:48:44.540 --> 01:48:57.340
+dass er die auch findet, wenn er dann später, später läuft, ja, so, also, Build Action, äh, Copy, hier, zack, so, und wenn wir Glück haben, funktioniert das jetzt schon,
+
+01:48:57.340 --> 01:49:14.140
+hey, es läuft, Rasteraufruf, Funst, so, Beweis, Moment, Beweis, dass es funktioniert, Source, äh, Print, was, Module, Declaration, Reload, immer, Restart, hilft immer,
+
+01:49:14.540 --> 01:49:30.540
+okay, nice, so, jetzt bringen wir mal, das, Brindeln, Keg W, Build, und jetzt Aufrufen von .NET aus, Moment, oh, zu viele Fenster, Aufrufen von .NET auf, Keg W, nice, Funst, sehr gut, exzellent,
+
+01:49:30.540 --> 01:49:43.540
+okay, jetzt können wir mal testen, wie schnell das ist, in Godas, in, in, in, in Rust das Ganze zu machen, und danach bauen wir das noch mit Rust und Struct zurückgeben, also, wir sagen jetzt Interopt,
+
+01:49:44.540 --> 01:50:17.480
+Call, Go, und zwar mein Benchmark, Interopt, Call, Net, wir machen jetzt alle drei Sachen, so, also, wir kopieren uns den Benchmark, und den Benchmark, sagen wir Run, Go, Run, Rust, und Run, Run.NET, das sollte ja eigentlich das schnellste sein, Call, Net, und hier, Rust, jetzt bin ich mal auf die Ergebnisse gespannt, was da rauskommt,
+
+01:50:19.620 --> 01:50:49.620
+C, Release, wir machen es auch so schnell wie geht, zack, lassen wir das mal kurz laufen, und ich gucke in den Chat, Moin, bin aktuell auf Windows, ich würde gerne auf Linux rüber wechseln, OS gefällt mir sehr, jedoch zweifle ich noch, dass ich, da ich gerne zocke, und ich weiß, wie gut das unter Linux funktioniert, ganz ehrlich, wenn du viel spielst, und je nachdem, was du spielst, wenn du Spiele beispielsweise mit Anti-Cheat spielst, also, wobei, CS ja wohl mittlerweile ganz gut funktioniert, aber wenn du sowas wie, sagen wir mal, Rainbow Six, Fortnite, und so, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das ist, das
+
+01:50:49.620 --> 01:50:52.900
+oder sowas spielst, dann hast du eigentlich verloren unter Linux.
+
+01:50:54.920 --> 01:51:09.740
+Ich würde dir empfehlen, mach das so wie ich erstmal, benutze Windows als Host, und auf dem zweiten Windows-Desktop eine Linux-VRM im Fullscreen, wo du zwischendrin hin und her schalten kannst, du machst in der Linux-VRM alles, was du machen willst, was gut unter Linux ist,
+
+01:51:09.740 --> 01:51:19.960
+und für Sachen wie Videos gucken, streamen, Videobearbeitung, irgendwelche Games,
+
+01:51:20.360 --> 01:51:21.640
+dann machst du es unter Windows.
+
+01:51:21.760 --> 01:51:23.700
+Da hast du, finde ich, das Beste aus beiden Welten.
+
+01:51:23.700 --> 01:51:27.880
+Und das Gute ist, du kannst dich ein bisschen an Linux gewöhnen,
+
+01:51:28.140 --> 01:51:32.680
+ohne dass du irgendwie Dualboot machen musst oder direkt ins kalte Wasser geworfen wirst.
+
+01:51:33.160 --> 01:51:37.980
+Also zum Anfang einfach nur eine VM und gut ist.
+
+01:51:37.980 --> 01:51:43.960
+Und so, was sagt denn meine Benchmarks hier?
+
+01:51:52.060 --> 01:51:53.560
+Meine Benchmarks benchmarken noch.
+
+01:51:59.490 --> 01:52:00.870
+Ich bin mal gespannt, was rauskommt.
+
+01:52:01.050 --> 01:52:02.890
+Also ich meine, eigentlich kann ich es mir schon denken.
+
+01:52:03.270 --> 01:52:07.550
+.NET am schnellsten, gefolgt von Rust und dann Go hintendran.
+
+01:52:07.890 --> 01:52:10.370
+Also in diesem einen speziellen Fall jetzt.
+
+01:52:10.730 --> 01:52:16.240
+Was macht der da eigentlich so lang?
+
+01:52:18.180 --> 01:52:19.100
+So, ja.
+
+01:52:19.940 --> 01:52:21.440
+Guck mal, boah.
+
+01:52:22.020 --> 01:52:23.760
+Alter, was ein Unterschied, Mann.
+
+01:52:26.220 --> 01:52:27.360
+Guckt euch das mal an.
+
+01:52:27.560 --> 01:52:32.740
+Okay, also unser Benchmark ist 100 Funktionsaufrufe, die nichts machen.
+
+01:52:33.320 --> 01:52:39.320
+Ja, also von einem Funktionsaufruf 100, nicht einer.
+
+01:52:40.220 --> 01:52:45.280
+100 Funktionsaufrufe von .NET nach .NET sind natürlich abfackschnell.
+
+01:52:45.940 --> 01:52:48.240
+28,8 für Nanosekunden.
+
+01:52:49.120 --> 01:52:50.520
+Das ist megaschnell, ja.
+
+01:52:51.680 --> 01:52:52.440
+Das ist aber auch klar.
+
+01:52:53.020 --> 01:52:54.440
+Gefolgt von Rust.
+
+01:52:55.120 --> 01:52:55.960
+Call in Rust.
+
+01:52:55.960 --> 01:52:56.960
+Also die haben einen super, super...
+
+01:52:57.560 --> 01:53:00.920
+C-Interface, was einfach funktioniert, ohne viel Overhead.
+
+01:53:01.980 --> 01:53:05.100
+Nur 125 Nanosekunden für 100 Aufrufe.
+
+01:53:05.160 --> 01:53:08.100
+Das ist auch im Prinzip nix, eigentlich.
+
+01:53:08.720 --> 01:53:09.740
+Und jetzt kommt Go.
+
+01:53:10.240 --> 01:53:14.380
+Go braucht einfach mal, sehe ich das richtig, 8 Millisekunden.
+
+01:53:15.100 --> 01:53:17.940
+Also 8.114 Nanosekunden.
+
+01:53:21.910 --> 01:53:24.670
+Jetzt muss ich ein Video machen auf YouTube, dass Go stirbt, ja.
+
+01:53:27.050 --> 01:53:27.990
+Placingly fast.
+
+01:53:28.470 --> 01:53:30.330
+Rust is destroying Go.
+
+01:53:31.330 --> 01:53:31.690
+Ähm.
+
+01:53:32.170 --> 01:53:35.210
+Go will be dead soon.
+
+01:53:35.490 --> 01:53:36.410
+Oder irgendwas in der...
+
+01:53:36.410 --> 01:53:38.670
+Wir brauchen noch ein bisschen mehr Klick...
+
+01:53:38.670 --> 01:53:39.570
+Ne, wir brauchen...
+
+01:53:39.570 --> 01:53:40.750
+Wir brauchen Clickbait.
+
+01:53:41.290 --> 01:53:42.390
+Go is dead.
+
+01:53:43.170 --> 01:53:43.990
+Here is why.
+
+01:53:45.130 --> 01:53:46.890
+Oder irgendwie sowas.
+
+01:53:54.280 --> 01:53:55.500
+Äh, Mikrosekunden.
+
+01:53:55.760 --> 01:53:56.760
+Jaja, Mikrosekunden.
+
+01:53:56.820 --> 01:53:57.980
+Wir sind hier in Bananosekunden.
+
+01:53:59.900 --> 01:54:02.820
+How Go-Lang is destroying your performance.
+
+01:54:03.060 --> 01:54:03.320
+Genau.
+
+01:54:04.700 --> 01:54:06.020
+Mikrosekunden, nicht Millisekunden.
+
+01:54:06.020 --> 01:54:06.840
+Ja, ich hab mich vertan.
+
+01:54:07.380 --> 01:54:08.520
+Kann man auch mal durcheinander kommen.
+
+01:54:08.640 --> 01:54:12.260
+Also, .NET, logischerweise in dem Fall das schnellste.
+
+01:54:12.340 --> 01:54:13.460
+28 Nanosekunden.
+
+01:54:13.560 --> 01:54:14.980
+Rust, 125 Nanosekunden.
+
+01:54:15.260 --> 01:54:16.480
+Würde ich sagen, das ist so wirklich...
+
+01:54:16.480 --> 01:54:18.080
+Da kannst du ohne Probleme nach Rust callen.
+
+01:54:18.560 --> 01:54:20.520
+Und hier 8 Mikrosekunden.
+
+01:54:21.260 --> 01:54:26.880
+Nicht, dass 8 Mikrosekunden schnell wäre, aber es ist um Größenordnungen langsamer als Rust.
+
+01:54:30.100 --> 01:54:35.940
+.NET steht ja eigentlich gar nicht zur Auswahl, weil die WebRTC-Libraries für .NET...
+
+01:54:36.640 --> 01:54:39.460
+Es gibt Zip-Sourcery für .NET, das ist auch nicht schlecht.
+
+01:54:40.060 --> 01:54:40.780
+Aber ich finde...
+
+01:54:40.780 --> 01:54:49.020
+Ich finde, dem fehlen noch ein paar Features, dass man sie komplett so gut benutzen kann, wie die Go-Library zum Beispiel.
+
+01:54:49.100 --> 01:54:50.740
+Und die Rust-Library weiß ich noch nicht.
+
+01:54:51.180 --> 01:54:56.280
+Das ist ein Nachbau von der Go-Library, die ich verwenden will, aber ich weiß nicht, wie Feature-Complete die schon ist.
+
+01:55:10.280 --> 01:55:12.800
+Macht die Übung mal anders, von Rust als Base und Import C-Sharp.
+
+01:55:17.950 --> 01:55:21.810
+Also, von Rust nach Go wird mehr oder weniger genauso sein.
+
+01:55:23.490 --> 01:55:27.450
+Aber von Rust nach C-Sharp ist gar nicht so einfach möglich.
+
+01:55:28.190 --> 01:55:32.650
+Weil C-Sharp braucht eine .NET-Runtime, die läuft.
+
+01:55:33.590 --> 01:55:36.270
+Das heißt, ich müsste quasi eine .NET-Runtime in Rust hosten.
+
+01:55:36.590 --> 01:55:37.610
+Was sicherlich geht.
+
+01:55:38.390 --> 01:55:41.730
+Ja, du kannst AOT machen, aber ich erzähle euch, wie es die ganze Zeit gewesen ist.
+
+01:55:42.570 --> 01:55:43.610
+Du brauchst quasi...
+
+01:55:43.610 --> 01:55:45.590
+Du musst quasi eine .NET-Runtime in Rust hosten.
+
+01:55:45.630 --> 01:55:46.730
+Ich glaube, das will man nicht machen.
+
+01:55:47.470 --> 01:55:49.430
+Seit den letzten...
+
+01:55:49.430 --> 01:55:54.210
+Seit .NET 6, aber eher seit .NET 7 und noch spannender wird es mit .NET 8.
+
+01:55:54.210 --> 01:55:57.210
+.NET 8 kommt ja demnächst raus.
+
+01:55:58.190 --> 01:56:01.690
+Da unterstützen die ja auch Ahead-of-Time-Compilation.
+
+01:56:02.110 --> 01:56:05.110
+Also im Prinzip das, was so ein Compiler macht.
+
+01:56:06.130 --> 01:56:08.970
+Normalerweise halt irgendwas Native-Ausführbares rauswerfen.
+
+01:56:09.790 --> 01:56:12.110
+Dann kann man auch...
+
+01:56:12.110 --> 01:56:13.250
+Moment, da gibt es wirklich was.
+
+01:56:13.910 --> 01:56:17.290
+Da kann man dann auch direkt Funktionen draus aufrufen.
+
+01:56:20.530 --> 01:56:21.510
+Ne, das ist was anderes.
+
+01:56:22.350 --> 01:56:23.110
+Das ist was anderes.
+
+01:56:23.770 --> 01:56:28.950
+Das ist Rust zu IR kompilieren, was dann in .NET laufen kann.
+
+01:56:29.230 --> 01:56:29.950
+Das ist auch Sixhead.
+
+01:56:30.590 --> 01:56:31.490
+Das ist sowas gibt.
+
+01:56:32.830 --> 01:56:34.050
+Aber das ist andersrum.
+
+01:56:36.490 --> 01:56:37.470
+Also ist Rust in .NET.
+
+01:56:37.790 --> 01:56:40.530
+Wir wollen ja .NET von echtem Rust aufrufen.
+
+01:56:41.830 --> 01:56:44.190
+So, jetzt müssen wir aber nochmal...
+
+01:56:44.190 --> 01:56:45.730
+Was ist IR Intermediate?
+
+01:56:46.110 --> 01:56:47.310
+Also das ist quasi IL.
+
+01:56:49.970 --> 01:56:51.810
+IL und IR ist das...
+
+01:56:51.810 --> 01:56:52.550
+Ist das...
+
+01:56:52.550 --> 01:56:54.270
+Ist das gleiche quasi.
+
+01:56:56.830 --> 01:56:58.030
+Hä, bin ich jetzt blöd?
+
+01:56:58.030 --> 01:56:58.850
+So hier.
+
+01:57:01.270 --> 01:57:01.830
+Ja, IR.
+
+01:57:02.210 --> 01:57:03.770
+Also IR und IL ist das gleiche.
+
+01:57:03.790 --> 01:57:04.450
+Im Endeffekt.
+
+01:57:04.910 --> 01:57:07.970
+Das ist nicht direkt ausführbar von deinem Rechner,
+
+01:57:08.090 --> 01:57:09.910
+aber ausführbar von der .NET Runtime.
+
+01:57:10.430 --> 01:57:14.850
+Also C-Sharp kompiliert ja auch nicht direkt in ein Binary,
+
+01:57:14.970 --> 01:57:15.950
+was du ausführen kannst,
+
+01:57:16.050 --> 01:57:18.990
+sondern C-Sharp kompiliert in Bytecode,
+
+01:57:19.470 --> 01:57:21.010
+den .NET ausführen kann.
+
+01:57:21.410 --> 01:57:23.150
+Und wenn du in den C-Sharp Binary startest,
+
+01:57:23.250 --> 01:57:24.390
+dann ist es in Wirklichkeit so,
+
+01:57:25.050 --> 01:57:29.380
+dass erstmal .NET gestartet wird
+
+01:57:29.380 --> 01:57:31.860
+und .NET startet dann deine C-Sharp...
+
+01:57:31.860 --> 01:57:35.460
+liest dann das CLRIR und so weiter.
+
+01:57:35.480 --> 01:57:36.400
+Oder IL ein.
+
+01:57:37.100 --> 01:57:39.200
+Je nachdem wie man es nennt und führt das aus.
+
+01:57:40.320 --> 01:57:42.320
+Und dort ist es so,
+
+01:57:42.440 --> 01:57:46.560
+dass quasi Rust zu IL umgewandelt wird
+
+01:57:46.560 --> 01:57:49.280
+und IL kann dann von der .NET Runtime ausgeführt werden.
+
+01:57:49.900 --> 01:57:51.640
+Das ist halt echt schon richtig Sixthead.
+
+01:57:51.740 --> 01:57:54.760
+Ich wüsste nicht genau wozu das...
+
+01:57:54.760 --> 01:57:57.620
+Ich meine, ja um Rust Libraries in C-Sharp zu verwenden.
+
+01:58:03.220 --> 01:58:04.940
+Aber es funktioniert noch nicht alles.
+
+01:58:06.160 --> 01:58:07.460
+Aber cool, dass das funktioniert.
+
+01:58:08.840 --> 01:58:10.300
+So, jetzt haben wir unser Benchmarker.
+
+01:58:10.320 --> 01:58:11.560
+Das Benchmarkzeug hier am Start.
+
+01:58:12.040 --> 01:58:15.040
+Das werde ich jetzt gerade einfach mal wieder auskommentieren.
+
+01:58:16.660 --> 01:58:18.280
+Und wir gucken uns mal an,
+
+01:58:18.980 --> 01:58:21.680
+wie man in Rust ein Struct baut
+
+01:58:21.680 --> 01:58:26.400
+und das Struct zurückgibt an C-Sharp.
+
+01:58:26.720 --> 01:58:29.060
+Also Call Rust 2 brauchen wir jetzt noch.
+
+01:58:29.520 --> 01:58:33.380
+So, das legen wir jetzt hier auch mal an.
+
+01:58:36.390 --> 01:58:40.070
+Ich prophezeie, dass es etwas einfacher wird als in Go,
+
+01:58:40.210 --> 01:58:43.550
+weil Rust C-Interop ist ziemlich gut in der Regel.
+
+01:58:43.710 --> 01:58:56.720
+Aber Rust hat schon .NET Libraries, oder nicht?
+
+01:58:57.340 --> 01:58:57.560
+Nee.
+
+01:58:58.360 --> 01:59:00.820
+Rust ist Rust und Rust ist nicht .NET normalerweise.
+
+01:59:07.510 --> 01:59:09.870
+Hast du einen coolen, vielleicht auch leichten Weg mit Rust?
+
+01:59:10.170 --> 01:59:11.490
+Ich habe keine Ahnung.
+
+01:59:13.170 --> 01:59:15.370
+Aber ich glaube, man muss ganz schön masochistisch sein,
+
+01:59:15.450 --> 01:59:18.910
+veranlagt sein, mit Rust Windows UI Anwendungen bauen zu wollen.
+
+01:59:20.370 --> 01:59:22.430
+Das ist einfach nur so mein Bauchgefühl dazu.
+
+01:59:28.800 --> 01:59:29.700
+Ja, nice.
+
+01:59:31.540 --> 01:59:33.420
+Blazingly fast written in Rust.
+
+01:59:33.740 --> 01:59:34.680
+Muss jetzt aber auch bei allen anderen Anwendungen, die ich hier habe,
+
+01:59:34.680 --> 01:59:34.840
+bei allen anderen Anwendungen, die ich hier habe,
+
+01:59:34.960 --> 01:59:36.220
+bei allen anderen Projekten dabei schreiben.
+
+01:59:40.530 --> 01:59:41.310
+Also, okay.
+
+01:59:41.590 --> 01:59:43.870
+Wie macht man, es geht ja schon mal los, Leute,
+
+01:59:44.350 --> 01:59:46.830
+wie man überhaupt einen Struct in Rust macht.
+
+01:59:47.250 --> 01:59:47.650
+Struct.
+
+01:59:48.230 --> 01:59:49.310
+Okay, so schön.
+
+01:59:50.030 --> 01:59:51.650
+Nice, Max, super.
+
+01:59:53.050 --> 01:59:56.750
+Ich glaube, so weit wären wir wahrscheinlich auch schon gekommen, oder?
+
+01:59:57.750 --> 02:00:00.170
+Okay, aber wie geht es weiter?
+
+02:00:00.430 --> 02:00:01.470
+Rust, Struct.
+
+02:00:02.410 --> 02:00:03.890
+FFI, suchen wir mal danach.
+
+02:00:05.410 --> 02:00:07.830
+Complex Data Tabs and Rust FFI.
+
+02:00:07.830 --> 02:00:39.240
+Genau, okay, also, Inamstruct, hier, Rebr, Rebr, Rebr, C, okay, das ist so ein, das ist so ein typisches Rust-Ding, das können wir Copy-Pasten, das ist eines der Gründe, warum Rust echt nicht schön zu lesen ist, Pup, Pup, ist quasi was wie Public, Public Ausschreiben ist outdated, overrated, also machen wir hier mal das gleiche, Session, Name, okay, wir fangen einfach an, wir machen wieder das gleiche,
+
+02:00:39.840 --> 02:01:08.960
+ähm, hier, Client-ID und, ne, komm, wir sind, wir sind, A, B heißt es jetzt, so, Uint, ne, Moment, Int, Moment, es ist Rust, da ist es U64 einfach nur, gell, ja, es ist Rust und hier nochmal, hier noch ein Bool oder so, ja, okay, Build, es bildet noch und jetzt Return,
+
+02:01:12.880 --> 02:01:53.730
+tja, das ist eine gute Frage, ich weiß gar nicht, wie ich das, so, A, 1, 2, 3, B, Moment, B, True, ne, das ist ein B-Kolon vielleicht, hä, Juch, äh, so, hm, was hat er denn für Schmerzen,
+
+02:01:55.430 --> 02:02:32.060
+oh, weil ich keinen Return-Type angegeben hab, ähm, Rust-Return-Type ist so, gell, ja, okay, ist schon besser, schon besser, übrigens, ich hab's verkackt, ich hab's in der falschen Funktion gemacht, das muss hier unten rein, Format, okay, und das funktioniert jetzt, Moment, das funzt, okay, jetzt bin ich mal gespannt, wie das, wie das zurückkommt in, in .NET, wir brauchen, wir müssen das mal kurz ein bisschen ändern, hier, Session, Rename,
+
+02:02:37.520 --> 02:03:08.750
+Session, äh, Go, Session, Rust, so, Uint, und dann haben wir hier einen Bool, und, ja, A, B, wie's heißt, ist egal, jetzt bin ich, jetzt bin ich mal gespannt, ob das, das ist ja die Basics, das sind einfach nur Values zurückgeben, und, unser Ziel ist ja hier auch noch einen String zurückzugeben und sowas, das wird dann schon noch ein bisschen komplizierter, Call Rust 2 zurück, bekommen wir eine Session, okay, Call Rust 2,
+
+02:03:09.350 --> 02:03:42.000
+Session, gleich, Session, A, und, Session, B, und jetzt gucken wir mal, ob das funzt, was da rauskommt, 1, 2, 3, und True, True, 0, W, ja, das funzt, okay, das, das war schon ein bisschen einfacher als in Go, an der Stelle, weil Rust ist deutlich besser, also, wir brauchen kein C, Go, und C, Struct definieren, und sowas,
+
+02:03:42.800 --> 02:04:02.160
+das ist einfacher, so, und jetzt kommt ein String, jetzt bin ich mal gespannt, wie das funzt, kann ich, kann ich einfach sagen, String, das geht doch im Leben nicht, oder, wenn ich hier einfach sage, ich return einen String, oh, keck, weh, okay, jetzt kommt Rust gedöhnt,
+
+02:04:02.160 --> 02:04:12.160
+jetzt, warum kann ich einem Struct String keinen String zuweisen, weil man irgendwie sagen muss, pass as String, oder sowas, ich erinnere mich dunkel,
+
+02:04:12.800 --> 02:04:53.820
+from String, from, to String, wo ist der Unterschied dazwischen, aber das habe ich schon mal, das habe ich schon mal gesehen in Rust, ja, das kompiliert zwar, aber das wird nicht funktionieren, das wird, das wird so nicht funktionieren, weil die Rust String Repräsentation ganz anders ist, als das, was sich C Sharp vorstellt, aber wir können es mal ausprobieren, wir stellen, wir stellen uns einfach mal wieder doof, und sagen, das ist ein String,
+
+02:04:53.840 --> 02:05:29.580
+okay, so, das wird nicht funzen, nein, es crasht sogar, crasht es, crasht es wirklich, ja, es crasht, okay, es crasht, es crasht komplett, macht einfach gar nichts, also, das funzt so definitiv nicht, aber das habe ich auch schon gedacht, ich brauche, ich brauche einen C, C String, oder sowas, oder einen, oder einen Character Array, oder sowas,
+
+02:05:32.360 --> 02:06:10.780
+wir gucken mal eine Hilfe von Rust, ach hier, guck mal, Const C, Const C Char, hat er importiert, Const C, das geht natürlich nicht, kann man sowas wie, kann man sowas machen wie Pointer, S Pointer, aber das, das ist kein nullterminierter String, das, das, das, äh, kann man sagen wie Into Pointer, oder so, weil so Rust, Rust Magic,
+
+02:06:11.220 --> 02:06:45.280
+das funzt nicht, ne, da sagt, was ist Const, okay, Const U8, das ist jetzt ja quasi ein Byte Array, kompiliert, es kompiliert, ich bin mal, ich bin mal gespannt, was jetzt in C Sharp rauskommt, es crasht einfach wieder, okay, es, es crasht, okay, dann probieren wir mal was anderes, dann probieren wir mal was anderes, Int Pointer, Int Pointer, das sollte jetzt nicht mal crashen,
+
+02:06:47.080 --> 02:07:47.770
+es crasht immer noch, was, Double, ich hab die Go Session bearbeitet, ah, ich bin ein Kack Noob, okay, das funzt, also hier gibt's, hier gibt's den Int Pointer, hier, hier krieg ich den Int Pointer zurück, und was kann ich mit dem Int Pointer jetzt machen, sicherlich nicht als String parsen, oder, Marshall, Pointer, to String,
+
+02:07:49.880 --> 02:08:23.130
+Bam, geht nicht, Pointer, to String, ey, das funzt nicht, das ergibt aber auch Sinn, dass das nicht funktioniert, weil Rust Strings sind ja nicht Null Terminated, und, und sonst wie das, das, das, das klappt nicht, jetzt haben wir noch Mut, Mut U8, haben wir auch noch, nicht, dass das was ändert, oder so, ups, ne, ne, das funzt nicht, okay, also, ich muss da irgendwie mit C String hantieren,
+
+02:08:26.110 --> 02:08:30.730
+C String, New, A, B, C, Unwrap, das klingt,
+
+02:08:30.950 --> 02:09:01.660
+sehr Rust Style, machen wir's mal sowas hier, Let Str gleich, C String, was, New, und jetzt hier sowas wie, Kek W, oder so, ja, und an der Stelle dann, hier machen wir auch wieder Cha, C Cha, und an der Stelle dann Str, okay, ne, funzt nicht, warum,
+
+02:09:04.080 --> 02:09:05.580
+Expected Const C Cha,
+
+02:09:05.940 --> 02:09:45.500
+Found, Result, ah, nochmal Unwrap, hä, Unwrap, äh, Unwrap muss da oben hin, Unwrap, was, Unwrap into Raw, what, into Raw, S Pointer, klingt doch, klingt doch sinnvoll, oder, S Pointer, zack, kompiliert, Run, oh, das lookt nicht korrekt,
+
+02:09:45.500 --> 02:09:53.690
+das lookt gar nicht korrekt,
+
+02:09:54.690 --> 02:09:57.490
+das sieht nach, wurde gefreed aus,
+
+02:09:58.790 --> 02:10:02.110
+das ergibt auch Sinn, dass das nicht funktioniert, weil, Rust,
+
+02:10:02.750 --> 02:10:06.830
+wird das hier wahrscheinlich verwerfen, sobald die Funktion zu Ende ist,
+
+02:10:07.430 --> 02:10:09.170
+jetzt ist die große Preisfrage,
+
+02:10:15.020 --> 02:10:17.200
+wie krieg ich Rust dazu, dass es das,
+
+02:10:17.740 --> 02:10:18.860
+dass es überlebt,
+
+02:10:20.080 --> 02:10:23.300
+wir gucken uns mal die Hilfe von C String in Rust an,
+
+02:10:27.440 --> 02:10:28.660
+ja, Global Definition,
+
+02:10:28.660 --> 02:10:29.100
+Global Definition,
+
+02:10:29.100 --> 02:10:29.720
+nee, nee, nee, nee,
+
+02:10:29.720 --> 02:10:32.740
+Extracting a Raw Pointer,
+
+02:10:32.960 --> 02:10:33.880
+Äste, was,
+
+02:10:35.800 --> 02:10:36.480
+S Pointer,
+
+02:10:42.210 --> 02:10:44.330
+also eins kann man Rust ja meistens nicht vorwerfen,
+
+02:10:44.430 --> 02:10:45.670
+lassen zu wenig Docks haben,
+
+02:10:47.250 --> 02:10:48.490
+aber, dass ich nicht durchblicke,
+
+02:10:48.570 --> 02:10:49.250
+ist schon wieder,
+
+02:10:51.830 --> 02:10:55.170
+S Pointer, ja, so schlau bin ich auch,
+
+02:10:56.490 --> 02:10:57.110
+Safety,
+
+02:11:16.700 --> 02:11:16.960
+ähm,
+
+02:11:18.780 --> 02:11:20.380
+ich muss, ich muss dem Ding jetzt,
+
+02:11:20.520 --> 02:11:22.300
+also, bei Rust ist es so,
+
+02:11:22.300 --> 02:11:24.180
+Rust ist super pingelig,
+
+02:11:24.340 --> 02:11:26.340
+was Lifetime von Objekten angeht,
+
+02:11:27.000 --> 02:11:28.740
+und Rust ist schlau genug und weiß,
+
+02:11:28.840 --> 02:11:30.340
+am Ende dieses Dings,
+
+02:11:30.620 --> 02:11:32.780
+normalerweise müsste ich jetzt sowas machen,
+
+02:11:32.860 --> 02:11:33.820
+ja, irgendwie und,
+
+02:11:34.080 --> 02:11:38.040
+also Rust Logik, da muss man dann und Mut oder so komisches Zeug da vormachen,
+
+02:11:40.160 --> 02:11:40.660
+aber das,
+
+02:11:40.960 --> 02:11:43.020
+also, da, da, da, dass ich Rust sage,
+
+02:11:43.560 --> 02:11:44.480
+ich möchte,
+
+02:11:45.880 --> 02:11:46.440
+quasi,
+
+02:11:46.840 --> 02:11:50.460
+das Ownership, heißt das bei Rust, übertragen, an den der aufruft,
+
+02:11:50.820 --> 02:11:52.460
+aber ich weiß nicht, wie das funktioniert,
+
+02:11:54.710 --> 02:11:56.110
+geht mit nem Apostroph, mit,
+
+02:11:56.110 --> 02:11:57.110
+was,
+
+02:11:58.870 --> 02:11:59.370
+so,
+
+02:12:00.070 --> 02:12:01.490
+alter, Rust macht mich fertig,
+
+02:12:10.320 --> 02:12:11.720
+ne, ne, das kann's nicht sein, oder,
+
+02:12:13.960 --> 02:12:14.740
+Examples,
+
+02:12:14.820 --> 02:12:17.890
+den hatten wir schon,
+
+02:12:18.170 --> 02:12:18.870
+S Point,
+
+02:12:20.770 --> 02:12:21.490
+from, weg,
+
+02:12:27.020 --> 02:12:30.700
+wenn du willst, übergibst du einfach noch den C-String nochmal als Feldinstrukt,
+
+02:12:33.020 --> 02:12:36.060
+ich übergebe doch den, das Feldinstrukt,
+
+02:12:37.920 --> 02:12:38.420
+hier,
+
+02:12:40.640 --> 02:12:42.640
+oder, oder du meinst hier C-String,
+
+02:12:44.140 --> 02:12:47.500
+ja, aber das wird doch da nicht so funktionieren, wie ich mir das gedacht habe, oder,
+
+02:12:47.620 --> 02:12:53.820
+so,
+
+02:12:54.660 --> 02:12:56.660
+ne, ist not FFI safe,
+
+02:12:57.660 --> 02:12:59.660
+das, das wird nicht funktionieren, so,
+
+02:13:06.060 --> 02:13:06.860
+siehste,
+
+02:13:09.020 --> 02:13:11.020
+crasht einfach direkt, ne, ne, ne, ne,
+
+02:13:11.980 --> 02:13:13.480
+so, so funzt das nicht,
+
+02:13:14.580 --> 02:13:15.080
+ähm,
+
+02:13:15.940 --> 02:13:18.320
+wir, wir, wir sind, glaub ich, auf'm richtigen Weg,
+
+02:13:19.260 --> 02:13:21.260
+das ist, das ist, glaub ich, gar nicht so verkehrt,
+
+02:13:21.940 --> 02:13:23.940
+vielleicht muss ich einfach sagen, Mut,
+
+02:13:24.820 --> 02:13:26.820
+hier oben, anstatt Const,
+
+02:13:33.710 --> 02:13:36.210
+in C-Sharp muss das in den Session-Daten zu String geändert werden,
+
+02:13:36.330 --> 02:13:37.130
+ne, muss es nicht,
+
+02:13:38.390 --> 02:13:39.870
+ich bekomm den In-Pointer,
+
+02:13:40.350 --> 02:13:43.710
+und den wandle ich dann selbst in den String um, das muss auch funktionieren,
+
+02:13:49.860 --> 02:13:51.860
+ok, das geht nicht, warum, weil,
+
+02:13:53.220 --> 02:13:54.480
+Type differs in,
+
+02:13:55.100 --> 02:13:59.260
+Expected Raw Pointer, Mut, Found Raw Pointer, Const,
+
+02:14:04.160 --> 02:14:05.460
+brauchst exter-, Alter,
+
+02:14:05.760 --> 02:14:08.760
+jetzt kommt richtig krasses, nices Backseating hier an den Start,
+
+02:14:09.300 --> 02:14:11.060
+so, und das, und das soll jetzt funktionieren,
+
+02:14:11.560 --> 02:14:13.320
+da hab ich so meine Zweifel, dass das funzt,
+
+02:14:14.780 --> 02:14:15.720
+Chatge, und,
+
+02:14:16.400 --> 02:14:17.080
+funzt nicht,
+
+02:14:17.700 --> 02:14:17.900
+bam,
+
+02:14:28.290 --> 02:14:31.650
+ich will dem sagen, dass das, dass er hier Ownership übertragen soll,
+
+02:14:32.090 --> 02:14:33.670
+ok, wie, wie geht das,
+
+02:14:34.310 --> 02:14:35.590
+was haben wir denn sonst noch hier,
+
+02:14:37.490 --> 02:14:38.450
+From Raw,
+
+02:14:39.370 --> 02:14:41.250
+Into Raw,
+
+02:14:42.890 --> 02:14:47.330
+Consumes the C-String and transfer Ownership of the String to the C-Caller,
+
+02:14:47.490 --> 02:14:48.830
+das ist das,
+
+02:14:49.390 --> 02:14:54.410
+was ich wahrscheinlich will,
+
+02:15:02.960 --> 02:15:03.320
+Into,
+
+02:15:03.740 --> 02:15:05.580
+Into Raw,
+
+02:15:05.580 --> 02:15:08.560
+das gibt ein Mut-C-Char,
+
+02:15:09.700 --> 02:15:14.220
+ja, was ja auch durchaus ok ist, ich kann ja da drin rumsauen, wie ich will, mach ich aber nicht, aber könnte ich,
+
+02:15:15.260 --> 02:15:17.520
+ok, lässt sich kompilieren, und jetzt, und jetzt,
+
+02:15:17.840 --> 02:15:19.420
+Pause Champ, Leute, Pause Champ,
+
+02:15:23.380 --> 02:15:23.980
+Pause Champ,
+
+02:15:28.030 --> 02:15:29.690
+ich, ich finde meine Emotes grad nicht,
+
+02:15:30.210 --> 02:15:30.930
+Pause Champ, Time,
+
+02:15:32.970 --> 02:15:33.370
+Funzt,
+
+02:15:34.210 --> 02:15:34.530
+Easy,
+
+02:15:35.530 --> 02:15:36.530
+kaum macht man's richtig,
+
+02:15:37.250 --> 02:15:38.290
+Easy as fuck,
+
+02:15:38.510 --> 02:15:38.750
+Easy,
+
+02:15:39.650 --> 02:15:40.010
+Easy,
+
+02:15:40.010 --> 02:15:40.090
+Easy,
+
+02:15:40.090 --> 02:15:41.170
+Easy,
+
+02:15:41.170 --> 02:15:41.270
+Easy,
+
+02:15:41.270 --> 02:15:42.370
+Easy,
+
+02:15:42.370 --> 02:15:42.510
+Easy,
+
+02:15:42.510 --> 02:15:43.910
+Easy as fuck,
+
+02:15:43.910 --> 02:15:48.880
+hat funktioniert,
+
+02:15:49.240 --> 02:15:52.560
+also, so funzt das in Rust,
+
+02:15:55.240 --> 02:15:55.980
+C-String,
+
+02:15:57.780 --> 02:16:00.040
+äh, Moment, und dann, und dann sagt man,
+
+02:16:00.900 --> 02:16:02.840
+Moment, das ist Go,
+
+02:16:03.360 --> 02:16:03.580
+Null,
+
+02:16:04.360 --> 02:16:05.480
+äh, und dann sagt man,
+
+02:16:07.740 --> 02:16:08.820
+Into Raw,
+
+02:16:19.790 --> 02:16:21.270
+so, was haben wir denn sonst noch,
+
+02:16:22.750 --> 02:16:25.130
+The Pointer, which this function returns,
+
+02:16:25.650 --> 02:16:27.850
+must be returned to Rust,
+
+02:16:27.850 --> 02:16:27.910
+must,
+
+02:16:29.010 --> 02:16:31.590
+and reconstituted using,
+
+02:16:32.010 --> 02:16:34.190
+C-String from Raw,
+
+02:16:34.410 --> 02:16:36.990
+oh jetzt, das wär auch zu einfach gewesen,
+
+02:16:37.470 --> 02:16:40.250
+das wär auch zu einfach gewesen, wenn das jetzt schon fertig ist,
+
+02:16:40.550 --> 02:16:42.770
+passt mal auf, jetzt haben wir Memory Leaks, oder?
+
+02:16:43.190 --> 02:16:45.390
+Jetzt haben wir Memory Leaks as fuck wieder,
+
+02:16:46.150 --> 02:16:47.510
+Sekunde, while,
+
+02:16:48.390 --> 02:16:48.990
+true,
+
+02:16:51.790 --> 02:16:53.850
+passt auf, jetzt haben wir, jetzt haben wir wieder richtig Memory,
+
+02:16:54.950 --> 02:16:57.590
+Ultramemory, Memory Leaks haben wir jetzt.
+
+02:17:06.660 --> 02:17:07.700
+Oh, ho, ho, ho,
+
+02:17:07.940 --> 02:17:12.770
+Alter, der hat sich in 3 Sekunden,
+
+02:17:12.770 --> 02:17:25.560
+vier gigabyte ram geschnappt monke ist vier sekunden zwei sekunden vier gigabyte ram weg
+
+02:17:25.560 --> 02:17:32.760
+das ist schon kein memory league mehr was kommt was kommt nach was kommt nach einem league das
+
+02:17:32.760 --> 02:17:38.640
+liegt davon liegt zu sprechen ist eindeutig schon viel zu wenig das ist das ist das ist kein league
+
+02:17:38.640 --> 02:17:43.600
+da ist einfach schon nichts mehr nichts mehr offen da gibt es noch nicht mal einen damm dazwischen
+
+02:17:43.600 --> 02:17:49.900
+das ist einfach da ist einfach nichts dazwischen das ist alles alles das ist schon ein see quasi
+
+02:17:49.900 --> 02:17:57.220
+ohne was dazwischen 22 sekunden vier gigabyte ram mich würde nicht wundern wenn irgendeine idee
+
+02:17:57.220 --> 02:18:03.640
+abgekackt ist jetzt weil er zu viel ram sich geschnappt hat halbe forkbombe ist das schon
+
+02:18:03.640 --> 02:18:12.490
+ohne sich zu folgen gut also was muss man was muss man machen the point which is fun must be
+
+02:18:12.490 --> 02:18:15.470
+return to rust and krieg konnte using c-string
+
+02:18:15.470 --> 02:18:23.630
+from raw to be properly deallocated da bin ich mal gespannt ob das stimmt was die da sagen wir
+
+02:18:23.630 --> 02:18:33.780
+machen jetzt da einfach mal ein string draus weil dann wissen wir ja dass der automatisch fried und
+
+02:18:33.780 --> 02:18:47.990
+jetzt sollten wir kein memory league mehr haben wir haben kein memory league mehr alles perfectly
+
+02:18:47.990 --> 02:18:57.760
+fine na oder vielleicht doch so ein kleines memory league vielleicht wir haben kein memory league aber
+
+02:18:58.660 --> 02:19:06.400
+auch ein kleines genau die sharp macht wieder free profile ist doch ich weiß ehrlich gesagt gerade
+
+02:19:06.400 --> 02:19:13.480
+nicht wie gescheit weil mein rider ist irgendwie der meinung debugger funktioniert nicht warum auch
+
+02:19:13.480 --> 02:19:21.900
+immer vielleicht jeder jetzt obwohl es mit dort versucht man jedoch netz location ergibt überhaupt
+
+02:19:21.900 --> 02:19:28.450
+keinen sinn da sollen meinen dort nett verwenden und nicht das falsche dort nicht der ist es nicht
+
+02:19:32.620 --> 02:19:34.760
+nicht. Das Ganze ist ein .NET 8
+
+02:19:34.760 --> 02:19:36.620
+Projekt und er zeigt es auch hier an, dass es
+
+02:19:36.620 --> 02:19:38.720
+.NET 8 ist, aber Ryder
+
+02:19:38.720 --> 02:19:39.800
+ist der Meinung, nee,
+
+02:19:40.640 --> 02:19:42.720
+ist es nicht. Guck hier, .NET 8, .NET
+
+02:19:42.720 --> 02:19:46.830
+Version 8. Ich
+
+02:19:46.830 --> 02:19:48.350
+weiß es nicht. Keine Ahnung. Er gibt
+
+02:19:48.350 --> 02:19:50.770
+keinen Sinn. Ich glaube, fast
+
+02:19:50.770 --> 02:19:52.750
+das ist ein Bug in Ryder, was wir hier haben.
+
+02:19:59.880 --> 02:20:00.540
+.Memory.
+
+02:20:03.200 --> 02:20:05.040
+So, und jetzt lesen wir mal weiter, was
+
+02:20:05.040 --> 02:20:05.680
+hier steht.
+
+02:20:07.400 --> 02:20:08.800
+Ja, okay, hier.
+
+02:20:10.840 --> 02:20:11.280
+Specifically
+
+02:20:11.280 --> 02:20:13.220
+one should not
+
+02:20:13.220 --> 02:20:15.100
+use the standard
+
+02:20:15.100 --> 02:20:17.080
+C free function to
+
+02:20:17.080 --> 02:20:19.040
+deallocate the string. Das ist schon
+
+02:20:19.040 --> 02:20:21.020
+mal falsch, was wir da gerade machen.
+
+02:20:21.900 --> 02:20:23.120
+Failure to call
+
+02:20:23.120 --> 02:20:25.020
+C string
+
+02:20:25.020 --> 02:20:27.040
+from raw will lead to a memory leak.
+
+02:20:29.100 --> 02:20:31.040
+The C side must not modify the
+
+02:20:31.040 --> 02:20:32.420
+length of the string. Ja, okay.
+
+02:20:43.400 --> 02:20:45.100
+Also müssen wir noch das hier machen.
+
+02:20:45.840 --> 02:20:47.360
+Bedeutet im Endeffekt auch,
+
+02:20:47.760 --> 02:20:49.100
+so dass wir kein Memory
+
+02:20:49.100 --> 02:20:51.340
+leaken, brauche ich noch eine Funktion,
+
+02:20:51.360 --> 02:20:52.520
+die nennen, ups,
+
+02:20:54.020 --> 02:20:55.120
+brauche ich noch eine Funktion,
+
+02:20:55.620 --> 02:20:57.360
+die nennen wir jetzt einfach mal hier
+
+02:20:57.360 --> 02:20:59.380
+free str
+
+02:20:59.380 --> 02:20:59.980
+oder so.
+
+02:21:01.560 --> 02:21:03.220
+Und da rufen wir jetzt auf
+
+02:21:03.220 --> 02:21:05.400
+C string
+
+02:21:05.400 --> 02:21:06.980
+from raw, okay, hier
+
+02:21:06.980 --> 02:21:07.920
+Pointer rein.
+
+02:21:09.160 --> 02:21:11.120
+Und dann wahrscheinlich,
+
+02:21:11.480 --> 02:21:13.200
+wahrscheinlich, okay,
+
+02:21:13.440 --> 02:21:15.020
+rust, rust, geht das so?
+
+02:21:22.300 --> 02:21:24.060
+Achso, das muss in den unsave Block.
+
+02:21:24.840 --> 02:21:25.960
+Ist ja fast wie in .NET hier.
+
+02:21:25.960 --> 02:21:37.320
+Bäh.
+
+02:21:39.760 --> 02:21:45.660
+Ich will das so haben.
+
+02:21:48.830 --> 02:21:54.240
+Warum, warum sieht der unsave Block
+
+02:21:54.240 --> 02:21:56.180
+hier so kacke aus? Ah, dann machen wir es so.
+
+02:21:59.180 --> 02:22:00.600
+Okay, und jetzt ist das, jetzt ist
+
+02:22:00.600 --> 02:22:01.160
+das safe.
+
+02:22:02.360 --> 02:22:04.460
+Da muss ich das aber noch dazu aufrufen.
+
+02:22:04.940 --> 02:22:05.720
+Und zwar
+
+02:22:05.720 --> 02:22:08.440
+würde ich
+
+02:22:08.440 --> 02:22:09.080
+sagen,
+
+02:22:09.940 --> 02:22:12.300
+muss ich dann hier noch
+
+02:22:12.300 --> 02:22:14.740
+was reinpacken.
+
+02:22:14.740 --> 02:22:16.360
+Und zwar, nicht
+
+02:22:16.360 --> 02:22:17.720
+call rust, sondern
+
+02:22:17.720 --> 02:22:19.520
+free str
+
+02:22:19.520 --> 02:22:21.740
+int Pointer.
+
+02:22:21.860 --> 02:22:26.380
+Äh.
+
+02:22:26.380 --> 02:22:28.420
+So, und wenn ich jetzt das MemoryLeague
+
+02:22:28.420 --> 02:22:30.500
+vermeiden will, sage
+
+02:22:30.500 --> 02:22:31.820
+ich interop
+
+02:22:31.820 --> 02:22:34.620
+free str
+
+02:22:34.620 --> 02:22:37.380
+und gebe da session
+
+02:22:37.380 --> 02:22:38.360
+meinen
+
+02:22:38.360 --> 02:22:41.520
+ne, nein, ich meine string, das
+
+02:22:41.520 --> 02:22:43.600
+funktioniert ja so jetzt nicht. Ja, okay, jetzt
+
+02:22:43.600 --> 02:22:45.440
+ergibt das den, jetzt müssen wir es nämlich wirklich
+
+02:22:45.440 --> 02:22:47.480
+selbst machen. Int Pointer,
+
+02:22:51.120 --> 02:22:52.260
+ich hab schon wieder das falsche
+
+02:22:52.260 --> 02:22:55.680
+editiert, Mann. Ich hab schon wieder die
+
+02:22:55.680 --> 02:22:56.820
+Go session editiert, ja.
+
+02:22:59.420 --> 02:23:01.020
+Int Pointer, wir benennen das
+
+02:23:01.020 --> 02:23:02.820
+übrigens mal gescheit, sonst kann ich's
+
+02:23:02.820 --> 02:23:03.900
+gar nicht mehr nicht merken.
+
+02:23:03.900 --> 02:23:06.480
+ClientName, so.
+
+02:23:06.960 --> 02:23:09.220
+Und jetzt sollte das MemoryLeague
+
+02:23:09.220 --> 02:23:10.440
+auch wieder weg sein.
+
+02:23:13.860 --> 02:23:15.280
+Ja, ja, ja, ja.
+
+02:23:16.280 --> 02:23:17.180
+Da liegt nix mehr.
+
+02:23:18.860 --> 02:23:19.580
+Ich meine, es ist
+
+02:23:19.580 --> 02:23:21.460
+offensichtlich, vorher hatten wir vier
+
+02:23:21.460 --> 02:23:23.460
+Gigabyte pro, pro zwei
+
+02:23:23.460 --> 02:23:24.700
+Sekunden und jetzt haben wir nix.
+
+02:23:26.080 --> 02:23:27.560
+Okay. DotMemory
+
+02:23:27.560 --> 02:23:29.800
+hab ich noch nie ausprobiert. Kann man DotMemory
+
+02:23:29.800 --> 02:23:31.860
+vielleicht installieren über die Toolbox?
+
+02:23:35.740 --> 02:23:36.040
+Dot.
+
+02:23:36.660 --> 02:23:38.540
+Trace haben wir. Dotnet
+
+02:23:38.540 --> 02:23:40.360
+Dotnet Performance
+
+02:23:40.360 --> 02:23:42.020
+Profiler.
+
+02:23:42.940 --> 02:23:44.020
+Geht das damit auch?
+
+02:23:45.240 --> 02:23:46.380
+Hab ich noch nie, hab ich noch nie
+
+02:23:46.380 --> 02:23:47.360
+verwendet.
+
+02:23:49.100 --> 02:23:50.560
+Zeigt der mir, zeigt der mir auch
+
+02:23:50.560 --> 02:23:51.500
+die Memory Usage?
+
+02:23:54.130 --> 02:23:55.550
+Eigentlich, ohne Scheiß,
+
+02:23:56.010 --> 02:23:58.030
+eigentlich fuckt's mich jubelst ab, dass der, dass der
+
+02:23:58.030 --> 02:23:59.430
+Rider Debugger nicht geht.
+
+02:24:02.010 --> 02:24:04.010
+Warum geht der Rider? Okay, ich hab ne Idee, woran
+
+02:24:04.010 --> 02:24:05.570
+das liegt. Wir gehen jetzt mal hier auf
+
+02:24:05.570 --> 02:24:07.350
+Build and Toolsets.
+
+02:24:08.830 --> 02:24:10.050
+Es ist automatisch, es ist,
+
+02:24:10.110 --> 02:24:12.110
+eindeutig richtig eingestellt.
+
+02:24:21.460 --> 02:24:22.540
+Kann ich das, kann ich das
+
+02:24:22.540 --> 02:24:24.120
+systemweit speichern einfach?
+
+02:24:30.620 --> 02:24:31.400
+Und jetzt funzt's?
+
+02:24:33.200 --> 02:24:34.740
+Shit. Warum benutzt
+
+02:24:34.740 --> 02:24:36.100
+der? Alter, was ist das für ein Kack?
+
+02:24:36.420 --> 02:24:38.160
+Warum benutzt der so ein olles, so ein
+
+02:24:38.160 --> 02:24:40.040
+olles outdatedes Dotnet?
+
+02:24:41.880 --> 02:24:42.720
+Versteh ich nicht.
+
+02:24:46.560 --> 02:24:47.500
+Es ist irgendein Bug.
+
+02:24:48.140 --> 02:24:49.740
+Hier ist alles richtig eingestellt.
+
+02:24:50.560 --> 02:24:51.600
+Ne, ne, der Rider
+
+02:24:51.600 --> 02:24:52.060
+benutzt
+
+02:24:52.060 --> 02:24:55.540
+die Runtime, die ich ja ausgewählt hab normalerweise.
+
+02:24:55.540 --> 02:24:57.260
+Aber anscheinend macht's das in dem Fall
+
+02:24:57.260 --> 02:24:59.260
+nicht, weil's irgendwie verbuggt ist.
+
+02:24:59.260 --> 02:25:01.140
+Was ziemlich
+
+02:25:01.140 --> 02:25:19.360
+suckt? Ich weiß es nicht.
+
+02:25:23.890 --> 02:25:25.610
+Das sind doch die richtigen Settings, oder was?
+
+02:25:25.910 --> 02:25:32.260
+Ich wüsste nicht, was hier dran...
+
+02:25:33.360 --> 02:25:34.180
+Weil die Runtime
+
+02:25:34.180 --> 02:25:39.960
+auch stimmt. Wir können hier nochmal die
+
+02:25:39.960 --> 02:25:41.080
+Runtime hinzufügen.
+
+02:25:41.680 --> 02:25:43.640
+MaxHome.net
+
+02:25:43.640 --> 02:25:48.100
+Dotnet.
+
+02:25:49.060 --> 02:25:50.540
+Custom. So, Apply.
+
+02:25:55.210 --> 02:25:56.090
+Ah, jetzt geht's!
+
+02:26:00.850 --> 02:26:06.700
+Jetzt geht's. Glaub ich zumindest.
+
+02:26:07.280 --> 02:26:08.340
+Oder? Ja.
+
+02:26:09.200 --> 02:26:09.600
+Memory.
+
+02:26:09.600 --> 02:26:09.680
+Memory.
+
+02:26:14.020 --> 02:26:15.460
+Nicht so was? Chatgear.
+
+02:26:15.880 --> 02:26:18.080
+Ich benutze den Debugger in Rider sehr selten.
+
+02:26:19.500 --> 02:26:20.060
+Haben die nicht so
+
+02:26:20.060 --> 02:26:21.940
+eine Anzeige wie in Visual Studio Code, wo man
+
+02:26:21.940 --> 02:26:23.880
+einfach sehen kann, live, was das für
+
+02:26:23.880 --> 02:26:32.410
+Memory verwendet? Anscheinend
+
+02:26:32.410 --> 02:26:40.080
+nicht, oder? Ja, stimmt auch wieder.
+
+02:26:44.860 --> 02:26:45.820
+Aber es war blöd, dass das nicht
+
+02:26:45.820 --> 02:26:48.040
+eingebaut ist, oder? Das ist dann tatsächlich
+
+02:26:48.040 --> 02:26:49.560
+eine Sache, wo ich sagen würde,
+
+02:26:51.780 --> 02:26:53.260
+da ist Visual Studio Code
+
+02:26:53.260 --> 02:26:55.180
+angenehmer. Äh, nicht Visual Studio Code,
+
+02:26:55.280 --> 02:26:56.580
+Visual Studio angenehmer.
+
+02:27:02.600 --> 02:27:08.550
+Auf die drei Dots bei Debuggen.
+
+02:27:08.550 --> 02:27:09.690
+Um eins hier, oder wo?
+
+02:27:10.190 --> 02:27:14.660
+Da, da. Profile with Sampling.
+
+02:27:14.660 --> 02:27:22.190
+Ah.
+
+02:27:22.190 --> 02:27:27.040
+Excellent.
+
+02:27:27.040 --> 02:27:29.040
+So, und wo sehe ich jetzt den,
+
+02:27:29.040 --> 02:27:31.040
+den RAM-Verbrauch? Erst, wenn ich's
+
+02:27:31.040 --> 02:27:33.040
+wieder geschlossen hab, oder
+
+02:27:33.040 --> 02:27:44.740
+sehe ich das live?
+
+02:27:44.740 --> 02:27:46.740
+Da gibt's noch eins für Memory. Echt?
+
+02:27:46.740 --> 02:28:01.280
+Snapshot?
+
+02:28:01.280 --> 02:28:03.280
+Ey, das ist aber nicht die Memory-Size, oder?
+
+02:28:03.280 --> 02:28:11.900
+Boah, da blick ich nicht durch. Das ist mir
+
+02:28:11.900 --> 02:28:15.470
+zu high IQ jetzt.
+
+02:28:15.470 --> 02:28:17.470
+Das ist mir massified.
+
+02:28:17.470 --> 02:28:22.190
+Zu high IQ. Was ist jetzt
+
+02:28:22.190 --> 02:28:28.600
+CPU? Ja, ich hätte gerne Memory.
+
+02:28:28.640 --> 02:28:30.640
+Das massified IQ Zeug hier.
+
+02:28:30.640 --> 02:28:34.340
+Hier stoppen wir mal.
+
+02:28:34.340 --> 02:28:39.180
+Profile with? Profile running
+
+02:28:39.180 --> 02:28:41.180
+Process? Profile...
+
+02:28:41.180 --> 02:28:43.180
+Sampling? Memory!
+
+02:28:43.180 --> 02:28:56.100
+Ja, sowas
+
+02:28:56.100 --> 02:28:58.100
+suche ich. Genau.
+
+02:28:58.100 --> 02:29:00.100
+Excellent.
+
+02:29:00.100 --> 02:29:02.100
+Genau das habe ich gesucht.
+
+02:29:02.100 --> 02:29:06.430
+Dass man sieht, wie viel Speicher
+
+02:29:06.430 --> 02:29:08.430
+das Ding verbraucht. Man sieht,
+
+02:29:08.430 --> 02:29:10.430
+wir haben absolut null
+
+02:29:10.430 --> 02:29:12.430
+Memory-Leaks. Gar nix.
+
+02:29:12.430 --> 02:29:18.240
+Null Memory-Leaks.
+
+02:29:18.240 --> 02:29:20.240
+Das ist einfach die ganze Zeit
+
+02:29:20.240 --> 02:29:22.240
+immer auf 43,59.
+
+02:29:22.240 --> 02:29:24.240
+So, wir
+
+02:29:24.240 --> 02:29:26.240
+können das Ganze nochmal
+
+02:29:26.240 --> 02:29:29.550
+checken, indem wir
+
+02:29:29.550 --> 02:29:31.550
+sagen...
+
+02:29:31.550 --> 02:29:33.550
+Wir lassen das Free mal weg, aber
+
+02:29:33.550 --> 02:29:35.550
+wir machen...
+
+02:29:35.550 --> 02:29:37.550
+Wir machen mal nen Sleep kurz rein
+
+02:29:37.550 --> 02:29:39.550
+von
+
+02:29:39.550 --> 02:29:41.550
+einer Millisekunde,
+
+02:29:41.550 --> 02:29:43.550
+dass es...
+
+02:29:43.550 --> 02:29:45.550
+Jetzt hatten wir's mehrfach gelaufen.
+
+02:29:45.550 --> 02:29:48.990
+Dass es nicht sich komplett in die
+
+02:29:48.990 --> 02:29:50.990
+in die Quere kommt,
+
+02:29:50.990 --> 02:29:52.990
+ja. So, und jetzt sagen wir
+
+02:29:52.990 --> 02:29:54.990
+Profile with Memory.
+
+02:30:05.920 --> 02:30:07.920
+Ich hätte jetzt eigentlich erwartet...
+
+02:30:07.920 --> 02:30:16.350
+Ich hätte jetzt eigentlich erwartet, dass
+
+02:30:16.350 --> 02:30:21.460
+das irgendwie...
+
+02:30:21.460 --> 02:30:26.110
+Es geht hoch! Ja, es geht hoch.
+
+02:30:26.110 --> 02:30:28.110
+Guckt, Leute. Es geht hoch.
+
+02:30:28.110 --> 02:30:30.110
+Langsam, weil ne Millisekunde
+
+02:30:30.110 --> 02:30:32.110
+Sleep dazwischen... Und ne Millisekunde
+
+02:30:32.110 --> 02:30:34.110
+ist verdammt viel, wenn der Millionen
+
+02:30:34.110 --> 02:30:36.110
+Aufrufe pro Sekunde macht normalerweise.
+
+02:30:36.110 --> 02:30:38.110
+Ja. Jetzt sieht man,
+
+02:30:38.110 --> 02:30:40.110
+dass ein Memory-Leak drin ist. Guckt, es geht immer ein bisschen.
+
+02:30:40.110 --> 02:30:47.260
+weiter hoch. Nice, nice.
+
+02:30:47.260 --> 02:30:49.260
+Okay, heute... Das ist
+
+02:30:49.260 --> 02:30:51.260
+wirklich nice, dass ihr
+
+02:30:51.260 --> 02:30:53.260
+wusstet, wo das ist, weil...
+
+02:30:53.260 --> 02:30:55.260
+Ähm...
+
+02:30:55.260 --> 02:30:57.260
+Wir können aber sagen, Timespan
+
+02:30:57.260 --> 02:30:59.260
+from
+
+02:30:59.260 --> 02:31:01.260
+Microseconds
+
+02:31:01.260 --> 02:31:03.260
+Jede Microsekunde
+
+02:31:03.260 --> 02:31:08.240
+einfach... Bam.
+
+02:31:08.240 --> 02:31:14.180
+Profile Memory. Oh ja,
+
+02:31:14.180 --> 02:31:16.180
+guckt, Leute. Jetzt geht's
+
+02:31:16.180 --> 02:31:18.180
+steil. Jetzt geht's steil.
+
+02:31:18.180 --> 02:31:20.180
+Die Speichern aus Gigabyte.
+
+02:31:20.180 --> 02:31:22.180
+1,2 Gigabyte.
+
+02:31:22.180 --> 02:31:24.180
+1,4, 1,6, 1,7.
+
+02:31:24.180 --> 02:31:26.180
+Ja, jetzt wird Memory-Leaked as fuck.
+
+02:31:26.180 --> 02:31:32.240
+Jetzt hat man's...
+
+02:31:32.240 --> 02:31:34.240
+Jetzt hat man's wirklich gut gesehen.
+
+02:31:34.240 --> 02:31:36.240
+So, und jetzt machen wir das free rein.
+
+02:31:36.240 --> 02:31:38.240
+Jetzt machen wir das free rein. Aber Chat,
+
+02:31:38.240 --> 02:31:40.240
+da habt ihr mal was Gutes gezeigt.
+
+02:31:40.240 --> 02:31:42.240
+Das wusste ich gar nicht, dass es das gibt.
+
+02:31:42.240 --> 02:31:44.240
+Das ist mega praktisch dafür.
+
+02:31:44.240 --> 02:31:47.810
+Rider ist einfach echt beste.
+
+02:31:47.810 --> 02:31:53.870
+So, guckt. Und jetzt
+
+02:31:53.870 --> 02:31:55.870
+kein Memory-Leak mehr. Es bleibt einfach mal
+
+02:31:55.870 --> 02:31:57.870
+44 MB Memory total used.
+
+02:31:57.870 --> 02:32:04.960
+Excellent, Leute.
+
+02:32:04.960 --> 02:32:06.960
+Excellent, excellent.
+
+02:32:06.960 --> 02:32:08.960
+Okay.
+
+02:32:08.960 --> 02:32:10.960
+So, und was lernen wir daraus?
+
+02:32:10.960 --> 02:32:12.960
+Okay, wir machen jetzt nochmal einen abschließenden...
+
+02:32:12.960 --> 02:32:14.960
+Wie kriege ich denn das hier minimiert?
+
+02:32:14.960 --> 02:32:19.100
+So, jetzt machen wir nochmal einen abschließenden Vergleich zu diesem ganzen Cample.
+
+02:32:19.100 --> 02:32:21.100
+Wir schmeißen das hier raus.
+
+02:32:21.100 --> 02:32:27.550
+Wir sagen...
+
+02:32:27.550 --> 02:32:29.550
+Das da wird einmal aufgerufen.
+
+02:32:29.550 --> 02:32:33.440
+Dann wird
+
+02:32:33.440 --> 02:32:35.440
+interop
+
+02:32:35.440 --> 02:32:37.440
+call
+
+02:32:37.440 --> 02:32:39.440
+rust einmal aufgerufen.
+
+02:32:39.440 --> 02:32:41.440
+interop call
+
+02:32:41.440 --> 02:32:45.140
+rust 2
+
+02:32:45.140 --> 02:32:49.470
+und
+
+02:32:49.470 --> 02:32:51.470
+call go. So, jetzt lassen wir uns einmal noch
+
+02:32:51.470 --> 02:32:53.470
+Benchmark-Ergebnisse generaten.
+
+02:32:55.470 --> 02:32:59.420
+Zum Vergleich.
+
+02:32:59.420 --> 02:33:01.420
+Das kommt weg. Also, den .NET
+
+02:33:01.420 --> 02:33:03.420
+Vergleich, den machen wir mal wieder raus. Den braucht
+
+02:33:03.420 --> 02:33:05.420
+eigentlich niemand an der Stelle. Wir wissen,
+
+02:33:05.420 --> 02:33:07.420
+dass .NET schnell ist. Von .NET
+
+02:33:07.420 --> 02:33:09.420
+zu .NET. Ja, also hier run.
+
+02:33:09.420 --> 02:33:11.420
+Gucken wir uns das nochmal abschließend
+
+02:33:11.420 --> 02:33:13.420
+an. Go 2.
+
+02:33:13.420 --> 02:33:15.420
+Und
+
+02:33:15.420 --> 02:33:19.700
+run rust
+
+02:33:19.700 --> 02:33:21.700
+rust 2. Wobei
+
+02:33:21.700 --> 02:33:23.700
+da tatsächlich
+
+02:33:23.700 --> 02:33:25.700
+noch einen free machen müssen.
+
+02:33:25.700 --> 02:33:27.700
+Der in go unter der Haube passiert.
+
+02:33:27.700 --> 02:33:29.700
+Aber das ist ja nicht
+
+02:33:29.700 --> 02:33:34.540
+schlimm. So.
+
+02:33:34.540 --> 02:33:36.540
+Und jetzt können wir nochmal den Benchmark laufen
+
+02:33:36.540 --> 02:33:38.540
+lassen. Und uns
+
+02:33:38.540 --> 02:33:40.540
+freuen, dass wir eine tolle Benchmark-
+
+02:33:40.540 --> 02:33:55.120
+Ausgabe kriegen.
+
+02:33:55.120 --> 02:33:57.120
+Glaube ich zumindest, dass ich nichts falsch
+
+02:33:57.120 --> 02:34:02.740
+gemacht habe. Oh, doch.
+
+02:34:02.740 --> 02:34:04.740
+Run, run
+
+02:34:04.740 --> 02:34:06.740
+rust.
+
+02:34:06.740 --> 02:34:08.740
+Fehlt noch das normale
+
+02:34:08.740 --> 02:34:10.740
+Call, rust.
+
+02:34:10.740 --> 02:34:15.840
+So. Okay.
+
+02:34:15.840 --> 02:34:17.840
+Wenn man jetzt noch richtig schreiben könnte, wäre perfekt.
+
+02:34:17.840 --> 02:34:25.890
+Gibt es überhaupt go 2, ja?
+
+02:34:25.890 --> 02:34:27.890
+Gibt es? Go 2 macht
+
+02:34:27.890 --> 02:34:29.890
+das mit dem struct.
+
+02:34:29.890 --> 02:34:31.890
+So. Ich bin mal gespannt.
+
+02:34:31.890 --> 02:34:33.890
+Absoluter high-IQ-Stream, Leute.
+
+02:34:33.890 --> 02:34:35.890
+Ja, stimmt schon. Übrigens schön, dass so
+
+02:34:35.890 --> 02:34:37.890
+viele Leute wieder am Start sind. Ich meine,
+
+02:34:37.890 --> 02:34:39.890
+das ist ja nicht selbstverständlich, dass
+
+02:34:39.890 --> 02:34:41.890
+quasi die ganze Zeit über 200
+
+02:34:41.890 --> 02:34:43.890
+Leute zugucken bei so einem Kram
+
+02:34:43.890 --> 02:34:50.530
+hier, ja. Muss man beim
+
+02:34:50.530 --> 02:34:52.530
+struct in rust nicht auch die
+
+02:34:52.530 --> 02:34:54.530
+Namen anpassen? Oder hattest du das schon
+
+02:34:54.530 --> 02:34:56.530
+gemacht?
+
+02:34:56.530 --> 02:34:58.530
+Nee, warum brauche ich die Namen anpassen?
+
+02:34:58.530 --> 02:35:00.530
+Was meinst du? Du meinst, weil das in
+
+02:35:00.530 --> 02:35:02.530
+C-Sharp heißt
+
+02:35:02.530 --> 02:35:04.530
+session rust und session go?
+
+02:35:04.530 --> 02:35:06.530
+Das ist wurscht.
+
+02:35:06.530 --> 02:35:08.530
+Wichtig ist einfach
+
+02:35:08.530 --> 02:35:10.530
+nur, dass die, das Speicherlayout
+
+02:35:10.530 --> 02:35:12.530
+das gleiche ist. Ich könnte es auch
+
+02:35:12.530 --> 02:35:14.530
+kequate, qchat,
+
+02:35:14.530 --> 02:35:16.530
+ayaya nennen, das struct.
+
+02:35:16.530 --> 02:35:18.530
+Vollkommen egal, wie das in C-Sharp heißt.
+
+02:35:18.530 --> 02:35:20.530
+Client ID ist der Name
+
+02:35:20.530 --> 02:35:22.530
+auch egal. Der Typ ist das wichtige.
+
+02:35:22.530 --> 02:35:24.530
+Also Hauptsache, dass das
+
+02:35:24.530 --> 02:35:26.530
+struct das richtige Memory
+
+02:35:26.530 --> 02:35:28.530
+Also, dass es in Rust A und B heißt, ist
+
+02:35:28.530 --> 02:35:30.530
+vollkommen egal.
+
+02:35:30.530 --> 02:35:32.530
+Wichtig ist, dass es ein struct ist,
+
+02:35:32.530 --> 02:35:34.530
+dass als erstes ein bool kommt, als zweites
+
+02:35:34.530 --> 02:35:36.530
+ein int, als drittes ein string oder sowas.
+
+02:35:36.530 --> 02:35:38.530
+Das muss stimmen in beiden Sprachen.
+
+02:35:38.530 --> 02:35:40.530
+Wie das heißt, ist vollkommen egal.
+
+02:35:40.530 --> 02:35:42.530
+Weil
+
+02:35:42.530 --> 02:35:44.530
+die Namen stehen da nirgendswo drinnen.
+
+02:35:44.530 --> 02:35:46.530
+Was der sich einfach merkt, ist
+
+02:35:46.530 --> 02:35:48.530
+die size von dem struct
+
+02:35:48.530 --> 02:35:50.530
+und wie er das dann quasi
+
+02:35:50.530 --> 02:35:52.530
+casten muss in den eigentlichen
+
+02:35:52.530 --> 02:35:54.530
+Managetyp
+
+02:35:54.530 --> 02:35:56.530
+von der Speicheraufteilung her.
+
+02:35:56.530 --> 02:36:03.870
+Ja, ich mag die Streams auch.
+
+02:36:03.870 --> 02:36:05.870
+Ich meine, ich kann natürlich nicht immer
+
+02:36:05.870 --> 02:36:07.870
+so Sachen aus dem Ärmel schütteln.
+
+02:36:07.870 --> 02:36:09.870
+Immer nur, wenn was ansteht.
+
+02:36:11.870 --> 02:36:13.870
+Ich bin mal gespannt, was bei den Benchmarks rauskommt.
+
+02:36:13.870 --> 02:36:15.870
+Wobei, eigentlich bin ich nicht gespannt.
+
+02:36:15.870 --> 02:36:17.870
+Wir wissen alle, was rauskommt.
+
+02:36:17.870 --> 02:36:19.870
+Rust schneller.
+
+02:36:19.870 --> 02:36:21.870
+Um Längen schneller.
+
+02:36:21.870 --> 02:36:23.870
+Guckt mal.
+
+02:36:23.870 --> 02:36:25.870
+Die Funktion, hier,
+
+02:36:25.870 --> 02:36:27.870
+die pure Rust Funktion aufrufen
+
+02:36:27.870 --> 02:36:29.870
+ist einfach
+
+02:36:29.870 --> 02:36:31.870
+124 Nanosekunden zu
+
+02:36:31.870 --> 02:36:33.870
+8,5 Mikrosekunden.
+
+02:36:33.870 --> 02:36:35.870
+Und
+
+02:36:35.870 --> 02:36:37.870
+hier ist, Go braucht
+
+02:36:37.870 --> 02:36:39.870
+für die Geschichten mit dem struct
+
+02:36:39.870 --> 02:36:41.870
+18 Nanosekunden
+
+02:36:41.870 --> 02:36:43.870
+18.000 Nanosekunden
+
+02:36:43.870 --> 02:36:45.870
+Ne, ne Moment.
+
+02:36:45.870 --> 02:36:47.870
+18.000 Nanosekunden, also 18
+
+02:36:47.870 --> 02:36:49.870
+Millisekunden, sehe ich das richtig?
+
+02:36:49.870 --> 02:36:51.870
+Chat? Ne, Mikrosekunden.
+
+02:36:51.870 --> 02:36:53.870
+Mikrosekunden, nicht Millisekunden. Meine Güte!
+
+02:36:53.870 --> 02:36:55.870
+Boah!
+
+02:36:55.870 --> 02:36:57.870
+Einheiten!
+
+02:36:57.870 --> 02:36:59.870
+18 Mikrosekunden und
+
+02:36:59.870 --> 02:37:01.870
+Rust braucht einfach nur 2.
+
+02:37:01.870 --> 02:37:06.020
+Ist schon ne ganze Ecke
+
+02:37:06.020 --> 02:37:15.920
+schneller. Und hier
+
+02:37:15.920 --> 02:37:17.920
+haben wir, und das dürfen wir nicht vergessen,
+
+02:37:17.920 --> 02:37:19.920
+hier haben wir 2 Calls
+
+02:37:19.920 --> 02:37:23.360
+drinne.
+
+02:37:23.360 --> 02:37:25.360
+Wir haben, und es sind trotzdem
+
+02:37:25.360 --> 02:37:27.360
+schneller, wir haben 2 Calls.
+
+02:37:27.360 --> 02:37:29.360
+Wir haben den
+
+02:37:29.360 --> 02:37:31.360
+eigentlichen Call zum
+
+02:37:31.360 --> 02:37:33.360
+struct erzeugen und
+
+02:37:33.360 --> 02:37:35.360
+wir haben den Call zum Free noch
+
+02:37:35.360 --> 02:37:42.320
+drinne.
+
+02:37:42.320 --> 02:37:44.320
+Nimm mal String als Type und nicht Pointer, lass ihn Free
+
+02:37:44.320 --> 02:37:46.320
+Callen, sollt schneller sein. Ne.
+
+02:37:46.320 --> 02:37:48.320
+Also ja, vielleicht
+
+02:37:48.320 --> 02:37:50.320
+ist das ein Ticken schneller,
+
+02:37:50.320 --> 02:37:52.320
+weil .NET das Free macht und nicht
+
+02:37:52.320 --> 02:37:54.320
+Rust gecallt wird, aber
+
+02:37:54.320 --> 02:37:56.320
+die Rust Docs sagen
+
+02:37:56.320 --> 02:37:58.320
+explizit, man soll nicht
+
+02:37:58.320 --> 02:38:00.320
+Free Callen, sondern soll das
+
+02:38:00.320 --> 02:38:02.320
+zurück an Rust geben und Rust soll es
+
+02:38:02.320 --> 02:38:04.320
+Freeen.
+
+02:38:04.320 --> 02:38:06.320
+Sonst Memory Leak.
+
+02:38:06.320 --> 02:38:08.320
+Es ist, also du hast Recht, das ist schnell, aber wir
+
+02:38:08.320 --> 02:38:10.320
+können das ausprobieren.
+
+02:38:10.320 --> 02:38:12.320
+Schade nix, wir können das ausprobieren.
+
+02:38:12.320 --> 02:38:14.320
+Ich lass das, ich lass das mal weg.
+
+02:38:14.320 --> 02:38:16.320
+Und wir ändern den hier zu String.
+
+02:38:16.320 --> 02:38:18.320
+Wir haben ja gesehen, wir haben auch nahezu kein Memory Leak
+
+02:38:18.320 --> 02:38:20.320
+und führen das ganze nochmal.
+
+02:38:20.320 --> 02:38:26.000
+Ja.
+
+02:38:26.000 --> 02:38:28.000
+Jetzt sollte er schneller sein, aber wir haben
+
+02:38:28.000 --> 02:38:30.000
+potenziell ein Memory Leak. Zumindest
+
+02:38:30.000 --> 02:38:32.000
+sagen die Rusts,
+
+02:38:32.000 --> 02:38:34.000
+sagt die Rust Doku das, dass
+
+02:38:34.000 --> 02:38:36.000
+wir dann einen Memory Leak haben.
+
+02:38:36.000 --> 02:38:38.000
+Wenn wir das nicht so machen.
+
+02:38:38.000 --> 02:38:45.340
+Also Arduino
+
+02:38:45.340 --> 02:38:47.340
+plus Rust habe ich noch nie gemacht.
+
+02:38:47.340 --> 02:38:49.340
+Ich bin eher der
+
+02:38:49.340 --> 02:38:51.340
+ESP32 Enjoyer
+
+02:38:51.340 --> 02:38:53.340
+und da ist Rust ja auch
+
+02:38:53.340 --> 02:38:55.340
+nur, sagen wir mal so, sehr rudimentär.
+
+02:38:55.340 --> 02:38:57.340
+Vieles geht ja dem Rust noch nicht. Ich glaube Rust und
+
+02:38:57.340 --> 02:38:59.340
+Wifi geht glaube ich auch noch nicht
+
+02:38:59.340 --> 02:39:01.340
+auf dem ESP32.
+
+02:39:01.340 --> 02:39:10.610
+Genau, das
+
+02:39:10.610 --> 02:39:12.610
+genau deshalb denke ich auch.
+
+02:39:12.610 --> 02:39:14.610
+Es kann ja auch möglich sein,
+
+02:39:14.610 --> 02:39:16.610
+dass Rust nicht einfach
+
+02:39:16.610 --> 02:39:18.610
+das Memory
+
+02:39:18.610 --> 02:39:20.610
+allocated über
+
+02:39:20.610 --> 02:39:22.610
+das normale C Maloc,
+
+02:39:22.610 --> 02:39:24.610
+sondern irgendwas eigenes macht.
+
+02:39:24.610 --> 02:39:26.610
+Da bringt ja normales C Free an der Stelle
+
+02:39:26.610 --> 02:39:28.610
+ja auch wenig, wenn da noch Sachen
+
+02:39:28.610 --> 02:39:30.610
+nestet, irgendwie anderweitig allockiert sind,
+
+02:39:30.610 --> 02:39:32.610
+von denen nur Rust was weiß.
+
+02:39:32.610 --> 02:39:34.610
+Also das ergibt schon Sinn.
+
+02:39:34.610 --> 02:39:36.610
+Und dass das auch ein Memory Leak hat,
+
+02:39:36.610 --> 02:39:38.610
+gehe ich auch von aus, aber es dürften
+
+02:39:38.610 --> 02:40:00.540
+wahrscheinlich nur ein paar Bytes sein.
+
+02:40:00.540 --> 02:40:02.540
+Über Unsafe sollte WLAN gehen.
+
+02:40:02.540 --> 02:40:04.540
+Sofern man die
+
+02:40:04.540 --> 02:40:06.540
+eingebauten
+
+02:40:06.540 --> 02:40:08.540
+ESP C Sachen aufrufen kann
+
+02:40:08.540 --> 02:40:10.540
+aus Rust, dann vielleicht, ja.
+
+02:40:10.540 --> 02:40:17.380
+Aber ehrlich gesagt muss ich sagen,
+
+02:40:17.380 --> 02:40:19.380
+Plattform IO
+
+02:40:19.380 --> 02:40:21.380
+und auch wenn da unter der Haube
+
+02:40:21.380 --> 02:40:23.380
+C++ für ein ESP32 ist, ist
+
+02:40:23.380 --> 02:40:32.770
+recht angenehm.
+
+02:40:32.770 --> 02:40:34.770
+Ich glaube ehrlich gesagt, dass in dem Fall C++
+
+02:40:34.770 --> 02:40:36.770
+und ich sag's nur ungern, ja,
+
+02:40:36.770 --> 02:40:38.770
+aber C++ für solche Sachen angenehmer ist.
+
+02:40:38.770 --> 02:40:40.770
+Rust plus Arduino, gibt's
+
+02:40:40.770 --> 02:40:42.770
+da denn ein gutes Projekt für?
+
+02:40:42.770 --> 02:40:44.770
+Wir hatten das geschrieben.
+
+02:40:44.770 --> 02:40:46.770
+Gibt's da ein gutes Projekt für?
+
+02:40:46.770 --> 02:40:48.770
+Kannst mal schicken, vielleicht können wir uns das wirklich angucken.
+
+02:40:48.770 --> 02:40:50.770
+So.
+
+02:40:50.770 --> 02:40:55.100
+Leute, ich weiß nicht
+
+02:40:55.100 --> 02:40:57.100
+warum, aber das Ganze ist jetzt langsamer geworden.
+
+02:40:57.100 --> 02:41:04.770
+Wenn wir C Sharp
+
+02:41:04.770 --> 02:41:12.660
+freeen lassen. Okay?
+
+02:41:12.660 --> 02:41:14.660
+Also es ist schneller,
+
+02:41:14.660 --> 02:41:16.660
+es ist schneller Rust freeen zu lassen
+
+02:41:16.660 --> 02:41:18.660
+als, als
+
+02:41:18.660 --> 02:41:20.660
+C Sharp freeen zu lassen.
+
+02:41:20.660 --> 02:41:26.910
+Okay.
+
+02:41:26.910 --> 02:41:30.220
+Ah ja.
+
+02:41:30.220 --> 02:41:32.220
+Meinetwegen, soll mir recht sein.
+
+02:41:32.220 --> 02:41:39.180
+Okay. Der Benchmark
+
+02:41:39.180 --> 02:41:41.180
+hier unten ist aber für meine Sachen
+
+02:41:41.180 --> 02:41:43.180
+eh nicht sonderlich relevant,
+
+02:41:43.180 --> 02:41:45.180
+weil die Funktion, die ich wirklich schnell
+
+02:41:45.180 --> 02:41:47.180
+in der Schleife aufrufe, ist nicht
+
+02:41:47.180 --> 02:41:49.180
+was Strings oder so returnt,
+
+02:41:49.180 --> 02:41:51.180
+sondern das returnt gar nichts.
+
+02:41:51.180 --> 02:41:53.180
+Bekommt einfach nur einen
+
+02:41:53.180 --> 02:41:55.180
+Pointer als Parameter übergeben,
+
+02:41:55.180 --> 02:41:58.940
+den es auch nicht selbst freeen muss.
+
+02:41:58.940 --> 02:42:00.940
+Also insofern ist das hier
+
+02:42:00.940 --> 02:42:02.940
+eigentlich für mich der relevantere
+
+02:42:02.940 --> 02:42:04.940
+Benchmark. Und da ist Rust
+
+02:42:04.940 --> 02:42:06.940
+meilenweit schneller. .NET ist noch
+
+02:42:06.940 --> 02:42:08.940
+einen Ticken schneller, also .NET zu
+
+02:42:08.940 --> 02:42:10.940
+.NET ist logischerweise schneller als .NET
+
+02:42:10.940 --> 02:42:12.940
+zu Rust, aber Rust ist um
+
+02:42:12.940 --> 02:42:14.940
+Welten schneller als Go.
+
+02:42:14.940 --> 02:42:16.940
+Überrascht mich
+
+02:42:16.940 --> 02:42:18.940
+aber auch nicht, weil ich wusste, dass C Go
+
+02:42:18.940 --> 02:42:20.940
+langsam ist und ich wollte einfach mal gucken,
+
+02:42:20.940 --> 02:42:22.940
+ob es
+
+02:42:22.940 --> 02:42:24.940
+mittlerweile besser geworden ist.
+
+02:42:24.940 --> 02:42:26.940
+Ich würde sagen, es ist besser geworden, aber
+
+02:42:26.940 --> 02:42:28.940
+es ist immer noch ziemlich lahm,
+
+02:42:28.940 --> 02:42:30.940
+wenn man millionenfach das aufruft.
+
+02:42:30.940 --> 02:42:32.940
+Wenn man das jetzt einfach nur ein paar tausend Mal
+
+02:42:32.940 --> 02:42:34.940
+aufruft oder so, pff, drauf geschissen,
+
+02:42:34.940 --> 02:42:36.940
+dann macht es ein bisschen Overhead auch nicht aus.
+
+02:42:38.940 --> 02:42:40.940
+Aber wenn man das millionenfach pro Sekunde aufruft,
+
+02:42:40.940 --> 02:42:42.940
+dann macht es schon einiges aus.
+
+02:42:42.940 --> 02:42:44.940
+Was ich übrigens auch nicht machen werde.
+
+02:42:44.940 --> 02:42:46.940
+Also.
+
+02:42:46.940 --> 02:42:48.940
+Jetzt könnte ich auch einfach
+
+02:42:48.940 --> 02:42:50.940
+die Go Library verwenden.
+
+02:42:50.940 --> 02:42:52.940
+Aber warum? Ich meine,
+
+02:42:52.940 --> 02:42:54.940
+wir können, das machen wir dann in einem
+
+02:42:54.940 --> 02:42:56.940
+der nächsten Streams, da machen wir dann
+
+02:42:56.940 --> 02:42:58.940
+WebRTC in Rust.
+
+02:42:58.940 --> 02:43:03.920
+Sind auch Aufrufe von
+
+02:43:03.920 --> 02:43:05.920
+Go nach C langsam?
+
+02:43:05.920 --> 02:43:09.300
+Ja, ja, auch.
+
+02:43:09.300 --> 02:43:11.300
+Theoretisch sind die einen Ticken schneller.
+
+02:43:11.300 --> 02:43:13.300
+Also früher war es so, Aufrufe von
+
+02:43:13.300 --> 02:43:15.300
+Go nach C waren langsam.
+
+02:43:15.300 --> 02:43:17.300
+Also auch
+
+02:43:17.300 --> 02:43:19.300
+langsamer als von anderen Sprachen.
+
+02:43:19.300 --> 02:43:21.300
+Von anderer Sprache nach C.
+
+02:43:21.300 --> 02:43:23.300
+Aber
+
+02:43:23.300 --> 02:43:25.300
+in Go rein callen
+
+02:43:25.300 --> 02:43:27.300
+von C aus, war noch mal
+
+02:43:27.300 --> 02:43:29.300
+eine Ecke langsamer.
+
+02:43:29.300 --> 02:43:31.300
+Mittlerweile, mittlerweile ist es glaube ich
+
+02:43:31.300 --> 02:43:33.300
+ungefähr gleich langsam.
+
+02:43:33.300 --> 02:43:35.300
+Aber das ist auch langsam.
+
+02:43:35.300 --> 02:43:37.300
+Es ist vielleicht nicht ganz so langsam
+
+02:43:37.300 --> 02:43:39.300
+wie von anderer Sprache zu Go.
+
+02:43:39.300 --> 02:43:41.300
+Aber auch langsam.
+
+02:43:41.300 --> 02:43:43.300
+Go hat mit,
+
+02:43:43.300 --> 02:43:45.300
+mit den langsamsten Interop
+
+02:43:45.300 --> 02:43:47.300
+mit anderen Sprachen
+
+02:43:47.300 --> 02:43:49.300
+von allen Programmiersprachen, die es gibt.
+
+02:43:49.300 --> 02:43:51.300
+Go an sich ist relativ flott.
+
+02:43:51.300 --> 02:43:53.300
+Aber sobald du quasi aus
+
+02:43:53.300 --> 02:43:55.300
+Go raus musst oder rein musst
+
+02:43:55.300 --> 02:43:57.300
+in Go von anderen Sprachen,
+
+02:43:57.300 --> 02:43:59.300
+was ja alles immer über irgendein C-Interface
+
+02:43:59.300 --> 02:44:01.300
+geht, da ist Go richtig langsam.
+
+02:44:01.300 --> 02:44:03.300
+Was auch ein Problem ist,
+
+02:44:03.300 --> 02:44:05.300
+weil die ganzen
+
+02:44:05.300 --> 02:44:07.300
+Wrapper-Libraries für SQLite
+
+02:44:07.300 --> 02:44:09.300
+oder für irgendwelche anderen
+
+02:44:09.300 --> 02:44:11.300
+Low-Level-Sachen, die sind
+
+02:44:11.300 --> 02:44:13.300
+potenziell in Go einfach arschlangsam.
+
+02:44:13.300 --> 02:44:15.300
+Weil
+
+02:44:15.300 --> 02:44:17.300
+C-Go langsam ist.
+
+02:44:17.300 --> 02:44:19.300
+Also wenn man ordentlich Load drauf hat.
+
+02:44:19.300 --> 02:44:23.500
+Deswegen gibt es beispielsweise
+
+02:44:23.500 --> 02:44:25.500
+für SQLite
+
+02:44:25.500 --> 02:44:27.500
+ein Projekt, das SQLite
+
+02:44:27.500 --> 02:44:29.500
+transpilt
+
+02:44:29.500 --> 02:44:31.500
+nach Go,
+
+02:44:31.500 --> 02:44:33.500
+damit es native Go
+
+02:44:33.500 --> 02:44:35.500
+kompiliert werden kann und nicht
+
+02:44:35.500 --> 02:44:37.500
+mit C-Function-Calls.
+
+02:44:37.500 --> 02:44:39.500
+Weil SQLite unter
+
+02:44:39.500 --> 02:44:41.500
+ordentlich Last wohl
+
+02:44:41.500 --> 02:44:43.500
+eine nicht zu unterschätzende
+
+02:44:43.500 --> 02:44:45.500
+Overhead hat, weil es sehr viele
+
+02:44:45.500 --> 02:44:47.500
+C-Calls macht in Go.
+
+02:44:47.500 --> 02:44:49.500
+Weil SQLite halt eine C-Library ist.
+
+02:44:49.500 --> 02:44:51.500
+Ja.
+
+02:44:51.500 --> 02:44:53.500
+Also macht Probleme.
+
+02:44:53.500 --> 02:44:55.500
+Go ist schnell, solange man sich
+
+02:44:55.500 --> 02:45:05.980
+innerhalb von Go bewegt.
+
+02:45:05.980 --> 02:45:07.980
+Und gibt es noch ein paar Examples?
+
+02:45:07.980 --> 02:45:18.020
+Examples?
+
+02:45:18.020 --> 02:45:21.330
+Plattform-IO. Nice.
+
+02:45:21.330 --> 02:45:23.330
+Haben die das jetzt offiziell in
+
+02:45:23.330 --> 02:45:25.330
+Plattform-IO drinne?
+
+02:45:25.330 --> 02:45:27.330
+Ne, das ist das ganz normale
+
+02:45:27.330 --> 02:45:35.410
+ESP-IDF.
+
+02:45:35.410 --> 02:45:39.100
+Source. Main-AS.
+
+02:45:39.100 --> 02:45:41.100
+Ok, ja, da haben sie Wrapper um Sachen
+
+02:45:41.100 --> 02:45:43.100
+gebaut. Ok. Ja, also anscheinend
+
+02:45:43.100 --> 02:45:48.460
+kann man...
+
+02:45:48.460 --> 02:45:50.460
+Also anscheinend kann man auch
+
+02:45:50.460 --> 02:45:52.460
+das programmieren. Aber ganz im Ernst, das
+
+02:45:52.460 --> 02:46:05.310
+tu ich mir dann an.
+
+02:46:05.310 --> 02:46:07.310
+Ja. Nice Chat.
+
+02:46:07.310 --> 02:46:09.310
+Fast 3 Stunden. Heute ganz schön lang
+
+02:46:09.310 --> 02:46:11.310
+gestreamt worden. Morgen 3 Stunden, jetzt 3 Stunden.
+
+02:46:11.310 --> 02:46:27.490
+Ist Moris Video.
+
+02:46:27.490 --> 02:46:34.060
+Ja. Chat.
+
+02:46:34.060 --> 02:46:36.060
+Wir sind fertig für heute.
+
+02:46:36.060 --> 02:46:38.060
+Schön, dass ihr am
+
+02:46:38.060 --> 02:46:40.060
+Start wart.
+
+02:46:40.060 --> 02:46:42.060
+Guckt mal kurz, ob wir irgendjemand
+
+02:46:42.060 --> 02:46:47.300
+hosten können.
+
+02:46:47.300 --> 02:47:11.920
+Ich hoffe euch hat der Stream heute gefallen.
+
+02:47:11.920 --> 02:47:16.510
+Wir haben... Ok.
+
+02:47:16.510 --> 02:47:18.510
+Hier haben wir einen am Start.
+
+02:47:18.510 --> 02:47:20.510
+Vielleicht hoste ich den. Zeigt mal.
+
+02:47:20.510 --> 02:47:24.270
+Der macht...
+
+02:47:24.270 --> 02:47:26.270
+Jaja, Fake E-Mail.
+
+02:47:26.270 --> 02:47:28.270
+Der macht Defop plus
+
+02:47:28.270 --> 02:47:30.270
+Kubernetes.
+
+02:47:34.270 --> 02:47:36.270
+Oh. Der...
+
+02:47:36.270 --> 02:47:38.270
+Ich glaube der macht auch gerade seinen Stream aus,
+
+02:47:38.270 --> 02:47:40.270
+weil er eben Stream Manager ist.
+
+02:47:40.270 --> 02:47:42.270
+Na gut. Dann nicht.
+
+02:47:42.270 --> 02:47:44.270
+Ok. Chat.
+
+02:47:44.270 --> 02:47:46.270
+Dann gehe ich auf. Bis dann. Macht's gut.
+
+02:47:46.270 --> 02:47:49.780
+See you. Winke, winke.
