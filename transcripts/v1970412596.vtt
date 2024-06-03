@@ -1,0 +1,6937 @@
+WEBVTT
+
+00:00.000 --> 00:56.330
+das war wirklich zumindest ein i3 nachbau für windows ausprobieren sagt zumindest die github
+
+00:56.330 --> 01:04.790
+seite ob das taugt ich hab da ja so ein bisschen meine zweifel ehrlich gesagt aber wir werden sehen
+
+01:04.790 --> 01:10.910
+erst mal package update machen wobei wir brauchen die linux vm gar nicht egal package update arch
+
+01:10.910 --> 01:19.610
+bei der way package update kann man nicht genug machen neue version glaube ich muss die musik wie
+
+01:19.610 --> 01:49.330
+sie leise machen sack excel wird sie nicht ein jetzt kann man das auch wieder eins hoch machen
+
+01:49.330 --> 02:10.830
+wollte gerade sagen wir müssen so kacke eingestellt die einstellung zacken heute mal messe so also
+
+02:10.830 --> 02:12.330
+was brauchen wir dafür
+
+02:14.130 --> 02:25.650
+wir brauchen windows vm ich bin mir nicht sicher ob wir noch eine haben fürchte nicht den krempel
+
+02:25.650 --> 02:30.330
+kann ich auch mal löschen oder mit proxmox cluster den brauchen wir doch niemals wieder ich weiß gar
+
+02:30.330 --> 02:39.210
+nicht warum ich den überhaupt noch drauf haben haben services unter linux root nicht zwangsläufig
+
+02:39.210 --> 02:56.680
+ne kommt auf den service an init hat root potenziell aber die services selbst nicht unbedingt kannst
+
+02:56.680 --> 02:58.540
+einstellen mit welchem user die gestartet
+
+02:58.540 --> 03:07.190
+werden soll und am besten lässt du die natürlich wenn es nicht sein muss nicht als root laufen und
+
+03:07.190 --> 03:18.660
+wenn es sein muss kannst du als gut starten und dann privileges droppen ja korrekt wieso kein
+
+03:18.660 --> 03:29.880
+service das funktioniert theoretisch auch man könnte man könnte ein man braucht kein service
+
+03:29.880 --> 03:33.700
+im ziel start up script oder so könnte einen start up script bauen
+
+03:33.720 --> 03:40.660
+das update wenn man das will ja doch das würde funktionieren aber will ich nicht weil ich will ja
+
+03:40.660 --> 03:50.770
+sehen was er macht passwort liegt hier kommt nicht drauf was mein passwort ist ist nicht erratbar was
+
+03:50.770 --> 03:59.650
+ist die drei das hier das was ich gerade unter den luxe 3 1 1 teiling window manager und da habe ich
+
+03:59.650 --> 04:04.990
+letztens was gefunden auf schritt hab und zwar
+
+04:06.190 --> 04:18.070
+wollte ich das heute mal mit euch aus das da das wollte ich heute mal ausprobieren guck mal das ist
+
+04:18.070 --> 04:30.120
+ein i3 nachbau für windows und ich bin echt gespannt ob das so gut funktioniert wie es da aussieht ich
+
+04:30.120 --> 04:37.840
+ich habe meine zweifel ich habe wirklich meine zweifel ob das gescheit funktioniert aber lassen
+
+04:37.840 --> 04:43.780
+wir mal gucken nachdem ich natürlich nicht mein ja mein mein host hier betriebssystem damit versauen will
+
+04:44.000 --> 04:57.490
+warum erstelle ich die windows vm ist ja kein ding dauert eine viertelstunde ist das ding da warum ist das illegal service
+
+04:57.490 --> 05:02.590
+unguleich startup skript das sind analoge begriffen ne nicht unbedingt ein service ist für mich früher
+
+05:02.590 --> 05:09.970
+was unter init beziehungsweise jetzt halt als unit file für systemd und du kannst entweder
+
+05:09.970 --> 05:18.690
+mit systemd einzelne skripts aufrufen zum beispiel gibt es ja immer noch einen hook für wie hieß das früher etc rc local
+
+05:18.830 --> 05:25.190
+glaube ich oder du lässt ins skript laufen wenn du dich einloggen oder wenn
+
+05:25.190 --> 05:33.920
+dein window manager startet oder wann auch immer du willst ja aber start up
+
+05:33.920 --> 05:36.320
+skript und service ist nicht zwangsläufig das gleiche
+
+05:36.320 --> 05:49.780
+sowas darf es nicht gehen warum mit welchem framework sollte man heute und
+
+05:49.780 --> 05:53.640
+das ist eine sehr gute frage da werde ich gleich was zu sagen
+
+05:53.640 --> 05:58.780
+nachdem ich mich zum 50 mal vertippt hat bei 1 2 3 4 5 6 wie auch immer man
+
+05:58.780 --> 06:04.880
+da schafft jetzt noch mal rebooten in der hoffnung ist alles updated so also
+
+06:04.880 --> 06:10.760
+mit welchem framework sollte man heutzutage eine app für windows ok es
+
+06:10.760 --> 06:14.960
+muss wenn also windows also du willst auf gar keinen fall cross-plattform
+
+06:14.960 --> 06:20.380
+richtig wenn das schreiben wenn es keine progressive web apps sein soll
+
+06:20.380 --> 06:25.000
+windows forms zu alt und wp tot wenn die ui3
+
+06:25.000 --> 06:32.560
+zu jung und kinky dort maui der tonne hier du hast du hast das problem von
+
+06:32.560 --> 06:42.580
+windows ui gut zusammengefasst man denkt echt microsoft leckt kritiker
+
+06:42.580 --> 06:47.540
+information also wahrscheinlich wahrscheinlich ist ein best bett
+
+06:47.540 --> 06:55.000
+trotzdem wenn ui3 weil maui willst du dir nicht geben und wpf ist auch
+
+06:55.000 --> 06:56.440
+ziemlich outdated
+
+06:56.500 --> 06:58.640
+was man in vielen stellen merkt
+
+06:58.640 --> 07:03.200
+wie so zum beispiel daran wenn du versuchst neue fonds zu verwenden oder
+
+07:03.200 --> 07:07.280
+kalle im oder irgendwas dann geht das so ohne weiteres nicht in wpf also
+
+07:07.280 --> 07:11.840
+wahrscheinlich ist das besser was du mal kannst doch tatsächlich eine ja wie
+
+07:11.840 --> 07:20.180
+heißt das an package heißt es an package wenn ui3 app alternativ du kannst
+
+07:20.180 --> 07:25.380
+natürlich auch eines der anderen kurs plattform ui technologien verwenden und
+
+07:25.380 --> 07:26.360
+es einfach nicht crosstalken
+
+07:26.500 --> 07:28.620
+Plattform machen. Das geht natürlich auch.
+
+07:29.080 --> 07:30.700
+Du kannst natürlich, wenn du auf C++
+
+07:30.700 --> 07:32.520
+stehst, sowas wie Qt
+
+07:32.520 --> 07:34.020
+verwenden. Was finde ich zumindest,
+
+07:34.760 --> 07:36.780
+wenn man, also der erträglichste
+
+07:36.780 --> 07:38.420
+Part ist. Qt ist erträglich,
+
+07:38.500 --> 07:40.420
+C++ nicht. Du kannst
+
+07:40.420 --> 07:42.540
+auch, wenn es ein bisschen was moderneres
+
+07:42.540 --> 07:44.940
+sein darf und du keine tiefgreifende
+
+07:44.940 --> 07:46.280
+Betriebssystem-Integration
+
+07:46.280 --> 07:48.540
+brauchst, sowas wie Flutter auf dem Desktop
+
+07:48.540 --> 07:50.380
+verwenden. Wobei ich, naja, ganz ehrlich,
+
+07:50.460 --> 07:52.180
+Flutter, ich weiß nicht. Oder
+
+07:52.180 --> 07:54.320
+du machst, was alle
+
+07:54.320 --> 07:56.560
+machen, die ein bisschen
+
+07:56.560 --> 07:58.720
+abgefuckt
+
+07:58.720 --> 08:00.280
+sind von Microsoft und UI und
+
+08:00.280 --> 08:02.040
+C Sharp verwenden wollen, nehmen
+
+08:02.040 --> 08:08.680
+Avalonia. Probier mal
+
+08:08.680 --> 08:10.760
+Avalonia aus. Das ist
+
+08:10.760 --> 08:12.720
+quasi Cross-Plattform-WPF.
+
+08:13.380 --> 08:14.660
+Die bieten, glaube ich, mittlerweile
+
+08:14.660 --> 08:16.540
+sogar ein Paid-Produkt an.
+
+08:17.080 --> 08:18.340
+Boshi, danke für den Sub.
+
+08:18.840 --> 08:20.580
+Die bieten mittlerweile, glaube ich, gerade sogar
+
+08:20.580 --> 08:22.240
+ein Paid-Produkt an,
+
+08:23.020 --> 08:24.840
+wo man WPF-Anwendungen
+
+08:24.840 --> 08:26.260
+konvertieren kann in
+
+08:26.260 --> 08:28.340
+Cross-Plattform-Anwendungen.
+
+08:28.840 --> 08:30.780
+Wie gesagt, guck dir
+
+08:30.780 --> 08:32.640
+Avalonia an. Also wenn du
+
+08:32.640 --> 08:34.880
+auf diese
+
+08:34.880 --> 08:36.900
+WPF-UWP
+
+08:36.900 --> 08:38.960
+WinUI-Style
+
+08:38.960 --> 08:40.260
+GUI-Sache stehst,
+
+08:40.980 --> 08:41.740
+dann ist
+
+08:41.740 --> 08:44.960
+Avalonia wahrscheinlich das Beste,
+
+08:45.020 --> 08:47.080
+was du machen kannst. Ich persönlich
+
+08:47.080 --> 08:48.300
+muss dir ehrlich sagen,
+
+08:50.160 --> 08:50.800
+ich mag diese
+
+08:50.800 --> 08:52.420
+XML-Geschichte nicht so sehr,
+
+08:52.420 --> 08:54.380
+was das
+
+08:54.380 --> 08:57.960
+angeht. Wenn ich irgendwas
+
+08:57.960 --> 09:00.400
+Kleines mache, ist es meistens,
+
+09:00.440 --> 09:00.580
+wenn du...
+
+09:00.600 --> 09:01.220
+Windows Forms.
+
+09:02.660 --> 09:04.160
+Aber wenn es Windows sein muss,
+
+09:04.260 --> 09:06.360
+weil das schön schnell geht, sieht halt hässlich
+
+09:06.360 --> 09:07.140
+wie die Nacht aus.
+
+09:09.240 --> 09:10.260
+Avalonia taugt.
+
+09:12.600 --> 09:14.060
+Du kannst natürlich
+
+09:14.060 --> 09:15.760
+auch Elektron oder sowas machen, wobei,
+
+09:15.860 --> 09:20.400
+ich weiß ja nicht, wenn du willst,
+
+09:20.820 --> 09:22.540
+dass dein Hello World 450 MB RAM
+
+09:22.540 --> 09:34.500
+verbraucht. Wie gesagt,
+
+09:34.740 --> 09:36.820
+Microsoft und UI, die kriegen es
+
+09:36.820 --> 09:38.820
+nicht geschissen, die letzten 15 Jahre
+
+09:38.820 --> 09:40.920
+schon nicht mehr. Von wann ist WPF?
+
+09:40.960 --> 09:42.180
+WPF war der letzte
+
+09:42.180 --> 09:44.640
+sinnvolle, gute Versuch von Microsoft.
+
+09:44.900 --> 09:48.470
+Das ist kein G-Bait.
+
+09:48.470 --> 09:49.690
+Ist kein G-Bait. Guck.
+
+09:50.370 --> 09:52.170
+Wir probieren heute das hier aus.
+
+09:52.350 --> 09:55.960
+Schau mal. I3 für Windows.
+
+09:56.220 --> 09:57.860
+Oder zumindest ein I3-Nachbau
+
+09:57.860 --> 09:58.420
+für Windows.
+
+09:59.380 --> 10:01.320
+Keiner cross-compiled für Windows.
+
+10:06.480 --> 10:07.420
+Geht Discord aktuell.
+
+10:08.380 --> 10:09.780
+Also vor einer Viertelstunde ging es noch.
+
+10:11.400 --> 10:12.200
+Boshi, danke für den
+
+10:12.200 --> 10:21.200
+Sub. Hast du in deinem
+
+10:21.200 --> 10:23.680
+Vorstellungsgespräch erzählt, dass du Arch-Linux-User
+
+10:23.680 --> 10:25.600
+bist? Also ich hatte ja,
+
+10:26.040 --> 10:27.420
+als ich wechseln wollte,
+
+10:27.500 --> 10:28.260
+ich hatte ja insgesamt
+
+10:28.260 --> 10:29.580
+2,5.
+
+10:29.620 --> 10:31.440
+Vorstellungsgespräche. Das eine zählt nicht wirklich.
+
+10:32.020 --> 10:33.780
+Das eine in Würzburg und das andere in Frankfurt.
+
+10:34.340 --> 10:35.640
+Und ich glaube, bei dem
+
+10:35.640 --> 10:37.640
+Vorstellungsgespräch in Würzburg,
+
+10:38.000 --> 10:39.760
+da habe ich das, glaube ich,
+
+10:39.860 --> 10:41.220
+tatsächlich erzählt.
+
+10:41.480 --> 10:43.340
+Weil da hatte ich so ein Treffen mit dem Team
+
+10:43.340 --> 10:45.760
+und da waren die Leute dabei, die dort arbeiten
+
+10:45.760 --> 10:47.440
+und da hatten wir es auch von, welche
+
+10:47.440 --> 10:49.420
+Distribution mag man? Und da habe ich natürlich
+
+10:49.420 --> 10:51.120
+den Arch-By-The-Way-Witz gebracht.
+
+10:53.720 --> 10:55.740
+Ich glaube, hier in Frankfurt
+
+10:55.740 --> 10:57.600
+im Vorstellungsgespräch
+
+10:57.600 --> 10:59.240
+habe ich es nicht erzählt, weil
+
+10:59.240 --> 11:01.100
+da war einer vom
+
+11:01.100 --> 11:01.360
+Personal.
+
+11:01.380 --> 11:03.200
+Der hätte damit nichts anfangen können.
+
+11:03.340 --> 11:05.580
+Und mein Chef, da war ich mir
+
+11:05.580 --> 11:07.140
+da nicht sicher, ob er damit was anfangen könnte.
+
+11:07.220 --> 11:09.380
+Deswegen habe ich da keinen Arch-Linux-Witz
+
+11:09.380 --> 11:09.980
+drüber gemacht.
+
+11:14.060 --> 11:16.040
+Frage an Chat und Streamer. Ich habe einen
+
+11:16.040 --> 11:17.960
+neuen Laptop. Ubuntu erstmal drauf
+
+11:17.960 --> 11:20.120
+und zählt. Bekomme in unregelmäßem Abstand
+
+11:20.120 --> 11:22.000
+einen Blackscreen für eine Sekunde wie Trace.
+
+11:22.720 --> 11:22.960
+Oh!
+
+11:25.230 --> 11:27.350
+X oder Wayland? Da geht es schon los.
+
+11:27.670 --> 11:29.330
+Das Ja des Linux-Desktops ist hier.
+
+11:29.890 --> 11:30.930
+Wahrscheinlich Wayland.
+
+11:31.790 --> 11:33.570
+Im Zweifelsfall Wayland,
+
+11:33.570 --> 11:35.170
+wenn du Blackscreens kriegst.
+
+11:35.410 --> 11:36.930
+Haha. Siehste?
+
+11:37.130 --> 11:39.310
+Wusste ich doch. Wusste ich doch, dass du
+
+11:39.310 --> 11:40.210
+Wayland verwenden willst.
+
+11:42.310 --> 11:42.830
+Tja.
+
+11:43.290 --> 11:45.550
+Gute Frage. Nächste Frage. Keine Ahnung.
+
+11:46.970 --> 11:47.790
+Ganz ehrlich.
+
+11:48.270 --> 11:49.530
+Ja, ich sehe es auch so,
+
+11:49.610 --> 11:51.410
+dass Wayland wahrscheinlich die Zukunft ist,
+
+11:51.470 --> 11:52.930
+weil niemand an X weiterbaut.
+
+11:53.870 --> 11:54.170
+Aber
+
+11:54.170 --> 11:57.450
+so viel Shit drinne noch,
+
+11:57.710 --> 11:59.290
+man. Und die kriegen seit
+
+11:59.290 --> 12:00.790
+Jahrzehnten auch schon nicht geschitzt.
+
+12:01.110 --> 12:03.130
+Ich weiß jetzt nicht, dass Wayland super
+
+12:03.130 --> 12:05.190
+neu ist. Könnt ihr euch
+
+12:05.190 --> 12:06.210
+auch dran erinnern, woher das ist?
+
+12:06.210 --> 12:08.690
+Wo wir das erste Mal ausprobiert haben
+
+12:08.690 --> 12:10.650
+vor ein paar Jahren. Und ich dachte,
+
+12:10.730 --> 12:12.770
+Moment, ist das im Stream?
+
+12:13.050 --> 12:14.510
+Moment, Moment, Moment. Das muss ich gucken.
+
+12:15.030 --> 12:16.590
+Jetzt muss ich gucken, ob das im Archiv ist.
+
+12:16.650 --> 12:17.290
+Es kann sein,
+
+12:18.690 --> 12:20.030
+dass es das noch nicht gab.
+
+12:21.530 --> 12:22.410
+Hier, Wayland.
+
+12:25.310 --> 12:25.750
+WM.
+
+12:26.810 --> 12:28.170
+Guck mal, da haben wir sogar
+
+12:28.170 --> 12:34.380
+haben wir sogar noch einen Clip.
+
+12:35.720 --> 12:36.060
+Weiß ich.
+
+12:37.520 --> 12:38.880
+Also, da hat es schon wieder...
+
+12:38.880 --> 12:40.500
+So, und zumindest in diesem
+
+12:40.500 --> 12:40.740
+Stream, da haben wir sogar noch einen Clip.
+
+12:40.760 --> 12:42.460
+Und in diesem Stream, wo wir das
+
+12:42.460 --> 12:44.300
+ausprobiert haben, war...
+
+12:44.300 --> 12:45.000
+Ich kann's...
+
+12:45.000 --> 12:53.310
+Ich glaube, das ist gar nicht...
+
+12:53.310 --> 12:55.090
+Ich glaube, den Stream haben wir gar nicht.
+
+12:57.740 --> 13:03.270
+Doch, hier ist doch...
+
+13:03.270 --> 13:05.550
+So, und das war
+
+13:05.550 --> 13:06.950
+2017.
+
+13:07.490 --> 13:08.590
+Das ist fünf Jahre her.
+
+13:09.110 --> 13:11.150
+Und da wurde auch schon erzählt, Wayland,
+
+13:11.310 --> 13:13.670
+Beste und so. Und da gab es das Problem,
+
+13:14.250 --> 13:14.610
+dass
+
+13:14.610 --> 13:17.210
+Fenster
+
+13:17.210 --> 13:18.910
+nicht re-gesized sind.
+
+13:26.360 --> 13:27.660
+Ich glaube nicht, dass ich
+
+13:27.660 --> 13:27.920
+das finde.
+
+13:27.920 --> 13:29.720
+Ich finde jetzt. Aber das sind Fenster
+
+13:29.720 --> 13:31.860
+einfach nicht re-gesized. Das sind so
+
+13:31.860 --> 13:33.840
+Dinge, wo ich mir denke, Alter, das ist ja wirklich so
+
+13:33.840 --> 13:35.860
+die Basics der Basics funktionierten
+
+13:35.860 --> 13:36.980
+damals einfach nicht.
+
+13:37.980 --> 13:39.860
+Fenster haben... Also, wenn ich Fenster
+
+13:39.860 --> 13:41.900
+re-gesized habe, sah das so aus.
+
+13:41.980 --> 13:43.040
+Okay, ich zeige euch das jetzt mal.
+
+13:43.560 --> 13:45.840
+So sah das aus, als ich Fenster re-gesized habe
+
+13:45.840 --> 13:49.650
+in Wayland. So.
+
+13:50.750 --> 13:52.270
+Also, das Fenster ist...
+
+13:52.270 --> 13:54.050
+Der Content ist nicht re-gesized,
+
+13:54.510 --> 13:56.070
+sondern es wurde
+
+13:56.070 --> 13:58.010
+gesoomt und der Content ist gleich
+
+13:58.010 --> 13:58.510
+geblieben.
+
+14:00.130 --> 14:02.010
+Das war richtig kaputt, man.
+
+14:04.230 --> 14:05.550
+So, wir müssen übrigens
+
+14:05.550 --> 14:07.130
+gerade bei der Gelegenheit... Habe ich noch eine
+
+14:07.130 --> 14:08.890
+Windows-ISO hier rumliegen vielleicht?
+
+14:10.710 --> 14:11.350
+Äh, kurz
+
+14:11.350 --> 14:12.150
+Größe gucken.
+
+14:13.610 --> 14:15.370
+Alter, warum ist eigentlich
+
+14:15.370 --> 14:17.410
+nichts zu gebrauchen in Windows?
+
+14:17.630 --> 14:19.250
+Wirklich gar nichts.
+
+14:19.830 --> 14:21.210
+Popliches Sortieren
+
+14:21.210 --> 14:23.050
+nach Size
+
+14:23.050 --> 14:24.210
+funktioniert nicht, man.
+
+14:28.270 --> 14:30.350
+Alter! Was ist das?
+
+14:37.980 --> 14:38.920
+Kann man das nicht einfach
+
+14:40.180 --> 14:40.960
+überhaupt nicht
+
+14:40.960 --> 14:42.840
+croupen? Ich will es nicht croupen.
+
+14:43.860 --> 14:44.820
+No, no. Okay.
+
+14:47.400 --> 14:48.300
+Okay, ich habe kein
+
+14:48.300 --> 14:49.540
+Windows 11 ISO.
+
+14:53.440 --> 14:55.200
+Ja, das ist Layer 11.
+
+14:55.320 --> 14:57.100
+Aber es ist auch unglaublich bescheuert gemacht.
+
+14:58.540 --> 14:59.120
+So, Windows
+
+14:59.120 --> 14:59.800
+11 ISO.
+
+15:03.160 --> 15:04.800
+Hersteller. Runterladen.
+
+15:05.040 --> 15:07.240
+Warum kann man eigentlich ein ISO für Windows 10 runterladen,
+
+15:07.240 --> 15:09.100
+für Windows 11 runterladen, aber nicht für
+
+15:09.100 --> 15:09.640
+Windows 10?
+
+15:13.390 --> 15:15.070
+Versteht das
+
+15:15.070 --> 15:15.610
+irgendjemand?
+
+15:17.610 --> 15:18.570
+Also, man kann mit
+
+15:18.570 --> 15:21.010
+Trick 17 natürlich auch eins runterladen für Windows 10.
+
+15:26.070 --> 15:26.710
+Lädt das jetzt?
+
+15:29.450 --> 15:30.130
+Ah ja, es lädt.
+
+15:30.750 --> 15:31.910
+Alter, wie lahm ist denn das?
+
+15:32.650 --> 15:33.570
+Warum ist das so langsam?
+
+15:34.830 --> 15:35.850
+Moment, Moment, Moment.
+
+15:37.850 --> 15:39.030
+Konnte man hier nicht mal...
+
+15:42.640 --> 15:45.280
+Also, mich regt diese Funktionsreduzierung
+
+15:45.280 --> 15:46.640
+unglaublich auf.
+
+15:47.300 --> 15:49.420
+Adresse des Links kopieren, das will ich haben.
+
+15:49.920 --> 15:52.120
+Überall wird irgendwas rausgekürzt,
+
+15:52.360 --> 15:53.800
+weil sie sich irgendwie denken, oh nee,
+
+15:54.040 --> 15:56.500
+das könnte die Oma verwirren, wenn sie Chrome verwendet.
+
+15:56.500 --> 15:58.260
+Das geht nicht, dass da ein extra Button ist.
+
+16:01.000 --> 16:02.820
+Ich habe keinen Download Manager installiert.
+
+16:10.630 --> 16:12.130
+Brauchen einen ordentlichen Download Manager.
+
+16:12.130 --> 16:12.630
+Chrome.
+
+16:14.530 --> 16:20.490
+Chrome bekommt es auf die Reihe, Windows ISO runterzuladen.
+
+16:22.630 --> 16:23.610
+Wie ging das jetzt?
+
+16:27.060 --> 16:28.700
+Minus J oder so?
+
+16:28.700 --> 16:30.260
+Minus 15 oder so?
+
+16:30.940 --> 16:32.260
+Nee, oder minus X?
+
+16:32.420 --> 16:33.160
+Minus X?
+
+16:34.900 --> 16:35.660
+Ah, Mann.
+
+16:35.660 --> 16:36.100
+Ähm.
+
+16:36.100 --> 16:39.960
+Minus...
+
+16:39.960 --> 16:41.740
+Hä, habe ich doch gemacht.
+
+16:42.140 --> 16:43.140
+Ah, war das minus klein J?
+
+16:44.080 --> 16:45.380
+Oder war es vielleicht auch minus klein X?
+
+16:48.340 --> 16:49.960
+Zack, bumm, schon gleich viel schneller, guck.
+
+16:50.300 --> 16:50.800
+Zwei Minuten.
+
+16:51.440 --> 16:53.120
+Wir müssen Windows mit Linux runterladen,
+
+16:53.180 --> 16:55.500
+dann ist es schneller, als wenn wir Windows mit Windows runterladen.
+
+16:55.720 --> 16:55.940
+Easy.
+
+16:56.820 --> 16:57.700
+Zack, bumm.
+
+16:57.860 --> 16:58.120
+Easy.
+
+16:58.340 --> 16:58.600
+Easy.
+
+17:00.600 --> 17:02.540
+Um nicht zu sagen...
+
+17:08.520 --> 17:13.380
+Man muss, man muss Windows mit Linux runterladen.
+
+17:25.500 --> 17:30.060
+Ja, aber es gab auch zu Windows 11, äh, zu Windows 10 Zeiten keinen ISO-Download.
+
+17:32.660 --> 17:34.940
+Schickt mal einen Link zum Reeper, habe ich doch hier gezeigt gerade.
+
+17:34.940 --> 17:35.440
+Äh, äh.
+
+17:38.020 --> 17:38.520
+Das da.
+
+17:38.780 --> 17:39.780
+GlazeWM.
+
+17:41.180 --> 17:45.940
+I3, oder zumindest ein I3-inspirierter Window-Manager für Windows.
+
+17:46.740 --> 17:47.900
+Bin echt mal gespannt, ob das...
+
+17:48.340 --> 17:49.180
+Nein, nein, nein.
+
+17:49.180 --> 17:50.980
+Oh, jetzt fängt es nochmal an, runterzuladen.
+
+17:50.980 --> 17:51.560
+Das nervt mich.
+
+17:51.560 --> 17:52.060
+Rum.
+
+17:53.060 --> 17:53.560
+Nein.
+
+17:53.940 --> 17:54.440
+Exit.
+
+17:56.880 --> 17:57.960
+Runterladen, gut ist.
+
+18:18.590 --> 18:19.090
+Ja.
+
+18:19.090 --> 18:19.590
+Äh.
+
+18:20.410 --> 18:21.950
+Hackermans hier wieder im Stream.
+
+18:31.530 --> 18:39.210
+Ja, man konnte auch, was auch geht, man konnte auch mit Windows einfach den Mobilmodus im Browser aktivieren.
+
+18:39.210 --> 18:42.210
+Also man kann ja hier, wenn man, wenn man in...
+
+18:43.330 --> 18:45.230
+Also, ich kann es euch einfach zeigen.
+
+18:45.490 --> 18:45.850
+Ja, guckt.
+
+18:46.530 --> 18:48.350
+Windows 10 Download.
+
+18:48.510 --> 18:50.610
+Man konnte auf die Windows 10 Download-Seite gehen.
+
+18:51.670 --> 18:54.190
+Ja, da steht immer ISO-File, aber es gibt kein ISO-File.
+
+18:54.630 --> 18:57.210
+Na gut, ging man hier auf Inspect und hat gesagt,
+
+18:57.890 --> 19:08.480
+dass, ähm, Mobile, und dann konnte man, guckt, und dann konnte man ISO runterladen, Windows 10.
+
+19:08.860 --> 19:13.140
+Man musste den Mobile View anmachen und ihr seht, jetzt, jetzt kann man Windows 10 ISO runterladen.
+
+19:14.080 --> 19:17.980
+Also, man weiß nicht, was mit Microsoft abgeht, warum das vorher nicht auch geht.
+
+19:22.000 --> 19:25.620
+Ich bin immer wieder erstaunt, dass das noch so wenige kennen, ja, aber es geht.
+
+19:25.980 --> 19:30.780
+Guckt, und wenn ihr nicht mit Mobil-Dings draufgeht, dann will es auch, bietet euch das ISO nicht an.
+
+19:32.780 --> 19:34.200
+Microsoft-Logik, ja.
+
+19:34.200 --> 19:42.140
+Ne, ne, ne, ne, das ist komplett, das ist komplett auf, auf Windows, ja.
+
+19:42.460 --> 19:44.980
+Also, das, das hat Windows ja tatsächlich echt vorne raus.
+
+19:45.500 --> 19:54.040
+Die haben einfach eine Grafik-Ausgabe oder, ja, so einen Composite-Window-Gedöns-Layer dazwischen, der halt, der halt funktioniert.
+
+19:54.760 --> 19:59.760
+Ja, und nicht so, nicht, ja, die müssen sich nicht mit X oder Wayland oder sowas rumschlagen.
+
+20:01.380 --> 20:06.840
+So, jetzt müssen wir erst einmal, weil ich ja aus Linux Windows runtergeladen habe,
+
+20:06.860 --> 20:26.520
+weil es schneller war als aus Windows, müssen wir erst einmal, hallo, Windows, Windows, Windows,
+
+20:26.520 --> 20:29.420
+ich würde gern das ISO hier rauskopieren, wenn es erlaubt ist.
+
+20:31.260 --> 20:48.240
+Windows, hallo, okay, jetzt geht einfach gar nichts mehr.
+
+20:58.570 --> 21:05.970
+Die wollen einfach nicht, dass es, dass es schneller ist, mit Linux Windows runterzuladen, als mit Windows selbst.
+
+21:06.470 --> 21:09.950
+Datei zu groß, doch, doch, doch.
+
+21:10.230 --> 21:11.850
+Funktioniert, das habe ich schon oft gemacht.
+
+21:12.350 --> 21:13.930
+Der Windows macht gerade wieder Faxen.
+
+21:14.830 --> 21:16.350
+Mit, mit Achsen.
+
+21:17.190 --> 21:17.250
+Ja.
+
+21:18.450 --> 21:19.930
+Windows, Windows macht Faxen.
+
+21:20.170 --> 21:20.390
+Guck mal.
+
+21:23.250 --> 21:24.990
+Richtig, richtig Dead Girl ist das.
+
+21:28.360 --> 21:29.320
+Massive Dead Girl.
+
+21:29.700 --> 21:31.300
+Macht das überhaupt jetzt gerade was oder?
+
+21:33.260 --> 21:33.480
+Oh.
+
+21:34.340 --> 21:36.060
+Vor allem, wer ist richtig am Rödeln hier?
+
+21:36.180 --> 21:36.520
+Guck mal.
+
+21:40.520 --> 21:48.530
+Ich bin mir da jetzt nicht so sicher, ob ich, ob ich mich trauen kann, vor allem mal zu schließen oder ob's.
+
+21:48.530 --> 21:53.290
+Traue ich mich, traue ich mich, vor allem mal abzuschießen?
+
+22:00.280 --> 22:01.780
+Ach komm, wir warten mal kurz zwei Minuten.
+
+22:01.780 --> 22:03.440
+Vielleicht, vielleicht kriegt es sich gleich wieder ein.
+
+22:05.730 --> 22:06.990
+Nochmal zu der Frage von eben.
+
+22:06.990 --> 22:09.970
+Wie kann ich denn bestenfalls verfolgen, woher der Black Screen?
+
+22:09.970 --> 22:12.750
+Ich habe keine Ahnung, wie du das unter Wayland am besten rauskriegst.
+
+22:13.010 --> 22:15.890
+Also ich wüsste es unter X auch nicht, aber da hatte ich noch die Black Screens.
+
+22:16.730 --> 22:17.410
+Keine Ahnung.
+
+22:18.530 --> 22:19.810
+Was ist das denn hier schon wieder?
+
+22:22.000 --> 22:26.200
+Ein 6 Gigabyte von der auf der SSD zu kopieren, ist jetzt nicht so krasser Shit, oder?
+
+22:29.820 --> 22:31.120
+Ich. Gute Frage.
+
+22:31.120 --> 22:31.820
+Okay, Chat geht.
+
+22:31.820 --> 22:32.680
+Mal in mich gehen.
+
+22:32.680 --> 22:39.740
+Hätte ich einen Laptop und ich würde laufen Black Screens, ich würde gucken, ob ich den Black Screen mit irgendwas X basiertem nicht habe.
+
+22:40.260 --> 22:44.420
+Das ist das erste, was ich ausprobieren würde, um auszuschließen, dass es an Wayland liegt.
+
+22:47.180 --> 22:53.780
+Und wenn es an Wayland liegt, würde ich einfach zu Google gehen und sagen Wayland Notebook Black Screen.
+
+22:54.460 --> 22:54.600
+So.
+
+23:00.080 --> 23:01.400
+Every second.
+
+23:05.870 --> 23:09.970
+Dann würde ich, dann würde ich mich durch die Suchergebnisse quälen.
+
+23:09.970 --> 23:10.010
+Okay.
+
+23:10.010 --> 23:10.030
+Okay.
+
+23:10.030 --> 23:10.050
+Okay.
+
+23:10.050 --> 23:10.070
+Okay.
+
+23:10.070 --> 23:10.210
+Okay.
+
+23:10.210 --> 23:10.230
+Okay.
+
+23:10.230 --> 23:10.250
+Okay.
+
+23:10.250 --> 23:10.270
+Okay.
+
+23:10.270 --> 23:10.310
+Okay.
+
+23:10.310 --> 23:10.370
+Okay.
+
+23:10.370 --> 23:10.390
+Okay.
+
+23:10.390 --> 23:10.410
+Okay.
+
+23:10.410 --> 23:14.300
+Okay.
+
+23:14.300 --> 23:14.340
+Okay.
+
+23:14.340 --> 23:14.360
+Okay.
+
+23:14.360 --> 23:14.380
+Okay.
+
+23:14.380 --> 23:14.420
+Okay.
+
+23:14.420 --> 23:14.460
+Okay.
+
+23:14.460 --> 23:14.480
+Okay.
+
+23:14.480 --> 23:14.500
+Okay.
+
+23:14.500 --> 23:14.560
+Okay.
+
+23:14.560 --> 23:14.580
+Okay.
+
+23:14.580 --> 23:14.620
+Okay.
+
+23:14.620 --> 23:14.640
+Okay.
+
+23:14.640 --> 23:14.700
+Okay.
+
+23:14.700 --> 23:14.740
+Okay.
+
+23:14.740 --> 23:14.760
+Okay.
+
+23:14.760 --> 23:14.780
+Okay.
+
+23:14.780 --> 23:14.800
+Okay.
+
+23:14.800 --> 23:14.820
+Okay.
+
+23:14.820 --> 23:14.840
+Okay.
+
+23:14.840 --> 23:14.860
+Okay.
+
+23:14.860 --> 23:14.900
+Okay.
+
+23:14.900 --> 23:14.920
+Okay.
+
+23:14.920 --> 23:14.940
+Okay.
+
+23:14.940 --> 23:14.960
+Okay.
+
+23:14.960 --> 23:14.980
+Okay.
+
+23:14.980 --> 23:15.000
+Okay.
+
+23:15.000 --> 23:15.020
+Okay.
+
+23:15.020 --> 23:15.040
+Okay.
+
+23:15.040 --> 23:15.060
+Okay.
+
+23:15.060 --> 23:15.080
+Okay.
+
+23:15.080 --> 23:15.100
+Okay.
+
+23:15.100 --> 23:15.120
+Okay.
+
+23:15.120 --> 23:15.140
+Okay.
+
+23:15.140 --> 23:15.160
+Okay.
+
+23:15.160 --> 23:15.180
+Okay.
+
+23:15.180 --> 23:15.220
+Okay.
+
+23:15.220 --> 23:15.240
+Okay.
+
+23:15.240 --> 23:15.260
+Okay.
+
+23:15.260 --> 23:15.280
+Okay.
+
+23:15.280 --> 23:15.300
+Okay.
+
+23:15.300 --> 23:15.320
+Okay.
+
+23:15.320 --> 23:15.340
+Okay.
+
+23:15.340 --> 23:15.380
+Okay.
+
+23:15.380 --> 23:15.400
+Okay.
+
+23:15.400 --> 23:15.420
+Okay.
+
+23:15.420 --> 23:15.460
+Okay.
+
+23:15.460 --> 23:15.480
+Okay.
+
+23:15.480 --> 23:15.500
+Okay.
+
+23:15.500 --> 23:15.540
+Okay.
+
+23:15.540 --> 23:15.560
+Okay.
+
+23:15.560 --> 23:15.580
+Okay.
+
+23:15.580 --> 23:15.620
+Okay.
+
+23:15.620 --> 23:15.660
+Okay.
+
+23:15.660 --> 23:15.680
+Okay.
+
+23:15.680 --> 23:15.700
+Okay.
+
+23:15.700 --> 23:15.740
+Okay.
+
+23:15.740 --> 23:15.780
+Okay.
+
+23:15.780 --> 23:15.820
+Okay.
+
+23:15.820 --> 23:15.860
+Okay.
+
+23:15.860 --> 23:15.900
+Okay.
+
+23:15.900 --> 23:15.940
+Okay.
+
+23:15.940 --> 23:15.960
+Okay.
+
+23:15.960 --> 23:15.980
+Okay.
+
+23:15.980 --> 23:16.020
+Okay.
+
+23:16.020 --> 23:28.060
+Okay.
+
+23:28.060 --> 23:28.120
+Okay.
+
+23:28.120 --> 23:28.140
+Okay.
+
+23:28.140 --> 23:30.220
+er das falsch benutzt und das eigentlich überhaupt nicht
+
+23:30.220 --> 23:32.060
+die Schuld von Wayland ist, dass das nicht geht
+
+23:32.060 --> 23:34.160
+und fuck you Nvidia und AMD
+
+23:34.160 --> 23:36.240
+und ihr seid alle kacke und Wayland ist das geilste
+
+23:36.240 --> 23:38.640
+und jetzt stell dich mal nicht so an, du solltest
+
+23:38.640 --> 23:40.180
+eigentlich froh darüber sein
+
+23:40.180 --> 23:42.140
+dass du es benutzen darfst und
+
+23:42.140 --> 23:44.020
+stell dich nicht so an, dass du eine Sekunde
+
+23:44.020 --> 23:46.300
+Blackscreen hast, so was
+
+23:46.300 --> 23:48.080
+wirst du dann wahrscheinlich früher oder später finden
+
+23:48.080 --> 23:50.120
+ok Leute, ich muss anscheinend echt
+
+23:50.120 --> 23:52.280
+Forever Neustarten
+
+23:52.280 --> 23:52.840
+das hat
+
+23:52.840 --> 23:55.300
+das hat's destroyed
+
+23:55.300 --> 24:00.480
+ok, ich hoffe
+
+24:00.480 --> 24:02.460
+Forever startet jetzt wieder richtig
+
+24:02.460 --> 24:06.100
+ok, das hat schon mal funktioniert
+
+24:06.100 --> 24:08.320
+ach ja
+
+24:08.320 --> 24:10.280
+ich hätte mal
+
+24:10.280 --> 24:12.000
+meinen Download weiterlaufen
+
+24:12.000 --> 24:13.980
+lassen sollen unter Windows
+
+24:13.980 --> 24:14.660
+Leute hier
+
+24:14.660 --> 24:17.600
+ach guck mal, unter Windows ist es jetzt auch schneller
+
+24:17.600 --> 24:19.520
+das musst du erst mal sehen
+
+24:19.520 --> 24:21.620
+dass es unter Linux schneller ist
+
+24:21.620 --> 24:23.720
+so dass es jetzt unter Windows
+
+24:23.720 --> 24:25.620
+auch schnell ist, alles klar
+
+24:25.620 --> 24:27.020
+ja, wisst ihr was?
+
+24:27.560 --> 24:29.360
+dann lösche ich das einfach unter Linux wieder
+
+24:29.360 --> 24:31.780
+und probiere dieses komische Track und Drop erst
+
+24:31.780 --> 24:32.100
+gar nicht
+
+24:32.100 --> 24:43.510
+ja, das ist natürlich nicht verkehrt
+
+24:43.510 --> 24:45.290
+das stimmt schon, irgendwelche Logs gucken
+
+24:45.290 --> 24:46.830
+ich würde auf jeden Fall ausprobieren
+
+24:46.830 --> 24:49.490
+ob ich es unter X auch hab
+
+24:49.490 --> 24:54.440
+kann man Ubuntu noch mit X starten?
+
+24:54.720 --> 24:55.180
+ein neues?
+
+24:55.560 --> 24:56.860
+Ubuntu, frisch installiert
+
+24:56.860 --> 24:58.340
+hat das noch eine X-Session?
+
+24:58.740 --> 24:59.600
+irgendwie, geht das?
+
+25:02.610 --> 25:03.450
+wahrscheinlich nicht
+
+25:03.450 --> 25:06.110
+eine Session alleine reicht ja nicht
+
+25:06.110 --> 25:09.030
+muss das ja auch alles installiert haben
+
+25:09.030 --> 25:15.390
+also Ubuntu hat noch ein X
+
+25:15.390 --> 25:17.490
+drunter, dann würde ich das mal tatsächlich direkt
+
+25:17.490 --> 25:19.550
+mit X starten, anstatt mit Wayland
+
+25:19.570 --> 25:22.180
+übrigens
+
+25:22.180 --> 25:24.520
+nur mal zu der Erklärung
+
+25:24.520 --> 25:26.740
+warum ich so eine Abneigung gegen Wayland hab
+
+25:26.740 --> 25:29.340
+ich verwende ja zum Beispiel ganz gerne
+
+25:29.340 --> 25:32.020
+hier meine Linux-VM
+
+25:32.020 --> 25:33.540
+und wenn ihr jetzt mal guckt
+
+25:33.540 --> 25:34.060
+auf GitHub
+
+25:34.060 --> 25:37.340
+dann gibt es wieder eine große Diskussion drüber
+
+25:37.340 --> 25:39.360
+dass Wayland in einer VM
+
+25:39.360 --> 25:40.940
+nicht richtig funktioniert, weil
+
+25:40.940 --> 25:42.600
+also das Problem ist
+
+25:42.600 --> 25:44.300
+und ihr müsst euch das mal vorstellen
+
+25:44.300 --> 25:46.200
+Wayland
+
+25:46.200 --> 25:49.240
+refresht den Screen nicht
+
+25:49.240 --> 25:50.160
+in einer VM
+
+25:52.260 --> 25:53.420
+also ihr könnt euch vorstellen
+
+25:53.420 --> 25:54.920
+das bedeutet, du kannst den
+
+25:54.920 --> 25:57.120
+du kannst das nicht benutzen, weil
+
+25:57.120 --> 25:59.120
+wenn das Screen nicht refreshed
+
+25:59.120 --> 26:01.180
+heißt das, es wird nichts angezeigt
+
+26:01.180 --> 26:04.860
+der einzige, also auch kein Mauszeiger bewegen oder so
+
+26:04.860 --> 26:08.580
+das einzige den Screen refresh zu bekommen ist
+
+26:08.580 --> 26:10.660
+zwischen
+
+26:10.660 --> 26:13.100
+zwischen Terminal und
+
+26:14.240 --> 26:15.440
+und ähm
+
+26:16.600 --> 26:18.040
+GUI Session zu wechseln
+
+26:19.200 --> 26:20.460
+dann refresht das Screen
+
+26:20.460 --> 26:22.140
+man kann das ganze überschreiten
+
+26:22.140 --> 26:32.840
+mit einer mit einer software rendering oder sowas environment variable das funktioniert und dann
+
+26:32.840 --> 26:39.240
+geht das ja ich gehe ich habe es auch gemerkt schon dass das mit ubuntu wayland funktioniert
+
+26:39.240 --> 26:45.780
+ich gehe davon aus dass das dass das irgendwas anders macht als wenn man einfach nur sway oder
+
+26:45.780 --> 26:53.760
+so in wayland starten will es gibt aber auch wayland vmware refresh gibt es gibt es auch
+
+26:53.760 --> 27:02.940
+ein ticket zu wenn wills wayland support ach so copy paste funktioniert ja auch nicht habe
+
+27:02.940 --> 27:11.860
+ich ganz vergessen copy copy paste ist ja auch kaputt mit wayland unter vm oder ist das speziell
+
+27:11.860 --> 27:18.220
+das ist ein vmware problem ja ja das ist vmware problem das ding ist halt das ist mal wieder die
+
+27:18.220 --> 27:27.160
+gleiche diskussion die gleiche scheiß diskussion gibt wie mit so vielen linux projekten es wird
+
+27:27.160 --> 27:28.100
+sich jahrelang
+
+27:28.120 --> 27:34.720
+darüber diskutiert wer jetzt schuld ist und wer das jetzt implementieren muss die wayland leute
+
+27:34.720 --> 27:39.260
+sagen auch nur das machen wir nicht vmware ist es vollkommen egal die treiberhersteller die
+
+27:39.260 --> 27:45.860
+interessiert das ganze auch nicht und dann schieben sie sich das alle 33 jahre ach 33 jahre untereinander
+
+27:45.860 --> 27:54.540
+zu und irgendwann kommt dann mal keine ahnung der ceo von ubuntu und stellt fest auf seinem
+
+27:54.540 --> 27:58.100
+laptop funktioniert es nicht und steckt dann zwei
+
+27:58.120 --> 28:02.620
+millionen rein und dann geht es auf einmal also das ist wirklich voll für nash was da teilweise
+
+28:02.620 --> 28:29.990
+abgeht aber so ist es halt da muss man sich dran gewöhnen das ist die gleiche die gleiche diskussion
+
+28:29.990 --> 28:38.390
+leute erinnert sich noch guck mal jetzt mal ohne scheiß was meint ihr wie lange geht hardware
+
+28:38.390 --> 28:45.470
+decoding von videos auf youtube unter windows schon also was ich damit meine ist wie lange
+
+28:45.470 --> 28:50.750
+könnt ihr eure grafikkarte schon zum videos gucken auf youtube verwenden unter windows also so dass ihr
+
+28:50.870 --> 28:56.430
+nicht 80 prozent cpu last auf einem kern habt sondern das ganze decodet wird von der grafikkarte
+
+28:56.430 --> 29:07.670
+wie lange geht das schon das geht mindestens seit 2013 mindestens seit 2013 aber einem vorverletzten
+
+29:07.670 --> 29:13.680
+pc ging das schon wahrscheinlich wahrscheinlich er 15 jahre wahrscheinlich wahrscheinlich geht
+
+29:13.680 --> 29:21.780
+das seit 2005 oder so seit xbox release irgendwann 2007 oder sowas schon dass das geht seit 15 jahren
+
+29:22.440 --> 29:51.040
+Und unter Linux geht das erst seit einem Jahr halbwegs und dann auch nur in der passenden Kombination von, du musst das Video erwischen mit dem richtigen Codec, du brauchst die richtige Browser-Version, du brauchst die richtige Mesa-Treiber-Version, du brauchst die richtige Grafikkarte und die richtigen Grafikkarten-Treiber dafür und dann, wenn du Glück hast, funktioniert es und dann brauchst du noch ein Browser-Plugin, was natürlich die Videos auf YouTube forst auf H.264, weil VP9 zwischenzeitlich einfach mal wieder kaputt gegangen ist.
+
+29:51.040 --> 30:14.640
+Oh, ey, das ist so für'n Arsch, man. Linux ist toll, aber auf dem Desktop wird das nix, Leute. Auf dem Desktop, es können noch so viele Leute sagen, bald ist das Jahr des Linux-Desktops. Die kriegen diesen ganzen Kram einfach nicht geschissen. Ja, das ist auch ein gutes Beispiel dafür immer.
+
+30:14.640 --> 30:25.170
+So, was macht eigentlich mein Download hier? Ah, gleich fertig. Nice. Kann man nach einer halben Stunde anfangen. Das ist ja noch relativ schnell für meine Verhältnisse.
+
+30:25.170 --> 30:40.880
+Ja, Firefox sind eh die geilsten, die einfach mal ihren H.264-Decoder für Android entfernt haben, random, weil sie keinen Bock mehr haben.
+
+30:40.880 --> 30:58.640
+So, ISO ist fertig, downgeloadet. Nein. Nein. Nein, das hat mit HTML5 überhaupt nichts zu tun. Es geht um Hardware-Decoding, dass die Grafikkarte die Videos decodet.
+
+30:58.640 --> 31:12.160
+Und das ging bis vor... Das geht teilweise in manchen Konstellationen immer noch nicht. So, dann legen wir doch mal... Wie viel Platz hab ich denn wo? Hab ich auf C genug Platz?
+
+31:12.160 --> 31:23.160
+C? Ja, locker. Easy, easy. Jetzt wird es wieder kompliziert, eine Windows-11-Kiste anzulegen. Also, für einmal Workstation 17. Ja, ich mach das später.
+
+31:23.160 --> 31:31.160
+Wir installieren Windows 11. Wir wollen das hier unter Documents, Virtual Machine. Ja, meinetwegen, ganz toll.
+
+31:31.160 --> 31:49.120
+So, jetzt muss man ein Passwort eingeben, weil ansonsten nicht Windows-11-kompatibel. Warum auch immer. 1, 2, 3, 4, 5, 6, geht nicht.
+
+31:49.120 --> 31:52.080
+1, 2, 3, 4, 5, 6, geht nicht. 1, 2, 3, 4, 5, 6, geht nicht.
+
+31:52.080 --> 31:55.080
+TPM macht er automatisch mit dem Preset mittlerweile.
+
+31:55.080 --> 32:01.080
+UEFI, Secure Boot. Ich glaube, Secure Boot brauchen wir gar nicht mehr.
+
+32:01.080 --> 32:07.080
+Number of Processors, eins. Number of Core, sechs. Ist Windows 11, brauchen wir ein bisschen Power.
+
+32:07.080 --> 32:11.080
+16 GB RAM sollte reichen.
+
+32:11.080 --> 32:14.080
+NAT, das ist gut. NVMe, ist gut.
+
+32:14.080 --> 32:21.080
+Create New Virtual Disk, 64GB ist auch gut. Single File.
+
+32:21.740 --> 32:22.920
+Windows 10, so.
+
+32:23.960 --> 32:24.800
+Printer weg.
+
+32:28.140 --> 32:28.920
+Das ist okay.
+
+32:35.410 --> 32:37.750
+So, dann hängen wir jetzt mal das ISO rein.
+
+32:37.850 --> 32:39.110
+Installieren wir mal schnell Windows 10.
+
+32:39.630 --> 32:43.930
+Dann kann ich mich, das kann ich ja jetzt schon sagen, kann ich mich bei der Windows 11, äh Windows 11 installieren, nicht Windows 10.
+
+32:44.770 --> 32:53.970
+Kann ich mich bei der Windows 11 Installation wieder aufregen, weil ich mir nicht merken kann, wie man das ohne Microsoft Account installieren macht.
+
+32:54.170 --> 32:58.910
+Da musste man irgendwie die Konsole öffnen und irgendeinen Blödsinn eingeben, dass es dann funktioniert hat.
+
+32:59.010 --> 33:04.270
+Aber glücklicherweise ist der Chat so high IQ, dass der Chat das immer weiß.
+
+33:04.910 --> 33:06.650
+Der Chat sagt mir dann immer, wie das funktioniert.
+
+33:08.970 --> 33:15.530
+Da muss man eine Konsole aufmachen und dann muss man eingeben, irgendwie OOB oder sowas.
+
+33:17.590 --> 33:19.610
+Ey, ne, Internet weg ist nicht notwendig.
+
+33:22.170 --> 33:24.090
+OOBE, Bypass, NRO.
+
+33:24.830 --> 33:26.210
+Obviously muss man das machen.
+
+33:26.210 --> 33:28.390
+Ich finde, das ist vollkommen klar.
+
+33:28.790 --> 33:30.290
+Und ja, also.
+
+33:30.290 --> 33:32.550
+Wer das nicht weiß, ist schon ganz schön cringe, oder?
+
+33:33.290 --> 33:35.430
+Wem das nicht klar ist, dass er das eingeben muss.
+
+33:40.740 --> 33:44.880
+So, Language to install, Englisch, United Kingdom, Time and Currency.
+
+33:45.220 --> 33:47.120
+Es ist eh egal, was man hier auswählt.
+
+33:47.280 --> 33:48.940
+Keyboard, Urdu.
+
+33:49.740 --> 33:51.180
+Ja, das ist es, Leute.
+
+34:01.630 --> 34:03.630
+Genau, Internet weg gibt es nämlich Probleme.
+
+34:03.730 --> 34:05.470
+Das hatte ich auch so im Hinterkopf.
+
+34:07.130 --> 34:08.150
+Was ist das gebraucht?
+
+34:08.250 --> 34:08.890
+Was, Urdu?
+
+34:09.350 --> 34:10.110
+Keyboard Layout?
+
+34:13.100 --> 34:14.360
+Ich weiß noch nicht mal.
+
+34:15.880 --> 34:25.060
+Auf welchem Teil, noch nicht mal auf welchem Kontinent, man Urdu brauchen würde, wahrscheinlich Afrika, wo man das brauchen würde, als Keyboard Layout.
+
+34:33.500 --> 34:35.180
+Warum sieht der Insta da immer noch scheiße aus?
+
+34:35.280 --> 34:39.260
+Tja, weil das Microsoft am Arsch vorbeigeht.
+
+34:40.400 --> 34:41.160
+Next.
+
+34:43.980 --> 34:46.860
+Ja, ja, OOB ist Out of Box Experience.
+
+34:50.310 --> 34:56.510
+Die Microsoft Benahmung von Dingern, ich habe, ich habe aufgegeben, es irgendwie zu hinterfragen, warum was wie heißt.
+
+35:05.520 --> 35:10.680
+Eine Firma einrichten, dann stattdessen einer Domäne beitreten, reicht doch, um lokalen Account zu haben.
+
+35:10.760 --> 35:10.980
+Echt?
+
+35:11.220 --> 35:12.040
+Soll ich mal ausprobieren?
+
+35:17.480 --> 35:21.820
+Okay, ich gucke jetzt nach, wo man Urdu Sprache, wo spricht man Urdu?
+
+35:22.600 --> 35:27.960
+Urdu ist die Nationalsprache Pakistans, sowie eine der Amtssprachen Indiens.
+
+35:28.320 --> 35:30.740
+Ah, also quasi Peter von Microsoft Support.
+
+35:33.020 --> 35:33.500
+Verstehe.
+
+35:37.260 --> 35:39.520
+Sorry, von Microsoft Gold Support natürlich.
+
+35:42.500 --> 35:45.340
+Warum lädst du dir nicht die fertigen VMs von Microsoft runter?
+
+35:46.400 --> 35:48.480
+Gute Frage, weil ich nicht wusste, dass es welche gibt.
+
+35:49.160 --> 35:49.820
+Wo gibt es denn welche?
+
+35:54.380 --> 35:57.040
+Das bedeutet, Urdu ist vermutlich das häufigste Layout.
+
+35:57.460 --> 35:59.800
+Bestimmt, bestimmt eines der häufigsten, ja.
+
+36:01.600 --> 36:03.260
+Die, die haben viele Leute.
+
+36:06.420 --> 36:07.400
+Ich schicke dir einen Link.
+
+36:07.680 --> 36:09.040
+Oh, boah, bin mal gespannt, was jetzt kommt.
+
+36:11.280 --> 36:13.500
+Microsoft.to oder so.
+
+36:13.740 --> 36:14.440
+Ah, ne, tatsächlich.
+
+36:15.200 --> 36:15.660
+Wait a minute.
+
+36:16.200 --> 36:16.680
+Gibt es wirklich?
+
+36:19.470 --> 36:19.670
+Hä?
+
+36:20.250 --> 36:20.890
+Da guck an.
+
+36:23.880 --> 36:25.180
+Es ist auch, es ist auch keine.
+
+36:25.300 --> 36:26.580
+Es ist auch keine Fake-Adresse.
+
+36:26.740 --> 36:28.620
+Das ist ja, dass wir irgendwie gebetet werden oder so.
+
+36:31.100 --> 36:31.460
+Interessant.
+
+36:43.180 --> 36:44.460
+Lädt er jetzt direkt runter oder was?
+
+36:47.220 --> 36:47.440
+Hallo?
+
+36:48.440 --> 36:50.060
+Ich habe gerade geklickt, da wollten die abbrechen.
+
+36:53.240 --> 36:53.840
+Ja, das stimmt schon.
+
+36:54.140 --> 36:57.500
+Wisst ihr, ich sollte einfach die VM behalten und mal einen Snapshot machen.
+
+36:57.820 --> 36:58.720
+Dann wäre das ganz einfach.
+
+37:04.480 --> 37:05.540
+Aber das war mir auch neu.
+
+37:06.980 --> 37:08.820
+In welchem Format gibt es denn die eigentlich?
+
+37:08.980 --> 37:11.060
+Okay, Parallels, Virtual Box, Hyper-V.
+
+37:11.060 --> 37:13.840
+Wer auch immer sich das gibt, freiwillig und VM-Wer.
+
+37:17.800 --> 37:18.720
+Oh, dann verkehrt.
+
+37:19.360 --> 37:20.960
+Finde ich eigentlich ganz gut, dass sie das machen.
+
+37:30.560 --> 37:31.140
+Oh, es ist schon fertig.
+
+37:31.260 --> 37:31.520
+Guck mal hier.
+
+37:31.820 --> 37:33.460
+Das ging aber richtig schnell jetzt.
+
+37:34.720 --> 37:36.400
+Is this the right country or region?
+
+37:37.260 --> 37:38.620
+Wir sollten tatsächlich.
+
+37:39.440 --> 37:40.760
+Okay, das ist, das ist okay.
+
+37:40.940 --> 37:41.260
+Ja, ja.
+
+37:41.400 --> 37:42.180
+Yes, yes.
+
+37:42.400 --> 37:42.720
+Beste.
+
+37:47.790 --> 37:48.850
+Keyboard Layout.
+
+37:48.970 --> 37:49.110
+Ne.
+
+37:49.750 --> 37:50.490
+Keyboard Layout.
+
+37:50.750 --> 37:52.030
+Wisst ihr, was mich auch übelst triggert?
+
+37:52.150 --> 37:53.410
+Dass man hier nicht.
+
+37:55.370 --> 37:56.470
+Man kann nur scrollen.
+
+37:56.710 --> 37:59.410
+Man kann hier nicht irgendwie G drücken, dass man da.
+
+37:59.410 --> 38:04.290
+Das ist, das ist so, ah, so, so, so zusammengestückelt alles.
+
+38:07.560 --> 38:08.760
+Ja, Elfensprache.
+
+38:11.300 --> 38:11.800
+Skip.
+
+38:12.060 --> 38:17.520
+Und jetzt müssen wir erst mal 50 mal auswählen, dass wir nicht getrackt werden wollen.
+
+38:18.980 --> 38:22.580
+Moment, Leute, Moment, Moment, Moment.
+
+38:23.680 --> 38:26.660
+Warum durfte ich installieren, ohne dass ich einen Account eingeben muss?
+
+38:30.050 --> 38:31.090
+Ah, ne, das kommt noch.
+
+38:31.310 --> 38:32.490
+Das kommt noch, ne.
+
+38:32.770 --> 38:33.490
+Das kommt noch.
+
+38:34.490 --> 38:35.630
+Hack Wait heißt das.
+
+38:35.650 --> 38:36.110
+Das Ding jetzt.
+
+38:44.230 --> 38:47.650
+Warum muss man das Keyboard Layout auswählen, nur um dann das Keyboard Layout auszuwählen?
+
+38:48.050 --> 38:49.730
+Die Frage stelle ich mir auch jedes Mal.
+
+38:51.370 --> 38:58.150
+Weil die es anscheinend nicht in der Lage sind, zwischen Installer und installiertem OS zu kommunizieren, was man für ein Keyboard Layout ausgewählt hat.
+
+39:03.500 --> 39:05.700
+Kennt wer eigentlich eine gute Alternative zu CentOS?
+
+39:06.340 --> 39:10.100
+Ja, entweder Geld für Red Hat ausgeben oder gibt zwei Sachen.
+
+39:10.480 --> 39:15.760
+Aber die sind bei weitem natürlich nicht so erprobt wie CentOS, weil, naja, war bisher auch nicht notwendig.
+
+39:16.100 --> 39:16.960
+Alma und Rocky.
+
+39:17.500 --> 39:22.400
+Weiß ich aber nicht, was zur Zeit da die bevorzugte Sache ist.
+
+39:22.500 --> 39:23.780
+Na, Debian ist keine Alternative.
+
+39:23.880 --> 39:25.340
+Es geht ja um Red Hat Clones.
+
+39:27.000 --> 39:35.670
+Was ist denn zur Zeit beliebter?
+
+39:35.730 --> 39:40.430
+Alma Linux oder Rocky Linux?
+
+39:55.500 --> 39:55.740
+Echt?
+
+39:56.160 --> 39:58.660
+Ich hab das nicht verfolgt.
+
+40:00.380 --> 40:01.920
+Nehmen fünf Leute dran teil.
+
+40:02.320 --> 40:03.460
+Sonst keinen interessiert.
+
+40:04.020 --> 40:04.300
+Was?
+
+40:04.300 --> 40:10.680
+Okay, irgendjemand hat doch geschrieben, man braucht das nicht mehr.
+
+40:10.740 --> 40:11.660
+Was soll ich jetzt machen?
+
+40:12.360 --> 40:13.660
+Setup for personal use?
+
+40:13.760 --> 40:18.940
+Oder was soll ich machen, ohne OOB-Experience-Dingsen zu müssen?
+
+40:19.360 --> 40:21.320
+For work und dann Domain.
+
+40:21.480 --> 40:21.680
+Okay.
+
+40:24.940 --> 40:25.360
+Und jetzt?
+
+40:27.710 --> 40:28.670
+Sign in options?
+
+40:30.370 --> 40:31.670
+Domain join instead.
+
+40:39.490 --> 40:39.790
+Okay.
+
+40:40.650 --> 40:40.890
+Next?
+
+40:42.090 --> 40:42.490
+Next?
+
+40:42.490 --> 40:42.570
+Next?
+
+40:42.570 --> 40:45.790
+Kann man das Passwort nicht einfach weglassen?
+
+40:46.310 --> 40:46.570
+Doch.
+
+40:46.790 --> 40:46.930
+Nun.
+
+40:50.180 --> 40:50.460
+Moment.
+
+40:51.960 --> 40:52.660
+Das war's?
+
+40:52.720 --> 40:54.960
+Man muss dieses OOB-Shit gar nicht machen?
+
+41:04.120 --> 41:04.600
+Ja, okay.
+
+41:07.080 --> 41:08.960
+Nein, keine Location.
+
+41:09.180 --> 41:10.360
+Nein, kein Device.
+
+41:11.080 --> 41:11.360
+Nein.
+
+41:12.420 --> 41:13.020
+Nein.
+
+41:13.900 --> 41:14.520
+Nein.
+
+41:15.140 --> 41:15.540
+Nein.
+
+41:16.420 --> 41:16.740
+Okay.
+
+41:17.040 --> 41:18.100
+Ist das weniger geworden?
+
+41:19.180 --> 41:19.780
+Ist das weniger?
+
+41:23.940 --> 41:25.800
+Früher kam immer an der Stelle jetzt,
+
+41:25.800 --> 41:27.720
+Hi, I'm Cortana.
+
+41:27.740 --> 41:29.740
+Glücklicherweise ist der Shit weg, ey.
+
+41:29.740 --> 41:51.960
+So, und dann erst mal VMware-Tools drauf und dann können wir's ausprobieren.
+
+41:51.960 --> 41:58.410
+Man kann Cortana sogar deins...
+
+41:58.410 --> 42:00.410
+Ich glaube, Cortana ist gar nicht mehr dabei.
+
+42:00.410 --> 42:02.410
+Oh, doch.
+
+42:02.410 --> 42:06.360
+Öh, öh.
+
+42:06.360 --> 42:08.360
+Moment, ich muss mal kurz Cortana überfahren.
+
+42:08.360 --> 42:13.790
+Kann man das nicht?
+
+42:13.790 --> 42:19.530
+Muss richtig positioniert sein.
+
+42:19.530 --> 42:21.530
+Okay.
+
+42:21.530 --> 42:23.530
+Shit!
+
+42:23.530 --> 42:25.530
+Cortana crabt den Fokus.
+
+42:25.530 --> 42:27.530
+Hahaha.
+
+42:27.530 --> 42:29.530
+Das Startmenü.
+
+42:29.530 --> 42:31.530
+Und auf dem zweiten Dis...
+
+42:31.530 --> 42:33.530
+Moment, ich muss Cortana outplayen.
+
+42:33.530 --> 42:35.530
+Moment, Moment.
+
+42:35.530 --> 42:37.530
+Cortana muss outplayed werden.
+
+42:37.530 --> 42:39.530
+Sekunde.
+
+42:39.530 --> 42:41.530
+Muss auf dem zweiten Bildschirm.
+
+42:41.530 --> 42:43.530
+Fuck!
+
+42:43.530 --> 42:45.530
+Leute, das Startmenü hat hyper super
+
+42:45.530 --> 42:47.530
+Top-Window-Fokus.
+
+42:47.530 --> 42:51.800
+Da geht nix drüber.
+
+42:51.800 --> 42:53.800
+Ich hab's grad vom anderen Display getriggert.
+
+42:53.800 --> 42:55.800
+Normalerweise
+
+42:55.800 --> 42:57.800
+rendern meine Bilder
+
+42:57.800 --> 42:59.800
+on top über alles drüber. Aber das Startmenü...
+
+42:59.800 --> 43:01.800
+ist wahrscheinlich so high-priority,
+
+43:01.800 --> 43:03.800
+da kann man nicht drüber rendern.
+
+43:03.800 --> 43:09.230
+Okay, VM.
+
+43:09.230 --> 43:11.230
+Install VMware Tools.
+
+43:11.230 --> 43:13.230
+Ja.
+
+43:13.230 --> 43:15.230
+Wenn ich Windows 11
+
+43:15.230 --> 43:17.230
+schon sehe im Default-Modus,
+
+43:17.230 --> 43:19.230
+da dreh ich immer...
+
+43:19.230 --> 43:21.230
+dreh ich immer durch.
+
+43:21.230 --> 43:25.120
+VS. Ja.
+
+43:25.120 --> 43:27.120
+Genau, es hat Z-Index
+
+43:27.120 --> 43:31.580
+9 Milliarden.
+
+43:31.580 --> 43:36.170
+Backup von der VM
+
+43:36.170 --> 43:38.170
+als Vorlage.
+
+43:38.170 --> 43:40.170
+Ich hab mir das überlegt, brauch ich doch nicht, weil
+
+43:40.170 --> 43:42.170
+das nächste Mal ist irgendein komischer
+
+43:42.170 --> 43:44.170
+Patch von Microsoft raus
+
+43:44.170 --> 43:46.170
+und dann brauch ich länger den Patch zu upgraden
+
+43:46.170 --> 43:48.170
+als neu von der ISO,
+
+43:48.170 --> 43:50.170
+der aktuellen ISO zu entzielen.
+
+43:50.170 --> 43:52.170
+Was sind das eigentlich für komische Punkte hier?
+
+43:52.170 --> 43:54.170
+Search the Solar System.
+
+43:54.170 --> 43:58.120
+Nerv einfach nicht,
+
+43:58.120 --> 44:00.120
+Microsoft.
+
+44:00.120 --> 44:03.820
+Macht den ganzen Scheiß einfach weg.
+
+44:03.820 --> 44:05.820
+Was hat die höhere Priorität?
+
+44:05.820 --> 44:07.820
+Task Manager oder...
+
+44:07.820 --> 44:09.820
+Das ist eine gute Frage.
+
+44:09.820 --> 44:15.120
+Man kann das nicht richtig testen.
+
+44:15.120 --> 44:17.120
+Weil der dann nicht fokussiert bleibt.
+
+44:17.120 --> 44:25.800
+Kann man...
+
+44:25.800 --> 44:27.800
+Er always on top.
+
+44:27.800 --> 44:29.800
+Okay.
+
+44:29.800 --> 44:31.800
+Der Task Manager hat Priorität.
+
+44:31.800 --> 44:41.260
+Task Manager ist
+
+44:41.260 --> 44:43.260
+always on top, Gachibas.
+
+44:43.260 --> 44:51.370
+Der kennt da nix.
+
+44:51.370 --> 44:53.370
+Wenn man in der Domain ist, kann da das Firmen-Logo
+
+44:53.370 --> 44:55.370
+stehen. Das fanden unsere Chefs unfassbar geil.
+
+44:55.370 --> 44:57.370
+Kann ich mir vorstellen.
+
+44:57.370 --> 44:59.370
+Auf so Kleingram, da stehen die schon.
+
+44:59.370 --> 45:01.370
+Ja, das finden die geil.
+
+45:01.370 --> 45:03.370
+So, Searchbox, Hide.
+
+45:03.370 --> 45:05.370
+Ähm...
+
+45:05.370 --> 45:07.370
+Und jetzt das ganze, please
+
+45:07.370 --> 45:09.370
+Alignen.
+
+45:09.370 --> 45:11.370
+Left.
+
+45:11.370 --> 45:13.370
+Kann man eigentlich angroupen schon?
+
+45:13.370 --> 45:15.370
+Oder ist das noch nicht raus?
+
+45:15.370 --> 45:17.370
+Ich glaub, das ist noch nicht raus, dass man...
+
+45:17.370 --> 45:23.050
+Oder ist das raus?
+
+45:23.050 --> 45:25.050
+Moment, gucken wir mal.
+
+45:25.050 --> 45:27.050
+Ob das das ist.
+
+45:27.050 --> 45:29.050
+Hey!
+
+45:29.050 --> 45:31.050
+Ich mein, es ist halt maximal
+
+45:31.050 --> 45:33.050
+hässlich gemacht, aber
+
+45:33.050 --> 45:35.050
+es funktioniert.
+
+45:35.050 --> 45:37.050
+So, und jetzt müssen wir, ganz wichtig,
+
+45:37.050 --> 45:41.390
+Dark Theme.
+
+45:41.390 --> 45:47.580
+Ging das nicht auch
+
+45:47.580 --> 45:49.580
+unaktiviert?
+
+45:49.580 --> 46:04.480
+Ich bilde mir ein, dass
+
+46:04.480 --> 46:06.480
+Theme-Einstellungen gingen doch auch bisher immer
+
+46:06.480 --> 46:19.640
+unaktiviert.
+
+46:19.640 --> 46:21.640
+Naja, anscheinend nicht.
+
+46:21.640 --> 46:23.640
+Pass mal auf, ich hab ne Idee.
+
+46:23.640 --> 46:25.640
+Wo, wo ist der, wo ist der
+
+46:25.640 --> 46:27.640
+Copilot?
+
+46:27.640 --> 46:29.640
+Ist das mittlerweile schon drinne in Windows?
+
+46:29.640 --> 46:34.880
+Wie mach ich diesen
+
+46:34.880 --> 46:36.880
+komischen Copilot auch noch nicht?
+
+46:36.880 --> 46:38.880
+Ah, weil den Copilot konnte man fragen
+
+46:38.880 --> 46:42.760
+dafür. Aber...
+
+46:42.760 --> 46:44.760
+Wie dem auch sei.
+
+46:44.760 --> 46:48.650
+So.
+
+46:48.650 --> 46:50.650
+OM.
+
+46:50.650 --> 46:52.650
+Moment, wo war das jetzt nochmal? View Exclusive Mode.
+
+46:52.650 --> 46:54.650
+Brauch ich sonst, sonst
+
+46:54.650 --> 46:56.650
+spackt der rum mit Tastenshortcuts.
+
+46:56.650 --> 46:58.650
+Okay, als erstes
+
+46:58.650 --> 47:00.650
+erstmal...
+
+47:00.650 --> 47:08.190
+Geh weg!
+
+47:08.190 --> 47:14.350
+Geh weg!
+
+47:14.350 --> 47:16.350
+Erstmal Firefox downloaden.
+
+47:16.350 --> 47:18.350
+Okay, ich seh,
+
+47:18.350 --> 47:20.350
+der Chat ist... Firefox download
+
+47:20.350 --> 47:22.350
+opera.com. Ja, ist
+
+47:22.350 --> 47:24.350
+klar. Nice, nice Ergebnisse.
+
+47:24.350 --> 47:26.350
+Ich will,
+
+47:26.350 --> 47:28.350
+ich will Firefox nicht auf
+
+47:28.350 --> 47:30.350
+Deutsch runterladen. Ich hätte gerne
+
+47:30.350 --> 47:33.850
+Firefox auf
+
+47:33.850 --> 47:35.850
+Englisch.
+
+47:35.850 --> 47:37.850
+Aber Mozilla hat
+
+47:37.850 --> 47:39.850
+keinen Bock, so wie es aussieht.
+
+47:39.850 --> 47:53.050
+Englisch.
+
+47:53.050 --> 47:55.050
+Stimmt! Wir haben ja
+
+47:55.050 --> 47:57.050
+Winget jetzt. Ich vergesse
+
+47:57.050 --> 47:59.050
+das immer. Terminal.
+
+47:59.050 --> 48:01.050
+Winget.
+
+48:01.050 --> 48:04.430
+Winget install
+
+48:04.430 --> 48:06.430
+Firefox.
+
+48:06.430 --> 48:08.430
+Ich hab immer noch, warum, wenn ich manchmal so komische
+
+48:08.430 --> 48:11.930
+Zeug tippe.
+
+48:11.930 --> 48:13.930
+Das liegt daran, dass ich immer noch
+
+48:13.930 --> 48:17.630
+Pflaster am Finger hab.
+
+48:17.630 --> 48:19.630
+Und jetzt?
+
+48:19.630 --> 48:24.280
+Jetzt ist es broken, oder was?
+
+48:24.280 --> 48:28.240
+Nice.
+
+48:28.240 --> 48:30.240
+Und jetzt ist meine Shell auf einmal blau.
+
+48:30.240 --> 48:37.520
+Kann da einfach
+
+48:37.520 --> 48:39.520
+irgendwas funktionieren, man?
+
+48:39.520 --> 48:50.060
+Okay, geht Chrome.
+
+48:50.060 --> 49:14.240
+Das ist so eine Krücke,
+
+49:14.240 --> 49:18.380
+dieses System, ey.
+
+49:18.380 --> 49:20.380
+Ich glaub, wir installieren WSL, das ist für uns besser.
+
+49:20.380 --> 49:22.380
+Wie kann man diesen
+
+49:22.380 --> 49:24.380
+Bullshit einfach nur verwenden? Ich versteh's nicht.
+
+49:24.380 --> 49:26.380
+Firefox Download.
+
+49:26.380 --> 49:28.380
+Na gut, man kommt halt nicht drum herum.
+
+49:28.380 --> 49:32.270
+Warum kann ich das nicht auf
+
+49:32.270 --> 49:34.270
+Englisch bekommen?
+
+49:34.270 --> 49:36.270
+E-N, Download. Ja, beste.
+
+49:36.270 --> 49:42.590
+Download Firefox.
+
+49:42.590 --> 49:44.590
+WSLG hat
+
+49:44.590 --> 49:46.590
+Schnittstelle für grafische Sachen.
+
+49:46.590 --> 49:48.590
+Aber WSLG hat auch so seine Probleme.
+
+49:48.590 --> 49:56.440
+Warum ist Winget
+
+49:56.440 --> 49:58.440
+eigentlich jetzt auf einmal kaputt?
+
+49:58.440 --> 50:02.720
+Sollen wir mal GitHub zum Beispiel.
+
+50:02.720 --> 50:04.720
+Hä?
+
+50:04.720 --> 50:06.720
+Winget
+
+50:06.720 --> 50:08.720
+Winget
+
+50:08.720 --> 50:13.950
+broken
+
+50:13.950 --> 50:15.950
+Winget
+
+50:15.950 --> 50:17.950
+broken Winget after installing Windows 11
+
+50:17.950 --> 50:21.320
+and all its updates
+
+50:21.320 --> 50:28.800
+last week
+
+50:28.800 --> 50:35.500
+Vielleicht geht das mit der neuen PowerShell.
+
+50:35.500 --> 50:37.500
+Das ist doch, ach so,
+
+50:37.500 --> 50:39.500
+ja, das ist doch PowerShell.
+
+50:39.500 --> 50:41.500
+Okay, vielleicht, vielleicht liegt's auch
+
+50:41.500 --> 50:43.500
+vielleicht, wir machen's mal mit CMD.
+
+50:43.500 --> 50:45.500
+Winget search
+
+50:45.500 --> 50:47.500
+Firefox
+
+50:47.500 --> 50:49.500
+Fox
+
+50:49.500 --> 50:51.500
+Ne.
+
+50:51.500 --> 50:56.730
+Oh, das ist so schlecht
+
+50:56.730 --> 51:00.110
+alles, man.
+
+51:00.110 --> 51:15.640
+Keine Updates available.
+
+51:15.640 --> 51:17.640
+Okay, vielleicht, vielleicht muss ich updaten.
+
+51:17.640 --> 51:19.640
+Okay, okay, okay, vielleicht muss ich updaten.
+
+51:19.640 --> 51:21.640
+Jetzt ist die Frage,
+
+51:21.640 --> 51:23.640
+updatet man Winget über Windows Update
+
+51:23.640 --> 51:25.640
+oder über den Windows Store?
+
+51:25.640 --> 51:27.640
+Man weiß's
+
+51:27.640 --> 51:31.530
+ja nicht so genau.
+
+51:31.530 --> 51:33.530
+Dieses Betriebssystem ist so eine krasse
+
+51:33.530 --> 51:35.530
+Zumutung, man.
+
+51:35.530 --> 51:37.530
+Wo erkenne, wo sehe ich überhaupt,
+
+51:37.530 --> 51:39.530
+ob es Updates im Store gibt?
+
+51:39.530 --> 51:47.900
+Wo sehe ich das überhaupt?
+
+51:47.900 --> 52:04.460
+Get updates, hier.
+
+52:04.460 --> 52:06.460
+Okay, restart required.
+
+52:06.460 --> 52:08.460
+Und jetzt, hier weiß man ja nicht, was er
+
+52:08.460 --> 52:10.460
+macht.
+
+52:10.460 --> 52:12.460
+Microsoft ist der Meinung, dass ein blauer
+
+52:12.460 --> 52:14.460
+Button mit nem Spinner drauf
+
+52:14.460 --> 52:16.460
+komplett genug
+
+52:16.460 --> 52:18.460
+Informationen sind, dass man versteht, was
+
+52:18.460 --> 52:20.460
+hier vor sich geht gerade.
+
+52:20.460 --> 52:22.460
+Sagt euch auch dieser blaue Sp...
+
+52:22.460 --> 52:24.460
+Ah, ach so, natürlich, jetzt ist alles klar.
+
+52:24.460 --> 52:26.460
+Es ist einfacher
+
+52:26.460 --> 52:28.460
+zu programmieren. Ja, den Eindruck hab ich...
+
+52:28.460 --> 52:30.460
+Alter, wie viel kommt da bitteschön
+
+52:30.460 --> 52:32.460
+über den Store, man? Und, und,
+
+52:32.460 --> 52:34.460
+warum macht Windows Update nicht automatisch
+
+52:34.460 --> 52:36.460
+Ich will's gar nicht wissen.
+
+52:36.460 --> 52:38.460
+Komm, ist egal. Cortana!
+
+52:38.460 --> 52:40.460
+Jawoll, endlich! Glück!
+
+52:40.460 --> 52:42.460
+Leute, danke
+
+52:42.460 --> 52:44.460
+Microsoft, Cortana wird geupdatet
+
+52:44.460 --> 52:46.460
+und MSN Weather und Microsoft People.
+
+52:46.460 --> 52:48.460
+Was ist Microsoft
+
+52:48.460 --> 52:50.460
+People überhaupt?
+
+52:50.460 --> 52:52.460
+Das ist, das ist so
+
+52:52.460 --> 52:54.460
+unsinnig, dass es nicht mal,
+
+52:54.460 --> 52:56.460
+dass du nicht mal starten kannst im Taskmenü.
+
+52:56.460 --> 53:02.720
+Ecliptchamp ist auch
+
+53:02.720 --> 53:04.720
+am Start, ja.
+
+53:04.720 --> 53:06.720
+Ich wart immer noch auf die
+
+53:06.720 --> 53:08.720
+Überweisung von Microsoft.
+
+53:08.720 --> 53:14.460
+Dein iPhone
+
+53:14.460 --> 53:16.460
+macht doch auch App-Updates
+
+53:16.460 --> 53:20.730
+separat vom... Ja, das stimmt.
+
+53:20.730 --> 53:22.730
+Aber der macht's auch automatisch.
+
+53:22.730 --> 53:24.730
+Da muss ich nicht
+
+53:24.730 --> 53:26.730
+in App-Store klicken, den ich eh nicht
+
+53:26.730 --> 53:30.620
+benutzen will.
+
+53:30.620 --> 53:32.620
+Ich kann kein Dark Mode anmachen, weil ich Windows nicht
+
+53:32.620 --> 53:40.030
+aktiviert hab.
+
+53:40.030 --> 53:42.030
+Außer Viva... Moment, okay, okay, Chat geht.
+
+53:42.030 --> 53:44.030
+Viva noch mal...
+
+53:44.030 --> 53:48.300
+Dark Mode aktivieren
+
+53:48.300 --> 53:50.300
+geht ohne, sag mal wie, sag mal wie.
+
+53:50.300 --> 53:52.300
+Irgendjemand hat eben vorhin
+
+53:52.300 --> 53:54.300
+Registry-Hack gepostet.
+
+53:54.300 --> 53:56.300
+Aber ich mach keine random Registry-Sachen
+
+53:56.300 --> 54:00.700
+aus dem Chat.
+
+54:00.700 --> 54:02.700
+Was jetzt?
+
+54:02.700 --> 54:04.700
+Ist der Store gecrashed gerade
+
+54:04.700 --> 54:08.720
+oder was?
+
+54:08.720 --> 54:10.720
+Zu viel Sachen, die sich
+
+54:10.720 --> 54:12.720
+geupdatet haben und gleichzeitig...
+
+54:22.590 --> 54:24.590
+Ach, der Store hat sich geupdatet.
+
+54:24.590 --> 54:26.590
+Ach so.
+
+54:26.590 --> 54:28.590
+Solitär, endlich, endlich.
+
+54:28.590 --> 54:30.590
+Rechtsklick
+
+54:30.590 --> 54:32.590
+auf dem Desktop und dann, wie man's normal
+
+54:32.590 --> 54:34.590
+macht. Nee, nee, das geht nicht mehr.
+
+54:34.590 --> 54:36.590
+Normal gehst du hier Personalize,
+
+54:36.590 --> 54:38.590
+sagst
+
+54:38.590 --> 54:40.590
+Themes
+
+54:40.590 --> 54:42.590
+und dann kannst du sagen
+
+54:42.590 --> 54:44.590
+äh...
+
+54:44.590 --> 54:46.590
+Moment.
+
+54:46.590 --> 54:48.590
+Wo ist denn das überhaupt jetzt?
+
+54:48.590 --> 54:50.590
+Dark Theme.
+
+54:50.590 --> 54:52.590
+Ja, geht nicht, weil
+
+54:52.590 --> 54:54.590
+weil you need to activate.
+
+54:54.590 --> 55:05.520
+Yentari, mach
+
+55:05.520 --> 55:08.830
+meine random Registry-Sachen.
+
+55:08.830 --> 55:10.830
+Ah, okay.
+
+55:10.830 --> 55:19.290
+Mal gucken.
+
+55:19.290 --> 55:23.440
+Ach, Moment.
+
+55:23.440 --> 55:28.410
+Hä?
+
+55:28.410 --> 55:30.410
+Da geht das?
+
+55:30.410 --> 55:36.160
+Aber da geht das nicht.
+
+55:36.160 --> 55:38.160
+Oh, Mann.
+
+55:38.160 --> 55:40.160
+Das ist so dumm alles.
+
+55:40.160 --> 55:42.160
+Das tut immer so weh, wenn ich
+
+55:42.160 --> 55:44.160
+den Scheiß benutzen muss, Mann.
+
+55:46.160 --> 55:48.160
+Das ist einfach...
+
+55:48.160 --> 55:50.160
+Das ist eine komplette Zumutung der Scheiß, Mann.
+
+55:56.240 --> 55:58.240
+Das macht einen ja fertig.
+
+56:00.240 --> 56:02.240
+Das muss hier in die Mitte und ein bisschen
+
+56:02.240 --> 56:07.400
+größer.
+
+56:07.400 --> 56:09.400
+Microsoft Support eröffnet.
+
+56:09.400 --> 56:11.400
+Ja, klar.
+
+56:11.400 --> 56:13.400
+Hat das jetzt eigentlich alles geupdatet?
+
+56:13.400 --> 56:15.400
+Ja, oder?
+
+56:15.400 --> 56:17.400
+Okay, ich will jetzt wissen, was Microsoft
+
+56:17.400 --> 56:19.400
+People ist. Guck mal!
+
+56:19.400 --> 56:21.400
+Der hat Microsoft People geupdatet.
+
+56:21.400 --> 56:23.400
+Und wenn ich nach...
+
+56:23.400 --> 56:25.400
+Wenn ich da nach suche, finde das nicht mal.
+
+56:25.400 --> 56:30.000
+Dafür, dafür habe ich...
+
+56:30.000 --> 56:34.080
+Bestimmt
+
+56:34.080 --> 56:36.080
+wieder Disney Plus oder so ein Shit drauf.
+
+56:36.080 --> 56:41.560
+Oder... Ja, geht eigentlich.
+
+56:41.560 --> 56:43.560
+Spotify,
+
+56:43.560 --> 56:45.560
+WhatsApp, okay.
+
+56:45.560 --> 56:47.560
+So, jetzt muss ich neu starten, weil
+
+56:47.560 --> 56:49.560
+er sagt ja...
+
+56:49.560 --> 56:57.160
+Restart. Das ist die Kontakte-App.
+
+56:57.160 --> 56:59.160
+Ja, ist gut, dass die im Store
+
+56:59.160 --> 57:01.160
+Microsoft People heißt, aber im
+
+57:01.160 --> 57:03.160
+Startmenü dann Kontakte.
+
+57:03.160 --> 57:05.160
+Das ist wichtig,
+
+57:05.160 --> 57:07.160
+dass man den Zusammenhang nicht erkennt.
+
+57:07.160 --> 57:21.740
+Contacts. Immer immer Contacts
+
+57:21.740 --> 57:23.740
+findet er bei mir.
+
+57:23.740 --> 57:25.740
+Okay, kann ich es jetzt
+
+57:25.740 --> 57:27.740
+endlich ausprobieren? Okay, wir haben es
+
+57:27.740 --> 57:32.140
+geschafft, Leute. Wir haben es geschafft. Nice.
+
+57:32.140 --> 57:34.140
+Checking for updates. Oh,
+
+57:34.140 --> 57:36.140
+es geht weiter. Eben waren
+
+57:36.140 --> 57:38.140
+wir angeblich noch up to date.
+
+57:38.140 --> 57:40.140
+Ach, jetzt kommen nur noch die neuesten Virus-
+
+57:40.140 --> 57:42.140
+Definitionen. Das ist okay, das
+
+57:42.140 --> 57:44.140
+darf.
+
+57:44.140 --> 57:46.140
+Die Sounds sind angenehmer. Ja, das stimmt.
+
+57:46.140 --> 57:50.030
+Das ist korrekt.
+
+57:50.030 --> 57:52.030
+View exclusive.
+
+57:52.030 --> 57:54.030
+Download and install.
+
+57:54.030 --> 57:56.030
+Kommulativ
+
+57:56.030 --> 57:58.030
+update preview. Nein, nein, nein,
+
+57:58.030 --> 58:00.030
+nein. Genug
+
+58:00.030 --> 58:02.030
+kumuliert.
+
+58:02.030 --> 58:04.030
+Kommulativ make primary browser.
+
+58:04.030 --> 58:06.030
+Ja.
+
+58:06.030 --> 58:08.030
+Ja.
+
+58:08.030 --> 58:12.620
+Okay, also
+
+58:12.620 --> 58:14.620
+Glaze WM GitHub.
+
+58:14.620 --> 58:16.620
+Jetzt bin ich mal gespannt, wie das funktioniert.
+
+58:16.620 --> 58:23.900
+Releases. Guck mal, das
+
+58:23.900 --> 58:25.900
+letzte Release ist vom
+
+58:25.900 --> 58:27.900
+September.
+
+58:27.900 --> 58:29.900
+Das ist sogar relativ neu.
+
+58:29.900 --> 58:33.920
+Zwei Monate oder so alt.
+
+58:33.920 --> 58:35.920
+In was ist denn das
+
+58:35.920 --> 58:37.920
+programmiert?
+
+58:37.920 --> 58:39.920
+Hoffentlich Blazingly Fast written in Rust.
+
+58:39.920 --> 58:41.920
+Ach nee, C Sharp. Okay, dann
+
+58:41.920 --> 58:43.920
+könnte es ja tatsächlich was
+
+58:43.920 --> 58:47.800
+taugen.
+
+58:47.800 --> 58:51.180
+x64. Ach, jetzt soll ich mal
+
+58:51.180 --> 58:55.450
+Winged ausprobieren.
+
+58:55.450 --> 58:57.450
+Winged search Firefox.
+
+58:57.450 --> 58:59.450
+Okay, jetzt
+
+58:59.450 --> 59:01.450
+funktioniert Winged. Ich bin aber,
+
+59:01.450 --> 59:03.450
+es ist aber geil, dass es
+
+59:03.450 --> 59:05.450
+Windows 11 ausgeliefert mit einer
+
+59:05.450 --> 59:07.450
+Winged Version, die einfach komplett broken ist.
+
+59:07.450 --> 59:14.480
+Warum
+
+59:14.480 --> 59:16.480
+genau findet er das bei Firefox?
+
+59:16.480 --> 59:18.480
+Ich meine, ich finde, dass
+
+59:18.480 --> 59:20.480
+Floor P Lightning, Blaze Floor
+
+59:20.480 --> 59:22.480
+P Lightning nicht nach Firefox
+
+59:22.480 --> 59:24.480
+klingt. Tag Firefox Fork.
+
+59:24.480 --> 59:34.410
+Okay.
+
+59:34.410 --> 59:37.920
+Was auch immer das ist.
+
+59:37.920 --> 59:39.920
+Hat der Download funktioniert?
+
+59:39.920 --> 59:41.920
+Okay, install.
+
+59:41.920 --> 59:43.920
+Ja, ja, ja, ja.
+
+59:43.920 --> 59:47.550
+Run anyway.
+
+59:47.550 --> 59:51.310
+MyVM
+
+59:51.310 --> 59:58.910
+now.
+
+59:58.910 --> 01:00:03.820
+Wie das einfach hinterm Fenster war.
+
+01:00:03.820 --> 01:00:05.820
+No config file found.
+
+01:00:05.820 --> 01:00:07.820
+At keck Glaze WM Config YAML.
+
+01:00:07.820 --> 01:00:09.820
+Create new config file
+
+01:00:09.820 --> 01:00:11.820
+from starter template. Okay.
+
+01:00:11.820 --> 01:00:16.160
+So, jetzt muss ich mir aber ein bisschen die...
+
+01:00:16.160 --> 01:00:18.160
+Hat er denn jetzt gleich
+
+01:00:18.160 --> 01:00:20.160
+gestartet oder so?
+
+01:00:20.160 --> 01:00:22.160
+Excellent, excellent.
+
+01:00:22.160 --> 01:00:24.160
+So.
+
+01:00:24.160 --> 01:00:29.070
+Äh.
+
+01:00:29.070 --> 01:00:33.660
+Okay.
+
+01:00:33.660 --> 01:00:35.660
+Das hat leider keine
+
+01:00:35.660 --> 01:00:37.660
+i3...
+
+01:00:37.660 --> 01:00:39.660
+Das hat leider keine i3
+
+01:00:39.660 --> 01:00:41.660
+Shortcuts. Da muss ich erstmal
+
+01:00:41.660 --> 01:00:43.660
+in die Shortcuts reingucken.
+
+01:00:43.660 --> 01:00:45.660
+Wie switcht... Ah ja.
+
+01:00:45.660 --> 01:00:47.660
+Mit Alt-Taste switcht man zwischen
+
+01:00:47.660 --> 01:00:49.660
+Desktops. Okay.
+
+01:00:49.660 --> 01:00:51.660
+Da muss ich mich dran gewöhnen.
+
+01:00:51.660 --> 01:00:53.660
+Das heißt, ich kann jetzt hier mal ein Terminal
+
+01:00:53.660 --> 01:00:55.660
+starten. Oh, okay. Das ist das gleiche.
+
+01:00:55.660 --> 01:00:57.660
+Ich kann Terminal
+
+01:00:57.660 --> 01:01:02.320
+starten. Wir sollten
+
+01:01:02.320 --> 01:01:04.320
+uns mal... Wir sollten uns mal
+
+01:01:04.320 --> 01:01:06.320
+die Config angucken.
+
+01:01:06.320 --> 01:01:08.320
+Tja. Okay.
+
+01:01:08.320 --> 01:01:10.320
+Passt mal auf. PowerShell-Skills, Leute.
+
+01:01:10.320 --> 01:01:12.320
+Jetzt kommt's.
+
+01:01:12.320 --> 01:01:14.320
+PowerShell. Also.
+
+01:01:14.320 --> 01:01:16.320
+CD Glaze
+
+01:01:16.320 --> 01:01:19.630
+WM
+
+01:01:19.630 --> 01:01:21.630
+Vim Config keckel. Ah, das gibt's ja nicht.
+
+01:01:21.630 --> 01:01:23.630
+Moment. Gibt's? Ne.
+
+01:01:23.630 --> 01:01:25.630
+Less Config YAML.
+
+01:01:25.630 --> 01:01:27.630
+Ach, ne. Äh.
+
+01:01:27.630 --> 01:01:29.630
+More. Ah ja. Das geht.
+
+01:01:29.630 --> 01:01:33.320
+Okay. Können wir das nicht einfach...
+
+01:01:33.320 --> 01:01:35.320
+Okay. Wir brauchen Whistles. Okay.
+
+01:01:35.320 --> 01:01:37.320
+Vim Get in...
+
+01:01:37.320 --> 01:01:42.110
+Vim Get Search.
+
+01:01:42.110 --> 01:01:44.110
+Ah ja. Autocomplete geht natürlich nicht.
+
+01:01:44.110 --> 01:01:52.480
+Okay.
+
+01:01:52.480 --> 01:01:54.480
+Vim Get
+
+01:01:54.480 --> 01:02:01.180
+Install. Was?
+
+01:02:01.180 --> 01:02:07.440
+Hab ich aber nicht angeklickt.
+
+01:02:07.440 --> 01:02:09.440
+Warum nicht Vim? Weil wir unter Windows
+
+01:02:09.440 --> 01:02:16.720
+sind. Ah. Die Floating
+
+01:02:16.720 --> 01:02:18.720
+Dinger macht er auch als Teil. Okay.
+
+01:02:18.720 --> 01:02:20.720
+Ja, das macht I3 teilweise
+
+01:02:20.720 --> 01:02:24.480
+auch. Aber
+
+01:02:24.480 --> 01:02:26.480
+ich hab's bei den meisten Sachen, die Popups
+
+01:02:26.480 --> 01:02:28.480
+sind, eingestellt bei meinem I3, dass der
+
+01:02:28.480 --> 01:02:33.070
+das nicht macht.
+
+01:02:33.070 --> 01:02:35.070
+Ich weiß, dass Vim ganz gut unter Windows funktioniert.
+
+01:02:35.070 --> 01:02:37.070
+So. Also.
+
+01:02:37.070 --> 01:02:39.070
+Code.
+
+01:02:39.070 --> 01:02:41.070
+Ah, ne. Man musste das erst schließen. Ja. Und jetzt...
+
+01:02:41.070 --> 01:02:43.070
+Und wenn man's nochmal aufmacht,
+
+01:02:43.070 --> 01:02:46.700
+dann geht's, glaub ich. Code.
+
+01:02:46.700 --> 01:02:48.700
+Okay. Das finde ich doch schon mal gar net so.
+
+01:02:48.700 --> 01:02:50.700
+Gar net so
+
+01:02:50.700 --> 01:02:54.650
+verkehrt. So. Wie verschiebt
+
+01:02:54.650 --> 01:02:56.650
+man das jetzt auf... Aha.
+
+01:02:56.650 --> 01:02:58.650
+Aha. Okay. Guckt.
+
+01:02:58.650 --> 01:03:00.650
+Aber das Switchen zwischen
+
+01:03:00.650 --> 01:03:02.650
+Desktops ist schon ein bisschen
+
+01:03:02.650 --> 01:03:07.120
+cringe. Okay.
+
+01:03:07.120 --> 01:03:09.120
+Was kann man hier einstellen?
+
+01:03:09.120 --> 01:03:11.120
+Fokus.
+
+01:03:11.120 --> 01:03:13.120
+Nein. Automatisch Fokus ist doof.
+
+01:03:13.120 --> 01:03:15.120
+Sekunde.
+
+01:03:15.120 --> 01:03:17.120
+Ähm.
+
+01:03:17.120 --> 01:03:19.120
+Settings.
+
+01:03:19.120 --> 01:03:21.120
+Äh. Ne.
+
+01:03:21.120 --> 01:03:23.120
+Config. Chase. Ach. Wie war das?
+
+01:03:23.120 --> 01:03:25.120
+Hieß das nicht Settings?
+
+01:03:25.120 --> 01:03:27.120
+Ist jetzt total bescheuert.
+
+01:03:27.120 --> 01:03:29.120
+Ich muss
+
+01:03:29.120 --> 01:03:33.450
+das Settings?
+
+01:03:33.450 --> 01:03:35.450
+Ach. Preferences hieß das.
+
+01:03:35.450 --> 01:03:37.450
+Preferences.
+
+01:03:37.450 --> 01:03:39.450
+Font.
+
+01:03:39.450 --> 01:03:41.450
+18.
+
+01:03:41.450 --> 01:03:43.450
+Äh. Schon besser.
+
+01:03:43.450 --> 01:03:45.450
+20.
+
+01:03:45.450 --> 01:03:47.450
+Ah. Das ist gut.
+
+01:03:47.450 --> 01:03:49.450
+Also. Ich muss sagen.
+
+01:03:49.450 --> 01:03:51.450
+Eine Sache hat Microsoft richtig gemacht.
+
+01:03:51.450 --> 01:03:54.960
+Consolas ist ein nicer Font.
+
+01:03:54.960 --> 01:03:56.960
+So. Also. Gaps.
+
+01:03:56.960 --> 01:03:58.960
+Gaps machen wir schon ein bisschen kleiner. 5 reicht.
+
+01:03:58.960 --> 01:04:00.960
+Und Outer Gap 5 reicht auch.
+
+01:04:00.960 --> 01:04:02.960
+Quasi ein Gap zwischen den Fenstern
+
+01:04:02.960 --> 01:04:04.960
+und ein Gap außenrum.
+
+01:04:04.960 --> 01:04:06.960
+5 reicht. Äh. Gibt es sowas wie
+
+01:04:06.960 --> 01:04:08.960
+Reload? Aha.
+
+01:04:08.960 --> 01:04:10.960
+Okay. Nice. Er hat
+
+01:04:10.960 --> 01:04:12.960
+so eine Art I3 Keybindings.
+
+01:04:12.960 --> 01:04:14.960
+Da kann man nur mit Alt
+
+01:04:14.960 --> 01:04:16.960
+anstatt mit Windows Taste.
+
+01:04:16.960 --> 01:04:18.960
+Was glaube
+
+01:04:18.960 --> 01:04:20.960
+ich unter Windows gar nicht so
+
+01:04:20.960 --> 01:04:25.480
+verkehrt ist?
+
+01:04:25.480 --> 01:04:27.480
+Kann mir Bing da helfen so?
+
+01:04:27.480 --> 01:04:35.080
+Ne.
+
+01:04:35.080 --> 01:04:37.080
+VS Code will Links unten updaten.
+
+01:04:37.080 --> 01:04:39.080
+Wo? Hier? Ne.
+
+01:04:39.080 --> 01:04:41.080
+Wo will das updaten?
+
+01:04:41.080 --> 01:04:43.080
+Hier.
+
+01:04:43.080 --> 01:04:47.680
+Moment. Ich habe das doch gerade
+
+01:04:47.680 --> 01:04:49.680
+eben installiert.
+
+01:04:49.680 --> 01:04:51.680
+War das eine ältere
+
+01:04:51.680 --> 01:04:53.680
+ältere Version in WinGet
+
+01:04:53.680 --> 01:04:55.680
+oder wie?
+
+01:04:55.680 --> 01:04:57.680
+Meine Güte.
+
+01:04:57.680 --> 01:05:02.010
+Moment. Es war älter als Oktober.
+
+01:05:02.010 --> 01:05:12.360
+Strongly
+
+01:05:12.360 --> 01:05:14.360
+recommended to set to false.
+
+01:05:14.360 --> 01:05:16.360
+Globally enabled
+
+01:05:16.360 --> 01:05:18.360
+distal window transition anime. Set
+
+01:05:18.360 --> 01:05:22.250
+strongly
+
+01:05:22.250 --> 01:05:24.250
+to false.
+
+01:05:24.250 --> 01:05:26.250
+Ja ist glaube ich
+
+01:05:26.250 --> 01:05:28.250
+auch sinniger.
+
+01:05:28.250 --> 01:05:30.250
+Hat aber immer noch
+
+01:05:30.250 --> 01:05:39.070
+hat aber immer noch
+
+01:05:39.070 --> 01:05:42.830
+animations.
+
+01:05:42.830 --> 01:05:44.830
+Wie man hier
+
+01:05:44.830 --> 01:05:48.650
+sieht. Ich meine
+
+01:05:48.650 --> 01:05:50.650
+besser als, besser als nix.
+
+01:05:50.650 --> 01:05:54.480
+Focus Border, Bar.
+
+01:05:54.480 --> 01:05:56.480
+Was hat man
+
+01:05:56.480 --> 01:05:58.480
+hier oben eigentlich?
+
+01:05:58.480 --> 01:06:00.480
+Hier oben hat man die Tray Icons
+
+01:06:00.480 --> 01:06:02.480
+oder so. Weil man hat jetzt
+
+01:06:02.480 --> 01:06:04.480
+man hat jetzt unten die Taskleiste
+
+01:06:04.480 --> 01:06:06.480
+und oben so eine Leiste.
+
+01:06:06.480 --> 01:06:08.480
+Da fragt man sich
+
+01:06:08.480 --> 01:06:10.480
+natürlich.
+
+01:06:10.480 --> 01:06:12.480
+Für was ist das?
+
+01:06:12.480 --> 01:06:14.480
+Da fragt man sich natürlich
+
+01:06:14.480 --> 01:06:22.010
+wozu?
+
+01:06:22.010 --> 01:06:24.010
+Ja das sind hier meine.
+
+01:06:24.010 --> 01:06:26.010
+Ist das das USB
+
+01:06:26.010 --> 01:06:30.670
+Icon oder wie?
+
+01:06:30.670 --> 01:06:32.670
+Ok die Leiste oben ist komplett unsinnig.
+
+01:06:32.670 --> 01:06:34.670
+Die braucht niemand.
+
+01:06:34.670 --> 01:06:36.670
+OneDrive weg. Close.
+
+01:06:36.670 --> 01:06:38.670
+Jawoll. Das hier oben braucht
+
+01:06:38.670 --> 01:06:40.670
+also dann verwende ich
+
+01:06:40.670 --> 01:06:42.670
+lieber die Tray Icons da unten.
+
+01:06:42.670 --> 01:06:44.670
+Ganz ehrlich.
+
+01:06:44.670 --> 01:06:46.670
+Wobei, wobei
+
+01:06:46.670 --> 01:06:48.670
+hier kann man Config
+
+01:06:48.670 --> 01:06:50.670
+neu laden. Aber das bringt ja überhaupt nix.
+
+01:06:50.670 --> 01:06:52.670
+Weil ich
+
+01:06:52.670 --> 01:06:54.670
+reload die ja schon mit Shift Alt R
+
+01:06:54.670 --> 01:06:56.670
+hab ich die ganze Zeit schon gemacht.
+
+01:06:56.670 --> 01:06:58.670
+Das da oben braucht man
+
+01:06:58.670 --> 01:07:00.670
+anscheinend wirklich nur um Desktops
+
+01:07:00.670 --> 01:07:02.670
+zu switchen.
+
+01:07:02.670 --> 01:07:04.670
+Deswegen wäre es eigentlich ganz gut
+
+01:07:04.670 --> 01:07:06.670
+hätten sie es irgendwie geschafft
+
+01:07:06.670 --> 01:07:08.670
+das in die Taskleiste zu integrieren.
+
+01:07:08.670 --> 01:07:10.670
+Die Anzeige vom Desktop. Dann bräuchte man
+
+01:07:10.670 --> 01:07:16.350
+diese Bar da oben nicht.
+
+01:07:16.350 --> 01:07:18.350
+So ist das bisschen doppel gemoppelt.
+
+01:07:18.350 --> 01:07:24.860
+Holz? Musst du in Anführungszeichen?
+
+01:07:24.860 --> 01:07:26.860
+Ne. Muss nicht.
+
+01:07:26.860 --> 01:07:32.410
+Muss hier oben ja auch nicht.
+
+01:07:32.410 --> 01:07:34.410
+Ok hier steht das auch ohne.
+
+01:07:34.410 --> 01:07:36.410
+Oder meinst du ernsthaft ich soll Anf-
+
+01:07:36.410 --> 01:07:39.920
+Das kann ich mir nicht vorstellen.
+
+01:07:39.920 --> 01:07:45.920
+Ne macht doch nix.
+
+01:07:45.920 --> 01:07:47.920
+Windows Taskleiste hat ein Desktop Switch Icon.
+
+01:07:47.920 --> 01:07:49.920
+Moment ist denn?
+
+01:07:49.920 --> 01:07:54.440
+Moment.
+
+01:07:54.440 --> 01:07:56.440
+Das sind keine Windows
+
+01:07:56.440 --> 01:07:58.440
+Das sind keine Windows Desktops hier die ich da sehe.
+
+01:07:58.440 --> 01:08:00.440
+Das ist eigenes
+
+01:08:00.440 --> 01:08:02.440
+Windows Handling.
+
+01:08:02.440 --> 01:08:04.440
+Warte mal Task View.
+
+01:08:04.440 --> 01:08:09.740
+Guck das sind keine
+
+01:08:09.740 --> 01:08:11.740
+Windows Desktops.
+
+01:08:11.740 --> 01:08:13.740
+Windows Desktops kann
+
+01:08:13.740 --> 01:08:18.460
+ich auch haben.
+
+01:08:18.460 --> 01:08:20.460
+Die sich aber nicht switchen lassen
+
+01:08:20.460 --> 01:08:27.070
+mehr. Dann.
+
+01:08:27.070 --> 01:08:29.070
+Also ich kann jetzt I3
+
+01:08:29.070 --> 01:08:31.070
+Ich kann den jetzt gestartet haben auf jedem
+
+01:08:31.070 --> 01:08:33.070
+Desktop.
+
+01:08:33.070 --> 01:08:35.070
+Auf jedem Windows
+
+01:08:35.070 --> 01:08:37.070
+Okay das ist ein bisschen zu abgedreht.
+
+01:08:37.070 --> 01:08:39.070
+Oh da kommt er durcheinander.
+
+01:08:39.070 --> 01:08:41.070
+Da kommt er durcheinander.
+
+01:08:41.070 --> 01:08:43.070
+Da blickt er dann immer durch.
+
+01:08:43.070 --> 01:08:45.070
+Das ist das.
+
+01:08:45.070 --> 01:08:47.070
+Das kann man nicht zusammen verwenden.
+
+01:08:47.070 --> 01:08:57.740
+Das checkt er nicht mehr.
+
+01:08:57.740 --> 01:08:59.740
+Ok Windows Desktops darf man nicht verwenden.
+
+01:08:59.740 --> 01:09:01.740
+Was aber schon ein bisschen
+
+01:09:01.740 --> 01:09:03.740
+doof ist.
+
+01:09:03.740 --> 01:09:15.820
+Das es nicht mit Windows Desktops implementiert ist.
+
+01:09:15.820 --> 01:09:17.820
+Highlight Active Inactive Windows
+
+01:09:17.820 --> 01:09:24.080
+Component Left Workspace
+
+01:09:24.080 --> 01:09:26.080
+ist hier haben wir.
+
+01:09:26.080 --> 01:09:28.080
+Component Center Windows
+
+01:09:28.080 --> 01:09:30.080
+Teil. Ok das man sieht was
+
+01:09:30.080 --> 01:09:32.080
+auf ist.
+
+01:09:32.080 --> 01:09:34.080
+Braucht man eigentlich überhaupt gar nicht.
+
+01:09:34.080 --> 01:09:36.080
+Habe ich unter I3 auch nicht.
+
+01:09:36.080 --> 01:09:38.080
+Guckt.
+
+01:09:38.080 --> 01:09:40.080
+Was interessiert mich.
+
+01:09:40.080 --> 01:09:42.080
+Ob da oben steht welche Anwendung
+
+01:09:42.080 --> 01:09:44.080
+ich offen habe. Ich sehe es ja.
+
+01:09:44.080 --> 01:09:50.010
+Ich habe es hier direkt vor der Nase.
+
+01:09:50.010 --> 01:09:52.010
+Ich verwende Windows Desktops immer.
+
+01:09:52.010 --> 01:09:55.320
+Guckt zum Beispiel hierfür.
+
+01:09:55.320 --> 01:09:57.320
+Zwischen 4M und Host.
+
+01:09:57.320 --> 01:10:06.720
+System Tray.
+
+01:10:06.720 --> 01:10:12.650
+Ich weiß immer noch nicht was
+
+01:10:12.650 --> 01:10:14.650
+der Button da eben macht.
+
+01:10:14.650 --> 01:10:16.650
+Also die Leiste hier oben ist bis auf die Desktop Anzeigen
+
+01:10:16.650 --> 01:10:18.650
+eigentlich komplett überflüssig.
+
+01:10:18.650 --> 01:10:20.650
+Weil die Taskleiste ist ja auch noch da.
+
+01:10:20.650 --> 01:10:22.650
+Und die Taskleiste wirst du wahrscheinlich
+
+01:10:22.650 --> 01:10:24.650
+auch brauchen. Weil du willst ja vielleicht mal
+
+01:10:24.650 --> 01:10:26.650
+was anklicken hier was man da nicht unbedingt
+
+01:10:26.650 --> 01:10:28.650
+machen kann. Rechts und so.
+
+01:10:28.650 --> 01:10:30.650
+Also.
+
+01:10:30.650 --> 01:10:32.650
+Also ehrlich gesagt ist das. Es wäre
+
+01:10:32.650 --> 01:10:34.650
+cooler sie hätten die
+
+01:10:34.650 --> 01:10:36.650
+Desktop Anzeige
+
+01:10:36.650 --> 01:10:38.650
+als Overlay von der Taskleiste gemacht.
+
+01:10:38.650 --> 01:10:40.650
+Dann hätte man sich hier oben
+
+01:10:40.650 --> 01:10:44.540
+nämlich die Leiste sparen können.
+
+01:10:44.540 --> 01:10:46.540
+Ne Taskleiste ausblenden
+
+01:10:46.540 --> 01:10:48.540
+bringt ja nichts.
+
+01:10:48.540 --> 01:10:50.540
+Du willst ja schon ab und zu mal auf irgendwelche Sachen hier unten
+
+01:10:50.540 --> 01:10:52.540
+zugreifen. Sei es so Netzwerksettings,
+
+01:10:52.540 --> 01:10:54.540
+Soundlautstärke und sowas.
+
+01:10:54.540 --> 01:10:56.540
+Das da oben müsste eigentlich weg.
+
+01:10:56.540 --> 01:10:58.540
+Und ganz ehrlich
+
+01:10:58.540 --> 01:11:00.540
+das da oben kann auch weg.
+
+01:11:00.540 --> 01:11:02.540
+Nur die Desktop Anzeige worauf man
+
+01:11:02.540 --> 01:11:13.920
+ist braucht man noch.
+
+01:11:13.920 --> 01:11:15.920
+Vielleicht kann man, ach guck mal
+
+01:11:15.920 --> 01:11:19.360
+die Bar kann man auch Bottom
+
+01:11:19.360 --> 01:11:21.360
+machen vielleicht. Ah ne.
+
+01:11:21.360 --> 01:11:23.360
+Ok.
+
+01:11:23.360 --> 01:11:25.360
+Die ist dann über. Das ist.
+
+01:11:25.360 --> 01:11:27.360
+Ich hab gehofft die Overlay die Taskleiste
+
+01:11:27.360 --> 01:11:33.100
+vielleicht. Kann man die
+
+01:11:33.100 --> 01:11:37.240
+Bar Left machen?
+
+01:11:37.240 --> 01:11:39.240
+Was eigentlich wenig Sinn macht aber.
+
+01:11:41.240 --> 01:11:45.580
+Ne nochmal Top.
+
+01:11:45.580 --> 01:11:52.090
+Irgendwie ist es.
+
+01:11:52.090 --> 01:11:54.090
+Leute es ist kaputt.
+
+01:11:54.090 --> 01:11:56.090
+Es reloadet.
+
+01:11:56.090 --> 01:11:58.090
+Ich glaube es ist gecrashed.
+
+01:11:58.090 --> 01:12:03.640
+Ich glaube es ist kaputt.
+
+01:12:03.640 --> 01:12:10.410
+Es ist gecrashed.
+
+01:12:14.410 --> 01:12:16.410
+Oh ne mein Tastatur Layout
+
+01:12:16.410 --> 01:12:20.110
+ist geswitcht auf
+
+01:12:20.110 --> 01:12:25.080
+ähm jetzt ist es wieder
+
+01:12:25.080 --> 01:12:27.080
+es ist wieder da.
+
+01:12:27.080 --> 01:12:44.190
+Äh.
+
+01:12:44.190 --> 01:12:46.190
+Was kann man sonst machen?
+
+01:12:46.190 --> 01:12:48.190
+Ok das konnte man Bottom
+
+01:12:48.190 --> 01:12:50.190
+einstellen. Das ging ne ja.
+
+01:12:50.190 --> 01:12:52.190
+Und dann konnte man was sagen?
+
+01:12:52.190 --> 01:12:54.190
+Offset. Was macht denn Offset
+
+01:12:54.190 --> 01:12:56.190
+X?
+
+01:12:56.190 --> 01:12:58.190
+Ok ja das ist so. Und Offset Y?
+
+01:12:58.190 --> 01:13:02.080
+Minus? Minus?
+
+01:13:02.080 --> 01:13:04.080
+Äh bringt nix.
+
+01:13:04.080 --> 01:13:06.080
+Das Overlay
+
+01:13:06.080 --> 01:13:08.080
+leider nicht die Taskleiste.
+
+01:13:08.080 --> 01:13:10.080
+Das könnte man tatsächlich noch ganz gut
+
+01:13:10.080 --> 01:13:13.960
+gebrauchen. Time Format
+
+01:13:13.960 --> 01:13:18.170
+juckt nicht. Workplace Names.
+
+01:13:18.170 --> 01:13:20.170
+Ignore Screen Clipping
+
+01:13:20.170 --> 01:13:22.170
+Host.
+
+01:13:22.170 --> 01:13:24.170
+Und Task Manager.
+
+01:13:24.170 --> 01:13:26.170
+Ok das funktioniert. Task Manager
+
+01:13:26.170 --> 01:13:28.170
+floated weiterhin. Ganz gut.
+
+01:13:28.170 --> 01:13:43.420
+Resize.
+
+01:13:43.420 --> 01:13:45.420
+Da merkt man halt das man doch unter Windows
+
+01:13:45.420 --> 01:13:47.420
+ist. Ja man kann Fenster resizen.
+
+01:13:47.420 --> 01:13:49.420
+Die dann halt einfach wieder groß gemacht werden.
+
+01:13:49.420 --> 01:13:51.420
+Weil man eigentlich nicht resizen darf.
+
+01:13:51.420 --> 01:13:53.420
+Wenn ich das
+
+01:13:53.420 --> 01:13:55.420
+bei meinem Linux i3 probiere
+
+01:13:55.420 --> 01:13:57.420
+dann passiert folgendes.
+
+01:13:57.420 --> 01:13:59.420
+Er macht entweder
+
+01:13:59.420 --> 01:14:01.420
+gar nichts.
+
+01:14:01.420 --> 01:14:03.420
+Ja. Oder er resized
+
+01:14:03.420 --> 01:14:05.420
+halt den Split
+
+01:14:05.420 --> 01:14:07.420
+wie das aufgeteilt ist.
+
+01:14:07.420 --> 01:14:09.420
+Und erst wenn ich Floating mache
+
+01:14:09.420 --> 01:14:12.860
+kann ich es richtig resizen.
+
+01:14:12.860 --> 01:14:17.840
+Also hier einfach resizen geht halt nicht.
+
+01:14:17.840 --> 01:14:19.840
+Merkt man halt das das unter Windows nicht
+
+01:14:19.840 --> 01:14:24.110
+dafür gedacht ist. Ok
+
+01:14:24.110 --> 01:14:26.110
+Vim Resize Keybindings
+
+01:14:26.110 --> 01:14:34.220
+Focus Left Focus
+
+01:14:34.220 --> 01:14:37.660
+Right.
+
+01:14:37.660 --> 01:14:39.660
+Kann man auch hier
+
+01:14:39.660 --> 01:14:41.660
+kann man zum Beispiel jetzt auch
+
+01:14:41.660 --> 01:14:43.660
+Terminal aufmachen und hier zwischendurch
+
+01:14:43.660 --> 01:14:45.660
+skippen. Das finde ich ganz nice.
+
+01:14:45.660 --> 01:14:49.930
+Das ist unter i3 auch nice.
+
+01:14:49.930 --> 01:14:51.930
+Dann
+
+01:14:51.930 --> 01:14:53.930
+Move Windows. Ja das mache ich
+
+01:14:53.930 --> 01:14:55.930
+so gut wie nie. Aber es geht ähnlich.
+
+01:14:55.930 --> 01:14:57.930
+Shift Alt Left. Shift Alt Right.
+
+01:14:57.930 --> 01:14:59.930
+Nur das es halt bei meinem i3
+
+01:14:59.930 --> 01:15:01.930
+Windows Taste ist anstatt Alt.
+
+01:15:01.930 --> 01:15:03.930
+Sind die Animationen jetzt weg?
+
+01:15:03.930 --> 01:15:05.930
+Gute Frage. Ja. Die Animationen
+
+01:15:05.930 --> 01:15:07.930
+sind weg. Ihr musst einfach.
+
+01:15:07.930 --> 01:15:09.930
+Außer in der Taskleiste. Die Taskleiste
+
+01:15:09.930 --> 01:15:11.930
+ist komplett am ausflippen. Guckt euch das mal an.
+
+01:15:11.930 --> 01:15:13.930
+Die Taskleiste kackt
+
+01:15:13.930 --> 01:15:15.930
+komplett ab.
+
+01:15:15.930 --> 01:15:22.380
+Das da ist komplett am abkacken.
+
+01:15:22.380 --> 01:15:29.340
+Alt U
+
+01:15:29.340 --> 01:15:31.340
+Alt P
+
+01:15:31.340 --> 01:15:33.340
+Achso da kann man. Ok.
+
+01:15:33.340 --> 01:15:35.340
+Das mache ich immer
+
+01:15:35.340 --> 01:15:39.100
+immer hier mit. Bisschen laggy.
+
+01:15:39.100 --> 01:15:41.100
+Aber das liegt bestimmt an der VM das laggy ist.
+
+01:15:41.100 --> 01:15:44.920
+So dann haben wir noch
+
+01:15:44.920 --> 01:15:50.670
+Tiling Direction
+
+01:15:50.670 --> 01:15:52.670
+und so. Das benutze ich unter i3 auch seltenst.
+
+01:15:52.670 --> 01:15:58.920
+Ach Alt Shift Q
+
+01:15:58.920 --> 01:16:02.810
+Das habe ich Visual Studio Code
+
+01:16:02.810 --> 01:16:09.770
+beendet. Lul. Alt Shift Q
+
+01:16:09.770 --> 01:16:11.770
+Glaze VM Alt Shift E
+
+01:16:11.770 --> 01:16:13.770
+Ist das gleiche. Reload Config
+
+01:16:13.770 --> 01:16:15.770
+Deswegen habe ich das auch eben ohne Probleme
+
+01:16:15.770 --> 01:16:17.770
+gefunden.
+
+01:16:17.770 --> 01:16:19.770
+Alt Enter Terminal. Jo.
+
+01:16:19.770 --> 01:16:26.220
+Focus to Workspace.
+
+01:16:26.220 --> 01:16:31.260
+Ok. Ja.
+
+01:16:31.260 --> 01:16:34.570
+Alt 1 2 3 4
+
+01:16:34.570 --> 01:16:36.570
+5. Ja.
+
+01:16:36.570 --> 01:16:41.160
+Übliche. Das wars.
+
+01:16:41.160 --> 01:16:43.160
+Also ich finde das gar nicht mal so übel.
+
+01:16:43.160 --> 01:16:45.160
+Bis jetzt.
+
+01:16:45.160 --> 01:16:47.160
+Man muss halt sagen es integriert sich
+
+01:16:47.160 --> 01:16:55.210
+wirklich nicht so.
+
+01:16:55.210 --> 01:16:57.210
+Ich sage noch ich finde es ganz gut.
+
+01:16:57.210 --> 01:17:00.520
+Jetzt starte ich Firefox.
+
+01:17:00.520 --> 01:17:08.640
+Firefox hat einfach keinen Bock da drauf.
+
+01:17:08.640 --> 01:17:10.640
+Ah ja. Ok.
+
+01:17:10.640 --> 01:17:12.640
+Wenn man Firefox einmal gesagt hat
+
+01:17:12.640 --> 01:17:14.640
+du sollst es jetzt machen dann geht es auch.
+
+01:17:14.640 --> 01:17:16.640
+Aber wenn man Firefox
+
+01:17:16.640 --> 01:17:21.480
+einfach. Anscheinend
+
+01:17:21.480 --> 01:17:23.480
+hat sich das Firefox gemerkt und mag jetzt doch.
+
+01:17:23.480 --> 01:17:29.680
+Lass uns mal ein bisschen kurz
+
+01:17:29.680 --> 01:17:31.680
+auf GitHub gucken.
+
+01:17:31.680 --> 01:17:33.680
+Schieben wir den Editor
+
+01:17:33.680 --> 01:17:35.680
+mal auf 2. So wie ich das unter auch habe.
+
+01:17:35.680 --> 01:17:37.680
+Also eigentlich habe ich
+
+01:17:37.680 --> 01:17:39.680
+Shell auf 2. Editor auf
+
+01:17:39.680 --> 01:17:41.680
+3. Und
+
+01:17:41.680 --> 01:17:43.680
+unter Linux Browser auf 1.
+
+01:17:43.680 --> 01:17:45.680
+Also hier haben wir einen Browser.
+
+01:17:45.680 --> 01:17:47.680
+Hier haben wir Shell. Hier haben wir Editor.
+
+01:17:47.680 --> 01:17:49.680
+Ja passt doch eigentlich ganz gut.
+
+01:17:49.680 --> 01:17:51.680
+So was kann man denn da jetzt so alles machen noch?
+
+01:17:51.680 --> 01:17:53.680
+Direct Download. Finger Scoop.
+
+01:17:53.680 --> 01:17:55.680
+Roadmap. Full Roadmap. Ok.
+
+01:17:55.680 --> 01:18:00.080
+Was haben die noch so vor?
+
+01:18:00.080 --> 01:18:04.990
+Viel.
+
+01:18:04.990 --> 01:18:06.990
+Issues gucken.
+
+01:18:06.990 --> 01:18:10.750
+Ah. Mehr Issues als der
+
+01:18:10.750 --> 01:18:12.750
+Fiat Champ. Das ist
+
+01:18:12.750 --> 01:18:14.750
+immer ein gutes Zeichen.
+
+01:18:14.750 --> 01:18:16.750
+Ich bin mir übrigens gar nicht. Lass mich mal kurz
+
+01:18:16.750 --> 01:18:18.750
+checken wie viele Issues gibt es da.
+
+01:18:18.750 --> 01:18:20.750
+23 immer noch. Oh da gibt es einen Puls.
+
+01:18:20.750 --> 01:18:22.750
+Ist mir gar nicht aufgefallen.
+
+01:18:22.750 --> 01:18:27.660
+Ihr seht meine
+
+01:18:27.660 --> 01:18:29.660
+Open Source Projekte sind super gepflegt.
+
+01:18:29.660 --> 01:18:34.890
+23 Issues
+
+01:18:34.890 --> 01:18:36.890
+einfach am Start.
+
+01:18:36.890 --> 01:18:38.890
+Und kein Bock
+
+01:18:38.890 --> 01:18:44.830
+irgendwas zu machen.
+
+01:18:44.830 --> 01:18:49.420
+Ja das haben wir ja schon gemacht.
+
+01:18:49.420 --> 01:18:51.420
+Ja die Bar haben wir auch schon konfiguriert.
+
+01:18:51.420 --> 01:18:56.200
+Aber die Bar finde ich
+
+01:18:56.200 --> 01:18:58.200
+Die Bar finde ich eigentlich total überflüssig.
+
+01:18:58.200 --> 01:19:00.200
+Die braucht man nicht.
+
+01:19:00.200 --> 01:19:02.200
+Ich bin fast geneigt
+
+01:19:02.200 --> 01:19:04.200
+die Bar auszuplenden.
+
+01:19:04.200 --> 01:19:06.200
+Ob ich im Desktop bin weiß ich auch so.
+
+01:19:06.200 --> 01:19:08.200
+Und der Platzverlust hier ist es
+
+01:19:08.200 --> 01:19:14.330
+eigentlich nicht wert.
+
+01:19:14.330 --> 01:19:16.330
+Ja Bar Enabled eigentlich
+
+01:19:16.330 --> 01:19:20.090
+eigentlich False.
+
+01:19:20.090 --> 01:19:22.090
+Wo war das hier?
+
+01:19:22.090 --> 01:19:25.600
+Mit der Bar. Gibt es so was?
+
+01:19:25.600 --> 01:19:31.150
+Kann man die Bar
+
+01:19:31.150 --> 01:19:33.150
+Irgendwie
+
+01:19:33.150 --> 01:19:46.960
+Taskleiste ausblenden.
+
+01:19:46.960 --> 01:19:48.960
+Taskleiste ausblenden bringt überhaupt nichts.
+
+01:19:48.960 --> 01:19:50.960
+Du brauchst Taskleiste hier wenn du mal
+
+01:19:50.960 --> 01:19:52.960
+irgendwelche Settings willst. Wenn du mal die Lautstärke
+
+01:19:52.960 --> 01:19:54.960
+anpassen willst. Dann lieber die andere
+
+01:19:54.960 --> 01:20:01.080
+Bar. Also
+
+01:20:01.080 --> 01:20:03.080
+Disablen kann man das anscheinend nicht.
+
+01:20:03.080 --> 01:20:05.080
+Ach doch.
+
+01:20:05.080 --> 01:20:07.080
+Ich bin doch ganz fett da.
+
+01:20:07.080 --> 01:20:09.080
+Enable True. Lul.
+
+01:20:09.080 --> 01:20:15.400
+Alter erstmal.
+
+01:20:15.400 --> 01:20:17.400
+Enable False.
+
+01:20:17.400 --> 01:20:19.400
+Zack. Nice.
+
+01:20:19.400 --> 01:20:21.400
+Ja so finde ich das deutlich
+
+01:20:21.400 --> 01:20:28.810
+angenehmer.
+
+01:20:28.810 --> 01:20:30.810
+Ich weiß eh auf welchem Desktop ich bin.
+
+01:20:30.810 --> 01:20:32.810
+Wisst ihr unter meiner Linux
+
+01:20:32.810 --> 01:20:34.810
+unter meiner Linux VM. Da hat die Bar ja noch irgendwie
+
+01:20:34.810 --> 01:20:36.810
+einen Sinn. Die zeigt mir nicht nur an
+
+01:20:36.810 --> 01:20:38.810
+auf welchem Desktop ich bin.
+
+01:20:38.810 --> 01:20:42.510
+Das ist ja schön und gut. Das bräuchte ich nicht unbedingt.
+
+01:20:42.510 --> 01:20:44.510
+Aber hier habe ich ja meinen
+
+01:20:44.510 --> 01:20:46.510
+Tray und so ein paar Infos
+
+01:20:46.510 --> 01:20:48.510
+über mein System. So ob ich zum Beispiel so blöd war
+
+01:20:48.510 --> 01:20:50.510
+und hab numlog wieder gedrückt.
+
+01:20:50.510 --> 01:20:52.510
+Disk
+
+01:20:52.510 --> 01:20:54.510
+Usage. Ich kann hier
+
+01:20:54.510 --> 01:20:56.510
+Timer starten wenn ich
+
+01:20:56.510 --> 01:21:00.460
+an was erinnert werden will.
+
+01:21:00.460 --> 01:21:02.460
+Und CPU Auslastung kann ich hier oben
+
+01:21:02.460 --> 01:21:04.460
+in meiner Bar auch anzeigen. Finde ich übrigens extrem
+
+01:21:04.460 --> 01:21:06.460
+nice.
+
+01:21:06.460 --> 01:21:08.460
+Guck mal.
+
+01:21:08.460 --> 01:21:10.460
+Da sind die CPU Kerne hier oben die angezeigt werden.
+
+01:21:10.460 --> 01:21:12.460
+Das sehe ich wenn
+
+01:21:12.460 --> 01:21:14.460
+ein Kern hängt. Wie verrückt.
+
+01:21:14.460 --> 01:21:16.460
+Ich mach gerade ein bisschen Random Terminal
+
+01:21:16.460 --> 01:21:21.760
+Ausgabe. Jetzt ist es wieder abgebrochen.
+
+01:21:21.760 --> 01:21:23.760
+Zack.
+
+01:21:23.760 --> 01:21:25.760
+Das finde ich sehr praktisch. Da sieht man immer
+
+01:21:25.760 --> 01:21:32.840
+ob im Hintergrund irgendwas grödelt.
+
+01:21:32.840 --> 01:21:34.840
+Also wir haben glaube ich. Aha.
+
+01:21:34.840 --> 01:21:36.840
+Guck mal. Da gibt es noch mehr Sachen für die
+
+01:21:36.840 --> 01:21:38.840
+für die Bar. Man kann Batterie
+
+01:21:38.840 --> 01:21:40.840
+anzeigen lassen. CPU Usage.
+
+01:21:40.840 --> 01:21:42.840
+GPU Usage.
+
+01:21:42.840 --> 01:21:49.290
+Memory Usage Network.
+
+01:21:49.290 --> 01:21:51.290
+Aber ich glaube trotzdem
+
+01:21:51.290 --> 01:21:53.290
+das Wetter. Ok. Besser als
+
+01:21:53.290 --> 01:21:55.290
+die Windows Wetter Anzeige wird es wahrscheinlich
+
+01:21:55.290 --> 01:22:00.200
+sein. System Tray. Das hatten wir.
+
+01:22:00.200 --> 01:22:05.500
+Aber schon. Icons in Bar.
+
+01:22:05.500 --> 01:22:11.880
+Ich fürchte fast das ist schon
+
+01:22:11.880 --> 01:22:13.880
+alles was man damit machen kann.
+
+01:22:13.880 --> 01:22:15.880
+Ich meine es ist wie bei i3.
+
+01:22:15.880 --> 01:22:17.880
+Bei i3 kannst du ja auch nicht wirklich viel damit
+
+01:22:17.880 --> 01:22:19.880
+machen. Aber das ist wahrscheinlich auch der einzige
+
+01:22:19.880 --> 01:22:21.880
+Grund warum ich i3
+
+01:22:21.880 --> 01:22:23.880
+mag und alle anderen Sachen auf
+
+01:22:23.880 --> 01:22:25.880
+dem Linux Desktop eben nicht mag.
+
+01:22:25.880 --> 01:22:27.880
+Weil i3
+
+01:22:27.880 --> 01:22:29.880
+ist sehr überschaubar.
+
+01:22:29.880 --> 01:22:34.920
+Leute ich finde das gar nicht so schlecht.
+
+01:22:34.920 --> 01:22:40.280
+Muss ich ehrlich sagen.
+
+01:22:40.280 --> 01:22:42.280
+Ich kann es nicht unter Windows verwenden.
+
+01:22:42.280 --> 01:22:44.280
+Weil.
+
+01:22:44.280 --> 01:22:46.280
+Also ich würde es. Normalerweise würde
+
+01:22:46.280 --> 01:22:48.280
+ich es mal ausprobieren. So einfach wie sich
+
+01:22:48.280 --> 01:22:50.280
+es anfühlt mal ein paar Tage das zu benutzen.
+
+01:22:50.280 --> 01:22:52.280
+Aber ich kann es nicht verwenden.
+
+01:22:52.280 --> 01:22:54.280
+Weil ich muss auf der Arbeit Windows verwenden.
+
+01:22:54.280 --> 01:22:56.280
+Und wenn ich mich an die Bedienung
+
+01:22:56.280 --> 01:22:58.280
+von einem Tiling Window Manager unter Windows gewöhne
+
+01:22:58.280 --> 01:23:00.280
+dann kann ich mein normales Windows und umgedreht.
+
+01:23:00.280 --> 01:23:05.770
+Das funktioniert nicht.
+
+01:23:05.770 --> 01:23:07.770
+Wo ist jetzt der Vorteil zum normalen Desktop?
+
+01:23:07.770 --> 01:23:09.770
+Ja das es einfach angenehmer ist
+
+01:23:09.770 --> 01:23:11.770
+mit der Tastatur
+
+01:23:11.770 --> 01:23:15.850
+zu bedienen.
+
+01:23:15.850 --> 01:23:17.850
+Du weißt immer hier hast du deinen Browser.
+
+01:23:17.850 --> 01:23:19.850
+Hier hast du deinen Terminal. Hier hast du deinen Editor.
+
+01:23:19.850 --> 01:23:21.850
+Was eigentlich ohne Scheiß
+
+01:23:21.850 --> 01:23:23.850
+90% der Sachen sind die ich brauche.
+
+01:23:23.850 --> 01:23:25.850
+Ja.
+
+01:23:25.850 --> 01:23:27.850
+Unter Windows ist es ehrlich gesagt so
+
+01:23:27.850 --> 01:23:31.290
+hauptsächlich der Browser.
+
+01:23:31.290 --> 01:23:33.290
+Man könnte jetzt Steam starten und sowas
+
+01:23:33.290 --> 01:23:35.290
+hier drauf noch. Aber das
+
+01:23:35.290 --> 01:23:37.290
+könnte ich dann tatsächlich
+
+01:23:37.290 --> 01:23:39.290
+auf dem eigenen Desktop oder so.
+
+01:23:39.290 --> 01:23:41.290
+Ich finde es gar nicht mal so doof.
+
+01:23:41.290 --> 01:23:43.290
+Wobei man halt auch mal ehrlich sagen muss.
+
+01:23:43.290 --> 01:23:45.290
+Der Vorteil
+
+01:23:45.290 --> 01:23:49.050
+versus
+
+01:23:49.050 --> 01:23:51.050
+also ich habe ja hier eh
+
+01:23:51.050 --> 01:23:53.050
+ich habe 3 Anwendungen im Fullscreen auf
+
+01:23:53.050 --> 01:23:55.050
+aktuell ja.
+
+01:23:55.050 --> 01:23:57.050
+Der Vorteil versus
+
+01:23:57.050 --> 01:23:59.050
+Windows Desktops ist es eigentlich nicht
+
+01:23:59.050 --> 01:24:01.050
+wert.
+
+01:24:01.050 --> 01:24:03.050
+Ja. Ja meine ich.
+
+01:24:03.050 --> 01:24:05.050
+Aber guck ich kann auch Windows Desktops
+
+01:24:05.050 --> 01:24:07.050
+wechseln. Und ich habe
+
+01:24:07.050 --> 01:24:09.050
+hier ne also 1. 1. 2. 3.
+
+01:24:09.050 --> 01:24:11.050
+Das ist vielleicht nicht so nice
+
+01:24:11.050 --> 01:24:13.050
+hier wie bei i3 mit dem durchswitchen.
+
+01:24:13.050 --> 01:24:15.050
+Und wenn man dann doch
+
+01:24:15.050 --> 01:24:17.050
+mal teilen muss ist es auf jeden Fall
+
+01:24:17.050 --> 01:24:19.050
+nicht verkehrt.
+
+01:24:19.050 --> 01:24:21.050
+Aber so wie ich das hier benutzen würde mit 3
+
+01:24:21.050 --> 01:24:23.050
+Fenstern im Fullscreen
+
+01:24:23.050 --> 01:24:25.050
+dafür reicht auch die eingebaute
+
+01:24:25.050 --> 01:24:27.050
+Windows Desktop Switch Funktion.
+
+01:24:27.050 --> 01:24:32.090
+Gibt das hier. Was ist das?
+
+01:24:32.090 --> 01:24:34.090
+Como. Como
+
+01:24:34.090 --> 01:24:38.750
+Ebi. Teile Window Manager
+
+01:24:38.750 --> 01:24:40.750
+for Windows
+
+01:24:40.750 --> 01:24:42.750
+PS. Powershell oder was?
+
+01:24:42.750 --> 01:24:49.390
+Moment ist das ein komplettes
+
+01:24:49.390 --> 01:24:51.390
+Powershell Ding?
+
+01:24:51.390 --> 01:24:53.390
+Oh. Leute.
+
+01:24:53.390 --> 01:24:55.390
+Wisst ihr was ich da sehe?
+
+01:24:55.390 --> 01:24:57.390
+Was sehe ich
+
+01:24:57.390 --> 01:25:01.400
+denn da?
+
+01:25:01.400 --> 01:25:03.400
+Das ist Blazingly Fast.
+
+01:25:03.400 --> 01:25:05.400
+Die Krustentiere sind am Start.
+
+01:25:05.400 --> 01:25:14.280
+Blazingly Fast
+
+01:25:14.280 --> 01:25:16.280
+written in Rust.
+
+01:25:16.280 --> 01:25:18.280
+Was? Left VM.
+
+01:25:18.280 --> 01:25:25.950
+Das ist aber nicht für Windows oder?
+
+01:25:25.950 --> 01:25:39.210
+Das ist für
+
+01:25:39.210 --> 01:25:50.520
+oder?
+
+01:25:50.520 --> 01:25:54.350
+Das ist für Linux oder?
+
+01:25:54.350 --> 01:26:04.570
+Steht da Windows?
+
+01:26:04.570 --> 01:26:06.570
+Ne ne das ist für Linux hier.
+
+01:26:06.570 --> 01:26:08.570
+Und das ist wahrscheinlich
+
+01:26:08.570 --> 01:26:12.720
+so wie ich mir vorstelle Wayland Only.
+
+01:26:12.720 --> 01:26:14.720
+Ach ne es ist
+
+01:26:14.720 --> 01:26:29.100
+SSX. Also obsolet.
+
+01:26:29.100 --> 01:26:31.100
+Naja es funktioniert halt.
+
+01:26:31.100 --> 01:26:40.040
+Und warum sollte man beispielsweise
+
+01:26:40.040 --> 01:26:42.040
+das verwenden anstatt das i3?
+
+01:26:42.040 --> 01:26:44.040
+Wo wir gerade dabei sind.
+
+01:26:44.040 --> 01:26:46.040
+Weil es Blazingly Fast
+
+01:26:46.040 --> 01:26:49.610
+written in Rust ist oder wie?
+
+01:26:49.610 --> 01:26:51.610
+Und das ist Überzeugung.
+
+01:26:51.610 --> 01:26:53.610
+Das ist quasi überzeugend
+
+01:26:53.610 --> 01:26:55.610
+genug written in Rust.
+
+01:26:55.610 --> 01:26:57.610
+Wie war die Tastenkombi bei
+
+01:26:57.610 --> 01:26:59.610
+Windows für switchen?
+
+01:26:59.610 --> 01:27:01.610
+Control Windows Taste
+
+01:27:01.610 --> 01:27:03.610
+und dann Pfeiltaste links rechts.
+
+01:27:03.610 --> 01:27:09.040
+Why go left?
+
+01:27:09.040 --> 01:27:11.040
+Ok.
+
+01:27:11.040 --> 01:27:13.040
+Ok wenn die erste Begründung schon ist
+
+01:27:13.040 --> 01:27:15.040
+warum man es benutzen soll
+
+01:27:15.040 --> 01:27:17.040
+weil es ein Tiling
+
+01:27:17.040 --> 01:27:19.040
+Window Manager written in Rust ist
+
+01:27:19.040 --> 01:27:21.040
+das wäre für mich
+
+01:27:21.040 --> 01:27:23.040
+eines der letzten Begründungen überhaupt
+
+01:27:23.040 --> 01:27:25.040
+in welcher Sprache man Window Manager
+
+01:27:25.040 --> 01:27:27.040
+ok sagen wir mal so
+
+01:27:27.040 --> 01:27:29.040
+ähm
+
+01:27:29.040 --> 01:27:31.040
+wenn es ja war würde ich es wahrscheinlich erst gar nicht
+
+01:27:31.040 --> 01:27:34.480
+ausprobieren.
+
+01:27:34.480 --> 01:27:36.480
+Stable and performant.
+
+01:27:36.480 --> 01:27:38.480
+Ich hatte ehrlich gesagt
+
+01:27:38.480 --> 01:27:40.480
+also ich glaube i3 hat nicht
+
+01:27:40.480 --> 01:27:42.480
+bei ihnen auf den Faden stehen Performance.
+
+01:27:42.480 --> 01:27:44.480
+Ich hatte glaube ich noch nicht
+
+01:27:44.480 --> 01:27:46.480
+einen Fall das i3
+
+01:27:46.480 --> 01:27:48.480
+jemals wirklich jemals
+
+01:27:48.480 --> 01:27:50.480
+gelaggt hat.
+
+01:27:50.480 --> 01:27:52.480
+i3 macht halt einfach auch nichts
+
+01:27:52.480 --> 01:27:54.480
+wo es irgendwie laggen könnte.
+
+01:27:54.480 --> 01:27:56.480
+Es hat keine Animationen
+
+01:27:56.480 --> 01:27:58.480
+das hat nix i3 kann nix
+
+01:27:58.480 --> 01:28:00.480
+i3 macht nix deswegen mag ich i3.
+
+01:28:00.480 --> 01:28:17.930
+Die haben doch bestimmt
+
+01:28:17.930 --> 01:28:19.930
+irgendwie ne issue
+
+01:28:19.930 --> 01:28:21.930
+warum man das anstelle von i3 verwenden soll.
+
+01:28:21.930 --> 01:28:28.320
+Boah Vorfall ist am Start.
+
+01:28:28.320 --> 01:28:30.320
+Ähm.
+
+01:28:30.320 --> 01:28:34.590
+Den kenn ich nicht.
+
+01:28:34.590 --> 01:28:36.590
+Aber der ist written in Rust das ist natürlich
+
+01:28:36.590 --> 01:28:38.590
+noch viel geiler.
+
+01:28:38.590 --> 01:28:40.590
+Das probieren wir jetzt auch noch aus.
+
+01:28:40.590 --> 01:28:42.590
+Komorebi
+
+01:28:42.590 --> 01:28:44.590
+Also dann beenden wir Glaze mal.
+
+01:28:44.590 --> 01:28:47.960
+Oh es beendet
+
+01:28:47.960 --> 01:28:49.960
+und jetzt wie?
+
+01:28:49.960 --> 01:28:51.960
+Komorebi äh Moment
+
+01:28:51.960 --> 01:28:53.960
+was war? Komorebi
+
+01:28:53.960 --> 01:28:55.960
+GitHub
+
+01:28:55.960 --> 01:29:00.940
+Ach Chat
+
+01:29:00.940 --> 01:29:02.940
+wirklich ja
+
+01:29:02.940 --> 01:29:04.940
+X11 geht Black Screen lag
+
+01:29:04.940 --> 01:29:06.940
+an Wayland.
+
+01:29:06.940 --> 01:29:13.900
+Was ich schon vermutet habe.
+
+01:29:13.900 --> 01:29:15.900
+Two types of padding.
+
+01:29:15.900 --> 01:29:17.900
+Oh hier kriegen wir das gezeigt.
+
+01:29:17.900 --> 01:29:19.900
+Wir probieren das jetzt selbst aus.
+
+01:29:19.900 --> 01:29:21.900
+Komorebi
+
+01:29:21.900 --> 01:29:27.070
+Ne
+
+01:29:27.070 --> 01:29:31.400
+Was war das andere?
+
+01:29:31.400 --> 01:29:33.400
+Animated Wallpapers
+
+01:29:33.400 --> 01:29:35.400
+Vor Linux
+
+01:29:35.400 --> 01:29:37.400
+Ah ja nice
+
+01:29:37.400 --> 01:29:39.400
+Outdated Overrated
+
+01:29:39.400 --> 01:29:44.380
+Projekt
+
+01:29:44.380 --> 01:29:48.200
+Dann downloaden wir das mal.
+
+01:29:48.200 --> 01:29:50.200
+MSI
+
+01:29:50.200 --> 01:29:52.200
+Julius
+
+01:29:52.200 --> 01:29:54.200
+Ist halb
+
+01:29:54.200 --> 01:29:56.200
+Leute wisst ihr was wir jetzt machen?
+
+01:29:56.200 --> 01:29:58.200
+Wisst ihr was wir machen?
+
+01:29:58.200 --> 01:30:00.200
+Wir kompilieren das unter Windows
+
+01:30:00.200 --> 01:30:04.920
+from scratch.
+
+01:30:04.920 --> 01:30:11.240
+Das wird jetzt was.
+
+01:30:11.240 --> 01:30:17.240
+Build from Source
+
+01:30:17.240 --> 01:30:19.240
+Ok wie installiert man Rust unter Windows?
+
+01:30:19.240 --> 01:30:24.600
+Kann das WinGet?
+
+01:30:24.600 --> 01:30:26.600
+WinGet
+
+01:30:26.600 --> 01:30:28.600
+Search Rust
+
+01:30:28.600 --> 01:30:31.980
+RustUp ist der
+
+01:30:31.980 --> 01:30:33.980
+Version Manager.
+
+01:30:33.980 --> 01:30:38.960
+Okay
+
+01:30:38.960 --> 01:30:40.960
+WinGet
+
+01:30:40.960 --> 01:30:42.960
+WinGet Install
+
+01:30:42.960 --> 01:30:44.960
+RustUp
+
+01:30:44.960 --> 01:30:46.960
+Ich find's auch ein bisschen doof
+
+01:30:46.960 --> 01:30:48.960
+Man weiß nirgendwo wo das herkommt.
+
+01:30:48.960 --> 01:30:50.960
+Wie wär's mit nem Projektlink?
+
+01:30:50.960 --> 01:30:57.280
+Aber das ist auf jeden Fall schon mal die richtige Stelle.
+
+01:30:57.280 --> 01:31:06.670
+So jetzt wird
+
+01:31:06.670 --> 01:31:08.670
+erst mal 3000 Sachen installiert.
+
+01:31:08.670 --> 01:31:10.670
+So wie das bei Rust üblich ist.
+
+01:31:10.670 --> 01:31:12.670
+Das in ein Rust Projekt
+
+01:31:12.670 --> 01:31:14.670
+irgendwie aus 700 Dependency
+
+01:31:14.670 --> 01:31:16.670
+Cargo Dependencies
+
+01:31:16.670 --> 01:31:20.490
+Cargo Packages. Komm mal
+
+01:31:20.490 --> 01:31:22.490
+das probieren.
+
+01:31:22.490 --> 01:31:24.490
+WinGet Info RustUp
+
+01:31:24.490 --> 01:31:28.830
+Ne natürlich nicht.
+
+01:31:28.830 --> 01:31:30.830
+Rust. Okay da muss ich bestimmt neu starten.
+
+01:31:30.830 --> 01:31:32.830
+Ne das funktioniert.
+
+01:31:32.830 --> 01:31:34.830
+Rust.
+
+01:31:34.830 --> 01:31:36.830
+Da ist es doch.
+
+01:31:36.830 --> 01:31:38.830
+Cargo. Nice. Schon haben wir's
+
+01:31:38.830 --> 01:31:40.830
+am Start. Jetzt muss ich noch
+
+01:31:40.830 --> 01:31:42.830
+WinGet Install Shit
+
+01:31:42.830 --> 01:31:58.520
+Ne haben wir nicht.
+
+01:31:58.520 --> 01:32:00.520
+Git.Git muss ich installieren.
+
+01:32:00.520 --> 01:32:05.370
+Git for Windows
+
+01:32:05.370 --> 01:32:07.370
+Oh ne das ist mit dieser komischen Git Bash
+
+01:32:07.370 --> 01:32:09.370
+Shell und sowas. Ganz ekliges Zeug.
+
+01:32:09.370 --> 01:32:12.940
+So Building
+
+01:32:12.940 --> 01:32:14.940
+Oh ist das etwa ein
+
+01:32:14.940 --> 01:32:16.940
+Window Manager für Weebs? Habe ich das gerade richtig gesehen?
+
+01:32:16.940 --> 01:32:21.080
+Naja fast.
+
+01:32:21.080 --> 01:32:25.800
+Wo ist der Sbarro?
+
+01:32:25.800 --> 01:32:27.800
+Okay Building from Source wollte ich mir angucken.
+
+01:32:27.800 --> 01:32:29.800
+Building
+
+01:32:29.800 --> 01:32:31.800
+Building from Source
+
+01:32:31.800 --> 01:32:38.890
+You can then clone this repo
+
+01:32:38.890 --> 01:32:40.890
+and compile the source code to install the
+
+01:32:40.890 --> 01:32:42.890
+binaries for code.
+
+01:32:42.890 --> 01:32:44.890
+Okay die zwei Sachen
+
+01:32:44.890 --> 01:32:49.610
+muss ich machen anscheinend.
+
+01:32:49.610 --> 01:32:51.610
+Paste. Ach Quatsch. Ich hab's ja immer geklont.
+
+01:32:51.610 --> 01:32:55.630
+Ja das stimmt.
+
+01:32:55.630 --> 01:32:59.520
+Download. Clone.
+
+01:32:59.520 --> 01:33:03.020
+Git. Ja das ist ja Windows ist ja nicht
+
+01:33:03.020 --> 01:33:06.970
+in der Lage das zu reloaden.
+
+01:33:06.970 --> 01:33:08.970
+Jetzt. Git. Jawoll.
+
+01:33:08.970 --> 01:33:10.970
+Git. Clone.
+
+01:33:10.970 --> 01:33:12.970
+Das Pflaster am
+
+01:33:12.970 --> 01:33:18.270
+Finger nervt mich.
+
+01:33:18.270 --> 01:33:20.270
+Ccomogebi
+
+01:33:20.270 --> 01:33:22.270
+Ne da steht
+
+01:33:22.270 --> 01:33:24.270
+einfach ich muss
+
+01:33:24.270 --> 01:33:26.270
+Da steht drinnen ich muss
+
+01:33:26.270 --> 01:33:29.770
+das Repo klonen.
+
+01:33:29.770 --> 01:33:31.770
+Ah die readme die macht mich fertig.
+
+01:33:31.770 --> 01:33:33.770
+Da steht
+
+01:33:33.770 --> 01:33:40.670
+Ich muss das. Die hab ich.
+
+01:33:40.670 --> 01:33:42.670
+Die hab ich doch.
+
+01:33:42.670 --> 01:33:44.670
+Und jetzt machen wir einfach sowas
+
+01:33:44.670 --> 01:33:46.670
+hier. Dann sollte es
+
+01:33:46.670 --> 01:33:52.220
+gehen. Was macht
+
+01:33:52.220 --> 01:33:56.040
+Minus Minus Locked?
+
+01:33:56.040 --> 01:33:58.040
+Doch doch. Also Rust ist nicht ganz so schlimm
+
+01:33:58.040 --> 01:34:00.040
+wie Node.js aber ihr seht es ja hier.
+
+01:34:00.040 --> 01:34:13.080
+Moment was brauche ich
+
+01:34:13.080 --> 01:34:15.080
+alles?
+
+01:34:15.080 --> 01:34:17.080
+Link Exe not found.
+
+01:34:17.080 --> 01:34:24.520
+Ah ja.
+
+01:34:24.520 --> 01:34:26.520
+Build Tools muss ich installieren.
+
+01:34:26.520 --> 01:34:29.960
+I download
+
+01:34:29.960 --> 01:34:31.960
+Build Tools von Microsoft Visual Studio.
+
+01:34:31.960 --> 01:34:36.560
+Ok.
+
+01:34:36.560 --> 01:34:42.360
+Was auch immer ich da gerade installiere.
+
+01:34:42.360 --> 01:34:44.360
+Eigentlich
+
+01:34:44.360 --> 01:34:46.360
+will ich nur die Build Tools installieren.
+
+01:34:46.360 --> 01:34:48.360
+Oh Peter
+
+01:34:48.360 --> 01:34:50.360
+von Microsoft Support.
+
+01:34:50.360 --> 01:34:52.360
+Microsoft Gold
+
+01:34:52.360 --> 01:34:54.360
+Partner Support.
+
+01:34:54.360 --> 01:35:06.000
+Äh.
+
+01:35:06.000 --> 01:35:08.000
+Einfach sagen install
+
+01:35:08.000 --> 01:35:12.140
+jetzt. Übrigens an diesem
+
+01:35:12.140 --> 01:35:14.140
+UI Installer seht ihr das Microsoft ihre
+
+01:35:14.140 --> 01:35:16.140
+eigene UI Technologie nicht verwendet. Ich glaube
+
+01:35:16.140 --> 01:35:18.140
+der ist nämlich in Elektron der Installer
+
+01:35:18.140 --> 01:35:22.160
+oder? Lounge was passiert?
+
+01:35:22.160 --> 01:35:24.160
+Wenn ich Build Tools launche.
+
+01:35:24.160 --> 01:35:26.160
+Ok es geht ne Shell auf.
+
+01:35:26.160 --> 01:35:28.160
+Na toll.
+
+01:35:28.160 --> 01:35:33.450
+Da wären wir nie drauf gekommen.
+
+01:35:33.450 --> 01:35:36.890
+Äh. Ok das hat bestimmt
+
+01:35:36.890 --> 01:35:38.890
+wieder nicht geladen. Link.
+
+01:35:38.890 --> 01:35:43.740
+Ne.
+
+01:35:43.740 --> 01:35:50.640
+Das geht nicht.
+
+01:35:50.640 --> 01:35:52.640
+Muss ich das hier drüber starten?
+
+01:35:52.640 --> 01:35:54.640
+Link Punkt Exe.
+
+01:35:54.640 --> 01:35:56.640
+Ne.
+
+01:35:56.640 --> 01:36:09.420
+Oh Moment.
+
+01:36:09.420 --> 01:36:11.420
+Build Tools for Visual
+
+01:36:11.420 --> 01:36:13.420
+Install with Visual C++
+
+01:36:13.420 --> 01:36:17.560
+Option. Hab ich das
+
+01:36:17.560 --> 01:36:19.560
+gemacht?
+
+01:36:19.560 --> 01:36:27.160
+Modify. Muss ich das
+
+01:36:27.160 --> 01:36:29.160
+da machen?
+
+01:36:29.160 --> 01:36:39.320
+Wow. Alter.
+
+01:36:39.320 --> 01:36:46.350
+Was legt denn der da alles runter?
+
+01:36:46.350 --> 01:36:48.350
+Und
+
+01:36:48.350 --> 01:36:50.350
+und was? Und was muss ich?
+
+01:36:50.350 --> 01:36:52.350
+Hier. Build Tools.
+
+01:36:52.350 --> 01:36:54.350
+Alter Windows
+
+01:36:54.350 --> 01:36:56.350
+das ist doch alles. Man kann jetzt übrigens
+
+01:36:56.350 --> 01:36:58.350
+doch nicht mal hier neben ausklappen.
+
+01:36:58.350 --> 01:37:07.710
+Das auch?
+
+01:37:07.710 --> 01:37:09.710
+Ne PowerShell neu starten hat nicht funktioniert.
+
+01:37:09.710 --> 01:37:11.710
+Ich hab ja sogar die Build Tools
+
+01:37:11.710 --> 01:37:13.710
+gestartet aber das gibts da nicht.
+
+01:37:13.710 --> 01:37:22.330
+Guck.
+
+01:37:22.330 --> 01:37:24.330
+Reicht das wenn ich
+
+01:37:24.330 --> 01:37:26.330
+so installiere? Einfach so?
+
+01:37:26.330 --> 01:37:41.360
+Also das reicht so.
+
+01:37:41.360 --> 01:37:43.360
+Modify. Jetzt muss der
+
+01:37:43.360 --> 01:37:45.360
+einfach mal 6 GB
+
+01:37:45.360 --> 01:37:50.520
+runterladen.
+
+01:37:50.520 --> 01:37:58.890
+Du kannst das separat...
+
+01:37:58.890 --> 01:38:00.890
+Also ich weiß schon warum ich
+
+01:38:00.890 --> 01:38:02.890
+seit Jahren nichts mehr unter Windows
+
+01:38:02.890 --> 01:38:04.890
+entwickle.
+
+01:38:04.890 --> 01:38:06.890
+Ok es ist C. Also es ist
+
+01:38:06.890 --> 01:38:08.890
+C++. C++ ist pauschal eh immer
+
+01:38:08.890 --> 01:38:10.890
+Kacke.
+
+01:38:10.890 --> 01:38:12.890
+Ich bemitleide alle Unreal Entwickler.
+
+01:38:12.890 --> 01:38:14.890
+Wobei ich glaub
+
+01:38:14.890 --> 01:38:16.890
+Unreal verwendet
+
+01:38:16.890 --> 01:38:18.890
+einfach den ganzen
+
+01:38:18.890 --> 01:38:20.890
+C++ Bullshit nicht und
+
+01:38:20.890 --> 01:38:22.890
+hat viel eigenes drum herum gestrickt.
+
+01:38:22.890 --> 01:38:32.090
+Wir bauen überhaupt
+
+01:38:32.090 --> 01:38:34.090
+nicht den FIA Champ neu. Heute hat
+
+01:38:34.090 --> 01:38:44.510
+schlicht und ergreifend niemand angepasst.
+
+01:38:44.510 --> 01:38:46.510
+Ist meine Zeitzone falsch?
+
+01:38:46.510 --> 01:38:48.510
+Kann das sein?
+
+01:38:48.510 --> 01:38:50.510
+Ich glaube wir haben nämlich
+
+01:38:50.510 --> 01:38:52.510
+21.33 Uhr
+
+01:38:52.510 --> 01:38:57.480
+Chatgear. Oder?
+
+01:38:57.480 --> 01:38:59.480
+Ich muss aufs Handy gucken.
+
+01:38:59.480 --> 01:39:01.480
+Ja.
+
+01:39:01.480 --> 01:39:03.480
+21.33 Uhr
+
+01:39:03.480 --> 01:39:37.070
+Was macht der da eigentlich gerade?
+
+01:39:37.070 --> 01:39:39.070
+Ah der ist fertig
+
+01:39:39.070 --> 01:39:41.070
+mit Downloaden. Der installiert jetzt.
+
+01:39:41.070 --> 01:39:45.150
+Moment was?
+
+01:39:45.150 --> 01:39:47.150
+Installing Package 105
+
+01:39:47.150 --> 01:39:49.150
+auf 271
+
+01:39:49.150 --> 01:39:51.150
+Alter.
+
+01:39:51.150 --> 01:39:53.150
+Ok wie macht man denn die Zeitzone
+
+01:39:53.150 --> 01:39:55.150
+hier richtig?
+
+01:39:55.150 --> 01:39:57.150
+Gucken ob ich das wenigstens finde.
+
+01:39:57.150 --> 01:39:59.150
+Adjust Date and Time.
+
+01:39:59.150 --> 01:40:03.870
+Time Zone. Ok.
+
+01:40:03.870 --> 01:40:05.870
+Amsterdam Berlin.
+
+01:40:05.870 --> 01:40:07.870
+Ok wenigstens funktioniert sowas unter Windows
+
+01:40:07.870 --> 01:40:19.500
+halbwegs brauchbar.
+
+01:40:19.500 --> 01:40:21.500
+Was macht der da eigentlich gerade?
+
+01:40:21.500 --> 01:40:23.500
+Ist der immer noch am installieren?
+
+01:40:23.500 --> 01:40:25.500
+Oh der installiert das Windows 10 SDK.
+
+01:40:25.500 --> 01:40:27.500
+Das ist bestimmt ein bisschen größer.
+
+01:40:27.500 --> 01:40:29.500
+Mal kurz in Task Manager gucken was
+
+01:40:29.500 --> 01:40:34.220
+der da treibt.
+
+01:40:34.220 --> 01:40:38.170
+Windows Update?
+
+01:40:38.170 --> 01:40:40.170
+Ich checke nie was da im Hintergrund passiert.
+
+01:40:40.170 --> 01:40:42.170
+Wisst ihr das mag ich unter
+
+01:40:42.170 --> 01:40:44.170
+Linux auch. Da machst du
+
+01:40:44.170 --> 01:40:46.170
+Top oder Htop oder Btop
+
+01:40:46.170 --> 01:40:48.170
+oder Bdingsbums. Eines der
+
+01:40:48.170 --> 01:40:50.170
+15.000
+
+01:40:50.170 --> 01:40:52.170
+Top Klone auf
+
+01:40:52.170 --> 01:40:54.170
+und siehst welcher Prozess
+
+01:40:54.170 --> 01:40:56.170
+da was macht. Du siehst mit
+
+01:40:56.170 --> 01:40:58.170
+welchen Parametern der gestartet
+
+01:40:58.170 --> 01:41:02.060
+wurde. Du kannst dir auch
+
+01:41:02.060 --> 01:41:04.060
+meistens was darunter vorstellen.
+
+01:41:04.060 --> 01:41:11.600
+Ja unter Windows brauchst du Zusatzdinger.
+
+01:41:11.600 --> 01:41:13.600
+Und selbst im Prozessexplorer
+
+01:41:13.600 --> 01:41:15.600
+weißt du oftmals nicht was es ist.
+
+01:41:15.600 --> 01:41:17.600
+Weil guck mal ernsthaft.
+
+01:41:17.600 --> 01:41:19.600
+Du guckst hier bei Windows rein ja
+
+01:41:19.600 --> 01:41:21.600
+und du siehst dann so Dinger wie
+
+01:41:21.600 --> 01:41:23.600
+wobei wir waren ja
+
+01:41:23.600 --> 01:41:27.800
+Prozessexplorer
+
+01:41:27.800 --> 01:41:29.800
+laden wir mal runter. Download.
+
+01:41:29.800 --> 01:41:32.800
+herunterladen
+
+01:41:32.800 --> 01:41:33.800
+Prozessexplorer
+
+01:41:33.800 --> 01:41:35.800
+Run
+
+01:41:35.800 --> 01:41:37.800
+aggregl
+
+01:41:39.800 --> 01:41:41.800
+So sortieren wir mal
+
+01:41:41.800 --> 01:41:43.800
+nach cpu last.
+
+01:41:43.800 --> 01:41:45.800
+Also erstens guck mal
+
+01:41:45.800 --> 01:41:47.800
+wie viel krasses Zeug da schon läuft
+
+01:41:47.800 --> 01:41:49.800
+So und dann hast du so Dinger
+
+01:41:49.800 --> 01:41:51.800
+du weißt halt einfach immer nicht
+
+01:41:51.800 --> 01:41:53.800
+was es ist unter Windows.
+
+01:41:53.800 --> 01:41:55.800
+Smart Screen mit einem
+
+01:41:55.800 --> 01:41:57.800
+Antivirus da hast du Dinger wie
+
+01:41:57.800 --> 01:42:03.320
+Der TI-Worker-Exe, ja, oh Gott, nice, alles klar
+
+01:42:03.320 --> 01:42:06.220
+VG-Auth-Server, okay, das ist vor allem, ja
+
+01:42:06.220 --> 01:42:08.000
+Trusted-Installer
+
+01:42:08.000 --> 01:42:12.040
+Ganz viel SV-Host-Exe
+
+01:42:12.040 --> 01:42:13.740
+SI-Host
+
+01:42:13.740 --> 01:42:18.320
+Security und Health-Sys-Tray
+
+01:42:18.320 --> 01:42:22.280
+Wisst ihr, du hast unter Windows, ja, dreimal Runtime-Broker
+
+01:42:22.280 --> 01:42:25.180
+Du hast unter Windows so viel Zeug, denn NIST-Server
+
+01:42:25.180 --> 01:42:27.800
+Standardmäßig laufen, was du nicht installiert hast, du
+
+01:42:27.800 --> 01:42:32.020
+Hier, CHX-Smart-Skript, da tauchen auch immer mal wieder neue Dinger drin auf
+
+01:42:32.020 --> 01:42:35.160
+Der Aggregator-Host, du hast keine Ahnung, was es ist
+
+01:42:35.160 --> 01:42:41.200
+Alles jetzt geschafft, oh, er ist fertig
+
+01:42:41.200 --> 01:42:42.380
+Pogu
+
+01:42:42.380 --> 01:42:46.430
+Okay, und jetzt? Link
+
+01:42:46.430 --> 01:42:48.710
+Hey
+
+01:42:48.710 --> 01:43:00.760
+Okay, da drin funktioniert das, nice
+
+01:43:00.760 --> 01:43:02.800
+Okay, CD
+
+01:43:02.800 --> 01:43:05.720
+Ich weiß nicht, wie man das wechselt
+
+01:43:05.720 --> 01:43:07.640
+CD, Users, CD
+
+01:43:07.640 --> 01:43:09.640
+Äh
+
+01:43:09.640 --> 01:43:11.000
+Keg
+
+01:43:11.000 --> 01:43:14.130
+CD
+
+01:43:14.130 --> 01:43:21.360
+Äh, wie heißt das Ordner, den ich geklont hab?
+
+01:43:24.310 --> 01:43:25.250
+Hier, Komoremi
+
+01:43:25.250 --> 01:43:26.510
+Und jetzt Cargo
+
+01:43:26.510 --> 01:43:29.630
+Achso, Reverse Search geht ja nicht
+
+01:43:29.630 --> 01:43:33.460
+Shell History geht natürlich auch nicht
+
+01:43:33.460 --> 01:43:34.120
+Geil
+
+01:43:34.120 --> 01:43:40.050
+Windows ist so eine Krücke, was das angeht, Alter
+
+01:43:40.050 --> 01:43:46.860
+Oh, es funktioniert, Leute
+
+01:43:46.860 --> 01:43:47.540
+Es geht
+
+01:43:47.540 --> 01:43:53.140
+Es compiled jetzt erstmal drei Stunden
+
+01:43:53.140 --> 01:43:55.500
+Weil es 185 Dependencies
+
+01:43:55.500 --> 01:43:56.280
+Vom Scratch
+
+01:43:56.280 --> 01:43:57.940
+Compilen muss
+
+01:43:57.940 --> 01:44:00.440
+Glücklicherweise ist Rust ganz gut drinne
+
+01:44:00.440 --> 01:44:02.180
+Abhängigkeiten zu erkennen
+
+01:44:02.180 --> 01:44:06.400
+Und parallel zu kompilieren, wie man hier sieht, ganz gut
+
+01:44:06.400 --> 01:44:09.280
+Übrigens auch so ein Ding, ne
+
+01:44:09.280 --> 01:44:13.380
+Wo man sich fragt, warum kriegen die das bei C++ nicht hin
+
+01:44:13.380 --> 01:44:17.740
+So ein ordentliches Command-Line-Build-Dings da gleich mitzuliefern
+
+01:44:17.740 --> 01:44:20.240
+Oder zumindest
+
+01:44:20.240 --> 01:44:22.320
+Was in der Richtung
+
+01:44:22.320 --> 01:44:25.480
+Wo man dann zum Beispiel auch Packages installieren kann
+
+01:44:25.480 --> 01:44:26.260
+Und keine Packages installieren kann
+
+01:44:26.260 --> 01:44:28.420
+Und keine Header-Files man rumkopieren muss
+
+01:44:28.420 --> 01:44:34.370
+Ja, bis Make funktioniert
+
+01:44:34.370 --> 01:44:37.510
+Und das alles baut, was du willst
+
+01:44:37.510 --> 01:44:41.830
+Nachdem du dir zig Header-Files angeguckt hast auf GitHub
+
+01:44:41.830 --> 01:44:58.280
+Header-Files sind quasi das
+
+01:44:58.280 --> 01:44:59.880
+Was in anderen Sprachen
+
+01:44:59.880 --> 01:45:01.760
+Metainformationen sind
+
+01:45:01.760 --> 01:45:05.320
+Also in anderen Sprachen hast du oft so Metainformationen
+
+01:45:05.320 --> 01:45:06.780
+Welche Funktionen es gibt und sowas
+
+01:45:06.780 --> 01:45:08.780
+Hast du irgendwie Binary gebundelt
+
+01:45:08.780 --> 01:45:11.840
+Mit der Library
+
+01:45:11.840 --> 01:45:13.520
+Bei C++ nicht
+
+01:45:13.520 --> 01:45:13.780
+Und dann hast du auch so ein paar
+
+01:45:13.800 --> 01:45:15.920
+Bei C++ brauchst du dafür Header-Files
+
+01:45:15.920 --> 01:45:19.600
+Dass du zum Beispiel weißt, dass es eine Funktion gibt, die
+
+01:45:19.600 --> 01:45:20.440
+Show
+
+01:45:20.440 --> 01:45:22.200
+Show
+
+01:45:22.200 --> 01:45:27.130
+So, hat funktioniert, Leute
+
+01:45:27.130 --> 01:45:29.150
+Wir haben
+
+01:45:29.150 --> 01:45:30.550
+Compiled
+
+01:45:30.550 --> 01:45:31.750
+Und jetzt noch
+
+01:45:31.750 --> 01:45:37.360
+Oh, das geht schneller
+
+01:45:37.360 --> 01:45:38.340
+Das flutscht
+
+01:45:38.340 --> 01:45:41.680
+Oh ne, jetzt sind es ja nur 192 Packages
+
+01:45:41.680 --> 01:45:44.240
+Sowas wie ein Interface
+
+01:45:44.240 --> 01:45:44.500
+Ja
+
+01:45:44.500 --> 01:45:46.260
+Naja
+
+01:45:46.260 --> 01:45:48.260
+Man kann es nicht mit einem C-Sharp-Interface machen
+
+01:45:48.280 --> 01:45:48.860
+Man kann es mit einem C-Sharp-Interface vergleichen
+
+01:45:48.860 --> 01:45:50.760
+Das eine ist so quasi ein Language-Konstrukt
+
+01:45:50.760 --> 01:45:52.440
+Und das andere
+
+01:45:52.440 --> 01:45:56.400
+Metainfos zu wie man was aufrufen kann
+
+01:45:56.400 --> 01:45:58.240
+Aber ja, ein bisschen wie ein Interface
+
+01:45:58.240 --> 01:46:03.660
+Aber dann müssen die Variablen
+
+01:46:03.660 --> 01:46:05.400
+Die Funktion nimmt auch im Header-File stehen
+
+01:46:05.400 --> 01:46:06.060
+Richtig, ja
+
+01:46:06.060 --> 01:46:08.380
+Ist ja auch so
+
+01:46:08.380 --> 01:46:21.150
+Es heißt nicht Variablen, es heißt dann da Parameter
+
+01:46:21.150 --> 01:46:22.490
+Aber ja, ist so
+
+01:46:22.490 --> 01:46:28.870
+Ja, super ausgereifte Packages
+
+01:46:28.870 --> 01:46:29.230
+Alle
+
+01:46:29.230 --> 01:46:33.070
+So, und jetzt, wie startet man das dann?
+
+01:46:34.070 --> 01:46:34.790
+Oh, grad
+
+01:46:34.790 --> 01:46:35.490
+Dabei sind
+
+01:46:35.490 --> 01:46:41.520
+Äh, was machen die da?
+
+01:46:42.420 --> 01:46:46.260
+It is highly recommended to enable support for long paths in Windows
+
+01:46:46.260 --> 01:46:48.740
+Was?
+
+01:46:49.000 --> 01:46:50.280
+Was ist das überhaupt?
+
+01:46:54.630 --> 01:46:56.110
+Was soll long paths sein?
+
+01:46:57.030 --> 01:46:59.970
+Ich dachte, Windows hat schon seit Ewigkeiten keine Beschränkungen mehr
+
+01:46:59.970 --> 01:47:02.850
+Wie lang Dateinamen und sowas sein dürfen
+
+01:47:02.850 --> 01:47:05.730
+Wie, die
+
+01:47:05.730 --> 01:47:07.850
+Ernsthaft, da gibt es doch eine Beschränkung?
+
+01:47:09.750 --> 01:47:11.490
+Alter, das System ist einfach so krass
+
+01:47:11.490 --> 01:47:12.290
+PP-Gas-Shit
+
+01:47:12.290 --> 01:47:12.910
+Der Wahnsinn
+
+01:47:12.910 --> 01:47:22.980
+Und jetzt sage ich, dass ich das nicht mehr kann
+
+01:47:23.000 --> 01:47:24.480
+Ich komme, Rebis start
+
+01:47:24.480 --> 01:47:27.180
+Minus WHKD
+
+01:47:27.180 --> 01:47:29.260
+Ja, obviously, WHKD
+
+01:47:29.260 --> 01:47:30.140
+Natürlich, was sonst?
+
+01:47:30.380 --> 01:47:32.060
+Ist ja klar, man
+
+01:47:32.060 --> 01:47:37.640
+Could not find WHKD
+
+01:47:37.640 --> 01:47:40.140
+Ja, was ist denn WHKD überhaupt, man?
+
+01:47:45.540 --> 01:47:46.120
+Moment, was?
+
+01:47:46.720 --> 01:47:50.160
+Komoribe does not handle any keyboard or mouse inputs?
+
+01:47:51.320 --> 01:47:53.160
+Wie soll denn Windows Manager funktionieren ohne...
+
+01:47:56.010 --> 01:47:57.970
+Okay, WHKD muss ich installieren
+
+01:47:57.970 --> 01:48:01.570
+Ich weiß, wusste bisher nicht mal, dass es das überhaupt gibt, man
+
+01:48:02.370 --> 01:48:04.950
+WKHD halt, easy
+
+01:48:04.950 --> 01:48:10.520
+Okay, wir installieren WKHD
+
+01:48:10.520 --> 01:48:11.340
+Klar
+
+01:48:11.340 --> 01:48:13.680
+Hat es jetzt funktioniert?
+
+01:48:26.230 --> 01:48:27.610
+Das findet er jetzt wieder nicht
+
+01:48:27.610 --> 01:48:29.230
+Weil...
+
+01:48:29.230 --> 01:48:30.070
+PowerShell
+
+01:48:30.070 --> 01:48:43.090
+Kann es sein, dass es überhaupt nicht installiert ist?
+
+01:48:46.740 --> 01:48:47.900
+Dass es einfach jebaited?
+
+01:49:02.130 --> 01:49:02.870
+Ey, Windows
+
+01:49:02.870 --> 01:49:04.670
+Das ist so schrottig alles
+
+01:49:04.670 --> 01:49:08.890
+So, jetzt habe ich WKHD installiert
+
+01:49:08.890 --> 01:49:09.330
+Und weiter?
+
+01:49:09.330 --> 01:49:12.520
+Geht immer noch nicht
+
+01:49:12.520 --> 01:49:22.200
+Warum trägt sich das nicht selbst in Paths ein?
+
+01:49:22.420 --> 01:49:24.940
+Ich meine, wir können es scheiß auf selbst kompilieren
+
+01:49:24.940 --> 01:49:30.550
+Ihr habt noch irgendeinen Quickstart, oder?
+
+01:49:31.710 --> 01:49:32.310
+Quickstart
+
+01:49:32.310 --> 01:49:37.990
+Ja, habe ich, habe ich
+
+01:49:37.990 --> 01:49:46.490
+Das habe ich doch installiert hier
+
+01:49:46.490 --> 01:49:54.130
+Paths neu lernen, habe ich gemacht
+
+01:49:54.130 --> 01:49:58.070
+Findet er nicht
+
+01:49:58.070 --> 01:49:59.250
+Oh
+
+01:49:59.250 --> 01:50:01.590
+Auf einmal doch
+
+01:50:01.590 --> 01:50:06.790
+Auf einmal doch
+
+01:50:06.790 --> 01:50:13.080
+Wie oft muss ich das noch neu starten?
+
+01:50:17.350 --> 01:50:19.030
+Could not find file
+
+01:50:19.030 --> 01:50:23.770
+Was ist IWR?
+
+01:50:23.770 --> 01:50:23.810
+Ja
+
+01:50:28.390 --> 01:50:30.110
+Okay, IWR wurde ausgeführt
+
+01:50:30.110 --> 01:50:30.970
+Was?
+
+01:50:33.540 --> 01:50:35.260
+Invoke Web Request
+
+01:50:35.260 --> 01:50:37.740
+Das ist gerade die PowerShell-Curl, oder wie?
+
+01:50:41.830 --> 01:50:42.710
+Oh, macht er was?
+
+01:50:42.810 --> 01:50:43.310
+Macht er was?
+
+01:50:50.810 --> 01:50:51.090
+Was?
+
+01:51:04.140 --> 01:51:08.440
+Ich glaube, das ist kaputt
+
+01:51:08.440 --> 01:51:14.740
+Kann es sein, dass das crasht, oder so?
+
+01:51:24.720 --> 01:51:25.580
+Ne, habe ich nicht
+
+01:51:25.580 --> 01:51:27.400
+Du hast recht
+
+01:51:27.400 --> 01:51:32.790
+Fetch?
+
+01:51:39.530 --> 01:51:40.710
+Das ist echt
+
+01:51:40.710 --> 01:51:43.590
+Für absolute High IQ, Leute
+
+01:51:43.590 --> 01:51:51.120
+Okay, was auch immer
+
+01:51:51.120 --> 01:51:52.200
+Okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay
+
+01:51:52.600 --> 01:52:47.330
+Okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay, okay
+
+01:52:47.330 --> 01:52:59.800
+ist irgendwie alles ein bisschen hakelig unter windows aber ich war ein cool dass es die leute
+
+01:52:59.800 --> 01:53:13.310
+probieren aber ich glaube irgendwie so wirklich usable ist das alles nicht ja ja ich sitze immer
+
+01:53:13.310 --> 01:53:18.310
+noch am window tiling manager scheint jetzt auch zu funktionieren der zweite den wir ausprobiert
+
+01:53:18.310 --> 01:53:27.440
+haben die gingen die gingen ja beide also ging also ja also sie machen das was sie sollen wie
+
+01:53:27.440 --> 01:53:30.800
+schaltet man das aus wahrscheinlich einfach das terminal schließen dem ans gestartet hat
+
+01:53:30.800 --> 01:53:46.480
+glaube ich eine exzellente frage wie man das ausschaltet das läuft doch hier bestimmt oder
+
+01:53:46.480 --> 01:54:05.240
+homo komori wie einfach aus einfach abschießen beim als ich aus als ich aus komori bietet jetzt
+
+01:54:05.240 --> 01:54:16.530
+war aber blöde frau was ist wie hkd github es simple hotkey die man für windows
+
+01:54:16.550 --> 01:54:37.180
+also sowas wie auto id oder so oder auto hotkey oder also windows version von skh kd habe ich auch
+
+01:54:37.180 --> 01:54:51.570
+nie verwendet in rust ja dann ist natürlich alles gut wenn das in rust ist weil in rust ist es playsichtlich fast
+
+01:54:51.570 --> 01:55:00.820
+wie wir alle wissen chat wird eigentlich mal zeit dass wir auch im stream mehr rust programmieren
+
+01:55:00.820 --> 01:55:05.360
+oder dass die ganzen krustentiere sich freuen
+
+01:55:06.040 --> 01:55:12.940
+da kriegt das halte ich nicht aus das halte ich nicht aus zu viel was so ein bisschen was geht aber
+
+01:55:12.940 --> 01:55:20.800
+zu viel was ist echt nix da wirst du verrückt im kopf der chat im rast leute ich krieg vier chat
+
+01:55:20.800 --> 01:55:25.540
+noch nicht meiner sprache zustande die ich gescheit kann dann wird das in rast garantiert auch nichts
+
+01:55:25.540 --> 01:55:32.280
+werden also manche sie ist tatsächlich sogar noch angenehmer besteht zumindest glücklicherweise nicht
+
+01:55:32.280 --> 01:55:41.240
+aus tausend dollar zeichen wie rast was ist fiat champ ein
+
+01:55:41.380 --> 01:55:47.840
+home assistant plugin was ich gebaut habe mit dem man daten von seinem elektroauto abfragen kann
+
+01:55:47.840 --> 01:55:56.930
+guck hier fiat champ es hat absolut keine bugs wie du daran siehst dass es 28 issues gibt um die ich
+
+01:55:56.930 --> 01:56:05.010
+mich nicht kümmere weil ich zu faul bin und keinen bock hab da kannst du für home assistant kannst
+
+01:56:05.010 --> 01:56:15.490
+den home assistant sachen über dein elektroauto abfragen letztes commit von im jahr 15 dezember
+
+01:56:15.490 --> 01:56:17.390
+nice
+
+01:56:17.590 --> 01:56:19.590
+das ist super einfach von richtig Hai
+
+01:56:19.590 --> 01:56:25.070
+das ist super einfach hiding
+
+01:56:25.070 --> 01:56:26.230
+a
+
+01:56:26.230 --> 01:56:27.930
+so
+
+01:56:27.930 --> 01:56:28.870
+dann
+
+01:56:28.870 --> 01:56:30.710
+als
+
+01:56:30.710 --> 01:56:34.510
+es funktioniert auch gut es funktioniert es hat halt ein paar
+
+01:56:34.510 --> 01:56:35.710
+Sp Proteische
+
+01:56:35.710 --> 01:56:41.630
+so dass man nur ein auto trainer einfügen kann und nicht zwei also wenn
+
+01:56:41.630 --> 01:56:43.170
+wenn beispielsweise
+
+01:56:43.170 --> 01:56:44.290
+einer ein
+
+01:56:44.290 --> 01:56:46.710
+ob und 1 4 hat dann funktioniert das nicht
+
+01:56:46.710 --> 01:56:47.570
+2 4
+
+01:56:47.570 --> 01:56:49.510
+Ich wollte dem Ding ja auch mal ein Web-Interface spendieren,
+
+01:56:49.590 --> 01:56:51.050
+dass man es ordentlich konfigurieren kann.
+
+01:56:52.050 --> 01:56:53.090
+Außerhalb von diesem
+
+01:56:53.090 --> 01:56:56.150
+Homosystem-Config-Dialog.
+
+01:56:56.610 --> 01:56:57.670
+Ich bin so faul.
+
+01:56:57.750 --> 01:56:59.690
+Ich habe so wenig Bock, gerade da dran
+
+01:56:59.690 --> 01:57:00.450
+weiterzumachen.
+
+01:57:01.790 --> 01:57:03.790
+Warum nicht? Wir haben sogar teilweise schon im Stream
+
+01:57:03.790 --> 01:57:05.790
+gebaut. Aber ich habe einfach keinen Bock
+
+01:57:05.790 --> 01:57:07.710
+gerade dran weiterzubauen. Das liegt vielleicht
+
+01:57:07.710 --> 01:57:09.450
+einfach daran, dass es funktioniert für mich
+
+01:57:09.450 --> 01:57:11.310
+und es macht, was es soll und deswegen
+
+01:57:11.310 --> 01:57:12.490
+ich keine
+
+01:57:12.490 --> 01:57:15.430
+große Motivation verspüre, da
+
+01:57:15.430 --> 01:57:16.570
+weiter dran zu bauen.
+
+01:57:16.570 --> 01:57:23.820
+Einen neuen Maintainer hinzufügen.
+
+01:57:23.900 --> 01:57:25.720
+Niemand möchte sowas maintainen.
+
+01:57:28.670 --> 01:57:30.290
+Doch, habe ich. Ich wollte das
+
+01:57:30.290 --> 01:57:31.810
+Weltweb-UI bauen.
+
+01:57:38.010 --> 01:57:39.770
+4M-Champ ist finaler. Kommt da nichts mehr
+
+01:57:39.770 --> 01:57:41.650
+außer... 4M-Champ
+
+01:57:41.650 --> 01:57:43.950
+kommt
+
+01:57:43.950 --> 01:57:45.870
+erst wieder was, wenn ich es verwende
+
+01:57:45.870 --> 01:57:47.310
+und feststelle, ich brauche was.
+
+01:57:47.710 --> 01:57:54.150
+Also, weiß ich nicht.
+
+01:57:54.670 --> 01:57:56.290
+Was ich da... Ich bin super
+
+01:57:56.290 --> 01:57:58.150
+unmotiviert, an Sachen weiterzubauen,
+
+01:57:58.290 --> 01:58:00.270
+mich zu motivieren, an Sachen
+
+01:58:00.270 --> 01:58:01.110
+weiterzubauen
+
+01:58:01.110 --> 01:58:04.030
+oder Sachen zu
+
+01:58:04.030 --> 01:58:05.830
+supporten, auf die ich gerade keinen Bock habe.
+
+01:58:07.410 --> 01:58:08.450
+Wobei 4M-Champ
+
+01:58:08.450 --> 01:58:09.590
+echt mega nice
+
+01:58:09.590 --> 01:58:11.990
+4M-Champ ist.
+
+01:58:12.970 --> 01:58:13.810
+Ja, 4M-Champ.
+
+01:58:16.860 --> 01:58:18.280
+Was ist das? Permission? Neues.
+
+01:58:19.380 --> 01:58:19.820
+Neues.
+
+01:58:26.070 --> 01:58:26.230
+Hm.
+
+01:58:27.830 --> 01:58:28.810
+Der ist aus dem Stream, oder?
+
+01:58:35.230 --> 01:58:36.510
+Ich glaube, ich setze
+
+01:58:36.510 --> 01:58:37.170
+alle meine
+
+01:58:37.170 --> 01:58:40.410
+Projekte auf Archiv, dann...
+
+01:58:40.410 --> 01:58:41.690
+Dann muss ich...
+
+01:58:41.690 --> 01:58:44.410
+Dann muss ich wenigstens kein schlechtes Gewissen mehr haben,
+
+01:58:44.470 --> 01:58:45.790
+da ich den Leuten immer nicht antworte.
+
+01:58:46.410 --> 01:58:59.670
+Es gibt einen Rustfork, ja.
+
+01:58:59.770 --> 01:59:01.870
+Ich habe aber, ehrlich gesagt, bis heute
+
+01:59:01.870 --> 01:59:03.070
+nicht genau verstanden,
+
+01:59:03.550 --> 01:59:05.910
+warum es das gibt
+
+01:59:05.910 --> 01:59:10.770
+und ob sich da überhaupt was tut.
+
+01:59:10.870 --> 01:59:12.490
+Da tut sich ja eigentlich gar nichts, ne?
+
+01:59:12.510 --> 01:59:13.650
+Hat 5000 Dings
+
+01:59:13.650 --> 01:59:16.210
+vor einem Monat das letzte Mal committed.
+
+01:59:41.160 --> 01:59:41.360
+Also,
+
+01:59:44.230 --> 01:59:46.110
+im Prinzip ist das unsinnig, so.
+
+01:59:49.740 --> 01:59:51.200
+Das updatet einfach auch einfach
+
+01:59:51.200 --> 01:59:51.660
+niemand.
+
+01:59:52.740 --> 01:59:54.800
+Also, richtig, richtig unsinniger,
+
+01:59:54.940 --> 01:59:56.000
+unsinniger Fork.
+
+02:00:01.480 --> 02:00:03.220
+Ja, ist schön, dass sie es geforkt haben,
+
+02:00:03.840 --> 02:00:05.840
+aber wenn sie noch nicht mal
+
+02:00:05.840 --> 02:00:07.640
+Upstream reinmerchen, dann...
+
+02:00:07.640 --> 02:00:09.420
+Also, keine Ahnung, was der Sinn davon ist.
+
+02:00:10.140 --> 02:00:11.420
+Aber Hauptsache ein Twitter-Account,
+
+02:00:11.540 --> 02:00:11.980
+Grappling.
+
+02:00:26.630 --> 02:00:31.170
+Ja, lass Rust forken.
+
+02:00:31.650 --> 02:00:33.030
+Free... Genau, genau.
+
+02:00:33.450 --> 02:00:36.070
+Wir forken Rust, greifen Free-Sterne
+
+02:00:36.070 --> 02:00:37.970
+ab auf GitHub und dann überschreiben
+
+02:00:37.970 --> 02:00:39.530
+wir das Repo mit irgendwas anderem.
+
+02:00:41.270 --> 02:00:41.930
+Und dann
+
+02:00:41.930 --> 02:00:42.990
+sellen wir es auf Ebay.
+
+02:00:47.820 --> 02:00:49.440
+Wobei, sowas sellt man nicht auf Ebay.
+
+02:00:56.400 --> 02:00:57.620
+Richtig big stonks.
+
+02:00:58.620 --> 02:00:59.420
+Um Thema
+
+02:00:59.420 --> 02:01:01.440
+Stonks. Lass mich grad mal kurz gucken.
+
+02:01:03.140 --> 02:01:04.940
+Kurz bevor ich ins Bett gehen muss.
+
+02:01:06.140 --> 02:01:07.420
+Was meine Stonks
+
+02:01:07.420 --> 02:01:08.140
+denn so machen?
+
+02:01:11.070 --> 02:01:13.610
+Oh, Stonks sind eigentlich ganz gut
+
+02:01:13.610 --> 02:01:14.430
+mittlerweile wieder.
+
+02:01:18.180 --> 02:01:18.480
+Naja.
+
+02:01:19.640 --> 02:01:22.300
+Stonks sind wieder runtergegangen und jetzt wieder ein bisschen hoch.
+
+02:01:51.410 --> 02:01:52.690
+Oh, Stonks sind okay.
+
+02:01:56.180 --> 02:01:57.680
+Was, die Dogecoin-Stonks?
+
+02:01:57.760 --> 02:01:58.060
+Wirklich?
+
+02:02:00.300 --> 02:02:01.340
+Warum gehen die mal wieder?
+
+02:02:03.020 --> 02:02:03.580
+Tatsächlich.
+
+02:02:07.550 --> 02:02:08.310
+Warum ist Dogecoin
+
+02:02:09.030 --> 02:02:10.030
+gerade mal wieder angesagt?
+
+02:02:10.950 --> 02:02:11.770
+Ja, anscheinend schon.
+
+02:02:12.330 --> 02:02:14.370
+Du hast Glück.
+
+02:02:14.570 --> 02:02:15.830
+Das stimmt, was du gesagt hast.
+
+02:02:18.400 --> 02:02:20.800
+Warum genau sind Dogecoin
+
+02:02:20.800 --> 02:02:21.660
+gerade so Stonks?
+
+02:02:21.820 --> 02:02:24.780
+Ah, okay. Naja, auf Gesamt betrachtet
+
+02:02:24.780 --> 02:02:25.100
+nicht.
+
+02:02:27.000 --> 02:02:28.860
+Was macht eigentlich Bitcoin gerade?
+
+02:02:34.600 --> 02:02:34.840
+Ja.
+
+02:02:36.920 --> 02:02:39.160
+Vor einer Woche ist Bitcoin wieder ein bisschen hoch.
+
+02:02:39.240 --> 02:02:40.060
+Das habe ich mitgekriegt.
+
+02:02:53.840 --> 02:02:56.280
+Bann. Ja, immer noch.
+
+02:02:56.280 --> 02:03:01.860
+Incredible Fortunes.
+
+02:03:02.780 --> 02:03:04.520
+Fast. Ist es denn auch written in Rust, ja?
+
+02:03:05.500 --> 02:03:06.480
+Ich hoffe mal für die.
+
+02:03:14.420 --> 02:03:15.160
+Nein, in SICK.
+
+02:03:15.680 --> 02:03:18.960
+Deswegen ist es Incredible Fast und nicht Blazingly Fast.
+
+02:03:23.480 --> 02:03:25.360
+SICK haben wir auch schon mal im Stream gemacht.
+
+02:03:25.740 --> 02:03:28.620
+Hat mir syntaktisch nicht gut gefallen.
+
+02:03:29.860 --> 02:03:34.520
+Wobei wir auch quasi so eine Mischung aus SICK und C-Interop gemacht haben.
+
+02:03:34.680 --> 02:03:38.480
+Und das war, die hatten so eine ganz komische Pointer-Syntax bei SICK.
+
+02:03:38.600 --> 02:03:39.800
+So was war das doch, gell?
+
+02:03:40.660 --> 02:03:43.320
+Sternchen, Punkt, Sternchen und so ganz weird.
+
+02:03:43.340 --> 02:04:03.430
+Ja, Chatgear, ich würde sagen, wir machen die Windows-VM mal aus.
+
+02:04:03.930 --> 02:04:07.370
+Boah, nicht Standby. Standby verbraucht so viel Disk, ja.
+
+02:04:08.010 --> 02:04:08.450
+Hau auf.
+
+02:04:09.610 --> 02:04:17.530
+Und ich lasse die mal da, weil man weiß nicht, wann ich wieder eine Windows 11-VM brauche.
+
+02:04:19.530 --> 02:04:22.370
+Ey, Snapshot müssen wir das nennen. Das ist eh outdated das nächste Mal.
+
+02:04:22.370 --> 02:04:25.210
+Ich glaube, ich könnte es wahrscheinlich auch wieder löschen.
+
+02:04:25.690 --> 02:04:27.150
+Weil es ist einfach sinnlos.
+
+02:04:29.250 --> 02:04:29.930
+Dead Space?
+
+02:04:34.340 --> 02:04:35.880
+Warum habe ich hier Dead Space?
+
+02:04:36.680 --> 02:04:37.620
+Nein, gut, man weiß es nicht.
+
+02:04:38.920 --> 02:04:39.880
+Swift, ja.
+
+02:04:41.020 --> 02:04:42.240
+Der Bike Champ.
+
+02:04:44.200 --> 02:04:45.340
+Wo ist denn der Ordner jetzt?
+
+02:04:47.280 --> 02:04:48.180
+25, GIG.
+
+02:04:50.790 --> 02:04:54.410
+Ja, VMs runterladen, vielleicht echt die sinnvollere Variante das nächste Mal.
+
+02:04:56.730 --> 02:04:59.370
+Wobei der Installer war nur wirklich auch schnell durchgeklickt.
+
+02:04:59.450 --> 02:05:00.790
+Aber das Ganze geupdatet danach.
+
+02:05:00.890 --> 02:05:02.890
+Das hat schon eine halbe Stunde gedauert insgesamt.
+
+02:05:06.520 --> 02:05:06.900
+Okay, Leute.
+
+02:05:13.490 --> 02:05:16.430
+Morgen setze ich mich mal aufs Fahrrad und wir fahren eine Runde im Stream.
+
+02:05:17.110 --> 02:05:17.310
+Ey.
+
+02:05:18.830 --> 02:05:19.750
+Brauche ich mal eine Ruhe.
+
+02:05:23.410 --> 02:05:26.250
+Wenigstens hast du keinen Docker-Desktop auf der Windows-VM gemacht.
+
+02:05:26.590 --> 02:05:28.930
+Ich wüsste eh nicht, warum ich Docker-Desktop verwenden sollte.
+
+02:05:30.950 --> 02:05:31.850
+Ja, haben wir.
+
+02:05:32.070 --> 02:05:36.570
+Wir haben uns das angeschaut noch, ähm, also schon ein bisschen,
+
+02:05:36.570 --> 02:05:38.750
+ein bisschen bevor das spruchreif war.
+
+02:05:38.870 --> 02:05:40.570
+Da musste man noch diesen, diesen Copilot,
+
+02:05:40.950 --> 02:05:43.910
+über Registry-Hacks aktivieren.
+
+02:05:44.910 --> 02:05:46.910
+Also das Beste, was sie eingeführt haben,
+
+02:05:46.910 --> 02:05:48.910
+und das gibt's jetzt ja anscheinend auch schon in Windows,
+
+02:05:52.990 --> 02:05:56.950
+ist diese Geschichte mit, dass man endlich wieder Taskleiste entgroupen kann.
+
+02:05:57.430 --> 02:05:59.030
+Und zwar super hässlich gemacht,
+
+02:06:00.350 --> 02:06:01.230
+aber immerhin,
+
+02:06:02.070 --> 02:06:03.190
+immerhin geht das wieder.
+
+02:06:10.100 --> 02:06:14.700
+Aber Windows ist halt echt so ein Flickenstückelgestückeldes Werk, äh,
+
+02:06:17.660 --> 02:06:20.340
+aus unterschiedlichsten Teilen, das ist schon nervig.
+
+02:06:20.580 --> 02:06:25.020
+Man könnte es einfach auch in was gescheitermachen.
+
+02:06:25.020 --> 02:06:32.060
+Und selbst da bekomme ich es ja nicht hin, weil ich irgendwie sehr unmotiviert bin, da weiterzumachen.
+
+02:06:36.060 --> 02:06:38.100
+Ja, warum nicht, wenn es da alles gibt, was du brauchst?
+
+02:06:39.500 --> 02:06:43.220
+Ich habe ja auch nur die Kombination aus Windows und Linux.
+
+02:06:43.540 --> 02:06:46.180
+Naja, gut, ihr wisst ja, wie es aussieht normalerweise.
+
+02:06:47.700 --> 02:06:52.980
+Ich habe ja auch nur die Kombination aus Windows und Linux, weil ich eigentlich so gut wie alles,
+
+02:06:52.980 --> 02:06:55.300
+was Technik-Sachen angeht, unter Linux mache,
+
+02:06:55.980 --> 02:07:00.340
+und für Videos, Streaming und für Spielen halt Windows verwende.
+
+02:07:01.020 --> 02:07:04.260
+Das ist auch das, es ist wie gesagt meiner Meinung nach das Beste, was man machen kann.
+
+02:07:04.980 --> 02:07:10.380
+Einfach das System benutzen, was halt in dem jeweiligen Sektor, was man machen will, seine Stärken hat.
+
+02:07:13.430 --> 02:07:15.510
+Und guckt da, Windows, Linux in der VM.
+
+02:07:16.110 --> 02:07:22.270
+Und Linux in der VM finde ich persönlich immer noch am besten, weil es läuft halt parallel, man kann beides parallel verwenden.
+
+02:07:22.910 --> 02:07:24.430
+Und es ist schnell genug,
+
+02:07:25.190 --> 02:07:29.630
+also es gibt nichts, was mich hier in der VM groß stört, performancetechnisch.
+
+02:07:30.110 --> 02:07:36.710
+Gut, ich meine, die VM ist auch fett bestückt, 24 GB RAM, 8 Cores,
+
+02:07:42.000 --> 02:07:44.000
+bei Batocera, ne, was soll es da Neues geben?
+
+02:07:44.000 --> 02:07:46.680
+Es gibt eine neue Version, die müssen wir uns vielleicht mal angucken.
+
+02:07:47.060 --> 02:07:53.320
+Die kann jetzt ja angeblich auch, glaube ich, Xbox von Haus aus oder Xbox 360 von Haus aus.
+
+02:07:54.000 --> 02:07:56.560
+Soll aber noch mehr schlecht als recht funktionieren.
+
+02:07:58.860 --> 02:08:00.900
+Grafik-Memory, weiß nicht, 256.
+
+02:08:01.140 --> 02:08:07.850
+Ich meine, das ist halt auch das geile, i3 braucht halt nichts und läuft trotzdem schnell.
+
+02:08:09.450 --> 02:08:11.290
+Ah, 256 oder sowas.
+
+02:08:15.790 --> 02:08:17.890
+Oh, warum so viel?
+
+02:08:18.770 --> 02:08:20.750
+Das ist komplett unsinnig.
+
+02:08:21.890 --> 02:08:24.610
+Warum hat es 8 GB Grafikspeicher?
+
+02:08:25.370 --> 02:08:27.710
+Das macht überhaupt gar keinen Sinn.
+
+02:08:34.640 --> 02:08:34.960
+Null.
+
+02:08:35.960 --> 02:08:38.480
+Warum brauche ich 8 GB für i3?
+
+02:08:38.480 --> 02:08:42.680
+Ja, also das Terminal und i3 zusammen, da sind die 8 GB.
+
+02:08:42.700 --> 02:08:44.280
+Die Arbeit aber schon ganz kritisch, ja.
+
+02:08:55.220 --> 02:09:00.660
+Wenn du Linux auf dem Mac laufen lässt, da kannst du auch gleich auf einer normalen Kiste laufen lassen, oder?
+
+02:09:03.780 --> 02:09:05.600
+Es sei denn, du feierst halt die Hardware, okay.
+
+02:09:12.760 --> 02:09:14.000
+So, 22.03 Uhr, Leute.
+
+02:09:14.800 --> 02:09:15.820
+Ihr wisst, was jetzt kommt.
+
+02:09:17.100 --> 02:09:19.460
+Boomer müde, Boomer schlafen, ich muss ins Bett.
+
+02:09:19.840 --> 02:09:22.700
+Ich habe heute, by the way, ein neues Video aufgenommen.
+
+02:09:24.830 --> 02:09:28.270
+Aber ich muss es noch rendern, hochladen und mir einen Titel aus den Fingern saugen.
+
+02:09:29.870 --> 02:09:31.690
+Und morgen bin ich in Frankfurt auf der Arbeit.
+
+02:09:31.830 --> 02:09:32.690
+Das heißt, wahrscheinlich...
+
+02:09:32.790 --> 02:09:34.430
+Wahrscheinlich am Mittwoch.
+
+02:09:35.690 --> 02:09:36.930
+Wahrscheinlich am Mittwoch.
+
+02:09:46.910 --> 02:09:47.810
+Wahrscheinlich am Mittwoch.
+
+02:09:50.050 --> 02:09:52.070
+Ja, kompletten Dezember wieder frei.
+
+02:09:52.690 --> 02:09:56.930
+Sogar theoretisch mehr als Dezember, weil ich noch so viele Tage habe über...
+
+02:09:58.370 --> 02:09:59.690
+Krelaks, danke für den Sub.
+
+02:10:02.550 --> 02:10:09.430
+Du weißt doch, gerade in Zeiten, wo ich nicht viel hochlade, muss man subscribed bleiben.
+
+02:10:09.970 --> 02:10:13.270
+Sonst hat man gar keine Chance, es mitzubekommen, wenn was hochgeladen wird.
+
+02:10:19.270 --> 02:10:19.970
+Ja, ich weiß.
+
+02:10:20.050 --> 02:10:23.250
+Ich habe sogar schon mal für ein paar Titel Chat-GPT probiert.
+
+02:10:23.370 --> 02:10:27.910
+Aber da muss man auch ziemlich rumwursten, bis da was Brauchbares ist.
+
+02:10:28.190 --> 02:10:33.690
+Es ist eher gut für Denkanstöße, nicht wirklich um kompletten Titel zu bauen, finde ich.
+
+02:10:36.040 --> 02:10:37.980
+Du hast da eine Bewerbung mit Chat-GPT geschrieben.
+
+02:10:39.720 --> 02:10:41.300
+Ich würde ja sagen, poste mal.
+
+02:10:42.040 --> 02:10:43.400
+Die können wir uns angucken.
+
+02:10:43.600 --> 02:10:46.740
+Aber du wirst deine Bewerbung nicht öffentlich im Internet posten wollen.
+
+02:10:47.260 --> 02:10:48.100
+Würde ich auch nicht machen.
+
+02:10:50.350 --> 02:10:52.390
+Ich würde mich interessieren, ob da was Gescheites bei rausgekommen ist.
+
+02:10:52.410 --> 02:11:00.460
+Top-Idee.
+
+02:11:06.050 --> 02:11:06.530
+Aber...
+
+02:11:06.530 --> 02:11:10.070
+Falls du mal wieder im Stream da bist, sag Bescheid.
+
+02:11:10.590 --> 02:11:14.710
+Dann schick mir einfach einen Link hier irgendwie auf Google Drive oder auf irgendwas, wo du willst.
+
+02:11:23.940 --> 02:11:25.580
+Würde mich echt interessieren, was da rausgekommen ist.
+
+02:11:25.640 --> 02:11:28.440
+Oder kannst du auch Copy-Pasten und auf Pastebin hauen oder so.
+
+02:11:29.680 --> 02:11:32.260
+Geht mir eher um den Text, den Chat-GPT generiert hat.
+
+02:11:36.760 --> 02:11:37.400
+Okay, Chat-G.
+
+02:11:39.760 --> 02:11:41.120
+Bis dann, macht's gut.
+
+02:11:43.630 --> 02:11:44.130
+Keck bei.
+
+02:11:45.050 --> 02:11:45.390
+See you.
