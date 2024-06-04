@@ -1,0 +1,3798 @@
+So, da bin ich und morgen kürzere Runde gerannt als sonst, weil scheiß Wetter, Überschwemmung am Main, zwischendurch musste ich aufs Klo und irgendwie waren meine Beine noch zu mitgenommen vom Freitag, also bin ich heute nur 7,8 oder sowas gerannt, ne 7,3 sogar nur.
+7,3, ich hab übelst langsam gestartet, weil ich gedacht hab, ich mach heute ganz normal eine lange Runde und dann hab ich zwischendurch gemerkt, dass es sackt und hab Gas gegeben, also war wieder ungefähr genauso schnell wie sonst.
+Moin, Anpil, danke schön für den Sub. Moin, ich muss aber kurz warten, bis meine Nase aufhört zu laufen, weil nach dem Rennen ist immer ein bisschen alles noch am Schwitzen, wobei ich...
+Ich bin seit, keine Ahnung, knapp 10 Minuten oder so daheim, also ich bin schon ein bisschen abgekühlt wieder.
+Naja, übrigens, am Anfang, jetzt mal, was ist ganz was anderes? Ich hab euch schon lange nicht mehr erzählt, dass C++ ultra kacke ist, oder? Kann das sein?
+Soll ich nochmal kurz mich ein bisschen aufregen über C++? Ich glaube, ich hab schon eine Weile nicht mehr drüber hergezogen, was das für eine Kacksprache ist, Alter.
+Und zwar...
+Moment, ich muss, ich muss mein...
+Ich bin hochgradig verwirrt, weil irgendwie meine Notizen nicht...
+Okay, keine Ahnung, warum meine Not...
+Hab ich mein Notizprogramm hier irgendwie uninstalled oder sowas?
+Kacknoob?
+Ja, anscheinend, okay.
+Bin ich ganz sicher, warum, aber okay.
+Okay, wie dem auch sei.
+Also, die Primers.
+Die Primers am Start, ja.
+Danke, Leute, für die Subs.
+BlackHD, POG-Subscription.
+Ich glaube, ich hab das auf dem zweiten Rechner aninstallt, dass ich nicht durcheinander komme.
+Auf beiden, wo ich was, wo ich was genotet hab.
+Dabei ist das eigentlich komplett unsinnig, weil ich den Kram gesynkt habe, zumindest.
+Naja, egal.
+Wie dem auch sei, ist auch wurscht.
+Also, Leute, mir ist mal wieder aufgefallen, wie abgrundtief kacke C++ ist.
+Und ich bin diesmal nicht drauf gekommen...
+Also, ich seh nicht so, als wäre das jetzt was Neues, ja.
+Und ich bin diesmal nicht drauf gekommen, weil...
+Ich bin diesmal nicht drauf gekommen, weil ich mal wieder ein bisschen Microcontroller programmiert habe.
+Da fällt mir das ja in der Regel auf, weil da kommst du um C++ nicht rum, gerade wenn es ein ESP ist.
+Und letztendlich ist es ja irgendeine Mischung aus ESP, quasi Standardlibraries in C, plus oben drüber ein bisschen Arduino-Zeug, C++.
+Also, da fällt einem relativ früh auf, dass es sagt, obwohl das ja eigentlich eines der Anwendungszwecke schlechthin für C++ ist.
+Nein, wobei mir das aufgefallen ist, ist...
+Und ihr werdet echt den Kopf schütteln jetzt.
+Also, zumindest...
+Also, jeder...
+Wer da nicht den Kopf schüttelt, den...
+Weiß ich nicht.
+Der muss übelster C++-Fan sein.
+Wenn man das sich schönreden kann.
+Und zwar...
+Ich hab eine...
+Ich hab ein C++-Talk angefangen zu gucken.
+Undefined Behavior.
+So, da sind Beisp...
+Ich will...
+Wir gucken uns den jetzt nicht an, ja.
+Also, keine Sorge.
+Wir gucken uns keine...
+Alfred, danke schön für den Sub.
+Keine Sorge, wir gucken uns keine...
+32...
+Hier, hier ist es.
+Wir gucken uns keine 32 Minuten C++ an.
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Aber...
+Schleife, weil
+I gleich 1, Endlosschleife
+und in C ist ja
+alles ungleich 0, true.
+So, Endlosschleife
+und danach after.
+So, und jetzt kommt der Witz.
+Älterer Compiler
+printet
+before und hängt.
+Etwas neuerer Compiler, in dem Fall ist
+der Unterschied zwischen Clang
+oder wie auch immer man das gescheit ausspricht.
+Manche sagen C-Lang, manche sagen Clang.
+Und GCC.
+Und GCC printet, jetzt haltet euch fest,
+GCC printet
+before, dann aus irgendwelchen
+Gründen
+kann es die Endlosschleife
+beenden und printet after.
+Und der Witz ist, mittlerweile
+bei neueren GCC-Versionen
+haben sie das
+auch eingebaut.
+So, warum
+um alles in der Welt
+ist sowas
+undefined behavior?
+Sowas sollte,
+kein undefined behavior sein.
+Der Compiler optimiert die Schleife weg.
+Das kann der Compiler meinetwegen machen,
+solange das Kompilierte
+vom Verhalten gleich dem ist,
+was da steht.
+Ich hab nix gegen Optimierungen, die aufs gleiche
+Ergebnis führen.
+Und zweitens, warum ist das
+undefined behavior
+und wenn es nicht erlaubt ist, kein Compiler-Fehler?
+Warum ist es kein
+Compile-Error, wenn es nicht erlaubt ist?
+Das macht absolut
+keinen Sinn. Jeder normale Mensch,
+der sich dieses Programm anguckt,
+sagt dir, was passiert.
+Der sagt, es wird bevor geprintet
+und dann hängt es.
+Alles andere ist absoluter Bullshit.
+Das ergibt überhaupt keinen Sinn.
+So, und die Erklärung, die Erklärung dazu
+in dem Vortrag ist leider ein bisschen mau.
+Aber die Erklärung ist typisch
+C++-Schwachsinn.
+Und zwar,
+weil,
+pass mal auf,
+an dem Moment, hier war es ja schon.
+So,
+Also guckt euch mal an, also GCC9 macht das, was man erwartet und GCC10, also die bessere Version im Endeffekt, printet das, was man komplett nicht erwartet.
+So, both results are valid, weil Infinite Loop ist undefined behavior per standard.
+So, da fangen wir jetzt erstmal an, warum ist eine Infinite Loop undefined behavior?
+Eine Infinite Loop ist vollkommen normal, selbst ohne Abbruchsbedingungen meinetwegen.
+Es ist jetzt vielleicht nichts, was man unbedingt best practice mäßig machen sollte, aber es ist definitiv kein fucking undefined behavior eine Infinite Loop.
+Wie kann man so dämlich sein? Eine Endlosschleife ist vollkommen okay.
+Eine Endlosschleife ist kein undefined behavior, eine Endlosschleife ist eine Endlosschleife.
+So, und dementsprechend ist die zweite Frage, die zweite Frage ist,
+warum muss ein Standard überhaupt irgendwas hier dazu sagen?
+Ich meine, das ist okay, wenn die Standards irgendwas zu den einzelnen Konstrukten sagen, also wie gesagt, zu einer Endlosschleife,
+aber es muss, es sollte ernsthaft kein Blick in den Standard notwendig sein, um zu erkennen, was dieses Programm macht.
+Es ist komplett logisch vom Programmfluss, dass After nie angezeigt wird,
+dass es eine Endlosschleife ist, alles andere ist ein, wie soll man sagen, eine riesen Diskrepanz zwischen was da steht, was programmiert wurde versus das, was am Ende ausgeführt wurde und das soll keine Programmiersprache haben.
+Ja, es ist doch auch nicht so, dass, das ist fast schon so, wie wenn Console.WriteLine auf einmal das gleiche macht wie Console.ReadLine, sowas hier, in den Größenordnungen.
+Es steht was da und es passiert was komplett.
+Anderes, ja klar gibt es Break, klar ist Break, klar gibt es ein Break.
+Deswegen, selbst eine Endlosschleife ohne Abbruchbedingungen ist vielleicht nicht die schönste Variante, die es gibt, aber das ist kein Undefined Behavior, das ist okay.
+So, und das ist halt echt wieder so das Ding, wo ich mir denke, was zum Teufel machen die C++ Standarddinger?
+Die haben es ja noch schlimmer gemacht, weil anscheinend am Anfang,
+war das hier wirklich Undefined Behavior, weil es nirgendswo defined war und dementsprechend haben die Compiler-Implementierer das Logische gemacht, es hängen zu lassen.
+Aber irgendwann sind die am Standard auch noch auf die Idee gekommen, irgendwas dazu reinzuschreiben, wobei man sich halt echt fragen muss,
+wie kann etwas Undefined Behavior sein, wenn es defined ist im Standard als Undefined Behavior?
+Das widerspricht sich ja selbst schon.
+Das hat Theo, äh, hier, ja, da habe ich gar nicht dran gedacht.
+Du hast vollkommen recht.
+Ja, du hast vollkommen recht.
+Theoretisch, theoretisch könnte ein anderer Thread, wenn man einen gestartet, das wird er bestimmt nicht erkennen, je nachdem wie verwurstet man ihn startet.
+Ja, du hast vollkommen recht.
+Theoretisch könnte ein anderer Thread das ändern und dann, wobei, weiß ich gar nicht, ob das geht in C++, weil, an der Stelle, weil,
+what the fuck, wo habe ich es denn?
+Ich würde fast sagen, äh, Leute, bin ich jetzt dumm, worauf ich denn?
+Äh, ich würde fast sagen, in C++ wird es wahrscheinlich schwierig, hier, in, weil, wenn du einen neuen Thread startest, kannst du darauf überhaupt noch zugreifen?
+Oder kannst du den, kannst du den Value nur, kannst du das nur bei, bei Value, bei Copy Value irgendwie in den Thread kriegen, das Ding, weil es kein Pointer ist?
+Wobei, doch, das ist eine globale Variable über Main, das müsste eigentlich gehen, ja.
+Aber wenn ich nicht so ganz, ganz schl- doch, doch, ich glaube, das geht.
+Ja, aber du hast, du hast recht.
+Also, das würde, das würde auch, und selbst wenn nicht, funktioniert es vielleicht zum Dreiecken.
+Es ist komplett dämlich.
+Es macht so keinen Sinn, dass das undefined behavior ist, also, also, erstens, dass das, dass es überhaupt defined werden muss, dass es undefined behavior ist,
+und das, was komplett unvorhergesehen ist, passiert.
+Das ist wieder echt für mich so ein Prime-Example auf, wie beschissen kann man eine Sprache designen.
+So.
+Danach habe ich übrigens nicht weitergeguckt, weil mich das schon wieder so aufgeregt hat.
+Und, ähm, ja klar, ja klar, ja klar gibt's das.
+Endlos schleifen ist vollkommen okay.
+Wie gesagt, ich bin der Meinung, es muss jetzt nicht unbedingt immer die beste Idee sein, eine Endloschleife zu machen, ganz ohne Abbruchbedingungen.
+Aber das kann schon Sinn machen, gerade wie du sagst, bei irgendeinem Microcontroller, wo halt das am Anfang irgendwie ein bisschen initialisiert,
+und dann macht es halt wirklich endlos irgendwelches Mainloop-Input-Polling ohne jegliche Abbruchbedingungen.
+Die Abbruchbedingungen ist,
+das Ding verliert Strom, so nach dem Motto, ja, du stichst den Strom raus, ja, dann bricht's automatisch ab.
+Du brauchst nicht, also ich finde, eine Endloschleife ist kein Undefined Behavior.
+Was ist da los?
+Naja.
+Wollte ich jetzt an der Stelle nur mal loswerden, weil mir da aufgefallen ist, was für eine abgrundtief beschissene Sprache C++ ist.
+Ja, und noch schlimmer ist, das ändert sich auch noch zwischen GCC9 und GCC10, ja.
+Du denkst dir nix Böses bei,
+auf einmal ist deine, ist deine Firmware kaputt, weil du sie mit GCC10 kompilierst.
+Und eines der Sachen, was sie in C++ ja immer sagen, ist,
+oh, wir können den ganzen alten Scheiß nicht entfernen,
+weil die Leute verlassen sich ja drauf, dass unser Legacy-Bullshit immer noch da ist.
+Aber das können wir mal nebenbei ändern, ja.
+So eines der elementarsten Programm-Flow-Sachen, das können wir ändern, das ist überhaupt kein Ding,
+das ändern wir mal zwischen GCC9 und GCC10.
+RealAgentSmith, danke für den Sub.
+Ja, das könnte ich mir auch vorstellen.
+Es ist, es ist einfach so Bullshit, Mann.
+Das fuckt mich so ab, wenn ich das sehe.
+Das ist, das ist, das ist der, das ist der Grund,
+warum ich kein, kein Bock auf, auf C++ in irgendeiner Art und Weise mache.
+Immer, warum ich lieber Sachen, auch wenn es gute C++-Libraries gibt,
+lieber die Sachen dann quasi irgendwie mir irgendeine Rust-Library raussuche, die das gleiche macht,
+und dagegen dann, ja, super entspannter Aufwachsstream.
+Wofür steht GCC?
+Moment, Moment.
+Ist das Emote?
+Wo haben wir das Emote?
+Moment.
+Wofür könnte GCC stehen?
+Das G vor allem.
+Für was könnte das G stehen?
+Also ich kann's euch sagen, das steht für, ich hab jetzt, ich hab jetzt so, ich hab jetzt so wichtig getan,
+ich weiß es gar nicht hundertprozentig.
+Es steht für irgendwas mit GNU-Compiler.
+Äh, Moment, Moment, Leute, lasst mich mal kurz gucken.
+Ah, GNU-Compiler, nee, Collection.
+GCC.
+GNU-Compiler Collection.
+GNU-Compiler Collection.
+Ich wusste an dem was mit GNU-Compiler ist.
+Collection.
+Warum haben wir den?
+Warum haben wir den einmal in, achso, das ist ein anderer Channel.
+Das ist aber schlecht freigestellt hier.
+Ja, es ist einfach wir.
+Also die Sprache ist einfach echt Bullshit.
+Leute, ich muss mal kurz meine VM starten.
+Und Package-Updates machen, weil 8 Linux, by the way, hat sicherlich wieder 3000 Updates.
+Habt ihr mitgekriegt, dass es eine Sicherheitslücke gibt?
+Eine Sicherheitslücke in der, was war das, in dem Trusted, in dem EFI Trusted Module
+Ding, oh nee, fuck, wie heißt das?
+Egal.
+Also das Teil, was benutzt wird, um Secure Boot mit was anderem als Windows zu machen.
+Diesem, diesem Secure Boot Weiterleitungs-Ding.
+Okay.
+Gab's, gab's einen ziemlich großen, ja, genau, genau, das meine ich.
+Gab's einen ziemlich großen Bug.
+Vielleicht mal gucken, ob wir hier die, die Updates für kriegen.
+Wobei, wir verwenden, wir verenden, wir, wir, wir verenden vor allem.
+Wir beenden, ey, ich kann nicht mehr aussprechen, Alter.
+Verenden, wir beenden, wir verwenden, wollte ich sagen, Alter.
+Es ist im Deboot.
+Das klappt nur bei ganz bestimmten Mainboards, weiß ich nicht.
+Ich hab nur mal kurz das Ganze überlegt.
+Ich hab nur mal kurz das Ganze überflogen.
+Aber solchen Low-Level-Sachen einfach Update gut ist.
+Das ist auch eine so eine schöne Sache an Linux, gerade an Arch Linux.
+Du kriegst so die Updates immer super schnell.
+Cuemo hat eine neue Version.
+Ich hoffe, der VM-Champ tut noch.
+Oh, bei der Gelegenheit kann ich grad mal kurz pullen.
+Git pull origin master.
+Bam.
+Ich hab ein bisschen geupdatet.
+Das machen wir heute Mittag.
+Nicht zu früh versprechen, aber da machen wir heute Mittag weiter.
+Romantline stellt's.
+Der Punchchamp.
+Machen wir mal kurz Hour.
+Updates.
+Was sagt die Arch?
+Jetbrains.
+Jetbrains Toolbox, hat die irgendwelche Updates?
+Nee.
+Visual Studio Code wurde geupdatet auf 1.8.6.1.
+Wird schon nicht so viel getan haben.
+So.
+Wisst ihr, da weißt ihr mehr.
+Ich hab mir das so genau gar nicht angeguckt.
+Habt ihr euch das genauer angeschaut.
+Ich hab nur gesehen, irgendwelche Low-Level-Sachen.
+Da hab ich gleich mal Update nachgeschoben.
+Ob ich da in der VM betroffen bin, ist eh fraglich.
+So, ich muss mal kurz hier meine Jacke zumachen.
+Was?
+Wir reden von was anderem.
+Ich rede von...
+Ich rede hier von...
+Lokal und aus der Ferne ausnutzbar.
+Ja.
+Also, das schwankt zwischen 8,3 und 9,8.
+Score.
+Beispielsweise durch einen männlichen Mittelangriff auf den Datenverkehr für die Brandverneintnisse von HTTP-Boot.
+Also, irgendwie...
+Was ist denn HTTP-Boot?
+Ist das TFTP nur neuer, oder wie?
+Lokale Ausnutzung möglich.
+Bootfegen, USB-Stick.
+Ja, aber da musst du dann doch ran.
+Da musst du dann aber doch ran.
+Muss auch lokal sein.
+Ich mein, dein Rechner bootet nicht einfach mal random von irgendeinem Server.
+Im Internet.
+Okay, wir haben geupdatet.
+Dann machen wir mal schnell...
+Reboot.
+Systemd-Boot.
+Gigachat.
+Gigachat-Boot-D.
+Kann man übrigens streiten, ob das ganze Systemd-Zeug so gigachat ist.
+Take Viagra, die hard IQ-Boost. Nice.
+So muss das sein.
+So kann ich nur sagen.
+Nice.
+Excellent.
+Ah ja, für den Fall der Fälle, die es noch nicht mitbekommen haben, ich zeige euch das
+jetzt nochmal.
+Es gibt jetzt seit einem der neuesten Systemd-Versionen, gibt es jetzt ein Feature, worauf alle gewartet
+haben.
+Und zwar Systemd handelt Blue-Screens.
+Ich hab hier gar kein Bild.
+Ja.
+Systemd kann seit Ende letzten Jahres Blue-Screens.
+Da habe ich drauf gewartet.
+Systemd-BSOD.
+Warum ist mein Darkreader der Meinung, dass das ausgehen soll?
+Endlich, ja.
+Sehe ich auch so.
+Bin ich...
+Ich bin echt froh, dass das jetzt soweit ist.
+Wusste gar nicht, was ich ohne gemacht habe.
+Jetzt...
+Ich meine, das ist...
+Das ist erforderlich, dass es das Jahr des Desktop...
+Des Linux-Desktops wird.
+Hast du mitbekommen?
+Jemand hat sich fritz.box-Domain gesichert.
+Ja, habe ich mitbekommen.
+Kommst du auf irgendeine NFT-Krypto-Seite raus?
+Anscheinend nicht.
+Ja, fritz.box.
+Das liegt daran, dass es jetzt neue Domains gibt.
+.box.
+Wir haben gestern auch schon...
+Nicht gestern, letzte Woche auch schon nachgeguckt.
+Es ist noch sehr viel frei.
+Aber ich werde mir keine .box-Domain kaufen.
+Wollte mir ja just for fun eine holen.
+Wobei es eigentlich ganz, ganz cool ist.
+Kannst halt nur...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett...
+Kannst halt komplett mit Krypto-Sachen bezahlen.
+Und angeblich 100 Dollar Lifetime.
+Und mit .box kannst du sicherlich coole Domains machen.
+Wenn du einen externen DNS hast.
+Wie jetzt?
+Denn DNS brauchst du immer.
+Ach so, du meinst, die liefern keinen mit.
+Das ist kein Ding.
+Machst du halt einfach auf Cloudflare.
+Ja.
+Wollen wir mal gucken, ob das jetzt gut ist.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+Ja.
+denn so auf Shit-Hub? Lass uns mal
+kurz gucken.
+Trending Weekly.
+AI, AI, AI, AI wahrscheinlich.
+Werde ich das Recht, die zu verkaufen?
+Ja, keine Ahnung.
+Die Seite, auf der wir gerade gewesen sind.
+My.box.
+Was auch immer dahinter steht. Kein Schimmer, habe ich mir nicht genau
+angeguckt. Hast du eigentlich Nvidia
+Stonks? Vermutlich
+sind in dem ETF Nvidia Stonks
+drinne.
+Ehrlich gesagt, keine Ahnung. Durchaus möglich.
+Aber ich habe nicht direkt Nvidia Stonks.
+Warum? Gehen Nvidia Stonks gerade
+voll ab? Ich guck mal.
+Ich guck mal kurz. Also ich meine, die Stonks
+sind mega. Sind mega
+gerade. Ich habe plus
+6000 Euro innerhalb von
+einem Jahr schon. Also ich meine,
+wenn ich es verkaufen würde.
+Was ich ja nicht mache.
+Ich guck mal kurz. Nvidia.
+Wow. Alter.
+Ja, kann man so sagen.
+Nvidia ging richtig ab.
+Nvidia war vor ein paar Jahren
+noch bei irgendwie
+80 Dollar und
+jetzt 620. Alter, die gehen
+aber voll steil, ey.
+Was macht eigentlich
+nur so just for fun? Was macht denn eigentlich
+ist wieder
+Was macht Facebook denn geiles?
+Jetzt kommen die ganzen Stonks, Leute.
+Welchen hast du?
+Ich habe den langweiligsten
+TWF, äh, TWF, Alter.
+Den langweiligsten ETF.
+TWF ist eine Ability
+in dem MMO, wo ich hier am Crimen bin.
+Ich habe
+Was ist das denn?
+Vanguard FTSE
+All World ETF
+Accumulating. Das langweiligste,
+was es gibt wahrscheinlich.
+Aber das kann man ohne
+Großhirn einfach regelmäßig
+was überweisen und
+laufen lassen.
+Dass du mit Metaverse
+immer noch irgendjemand hinterm Ofen
+hervorlaufen kannst. Da brauchst du
+ein neues Buzzword dafür.
+Ja.
+Okay, lass uns mal kurz gucken, was auf Shithub trendet.
+Ei, ich habe absolut keinen.
+Ich weiß noch nicht mal, was es bedeuten soll.
+Hier, lest euch das mal durch.
+Modeling, Training, Ival and Inference Code for Olmo.
+What? Keine Ahnung.
+China-Chinesen-Kram.
+Irgendein Finanzplaner.
+Ei, wie viele Note-Taking-Apps gibt es denn bitte schön?
+Die hat garantiert auch wieder keine Mobile-Apps.
+Und keine Notification-Supporten.
+Da gibt es tausende von diesen Apps.
+OneNote suckt.
+Und weißt du, warum OneNote suckt?
+Weil OneNote keine Substring-Suche kann.
+Du kannst den OneNote nur
+vom Anfang der Wörter her suchen.
+Oder quasi ganze Wörter.
+Das ist einfach nur
+abgrundtief schlecht.
+Keine Ahnung, was mit Microsoft da los ist.
+Das macht es komplett useless, finde ich.
+Ich verstehe, warum es so ist.
+Ich verstehe, warum es so ist.
+Weil du Text-Index nicht gescheit machen kannst.
+Mit Suchen von
+Wildcard von vorne.
+Das klappt nicht gescheit.
+Wenn ihr wollt, kann ich euch auch erklären, warum.
+Aber dann musst du halt zu lineares
+Durchkreppen zurückfallen.
+Wenn du
+nix findest.
+Kann man in ein Häkchen machen.
+Aber das kann halt OneNote nicht.
+Also, Chat-Gear, wo wir gerade dabei sind.
+Ja.
+Also, mal angenommen,
+man könnte jetzt, oder was hast du mal angenommen?
+Wir machen das einfach mit Grepp, ja.
+Also, ich stelle euch mal vor,
+ihr habt ein Notizprogramm
+mit ganz viel Text drinnen.
+Und die indizieren das ja meistens,
+damit die Suche schneller geht.
+Wenn du irgendwie hunderte Megabyte
+Text hast und du willst da drinnen suchen,
+ist das ohne Index relativ
+ja, lahm.
+Jetzt überlegt euch mal,
+warum kann ich in der Textdatei suchen
+nach cute
+Chat oder nach
+cute Chat
+oder so, ja.
+Aber warum kann ich nicht
+nach
+so suchen?
+Wer ist high IQ
+und will einen Sub verdienen
+und weiß es? Warum das in der Regel
+nicht mit einem Index
+geschaltet funktioniert?
+Jetzt bin ich mal gespannt, ob der IQ-Boost
+schon gezogen hat von den Prime-Subs heute.
+Also, im Prinzip geht es
+und
+um das hier versus
+warum das hier geht.
+Meistens, wenn es
+indiziert wurde und das hier nicht.
+Weil du die Tree von oben
+nach unten und nicht von hinten nach...
+Naja, nee, nee, nee.
+String begins with
+ist also generell
+lineares Durchkreppen der Textdateien
+ist kein Problem, dann funktioniert das.
+Ich rede davon, wenn das indiziert ist.
+Hängt mit SQL zusammen? Nee.
+Weil einfach random? Nee.
+Have to write Suche.
+Nee, nee, nee. Ich will wissen, warum
+das so ist. Also,
+der Chat weiß es nicht.
+Cringe! Also, es ist
+auch, wenn man sich damit nicht beschäftigt,
+es ist auch nicht gerade,
+nicht gerade obvious,
+warum das so ist.
+Wir lassen mal alle Details
+groß weg, wie sowas normalerweise
+in einem Index gespeichert wird.
+Bei Sortenlisten,
+ja, das geht in die richtige Richtung.
+Das geht in die
+richtige Richtung.
+Sorted List ist schon mal nicht
+falsch. Ja, ja, ja.
+Das in Kombination. Ich muss sagen, der E-Cost
+war bisher am
+nächsten dran. Also,
+wenn sowas
+indiziert wird,
+dann wird das meistens, wir lassen wie gesagt
+mal alles weg.
+Aber,
+wenn du...
+Also, ein Index sieht dann
+in der Regel so aus. Wir machen das jetzt mal
+ganz simpel.
+Also, du indizierst ganz viele, ganz
+viele Textdateien
+und du bekommst einen Index raus. Ein Index
+ist eine Kombination aus
+Tokens,
+sagen wir mal Wörter,
+sagen wir mal Wörter, okay, sagen wir mal Wörter
+und
+dann dazu gespeichert
+die Position.
+Oder aber
+nur die Datei, je nachdem, ob du nur Dateien
+finden willst oder die Position.
+Du hast dann zum Beispiel
+ein
+Index,
+da sind dann Wörter drin, ja, da sind dann zum Beispiel
+Wörter drin wie
+Lul
+oder
+Giga, was auch immer,
+Chat und sowas
+in der Richtung.
+Und dahinter steht dann sowas wie
+dieses Wort befindet
+sich
+in, das ist übrigens noch nicht richtig, so wie ich es hier
+mache, bevor jetzt gleich wieder irgendjemand sagt,
+Max, so stimmt das nicht. Dahinter
+befindet sich dann, gibt es irgendwelche
+Metainformationen, hast du dir dann dazu gespeichert,
+zum Beispiel, keine Ahnung, Pfeil A
+und dort
+ist es dann Position
+230,
+also Charakter, Charakternummer
+200, irgendwie 230,
+so, oder und dann wurde
+Lul wurde auch gefunden in Pfeil B
+an Position 4.
+So. Und sowas
+speichert sich das Ganze, allerdings
+speichert er sich das nicht so, wie ich das
+hier gemacht habe, sondern
+das Ganze wird sich sortiert
+gespeichert, also C zuerst
+und danach Giga
+so und dahinter steht dann halt so dieser ganze andere
+Krempel wieder, so in, keine Ahnung, Position
+120
+an Position 1, 8
+so, 800 oder so.
+Okay.
+So, so sieht das
+dann aus. Und wenn du
+jetzt suchst
+in diesem Index,
+okay, weil ihr seid,
+wenn du jetzt suchst in diesem Index,
+dann suchst du nicht,
+also mal angenommen, du suchst jetzt
+nach, ähm,
+nach allem, was mit C anfängt, ja,
+so, C Sternchen,
+dann ist das kein Ding,
+da kannst du nämlich Binary Search machen
+in dieser Liste. Binary Search
+heißt im Endeffekt,
+du halbierst die Liste immer wieder und guckst,
+ob du höher oder tiefer bist,
+wenn du zu hoch bist, dann nimmst du
+die nächste Hälfte, guckst, bist du hoch oder
+zu tief, bist du zu tief,
+nimmst du die obere Hälfte und so,
+findest du relativ
+schnell in dem Index das,
+äh, was du suchst.
+Und Binary Search kannst du nur machen
+über sortierte Listen.
+So, und jetzt ist ja das Ding,
+es ist gar kein Problem zu suchen
+hier drinnen nach Sachen, die mit C
+anfangen.
+Weil du musst halt den ersten
+Buchstaben suchen per Binary Search und dann
+ist gut. Was du nicht machen kannst,
+ist nach Sternchen C suchen.
+Weil wie willst du in der Binary,
+in dieser sortierten Liste,
+Binary Search machen, wenn du
+den Anfang nicht kennst?
+Die Dinger sind sortiert nach
+Anfangsbuchstaben. Wenn du den
+Anfangsbuchstaben nicht kennst, kannst du kein Binary Search
+mehr machen. Und
+dementsprechend funktioniert das Ganze nicht.
+Natürlich könntest du jetzt hergehen und den
+Index, den Index unnötig
+aufplänen, Bubble Sort bringt dir
+auch nix, weil es sind hier
+einzelne Wörter gespeichert, du musst
+tatsächlich linear suchen, von Anfang
+bis Ende, weil du willst ja quasi,
+du musst jede Zeile durchsuchen,
+enthält das Wort
+ein C
+im Prinzip hierbei.
+Das ist quasi lineares Suchen durch den
+kompletten Index durch. Das würde funktionieren,
+das ist aber halt lahm as fuck.
+Deswegen unterstützen das die meisten Suchen an der
+Stelle nicht, beziehungsweise
+nur mit einer Zusatzoption.
+Du musst halt, dass du, ja ich weiß,
+es ist jetzt besonders langsam, aber ich möchte
+bald gerade am Anfang machen.
+Was du machen kannst, ist,
+du könntest zum Beispiel hergehen
+und das Ganze
+umdrehen. Das machen auch
+manche, du kannst, also es gibt, es gibt
+verschiedene, es gibt verschiedene
+Verfahren, das ein bisschen
+ja, aufzulockern, ja,
+also sprich, man versucht
+dann so quasi
+rückwärts das Ganze zu speichern,
+damit man zum Beispiel dann von
+hinten suchen kann, oder man kann auch
+anfangen und einfach so das anders
+splitten oder sowas, oder
+man könnte sagen, ja, wir speichern
+einfach nur den Index von jedem
+Charakter, aber dann kannst du wieder keine Worte
+gescheit suchen, weil du dann die Positionen
+vergleichen musst. Wenn du Worte suchst, kommt
+das eine nach dem anderen. Also
+das ist ein super komplexes Gebiet,
+aber dadurch, dass das, also
+Essenz aus dem Ganzen
+ist, dadurch, dass das in der sortierten Liste
+gespeichert wird, alphabetisch sortiert,
+kannst du nicht gescheit suchen in einem Index
+mit Wildcard als ersten Buchstaben.
+Es gibt übrigens noch
+einen weiteren, es gibt noch ein weiteres,
+doch, es gibt noch ein weiteres Verfahren,
+das ist ein bisschen aufwendiger vom Index her,
+das kann im Postgres
+zum Beispiel, das nennt sich
+Tree, Tree Cram Search
+oder sowas, da werden Wörter immer
+in Dreierhäppchen,
+immer in Dreierhäppchen gespeichert.
+Also da wird dann
+aus Cute Chat wird dann,
+Moment, kann das das überhaupt?
+Also, da kannst du, dann wird das
+aufgesplittet in drei, also Cute wird
+Beispiel, Cute Chat wird beispielsweise gespeichert
+als Cute, als
+ähm, nicht, dass
+ich das, nicht das,
+als Ute,
+als Tech,
+so, und dann kannst du dich hier
+an den, an den Substrings, dann kannst du
+Substring Search machen dadurch, also du kannst
+dann zum Beispiel sagen, ich suche jetzt
+den Substring, also damit
+kannst du dann sowas machen, wie ich suche
+äh, Substring TE
+und sowas, das, das funktioniert dann.
+Das haben wir hier im, im, im Stream mit Postgres
+auch schon mal probiert.
+In OneNote funktioniert das gar nicht,
+das ist ja der, das ist ja der Punkt da dran,
+das ist ja das, worauf ich rauswählen wollte.
+OneNote hat keine Substring-Suche
+und kann keine Wildcards
+am Anfang, was es für mich komplett
+useless macht als Notizprogramm, weil du
+oftmals, gerade wenn du dir irgendwelche Commandline-Sachen
+rauscopy-pastest, nach
+Substrings suchen willst. Und es wäre
+okay, würden die das Ganze indizieren
+zum schnellen Suchen, plus die
+Optionen bieten, da drüber zu greppen linear,
+machen sie aber nicht.
+Deswegen ist OneNote aus meiner Sicht komplett
+useless. Ein Notizprogramm
+ohne gescheite Suchfunktion ist für'n Arsch.
+Und, ähm, ja,
+super. Was bringt mir Zusatzfeatures,
+wenn die most basic Sachen nicht funktionieren?
+Und nachdem du dir OneNotes auch nicht
+irgendwie mounten kannst unter Linux, um da drin
+zu greppen, meines Wissens nach,
+ist es halt useless shit,
+komplett für'n Arsch. Kannst du
+null verwenden, OneNote.
+Also das ist auch noch
+eine Möglichkeit, so kann man das auch machen.
+Macht den Index natürlich deutlich größer.
+Und hat dann, und hat, glaube
+ich, auch wieder andere Probleme,
+wenn du, wenn die Wörter
+zu lang werden. Ich, da bin ich mir
+aber nicht mehr sicher.
+Ah ja, das machst du mit grepp, machst du das seit
+Jahrhunderten gefühlt, und das funktioniert.
+Grepp ist ja auch jetzt nicht langsam.
+Mein grepp ist, kackt natürlich ab,
+wenn es hier um
+Mega- und Gigabyte-große
+Textfiles geht. Da wirst du ohne Index
+immer ein Problem haben. Das Index erstellen dauert
+dann, aber das Suchen ist dann schnell.
+Aber wenn's halt nicht anders geht,
+musst du halt linear drüber greppen.
+Und das kann OneNote nicht. Das ist halt scheiße.
+Ist halt richtig
+heutiger Dreck, das Programm
+dadurch. Der Rest mag noch so cool
+sein, aber es ist einfach komplett unusable
+durch dieses eine fehlende Feature.
+Nein, haben wir noch nicht. Haben wir nicht.
+Können wir uns nachher angucken. Ja, wollte ich mir schon...
+Wobei, doch, haben wir, haben wir, haben wir uns
+angeguckt. Letzte Woche oder vorletzte, vorletzte Woche, glaube ich.
+Haben wir.
+Der war eigentlich ganz cool,
+der E-Sport-Trainer.
+Ich könnte wenden, Obsidian kann das.
+Ich würde auch Obsidian verwenden,
+wenn Obsidian
+Notifications auf Mobile,
+mit den Mobile-Apps unterstützen würde.
+Das finde ich nämlich
+mega praktisch
+mit dem Notizprogramm, was ich aktuell verwende.
+Ich kann eine Notiz machen
+und kann dann da reinschreiben,
+äh, denk dran,
+das bis
+Ende des Jahres oder so zu machen,
+wegen der Steuererklärung. So.
+Und dann, dann krieg ich dann irgendwie
+so ein Pop-Up, auch Mobile,
+ja, denk dran, das zu machen.
+Es gibt kein Plugin
+für, weil,
+Obsidian das auf Mobile nicht unterstützt.
+Es gibt ein Reminder-Plugin für Obsidian,
+das funktioniert aber nicht auf Mobile.
+Also wenn's das gäbe,
+hm, guck, das hier gibt's.
+Und wenn man hier nach Mobile sucht,
+Send Notifications,
+blablabla, Mobile,
+Mobile Reminder,
+unfortunately this is not possible right now.
+Gibt's sogar ein Feature-Request.
+Okay, der baut irgendwas dafür.
+Ah.
+Liste gibt's nicht. Das halt ein bisschen suckt.
+Keine Ahnung, habe ich noch nicht gemerkt.
+Keine Ahnung, habe ich ewig nicht benutzt.
+Sieht aus wie 1995,
+ehrlich gesagt.
+Mikrofokus.
+Die kommen mir irgendwie bekannt vor.
+Ich glaube, bei meinem alten
+Arbeitgeber hatten wir das von denen.
+Ist das nicht
+das, was Kobol in Java laufen lässt?
+Moment, Moment, Moment.
+Wollt ich mal kurz gucken.
+Mikrofokus, wie hieß dieser Compiler?
+Boomerang. Da kann ich mich nicht
+dran erinnern, der hing nämlich immer
+bei uns. Da haben öfters meine
+Entwickler angerufen
+und sich aufgeregt,
+dass es verbuggt wäre.
+Akku Kobol!
+Ja, den Mist hatten wir
+bei meinem alten Arbeitgeber.
+Akku Kobol.
+Und der Compiler von dem Ding nennt sich Boomerang.
+Und der hängt öfters mal.
+Und dann haben immer irgendwelche Entwickler
+angerufen.
+Wahrscheinlich verwendet man das gar nicht mehr.
+Das war noch, als ich noch beim Provider
+gearbeitet habe nach der Ausbildung
+für den Laden, wo ich
+danach dann weiter
+gewechselt bin hin.
+Und da haben dann immer die Entwickler angerufen,
+oh das hängt, was ist das denn?
+Also als könnte ich was dafür, dass das Ding Schrott ist und hängt.
+Akku Kobol, ja.
+Jaja, kann mich dran erinnern.
+Siehste, da bist du richtig cool und hip,
+sobald du Akku Kobol verwendest.
+Ist das C-Matrix
+auf dem iPhone, oder?
+Das sah doch echt verdächtig aus
+nach nur auf dem iPhone.
+Ja, und das Ganze natürlich
+in bunt. Fand ihr nicht auch?
+Ups.
+Ich muss für meine Arbeit ein Projekt planen,
+das eine API mit Datenbank und einem Frontend-GUI
+braucht, die die API an Frank schickt.
+Ja, ziemlich klassische
+Architektur. Ich habe mich für
+C-Sharp entschieden, da hast du das schon mal richtig
+gemacht, weil ich damit angefangen habe
+zu programmieren. Dafür passt
+nicht. Ich kenne mich
+aber mit dem ganzen .NET aus.
+Was kannst du dafür empfehlen? Hä?
+Du meinst, ich kenne mich mit dem ganzen .NET-Zeug nicht aus?
+Ich muss dafür gar nichts empfehlen,
+das ist alles built-in. Du legst ein
+ASP.NET Core-Projekt an
+und da ein Minimal-API ist.
+Das ist easy as fuck, was du machen
+willst. Du sagst hier,
+pass mal auf, pass mal auf, ich zeige euch
+jetzt sein Abschlussprojekt
+in drei Minuten.
+repos
+temp
+mkdir 0w
+Ich habe jetzt eigentlich gedacht, das gibt es schon.
+So, jetzt sagst du .NET
+new web
+Was zum Teufel
+macht meine Konsole da gerade?
+Dann öffnest du das Ganze
+in deiner IDE deiner Wahl.
+trust
+So.
+Und dann hast du hier schon das Beispiel drinnen.
+Und dann brauchst du jetzt dein
+api-Endpunkt. Also ist ja hier schon.
+Machst hier slash api
+keckel. Dann startest
+du das.
+.NET run
+Dann sagst du curl localhost
+port
+Warum ist meine Konsole so im Arsch gerade?
+59 slash keckel
+Ups
+Not found
+Ah ne, api
+Und zack, funktioniert.
+Guck hier.
+Easy. Schon hast du dein
+api-Endpunkt.
+api slash keckel
+Funktioniert. Done. Abgeben.
+Gut, das
+Frontend, da musst du halt dir JavaScript
+Zeug ausdenken. Das ist jetzt ja wieder was
+anderes.
+Das war's für api-Backend in C Sharp.
+Wer brauchst
+du da nicht für?
+Ich meine, du musst natürlich Funktionalität reinbauen, aber
+das weiß ich ja nicht, was du vorhast.
+ASP ist ein Framework und
+C Sharp die Programmiersprache. Richtig.
+Es heißt ASP.NET
+Core.
+Die Hintergründe sind,
+weil Microsoft einfach nur
+Scheiße ist, was Benahmung angeht.
+Deswegen haben wir jetzt auch
+.NET 5 gehabt und
+das Ganze heißt nicht mehr
+.NET Core.
+Aber ASP.NET
+Core heißt das Framework.
+Das ist aber dabei bei .NET.
+.NET ist quasi das komplette Ökosystem.
+Im Prinzip die Runtime, die
+Standard Library und ASP.NET.
+Also quasi alle Standardkomponenten
+sind zusammengefasst in
+.NET.
+C Sharp ist die Programmiersprache.
+ASP.NET Core ist ein Teil
+von .NET.
+Es gibt ja noch andere
+Programmiersprachen auf .NET Basis.
+Wobei man sagen muss, C Sharp ist mit
+Abstand die bekannteste und verbreitetste.
+Paar Verrückte machen noch Visual Basic
+oder F Sharp.
+Aber das war's. Mehr musst du nicht machen für deinen
+AP Backend.
+Also zumindest für die
+diese, also quasi für das
+Projektanlage. Die Funktion
+musst du, du willst für die
+GUI eine Desktop Anwendung schreiben. Du hast doch gerade
+gesagt Frontend. Achso mit Frontend.
+Siehste mal, ich interpretiere hier schon
+automatisch JavaScript und Web-Gedöns rein.
+Ja gut, kannst du auch.
+Kannst du auch.
+Brauchst ein zweites Projekt.
+Das läuft ja unabhängig voneinander.
+Einen Server mit AP Backend und
+dann mach eine Windows Forms.
+Das ist das simpelste was es gibt. Sieht zwar ein bisschen
+hässlich aus, aber Desktop
+Programmierung in .NET generell unter
+Windows, das ist ja eigentlich Windows
+Unterdienungs aber auch.
+Desktop GUI Programmierung ist Shit.
+Deswegen gibt's so viele
+Elektronen Anwendungen, weil Desktop
+GUI Programmierung Shit ist.
+Gibt ja nicht wirklich viele gute, gute
+Alternativen. Maui ist halt komplett für den
+Arsch. Dann würde ich tatsächlich
+Avalonia verwenden, wenn ich was modernes haben will.
+Avalonia ist mir tausendfach lieber als Maui.
+Und selbst das geht mir auf den Keks,
+weil das immer noch XML-gefrickelt ist.
+Qt finde ich, also Qt
+finde ich eigentlich ganz nice, aber leider
+C++. Ja, es gibt beinahe nichts zu anderen
+Sprachen, aber wirklich gut ist es auch nicht.
+Was das angeht, da lernst du früher oder später
+immer bei C++.
+Ansonsten hast du noch ein bisschen neuere Sachen,
+die aber auf dem Desktop auch nicht so richtig
+gut, gut
+integriert sind. Du hast jetzt beispielsweise
+Flutter. Flutter for Desktop.
+Dann hast du halt
+im Prinzip
+das gleiche wie, also von
+der Optik her, hast du da irgend so eine Elektron
+Anwendung, die überall out of place aussieht.
+Wobei das bestimmt besser geht.
+Ich weiß nicht, wie gut
+Flutter on Desktop ist. Das letzte Mal, als ich ausprobiert
+hab, war's so, so semi
+gut. Also man hat gemerkt, dass es eindeutig
+für Mobile optimiert. Na außerdem
+ist es halt Flutter und Dart, was
+man sonst für nichts verwendet. Das ist vielleicht
+auch nicht das Beste.
+Microsoft verkackt es ja seit Jahren, ihr eigenes
+Betriebssystem gescheit zu supporten.
+Erst haben sie angefangen mit WPF. Das war ja
+eine ganz gute Idee. Nach Windows Forms haben sie angefangen
+mit WPF. Das war ja eigentlich eine ganz gute Idee.
+Leider auch hoffnungslos outdated
+mittlerweile und überholt und auch
+viel zu kompliziert eigentlich für
+kleine Sachen. Selbst für große.
+WPF ist super bloated shit.
+Danach kamen sie auf ihre
+vorreichen Ideen mit WinRT
+und Javascript und Geschiss
+und irgendwann kam dann UWP und UWP
+ist es jetzt auch nicht mehr. Jetzt gibt's
+WinUI 3 und WinUI 3 ist dann
+teilweise ansprechbar von Maui, aber
+Maui ist Cross-Platform, Linux
+nicht richtig unterstützt, malt
+Elemente nicht selbst. Also ganz ehrlich,
+Avalonia ist wahrscheinlich das Beste, was du
+was du für
+halbwegs
+nicht komplett abgedrehte
+Desktop App
+Entwicklung zur Zeit machen kannst.
+Oder ja, wenn dir C++
+nix ausmacht, ist Qt sicherlich auch nicht
+verkehrt. Deswegen haben wir so viele
+Elektron-Apps, weil
+easy und portable
+und
+sieht auch passabel aus.
+Blazor, ich, ups, was hab ich da?
+Jetzt hab ich irgendwas angeklickt.
+Hat nicht funktioniert.
+Blazor mochte
+ich nie, aber ich glaube
+aber ich glaube Blazor
+ist mal wieder einen Blick wert.
+Wir hatten es ja am Anfang des Streams, ne?
+C++, was einfach absoluter Bullshit ist.
+Ich glaube, ich sollte
+mir Blazor mal wieder angucken.
+Ich war am Anfang übertrieben
+gehypt auf Blazor, weil ich mir
+dachte, nice, C-Sharp im Browser,
+aber letztendlich ganz
+ohne JavaScript für DOM-Interaktionen
+sowas kommst du eh nicht aus.
+Auch weil du im
+Browser irgendwann früher oder später
+auf das JavaScript-Ökosystem zurückgreifen
+musst und es auch gut ist,
+dass es so groß und vielfältig ist.
+Und das zweite ist, was mich an Blazor
+abgeschreckt hat, dass du
+so lange
+brauchst zum Seitenladen.
+Weil der erstmal irgendwie 8 MB
+und das war noch relativ klein, 8 MB
+Mono-Runtime runterladen musste
+und dann initialisieren und starten.
+Also das erste Laden war super langsam,
+sodass sich Blazor höchstens für irgendwelche
+internen,
+wo es sich auf die Geschwindigkeit ankommt,
+Anwendungen eignet. Vielleicht muss ich
+mir das nochmal angucken. Blazor ist
+nicht blazingly fast. Blazingly fast kann es
+schon mal nicht sein, weil es nicht written in Rust ist.
+Wie wir wissen, Software wird, egal
+wie bescheuert, automatisch
+blazingly fast, dadurch, dass es in Rust
+gewritten ist. Dachte ich mir,
+dass es da Probleme gibt.
+YoChat gibt es
+eigentlich, was?
+YoChat gibt es eigentlich, wenn man
+Was?
+YoChat gibt es
+eigentlich
+Kann ich nicht lesen, ja.
+Gibt es eigentlich, wenn man K3S oder
+was auf Heads nachhausten will?
+Das ist eine gute Frage.
+Keine Ahnung.
+Was hast du gegen den normalen
+Autoscaler, den offiziellen Kubernetes
+Autoscaler? Achso!
+Du meinst, dass der automatisch Nodes erstellt
+und sowas.
+Jetzt verstehe ich, was du meinst.
+Jetzt verstehe ich, was du meinst.
+Dass der automatisch,
+dass du quasi einen Note Pool hast,
+der von, keine Ahnung, mindestens
+3 Nodes bis auf 20
+hochskaliert und sowas, gell?
+Meinst du sowas?
+Dann weiß, dann fällt mir dafür Heads nach
+keiner ein. Kein Schimmer.
+Ich muss ehrlich sagen, ich habe auf
+Heads nach auch noch kein Kubernetes bisher laufen lassen.
+Also ich glaube nicht, dass der
+offizielle Autoscaler das bei Heads nach so
+out of the box kann.
+Ehrlich gesagt, das ist, also ich habe
+an Autoscaler jetzt erstmal nur an Pods
+skalieren gedacht, aber nee, nee, nee, du meinst
+den, den, den Note Pool
+skalieren. Das,
+keine Ahnung, das ist eine gute Frage.
+Das ist, das schreibe ich mir mal auf. Das
+finde ich tatsächlich spannend,
+wie man das, also sprich
+hier, oder auf
+Plattformen, die das nicht
+built in haben.
+Auf Google und so ist kein Ding, die stecken da auch
+genug Geld rein und da ist das alles so weit managed,
+dass das funzt. Habe ich noch nie ausprobiert.
+Was hatten wir hier?
+Ja, at least
+10 different Microsoft Design
+Languages Conventions in Windows 11.
+Ja, ja, ist so.
+Wahrscheinlich, wahrscheinlich noch mehr. Wahrscheinlich
+noch mehr. Warum ist Reddit
+so scheiße?
+Ich weiß viele Kraftausdrücke heute, aber
+warum ist Reddit so scheiße?
+Ich will das Bild mal aufmachen,
+ohne. Warum ist Reddit
+so scheiße, Mann? Wo ist
+das Bild? Old, ja, du hast
+Recht. Warte, wo bin ich?
+Was?
+Wo bin ich jetzt gelandet?
+Not safe for work?
+Alter! What the fuck?
+Mann, Reddit, please!
+Sei doch nicht so
+Dreckseide, Mann!
+Es kann doch, es ist doch unmöglich, oder?
+Es ist, das kann doch nicht sein!
+Ja, ich darf es speichern, oder?
+Äh, ja, Fotos,
+mir doch egal. So.
+Okay.
+Jetzt, Moment, das ist aber nur das Preview,
+das ist nicht das, das ist nicht das Bild in voller
+Auflösung, was ich jetzt gespeichert
+habe. Nochmal Bild speichern
+runter.
+Jetzt ist es auch ein PNG, okay.
+Wir sind schon falsch abgebogen, Web,
+designtechnisch, oder?
+Okay, jetzt,
+jetzt funktioniert es.
+Es ist doch echt
+nicht mehr normal, Mann.
+Okay.
+Also, was haben wir denn hier?
+Windows 95 Win 32, ja.
+Das ist der alte Audiodialog.
+Weiß nicht, gibt's den?
+Den gibt's noch, oder?
+Irgendwo gibt's den alten
+Audiodialog noch, oder ist der jetzt komplett weg?
+Da muss ich bestimmt den Control Panel
+Sound,
+Ah, yes.
+Okay, also Windows 95 Win
+32, NTP 4 haben wir
+auch noch, nicht NTP,
+NTP 4, aber schon
+moderner aus als NTP 4.
+Windows XP, ja, Control Panel und
+Geschiss. Windows Store
+X, ja, gut, Lost.
+Dieses hässliche Site-Ding.
+Windows 10 Fluent.
+Windows 10 Modern. Es ist so
+lächerlich, es ist so lächerlich.
+Windows 11 Sun... Ach, Moment!
+Wait a minute, wait a minute.
+Moment, Moment, Moment. Das wusste ich ja gar nicht.
+Das wusste ich ja gar nicht.
+Fluent Design ist out?
+Weil der Calculator ist immer noch Fluent Design.
+Ich dachte, das ist immer noch
+angesagt jetzt. Ist es wieder
+was Neues, oder wie?
+Ich fand den Ansatz mit Fluent Design ehrlich gesagt
+gar nicht so schlecht.
+Anscheinend ist das jetzt aber out, okay.
+Windows 7 Ribbons, ja, Ribbon
+UI und Vista
+Aero. Und, und, was
+wir auch noch haben, ich bin mir nicht ganz sicher, aber
+ich zeig das immer ganz gerne.
+Das haben wir auch noch. Ich glaube, das ist
+Straight aus Windows 3.11.
+Oder Windows 95,
+keine Ahnung. Wahrscheinlich Windows 95.
+Es sieht zu modern aus für Windows 3.11.
+Da ist tatsächlich,
+ohne Scheiß, da ist es
+tatsächlich unter Linux besser,
+weil unter Linux sind die Sachen halt
+meistens entweder
+Oldschool GTK 2 Look,
+irgendein
+etwas modernerer GTK 3,
+4, 5,
+8, 9, was auch immer, wo die gerade sind.
+Top 4 Look.
+Cute Look
+mit 30 Milliarden Skins
+oder selbstgebastelter Kram. Aber es ist nicht ganz
+so wild, wie unter Windows.
+Das stimmt.
+Was das hier ist, weiß ich nicht.
+Das ist bestimmt Windows 95.
+Wobei, dieses Icon-Ding könnte tatsächlich
+auf Windows 3.11 sein.
+Ach ja, und by the way, diese
+komische Leiste hier neben, gibt es irgendjemand
+auf der Welt, der die benutzt?
+Das ist für mich so
+Most, Most Useless
+Feature
+von Windows. Aber wobei, wobei, nein.
+Most Useless Feature ist
+Widgets, die aus,
+wo ich gar nicht mal weiß, wie ich die, hups,
+überhaupt nicht mal weiß, wie ich die überhaupt aufmache.
+Es gibt da so Integrated Widgets.
+Die verwendet aber auch niemand.
+Windows W ist, oh shit.
+Da habe ich ja drauf gewartet.
+Ach stimmt, ja,
+in Berlin haben sie es ja mit WLAN noch nicht mal hingekriegt.
+Berlin ist echt auch richtig lost, was das angeht.
+Ich verstehe nie, warum
+alle C++ hassen.
+Irgendwie schwebt da immer ein, es ist mir
+zu verwirrend.
+Naja, das ist ja schon mal ein guter Punkt,
+ohne dass es zu verwirrend ist.
+Aber Anfang des Streams habe ich noch einen Punkt
+gezeigt, was eindeutig dafür
+spricht, dass C++ einfach nur Schrott
+ist. Weiß nicht, ob du da
+schon da gewesen bist. Es war ziemlich am
+Anfang des Streams.
+Ich will jetzt nicht nochmal davon anfangen, weil
+wenn ich jetzt nochmal damit anfange,
+dann
+machen wir heute gar nichts mehr, außer C++ Rant.
+Ich weiß.
+Fuck.
+Auch in Frankfurt ChainLore?
+Oh fuck, der ChainLore ist gar nicht so weit weg, wie ich dachte.
+Wenn ich demnächst einen sehe,
+der irgendwo gebannt wird, weiß ich, das muss
+der ChainLore sein.
+Hausverbot beim Rewe.
+Weißt du Bescheid.
+Ja, ja genau.
+Das Aufbauen von Nodes, das habe ich noch nie ausprobiert
+bei was anderem als Google und Azure.
+Und da funktioniert es
+halt ohne Probleme, weil das integriert ist
+und man kann auch Millionen draufschmeißen.
+Weißt du, das ist echt eine gute Frage.
+Kubernetes Autoscaler Hetzner.
+Was da irgendwas gibt.
+Okay.
+Das ist im offiziellen Kubernetes Autoscaler
+sogar mit drin.
+Krass.
+Das hätte ich nicht gedacht. Guck mal hier.
+Guck mal hier. Hetzner ist dabei.
+Ansonsten
+von den deutschen anderen Housern
+keiner. Guck mal.
+Nur Hetzner am Start.
+Das ist richtig.
+AliExpress, AliCloud, AWS,
+Azure, Baidu Cloud.
+Ich wusste gar nicht, dass Baidu Cloud und AliCloud
+was unterschiedlich sind.
+FlyCloud, Unigot, Brightbox,
+CherryServer, CloudStack,
+Cluster, APDigitalOcean,
+Klar,
+Winix, Metal,
+Google,
+Hetzner,
+Weiwei,
+Cloud,
+IONOS, okay.
+Hetzner am Start.
+Nie gehört.
+Ach doch, OVH ist auch dabei.
+Guck mal, OVH ist auch am Start.
+Aber nice,
+dass der Hetzner dabei ist. Das ist doch mega.
+Dann sollte das doch gut funktionieren
+mit dem Scalen.
+Nice.
+Oh nein, Bot gespammt.
+What is your opinion about Web3 and Blockchain?
+What is your opinion about Web3 and Blockchain?
+What is your opinion about Web3 and Blockchain?
+I'm happy that
+all the NFT
+shit is gone away.
+Ja, na gut. Aber wenn er es braucht.
+Es ist interessant zu wissen,
+dass das bei Hetzner
+in dem Standard Kubernetes Autoscaler
+alles drin ist. Das wusste ich nicht.
+Das ist aber nice.
+Suche schon eine Wohnung in Offenbach, Beste.
+Ich hab kein...
+Ctrl, Shift, Alt, Win plus...
+Ist das jetzt den in Ernst?
+Wer soll denn das drücken?
+Also bei Google gibt es ein nice Feature,
+dass man bei Datenbanken den Platz,
+der Fly automatisch erweitern kann,
+wenn es zu voll ist.
+Natürlich, wenn du nicht aufpasst, kann das teuer werden.
+DBScalen ist tatsächlich gar nicht so einfach.
+DBScalen ist
+Six-Set-Architektur.
+Also wenn es klassische Sachen sind,
+wie PowerSquares oder so.
+Das ist echt nicht
+so trivial
+mit
+Scalen und hochverfügbarem Setup
+und sowas.
+Und selbst die Cloud-SQL-Instanz
+ist jetzt nicht so einfach.
+Das ist halt einfach eine Managed-Datenbank.
+So einfach skaliert ist die auch nicht.
+Ich meine, du kannst eine fette Kiste dann hinstellen.
+Aber Datenbank skalieren ist
+echt so eine Wissenschaft für sich.
+Okay, wir sind immer noch
+nach einer Stunde bei den Trending-Sachen.
+Juckt mich nicht, juckt mich nicht.
+SeaweedFS.
+Moment.
+SeaweedFS.
+20.000 Sterne.
+Was ist das?
+Habe ich noch nie gehört.
+SeaweedFS is a fast-distributed
+storage system for blobs, object files
+and data lake of billions of files.
+Ist das sowas wie Ceph oder sowas?
+Blobstore has O1-Disk-Seq,
+Cloud-Tiering-File, also Google Drive,
+Cross-DC-Acto...
+What the f...
+Massive Six-Set-Kram.
+Bestimmt written in Go, weil Go...
+Ja, ja, ja, natürlich.
+Was sonst?
+Oder?
+Written in Go.
+Ich meine, written in Go ist nicht mal so angesagt.
+Aber written in Go ist auch noch
+semi-cool, oder?
+Ich bin mir nicht ganz sicher, was es jetzt genau ist
+und macht, aber...
+Ja, nice Kram.
+So, was haben wir denn sonst noch?
+NetOS.
+Netbox.
+Ist das nicht so ein...
+IP-Management-System?
+Das nennt sich anscheinend
+jetzt nicht mehr IP-Management, das nennt sich jetzt
+The Premier Source of Truth
+Powering Network Automation.
+IP-Adress-Management
+ist zu...
+Ja, low IQ
+der Name.
+Aber es ist letztendlich ein
+IP-Adress-Management-Tool.
+Warum man ein IP-Management...
+Warum man nicht IP-Adress-Management
+reinschreiben kann, weiß ich nicht.
+Es ist eine Premier Source
+of Truth Powering Network Automation.
+Ja, glaub ich dir.
+J-Lord, das Video muss ich nicht anklicken,
+dass ich weiß, dass das garantiert nicht du
+bei der Bank ist.
+Ich bin kein Enjoyer, ne.
+Das verwirrt die Franzosen immer.
+Ich spiel ab und zu MMOs mit Franzosen
+und die denken immer,
+weil ich German bin, müsste ich den ganzen Tag Bier trinken.
+Und ich sag denen immer, ich trink kein Bier
+und ich arbeite hinter IT
+und trink keinen Kaffee. Das sind schon zwei Sachen,
+die nicht zusammenpassen, ne.
+Sass.
+Very sass.
+Ne, der hat Bier getrunken und hat gemeint,
+wie das bei mir aussieht, weil ich bin doch German.
+Ich würd doch jetzt bestimmt auch grad Bier trinken.
+Nur weil du German bist, musst du nicht
+automatisch den ganzen Tag Bier trinken.
+Aber,
+es ist echt schlimm, ne.
+Wenn du mit Franzosen
+im Discord, ich wollt grad sagen Teamspeak,
+Alter, ich weiß nicht, das hat sich irgendwie so
+verhärtet in meinem Kopf,
+dass man Voice Communication Teamspeak nennt.
+Wenn du mit Franzosen öfters im Discord
+bist, und die schaffen es
+bei manchen Wörtern eben nicht,
+das H davor auszusprechen.
+Und das Schlimme ist, ich fang mit diesem Mist
+auch schon teilweise an.
+Ja, die sagen, es gibt beispielsweise,
+es gibt ein Wort in dem MMO,
+was ich spiele, das nennt sich Hips.
+Hat nichts mit Hüfte zu tun.
+Ja, Hips.
+Und die Franzosen können das nicht.
+Die sagen Ibs.
+Und ich fang jetzt teilweise auch schon an,
+Ibs zu sagen, anstatt Hips.
+Es ist schlimm, wenn du den ganzen Tag nix anderes hörst,
+dann fängst du auch mit dem Kram an.
+Ja.
+Ich finde, ehrlich gesagt,
+ich finde das gar nicht schlimm,
+wenn die da so ein bisschen Vorurteile haben.
+Sollen sie machen.
+Mein Vorurteil ist ja heute ganz super, super dramatisch.
+Theoretisch müsste ich jetzt sagen,
+oh, alles krasse Rassisten, Alter,
+die kommen hier gleich und denken, ich hab ne Lederhose an.
+Ja, das geht ja überhaupt nicht.
+Mich juckt das null,
+ob die denken, dass ich Lederhose an,
+oh, ich glaub, ich ne Lederhose an hab.
+Sag ich denen halt im Zweifelsfall,
+ne, wir rennen nicht nur mit Lederhose rum.
+Ganz ehrlich, es ist super angenehm,
+mit den Franzosen
+zu kreiselkreiten.
+Ach stimmt, hab ich ganz vergessen.
+Ja, hast ja recht, es funktioniert ja eh nicht.
+Oh Mann, Alter, ich weiß auch,
+warum ich kaum noch sowas...
+Oh, guck mal,
+ich krieg mein eigenes Wort empfohlen.
+Was ist denn da los?
+Wer macht denn die
+Captions hier unten?
+Wer macht sich Mühe? Ist das AI-generated?
+Moment, los geht's, ist auch witzig, ne.
+Von 55 Minuten
+bis...
+Also, wir haben quasi knapp
+1 Stunde 45
+das eigentliche Thema gemacht.
+Davor war Random-Geschwätze
+und danach waren tatsächlich...
+Hahaha, noch...
+Wie lang?
+Noch 2 Stunden Random-Geschwätze.
+Also, wir haben quasi das Stream-Thema
+1 Stunde 45
+versus
+3 Stunden
+Random-Geschwätze.
+Normaler Stream, oder? Normaler Stream.
+Ja, ähm...
+Jano, du meinst das Video, gell?
+Wie das jetzt einfach empfohlen wird.
+Manchmal hab ich echt das Gefühl, Google liest
+mit...
+Zweiter Stream? Weiß ich auch nicht genau. Wir müssen erstmal
+an dem Command-Line-Tool weiterbasteln.
+Eigentlich hatte ich das ja vor, heute zu machen, aber...
+Mal gucken. Mal gucken, wie der
+Kreisel-Grind aussieht.
+Oh, wir müssen uns auch noch die Stellenanzeigen
+fertig angucken.
+Sind wir fertig hier?
+Clash, Verge...
+Moment.
+Ist das Clash of Clans?
+Cheating-Dings, oder was ist das?
+Ne.
+Es ist... Ne, es ist was anderes.
+Dachte erst mal.
+Man weiß ja nie.
+Express-Trended, was ist denn
+da los? Express ist ja
+voll outdated, overrated,
+cheap-baited. Redet heute keiner
+mehr drüber. Obwohl ganz viele
+Websachen im Backend noch mit Express laufen.
+Haben wir Express
+Enjoyers im Chat?
+Ich habe noch nie
+Express verwendet, ehrlich gesagt.
+Ich will auch nicht.
+Wieso sollte
+Express outdated sein?
+Ne, mit outdated, overrated, cheap-baited
+meine ich, das ist so ein Ding, wo keiner mehr drüber
+redet.
+Und nicht, dass es keiner mehr verwendet.
+Ansible-Trended auch.
+Ansible ist nice.
+Hyperland. Ja, würde ich gerne ausprobieren.
+Problem ist, geht in der
+VM nicht richtig.
+AI, Fast API...
+TIPST.
+Was in New Markup
+Based Type Settings System
+Ok, das ist...
+Nicht mal
+Latex, Latex,
+wie auch immer man das ausspricht.
+Das ist jetzt was Neues. TIPST.
+Written in Rust.
+Was das für epische Musik ist.
+Das ist
+der former World of Goo und
+das ist Kirby Planet
+Robobot.
+Welche Game-Musik.
+Die Frage ist jetzt, ist das wirklich so viel besser?
+Oder ist das ein weiteres
+Ding der Kategorie
+die Rust Community
+löst Probleme, die nicht existieren?
+Das ist die Frage.
+Das frage ich mich bei Rust-Projekten immer.
+Genauso wie die 20
+LS-Rewrites und sowas.
+Man kann jeder
+mit seiner Freizeit machen, was er will.
+Und zum Üben sicherlich nice, die ganzen
+Rust-Projekte. Die ganzen 1000 Rewrites.
+Hat das
+written in Rust 25
+26k Sterne.
+Es gab ja letztens welche,
+die auf Reddit wieder angefangen haben,
+dass C-Sharp
+und .NET sind tot, Leute.
+Und wisst ihr warum?
+Weil Microsoft einen Rust-Entwickler sucht.
+Den Bogen muss der erstmal
+spannen.
+Von der, wir suchen einen Rust-Entwickler
+zu .NET ist tot.
+Das ist schon echt sehr
+fantasievoll.
+Was glaubst du, welche Sprache wird in den nächsten
+5 Jahren am meisten an Bedeutung gewinnen?
+Rust wird auf jeden Fall
+weiter gehypt werden, bin ich mir
+ziemlich sicher.
+Ich glaube aber auch, C-Sharp wird sich immer weiter
+durchsetzen. In mehreren Bereichen.
+Die Sprache hat
+die letzten Jahre über schon ordentlich Aufwind
+gehabt. Und bei vielen Sachen hat sich
+jetzt ja auch durchgesprochen, dass
+.NET Core bzw. einfach nur noch .NET
+mittlerweile kein
+Windows-only Shit mehr ist, mit dem man nur noch
+Windows-Guys machen kann.
+C-Sharp ist ne super Sprache,
+.NET ist ne super Runtime und das
+Standard-Library und das Framework ist auch nice.
+Also ich glaube,
+dass sich .NET
+und C-Sharp wirklich weiterhin durchsetzen
+werden, etablieren werden, auch in Bereichen
+außerhalb von Business Enterprise
+Krempel.
+Rust auf jeden Fall.
+Javascript wird uns erhalten bleiben.
+Javascript wird
+werden wir nie wieder los.
+Was ich auch gar nicht schlimm finde, weil
+Javascript mittlerweile echt ganz gute Sprache
+geworden ist. Nicht so wie
+C++. C++ hat sich ja gefühlt mit den
+neuesten Standards,
+ich will nicht sagen zurückentwickelt, weil es auch
+viele neue coole Sachen gab, aber
+das Windows, äh das C++,
+Windows, ja Windows auch, aber das
+C++-Gremium baut einfach nur
+einen Mist nach dem anderen.
+Ja, und die Javascript-Leute
+machen sinnvolle Dinger.
+Also Javascript bleibt uns auf jeden Fall erhalten.
+Und ansonsten so irgendwie super
+krasse Newcomer-Sprachen
+fällt mir schwer zu predicten.
+Also ich glaube nicht, dass es
+etwas sein wird von den Dingern, die so
+semi-beliebt sind.
+Also ich glaube nicht, dass das SICK oder so
+jetzt voll durch die Decke gehen wird oder sowas.
+Aber auch nicht, dass Julia oder solche Sachen
+voll durch die Ecke gehen würde.
+Ehrlich gesagt, ich glaube
+in fünf Jahren sieht das nicht so viel anders aus
+als heute, was Programmiersprachen
+angeht.
+Mit den zwei Sachen, also
+plus die drei Sachen, die ich jetzt halt gesagt habe.
+Ich denke, die werden wir sehen.
+Ansonsten wird nicht so viel Unterschied sein.
+Zu heute.
+Welche Programmiersprache ist die beste?
+Du musst immer fragen, wofür?
+Wofür die beste?
+Das kann man nicht pauschal beantworten.
+Das ist die Antwort
+fürs Vorstellungsgespräch.
+Das ist das, wo ihr dann sagen könnt,
+hier, guckt mal,
+ich bin voll
+Senior Developer
+Fifed.
+Und dann kannst du das Ganze noch mit ein paar Business Terms
+anreichern, wenn du es voll übertreiben willst.
+Weil ich meine, du willst,
+du willst ja auch eindeutig die besten Values
+createn. Ist so.
+Manchmal hast du ja gar keine andere Wahl,
+weil es so weit
+so richtig in einer Sprache geht.
+Manchmal bietet es sich einfach an, weil
+es super viele fertige
+Sachen für eine bestimmte Sprache gibt.
+Und oftmals ist es so, dass man sich
+tatsächlich für das entscheidet, was einem persönlich
+am liebsten ist, weil man da beispielsweise
+die meiste Erfahrung mit drin hat.
+Und damit fährt man ja in der Regel auch gut.
+Zum Einstieg
+meiner Meinung nach eindeutig
+JavaScript. Ich weiß, viele sagen Python
+und so was, manche verrückten Leute sagen auch C.
+Habe ich schon gehört, aber
+da bin ich anderer Meinung gewesen.
+Ich finde tatsächlich
+JavaScript zum Einstieg am besten.
+Kann auch mit
+Python und Go anfangen.
+Aber
+JavaScript ist mega nice
+zum Einstieg, weil es so eine
+niedrige Hürde hat.
+Visual Studio Code installiert.
+Fertig, mehr brauchst du nicht.
+Du brauchst kein Node, du brauchst nichts.
+Du brauchst einfach nur einen Browser.
+Genau, also JavaScript finde ich ist deswegen
+zum Einstieg am besten.
+Danach, das Problem bei JavaScript ist,
+der Einstieg ist am einfachsten,
+aber die
+Ökosystem Lernkurve ist
+am größten Abfuck in JavaScript.
+Das ist echt
+tückisch so. Ein bisschen wie bei Kubernetes.
+Du denkst auch am Anfang relativ schnell, du hast es verstanden
+und dann checkst du erstmal, was du alles
+an Ökosystem noch drum herum lernen musst.
+Bei JavaScript
+ist es so, easy Einstieg,
+Text Editor, Browser, funktioniert wunderbar,
+aber dann geht's los.
+Dann geht's los. Irgendwann installierst du dir Node,
+weil du vielleicht beispielsweise irgendein Frontend
+Framework verwenden willst, dann
+brauchst du, musst du das
+Ganze bundeln, packagen,
+NPM installen, das
+halbe Internet und dann funktioniert irgendwas nicht.
+Dann brauchst du, ich meine so ein JavaScript
+Projekt, wenn du das Scaffoldest mit irgendeinem
+CLI Tool, hat keine Ahnung,
+18 Config Files standardmäßig schon drin,
+damit es überhaupt ein sinnvolles Default
+Behavior hat so.
+Das ist echt, echt
+weird. Ne, zum Einstieg
+würde ich kein TypeScript nehmen. Einstieg würde ich
+plain JavaScript.
+Also, das ist halt das
+Ding bei JavaScript, das ist halt super weird.
+Kann sich noch jemand an Webpack
+erinnern? Gibt es
+Webpack-Enjoyer, die das
+wirklich mögen? Das kann ich mir nicht vorstellen,
+dass irgendjemand Webpack mag.
+Manche müssen noch teilweise Webpack
+verwenden, aber Webpack war
+somit das Schrecklichste, was es gab.
+Darfst du das auch täglich nutzen?
+Oh je. Keine Ahnung.
+Ich bin nicht so
+im React
+Game.
+PHP 7 in der Berufsschule? Ja, warum nicht?
+Ich meine, PHP ist
+durchaus brauchbar,
+wenn auch äußerst
+wir an manchen
+Stellen. Aber es ist konsistenter als
+C++.
+Ja gut, das mag sein, das mag sein,
+ja. Das Schöne ist, dass du an Vite kaum
+was konfigurieren musst.
+Ich weiß nicht, ob es
+einen aktuellen Umschulungshype gibt.
+Ich wusste gar nicht, dass es einen
+Umschulungshype gibt. Wusstet ihr das Chat,
+dass es einen Umschulungshype gibt?
+Ich will nicht sagen, dass es nicht stimmt.
+Das kann durchaus sein.
+War mir aber nicht ganz klar, dass es einen
+Umschulungshype gibt.
+Ehrlich gesagt habe ich mich null
+mit beschäftigt bisher. Wundert mich
+aber nicht,
+weil hier alle händeringend Leute suchen.
+Ob jemand in drei Monaten
+zu einem ordentlichen Entwickler
+wird, wenn er vorher damit nichts
+am Hut hat, wage ich mal ganz stark
+zu bezweifeln.
+Wenn du jemanden hast, der vielleicht früher
+in der IT
+tätig war und
+sich schon immer für Programmieren interessiert hat,
+aber halt quasi noch keine
+größere Erfahrung im,
+wie es so ist, im Team Software zu entwickeln
+oder vielleicht
+keine Ahnung jetzt
+nicht so die
+aktuellen Tools
+hat, das kriegst du in drei Monaten hin,
+wenn er halt schon Vorkenntnisse hat
+und Ahnungen eigentlich programmieren kann.
+Aber in drei Monaten bringst du
+das keinem ordentlich bei.
+Ja, stimmt.
+Das ist schon grenzwertig,
+gebe ich dir recht. Wobei so schlimm
+kann es nicht sein, Chainlore.
+Wir nehmen dich ja hier im Stream auch.
+Du bist
+ja auch nicht gebannt.
+Wie aufgefühlt irgendwie?
+Was hast du mal erzählt?
+Ja.
+Ich bin ja nicht der Bann in Discord
+oder sowas.
+Ich kann mir aber schon manchmal denken, warum
+bei Sempervideos bist du gebannt.
+Auch. Wie hast du das geschafft?
+In diesem Video
+nur ganz kurz.
+ASCII Spam, ja, das wundert mich nicht.
+Aber
+das stimmt.
+Aber das Ding ist auch ein bisschen,
+dass viele händeringend erfahrene
+Leute suchen, aber keinen Bock haben
+auszubilden. Was ich ja irgendwie beiß.
+Du kannst nicht nur erfahrene Leute
+suchen, aber nicht mit dafür sorgen,
+dass erfahrene
+Leute nachkommen.
+Für mich ist das alles
+top. Ich kann fett
+Kohle kassieren und
+hab,
+selbst wenn ich keinen Bock auf den aktuellen Job hab,
+in 2 Minuten 30
+5 neue Angebote.
+Wo ich mir
+irgendwas raussuchen kann. Also für mich ist das
+gut.
+Aber insgesamt ist es kacke.
+Oh, heiße Kommentare.
+Das kann ich mir, das gebe ich mir manchmal im Zug.
+Aber da darf man nicht
+zu viele Hoffnung haben,
+wenn man die Kommentarsektionen
+heiße aufmacht.
+Bei Golem ist es minimal besser, weil bei Golem
+kommentieren weniger Leute.
+Hattest du nicht damals auch ein Problem, einen guten
+neuen Job zu finden? Ja, ganz damals
+hatte ich richtig Probleme.
+Aber ganz damals war noch vor meiner Ausbildung,
+also das war dann irgendwann,
+wo ich den Arbeitsamtkurs
+machen musste, irgendwie, frag mich nicht,
+2002 oder so.
+Das ist schon ein bisschen her. So 22
+Jahre ist das her.
+Oder was meinst du jetzt?
+Ja, damals hatten wir, damals war deutlich
+höhere Arbeitslosigkeit als heute.
+Und
+die hatten damals alle noch so
+komische Vorstellungen, dass
+IT-Jobs nur gemacht werden können
+von Leuten mit super krassem Abi
+und sowas.
+Was halt Schwachsinn ist. Hätte man damals
+mal ein bisschen auf Nachwuchsförderung
+gesetzt oder beziehungsweise generell auf
+fachkräftige Ausbildung gesetzt, dann hätten wir jetzt auch mehr.
+Vielleicht gab es aber einfach, na wobei doch,
+ich weiß noch, ich habe mich damals auch
+beworben bei
+so einem Laden hier.
+Das war super weird. Da habe ich damals
+diesen, der ist ja mittlerweile
+berühmt-berüchtigt, dieser Test.
+Da gibt es,
+habt ihr vielleicht auch schon davon gehört,
+also so Einstellungs,
+wie nennt man das so?
+Assessment Center oder so Einstellungstest.
+Da bekommt ihr dann ne Liste mit 20
+Punkten oder 10 Punkten, ist egal.
+Das ist ne Liste mit vielen Punkten drauf.
+Und auf dem ersten Punkt steht dann so
+irgendwie
+erstens lesen sie sich
+alles in Ruhe durch, bevor sie anfangen.
+Zweitens erstellen sie eine
+Liste mit ihren Hobbys.
+Drittens gehen sie einmal aufs Klo.
+Viertens rennen sie einmal um den Stuhl.
+Es wird immer abgedrehter.
+Und bei Punkt 20 steht dann
+unterschreiben sie
+das hier und geben sie es ab.
+Ohne die Punkte
+durchzuführen, die oben drüber stehen.
+Das ist aus meiner Sicht
+der dümmste
+Test
+und ich habe keine Ahnung, was der
+irgendwie belegen soll.
+Soll das belegen,
+egal wie unsinnig die Anweisung ist,
+man führt sie aus,
+weil es geht
+entgegen jeglicher Erfahrung, die man bisher
+im Leben gemacht hat.
+Was in der Regel kein gutes Zeichen ist.
+Wann besteht den Test?
+Wenn man den Zettel abgibt,
+ohne was gemacht zu haben.
+Gebe ich dir Recht, aber
+die können ja ruhig den Eindruck vermitteln,
+das ist ja nicht so.
+Die labern viel,
+wenn der Tag lang ist,
+das ist ja nicht so.
+Eventuell stellen die auch ein paar Leute
+damit ein und weißt du warum?
+Weil sie verzweifelt sind.
+Die finden nichts anderes.
+Denen bleibt gar nichts anderes übrig.
+Die stellen auch irgendwelche
+ehemaligen Mathelehrer ein,
+die vor 15 Jahren Pascal
+programmiert haben,
+weil die so verzweifelt sind.
+Mit Leuten finden.
+Und ja, es gibt einen Fachkräftemangel.
+Der ist aber
+bei weitem nicht so krass, wie er immer gemacht wird
+von irgendwelchen Interessensvertretungsverbänden.
+Weil
+ein Fachkräftemangel,
+also wenn man sich die Arbeitsamtsstatistik anguckt,
+bedeutet ja nur,
+dass Stellen eine gewisse Zeit offen bleiben
+und nicht besetzt werden können.
+Es ist ein Fachkräftemangel.
+Warum diese Stellen nicht besetzt werden können,
+ist halt die Frage.
+Und bei den meisten Stellen liegt es wahrscheinlich daran,
+weil der Arbeitgeber Schrott ist
+und die Leute da keinen Bock drauf haben.
+Oder halt,
+das Angebot Schrott ist
+aus unterschiedlichsten Gründen.
+Laden taucht nichts,
+suchst nach dem Laden,
+findest erstmal 50 Sachen,
+warum du da auf keinen Fall hin willst.
+Laden ist Schrott,
+vielleicht sind sie gut,
+aber das ist auch so.
+Also,
+die Stellenanzeigen sind oftmals
+auch absoluter Bullshit.
+Wir haben uns ja auch schon Stellenanzeigen angeguckt,
+wo ich mir denke, was ist mit euch los, Mann?
+Wer hat denn das wieder geschrieben?
+Die vergessen oftmals,
+die Stellenanzeige ist quasi
+wie eine Bewerbung.
+Das ist der erste Eindruck, den du von dem Unternehmen kriegst.
+Genauso wie dein Anschreiben
+und deine Bewerbung.
+Das ist der erste Eindruck, den die von dir kriegen.
+Erstmal
+müssen die so weit guten Eindruck machen,
+dass du dich überhaupt dort bewirbst.
+Und wenn die Stellenanzeige teilweise
+so aussieht, wie die Dinger, die wir uns hier angucken,
+wo dann irgendwie sowas ist,
+ach ja, und übrigens machst du auch noch
+Projektleitung und kümmerst dich um die
+kleinen PCs aller anderen
+Mitarbeiter, so unten drunter, so erwähnt,
+by the way, auch übrigens,
+dann denken sich die Leute halt, wollt ihr mich verarschen?
+Dann fang ich das gar nicht an. Und dann heulen sie rum,
+Fachkräftemangel.
+Fachkräftemangel, was?
+Warum?
+Wenn sich der Chef bei dir bewirbt.
+Ja.
+Ey, ist das,
+ist das der mit dem
+Senior
+Pearl Expert Programmer
+und sowas? Ja.
+Muss ich ehrlich sagen,
+paar Sachen waren ganz lustig, aber
+zum größten Teil
+geht's irgendwie an mir vorbei.
+Ja, der hat ein paar gute Sachen,
+aber das meiste, muss ich sagen,
+ist nicht so lustig.
+Ja und nein, man muss sagen,
+die haben auch Probleme.
+Also ohne Probleme würde ich nicht sagen.
+Ich finde, der Laden,
+wo ich jetzt gelandet bin, ist echt nicht schlecht.
+Sowohl von Arbeitsbedingungen
+her, von der Homeoffice-Regelung her,
+von den Homeoffice-Möglichkeiten her,
+vom Gehalt,
+so generell Umgang mit den Leuten,
+ich kann mich wirklich nicht beschweren.
+Sicherlich ist das nicht das geilste
+ever, wovon ich immer geträumt habe,
+dafür ist das viel zu bürokratisch und
+nervig an vielen Stellen,
+aber die Gesamtkombination ist wirklich okay.
+So okay,
+dass ich nicht sagen würde,
+oh ja, ich gucke jetzt hier
+nebenbei Stellenanzeigen an.
+Wenn ich mir Stellenanzeigen angucke, dann meistens hier nur
+just for fun, für den Stream und nix, was ich wirklich machen will.
+Also, ich habe
+vor, da auf absehbarer Zeit zu bleiben.
+Und die
+hatten richtig Probleme, Leute zu finden.
+Also ich glaube, meine Stelle war
+ein dreiviertel Jahr offen, es hat sich keiner drauf beworben.
+Die Stellenanzeige war aber auch
+kacke, wo wir wieder dabei sind.
+Die Stellenanzeige war richtig mies.
+Ich hätte mich da nicht drauf beworben,
+hätte mich nicht ein ehemaliger Kollege angeschrieben
+und gesagt, hier Max,
+ich habe gehört, du suchst was Neues, wir haben was.
+Aber die
+Stellenanzeige ist kacke, der Laden ist gut.
+Und
+und
+der Laden taugt doch wirklich.
+Aber anhand der Stellenanzeige hätte das nicht geklappt.
+Also die haben auch Probleme, ja.
+Die haben richtig Probleme, was zu finden.
+Was ist denn das jetzt? Der Fachkerl, wenn sich
+das mal kurz anschaut.
+Ich bin immer noch verwirrt, weil ich zu viele
+Bei Fachkraft gesucht.
+Heute bei Fachkraft gesucht.
+Der 17-jährige
+Lukas sucht einen Ausbildungsplatz.
+Lukas spielt bestimmt LOL
+oder Fortnite.
+Kraft gesucht.
+Der 17-jährige Lukas
+sucht einen Ausbildungsplatz.
+Ah nee, man sieht im Hintergrund nichts.
+Fortnite!
+Okay, alles klar.
+Und der hat, meint ihr Lukas streamt?
+Meint ihr Lukas streamt?
+Lukas hat so, so
+sieht ein bisschen aus wie
+so Schallisolierung.
+Aber irgendwie auch unsinnig,
+weil es nur dort ist.
+Ausbildungsplatz.
+Ist das eine M...
+Hahaha
+Ich weiß
+nicht, Alter.
+Das sieht aus,
+wie was ich erstellt habe in Word
+1995, Alter.
+Word Art?
+Irgendwelche eingebauten
+Clip Arts?
+Oh, Foto vom Opa?
+Ich weiß ja nicht,
+Alter.
+Comic Sans?
+Tischkicker Obstkorb?
+Okay, das ist, das ist G-Bait.
+Die veräppeln uns hier, oder?
+Sein Ernst?
+Das ist doch Verarschung.
+Das haben die geschrieben für den Beitrag nur, oder?
+...genug, denn in Deutschland
+herrscht Fachkräftemangel.
+Daher hat er potenzielle Arbeitgeber
+zum Bewerbungsgespräch eingeladen.
+Einen schönen guten Tag.
+Michael Lüritz mein Name.
+Ich komme wegen des Bewerbungsgesprächs.
+Ja, setzen Sie sich bitte.
+Moment, ist das...
+So, Herr Müritz.
+Sie möchten also, dass ich bei Ihnen meine Ausbildung mache?
+Ja, ja.
+Ist mir jetzt auch aufgefallen,
+dass das Verarschung ist.
+Warum möchten Sie denn mein Arbeitgeber werden?
+Was haben Sie denn so vorzuweisen?
+Naja, also unter Obstkorb
+geht schon mal nix.
+Ich will den Job unbedingt, also für Lukas.
+Aber die Konkurrenz, um Junge auszubilden, ist groß.
+Ist das echt so?
+Wer sich im harten Ausbildungsmarkt
+durchsetzen will, muss sich anstrengen.
+Die meisten wollen ja nicht ausbilden,
+die wollen irgendwelche Leute mit Erfahrung haben.
+Oh ne, ich glaub, das ist unlustig.
+Ist mir zu cringe.
+Das verdient
+ein Kubernetes-Admin in Deutschland.
+Okay, Moment.
+Ein Kubernetes-Admin in Deutschland.
+Ist das AI?
+Ist das AI-Text?
+Leute, ist das AI-Text?
+Pass mal auf.
+Ist das ne AI-Stimme?
+Die Dinger sind ja mittlerweile so gut,
+dass es auch durchaus sein kann,
+dass das einer ist, der einfach nur gelangweilt spricht.
+Das ist AI, oder?
+Ja.
+Das ist AI.
+Das ist AI-generated Video.
+Leute,
+der Text ist auch AI-generated.
+100 pro.
+Das ist Chat-GPT.
+Ich will ein Video über Kubernetes-Admin machen.
+Ich brauch Text für das Video.
+Das ist komplett AI-generated,
+das Video.
+Das Video.
+Ich wette mit euch, der Text, die Stimme,
+und das Videomaterial ist komplett
+AI-generated.
+Ihre Hauptaufgaben umfassen
+die Konzeption und Implementierung von
+Cloud-Lösungen, die Automatisierung
+von Prozessen mit DevOps-Technologien,
+die Beratung von Projektbeteiligten
+in allen Cloud-Fragen, die Analyse
+und Modernisierung von bestehenden Anwendungen.
+Das ergibt überhaupt keinen Sinn.
+Es geht ja um Kubernetes-Admin.
+Ja, bestimmt auch, aber, naja.
+Um Plattform-Ingenieur...
+Nein, nein, nein, ich meine nicht, dass das Video,
+dass das hier AI-generated ist,
+die Zusammenstellung des
+Videomaterials, also die Generierung
+des Videomaterials, nicht,
+dass das Video-Material
+selbst AI-generiert ist.
+Die Analyse und Modernisierung
+von bestehenden Anwendungen.
+Um Plattform-Ingenieur zu werden,
+braucht es eine solide Grundlage.
+Ein Hochschulabschluss in Informatik,
+Elektrotechnik, Technik,
+Physik oder Mathematik
+ist oft erforderlich.
+Mindestens fünf Jahre
+Berufserfahrung sind für den Einstieg üblich.
+Technische Erfahrung...
+Ist das eine Verarschung?
+... mit Plattform-as-a-Service-Lösungen
+und mindestens einem der größten
+Hyperscaler...
+EKS, AKS, GKE
+ist ein Muss.
+Ich sag euch doch, Leute,
+Hyperscaler, so heißt das halt.
+Die sagen alle nicht mal
+Cloud-Anbieter, Hyperscaler ist es.
+... Kenntnisse in der Containerisierung
+und Kubernetes sind unerlässlich.
+Das durchschnittliche Jahresgehalt...
+Ist das Video schlecht, Mann!
+Das ist...
+Das ist 100 pro komplett AI generated.
+... eines Plattform-Ingenieurs
+in Deutschland beträgt rund 80.000 Euro.
+Aber wie BI allen
+Berufen kann das...
+Aber wie BI allen Berufen?
+... in Deutschland beträgt rund 80.000 Euro.
+Aber wie BI...
+Aber wie BI...
+... allen Berufen kann das
+Gehalt je nach Erfahrung, Standort
+und Unternehmen variieren.
+Oh, ist das schlecht!
+Oh, ist das schlecht, Mann!
+Meine Güte!
+Das war wirklich komplett AI generated Content.
+Das war wirklich komplett AI generated Content.
+Gleich abonnieren und Glocke an.
+Wie viel Views?
+K50 oder so.
+Boah, war das schlecht!
+Was ein Schrott!
+Irgendwie rutscht.
+Jetzt hat Kabel die ganze Zeit hier runter.
+So.
+Was haben wir denn sonst noch?
+Jeden Tag im OP, was verdient ein...
+Kann ich aussprechen?
+Anästhesie...
+Anästhesietechnischer Assistent
+Atta.
+Ich dachte eigentlich, da sind IDE-Festplatten.
+Lohnt sich das?
+Wisst ihr, was meine Vermutung ist?
+Meine Vermutung ist,
+dass sich das nicht lohnt.
+Allerdings...
+Anders als man denkt.
+Und zwar, ich glaube die Bezahlung ist gar nicht
+so mies.
+Die wird jetzt nicht super krass sein, aber gar nicht so mies.
+Aber mir wäre die Verantwortung
+und der Stress es nicht wert.
+Lass uns mal gucken.
+Das erste Mittel, das ist ein starkes Schmerzmittel.
+Wenn man es nicht schaffen sollte,
+hat man
+maximal 6 Minuten,
+bis tatsächlich was
+lebensbedrohlich werden kann.
+Ich bin mit meinem Gehalt ganz zufrieden, muss ich sagen.
+Hallo, ich bin Recep, 28 Jahre alt.
+Ich arbeite an der Charité
+als Anästhesietechnischer Assistent.
+Das ist die Doktor-Haus-Intro-Musik?
+Schon zu lange her,
+dass ich das geguckt habe.
+Wobei ich finde,
+ich habe nicht alle Staffeln geguckt,
+das wurde mir irgendwann zu abgedreht.
+Aber gerade in den ersten 1-2
+Staffeln hatten die ein paar richtig gute
+Zitate drin.
+Zum Beispiel diese Geschichte mit
+sprichst du mit Gott, bist du
+religiös, sprich Gott mit dir bist
+du verrückt.
+Ich finde, das trifft es einfach richtig gut.
+Da nehme ich euch gerne mit.
+Als Anästhesie-Kollege arbeite ich natürlich in vielen Bereichen, sowohl in Neuroschulgie als auch Orthopädie, Allgemeinschulgie und natürlich HNO.
+Heute stehen fünf OPs an. Erstmal gehen wir direkt in den Saal. Da sollten wir alles kontrollieren.
+Wisst ihr, ich muss jetzt mal eine Sache loswerden. Das hat nichts mit ihm zu tun.
+Wisst ihr, was eine Sache ist, die mich so gesundheitssystemtechnisch stört?
+Das hat auch nicht unbedingt was mit der Qualität zu tun, weil da sind wir im internationalen Vergleich gar nicht übel.
+Was mich stört ist, dass das alles so nach Massenabfertigung mittlerweile aussieht und organisiert ist und wirkt.
+So nach unpersönlicher Massenabfertigung wirkt für mich das meiste Medizinische mittlerweile.
+Das war es in gewisser Weise sicherlich schon immer.
+Aber ich glaube, früher konnten sich die Leute...
+Ich glaube, früher konnten sich die Leute mehr Zeit für die eigentlichen Patienten nehmen.
+Also ich weiß das von meiner Mutter, die war Krankenschwester im Krankenhaus auf der Kinderstation und die ist irgendwann weg,
+weil sie gesagt hat, die hat eigentlich gar keine Zeit mehr gehabt, sich um die Kinder zu kümmern,
+sondern war nur noch mit anderem Zeug drumherum beschäftigt.
+Früher hat sie gesagt, konntest du beispielsweise auch mal...
+Wenn du wusstest, okay, der verträgt den und den Brei nicht, dann haben sie irgendwas extra an das gekocht für das eine Kind und sowas.
+Das war halt einfach nicht möglich und das könnt ihr euch überlegen, weil das war meine Mutter war.
+Und die damals vom Krankenhaus weg ist, das ist ewig her.
+Das ist ewig her, also wahrscheinlich 30 Jahre her oder so.
+Ich bin jetzt 39, da weiß ich nicht, ja wahrscheinlich ist das 30 Jahre, also das ist wirklich ewig her.
+Also das ist super, super unpersönlich und...
+Das wirkt alles so nach Massenabfertigung.
+Deswegen muss ich sagen, ich habe mittlerweile echt gute Erfahrungen mitgemacht,
+wenn man selbst bezahlt bei kleineren Sachen, wenn man zu einem Arzt geht, der normalerweise nur Privatversicherter nimmt
+und je nachdem, wenn man das mit denen im Vorfeld klärt, nach welchem Satz die abrechnen und sowas,
+die meisten haben es sogar auf ihrer Webseite stehen, kann man das, wenn es nichts Großes ist, durchaus selbst bezahlen.
+Und man bekommt eine viel, viel bessere Behandlung.
+Kostet ein bisschen was, aber je nachdem, was es ist, lohnt sich das.
+Wenn es natürlich große Sachen sind, kannst du das nicht selbst bezahlen.
+Es sei denn, du bist privatversichert.
+Wo ich immer noch ein bisschen unschlüssig bin, genug Kohle habe ich ja, aber immer noch ein bisschen unschlüssig bin,
+ob ich mir das geben möchte, auch weil das...
+Also ich sage euch ganz ehrlich, eines der Sachen, die für mich nach Nerv klingen,
+nach nervig klingen ist, dass du nicht einfach zum Arzt gehen kannst, indem du deine Karte in die Hand drücken kannst
+und dann wird das abgerechnet, ja.
+Sondern dass du immer den Kram irgendwie zugeschickt bekommst, fotografieren musst, über die App hochladen musst und sowas.
+Und dann, ich weiß nicht, ich spreche nicht aus persönlicher Erfahrung, weil ich es noch nicht ausprobiert habe,
+aber irgendwie finde ich, klingt das nervig.
+Zumal ich halt wehne, dürftest du wechseln?
+Jaja, dürfte ich.
+Ich habe vor, weiß ich nicht, ist schon eine Weile her,
+kriegst ja so einen Brief, dass du jetzt über den Mindestbeitrag liegst, ist schon lange drüber.
+Ja, und wenn ich das mache, dann müsste ich es halt jetzt machen.
+Ich werde in dem Jahr 40, eigentlich ist das nach 40 Jahren, wenn man so den Geiz glaubt im Internet, nicht mehr sinnvoll.
+Also von der Kohle her ist das nicht das Ding.
+Es ist halt letztendlich, es ist eine Wette, wie viel es, du spekulierst halt, es kostet halt ordentlich Geld.
+Letztendlich kostet aber die gesetzliche Versicherung auch ordentlich Geld, so ist es gar nicht.
+Ja, statistisch gesehen, nee, nee, nee, ich glaube, wie alt werden Männer?
+Statistisch 80 oder nur 75 oder so, ja, wenn die Männer nur im Durchschnitt nur 75 wären, ja.
+Und genau das, also man muss sagen, es ist wirklich Zweiklassenmedizin.
+Also ich weiß nicht, ich weiß nicht, ich weiß nicht, ich weiß nicht, ich weiß nicht, ich weiß nicht, ich weiß nicht, ich weiß nicht.
+Ja, schon ein paar Mal jetzt selbst bezahlen bei kleineren Sachen, ja, beim Hautarzt zum Beispiel, war ich jetzt zur Untersuchung schon mal oder auch zum Nachgucken von manchen Sachen, es war halt easy.
+Beim anderen Hautarzt war das so drei, vier Monate, da ist dir, da ist dir schon quasi der Kopf abgefault, wenn du da irgendwas hast.
+Oder es ist nicht schlimm und wieder weg, so nach dem Motto.
+Also das ist, das ist ein Riesenunterschied und ja, aber da kriegst du keinen schnelleren Termin und sowas.
+Also ich muss sagen, ich habe bisher nur...
+Ich habe bisher nur gute Erfahrungen gemacht, außer einmal, da war ich bei einem HNO-Arzt in Frankfurt und da haben sie Zeug abgerechnet, was sie überhaupt nicht gemacht haben.
+Also ich habe bisher nur gute Erfahrungen gemacht, es geht alles viel schneller, man hat mehr Zeit, man wird besser behandelt und am Ende geht es einem besser danach.
+Also ich muss mal auch wieder ein Beispiel bringen, wo wir gerade schon bei meiner Mutter gewesen sind.
+Die hatte vor ganzer Weile, hatte die Probleme an der Hüfte.
+Da war irgendwas entzündet, das kam aber erst nachher raus.
+Ja, irgendwas entzündet, also sie hat jetzt im Gelenk irgendwas entzündet.
+Ja, die wochenlang konnte sie nicht richtig schlafen und so, weil im Liegen hat das wehgetan und gedrückt und so.
+War übelst kacke.
+Und ich habe gleich zu ihr gesagt, damals schon.
+Ey, lass doch mal, also ich habe gegoogelt.
+Orthopäden hier, Frankfurt, Hanau und Umgebung.
+Lass doch mal da hin.
+Der hat richtig gute Bewertungen.
+Der schreibt sogar explizit schon auf seiner Webseite, die rechnen bei Selbstzahlen nur einfach einen Satz ab.
+So teuer kann das gar nicht werden, wenn du dich da nicht operieren lässt oder so.
+Lass uns das doch mal zumindest angucken bei dem.
+Und da wollte sie nicht.
+Dann ist sie dann zum Hausarzt.
+Der Hausarzt hat gesagt, ach, dann machen wir ein bisschen Wärmebehandlung und sowas.
+Was gerade bei Entzündungen das Falsche ist, weil Entzündungen werden schlechter, wenn du sie wärmst.
+Zumindest wenn die schon sich quasi ausgebreitet haben.
+Und das ist das, was wir hier machen.
+Und das ist das, was wir hier machen.
+Und das ist das, was wir hier machen.
+Und das ist das, was wir hier machen.
+Dann hat sie sich Schmerzmittel geben lassen beim Hausarzt.
+Da hat sie Kreislaufprobleme gekriegt.
+Danach, dann ist sie noch mal zum Hausarzt hin.
+Hat sich noch mal Wärmebehandlung machen lassen.
+Ist doch nicht besser geworden.
+Hat sich noch mal Schmerzmittel geben lassen.
+Und dann eines Abends hat sie mich angerufen.
+Hat gesagt, hier Max, wir müssen den Krankenwagen rufen.
+Ich habe Herzprobleme.
+An dem gleichen Tag, nachdem sie da Schmerzmittel gekriegt hat.
+Was halt ziemlich blöd war, weil beim ersten Mal hat sie schon Kreislaufprobleme gehabt.
+Was halt ziemlich blöd war, weil beim ersten Mal hat sie schon Kreislaufprobleme gemacht.
+Was halt ziemlich blöd war, weil beim ersten Mal hat sie schon Kreislaufprobleme gemacht.
+Da hab ich den Krankenwagen gerufen.
+Und kann ich euch aus eigener Erfahrung sagen,
+wenn ihr für die Mutter den Krankenwagen ruft,
+da habt ihr schon ein bisschen Schiss dabei.
+Man mag ja seine Eltern in der Regel.
+Und dann kann er schon mal nach hinten losgehen.
+Gerade wenn die Mutter sagt Herzprobleme.
+Und dann kam der Notarzt.
+Hat Blutdruck gemessen.
+Herzfrequenz gemessen.
+Und die hatte einen Puls von 230.
+230.
+Als sie im Bett gelegen hat abends.
+Und das war wahrscheinlich,
+eigentlich verursacht durch das Schmerzmittel, was sie beim Doktor gegeben hat, was sie gekriegt hat, der hat sich halt auch null dafür interessiert, das war eine Massenabfertigung beim Hausarzt innerhalb von 30 Sekunden, ja hier machen wir nochmal schnell next und dann war sie ein paar Tage im Krankenhaus, da ist es nicht besser geworden, ja ja 230 ist mega krass, also das höchste, was ich jemals hatte in meinem Leben ist, glaube ich irgendwie 205 oder so und das war beim, also als ich noch wirklich jung war,
+beim vollen Sprint die Brücke hoch, so 500 Meter, ja könnte man vermuten, neuster C++ Standard Reveal geguckt, also jetzt ist das höchste, was ich schaffe, glaube ich 192 oder 193 hatte ich maximal mal, da war ich voll im Arsch, so und zumindest es wird ja noch besser, die waren dann im Krankenhaus eine Weile, irgendwie knapp, knapp, ja die mussten dann feststellen, dass es kein Herzinfarkt ist und sonst was und dann haben sie ihr Medikamente gegeben,
+die muss jetzt immer noch welche nehmen, dass der Blutdruck und die Herzfrequenz und so alles nicht mehr so, ja aber das stimmt nicht ganz, also bei mir stimmt es nicht, weil ich komme auf 192, 193 und ich bin jetzt fast 40, also dürfte ich eigentlich nur 180 haben, also genau stimmt das nicht, das ist immer ein bisschen wie alles individuell, so zumindest, das Ganze ist ja noch nicht fertig, die waren dann im Krankenhaus, im Krankenhaus hat man sich nicht wirklich um die Hüfte gekümmert,
+weil die gesagt haben, ja sie sind ja hier,
+wegen Herzkreislauf und nicht wegen Hüfte,
+was halt auch schon echt affig ist, stell dir mal vor,
+du hast da eine Rentnerin, die im Bett liegt und sagt,
+ah alter, ich kann mich nicht drehen, mir tut
+alles weh und die Hüfte, ich kann nicht schlafen,
+die sind aber nicht hier wegen der Hüfte, das ist nicht unser Problem,
+dann hat sie
+doch irgendwann mal einen Pfleger gehabt
+oder so ein
+Physiotherapeut, der sich das ein bisschen angeguckt hat
+und der meinte dann, ja
+er sagt mal der Ärztin Bescheid,
+dass die mal guckt danach, da kam die
+Ärztin rein, hat sich in der
+in der Patientin geirrt,
+hat sich die Hüfte angeguckt
+von der Nähe bei ihr und dann meinte
+meine Mutter, ich glaube sie sind falsch
+mit Hüfte, sie wollen zu mir
+und dann, nein, nein, nein, hier ist schon alles richtig,
+hängen sie sich mal nicht rein, boah ich hätte die so
+ey, ich war so
+stinkig mit denen, naja.
+Zumindest
+das Dumme ist, ich hab's am Ende,
+das ist halt auch wieder richtig kacke
+gewesen, ich hab's dann
+am Ende wieder an denen ausgelassen, die dort
+eigentlich nur am Empfang sitzen und nix
+dafür können.
+Ist halt auch kacke,
+da kriegen sie immer die Falschen ab.
+So, und dann ging das, da ging das Ganze
+weiter, danach ist sie noch
+mal, war das das Stadtkrankenhaus?
+Soll ich das
+sagen? Ja, das war das Stadtkrankenhaus.
+Es war nicht das zweite,
+sondern, also wir haben ja zwei in Hanau,
+wir haben das, das St. Vincents
+Krankenhaus und das Stadtkrankenhaus und das war
+im Stadtkrankenhaus. Voll für den Arsch.
+So. Zumindest
+weiter, danach
+ist die
+noch mal wegen der Hüfte auf
+die Orthopädieabteilung
+im, im, ich
+ich glaub dann im St. Vincents Krankenhaus
+gegangen. So, und
+dort war der
+der Chef, oder ich weiß nicht, weiß ich,
+ich glaub, der Chef von dieser
+Orthopädieabteilung, da, der, der, der
+Ober, Obermacker, der hat die
+untersucht und hat ihr während
+der Untersuchung, das ist kein Witz,
+während der Untersuchung, ja,
+also hat's, so hat sie mir das erzählt,
+während der Untersuchung,
+hat er ihr schon erzählt, dass das
+durchaus sein kann, dass man
+die Hüfte operieren muss und
+wie sie da steht zum Thema Hüft-OP,
+ob sie mit sowas einverstanden wäre,
+noch während der Untersuchung, der wusste nicht
+mal, was es ist.
+Wollte er gleich eine Hüft-OP aufschwätzen.
+Er wusste nicht,
+was es ist und
+als der dann rausge, raus
+gefunden hat,
+dass das halt
+einfach nur eine Entzündung
+ist,
+und wo nix operiert werden muss,
+hat er gesagt, ja, gehen sie heim,
+nehmen sie Schmerzmittel, anstatt sie
+irgendwas zu spritzen, da, um die Entzündung ab,
+also, so für'n Arsch,
+komplett für'n Arsch, so, und danach
+hab ich gesagt, weißt du was, scheiß drauf,
+wir fahren jetzt nach Frankfurt, zu,
+du bist zwar nicht privatversichert, aber wir fahren
+jetzt Frankfurt zu einem, der nur Privatversicherte
+nimmt, ich bezahl das,
+mach dir keine Gedanken, ich bezahl das,
+da sind wir da hingefahren,
+und Leute, wir mussten tatsächlich ein bisschen
+länger warten als geplant, normalerweise kommt
+man da super schnell dran, wie gesagt, ich hab da auch nur immer
+gute Erfahrungen mitgemacht, normalerweise
+kommt man super schnell dran, an dem Tag war ein bisschen
+länger und ein bisschen voller, ja, aber
+wir haben eine halbe Stunde gewartet, was echt schon viel ist
+da, haben eine halbe Stunde gewartet, aber
+dann, ohne Mist,
+wir waren, glaube ich, knapp eine halbe Stunde
+beim Arzt drin, eine halbe Stunde
+ist so viel, wie die wahrscheinlich
+mit ihrem Hausarzt die letzten
+zehn Jahre zusammen gesprochen hat,
+so, waren wir eine halbe Stunde da drin,
+der hat Ultraschall gemacht,
+der hat, ähm,
+geguckt, dass irgendwie nichts ausgerenkt ist,
+der hat ihr das erklärt, der hat ihr die Ultraschallbilder
+gezeigt,
+und hat dann auch erklärt, was das eigentliche Problem
+ist, nämlich, dass da nichts verschlissen ist,
+dass da nichts kaputt ist, sondern, dass man
+das ganz klar sieht auf dem Ultraschall, dass es
+entzündet ist, und er
+würde vorschlagen, gegen die Entzündung
+gibt er ihr,
+ähm, spritzt er ihr ins
+Gelenk, so, ja, frag mich nicht, was man
+da spritzt, irgendwas
+kortisonhaltiges oder so, irgendwas,
+was gegen die Entzündung hilft,
+und er gibt ihr nochmal ein lokales
+Schmerzmittel,
+da ein Muskel drumherum, was ein paar Tage
+wirkt, bis das dann abgeschwollen ist,
+und dann sollen wir einfach in irgendwie
+eineinhalb Wochen oder so nochmal vorbeikommen,
+und dann meinte meine Mutter so zu ihr,
+oh, nee, nee, nee, ich wieder Schmerzmittel,
+dann lande ich wieder im Krankenhaus,
+und da meinte er so,
+ja, okay, was haben sie denn bekommen,
+und da hat sie halt erzählt, weil
+die kennt sich ja mit sowas aus, wie gesagt, die hat ja früher
+im Krankenhaus gearbeitet, hat sie ihm das erzählt,
+so, welche Schmerzmittel, äh,
+sie bekommen hat, und hat er gemeint, ja, das ist
+altes Zeug, das verschreibt er gar nicht mehr, da wollten
+sie wieder 5 Cent sparen, nee, nee, er macht
+was anderes, das ist nur örtlich und alles, keine
+Sorge, und ohne Mist,
+das hat innerhalb
+von ein paar Tagen, war das
+nahezu weg, die konnte wieder ohne Probleme
+laufen, hat keine Schmerzen mehr gehabt beim
+Liegen, die war nach eineinhalb Wochen da,
+der hat das nochmal ultraschalten,
+hat gemeint, ja, nice, alles weg,
+und, also, ja, gut, der hat nicht gesagt, ja,
+nice, alles weg, aber sinngemäß,
+sagt er, ja, nice,
+äh, alles weg, bisschen, bisschen was an der Seite
+noch, so soll jetzt, ist nicht total
+übertreiben, die nächsten paar Wochen,
+und wenn's, wenn's, äh, wirklich
+schlechter wird, soll sie vorbeikommen, aber er glaubt,
+das ist jetzt wieder alles gut.
+Und es ist
+alles gut bis jetzt gewesen.
+So, und ich weiß, was das gekostet hat,
+weil es war
+viel billiger, als ich gedacht hab. Ich mein,
+ich hab ja, wie gesagt, ich hab das ja
+schon ein paar Mal für mich selbst gemacht,
+und
+dementsprechend wusste
+ich im Vorfeld, was man fragen muss, also man
+geht nie zu so einem Arzt hin und lässt sich
+einfach behandeln, ja. Man fragt,
+äh, man sagt, man bezahlt das selbst, und
+äh, man fragt die, mit welchem Satz
+die in der Regel abrechnen, weil,
+weil, es ist so,
+es gibt so eine Gebührenordnung für Ärzte,
+wo sich auch, ja, privat,
+äh, private Ärzte dann dran halten müssen,
+also es ist ja hauptsächlich auch für, für private Ärzte
+gedacht, die, äh, die
+mit, mit Krankenkasse und so, die können das ja
+eh nur nach den Deals mit der Krankenkasse
+abrechnen, weil es gibt so eine,
+es gibt so eine Gebührenordnung für Ärzte, da steht das halt
+drinnen, was die Sachen kosten, so,
+und diese,
+das, was dort drinnen steht,
+kann multipliziert werden
+zwischen mal 1 bis
+mal 2,3.
+Alles, was über 2,3
+ist, oder was, was
+2,8, nee, ich glaub 2,3,
+alles, was über 2,3 ist,
+müssen die explizit begründen,
+warum es
+mehr abgerechnet wird. Also zum Beispiel,
+was weiß ich, ähm,
+du lässt dir was am Ohr machen
+und dein Ohr ist, in deinem Ohr ist
+zickzack und da kommt es richtig rein, oder so,
+und dann sagt er, okay, wir rechnen mal 3,5
+ab, weil es doppelt so lang gedauert hat.
+Weil er irgendwie
+Winkel im Ohr hat, die normale Menschen
+nicht haben. Das müssen
+die dann begründen.
+G-Ö-Äh, G-Ö-A
+klingt richtig, ja.
+Und zumindest, deswegen immer fragen,
+so mit welchem Satz sie normalerweise abrechnen,
+die meisten machen, wenn du nichts fragst,
+automatisch mal 2,3.
+Aber, nachdem das ja eine ganz
+so private, wie soll man
+sagen, das ist kein, was ist das, ein Werksvertrag?
+Ich weiß nicht mal, wie man das rechtlich
+nennt. Zumindest, wenn du das im
+Vorfeld mit denen vereinbarst und wenn du sagst,
+ja, sagen, was kostet das ungefähr und wie wird das
+abgerechnet, dann sagen die dir auch was
+drauf. Und wenn die sagen, ja, wenn man so normale
+das und das von normalen Sachen
+ausgehen, äh, 200 Euro und da
+können die nicht einfach 500 Euro
+abrechnen. Also das ist, das
+ist, wie wenn du bei irgendeinem Handwerker
+quasi im Vorfeld
+sagst, hier, machen sie mir mal einen Kostenvoranschlag und der
+sagt 300 Euro und rechnet dann 1500
+ab, dann funktioniert das nicht.
+So, und zumindest, ich hatte die auch gefragt,
+wie die normalerweise abrechnen und
+das stand auch schon auf der Homepage, die haben gesagt,
+also, ja, wenn es ein normaler
+Aufwand ist, dann rechnen die mal 1,0 ab.
+Was, was wirklich günstig ist, weil
+wie gesagt, normalerweise rechnen die alle mal 2,3
+ab. So, und wie gesagt,
+Ende gut, alles gut, bei ihr kein
+Problem mehr und am Ende hat es gekostet, jetzt haltet
+euch fest, wir waren, muss man dazu sagen, wir waren
+einmal knapp eine halbe Stunde drin,
+ich war natürlich dabei, ich wollte gucken, was der macht
+für mein Geld, ja,
+und ein zweites Mal nochmal eine Viertelstunde,
+das waren insgesamt 45 Minuten
+beim Arzt
+drinne, wo sie behandelt wurde.
+Am Ende hat das gekostet,
+ich bin mir nicht auf den Centbetrag
+mehr sicher, aber ich glaube 104 Euro.
+104,80 Euro oder sowas.
+104 Euro, das ist
+nix, das ist nix.
+Ich persönlich hab irgendwas mit
+300, 400 Euro gerechnet, das ist nix.
+100, 104,
+ey, 150 hätte ich auch nix gesagt,
+das war super billig.
+Und das mit das,
+was der dort gemacht hat, hätte der
+Typ im Krankenhaus garantiert auch machen können.
+Kannst du, klar,
+kannst du.
+Das hätte der Typ im Krankenhaus auch machen können,
+weil der hat das festgestellt,
+hat aber nix gemacht, also voll für den Arsch.
+Tja.
+Ne, das geht nicht,
+das geht nicht. Steuerabsetzen geht, vom Krankenhausbetrag
+geht nicht.
+Tja.
+Was mich mal wieder darin bestärkt hat,
+dass es durchaus Sinn macht,
+zu einem
+privaten Arzt zu gehen.
+Ja, ob das teurer ist, kann man sich drüber streiten,
+weil, je nachdem, was du für einen Vertrag machst,
+musst du ja im Zweifelsfall auch, wenn du älter
+wirst, mehr bezahlen. Das ist ne Planungssache.
+Also im Prinzip, wie vieles, so ne Wette
+auf die Zukunft,
+ob du krank wirst, ob du nicht krank wirst, und
+auch ein bisschen so Sicherheitsgefühl, manche brauchen mehr,
+manche brauchen weniger, ist wie mit allen
+Versicherungen, muss jeder selbst wissen.
+Zahlst du noch in die Rente ein?
+Ja, tatsächlich mach ich.
+Ich wüsste auch nicht, ob ich mir das aussuchen
+dürfte. Krankenkasse darf ich mir aussuchen,
+Rente ist mir nicht bewusst,
+dass ich mir das aussuchen darf.
+Wenn ich mir das aussuchen dürfte, würde ich
+lieber die Rente nicht einbezahlen und mehr in mein
+ETF stecken. Ich glaube, das darf ich mir nicht aussuchen.
+Zumal, wie das, wie der
+Chat das auch sagt, das ja gar nicht funktionieren
+wird. Unser Rentensystem funktioniert eh schon immer richtig.
+Und in absehbarer Zeit immer schlechter.
+Wenn jetzt auch die Leute alle anfangen würden,
+wenn jetzt auch die Leute alle anfangen würden, dann würde ich mir das nicht aussuchen.
+Wenn jetzt auch die Leute alle anfangen würden, dann würde ich mir das nicht aussuchen.
+Wenn jetzt auch die Leute alle anfangen würden, dann würde ich mir das nicht aussuchen.
+Hey, Marx, kurze Frage. Würdest du von einer IT Berater, wo man als
+Entwickler tätig ist, zu einer Bank in FFM Niederrath
+als Product Owner wechseln
+für mehr Lohn, aber weniger Homeoffice?
+für mehr Lohn, aber weniger Homeoffice?
+Kommt drauf an, wie viel mehr Lohn?
+Ich persönlich nicht.
+Weil für mich Homeoffice das Wichtige, ist, wenn es ein bisschen
+mehr Kohle ist, dann würde ich das nicht machen.
+Wenn es enorm
+mehr Kohle ist, dann ist halt die Frage
+ob es das für dich persönlich aufwegt.
+Also ich würde nicht auf Homeoffice verzichten.
+wenn es wenn es sich im rahmen hält ist die das geld das war ja auch eines der punkte warum ein
+alter arbeitgeber überhaupt nichts mehr der aktuellen versicherung entgegenzusetzen hat
+wo ich jetzt bin weil die haben eine super home office regelung die bezahlen ordentlich kohle und
+ja ich habe ja alles schon erzählt weil mein kollege hat ja auch ein arbeitsangebot als
+in den jobangebot dort bekommen mit dem ich mich mit dem ich mich gut verstanden habe also
+im prinzip war alles nur noch besser bei dem neuen laden als beim alten und wie gesagt als
+sogar meinem lieblingskollegen den jobangebot gegeben geschickt haben und wir da zusammen
+anfangen konnten war die sache geritzt also da habe ich gar nicht mal lang drüber nachgedacht
+wir haben ja auch die kündigung zusammen zusammen abgegeben er bloß
+wollte dich nicht aha da kenne ich jemand da kenne ich jemand der dort ist
+eben ich habe vergessen wie das dort heißt die haben so einen so einen support operation center
+da kenne ich jemand der dort der dort arbeitet ich finde investierst du pro monat ich kann es
+dir im durchschnitt ich sagen ich bin eher ein ich überweise ab und zu größere beträge als
+monatlich es ist eigentlich dumm weil es wichtig ist bei sowas konstant zu sein
+und man das auch nicht vergisst ich bezahle immer ab und zu und dann halt irgendwie keine ahnung
+6 7000 euro wenn wenn es bisschen wenn ich wenn es mir danach ist also das letzte ist letzte das
+letzte was ich überwiesen habe dann glaube ich dass mich mal gucken ist schon ein bisschen her
+das waren glaube ich irgendwie 4000 euro ende des jahres ende letzten jahres wo sieht man das
+eigentlich gescheit sieht man das pascal über muss das doch bei scalable irgendwo sehen profil
+das sieht man doch irgendwo wo man was gekauft hat oder transactions 5.000 euro sogar 5000 euro
+ende letzten jahres 5034 euro und 27 cent davor war im september und dann war im juli und davor
+war im juni also das ist ich mache das immer unregelmäßig man im endeffekt kommt wahrscheinlich
+aufs gleiche raus aber es wäre durchaus sinnvoll ich gebe euch recht hätte es wäre durchaus sinnvoll
+das kontinuierlich zu machen dass man sagt so keine ahnung jeden monat 500 euro oder sowas
+einfach dann ist das weg da muss man sich keine großen gedanken machen und man kann es nicht
+vergessen also die seite jetzt erst entdeckt schäler als für den raid von 60 k auf 82 k würde
+der lohn steigen also 22.000 euro mehr das ist in der tat nicht wenig aber das ist schon ordentlich
+mehr oder so 10 prozent sind 612 mehr als 330 prozent mehr oder so das ist das ist schon ordentlich
+ja ob es mir wert wäre kommt darauf an wie viel der unterschied ist also ich persönlich schwer
+zu sagen 60 auf zwei das ist das ist halt schon ordentlicher unterschied er ich persönlich würde
+wahrscheinlich nicht auf home office verzichten weil mehr machen können worauf man bock hat weil
+mehr zeit am tag hat ist halt echt dass das ist was ich persönlich ich würde es
+wahrscheinlich nicht machen wenn jetzt natürlich noch andere sachen
+auf den keks gehen bei dem alten job das ist nicht nur rein das geld ist dann
+schon also ich ich würde ich kann es ja nicht für dich entscheiden wie das
+gewichtet ist für dich ja also wenn die alte sachen wenn die beiden job sachen
+auf den keks gehen und die neuen so viel bessere bedingungen haben plus mehr
+geld dann würde ich auch machen richtig der lohn würde von 60 auf 200 und
+homeoffice von drei von fünf auf drei tagen runter
+das ist okay ich glaube ganz ehrlich wenn wir jetzt mal von ausgehen du hast
+ja auch gerade geschrieben beim alten arbeitgeber gehen die auch ein paar
+sachen auf den keks ich finde das ist okay eins bis zwei tage office die woche
+ist
+kann man sich gerade so noch geben und dafür dann 30 prozent mehr geld und ein
+besseres arbeitsumfeld das ist denke ich nicht schlecht ja vielleicht bekommst
+du aber auch bei deinem bei deinem jetzigen laden auch mehr wenn du das
+sehen sagst also nur nur wenn du das andere schon sicher ist sicher auf dem
+tisch liegen hast du hast ein gutes immer und ich wundere dass der ecu
+counter bei so niedrig anfängt guck mal da fängt nur bei 120 an
+da musste damit der muss der chat aber schon im durchschnitt darüber seien hier
+120 das ist ja nix bei so vielen klams haps moresarel IGTI DR
+prік lassen jetzt gerne gewollt gleich das video angucken ruf sich lohnt als
+anästhesie-technik id fests Etherium-Assistent double montrer die
+finanz מעال
+heat nachwandely
+unha afternooncasión
+countryside
+uns acaterial
+Das ist ein Narkosegerät.
+Sieht gut aus.
+Ich muss tatsächlich noch was dazu sagen.
+Weil es mich selbst verwundert hat.
+Ihr habt doch beim Zahnarzt bestimmt schon mal eine Betäubung bekommen, ja?
+Ich habe letztens drüber was gelesen.
+Und das hat einfach zu gut gepasst.
+Und zwar habt ihr auch manchmal das Gefühl,
+dass wenn ihr eine Betäubung beim Zahnarzt bekommt,
+dass sich das kreislaufmäßig so ein bisschen komisch anfühlt.
+Ganz kurz, nicht lang, aber es fühlt sich ein bisschen komisch an.
+Ich habe das immer drauf geschoben, weil man beim Zahnarzt ja aufgeregt ist.
+Ja, und Spritze und Aufregen und so.
+Genau.
+Aber da ist Adrenalin drin.
+Das Betäubungsmittel ist eine Mischung aus Schmerzmittel,
+Adrenalin und Entspannung.
+Nee, warte mal.
+Ach, keine Ahnung.
+Irgendwie Schmerzmittel,
+irgendwie Betäubungsmittel und Adrenalin zumindest.
+Und deswegen kommt einem das kreislaufmäßig auch so komisch vor.
+Und viele Narkosemittel sind eine Mischung quasi so aus unterschiedlichen Sachen.
+Also da wird nicht immer nur eins volle Pulle reingepumpt.
+Ja, da haben sie dir wahrscheinlich massig reingehauen, ja?
+Aber bei Kreislauf, bei Kreislauf,
+bei Weisheitszähnen hast du noch das andere Problem,
+dass die dich ja da, je nachdem, ob die oben oder unten sind,
+die stellen dich ja da halb auf den Kopf,
+dass sie richtig rankommen.
+Oh, da ist...
+So, jetzt aber.
+Ist mir nur so nebenbei eingefallen.
+Herausforderungen sind halt Zeitdruck manchmal
+und natürlich die Kälte, was man hier hat.
+Muss man natürlich die ganze Zeit mit 100% dabei bleiben.
+Jetzt können wir endlich mal, endlich mal Verwendung für das Emote jetzt.
+Ja.
+Super, dass ihr das macht.
+Ah ja, wir kennen uns auch.
+Ja, wir kennen uns.
+Hallo nochmal.
+Ich würde direkt ein paar Fragen stellen.
+Was machen Sie?
+Wann haben Sie...
+Der macht das gut.
+Der macht das gut.
+Ich glaube, der gibt den Leuten das Gefühl, dass sie da gut aufgehoben sind.
+Zum letzten Mal was gegessen.
+Oh, gestern Abend das Abendbrot.
+Und das war gegen 18 Uhr vermutlich, mache ich ungefähr.
+Okay.
+Und als nächstes auf die Stirn würde ich eine EEG-Klebschule kleben.
+Mhm.
+Zeigt uns dann während der Narkose, wie tief Sie schlafen.
+Ich muss hier und da drücken, damit das Klebchen schön hält.
+Ich gebe Ihnen schon mal den Sauerstoff.
+Neurolink am Start.
+Und Sie atmen schon mal tief durch, ja?
+Mach dir keine Sorgen, bei den meisten Leuten ist das easy.
+Gerade wenn du schon ein bisschen älter bist
+und die halt schon ein bisschen, gehe ich mal von aus,
+weil du bist hier auf Twitch bei mir am Start.
+Die meisten Leute sind ein bisschen älter.
+Ist das kein Ding.
+Die bekommen gleich das erste Mittel, das ist eine starke Sache.
+Ich weiß nicht, wie das ist.
+Ich habe echt keinen Plan, wie das ist.
+Ich habe in meinem Leben nur eine Vollnarkose gehabt.
+Und das war, als ich einen Leistenbruch hatte,
+wo ich noch ganz klein war.
+Da hatte ich einen Leistenbruch und musste operiert werden im Krankenhaus.
+Da habe ich eine Vollnarkose gekriegt.
+Und die Vollnarkose bei mir, da kann ich mich noch dran erinnern,
+die war nicht mit so einem...
+Also, da habe ich nicht so ein Ding drauf gekriegt.
+Sondern die haben mir was gespritzt.
+Oder pennt die schon?
+Die haben mir was gespritzt.
+Da war ich instant weg.
+Und danach haben die mir die Maske wahrscheinlich aufgezogen.
+Das habe ich aber gar nicht mehr mitbekommen.
+Ich denke, die Maske ist wahrscheinlich...
+Ich habe keine Ahnung.
+Ich würde vermuten, diese Atemmaske ist für zwei Dinger.
+Einmal zum Kontrollieren der Atmung.
+So Sauerstoffgehalt und sowas.
+Und ich weiß nicht, ob dort auch irgendwer...
+Welche Narkosemittel drüber gedingst werden.
+Keine Ahnung.
+Aber ich denke mal, dass die hauptsächlich auch zum Kontrollieren,
+so dass du gescheit atmest und Sauerstoffgehalt und sowas.
+Dass du nicht am Abkratzen bist halt.
+Und Sauerstoff...
+Aber, ey, was sie mir...
+Das war richtig krass, ey.
+Das habe ich so...
+Das habe ich...
+Das habe ich so noch...
+Vielleicht, keine Ahnung.
+Das habe ich so noch nie erlebt, ne?
+Das weiß ich noch.
+Ich habe da im OP gelegen.
+Da war ich wirklich...
+Da war ich klein.
+Also, keine Ahnung, wie alt ich damals war,
+als ich den Leistenbruch hatte.
+Da hat meine Mutter noch im Krankenhaus gearbeitet.
+Und...
+Quasi irgendeine befreundete Ärztin von ihr hat das gemacht.
+Und dementsprechend haben die sich auch alle Mühe gegeben.
+Du gibst dir halt viel mehr Mühe,
+wenn du persönlich die Leute kennst, ne?
+Und...
+Da muss ich...
+Also, wie gesagt, nachdem meine Mutter noch im Krankenhaus war,
+da war ich vielleicht fünf oder so.
+Da war ich wirklich klein.
+Oder vier, vier, fünf.
+Da war ich sehr jung.
+Zumindest...
+Ich habe...
+Das habe ich nicht für Möglichkeiten.
+Ich habe da drauf gelegen, ja?
+Da wird...
+Da hast du ja...
+So wie bei ihr, so wie bei ihr, ne?
+Legt da hier der Arm auf so einem Ding,
+weil da kriegst du ja eine Narkose.
+So.
+Und...
+Ich hatte noch vom Blutabnehmen,
+hatte ich da noch so einen Zugang hier bei mir schon.
+Also, die mussten mir das gar nicht spritzen, so.
+Die sind da hingegangen,
+haben da die Spritze dran gemacht
+und haben mir das in den Arm gespritzt.
+Und ich habe noch zum Beispiel...
+Ich weiß das noch, ja?
+Ich habe da keinen Gedächtnisverlust oder so.
+Ich weiß das noch bis zu dem Moment,
+wo ich quasi umgekippt bin, so.
+Die haben mir das gespritzt
+und meine Mutter hat noch was...
+Hat noch was...
+Hat noch neben mir gestanden.
+Ich meinte noch so zu ihr,
+das weiß ich heute noch.
+Ich meinte noch zu ihr so...
+Ja, ach, so schnell wird das ja nicht wirken.
+Und dann weiß ich nichts mehr.
+Das war instant.
+Ich weiß noch,
+das Letzte, was ich sagen wollte,
+ich bin mir gar nicht sicher,
+ob ich das überhaupt komplett sagen konnte.
+Ach, so schnell wirkt das nicht.
+Bam.
+Nichts mehr.
+Nichts mehr.
+Instant, instant weg.
+So.
+Und das Nächste,
+woran ich mich dann wieder erinnern kann, ist...
+Gut, ich meine,
+Leistenbruch kriegst du ja ein bisschen rumgeschnibbelt
+an der Hüfte und so,
+weil ich was sagen wollte.
+Zumindest wird da ein bisschen rumgeschnibbelt
+an der Hüfte und wieder zusammengenäht und alles.
+Also hast du schon so ein bisschen Verletzung an der Hüfte.
+Zumindest, wenn du dann wieder langsam zu dir kommst,
+dann...
+Du träumst den übelsten Schwachsinn.
+Wisst ihr, was ich geträumt habe beim Aufwachen?
+Komplett wir.
+Komplett wir.
+Dadurch, dass man halt da Schmerzen hat,
+aber es halt nicht checkt, dass es Schmerzen sind.
+Ich habe geträumt,
+ich renne vor einem Feuerball weg,
+der mich aber immer wieder so an der Hüfte trifft.
+Der sah erstaunlich...
+Der sah erstaunlicherweise
+ein bisschen aus,
+wie so ein Super-Mario-Feuerball.
+Aber es kann kein Super-Mario-Feuerball gewesen sein,
+weil...
+Ah, wobei...
+Nee, kann nicht.
+Es kann kein Super-Mario-Feuerball gewesen sein,
+weil Super Nintendo
+habe ich irgendwie, keine Ahnung, 1992, 1993 oder so,
+wann hatte, Moment, ja.
+Release-Date...
+1990.
+Ich glaube nicht,
+dass das passt.
+Ich glaube, das war, bevor ich einen Super Nintendo...
+hatte und ich hatte ihn auch nicht direkt zu Release.
+Ich habe geträumt, ich werde von einem Feuerball
+verfolgt, der mich ab und zu trifft
+und ich kann gerade noch so wegrennen.
+Ja, das war...
+Hä? Warum Riesenrad?
+Also, das hat mich einfach umgehauen.
+Das weiß ich nur. So, weiter.
+Ich muss hier und da drücken,
+damit das Gläbchen schön hält.
+Ich gebe Ihnen schon mal den Sauerstoff
+und Sie atmen schon mal tief durch, ja?
+Ja, okay, das ist nur Sauerstoff.
+Wir bekommen gleich das erste Mittel.
+Das ist ein starkes Schmerzmittel.
+Kann ein bisschen düselig machen
+und müde. Genießen Sie das.
+Genießen?
+Naja, genossen habe ich es nicht.
+Das war einfach nur Bäm, weg.
+Jetzt bekommen Sie auch eine Schlafmitte.
+Der Patient schlägt
+innerhalb einer bis zwei
+Minuten schon ein.
+Ich nicht. Bei mir hat es fünf Sekunden gedauert.
+Kommt ein Relaxant.
+Ich war einfach weg.
+Instant, ey.
+Wenn man ein Relaxant dem Patienten gibt,
+kann ein Patient dann
+nicht mehr atmen, kann...
+Ähm, deswegen dürfen die auch nichts essen, oder?
+Weil, weil wenn du dich entspannst und noch,
+ich sag mal, Sachen ready to kacken hast, dann...
+Ich muss das nicht ausfüllen, ihr wisst, was ich meine.
+...keine von seinen Muskeln bewegen.
+Wenn man es nicht schaffen sollte,
+hat man maximal sechs Minuten, bis tatsächlich das...
+Das ist so ein Beatmungsschlauch-Ding für die Lunge, oder?
+...bewegen, wenn man es nicht schaffen sollte, hat man maximal sechs Minuten.
+Ja, das ist gut, dass du da erst mal Narkose bekommst, weil freiwillig machst du da nicht,
+mit dir so ein Ding in den Hals stecken zu lassen, ne?
+...minuten, bis tatsächlich was lebensbedrohlich werden kann.
+Ich hoffe, Sie haben vorher alle ordentlich den hier gemacht.
+Was als Schlimmes im OP passiert ist, wird auch vergessen, glaube ich.
+Sonst, wenn man diese Zwischenfälle mit nach Hause mitnimmt, ist man...
+Ich glaube, da kannst du das nicht lange machen, wenn du das...
+Dann traust du dich nicht mehr.
+Stell dir mal vor, es wird früher oder später irgendwas passieren.
+Das lässt sich gar nicht vermeiden.
+Ich meine, Leute sind im Krankenhaus, weil sie krank sind.
+Und außerdem sind Narkose und Operation nie ungefährlich.
+Und dann hast du ja selbst übelst Panik.
+Dann traust du dich nicht mehr, irgendwas zu machen, bist komplett handlungsunfähig.
+Ich glaube, du kannst das gar nicht so dir zu Herzen nehmen.
+Sonst machst du das nicht länger als...
+...zwei Wochen.
+...ist man dann am Ende wahrscheinlich selber krank.
+Aber ich kann sagen, dass man seine erste Reanimation und den letzten Notfall im Kopf noch hat.
+Die beide bleiben.
+Ja, bin ich jetzt fertig.
+Und jetzt?
+Ich kümmere mich um die Bestellung der nächsten Patienten von der Station.
+Tatsächlich sollten wir jeden Tag Patienten überlappend einleiten.
+Das heißt, während die erste OP läuft, sollte ich schon mit den nächsten Patienten anfangen.
+Die OPUA
+Ist halt irgendwie Fließbandarbeit.
+Ist nicht so, dass das unbedingt qualitativ schlecht sein muss.
+Ich finde, das ist aber so eine Sache, weshalb ich persönlich eben kein gutes Gefühl dabei habe.
+Es geht letztendlich auch gar nicht anders.
+Das ist mir auch klar.
+Das muss schon...
+Es hat ja keinen Sinn, wenn du die Leute dort hast und...
+...die eilen zu...
+...80%.
+Hüftprothese...
+...wir hatten es ja gerade von der Hüfte.
+Also ich weiß nicht, ob es da Statistiken drüber gibt, aber meine persönliche Meinung ist, und ich bilde mir auch ein, das schon gelesen zu haben öfters, dass gerade was Hüft-OPs und Knie-OPs, wenn da im Nachhinein untersucht wird, wie notwendig das war, dass dort diese zwei Bereiche, Hüft-OPs und Knie-OPs, die Bereiche sind, wo anteilmäßig am meisten gemacht wird, weil es Kohle bringt und nicht, weil es unbedingt notwendig gewesen wäre.
+Sie hat ja viel Schlafmittel plus Schmerzmittel bekommen. Wird ein bisschen dauern, bis sie wach ist.
+Atmen Sie mal tief ein und aus. Sollen wir den Schlaf ausziehen? Und den Mund auf. Ja, und aufmachen den Mund. Weit auf. Super. Sehr schön.
+Da kann ich mich gar nicht mehr dran erinnern.
+Eine Gypsy ist ein Neun. Hättet ihr einen Platz noch? Sieben. Danke dir. Tschüss.
+Ja, Platz sieben hast du heute. Hat ein bisschen Länge gebraucht, weil hat auch großen Bedarf an Schmerzmitteln während der OP.
+Langsam aufwachen ist völlig normal.
+Bin gespannt, ob er die Arbeitsstunden auch einhält.
+Weil was auf dem Zettel steht und was da gemacht wird, sind glaube ich oft mal zwei unterschiedliche Paar Schuhe.
+Ganz ehrlich, ich glaube, die werden mit ein, zwei Patienten weniger und weniger Stress und weniger dauerhaft machen und auf dauerhaft immer alles achten müssen.
+Genau so routiniert.
+Mindestens ein Wochenende im Monat muss ich arbeiten. Für Wochenende, Feiertage und auch Nachtdienste gibt es natürlich Zuschläge.
+Mehr nicht? Da bekomme ich ja mehr für ein Wochenende einfach nur random rumsitzen in der Rufbereitschaft.
+Gibt es OP-Zuschläge? Ohne Anruf.
+Ein Zuschlag, dass wir in einer geschlossenen Station im OP-Bereich arbeiten, bekommen wir dafür auch einen Zuschlag, weil wir in Kälte sind.
+Und weil es stressiger ist bei wenigsten.
+Gab es das Gehalt schon eigentlich? Nee, es gab nur die Zulagen bisher, gell?
+Zeitdruck umgehen.
+Hallo ihr Lieben.
+Guten Appetit.
+Dankeschön.
+Auch nicht schlecht. Mit 100 Euro im Monat essen komme ich nicht hin. Zumindest nicht in Frankfurt.
+Glücklicherweise muss ich nicht mehr so oft nach Frankfurt.
+Das ist das, was ich meine. Ich glaube, dass der Verdienst gar nicht so schlecht ist.
+Aber das ganze Drumherum, ich könnte es mir einfach nicht vorstellen.
+Naja, man muss sagen, so krass ist es auch nicht.
+Das sieht immer, Brutto sieht immer so viel aus.
+Aber ihr müsst euch mal überlegen, das sind dann im Prinzip auch nur, weil 12, je nachdem wie viel die kriegen, plus seine Zulagen.
+Sagen wir mal so, der ist bei 60k oder so, vielleicht am Ende des Jahres, weiß ich nicht, ob es 12 oder 13 Gehälter sind.
+Muss man mal gucken.
+Und der...
+Der bezahlt dann da auch massig Steuern drauf.
+Also es ist so krass groß, es ist nicht schlecht im Vergleich zu vielen, wenn du mal im Durchschnitt gehst, das ist nicht schlecht.
+Also mega Sprünge kannst du damit auch nicht machen.
+Und es ist Vollzeit.
+Erstmal hinsetzen kurz.
+Knieprothese, wo wir gerade beim Thema sind.
+Es ist besonders, dass der Patient die ganze Zeit wach ist und ansprechbar, aber möchte trotzdem ein bisschen sediert werden.
+Das heißt, wird trotzdem ansprechbar bleiben.
+Ehrlich gesagt, ich würde mich auch betäuben lassen, wenn einer einmal im Knie rumschnippelt.
+Aber ein bisschen müde und schläfrig, dafür haben wir auch ein paar Medikamente.
+Üh, kriegt der so einen Rücken...
+Nadel in den Rücken und so jetzt?
+Oh, das ist Sack, Alter.
+Immer wenn ich das schon sehe, kriege ich Anfälle.
+Sehr gut.
+Ja.
+Nicht wegzucken, ist alles gut.
+Es könnte mal so ein elektrisches Ziehen geben.
+Jetzt bleibe ich die ganze Zeit hier bei Ihnen.
+Während der Kollege von hinten drückt, würde ich Sie unterstützen.
+Oh!
+Wie es...
+Bonkes!
+Das Verknöchern komplett schon vermogen.
+Ein bisschen komplizierter da, ja.
+Hi, der Jeffy hier.
+Kannst du uns ein bisschen helfen, Alter?
+Spöna, danke.
+Ich finde einfach, wenn ich hier stelle, besser.
+Der Kick kommt sogar.
+Jetzt kommt die Expertin.
+Die ist da nicht so zimperlich.
+Oh, ey.
+Thema Nadeln.
+Keine Sorge, wird nicht abarten.
+Wird jetzt nicht so schlimm wie das hier.
+Ich mache mal kurz weg.
+Ich musste mal einen MRT machen.
+Wo du dann in so ein Magnet-Dings reingeschoben wirst.
+Und da kriegst du so Kontrastmittel gespritzt.
+Du kriegst quasi so an der einen Seite...
+Du kriegst da so eine...
+Das ist das Träger.
+Das tut nicht weh, ja.
+Das ist wirklich so eine ganz, ganz mini, dünne, kleine Nadel, die du da reinkriegst.
+Das merkst du kaum.
+Und da wird dann so Kontrastmittel durchgeleitet, dass du das besser siehst, ja.
+Das Blöde war nur bei mir, als die mich da rein...
+Also, dann wird da das Kontrastmittel da angeschlossen.
+Als die mich da reingefahren haben, hat sich der Schlauch quasi von dem Kontrastmittel noch...
+Da war ein bisschen gewundert.
+Gewunden.
+Und er hat sich quasi entwunden dadurch, dass ich da reingefahren wurde, ja.
+Also, das war quasi...
+Müsst ihr euch das so vorstellen?
+Also, so stelle ich mir das vor.
+Ich habe es ja nicht gesehen, nur gemerkt.
+Ich gehe mal davon aus, der Schlauch für das Kontrastmittel lag halt noch ein bisschen so, ja.
+Und die haben mich dann da reingefahren.
+Und dann hat sich halt diese Schlaufe langsam entschlauft und so.
+Und dadurch hatte das aber ein bisschen mehr Widerstand.
+Und wenn ihr einen Schlauch an der Nadel hängen habt und ihr werdet bewegt...
+Der Kontrastmittel dreht sich dann bei euch im Arm.
+Das tut weh.
+Ich habe dann rumgezappelt.
+Ich weiß nicht, ob ich...
+Ich glaube, ich habe nichts Böses gesagt.
+Ich habe einfach nur ein bisschen rumgezappelt.
+Und habe mit der anderen Hand ein bisschen gegen die Mauer gehauen.
+Also, gegen das Teil beim Reinfahren gehauen.
+Da wirst du ja beobachtet und die sehen das.
+Und dann haben die angehalten und sind wieder reingekommen.
+Okay, gucken wir mal.
+Fertig.
+Jetzt sind wir an der richtigen Stelle.
+Also, am schlimmsten Blutabnehmen bei mir war einmal, als der Azubi das gemacht hat beim Arzt.
+Und ich war auch so blöd noch, ne.
+Ging halt rum.
+So nach dem Motto, ja, der...
+Ich weiß gar nicht mehr, wie das genau gewesen ist.
+Ich wurde irgendwie gefragt, ob der Azubi das machen darf, ja.
+Und das war halt so eine junge, blonde, hübsche...
+Auszubildende.
+Und da habe ich gesagt, ja, ja, klar.
+Da will man halt so ein bisschen...
+Möchte man da so ein bisschen auf cool machen, ja.
+Und ich habe gesagt, ja, kein Problem.
+Das kann die an mir ausprobieren.
+Und die hat das an mir ausprobiert, Blutabnehmen.
+Und die hat es noch nicht so richtig drauf.
+Blutabnehmen war gar kein Problem.
+Halla, Chainlord.
+Blutabnehmen war gar kein Problem.
+Die hat...
+Du denkst, Blut abgenommen, so wunderbar.
+Alles gut, alles gut.
+Aber dann hat sie den Fehler gemacht.
+Du musst ja beim Blutabnehmen...
+Du musst ja draufdrücken auf die Stelle, wo reingestochen wurde,
+beim Nadel rausziehen.
+Und die hat nicht richtig draufgedrückt.
+Und hat dann irgendwie ein bisschen so...
+Ein bisschen noch, ich weiß nicht, die Ader aufgeschnitten oder so.
+Keine Ahnung.
+Und das Witzige daran war,
+paar Tage später hatte ich immer noch so einen Bluterguss am Arm.
+Und ich bin nach Frankfurt gegangen.
+Und ihr glaubt das nicht,
+die ganzen Obdachlosen und Drogenabhängigen in Frankfurt,
+die waren noch nie so...
+Nie so nett zu mir.
+Ich bin da vorbeigelaufen an unserem alten Gebäude.
+Da hingen sie immer.
+Da sind immer so alte...
+Ja, einer von uns haben die sich gedacht.
+Garantiert.
+Da bin ich vorbeigelaufen.
+Da hängen...
+Die sitzen immer auf so alten, zugemauerten Eingängen,
+wo noch Treppen davor sind.
+Da bin ich da vorbeigelaufen.
+Und du hast halt so voll...
+Ich hatte ein T-Shirt an, das war warm, ne?
+So voll den Bluterguss am Arm gesehen.
+Und der Typ lacht mich so an.
+So, ja, hallo, hallo.
+Und ich denke mir so, alter, der Typ redet nie mit mir.
+Und die reden nie mit mir.
+Was ist denn da los, ja?
+Und ich so, ja, hallo.
+Und lauf so vorbei.
+Ich so, hä, was geht denn ab?
+Und irgendwann ist mir es dann gedämmert.
+Der Typ hat meinen Arm gesehen und hat sich gedacht,
+okay, bei so einem Arm,
+der hat sich bestimmt richtig was reingehauen
+vor noch kurzer Zeit.
+Der gibt mir was ab, wenn ich nett zu dem bin.
+Der hat 100 pro Kalb gehofft, ich hab noch was.
+Und wenn er nett zu mir ist, gibt's was.
+Ist nie wieder vorgekommen danach.
+Also, nachdem der Bluterguss weg war.
+Das sah wirklich eklig aus.
+Das war...
+Das war...
+Das war so quasi vom Ellenbogen ab,
+also innen, der Arm vom Ellenbogen ab,
+so bis den halben Arm runter,
+war das komplett lila, blau, gelb, der Arm.
+Jetzt kommt das örtliche Betäubungsmittel.
+Okay, okay, die Expertin hat's geschafft.
+Das geht jetzt los, ne?
+Dauert insgesamt jetzt um 10 Minuten,
+bis das Kompletthaus ist.
+Ein kleines bisschen ist die Wirbelsäule verdreht unten.
+Das hat uns gerade ein bisschen Probleme gemacht,
+den frischen Raum richtig zu treffen, aber ist alles gut.
+Jetzt hat alles gut geklappt.
+Ist leider heute wahrscheinlich ein bisschen später abgelöst,
+weil Spätdienst richtig blühend besetzt ist,
+wegen Krankmeldung.
+Das dachte ich mir, dass der nicht bei 39 Stunden bleibt.
+Sollten wir eigentlich vor 20 Minuten von hier raus.
+So, möchtest du übernehmen?
+Ja.
+Der *** bekommt einen wahrscheinlich septischen Knietippwechsel.
+Ah, Knietipp, okay.
+Sollte ungefähr zwei Stunden dauern.
+Okay.
+In Ordnung?
+Ja, in Ordnung.
+Alles gut.
+Ja, danke dir.
+Danke.
+Danke.
+Danke.
+Mein Gehalt schwankt jeden Monat tatsächlich.
+Ich habe ein Grundgehalt von 3.448 Euro.
+TVÖD K-Gruppe P08 Stufe 4.
+Die Bezeichnung von den Dingern ist immer richtig.
+Das schreit schon so bürokratisches Zeug hier.
+Aber die heißen ja alle so.
+Und dazu kommen ein paar Zuschlägen.
+Ich habe im Dezember 4.005 Euro brutto verdient.
+Und dann davon 2.703 Euro netto rausgekommen.
+Da kommst du schon mit aus?
+Ist jetzt nicht so, dass du davon jetzt irgendwie reich wirst?
+Habe ich heute halbe Stunde, Überstunden gemacht.
+Ist völlig normal.
+Weil im Spätdienst haben wir nur in der Regel acht Mitarbeiter.
+Wenn davon zwei krank sind und wir weiterhin 15 sehen.
+Also ich würde das für die Kohle nicht machen.
+Sag ich euch ganz ehrlich.
+Ich würde es aber wahrscheinlich für keine Kohle der Welt machen, sowas.
+Betreuen sollten geht es rein.
+Theoretisch auch nicht.
+Aber ich habe bei dem den Eindruck, der macht das, wie soll man das sagen?
+Der macht das professionell, aber auf eine Art und Weise,
+dass die Leute einen guten Eindruck haben, dass sie dort gut aufgehoben sind.
+Das ist jetzt nicht irgendwie so, oh Herr Müller, schön, dass Sie wieder da sind.
+Da kommst du ja auch bescheuert vor, ja.
+Aber du hast den Eindruck, okay, der vermittelt erstens,
+dass er weiß, was er macht.
+Das ist ja ein super Beruhigungsfaktor.
+Stell dir mal vor, du weißt, du bist den Leuten da alle ausgeliefert.
+Und das erste, was du siehst, ist irgendeiner da so wirkt,
+als wüsste er nicht, was er macht.
+Das ist schon mal doof, ja.
+Der wirkt, was er macht.
+Und er gibt den Leuten auch irgendwie so das Gefühl,
+dass das alles gut funktioniert.
+Also hat auf mich so zumindest gewirkt,
+als fühlen sich die Leute da gut aufgehoben.
+Der sieht ganz anders aus ohne Kohle.
+Ohne Kopftuch.
+Meine Frau, wir überlegen mittlerweile,
+dass wir uns eine Wohnung kaufen.
+Und dafür, ja.
+Der sieht viel jünger aus, so ohne Kopftuch.
+Irgendwie, keine Ahnung.
+Jeden Monat.
+Aber halt, bis man darauf kommt,
+dass man 20% von Kreditbetrag halt zusammen kriegt,
+dauert halt noch ein Jahr.
+Er auf Kredite sagt halt immer, jawoll, oh.
+Wir heulen gleich mal.
+Was für eine Feine.
+Ich muss das E-Mode ab und zu mal benutzen, ja.
+Wir heulen gleich mal.
+Den Baller mal raus.
+Instrument, das ich mittlerweile seit ein paar Monaten lerne.
+Das ist eigentlich kein Lied, nur wie gesagt eine Übung.
+Lohnt sich das?
+Das lohnt sich auf jeden Fall.
+Soll ich mehr sagen?
+Soll ich mehr sagen?
+Ja.
+Glaube ja.
+Ich bin mit meinem Gehalt ganz zufrieden, muss ich sagen.
+Könnte es auf jeden Fall.
+Katzenversicherung, ob ich auch eine für meine Katze hab?
+Nee.
+Kann man mehr sagen?
+Aber ich hab keine Katze aktuell mehr.
+Aber das würde wahrscheinlich.
+Chico, weil leider nicht mehr unter uns.
+Seit Dezember letzten Jahres.
+Mein Alltag nicht so viel ändern.
+Oh, I'm no Superman.
+Oh, I'm no Superman.
+Ich dachte, das habt ihr mitbekommen.
+Ich hab's auf Twitter gepostet.
+Ich will das nicht jedem Stream erzählen.
+Sadge.
+Ja, richtig sad.
+Wisst ihr, was richtig sad ist daran?
+Dass Chico bei mir im Kopf immer noch so die neue Katze war, die ich hab.
+Dabei hatte ich die ja mit Abstand am längsten und auch irgendwie schon fünf Jahre oder so.
+Aber irgendwie hatte ich bei Chico immer im Hinterkopf, ah, das ist ja noch meine neue Katze.
+Aber die ist halt auch schon alt gewesen.
+Hat Schilddrüsenprobleme, Nierenprobleme, Blutwerte.
+Chico hatte alles.
+Die hatte vier, fünf Krankheiten.
+Also, Krankheiten kann man nicht sagen.
+Halt, ja doch, Krankheiten.
+Also, ist nicht durch irgendwie Viren verursacht oder so halt.
+All das, all das Probleme.
+Wie alt ist sie geworden?
+Frage, ich glaube, 15.
+Gebrechen, ja, sowas, Erkrankungen.
+Ich glaub, 15.
+Ich werd mir jetzt erstmal keine neue holen.
+Ich wart, ich wart erstmal, ich wart erstmal ein bisschen ab.
+Ähm, was ich tatsächlich jetzt gemacht habe, ist, ich hab an unseren Tierschutz...
+Wie heißen die? Tierschutzverein Seligenstadt oder sowas?
+Nee, Tierschutz...
+Keine Ahnung.
+Ich hab ein bisschen Kohle gespendet, jetzt zweimal.
+Und ich war auch schon zweimal da.
+Und hab mich für eine halbe Stunde bei den Katzen reingehockt.
+Und hab ein bisschen Katzen gestreichelt.
+Und bin dann halt wieder heim.
+Ist halt das Nice.
+Kannst mal ein bisschen Katze streicheln.
+Und die freuen sich ja auch.
+Die haben ja auch nicht den ganzen Tag da Ansprache.
+Die sitzen da halt rum und haben es da aber ganz schön, eigentlich.
+Cats as a Service sozusagen, ja.
+Ich hab das verbunden mit Spendenquittung einsammeln.
+Da gibt's auch Chico.
+Moment.
+Da gibt's auch Chico.
+Jojo und Chico ist das.
+Geboren auch, die sind ja noch ganz junge.
+Sieht ein bisschen aus wie, wie Barbie, die ich davor hatte von den Augenfarben und der Farbe.
+Ja, meine, die vor Chico hieß Barbie.
+Das war die dickste und ähm, klobigste Katze von allen, die ich bisher hatte.
+Aber irgendjemand hat die Barbie genannt, Alter.
+Och ja.
+Ich würd die alle nehmen.
+Das ist das Problem.
+Dann hab ich die...
+Chonkster war das davor, ja.
+Ja, aber Cats as a Service ist eine gute Sache.
+Ich verbinde das jetzt immer mit Spendenquittung abholen und dann mal eine halbe Stunde bei die Katzen hocken.
+Dementsprechend haben die natürlich auch immer Zeit für einen und sind super nett, weil die wissen, man spendet was.
+Wobei die da echt nett sind, auch ohne, dass man was...
+Also ich war das erste Mal ja da, ohne dass ich was gespendet hab.
+Das war ja der Grund, warum ich gesagt hab, ich spend denen mal was.
+Aber Spendenquittung muss sein.
+Für...
+Steuerstells.
+Es gibt leider schon Cats as a Service.
+Das wundert mich nicht.
+Gut.
+Was haben wir denn sonst noch hier?
+Exoskelett ausprobiert.
+Guck mal hier, ich bin...
+Ich bin Iron Man.
+Düt, düt, düt, düt, düt, düt, düt.
+So Exoskeletten, also mit so maschinell angetriebenen Roboteranzügen.
+Das gibt mir jetzt mal...
+Extrem cool.
+Das gibt mir jetzt mal kurz durch.
+Gerade auch, weil das in vielen Filmen wirklich beeindruckend aussieht und den Filmhelden das so viele Möglichkeiten gibt.
+Und wer will denn nicht stärker sein als in echt?
+Was aber auffällt, in fast allen Filmen werden Exoskelette irgendwie militärisch eingesetzt.
+Dabei gibt's ganz...
+Und was auch auffällt, in fast allen Filmen, wo man Exoskelette sieht, sind sie CGI.
+... andere sinnvolle Einsatzmöglichkeiten.
+Und ja, und jetzt konnte ich auf der CES in Las Vegas wirklich mal so ein maschinelles Exoskelett...
+Ich finde, das kann durchaus Sinn machen. Ja.
+Gerade, wenn du schwere Sachen heben musst und sowas.
+Es muss ja...
+Also erstens, es muss ja nicht sein, dass Leute, die körperlich arbeiten, das nicht bis zur Rente machen können, weil sie komplett im Arsch sind.
+Da können sie sowas unterstützen.
+Oder halt auch bei irgendwelchen Räumungsarbeiten und sonstigen Sachen, wo du halt Sachen heben musst, die du so mal easy gar nicht hebst.
+Ich kann mir durchaus vorstellen, dass es da viele Einsatzzwecke für gibt.
+Aber...
+Ja, oder für Leute, die Probleme haben mit dem Laufen.
+Jetzt vielleicht nicht unbedingt für Leute, die gar nicht mehr laufen können.
+Aber für Leute, die Probleme haben langfristig.
+Die haben lange Strecken, selbst zu laufen.
+Kann ich mir durchaus cool vorstellen.
+Wisst ihr, was ich mir aber auch vorstellen kann?
+Dass das in, keine Ahnung, Japan...
+Wenn es das in Japan gibt, dass wir das erst 20 bis 30 Jahre später bei uns in Deutschland haben, dann...
+Weil wir wahrscheinlich wieder 50.000 Sachen dafür neu bürokratisieren müssen, dass das funktioniert bei uns in Deutschland, dass das eingesetzt werden darf.
+Dann brauchen wir bestimmt noch einen Exoskelett-Ethikrat und zig Dinger und alle müssen was zu sagen.
+Und irgendwann haben wir das 30 Jahre später als alle anderen.
+Sollte das kommen.
+Genauer gesagt, dass wir zwei verschiedene Modelle von unterschiedlichen Herstellern ausprobieren können.
+Ein eher preiskünstiges, dass das Laufen um 20...
+Das sieht irgendwie falsch aus.
+Ich weiß nicht.
+Sieht ein bisschen nach Kockerhalter aus, aber...
+Das sieht irgendwie falsch aus.
+... erleichtern soll.
+Und das so klein ist, dass man es in den Rucksack tun kann.
+Und eines, dass in der Pflege und Industrie die Arbeitsbedingungen für das Personal erheblich angenehmer bleiben.
+Rücken, guck mal, kriegst du weniger Rückenprobleme.
+Wenn man so ein Ding anhat...
+Ja genau, sowas wie du brauchst ein Kennzeichen, aber dann darfst du nur auf Fahrradwegen und was auch immer.
+Es wird super abwegig wahrscheinlich in Deutschland wieder werden, sowas einzuführen.
+... spürbarer Unterschied zu ohne.
+Wie das in der echten Welt eingesetzt werden könnte und wie sich das anfühlt, seht ihr gleich.
+Bleibt dran.
+Düt, düt, düt, düt, düt, düt, düt.
+Okay, das geht mal.
+Cringe Intro.
+Glaube ich jedenfalls.
+Der automatisch eure persönlichen Daten aus den Händen von Daten...
+Ach, das hatten wir schon mal.
+Also ich habe auf der CES ja viele neue und beeindruckende Dinge gesehen.
+Unter anderem eben auch Exoskelette.
+Das ist jetzt noch nicht so unbedingt der Mainstream-Tech-Rahmen, den alle zu Hause benutzen wollen,
+aber trotzdem so ein Stück Technik, das in Zukunft...
+Ich würde es benutzen, wenn ich eins hätte.
+... in Zukunft Dinge einfacher machen könnte.
+Ich wollte sowas jedenfalls unbedingt mal ausprobieren.
+Da könnte ich mal beispielsweise die ganzen Teile, die von dem einen Baum noch im Garten liegen,
+selbst heben vielleicht.
+Wobei, die sind so...
+... so übertrieben schwer.
+Das ist jetzt ja nicht so, als könnte ich die nur ansatzweise nicht heben,
+sondern ich kann die halt so komplett unmöglich nicht heben,
+weil so Baumstammdinger, die wiegen halt, keine Ahnung, 300 Kilo oder sowas.
+Da bringt auch ein Exoskelett mich.
+Weil du musst sie ja immer noch mit deinen Händen halten.
+... bei der Firma German Bionic in einer Hotelsuite in Las Vegas.
+Sogar mit Ausblick.
+Ist German Bionic wirklich German?
+Oder haben die einfach nur German im Namen, weil das bei den Amis cool ist, wenn was German ist?
+Nee, das...
+Augsburg, nee, okay, okay.
+Bavaria.
+Ist jetzt vielleicht ein bisschen absurd, als deutscher Tech-Journalist das Produkt einer deutschen Firma in Las Vegas auszuprobieren,
+aber gut, dafür ist die CES ja auch irgendwie da.
+Erstmal wichtig, was genau habe ich da jetzt eigentlich ausprobiert und von wem?
+German Bionic ist, wie der Name schon vermuten lässt, eine deutsche Firma.
+Die haben zwar auch Büros in Japan und den USA, aber der Hauptsitz ist im bayerischen Augsburg.
+Und dort entwickeln die Exoskelette.
+Speziell für die Industrie und für den Einsatz in Pflegeberufen.
+Und das macht German Bionic jetzt seit 2017.
+Diesen Anzug, den ich hier jetzt anhabe, ist die sechste Geräte-Generation.
+Apogee heißt die.
+Die wird übrigens auch in Deutschland hergestellt.
+Und zwar bei MUBEA in Appendorn im Sauerland.
+Übrigens, der Begriff Exoskelett hat mehrere Bedeutungen.
+In der Biologie ist das ein Außenskelett, das tatsächlich sehr häufig in der Natur vorkommt.
+Nämlich bei nahezu allen Gliederfüßlern.
+Also Krebstieren, Spinnen, Skorpionen und bei Rust-Programmierern 1000 Füßlern.
+Wenn ich hier im Video Exoskelett sage, meine ich aber natürlich ein maschinelles Exoskelett.
+Also so ein motorisch angetriebenes Skelett, das meinem integrierten Endoskelett ein bisschen auf die Sprünge hilft.
+Und so ein Exoskelett kann nicht nur meine Kraft verstärken,
+sondern auch die Beweglichkeit verbessern oder sogar verlorene Fähigkeiten wiederherstellen.
+In der Industrie werden Exoskelette eingesetzt, um zum Beispiel bei schweren Hebeaufgaben zu unterstützen
+oder um die Ausführung von Aufgaben zu erleichtern, die über längere Zeiträume hinweg halt ermüden.
+Ja, diese Haltung sieht auch nicht sehr rückenschonend aus, selbst mit Exoskelett.
+German Bionic hat Exoskelette für zwei Bereiche.
+Eins für die Industrie, das heißt Apogee und eins für den Pflegebereich, das heißt Apogee Plus.
+Beide Modelle sind technisch identisch.
+Ich bilde mir ein, es gibt ein Audio Interface, was genau so heißt.
+Ja, fast.
+Liegt nur in der Farbe und darin, dass die Version für die Pflege einfacher zu desinfizieren ist.
+Exoskelette machen also im berufen Sinn, indem man körperlich arbeitet.
+Also zum Beispiel für CT 3003 Redakteure.
+Scherz.
+Also ich habe jedenfalls das neueste Modell Apogee Plus ausprobiert, das speziell für Pflegekräfte entwickelt wurde.
+Eine Sache, die ich ziemlich nützlich fand, war, dass ich mit dem Exoskelett andere Menschen einfacher hochheben kann und sich dann noch so an den Griffen festhalten können.
+Eigentlich eine richtig coole Idee.
+Ein Bett heben, das ist ja in der Pflege eine Standard-Situation.
+Oder? Das ist eine richtig coole Idee.
+Das Exoskelett wiegt allerdings 6,8 Kilo und das merkt man auch schon beim Anziehen.
+Mit Energie versorgt wird das Exoskelett übrigens mit einem handelsüblichen Makita-Werkzeug-Akku.
+Warum nicht? Bietet sich an.
+Sind überall verfügbar, easy in Massen zu bekommen.
+Mit 2,5 Amperestunden.
+Und der soll bis zu 8 Stunden halten und kann während der Benutzung auch so Hotswap-mäßig gewechselt werden.
+Anziehen kann man das Exoskelett im Prinzip wie einen Rucksack.
+Und ja, dann werden die Motoren gestartet und als letzten Schritt werden noch Teile an den Oberschenkeln festgemacht.
+Das sieht hier jetzt noch etwas umständlich aus, aber sowas spielt sich laut German Bionic recht schnell ein und soll nach einigen Malen so etwa 60 Sekunden dauern.
+Und das soll man dann auch problemlos alleine hinkriegen.
+Bisschen futuristisch ist dieses Display.
+Mit dem man das Exoskelett steuern kann.
+Da kann man sich dann per PIN anmelden und dadurch die Einstellungen speichern, auch wenn man sich das Gerät mit anderen Leuten teilt.
+Das erste, was ich mit dem Exoskelett gemacht habe, war einfach mal rumlaufen.
+Dabei kann man einstellen, wie hoch die Unterstützung sein soll.
+Und bei 100% habe ich schon deutlich gemerkt, wie die Motoren meine Beine so nach vorne gezogen haben.
+Seitwärts laufen geht um es auch, bringt aber weniger Unterstützung.
+Und ich muss sagen, das hat halt schon richtig Spaß gemacht.
+Ich hätte das gerne mal ausprobiert, mal so eine richtige Wanderung damit zu machen.
+Ob sozusagen die Erleichterung da ist.
+Dass man dann in den Beinen das Gewicht von fast 7 Kilo ausgleichen kann.
+Ich weiß auch nicht, ob man das selber so einfach beurteilen kann.
+Ich kann auf jeden Fall sagen, es macht großen Spaß.
+Zweiter Anwendungsbereich ist das Senken.
+Also ich habe etwas in der Hand und will das abstellen oder an einen Patienten hinlegen.
+In diesem Fall habe ich es mit einem Wasserkanister ausprobiert.
+Und der Unterschied zwischen 0% Unterstützung und voller Unterstützung war auf jeden Fall auch deutlich spürbar.
+Als drittes habe ich dann das Heben ausprobiert.
+Hier auch mit zwei Kanistern, die je 9 Kilo wiegen.
+Und ja, auch hier war der Unterschied deutlich spürbar.
+Bei 100% Unterstützung bin ich fast gesprungen vor lauter Kraft.
+Die Geräusche, die das Exoskelett macht während der Bewegung, finde ich auch ziemlich cool.
+Und so, ja, so robotermäßig halt.
+Hört mal selbst.
+Noch schwerer war es dann, als ich die Mitarbeiter von German Bionic aus dem Stuhl gehoben habe.
+Klar, das habe ich auch ohne Unterstützung geschafft.
+Bin jetzt aber auch nicht so klein.
+Die Unterstützung habe ich dann aber trotzdem gerne angemacht.
+Also Heben und Senken.
+Da ist die Unterstützung noch stärker als im Gehen.
+Gehen ist sozusagen so ein Nebenaspekt.
+Und diese Heb- und Senkgeschichten, das ist der Hauptanwendungsbereich.
+Ich finde, das ist eine echt gute Idee.
+Das Gerät ist so gebaut, dass die Patientinnen und Patienten beim Greifen keine Körperteile einklemmen können.
+Was ich technisch interessant finde, das Gerät reagiert im Bruchteil einer Sekunde auf meine Bewegung.
+Das heißt, auch wenn ich mitten in der Bewegung stehen bleibe, zieht mich das Exoskelett nicht einfach weiter.
+Also Heben, Senken, Laufen.
+In dem Bereich, in dem das Apogee unterstützt, können auch alle simultan laufen und auch unterschiedlich stark eingestellt werden.
+Das merkt sich das Gerät dann eben über die Pin.
+Ich kann also sagen, ich hätte gern 50% Unterstützung beim Laufen, beim Heben 75% und beim Senken will ich 100%.
+Was auch ziemlich lustig ist, ist die Gamification.
+Also ich kann im Menü Achievement sehen und genau
+Na klar!
+nachverfolgen, wie viele Kilo Traglas mir das Exoskelett seit dem Anziehen abgenommen hat.
+Achievement.
+Bionic war nicht der einzige Hersteller von Exoskeletten auf der CES.
+Es gab auch noch das Exoskelett von V Robotics.
+Also WI Robotics, aber ausgesprochen V.
+Das ist jetzt, sage ich mal, etwas einfacher als das von German Bionic und auch deutlich günstiger.
+Und das unterstützt auch nur beim Laufen.
+Sieht aus wie eine große Powerbank und man zieht sich das dann einfach so über die Beine und läuft dann los.
+Ja, das zeigt noch ein anderes Anwendungsfeld von Exoskeletten.
+Das sieht so falsch aus, irgendwie dieses Ding, ich weiß nicht.
+Genau.
+Dieses Exoskelett macht das Laufen bis zu 20 Prozent einfacher.
+Und ja, ich habe da auch ein bisschen was gemerkt beim Ausprobieren.
+Aber ob das jetzt 20 Prozent waren oder nur 10, das kann ich natürlich schlecht sagen.
+Man merkt aber, dass es nur ein Viertel so viel kostet wie das von V Robotics.
+Die Unterstützung arbeitet nicht so smooth.
+Das heißt, dass der Motor manchmal Dinge machte, die sich für mich und meine Beine nicht so natürlich anfühlten.
+Aber wie gesagt, die Erleichterung konnte ich spüren.
+Und gerade im höheren Alltag könnte sowas ja interessant sein.
+Einfach weiterhin beim ausführlichen Spazierengehen.
+Oder Wandern dabei sein zu können.
+Oder andersrum unterstützt das Modell von V Robotics auch beim Sporttraining.
+Und kann beispielsweise das Laufen unter Wasser simulieren.
+Also schwerer machen für bestimmte Trainingssituationen.
+Ganz ehrlich, das brauche ich nicht.
+Ist mir schon anstrengend genug, wenn ich da mal eine Runde renne.
+Meine Rundenrenne, die muss ich nicht noch künstlich...
+Ich kann einfach schneller rennen, wenn es mir nicht anstrengend genug ist.
+Die können dann auch per App getrackt und eingestellt werden.
+Und jetzt die ganz wichtige Frage.
+Was kostet das jetzt eigentlich?
+Das ist bestimmt schweineteuer.
+Apogee Modelle von German Bionic kosten 10.000 Euro.
+Das ist halt für den Profi-Anwendungsbereich.
+Und noch so ein bisschen Early Adopter-mäßig wahrscheinlich.
+Aber das haut halt schon rein.
+Es gibt die auch als Robotics as a Service.
+Man kann sie also für 400 Euro pro Monat mieten.
+Dabei gibt es regelmäßig Software-Updates over the air.
+Jedes Exoskelett hat so ein LTE-Modul und so ein WLAN-Chip.
+Das Exoskelett von V-Robotics ist eher so ein Alltags- und Sportding.
+Deshalb auch günstiger.
+Das sieht so blöd aus irgendwie. Ich weiß nicht.
+Das sieht einfach verkehrt aus.
+Es soll in diesem Jahr in den USA auf den Markt kommen und ungefähr 2.500 US-Dollar kosten.
+Erscheinungstermin für Europa...
+Ja, da hast du recht. Da hast du recht. Ja.
+Wenn du dir überlegst, dass die Leute länger arbeiten können, weil sie weniger Bandscheiben brauchen.
+Das kann sich durchaus rechnen.
+Wenn man das auf größeren Skalen sieht, kann sich das durchaus lohnen.
+Gibt es aber noch nicht.
+Und wie das bei CES-Produkten manchmal ist.
+Ich würde jetzt nicht meine Hand dafür ins Feuer legen, dass das Teil wirklich dieses Jahr auf den Markt kommt.
+Das ist noch so ein bisschen unklar.
+Mein Fazit.
+Ich finde auf jeden Fall schon beeindruckend, dass man sich so eine Maschine anzieht.
+Das finde ich toll.
+Vor allem mit dem Makita-Akku.
+Das ist eine gute Sache.
+Das hast du überall.
+Gibt es in Massen.
+Findest du in jeder Ecke welche.
+Kannst du online auch easy bestellen.
+Es ist gut, dass es kein eingebauter Akku ist.
+So nach dem Motto, ja, dann müsst ihr halt unseren Replacement-Akku kaufen, der zufälligerweise nur 8.000 Euro kostet.
+Also, da finde ich gut.
+Ich kann mit meinem Körper arbeiten.
+Das fühlt sich schon sehr futuristisch an.
+Und ich kann mir vorstellen, dass vor allem im Bereich Pflege und auch Logistik, da wo wirklich Körperkraft gebraucht wird,
+so ein Exoskelett wirklich sinnvoll eingesetzt werden kann.
+Das werden die auch schon.
+Also ein großer Kunde von German Bionic ist zum Beispiel DPD.
+Das heißt, es kann gut sein, dass irgendein Paket von euch schon mal mit Hilfe eines Exoskeletts angehoben oder verladen wurde.
+Aber was auch ganz klar ist, obwohl das Apogee schon die sechste Generation ist und das Gerät schon viel leichter und unauffälliger geworden ist im Vergleich zur vorherigen Generation.
+Man vergisst so ein Exoskelett nicht, wenn man es am Körper trägt.
+Das wiegt halt fast sieben Kilo.
+Das heißt, man wird die Arbeit, das anzulegen und den ganzen Tag zu tragen, nur aufwenden wollen, wenn es einen wirklich unterstützt bei der Arbeit.
+Also wenn ich schon weiß, ich werde heute mindestens 20 mal einen Menschen hochheben oder 30 mal ein schweres Paket aus dem Regal nehmen.
+Was ich aber gut und wichtig finde, Exoskelette ersetzen keine Menschen.
+Das ist in vielen Berufen nämlich gar nicht sinnvoll oder überhaupt möglich.
+Stellt euch einfach mal die Frage, würdet ihr im Alter lieber vom Roboter oder einem echten Menschen gepflegt werden?
+Oder wenn ihr umzieht, habt ihr lieber einen Menschen, der eure Kisten trägt?
+Oder eine Maschine?
+Und dann ist es halt ziemlich gut, wenn es Technik gibt, die in diesen Berufen den Menschenkörper bestmöglich beschützt.
+Und auch einfach um Kraft zu sparen.
+Also dass man nach so einer 8-Stunden-Schicht einfach dank so eines geht.
+Also ich hätte kein Problem, wenn mein Umzug von einem Roboter gemacht wird, wenn das gut funktioniert.
+Dreht's weniger, müde ist.
+Was meint ihr? Könnt ihr euch vorstellen, auch mal so ein Exoskelett anzuziehen?
+Beim Sport oder beim Nischen?
+Also ohne Scheiß, wenn es die Möglichkeit gäbe, ich würde es auch ausprobieren.
+Zug oder Garten umgraben?
+Schreibt es gerne in die Kommentare.
+Und natürlich auch gerne abonnieren.
+Tschüss!
+Jetzt mal hinknien kannst du dich damit dann aber wahrscheinlich nicht richtig.
+Vom Ansatz her mega nice.
+Guck mal hier!
+Wow!
+Nicht draufdrücken.
+Ich krieg langsam aber sicher mega Hunger.
+Oh, ich geh jetzt was essen.
+Und wenn MMO-Kreiselgrind technisch heute nicht mehr so viel geht,
+dann...
+Machen wir das...
+Command-Line-Tool später weiter.
+Ja, was gibt's heute zu essen? Das ist die Frage.
+Es gibt nicht Nudeln mit Lachs, weil Nudeln mit Lachs gab es letzte Woche.
+Das heißt, wenn es nicht Nudeln mit Lachs gibt, was gibt es dann?
+Nudeln mit Bolognese, korrekt.
+Nudel-Tomaten-Soße. Ja, so sieht's aus.
+Deswegen bann ich den Chain-Door nicht.
+Weiß nicht, irgendwie finde ich seine Sprüche lustig.
+Nein, nein, nein. Es gibt nicht Nudeln.
+Es gibt's...
+Es gibt nicht Play-Nudeln, es gibt Nudeln mit Tomatensoße.
+So.
+Ja, wir haben das doch schon, sowas in der Richtung.
+Nee, brauchen wir nicht.
+Bist du Vordermittel- oder Hinterfußläufer?
+Nachdem mich noch nie einer von außen aufgenommen hat, weiß ich's nicht.
+Also...
+Ich versuche...
+so gut wie möglich mittig aufzutreten.
+Klappt sicherlich nicht immer.
+Aber ich merke, wenn ich versuche, ordentlich zu laufen,
+also das heißt ordentlich von der Haltung her und ordentlich vom Aufsetzen her,
+dass einem die Beine weniger wehtun
+und das entspannender ist, also...
+Es macht schon ein bisschen Sinn, darauf zu achten,
+dass man nicht komplett schepp rumrennt.
+Lasst mich mal kurz in die App gucken.
+Da geh ich was futtern.
+Was war denn heute?
+Ja, heute war ich nur knapp 50 Minuten unterwegs.
+Oh, Garmin sagt, man kann mein Training optimisen.
+Und zwar, sie sagen...
+Okay, hä?
+Eben hat's noch gesagt, es kann was verbessern.
+Und jetzt sagt's, your current training load is optimal.
+Ja, was denn jetzt?
+Ist es optimal oder nicht?
+Okay, jetzt sagt es, auf dem nächsten Bild sagt es wieder, dass es nicht optimal ist.
+Okay, ich habe zu wenig low aerobic und anaerobic Training.
+Ich habe dafür zu viel high aerobic Training.
+Okay.
+Ich muss mal ein bisschen mehr sprinten und Pause machen und sprinten und Pause machen.
+Und ein bisschen mehr lahm rennen.
+Ah ja.
+Mein Garmin, das Energielevel checkt das eh nicht.
+Und zwar, ich bin mal mit dem Garmin Edge Fahrrad gefahren.
+Und der hat mir irgendwann angezeigt, dass mein Energielevel auf Null ist.
+Schon bevor ich daheim war.
+Und da habe ich mir gedacht, okay...
+Also...
+Und jetzt?
+Soll ich jetzt einfach eine Runde pennen hier?
+Ne, also das hat er nicht...
+Das ist falsch, wie ich euch das erzählt habe.
+Das habe ich erst im Nachhinein in der Statistik gesehen, dass mein Energielevel da schon auf Null war.
+Das lag da dran.
+Ich bin gerannt.
+Und irgendwie einen Tag später.
+Und dann sagt er immer Erholung 48 Stunden oder sowas.
+Und danach bin ich gleich am nächsten Tag...
+Bin ich 52 Kilometer oder wie lange das war irgendwie Fahrrad gefahren.
+Halt mit Berg hoch.
+Und das war auch schon ein anstrengendes Fakt.
+Das war das, wo ich nicht die Strecke fahren konnte, wie ich wollte.
+Sondern gleich wieder zurückfahren musste.
+Deswegen war die viel länger.
+Es war schon anstrengend.
+Es war aber nicht bei Null.
+Also ich konnte den Tag danach ohne Probleme noch laufen und alles machen.
+Also rumlaufen.
+Und alles machen, was ich wollte.
+Ja, das ist nicht immer so hundertprozentig akkurat.
+Ich weiß nicht, ob das so Poggers ist, wenn das so wäre.
+Das wäre eher Keck Wade.
+Moin Michael.
+Du kommst gerade richtig, weil ich gehe jetzt auf was essen.
+Ach, du bist schon...
+Dann habe ich es nicht gesehen.
+Nudel mit Lachs.
+Nein, Spaghetti mit Tomatensauce.
+Was ist das für eine Garmin-Watch?
+Das ist eine Garmin...
+4Runner 255S.
+Finde ich ist eine gute Kombination aus Preis und was man dafür kriegt.
+Weil die Apple Watch so geringe Akkulaufzeit hat.
+Die hält ja nicht mal richtig den Tag durch.
+Und ich finde es von den Funktionen her auch richtig nice.
+Ja, die kostet bei Amazon wenig.
+Die kostet bei Amazon weniger.
+Die ist...
+Blödsinnig, dass es offizieller Hersteller sein ist.
+Danke.
+Guck.
+270 Euro. Ich finde, das ist ein echt ganz okayer Preis für das, was man bekommt.
+Hat auch nicht umsonst so viel gute Bewertung.
+Also ich finde die gut. Ich würde die mir wieder kaufen.
+Gerade Customisability ist halt mega.
+Und Akkulaufzeit. Akkulaufzeit ist eine Woche.
+Selbst wenn du die ab und zu verwendest.
+Nicht so wie bei der Apple Watch, die du permanent aufladen musst.
+Also für meine Zwecke finde ich die nice.
+Lasst uns gerade noch mal gucken, bevor ich was essen gehe.
+Gibt es zur Abwechslung mal wieder Fahrräder in meiner Größe?
+Nö, meine Größe gibt es angeblich gar nicht mehr.
+Tja.
+Ich meine, ich habe immer noch kein neues Fahrrad.
+Altes ist ja...
+nicht mehr straßentauglich.
+Also mein altes.
+Mein altes, was ich letztes Jahr im September oder so gekauft habe.
+Ja, genau.
+Haben die irgendwas Neues oder so?
+Einfach nicht richtig lieferbar, ja?
+Ja, das...
+Einfach nicht richtig lieferbar.
+Ist aber ziemlich kacke, so.
+Alter, die Seite ist auch echt pipega.
+Hier vielleicht was lieferbar.
+Ja.
+Von denen vielleicht was.
+Ne, klatscht die Pfeile nicht.
+Das ist mechanisch.
+Da habe ich auch keinen Bock mehr drauf.
+Wenn man einmal eine elektronische Schaltung hatte,
+findet man das nice.
+Ach nee, hier oben.
+Ah, einmal 12 mit...
+SRAM gibt es?
+Gibt es...
+Available in 7 weeks, Mann.
+Ne, gibt nichts.
+Sad Game.
+Ups.
+Was will denn YouTube jetzt von mir?
+Reject.
+Oh, das wollte ich nicht aufmachen.
+Okay, Leute.
+Schön, dass ihr da wart.
+Vielleicht.
+Ich will euch nicht zu viel versprechen.
+Wenn MMO-technisch heute nicht so viel geht,
+programmieren wir nachher das CLI-Tool weiter.
+Eigentlich habe ich da richtig Spock drauf.
+Ich habe auch schon die ersten Beta-Tester auf der Arbeit,
+die das verwenden.
+Und es funktioniert bis jetzt auch.
+Sollen wir was ordentliches draus basteln.
+Okay.
+Alles klar, Leute.
+Bis vielleicht später.
+Wir sehen uns.
+CU.
