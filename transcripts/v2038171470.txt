@@ -1,0 +1,2095 @@
+So, bin ich am Start.
+Go Wizard, danke schön für den Sub.
+Leute, das ist heute ein, wie nennt man das?
+Requested Stream.
+Letzte Woche?
+Ich weiß nicht, es könnte letzten Sonntag gewesen sein.
+Möb, danke schön für den Sub.
+Könnte letzten Sonntag gewesen sein.
+Da war, ich krieg's gar nicht mehr genau so zusammen.
+Also irgendwie haben ein paar Leute was wissen wollen wegen Let's Encrypt im Chat.
+Und ich hab ihnen gesagt, guckt euch mal den alten Stream an.
+Irgendwie haben sie nicht gecheckt.
+Und da hab ich gesagt, wisst ihr was?
+Ich mach das einfach nochmal neu.
+Könnt ihr zugucken.
+Ich weiß gar nicht, ob derjenige oder diejenigen überhaupt da sind, Leute.
+Aber ich hab gesagt, ich mach das jetzt nochmal.
+Und das Schöne an Let's Encrypt ist, dass ich das relativ easy aus dem Ärmel schütteln kann.
+Und so zeigen, wo ich mir nix im Vorfeld großartig überlegen muss.
+Was gerade ein bisschen schwierig ist.
+Neben Kreisel, Grind, YouTube, Streams und Arbeiten gehen.
+Da noch 5-Head-Content mir auszudenken.
+Also, deswegen machen wir heute eine Runde Let's Encrypt.
+Ne, NPM machen wir heute nicht.
+Auf JavaScript hab ich heute keinen Bock.
+Das können wir machen.
+Also ich hab mir zwei Sachen überlegt.
+Ich hab mir zwei Sachen überlegt.
+Also, wir machen zwei Sachen.
+Also die einfachste Variante ist, ich hab einen Public Server angelegt hier bei Hetzner.
+Und da machen wir die Easy-Mode-Sache.
+So.
+Das Zweite ist, ich zeige euch, wie man das rein intern macht.
+Weil das haben ja auch einige wissen wollen.
+Wie man beispielsweise für interne Services sich Let's Encrypt-Zertifikate ausstellen lassen kann.
+Leute, ich hab ein Problem.
+Ich kann euch auch erzählen, was.
+Ich hab einen Knoten in der Hose, den krieg ich nicht auf.
+So.
+Weil er jetzt was Falsches denkt.
+Also eben da, wo man die enger und weiter macht.
+Und ich hab mich gerade so voll gefressen.
+Und jetzt ist das zu eng.
+Das Problem ist, das ist so ein ganz dünner Kordel ist das nur.
+Und das drückt jetzt voll den Bauch.
+Und ich hab es natürlich nicht ordentlich gebunden, dass man es aufkriegt.
+Das heißt, ich krieg es jetzt.
+Gar nicht richtig auf.
+Aber ich muss es auf.
+Gibt es zwei Varianten.
+Es gibt jetzt gibt es zwei Varianten.
+Entweder ziehe ich die Hose aus.
+Na ja, ganz warm genug ist es nicht.
+Oder ich kriege diesen komischen Knoten auf.
+Wie war der Spruch mit der Kordel?
+Ach, mein Opa.
+Ja, ja, jetzt verstehe ich das.
+Das hat mein Opa also gemeint.
+Ja.
+Ja, stimmt.
+Jetzt.
+Jetzt ergibt alles Sinn, ja.
+Also für die Nicht-Eingeweihten.
+So eine Sache, die ich hier schon öfters erzählt habe, ist.
+An das Trinken, ja, ich hab hier alles da.
+Eine Sache, die ich schon öfters erzählt habe, ist.
+Polyfisch, danke schön für den Sub.
+Wear Linux, hier.
+Sache, die ich schon öfters erzählt habe, ist.
+Mein Opa hat immer erzählt, er hatte so einen Standardspruch gehabt.
+So, wenn irgendwie was nicht so ging, wie ich mir das vorgestellt habe.
+Und so.
+So, dann musste er mir immer mitteilen, so nach dem Motto, ja, später im Leben, so.
+Da kannst du dies auch nicht immer aussuchen, so.
+Und er hatte, und er hatte halt immer, immer, immer schon so den Standardspruch gehabt.
+Dann wirst, du wirst später nochmal schwer Kordel nachgeben müssen, so.
+Und das ging dann immer so von, bei meinem Opa, so nach dem Motto.
+Ja, warte mal ab, bis du, wahrscheinlich hat er das schon zum Kindergarten gesagt.
+Ich weiß es nicht, ja.
+Da kann ich mich nicht dran erinnern.
+So, warte mal, bis du in den Kindergarten kommst.
+Da musst du schwer Kordel nachgeben, so.
+Warte mal, bis du in die Schule hast.
+Da kann ich mich dran erinnern.
+Warte mal, bis du in die Schule kommst.
+Bis du in die Schule kommst, da musst du schwer Kordel nachgeben.
+Ja, warte mal, bis du in die weiterführende Schule kommst.
+Da musst du schwer Kordel nachgeben, so.
+Ja, ist immer nicht passiert.
+Warte mal, bis du arbeiten gehst, bis du deine Ausbildung machst.
+Da musst du, es ist bisher nie eingetreten.
+Aber heute ergibt das alles Sinn.
+Mein Opa hat schon prediktet, dass ich zu Pepo fett bin.
+Für diese Hose.
+Deswegen hat er mir das 20 Jahre lang erzählt, ja.
+Easy.
+Exposed.
+So, gut.
+Ich hab's aufgekriegt.
+Nice.
+Also.
+Wir werden heute zwei Sachen machen.
+Auf die Nachfrage.
+Jetzt erst mal Chat, Chat.
+Irgendjemand von den Let's Encrypt Enjoyers von letzter Woche im Stream.
+Weil für euch mach ich den Stream.
+Letzte Woche haben sich Leute im Chat über Let's Encrypt unterhalten.
+Und als ich gesagt hab, ich hab da schon mal Streams drüber gemacht,
+haben sie es irgendwie nicht gecheckt.
+Wobei, keiner outet sich jetzt als jemand, der es nicht gecheckt hat.
+Ähm, ja.
+Vielleicht ist irgendjemand dabei.
+Und ich dachte mir, ich kann das nochmal schnell machen.
+Das ist kein großer Akt.
+Da muss ich mir auch im Vorfeld nichts Großartiges überlegen.
+Aber, ich hab mir tatsächlich im Vorfeld ein bisschen was überlegt.
+Nämlich, ich dachte mir, es ist so, es ist ein bisschen doof.
+Ich kann euch ja gar nicht immer nur die Hälfte zeigen,
+weil ich ja sonst irgendwelche API-Keys leake oder sowas.
+Deswegen machen wir das heute.
+In einer ganz speziellen Kombination.
+Nämlich eine Domain, die ich schon gekauft hab.
+Weil ich kann nicht live im Stream eine Domain kaufen.
+Ja, Paymentinformationen, alles mögliche.
+Domain, die ich schon gekauft hab.
+Domain kaufen traue ich jedem zu.
+Und ich kann euch aber das API-Token zeigen.
+Wir machen das nämlich über Cloudflare.
+Cloudflare hat die Möglichkeit, seine API-Tokens ordentlich abzusichern.
+Mit, ähm, Source-IP und...
+Gültigkeitsdatum und dass es sich auch nur auf DNS bezieht und sowas.
+Ich kann euch nämlich das komplette Setup zeigen, inklusive dem API-Token.
+Das heißt, ich werde meine API-Token leaken,
+aber ihr könnt mit dem API-Token nichts anfangen.
+Und selbst, wenn ihr damit was anfangen könnt,
+könnt ihr höchstens für pricechamp oder pricechamp.org irgendeine Subdomain setzen.
+Ich glaube, das hält sich in Grenzen, das, was man damit machen kann.
+So, jetzt müssen wir vorher aber noch mal eine Sache schnell machen.
+Wobei, nee, ich mach kein System-Update.
+Es ist Arch, by the way, aber lasst mal kurz mal checken.
+Ich hab nämlich schon eine Weile nicht mehr.
+Okay, klar. Nein, wir machen jetzt kein Arch-Linux-Update,
+weil ich bin hier eingeloggt bei...
+Ich bin in Cloudflare eingeloggt und das ist ein, äh, Inkognito-Tab.
+Sonst muss ich mich nachher wieder neu einloggen,
+sonst hab ich keinen Bock drauf.
+So, hier.
+Anderen Krempel können wir eigentlich mal alles zumachen.
+Jetzt sind wir hier.
+Also, für alle, die noch gar keine Ahnung davon haben,
+werde ich euch mal ganz kurz erzählen, was Let's Encrypt ist und was man damit machen kann.
+Oder wissen alle Bescheid?
+Da kann ich mir doch sparen, Chatge.
+High IQ oder not high IQ?
+Okay.
+Genau.
+Kurzform ist, es gibt gratis Zertifikate.
+Not high IQ.
+Okay.
+Also, Let's Encrypt ist...
+Warum machen wir die Seite auf von denen?
+Weil die Leute dabei sind.
+Ähm, wo hatte ich denn das eben auf?
+Hier.
+Also, Let's Encrypt sagt...
+Oh, guck mal, die haben ja sogar so eine Seite auf Deutsch.
+Die habe ich, glaube ich, noch nie gesehen.
+Also, Let's Encrypt sagt selbst über sich, eine Non-Profit-Organisation,
+die TLS-Zertifikate für Blablabla-Webseiten bereitstellt.
+Das ist der Kern.
+Vielleicht erinnert sich noch der ein oder andere früher.
+Vielleicht hatte mal irgendwie einer von euch vor längerer Zeit bei Strato oder sowas,
+wo die Leute sich damals immer Webseiten geholt haben.
+Irgendjemand, irgendwelche alten Strato-Enjoyers.
+Zumindest, da war das oftmals so, dass wenn du eben HTTPS anschalten wolltest,
+also TLS im Browser, dass du ein gültiges Zertifikat hast.
+So, dass es dann da oben in deinem Browser so aussieht, ja.
+Dass du dann hier so ein schönes Häkchen hast,
+sodass du nachgucken kannst, Zertifikatsinformationen.
+Übrigens, das Zertifikat von Let's Encrypt ist auch ausgestellt von Let's Encrypt immerhin.
+Die benutzen ihr eigenes Zeug.
+Und damals war das ein bisschen problematisch.
+Damals musstest du dir entweder dieses gratis Zertifikat-Generating-Zeug von deinem Hoster verwenden,
+oder du musstest dir selbst irgendwo ein Zertifikat kaufen.
+Das war alles immer wahnsinnig umständlich und hat Geld gekostet.
+Und ehrlich gesagt war das auch nicht besser als irgendwelche kostenlosen Zertifikate.
+Es ist nämlich so,
+ihr könnt euch ohne Probleme sowas selbst ausstellen.
+Ganz ohne Let's Encrypt, ohne alles.
+Ihr könnt ohne Probleme lokal hier mit OpenSSL, könnt ihr selbst Zertifikate generieren.
+Das ist überhaupt kein Ding.
+Das Problem ist nur, wenn ihr dann damit drauf geht mit dem Browser,
+dann wird euer Browser sagen, diese Webseite ist, was sagen die da mittlerweile?
+Dankeschön Splixer für den Sub.
+Was sagt da Firefox mittlerweile?
+Es gibt doch, Moment, Moment, Expired Cert Test.
+Da gibt es doch so eine BadSSL, genau das meine ich.
+Hier, Expired.
+Wenn ihr auf einer Webseite, habt ihr bestimmt alle schon gesehen,
+wenn ihr auf einer Webseite, Expired kann ja auch sein, untrusted root, das brauchen wir.
+Wenn ihr auf eine Webseite geht, dann kriegt ihr dann so eine komische Fehlermeldung.
+Und das liegt daran, nicht weil das Zertifikat irgendwie ungültig wäre, nicht korrekt ausgestellt wäre,
+die irgendwie fehlerhaft ist oder so, das liegt daran,
+dass die Zertifizierungsstelle, die das Zertifikat ausgestellt hat, nicht getrusted ist von eurem Browser.
+Es ist egal, ob es der Browser ist, es kann auch euer Betriebssystem sein, es kann auch Java sein oder was auch immer.
+Alle haben so einen Default Trust Store mit ein paar Zertifikatsausstellern, denen vertraut wird.
+Also sprich, wenn Zertifikate, wenn Webseiten Zertifikate, SSL Zertifikate von diesen Stellen ausgestellt werden,
+dann wird denen vertraut. Unter Linux liegt das Ganze, glaube ich, unter etc.ssl.certs.
+Ja, genau, also hier seht ihr alle Aussteller, denen Linux standardmäßig vertraut.
+Ja, da sind dann auch so All-Time Favorites drin, wie Komodo und so, nee, nee, wie die, komm.
+Oder sind die gar nicht mehr drin, kann das sein? Vielleicht sind die gar nicht mehr drin oder irgendwie.
+Ja, ah, da steht wahrscheinlich, da ist doch hier Komodo, warum findet er das nicht?
+Komodo? Hä? Ich bin einfach Noob, ich habe es einfach nicht gesehen.
+Ja, da sind dann so die All-Time Favorites drin, wie Komodo oder sowas.
+Ich nehme mal Komodo als Beispiel, weil das ein schönes, weil die ein schönes Beispiel dafür sind,
+dass auch eine super teure Professional Zertifizierungsstelle,
+äh, auch Probleme haben kann, weil Komodo wurde mal ihr Private Key geklaut.
+Falls ich da noch irgendjemand, erinnert sich noch jemand dran? An die, an die Geschichte?
+Komodo Private Key League, das ist schon einige Jahre her.
+Zumindest, die haben auch damals ihr Zeug verloren und da sieht man, dass es, also, nur weil es Geld kostet,
+ist es prinzipiell auch nicht irgendwie super, super krass secure auf einmal.
+So, und hier habt ihr beispielsweise alle Sachen, denen Linux standardmäßig vertraut.
+Euer Browser hat auch sowas, Firefox hat sowas, Chrome hat sowas.
+Und wenn ihr euch selbst Zertifikate ausstellt, dann sieht es halt so aus, oftmals, wenn ihr mit dem Browser drauf geht,
+weil dort, wo ihr das Zertifikat ausgestellt habt, bei euch lokal, dem vertraut der Browser halt nicht.
+Man kann das ändern, man kann seine eigene interne Zertifizierungsstelle,
+in den Trust so aufnehmen.
+Das ist aber sehr mühselig, wenn man nicht grad irgendwie intern alles per Active Directory verteilt und sowas.
+Aber ihr kennt mich, ich mach einen ganz großen Bogen um alle möglichen Microsoft-Shits.
+Es ist kacke, ja. Also, das Beste ist, man hat ein gültiges Zertifikat.
+Und ein gültiges Zertifikat, beziehungsweise ein, was soll ich sagen, gültig, also nicht nur gültig vom Zeitraum her, sondern auch gültig vom Aussteller her ist,
+wenn man das eben von einer vertrauenswürdigen Zertifizierungsstelle ausstellt.
+Und früher gab es sowas nicht kostenlos. Früher musstest du zu Komodo, zu wie, wie hießen die? Trusts?
+Wie hießen die anderen, die damals zu Strato-Zeiten noch voll beliebt waren, wo fast jeder was hatte, weil's im Basic-Web-Hosting-Paket drinne war?
+VeriSign, das kann sein. Jaja, ich glaub VeriSign, VeriSign ist das.
+Man muss das Ding, man muss das Geld dafür bezahlen. Das ist natürlich doof.
+Warum es immer noch kostenpflichtige Zertifikate gibt, das ist eine sehr gute Frage.
+Ich versuche, ich versuche das gleich mal zu beantworten, aus Sicht von Business-Enterprise-Leuten, weil ich hab die Diskussion oft genug mitgekriegt.
+Also, es gab lange Zeit keine Zertifizierungsstelle, die das Ganze kostenlos angeboten hat.
+Seit ein paar Jahren gibt es Let's Encrypt. Let's Encrypt kann jeder sich Zertifikate ausstellen lassen und Let's Encrypt ist getrusted von allen Browsern auf der Welt.
+Dementsprechend bekommt ihr keine Fehlermeldung, wenn ihr auf Webseiten geht, die Let's Encrypt Zertifikate verwenden, sondern einfach so gültig es passt.
+So. Es gibt jetzt zwei Probleme. Die Leute... Ist die Musik laut? Warum ist sie so laut?
+Nee, besser.
+Es gibt jetzt zwei Probleme, die viele Leute haben, die neu sind, was Let's Encrypt angeht.
+Das ist einmal so die generelle Bedienung, so nach dem Motto, was muss ich denn jetzt überhaupt machen?
+Und wenn das die Leute rausgekriegt haben, das zweite Problem ist, ja gut, ich hab jetzt eine Domain und will ein Zertifikat für, aber ich verwende die Domain ja gar nicht extern, ich verwende die plus intern.
+Und da fängt es auch bei vielen an, da wissen sie nicht, was sie machen sollen und die zwei Sachen gucken wir uns heute an.
+Gucken wir uns heute an in einer Kombination aus Sachen, die ich mir im Vorfeld überlegt habe, weil es gibt ja viele Varianten, wie man und wo man das benutzen kann.
+Und auf die Frage hin, warum die Leute immer und was der Sinn von kostenpflichtigen Zertifikaten ist, es gibt ja verschiedenste Arten von...
+Naja, verschiedenste Arten von Zertifikaten ist vielleicht verkehrt.
+Verschiedene Verwendungszwecke, sagen wir mal, für Zertifikate.
+Zum Beispiel für...
+ähm...
+Signing und solche Geschichten und es gibt ein paar Anwendungsfälle, die unterstützt Let's Encrypt nicht.
+Also dafür macht das durchaus Sinn, ein kostenpflichtiges Zertifikat zu benutzen, allgemein.
+Und die Diskussion habe ich bei meinem alten Arbeitgeber mitgekriegt, gibt es immer noch Leute, die der Meinung sind, nur gekaufte Zertifikate sind gute Zertifikate.
+Das ist jetzt kein Witz, wir können das vielleicht nicht so richtig nachvollziehen, aber das gibt es wirklich und zwar...
+Bei meinem letzten Arbeitgeber, da waren wir bei...
+Ich kann mich gar nicht mehr erinnern.
+Was gibt es denn so für große...
+Weiß ich gar nicht.
+Ich habe keine Ahnung, ist auch vollkommen egal, wo wir gewesen sind, ich weiß es echt nicht mehr.
+Ähm...
+Also wir hatten auch ein paar bei Komodo, aber wir hatten danach, was hatten wir denn? Ich weiß es gar nicht mehr.
+Ist auch wurscht.
+Ist auch wurscht.
+Und das Ding ist bloß, wir hatten ein Team, oder zumindest ein Subteam dort, was sich um Zertifikatsbeschaffung und Zertifikatserneuerung und so gekümmert hat.
+Und die waren ganz große Verfechter daran, dass nur gekaufte Zertifikate gute Zertifikate sind.
+Das lag unter anderem daran, weil Let's Encrypt quasi das komplette Team hätte überflüssig gemacht, weil bei Let's Encrypt ist es halt mit dem Ausstellen und dem Erneuern meistens relativ easy.
+Dementsprechend ist das ziemlich bescheuert gewesen, aber die haben es halt geschafft, das so zu verbreiten, so dieses nur gekaufte Zertifikate sind gute Zertifikate, dass das gerade auch auf Management-Ebene geglaubt wurde.
+So ein gekauftes Zertifikat für den Einsatz hier beispielsweise für SSL oder Webseite, es ist vollkommen egal, es macht überhaupt keinen Unterschied, wo das herkommt.
+Das Zertifikat ist nicht besser und es ist nicht schlecht, ob du dafür Geld ausgeben oder sonst was.
+Entweder ist es in deinem Trust-Store drinne von dem, was du verwendest oder nicht.
+Und Let's Encrypt ist in... keine Ahnung, mir fällt nichts ein, wo Let's Encrypt nicht trusted ist mittlerweile.
+Und deswegen ist Let's Encrypt wirklich eine super Sache und Erleichterung, seit es das gibt.
+Äh, keine Ahnung. Ich habe ehrlich gesagt... ich überlege gerade, was das ist. Keine Ahnung. Ich weiß aus dem Kopf noch nicht mal, was der Unterschied ist.
+Sind das welche, die... ähm, wo nochmal besonders geprüft wird dahinter?
+Ist das die Geschichte mit besonders kompliziertem... mit besonders kompliziertem Verifizierungsprozess? Sind das die?
+Es gibt ja welche... ja genau, das da... dann war ich jetzt... da war ich zumindest nicht ganz falsch, ja genau.
+Boah, ehrlich gesagt, eigentlich finde ich es für'n Arsch. Es sei denn, es ist für diesen einen Einsatzzweck aus irgendwelchen Gründen notwendig.
+Weil, es juckt doch keinen. Ja, solange es um normale Zertifikate im Browser geht, entweder Browser trusted der ganzen Sache oder nicht.
+Es ist ja... ich meine, niemand überprüft... also, es fängt ja schon an. Niemand guckt sich überhaupt Zertifikate an, solange das alles gut aussieht.
+Und noch weniger, von den paar, die da reingucken, checken, ob das irgendwie ein super spezielles Zertifikat ist.
+Ansonsten, pff, ich... ich vermag das jetzt nicht richtig einzuschätzen, ob es da sinnvolle Anwendungszwecke für gibt oder nicht.
+Also, ich fahre seit Jahren mit Let's Encrypt wirklich gut. Und ich verwende auch auf der Arbeit, wo es geht, Let's Encrypt.
+Auch auf der alten Arbeit, wo es geht, Let's Encrypt, weil da nicht irgendwelche Leute am Start...
+Also, dort, wo nicht irgendwelche Leute am Start sind, die sagen nur, gekaufte Zertifikate sind coole Zertifikate.
+Ich mag auch Wildcard-Zertifikate. Vielleicht machen wir heute sogar Wildcard-Zertifikate. Ich weiß schon nicht genau.
+So, also. Okay, great. Auf geht's.
+Ich hab mir folgendes ausgedacht.
+Wir benutzen eine Kombination aus Services, wo ich mir denke oder denken kann, dass das auch eine Kombination ist, die viele Leute privat benutzen sollen.
+Das ist... das eine ist, wir benutzen Cloudflare für... als Domainregistrar und DNS. Ja.
+Und wir benutzen intern später Nginx Proxima.
+Nginx Manager als Frontend.
+Ich glaube, das ist eine Kombination, die relativ verbreitet ist, gerade im Heimbereich, bei vielen Leuten.
+Deswegen geh ich mal von außen nicht verkehrt, wenn wir das hier auch so machen.
+Benutzt das jemand von euch? Also, ich hab das bei mir daheim auch im Einsatz.
+Yellow User... naja, ich hab gesagt, ich zeig das nochmal. Es kann ja keiner immer von Geburt an wissen, wie man Let's Encrypt-Zertifikate ausstellt.
+Aber ist halt buggy ohne Ende, ja.
+Weiß ich nicht. Es gab ein paar Security-Probleme in letzter Zeit damit. Ich hatte damit noch keine Schmerzen bisher.
+Für den Heimeinsatz finde ich das ganz gut. Also, die zwei Sachen. Ich hab eine Domain registriert bei Cloudflare.
+Den Domainregistrierungsprozess, den kann ich euch nicht zeigen. Wieso benutzt du nicht HA-Proxy?
+Weil das mit HA-Proxy komplizierter ist. Wenn du HA-Proxy Let's Encrypt machen willst, dann musst du dich ja komplett selbst drum kümmern, wie du das handelst.
+Also brauchst du dann im Endeffekt irgendwas wie Certbot, was das Zertifikatshandling macht und den anschließenden HA-Proxy neu startet.
+Das ist auch mal was, was wir machen können. Für daheim finde ich das in Kombination hier super easy.
+Installiert, Key eingetragen, Zertifikat ausgestellt, wo es hin geproxied werden soll, fertig.
+Nein, heute kein Keck WSS-Service.
+Das geht übrigens mit allem, ja. Also, es ist jetzt... ups. Es ist egal, ob es HA-Proxy ist oder... oder, ähm, Nginx.
+Oder Apache oder irgendeine Anwendung, die Zertifikate frisst mit Webserver. Du kannst Let's Encrypt mit allem machen.
+Bei manchen... bei manchen ist es ein bisschen schwieriger, weil du dich halt noch um so Sachen wie Zertifikatserneuerung und dann anschließend ins Anwendungs starten selbst kümmern musst.
+Aber spricht ja nichts dagegen. Kann man ja machen, je nachdem, was man verwenden will.
+Hat Cloudfile nicht was eigenes? Keine Ahnung. Gut möglich.
+Nginx einfacher als Traffic?
+Kommt drauf an. Für was? Das kann man pauschal nicht beantworten.
+Kommt drauf an, was du machen willst.
+Also, wenn du... wenn du noch ein bisschen... äh... advancedere Config mit irgendwie einem größeren Docker-Compose-File hast und willst, dass dein Traffic die Container automatisch discovert und sowas, dann ist Traffic wahrscheinlich einfacher.
+Wobei ich komplett weg bin von Docker-Compose mittlerweile, um bei mir daheim irgendwas laufen zu lassen.
+Und das ohne Kubernetes.
+Also, Traffic ist je nach Einsatzzweck einfacher.
+So generell gesagt finde ich allerdings Nginx einfacher.
+Und man darf sich hier bei dem Namen nicht täuschen lassen.
+Nur weil das Ding Nginx-Proxy-Manager heißt, heißt das nicht, dass du großartig was mit Nginx zu tun hast.
+Das basiert auf einem Nginx als Reverse-Proxy, aber es ist ein Web-Interface, was du ganz normal über einen Browser bedienen kannst,
+ohne dass du dich großartig mit beschäftigen musst.
+Für Kubernetes ist dein Kubernetes-Repo eine gute Referenz.
+Ich... ich vergaß... wir haben ja auch schon mal mit Kubernetes Let's Encrypt gemacht.
+Keckrate habe ich ja schon komplett... komplett vergessen.
+Also, Third-Bot finde ich etwas painstampig, weil bei Third-Bot musst du dich ja noch um viele Sachen selbst kümmern.
+Zum Beispiel du brauchst irgendeinen Post-Renew-Hook.
+Um deinen Service neu zu starten und sowas.
+Das ist alles kein Ding, das ist nicht sonderlich schwierig.
+Aber das musst du machen.
+Wenn du Sachen benutzt, wo halt alles eingebaut ist, dann musst du dich da gar nicht erst drum kümmern.
+Ansonsten ist Third-Bot, finde ich, immer ein bisschen painstamp.
+Third-Bot ist natürlich die universellste Variante.
+Das geht mit allem.
+Ja, das haben wir uns sogar im Stream schon angeschaut.
+Dokke.
+Okay, alles klar.
+Also, ihr habt euch eine Domain gekauft.
+In dem Fall habe ich mir die Domain hier gekauft.
+Die habe ich mir nicht jetzt gekauft, die habe ich schon eine Weile.
+Da gab es ja auch mal mein Grafikkarten-Preise-Nachguck-Tool.
+Was es nicht mehr gibt.
+War unter der Domain.
+Ihr seht, es gibt keine DNS-Einträge und sonst was.
+Es ist eine Domain, die habe ich gekauft über Cloudflare.
+Cloudflare macht auch den DNS, wie man hier sieht.
+Und ich glaube, dass das was ist, was auch viele Leute privat benutzen.
+Es ist aber egal, ob ihr das privat benutzt oder nicht.
+Wichtig ist, ihr braucht...
+Ihr braucht irgendein Domain-Registrar, der eine DNS-API anbietet.
+Für das, was wir später machen wollen.
+Und das sind zu 99.
+Also, mir fällt kein Domain-Registrar ein, der heutzutage keine DNS-API anbietet.
+Warum man das braucht, werdet ihr gleich sehen.
+Beziehungsweise später sehen, warum es ohne nicht geht.
+Ja.
+pricejam.org
+Domain habe ich mir vor ein paar Jahren gekauft.
+Es gibt aktuell keine DNS-Einträge und nichts.
+Und ich habe mir einen Server erstellt bei Hetzner.
+Die Kiste hier.
+Da ist...
+Ich installiere mal kurz ein T-Max drauf, dass ich mehrere Sachen starten kann.
+So.
+Da ist nichts drauf.
+Das ist ein nackiges...
+Ein nackiges Debian 12.
+Und jetzt werden wir mal probieren, dort ein gültiges Zertifikat auszustellen.
+WilderIgel1.
+Danke schön für den Sub.
+Das ist mit Abstand der einfachste Fall.
+Sprich, ihr habt euch eine Domain gekauft.
+Und ihr habt einen Server mit einer Public IP.
+Und darauf wollt ihr jetzt irgendwas laufen lassen.
+Wir machen nur nicht mal...
+Wir machen kein Certbot.
+Die einfachste Variante, die mir so einfällt.
+Und ihr habt euch eine Domain gekauft.
+Ihr habt euch einen Server gemietet.
+Und ihr wollt darauf jetzt irgendeine Webseite anbieten und ein gültiges Zertifikat.
+Das ist der mit Abstand einfachste Fall.
+Er trifft bei den meisten Leuten nicht zu.
+Weil die meisten Leute interne Services verwenden wollen.
+Die wollen intern, keine Ahnung, einen Home Assistant haben.
+Oder eine Nextcloud haben.
+Oder eine Imageverwaltung haben.
+Oder so was.
+Oder ein Bitwarden haben.
+Was sie halt nur intern verwenden.
+Das heißt, interne Zertifikate kann man auf die Art und Weise nicht ausstellen.
+Denn Let's Encrypt unterstützt zwei Authentifizierungsmöglichkeiten.
+Oder zwei.
+Authentifizierung ist das falsche Wort.
+Zwei Zertifikats-Ausstellwege.
+Die unterstützen HTTP-Challenge und DNS-Challenge.
+Und für HTTP-Challenge brauchst du eine Public IP, auf die Let's Encrypt zugreifen kann.
+Aber es ist mit Abstand das einfachste.
+Also wenn es auf euch zutrifft, dass ihr euch eine Domain gekauft habt.
+Public Server gemietet habt.
+Und darauf jetzt einfach eine Webseite laufen lassen wollt.
+Ein gültiges Zertifikat bekommen.
+Aber für die Anmeldemacher kann es nicht gehen.
+Wir erstellen mal irgendeine Demoseite.
+Mal kurz hier.
+MKDier-Page.
+Natürlich alles als root, was sonst.
+Keck-Weight.
+Hast du dich letztens erwähnt, dass du dich gegen eine Domain bei Hetzner entschieden hast?
+Ich habe mich dich wirklich gegen den...
+Hetzner will Ausweis-Verifizierung und so was.
+Da hatte ich keinen Bock drauf.
+Ich wollte weder Ausweis einscannen, noch sonst was.
+Cloudflare ist das anscheinend egal.
+Ich rücke immer nur so viele Daten raus, wie notwendig ist.
+Und nachdem ich Domains auch registrieren kann, wo ich meinen Ausweis irgendwie nicht einscannen muss, dann mache ich das nicht.
+Das einzig Dumme an Cloudflare ist, ich finde Cloudflare...
+Also ich glaube, ich hätte alle meine Domains bei Cloudflare, wenn Cloudflare, man glaubt es nicht, DE-Domains unterstützen würde.
+Cloudflare kann keine DE-Domains.
+Ich weiß nicht, ob die irgendwie Stress mit dem DNIC haben oder so.
+Warum das so ist.
+Aber man glaubt es nicht.
+Riesenanbieter Cloudflare, die unterstützen keine DE-Domains.
+Ja.
+Ja, ist so.
+Man glaubt es nicht.
+Aber es ist so.
+Ja, deswegen habe ich sogar noch eine Domain bei, haltet euch fest, Nitrado.
+Das ist da, wo die ganzen Leute früher ihre Minecraft-Let's-Plays, äh, Server...
+Nicht ihre Minecraft-Let's-Plays gehostet.
+Ihre Minecraft-Server gehostet haben.
+Also eine hab ich bei Nitrado.
+Ich hab, ähm...
+Was hab ich denn alles?
+Ich hab Domains.
+Lass mal überlegen.
+Ich hab bei Porkbun, bei Namecheap, bei Namesilo, der räudigste Server, Service überhaupt, Nitrado, Cloudflare.
+Ich glaub, das sind die fünf.
+Nee, da bin ich, äh, Trafo, da bin ich zu low IQ für.
+Ihr fragt euch jetzt vielleicht, warum ich nicht weitermache.
+Kann ich das erklären?
+Mein Finger blutet.
+Ich bin mir nicht...
+An der Seite.
+Ich bin mir nicht so genau sicher, wo ich gerade...
+Was ich gerade gemacht hab.
+Aber ich vermute...
+Also was ich...
+Ich weiß, was ich gemacht hab, ich weiß nicht, wie ich's gemacht hab.
+Ich hatte mich da eh schon ein bisschen geschnitten die letzten Tage.
+Und das ist jetzt zugewachsen und so, aber...
+Ich weiß nicht, wie ich's geschafft hab, aber das blutet grad wieder.
+Ich muss grad mal irgendwie gucken, ob ich irgendein Stück Taschentuch oder irgendwas hab.
+Ich denk, das ist ja das, mein Hund.
+Okay.
+Also.
+Ihr habt einen Public-Server.
+Und darauf erstellen wir jetzt, pass mal auf, Index-HTML.
+Super professional, wie das sein muss.
+Und da steht Cackle Bridge Chat drin.
+Ähm...
+Serve.
+So ging das, gell?
+So, Leute.
+Wir können jetzt ja mal was ausprobieren.
+Port 8...
+Was?
+Port 8...
+8000?
+Ja.
+Cackle Bridge Chat.
+Also, falls...
+Falls irgendjemand Bock hat...
+Wenn ihr das aufmacht in eurem Browser, wirst ihr jetzt die Webseite bekommen.
+Cackle Bridge Chat.
+Warte, ich muss mal kurz ein Stück Taschentuch oder so holen.
+Okay, wieder da.
+Okay, ich seh schon, die ersten Leute probieren's hier aus.
+Jetzt hab ich...
+Jetzt, guck mal.
+Irgendjemand konnte's nicht lassen.
+Irgendjemand konnte's nicht lassen, ey.
+So.
+Alles klar.
+Auf geht's.
+Ackermans, ey.
+Am Start.
+Also, das hat funktioniert.
+Weiter im Text.
+Ich glaub, jetzt hat's aufgehört, meinen Finger zu bluten.
+So, weiter im Text.
+Also, wir haben eine lokale Web-Anwendung, die wir jetzt mit einem Zertifikat versorgen wollen.
+Ich mach das absichtlich mit so einer...
+Mit einem Python-Web-Server stellvertretend für irgendeine x-beliebige Web-Anwendung.
+Also, das kann jetzt alles sein.
+Äh, war's nicht "-b"?
+Äh, "-b", Localhost?
+Irgendwo musst du mal noch Localhost hinschreiben.
+Genau, so.
+Und wenn ihr's jetzt probiert, geht das von außen nicht mehr.
+Warum?
+Weil die Anwendung nur an Localhost lauscht.
+So.
+Stellt euch vor, das ist vollkommen egal, dass das nur eine Webseite ist, wo Kekl draufsteht.
+Stellt euch vor, ihr habt irgendeine Web-Anwendung laufen auf eurem Web-Server, die ihr im Internet exposen wollt.
+Und ihr wollt ein gültiges Zertifikat haben.
+Ich persönlich benutze dafür immer Cudi.
+Weil das mit Abstand das Einfachste ist, um solche einfachen Dinger zu machen.
+Ihr könnt Traffic benutzen, ihr könnt Nginx benutzen, ihr könnt Certboard-Sachen mit HA-Proxy selbst.
+Es ist vollkommen egal.
+Ich persönlich mag Cudi und auch nur dafür.
+Ich mach mit Cudi sonst nichts.
+Ich finde die Config nicht sonderlich tolle.
+Ich finde auch die eingebauten Möglichkeiten nicht sonderlich tolle.
+Aber für diesen einen Zweck.
+Einen Service mit Let's Encrypts zu Reverse-Proxien.
+Finde ich ist Cudi mit Abstand das Einfachste.
+Und ich zeige euch jetzt mal, wie easy das funktioniert.
+So, als erstes müssen wir mal hier unsere Public IP rauskopieren.
+Und irgendeinen Eintrag im DNS erstellen.
+Da kommen wir nicht drum herum.
+Also, brauchen wir mal irgendeinen Eintrag.
+Was weiß ich, was machen wir denn?
+Machen wir einfach www.
+Wobei, das habe ich schon.
+www.test.
+www.test.
+public.
+public.
+public.
+public.twitch.pricechem.org
+Ist jetzt der A-Records, der auf diese IP zeigt.
+Wir wollen das nicht Porxien DNS only bei CloudFlare.
+Das sind CloudFlare Spezifisch.
+Save.
+jetzt den Name-Lookup macht, oder wenn man
+Ping macht, ist vollkommen egal, hier Ping
+public twitch.preischamp.org
+dann seht ihr, das Ganze löst auf.
+Ja, auf meine Public-IP.
+Es ist egal, bei welchem
+Anbieter ihr seid. In dem Fall ist es jetzt Cloudflare.
+Ich glaube, viele sind privat auch, machen so Sachen
+auch über Cloudflare. Aber es ist egal, ob es jetzt
+Namecheap ist oder Go, Addy,
+Daddy oder Namesilo,
+vollkommen wurscht.
+Wichtig ist, dort, wo ihr eure
+Domain registriert habt, müsst ihr den DNS
+anlegen, der
+auf die IP, auf die Public-IP
+von eurem Server zeigt. Sonst kann
+das Ganze nicht funktionieren. Und danach
+ist es super simpel.
+Ihr installiert Cudi, beispielsweise
+hier mit Debian, ihr könnt es euch auch runterladen,
+das gibt es, glaube ich, als fertiges Go-Binary.
+So, Debian ist
+das Ganze installiert, EDC,
+Cudi-File,
+da wird diese ganze Mist hier erstmal gelöscht drin.
+Und dann sagt
+ihr hier, ihr wollt Reverse-Proxien,
+und zwar,
+www, ne, wie habe ich es genannt?
+Das habe ich wieder vergessen, ja.
+Public.
+public.twitch.preischamp.org
+Reverse-Proxy
+localhost port 8000
+Auf localhost port 8000 läuft
+unsere Web-Anwendung hier.
+So, und wenn ich jetzt alles richtig gemacht habe,
+war es das schon.
+Ich glaube, das ist alles, was man
+machen muss.
+System
+CTL
+Restart
+Cudi
+Status, gucken wir mal.
+Certificate obtained successfully.
+Okay, Leute, also
+public.twitch.preischamp.org
+Und siehe da,
+keckelt Twitch-Chat.
+Könnt ihr mal ausprobieren bei euch.
+Und ihr seht, ich habe ein gültiges
+Zertifikat von Let's Encrypt.
+Und jetzt mal serious, Leute.
+Viel einfacher kann es nicht gehen,
+ein gültiges Zertifikat.
+Zu bekommen für irgendeine Anwendung, oder?
+Das sind, das waren jetzt legit
+einen
+ein Install
+und eine Zeile.
+Das ist auch das Einzige,
+wofür ich gerne Cudi verwende.
+Aber dafür ist es gut.
+Für alles andere benutze ich Nginx.
+Nee, Cudi macht auch das Renew.
+Du musst dich wirklich um gar nichts mehr kümmern.
+Weiß heißt A-Record,
+das ist ein Type,
+ein DNS,
+Rekord-Type.
+Warum das A-Record heißt,
+weiß ich ehrlich gesagt gar nicht genau.
+Das ist ein Typ, den du bei DNS-Anfragen
+angeben kannst, was du haben willst.
+Also wenn du einen DNS-Server fragst,
+der
+löst ja nicht
+immer auf, von Name zu IP.
+Das macht er normalerweise,
+wofür man einen DNS-Server verwendet.
+Aber du musst dem DNS-Server
+sagen, was du haben willst.
+Du kannst einen DNS-Server fragen,
+beispielsweise auch nach dem E-Mail-Server.
+Das ist dann ein MX-Rekord.
+Oder du kannst auch nach einem
+AAAA-Rekord fragen.
+Wer ist high IQ und weiß, was das ist?
+Was ist der Unterschied von
+A-Record vs. AAAA-Rekord?
+IPv6.
+Ich sehe, der Chat hat richtig krass
+Prime-Subscribed, sonst wäre er nicht so schlau.
+Genau.
+Oder du kannst auch nach
+Reverse-Lookup machen.
+Also du kannst im DNS
+verschiedene Rekord-Types
+nach verschiedenen Rekord-Types fragen.
+Und A-Record-Subscriber,
+das ist ein Rekord-Subscriber.
+Das ist ein Rekord-Subscriber.
+Das ist ein Rekord-Subscriber.
+Das ist ein Rekord-Subscriber.
+Das ist ein Rekord-Subscriber.
+Und A-Record ist das, was man
+normalerweise unter DNS versteht.
+Nämlich Domain-Namen zu IP-Adressen
+auflösen. Aber das gibt noch mehr.
+Mal kurz gucken, was es da noch alles gibt.
+Das weiß ich aus dem Kopf auch nicht hier.
+Guck mal. A-Record ist ein
+Ah, A für Address.
+Da hätte ich auch selbst drauf kommen können.
+A-Record
+ist für
+IPv4-Adressen.
+Quadruple-A
+oder wie auch immer man es richtig nennt,
+ist für IPv6-Adressen.
+Ich habe keine Ahnung.
+Irgendwelches Oracle-Shit vom Namen her.
+Vermute ich mal.
+Ich hätte gedacht, es hat was mit Oracle zu tun.
+Sachen, die kein
+Mensch verwendet.
+CNAME. CNAME verwendet
+tatsächlich noch ein paar.
+CNAME ist quasi ein Alias
+für andere Domains.
+Also wenn du beispielsweise einen A-Record
+hast, kannst du jetzt
+noch 5 CNAMES anlegen dafür.
+Du könntest aber auch...
+Was ist eigentlich der Vorteil?
+Das habe ich so noch nie gefragt.
+Was ist eigentlich der Vorteil von
+CNAMES vs. 5 A-Records?
+Also ich meine, ich könnte einen A-Record anlegen,
+der umzu...
+Ah ja, da hast du recht.
+Da hast du kein Problem mit Rumgecache
+oder sowas, ja.
+Ich mache das meistens auch eher intuitiv,
+wann ich ein CNAME nehme oder ein A-Record.
+Ja.
+Verwendet alles niemand.
+Ein DNAME gibt es auch.
+Da sieht man, DNS kann viel mehr sein.
+Mehr Shit, als man so verwendet.
+MX für E-Mail-Server.
+PTR.
+Okay.
+So, und dann gibt es tatsächlich noch einen TXT-Record,
+der hier jetzt gar nicht drin steht.
+Doch, TXT-Record.
+TXT-Records wären gleich wichtig.
+Daniel Lull, danke schon für den Zap.
+Okay, Leute. Also, ihr seht's.
+Ich habe ein gültiges
+Zertifikat
+und meine Web-Anwendung ist im Internet.
+public.twitch.pricetram.org
+public.twitch.pricetram.org
+Das ist das Ding.
+Wahrscheinlich ist das gar nicht so der Anwendungsfall,
+den viele Leute haben.
+Die meisten Leute haben wahrscheinlich eher den Anwendungsfall,
+dass man
+intern was verwenden will,
+was keine Public-IP hat.
+Ich werde euch jetzt aber noch kurz,
+also bevor wir das jetzt machen,
+weil das dauert ein bisschen länger,
+werde ich euch jetzt noch kurz erzählen,
+was da eigentlich im Hintergrund passiert ist,
+dass das funktioniert.
+Hier seht ihr das Caddy-Log.
+Das ist ein Standard von Acme-Client.
+Ich bin mir überhaupt nicht sicher,
+wie man das ausspricht.
+Aber irgendwie Acme-Client
+und TLS und sonst wie.
+Was jetzt im Hintergrund passiert ist,
+ist folgendes.
+Ich habe in meinen Caddy-File reingeschrieben,
+was meine Public-Domain ist
+und Caddy kann standardmäßig
+Let's Encrypt.
+Caddy hat Let's Encrypt eingebaut.
+Und
+spricht man
+AceMe aus. AceMe.
+Sicher?
+Ich habe das glaube ich noch nie ausgesprochen
+in meinem Leben bisher.
+AceMe. Acme.
+Ist ja fast wie Jason
+Jason.
+Zumindest
+was jetzt passiert ist folgendes.
+Caddy hat eingebaut,
+hat einen Let's Encrypt-Client eingebaut.
+Was der im Hintergrund gemacht hat ist,
+der weiß jetzt, okay,
+wir möchten für diese Domain hier,
+Alter was ist denn mit ZMouse?
+Hat Mouse-Mode, äh,
+Maus-Standardmäßig eingeschaltet,
+sowas Sinnloses.
+Also, Caddy weiß jetzt ja, ey, okay,
+auf dieser Domain möchte ich jetzt gerne Request bekommen.
+Was der jetzt macht ist,
+der geht zur Let's Encrypt-API und sagt,
+Let's Encrypt, stell mir doch mal ein Zertifikat
+für public.twitch.pricechamp.org aus.
+Dann sagt Let's Encrypt, ey,
+ja, Moment mal, bevor du ein Zertifikat bekommst,
+musst du erstmal
+beweisen, dass das deine
+Domain ist.
+Weil, stellt euch mal vor, es gebe keinen
+App, um zu beweisen, dass das eure Domain ist,
+dann könnte ich mir jetzt ein Zertifikat
+für google.com ausstellen.
+Ein gültiges, wohlgemerkt.
+Das wäre vielleicht nicht so schlau,
+wenn das funktionieren würde. Das heißt,
+Caddy geht jetzt zur API von Let's Encrypt
+und sagt, hier, ich hätte gerne dafür ein Zertifikat.
+Dann sagt Let's Encrypt,
+beweis mir doch mal, dass es deine
+Domain ist. Und dieses
+Beweis nochmal, funktioniert bei Let's Encrypt
+mit der
+Standard-HTTP-Challenge
+folgendermaßen.
+Let's Encrypt schickt
+auf diese Anfrage hier, gib mir doch mal ein
+Zertifikat, schickt einen geheimen
+Schlüssel mit zurück.
+Also den Schlüssel kennen nur Let's Encrypt
+und in dem Fall Caddy auf meinem Server.
+Und jetzt
+guckt Let's Encrypt alle paar Sekunden nach,
+ob es unter dieser
+public IP
+in einem bestimmten Pfad
+oder
+auf dem default
+HTTP-Port
+unter einem bestimmten Pfad
+beziehungsweise mit einem bestimmten Dateiname
+diesen Schlüssel
+findet. Ich weiß nicht, wie das heißen muss
+standardmäßig. Zumindest guckt
+Let's Encrypt nach, gibt es das da?
+Gibt es das da? Guckt es alle paar Sekunden
+nach und Caddy
+liefert auf diese Anfrage
+einfach diesen Schlüssel
+zurück und dadurch, dass
+die Domain auflöst
+auf einen Server,
+der den geheimen Schlüssel kennt,
+den Let's Encrypt vorher dem
+Anfrager mitgeteilt hat,
+hast du quasi Let's Encrypt damit bewiesen,
+dass es dein Server ist,
+beziehungsweise nicht, dass es dein Server ist,
+dass es deine Domain ist.
+Weil, also die ganze
+der ganze
+Gedanke dahinter ist,
+dass ja nur du als
+rechtmäßiger Domainbesitzer
+einen DNS-Eintrag
+anlegen kannst, der auf diesen Server
+zeigt.
+Wo dann auch der Key ist, den
+vorher Caddy und Let's Encrypt ausgemacht
+haben. Wenn du nicht der rechtmäßige
+Besitzer deiner Domain wärst,
+könntest du keine DNS-Einträge anlegen dafür.
+Das reicht
+in dem Fall als Beweis,
+dass das deine Domain ist.
+Deswegen funktioniert das.
+Und funktioniert auch ziemlich easy.
+Also ihr habt es gesehen, wir mussten nichts machen.
+Wir haben Caddy installiert, wir haben
+das Ding restartet
+und haben zwei
+Zeilen hier im Caddy-File angepasst und zack
+und schon haben wir eine Public Domain mit einem
+gültigen Zertifikat.
+Das Ding ist jetzt aber,
+wenn ihr intern seid bei euch,
+dann funktioniert das nicht.
+Weil
+dann kann Let's Encrypt ja nicht
+auf eure interne Infrastruktur
+zugreifen, um nachzugucken,
+ob dort irgendwie ein geheimes File liegt
+mit einem Schlüssel drin,
+was das vorher ausgemacht hat mit euch.
+Also HTTP Challenge
+funktioniert nur mit Public Services.
+Oder mit
+Services, die irgendeinen Public Endpunkt
+in irgendeiner Art und Weise haben.
+Das ist aber bei den meisten Leuten
+daheim nicht so.
+Das heißt, als nächstes gucken wir uns
+jetzt mal an.
+Das heißt, als nächstes
+gucken wir uns jetzt mal an,
+wie man das mit internen Services macht.
+Ich überlege gerade,
+ob ich das jetzt
+einfach aus mache.
+Gut, ich lasse den Server mal an.
+Vielleicht brauchen wir den noch.
+Du hast deine Physi-Abschlussprüfung bestanden.
+Exzellent!
+Cadillac ist Zertifikat Gold, genau.
+Ja.
+Dazu kann man nur sagen
+Nice!
+Excellent!
+Gratz, hätte man da früher in MMOs
+zugesagt.
+Alles klar.
+Jetzt machen wir das Ganze mal für einen
+internen Service.
+Für interne Services
+bietet Let's Encrypt
+noch eine zweite Authentifizierungsmöglichkeit.
+Ein zweiter Beweisweg,
+dass die Domain
+gehört.
+Und zwar über DNS.
+Ohne irgendwelche Web-Server dazwischen.
+Und da passiert genau das gleiche,
+wie hier
+bei diesem Eintrag hier,
+wo es dann vom Server
+den geheimen Key hinterlegt hat.
+Mit dem Unterschied, dass man gar keinen HTTP-Server
+braucht, sondern dass alles über DNS geht.
+Und zwar
+legt dann
+der jeweilige Let's Encrypt
+ein TXT-Rekord an
+im DNS, wo dann Let's Encrypt
+nachguckt, ob das eben diesen geheimen Key
+enthält. Das kann man von Hand machen.
+Geht auch.
+Man kann auch Let's Encrypt komplett von Hand machen.
+Doof ist es allerdings
+trotzdem ein bisschen, wenn man das von Hand macht,
+weil, wie sieht das aus mit
+Erneuern von Zertifikaten, wenn man das jedes Mal
+von Hand eintragen will? Wahrscheinlich
+eher nicht.
+So. Deswegen
+brauchen wir mal eine lokale VM.
+Würde ich sagen.
+Dazu nehmen wir mal meinen
+Python Tool.
+In der Hoffnung, dass es funktioniert.
+Ich erstelle mir jetzt mal lokal
+einen Server,
+eine VM, auf der wir das machen werden.
+Das kann bei euch ein Raspberry Pi
+sein, das kann bei euch irgendein Intel NUC
+sein oder was auch immer.
+Es ist vollkommen egal.
+Wichtig ist nur,
+Let's Encrypt kommt von außen nicht drauf,
+um nachzugucken.
+Das heißt, wir müssen jetzt
+DNS-Challenge machen.
+Und was ich so gesehen habe, ist auf Reddit oder auch
+auf was ich von euch
+öfters gehört habe, viele Leute verwenden tatsächlich
+für interne
+Zertifikate,
+Ausstellungsdinger
+diesen Nginx Proxy Manager.
+Das werde ich
+jetzt auch verwenden. Das verwende ich bei mir daheim
+auch und ich finde, das ist eine simple Sache.
+Wie gesagt, für daheim.
+Das ist eigentlich ziemlich easy.
+Was ist das Backend vom VM Champ?
+KVM.
+Wenn du wissen willst, wie der
+funktioniert, kannst du sogar hier angucken.
+Der VM Champ ist
+komplett open source.
+Mit
+7 Monaten letztes Commit.
+Ihr kennt mich. Ihr kennt mich.
+Ich bin da immer super aktiv, was das angeht.
+6 Issues. Ja, wieder alles
+Bedienfehler. Alles Bedienfehler.
+So, jetzt habt ihr ja eure interne
+Kiste und auf
+der internen Kiste wollt ihr irgendeinen Service
+laufen lassen, der
+ein gültiges Zertifikat bekommen soll.
+Wir machen jetzt das gleiche.
+Wir machen jetzt das gleiche, was
+wir auf unserem externen
+Server auch gemacht haben. Wir haben hier Index.
+Index, HTML,
+Kekl,
+Twitch, Cheld,
+irgendwie sowas.
+Beste.
+Was war das? Python 3.
+Serve.
+Okay. Port 8000.
+Wunderbar.
+Excellent. Also das ist wieder unsere
+Webseite. Man sieht auch, dass
+es funktioniert. Man sieht,
+dass es funktioniert.
+Moment. Nicht HTTPS, Alter.
+Port 8000.
+Kekl, Twitch, Cheld.
+Ah, ja, ja. Lokale
+IP. Also sprich, Let's Encrypt kommt da von
+außen nicht drauf. Moin,
+Leute. Hallo, Max. Hab dich
+voll aus den Augen gefangen. Damals 2011
+hab ich dich regelmäßig geschaut mit
+Daifise. Mit dem hab ich, glaub ich, niemals aufgenommen.
+Dem Friseur. Ja. Der Frey, der ist
+auch noch am Start. Wobei der auch keinen Bock
+auf YouTube gerade hat.
+Nice. Das hat ihr heute mit
+Programmier nix zu tun.
+Ja, manchmal spielen wir auch irgendwelche
+MMOs, die schon seit 20 Jahren raus sind
+und viele nicht
+verstehen, warum ich das spiele, aber weil's
+best game ever ist, Mann.
+Der Gatrick versteht das. Der weiß, dass das
+best game ever ist.
+Klar. Best game ever.
+Oder? Hab ich recht? Es ist best
+game ever. Aber wir müssen jetzt
+erstmal Let's Encrypt machen.
+Ich will das mit Let's Encrypt auch
+relativ kurz und knackig halten. Kann man dann
+immer auf den Stream hier verweisen.
+Auf alle Fälle. Best game ever.
+Ich hoffe, der Ober-Malakka-Mann
+ist heute da, dass es wieder ordentliche
+BG gibt. So, ich überleg gerade,
+wie wir das jetzt gescheit machen, also.
+Ich hab hier meine Anwendung drauflaufen,
+der ich ein gültiges Zertifikat verpassen will.
+Allerdings lokal. Das heißt,
+ja, du kannst das ohne
+große BG kannst vergessen. Ich spiele auch gar nicht
+mehr BG und Random Group.
+Ich hab gestern nur King of the Hill gespielt
+und bisschen Smallman-Action.
+Und BG. Also Battle
+Crowns. Ähm. Leute,
+ich bin gerade bisschen irgendwie so aus dem Flow raus.
+Was wollte ich denn jetzt machen? Ah ja, ich wollte
+Nginx Proxy Manager installieren. Kann man
+das selbst installieren oder geht das nur
+gescheit in Docker?
+Anscheinend haben die nur Docker. Dann muss ich nochmal
+Docker installieren.
+Sudo-i. Gibt doch
+auch einen One-Liner. Echt?
+Wo?
+Wo? One-Liner sind meistens
+so Sachen wie
+Piper, lade dieses Shell-Skript runter
+und Piper ist nach Bash.
+Ich sehe
+hier keine One-Liner.
+Docker
+Compose-File.
+Hab ich keinen Bock. Ach komm, wir machen
+das offiziell, so wie die das hier.
+Wurscht. Alles gut.
+Also wir müssen auf jeden Fall
+Docker installieren.
+Das kann...
+Ah ne.
+Ah ja. Ja, das kann jeder bei sich
+handhaben, wie er lustig ist. Das hat jetzt
+eigentlich auch mit der ganzen Let's Encrypt-Sache nichts zu tun.
+Und man muss auch kein Nginx Proxy Manager
+benutzen. Man kann auch
+Certbot benutzen. Man kann alles Mögliche. Alles, was
+Let's Encrypt unterstützt, kann man auf die gleiche
+Art und Weise verwenden. Ich finde aber
+im privaten Umfeld ist Nginx Proxy Manager
+ganz nice. So.
+Also.
+Docker PS.
+Ach ne. Moment. Wie ging das jetzt
+nochmal? Chatgear. HiIQ.
+User Mod
+minus G Docker.
+Oh shit.
+Wer ist so
+schlau? Wer weiß es
+noch? Minus A?
+G?
+Ok. Und dann nimmt er
+den aktuellen User.
+Command not found.
+What?
+Was machen wir? Wir machen
+lokale Let's Encrypt Zertifikate.
+Dollar User. Ok. Das ergibt
+Sinn. Aber warum gibt es User Mod nicht?
+Äh. Nein. Das werde ich nicht ausführen.
+Das werde ich nicht ausführen.
+Ich habe nicht Sudo vergessen.
+Das Command not found.
+Was muss man dafür installieren?
+Up Install. Das heißt doch
+bestimmt nicht User Mod. Ich muss doch
+bestimmt User Management Utils
+oder sowas. User Mod Demian
+Install. Das hat doch irgendwie so
+ein Meta Package ist das doch bestimmt.
+Was muss ich installieren?
+Ach Moment. Das ist wirklich
+Root Only. Ok. Ich habe nichts gesagt.
+Alles klar.
+Na gut. So.
+Docker PS. Nice. Funktioniert.
+Ach. Das ist unter S. Ok.
+Wenn das unter S bin ist, macht das sogar Sinn.
+Excellent.
+Ja. Das stimmt. Da ist was dran.
+So. Und jetzt können wir den Campl hier installieren.
+Hammer. Docker. Docker
+Compose. Ist Docker Compose nicht
+War das
+jetzt nicht included in Docker?
+Scheiß auf Docker Compose.
+Ich hasse Docker Compose mittlerweile. Ich mache
+kein Docker Compose. Ich mache das selbst hier.
+Zack. Easy. Also.
+Docker Run. Minus minus
+m. Minus it. Oder?
+Minus it. Ne. Ach. Ausbekommen.
+Kopf. Meine Güte. So.
+Run. Image. So. Das heißt
+wir brauchen jetzt ein Verzeichnis
+für. Wir machen das vielleicht nicht
+unbedingt als Root hier unten.
+Direkt. Nee. Das. Genau.
+Mkdir
+Search oder so.
+Search. Alles klar. So.
+Docker Run. Minus. Minus
+m. Minus it. So. Jetzt brauchen wir
+Volumes.
+Volumes.
+Ja. Let's Encrypt. Ok.
+Wunderbar.
+Das funktioniert aber so nicht.
+Das muss sein. Home.
+Home.
+User. Bester Name.
+User. Search.
+Let's Encrypt.
+Verzeichnis.
+Verzeichnis.
+Home. User. Search. Let's Encrypt.
+Ok. Jetzt brauche ich Ports.
+Ports.
+Will der haben.
+443. Ja gut. Das macht
+Sinn. Ports.
+8. 81. 81.
+Und Port.
+80. 80. Ja.
+So. Ich hoffe das
+tut jetzt so. Schauen wir mal wo das geht
+jetzt. Was hat das Ding nochmal
+für eine IP gehabt. Wir werden
+jetzt gleich sehen ob es funktioniert.
+Docker macht Docker Things.
+Gucken wir mal. Port 81.
+Klein. Ok. Schein funktioniert
+zwar.
+Okay.
+Nee. Doch. Funktioniert. Nice.
+Oh. Was sind die Default Credentials?
+admin.example.com
+Change me. Ok.
+Change me.
+Reicht mir für Demo Zwecke.
+Passwort auch noch.
+Ok. Change me. 123456.
+123456.
+No.
+No. God. Please. No.
+No. No.
+No.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+123456789.
+egal wo vollkommen gut ich weiß nur dass viele leute das im heimbereich gerne verwenden und das
+was viele leute verwenden im heimbereich so und damit kann man jetzt sagen die oder kuneb kuneb
+kann zum beispiel auch docker container oder im hobbys ist im hobbys ist gibt es auch einen
+änderung dafür vollkommen egal wenn der nx proxy manager gestartet habt dann könnt ihr jetzt hier
+auf ssl zertifikate gehen und da sagt er es gibt keine ssl zertifikate und jetzt kommt letzten
+crypt dns challenge ins spiel so wir müssen uns erstmal einen domain namen ausdenken den
+wir haben wollen eben hatten wir public punkt twitch also eben hatten wir das hier und preis
+champ.org jetzt machen wir private ok private punkt twitch punkt preis champ.org dann muss
+man ihm sagen
+jawohl ich will dns challenge usen und ich bin mit den letzten crypt service terms fein und
+jetzt kommt was das müsst ihr bei der normalen beim public server und der normalen http challenge
+nicht machen den letzten crypt client den ihr verwendet der muss logischerweise dns einträge
+anlegen können weil ich habe ja gerade versucht zu erklären dass dieser austausch mit letzten
+crypt über txt records funktioniert und dementsprechend muss
+der jeweilige letzten crypt client den domain anbieter unterstützen er muss wissen wie die
+api funktioniert von den jeweiligen anbietern wie man dns wie man dns einträge anlegt aber ihr seht
+hier das ding unterstützt kummer hetzner ist dabei ich glaube block bandit mittlerweile sogar dabei
+und wir brauchen halt in dem fall cloud flair und in cloud flair kann man sich jetzt an api
+token generieren und in diesem api token kann man auch einstellen was war mit diesem api token
+token machen darf ich habe mir eine api token generiert was nur funktioniert von mir aus und
+was nur für diese eine domain funktioniert das heißt ich kann jetzt mein api token liegen das
+mal api token falls ihr bock hat abzuschreiben wenn ihr unbedingt wollt so das ist mein api
+token und wenn ich das jetzt hier hinzufügen passt mal auf was passiert ich hoffe ich habe
+jetzt nichts verkackt passt mal auf was passiert post champ post champ post champ was wir machen
+wir stellen uns gültige zertifikate aus für lokale services leute eine runde post champen
+please sonst funktioniert es nicht das ist normal dass es ein bisschen länger dauert und siehe da
+wir haben ein gültiges zertifikat ein gültiges zertifikat für private
+punkt twitch pro preis chip blog was wir noch nicht haben ist eine ein haus eintrag der das
+anlegt aber wir haben gültig jetzt zertifikat das heißt dass jetzt brauchen ist proxy haus
+at proxy haus und dementsprechend domain names ist das gleiche private punkt und
+vorwording das ist jetzt wo der eigentliche service läuft auf den ihr
+weiterleiten wollt und der läuft auf ich habe es mir eben hier da dort port 8000
+websocket support meinetwegen und nicht jetzt auf ok drücken sondern hier auswählen welches
+zertifikat ihr verwenden wollt das da man könnte auch einfach ein wildcard zertifikat anlegen das
+funktioniert genauso kann ich euch kann ich auch gleich zeigen dass das dass das funktioniert das
+ist tatsächlich sogar etwas einfacher dann aber force action
+hat die b2 support meinetwegen und sagt safe so wenn ich jetzt darauf klicke dann geht es nicht
+warum geht es nicht wer weiß es warum das nicht geht wir haben eine sache noch vergessen oder
+wer hat mitgedacht dns fehlt richtig dns fehlt und das hängt jetzt von euch ab wo ihr das braucht ja
+geht nicht das hängt davon ab wo ihr das braucht normalerweise würde ich sagen hey geht einfach
+in euren lokalen dns auf eurer fritz box auf eurem router und tragt das ein ihr könnt auch ihr könnt
+das auch bei cloudflare eintragen das problem ist nur im übersatz ist kein problem ist vielleicht
+ein bisschen wird lokale ip's aufzulösen über eine public dns da müssen wir public dns machen
+und aber gehen tut das guck ich zeige es euch mal so funktionieren funktionieren tut das oder auch
+nicht ich glaube der hat es jetzt gecached
+ja der hat gecheckt muss jetzt kurz wagen machdick gucke der kann schon auflösen passt
+die frage ist wo hat das jetzt die kiste gecasht mal gucken moment mal gucken
+was mein windows dazu sagt ob das meinen linux gecached hat oder mein lokaler luco
+mein
+router hat das ganze getestet
+Cache, so wie es aussieht. Da muss ich mein
+Cache da mal
+kurz leeren. Deswegen.
+Ne, wisst ihr was? Scheiß drauf.
+Das ist eh eine bescheuerte Variante.
+Ich würde nie in einem Public DNS meine Private
+Sachen eintragen. Nicht, weil es ist
+doof. Da musst du nach außen und fragen.
+Ganz ehrlich, wir machen jetzt Host-Datei.
+Wir schreiben es jetzt in die Host-Datei rein,
+weil zum Testen reicht das aus.
+Zack.
+ETC Hosts.
+Alles gut. Zack.
+Da muss eine Host-Datei drinstehen.
+Kann auch ein Curl drauf machen.
+Und sieh da. Permanently moved,
+weil kein HTTPS.
+HTTPS.
+Und sieh da. Kackel, Twitch,
+Chat. Ah ja, ja. Die Webseite
+funktioniert. Im Browser kann ich es euch nicht zeigen,
+weil mein Browser immer noch
+äh
+einen gecached DNS-Eintrag drin hat.
+Äh,
+ich muss es im Router rausschmeißen.
+Ah gut, komm.
+Ich lösche mal kurz
+mein DNS-Cache.
+IP, DNS,
+Cache. Ja, ja, zack.
+Flush.
+Der Cache wird geflusht.
+So, und jetzt?
+Darf ich jetzt?
+Ah, das sieht doch schon besser aus.
+Ne, mein Router hat das gecached.
+Das bringt nichts, wenn ich es auf der Linux-Kiste lösche.
+Jetzt funktioniert das auch.
+So, und jetzt guckt, jetzt gehe ich hier auf die Webseite.
+Private Twitch
+pricechamp.org
+und ich kriege meine Webseite. Ich habe ein gültiges Zertifikat.
+Obwohl das ein rein interner
+Service ist. Was man jetzt noch machen kann
+ist, man kann zum Beispiel hier sagen
+SSL-Zertifikate, add SSL-Zertifikat,
+let's encrypt. Also das gleiche, was wir eben
+auch schon gemacht haben.
+Für Cloudflare.
+Dann muss man hier wieder sein API-Token
+eintragen.
+Und jetzt machen wir mal sowas hier zum Beispiel.
+Sternchen, Sternchen.
+kekw
+.preischamp.org
+Save.
+Und jetzt stellt
+er ein Wildcard-Zertifikat aus.
+Das Schöne an Wildcard-Zertifikaten
+ist, du kannst ein Zertifikat
+für nahezu
+beliebig viele Hosts verwenden, solange
+sie unter
+der richtigen Subdomain sind.
+Das heißt, für alle Seiten, die ich jetzt haben will
+oder für alle Hosts, die ich haben will,
+die unterhalb von
+kekw.preischamp.org sind,
+kann ich dieses Zertifikat
+benutzen.
+Also kann ich
+zum Beispiel sagen,
+okay,
+ich meine, DNS-Einträge
+braucht man nach wie vor, kommt man nicht
+drumherum, ja, das braucht man.
+Aber ich kann jetzt zum Beispiel
+sagen, hier, Proxy-Host, okay, da habe ich keinen Bock
+mehr drauf, das zu verwenden, sondern es soll jetzt sein,
+hier, was weiß ich,
+TV.kekw.champ.org
+TV.kekw.champ.org
+Und da kann man dann
+hier das Wildcard-Zertifikat auswählen.
+Zack.
+Dann kann ich auch ein Host anlegen
+und das ist das, keine Ahnung, hier,
+keller.kekw.preischamp.org
+kann ich wieder das Wildcard-Zertifikat
+auswählen.
+Dann muss natürlich irgendwie...
+So. Dadurch, dass das
+ein Wildcard-Zertifikat ist,
+funktioniert das jetzt einfach.
+Egal, ich meine, ich habe jetzt keine DNS-Einträge drauf,
+ne, aber sobald ich
+einen DNS-Eintrag draufsetzen würde,
+würde das funktionieren.
+Also,
+die Hosts... Achso, ich glaube,
+ich habe die... Ja.
+Localhost.
+Das gibt es ja auch nicht.
+Jetzt hat er es noch nicht gecheckt,
+aber gleich wird er es checken.
+Übrigens darf ich nicht Localhost verwenden,
+das kann an der Stelle auch nicht funktionieren,
+sondern ich muss die IP verwenden von dem Server,
+worauf es drauf liegt.
+Zack.
+Und ihr habt gültige Zertifikate.
+Geht.
+Ich meine, man kann auch so komisches Zeug machen,
+wie, ähm...
+jetzt weiterleiten auf, äh...
+Google.
+Aber, das...
+Das wird nicht... Das kann ich jetzt auch gleich sagen.
+Das wird nicht richtig funktionieren.
+Dann, äh...
+erzählt er dir, dass das so nicht funktioniert, aber...
+Ja. Also, ich könnte, ich könnte quasi
+weiterleiten auf Google. Guck, ich leite gerade jetzt Google.
+keckel.kecw.preisschamp.org
+leitet weiter auf Google.
+Komplett unsinnig jetzt,
+aber ja, das würde auch funktionieren.
+Und das ist alles.
+Das ist die gesamte Magic für interne
+Let's-Hand-Grip-Zertifikate, Leute. Das war's.
+Mehr, mehr braucht ihr dazu nicht.
+Das ist alles.
+Ich hab übrigens hier der Mist reingeschrieben.
+Das ist 8000.
+Ihr braucht eine Domain.
+Ihr braucht einen API-Key für euren DNS.
+Irgendwie sowas wie Let's, äh...
+hier wie NNX-Proxy-Manager.
+Fertig.
+Das ist die gesamte Magic aus
+interne...
+interne Services
+mit...
+Zertifikaten-Versorgung.
+Mehr brauchen wir nicht.
+Ich weiß gar nicht, was ich da noch...
+Also, ihr könnt mich gerne noch zu euch fragen,
+aber ich weiß gar nicht, was ich da jetzt noch
+groß dazu erzählen soll.
+Crynex, danke schön für den Sub.
+Was hältst du von Cudi vs. NGINX?
+Gar nichts. Ich verwende zu 90% NGINX
+und für alles, was super simpel ist, Cudi.
+Cudi verwende ich für genau den einen Fall,
+den ich euch am Anfang des Streams gezeigt hab.
+Ein Public-Service braucht ein Zertifikat.
+Oder ein Service, der Public sein soll,
+braucht ein Zertifikat, ein gültiges.
+Dann mache ich den Cudi-Reverse-Proxy
+mit genau einer Zeile in der Config oder mit.
+Zeilen umbrüchen sind es drei Zeilen in der Config.
+Das geht dann einfach.
+Für alles andere verwende ich NGINX.
+Warum braucht man das bei internen Services?
+Also, gibt's zwei Gründe.
+Einer ist eher kosmetischer Natur,
+weil's nice ist,
+wenn die Services verschlüsselt sind
+und gültige Zertifikate haben.
+Das zweite ist,
+es gibt Services,
+da ist es erforderlich dafür,
+dass du ein gültiges Zertifikat hast
+und es Trusted-Verbindung ist.
+Zum Beispiel, wenn du dir
+WebRTC-Seiten angucken willst.
+WebRTC, das ist also höchstwahrscheinlich,
+wenn du eine Kamera bei dir hast
+und die ein Web-Interface hat,
+dann wird das über WebRTC gestreamt,
+wenn es halbwegs modern ist.
+Und das geht nur über ATTPS
+und dann auch nur, wenn es eine Secure-Verbindung ist.
+Also, wenn du ein Web-Interface hast,
+dann ist das nicht so einfach.
+Also, es gibt Services,
+da ist es notwendig,
+dass du es verschlüsselt laufen lässt
+und dann brauchst du oftmals ein gültiges Zertifikat,
+wie beispielsweise bei Web,
+wenn du WebRTC-Verbindungen machen willst,
+weil ansonsten erlaubt es der Browser schlicht und ergreifend nicht.
+Du kannst kein WebRTC verwenden
+auf einer ungesicherten Webseite
+und auch auf keiner Webseite,
+die kein gültiges Zertifikat hat.
+Außer es ist Low-Close.
+Für Low-Close,
+um es den Entwicklern einfacher zu machen, gibt's dann.
+Das macht schon Sinn.
+Auf der anderen Seite,
+wenn man sich sowas hier einmal eingerichtet hat,
+dann ist es ja auch easy,
+das weiter zu benutzen.
+ChatGiz.
+So sieht's aus.
+Und wir haben ein gültiges Zertifikat.
+Eine Sache,
+was man bei letzten Crypt-Zertifikaten noch erwähnen müsste,
+ihr seht,
+das expired am 19.
+April 2024.
+Das ist nicht sonderlich lange.
+Das sind genau,
+ziemlich genau,
+drei Monate.
+Und letzten Crypt gibt auch keine längeren Zertifikate.
+Ich glaube,
+ganz am Anfang,
+ganz,
+ganz,
+ganz am Anfang von letzten Crypt,
+gab es, glaube ich,
+noch sechs Monats Zertifikate,
+wenn man wollte.
+Ich bin mir aber gar nicht mehr sicher,
+ob das überhaupt letzten Crypt war,
+aber schon sehr lange gibt es nur noch drei Monats Zertifikate.
+Jetzt ist halt das Ding,
+wenn ihr ein Zertifikat habt über letzten Crypt,
+das läuft in drei Monaten aus.
+Es ist sehr sinnvoll,
+das über eine Software zu machen,
+wie eben beispielsweise Nginx Proxy Manager oder Cuddy oder irgendwas,
+was das automatisch handelt.
+Ich habe keine Ahnung,
+wer letztendlich finanziert.
+Man kann bestimmt,
+man kann bestimmt spenden.
+Ja,
+aber Home Assistant musste,
+glaube ich,
+noch ein paar Zusatzoptionen setzen,
+dass das gescheit funktioniert.
+Ich glaube,
+du musst sagen,
+von wo Proxy IP oder vielleicht war das auch bei Nextcloud.
+Ich weiß es nicht mehr.
+Bei Nextcloud habe ich eh rausgeschaut.
+Bei Nextcloud habe ich rausgeschmissen.
+Bei mir mittlerweile.
+Also es muss automatisch und das mache ich jetzt aber nicht im Stream,
+nur mal für alle,
+die da ein bisschen was vielleicht weiterführendes damit machen möchten.
+Wenn man jetzt Services benutzen möchte,
+die die man beispielsweise nicht über Nginx Proxy Manager verwalten kann
+oder die eben kein eingebautes letztendlich Crypt haben,
+sagen wir zum Beispiel,
+ihr habt einen MQTT Broker.
+So Moskito.
+So Moskito oder sowas so für Heim Automatisierung MQTT Geschichten.
+Das hat auch einen verschlüsselten Endpunkt,
+wo man Zertifikate hinterlegen kann.
+Das sind auch ganz normale Zertifikate,
+die man sich über Let's Encrypt ausstellen lassen kann.
+Allerdings Moskito selbst kann kein Let's Encrypt irgendwie eingebaut.
+Dann muss man sowas wie Certbot verwenden.
+Nicht Certbot.
+Certbot.
+Certbot ist ein Skript,
+das unter anderem,
+wenn ich das jetzt mal auswählen kann,
+das unter anderem,
+ich zeige euch mal ein Beispiel.
+How to use Certbot.
+Certbot ist quasi so die manuelle Alternative,
+wenn man was hat,
+was nicht Let's Encrypt eingebaut hat.
+Da führt man Certbot aus,
+macht genau das gleiche,
+was ich jetzt auch gemacht habe,
+mit APK und sonst was hinterlegen.
+Nur dass man,
+das ist ja super weird geschrieben,
+was,
+ja hier,
+das ist das eigentlich,
+das ist das eigentlich Wichtige.
+So was macht man dann hier.
+Certbot,
+Set Only,
+Standalone,
+Preferred,
+Challenge,
+HTTP,
+hier würden wir DNS machen,
+APK und alles hinterlegen.
+Certbot,
+Example,
+Cloud,
+Flair,
+DNS,
+gibt es bestimmt irgendwie.
+Genau,
+so muss man,
+so muss man dann Certbot ausführen.
+Ja,
+mit dem APK und allem.
+Und,
+Certbot kann dann auch sowas wie einen Post-Renew-Hook,
+also sprich,
+wenn Certbot das Zertifikat erneuert hat,
+lässt es ein Shell-Skript laufen,
+in diesem Shell-Skript könnt ihr dann beispielsweise euren Message-Broker neu starten.
+Weil viele,
+oder reloaden,
+je nachdem,
+weil ja viele Programme neu gestartet,
+oder zumindest mal Config neu eingelesen haben möchten,
+wenn sich die Zertifikate erneuert haben.
+Also mit sowas wie Certbot zum Beispiel,
+das ist bei weitem nicht das Einzige,
+was es dafür gibt,
+viele Leute mögen übrigens Certbot auch nicht sonderlich,
+kann man alles mit Let's Encrypt machen,
+auch was kein direkt eingebauten Let's Encrypt soll.
+Das war übrigens früher die einzige Möglichkeit,
+als es noch nicht so viel gab,
+mit Native so eingebautem Let's Encrypt Support.
+Und die meisten Services heutzutage haben ja auch kein Let's Encrypt Support direkt eingebaut,
+sondern müssen das Zertifikat irgendwie extern bereitgestellt bekommen.
+Und das kann zum Beispiel über Certbot passieren,
+oder auch über ein reines Shell-Skript,
+genau das geht auch.
+Also insofern ist das,
+es ist alles relativ easy mit Let's Encrypt,
+muss ich sagen.
+Also,
+mit Let's Encrypt,
+muss ich ein bisschen damit beschäftigen.
+Aber ich glaube,
+man hat es heute gesehen,
+also viel einfacher,
+wie auf dem Public Service ein gültiges Zertifikat bereitstellen kann man nicht,
+weil das hat zwei Minuten gedauert.
+Hier, es hat keinen Bock sich zu beenden.
+Dann schießen wir es einfach ab,
+vmchamp,
+clean,
+bam,
+alles weg.
+Aber das Fenster hängt immer noch.
+Oh,
+ich hab,
+ich hab,
+doch,
+ich hab Pendel schließen gemappt.
+Irgendwie kann man im Certbot,
+doch Rechte geben,
+dass er im DNS den Cert-Token renewen kann
+und sonst nichts ändern kann.
+Ich wusste gerne,
+wie das geht.
+Was?
+Das kommt auf den Anbieter an,
+wo du deinen DNS-Server hast.
+Also bei Cloudflare
+kannst du einstellen,
+dass dieser API-Token nur Rechte hat.
+Du kannst deinen externen DNS-Server nicht selbst self-hosted hosten.
+Wie willst du das machen?
+Also bei Cloudflare kannst du einstellen,
+dass du nur spezielle DNS-Server hast,
+wo du deine DNS-Zonen updaten kannst mit dem API-Token.
+Also kannst du,
+du kannst den DNS-Server für deine Domain nicht,
+nicht selbst,
+naja,
+doch,
+sag mal so,
+du kannst den DNS-Server für deine Domain schon selbst hosten,
+das geht.
+Aber,
+ähm,
+also,
+ich,
+ich wüsste nicht,
+weshalb,
+also,
+theoretisch geht das.
+Du kannst,
+beispielsweise bei deinem Domain-Register hinterlegen,
+dass deine DNS eben nicht der DNS vom Domain-Register verwendet wird,
+sondern irgendein eigener von dir.
+Das funktioniert.
+Ich bin mir nicht sicher,
+ob man an der Stelle interne IPs angeben kann,
+sodass es dann nur für dich intern funktioniert.
+Ah, dann musst du dich selbst um dein DNS-Zeug kümmern.
+Theoretisch geht das,
+aber,
+praktisch wüsste ich nicht,
+warum ich das jemals machen möchte.
+Könntest du irgendwann mal eine Ein-
+Das ist eine gute Idee.
+Das ist eine sehr gute Idee.
+Hast du irgendwelche Vorschläge?
+Das ist das Fenster noch ein bisschen größer.
+Hast du irgendwelche Vorschläge,
+was du,
+äh,
+genau sehen willst,
+oder einfach so allgemein,
+ne?
+Das hat,
+wir schreiben jetzt auch mal dabei,
+wer es gesagt hat.
+Irgendwas spezielles,
+willst du irgendwas spezielles sehen?
+Ansonsten könnten wir uns die Standardsachen halt mal angucken.
+Ich muss aber sagen,
+es ist gar nicht super ausgefallen,
+was ich benutze,
+neben den Standard-Tools,
+weil,
+also ich hab mal,
+ich hab mal,
+ich hab mal zum Beispiel lange Zeit
+einen LS-Ersatz verwendet.
+Ja,
+EXA war das.
+Ich weiß gar nicht,
+ob ich das auch noch installiert hab.
+Ne, hab ich nicht installiert.
+Guck mal,
+ob es das überhaupt noch gibt.
+Community Fork.
+Ja,
+dann,
+also ich hatte mal,
+ja,
+guck hier,
+das hatte ich mal eine Zeit lang installiert,
+als Ersatz zu LS.
+Das Ding ist nur,
+man könnte sagen,
+oh ja,
+ist ja viel hübscher und cooler und so.
+Ja,
+ist es.
+Ich mag das aber nicht mehr,
+diese ganzen alternativen,
+äh,
+EXA,
+diesen ganzen alternativen Command-Line,
+äh,
+re-invented Dinger,
+so re-written in Rust,
+so hast du nicht gesehen,
+weil,
+du gewöhnst dich da dran,
+und die Dinger sind meistens nicht,
+eins zu eins,
+mit den Optionen kompatibel,
+und dann gewöhnst du dich dran,
+und dann wunderst du dich so hoch,
+warum funktioniert es auf einmal nicht.
+Und nachdem ich auch sehr viel per SSH
+auf Servern unterwegs bin,
+bin ich es doof,
+wenn ich,
+ein LS bei mir lokal verwenden muss,
+was eine Option hat,
+und anders hat,
+als das LS auf dem Server,
+und sowas.
+Das geht mir immer echt auf den Sack.
+Deswegen bin ich,
+von den meisten Zusatzdingern,
+eigentlich weg.
+Also,
+ich,
+so,
+so,
+so viel,
+so viel,
+extravagante Sachen,
+habe ich da wahrscheinlich gar nicht.
+Ja,
+Temux habe ich lokal gar nicht mehr installiert,
+anscheinend doch,
+warum auch immer.
+Brauche ich nicht.
+Temux habe ich lokal gar nicht mehr installiert,
+weil,
+ich es nicht brauche,
+weil mein Termin,
+Terminal zeigen,
+vielleicht.
+Weil mein,
+mein Terminal-Programm,
+standardmäßig,
+quasi,
+so,
+Art,
+TMAX-Funktionalitäten hat.
+Da brauche ich das nicht,
+da benutze ich das nur auf dem Server.
+Was sehr praktisch ist,
+weil nested TMAX,
+was man sonst hatte,
+quasi,
+einmal lokal,
+und dann einmal SSH auf dem Server,
+TMAX war immer ein bisschen ab,
+artig.
+Da muss man,
+dreimal den Escape-Knopf drücken,
+und sowas.
+Ich glaube,
+so super ausgefallen ist das gar nicht.
+Cloudflare-Übersicht,
+kenne ich mich nicht großartig mit aus,
+ich benutze Cloudflare nicht.
+Also,
+auch,
+auch,
+auf der Arbeit benutze ich keinen Cloudflare.
+Ich benutze Cloudflare tatsächlich nur für DNS,
+oder zum Mail-Register,
+den ganzen anderen Krempel,
+den es hier so gibt,
+den benutze ich nicht.
+Screen,
+Quatsch,
+Screen ist outdated,
+einfach Tmux verwenden.
+Ja,
+das Alias ist auch nicht mein Fall.
+Ich weiß,
+es gibt Leute,
+die machen LL,
+und sowas.
+Also,
+zum Beispiel bei LS,
+ja,
+LS mache ich ganz gern den hier.
+Das habe ich mir schon so angewöhnt,
+dass ich das quasi fast schon blind tippen kann hier.
+LS-Lacht,
+also quasi List,
+All,
+Reverse,
+Time,
+Human,
+Readable.
+Also,
+wer sich jetzt mal die Ausgabe hier anguckt,
+mit H zu nicht H,
+sieht man,
+hier hast du das in Bytes,
+in Kilobytes,
+Kilobytes,
+in Kilobytes,
+und,
+oder,
+oder,
+Chatgear,
+ist es in Bytes,
+oder in Kilobytes?
+Es ist in,
+es ist in Bytes,
+direkt,
+oder?
+Ja,
+und H zeigt halt 4 Kilobyte an,
+anstatt 4096 Bytes,
+und sowas.
+T ist Time,
+und Reverse ist,
+dass das Neueste unten steht.
+Also,
+es sortiert nach Time,
+und dann Reverse.
+Also,
+sprich,
+unten stehen bei mir die neuesten Dateien,
+wenn ich es so mache.
+Das ist so,
+eigentlich,
+ansonsten,
+ich weiß nicht,
+also,
+wir,
+wir können,
+wir können ruhig mal gucken.
+Von den Tools,
+die über Nicht-Standard-Sachen rausgehen,
+eigentlich nur HTOP,
+wobei HTOP eigentlich mittlerweile so gut,
+wie Standard ist.
+Ich glaube,
+es kommt sogar auf den meisten Kisten,
+mittlerweile,
+vorinstalliert mit.
+Wenn du dir bei irgendwelchen,
+Cloud-Anbietern,
+in Ubuntu zusammen klickst,
+oder so,
+hast du gleich HTOP dabei.
+Ja,
+auch nicht.
+Aber das ist eine gute Idee,
+da können wir uns was überlegen.
+Deswegen verwende ich auch keine,
+oder nicht mehr,
+muss man ja sagen,
+früher hatte ich ja da,
+hatte ich ja da richtig viel,
+keine großartigen WIM-Plugins,
+oder sowas mehr.
+Weil,
+auf dem Server,
+wo ich PSSH drauf bin,
+ist da ganze Kram nicht drauf.
+Ich habe mal eine Zeit lang versucht,
+mir nach Logins,
+oder so,
+zu finden,
+weil,
+ich habe versucht,
+mir nach Login,
+meine WIM-Config,
+rüber zu kopieren,
+auf Servern,
+und sowas.
+Das ist übelst ätzend,
+und kacke.
+Dann lässt du überall,
+auf irgendwelchen Servern hin,
+lässt du irgendwas,
+WIM-Default,
+und gut ist.
+Und wenn ich wirklich,
+ein bisschen was,
+ausführlicheres mache,
+ja,
+dann verwende ich,
+eh,
+dafür,
+mittlerweile,
+eher,
+irgendwas von den JetBrains-Dingern.
+Sei es jetzt,
+wenn man,
+.NET machen wir ja im Stream,
+relativ viel,
+wenn wir,
+wenn wir was programmieren.
+Also .NET,
+für Go!
+Go!
+Land,
+und für Frontend-Zeug,
+verwende ich Visual Studio Code.
+Und WIM,
+verwende ich zwar auch,
+die ganze Zeit,
+aber halt nur für kleine Edit-Sachen,
+habt ihr heute im Stream gesehen,
+für Command Line.
+Ja,
+da,
+da können wir aber mal gucken,
+ist nicht verkehrt.
+Was machst du mit Go?
+Eh,
+meistens irgendwelche,
+Command Line-Tools,
+die Standalone sein müssen.
+Was sagt man?
+Im Stream,
+haben wir letztes Mal,
+Go!
+haben wir WebRTC-Sachen,
+gebastelt.
+Und in Rust,
+in Rust auch.
+Wobei,
+ich glaube,
+bei Rust,
+wow,
+Moment,
+Moment,
+Chat,
+habe ich das,
+habe ich das,
+warum ist denn die Rust IDE,
+nicht mehr deinstalliert?
+Habe ich die,
+ah,
+ich glaube,
+ich habe die wieder aninstallt.
+Rust Rover,
+habe ich wieder aninstallt.
+Aber da haben wir auch was gebaut mit.
+So sieht es aus.
+HATOP ist bei dem ja nicht dabei,
+aber,
+du kannst nachinstallieren,
+ne?
+Also meinst du,
+standardmäßig?
+Gut,
+standardmäßig,
+ich habe wirklich nichts bei Debian,
+gefühlt,
+dabei.
+Okay,
+Leute.
+Ja,
+net,
+net install ISO.
+Das ist auch super,
+super minimalistisch.
+Und das ist eines der Gründe,
+warum ich mir damals den VM-Champ zusammengewurschtelt habe.
+Der verwendet die Debian Cloud Images.
+Beats.
+Ja,
+Leute,
+kurzer Stream heute,
+eineinhalb Stunden,
+aber mehr gibt es zu dem Thema nicht.
+Das ist wirklich simpel.
+Jetzt können wir immer auf den Stream verweisen,
+wenn irgendjemand was von Let's Encrypt will.
+Mal gucken,
+ob das PvP-technisch heute läuft.
+Vielleicht streame ich heute Abend noch eine Runde.
+Daok,
+mal gucken.
+Konkurrenz zum VM-Champ?
+Ey,
+ich hoffe doch,
+ich hoffe doch.
+Da muss ich den Kram nicht weiterprogrammieren.
+Was?
+Linux Virtual Machines with a Focus on Running Containers?
+Ne.
+Ich glaube,
+das ist irgendwas ganz anderes.
+Hä?
+Außerdem ist das eine macOS-Geschichte.
+Das check ich schnell,
+was macht das?
+Wie funktioniert das?
+Ich glaube,
+Linux,
+aber das ist,
+das ist eine reine Mac-Geschichte,
+oder?
+Das,
+ich weiß nicht,
+was es ist,
+aber das sieht nicht nach VM-Champ-Konkurrenz aus.
+Auch wenn ich sie nice finden würde.
+Ach doch,
+gibt es doch für Linux.
+Ja,
+und was,
+was,
+was genau macht das jetzt?
+Ich habe es immer noch nicht so genau gecheckt,
+ehrlich gesagt.
+Will damit keine Container laufen?
+Doch,
+jetzt ausprobieren,
+weiß nicht.
+Das können wir mal schnell testen.
+Oh,
+mal gucken,
+mal gucken.
+Ah,
+Linux Typical.
+Ich mache mal kurz einen Snapshot davor.
+Man weiß ja nie,
+was das,
+was irgendwas kaputt macht.
+Ach hier,
+GitHub.
+Mal kurz ausprobieren.
+Releases Version 20.
+So,
+und dann gibt es jetzt ja auch irgendwas für Linux.
+Das da.
+Copy Link.
+Okay.
+Zahl XFZV.
+Okay.
+Und jetzt bin,
+ich check nicht,
+was will das von mir?
+Jubantu wird runtergeladen.
+Jubantu.
+Ähm,
+was,
+was tut es gerade?
+Okay,
+habe ich das,
+äh,
+to run Linux Commands.
+Lima,
+Neo Fetch.
+Okay.
+Okay,
+das muss in Path,
+sonst wird das wahrscheinlich nicht funktionieren.
+Vermutlich.
+Denke ich mal.
+Machen wir mal.
+Ähm,
+oh,
+wie,
+wie gehen wir das jetzt nochmal am besten?
+Export.
+Ah,
+nee,
+Path.
+Hier,
+wir haben das ja noch.
+High,
+High IQ ist doch schon.
+Home,
+Max,
+Temp,
+Lima,
+Bin.
+Nice.
+Aha.
+Okay.
+Und das ist jetzt ein was?
+Ein,
+Ubuntu.
+Hat das eine,
+hat das jetzt eine IP,
+wo ich drauf komme?
+Okay.
+Macht gar keinen so üblen Eindruck.
+Und wie kann ich jetzt auswählen,
+was das,
+was ich für ein OS und so haben will?
+Ach,
+hier,
+Bala,
+Shell.
+Okay,
+das ist gar nicht so blöd.
+Das muss ich mir mal merken,
+weil ich dann den vm-Champ immer noch etwas praktischer finde für mehr Sachen.
+Ja,
+ähm,
+gar nicht verkehrt.
+Muss ich mir mal angucken.
+Snapshot.
+Deswegen vm-Beste.
+Excellent.
+Alles klar.
+So,
+Chatge,
+ich gehe jetzt noch eine Kreisel-Crime machen.
+Wir sehen uns bis später.
+Macht's gut.
+See you.

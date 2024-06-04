@@ -1,0 +1,6286 @@
+WEBVTT
+
+00:04.210 --> 02:00.080
+So, bin ich am Start.
+
+02:00.340 --> 02:01.540
+Go Wizard, danke schön für den Sub.
+
+02:02.000 --> 02:04.700
+Leute, das ist heute ein, wie nennt man das?
+
+02:06.400 --> 02:07.340
+Requested Stream.
+
+02:09.750 --> 02:10.330
+Letzte Woche?
+
+02:10.870 --> 02:13.630
+Ich weiß nicht, es könnte letzten Sonntag gewesen sein.
+
+02:14.270 --> 02:15.230
+Möb, danke schön für den Sub.
+
+02:15.750 --> 02:17.210
+Könnte letzten Sonntag gewesen sein.
+
+02:18.590 --> 02:22.390
+Da war, ich krieg's gar nicht mehr genau so zusammen.
+
+02:22.390 --> 02:27.090
+Also irgendwie haben ein paar Leute was wissen wollen wegen Let's Encrypt im Chat.
+
+02:27.710 --> 02:30.310
+Und ich hab ihnen gesagt, guckt euch mal den alten Stream an.
+
+02:30.410 --> 02:31.330
+Irgendwie haben sie nicht gecheckt.
+
+02:31.370 --> 02:32.170
+Und da hab ich gesagt, wisst ihr was?
+
+02:32.750 --> 02:34.050
+Ich mach das einfach nochmal neu.
+
+02:34.870 --> 02:35.730
+Könnt ihr zugucken.
+
+02:35.810 --> 02:39.250
+Ich weiß gar nicht, ob derjenige oder diejenigen überhaupt da sind, Leute.
+
+02:40.470 --> 02:42.050
+Aber ich hab gesagt, ich mach das jetzt nochmal.
+
+02:43.230 --> 02:47.010
+Und das Schöne an Let's Encrypt ist, dass ich das relativ easy aus dem Ärmel schütteln kann.
+
+02:47.150 --> 02:49.790
+Und so zeigen, wo ich mir nix im Vorfeld großartig überlegen muss.
+
+02:50.330 --> 02:51.610
+Was gerade ein bisschen schwierig ist.
+
+02:52.270 --> 02:55.850
+Neben Kreisel, Grind, YouTube, Streams und Arbeiten gehen.
+
+02:55.850 --> 02:59.690
+Da noch 5-Head-Content mir auszudenken.
+
+03:00.830 --> 03:03.990
+Also, deswegen machen wir heute eine Runde Let's Encrypt.
+
+03:04.430 --> 03:05.710
+Ne, NPM machen wir heute nicht.
+
+03:07.830 --> 03:09.670
+Auf JavaScript hab ich heute keinen Bock.
+
+03:12.150 --> 03:12.930
+Das können wir machen.
+
+03:13.590 --> 03:15.110
+Also ich hab mir zwei Sachen überlegt.
+
+03:15.230 --> 03:16.390
+Ich hab mir zwei Sachen überlegt.
+
+03:16.650 --> 03:19.110
+Also, wir machen zwei Sachen.
+
+03:19.230 --> 03:24.630
+Also die einfachste Variante ist, ich hab einen Public Server angelegt hier bei Hetzner.
+
+03:24.630 --> 03:30.710
+Und da machen wir die Easy-Mode-Sache.
+
+03:31.150 --> 03:31.170
+So.
+
+03:32.250 --> 03:35.550
+Das Zweite ist, ich zeige euch, wie man das rein intern macht.
+
+03:36.150 --> 03:38.050
+Weil das haben ja auch einige wissen wollen.
+
+03:39.210 --> 03:45.870
+Wie man beispielsweise für interne Services sich Let's Encrypt-Zertifikate ausstellen lassen kann.
+
+03:46.390 --> 03:47.390
+Leute, ich hab ein Problem.
+
+03:47.890 --> 03:49.830
+Ich kann euch auch erzählen, was.
+
+03:51.330 --> 03:53.610
+Ich hab einen Knoten in der Hose, den krieg ich nicht auf.
+
+03:53.610 --> 03:53.710
+So.
+
+03:54.630 --> 03:56.910
+Weil er jetzt was Falsches denkt.
+
+03:57.110 --> 04:01.070
+Also eben da, wo man die enger und weiter macht.
+
+04:03.590 --> 04:06.730
+Und ich hab mich gerade so voll gefressen.
+
+04:07.350 --> 04:08.510
+Und jetzt ist das zu eng.
+
+04:09.190 --> 04:14.910
+Das Problem ist, das ist so ein ganz dünner Kordel ist das nur.
+
+04:16.510 --> 04:18.950
+Und das drückt jetzt voll den Bauch.
+
+04:19.690 --> 04:23.690
+Und ich hab es natürlich nicht ordentlich gebunden, dass man es aufkriegt.
+
+04:23.690 --> 04:24.510
+Das heißt, ich krieg es jetzt.
+
+04:24.630 --> 04:25.470
+Gar nicht richtig auf.
+
+04:25.470 --> 04:26.150
+Aber ich muss es auf.
+
+04:26.150 --> 04:27.250
+Gibt es zwei Varianten.
+
+04:27.930 --> 04:29.350
+Es gibt jetzt gibt es zwei Varianten.
+
+04:29.350 --> 04:30.770
+Entweder ziehe ich die Hose aus.
+
+04:33.570 --> 04:35.690
+Na ja, ganz warm genug ist es nicht.
+
+04:36.570 --> 04:41.220
+Oder ich kriege diesen komischen Knoten auf.
+
+04:44.810 --> 04:46.070
+Wie war der Spruch mit der Kordel?
+
+04:46.250 --> 04:47.110
+Ach, mein Opa.
+
+04:47.210 --> 04:50.730
+Ja, ja, jetzt verstehe ich das.
+
+04:51.410 --> 04:53.350
+Das hat mein Opa also gemeint.
+
+04:55.510 --> 04:56.010
+Ja.
+
+04:57.370 --> 04:58.150
+Ja, stimmt.
+
+04:58.150 --> 04:58.630
+Jetzt.
+
+04:58.630 --> 05:01.050
+Jetzt ergibt alles Sinn, ja.
+
+05:03.550 --> 05:04.630
+Also für die Nicht-Eingeweihten.
+
+05:05.950 --> 05:08.170
+So eine Sache, die ich hier schon öfters erzählt habe, ist.
+
+05:08.690 --> 05:10.370
+An das Trinken, ja, ich hab hier alles da.
+
+05:11.050 --> 05:13.110
+Eine Sache, die ich schon öfters erzählt habe, ist.
+
+05:13.610 --> 05:14.770
+Polyfisch, danke schön für den Sub.
+
+05:14.950 --> 05:15.890
+Wear Linux, hier.
+
+05:17.930 --> 05:19.370
+Sache, die ich schon öfters erzählt habe, ist.
+
+05:20.510 --> 05:24.150
+Mein Opa hat immer erzählt, er hatte so einen Standardspruch gehabt.
+
+05:24.330 --> 05:27.650
+So, wenn irgendwie was nicht so ging, wie ich mir das vorgestellt habe.
+
+05:27.650 --> 05:27.910
+Und so.
+
+05:27.910 --> 05:31.210
+So, dann musste er mir immer mitteilen, so nach dem Motto, ja, später im Leben, so.
+
+05:31.630 --> 05:33.490
+Da kannst du dies auch nicht immer aussuchen, so.
+
+05:33.790 --> 05:38.130
+Und er hatte, und er hatte halt immer, immer, immer schon so den Standardspruch gehabt.
+
+05:38.590 --> 05:42.130
+Dann wirst, du wirst später nochmal schwer Kordel nachgeben müssen, so.
+
+05:42.170 --> 05:44.650
+Und das ging dann immer so von, bei meinem Opa, so nach dem Motto.
+
+05:45.190 --> 05:48.950
+Ja, warte mal ab, bis du, wahrscheinlich hat er das schon zum Kindergarten gesagt.
+
+05:49.070 --> 05:49.930
+Ich weiß es nicht, ja.
+
+05:50.170 --> 05:51.110
+Da kann ich mich nicht dran erinnern.
+
+05:51.170 --> 05:52.830
+So, warte mal, bis du in den Kindergarten kommst.
+
+05:52.850 --> 05:54.630
+Da musst du schwer Kordel nachgeben, so.
+
+05:55.230 --> 05:56.410
+Warte mal, bis du in die Schule hast.
+
+05:56.410 --> 05:57.370
+Da kann ich mich dran erinnern.
+
+05:57.370 --> 05:59.310
+Warte mal, bis du in die Schule kommst.
+
+05:59.450 --> 06:02.170
+Bis du in die Schule kommst, da musst du schwer Kordel nachgeben.
+
+06:02.730 --> 06:04.730
+Ja, warte mal, bis du in die weiterführende Schule kommst.
+
+06:04.810 --> 06:06.330
+Da musst du schwer Kordel nachgeben, so.
+
+06:06.410 --> 06:07.250
+Ja, ist immer nicht passiert.
+
+06:07.410 --> 06:10.270
+Warte mal, bis du arbeiten gehst, bis du deine Ausbildung machst.
+
+06:10.370 --> 06:12.490
+Da musst du, es ist bisher nie eingetreten.
+
+06:12.610 --> 06:14.710
+Aber heute ergibt das alles Sinn.
+
+06:16.050 --> 06:19.530
+Mein Opa hat schon prediktet, dass ich zu Pepo fett bin.
+
+06:20.150 --> 06:21.170
+Für diese Hose.
+
+06:22.150 --> 06:24.670
+Deswegen hat er mir das 20 Jahre lang erzählt, ja.
+
+06:25.050 --> 06:25.290
+Easy.
+
+06:28.600 --> 06:28.960
+Exposed.
+
+06:29.000 --> 06:31.760
+So, gut.
+
+06:32.020 --> 06:32.920
+Ich hab's aufgekriegt.
+
+06:34.500 --> 06:35.020
+Nice.
+
+06:35.520 --> 06:35.740
+Also.
+
+06:37.020 --> 06:38.500
+Wir werden heute zwei Sachen machen.
+
+06:39.020 --> 06:40.080
+Auf die Nachfrage.
+
+06:40.220 --> 06:41.600
+Jetzt erst mal Chat, Chat.
+
+06:42.640 --> 06:46.780
+Irgendjemand von den Let's Encrypt Enjoyers von letzter Woche im Stream.
+
+06:47.400 --> 06:48.880
+Weil für euch mach ich den Stream.
+
+06:49.800 --> 06:53.000
+Letzte Woche haben sich Leute im Chat über Let's Encrypt unterhalten.
+
+06:53.980 --> 06:56.900
+Und als ich gesagt hab, ich hab da schon mal Streams drüber gemacht,
+
+06:56.900 --> 06:58.880
+haben sie es irgendwie nicht gecheckt.
+
+06:59.120 --> 07:02.040
+Wobei, keiner outet sich jetzt als jemand, der es nicht gecheckt hat.
+
+07:03.120 --> 07:03.820
+Ähm, ja.
+
+07:04.240 --> 07:05.440
+Vielleicht ist irgendjemand dabei.
+
+07:06.180 --> 07:08.240
+Und ich dachte mir, ich kann das nochmal schnell machen.
+
+07:08.340 --> 07:09.300
+Das ist kein großer Akt.
+
+07:09.340 --> 07:11.500
+Da muss ich mir auch im Vorfeld nichts Großartiges überlegen.
+
+07:12.220 --> 07:18.140
+Aber, ich hab mir tatsächlich im Vorfeld ein bisschen was überlegt.
+
+07:18.260 --> 07:21.200
+Nämlich, ich dachte mir, es ist so, es ist ein bisschen doof.
+
+07:21.560 --> 07:24.500
+Ich kann euch ja gar nicht immer nur die Hälfte zeigen,
+
+07:24.680 --> 07:27.640
+weil ich ja sonst irgendwelche API-Keys leake oder sowas.
+
+07:28.580 --> 07:30.000
+Deswegen machen wir das heute.
+
+07:30.000 --> 07:32.800
+In einer ganz speziellen Kombination.
+
+07:33.200 --> 07:36.600
+Nämlich eine Domain, die ich schon gekauft hab.
+
+07:37.200 --> 07:39.280
+Weil ich kann nicht live im Stream eine Domain kaufen.
+
+07:39.440 --> 07:41.680
+Ja, Paymentinformationen, alles mögliche.
+
+07:42.020 --> 07:43.220
+Domain, die ich schon gekauft hab.
+
+07:43.320 --> 07:45.560
+Domain kaufen traue ich jedem zu.
+
+07:48.380 --> 07:50.380
+Und ich kann euch aber das API-Token zeigen.
+
+07:50.480 --> 07:51.780
+Wir machen das nämlich über Cloudflare.
+
+07:53.400 --> 07:58.040
+Cloudflare hat die Möglichkeit, seine API-Tokens ordentlich abzusichern.
+
+07:59.120 --> 08:01.720
+Mit, ähm, Source-IP und...
+
+08:02.080 --> 08:06.680
+Gültigkeitsdatum und dass es sich auch nur auf DNS bezieht und sowas.
+
+08:06.780 --> 08:11.380
+Ich kann euch nämlich das komplette Setup zeigen, inklusive dem API-Token.
+
+08:11.480 --> 08:13.480
+Das heißt, ich werde meine API-Token leaken,
+
+08:13.580 --> 08:15.880
+aber ihr könnt mit dem API-Token nichts anfangen.
+
+08:15.980 --> 08:17.680
+Und selbst, wenn ihr damit was anfangen könnt,
+
+08:17.780 --> 08:22.680
+könnt ihr höchstens für pricechamp oder pricechamp.org irgendeine Subdomain setzen.
+
+08:22.780 --> 08:25.680
+Ich glaube, das hält sich in Grenzen, das, was man damit machen kann.
+
+08:25.780 --> 08:39.420
+So, jetzt müssen wir vorher aber noch mal eine Sache schnell machen.
+
+08:39.520 --> 08:42.120
+Wobei, nee, ich mach kein System-Update.
+
+08:42.320 --> 08:46.220
+Es ist Arch, by the way, aber lasst mal kurz mal checken.
+
+08:46.320 --> 08:47.820
+Ich hab nämlich schon eine Weile nicht mehr.
+
+08:49.920 --> 08:52.920
+Okay, klar. Nein, wir machen jetzt kein Arch-Linux-Update,
+
+08:53.020 --> 08:55.620
+weil ich bin hier eingeloggt bei...
+
+08:56.620 --> 09:04.330
+Ich bin in Cloudflare eingeloggt und das ist ein, äh, Inkognito-Tab.
+
+09:05.630 --> 09:07.130
+Sonst muss ich mich nachher wieder neu einloggen,
+
+09:07.230 --> 09:08.430
+sonst hab ich keinen Bock drauf.
+
+09:08.530 --> 09:09.430
+So, hier.
+
+09:10.430 --> 09:12.530
+Anderen Krempel können wir eigentlich mal alles zumachen.
+
+09:12.630 --> 09:13.630
+Jetzt sind wir hier.
+
+09:13.830 --> 09:18.630
+Also, für alle, die noch gar keine Ahnung davon haben,
+
+09:18.730 --> 09:24.630
+werde ich euch mal ganz kurz erzählen, was Let's Encrypt ist und was man damit machen kann.
+
+09:27.380 --> 09:29.280
+Oder wissen alle Bescheid?
+
+09:29.380 --> 09:33.110
+Da kann ich mir doch sparen, Chatge.
+
+09:33.210 --> 09:35.110
+High IQ oder not high IQ?
+
+09:35.210 --> 09:43.280
+Okay.
+
+09:43.380 --> 09:45.280
+Genau.
+
+09:45.380 --> 09:47.280
+Kurzform ist, es gibt gratis Zertifikate.
+
+09:47.380 --> 09:49.280
+Not high IQ.
+
+09:49.380 --> 09:50.280
+Okay.
+
+09:50.380 --> 09:52.280
+Also, Let's Encrypt ist...
+
+09:52.380 --> 09:54.280
+Warum machen wir die Seite auf von denen?
+
+09:54.380 --> 09:56.180
+Weil die Leute dabei sind.
+
+09:56.280 --> 09:58.180
+Ähm, wo hatte ich denn das eben auf?
+
+09:58.280 --> 09:59.180
+Hier.
+
+09:59.280 --> 10:01.180
+Also, Let's Encrypt sagt...
+
+10:01.280 --> 10:03.180
+Oh, guck mal, die haben ja sogar so eine Seite auf Deutsch.
+
+10:03.280 --> 10:06.820
+Die habe ich, glaube ich, noch nie gesehen.
+
+10:06.920 --> 10:09.820
+Also, Let's Encrypt sagt selbst über sich, eine Non-Profit-Organisation,
+
+10:09.920 --> 10:12.820
+die TLS-Zertifikate für Blablabla-Webseiten bereitstellt.
+
+10:12.920 --> 10:14.820
+Das ist der Kern.
+
+10:14.920 --> 10:16.820
+Vielleicht erinnert sich noch der ein oder andere früher.
+
+10:16.920 --> 10:23.820
+Vielleicht hatte mal irgendwie einer von euch vor längerer Zeit bei Strato oder sowas,
+
+10:23.820 --> 10:26.720
+wo die Leute sich damals immer Webseiten geholt haben.
+
+10:26.820 --> 10:29.720
+Irgendjemand, irgendwelche alten Strato-Enjoyers.
+
+10:29.820 --> 10:34.720
+Zumindest, da war das oftmals so, dass wenn du eben HTTPS anschalten wolltest,
+
+10:34.820 --> 10:38.720
+also TLS im Browser, dass du ein gültiges Zertifikat hast.
+
+10:38.820 --> 10:41.720
+So, dass es dann da oben in deinem Browser so aussieht, ja.
+
+10:41.820 --> 10:44.720
+Dass du dann hier so ein schönes Häkchen hast,
+
+10:44.820 --> 10:47.720
+sodass du nachgucken kannst, Zertifikatsinformationen.
+
+10:47.820 --> 10:52.720
+Übrigens, das Zertifikat von Let's Encrypt ist auch ausgestellt von Let's Encrypt immerhin.
+
+10:52.720 --> 10:54.620
+Die benutzen ihr eigenes Zeug.
+
+10:54.720 --> 10:59.620
+Und damals war das ein bisschen problematisch.
+
+10:59.720 --> 11:06.620
+Damals musstest du dir entweder dieses gratis Zertifikat-Generating-Zeug von deinem Hoster verwenden,
+
+11:06.720 --> 11:10.620
+oder du musstest dir selbst irgendwo ein Zertifikat kaufen.
+
+11:10.720 --> 11:13.620
+Das war alles immer wahnsinnig umständlich und hat Geld gekostet.
+
+11:13.720 --> 11:19.620
+Und ehrlich gesagt war das auch nicht besser als irgendwelche kostenlosen Zertifikate.
+
+11:19.720 --> 11:22.620
+Es ist nämlich so,
+
+11:22.820 --> 11:25.620
+ihr könnt euch ohne Probleme sowas selbst ausstellen.
+
+11:25.720 --> 11:27.620
+Ganz ohne Let's Encrypt, ohne alles.
+
+11:27.720 --> 11:32.620
+Ihr könnt ohne Probleme lokal hier mit OpenSSL, könnt ihr selbst Zertifikate generieren.
+
+11:32.720 --> 11:34.620
+Das ist überhaupt kein Ding.
+
+11:34.720 --> 11:37.620
+Das Problem ist nur, wenn ihr dann damit drauf geht mit dem Browser,
+
+11:37.720 --> 11:41.620
+dann wird euer Browser sagen, diese Webseite ist, was sagen die da mittlerweile?
+
+11:41.720 --> 11:43.620
+Dankeschön Splixer für den Sub.
+
+11:43.720 --> 11:45.620
+Was sagt da Firefox mittlerweile?
+
+11:45.720 --> 11:49.620
+Es gibt doch, Moment, Moment, Expired Cert Test.
+
+11:49.620 --> 11:53.520
+Da gibt es doch so eine BadSSL, genau das meine ich.
+
+11:53.620 --> 11:55.520
+Hier, Expired.
+
+11:55.620 --> 11:57.520
+Wenn ihr auf einer Webseite, habt ihr bestimmt alle schon gesehen,
+
+11:57.620 --> 12:02.520
+wenn ihr auf einer Webseite, Expired kann ja auch sein, untrusted root, das brauchen wir.
+
+12:02.620 --> 12:05.520
+Wenn ihr auf eine Webseite geht, dann kriegt ihr dann so eine komische Fehlermeldung.
+
+12:05.620 --> 12:13.520
+Und das liegt daran, nicht weil das Zertifikat irgendwie ungültig wäre, nicht korrekt ausgestellt wäre,
+
+12:13.620 --> 12:17.520
+die irgendwie fehlerhaft ist oder so, das liegt daran,
+
+12:17.520 --> 12:26.420
+dass die Zertifizierungsstelle, die das Zertifikat ausgestellt hat, nicht getrusted ist von eurem Browser.
+
+12:26.520 --> 12:33.420
+Es ist egal, ob es der Browser ist, es kann auch euer Betriebssystem sein, es kann auch Java sein oder was auch immer.
+
+12:33.520 --> 12:39.420
+Alle haben so einen Default Trust Store mit ein paar Zertifikatsausstellern, denen vertraut wird.
+
+12:39.520 --> 12:45.420
+Also sprich, wenn Zertifikate, wenn Webseiten Zertifikate, SSL Zertifikate von diesen Stellen ausgestellt werden,
+
+12:45.420 --> 12:57.320
+dann wird denen vertraut. Unter Linux liegt das Ganze, glaube ich, unter etc.ssl.certs.
+
+12:57.420 --> 13:02.320
+Ja, genau, also hier seht ihr alle Aussteller, denen Linux standardmäßig vertraut.
+
+13:02.420 --> 13:09.320
+Ja, da sind dann auch so All-Time Favorites drin, wie Komodo und so, nee, nee, wie die, komm.
+
+13:09.420 --> 13:16.630
+Oder sind die gar nicht mehr drin, kann das sein? Vielleicht sind die gar nicht mehr drin oder irgendwie.
+
+13:16.730 --> 13:22.630
+Ja, ah, da steht wahrscheinlich, da ist doch hier Komodo, warum findet er das nicht?
+
+13:22.730 --> 13:31.160
+Komodo? Hä? Ich bin einfach Noob, ich habe es einfach nicht gesehen.
+
+13:31.260 --> 13:36.160
+Ja, da sind dann so die All-Time Favorites drin, wie Komodo oder sowas.
+
+13:36.260 --> 13:43.160
+Ich nehme mal Komodo als Beispiel, weil das ein schönes, weil die ein schönes Beispiel dafür sind,
+
+13:43.260 --> 13:49.160
+dass auch eine super teure Professional Zertifizierungsstelle,
+
+13:49.360 --> 13:56.750
+äh, auch Probleme haben kann, weil Komodo wurde mal ihr Private Key geklaut.
+
+13:56.850 --> 14:02.750
+Falls ich da noch irgendjemand, erinnert sich noch jemand dran? An die, an die Geschichte?
+
+14:02.850 --> 14:19.250
+Komodo Private Key League, das ist schon einige Jahre her.
+
+14:19.350 --> 14:27.250
+Zumindest, die haben auch damals ihr Zeug verloren und da sieht man, dass es, also, nur weil es Geld kostet,
+
+14:27.350 --> 14:31.250
+ist es prinzipiell auch nicht irgendwie super, super krass secure auf einmal.
+
+14:31.450 --> 14:36.250
+So, und hier habt ihr beispielsweise alle Sachen, denen Linux standardmäßig vertraut.
+
+14:36.350 --> 14:40.250
+Euer Browser hat auch sowas, Firefox hat sowas, Chrome hat sowas.
+
+14:40.350 --> 14:46.250
+Und wenn ihr euch selbst Zertifikate ausstellt, dann sieht es halt so aus, oftmals, wenn ihr mit dem Browser drauf geht,
+
+14:46.350 --> 14:54.250
+weil dort, wo ihr das Zertifikat ausgestellt habt, bei euch lokal, dem vertraut der Browser halt nicht.
+
+14:54.350 --> 15:01.250
+Man kann das ändern, man kann seine eigene interne Zertifizierungsstelle,
+
+15:01.450 --> 15:04.250
+in den Trust so aufnehmen.
+
+15:04.350 --> 15:11.250
+Das ist aber sehr mühselig, wenn man nicht grad irgendwie intern alles per Active Directory verteilt und sowas.
+
+15:11.350 --> 15:15.250
+Aber ihr kennt mich, ich mach einen ganz großen Bogen um alle möglichen Microsoft-Shits.
+
+15:15.350 --> 15:21.250
+Es ist kacke, ja. Also, das Beste ist, man hat ein gültiges Zertifikat.
+
+15:21.350 --> 15:30.250
+Und ein gültiges Zertifikat, beziehungsweise ein, was soll ich sagen, gültig, also nicht nur gültig vom Zeitraum her, sondern auch gültig vom Aussteller her ist,
+
+15:30.350 --> 15:35.150
+wenn man das eben von einer vertrauenswürdigen Zertifizierungsstelle ausstellt.
+
+15:37.350 --> 15:46.150
+Und früher gab es sowas nicht kostenlos. Früher musstest du zu Komodo, zu wie, wie hießen die? Trusts?
+
+15:46.250 --> 15:59.810
+Wie hießen die anderen, die damals zu Strato-Zeiten noch voll beliebt waren, wo fast jeder was hatte, weil's im Basic-Web-Hosting-Paket drinne war?
+
+15:59.810 --> 16:04.710
+VeriSign, das kann sein. Jaja, ich glaub VeriSign, VeriSign ist das.
+
+16:04.810 --> 16:12.680
+Man muss das Ding, man muss das Geld dafür bezahlen. Das ist natürlich doof.
+
+16:12.780 --> 16:16.680
+Warum es immer noch kostenpflichtige Zertifikate gibt, das ist eine sehr gute Frage.
+
+16:16.780 --> 16:24.680
+Ich versuche, ich versuche das gleich mal zu beantworten, aus Sicht von Business-Enterprise-Leuten, weil ich hab die Diskussion oft genug mitgekriegt.
+
+16:24.780 --> 16:31.680
+Also, es gab lange Zeit keine Zertifizierungsstelle, die das Ganze kostenlos angeboten hat.
+
+16:31.680 --> 16:42.580
+Seit ein paar Jahren gibt es Let's Encrypt. Let's Encrypt kann jeder sich Zertifikate ausstellen lassen und Let's Encrypt ist getrusted von allen Browsern auf der Welt.
+
+16:42.680 --> 16:50.580
+Dementsprechend bekommt ihr keine Fehlermeldung, wenn ihr auf Webseiten geht, die Let's Encrypt Zertifikate verwenden, sondern einfach so gültig es passt.
+
+16:50.680 --> 16:59.580
+So. Es gibt jetzt zwei Probleme. Die Leute... Ist die Musik laut? Warum ist sie so laut?
+
+16:59.680 --> 17:07.920
+Nee, besser.
+
+17:08.020 --> 17:13.820
+Es gibt jetzt zwei Probleme, die viele Leute haben, die neu sind, was Let's Encrypt angeht.
+
+17:13.920 --> 17:18.820
+Das ist einmal so die generelle Bedienung, so nach dem Motto, was muss ich denn jetzt überhaupt machen?
+
+17:18.920 --> 17:30.820
+Und wenn das die Leute rausgekriegt haben, das zweite Problem ist, ja gut, ich hab jetzt eine Domain und will ein Zertifikat für, aber ich verwende die Domain ja gar nicht extern, ich verwende die plus intern.
+
+17:30.920 --> 17:37.820
+Und da fängt es auch bei vielen an, da wissen sie nicht, was sie machen sollen und die zwei Sachen gucken wir uns heute an.
+
+17:38.020 --> 17:45.820
+Gucken wir uns heute an in einer Kombination aus Sachen, die ich mir im Vorfeld überlegt habe, weil es gibt ja viele Varianten, wie man und wo man das benutzen kann.
+
+17:45.920 --> 17:55.820
+Und auf die Frage hin, warum die Leute immer und was der Sinn von kostenpflichtigen Zertifikaten ist, es gibt ja verschiedenste Arten von...
+
+17:55.920 --> 17:59.820
+Naja, verschiedenste Arten von Zertifikaten ist vielleicht verkehrt.
+
+17:59.920 --> 18:03.820
+Verschiedene Verwendungszwecke, sagen wir mal, für Zertifikate.
+
+18:03.920 --> 18:05.820
+Zum Beispiel für...
+
+18:05.920 --> 18:07.820
+ähm...
+
+18:07.920 --> 18:14.720
+Signing und solche Geschichten und es gibt ein paar Anwendungsfälle, die unterstützt Let's Encrypt nicht.
+
+18:14.820 --> 18:22.160
+Also dafür macht das durchaus Sinn, ein kostenpflichtiges Zertifikat zu benutzen, allgemein.
+
+18:22.260 --> 18:31.160
+Und die Diskussion habe ich bei meinem alten Arbeitgeber mitgekriegt, gibt es immer noch Leute, die der Meinung sind, nur gekaufte Zertifikate sind gute Zertifikate.
+
+18:31.260 --> 18:37.160
+Das ist jetzt kein Witz, wir können das vielleicht nicht so richtig nachvollziehen, aber das gibt es wirklich und zwar...
+
+18:37.160 --> 18:41.060
+Bei meinem letzten Arbeitgeber, da waren wir bei...
+
+18:41.160 --> 18:44.060
+Ich kann mich gar nicht mehr erinnern.
+
+18:44.160 --> 18:47.060
+Was gibt es denn so für große...
+
+18:47.160 --> 18:49.060
+Weiß ich gar nicht.
+
+18:49.160 --> 18:55.060
+Ich habe keine Ahnung, ist auch vollkommen egal, wo wir gewesen sind, ich weiß es echt nicht mehr.
+
+18:55.160 --> 18:57.060
+Ähm...
+
+18:57.160 --> 19:03.060
+Also wir hatten auch ein paar bei Komodo, aber wir hatten danach, was hatten wir denn? Ich weiß es gar nicht mehr.
+
+19:03.160 --> 19:06.690
+Ist auch wurscht.
+
+19:06.790 --> 19:08.690
+Ist auch wurscht.
+
+19:08.890 --> 19:18.690
+Und das Ding ist bloß, wir hatten ein Team, oder zumindest ein Subteam dort, was sich um Zertifikatsbeschaffung und Zertifikatserneuerung und so gekümmert hat.
+
+19:18.790 --> 19:26.690
+Und die waren ganz große Verfechter daran, dass nur gekaufte Zertifikate gute Zertifikate sind.
+
+19:26.790 --> 19:40.450
+Das lag unter anderem daran, weil Let's Encrypt quasi das komplette Team hätte überflüssig gemacht, weil bei Let's Encrypt ist es halt mit dem Ausstellen und dem Erneuern meistens relativ easy.
+
+19:40.650 --> 19:57.960
+Dementsprechend ist das ziemlich bescheuert gewesen, aber die haben es halt geschafft, das so zu verbreiten, so dieses nur gekaufte Zertifikate sind gute Zertifikate, dass das gerade auch auf Management-Ebene geglaubt wurde.
+
+19:58.060 --> 20:05.960
+So ein gekauftes Zertifikat für den Einsatz hier beispielsweise für SSL oder Webseite, es ist vollkommen egal, es macht überhaupt keinen Unterschied, wo das herkommt.
+
+20:06.060 --> 20:09.960
+Das Zertifikat ist nicht besser und es ist nicht schlecht, ob du dafür Geld ausgeben oder sonst was.
+
+20:09.960 --> 20:14.860
+Entweder ist es in deinem Trust-Store drinne von dem, was du verwendest oder nicht.
+
+20:14.960 --> 20:21.860
+Und Let's Encrypt ist in... keine Ahnung, mir fällt nichts ein, wo Let's Encrypt nicht trusted ist mittlerweile.
+
+20:21.960 --> 20:38.510
+Und deswegen ist Let's Encrypt wirklich eine super Sache und Erleichterung, seit es das gibt.
+
+20:38.610 --> 21:07.460
+Äh, keine Ahnung. Ich habe ehrlich gesagt... ich überlege gerade, was das ist. Keine Ahnung. Ich weiß aus dem Kopf noch nicht mal, was der Unterschied ist.
+
+21:07.460 --> 21:12.360
+Sind das welche, die... ähm, wo nochmal besonders geprüft wird dahinter?
+
+21:12.460 --> 21:22.360
+Ist das die Geschichte mit besonders kompliziertem... mit besonders kompliziertem Verifizierungsprozess? Sind das die?
+
+21:22.460 --> 21:29.360
+Es gibt ja welche... ja genau, das da... dann war ich jetzt... da war ich zumindest nicht ganz falsch, ja genau.
+
+21:29.460 --> 21:36.360
+Boah, ehrlich gesagt, eigentlich finde ich es für'n Arsch. Es sei denn, es ist für diesen einen Einsatzzweck aus irgendwelchen Gründen notwendig.
+
+21:36.360 --> 21:43.260
+Weil, es juckt doch keinen. Ja, solange es um normale Zertifikate im Browser geht, entweder Browser trusted der ganzen Sache oder nicht.
+
+21:43.360 --> 21:53.760
+Es ist ja... ich meine, niemand überprüft... also, es fängt ja schon an. Niemand guckt sich überhaupt Zertifikate an, solange das alles gut aussieht.
+
+21:53.860 --> 22:00.760
+Und noch weniger, von den paar, die da reingucken, checken, ob das irgendwie ein super spezielles Zertifikat ist.
+
+22:05.240 --> 22:12.140
+Ansonsten, pff, ich... ich vermag das jetzt nicht richtig einzuschätzen, ob es da sinnvolle Anwendungszwecke für gibt oder nicht.
+
+22:12.340 --> 22:19.140
+Also, ich fahre seit Jahren mit Let's Encrypt wirklich gut. Und ich verwende auch auf der Arbeit, wo es geht, Let's Encrypt.
+
+22:19.240 --> 22:23.140
+Auch auf der alten Arbeit, wo es geht, Let's Encrypt, weil da nicht irgendwelche Leute am Start...
+
+22:23.240 --> 22:28.140
+Also, dort, wo nicht irgendwelche Leute am Start sind, die sagen nur, gekaufte Zertifikate sind coole Zertifikate.
+
+22:28.240 --> 22:37.350
+Ich mag auch Wildcard-Zertifikate. Vielleicht machen wir heute sogar Wildcard-Zertifikate. Ich weiß schon nicht genau.
+
+22:37.450 --> 22:41.350
+So, also. Okay, great. Auf geht's.
+
+22:41.450 --> 22:44.350
+Ich hab mir folgendes ausgedacht.
+
+22:44.550 --> 22:58.350
+Wir benutzen eine Kombination aus Services, wo ich mir denke oder denken kann, dass das auch eine Kombination ist, die viele Leute privat benutzen sollen.
+
+22:58.450 --> 23:12.540
+Das ist... das eine ist, wir benutzen Cloudflare für... als Domainregistrar und DNS. Ja.
+
+23:12.640 --> 23:18.540
+Und wir benutzen intern später Nginx Proxima.
+
+23:18.740 --> 23:21.540
+Nginx Manager als Frontend.
+
+23:21.640 --> 23:27.540
+Ich glaube, das ist eine Kombination, die relativ verbreitet ist, gerade im Heimbereich, bei vielen Leuten.
+
+23:27.640 --> 23:35.260
+Deswegen geh ich mal von außen nicht verkehrt, wenn wir das hier auch so machen.
+
+23:35.360 --> 23:39.260
+Benutzt das jemand von euch? Also, ich hab das bei mir daheim auch im Einsatz.
+
+23:39.360 --> 23:51.260
+Yellow User... naja, ich hab gesagt, ich zeig das nochmal. Es kann ja keiner immer von Geburt an wissen, wie man Let's Encrypt-Zertifikate ausstellt.
+
+23:51.360 --> 23:57.150
+Aber ist halt buggy ohne Ende, ja.
+
+23:57.350 --> 24:04.150
+Weiß ich nicht. Es gab ein paar Security-Probleme in letzter Zeit damit. Ich hatte damit noch keine Schmerzen bisher.
+
+24:05.630 --> 24:11.530
+Für den Heimeinsatz finde ich das ganz gut. Also, die zwei Sachen. Ich hab eine Domain registriert bei Cloudflare.
+
+24:11.630 --> 24:16.530
+Den Domainregistrierungsprozess, den kann ich euch nicht zeigen. Wieso benutzt du nicht HA-Proxy?
+
+24:16.630 --> 24:26.530
+Weil das mit HA-Proxy komplizierter ist. Wenn du HA-Proxy Let's Encrypt machen willst, dann musst du dich ja komplett selbst drum kümmern, wie du das handelst.
+
+24:26.530 --> 24:33.430
+Also brauchst du dann im Endeffekt irgendwas wie Certbot, was das Zertifikatshandling macht und den anschließenden HA-Proxy neu startet.
+
+24:33.530 --> 24:38.430
+Das ist auch mal was, was wir machen können. Für daheim finde ich das in Kombination hier super easy.
+
+24:38.530 --> 24:44.430
+Installiert, Key eingetragen, Zertifikat ausgestellt, wo es hin geproxied werden soll, fertig.
+
+24:44.530 --> 24:49.440
+Nein, heute kein Keck WSS-Service.
+
+24:49.540 --> 24:59.950
+Das geht übrigens mit allem, ja. Also, es ist jetzt... ups. Es ist egal, ob es HA-Proxy ist oder... oder, ähm, Nginx.
+
+25:00.150 --> 25:09.580
+Oder Apache oder irgendeine Anwendung, die Zertifikate frisst mit Webserver. Du kannst Let's Encrypt mit allem machen.
+
+25:09.680 --> 25:23.210
+Bei manchen... bei manchen ist es ein bisschen schwieriger, weil du dich halt noch um so Sachen wie Zertifikatserneuerung und dann anschließend ins Anwendungs starten selbst kümmern musst.
+
+25:23.310 --> 25:30.380
+Aber spricht ja nichts dagegen. Kann man ja machen, je nachdem, was man verwenden will.
+
+25:30.480 --> 25:34.380
+Hat Cloudfile nicht was eigenes? Keine Ahnung. Gut möglich.
+
+25:44.690 --> 25:46.590
+Nginx einfacher als Traffic?
+
+25:46.790 --> 25:53.440
+Kommt drauf an. Für was? Das kann man pauschal nicht beantworten.
+
+25:53.540 --> 25:56.440
+Kommt drauf an, was du machen willst.
+
+25:56.540 --> 26:10.440
+Also, wenn du... wenn du noch ein bisschen... äh... advancedere Config mit irgendwie einem größeren Docker-Compose-File hast und willst, dass dein Traffic die Container automatisch discovert und sowas, dann ist Traffic wahrscheinlich einfacher.
+
+26:10.540 --> 26:21.120
+Wobei ich komplett weg bin von Docker-Compose mittlerweile, um bei mir daheim irgendwas laufen zu lassen.
+
+26:21.220 --> 26:23.120
+Und das ohne Kubernetes.
+
+26:23.220 --> 26:31.020
+Also, Traffic ist je nach Einsatzzweck einfacher.
+
+26:31.120 --> 26:34.020
+So generell gesagt finde ich allerdings Nginx einfacher.
+
+26:34.120 --> 26:37.020
+Und man darf sich hier bei dem Namen nicht täuschen lassen.
+
+26:37.120 --> 26:43.020
+Nur weil das Ding Nginx-Proxy-Manager heißt, heißt das nicht, dass du großartig was mit Nginx zu tun hast.
+
+26:43.120 --> 26:51.020
+Das basiert auf einem Nginx als Reverse-Proxy, aber es ist ein Web-Interface, was du ganz normal über einen Browser bedienen kannst,
+
+26:51.120 --> 26:55.920
+ohne dass du dich großartig mit beschäftigen musst.
+
+26:56.020 --> 27:02.570
+Für Kubernetes ist dein Kubernetes-Repo eine gute Referenz.
+
+27:02.670 --> 27:07.570
+Ich... ich vergaß... wir haben ja auch schon mal mit Kubernetes Let's Encrypt gemacht.
+
+27:07.670 --> 27:12.520
+Keckrate habe ich ja schon komplett... komplett vergessen.
+
+27:12.620 --> 27:21.520
+Also, Third-Bot finde ich etwas painstampig, weil bei Third-Bot musst du dich ja noch um viele Sachen selbst kümmern.
+
+27:21.620 --> 27:25.520
+Zum Beispiel du brauchst irgendeinen Post-Renew-Hook.
+
+27:25.720 --> 27:27.520
+Um deinen Service neu zu starten und sowas.
+
+27:27.620 --> 27:29.520
+Das ist alles kein Ding, das ist nicht sonderlich schwierig.
+
+27:29.620 --> 27:31.520
+Aber das musst du machen.
+
+27:31.620 --> 27:37.520
+Wenn du Sachen benutzt, wo halt alles eingebaut ist, dann musst du dich da gar nicht erst drum kümmern.
+
+27:37.620 --> 27:40.520
+Ansonsten ist Third-Bot, finde ich, immer ein bisschen painstamp.
+
+27:40.620 --> 27:42.520
+Third-Bot ist natürlich die universellste Variante.
+
+27:42.620 --> 27:48.720
+Das geht mit allem.
+
+27:48.820 --> 27:50.720
+Ja, das haben wir uns sogar im Stream schon angeschaut.
+
+27:50.820 --> 27:52.720
+Dokke.
+
+27:55.730 --> 27:57.630
+Okay, alles klar.
+
+27:57.730 --> 28:00.630
+Also, ihr habt euch eine Domain gekauft.
+
+28:00.730 --> 28:02.630
+In dem Fall habe ich mir die Domain hier gekauft.
+
+28:02.730 --> 28:04.530
+Die habe ich mir nicht jetzt gekauft, die habe ich schon eine Weile.
+
+28:04.630 --> 28:09.530
+Da gab es ja auch mal mein Grafikkarten-Preise-Nachguck-Tool.
+
+28:09.630 --> 28:11.530
+Was es nicht mehr gibt.
+
+28:11.630 --> 28:12.530
+War unter der Domain.
+
+28:12.630 --> 28:15.530
+Ihr seht, es gibt keine DNS-Einträge und sonst was.
+
+28:15.630 --> 28:19.530
+Es ist eine Domain, die habe ich gekauft über Cloudflare.
+
+28:19.630 --> 28:23.530
+Cloudflare macht auch den DNS, wie man hier sieht.
+
+28:23.630 --> 28:27.530
+Und ich glaube, dass das was ist, was auch viele Leute privat benutzen.
+
+28:27.630 --> 28:30.530
+Es ist aber egal, ob ihr das privat benutzt oder nicht.
+
+28:30.630 --> 28:32.530
+Wichtig ist, ihr braucht...
+
+28:32.730 --> 28:38.530
+Ihr braucht irgendein Domain-Registrar, der eine DNS-API anbietet.
+
+28:38.630 --> 28:40.530
+Für das, was wir später machen wollen.
+
+28:40.630 --> 28:42.530
+Und das sind zu 99.
+
+28:42.630 --> 28:47.530
+Also, mir fällt kein Domain-Registrar ein, der heutzutage keine DNS-API anbietet.
+
+28:47.630 --> 28:49.530
+Warum man das braucht, werdet ihr gleich sehen.
+
+28:49.630 --> 28:54.530
+Beziehungsweise später sehen, warum es ohne nicht geht.
+
+28:54.630 --> 28:56.530
+Ja.
+
+28:56.630 --> 28:57.530
+pricejam.org
+
+28:57.630 --> 28:59.530
+Domain habe ich mir vor ein paar Jahren gekauft.
+
+28:59.630 --> 29:02.530
+Es gibt aktuell keine DNS-Einträge und nichts.
+
+29:02.730 --> 29:06.530
+Und ich habe mir einen Server erstellt bei Hetzner.
+
+29:06.630 --> 29:08.530
+Die Kiste hier.
+
+29:08.630 --> 29:09.530
+Da ist...
+
+29:09.630 --> 29:13.530
+Ich installiere mal kurz ein T-Max drauf, dass ich mehrere Sachen starten kann.
+
+29:13.630 --> 29:14.530
+So.
+
+29:14.630 --> 29:15.530
+Da ist nichts drauf.
+
+29:15.630 --> 29:17.530
+Das ist ein nackiges...
+
+29:17.630 --> 29:20.530
+Ein nackiges Debian 12.
+
+29:20.630 --> 29:27.900
+Und jetzt werden wir mal probieren, dort ein gültiges Zertifikat auszustellen.
+
+29:28.000 --> 29:42.930
+WilderIgel1.
+
+29:43.030 --> 29:44.930
+Danke schön für den Sub.
+
+29:44.930 --> 29:49.830
+Das ist mit Abstand der einfachste Fall.
+
+29:49.930 --> 29:52.830
+Sprich, ihr habt euch eine Domain gekauft.
+
+29:52.930 --> 29:57.830
+Und ihr habt einen Server mit einer Public IP.
+
+29:57.930 --> 30:02.650
+Und darauf wollt ihr jetzt irgendwas laufen lassen.
+
+30:02.750 --> 30:04.650
+Wir machen nur nicht mal...
+
+30:04.750 --> 30:05.650
+Wir machen kein Certbot.
+
+30:05.750 --> 30:07.650
+Die einfachste Variante, die mir so einfällt.
+
+30:07.750 --> 30:13.090
+Und ihr habt euch eine Domain gekauft.
+
+30:13.190 --> 30:15.090
+Ihr habt euch einen Server gemietet.
+
+30:15.190 --> 30:18.090
+Und ihr wollt darauf jetzt irgendeine Webseite anbieten und ein gültiges Zertifikat.
+
+30:18.090 --> 30:20.990
+Das ist der mit Abstand einfachste Fall.
+
+30:21.090 --> 30:22.990
+Er trifft bei den meisten Leuten nicht zu.
+
+30:23.090 --> 30:24.990
+Weil die meisten Leute interne Services verwenden wollen.
+
+30:25.090 --> 30:27.990
+Die wollen intern, keine Ahnung, einen Home Assistant haben.
+
+30:28.090 --> 30:29.990
+Oder eine Nextcloud haben.
+
+30:30.090 --> 30:31.990
+Oder eine Imageverwaltung haben.
+
+30:32.090 --> 30:32.990
+Oder so was.
+
+30:33.090 --> 30:33.990
+Oder ein Bitwarden haben.
+
+30:34.090 --> 30:35.990
+Was sie halt nur intern verwenden.
+
+30:36.090 --> 30:39.990
+Das heißt, interne Zertifikate kann man auf die Art und Weise nicht ausstellen.
+
+30:40.090 --> 30:44.990
+Denn Let's Encrypt unterstützt zwei Authentifizierungsmöglichkeiten.
+
+30:45.090 --> 30:45.990
+Oder zwei.
+
+30:46.090 --> 30:47.990
+Authentifizierung ist das falsche Wort.
+
+30:48.090 --> 30:52.890
+Zwei Zertifikats-Ausstellwege.
+
+30:52.990 --> 30:57.890
+Die unterstützen HTTP-Challenge und DNS-Challenge.
+
+30:57.990 --> 31:03.890
+Und für HTTP-Challenge brauchst du eine Public IP, auf die Let's Encrypt zugreifen kann.
+
+31:03.990 --> 31:07.890
+Aber es ist mit Abstand das einfachste.
+
+31:07.990 --> 31:10.890
+Also wenn es auf euch zutrifft, dass ihr euch eine Domain gekauft habt.
+
+31:10.990 --> 31:12.890
+Public Server gemietet habt.
+
+31:12.990 --> 31:14.890
+Und darauf jetzt einfach eine Webseite laufen lassen wollt.
+
+31:14.990 --> 31:16.890
+Ein gültiges Zertifikat bekommen.
+
+31:16.890 --> 31:19.790
+Aber für die Anmeldemacher kann es nicht gehen.
+
+31:19.890 --> 31:22.790
+Wir erstellen mal irgendeine Demoseite.
+
+31:22.890 --> 31:24.790
+Mal kurz hier.
+
+31:24.890 --> 31:26.790
+MKDier-Page.
+
+31:26.890 --> 31:28.790
+Natürlich alles als root, was sonst.
+
+31:28.890 --> 31:32.580
+Keck-Weight.
+
+31:32.680 --> 31:35.580
+Hast du dich letztens erwähnt, dass du dich gegen eine Domain bei Hetzner entschieden hast?
+
+31:35.680 --> 31:37.580
+Ich habe mich dich wirklich gegen den...
+
+31:37.680 --> 31:40.580
+Hetzner will Ausweis-Verifizierung und so was.
+
+31:40.680 --> 31:42.580
+Da hatte ich keinen Bock drauf.
+
+31:42.680 --> 31:44.580
+Ich wollte weder Ausweis einscannen, noch sonst was.
+
+31:44.680 --> 31:51.790
+Cloudflare ist das anscheinend egal.
+
+31:51.890 --> 31:54.790
+Ich rücke immer nur so viele Daten raus, wie notwendig ist.
+
+31:54.990 --> 32:04.410
+Und nachdem ich Domains auch registrieren kann, wo ich meinen Ausweis irgendwie nicht einscannen muss, dann mache ich das nicht.
+
+32:04.510 --> 32:09.810
+Das einzig Dumme an Cloudflare ist, ich finde Cloudflare...
+
+32:09.910 --> 32:22.760
+Also ich glaube, ich hätte alle meine Domains bei Cloudflare, wenn Cloudflare, man glaubt es nicht, DE-Domains unterstützen würde.
+
+32:22.860 --> 32:25.760
+Cloudflare kann keine DE-Domains.
+
+32:25.860 --> 32:29.760
+Ich weiß nicht, ob die irgendwie Stress mit dem DNIC haben oder so.
+
+32:29.860 --> 32:31.760
+Warum das so ist.
+
+32:31.760 --> 32:33.660
+Aber man glaubt es nicht.
+
+32:33.760 --> 32:38.660
+Riesenanbieter Cloudflare, die unterstützen keine DE-Domains.
+
+32:38.760 --> 32:40.660
+Ja.
+
+32:40.760 --> 32:42.660
+Ja, ist so.
+
+32:42.760 --> 33:09.330
+Man glaubt es nicht.
+
+33:09.430 --> 33:11.330
+Aber es ist so.
+
+33:11.430 --> 33:18.860
+Ja, deswegen habe ich sogar noch eine Domain bei, haltet euch fest, Nitrado.
+
+33:18.960 --> 33:23.860
+Das ist da, wo die ganzen Leute früher ihre Minecraft-Let's-Plays, äh, Server...
+
+33:23.960 --> 33:25.860
+Nicht ihre Minecraft-Let's-Plays gehostet.
+
+33:25.960 --> 33:28.860
+Ihre Minecraft-Server gehostet haben.
+
+33:31.400 --> 33:33.200
+Also eine hab ich bei Nitrado.
+
+33:33.300 --> 33:35.200
+Ich hab, ähm...
+
+33:35.300 --> 33:40.810
+Was hab ich denn alles?
+
+33:40.910 --> 33:41.810
+Ich hab Domains.
+
+33:41.910 --> 33:42.810
+Lass mal überlegen.
+
+33:42.910 --> 33:50.810
+Ich hab bei Porkbun, bei Namecheap, bei Namesilo, der räudigste Server, Service überhaupt, Nitrado, Cloudflare.
+
+33:50.910 --> 33:59.630
+Ich glaub, das sind die fünf.
+
+33:59.730 --> 34:02.630
+Nee, da bin ich, äh, Trafo, da bin ich zu low IQ für.
+
+34:02.730 --> 34:15.320
+Ihr fragt euch jetzt vielleicht, warum ich nicht weitermache.
+
+34:15.420 --> 34:17.320
+Kann ich das erklären?
+
+34:17.420 --> 34:19.320
+Mein Finger blutet.
+
+34:19.420 --> 34:21.320
+Ich bin mir nicht...
+
+34:21.420 --> 34:22.220
+An der Seite.
+
+34:22.320 --> 34:25.220
+Ich bin mir nicht so genau sicher, wo ich gerade...
+
+34:25.320 --> 34:33.460
+Was ich gerade gemacht hab.
+
+34:33.560 --> 34:35.460
+Aber ich vermute...
+
+34:35.560 --> 34:36.460
+Also was ich...
+
+34:36.560 --> 34:40.460
+Ich weiß, was ich gemacht hab, ich weiß nicht, wie ich's gemacht hab.
+
+34:40.560 --> 34:44.460
+Ich hatte mich da eh schon ein bisschen geschnitten die letzten Tage.
+
+34:44.560 --> 34:47.460
+Und das ist jetzt zugewachsen und so, aber...
+
+34:47.560 --> 34:50.460
+Ich weiß nicht, wie ich's geschafft hab, aber das blutet grad wieder.
+
+34:50.560 --> 35:05.060
+Ich muss grad mal irgendwie gucken, ob ich irgendein Stück Taschentuch oder irgendwas hab.
+
+35:05.060 --> 35:06.960
+Ich denk, das ist ja das, mein Hund.
+
+35:07.060 --> 35:15.750
+Okay.
+
+35:15.850 --> 35:16.750
+Also.
+
+35:16.850 --> 35:18.750
+Ihr habt einen Public-Server.
+
+35:18.850 --> 35:21.750
+Und darauf erstellen wir jetzt, pass mal auf, Index-HTML.
+
+35:21.850 --> 35:23.750
+Super professional, wie das sein muss.
+
+35:23.850 --> 35:26.750
+Und da steht Cackle Bridge Chat drin.
+
+35:26.850 --> 35:34.060
+Ähm...
+
+35:34.160 --> 35:35.060
+Serve.
+
+35:35.160 --> 35:37.060
+So ging das, gell?
+
+35:37.160 --> 35:38.060
+So, Leute.
+
+35:38.160 --> 35:40.060
+Wir können jetzt ja mal was ausprobieren.
+
+35:40.160 --> 35:44.590
+Port 8...
+
+35:44.690 --> 35:45.590
+Was?
+
+35:45.690 --> 35:46.590
+Port 8...
+
+35:46.690 --> 35:48.960
+8000?
+
+35:49.060 --> 35:49.960
+Ja.
+
+35:49.960 --> 35:51.860
+Cackle Bridge Chat.
+
+35:51.960 --> 35:52.860
+Also, falls...
+
+35:52.960 --> 35:54.860
+Falls irgendjemand Bock hat...
+
+35:54.960 --> 35:59.860
+Wenn ihr das aufmacht in eurem Browser, wirst ihr jetzt die Webseite bekommen.
+
+35:59.960 --> 36:01.860
+Cackle Bridge Chat.
+
+36:01.960 --> 36:03.860
+Warte, ich muss mal kurz ein Stück Taschentuch oder so holen.
+
+36:03.960 --> 36:43.340
+Okay, wieder da.
+
+36:43.440 --> 36:46.340
+Okay, ich seh schon, die ersten Leute probieren's hier aus.
+
+36:46.440 --> 36:47.340
+Jetzt hab ich...
+
+36:47.440 --> 36:48.340
+Jetzt, guck mal.
+
+36:48.440 --> 36:50.340
+Irgendjemand konnte's nicht lassen.
+
+36:50.440 --> 36:53.340
+Irgendjemand konnte's nicht lassen, ey.
+
+36:53.440 --> 36:54.340
+So.
+
+36:54.440 --> 36:55.340
+Alles klar.
+
+36:55.440 --> 36:57.340
+Auf geht's.
+
+36:57.440 --> 36:59.340
+Ackermans, ey.
+
+36:59.440 --> 37:00.340
+Am Start.
+
+37:02.260 --> 37:04.160
+Also, das hat funktioniert.
+
+37:04.260 --> 37:05.160
+Weiter im Text.
+
+37:05.260 --> 37:08.160
+Ich glaub, jetzt hat's aufgehört, meinen Finger zu bluten.
+
+37:08.260 --> 37:09.160
+So, weiter im Text.
+
+37:09.260 --> 37:14.160
+Also, wir haben eine lokale Web-Anwendung, die wir jetzt mit einem Zertifikat versorgen wollen.
+
+37:14.260 --> 37:17.160
+Ich mach das absichtlich mit so einer...
+
+37:17.260 --> 37:23.160
+Mit einem Python-Web-Server stellvertretend für irgendeine x-beliebige Web-Anwendung.
+
+37:23.260 --> 37:25.160
+Also, das kann jetzt alles sein.
+
+37:25.260 --> 37:27.160
+Äh, war's nicht "-b"?
+
+37:27.160 --> 37:29.060
+Äh, "-b", Localhost?
+
+37:29.160 --> 37:34.460
+Irgendwo musst du mal noch Localhost hinschreiben.
+
+37:34.560 --> 37:35.460
+Genau, so.
+
+37:35.560 --> 37:37.460
+Und wenn ihr's jetzt probiert, geht das von außen nicht mehr.
+
+37:37.560 --> 37:38.460
+Warum?
+
+37:38.560 --> 37:44.460
+Weil die Anwendung nur an Localhost lauscht.
+
+37:44.560 --> 37:45.460
+So.
+
+37:45.560 --> 37:49.460
+Stellt euch vor, das ist vollkommen egal, dass das nur eine Webseite ist, wo Kekl draufsteht.
+
+37:49.560 --> 37:55.460
+Stellt euch vor, ihr habt irgendeine Web-Anwendung laufen auf eurem Web-Server, die ihr im Internet exposen wollt.
+
+37:55.560 --> 37:58.460
+Und ihr wollt ein gültiges Zertifikat haben.
+
+37:58.460 --> 38:01.360
+Ich persönlich benutze dafür immer Cudi.
+
+38:01.460 --> 38:05.360
+Weil das mit Abstand das Einfachste ist, um solche einfachen Dinger zu machen.
+
+38:05.460 --> 38:10.360
+Ihr könnt Traffic benutzen, ihr könnt Nginx benutzen, ihr könnt Certboard-Sachen mit HA-Proxy selbst.
+
+38:10.460 --> 38:11.360
+Es ist vollkommen egal.
+
+38:11.460 --> 38:14.360
+Ich persönlich mag Cudi und auch nur dafür.
+
+38:14.460 --> 38:17.360
+Ich mach mit Cudi sonst nichts.
+
+38:17.460 --> 38:19.360
+Ich finde die Config nicht sonderlich tolle.
+
+38:19.460 --> 38:22.360
+Ich finde auch die eingebauten Möglichkeiten nicht sonderlich tolle.
+
+38:22.460 --> 38:24.360
+Aber für diesen einen Zweck.
+
+38:24.460 --> 38:28.360
+Einen Service mit Let's Encrypts zu Reverse-Proxien.
+
+38:28.360 --> 38:31.260
+Finde ich ist Cudi mit Abstand das Einfachste.
+
+38:31.360 --> 38:33.260
+Und ich zeige euch jetzt mal, wie easy das funktioniert.
+
+38:33.360 --> 38:37.260
+So, als erstes müssen wir mal hier unsere Public IP rauskopieren.
+
+38:37.360 --> 38:39.260
+Und irgendeinen Eintrag im DNS erstellen.
+
+38:39.360 --> 38:41.260
+Da kommen wir nicht drum herum.
+
+38:41.360 --> 38:44.260
+Also, brauchen wir mal irgendeinen Eintrag.
+
+38:44.360 --> 38:46.260
+Was weiß ich, was machen wir denn?
+
+38:46.360 --> 38:51.260
+Machen wir einfach www.
+
+38:51.360 --> 38:53.260
+Wobei, das habe ich schon.
+
+38:53.360 --> 38:55.260
+www.test.
+
+38:55.360 --> 38:57.260
+www.test.
+
+38:57.260 --> 39:00.160
+public.
+
+39:00.260 --> 39:02.260
+public.
+
+39:04.160 --> 39:06.200
+public.
+
+39:13.790 --> 39:20.340
+public.twitch.pricechem.org
+
+39:20.380 --> 39:24.280
+Ist jetzt der A-Records, der auf diese IP zeigt.
+
+39:24.380 --> 39:27.280
+Wir wollen das nicht Porxien DNS only bei CloudFlare.
+
+39:27.380 --> 39:28.780
+Das sind CloudFlare Spezifisch.
+
+39:28.880 --> 39:32.100
+Save.
+
+39:32.100 --> 39:33.980
+jetzt den Name-Lookup macht, oder wenn man
+
+39:33.980 --> 39:35.620
+Ping macht, ist vollkommen egal, hier Ping
+
+39:35.620 --> 39:39.220
+public twitch.preischamp.org
+
+39:39.220 --> 39:42.060
+dann seht ihr, das Ganze löst auf.
+
+39:42.280 --> 39:44.180
+Ja, auf meine Public-IP.
+
+39:45.040 --> 39:46.000
+Es ist egal, bei welchem
+
+39:46.000 --> 39:48.080
+Anbieter ihr seid. In dem Fall ist es jetzt Cloudflare.
+
+39:48.180 --> 39:50.120
+Ich glaube, viele sind privat auch, machen so Sachen
+
+39:50.120 --> 39:51.940
+auch über Cloudflare. Aber es ist egal, ob es jetzt
+
+39:51.940 --> 39:53.940
+Namecheap ist oder Go, Addy,
+
+39:54.080 --> 39:56.440
+Daddy oder Namesilo,
+
+39:56.640 --> 39:57.700
+vollkommen wurscht.
+
+39:58.040 --> 39:59.900
+Wichtig ist, dort, wo ihr eure
+
+39:59.900 --> 40:01.820
+Domain registriert habt, müsst ihr den DNS
+
+40:01.820 --> 40:03.960
+anlegen, der
+
+40:03.960 --> 40:05.620
+auf die IP, auf die Public-IP
+
+40:05.620 --> 40:07.900
+von eurem Server zeigt. Sonst kann
+
+40:07.900 --> 40:10.100
+das Ganze nicht funktionieren. Und danach
+
+40:10.100 --> 40:11.000
+ist es super simpel.
+
+40:12.500 --> 40:13.940
+Ihr installiert Cudi, beispielsweise
+
+40:13.940 --> 40:16.180
+hier mit Debian, ihr könnt es euch auch runterladen,
+
+40:16.240 --> 40:18.180
+das gibt es, glaube ich, als fertiges Go-Binary.
+
+40:18.980 --> 40:20.040
+So, Debian ist
+
+40:20.040 --> 40:22.140
+das Ganze installiert, EDC,
+
+40:31.100 --> 40:31.720
+Cudi-File,
+
+40:32.060 --> 40:33.820
+da wird diese ganze Mist hier erstmal gelöscht drin.
+
+40:35.440 --> 40:36.200
+Und dann sagt
+
+40:36.200 --> 40:37.920
+ihr hier, ihr wollt Reverse-Proxien,
+
+40:38.240 --> 40:38.680
+und zwar,
+
+40:38.680 --> 40:40.780
+www, ne, wie habe ich es genannt?
+
+40:40.880 --> 40:41.940
+Das habe ich wieder vergessen, ja.
+
+40:42.820 --> 40:43.400
+Public.
+
+40:44.680 --> 40:48.640
+public.twitch.preischamp.org
+
+40:48.640 --> 40:51.460
+Reverse-Proxy
+
+40:51.460 --> 40:54.280
+localhost port 8000
+
+40:54.280 --> 40:56.600
+Auf localhost port 8000 läuft
+
+40:56.600 --> 40:57.660
+unsere Web-Anwendung hier.
+
+40:58.540 --> 41:00.620
+So, und wenn ich jetzt alles richtig gemacht habe,
+
+41:00.880 --> 41:01.660
+war es das schon.
+
+41:02.960 --> 41:04.600
+Ich glaube, das ist alles, was man
+
+41:04.600 --> 41:05.180
+machen muss.
+
+41:07.120 --> 41:07.680
+System
+
+41:07.680 --> 41:08.480
+CTL
+
+41:08.480 --> 41:09.300
+Restart
+
+41:09.300 --> 41:09.800
+Cudi
+
+41:09.800 --> 41:12.980
+Status, gucken wir mal.
+
+41:17.940 --> 41:19.540
+Certificate obtained successfully.
+
+41:20.040 --> 41:20.980
+Okay, Leute, also
+
+41:20.980 --> 41:28.040
+public.twitch.preischamp.org
+
+41:28.040 --> 41:29.080
+Und siehe da,
+
+41:29.580 --> 41:30.360
+keckelt Twitch-Chat.
+
+41:32.750 --> 41:33.890
+Könnt ihr mal ausprobieren bei euch.
+
+41:35.090 --> 41:36.710
+Und ihr seht, ich habe ein gültiges
+
+41:36.710 --> 41:38.710
+Zertifikat von Let's Encrypt.
+
+41:39.350 --> 41:40.670
+Und jetzt mal serious, Leute.
+
+41:41.670 --> 41:43.250
+Viel einfacher kann es nicht gehen,
+
+41:43.330 --> 41:43.950
+ein gültiges Zertifikat.
+
+41:43.950 --> 41:45.750
+Zu bekommen für irgendeine Anwendung, oder?
+
+41:48.330 --> 41:50.050
+Das sind, das waren jetzt legit
+
+41:50.050 --> 41:51.630
+einen
+
+41:51.630 --> 41:54.250
+ein Install
+
+41:54.250 --> 41:56.530
+und eine Zeile.
+
+42:00.180 --> 42:01.640
+Das ist auch das Einzige,
+
+42:01.760 --> 42:03.260
+wofür ich gerne Cudi verwende.
+
+42:04.240 --> 42:05.680
+Aber dafür ist es gut.
+
+42:06.160 --> 42:08.020
+Für alles andere benutze ich Nginx.
+
+42:09.600 --> 42:11.240
+Nee, Cudi macht auch das Renew.
+
+42:11.600 --> 42:13.560
+Du musst dich wirklich um gar nichts mehr kümmern.
+
+42:16.390 --> 42:17.410
+Weiß heißt A-Record,
+
+42:17.490 --> 42:18.570
+das ist ein Type,
+
+42:18.570 --> 42:20.310
+ein DNS,
+
+42:20.570 --> 42:21.430
+Rekord-Type.
+
+42:22.190 --> 42:23.570
+Warum das A-Record heißt,
+
+42:23.650 --> 42:25.150
+weiß ich ehrlich gesagt gar nicht genau.
+
+42:25.750 --> 42:27.610
+Das ist ein Typ, den du bei DNS-Anfragen
+
+42:27.610 --> 42:29.190
+angeben kannst, was du haben willst.
+
+42:29.590 --> 42:31.230
+Also wenn du einen DNS-Server fragst,
+
+42:33.030 --> 42:33.310
+der
+
+42:33.310 --> 42:35.950
+löst ja nicht
+
+42:35.950 --> 42:38.190
+immer auf, von Name zu IP.
+
+42:38.830 --> 42:39.850
+Das macht er normalerweise,
+
+42:40.070 --> 42:41.490
+wofür man einen DNS-Server verwendet.
+
+42:41.810 --> 42:43.090
+Aber du musst dem DNS-Server
+
+42:43.090 --> 42:44.710
+sagen, was du haben willst.
+
+42:44.710 --> 42:46.210
+Du kannst einen DNS-Server fragen,
+
+42:46.270 --> 42:48.170
+beispielsweise auch nach dem E-Mail-Server.
+
+42:48.570 --> 42:50.450
+Das ist dann ein MX-Rekord.
+
+42:50.650 --> 42:52.490
+Oder du kannst auch nach einem
+
+42:52.490 --> 42:54.710
+AAAA-Rekord fragen.
+
+42:54.790 --> 42:56.530
+Wer ist high IQ und weiß, was das ist?
+
+42:57.350 --> 42:58.330
+Was ist der Unterschied von
+
+42:58.330 --> 43:00.450
+A-Record vs. AAAA-Rekord?
+
+43:02.930 --> 43:03.410
+IPv6.
+
+43:03.570 --> 43:05.250
+Ich sehe, der Chat hat richtig krass
+
+43:05.250 --> 43:07.070
+Prime-Subscribed, sonst wäre er nicht so schlau.
+
+43:08.870 --> 43:09.090
+Genau.
+
+43:09.890 --> 43:11.250
+Oder du kannst auch nach
+
+43:11.250 --> 43:12.950
+Reverse-Lookup machen.
+
+43:14.550 --> 43:15.810
+Also du kannst im DNS
+
+43:15.810 --> 43:17.510
+verschiedene Rekord-Types
+
+43:17.510 --> 43:19.670
+nach verschiedenen Rekord-Types fragen.
+
+43:19.670 --> 43:19.730
+Und A-Record-Subscriber,
+
+43:19.730 --> 43:19.830
+das ist ein Rekord-Subscriber.
+
+43:19.830 --> 43:19.890
+Das ist ein Rekord-Subscriber.
+
+43:19.890 --> 43:19.950
+Das ist ein Rekord-Subscriber.
+
+43:19.950 --> 43:19.990
+Das ist ein Rekord-Subscriber.
+
+43:19.990 --> 43:20.010
+Das ist ein Rekord-Subscriber.
+
+43:20.010 --> 43:22.010
+Und A-Record ist das, was man
+
+43:22.010 --> 43:23.930
+normalerweise unter DNS versteht.
+
+43:24.390 --> 43:26.390
+Nämlich Domain-Namen zu IP-Adressen
+
+43:26.390 --> 43:27.730
+auflösen. Aber das gibt noch mehr.
+
+43:30.080 --> 43:31.580
+Mal kurz gucken, was es da noch alles gibt.
+
+43:31.660 --> 43:32.780
+Das weiß ich aus dem Kopf auch nicht hier.
+
+43:33.320 --> 43:35.440
+Guck mal. A-Record ist ein
+
+43:35.440 --> 43:36.940
+Ah, A für Address.
+
+43:37.220 --> 43:39.400
+Da hätte ich auch selbst drauf kommen können.
+
+43:40.760 --> 43:41.720
+A-Record
+
+43:41.720 --> 43:42.860
+ist für
+
+43:42.860 --> 43:44.780
+IPv4-Adressen.
+
+43:47.790 --> 43:48.250
+Quadruple-A
+
+43:48.250 --> 43:50.670
+oder wie auch immer man es richtig nennt,
+
+43:50.670 --> 43:52.730
+ist für IPv6-Adressen.
+
+43:52.730 --> 43:54.330
+Ich habe keine Ahnung.
+
+43:54.490 --> 43:56.490
+Irgendwelches Oracle-Shit vom Namen her.
+
+43:56.570 --> 43:57.230
+Vermute ich mal.
+
+43:57.710 --> 44:02.030
+Ich hätte gedacht, es hat was mit Oracle zu tun.
+
+44:03.270 --> 44:04.370
+Sachen, die kein
+
+44:04.370 --> 44:05.790
+Mensch verwendet.
+
+44:06.690 --> 44:08.250
+CNAME. CNAME verwendet
+
+44:08.250 --> 44:09.150
+tatsächlich noch ein paar.
+
+44:09.790 --> 44:11.790
+CNAME ist quasi ein Alias
+
+44:11.790 --> 44:13.470
+für andere Domains.
+
+44:14.570 --> 44:16.370
+Also wenn du beispielsweise einen A-Record
+
+44:16.370 --> 44:18.070
+hast, kannst du jetzt
+
+44:18.070 --> 44:20.310
+noch 5 CNAMES anlegen dafür.
+
+44:20.990 --> 44:22.430
+Du könntest aber auch...
+
+44:22.430 --> 44:23.950
+Was ist eigentlich der Vorteil?
+
+44:24.430 --> 44:26.430
+Das habe ich so noch nie gefragt.
+
+44:26.430 --> 44:28.430
+Was ist eigentlich der Vorteil von
+
+44:28.430 --> 44:32.430
+CNAMES vs. 5 A-Records?
+
+44:32.430 --> 44:39.320
+Also ich meine, ich könnte einen A-Record anlegen,
+
+44:39.320 --> 44:41.320
+der umzu...
+
+44:41.320 --> 44:43.320
+Ah ja, da hast du recht.
+
+44:43.320 --> 44:45.320
+Da hast du kein Problem mit Rumgecache
+
+44:45.320 --> 44:52.350
+oder sowas, ja.
+
+44:52.350 --> 44:54.350
+Ich mache das meistens auch eher intuitiv,
+
+44:54.350 --> 44:56.350
+wann ich ein CNAME nehme oder ein A-Record.
+
+44:56.350 --> 45:00.300
+Ja.
+
+45:00.300 --> 45:02.300
+Verwendet alles niemand.
+
+45:02.300 --> 45:04.300
+Ein DNAME gibt es auch.
+
+45:04.300 --> 45:06.180
+Da sieht man, DNS kann viel mehr sein.
+
+45:06.180 --> 45:08.180
+Mehr Shit, als man so verwendet.
+
+45:08.180 --> 45:10.180
+MX für E-Mail-Server.
+
+45:10.180 --> 45:15.350
+PTR.
+
+45:15.350 --> 45:17.350
+Okay.
+
+45:17.350 --> 45:19.350
+So, und dann gibt es tatsächlich noch einen TXT-Record,
+
+45:19.350 --> 45:21.350
+der hier jetzt gar nicht drin steht.
+
+45:21.350 --> 45:23.350
+Doch, TXT-Record.
+
+45:23.350 --> 45:25.350
+TXT-Records wären gleich wichtig.
+
+45:25.350 --> 45:27.350
+Daniel Lull, danke schon für den Zap.
+
+45:27.350 --> 45:29.350
+Okay, Leute. Also, ihr seht's.
+
+45:29.350 --> 45:31.350
+Ich habe ein gültiges
+
+45:31.350 --> 45:33.350
+Zertifikat
+
+45:33.350 --> 45:35.350
+und meine Web-Anwendung ist im Internet.
+
+45:35.350 --> 45:37.350
+public.twitch.pricetram.org
+
+45:37.350 --> 45:41.490
+public.twitch.pricetram.org
+
+45:41.490 --> 45:43.490
+Das ist das Ding.
+
+45:43.490 --> 45:45.490
+Wahrscheinlich ist das gar nicht so der Anwendungsfall,
+
+45:45.490 --> 45:49.960
+den viele Leute haben.
+
+45:49.960 --> 45:51.960
+Die meisten Leute haben wahrscheinlich eher den Anwendungsfall,
+
+45:51.960 --> 45:53.960
+dass man
+
+45:53.960 --> 45:55.960
+intern was verwenden will,
+
+45:55.960 --> 45:57.960
+was keine Public-IP hat.
+
+45:57.960 --> 45:59.960
+Ich werde euch jetzt aber noch kurz,
+
+45:59.960 --> 46:01.960
+also bevor wir das jetzt machen,
+
+46:01.960 --> 46:03.960
+weil das dauert ein bisschen länger,
+
+46:03.960 --> 46:05.960
+werde ich euch jetzt noch kurz erzählen,
+
+46:05.960 --> 46:07.960
+was da eigentlich im Hintergrund passiert ist,
+
+46:07.960 --> 46:09.960
+dass das funktioniert.
+
+46:09.960 --> 46:11.960
+Hier seht ihr das Caddy-Log.
+
+46:11.960 --> 46:13.960
+Das ist ein Standard von Acme-Client.
+
+46:13.960 --> 46:15.960
+Ich bin mir überhaupt nicht sicher,
+
+46:15.960 --> 46:17.960
+wie man das ausspricht.
+
+46:17.960 --> 46:19.960
+Aber irgendwie Acme-Client
+
+46:19.960 --> 46:21.960
+und TLS und sonst wie.
+
+46:21.960 --> 46:23.960
+Was jetzt im Hintergrund passiert ist,
+
+46:23.960 --> 46:25.960
+ist folgendes.
+
+46:25.960 --> 46:27.960
+Ich habe in meinen Caddy-File reingeschrieben,
+
+46:27.960 --> 46:29.960
+was meine Public-Domain ist
+
+46:29.960 --> 46:31.960
+und Caddy kann standardmäßig
+
+46:31.960 --> 46:33.960
+Let's Encrypt.
+
+46:33.960 --> 46:35.960
+Caddy hat Let's Encrypt eingebaut.
+
+46:35.960 --> 46:37.960
+Und
+
+46:37.960 --> 46:39.960
+spricht man
+
+46:39.960 --> 46:41.960
+AceMe aus. AceMe.
+
+46:41.960 --> 46:43.960
+Sicher?
+
+46:43.960 --> 46:49.320
+Ich habe das glaube ich noch nie ausgesprochen
+
+46:49.320 --> 46:54.740
+in meinem Leben bisher.
+
+46:54.740 --> 47:01.060
+AceMe. Acme.
+
+47:05.200 --> 47:07.200
+Ist ja fast wie Jason
+
+47:07.200 --> 47:09.200
+Jason.
+
+47:09.200 --> 47:18.850
+Zumindest
+
+47:18.850 --> 47:20.850
+was jetzt passiert ist folgendes.
+
+47:20.850 --> 47:22.850
+Caddy hat eingebaut,
+
+47:22.850 --> 47:24.850
+hat einen Let's Encrypt-Client eingebaut.
+
+47:24.850 --> 47:26.850
+Was der im Hintergrund gemacht hat ist,
+
+47:26.850 --> 47:28.850
+der weiß jetzt, okay,
+
+47:28.850 --> 47:30.850
+wir möchten für diese Domain hier,
+
+47:30.850 --> 47:32.850
+Alter was ist denn mit ZMouse?
+
+47:32.850 --> 47:34.850
+Hat Mouse-Mode, äh,
+
+47:34.850 --> 47:36.850
+Maus-Standardmäßig eingeschaltet,
+
+47:36.850 --> 47:38.850
+sowas Sinnloses.
+
+47:38.850 --> 47:40.850
+Also, Caddy weiß jetzt ja, ey, okay,
+
+47:40.850 --> 47:42.850
+auf dieser Domain möchte ich jetzt gerne Request bekommen.
+
+47:42.850 --> 47:44.850
+Was der jetzt macht ist,
+
+47:44.850 --> 47:46.850
+der geht zur Let's Encrypt-API und sagt,
+
+47:46.850 --> 47:48.850
+Let's Encrypt, stell mir doch mal ein Zertifikat
+
+47:48.850 --> 47:50.850
+für public.twitch.pricechamp.org aus.
+
+47:50.850 --> 47:52.850
+Dann sagt Let's Encrypt, ey,
+
+47:52.850 --> 47:54.850
+ja, Moment mal, bevor du ein Zertifikat bekommst,
+
+47:54.850 --> 47:56.850
+musst du erstmal
+
+47:56.850 --> 47:58.850
+beweisen, dass das deine
+
+47:58.850 --> 48:00.850
+Domain ist.
+
+48:00.850 --> 48:02.850
+Weil, stellt euch mal vor, es gebe keinen
+
+48:02.850 --> 48:04.850
+App, um zu beweisen, dass das eure Domain ist,
+
+48:04.850 --> 48:06.850
+dann könnte ich mir jetzt ein Zertifikat
+
+48:06.850 --> 48:08.850
+für google.com ausstellen.
+
+48:08.850 --> 48:10.850
+Ein gültiges, wohlgemerkt.
+
+48:10.850 --> 48:12.850
+Das wäre vielleicht nicht so schlau,
+
+48:12.850 --> 48:14.850
+wenn das funktionieren würde. Das heißt,
+
+48:14.850 --> 48:16.850
+Caddy geht jetzt zur API von Let's Encrypt
+
+48:16.850 --> 48:18.850
+und sagt, hier, ich hätte gerne dafür ein Zertifikat.
+
+48:18.850 --> 48:20.850
+Dann sagt Let's Encrypt,
+
+48:20.850 --> 48:22.850
+beweis mir doch mal, dass es deine
+
+48:22.850 --> 48:24.850
+Domain ist. Und dieses
+
+48:24.850 --> 48:26.850
+Beweis nochmal, funktioniert bei Let's Encrypt
+
+48:26.850 --> 48:28.850
+mit der
+
+48:28.850 --> 48:30.850
+Standard-HTTP-Challenge
+
+48:30.850 --> 48:32.850
+folgendermaßen.
+
+48:32.850 --> 48:34.850
+Let's Encrypt schickt
+
+48:34.850 --> 48:36.850
+auf diese Anfrage hier, gib mir doch mal ein
+
+48:36.850 --> 48:38.850
+Zertifikat, schickt einen geheimen
+
+48:38.850 --> 48:42.480
+Schlüssel mit zurück.
+
+48:42.480 --> 48:44.480
+Also den Schlüssel kennen nur Let's Encrypt
+
+48:44.480 --> 48:46.480
+und in dem Fall Caddy auf meinem Server.
+
+48:46.480 --> 48:48.480
+Und jetzt
+
+48:48.480 --> 48:50.480
+guckt Let's Encrypt alle paar Sekunden nach,
+
+48:50.480 --> 48:52.480
+ob es unter dieser
+
+48:52.480 --> 48:54.480
+public IP
+
+48:54.480 --> 48:56.480
+in einem bestimmten Pfad
+
+48:56.480 --> 48:58.480
+oder
+
+48:58.480 --> 49:00.480
+auf dem default
+
+49:00.480 --> 49:02.480
+HTTP-Port
+
+49:02.480 --> 49:04.480
+unter einem bestimmten Pfad
+
+49:04.480 --> 49:06.480
+beziehungsweise mit einem bestimmten Dateiname
+
+49:06.480 --> 49:08.480
+diesen Schlüssel
+
+49:08.480 --> 49:10.480
+findet. Ich weiß nicht, wie das heißen muss
+
+49:10.480 --> 49:12.480
+standardmäßig. Zumindest guckt
+
+49:12.480 --> 49:14.480
+Let's Encrypt nach, gibt es das da?
+
+49:14.480 --> 49:16.480
+Gibt es das da? Guckt es alle paar Sekunden
+
+49:16.480 --> 49:18.480
+nach und Caddy
+
+49:18.480 --> 49:20.480
+liefert auf diese Anfrage
+
+49:20.480 --> 49:22.480
+einfach diesen Schlüssel
+
+49:22.480 --> 49:24.480
+zurück und dadurch, dass
+
+49:24.480 --> 49:26.480
+die Domain auflöst
+
+49:26.480 --> 49:28.480
+auf einen Server,
+
+49:28.480 --> 49:30.480
+der den geheimen Schlüssel kennt,
+
+49:30.480 --> 49:32.480
+den Let's Encrypt vorher dem
+
+49:32.480 --> 49:34.480
+Anfrager mitgeteilt hat,
+
+49:34.480 --> 49:36.480
+hast du quasi Let's Encrypt damit bewiesen,
+
+49:36.480 --> 49:38.480
+dass es dein Server ist,
+
+49:38.480 --> 49:40.480
+beziehungsweise nicht, dass es dein Server ist,
+
+49:40.480 --> 49:42.480
+dass es deine Domain ist.
+
+49:42.480 --> 49:44.480
+Weil, also die ganze
+
+49:44.480 --> 49:46.480
+der ganze
+
+49:46.480 --> 49:48.480
+Gedanke dahinter ist,
+
+49:48.480 --> 49:50.480
+dass ja nur du als
+
+49:50.480 --> 49:52.480
+rechtmäßiger Domainbesitzer
+
+49:52.480 --> 49:54.480
+einen DNS-Eintrag
+
+49:54.480 --> 49:56.480
+anlegen kannst, der auf diesen Server
+
+49:56.480 --> 49:58.480
+zeigt.
+
+49:58.480 --> 50:00.480
+Wo dann auch der Key ist, den
+
+50:00.480 --> 50:02.480
+vorher Caddy und Let's Encrypt ausgemacht
+
+50:02.480 --> 50:04.480
+haben. Wenn du nicht der rechtmäßige
+
+50:04.480 --> 50:06.480
+Besitzer deiner Domain wärst,
+
+50:06.480 --> 50:08.480
+könntest du keine DNS-Einträge anlegen dafür.
+
+50:08.480 --> 50:10.480
+Das reicht
+
+50:10.480 --> 50:12.480
+in dem Fall als Beweis,
+
+50:12.480 --> 50:20.470
+dass das deine Domain ist.
+
+50:20.470 --> 50:22.470
+Deswegen funktioniert das.
+
+50:22.470 --> 50:24.470
+Und funktioniert auch ziemlich easy.
+
+50:24.470 --> 50:26.470
+Also ihr habt es gesehen, wir mussten nichts machen.
+
+50:26.470 --> 50:28.470
+Wir haben Caddy installiert, wir haben
+
+50:28.470 --> 50:30.470
+das Ding restartet
+
+50:30.470 --> 50:32.470
+und haben zwei
+
+50:32.470 --> 50:34.470
+Zeilen hier im Caddy-File angepasst und zack
+
+50:34.470 --> 50:36.470
+und schon haben wir eine Public Domain mit einem
+
+50:36.470 --> 50:38.470
+gültigen Zertifikat.
+
+50:38.470 --> 50:41.780
+Das Ding ist jetzt aber,
+
+50:41.780 --> 50:43.780
+wenn ihr intern seid bei euch,
+
+50:43.780 --> 50:45.780
+dann funktioniert das nicht.
+
+50:45.780 --> 50:47.780
+Weil
+
+50:47.780 --> 50:49.780
+dann kann Let's Encrypt ja nicht
+
+50:49.780 --> 50:51.780
+auf eure interne Infrastruktur
+
+50:51.780 --> 50:53.780
+zugreifen, um nachzugucken,
+
+50:53.780 --> 50:55.780
+ob dort irgendwie ein geheimes File liegt
+
+50:55.780 --> 50:57.780
+mit einem Schlüssel drin,
+
+50:57.780 --> 50:59.780
+was das vorher ausgemacht hat mit euch.
+
+50:59.780 --> 51:01.780
+Also HTTP Challenge
+
+51:01.780 --> 51:03.780
+funktioniert nur mit Public Services.
+
+51:03.780 --> 51:05.780
+Oder mit
+
+51:05.780 --> 51:07.780
+Services, die irgendeinen Public Endpunkt
+
+51:07.780 --> 51:11.280
+in irgendeiner Art und Weise haben.
+
+51:11.280 --> 51:13.280
+Das ist aber bei den meisten Leuten
+
+51:13.280 --> 51:15.280
+daheim nicht so.
+
+51:15.280 --> 51:17.280
+Das heißt, als nächstes gucken wir uns
+
+51:17.280 --> 51:19.280
+jetzt mal an.
+
+51:19.280 --> 51:25.350
+Das heißt, als nächstes
+
+51:25.350 --> 51:27.350
+gucken wir uns jetzt mal an,
+
+51:27.350 --> 51:29.350
+wie man das mit internen Services macht.
+
+51:29.350 --> 51:31.350
+Ich überlege gerade,
+
+51:31.350 --> 51:37.600
+ob ich das jetzt
+
+51:37.600 --> 51:39.600
+einfach aus mache.
+
+51:39.600 --> 51:41.600
+Gut, ich lasse den Server mal an.
+
+51:41.600 --> 51:43.600
+Vielleicht brauchen wir den noch.
+
+51:43.600 --> 51:45.600
+Du hast deine Physi-Abschlussprüfung bestanden.
+
+51:45.600 --> 51:47.600
+Exzellent!
+
+51:47.600 --> 51:49.600
+Cadillac ist Zertifikat Gold, genau.
+
+51:49.600 --> 51:57.680
+Ja.
+
+51:57.680 --> 51:59.680
+Dazu kann man nur sagen
+
+51:59.680 --> 52:01.680
+Nice!
+
+52:01.680 --> 52:07.170
+Excellent!
+
+52:07.170 --> 52:09.170
+Gratz, hätte man da früher in MMOs
+
+52:09.170 --> 52:12.680
+zugesagt.
+
+52:12.680 --> 52:16.950
+Alles klar.
+
+52:16.950 --> 52:18.950
+Jetzt machen wir das Ganze mal für einen
+
+52:18.950 --> 52:20.950
+internen Service.
+
+52:20.950 --> 52:27.400
+Für interne Services
+
+52:27.400 --> 52:29.400
+bietet Let's Encrypt
+
+52:29.400 --> 52:31.400
+noch eine zweite Authentifizierungsmöglichkeit.
+
+52:31.400 --> 52:33.400
+Ein zweiter Beweisweg,
+
+52:33.400 --> 52:35.400
+dass die Domain
+
+52:35.400 --> 52:38.770
+gehört.
+
+52:38.770 --> 52:40.770
+Und zwar über DNS.
+
+52:40.770 --> 52:44.280
+Ohne irgendwelche Web-Server dazwischen.
+
+52:44.280 --> 52:46.280
+Und da passiert genau das gleiche,
+
+52:46.280 --> 52:48.280
+wie hier
+
+52:48.280 --> 52:50.280
+bei diesem Eintrag hier,
+
+52:50.280 --> 52:52.280
+wo es dann vom Server
+
+52:52.280 --> 52:54.280
+den geheimen Key hinterlegt hat.
+
+52:54.280 --> 52:56.280
+Mit dem Unterschied, dass man gar keinen HTTP-Server
+
+52:56.280 --> 52:58.280
+braucht, sondern dass alles über DNS geht.
+
+52:58.280 --> 53:00.280
+Und zwar
+
+53:00.280 --> 53:02.280
+legt dann
+
+53:02.280 --> 53:04.280
+der jeweilige Let's Encrypt
+
+53:04.280 --> 53:06.280
+ein TXT-Rekord an
+
+53:06.280 --> 53:08.280
+im DNS, wo dann Let's Encrypt
+
+53:08.280 --> 53:10.280
+nachguckt, ob das eben diesen geheimen Key
+
+53:10.280 --> 53:12.280
+enthält. Das kann man von Hand machen.
+
+53:12.280 --> 53:14.280
+Geht auch.
+
+53:14.280 --> 53:16.280
+Man kann auch Let's Encrypt komplett von Hand machen.
+
+53:16.280 --> 53:18.280
+Doof ist es allerdings
+
+53:18.280 --> 53:20.280
+trotzdem ein bisschen, wenn man das von Hand macht,
+
+53:20.280 --> 53:22.280
+weil, wie sieht das aus mit
+
+53:22.280 --> 53:24.280
+Erneuern von Zertifikaten, wenn man das jedes Mal
+
+53:24.280 --> 53:26.280
+von Hand eintragen will? Wahrscheinlich
+
+53:28.280 --> 53:33.190
+eher nicht.
+
+53:33.190 --> 53:35.190
+So. Deswegen
+
+53:35.190 --> 53:37.190
+brauchen wir mal eine lokale VM.
+
+53:37.190 --> 53:39.190
+Würde ich sagen.
+
+53:39.190 --> 53:41.190
+Dazu nehmen wir mal meinen
+
+53:41.190 --> 53:43.190
+Python Tool.
+
+53:43.190 --> 53:51.430
+In der Hoffnung, dass es funktioniert.
+
+53:51.430 --> 53:56.340
+Ich erstelle mir jetzt mal lokal
+
+53:56.340 --> 53:58.340
+einen Server,
+
+53:58.340 --> 54:00.340
+eine VM, auf der wir das machen werden.
+
+54:00.340 --> 54:02.340
+Das kann bei euch ein Raspberry Pi
+
+54:02.340 --> 54:04.340
+sein, das kann bei euch irgendein Intel NUC
+
+54:04.340 --> 54:06.340
+sein oder was auch immer.
+
+54:06.340 --> 54:08.340
+Es ist vollkommen egal.
+
+54:08.340 --> 54:10.340
+Wichtig ist nur,
+
+54:10.340 --> 54:12.340
+Let's Encrypt kommt von außen nicht drauf,
+
+54:12.340 --> 54:14.340
+um nachzugucken.
+
+54:14.340 --> 54:16.340
+Das heißt, wir müssen jetzt
+
+54:16.340 --> 54:18.340
+DNS-Challenge machen.
+
+54:18.340 --> 54:20.340
+Und was ich so gesehen habe, ist auf Reddit oder auch
+
+54:20.340 --> 54:22.340
+auf was ich von euch
+
+54:22.340 --> 54:24.340
+öfters gehört habe, viele Leute verwenden tatsächlich
+
+54:24.340 --> 54:26.340
+für interne
+
+54:26.340 --> 54:28.340
+Zertifikate,
+
+54:28.340 --> 54:30.340
+Ausstellungsdinger
+
+54:30.340 --> 54:32.340
+diesen Nginx Proxy Manager.
+
+54:32.340 --> 54:34.340
+Das werde ich
+
+54:34.340 --> 54:36.340
+jetzt auch verwenden. Das verwende ich bei mir daheim
+
+54:36.340 --> 54:38.340
+auch und ich finde, das ist eine simple Sache.
+
+54:38.340 --> 54:40.340
+Wie gesagt, für daheim.
+
+54:40.340 --> 54:42.340
+Das ist eigentlich ziemlich easy.
+
+54:42.340 --> 54:44.340
+Was ist das Backend vom VM Champ?
+
+54:44.340 --> 54:47.910
+KVM.
+
+54:47.910 --> 54:49.910
+Wenn du wissen willst, wie der
+
+54:49.910 --> 54:51.910
+funktioniert, kannst du sogar hier angucken.
+
+54:51.910 --> 54:55.350
+Der VM Champ ist
+
+54:55.350 --> 54:57.350
+komplett open source.
+
+54:57.350 --> 54:59.350
+Mit
+
+54:59.350 --> 55:01.350
+7 Monaten letztes Commit.
+
+55:01.350 --> 55:03.350
+Ihr kennt mich. Ihr kennt mich.
+
+55:03.350 --> 55:05.350
+Ich bin da immer super aktiv, was das angeht.
+
+55:05.350 --> 55:09.240
+6 Issues. Ja, wieder alles
+
+55:09.240 --> 55:11.240
+Bedienfehler. Alles Bedienfehler.
+
+55:11.240 --> 55:22.680
+So, jetzt habt ihr ja eure interne
+
+55:22.680 --> 55:24.680
+Kiste und auf
+
+55:24.680 --> 55:26.680
+der internen Kiste wollt ihr irgendeinen Service
+
+55:26.680 --> 55:28.680
+laufen lassen, der
+
+55:28.680 --> 55:30.680
+ein gültiges Zertifikat bekommen soll.
+
+55:30.680 --> 55:32.680
+Wir machen jetzt das gleiche.
+
+55:32.680 --> 55:34.680
+Wir machen jetzt das gleiche, was
+
+55:34.680 --> 55:36.680
+wir auf unserem externen
+
+55:36.680 --> 55:38.680
+Server auch gemacht haben. Wir haben hier Index.
+
+55:38.680 --> 55:40.680
+Index, HTML,
+
+55:40.680 --> 55:42.680
+Kekl,
+
+55:42.680 --> 55:44.680
+Twitch, Cheld,
+
+55:44.680 --> 55:49.970
+irgendwie sowas.
+
+55:49.970 --> 55:51.970
+Beste.
+
+55:51.970 --> 55:53.970
+Was war das? Python 3.
+
+55:53.970 --> 55:58.660
+Serve.
+
+55:58.660 --> 56:00.660
+Okay. Port 8000.
+
+56:00.660 --> 56:02.660
+Wunderbar.
+
+56:02.660 --> 56:09.750
+Excellent. Also das ist wieder unsere
+
+56:09.750 --> 56:11.750
+Webseite. Man sieht auch, dass
+
+56:11.750 --> 56:13.750
+es funktioniert. Man sieht,
+
+56:13.750 --> 56:15.750
+dass es funktioniert.
+
+56:15.750 --> 56:17.750
+Moment. Nicht HTTPS, Alter.
+
+56:17.750 --> 56:19.750
+Port 8000.
+
+56:19.750 --> 56:21.750
+Kekl, Twitch, Cheld.
+
+56:21.750 --> 56:23.750
+Ah, ja, ja. Lokale
+
+56:23.750 --> 56:25.750
+IP. Also sprich, Let's Encrypt kommt da von
+
+56:25.750 --> 56:34.440
+außen nicht drauf. Moin,
+
+56:34.440 --> 56:36.440
+Leute. Hallo, Max. Hab dich
+
+56:36.440 --> 56:38.440
+voll aus den Augen gefangen. Damals 2011
+
+56:38.440 --> 56:40.440
+hab ich dich regelmäßig geschaut mit
+
+56:40.440 --> 56:42.440
+Daifise. Mit dem hab ich, glaub ich, niemals aufgenommen.
+
+56:42.440 --> 56:44.440
+Dem Friseur. Ja. Der Frey, der ist
+
+56:44.440 --> 56:46.440
+auch noch am Start. Wobei der auch keinen Bock
+
+56:46.440 --> 56:48.440
+auf YouTube gerade hat.
+
+56:48.440 --> 56:51.810
+Nice. Das hat ihr heute mit
+
+56:51.810 --> 56:53.810
+Programmier nix zu tun.
+
+56:53.810 --> 56:55.810
+Ja, manchmal spielen wir auch irgendwelche
+
+56:55.810 --> 56:57.810
+MMOs, die schon seit 20 Jahren raus sind
+
+56:57.810 --> 56:59.810
+und viele nicht
+
+56:59.810 --> 57:01.810
+verstehen, warum ich das spiele, aber weil's
+
+57:01.810 --> 57:03.810
+best game ever ist, Mann.
+
+57:03.810 --> 57:05.810
+Der Gatrick versteht das. Der weiß, dass das
+
+57:05.810 --> 57:07.810
+best game ever ist.
+
+57:07.810 --> 57:09.810
+Klar. Best game ever.
+
+57:09.810 --> 57:11.810
+Oder? Hab ich recht? Es ist best
+
+57:11.810 --> 57:15.510
+game ever. Aber wir müssen jetzt
+
+57:15.510 --> 57:17.510
+erstmal Let's Encrypt machen.
+
+57:17.510 --> 57:19.510
+Ich will das mit Let's Encrypt auch
+
+57:19.510 --> 57:21.510
+relativ kurz und knackig halten. Kann man dann
+
+57:21.510 --> 57:25.080
+immer auf den Stream hier verweisen.
+
+57:25.080 --> 57:27.080
+Auf alle Fälle. Best game ever.
+
+57:27.080 --> 57:29.080
+Ich hoffe, der Ober-Malakka-Mann
+
+57:29.080 --> 57:31.080
+ist heute da, dass es wieder ordentliche
+
+57:31.080 --> 57:40.210
+BG gibt. So, ich überleg gerade,
+
+57:40.210 --> 57:42.210
+wie wir das jetzt gescheit machen, also.
+
+57:42.210 --> 57:44.210
+Ich hab hier meine Anwendung drauflaufen,
+
+57:44.210 --> 57:46.210
+der ich ein gültiges Zertifikat verpassen will.
+
+57:46.210 --> 57:48.210
+Allerdings lokal. Das heißt,
+
+57:48.210 --> 57:50.210
+ja, du kannst das ohne
+
+57:50.210 --> 57:52.210
+große BG kannst vergessen. Ich spiele auch gar nicht
+
+57:52.210 --> 57:54.210
+mehr BG und Random Group.
+
+57:54.210 --> 57:56.210
+Ich hab gestern nur King of the Hill gespielt
+
+57:56.210 --> 57:58.210
+und bisschen Smallman-Action.
+
+57:58.210 --> 58:00.210
+Und BG. Also Battle
+
+58:00.210 --> 58:05.120
+Crowns. Ähm. Leute,
+
+58:05.120 --> 58:07.120
+ich bin gerade bisschen irgendwie so aus dem Flow raus.
+
+58:07.120 --> 58:09.120
+Was wollte ich denn jetzt machen? Ah ja, ich wollte
+
+58:09.120 --> 58:11.120
+Nginx Proxy Manager installieren. Kann man
+
+58:11.120 --> 58:13.120
+das selbst installieren oder geht das nur
+
+58:13.120 --> 58:16.690
+gescheit in Docker?
+
+58:16.690 --> 58:18.690
+Anscheinend haben die nur Docker. Dann muss ich nochmal
+
+58:18.690 --> 58:24.120
+Docker installieren.
+
+58:24.120 --> 58:27.560
+Sudo-i. Gibt doch
+
+58:27.560 --> 58:29.560
+auch einen One-Liner. Echt?
+
+58:29.560 --> 58:36.070
+Wo?
+
+58:36.070 --> 58:38.070
+Wo? One-Liner sind meistens
+
+58:38.070 --> 58:40.070
+so Sachen wie
+
+58:40.070 --> 58:42.070
+Piper, lade dieses Shell-Skript runter
+
+58:42.070 --> 58:44.070
+und Piper ist nach Bash.
+
+58:44.070 --> 58:46.070
+Ich sehe
+
+58:46.070 --> 58:48.070
+hier keine One-Liner.
+
+58:48.070 --> 58:50.070
+Docker
+
+58:50.070 --> 58:54.920
+Compose-File.
+
+58:54.920 --> 58:56.920
+Hab ich keinen Bock. Ach komm, wir machen
+
+58:56.920 --> 58:58.920
+das offiziell, so wie die das hier.
+
+58:58.920 --> 59:00.920
+Wurscht. Alles gut.
+
+59:00.920 --> 59:02.920
+Also wir müssen auf jeden Fall
+
+59:02.920 --> 59:09.750
+Docker installieren.
+
+59:09.750 --> 59:11.750
+Das kann...
+
+59:11.750 --> 59:13.750
+Ah ne.
+
+59:13.750 --> 59:15.750
+Ah ja. Ja, das kann jeder bei sich
+
+59:15.750 --> 59:17.750
+handhaben, wie er lustig ist. Das hat jetzt
+
+59:17.750 --> 59:19.750
+eigentlich auch mit der ganzen Let's Encrypt-Sache nichts zu tun.
+
+59:19.750 --> 59:23.320
+Und man muss auch kein Nginx Proxy Manager
+
+59:23.320 --> 59:25.320
+benutzen. Man kann auch
+
+59:25.320 --> 59:27.320
+Certbot benutzen. Man kann alles Mögliche. Alles, was
+
+59:27.320 --> 59:29.320
+Let's Encrypt unterstützt, kann man auf die gleiche
+
+59:29.320 --> 59:31.320
+Art und Weise verwenden. Ich finde aber
+
+59:31.320 --> 59:33.320
+im privaten Umfeld ist Nginx Proxy Manager
+
+59:33.320 --> 59:35.320
+ganz nice. So.
+
+59:35.320 --> 59:37.320
+Also.
+
+59:37.320 --> 59:39.320
+Docker PS.
+
+59:39.320 --> 59:41.320
+Ach ne. Moment. Wie ging das jetzt
+
+59:41.320 --> 59:43.320
+nochmal? Chatgear. HiIQ.
+
+59:43.320 --> 59:45.320
+User Mod
+
+59:45.320 --> 59:47.320
+minus G Docker.
+
+59:47.320 --> 59:50.820
+Oh shit.
+
+59:50.820 --> 59:52.820
+Wer ist so
+
+59:52.820 --> 59:54.820
+schlau? Wer weiß es
+
+59:54.820 --> 59:56.820
+noch? Minus A?
+
+59:56.820 --> 59:58.820
+G?
+
+59:58.820 --> 01:00:00.820
+Ok. Und dann nimmt er
+
+01:00:00.820 --> 01:00:04.520
+den aktuellen User.
+
+01:00:04.520 --> 01:00:06.520
+Command not found.
+
+01:00:06.520 --> 01:00:09.830
+What?
+
+01:00:11.830 --> 01:00:15.970
+Was machen wir? Wir machen
+
+01:00:15.970 --> 01:00:17.970
+lokale Let's Encrypt Zertifikate.
+
+01:00:17.970 --> 01:00:22.560
+Dollar User. Ok. Das ergibt
+
+01:00:22.560 --> 01:00:24.560
+Sinn. Aber warum gibt es User Mod nicht?
+
+01:00:24.560 --> 01:00:31.590
+Äh. Nein. Das werde ich nicht ausführen.
+
+01:00:31.590 --> 01:00:33.590
+Das werde ich nicht ausführen.
+
+01:00:33.590 --> 01:00:35.590
+Ich habe nicht Sudo vergessen.
+
+01:00:35.590 --> 01:00:37.590
+Das Command not found.
+
+01:00:37.590 --> 01:00:39.590
+Was muss man dafür installieren?
+
+01:00:39.590 --> 01:00:41.590
+Up Install. Das heißt doch
+
+01:00:41.590 --> 01:00:43.590
+bestimmt nicht User Mod. Ich muss doch
+
+01:00:43.590 --> 01:00:45.590
+bestimmt User Management Utils
+
+01:00:45.590 --> 01:00:47.590
+oder sowas. User Mod Demian
+
+01:00:47.590 --> 01:00:49.590
+Install. Das hat doch irgendwie so
+
+01:00:49.590 --> 01:00:51.590
+ein Meta Package ist das doch bestimmt.
+
+01:00:51.590 --> 01:00:53.590
+Was muss ich installieren?
+
+01:00:53.590 --> 01:01:05.410
+Ach Moment. Das ist wirklich
+
+01:01:05.410 --> 01:01:07.410
+Root Only. Ok. Ich habe nichts gesagt.
+
+01:01:07.410 --> 01:01:09.410
+Alles klar.
+
+01:01:09.410 --> 01:01:11.410
+Na gut. So.
+
+01:01:11.410 --> 01:01:13.410
+Docker PS. Nice. Funktioniert.
+
+01:01:13.410 --> 01:01:17.170
+Ach. Das ist unter S. Ok.
+
+01:01:17.170 --> 01:01:19.170
+Wenn das unter S bin ist, macht das sogar Sinn.
+
+01:01:19.170 --> 01:01:21.170
+Excellent.
+
+01:01:21.170 --> 01:01:24.480
+Ja. Das stimmt. Da ist was dran.
+
+01:01:24.480 --> 01:01:26.480
+So. Und jetzt können wir den Campl hier installieren.
+
+01:01:26.480 --> 01:01:28.480
+Hammer. Docker. Docker
+
+01:01:28.480 --> 01:01:30.480
+Compose. Ist Docker Compose nicht
+
+01:01:30.480 --> 01:01:32.480
+War das
+
+01:01:32.480 --> 01:01:34.480
+jetzt nicht included in Docker?
+
+01:01:34.480 --> 01:01:42.150
+Scheiß auf Docker Compose.
+
+01:01:42.150 --> 01:01:44.150
+Ich hasse Docker Compose mittlerweile. Ich mache
+
+01:01:44.150 --> 01:01:46.150
+kein Docker Compose. Ich mache das selbst hier.
+
+01:01:46.150 --> 01:01:48.150
+Zack. Easy. Also.
+
+01:01:48.150 --> 01:01:50.150
+Docker Run. Minus minus
+
+01:01:50.150 --> 01:01:52.150
+m. Minus it. Oder?
+
+01:01:52.150 --> 01:01:54.150
+Minus it. Ne. Ach. Ausbekommen.
+
+01:01:54.150 --> 01:01:56.150
+Kopf. Meine Güte. So.
+
+01:01:56.150 --> 01:01:58.150
+Run. Image. So. Das heißt
+
+01:01:58.150 --> 01:02:00.150
+wir brauchen jetzt ein Verzeichnis
+
+01:02:00.150 --> 01:02:02.150
+für. Wir machen das vielleicht nicht
+
+01:02:02.150 --> 01:02:04.150
+unbedingt als Root hier unten.
+
+01:02:04.150 --> 01:02:09.060
+Direkt. Nee. Das. Genau.
+
+01:02:09.060 --> 01:02:11.060
+Mkdir
+
+01:02:11.060 --> 01:02:13.060
+Search oder so.
+
+01:02:13.060 --> 01:02:15.060
+Search. Alles klar. So.
+
+01:02:15.060 --> 01:02:17.060
+Docker Run. Minus. Minus
+
+01:02:17.060 --> 01:02:19.060
+m. Minus it. So. Jetzt brauchen wir
+
+01:02:19.060 --> 01:02:21.060
+Volumes.
+
+01:02:21.060 --> 01:02:23.060
+Volumes.
+
+01:02:23.060 --> 01:02:25.060
+Ja. Let's Encrypt. Ok.
+
+01:02:25.060 --> 01:02:27.060
+Wunderbar.
+
+01:02:27.060 --> 01:02:29.060
+Das funktioniert aber so nicht.
+
+01:02:29.060 --> 01:02:31.060
+Das muss sein. Home.
+
+01:02:31.060 --> 01:02:34.440
+Home.
+
+01:02:34.440 --> 01:02:36.440
+User. Bester Name.
+
+01:02:36.440 --> 01:02:38.440
+User. Search.
+
+01:02:38.440 --> 01:02:40.440
+Let's Encrypt.
+
+01:02:40.440 --> 01:02:43.750
+Verzeichnis.
+
+01:02:43.750 --> 01:02:45.750
+Verzeichnis.
+
+01:02:45.750 --> 01:02:47.750
+Home. User. Search. Let's Encrypt.
+
+01:02:47.750 --> 01:02:49.750
+Ok. Jetzt brauche ich Ports.
+
+01:02:49.750 --> 01:02:51.750
+Ports.
+
+01:02:51.750 --> 01:02:53.750
+Will der haben.
+
+01:02:53.750 --> 01:02:55.750
+443. Ja gut. Das macht
+
+01:02:55.750 --> 01:02:57.750
+Sinn. Ports.
+
+01:02:57.750 --> 01:03:01.750
+8. 81. 81.
+
+01:03:01.750 --> 01:03:03.750
+Und Port.
+
+01:03:03.750 --> 01:03:05.750
+80. 80. Ja.
+
+01:03:05.750 --> 01:03:07.750
+So. Ich hoffe das
+
+01:03:07.750 --> 01:03:13.360
+tut jetzt so. Schauen wir mal wo das geht
+
+01:03:13.360 --> 01:03:18.400
+jetzt. Was hat das Ding nochmal
+
+01:03:18.400 --> 01:03:23.190
+für eine IP gehabt. Wir werden
+
+01:03:23.190 --> 01:03:25.190
+jetzt gleich sehen ob es funktioniert.
+
+01:03:25.190 --> 01:03:27.190
+Docker macht Docker Things.
+
+01:03:27.190 --> 01:03:29.190
+Gucken wir mal. Port 81.
+
+01:03:29.190 --> 01:03:35.640
+Klein. Ok. Schein funktioniert
+
+01:03:35.640 --> 01:03:37.640
+zwar.
+
+01:03:37.640 --> 01:03:39.640
+Okay.
+
+01:03:39.640 --> 01:03:41.640
+Nee. Doch. Funktioniert. Nice.
+
+01:03:41.640 --> 01:03:43.640
+Oh. Was sind die Default Credentials?
+
+01:03:43.640 --> 01:03:48.480
+admin.example.com
+
+01:03:48.480 --> 01:03:50.480
+Change me. Ok.
+
+01:03:50.480 --> 01:03:52.480
+Change me.
+
+01:03:52.480 --> 01:03:54.480
+Reicht mir für Demo Zwecke.
+
+01:03:56.480 --> 01:04:08.560
+Passwort auch noch.
+
+01:04:08.560 --> 01:04:10.560
+Ok. Change me. 123456.
+
+01:04:10.560 --> 01:04:12.560
+123456.
+
+01:04:12.560 --> 01:04:20.770
+No.
+
+01:04:20.770 --> 01:04:22.770
+No. God. Please. No.
+
+01:04:22.770 --> 01:04:24.770
+No. No.
+
+01:04:24.770 --> 01:04:30.580
+No.
+
+01:04:30.580 --> 01:04:32.580
+123456789.
+
+01:04:32.580 --> 01:04:34.580
+123456789.
+
+01:04:34.580 --> 01:04:36.580
+123456789.
+
+01:04:36.580 --> 01:04:38.580
+123456789.
+
+01:04:38.580 --> 01:04:40.580
+123456789.
+
+01:04:40.580 --> 01:04:42.580
+123456789.
+
+01:04:42.580 --> 01:04:44.580
+123456789.
+
+01:04:44.580 --> 01:04:46.580
+123456789.
+
+01:04:46.580 --> 01:04:48.580
+123456789.
+
+01:04:48.580 --> 01:04:50.580
+123456789.
+
+01:04:50.580 --> 01:04:52.580
+123456789.
+
+01:04:52.580 --> 01:04:54.580
+123456789.
+
+01:04:54.580 --> 01:04:56.580
+123456789.
+
+01:04:56.580 --> 01:04:58.580
+123456789.
+
+01:04:58.580 --> 01:05:00.580
+123456789.
+
+01:05:00.580 --> 01:05:02.580
+123456789.
+
+01:05:02.580 --> 01:05:10.200
+egal wo vollkommen gut ich weiß nur dass viele leute das im heimbereich gerne verwenden und das
+
+01:05:10.200 --> 01:05:16.980
+was viele leute verwenden im heimbereich so und damit kann man jetzt sagen die oder kuneb kuneb
+
+01:05:16.980 --> 01:05:20.200
+kann zum beispiel auch docker container oder im hobbys ist im hobbys ist gibt es auch einen
+
+01:05:20.200 --> 01:05:26.400
+änderung dafür vollkommen egal wenn der nx proxy manager gestartet habt dann könnt ihr jetzt hier
+
+01:05:26.400 --> 01:05:34.260
+auf ssl zertifikate gehen und da sagt er es gibt keine ssl zertifikate und jetzt kommt letzten
+
+01:05:34.260 --> 01:05:40.440
+crypt dns challenge ins spiel so wir müssen uns erstmal einen domain namen ausdenken den
+
+01:05:40.440 --> 01:05:46.320
+wir haben wollen eben hatten wir public punkt twitch also eben hatten wir das hier und preis
+
+01:05:46.320 --> 01:05:56.040
+champ.org jetzt machen wir private ok private punkt twitch punkt preis champ.org dann muss
+
+01:05:56.040 --> 01:05:56.380
+man ihm sagen
+
+01:05:56.400 --> 01:06:04.380
+jawohl ich will dns challenge usen und ich bin mit den letzten crypt service terms fein und
+
+01:06:04.380 --> 01:06:09.240
+jetzt kommt was das müsst ihr bei der normalen beim public server und der normalen http challenge
+
+01:06:09.240 --> 01:06:19.320
+nicht machen den letzten crypt client den ihr verwendet der muss logischerweise dns einträge
+
+01:06:19.320 --> 01:06:23.180
+anlegen können weil ich habe ja gerade versucht zu erklären dass dieser austausch mit letzten
+
+01:06:23.180 --> 01:06:28.320
+crypt über txt records funktioniert und dementsprechend muss
+
+01:06:28.800 --> 01:06:34.560
+der jeweilige letzten crypt client den domain anbieter unterstützen er muss wissen wie die
+
+01:06:34.560 --> 01:06:40.440
+api funktioniert von den jeweiligen anbietern wie man dns wie man dns einträge anlegt aber ihr seht
+
+01:06:40.440 --> 01:06:47.420
+hier das ding unterstützt kummer hetzner ist dabei ich glaube block bandit mittlerweile sogar dabei
+
+01:06:47.420 --> 01:06:53.640
+und wir brauchen halt in dem fall cloud flair und in cloud flair kann man sich jetzt an api
+
+01:06:53.640 --> 01:06:58.280
+token generieren und in diesem api token kann man auch einstellen was war mit diesem api token
+
+01:06:58.800 --> 01:07:10.080
+token machen darf ich habe mir eine api token generiert was nur funktioniert von mir aus und
+
+01:07:10.080 --> 01:07:16.020
+was nur für diese eine domain funktioniert das heißt ich kann jetzt mein api token liegen das
+
+01:07:16.020 --> 01:07:24.100
+mal api token falls ihr bock hat abzuschreiben wenn ihr unbedingt wollt so das ist mein api
+
+01:07:24.100 --> 01:07:27.840
+token und wenn ich das jetzt hier hinzufügen passt mal auf was passiert ich hoffe ich habe
+
+01:07:27.840 --> 01:07:39.540
+jetzt nichts verkackt passt mal auf was passiert post champ post champ post champ was wir machen
+
+01:07:39.540 --> 01:07:44.380
+wir stellen uns gültige zertifikate aus für lokale services leute eine runde post champen
+
+01:07:44.380 --> 01:07:58.280
+please sonst funktioniert es nicht das ist normal dass es ein bisschen länger dauert und siehe da
+
+01:07:58.280 --> 01:08:05.880
+wir haben ein gültiges zertifikat ein gültiges zertifikat für private
+
+01:08:05.880 --> 01:08:16.410
+punkt twitch pro preis chip blog was wir noch nicht haben ist eine ein haus eintrag der das
+
+01:08:16.410 --> 01:08:26.210
+anlegt aber wir haben gültig jetzt zertifikat das heißt dass jetzt brauchen ist proxy haus
+
+01:08:26.210 --> 01:08:31.990
+at proxy haus und dementsprechend domain names ist das gleiche private punkt und
+
+01:08:31.990 --> 01:08:41.910
+vorwording das ist jetzt wo der eigentliche service läuft auf den ihr
+
+01:08:41.910 --> 01:08:47.610
+weiterleiten wollt und der läuft auf ich habe es mir eben hier da dort port 8000
+
+01:08:47.610 --> 01:08:55.710
+websocket support meinetwegen und nicht jetzt auf ok drücken sondern hier auswählen welches
+
+01:08:55.710 --> 01:09:01.590
+zertifikat ihr verwenden wollt das da man könnte auch einfach ein wildcard zertifikat anlegen das
+
+01:09:01.590 --> 01:09:06.630
+funktioniert genauso kann ich euch kann ich auch gleich zeigen dass das dass das funktioniert das
+
+01:09:06.630 --> 01:09:11.890
+ist tatsächlich sogar etwas einfacher dann aber force action
+
+01:09:11.910 --> 01:09:19.050
+hat die b2 support meinetwegen und sagt safe so wenn ich jetzt darauf klicke dann geht es nicht
+
+01:09:19.050 --> 01:09:31.500
+warum geht es nicht wer weiß es warum das nicht geht wir haben eine sache noch vergessen oder
+
+01:09:31.500 --> 01:09:39.840
+wer hat mitgedacht dns fehlt richtig dns fehlt und das hängt jetzt von euch ab wo ihr das braucht ja
+
+01:09:39.840 --> 01:09:45.940
+geht nicht das hängt davon ab wo ihr das braucht normalerweise würde ich sagen hey geht einfach
+
+01:09:46.200 --> 01:09:54.300
+in euren lokalen dns auf eurer fritz box auf eurem router und tragt das ein ihr könnt auch ihr könnt
+
+01:09:54.300 --> 01:10:00.300
+das auch bei cloudflare eintragen das problem ist nur im übersatz ist kein problem ist vielleicht
+
+01:10:00.300 --> 01:10:06.360
+ein bisschen wird lokale ip's aufzulösen über eine public dns da müssen wir public dns machen
+
+01:10:06.360 --> 01:10:13.640
+und aber gehen tut das guck ich zeige es euch mal so funktionieren funktionieren tut das oder auch
+
+01:10:13.640 --> 01:10:15.520
+nicht ich glaube der hat es jetzt gecached
+
+01:10:21.090 --> 01:10:30.620
+ja der hat gecheckt muss jetzt kurz wagen machdick gucke der kann schon auflösen passt
+
+01:10:30.620 --> 01:10:49.370
+die frage ist wo hat das jetzt die kiste gecasht mal gucken moment mal gucken
+
+01:10:49.370 --> 01:10:56.830
+was mein windows dazu sagt ob das meinen linux gecached hat oder mein lokaler luco
+
+01:10:56.830 --> 01:10:59.870
+mein
+
+01:10:59.870 --> 01:11:01.630
+router hat das ganze getestet
+
+01:11:01.750 --> 01:11:03.390
+Cache, so wie es aussieht. Da muss ich mein
+
+01:11:03.390 --> 01:11:05.630
+Cache da mal
+
+01:11:05.630 --> 01:11:11.340
+kurz leeren. Deswegen.
+
+01:11:11.600 --> 01:11:13.360
+Ne, wisst ihr was? Scheiß drauf.
+
+01:11:13.800 --> 01:11:15.280
+Das ist eh eine bescheuerte Variante.
+
+01:11:15.400 --> 01:11:17.400
+Ich würde nie in einem Public DNS meine Private
+
+01:11:17.400 --> 01:11:19.540
+Sachen eintragen. Nicht, weil es ist
+
+01:11:19.540 --> 01:11:21.040
+doof. Da musst du nach außen und fragen.
+
+01:11:21.420 --> 01:11:23.180
+Ganz ehrlich, wir machen jetzt Host-Datei.
+
+01:11:23.660 --> 01:11:25.440
+Wir schreiben es jetzt in die Host-Datei rein,
+
+01:11:25.780 --> 01:11:27.200
+weil zum Testen reicht das aus.
+
+01:11:27.920 --> 01:11:28.200
+Zack.
+
+01:11:29.080 --> 01:11:30.320
+ETC Hosts.
+
+01:11:39.910 --> 01:11:41.070
+Alles gut. Zack.
+
+01:11:41.190 --> 01:11:47.340
+Da muss eine Host-Datei drinstehen.
+
+01:11:47.340 --> 01:11:48.960
+Kann auch ein Curl drauf machen.
+
+01:11:51.110 --> 01:11:52.450
+Und sieh da. Permanently moved,
+
+01:11:52.550 --> 01:11:53.690
+weil kein HTTPS.
+
+01:11:55.090 --> 01:11:55.610
+HTTPS.
+
+01:11:56.750 --> 01:11:58.610
+Und sieh da. Kackel, Twitch,
+
+01:11:58.670 --> 01:12:00.630
+Chat. Ah ja, ja. Die Webseite
+
+01:12:00.630 --> 01:12:02.730
+funktioniert. Im Browser kann ich es euch nicht zeigen,
+
+01:12:02.990 --> 01:12:04.870
+weil mein Browser immer noch
+
+01:12:04.870 --> 01:12:06.070
+äh
+
+01:12:06.070 --> 01:12:08.330
+einen gecached DNS-Eintrag drin hat.
+
+01:12:09.870 --> 01:12:10.430
+Äh,
+
+01:12:10.430 --> 01:12:12.270
+ich muss es im Router rausschmeißen.
+
+01:12:15.160 --> 01:12:16.020
+Ah gut, komm.
+
+01:12:17.620 --> 01:12:18.580
+Ich lösche mal kurz
+
+01:12:18.580 --> 01:12:19.360
+mein DNS-Cache.
+
+01:12:21.180 --> 01:12:22.560
+IP, DNS,
+
+01:12:25.840 --> 01:12:31.130
+Cache. Ja, ja, zack.
+
+01:12:35.010 --> 01:12:35.470
+Flush.
+
+01:12:35.990 --> 01:12:37.190
+Der Cache wird geflusht.
+
+01:12:38.750 --> 01:12:39.370
+So, und jetzt?
+
+01:12:40.910 --> 01:12:41.730
+Darf ich jetzt?
+
+01:12:42.690 --> 01:12:44.190
+Ah, das sieht doch schon besser aus.
+
+01:12:48.710 --> 01:12:50.010
+Ne, mein Router hat das gecached.
+
+01:12:50.010 --> 01:12:52.010
+Das bringt nichts, wenn ich es auf der Linux-Kiste lösche.
+
+01:12:52.950 --> 01:12:54.110
+Jetzt funktioniert das auch.
+
+01:12:54.270 --> 01:12:55.970
+So, und jetzt guckt, jetzt gehe ich hier auf die Webseite.
+
+01:12:57.950 --> 01:12:58.890
+Private Twitch
+
+01:12:58.890 --> 01:13:01.430
+pricechamp.org
+
+01:13:01.430 --> 01:13:03.890
+und ich kriege meine Webseite. Ich habe ein gültiges Zertifikat.
+
+01:13:03.910 --> 01:13:05.790
+Obwohl das ein rein interner
+
+01:13:05.790 --> 01:13:07.930
+Service ist. Was man jetzt noch machen kann
+
+01:13:07.930 --> 01:13:09.410
+ist, man kann zum Beispiel hier sagen
+
+01:13:09.410 --> 01:13:11.850
+SSL-Zertifikate, add SSL-Zertifikat,
+
+01:13:11.950 --> 01:13:13.870
+let's encrypt. Also das gleiche, was wir eben
+
+01:13:13.870 --> 01:13:14.810
+auch schon gemacht haben.
+
+01:13:15.890 --> 01:13:18.030
+Für Cloudflare.
+
+01:13:18.370 --> 01:13:19.870
+Dann muss man hier wieder sein API-Token
+
+01:13:19.870 --> 01:13:20.510
+eintragen.
+
+01:13:21.870 --> 01:13:23.690
+Und jetzt machen wir mal sowas hier zum Beispiel.
+
+01:13:24.130 --> 01:13:25.470
+Sternchen, Sternchen.
+
+01:13:27.170 --> 01:13:27.650
+kekw
+
+01:13:27.650 --> 01:13:30.170
+.preischamp.org
+
+01:13:30.170 --> 01:13:32.190
+Save.
+
+01:13:33.210 --> 01:13:33.890
+Und jetzt stellt
+
+01:13:33.890 --> 01:13:35.370
+er ein Wildcard-Zertifikat aus.
+
+01:13:36.150 --> 01:13:37.850
+Das Schöne an Wildcard-Zertifikaten
+
+01:13:37.850 --> 01:13:40.190
+ist, du kannst ein Zertifikat
+
+01:13:40.190 --> 01:13:41.530
+für nahezu
+
+01:13:41.530 --> 01:13:43.890
+beliebig viele Hosts verwenden, solange
+
+01:13:43.890 --> 01:13:45.750
+sie unter
+
+01:13:45.750 --> 01:13:47.210
+der richtigen Subdomain sind.
+
+01:13:47.830 --> 01:13:49.850
+Das heißt, für alle Seiten, die ich jetzt haben will
+
+01:13:49.850 --> 01:13:51.470
+oder für alle Hosts, die ich haben will,
+
+01:13:51.970 --> 01:13:53.110
+die unterhalb von
+
+01:13:53.110 --> 01:13:55.750
+kekw.preischamp.org sind,
+
+01:13:56.570 --> 01:13:57.630
+kann ich dieses Zertifikat
+
+01:13:57.630 --> 01:13:58.090
+benutzen.
+
+01:14:00.150 --> 01:14:01.050
+Also kann ich
+
+01:14:01.050 --> 01:14:03.570
+zum Beispiel sagen,
+
+01:14:03.690 --> 01:14:03.830
+okay,
+
+01:14:03.890 --> 01:14:05.910
+ich meine, DNS-Einträge
+
+01:14:05.910 --> 01:14:07.790
+braucht man nach wie vor, kommt man nicht
+
+01:14:07.790 --> 01:14:09.870
+drumherum, ja, das braucht man.
+
+01:14:10.490 --> 01:14:11.670
+Aber ich kann jetzt zum Beispiel
+
+01:14:11.670 --> 01:14:13.730
+sagen, hier, Proxy-Host, okay, da habe ich keinen Bock
+
+01:14:13.730 --> 01:14:15.810
+mehr drauf, das zu verwenden, sondern es soll jetzt sein,
+
+01:14:16.510 --> 01:14:17.810
+hier, was weiß ich,
+
+01:14:19.310 --> 01:14:25.550
+TV.kekw.champ.org
+
+01:14:25.550 --> 01:14:26.990
+TV.kekw.champ.org
+
+01:14:26.990 --> 01:14:27.710
+Und da kann man dann
+
+01:14:27.710 --> 01:14:29.790
+hier das Wildcard-Zertifikat auswählen.
+
+01:14:30.630 --> 01:14:31.030
+Zack.
+
+01:14:31.950 --> 01:14:33.590
+Dann kann ich auch ein Host anlegen
+
+01:14:33.590 --> 01:14:34.850
+und das ist das, keine Ahnung, hier,
+
+01:14:34.970 --> 01:14:39.830
+keller.kekw.preischamp.org
+
+01:14:39.830 --> 01:14:42.110
+kann ich wieder das Wildcard-Zertifikat
+
+01:14:42.110 --> 01:14:42.750
+auswählen.
+
+01:14:43.950 --> 01:14:45.910
+Dann muss natürlich irgendwie...
+
+01:14:46.670 --> 01:14:47.710
+So. Dadurch, dass das
+
+01:14:47.710 --> 01:14:49.170
+ein Wildcard-Zertifikat ist,
+
+01:14:51.970 --> 01:14:53.290
+funktioniert das jetzt einfach.
+
+01:14:53.550 --> 01:14:55.830
+Egal, ich meine, ich habe jetzt keine DNS-Einträge drauf,
+
+01:14:55.930 --> 01:14:57.050
+ne, aber sobald ich
+
+01:14:57.050 --> 01:14:59.430
+einen DNS-Eintrag draufsetzen würde,
+
+01:15:00.330 --> 01:15:01.790
+würde das funktionieren.
+
+01:15:01.950 --> 01:15:01.970
+Also,
+
+01:15:02.130 --> 01:15:13.450
+die Hosts... Achso, ich glaube,
+
+01:15:13.450 --> 01:15:18.360
+ich habe die... Ja.
+
+01:15:19.960 --> 01:15:20.360
+Localhost.
+
+01:15:21.380 --> 01:15:22.540
+Das gibt es ja auch nicht.
+
+01:15:24.420 --> 01:15:25.740
+Jetzt hat er es noch nicht gecheckt,
+
+01:15:25.840 --> 01:15:27.680
+aber gleich wird er es checken.
+
+01:15:28.500 --> 01:15:30.140
+Übrigens darf ich nicht Localhost verwenden,
+
+01:15:30.220 --> 01:15:31.640
+das kann an der Stelle auch nicht funktionieren,
+
+01:15:31.720 --> 01:15:33.280
+sondern ich muss die IP verwenden von dem Server,
+
+01:15:33.440 --> 01:15:34.120
+worauf es drauf liegt.
+
+01:15:35.760 --> 01:15:36.160
+Zack.
+
+01:15:37.900 --> 01:15:43.490
+Und ihr habt gültige Zertifikate.
+
+01:15:45.900 --> 01:15:46.160
+Geht.
+
+01:15:47.060 --> 01:15:49.420
+Ich meine, man kann auch so komisches Zeug machen,
+
+01:15:49.420 --> 01:15:50.420
+wie, ähm...
+
+01:15:53.880 --> 01:15:56.380
+jetzt weiterleiten auf, äh...
+
+01:15:56.380 --> 01:15:56.720
+Google.
+
+01:15:59.040 --> 01:16:00.400
+Aber, das...
+
+01:16:00.400 --> 01:16:02.680
+Das wird nicht... Das kann ich jetzt auch gleich sagen.
+
+01:16:02.980 --> 01:16:04.200
+Das wird nicht richtig funktionieren.
+
+01:16:05.180 --> 01:16:06.300
+Dann, äh...
+
+01:16:06.300 --> 01:16:08.440
+erzählt er dir, dass das so nicht funktioniert, aber...
+
+01:16:08.440 --> 01:16:10.400
+Ja. Also, ich könnte, ich könnte quasi
+
+01:16:10.400 --> 01:16:12.560
+weiterleiten auf Google. Guck, ich leite gerade jetzt Google.
+
+01:16:12.920 --> 01:16:15.120
+keckel.kecw.preisschamp.org
+
+01:16:15.120 --> 01:16:16.420
+leitet weiter auf Google.
+
+01:16:17.560 --> 01:16:18.600
+Komplett unsinnig jetzt,
+
+01:16:18.680 --> 01:16:19.800
+aber ja, das würde auch funktionieren.
+
+01:16:22.600 --> 01:16:23.660
+Und das ist alles.
+
+01:16:24.080 --> 01:16:26.060
+Das ist die gesamte Magic für interne
+
+01:16:26.060 --> 01:16:27.980
+Let's-Hand-Grip-Zertifikate, Leute. Das war's.
+
+01:16:31.110 --> 01:16:32.870
+Mehr, mehr braucht ihr dazu nicht.
+
+01:16:39.340 --> 01:16:39.960
+Das ist alles.
+
+01:16:41.400 --> 01:16:42.960
+Ich hab übrigens hier der Mist reingeschrieben.
+
+01:16:43.480 --> 01:16:44.120
+Das ist 8000.
+
+01:16:47.460 --> 01:16:48.320
+Ihr braucht eine Domain.
+
+01:16:49.620 --> 01:16:51.680
+Ihr braucht einen API-Key für euren DNS.
+
+01:16:52.780 --> 01:16:54.420
+Irgendwie sowas wie Let's, äh...
+
+01:16:54.420 --> 01:16:56.020
+hier wie NNX-Proxy-Manager.
+
+01:16:57.660 --> 01:16:58.100
+Fertig.
+
+01:16:59.740 --> 01:17:01.480
+Das ist die gesamte Magic aus
+
+01:17:01.480 --> 01:17:02.640
+interne...
+
+01:17:04.640 --> 01:17:05.480
+interne Services
+
+01:17:05.480 --> 01:17:05.980
+mit...
+
+01:17:05.980 --> 01:17:07.180
+Zertifikaten-Versorgung.
+
+01:17:15.050 --> 01:17:15.670
+Mehr brauchen wir nicht.
+
+01:17:15.670 --> 01:17:16.870
+Ich weiß gar nicht, was ich da noch...
+
+01:17:16.870 --> 01:17:18.370
+Also, ihr könnt mich gerne noch zu euch fragen,
+
+01:17:18.410 --> 01:17:19.570
+aber ich weiß gar nicht, was ich da jetzt noch
+
+01:17:19.570 --> 01:17:20.770
+groß dazu erzählen soll.
+
+01:17:24.680 --> 01:17:25.920
+Crynex, danke schön für den Sub.
+
+01:17:30.510 --> 01:17:32.350
+Was hältst du von Cudi vs. NGINX?
+
+01:17:32.810 --> 01:17:34.970
+Gar nichts. Ich verwende zu 90% NGINX
+
+01:17:34.970 --> 01:17:36.550
+und für alles, was super simpel ist, Cudi.
+
+01:17:37.550 --> 01:17:39.450
+Cudi verwende ich für genau den einen Fall,
+
+01:17:39.510 --> 01:17:41.350
+den ich euch am Anfang des Streams gezeigt hab.
+
+01:17:43.030 --> 01:17:45.470
+Ein Public-Service braucht ein Zertifikat.
+
+01:17:46.130 --> 01:17:47.870
+Oder ein Service, der Public sein soll,
+
+01:17:47.870 --> 01:17:49.610
+braucht ein Zertifikat, ein gültiges.
+
+01:17:49.770 --> 01:17:51.590
+Dann mache ich den Cudi-Reverse-Proxy
+
+01:17:51.590 --> 01:17:53.650
+mit genau einer Zeile in der Config oder mit.
+
+01:17:54.070 --> 01:17:56.190
+Zeilen umbrüchen sind es drei Zeilen in der Config.
+
+01:17:56.750 --> 01:17:57.650
+Das geht dann einfach.
+
+01:17:58.590 --> 01:18:00.190
+Für alles andere verwende ich NGINX.
+
+01:18:01.690 --> 01:18:03.530
+Warum braucht man das bei internen Services?
+
+01:18:04.510 --> 01:18:06.730
+Also, gibt's zwei Gründe.
+
+01:18:07.510 --> 01:18:09.770
+Einer ist eher kosmetischer Natur,
+
+01:18:10.630 --> 01:18:12.270
+weil's nice ist,
+
+01:18:12.610 --> 01:18:13.930
+wenn die Services verschlüsselt sind
+
+01:18:13.930 --> 01:18:15.010
+und gültige Zertifikate haben.
+
+01:18:16.090 --> 01:18:16.830
+Das zweite ist,
+
+01:18:17.290 --> 01:18:18.030
+es gibt Services,
+
+01:18:18.030 --> 01:18:19.650
+da ist es erforderlich dafür,
+
+01:18:19.770 --> 01:18:22.650
+dass du ein gültiges Zertifikat hast
+
+01:18:22.650 --> 01:18:24.650
+und es Trusted-Verbindung ist.
+
+01:18:24.650 --> 01:18:29.090
+Zum Beispiel, wenn du dir
+
+01:18:29.090 --> 01:18:32.090
+WebRTC-Seiten angucken willst.
+
+01:18:32.090 --> 01:18:37.090
+WebRTC, das ist also höchstwahrscheinlich,
+
+01:18:37.090 --> 01:18:38.090
+wenn du eine Kamera bei dir hast
+
+01:18:38.090 --> 01:18:40.090
+und die ein Web-Interface hat,
+
+01:18:40.090 --> 01:18:41.090
+dann wird das über WebRTC gestreamt,
+
+01:18:41.090 --> 01:18:43.090
+wenn es halbwegs modern ist.
+
+01:18:43.090 --> 01:18:49.400
+Und das geht nur über ATTPS
+
+01:18:49.400 --> 01:18:51.400
+und dann auch nur, wenn es eine Secure-Verbindung ist.
+
+01:18:51.400 --> 01:18:54.420
+Also, wenn du ein Web-Interface hast,
+
+01:18:54.420 --> 01:18:55.420
+dann ist das nicht so einfach.
+
+01:18:55.420 --> 01:18:56.420
+Also, es gibt Services,
+
+01:18:56.420 --> 01:18:57.420
+da ist es notwendig,
+
+01:18:57.420 --> 01:19:00.260
+dass du es verschlüsselt laufen lässt
+
+01:19:00.260 --> 01:19:04.820
+und dann brauchst du oftmals ein gültiges Zertifikat,
+
+01:19:04.820 --> 01:19:07.220
+wie beispielsweise bei Web,
+
+01:19:07.220 --> 01:19:08.860
+wenn du WebRTC-Verbindungen machen willst,
+
+01:19:08.860 --> 01:19:11.300
+weil ansonsten erlaubt es der Browser schlicht und ergreifend nicht.
+
+01:19:11.300 --> 01:19:12.740
+Du kannst kein WebRTC verwenden
+
+01:19:12.740 --> 01:19:14.900
+auf einer ungesicherten Webseite
+
+01:19:14.900 --> 01:19:17.040
+und auch auf keiner Webseite,
+
+01:19:17.040 --> 01:19:18.740
+die kein gültiges Zertifikat hat.
+
+01:19:18.740 --> 01:19:19.740
+Außer es ist Low-Close.
+
+01:19:19.740 --> 01:19:20.740
+Für Low-Close,
+
+01:19:20.740 --> 01:19:23.300
+um es den Entwicklern einfacher zu machen, gibt's dann.
+
+01:19:23.300 --> 01:19:25.300
+Das macht schon Sinn.
+
+01:19:25.300 --> 01:19:26.300
+Auf der anderen Seite,
+
+01:19:26.300 --> 01:19:28.940
+wenn man sich sowas hier einmal eingerichtet hat,
+
+01:19:28.940 --> 01:19:31.620
+dann ist es ja auch easy,
+
+01:19:31.620 --> 01:19:32.620
+das weiter zu benutzen.
+
+01:19:32.620 --> 01:19:43.120
+ChatGiz.
+
+01:19:43.120 --> 01:19:59.130
+So sieht's aus.
+
+01:19:59.130 --> 01:20:06.450
+Und wir haben ein gültiges Zertifikat.
+
+01:20:06.450 --> 01:20:07.450
+Eine Sache,
+
+01:20:07.450 --> 01:20:14.020
+was man bei letzten Crypt-Zertifikaten noch erwähnen müsste,
+
+01:20:14.020 --> 01:20:15.020
+ihr seht,
+
+01:20:15.020 --> 01:20:17.280
+das expired am 19.
+
+01:20:17.280 --> 01:20:19.080
+April 2024.
+
+01:20:19.080 --> 01:20:21.160
+Das ist nicht sonderlich lange.
+
+01:20:21.160 --> 01:20:23.400
+Das sind genau,
+
+01:20:23.400 --> 01:20:24.720
+ziemlich genau,
+
+01:20:24.720 --> 01:20:25.720
+drei Monate.
+
+01:20:25.720 --> 01:20:30.680
+Und letzten Crypt gibt auch keine längeren Zertifikate.
+
+01:20:30.680 --> 01:20:31.680
+Ich glaube,
+
+01:20:31.680 --> 01:20:32.680
+ganz am Anfang,
+
+01:20:32.680 --> 01:20:33.680
+ganz,
+
+01:20:33.680 --> 01:20:34.680
+ganz,
+
+01:20:34.680 --> 01:20:35.680
+ganz am Anfang von letzten Crypt,
+
+01:20:35.680 --> 01:20:36.680
+gab es, glaube ich,
+
+01:20:36.680 --> 01:20:38.860
+noch sechs Monats Zertifikate,
+
+01:20:38.860 --> 01:20:39.860
+wenn man wollte.
+
+01:20:39.860 --> 01:20:40.860
+Ich bin mir aber gar nicht mehr sicher,
+
+01:20:40.860 --> 01:20:42.400
+ob das überhaupt letzten Crypt war,
+
+01:20:42.400 --> 01:20:46.400
+aber schon sehr lange gibt es nur noch drei Monats Zertifikate.
+
+01:20:46.400 --> 01:20:51.710
+Jetzt ist halt das Ding,
+
+01:20:51.710 --> 01:20:54.350
+wenn ihr ein Zertifikat habt über letzten Crypt,
+
+01:20:54.350 --> 01:20:55.990
+das läuft in drei Monaten aus.
+
+01:20:55.990 --> 01:20:56.990
+Es ist sehr sinnvoll,
+
+01:20:56.990 --> 01:20:58.990
+das über eine Software zu machen,
+
+01:20:58.990 --> 01:21:04.670
+wie eben beispielsweise Nginx Proxy Manager oder Cuddy oder irgendwas,
+
+01:21:04.670 --> 01:21:06.230
+was das automatisch handelt.
+
+01:21:06.230 --> 01:21:08.590
+Ich habe keine Ahnung,
+
+01:21:08.590 --> 01:21:10.630
+wer letztendlich finanziert.
+
+01:21:10.630 --> 01:21:11.630
+Man kann bestimmt,
+
+01:21:11.630 --> 01:21:12.630
+man kann bestimmt spenden.
+
+01:21:12.630 --> 01:21:13.630
+Ja,
+
+01:21:13.630 --> 01:21:14.630
+aber Home Assistant musste,
+
+01:21:14.630 --> 01:21:15.630
+glaube ich,
+
+01:21:15.630 --> 01:21:17.510
+noch ein paar Zusatzoptionen setzen,
+
+01:21:17.510 --> 01:21:18.670
+dass das gescheit funktioniert.
+
+01:21:18.670 --> 01:21:19.670
+Ich glaube,
+
+01:21:19.670 --> 01:21:20.670
+du musst sagen,
+
+01:21:20.670 --> 01:21:23.310
+von wo Proxy IP oder vielleicht war das auch bei Nextcloud.
+
+01:21:23.310 --> 01:21:24.310
+Ich weiß es nicht mehr.
+
+01:21:24.310 --> 01:21:25.310
+Bei Nextcloud habe ich eh rausgeschaut.
+
+01:21:25.310 --> 01:21:26.630
+Bei Nextcloud habe ich rausgeschmissen.
+
+01:21:26.630 --> 01:21:27.630
+Bei mir mittlerweile.
+
+01:21:27.630 --> 01:21:33.070
+Also es muss automatisch und das mache ich jetzt aber nicht im Stream,
+
+01:21:33.070 --> 01:21:34.070
+nur mal für alle,
+
+01:21:34.070 --> 01:21:40.640
+die da ein bisschen was vielleicht weiterführendes damit machen möchten.
+
+01:21:40.640 --> 01:21:43.600
+Wenn man jetzt Services benutzen möchte,
+
+01:21:43.600 --> 01:21:48.260
+die die man beispielsweise nicht über Nginx Proxy Manager verwalten kann
+
+01:21:48.260 --> 01:21:52.260
+oder die eben kein eingebautes letztendlich Crypt haben,
+
+01:21:52.260 --> 01:21:53.260
+sagen wir zum Beispiel,
+
+01:21:53.260 --> 01:21:55.260
+ihr habt einen MQTT Broker.
+
+01:21:55.260 --> 01:21:56.260
+So Moskito.
+
+01:21:56.260 --> 01:22:01.020
+So Moskito oder sowas so für Heim Automatisierung MQTT Geschichten.
+
+01:22:01.020 --> 01:22:04.340
+Das hat auch einen verschlüsselten Endpunkt,
+
+01:22:04.340 --> 01:22:06.020
+wo man Zertifikate hinterlegen kann.
+
+01:22:06.020 --> 01:22:08.140
+Das sind auch ganz normale Zertifikate,
+
+01:22:08.140 --> 01:22:12.460
+die man sich über Let's Encrypt ausstellen lassen kann.
+
+01:22:12.460 --> 01:22:17.020
+Allerdings Moskito selbst kann kein Let's Encrypt irgendwie eingebaut.
+
+01:22:17.020 --> 01:22:22.360
+Dann muss man sowas wie Certbot verwenden.
+
+01:22:22.360 --> 01:22:23.360
+Nicht Certbot.
+
+01:22:23.360 --> 01:22:24.360
+Certbot.
+
+01:22:24.360 --> 01:22:25.600
+Certbot ist ein Skript,
+
+01:22:25.600 --> 01:22:26.600
+das unter anderem,
+
+01:22:26.600 --> 01:22:27.600
+wenn ich das jetzt mal auswählen kann,
+
+01:22:27.600 --> 01:22:28.600
+das unter anderem,
+
+01:22:28.600 --> 01:22:33.620
+ich zeige euch mal ein Beispiel.
+
+01:22:33.620 --> 01:22:35.620
+How to use Certbot.
+
+01:22:35.620 --> 01:22:39.620
+Certbot ist quasi so die manuelle Alternative,
+
+01:22:39.620 --> 01:22:40.620
+wenn man was hat,
+
+01:22:40.620 --> 01:22:43.620
+was nicht Let's Encrypt eingebaut hat.
+
+01:22:43.620 --> 01:22:45.620
+Da führt man Certbot aus,
+
+01:22:45.620 --> 01:22:46.620
+macht genau das gleiche,
+
+01:22:46.620 --> 01:22:47.620
+was ich jetzt auch gemacht habe,
+
+01:22:47.620 --> 01:22:50.620
+mit APK und sonst was hinterlegen.
+
+01:22:50.620 --> 01:22:51.620
+Nur dass man,
+
+01:22:51.620 --> 01:22:54.620
+das ist ja super weird geschrieben,
+
+01:22:54.620 --> 01:22:55.620
+was,
+
+01:22:55.620 --> 01:22:58.700
+ja hier,
+
+01:22:58.700 --> 01:22:59.700
+das ist das eigentlich,
+
+01:22:59.700 --> 01:23:00.700
+das ist das eigentlich Wichtige.
+
+01:23:00.700 --> 01:23:02.700
+So was macht man dann hier.
+
+01:23:02.700 --> 01:23:03.700
+Certbot,
+
+01:23:03.700 --> 01:23:04.700
+Set Only,
+
+01:23:04.700 --> 01:23:05.700
+Standalone,
+
+01:23:05.700 --> 01:23:06.700
+Preferred,
+
+01:23:06.700 --> 01:23:07.700
+Challenge,
+
+01:23:07.700 --> 01:23:08.700
+HTTP,
+
+01:23:08.700 --> 01:23:09.700
+hier würden wir DNS machen,
+
+01:23:09.700 --> 01:23:10.700
+APK und alles hinterlegen.
+
+01:23:10.700 --> 01:23:11.700
+Certbot,
+
+01:23:11.700 --> 01:23:12.700
+Example,
+
+01:23:12.700 --> 01:23:13.700
+Cloud,
+
+01:23:13.700 --> 01:23:19.210
+Flair,
+
+01:23:19.210 --> 01:23:20.210
+DNS,
+
+01:23:20.210 --> 01:23:21.210
+gibt es bestimmt irgendwie.
+
+01:23:21.210 --> 01:23:22.210
+Genau,
+
+01:23:22.210 --> 01:23:23.210
+so muss man,
+
+01:23:23.210 --> 01:23:24.210
+so muss man dann Certbot ausführen.
+
+01:23:24.210 --> 01:23:25.210
+Ja,
+
+01:23:25.210 --> 01:23:26.210
+mit dem APK und allem.
+
+01:23:26.210 --> 01:23:27.210
+Und,
+
+01:23:27.210 --> 01:23:30.210
+Certbot kann dann auch sowas wie einen Post-Renew-Hook,
+
+01:23:30.210 --> 01:23:31.210
+also sprich,
+
+01:23:31.210 --> 01:23:33.210
+wenn Certbot das Zertifikat erneuert hat,
+
+01:23:33.210 --> 01:23:34.210
+lässt es ein Shell-Skript laufen,
+
+01:23:34.210 --> 01:23:40.210
+in diesem Shell-Skript könnt ihr dann beispielsweise euren Message-Broker neu starten.
+
+01:23:40.210 --> 01:23:41.210
+Weil viele,
+
+01:23:41.210 --> 01:23:42.210
+oder reloaden,
+
+01:23:42.210 --> 01:23:43.210
+je nachdem,
+
+01:23:43.210 --> 01:23:44.210
+weil ja viele Programme neu gestartet,
+
+01:23:44.210 --> 01:23:47.210
+oder zumindest mal Config neu eingelesen haben möchten,
+
+01:23:47.210 --> 01:23:49.210
+wenn sich die Zertifikate erneuert haben.
+
+01:23:49.210 --> 01:23:51.210
+Also mit sowas wie Certbot zum Beispiel,
+
+01:23:51.210 --> 01:23:53.210
+das ist bei weitem nicht das Einzige,
+
+01:23:53.210 --> 01:23:54.210
+was es dafür gibt,
+
+01:23:54.210 --> 01:23:57.210
+viele Leute mögen übrigens Certbot auch nicht sonderlich,
+
+01:23:57.210 --> 01:24:00.210
+kann man alles mit Let's Encrypt machen,
+
+01:24:00.210 --> 01:24:03.210
+auch was kein direkt eingebauten Let's Encrypt soll.
+
+01:24:03.210 --> 01:24:06.210
+Das war übrigens früher die einzige Möglichkeit,
+
+01:24:06.210 --> 01:24:08.210
+als es noch nicht so viel gab,
+
+01:24:08.210 --> 01:24:11.210
+mit Native so eingebautem Let's Encrypt Support.
+
+01:24:11.210 --> 01:24:16.900
+Und die meisten Services heutzutage haben ja auch kein Let's Encrypt Support direkt eingebaut,
+
+01:24:16.900 --> 01:24:20.900
+sondern müssen das Zertifikat irgendwie extern bereitgestellt bekommen.
+
+01:24:20.900 --> 01:24:23.900
+Und das kann zum Beispiel über Certbot passieren,
+
+01:24:23.900 --> 01:24:25.900
+oder auch über ein reines Shell-Skript,
+
+01:24:25.900 --> 01:24:26.900
+genau das geht auch.
+
+01:24:26.900 --> 01:24:28.900
+Also insofern ist das,
+
+01:24:28.900 --> 01:24:31.900
+es ist alles relativ easy mit Let's Encrypt,
+
+01:24:31.900 --> 01:24:32.900
+muss ich sagen.
+
+01:24:32.900 --> 01:24:33.900
+Also,
+
+01:24:33.900 --> 01:24:34.900
+mit Let's Encrypt,
+
+01:24:34.900 --> 01:24:35.900
+muss ich ein bisschen damit beschäftigen.
+
+01:24:35.900 --> 01:24:36.900
+Aber ich glaube,
+
+01:24:36.900 --> 01:24:37.900
+man hat es heute gesehen,
+
+01:24:37.900 --> 01:24:38.900
+also viel einfacher,
+
+01:24:38.900 --> 01:24:42.900
+wie auf dem Public Service ein gültiges Zertifikat bereitstellen kann man nicht,
+
+01:24:42.900 --> 01:24:49.540
+weil das hat zwei Minuten gedauert.
+
+01:24:49.540 --> 01:24:52.540
+Hier, es hat keinen Bock sich zu beenden.
+
+01:24:52.540 --> 01:24:53.540
+Dann schießen wir es einfach ab,
+
+01:24:53.540 --> 01:24:54.540
+vmchamp,
+
+01:24:54.540 --> 01:24:55.540
+clean,
+
+01:24:55.540 --> 01:24:56.540
+bam,
+
+01:24:56.540 --> 01:24:58.540
+alles weg.
+
+01:24:58.540 --> 01:25:00.540
+Aber das Fenster hängt immer noch.
+
+01:25:00.540 --> 01:25:01.540
+Oh,
+
+01:25:01.540 --> 01:25:02.540
+ich hab,
+
+01:25:02.540 --> 01:25:03.540
+ich hab,
+
+01:25:03.540 --> 01:25:04.540
+doch,
+
+01:25:04.540 --> 01:25:07.980
+ich hab Pendel schließen gemappt.
+
+01:25:07.980 --> 01:25:08.980
+Irgendwie kann man im Certbot,
+
+01:25:08.980 --> 01:25:09.980
+doch Rechte geben,
+
+01:25:09.980 --> 01:25:12.980
+dass er im DNS den Cert-Token renewen kann
+
+01:25:12.980 --> 01:25:14.980
+und sonst nichts ändern kann.
+
+01:25:14.980 --> 01:25:15.980
+Ich wusste gerne,
+
+01:25:15.980 --> 01:25:16.980
+wie das geht.
+
+01:25:16.980 --> 01:25:19.620
+Was?
+
+01:25:19.620 --> 01:25:20.620
+Das kommt auf den Anbieter an,
+
+01:25:20.620 --> 01:25:22.620
+wo du deinen DNS-Server hast.
+
+01:25:22.620 --> 01:25:25.620
+Also bei Cloudflare
+
+01:25:25.620 --> 01:25:26.620
+kannst du einstellen,
+
+01:25:26.620 --> 01:25:30.620
+dass dieser API-Token nur Rechte hat.
+
+01:25:30.620 --> 01:25:36.500
+Du kannst deinen externen DNS-Server nicht selbst self-hosted hosten.
+
+01:25:36.500 --> 01:25:37.500
+Wie willst du das machen?
+
+01:25:37.500 --> 01:25:43.540
+Also bei Cloudflare kannst du einstellen,
+
+01:25:43.540 --> 01:25:45.540
+dass du nur spezielle DNS-Server hast,
+
+01:25:45.540 --> 01:25:58.760
+wo du deine DNS-Zonen updaten kannst mit dem API-Token.
+
+01:25:58.760 --> 01:25:59.760
+Also kannst du,
+
+01:25:59.760 --> 01:26:01.760
+du kannst den DNS-Server für deine Domain nicht,
+
+01:26:01.760 --> 01:26:02.760
+nicht selbst,
+
+01:26:02.760 --> 01:26:03.760
+naja,
+
+01:26:03.760 --> 01:26:04.760
+doch,
+
+01:26:04.760 --> 01:26:05.760
+sag mal so,
+
+01:26:05.760 --> 01:26:08.760
+du kannst den DNS-Server für deine Domain schon selbst hosten,
+
+01:26:08.760 --> 01:26:09.760
+das geht.
+
+01:26:09.760 --> 01:26:10.760
+Aber,
+
+01:26:10.760 --> 01:26:14.420
+ähm,
+
+01:26:14.420 --> 01:26:15.420
+also,
+
+01:26:15.420 --> 01:26:16.420
+ich,
+
+01:26:16.420 --> 01:26:17.420
+ich wüsste nicht,
+
+01:26:17.420 --> 01:26:18.420
+weshalb,
+
+01:26:18.420 --> 01:26:19.420
+also,
+
+01:26:19.420 --> 01:26:20.420
+theoretisch geht das.
+
+01:26:20.420 --> 01:26:22.420
+Du kannst,
+
+01:26:22.420 --> 01:26:26.420
+beispielsweise bei deinem Domain-Register hinterlegen,
+
+01:26:26.420 --> 01:26:30.420
+dass deine DNS eben nicht der DNS vom Domain-Register verwendet wird,
+
+01:26:30.420 --> 01:26:33.420
+sondern irgendein eigener von dir.
+
+01:26:33.420 --> 01:26:35.420
+Das funktioniert.
+
+01:26:35.420 --> 01:26:36.420
+Ich bin mir nicht sicher,
+
+01:26:36.420 --> 01:26:40.420
+ob man an der Stelle interne IPs angeben kann,
+
+01:26:40.420 --> 01:26:42.420
+sodass es dann nur für dich intern funktioniert.
+
+01:26:42.420 --> 01:26:47.500
+Ah, dann musst du dich selbst um dein DNS-Zeug kümmern.
+
+01:26:47.500 --> 01:26:50.500
+Theoretisch geht das,
+
+01:26:50.500 --> 01:26:52.500
+aber,
+
+01:26:52.500 --> 01:26:53.500
+praktisch wüsste ich nicht,
+
+01:26:53.500 --> 01:26:59.000
+warum ich das jemals machen möchte.
+
+01:26:59.000 --> 01:27:02.890
+Könntest du irgendwann mal eine Ein-
+
+01:27:02.890 --> 01:27:03.890
+Das ist eine gute Idee.
+
+01:27:03.890 --> 01:27:04.890
+Das ist eine sehr gute Idee.
+
+01:27:04.890 --> 01:27:06.890
+Hast du irgendwelche Vorschläge?
+
+01:27:06.890 --> 01:27:11.220
+Das ist das Fenster noch ein bisschen größer.
+
+01:27:11.220 --> 01:27:12.220
+Hast du irgendwelche Vorschläge,
+
+01:27:12.220 --> 01:27:13.220
+was du,
+
+01:27:13.220 --> 01:27:14.220
+äh,
+
+01:27:14.220 --> 01:27:15.220
+genau sehen willst,
+
+01:27:15.220 --> 01:27:18.430
+oder einfach so allgemein,
+
+01:27:18.430 --> 01:27:19.430
+ne?
+
+01:27:19.430 --> 01:27:20.430
+Das hat,
+
+01:27:20.430 --> 01:27:23.830
+wir schreiben jetzt auch mal dabei,
+
+01:27:23.830 --> 01:27:24.830
+wer es gesagt hat.
+
+01:27:24.830 --> 01:27:25.830
+Irgendwas spezielles,
+
+01:27:25.830 --> 01:27:26.830
+willst du irgendwas spezielles sehen?
+
+01:27:26.830 --> 01:27:29.830
+Ansonsten könnten wir uns die Standardsachen halt mal angucken.
+
+01:27:29.830 --> 01:27:36.660
+Ich muss aber sagen,
+
+01:27:36.660 --> 01:27:38.660
+es ist gar nicht super ausgefallen,
+
+01:27:38.660 --> 01:27:39.660
+was ich benutze,
+
+01:27:39.660 --> 01:27:40.660
+neben den Standard-Tools,
+
+01:27:40.660 --> 01:27:41.660
+weil,
+
+01:27:41.660 --> 01:27:42.660
+also ich hab mal,
+
+01:27:42.660 --> 01:27:43.660
+ich hab mal,
+
+01:27:43.660 --> 01:27:44.660
+ich hab mal zum Beispiel lange Zeit
+
+01:27:44.660 --> 01:27:46.660
+einen LS-Ersatz verwendet.
+
+01:27:46.660 --> 01:27:47.660
+Ja,
+
+01:27:47.660 --> 01:27:48.660
+EXA war das.
+
+01:27:48.660 --> 01:27:49.660
+Ich weiß gar nicht,
+
+01:27:49.660 --> 01:27:50.660
+ob ich das auch noch installiert hab.
+
+01:27:50.660 --> 01:27:51.660
+Ne, hab ich nicht installiert.
+
+01:27:51.660 --> 01:27:55.580
+Guck mal,
+
+01:27:55.580 --> 01:27:56.580
+ob es das überhaupt noch gibt.
+
+01:27:56.580 --> 01:27:57.580
+Community Fork.
+
+01:27:57.580 --> 01:27:58.580
+Ja,
+
+01:27:58.580 --> 01:27:59.580
+dann,
+
+01:27:59.580 --> 01:28:00.580
+also ich hatte mal,
+
+01:28:00.580 --> 01:28:01.580
+ja,
+
+01:28:01.580 --> 01:28:02.580
+guck hier,
+
+01:28:02.580 --> 01:28:03.580
+das hatte ich mal eine Zeit lang installiert,
+
+01:28:03.580 --> 01:28:04.580
+als Ersatz zu LS.
+
+01:28:04.580 --> 01:28:05.580
+Das Ding ist nur,
+
+01:28:05.580 --> 01:28:06.580
+man könnte sagen,
+
+01:28:06.580 --> 01:28:07.580
+oh ja,
+
+01:28:07.580 --> 01:28:08.580
+ist ja viel hübscher und cooler und so.
+
+01:28:08.580 --> 01:28:09.580
+Ja,
+
+01:28:09.580 --> 01:28:10.580
+ist es.
+
+01:28:10.580 --> 01:28:11.580
+Ich mag das aber nicht mehr,
+
+01:28:11.580 --> 01:28:12.580
+diese ganzen alternativen,
+
+01:28:12.580 --> 01:28:13.580
+äh,
+
+01:28:13.580 --> 01:28:15.580
+EXA,
+
+01:28:15.580 --> 01:28:17.580
+diesen ganzen alternativen Command-Line,
+
+01:28:17.580 --> 01:28:18.580
+äh,
+
+01:28:18.580 --> 01:28:19.580
+re-invented Dinger,
+
+01:28:19.580 --> 01:28:20.580
+so re-written in Rust,
+
+01:28:20.580 --> 01:28:21.580
+so hast du nicht gesehen,
+
+01:28:21.580 --> 01:28:22.580
+weil,
+
+01:28:22.580 --> 01:28:23.580
+du gewöhnst dich da dran,
+
+01:28:23.580 --> 01:28:26.580
+und die Dinger sind meistens nicht,
+
+01:28:26.580 --> 01:28:28.580
+eins zu eins,
+
+01:28:28.580 --> 01:28:30.580
+mit den Optionen kompatibel,
+
+01:28:30.580 --> 01:28:31.580
+und dann gewöhnst du dich dran,
+
+01:28:31.580 --> 01:28:32.580
+und dann wunderst du dich so hoch,
+
+01:28:32.580 --> 01:28:34.580
+warum funktioniert es auf einmal nicht.
+
+01:28:34.580 --> 01:28:35.580
+Und nachdem ich auch sehr viel per SSH
+
+01:28:35.580 --> 01:28:37.580
+auf Servern unterwegs bin,
+
+01:28:37.580 --> 01:28:40.590
+bin ich es doof,
+
+01:28:40.590 --> 01:28:41.590
+wenn ich,
+
+01:28:41.590 --> 01:28:43.590
+ein LS bei mir lokal verwenden muss,
+
+01:28:43.590 --> 01:28:45.590
+was eine Option hat,
+
+01:28:45.590 --> 01:28:46.590
+und anders hat,
+
+01:28:46.590 --> 01:28:47.590
+als das LS auf dem Server,
+
+01:28:47.590 --> 01:28:48.590
+und sowas.
+
+01:28:48.590 --> 01:28:49.590
+Das geht mir immer echt auf den Sack.
+
+01:28:49.590 --> 01:28:50.590
+Deswegen bin ich,
+
+01:28:50.590 --> 01:28:52.590
+von den meisten Zusatzdingern,
+
+01:28:52.590 --> 01:28:55.290
+eigentlich weg.
+
+01:28:55.290 --> 01:28:56.290
+Also,
+
+01:28:56.290 --> 01:28:57.290
+ich,
+
+01:28:57.290 --> 01:28:58.290
+so,
+
+01:28:58.290 --> 01:28:59.290
+so,
+
+01:28:59.290 --> 01:29:00.290
+so viel,
+
+01:29:00.290 --> 01:29:01.290
+so viel,
+
+01:29:01.290 --> 01:29:02.290
+extravagante Sachen,
+
+01:29:02.290 --> 01:29:03.290
+habe ich da wahrscheinlich gar nicht.
+
+01:29:03.290 --> 01:29:07.520
+Ja,
+
+01:29:07.520 --> 01:29:10.520
+Temux habe ich lokal gar nicht mehr installiert,
+
+01:29:10.520 --> 01:29:11.520
+anscheinend doch,
+
+01:29:11.520 --> 01:29:14.980
+warum auch immer.
+
+01:29:14.980 --> 01:29:18.700
+Brauche ich nicht.
+
+01:29:18.700 --> 01:29:21.700
+Temux habe ich lokal gar nicht mehr installiert,
+
+01:29:21.700 --> 01:29:22.700
+weil,
+
+01:29:22.700 --> 01:29:23.700
+ich es nicht brauche,
+
+01:29:23.700 --> 01:29:24.700
+weil mein Termin,
+
+01:29:24.700 --> 01:29:25.700
+Terminal zeigen,
+
+01:29:25.700 --> 01:29:26.700
+vielleicht.
+
+01:29:26.700 --> 01:29:27.700
+Weil mein,
+
+01:29:27.700 --> 01:29:28.700
+mein Terminal-Programm,
+
+01:29:28.700 --> 01:29:29.700
+standardmäßig,
+
+01:29:29.700 --> 01:29:30.700
+quasi,
+
+01:29:30.700 --> 01:29:31.700
+so,
+
+01:29:31.700 --> 01:29:32.700
+Art,
+
+01:29:32.700 --> 01:29:33.700
+TMAX-Funktionalitäten hat.
+
+01:29:33.700 --> 01:29:34.700
+Da brauche ich das nicht,
+
+01:29:34.700 --> 01:29:35.700
+da benutze ich das nur auf dem Server.
+
+01:29:35.700 --> 01:29:36.700
+Was sehr praktisch ist,
+
+01:29:36.700 --> 01:29:37.700
+weil nested TMAX,
+
+01:29:37.700 --> 01:29:38.700
+was man sonst hatte,
+
+01:29:38.700 --> 01:29:39.700
+quasi,
+
+01:29:39.700 --> 01:29:40.700
+einmal lokal,
+
+01:29:40.700 --> 01:29:41.700
+und dann einmal SSH auf dem Server,
+
+01:29:41.700 --> 01:29:42.700
+TMAX war immer ein bisschen ab,
+
+01:29:42.700 --> 01:29:43.700
+artig.
+
+01:29:43.700 --> 01:29:44.700
+Da muss man,
+
+01:29:44.700 --> 01:29:45.700
+dreimal den Escape-Knopf drücken,
+
+01:29:45.700 --> 01:29:48.530
+und sowas.
+
+01:29:48.530 --> 01:29:49.530
+Ich glaube,
+
+01:29:49.530 --> 01:29:50.530
+so super ausgefallen ist das gar nicht.
+
+01:29:50.530 --> 01:29:55.980
+Cloudflare-Übersicht,
+
+01:29:55.980 --> 01:29:57.980
+kenne ich mich nicht großartig mit aus,
+
+01:29:57.980 --> 01:29:58.980
+ich benutze Cloudflare nicht.
+
+01:29:58.980 --> 01:29:59.980
+Also,
+
+01:29:59.980 --> 01:30:00.980
+auch,
+
+01:30:00.980 --> 01:30:01.980
+auch,
+
+01:30:01.980 --> 01:30:03.980
+auf der Arbeit benutze ich keinen Cloudflare.
+
+01:30:03.980 --> 01:30:07.980
+Ich benutze Cloudflare tatsächlich nur für DNS,
+
+01:30:07.980 --> 01:30:09.980
+oder zum Mail-Register,
+
+01:30:09.980 --> 01:30:10.980
+den ganzen anderen Krempel,
+
+01:30:10.980 --> 01:30:11.980
+den es hier so gibt,
+
+01:30:11.980 --> 01:30:26.870
+den benutze ich nicht.
+
+01:30:26.870 --> 01:30:27.870
+Screen,
+
+01:30:27.870 --> 01:30:28.870
+Quatsch,
+
+01:30:28.870 --> 01:30:29.870
+Screen ist outdated,
+
+01:30:29.870 --> 01:30:32.820
+einfach Tmux verwenden.
+
+01:30:32.820 --> 01:30:33.820
+Ja,
+
+01:30:33.820 --> 01:30:34.820
+das Alias ist auch nicht mein Fall.
+
+01:30:34.820 --> 01:30:35.820
+Ich weiß,
+
+01:30:35.820 --> 01:30:36.820
+es gibt Leute,
+
+01:30:36.820 --> 01:30:37.820
+die machen LL,
+
+01:30:37.820 --> 01:30:38.820
+und sowas.
+
+01:30:38.820 --> 01:30:39.820
+Also,
+
+01:30:39.820 --> 01:30:40.820
+zum Beispiel bei LS,
+
+01:30:40.820 --> 01:30:41.820
+ja,
+
+01:30:41.820 --> 01:30:42.820
+LS mache ich ganz gern den hier.
+
+01:30:42.820 --> 01:30:44.820
+Das habe ich mir schon so angewöhnt,
+
+01:30:44.820 --> 01:30:46.820
+dass ich das quasi fast schon blind tippen kann hier.
+
+01:30:46.820 --> 01:30:48.820
+LS-Lacht,
+
+01:30:48.820 --> 01:30:49.820
+also quasi List,
+
+01:30:49.820 --> 01:30:50.820
+All,
+
+01:30:50.820 --> 01:30:51.820
+Reverse,
+
+01:30:51.820 --> 01:30:52.820
+Time,
+
+01:30:52.820 --> 01:30:53.820
+Human,
+
+01:30:53.820 --> 01:30:54.820
+Readable.
+
+01:30:54.820 --> 01:30:55.820
+Also,
+
+01:30:55.820 --> 01:30:56.820
+wer sich jetzt mal die Ausgabe hier anguckt,
+
+01:30:56.820 --> 01:30:57.820
+mit H zu nicht H,
+
+01:30:57.820 --> 01:30:58.820
+sieht man,
+
+01:30:58.820 --> 01:30:59.820
+hier hast du das in Bytes,
+
+01:30:59.820 --> 01:31:00.820
+in Kilobytes,
+
+01:31:00.820 --> 01:31:01.820
+Kilobytes,
+
+01:31:01.820 --> 01:31:02.820
+in Kilobytes,
+
+01:31:02.820 --> 01:31:03.820
+und,
+
+01:31:03.820 --> 01:31:04.820
+oder,
+
+01:31:04.820 --> 01:31:05.820
+oder,
+
+01:31:05.820 --> 01:31:06.820
+Chatgear,
+
+01:31:06.820 --> 01:31:07.820
+ist es in Bytes,
+
+01:31:07.820 --> 01:31:08.820
+oder in Kilobytes?
+
+01:31:08.820 --> 01:31:09.820
+Es ist in,
+
+01:31:09.820 --> 01:31:10.820
+es ist in Bytes,
+
+01:31:10.820 --> 01:31:11.820
+direkt,
+
+01:31:11.820 --> 01:31:12.820
+oder?
+
+01:31:12.820 --> 01:31:15.200
+Ja,
+
+01:31:15.200 --> 01:31:17.200
+und H zeigt halt 4 Kilobyte an,
+
+01:31:17.200 --> 01:31:19.200
+anstatt 4096 Bytes,
+
+01:31:19.200 --> 01:31:20.200
+und sowas.
+
+01:31:20.200 --> 01:31:21.200
+T ist Time,
+
+01:31:21.200 --> 01:31:23.200
+und Reverse ist,
+
+01:31:23.200 --> 01:31:25.200
+dass das Neueste unten steht.
+
+01:31:25.200 --> 01:31:26.200
+Also,
+
+01:31:26.200 --> 01:31:27.200
+es sortiert nach Time,
+
+01:31:27.200 --> 01:31:28.200
+und dann Reverse.
+
+01:31:28.200 --> 01:31:29.200
+Also,
+
+01:31:29.200 --> 01:31:30.200
+sprich,
+
+01:31:30.200 --> 01:31:31.200
+unten stehen bei mir die neuesten Dateien,
+
+01:31:31.200 --> 01:31:32.200
+wenn ich es so mache.
+
+01:31:32.200 --> 01:31:33.200
+Das ist so,
+
+01:31:33.200 --> 01:31:34.200
+eigentlich,
+
+01:31:34.200 --> 01:31:35.200
+ansonsten,
+
+01:31:35.200 --> 01:31:36.200
+ich weiß nicht,
+
+01:31:36.200 --> 01:31:40.690
+also,
+
+01:31:40.690 --> 01:31:41.690
+wir,
+
+01:31:41.690 --> 01:31:42.690
+wir können,
+
+01:31:42.690 --> 01:31:43.690
+wir können ruhig mal gucken.
+
+01:31:43.690 --> 01:31:44.690
+Von den Tools,
+
+01:31:44.690 --> 01:31:45.690
+die über Nicht-Standard-Sachen rausgehen,
+
+01:31:45.690 --> 01:31:46.690
+eigentlich nur HTOP,
+
+01:31:46.690 --> 01:31:47.690
+wobei HTOP eigentlich mittlerweile so gut,
+
+01:31:47.690 --> 01:31:50.060
+wie Standard ist.
+
+01:31:50.060 --> 01:31:51.060
+Ich glaube,
+
+01:31:51.060 --> 01:31:52.060
+es kommt sogar auf den meisten Kisten,
+
+01:31:52.060 --> 01:31:53.060
+mittlerweile,
+
+01:31:53.060 --> 01:31:56.980
+vorinstalliert mit.
+
+01:31:56.980 --> 01:31:57.980
+Wenn du dir bei irgendwelchen,
+
+01:31:57.980 --> 01:31:58.980
+Cloud-Anbietern,
+
+01:31:58.980 --> 01:31:59.980
+in Ubuntu zusammen klickst,
+
+01:31:59.980 --> 01:32:00.980
+oder so,
+
+01:32:00.980 --> 01:32:01.980
+hast du gleich HTOP dabei.
+
+01:32:01.980 --> 01:32:20.220
+Ja,
+
+01:32:20.220 --> 01:32:21.220
+auch nicht.
+
+01:32:21.220 --> 01:32:22.220
+Aber das ist eine gute Idee,
+
+01:32:22.220 --> 01:32:23.220
+da können wir uns was überlegen.
+
+01:32:23.220 --> 01:32:24.220
+Deswegen verwende ich auch keine,
+
+01:32:24.220 --> 01:32:28.520
+oder nicht mehr,
+
+01:32:28.520 --> 01:32:29.520
+muss man ja sagen,
+
+01:32:29.520 --> 01:32:30.520
+früher hatte ich ja da,
+
+01:32:30.520 --> 01:32:31.520
+hatte ich ja da richtig viel,
+
+01:32:31.520 --> 01:32:32.520
+keine großartigen WIM-Plugins,
+
+01:32:32.520 --> 01:32:33.520
+oder sowas mehr.
+
+01:32:33.520 --> 01:32:34.520
+Weil,
+
+01:32:34.520 --> 01:32:35.520
+auf dem Server,
+
+01:32:35.520 --> 01:32:36.520
+wo ich PSSH drauf bin,
+
+01:32:36.520 --> 01:32:37.520
+ist da ganze Kram nicht drauf.
+
+01:32:37.520 --> 01:32:38.520
+Ich habe mal eine Zeit lang versucht,
+
+01:32:38.520 --> 01:32:39.520
+mir nach Logins,
+
+01:32:39.520 --> 01:32:40.520
+oder so,
+
+01:32:40.520 --> 01:32:41.520
+zu finden,
+
+01:32:41.520 --> 01:32:42.520
+weil,
+
+01:32:42.520 --> 01:32:43.520
+ich habe versucht,
+
+01:32:43.520 --> 01:32:44.520
+mir nach Login,
+
+01:32:44.520 --> 01:32:45.520
+meine WIM-Config,
+
+01:32:45.520 --> 01:32:46.520
+rüber zu kopieren,
+
+01:32:46.520 --> 01:32:47.520
+auf Servern,
+
+01:32:47.520 --> 01:32:48.520
+und sowas.
+
+01:32:48.520 --> 01:32:49.520
+Das ist übelst ätzend,
+
+01:32:49.520 --> 01:32:50.520
+und kacke.
+
+01:32:50.520 --> 01:32:51.520
+Dann lässt du überall,
+
+01:32:51.520 --> 01:32:52.520
+auf irgendwelchen Servern hin,
+
+01:32:52.520 --> 01:32:53.520
+lässt du irgendwas,
+
+01:32:53.520 --> 01:32:54.520
+WIM-Default,
+
+01:32:54.520 --> 01:32:59.010
+und gut ist.
+
+01:32:59.010 --> 01:33:00.010
+Und wenn ich wirklich,
+
+01:33:00.010 --> 01:33:01.010
+ein bisschen was,
+
+01:33:01.010 --> 01:33:02.010
+ausführlicheres mache,
+
+01:33:02.010 --> 01:33:03.010
+ja,
+
+01:33:03.010 --> 01:33:04.010
+dann verwende ich,
+
+01:33:04.010 --> 01:33:05.010
+eh,
+
+01:33:05.010 --> 01:33:06.010
+dafür,
+
+01:33:06.010 --> 01:33:07.010
+mittlerweile,
+
+01:33:07.010 --> 01:33:08.010
+eher,
+
+01:33:08.010 --> 01:33:09.010
+irgendwas von den JetBrains-Dingern.
+
+01:33:09.010 --> 01:33:10.010
+Sei es jetzt,
+
+01:33:10.010 --> 01:33:11.010
+wenn man,
+
+01:33:11.010 --> 01:33:12.010
+.NET machen wir ja im Stream,
+
+01:33:12.010 --> 01:33:13.010
+relativ viel,
+
+01:33:13.010 --> 01:33:14.010
+wenn wir,
+
+01:33:14.010 --> 01:33:15.010
+wenn wir was programmieren.
+
+01:33:15.010 --> 01:33:16.010
+Also .NET,
+
+01:33:16.010 --> 01:33:17.010
+für Go!
+
+01:33:17.010 --> 01:33:18.010
+Go!
+
+01:33:18.010 --> 01:33:19.010
+Land,
+
+01:33:19.010 --> 01:33:20.010
+und für Frontend-Zeug,
+
+01:33:20.010 --> 01:33:25.520
+verwende ich Visual Studio Code.
+
+01:33:25.520 --> 01:33:26.520
+Und WIM,
+
+01:33:26.520 --> 01:33:27.520
+verwende ich zwar auch,
+
+01:33:27.520 --> 01:33:28.520
+die ganze Zeit,
+
+01:33:28.520 --> 01:33:29.520
+aber halt nur für kleine Edit-Sachen,
+
+01:33:29.520 --> 01:33:30.520
+habt ihr heute im Stream gesehen,
+
+01:33:30.520 --> 01:33:31.520
+für Command Line.
+
+01:33:31.520 --> 01:33:32.520
+Ja,
+
+01:33:32.520 --> 01:33:33.520
+da,
+
+01:33:33.520 --> 01:33:34.520
+da können wir aber mal gucken,
+
+01:33:34.520 --> 01:33:35.520
+ist nicht verkehrt.
+
+01:33:35.520 --> 01:33:36.520
+Was machst du mit Go?
+
+01:33:36.520 --> 01:33:37.520
+Eh,
+
+01:33:37.520 --> 01:33:38.520
+meistens irgendwelche,
+
+01:33:38.520 --> 01:33:39.520
+Command Line-Tools,
+
+01:33:39.520 --> 01:33:40.520
+die Standalone sein müssen.
+
+01:33:40.520 --> 01:33:41.520
+Was sagt man?
+
+01:33:41.520 --> 01:33:42.520
+Im Stream,
+
+01:33:42.520 --> 01:33:43.520
+haben wir letztes Mal,
+
+01:33:43.520 --> 01:33:44.520
+Go!
+
+01:33:44.520 --> 01:33:45.520
+haben wir WebRTC-Sachen,
+
+01:33:45.520 --> 01:33:46.520
+gebastelt.
+
+01:33:46.520 --> 01:33:47.520
+Und in Rust,
+
+01:33:47.520 --> 01:33:48.520
+in Rust auch.
+
+01:33:48.520 --> 01:33:49.520
+Wobei,
+
+01:33:49.520 --> 01:33:50.520
+ich glaube,
+
+01:33:50.520 --> 01:33:51.520
+bei Rust,
+
+01:33:51.520 --> 01:33:52.520
+wow,
+
+01:33:52.520 --> 01:33:53.520
+Moment,
+
+01:33:53.520 --> 01:33:54.520
+Moment,
+
+01:33:54.520 --> 01:34:02.340
+Chat,
+
+01:34:02.340 --> 01:34:03.340
+habe ich das,
+
+01:34:03.340 --> 01:34:04.340
+habe ich das,
+
+01:34:04.340 --> 01:34:05.340
+warum ist denn die Rust IDE,
+
+01:34:05.340 --> 01:34:06.340
+nicht mehr deinstalliert?
+
+01:34:06.340 --> 01:34:07.340
+Habe ich die,
+
+01:34:07.340 --> 01:34:08.340
+ah,
+
+01:34:08.340 --> 01:34:09.340
+ich glaube,
+
+01:34:09.340 --> 01:34:12.350
+ich habe die wieder aninstallt.
+
+01:34:12.350 --> 01:34:13.350
+Rust Rover,
+
+01:34:13.350 --> 01:34:16.350
+habe ich wieder aninstallt.
+
+01:34:16.350 --> 01:34:22.030
+Aber da haben wir auch was gebaut mit.
+
+01:34:22.030 --> 01:34:23.030
+So sieht es aus.
+
+01:34:23.030 --> 01:34:28.240
+HATOP ist bei dem ja nicht dabei,
+
+01:34:28.240 --> 01:34:29.240
+aber,
+
+01:34:29.240 --> 01:34:30.240
+du kannst nachinstallieren,
+
+01:34:30.240 --> 01:34:31.240
+ne?
+
+01:34:31.240 --> 01:34:32.240
+Also meinst du,
+
+01:34:32.240 --> 01:34:33.240
+standardmäßig?
+
+01:34:33.240 --> 01:34:34.240
+Gut,
+
+01:34:34.240 --> 01:34:35.240
+standardmäßig,
+
+01:34:35.240 --> 01:34:36.240
+ich habe wirklich nichts bei Debian,
+
+01:34:36.240 --> 01:34:37.240
+gefühlt,
+
+01:34:37.240 --> 01:34:48.380
+dabei.
+
+01:34:48.380 --> 01:34:49.380
+Okay,
+
+01:34:49.380 --> 01:34:50.380
+Leute.
+
+01:34:50.380 --> 01:34:51.380
+Ja,
+
+01:34:51.380 --> 01:34:52.380
+net,
+
+01:34:52.380 --> 01:34:53.380
+net install ISO.
+
+01:34:53.380 --> 01:34:54.380
+Das ist auch super,
+
+01:34:54.380 --> 01:34:59.380
+super minimalistisch.
+
+01:34:59.380 --> 01:35:00.380
+Und das ist eines der Gründe,
+
+01:35:00.380 --> 01:35:03.380
+warum ich mir damals den VM-Champ zusammengewurschtelt habe.
+
+01:35:03.380 --> 01:35:05.380
+Der verwendet die Debian Cloud Images.
+
+01:35:05.380 --> 01:35:12.370
+Beats.
+
+01:35:12.370 --> 01:35:13.370
+Ja,
+
+01:35:13.370 --> 01:35:14.370
+Leute,
+
+01:35:14.370 --> 01:35:15.370
+kurzer Stream heute,
+
+01:35:15.370 --> 01:35:16.370
+eineinhalb Stunden,
+
+01:35:16.370 --> 01:35:17.370
+aber mehr gibt es zu dem Thema nicht.
+
+01:35:17.370 --> 01:35:18.370
+Das ist wirklich simpel.
+
+01:35:18.370 --> 01:35:21.370
+Jetzt können wir immer auf den Stream verweisen,
+
+01:35:21.370 --> 01:35:27.500
+wenn irgendjemand was von Let's Encrypt will.
+
+01:35:27.500 --> 01:35:28.500
+Mal gucken,
+
+01:35:28.500 --> 01:35:31.500
+ob das PvP-technisch heute läuft.
+
+01:35:31.500 --> 01:35:33.500
+Vielleicht streame ich heute Abend noch eine Runde.
+
+01:35:33.500 --> 01:35:34.500
+Daok,
+
+01:35:34.500 --> 01:35:35.500
+mal gucken.
+
+01:35:35.500 --> 01:35:37.500
+Konkurrenz zum VM-Champ?
+
+01:35:37.500 --> 01:35:38.500
+Ey,
+
+01:35:38.500 --> 01:35:39.500
+ich hoffe doch,
+
+01:35:39.500 --> 01:35:40.500
+ich hoffe doch.
+
+01:35:40.500 --> 01:35:44.190
+Da muss ich den Kram nicht weiterprogrammieren.
+
+01:35:44.190 --> 01:35:45.190
+Was?
+
+01:35:45.190 --> 01:35:48.190
+Linux Virtual Machines with a Focus on Running Containers?
+
+01:35:48.190 --> 01:35:49.190
+Ne.
+
+01:35:49.190 --> 01:35:50.190
+Ich glaube,
+
+01:35:50.190 --> 01:36:06.370
+das ist irgendwas ganz anderes.
+
+01:36:06.370 --> 01:36:10.730
+Hä?
+
+01:36:10.730 --> 01:36:24.700
+Außerdem ist das eine macOS-Geschichte.
+
+01:36:24.700 --> 01:36:25.700
+Das check ich schnell,
+
+01:36:25.700 --> 01:36:26.700
+was macht das?
+
+01:36:26.700 --> 01:36:27.700
+Wie funktioniert das?
+
+01:36:27.700 --> 01:36:29.700
+Ich glaube,
+
+01:36:29.700 --> 01:36:30.700
+Linux,
+
+01:36:30.700 --> 01:36:31.700
+aber das ist,
+
+01:36:31.700 --> 01:36:32.700
+das ist eine reine Mac-Geschichte,
+
+01:36:32.700 --> 01:36:57.030
+oder?
+
+01:36:57.030 --> 01:36:58.030
+Das,
+
+01:36:58.030 --> 01:36:59.030
+ich weiß nicht,
+
+01:36:59.030 --> 01:37:00.030
+was es ist,
+
+01:37:00.030 --> 01:37:01.030
+aber das sieht nicht nach VM-Champ-Konkurrenz aus.
+
+01:37:01.030 --> 01:37:04.030
+Auch wenn ich sie nice finden würde.
+
+01:37:04.030 --> 01:37:07.940
+Ach doch,
+
+01:37:07.940 --> 01:37:08.940
+gibt es doch für Linux.
+
+01:37:08.940 --> 01:37:09.940
+Ja,
+
+01:37:09.940 --> 01:37:10.940
+und was,
+
+01:37:10.940 --> 01:37:11.940
+was,
+
+01:37:11.940 --> 01:37:12.940
+was genau macht das jetzt?
+
+01:37:12.940 --> 01:37:13.940
+Ich habe es immer noch nicht so genau gecheckt,
+
+01:37:13.940 --> 01:37:24.450
+ehrlich gesagt.
+
+01:37:24.450 --> 01:37:25.450
+Will damit keine Container laufen?
+
+01:37:25.450 --> 01:37:35.380
+Doch,
+
+01:37:35.380 --> 01:37:36.380
+jetzt ausprobieren,
+
+01:37:36.380 --> 01:37:37.380
+weiß nicht.
+
+01:37:37.380 --> 01:37:38.380
+Das können wir mal schnell testen.
+
+01:37:38.380 --> 01:37:42.860
+Oh,
+
+01:37:42.860 --> 01:37:43.860
+mal gucken,
+
+01:37:43.860 --> 01:37:46.750
+mal gucken.
+
+01:37:46.750 --> 01:37:49.130
+Ah,
+
+01:37:49.130 --> 01:37:50.130
+Linux Typical.
+
+01:37:50.130 --> 01:37:59.260
+Ich mache mal kurz einen Snapshot davor.
+
+01:37:59.260 --> 01:38:00.260
+Man weiß ja nie,
+
+01:38:00.260 --> 01:38:01.260
+was das,
+
+01:38:01.260 --> 01:38:03.260
+was irgendwas kaputt macht.
+
+01:38:03.260 --> 01:38:04.260
+Ach hier,
+
+01:38:04.260 --> 01:38:07.090
+GitHub.
+
+01:38:07.090 --> 01:38:08.090
+Mal kurz ausprobieren.
+
+01:38:08.090 --> 01:38:11.460
+Releases Version 20.
+
+01:38:11.460 --> 01:38:12.460
+So,
+
+01:38:12.460 --> 01:38:15.460
+und dann gibt es jetzt ja auch irgendwas für Linux.
+
+01:38:15.460 --> 01:38:16.460
+Das da.
+
+01:38:16.460 --> 01:38:18.460
+Copy Link.
+
+01:38:18.460 --> 01:38:28.390
+Okay.
+
+01:38:28.390 --> 01:38:32.390
+Zahl XFZV.
+
+01:38:32.390 --> 01:38:34.390
+Okay.
+
+01:38:34.390 --> 01:38:36.390
+Und jetzt bin,
+
+01:38:36.390 --> 01:38:46.700
+ich check nicht,
+
+01:38:46.700 --> 01:38:47.700
+was will das von mir?
+
+01:38:47.700 --> 01:38:57.290
+Jubantu wird runtergeladen.
+
+01:38:57.290 --> 01:38:58.290
+Jubantu.
+
+01:38:58.290 --> 01:39:04.060
+Ähm,
+
+01:39:04.060 --> 01:39:11.870
+was,
+
+01:39:11.870 --> 01:39:12.870
+was tut es gerade?
+
+01:39:12.870 --> 01:39:13.870
+Okay,
+
+01:39:13.870 --> 01:39:14.870
+habe ich das,
+
+01:39:14.870 --> 01:39:20.130
+äh,
+
+01:39:20.130 --> 01:39:21.130
+to run Linux Commands.
+
+01:39:21.130 --> 01:39:25.550
+Lima,
+
+01:39:25.550 --> 01:39:26.550
+Neo Fetch.
+
+01:39:26.550 --> 01:39:27.550
+Okay.
+
+01:39:27.550 --> 01:39:28.550
+Okay,
+
+01:39:28.550 --> 01:39:38.990
+das muss in Path,
+
+01:39:38.990 --> 01:39:39.990
+sonst wird das wahrscheinlich nicht funktionieren.
+
+01:39:39.990 --> 01:39:40.990
+Vermutlich.
+
+01:39:40.990 --> 01:39:41.990
+Denke ich mal.
+
+01:39:41.990 --> 01:39:48.340
+Machen wir mal.
+
+01:39:48.340 --> 01:39:51.740
+Ähm,
+
+01:39:51.740 --> 01:39:52.740
+oh,
+
+01:39:52.740 --> 01:39:56.780
+wie,
+
+01:39:56.780 --> 01:39:57.780
+wie gehen wir das jetzt nochmal am besten?
+
+01:39:57.780 --> 01:39:58.780
+Export.
+
+01:39:58.780 --> 01:39:59.780
+Ah,
+
+01:39:59.780 --> 01:40:00.780
+nee,
+
+01:40:00.780 --> 01:40:01.780
+Path.
+
+01:40:01.780 --> 01:40:02.780
+Hier,
+
+01:40:02.780 --> 01:40:03.780
+wir haben das ja noch.
+
+01:40:03.780 --> 01:40:04.780
+High,
+
+01:40:04.780 --> 01:40:05.780
+High IQ ist doch schon.
+
+01:40:05.780 --> 01:40:06.780
+Home,
+
+01:40:06.780 --> 01:40:07.780
+Max,
+
+01:40:07.780 --> 01:40:12.520
+Temp,
+
+01:40:12.520 --> 01:40:13.520
+Lima,
+
+01:40:13.520 --> 01:40:16.860
+Bin.
+
+01:40:16.860 --> 01:40:19.300
+Nice.
+
+01:40:19.300 --> 01:40:20.300
+Aha.
+
+01:40:20.300 --> 01:40:21.300
+Okay.
+
+01:40:21.300 --> 01:40:22.300
+Und das ist jetzt ein was?
+
+01:40:22.300 --> 01:40:25.760
+Ein,
+
+01:40:25.760 --> 01:40:26.760
+Ubuntu.
+
+01:40:26.760 --> 01:40:27.760
+Hat das eine,
+
+01:40:27.760 --> 01:40:28.760
+hat das jetzt eine IP,
+
+01:40:28.760 --> 01:40:31.330
+wo ich drauf komme?
+
+01:40:31.330 --> 01:40:32.330
+Okay.
+
+01:40:32.330 --> 01:40:33.330
+Macht gar keinen so üblen Eindruck.
+
+01:40:33.330 --> 01:40:36.540
+Und wie kann ich jetzt auswählen,
+
+01:40:36.540 --> 01:40:37.540
+was das,
+
+01:40:37.540 --> 01:40:38.540
+was ich für ein OS und so haben will?
+
+01:40:38.540 --> 01:40:39.540
+Ach,
+
+01:40:39.540 --> 01:40:40.540
+hier,
+
+01:40:40.540 --> 01:40:41.540
+Bala,
+
+01:40:41.540 --> 01:40:47.050
+Shell.
+
+01:40:47.050 --> 01:40:48.050
+Okay,
+
+01:40:48.050 --> 01:40:59.770
+das ist gar nicht so blöd.
+
+01:40:59.770 --> 01:41:00.770
+Das muss ich mir mal merken,
+
+01:41:00.770 --> 01:41:18.180
+weil ich dann den vm-Champ immer noch etwas praktischer finde für mehr Sachen.
+
+01:41:18.180 --> 01:41:19.180
+Ja,
+
+01:41:19.180 --> 01:41:20.180
+ähm,
+
+01:41:20.180 --> 01:41:21.180
+gar nicht verkehrt.
+
+01:41:21.180 --> 01:41:23.180
+Muss ich mir mal angucken.
+
+01:41:23.180 --> 01:41:24.180
+Snapshot.
+
+01:41:24.180 --> 01:41:27.180
+Deswegen vm-Beste.
+
+01:41:27.180 --> 01:41:35.610
+Excellent.
+
+01:41:35.610 --> 01:41:36.610
+Alles klar.
+
+01:41:36.610 --> 01:41:39.750
+So,
+
+01:41:39.750 --> 01:41:40.750
+Chatge,
+
+01:41:40.750 --> 01:41:42.750
+ich gehe jetzt noch eine Kreisel-Crime machen.
+
+01:41:42.750 --> 01:41:43.750
+Wir sehen uns bis später.
+
+01:41:43.750 --> 01:41:44.750
+Macht's gut.
+
+01:41:44.750 --> 01:41:45.750
+See you.
