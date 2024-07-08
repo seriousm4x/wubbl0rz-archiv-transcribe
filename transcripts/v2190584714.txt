@@ -1,0 +1,3251 @@
+So, ja dafür muss ich den, dafür brauche ich das, was ich heute im Stream mache, nämlich dass wir Remote Unlocken können.
+Was mit dem Stream passiert ist, ich habe irgendwelche Sachen geleakt, die ich nicht sehen wollte im Stream und deswegen habe ich den Stream gelöscht.
+Ich weiß schon gar nicht mehr, was gewesen ist. Keine Ahnung.
+Aber da gab es eh nichts Großartiges zu sehen, außer dass es tatsächlich ganz gut funktioniert auf der Kiste.
+Ich bin mir aber trotzdem nicht sicher, was das Setup angeht. Ich habe jetzt Offstream schon ein bisschen umgebastelt noch und ganz ehrlich, ich bin da nicht so wirklich happy mit, wie es ist.
+Also ob das mein 4M Setup ersetzen wird, ich bin da, ich bin da, ne, ne, ne, ne, gibt es nirgendwo mehr im Stream, das ist weg.
+Aber ich glaube, wir richten das eh nochmal vom Scratch neu ein, wenn ich es halbwegs schön konfiguriert habe.
+Dann kannst du dir das hier angucken und dann leake ich auch nix, hoffe ich.
+Ja, da ist wahrscheinlich eh kaum was passiert, ja.
+Alles Leute, da ist ja alles schon am Start sein. Ich muss mal kurz gucken, habe ich genug zu trinken hier?
+Ja, ich habe 700 Milliliter Wasser hier. Ich habe so eine komische Anzeige auf der Trinkflasche und die steht jetzt bei knapp unter 700, das reicht jetzt erstmal.
+Ja, wahrscheinlich. Ich habe das unter 8.
+Ich habe das unter 8 Linux noch nie gemacht, wie Essen, gegessen habe ich schon.
+Ich habe das unter 8 Linux noch nie gemacht, aber als ich mir das angeguckt habe, habe ich festgestellt, also es gibt ja natürlich Arch Linux Wiki Eintrag und sowas.
+Habe ich festgestellt, es ist anscheinend doch ein bisschen anders, als das auf Debian zu machen, weil auf Debian ist es ziemlich easy, Remote Festplatte, die verschlüsselt ist, zu unlocken.
+Nämlich, da installierst du quasi Inetrum FS Drop Peels.
+Und trägst zwei Sachen ein und es funktioniert.
+So einfach ist es unter Arch, by the way, nicht.
+Ich starte mal kurz meine VM, zeige ich euch das.
+Ja, das ist auch so unser letzter Test.
+Wir brauchen glaube ich noch, wir brauchen glaube ich noch eine neue VM.
+Ich werde das auf jeden Fall auf einer VM machen, das ist einfach, da kann ich noch Snapshots machen, falls ich das Ding irgendwie kaputt mache oder so.
+Nudeln mit Lachs gab es heute tatsächlich wieder, ja, korrekt.
+Mein Chat kennt meinen Essensplan besser als ich.
+Essensplan Hackermans.
+Keck Alu.
+Ja.
+Ja klar, du musst es ja quasi schon, bevor du so richtig gebootet hast, laufen haben, dass du über SSH deine Festplatte entsperren kannst.
+Also vielleicht soll ich das auch im Titel...
+Naja, wir lassen den Titel so wie es ist.
+Also, Sinn der Übung ist, wir haben eine vollverschlüsselte Festplatte.
+Wir haben eine vollverschlüsselte Festplatte.
+Mit Lux.
+Und da musst du ja ein Passwort beim Booten eingeben.
+Und dieses Passwort beim Booten musst du immer mit einer angeschlossenen Tastatur am jeweiligen Rechner eingeben, weil wie willst du das sonst machen?
+Es sei denn, du schaffst, man schafft es irgendwie SSH zum Laufen zu kriegen schon davor.
+Doch, doch, das geht.
+Also, dass es geht, kann ich dir sicher sagen, weil ich das schon öfters auf Debian gemacht habe.
+Und auf Ubuntu Server und bestimmt auch schon mal auf irgendeinem Red Hat System.
+Aber ich habe das noch nie auf Archillungs gemacht.
+Und ich habe, es gibt, machen wir den Kabel hier mal, gerade mal alles zu.
+Machen wir mal Updates, Package Updates.
+Ja, Arch, Linux, Unlock, SSH, Lux.
+So, das gibt natürlich, selbstverständlich, ein Arch-Wiki-Eintrag da drüber.
+Der ist aber Arch-Wiki-Eintrags-technisch vielleicht nicht unbedingt so das Zugänglichste, ja.
+Und es scheint grundsätzlich das gleiche zu sein wie unter Debian, aber doch ein bisschen anders.
+Es gibt nämlich zum Beispiel kein fertiges Paket, wo du das einfach installieren kannst und dann macht es das für dich.
+Ja, und das probieren wir heute mal aus.
+Ich habe keine Ahnung, wie das funktioniert.
+Wir probieren das übrigens nicht mit, wo stand es hier, mit Tiny-SSH, sondern wir machen das mit Drop-Beer.
+Oder Beer, Drop-Beer ist es eher.
+Nicht Bier, ist ja nicht hier, ja.
+Monka besaufen.
+Weil, den kenne ich, Tiny-SSH kenne ich nicht.
+Ist denn Tiny-SSH überhaupt?
+Gibt es das überhaupt noch in irgendeiner Art und Weise supported, gibt es das noch?
+Nee, äh, GitHub Tiny-SSH, ich habe davon noch nie was gehört.
+Äh, so semi, so semi-supported würde ich sagen.
+Easy, simple, smaller Server mit knapp unter 100.000 Line-of-Codes.
+Easy, obvious, self-documenting Software.
+So, machen wir erstmal Updates.
+Updates können nicht schaden.
+Und wir können schon mal eine neue VM anlegen.
+Die da heißen wird, Arch-Test, by the way.
+Habe ich genug Platz auf meiner Main-Disk?
+Ja, oh, da wird es langsam ein bisschen eng.
+Der Rest ist eigentlich kaum ausgelastet, okay, nice.
+Okay, next.
+Number of Processors.
+Fünf.
+Nee, Cores.
+Wir machen was ganz Scheppes.
+Fünf Cores, nee, nee, nee, nicht 56.
+Fünf Cores und 8GB, das sollte reichen zum Testen.
+Bridge-Networking auf jeden Fall, mit NAT wird es nicht ordentlich funktionieren.
+Ich glaube nicht, dass das, weder viel Speicherplatz noch viel CPU wird das SSH-Zeug brauchen.
+So, create new disk, single, ja, keine Ahnung, 50G.
+Komm, wir machen auch was Scheppes, 57G.
+Heute machen wir Scheppe-Anzahl an allem.
+Arch, by the way.
+So.
+Zack.
+Printer kommt weg, Soundkarte kommt weg.
+Ich habe übrigens letztes Mal probiert, wieder Hyperland laufen zu bekommen in der 4M.
+Es funktioniert besser als mein letzter Test, aber wenn man Firefox startet, crasht die ganze 4M.
+Nach ein paar Sekunden.
+Das ist alles nicht so wirklich für 4M-Usage ausgelegt.
+Deswegen, Accelerate 3D-Graphics können wir auch auslassen.
+Ich kann es euch zeigen, wenn ihr wollt.
+Wenn wir noch Zeit haben, installiere ich euch mal eine Runde Hyperland in der 4M.
+Machen wir Accelerate 3D-Graphics.
+Es funktioniert halt einfach gar nicht richtig.
+Broken AF.
+So, passt es so.
+Ja, close.
+Okay.
+Finish.
+Let's go.
+So.
+Äh, nein, nein, nein.
+Erstmal kurz gucken, ob meine Package-Updates ordentlich installiert wurden.
+Der Doktor wurde gespeichert.
+Ich habe Zeug geleakt aus Versehen.
+Den Stream habe ich gelöscht, aber für alle, die den Stream verpasst haben, ist nicht schlimm.
+Ich habe das jetzt auf Stream schon ein bisschen weiter eingerichtet.
+Und wenn ich das irgendwann mal in einem Zustand...
+Zustand habe, wo ich sage, ey, das ist so, dass man es theoretisch verwenden könnte,
+dann werden wir das vom Scratch nochmal neu einrichten,
+weil ich habe mir noch eine zweite M.2 SSD gekauft für die Kiste.
+Dann habe ich zwei M.2 SSD drin, von der ich quasi dual booten kann.
+Und was gibt es Besseres zum Dual-Booten als zweimal Arch?
+Oder? Was sagt ihr?
+Arch Linux Dual Boot mit Arch Linux.
+Das ist, glaube ich, das einzig Wahre, was man machen kann.
+Eventuell, eventuell könnte man Manjaro und Arch Dual booten noch.
+Aber nachdem ja die Manjaro-Hater mittlerweile sagen, Manjaro wäre kein Arch Linux,
+ist das eigentlich auch raus, ja?
+By the way, Arch geht nur mit Original-Arch.
+Nicht mit Manjaro-Fake-Arch oder so Dinger.
+Mac OS.
+Ohne Mist, Mac OS würde ich sehr gerne ausprobieren auf dieser Kiste.
+Okay.
+Ich bin mir aber nicht sicher, ob man das komplett legal machen kann
+und dementsprechend, ob man das streamen kann.
+Was ist das für ein Mini-PC?
+Ich habe eine China-Chinesen-Kiste, selbstverständlich China-Chinesen-Kiste.
+Das ist ein Beelink, sehr...
+Eine gute Frage.
+Sieben oder fünf?
+Ich muss mal kurz drauf gucken.
+Ich glaube, sieben.
+Ja.
+Aber zählt Arch mit Installer?
+Überhaupt, ja.
+Hoffe mal.
+So eine Kiste ist das hier.
+Die in echt bei weitem nicht so eklig aussieht wie auf diesem Bild.
+Eigentlich recht nice, denn man bekommt...
+Ja, also was ich richtig blöd finde, ich habe es euch ja im letzten Stream gezeigt,
+wer dabei war mit der Kamera, haben wir das Ding ja unboxed.
+Also was richtig räudig ist, ist dieser komische Power-Plug,
+den man unten mit Magnet dran macht.
+Warum hat er nicht einen ganz normalen so...
+Ja.
+Holstecker hat, wie es da normal...
+Weiß bei, keine Ahnung, das ist krank.
+Also der Power-Plug ist krank.
+Ansonsten ist das Ding eigentlich relativ gut.
+Du hast da den Display-Port.
+Vorne, zweimal hinten, USB-C.
+Vorne, hinten ist so ein Audio-Headset-Kombi-Ding.
+Normale USB, 2,5 Gigahertz-Laden.
+Und vorne noch zwei weitere USBs dran.
+Also, oder?
+Ich glaube...
+Ne, ein.
+Und nur USB-C.
+Und sogar ein BIOS-Reset.
+Also ich finde das Ding nicht schlecht.
+Muss mal gucken, dass man es halbwegs günstig kriegt.
+Das ist schon ein bisschen der teureren Variante.
+Ja.
+Also für die Kiste probieren wir das mit dem Remote-Unlocken aus.
+Weil es macht ja keinen Sinn, dass ich da eine Tastatur dran haben muss.
+Muss ich bei meiner VM ja auch nicht.
+Also es gibt eigentlich genau einen, der sich bei solchen Geräten etabliert hat.
+Ich kann dir nicht sagen, welche Größe das ist.
+2,5 Gigahertz.
+Äh.
+Gigabit.
+Gigabit.
+Das Ding hat das Ding gar nicht mehr.
+Das hat nur noch zwei Slots für M.2-SSDs.
+Ja.
+Also bei diesen Hole-Steckern, da hat sich doch eigentlich genau ein Format so für 12 Volt oder was ist denn das?
+24 Volt DC oder so etabliert.
+USB-C-Power fände ich auch vollkommen fein.
+Aber dieser proprietäre Magnetstecker, der ist echt nicht so geil.
+So, Arch-By-The-Way ist, äh, Updated, Outdated, Overhead.
+12,5 Volt haben viele.
+Ja, dann sollen sie einen 24-Volt-DC-Stecker, ah ja, excellent.
+Chat, ich glaube, genau das haben wir jetzt gebraucht.
+Das müssen wir hier hinschreiben.
+Weiß nicht, weiß nicht, warum ich da, warum, warum, Chat, warum habe ich hier Face-Rolled über die Tastatur einmal?
+Oh!
+Die Chatbrains-Toolbox sieht jetzt modern aus.
+Seit wann ist denn das so?
+Die sieht ja richtig Web 7.0 aus.
+Seit wann haben die das geupdatet?
+Seit heute? Wirklich?
+Sagst du das jetzt einfach nur so oder ist das echt so?
+Also es kann doch nicht so lang sein, weil es hat gerade geupdatet und ich hatte den, die VM, was weiß ich, drei Tage oder so nicht an.
+Also lange kann es nicht sein.
+Ah, Exposed.
+Exposed.
+Mit AI, die sagt, guck mal Leute, das ist, seht ihr das, seht ihr das?
+Fake Transparency im Hintergrund.
+Wobei, ja, das ist Fake Transparency im Hintergrund, Leute.
+Eindeutig.
+Guck mal, das ist Fake Transparency im Hintergrund.
+Da bewegt sich im Hintergrund was, aber das ist nicht das Bild, was sich da bewegt, oder?
+Das ist Fake, oder ist das?
+Weil.
+Ich kann die Bewegung nicht irgendwie mit dem Hintergrundbild in Einklang bringen.
+Es scheint mir Fake zu sein.
+Vielleicht, vielleicht Fake ist mein Hirn aber auch Fake.
+Zu wenig Fake Detector.
+So, jetzt haben wir aber Updates gemacht, alles gut.
+So, haben wir denn eigentlich ein Netboot-Image hier?
+Das ist immer mit Abstand am Angen, haben wir Netboot, da, beste.
+Okay, also Chat, der Plan ist folgendes.
+Also wofür wir es machen ist, ich habe mir so eine Mini-PC-Kiste gemacht.
+Ich habe sie gekauft, aber auf der machen wir das heute nicht.
+Ich habe da einen Arch-Linux drauf gehauen, voller encrypted Disk und will die jetzt remote entsperren.
+Nachdem ich die Kiste jetzt aber nicht kaputt machen will, mit irgendwelchen Basteleien am Bootloader und allem, installiere ich nochmal schnell, das dauert 10 Minuten oder so, Arch-Linux in der VM, mit voller encrypted Festplatte, virtueller Festplatte und dann versuchen wir mal einzurichten, dass man das übers Netzwerk entsperren kann.
+Und ihr seht dann auch, wie es aussieht.
+Das Netzwerk entsperrt wird.
+Ne, manchmal gucken wir uns mal, machen wir eine schnelle, machen wir mal, was, was so, was, IDE1, was will der Typ von mir?
+Das ist die, das ist die Disk, dann starten wir mal, die Arch-Linux-Installation.
+Äh, jetzt muss man schnell sein.
+Bam, bam, bam, nein, ich war zu langsam.
+Ich weiß, dass das anders geht, aber ich versuche das immer, das ist so wie so ein, wie so ein Minigame.
+Ah, ich bin heute zu langsam.
+Was ist denn?
+Warum bin ich denn heute so lahm?
+Normalerweise ist das überhaupt kein Problem.
+Ach so, ah, die ist, die Festplatte ist gar nicht dran.
+Keck, wait.
+Deswegen geht das nicht.
+Lull.
+Muss doch mal gesagt werden.
+Ja, aber ich habe das Minigame trotzdem gefailt.
+Normalerweise geht da ein Boot-Menü auf und man kann auswählen, möchten Sie booten von Disk, von Festplatte und so.
+Ich kann übrigens jedem nur netbootxyz empfehlen.
+Wer nicht gerade immer irgendwie einen Ventoy-Stick dabei hat mit den aktuellsten ISOs.
+Und selbst da würde ich das netbootxyz drauf machen.
+Netboot ist ein Mini-ISO, das ist nur, keine Ahnung, 15 MB oder sowas groß.
+Ja, zwei, zwei MB, zwei MB großes ISO, was so einen Einstiegs-, was im Prinzip einfach nur ein Menü bootet, wo du dann auswählen kannst, was du weiter booten willst.
+Sehr praktisch.
+Ich benutze eigentlich nichts anderes mehr zum Installieren.
+So, Linux Network Install, das wollen wir haben.
+Acht, by the way.
+Oh, natürlich dauert das jetzt beim Initialen.
+Äh, okay, das hatte ich noch nicht.
+Ist das gerade irgendwie down oder so?
+Oder ist, ist vielleicht mein ISO, oh, jetzt hängt das Ding, äh, ist vielleicht mein ISO zu alt?
+Ey, jetzt hat meine Veröffentlichung, ist mein ISO zu alt vielleicht?
+Ich glaube, ne.
+Netbootxyz, ich lade mir mal das neueste ISO runter.
+Normalerweise halten diese ISOs ewig, weil das, ne, es hat exakt, exakt die, na!
+Zwei, zwei Kilo bei dem Unterschied.
+Äh, by the way, kann meine VM mal ausgehen, so, einfach?
+Ne.
+Kann's, kann's nicht.
+VM ist auch schon ganz schön eine Ppega-Software teilweise, oder?
+Jetzt habe ich auf runterfahren geklickt und in dem Zustand schnappt die,
+da hat die VM sich noch keine, wie heißen diese Power-Button-Press-Events?
+Ah, jetzt ist es aus, okay, nice.
+Ah, wisst ihr, was auch sein kann?
+Dass ich die UEFI-Variante runtergeladen habe und nicht UEFI gebootet habe.
+Das kann natürlich auch sein, aber um das jetzt auszuschließen, booten wir, booten wir einfach vom allerneuesten ISO, gutes.
+Oder ISO, wie das manche Leute auch sagen.
+Aber ich, ich bin eher für ISO.
+Wie ist das bei euch so, Leute?
+ISO oder ISO?
+Linux Network Installed.
+Achtsch, Linux, achtsch.
+Wisst ihr, zack, funktioniert.
+Ja, der lädt jetzt auch was anderes runter, oder?
+ISO, ja, ich, ich bin auch für ISO.
+ISO, Allah.
+Ja, der, der...
+ISO war wieder ein anderer.
+Als ich noch Bock hatte, Assassin's Creed zu spielen, war das...
+Die neuesten Teile gingen so an mir vorbei.
+Den einzigen Assassin's Creed-Teil, den ich nochmal nachholen möchte...
+Also, ich hab Ezio gelesen.
+Den einzigen letzten, der letzten Jahre Assassin's Creed-Teil, den ich nachholen will, ist das in Ägypten.
+Aber ansonsten gehen die mir alle sonst wo vorbei.
+Wahrscheinlich, wahrscheinlich auch ausgelutscht.
+Ausgelutscht.
+So.
+Initiale booten dauert natürlich ein bisschen länger.
+Weil man jetzt nicht im Vorfeld den ISO runtergeladen hat.
+Sondern quasi jetzt Netboot gebootet hat.
+Und Netboot lädt jetzt das ISO runter und startet das ISO.
+Deswegen dauert das immer ein bisschen.
+Aber trotzdem ist das sehr angenehm.
+Ich starte, ich installiere quasi nur noch von Netboot.
+Und noch besser, man kann Netboot auch über PXE verteilen.
+Da muss man gar nicht von der ISO booten.
+Dafür ist es sogar ursprünglich mal gedacht gewesen.
+Und dann kann man einfach irgendeinen x-beliebigen Rechner booten im Netzwerk.
+Über PXE.
+Und hat Netboot XYZ und kann jedes x-beliebige Linux starten.
+Starte das verdammte Spiel.
+Das finde ich gar nicht mal schlecht.
+Ich muss das ehrlich sagen.
+Ich fand das Kampfsystem in den alten Assassin's Creed ehrlich gesagt nie sonderlich toll.
+Du musst es einfach nur möglichst heimengenau die Attacke drücken, dass du alles one-shottet.
+Also das war nicht so geil.
+Download von Körnel.org ist nicht so schnell.
+Michael, 50 Milliarden.
+Moin, danke schön für deinen, ich wollte gerade sagen Sub, aber du bist einfach nur so da.
+Es war auch nice, dass du da bist.
+Die Weeps sind hier.
+Moin.
+Oder um dich mal auf richtige, auf Weep-Augenhöhe zu begrüßen.
+Ohayo.
+Michael Chan.
+So, ist dein Kram jetzt runtergeladen?
+Jetzt aber.
+Ich habe übrigens gelernt, dass Hyperland ein Anime-Girl-Maskottchen hat.
+Was anscheinend die erste Linux-Desktop-Umgebung ist.
+Das haben sie schon abgeschwächt, weil sich die Leute beschwert haben,
+dass random Anime-Girls auf ihrem Desktop-Hintergrund auftauchen.
+Jetzt gibt es nur noch eine von drei Hintergründen, wo Hyper-Chan drauf ist.
+Nee.
+Nee, diesen Stream nicht mehr.
+Nächsten Stream wieder.
+So, wie war das?
+Setup Arch?
+Nee.
+Arch.
+Arch-Install war es.
+Hyper-Chan.
+Ja, hier.
+Hyper-Chan.
+Leute.
+Ja.
+Hyperland.
+Hyper-Chan.
+Oh, nein, nein.
+Nicht Hyper.
+Hyper-Chan.
+Dann guck.
+Da haben sich die Leute beschwert, dass es teilweise random Anime-Girls gibt auf dem Desktop-Hintergrund.
+Randomized.
+Und das wollten die nicht haben.
+Okay.
+Aber generell konnte der sich nicht durchsetzen gegen die geballte Weep-Power.
+Hyper-Chan darf nicht komplett disabled werden.
+Wer sich fragt, was wollen die eigentlich von mir?
+Die haben irgendwo die Wallpaper.
+Wallpapers?
+Ich finde das nicht.
+Keine Ahnung, wo die Wallpapers sind.
+Zumindest haben sie es nicht.
+Zumindest haben sie es ab, haben sie es etwas abgeschwächt.
+Es gibt jetzt nur noch, es gibt drei Hintergründe und nur eine, ein Hintergrund mit Hyper-Chan.
+So, also, dann machen wir das jetzt mal hier im Schnelldurchlauf.
+Ich mache mal für euch ein bisschen größer, dass der Chat, dass der Chat was sehen kann.
+So.
+Also, Englisch, Mirrors, Mirror Region, German.
+Hat er das jetzt gecheckt eigentlich?
+Ja, Alter.
+So.
+Ähm.
+Wait a minute.
+Wo, wo, wo?
+Ihr Lokal ist, das will ich haben.
+Ich wollte gerade sagen, wo können wir denn jetzt die Tastatur auswählen?
+Äh, Tastatur-Layout ist DE.
+Der Rest darf durchaus auf Englisch stehen bleiben.
+System Debut machen wir nicht, weil auf meiner echten Hardware-Kiste ist es auch ein Crap,
+der drauf ist.
+Disk-Configuration müssen wir machen.
+Best-Effort-Partitioning ist okay.
+Warum ist das eigentlich immer noch ein Ding?
+Dass alle Festplattengrößen in unterschiedlichen Einheiten rechnen.
+Können wir uns jetzt mal irgendwie drauf verständigen, ob wir in Gigabyte oder in Gebibyte
+oder in Hyper-Chan-Byte oder in was auch immer rechnen?
+No, wir wollen alles auf die gleiche.
+So.
+Disk-Encryption.
+Passwort super kompliziert, kommt ihr nie drauf.
+Wie?
+Fake News.
+Das Passwort ist nicht weak.
+Guck mal, das unterstützt übrigens auch direkt im Installer mittlerweile so Sachen
+wie einen Yubi-Key oder sowas.
+Eigentlich ziemlich nice.
+Ich habe keinen hier.
+Ich kann das jetzt nicht.
+Wollte ich auch mal ausprobieren.
+So.
+Back, Swap, True, Ausnahme, Arch, Tests, by the way.
+Root-Passwort brauchen wir nicht.
+User-Account, Add User, Max.
+Auch super highly komplexes Passwort.
+Er soll Sudo-Rechte haben.
+Confirm.
+Profil.
+Mir wurscht.
+Brauchen wir nicht.
+Audio.
+Audio-Unterliebungs...
+Nix.
+Additional Packages.
+Brauchen wir da irgendwas?
+Additional Packages.
+Git.
+Aber eigentlich egal.
+Äh.
+Haartop.
+Eigentlich wurscht.
+SSH.
+Open-SSH brauchen wir.
+Ja.
+Ich kann mir das immer nicht merken.
+Ist das Open-SSH?
+Ja.
+Ist das Open-SSH?
+Ist das Open-SSH?
+Ja.
+Ja.
+Ist das Open-SSH?
+Ist das Open-SSH?
+Ja.
+Ist das Open-SSH?
+Ja.
+Ja.
+OpenSSH oder ist es OpenSSH Server mit Minus dabei? Ich glaube es ist unter Arch einfach nur OpenSSH.
+Wenn man hier was eingibt, was es nicht gibt. Ah, dann sagt er, dass es das nicht gibt. Okay, OpenSSH. Also gibt es das. Nice.
+Network Configuration, Network Manager, Time Zone. Ja, Berlin, Sync, Optional Repositories, ist jetzt egal, brauchen wir nicht.
+Äh, Install. Enter. Let's go. So, und jetzt werdet ihr gleich das Problem sehen, was ich fixen will beim ersten Reboot.
+Wir können übrigens gleich noch was machen. Ich kann mal meinen, wenn wir dann am Bootmanager rumbasteln, kann ich den mal absichtlich kaputt machen.
+Und dann kann ich euch zeigen, wie man das Ganze mit einer Linux Live CD wieder fixen kann. Selbst wenn man sein System unbootable gemacht hat.
+Was?
+Hey, Linux hat ein VTuber-Grill als Kernel-Developer. Ja, sie sind überall.
+Welche Passwortmanager?
+Keepers. Seit Jahren Keepers. 1 vs. 1, lol. Oh, und irgendwelche semi-legalen Seiten, die hier empfohlen werden.
+Warum empfiehlt Windows, wenn man nach 1 sucht eigentlich? So komische Seiten.
+Und das liegt nicht irgendwie an meiner History.
+Wie gesagt, ich habe hauptsächlich Keepers. Ich habe mir in letzter Zeit schon mehr Sachen angeguckt.
+Ja, auch mal, also was ja, was ja quasi gerade bei den ganzen Reddit-Self-Hostern, das probieren wir auch damit aus.
+Ah, wer braucht Security-Patches?
+Ja, was ja gerade bei den ganzen Self-Hostern sehr beliebt ist, ist Bitwarden.
+Bitwarden. Zumindest war das die ganze Zeit. Ich weiß nicht, ob das immer noch die angesagte Sache ist.
+Das ändert sich ja öfters mal.
+Und das habe ich auch ausprobiert. Das war schon okay. Das kann man verwenden.
+Aber es hat mich jetzt nicht so überzeugt, dass ich gesagt habe, boah, da ist es ja alle so viel besser und meilenweit vorne.
+Und ja, stimmt, Bitwarden ist ja gar nicht mehr.
+Waldwarden ist es jetzt, weil die sich ja beschwert haben, dass die sich einfach gleich genannt haben.
+Und ich bleibe einfach bei Keepers.
+Ganz ehrlich, ich verstehe den großen Vorteil davon nicht, dass jetzt...
+Auszulagern. Ja, ich verstehe. Insofern, natürlich hat es einen gewissen Vorteil, wenn das Passwort-Zeug nicht...
+Der Save nicht auf dem gleichen System liegt, wie wo du dir vielleicht irgendwie Malware eingefangen haben kannst.
+Aber letztendlich musst du damit rechnen, dass irgendwie einer ein Root-Gate auf deinem Rechner und Remote-Access hat.
+Dann ist das auch egal.
+Kann man bei Keepers auch OTP machen? Ja, kannst du.
+Gibt es Plugins für? Und ich glaube sogar, ich bin mir aber nicht sicher, weil ich mache OTP nicht darüber.
+Das Keeper ist mittlerweile sogar ein OTP-Generator eingebaut.
+Aber da wäre ich vorsichtig. Da muss man jetzt mal ein Disclaimer sagen.
+Es heißt ja nicht umsonst Zwei-Faktor-Authentifizierung.
+Also wenn ich mein OTP im gleichen Passwort-Save speichere, wie mein Hauptpasswort,
+dann kann man sich darüber streiten, ob das jetzt wirklich noch ein zweiter Faktor ist.
+Also wenn ihr quasi die gleiche Software benutzt für euer Main-Passwort und dann für den zweiten Faktor,
+ist ja eigentlich der zweite Faktor weg.
+Also was ich eine ganze Weile verwendet habe auf dem Handy, aber was auf gar keinen Fall,
+nicht, dass man das jetzt irgendwie als Empfehlung versteht,
+Dr. Pronoops, danke schön für den Hypo-Sub,
+was ich auf gar keinen Fall will, dass man das hier als Empfehlung versteht,
+was ich die ganze Zeit verwendet habe, was ich aber nicht mehr verwende,
+weil die es richtig verkackt haben, war auf iOS Revio-OTP oder so hieß das.
+Ravio, Ravio-OTP.
+Ja, das war eigentlich die ganze Zeit ganz nice bis vor ein paar Wochen.
+Verwendet das auf gar keinen Fall mehr, ja.
+Ich sag's, kannst du 580 mal sagen.
+Du hast Hyper-Chan gefunden.
+Nice.
+Okay.
+Dann will ich euch die Allgemeinbildungslücke nicht vorenthalten.
+GitHub, Hyperland, Assets, Wallpaper 2.
+Das ist neues Hyper-Chan, das ist neues Hyper-Chan.
+Bitte meint nicht.
+Wo ist altes Hyper-Chan?
+Das Alte brauchen wir.
+Muss man mal hier.
+Ja.
+Nein, das ist noch das All.
+Das ist, das ist, das ist neues Hyper, ich brauch das alte Hyper-Chan.
+Da kann ich eure, eure Desktop-Dings-Maskottchen-Wissenslücke doch nicht schließen.
+Die gab's auch in der anderen Variante.
+Ohne 3D gerendert.
+Ja, also, jetzt mal diese Zwei-Faktor-Geschichte abzuhören.
+Ich hab die ganze Zeit das hier verwendet auf iOS.
+Und das hat ja auch ganz gute, ganz gute Bewertungen gekriegt.
+War eine Open-Source-App auf YouTube, äh, nicht auf YouTube, auf GitHub.
+Das Ding ist nur, die App wurde verkauft an irgendwelche, keine Ahnung, China-Chinesen oder so.
+Ich weiß es nicht.
+Und die haben's dann geschafft, das war kompletter Clusterfuck, Leute.
+Kompletter Clusterfuck.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Okay.
+Die haben ein Software-Up
+Und haben es doch tatsächlich geschafft.
+Ich weiß nicht, wie man es schaffen kann.
+Guck, und seitdem, seitdem ist übrigens Funkstille.
+Seitdem hier ist Funkstille.
+Seitdem posten die nix mehr.
+Die haben die App, die haben die App geupdatet.
+Also der ursprüngliche Entwickler hat die App verkauft.
+Und die haben die App geupdatet und haben alle Passwörter, die da drin gespeichert,
+waren und otp tokens gelöscht aus versehen oder nicht aus versehen die
+wollten die leute nehmen in irgendein abosystem zwingen dadurch und eines
+morgens mache ich meine otp app auf und soll mich neu anmelden und habe ich mir
+schon gedacht moment da stimmt irgendwas irgendwas ist das leider waren sie
+natürlich auch so schlau aus business enterprise sicht und haben die export
+funktion deaktiviert das heißt es neue war nicht mal zugreifbar und du konntest
+nicht mehr exportieren also arschkarte wenn man sich exportiert hat so und was
+habe ich gemacht ich hätte natürlich meine otp ist
+zurücksetzen können und so was deswegen ist immer wichtig dass man sich wenn man
+zwei faktor oder ohne scheiß leute wenn ihr eine sache macht beim zwei faktoren
+oder ohne scheiß leute wenn ihr eine sache macht beim zwei faktoren oder ohne scheiß leute wenn ihr eine sache macht beim zwei faktoren
+authentifizierungen aktiviert ist das speichert euch die notfall passwörter
+irgendwo zu euch zu nun auch so legt zu euch in schrank weil wenn ihr
+beispielsweise kein zugriff auf euren google-account habt und eure ganzen zwei
+faktor geräte sind weg ihr könnt euch mit diesen codes immer
+noch einloggen bis zu zehn mal gibtst bis zu zehn codes kannst du gerne heb
+dir euch auf weil man denkt sich so aber was soll dann passieren dass auf einem
+handy drauf
+Zum Beispiel, wenn der App-Hersteller seine App verkauft und das Update eure ganzen OTPs löscht und kaputt macht.
+Dann habt ihr gelesen, da könnt ihr euch nicht mehr drauf einloggen.
+Es wird oftmals unterschätzt, man denkt, das ist doch nur der zweite Faktor.
+Ne, wenn der zweite Faktor weg ist, könnt ihr euch ohne die Reserve-Codes nicht mehr einloggen.
+Und das betrifft alle Accounts.
+Manche Hersteller oder manche Anbieter wie Amazon haben beispielsweise gar keine Recovery-Codes und sowas.
+Zumindest was ich jetzt gemacht habe, ist folgendes.
+Ich habe die App zum ersten Mal geöffnet.
+An dem Tag habe ich schon gedacht, oh fuck, da ist irgendwas verkehrt.
+Genau, hier haben sie ja auch gepostet, dass sie das verkauft haben.
+Also, ich habe zwei Sachen gemacht.
+Ich habe downgradet.
+Habt ihr schon...
+Also, ich habe nichts weiter in der App gemacht.
+Ich habe die App einfach wieder geschlossen, nachdem ich das geguckt habe.
+Im Internet gesucht, festgestellt, die App wurde verkauft und es gab ein Update und es ist kaputt.
+Übrigens, der Kauf hat sich nicht gelohnt.
+Seit der letzten Newsreel.
+Post von denen, wo es sehr viel böses Blut gab und die auch die automatischen Antworten ausgeschaltet haben,
+ist Funkstille auf dem Twitter-Kanal.
+Die haben sich einfach von heute auf morgen ihre komplette Userbase vertrieben.
+Also, der Kauf hat sich nicht gelohnt für die.
+So, was ich gemacht habe, ist, ich habe die App geschlossen und dachte mir, okay, lass die App downgraden.
+Auf dem Stand, bevor das Ganze war und wo noch alles ging.
+Leute, habt ihr schon mal unter iOS eine App?
+Habt ihr schon mal jemanden gemacht von euch?
+Unter Android ist das relativ easy.
+System, CTL, Enable, SSH, D.
+Achso, ja gut, ich bin in einem...
+Also, ich kann euch sagen, App-Downgrades unter iOS ist der größte, wirklich der allergrößte Abfuck.
+Du musst...
+Ich habe das nach einer Anleitung gemacht.
+Weiß nicht, ob ich die noch finde auf die Schnelle.
+Ich reboote die.
+Ich reboote die Kiste hier mal schnell und dann gucken wir uns das an.
+Ich habe das nach einer Anleitung gemacht hier.
+Downgrade iOS-Apps.
+Das war irgendeine Anleitung als Gist auf this Guide.
+Ja, also, anhand dieses Guides habe ich das gemacht.
+Welche OTP-App ich anstattdessen jetzt benutze.
+Also, ich habe jetzt...
+Off.
+Ente-Auth.
+Die ist nämlich...
+Das ist quasi...
+Ich weiß nicht, ob es ein Fork von dem alten Ravio ist, aber die ist auch Open Source und auf GitHub.
+Und ich habe ein Backup von dem File.
+Und ich habe auch noch zusätzlich den Microsoft Authenticator am Start.
+Für ein paar Sachen.
+So.
+Zumindest, ich habe das anhand dieser Anleitung gemacht.
+Und Leute, ich scrolle jetzt nochmal kurz drüber.
+Wir gucken uns das jetzt nicht im Detail an.
+Aber, wenn ihr euch das hier schon anguckt, ja.
+Du brauchst eine Windows-Installation.
+Damit geht es los.
+Du brauchst eine Windows-Installation mit iTunes drauf.
+Also, habe ich eine VM installiert mit iTunes drauf.
+So.
+Dann habe ich diesen ganzen Shit hier durchgemacht.
+Dann musst du einen Proxy installieren.
+Mit SSL-Zertifikaten, der deine Requests zu Apple interceptet.
+Dann musst du ein paar Requests über iTunes machen.
+Musst dir die Download-URL von der alten App raussuchen.
+Und dann musst du den...
+Den Request zum Downloaden der neuen App-Version intercepten.
+Und die alte App-Version eintragen.
+Und dann hast du Glück und bekommst auf deinem iOS-Gerät die alte App-Version drauf.
+Guckt euch mal diese Anleitung an.
+Downgrade von der App?
+Ich weiß gar nicht, warum das nicht eine eingebaute Funktion ist.
+Manchmal sind neue Versionen halt karrierenverbackt.
+So.
+Und dann musst du das mit einer extra Software installieren.
+App-Manager.
+Kannst du jetzt rüberziehen.
+Das habe ich gemacht.
+Und dann hatte ich die alte App-Version bei mir drauf.
+Auf meinem iPhone.
+Konnte meine OTPs wieder öffnen.
+Habe gleich nochmal einen Export gemacht.
+Und jetzt verwende ich iOS-Ante-Auth.
+Von dem Microsoft Authenticator.
+Ante-Auth habe ich eigentlich auch nur deswegen verwendet.
+Weil die...
+Einzel-Auth-Auth.
+Einzel-Auth-Auth.
+Einzel-Auth-Auth.
+Weil die zu eins das Format von dem alten gefressen haben.
+Und importieren konnten.
+Also es ist aber echt kompletter Witz.
+Wirklich komplett lächerlich.
+Wie dumm umständlich es ist.
+Eine App zu downgraden.
+Unter iOS.
+Bei sowas hat Apple echt komplett...
+Den Arsch offen.
+So. Also.
+Kommen wir mal zurück zu Art-Schildungs-Entsperren über SSH.
+Ich habe Art-Schildungs installiert, Leute.
+Und was bekomme ich jetzt beim Reboot?
+Ich bekomme eine Meldung.
+Damit ich weiter booten kann.
+Damit ich weiter booten kann, muss ich ein Passwort eingeben.
+Ja, logisch.
+Wenn die Festplatte voll verschlüsselt ist.
+Es ist alles voll verschlüsselt, außer Slash-Boot.
+Muss ich, bevor ich richtig boot, ein Passwort eingeben.
+Und mein Ziel heute ist, dass ich das hier, was ich jetzt quasi mit angeschlossener Tastatur mache,
+über SSH erledigen kann.
+Sodass ich eben nicht an dem Rechner, wo ich das machen will, eine Tastatur brauche.
+Und eventuell sogar noch ab und zu ein Monitor, wenn ich mich mal vertippe oder so.
+Also.
+Das ist heute die Herausforderung.
+Was habe ich denn für eine IP gekriegt?
+1, 4, 5.
+Also.
+SSH max add 1, 4, 5.
+Yes.
+Excellent.
+Okay.
+Da sind wir drauf.
+Ich bin mir nicht sicher, ob ich User-Repos brauche.
+Aber wir machen das mal schnell.
+Weil das ist in einer...
+Ein Befehl erledigt.
+Go.
+Nicht Rust.
+Wie heißt das andere Ding, was jetzt angesagt ist?
+Die coolen Leute verwenden das ja gar nicht mehr.
+Die coolen Leute verwenden, glaube ich, Paru mittlerweile für User-Repos.
+Weil Paru ist...
+Ihr werdet das kaum erraten, Leute.
+Was meint ihr, was der Unterschied zwischen Paru und Yay ist?
+Als Package-Manager.
+Ich kann euch schon spoilern.
+Es ist eigentlich kein Unterschied, den ich als User interessieren sollte.
+Aber der Unterschied ist, Paru ist...
+Written in Rust.
+Und selbstverständlich verwenden die richtig coolen Leute ein Package-Manager written in Rust.
+Obviously.
+Und Yay ist nur written in Go.
+Und Go ist natürlich eindeutig viel weniger cool als Rust.
+Da sind die Krustentiere wieder am Start.
+Rust.
+Also ganz ehrlich.
+Für mich ist es...
+Wisst ihr, was der Grund ist, warum ich bisher nicht gewechselt bin?
+Weil sich Yay easy eingeht.
+Das ist im Prinzip einfach nur auf A und...
+Also natürlich könnte ich Paru einfach aliassen oder so.
+Aber habe ich nicht.
+So.
+Wie dem auch sei.
+Jetzt lasst uns doch mal gucken, wie wir das mit dem Remote-Entsperren hinkriegen.
+Also es gibt einen Eintrag im Arch-Wiki.
+Nämlich das hier.
+Das ist vielleicht ein bisschen unübersichtlich.
+Aber wir probieren das mal aus.
+Als erstes, bevor wir anfangen, mache ich mal einen Snapshot.
+Dass ich die Installation nicht nochmal neu machen muss.
+Sollte ich es irgendwie verkacken.
+Okay, also.
+Booting from a removable device.
+Bla bla bla.
+Das interessiert mich überhaupt nicht.
+Hier, das ist wurscht.
+Das braucht doch keiner.
+Soll das alles sein hier?
+Wen juckt denn das?
+Das muss uns alles nicht interessieren.
+Remote Unlocking of Root Partition.
+Das muss uns interessieren hier.
+Genau.
+Busy Box Based Init RAM FS.
+Das brauchen wir.
+Okay.
+Also.
+Wir brauchen anscheinend NetConf.
+DropBear.
+Wir benutzen DropBear, nicht TinySSH.
+Irgendjemand sagt, es wurde seit 5 Jahren nicht mehr aktualisiert.
+Ah ja.
+Fehlerfreie Software braucht keine Updates.
+Außerdem ist das ja nur das Skript.
+Es ist ja nur das Skript letztendlich.
+Und nicht DropBear selber.
+Und ich meine, wir reden hier irgendwie über 140 Zeilen Bash-Skript.
+Ich glaube, das kann ich verstehen, dass das seit 5 Jahren nicht mehr geupdatet wurde.
+Das wird wahrscheinlich echt einfach funktionieren.
+Also, dann installieren wir das Ganze doch mal.
+DropBear3.
+Das da brauchen wir.
+Massive geheimes Passwort.
+Jawohl.
+Baut auch schon neu.
+Und NetConf brauchen wir.
+Okay.
+Was?
+NFS-Utils?
+Warum NFS?
+Achso, dass ich theoretisch meine Root-Disk über Netzwerk-Laufwerk mounten könnte.
+Wollen wir aber nicht.
+Okay.
+Und ich muss installen.
+mkinit
+Kann man das vielleicht auch mal in irgendeiner Aussprechbar machen?
+mkinit cpio-utils
+Okay, let's go.
+Auch installieren.
+So, was kommt hier als nächstes?
+Instructions below can be used in any combination of the packages above when there is a document.
+If you don't have a SSH key pair yet, generate one.
+Doch, doch, ich habe genug SSH key pairs.
+Insert your SSH public key.
+Ah, okay.
+Root key.
+Insert your SSH public key.
+You usually put onto hosts that you can SSH into without password.
+Okay, also.
+Dann machen wir doch mal.
+Probieren wir das doch mal aus.
+Ähm, das heißt SSH copy ID.
+Welche, was ist denn meine Standard-ID?
+ID R S A Z G.
+Ja, ich, das, den will ich verwenden, ja.
+Der ist gut, ja.
+Bester, besser Key.
+Mal gucken, ob der jetzt so einfach funktioniert auch.
+Ne.
+Der benutzt den Key gar nicht.
+Aber wenn ich den richtigen Key auswähle, dann.
+ID R S A Z G.
+ID R S A Z G.
+ID R S A Z G.
+Okay, funktioniert. Passwortless.
+Okay, den verwenden wir jetzt.
+ID R S A Z G.
+ID R S A Z G.
+Kein ID 25519.
+Kein ID 25519.
+Hab ich auch am Start bestimmt.
+Hab ich auch am Start bestimmt.
+Wir können auch den hier benutzen.
+Wir machen einfach, wir kopieren einfach beide.
+Wir kopieren einfach beide.
+Okay.
+So, jetzt haben wir Punkt SSH
+Authorized Keys.
+Less ist nicht drauf.
+Okay, so langsam kann man es aber mit
+mit Minimalismus
+ein bisschen auch übertreiben.
+So, ein Less brauchen wir.
+Und ich würde sagen, einen WIM brauchen wir auch.
+Irgendwie, dass man mal eine gescheite
+Datei editieren kann.
+Punkt SSH Authorized Keys.
+Also, wir haben hier Max at Stream
+und Wubblors
+at gmx.de. By the way, kein
+E-Mail-Adressen-Leak. Das ist die Adresse, die wir haben.
+Die auch bei mir als Ansprechdingsbums
+für die ganzen Streaming-Sachen
+eingetragen ist.
+No leak.
+So.
+Dann nehmen wir einfach mal die zwei Keys.
+Kann ich mich jetzt da drauf verbinden auf
+die Kiste ohne Passwort?
+Ne.
+Oh, aber was?
+Ich glaube, ich habe ein bisschen zu sehr rumgewurschtelt.
+Wir bleiben mal bei dem
+ZGKey.
+Dann mache ich es nicht kaputt.
+Wisst ihr was? Wir generaten.
+Wir generaten uns dafür für diesen Test
+einfach einen neuen Key.
+Github generate
+SSH-Key.
+Ich brauche keine Github-Anleitung, um einen SSH-Key
+zu generaten. Aber
+ich weiß, dass Github
+immer ein Example hat dafür.
+So.
+Username ist omegalul.
+Generaten wir mal einen neuen Key.
+Wie nennen
+wir den?
+Ich will den eigentlich ungern überschreiben.
+Was passiert eigentlich?
+Ah, override already existent.
+No.
+Moin Patrick.
+Komm, wir bleiben.
+Leute, ist doch egal.
+Wir bleiben einfach bei dem Key hier.
+Bei dem hier oben.
+Gutes.
+So, haben wir hier drauf.
+So, wie geht es weiter?
+Also wir können uns zumindest jetzt per SSH einloggen.
+Ohne, dass
+wir einen Key brauchen. Also das funktioniert.
+Das ist nur das, was wir hier geschrieben haben.
+Und jetzt sollen wir das
+moven nach
+etc.dropbar
+rootkey.
+Ok.
+Also im Prinzip soll ich mein
+authorize-key-file moven nach
+etc.dropbar.
+Da ist nichts drin.
+Ups.
+rootkey
+permission denied. Ja,
+jetzt bin ich hier rum.
+Ist bei Linux Mint
+eigentlich soweit? Ja, Linux Mint kannst du auch auf
+der Box verwenden. Ich habe meinem Vater auch
+Linux Mint auf so einem Mini-PC
+installiert und er kommt damit anscheinend ganz gut klar.
+Also schließe ich
+einfach daraus, weil der mich
+die letzten
+drei Wochen oder so nicht mehr angerufen
+hat, dass irgendwie was mit seinem Computer ist.
+Also quasi seit er Linux
+Mint hat, braucht er kaum noch Support.
+Das, was ich sehr begrüße.
+Weil
+ihr wisst, wie gerne ich PC End-User
+Support mache. Und ganz
+ehrlich, wenn mein Vater damit klarkommt,
+der schon sehr, also
+extrem planlos ist, was Computer angeht,
+dann kommst du auf jeden
+Fall damit klar.
+Achso, aber ist der SSH mit Lux
+über Dropbar? Ne. Also was du
+bei, ne ne, mir fällt auch keine
+Distribution ein, wo das standardmäßig schon
+der Fall ist und am Installer auswählbar wäre.
+Also was du bei Mint machen kannst, ist
+du kannst im Installer
+Festplatten-Vollverschlüsselung machen.
+Aber um Remote Unlocking über
+SSH musst du dich selbst kümmern.
+Was du machen kannst ist, du kannst dein
+Home verschlüsseln lassen im Installer
+schon. Und dann bootest du
+quasi bis zum Login-Screen und
+dann gibst du dein Passwort ein und
+damit wird es verschlüsselt. Also
+das ist so ne, so
+ein Kompromiss da draus.
+Aber wie gesagt, das musst du, das musst du
+ziemlich sicher unter Mint auch selbst machen.
+Okay.
+Wie geht's jetzt weiter?
+Simply copying the content of remote
+Yeah, haben wir ja, haben wir ja.
+Und wir sollen unser Kernel-Zeug
+Bootkrempel neu generaten.
+Ne, ne, ne, ne.
+Silverlight!
+Ist aber auch schon ein bisschen her, oder?
+Das gab's mal. Ich glaube nicht, dass das
+noch irgendjemand in der Version
+hat, die aktuell unter Linux
+lauffähig ist.
+Silverlight, man. 2012.
+Silverlight, das war so richtiger Schrott.
+Eigentlich war Silverlight von der Idee her ganz okay.
+Aber...
+Und wem haben wir es zu
+verdanken? Apple.
+Dadurch, dass die
+Flash abgeschossen haben,
+wurde dann auch, und es zunehmend
+uninteressanter wurde, wurde dann auch
+Silverlight und dieser ganze andere Crap,
+den's da noch gab.
+Silverlight, wer das nicht kennt,
+Silverlight war
+quasi WPF
+für den Browser.
+Aber ohne, aber ohne
+HTML und JavaScript
+zu sein, sondern es war quasi eher
+so eine Art Flash.
+Es war quasi
+WPF,
+das Flash WPF
+von Microsoft.
+Können wir mal kurz gucken, was da...
+Ja, Silverlight ist ein eingestelltes
+Framework zur Ausführung von Rich Internet
+Applications in einem Browser Plugin
+sowie Apps in Windows Phone 7.
+Ja.
+Es war im Prinzip WPF.
+Es war WPF und aufgebaut
+als Browser Plugin so wie Flash.
+Oder JavaFX.
+Oder OpenLaslo.
+Hab ich noch nie gehört.
+Das war OpenLaslo.
+Mit John Wick.
+Ich muss mal sagen, das sieht gar nicht so kacke aus.
+Das sieht aus wie ein User Interface
+so aus den 90ern.
+Ist das sowas wie WebAssembly?
+Es ist ein zusätzliches
+Third Party Plugin.
+Ne, es ist nicht sowas wie WebAs...
+Sowas wie Flash ist es im Endeffekt.
+Sowas wie Flash.
+Also vom Ansatz her ist es sowas wie Flash.
+Nur, dass es am Endeffekt halt nicht wirklich
+Flash-kompatibel war.
+Moment, die haben das wirklich bis vor 3 Jahren
+noch supportet, ja?
+Ja gut, irgendwelche
+Business Enterprise
+Business Manager haben ja damals wahrscheinlich
+Apps da drauf
+entwickelt und die mussten sie dann noch für
+15 Jahre supporten.
+Die haben sich 2008 gedacht,
+wir machen richtig einen krassen
+Plan und setzen alles
+auf Silverlight.
+War halt ein bisschen reingeschissen, ne?
+So, also wie gehen das jetzt hier weiter?
+Soweit haben wir es gemacht. So, und jetzt
+sollen wir was?
+At all three?
+ETC?
+Okay, jetzt bin ich
+verwirrt.
+Was soll ich machen?
+Chat, ich bin zu low IQ
+dafür.
+Was wollen die von mir?
+At all three?
+Encrypt
+before
+file system within the hooks
+array. Okay.
+Hooks array?
+Piled systems.
+Okay, was soll ich da
+hinzufügen? Netconf
+und Dropbear.
+Okay.
+Und dann soll ich meinen Boot
+Krempel regeneraten.
+Einfach alles regeneraten.
+Und das soll jetzt funzen
+oder was?
+Required Crypt Device Parameter.
+Ah.
+Okay, Leute, ich mach mal einen Snapshot
+und wir rebooten mal und gucken,
+was passiert. Encrypt
+ssh muss da doch rein, oder?
+Recht. Ja.
+Du hast recht.
+Was passiert denn, wenn man nur Encrypt reinschreibt?
+Ich hab die falsche VM
+gesnapshottet. Hups.
+Nee, hab ich nicht, oder? Oh, ich hab
+die falsche VM gesnapshottet. Keck, Wade.
+Lull.
+Gut, dass wir drüber geredet haben, Chat.
+Von wann ist der Snapshot?
+Reichste
+Sechste. Muss man immer
+ab und zu mal löschen, weil die Dinger werden richtig groß
+mit der Zeit. Keck, Wade, 4MWare.
+4MWare ist halt auch ein bisschen
+pp-geil, jetzt darf man den anderen Kram nicht anklicken.
+Im Tag steht was von 3
+Einträgen. Ja, hab ich ja gemacht.
+Ich hab Netconf eingetragen, Dropbear
+und Encrypt.
+Wobei Encrypt hab ich jetzt absichtlich mal
+nicht gemacht.
+Mal gucken, was passiert. Wir haben jetzt einen Snapshot.
+Mal gucken, was passiert, wenn ich jetzt
+reboote. Bäm.
+Es wird Zeit, das komplett von neu aufzusetzen.
+Ja, mach ich auch, weil ich hab ja den Stream
+gelöscht. Der hat jetzt aber
+nix mit Netconf gemacht, oder?
+Okay, ich hab da garantiert
+irgendwas verkackt jetzt.
+Also Encrypt SSH hab ich übrigens
+schon mal falsch gemacht.
+Das habt ihr mir ja auch grad gesagt. Ich wollte nur mal gucken,
+ob es an sich noch funktioniert jetzt.
+Also, machen wir das nochmal.
+So, Encrypt soll durch Encrypt
+SSH ersetzt werden.
+Und jetzt regeneraten
+wir das nochmal.
+Und jetzt rebooten
+wir nochmal und gucken, was passiert.
+Bäm.
+Ich hätte jetzt eigentlich erwartet...
+Ach, Moment, ist da die Reihenfolge
+falsch? Kommt's da auf die Reihenfolge
+an? Da kommt's
+bestimmt auf die Reihenfolge an.
+Wie man das macht.
+Also, das wird bestimmt von links
+nach rechts ausgeführt.
+Also, sprich
+ich will zuerst
+Netconf machen
+und... na geil.
+Ich will zuerst
+Netconf machen,
+dann will ich JobBear machen
+und dann will ich Encrypt SSH machen.
+Weil
+Netconf startet meinen Netzwerkadapter,
+JobBear startet SSH
+und da drüber will ich dann
+Encrypt SSH machen, um meine Filesystems
+freizugeben. Schauen wir mal.
+Reboot.
+Ok, das sieht ganz gut aus.
+Starting JobBear.
+Passwort is required.
+Achso, ich kackt.
+Jetzt habe ich das eingegeben, aber der hat
+nicht gestartet mit...
+Ich muss nochmal rebooten.
+Ich glaube, der hat sich aber keine IP geholt, oder?
+Reboot.
+Holt er sich schon eine IP?
+Ne, ich glaube nicht.
+Oder? Ping.
+Ne.
+Ok.
+Macht er nicht.
+Ich glaube, da stand auch erst im nächsten Blog
+Eintrag.
+Ich zeige euch aber jetzt mal was.
+Ich hoffe, ich mache jetzt die Kiste nicht komplett kaputt.
+Ich zeige euch jetzt mal was.
+Gehen wir mal von aus,
+ich hätte meine Kiste irgendwie jetzt zerstört.
+Können wir mal ein bisschen hier
+Linux
+How-to
+Tutorial machen.
+Also angenommen, ich hätte jetzt hier irgendwas eingetragen,
+was es nicht gibt. Ich hoffe, dann bootet
+mein System nicht.
+Kekkewee.
+So, und jetzt
+neu generaten.
+Das soll...
+Ja, guck hier, not found.
+Ich hoffe mal, das macht mein System jetzt auch
+unbootable. Sonst kann ich euch nämlich
+nicht zeigen, wie man das fixen kann.
+Rrrrriiiiit.
+Also ich hoffe,
+mein System bootet jetzt nicht, Leute.
+Fuck, das bootet einfach.
+Easy as fuck.
+Ah, ich habe eine Idee.
+Ich habe eine Idee, wie ich mein System
+unbootable mache.
+Ich weiß, was wir machen.
+Pfeifet-Idee.
+Wir nehmen den Encrypt-Hook raus.
+Und ohne den Encrypt-Hook
+kann ich mein System nicht mehr starten.
+Also mein Ziel ist jetzt, mein System
+kaputt zu machen.
+Und dann zeige ich euch, wie man das fixen kann,
+wenn es nicht mehr bootbar ist.
+So, ich nehme jetzt hier einfach
+den Decrypt-Hook raus.
+Das heißt, ich habe jetzt
+ein Linux-System
+mit verschlüsselter Festplatte,
+was sich nicht mehr booten lässt,
+weil ich so dumm war
+und
+aus meinem Boot-Prozess
+die Entschlüsselung der Platte rausgenommen habe.
+Ich hoffe, es ist jetzt
+wirklich kaputt, nachdem ich rebooted habe.
+Das sieht schon besser aus.
+Es hängt.
+Hängen ist meistens ein schlechtes Zeichen.
+Oder in dem Fall ein gutes Zeichen, wenn es kaputt ist.
+Wie debuggt man
+einen Kernel-Panic? Das ist schwierig.
+Also anhand des Outputs
+als Normalsterblicher gar nicht.
+Am besten ist, du überwachst
+dein System und guckst, wann das auftritt.
+Also du überwachst
+möglichst viel von deinem System, laufende Prozesse,
+Logs,
+RAM, CPU-Auslastung
+und du machst dir dann irgendeinen Reim drauf.
+Wenn der Kernel-Panic immer
+beider gleicht, also du hast zwei Sachen.
+Erstmal musst du feststellen, wann es auftritt.
+Wenn du weißt, wie du es reproduzieren
+kannst,
+dann hast du schon mal einiges gewonnen.
+Dann weißt du zum Beispiel, okay,
+immer wenn ich diesen Service starte,
+Crashs mit dem Kernel-Panic oder so,
+oder immer wenn ich diesen Monitor anschließe,
+dann kannst du das als Normalsterblicher auch
+nicht fixen, aber du kannst mal bei Google gucken,
+ob das schon irgendjemand anderes hatte.
+Und eventuell ist es so einfach
+getan mit, du machst
+ein Upgrade von deinem Kernel.
+Was auch unter Linux Mint und sowas
+geht. Die haben ja auch verschiedene Kernel-Versionen.
+Ich hatte zum Beispiel ein Problem
+bei einem DVB-C Empfänger.
+Der hat nicht
+Kernel-Panic gecrashed,
+der hat
+aber hängende
+Prozesse verursacht, die sich
+nicht mehr beenden ließen.
+Also selbst mit Kill und allem,
+das war ein Bug, den habe ich dann auch
+gefunden und
+die einzige Variante damals
+war, für meinen
+DVB-C Empfänger, den ich damals
+benutzt habe, einen eigenen Kernel zu kompilieren
+in der neuesten Version.
+Mittlerweile ist schon so lange her,
+es ist überall drin.
+So, also, guck mal Leute,
+mein System bootet nicht mehr.
+Was würde der normale
+0815
+Linux-Noob denn jetzt machen?
+Oder was würde
+der Windows-User jetzt
+machen, wenn sein System nicht mehr startet?
+Neu installieren, oder?
+Sich über
+Microsoft aufregen oder über Linux
+aufregen und neu installieren?
+Nee, auf Bing suchen
+kriegen die nicht mehr hin. Die würden neu installieren.
+Oder
+Peter von Microsoft Support anrufen.
+Die würden neu installieren.
+Das geht, das geht,
+aber
+solche Fehler kann man
+tatsächlich anderweitig beheben und zwar
+wenn man mit einer Linux Live CD
+startet
+und sich dann quasi
+ich muss euch das zeigen,
+ich kann das nicht gescheit erklären.
+Ich zeige euch das einfach.
+Wir starten jetzt mal mit einer Live CD, ok?
+Wir starten mal mit einer Live CD und zwar
+äh CD
+Ich hoffe hier gibt es irgendwie Linux Rescue
+CD oder sowas bei Netboot.
+Also stellt, ok
+Leute, wir machen sogar, wir machen es noch anders.
+Wir machen so, wie ihr das
+auch machen würdet. Ich nehme einen USB-Stick,
+ok?
+Ich nehme einen USB-Stick, wo ich den
+Linux Rescue CD drauf habe.
+Stöpsel ich jetzt an. Ups.
+Fuck.
+Ich habe die Verlängerung von meinem Kopf heruntergeschmissen.
+Monkeys.
+Ich werde entknoten, wartet mal.
+So.
+Excellent.
+Live CDs.
+Rescue CD. Haben die sowas hier überhaupt?
+Letztendlich ist aber auch fast egal mit welchem System
+man das macht. Ne, wir machen das anders.
+Ich tue mal so,
+als müsste ich jetzt den Rechner fixen
+und hätte einen USB-Stick
+mit einer Linux
+Live CD drauf, ok?
+Also ich stöpsel meinen USB-Stick an.
+Blum, blum.
+Machine Arch Linux, by the way.
+Hatte das jetzt gecheckt. Ist das jetzt connected?
+Hoffe mal.
+Äh, USB-Device?
+Ah ja. Ok, also.
+Ich habe einen uralten USB-Stick mit ein paar
+mit ein paar Linux
+ISOs drauf.
+So, da booten wir jetzt mal, keine Ahnung,
+System Rescue.
+Booten wir jetzt mal. So. Jawoll.
+Alles in RAM kopieren.
+Das ist gut, wir haben genug RAM.
+Dann stretchen wir das mal,
+dass man was sieht. So, also.
+Ich hatte jetzt einen Live-USB, also
+Live ISO,
+Live CD, weiß ich,
+von USB. Live CD von USB hört sich ziemlich
+kacke an, oder? Ein Live-Linux
+von USB-Stick.
+Und jetzt versuchen wir unser
+lokales Linux, was wir
+gerade kaputt konfiguriert haben,
+wieder zu fixen. Und
+das ist... Mein Headset hört sich scheiße
+an, wartet mal. So, hä?
+Ja, jetzt ist es besser.
+Ja, also wir haben jetzt mehrere Probleme
+mit unserem
+Linux, unserem Live-Linux.
+Ne, nicht mit unserem, mit unserem lokal installierten
+Linux, denn
+wir haben unseren Boot-Prozess
+verkonfiguriert.
+Der bootet
+nicht mehr. Und wir haben eine
+encryptete Platte. Das heißt, damit
+ich jetzt überhaupt
+in irgendeiner Art und Weise mein System
+fixen kann, muss ich
+erst mal von der Live-CD
+die Festplatte entschlüsseln,
+mich dann rein-attached
+in das alte System,
+dort das wieder in Ordnung bringen und dann rebooten.
+Das versuche ich euch jetzt mal zu zeigen.
+Ich hoffe, das funktioniert, wie ich mir das
+vorgestellt habe. Was ist im Chat?
+CPUs tacken sich runter, wenn es
+zu heiß ist, ne? Vielleicht ist die
+Belüftung bei dir halt einfach
+irgendwie auch im Arsch, so. Aber in der
+Regel überhitzen CPUs heute gar nicht mehr.
+Die tacken sich runter.
+Aber die Minis-Forum-PCs,
+die sind bekannt dafür, dass die
+also gerade unter
+längerer Belastung ein bisschen zu heiß werden.
+Aber einen Kernel-Panic solltest du
+deswegen nicht unbedingt kriegen.
+Genau, ich würde es gar nicht so im Detail schreiben.
+Ich würde einfach sagen, ey, mein PC überhitzt und schaltet sich ab.
+Please fix.
+Wobei ich habe gehört, ich bin mir nicht
+sicher, ob das stimmt, weil ich habe keine
+First-Hand-Erfahrung da, aber
+ich habe gehört, der Minis-Forum-Support soll
+relativ useless sein.
+So, also fixen wir mal unser System.
+Als erstes Chat-IQ-Frage
+an euch, oder
+Linux-Expert-Question.
+Wie
+entschlüsselt man über Command-Line
+eine per Lux verschlüsselte
+Platte?
+Weiß es jemand?
+Ich weiß es aus dem Kopf
+so ungefähr. Ich bin mir nicht, bin mir nicht ganz
+Lux, richtig? Ja?
+Ja? Passt.
+Passt, Chat. Wir verbinden,
+wir verbinden einfach das, was ihr
+Wir verbinden
+das mal, was ihr geschrieben habt. Es ist
+Krypt, Krypt, oh ne.
+Erstmal loadkeys.de
+und dann
+modprobe-r pc-speaker
+Wir unloaden einfach das
+Kernel-Modul, dass es nicht mehr
+piepsen kann. Das ist zwar die Holzhammer-Methode,
+um den PC am Piepsen zu hindern,
+aber die effektivste.
+Einfach das Pieper, einfach das Pieper-Kernel-Modul
+unloaden. Genau,
+krypt-setup-lux-open ist es.
+krypt-setup-lux-open
+Vorher sollten wir noch gucken,
+was wir für eine Disk
+überhaupt...
+entschlüsseln wollen. In dem Fall ist es
+sdb. Und zwar
+sdb2.
+Man sieht es ja hier unten. Ich habe jetzt
+keine Maus, um es zu zeigen.
+ähm
+sdb1 hat
+1 Gigabyte und ist meine Boot-
+Partition. sdb2
+ist 650 Gig
+und ist meine verschlüsselte.
+Ja, man könnte auch fdisk-l
+oder sowas machen, sich dann hier durchscrollen.
+Da sieht man es zum Beispiel.
+Guck, sdb1 ist EFI-Boot
+und das andere ist die Lux-Encrypted.
+Muss man sich halt rausholen.
+So, und dann sagt man
+krypt-setup-lux-open
+Ich glaube, jetzt sagt man
+einfach das Device
+ne, äh
+sdb2
+und dann
+irgendein Mountpoint, wo man hin will.
+So, hier mnt.
+Ne, das ist falsch.
+Siehste? Ne, Moment.
+mnt, das kommt später erst.
+Hier, hier muss ich einfach
+einen Namen angeben, wie ihr es nennen soll.
+Okay, jetzt muss ich
+mein Passwort für Lux eingeben.
+Das ist super kompliziert. 123456 hab ich da genommen.
+Während der Installation.
+So, jetzt mit dem Step
+wird die Festplatte entschlüsselt.
+Also dieses on the fly
+per Lux entschlüsseln.
+Und es wird ein neues, die Festplatte ist noch nirgendswo
+steht noch nirgendswo zur Verfügung.
+Aber ich hab jetzt quasi ein
+aus dem verschlüsselten Device
+ein unverschlüsseltes Device gemacht.
+Was ich jetzt mounten kann.
+Jetzt kann ich dev mapper
+crypt mounten nach mnt zum Beispiel.
+So, und jetzt hab ich, wie ihr seht,
+unter mnt hab ich
+mein
+Arch Linux System
+von lokal.
+Jetzt haben wir noch ein paar weitere Probleme.
+Ich möchte jetzt das wieder rückgängig machen,
+was ich eben kaputt gemacht hab.
+Was ich eben kaputt gemacht hab, war
+unter etc
+mk
+init dingsbums pc
+da hab ich
+da hab ich hier
+encrypt rausgeschmissen.
+Das heißt, ich will das eigentlich jetzt
+hier encrypt
+ssh will ich wieder
+haben.
+Dass das funktioniert.
+Das geht aber an der Stelle nicht, weil
+wenn ich das hier jetzt eintrage,
+das ist kein Problem, aber
+das reicht ja nicht. Ich muss ja
+mein ganzes Boot-Image
+neu generaten.
+Also das einfach in der Datei
+funktioniert nicht.
+Das heißt, was können wir jetzt machen,
+dass wir das quasi
+innerhalb, im Kontext ausführen
+von dem installierten Betriebssystem
+auf der Platte, obwohl wir es nur gemountet haben.
+chroot ist richtig, aber
+chroot alleine wird es nicht tun, kann ich euch auch
+zeigen. Gehen wir mal hier nach
+chroot
+mnt, oder was, was ist chroot minus d?
+Kann man sogar sagen.
+mnt
+Was war noch der Unterschied zwischen minus d und
+Nee, gibt's gar nicht.
+chroot noch mnt
+So.
+Und jetzt seht ihr, wir sind
+quasi in unserem
+lokal installierten Linux drinnen.
+Was man auch daran sieht, dass wir jetzt hier sowas wie
+mk, also ich hab hier zum Beispiel meine History.
+Guck, ihr seht, ich hab meine History
+von meinem lokalen
+installierten System hier jetzt.
+Also wir sind jetzt quasi da reingeswitcht.
+Nico, danke schön für den Sub.
+Aber wenn wir jetzt versuchen, wir werden
+jetzt versuchen, das auszuführen, kann ich euch jetzt schon
+spoilern, funktioniert das immer
+noch nicht. Weil
+naja, es fehlen die ganzen
+dynamisch gemounteten Filesystem-Dinger,
+die man unter Linux dafür braucht.
+Also ist proc nicht gemountet,
+sys nicht gemountet, temp nicht gemountet
+und
+was man sonst noch so alles braucht.
+So, die müssen wir jetzt auch erstmal
+alle wieder mounten, dass das funktioniert.
+Achso, und boot ist by the way auch
+nicht gemountet. Das ist das erste,
+was wir machen müssen. So.
+Also als erstes mounten wir mal unsere
+boot-disk nach
+mnt-boot.
+Also quasi relativ
+zu unserem alten System.
+Danach brauchen wir, und da bin ich mir
+jetzt aus dem Kopf nicht sicher, deswegen muss ich
+nachgucken.
+chroot-proc
+Ich glaub da muss man irgendwas, genau hier,
+das brauchen wir.
+Ja, diese drei Dinger
+brauchen wir jetzt. Gibt
+arch-chroot, ja aber ich bin ja nicht in dem Arch-System.
+Wir machen's von Hand. Also die
+diese drei Sachen brauch ich jetzt noch. Also einmal
+brauchen wir hier, ich kopier mir das mal auf
+den zweiten Bildschirm, dass ich nachgucken kann.
+Und in wirklich, normalerweise würdet ihr
+jetzt auf dem Handy nachgucken, weil ihr habt ja
+keinen PC, weil euer PC gerade abgekackt ist.
+So, also mount
+minus t
+proc und jetzt das ganze natürlich
+wieder relativ
+zu eurem
+zu dem System in mnt.
+Also wir sind ja in mnt drinnen.
+Dann als nächstes das
+ganze noch für sus.
+Was man aus irgendwelchen Gründen
+jetzt so macht, whatever.
+sus
+Und dann als letztes noch
+def
+nach def.
+Und jetzt kann ich mich da rein
+chrouten.
+Und nun hab ich auch, wie ihr seht,
+def gemountet,
+boot gemountet, alles da.
+Und wenn ich jetzt diesen Krempel hier ausführ,
+dann funktioniert's.
+Jetzt hab ich alles was ich brauche.
+Jetzt bin ich quasi in
+den Kontext von meinem lokalen System geswitcht
+mit chrout.
+Und jetzt kann ich Commandos ausführen, obwohl ich eigentlich noch
+in der Live-ISO drinnen bin,
+als wäre ich in meinem lokalen System.
+Und dementsprechend
+sollte das System
+jetzt wieder funktionieren.
+Wenn ich nicht irgendwelchen Mist eingetragen hab.
+Hab ich irgendwelchen Mist eingetragen?
+Ja
+und nein, die sind ein bisschen
+davon abhängig, welche kernel
+Version und welche Treiber geladen sind.
+Aber im Großen und Ganzen
+passt das.
+Da bin ich mir nicht sicher, ob es da nicht irgendwelche
+Inkompatibilitäten
+geben könnte. Wahrscheinlich.
+Aber in der Regel funktioniert das.
+Weil es ja die gleiche Hardware ist.
+Ich mein, es kann bestimmt irgendwelche,
+mir fallen jetzt keine ein, aber möglich ist es,
+dass es da Probleme gibt.
+Aber in der Regel geht das.
+So, und wenn ich jetzt hier nicht irgendwie Mist eingetragen hab,
+Encrypt, SSH, File,
+was auch immer.
+Hier sehe ich mein Boot-Image
+und jetzt
+gehe ich wieder raus, reboote die Live-CD,
+ziehe den USB-Stick
+ab und jetzt
+booten wir mein lokales Arch und hoffen, dass es
+wieder funktioniert.
+Und siehe da, System
+gefixt. Ein cleanes Video
+auf YouTube. Das ist nichts, was die Leute bei mir auf YouTube
+interessiert. Die Leute auf YouTube
+wollen hören, wie ich das neue Battlefield
+flame. Weil es das doch gar
+nicht gibt.
+Das ist nicht schlecht.
+Danke für den Sub.
+Der Nico auch am Start.
+Exzellente Subscriptions hier, Leute.
+IQ increased.
+Big brain time.
+So.
+Jetzt sind wir hier stehen geblieben bei dem Thema
+booten.
+So, also.
+Okay, aber zumindest soweit funktioniert das Ganze
+schon mal. Also wir können rebooten,
+wir haben die ganzen Sachen drin, aber
+wir bekommen noch keine IP
+beim Booten. Das heißt, wir müssen jetzt unsere
+Kernel-Parameter
+anpassen. Und da muss
+in die Kernel-Parameter muss rein
+IP gleich DHCP.
+Das heißt, ich muss meine CRUB-Config
+anpassen. Und ich bin ehrlich
+gesagt nicht sicher bin, wie man das macht.
+Ich glaube, ich muss nach
+warum nicht static IP,
+weil es mehr Getippe ist.
+Ich glaube, ich muss nach
+defaults-crub, oder?
+Steht das hier? Da bin ich mir relativ
+sicher, dass ich da hin muss.
+Ja, hier. EDC-Default. Aber das ist nicht
+so. Das ist unter Debian auch so.
+Between
+Quants, CRUB, CMD-Command-Line,
+Defaults.
+Okay, das heißt, da muss
+IP rein. Und wie
+regenerate ich jetzt meine
+Bootloader? So, okay.
+Muss man das andere jetzt auch nochmal
+ausführen? Jetzt bin ich mal
+gespannt. Okay, jetzt sollte
+ich, wenn ich reboote,
+zumindest schon mal eine IP kriegen
+und
+Dropbear gestartet haben.
+Sehen wir gleich, ob das
+funktioniert.
+Ja, das hat funktioniert. Guck mal.
+145 haben wir.
+Äh, was?
+Hail Loading ETC
+Dropbear.
+Okay, Dropbear wird anscheinend nicht funktionieren.
+Vermutlich.
+Permission denied.
+Okay, Dropbear funktioniert.
+Doch.
+Permission denied.
+Also, das ist auf jeden Fall schon mal nicht ganz richtig.
+Wie heißt diese Datei?
+Ich muss mir das mal kurz aufschreiben.
+Was meckert er? Drop...
+Beer
+Underscore ED25519
+Host...
+Hostkey.
+Okay.
+Ja, gut.
+Da fehlt irgendwas anscheinend.
+Liegt der Hostkey in der
+verschlüsselten Partition?
+Ne, ich glaube, den gab's. Den gibt's
+schlechtergreifend nicht.
+Guck mal hier. ETC
+Dropbear.
+Ach, guck mal.
+Es gibt ja nur einen RSA und einen
+ECDSA.
+Wo kommt denn der andere dann her?
+Den gibt's wahrscheinlich gar nicht defaultmäßig.
+Den muss ich wahrscheinlich mal von Hand
+generaten.
+Dann generate ich den von Hand.
+Ah, nicht Root.
+Dann generate ich den von Hand.
+Dann machen wir nochmal. SSH.
+Ja, machen wir's dann.
+SSH
+Keygen.
+Dropbear.
+Ja, ohne Passphrase.
+Ja, selber generieren.
+Nö.
+Okay. So, und jetzt
+kopieren wir den einfach.
+CP
+HomeMax.
+SSH
+EDC
+Dropbear. So, und wie soll dieses Ding
+jetzt heißen? Ich hab's mir ja aufgeschrieben.
+So soll das
+heißen. Ups.
+Ey, what the fuck.
+Okay. Generaten wir mal neu.
+Jetzt machen wir mal ein bisschen
+Try and Error.
+Und gucken.
+Ja, der generated nur die zwei.
+Anstatt den anderen. Alter, Pepega
+stellt so, ja. Reboot.
+So, gucken wir mal,
+ob er jetzt eine andere Fehlermeldung hat.
+Early exit string too long.
+Hahaha.
+Oh.
+Ähm. Okay.
+But why?
+Okay.
+Dropbear ED
+25519
+No, it's not possible.
+Dropbear itself. Ja, das war 2018.
+Versuchst du quasi die Passwortsperre zu umgehen?
+Ne.
+Ich versuch, das Passwort über
+SSH eingeben zu können. Nicht lokal.
+Was ist denn das?
+Dropbear
+convert open ssh.
+Aha.
+Anscheinend verwenden die unterschiedliche
+Worte.
+Okay. Heißt.
+Äh, by the way, warum
+log ich mich nicht einfach so ein?
+Warum log ich mich nicht einfach so ein?
+Ich hab doch extra das
+Passwort, das ich einloggen kann.
+Ähm. Also.
+Wait a minute. Was?
+Dropbear. Wir gehen jetzt mal nach
+etc. Okay, da gehen wir jetzt. Also was?
+Convert open ssh.
+Wahrscheinlich von
+open ssh nach Dropbear.
+Format.
+Also. Und zwar.
+Hostkey
+nach
+Ja, gut. Wir müssen das bestimmt irgendwie mal anders
+nennen. 2.
+Okay. Und jetzt mv
+mv
+dropbear ed 255
+2
+nach
+dropbear ed 255
+So.
+Ja. Ja.
+Okay.
+Wie sieht denn das jetzt aus? Ist das jetzt irgendwie
+anders, oder?
+Ah, binary stellt's. Okay.
+Nice.
+Warum macht man seine ssh keys in
+binary?
+Na gut.
+Okay. Neu generaten.
+Und jetzt noch mal
+rrrrrrree. Nee. Noch nicht.
+Doch jetzt.
+Rrrrrree. Gut.
+Jetzt bin ich mal gespannt, ob er jetzt wenigstens
+startet. Startet das verdammte
+Spiel. Okay. Das sieht, das sieht ganz
+gut aus. Running. Running in
+background. Das hört sich gut an.
+Schauen wir mal.
+Hostkey verification failed.
+Ja, das ergibt ja
+auch Sinn. Es ist ja auch eine andere ssh
+key als von open ssh.
+Also sagen wir jetzt mal minus o
+strict hostkey
+checking no.
+Ja.
+Oder muss das off sein?
+Off. Alter, jetzt gehen wir mal nicht
+auf den Sack. Was ist jetzt das Problem?
+Ach nee. Das geht.
+Permission denied. Ist es vielleicht
+root?
+Easy.
+Easy as fuck.
+Easy.
+Easy as fuck.
+Easy. Easy.
+Easy.
+Enter passphrase
+for devsda2.
+Es funktioniert.
+Easy.
+Easy. Easy.
+Dann gucken wir auch mal,
+ob es funktioniert. 1, 2, 3, 4, 5, 6.
+Ich entere das jetzt
+hier über ssh und
+noch sehe ich nichts.
+Ha.
+Es funzt. Nice.
+Easy.
+Easy as fuck.
+Easy. Easy.
+Aber das
+mit dem ssh key gefällt mir noch nicht.
+Kann ich nicht einfach. Warte mal.
+Eine Idee habe ich noch.
+Eine Idee habe ich noch. Können wir nicht
+einfach
+von etc
+ssh Dings hier.
+Ja.
+Convert.
+Wir nehmen uns einfach den ssh,
+den open ssh key.
+Guck mal, den da. Ne, den.
+Den da.
+Und kopieren den nach etc
+drop here
+ed255
+key.
+Generaten das neu.
+Und jetzt sollte es eigentlich einfach gehen.
+Auch ohne irgendwelche blöden Warnungen.
+Hoffe ich.
+Guck mal mal.
+Nein.
+Oh.
+Doch. Ich hab. Ich dachte ich habe jetzt gerade
+mein Host System rebooted.
+Okay. Nice.
+Okay.
+Okay. Schon mal gute Sache.
+Ich bekomme keine Meldung mehr.
+Ja. Geht.
+Nice. Easy.
+Dann hast du natürlich den private
+Host Key auf der nicht verschlüsselten
+Ja. Es gibt schlimmeres.
+Dadurch ist ja nicht die Festplatte entschlüsselt.
+Sondern es könnte sich nur theoretisch
+irgendeiner man in the middle
+ssh'n oder so. Ja.
+Ja. Also sag mal so.
+Vielleicht ist es nicht die allerbeste Idee.
+Aber für meine Sache
+daheim sollte es mal ausreichen.
+So. Und jetzt kann ich mich
+auch wieder mit meinem normalen
+User verbinden. Und es geht
+einfach, Leute. Es funzt.
+Es funzt.
+Guck mal. Easy, oder?
+War das jetzt? Wollen wir jetzt noch mal
+gucken, ob Hyperland in der VM gescheit
+funktioniert? Also ich hab's letztens
+ausprobiert. Da ging es nicht.
+Vielleicht ist die Power
+des Chats dabei,
+dass es jetzt geht.
+Kommen wir ins
+CD mal schnell. Hyperland.
+Hyperland.
+Yes. Kannst du
+einmal für ein nicht Arch Linux User den Vorteil
+zeigen? Ich raff das nicht, warum du das machst.
+Das hat mit Arch Linux oder nicht Arch Linux
+nichts zu tun. Also.
+Nochmal langsam.
+Ich reboote die Kiste.
+Okay? Also. Hier.
+Die Kiste reboote ich.
+Um die Kiste hier geht's.
+Reboot.
+So.
+Ich mach jetzt mal nix.
+So. Jetzt reboote die.
+Und was fällt dir an der Stelle jetzt auf?
+Ich
+brauch an dieser Kiste eine
+Tastatur und eventuell
+ein Monitor, damit ich
+meine Festplatte entschlüsseln kann
+und weiter booten kann.
+Was sehr unpraktisch ist, wenn die Kiste an
+einem Ort steht, wo ich nicht richtig dran komme
+oder
+wo ich nicht permanent eine Tastatur
+dran haben will und auch nicht jedes Mal umstecken will.
+Das heißt, anstelle
+jetzt lokal hier
+an dieser Kiste was
+eintippen zu müssen,
+kann ich das Ganze auch
+über SSH
+machen. Von einer anderen Kiste aus.
+Guck.
+Ich kann quasi die Festplatte
+von dieser Kiste hier
+anlocken. Remote über SSH.
+Ohne, dass ich
+selbst an dieser Kiste
+mit einer Tastatur angestöpselt sein muss.
+Das heißt, die Kiste könnte jetzt
+unterm Dach stehen.
+Oder aber, wie ich meinen Mini-PC
+hier verwenden will, hinten
+am Monitor dran geschraubt.
+Und ich will da eigentlich gar keine Tastatur dran haben.
+Aber ich will trotzdem die Festplatte voll
+verschlüsselt haben.
+Guck. Und jetzt kann ich entsperren über SSH.
+Du siehst, ich hab jetzt das Passwort
+eingegeben über SSH.
+Ich brauch jetzt ein bisschen, aber bootet ganz normal weiter.
+Siehst du?
+Jetzt hat er gebootet. Und jetzt
+kann ich mich ganz normal verbinden auf die Kiste,
+nachdem er gebootet hat.
+Und alle meine Disks sind auch anlockt.
+Aber erst, nachdem ich einmal per SSH auch
+geht net auch TPM zum
+Pff, keine Ahnung.
+Das ist mir aber wurscht, ob das geht.
+Pre-Shared Key
+beste.
+Jetzt haben wir Hyperland installiert.
+Was musste man da noch alles für installieren?
+Ich glaub die Mesa-Treiber musste man installieren.
+Ist schon installiert.
+Ähm.
+Sonst noch irgendwas?
+Keine Ahnung. Probieren wir das einfach mal aus.
+Hyperland.
+Zack.
+Es ist broken as fuck.
+Aber, aber es ist gestartet
+in der VM.
+Okay, ich kann kein Terminal starten, ich kann
+keinen Launcher starten.
+Ich vermute mal, der default Launcher ist einfach nicht
+drauf.
+Jetzt erleben wir mal Wofi.
+Oh.
+Das Funst, Leute. Es läuft in der VM.
+Guckt mal.
+Sogar mit, sogar mit Animationen
+und gar nicht mal so langsam.
+Aber, das gleiche, also das hat,
+soweit hab ich's schon mal geschafft.
+Mein nächstes Problem war, dass Hyperland
+immer gecrashed ist, wenn ich Firefox
+gestartet hab.
+Ach ja, und,
+dass es so verbuggt war,
+in der VM,
+dass ich noch nicht mal nen Terminal zum Laufen
+bekommen hab, außer das KDE-Terminal,
+witzigerweise.
+Poster zu, ja, das
+geht nächste Woche auch noch.
+Kitty, das wollen wir nicht.
+Also, das einzige, was ich zum Laufen bekommen habe,
+ist tatsächlich die KDE-Konsole.
+Kein Mist. Ich weiß nicht, warum,
+aber was anderes hab ich nicht zum Laufen
+bekommen in der VM.
+Warum Hyperland statt Sway?
+Weil Hyperland
+Chan.
+Hyper Chan.
+Nee, weil Animationen und viel,
+viel gehypter.
+Sway tut's genauso.
+Aber ganz ehrlich, wenn ich Sway
+benutzen würde, da kann ich auch einfach
+weiter mein i3-Setup in der VM
+benutzen, was einfach funktioniert.
+Wir können,
+wir können gleich mal Sway starten und gucken,
+ob es dann auch crasht.
+Moin, Sarix.
+So, also,
+das ist das einzige, was ich zum Laufen bekommen hab
+in der VM.
+Das KDE-Terminal.
+So, jetzt müssen wir mal hier config.
+Wir müssen jetzt mal kurz noch die Tastatur
+input
+model.de
+hot reload.
+Das ist schon nice gemacht, muss man sagen.
+Hast du 3D-Acceleration
+aktiviert? Ja klar, sonst würden wir
+gar nicht so weit kommen.
+Ey, ich habe übrigens noch keine
+VMware-Tools installiert. Vielleicht lag's ja auch
+daran das letzte Mal.
+Wir können mal gucken hier, lsmod grep
+vmware. Doch, doch,
+der hat VMware-Sachen schon installiert.
+Der hat schon VMware-Sachen
+installiert.
+HyperCTL
+Monitors
+Also, ich könnte theoretisch
+hier einen Monitor reinschreiben.
+Virtual-1
+Irgendjemand
+mal kurz hier, dass ich eine ordentliche Auflösung hab.
+Wie muss das aussehen mit der Auflösung?
+Auto, hier.
+Da muss ich mir mal ein Beispiel angucken,
+wie das aussieht. Ich kann mir das nicht merken.
+Äh, hallo?
+Please?
+Okay, dann mach's mal so hier.
+Achso, okay, so muss das aussehen.
+Also, dp1
+ist bei mir
+Virtual-1
+at 60
+und dann so.
+Ist es denn wirklich Virtual-1?
+Ey, der hat live, Leute!
+Das hat gefunzt!
+Also, das hat schon was. Das muss live
+reloaden. So, und jetzt
+habe ich das Problem, dass
+wenn ich Firefox installiert...
+Achso, ich zeige euch das mal. Also, Chrome
+funktioniert bei mir gar nicht.
+Chromium
+Guts bei
+mir gar nicht in der VM.
+Wenn ich Chromium starten
+will, ich mach mal kurz ein bisschen größer.
+Wenn ich Chromium starten will,
+dann sagt
+er mir...
+Ja.
+Das zum Beispiel sagt er mir dann
+...
+Okay, missing X-Server.
+Alles klar.
+X-Wayland ist schon.
+Guck.
+By the way, ich habe auch keinen Mauszeiger.
+Ja, stimmt, Mauszeiger
+funktioniert in der VM auch nicht.
+Ich habe keine Maus.
+Die ist auch
+kaputt. Mausanzeige
+geht nicht.
+Also, X-Wayland ist schon.
+Und wenn ich Firefox starte, wird's
+noch viel besser. Das ist also
+echt nicht so richtig gemacht für die VM.
+Wenn ich Firefox
+starte, dann dauert
+es jetzt nicht lange
+und die VM crasht.
+Kacke.
+Also, es sieht so aus, als würde es...
+Ah, okay, VM ist gecrasht.
+Also, das ist
+nicht so wirklich gemacht für VM,
+ja? Ach ja, es ist
+übrigens, die VM ist nur so halb
+gecrasht. Per SSH geht es
+noch, aber nicht lange.
+So nach fünf Minuten
+crasht es komplett.
+Ah ja, und übrigens, wenn ich jetzt denke, ey, einfach Hyperland
+abschießen, erstmal reagiert
+Hyperland gar nicht mehr.
+Und selbst wenn ich sage, Hyperland,
+kill minus neun.
+Oh, jetzt ist Hyperland weg.
+Hyperland ist aber nicht weg, es ist immer noch da.
+Übrigens, hier,
+Kernelbuffer switchen geht
+auch nicht mehr.
+Die Kiste ist offiziell rip,
+nachdem er Firefox unter Hyperland
+gestartet hat. Wir können mal
+X-Way starten.
+Das habe ich noch nicht ausprobiert in der VM, vielleicht geht das
+besser, aber dazu
+müssen wir erstmal die Kiste
+neu starten, weil die ist jetzt
+rip.
+Die ist kaputt.
+Müssen wir jetzt neu starten,
+einloggen und wie startet man
+X-Way? Wahrscheinlich einfach X-Way eingeben auf der
+Commanderzeile, vermute ich mal.
+X-Way?
+Okay, das scheint zu funzen. Guck mal,
+Leute, X-Way hat sogar
+einen fucking Mauszeiger.
+Ich bin begeistert.
+Ich kann aber nichts starten,
+weil
+in meiner Config wahrscheinlich kein Terminal
+und so drin ist.
+Was machst du eigentlich? Mein System remote
+über SSH anloggen, aber das haben wir schon
+geschafft. Was für ein Terminal
+ist default?
+Was? Foodterm?
+Was ist denn das schon wieder?
+Warum gibt es 30
+Milliarden Terminal ab?
+Das sieht straight aus
+wie 1995, Foodterm.
+Foodterm.
+Ah.
+Achieved.
+Wird das nicht mal weiterentwickelt?
+Ach nee. Moment, das ist ja gar nicht der Typ.
+Ja, also halt mal
+den Funzen richtig. Mit X-Way, wir können
+mal in die
+X-Way
+Config,
+wie auch immer die X-Way
+legt X-Way irgendwie eine
+Default Config an oder so?
+Ich habe X-Way noch nie benutzt.
+Was ist denn die Default Config?
+Gibt es irgendwie eine fertige Default Config,
+die ich mir copy-pasten kann?
+Was? ETC? Warum
+ETC?
+Aber die kann ich mir wahrscheinlich
+rüberkopieren. ETC
+X-Way, X-Way Config
+und dann muss sie nach
+Config X-Way, okay.
+X-Way läuft nicht auf, das ist auch Wayland.
+Mkdir
+Config X-Way, so. Kopieren
+wir das mal nach Config
+X-Way.
+Okay, also
+Default, Output,
+also was haben wir denn hier für
+Mod 4 ist Windows-Taste
+denke ich mal.
+Das ist alles.
+Preferred Terminal Emulator, machen wir mal
+aktuell, nicht weil ich das KDE
+Ding so sehr mag, sondern weil ich weiß, dass es drauf
+ist und funktioniert. W-Menu.
+Nee, nee.
+Fuck.
+Ja, das können wir dann immer noch
+anpassen. Das einzige, was wir jetzt mal
+anpassen ist Output.
+Output, X-Way Configuration
+Output.
+Äh.
+Äh, what the fuck?
+Kann ich jetzt einfach sowas reinschreiben wie
+Virtual 1
+und dann geht
+das? Hat X-Way auch Hot Reload?
+Nee, anscheinend
+nicht, ne?
+Ähm.
+By the way, wie quitte
+ich, wie quittet
+man, wie quitt?
+Wie exited man?
+Das ganze?
+Mod Shift
+E. Okay, probier mal aus.
+Mod
+Shift E. Ah, okay.
+Wie E3 im Endeffekt.
+Okay, jetzt haben wir ne ordentliche Auflösung, nice.
+Wir haben ein Terminal.
+Wenn auch super hässlich.
+Und jetzt müssen wir noch die
+Tastatur
+Äh, ja, die hab ich,
+das hab ich noch hier offen, das soll ich mal zumachen.
+Machen wir, passen wir mal noch kurz
+die Tastatur an.
+Okay, das läuft in der Tat
+deutlich besser.
+Kann X-Way irgendwelche
+Animationen in Wayland?
+So Transparenz oder so irgendwas?
+X-Way ist quasi
+E3, nur für Wayland.
+Das ist fast
+1 zu 1 E3 Clone.
+Input. Ups.
+Ah ja.
+Input.
+Äh.
+Wie wärs mit ne
+Konfiguration für die Tastatur?
+Okay, viel interessanter ist,
+ob jetzt,
+Loadkeys funktionieren natürlich nicht.
+Viel interessanter ist, ob Firefox hier drin
+auch wieder das System zum Abkacken bringt.
+Oder nicht.
+Das werden wir gleich sehen.
+Also in, X-Way läuft
+echt ganz brauchbar mittlerweile.
+Unser letzter Versuch mit Wayland in der
+VM war kompletter Reinfall.
+Da konnte man teilweise noch nicht mal Fenster richtig
+resizen. Also das ging schon,
+das ging schon ganz gut klar.
+Dann suchen wir nochmal.
+X-Way Input Layout.
+All in One oder
+CPU Luftkühler. Ich hab
+tatsächlich
+zum ersten Mal mit meinem letzten
+PC eine
+All in One Wasserkühlung gekauft.
+Aber das würde
+ich nicht unbedingt empfehlen. Das würde ich
+nur wenns halt Sinn macht.
+Wenn du ne CPU
+hast, die du nicht gescheit gekühlt bekommst
+mit konventionellen
+Luftkühler.
+Ansonsten würde ich auch immer
+einen Luftkühler vorziehen.
+So, wie sieht das hier mit Input
+aus jetzt?
+Dreh durch mit der englischen Tastatur.
+Hier so.
+Layout.de
+Den Rest können wir
+freilassen. Oh Mann, ich kann
+nicht mehr. Okay, ich hoffe,
+dass jetzt
+das Ganze,
+wenn ich es jetzt neu starte,
+mit deutschem Tastatur
+Layout drauf kommt.
+Ja, nice.
+Okay, funzt.
+Funzt denn jetzt auch Chrome?
+Chromium?
+Ne.
+Das ist in der VM immer
+noch kaputt, Leute. Ich sag's euch.
+Das ist immer noch pro...
+Ist einfach gecrashed.
+Das ist einfach kaputt.
+Ich weiß nicht. Ich bin mir nicht sicher, ob
+das mit Wayland in der
+VM jemals was wird,
+ehrlich gesagt.
+Ich guck mir das seit Jahren immer
+mal wieder an, aber
+funktionieren tut es...
+Also, es hat noch nie funktioniert.
+Sway in libvirtkvm.
+Ja, das ist schön.
+Das bringt mir halt in dem Konstellation
+nix. Das ist halt
+kaputt. Wir können noch mal
+die VMware Tools installieren.
+Äh, die
+bringen uns aber nur was für
+Copy-Paste.
+Nicht für die Grafikausgabe.
+Wow.
+Ey, geh weg.
+Schrecklich.
+Das ist blöd, wenn Chrome...
+Also, wenn Chrome
+dein Desktop crasht, ist irgendwas faul, oder?
+Man könnte jetzt sagen,
+Firefox größer Chrome, aber
+ich möchte doch schon
+meine normal
+benutzten Programme öffnen können, ohne dass
+der Desktop crasht.
+Wie funktioniert eigentlich Twitch?
+Nur Twitch wissen.
+Also, es funktioniert schon mal nicht über...
+Nee, RTMP benutzt du bei Twitch nur, um
+es zu Twitch zu senden.
+RTMP im Browser funktioniert ja nicht.
+Ach so.
+Nee.
+Also, Twitch hat verschiedene Eingangsserver
+auf der Welt. Die kannst du auch in jedem...
+den meisten Stream-Clients
+auswählen. Die gibt's auch bei Twitch auf der Webseite
+zu sehen. Ja, in Frankfurt gibt's, glaub ich,
+sogar drei Stück mittlerweile.
+Da schickst du per RTMP deinen Videostream hin.
+So. Dann...
+verarbeitet Twitch, wie
+auch immer, intern irgendwie
+deinen Stream.
+Reencode den vielleicht, falls
+der nicht in einem Format ist, dass ihn alle empfangen
+können. Und dann
+wird der ausgeliefert für Viewer
+über zum größten Teil HLS.
+Das ist
+Livestreaming über HTTP. Du kriegst quasi immer
+einzelne Video-Chunks gesendet.
+Doch mittlerweile
+geht das... Mittlerweile können die
+mehrere Sachen, die können nicht nur HLS, die können auch
+mehr. Aber wie das intern
+genau funktioniert, keine Ahnung.
+Also, wenn mich ein Login-Manager dafür
+bräuchte, wär schon sehr weird.
+Man sieht auch überhaupt keine...
+Wir können ja mal gucken.
+Sway... Wieso mach ich das? Sway?
+Sway
+Segmentation
+Vault
+Chromium. Aha!
+Vor drei Jahren. Ich... Leute,
+das ist halt so die typische Sache bei
+dem Wayland-Entwicklungs-Kram.
+Die sagen dann immer, ja, benutzt eine Version mit
+Wayland-Support. Leute,
+es muss auch der alte Kram funktionieren.
+Und mittlerweile hat er das, glaub ich, schon.
+Aber Wayland ist einfach echt
+keck-double-U. Also, in der... Man muss
+ja auch sagen, der Fairness heißt aber, in der
+VM ist das ziemlicher Schrott.
+Natürlich, die schieben sich
+aber seit Jahren schon
+die...
+die Schuld hin und her. So, ah,
+das ist der VMware-Treiber. Ah, das ist Wayland.
+Das ist mir als User
+scheißegal.
+Schau the Logs. Ja, das würde ich machen, wenn da nicht mal ein ganzes
+Ding crasht. I think the
+real solution here is use Firefox.
+Ey, das ist doch... Ey, das ist ein absoluter
+Witz, oder? Das mag ja
+sein, dass das native ist und besser funktioniert,
+aber das ist ja jetzt nur
+ein Symptom, dass Chrome nicht geht. Das wird
+wahrscheinlich alle anderen X-Programme auch
+betreffen. Keck weh.
+Also, Leute, ich glaube, ohne
+Scheiß, das mit... Das mit Wayland
+in... Oh, Alter. So.
+Das mit... Das mit
+Sachen in der VM kannst du knicken.
+Das... Das hier... Das ja, das Linux-Desktop
+sieht... Sollen wir mal andere X-Pro...
+X-Software starten und gucken, was passiert?
+Ich mein, Chrome ist schon die Hardcore-Variante.
+Wie sieht's mit X... X-Eyes
+aus? Das ist aber...
+Das ist 100 Pro und ein Problem
+im Zusammenhang mit den... Mit den VMware-Treibern.
+100 Pro. X-Eyes.
+X-Eyes crashes. Also, jetzt nur
+mal so... Ich zeige euch mal die absolute
+High-End-Anwendung X-Eyes, Leute.
+Habe ich noch nicht mal installiert.
+Das ist eine gute Idee. Da können wir reingucken.
+X-Eyes. Passt mal auf.
+Also, das geht
+natürlich nicht. Das ist... Das ist
+way too advanced
+für Wayland.
+So was hier anzuzeigen.
+Das ist
+zu aufwendig. Ja?
+Zwei weiße Kreise
+und schwarzer
+Hintergrund. Viel
+zu heftig.
+Ähm...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+Okay, den Stacktrace habe ich mir
+noch nie angeguckt.
+XI is not, doch XI is crashed bei mir auch.
+Das stimmt.
+Wisst ihr, das Problem, was ich
+bei dieser Sache auch sehe, ist,
+dass, wenn man mal ganz ehrlich ist,
+das ist eh schon extrem Nische
+Linux Desktop.
+Und es ist durch Wayland
+und die 30 verschiedenen Desktop-Environments
+und mit Wayland ist es noch schlimmer geworden,
+weil Wayland hier explizit sagt,
+sie sind quasi kein,
+ja, wie heißt das?
+Sie sind kein Windows-System,
+sie sind ein reiner,
+eine reine
+Schnittstelle quasi
+zur Grafikkarte und zum Input.
+Das ist ja Wayland im Endeffekt.
+Dementsprechend muss jeder
+Desktop, nennen wir es mal,
+seinen eigenen
+Kram
+implementieren.
+Das heißt im Endeffekt,
+dass du nur noch
+Nische, Nische, noch Nischiger
+unterwegs bist. Du bist Linux Desktop
+eh schon Nische as fuck.
+Dann bist du
+Wayland, Linux Desktop, schon mal
+Nische as fuck. Darauf dann,
+wie gesagt, komplett
+reimplementiert, muss das ja
+alles werden von den ganzen Desktop-Environments.
+Darauf dann beispielsweise
+Gnome oder
+Sway oder Hyperland.
+Das heißt, du bist ein Nischen-User
+in einer eh schon existierenden
+Nische dessen Nische.
+Und das wird immer schlimmer.
+Buffer-API korrekt.
+Ja, VMware-Treiber brauchen
+wahrscheinlich. Ja, geh ich auch mal von aus.
+For GPU-Driver
+and Wayland to be
+they must support the same
+Buffer-API.
+There are two main APIs.
+GBM und EGL.
+Ah, ja, alles klar.
+Gnome macht mal wieder ihren eigenen Shit, das ist klar.
+Aber wie gesagt,
+ist ja da der VMware-Treiber, also insofern.
+Also was wir tatsächlich noch mal machen
+könnten ist,
+also was wir theoretisch noch mal machen könnten
+ist,
+ja, was?
+Wichslgcsel.
+Okay, alles klar.
+Das wollte ich jetzt sagen.
+Was wir nochmal machen könnten ist.
+Was wollte ich denn jetzt machen?
+Keine Ahnung.
+Irgendwas ist mir gerade eingefallen.
+Das geht nicht.
+Ach so, jetzt weiß ich wieder, was ich
+machen wollte.
+Ja, wir können die VR mal ausschalten.
+Und mal gucken...
+Ne, ich bin ja auch schon halb so alt wie der,
+also insofern.
+Wir können mal Accelerate 3D Graphics ausmachen
+gucken was dann passiert also das ist nix wie ich das laufen lassen möchte weil es dann software
+gerendert wird wahrscheinlich abfang langsam ist aber wenn es jetzt läuft ohne 3d acceleration
+dann ist es 100 prozent der vmware grafiktreiber und auch wenn es nicht geht dann ist es immer noch
+ziemlich sicher der vmware grafiktreiber wir könnten noch mal wir könnten auch mal eine
+git version von sway installieren das ist ja ohne 3d acceleration geht schon mal gar nix also pech
+gehabt also dass uns schon mal an zu wenig ram kann es auf jeden fall auch nicht liegen weil
+wir haben acht gigabyte mal vier nehmen das sollte auch reichen vier gigabyte grafikspeicher ja das
+kann man so nicht sagen ich will ich will x nicht gut reden ja x ist ein uraltes ding was keiner
+mehr versteht und von der architektur darunter her überhaupt nicht geeignet ist für die aktuelle zeit
+die also x ging ja damals als x entwickelt wurde also x
+x 11 beziehungsweise das unten drunter jetzt ist es x org für was x free irgendwas aber als
+x entwickelt wurde ging man ja davon aus dass die zukunft des desktops quasi terminal server
+sind also sprich ein fetter host der irgendwo steht und die anderen leute korrekten sich dann
+von irgendwelchen arbeitsplatz rechnern und die eigentliche anwendung läuft da drauf und die
+grafik ausgabe geht darüber das ist ja von der architektur komplett dämlich heute das findet ja
+insofern ist x sicherlich auch nicht gut aber du hast diese ultra fragmentierung unter x nicht
+weil alles zumindest auf x aufgesetzt hat ja ob jetzt gtk cute oder was auch immer das gui gemalt
+hat war erst einmal egal bei wayland ist es ja so dass es quasi eine protokoll definition gibt
+und hyperland implementiert das sway implementiert das klub implementiert das aber das heißt nicht
+dass es miteinander was irgendwie zu tun hat also es kann durchaus
+bugs geben nur unter kde und nicht und der highland weil die irgendwas anders implementiert haben das
+war mit x nicht so weil natürlich hast du kde bugs und iii bugs das war aber auf anwendungs-
+ebene so was habe ich jetzt bin ich war noch 0 xk
+ok crash
+ich glaube
+es funktioniert das war bereits das war alles okayTV
+okayTV
+Ich glaube nicht, dass wir da großartig was dran machen können.
+Da können wir, glaube ich, nichts dran ändern.
+Ich meine, wir könnten noch...
+Ah, das sind X-Octrivers, das bringt man sich nicht.
+Wir könnten noch eine neue Version von Sway installieren.
+Sway Git könnten wir noch installieren.
+Macht eigentlich wenig Sinn.
+Also ich glaube nicht, dass das irgendwas ändert.
+Ja, Patrick sehe ich genauso.
+Wenn es danach geht...
+Ich würde auch in dem Fall Mac nehmen.
+Allein schon aus dem Grund, weil Mac Linux, aber sagen wir mal Unix-artig genug ist,
+dass es dich nicht abfuckt wie Windows.
+Du kannst einfach ein ordentliches Terminal nehmen, Command-Line-Tools und in der Regel,
+vor allem mit dem Nix-Package-Manager, hast du jetzt mittlerweile ja auch Zugriff auf sehr, sehr viele Packages für macOS.
+Und, also mit Homebrew auch schon, aber mit dem Nix-Package-Manager noch mehr.
+Und du hast, wenn du, sagen wir mal so, Stable-GUI- und Graphics-Zeugs brauchst,
+hast du es halt.
+Und du hast es halt unter macOS.
+Ich würde für kommerzielle Sachen im Leben nicht anfangen, hier irgendwas unter Linux, Wayland und X zu basteln.
+Im Leben nicht.
+Bei Spielen noch vielleicht, weil Spiele das in der Regel relativ wenig juckt.
+Die malen eh alles selbst.
+Die brauchen im Endeffekt irgendeinen OpenGL oder einen Vulkan-Kontext in irgendein Viereck, wo sie reinmalen dürfen und das reicht ihnen dann.
+Aber für Anwendungen im Leben, das würde ich mir nicht geben.
+So, jetzt haben wir Sway, die Git-Variante von Sway laufen, die ist neuer.
+Aber ich wette mit euch, X-Eyes, oh, die ist so neu, dass es direkt beim Starten schon crasht.
+Es ist direkt beim Starten broken.
+Okay, sind wir mal nett, geben wir ihm nochmal ne Chance, rebooten wir nochmal.
+Jetzt muss ich mal kurz gucken, was das Wetter macht, ob ich vielleicht noch ne Runde radeln gehe gleich.
+Sieht gar nicht mal so schlecht aus.
+Keine Errors mehr, ja.
+Oh, es startet gar nicht mehr.
+User bin Sway, success.
+Huge success.
+I'm taking a note here, huge success.
+Es ist broken, nice.
+Exzellent, exzellent.
+Also Sway-Git ist schon mal komplett kaputt.
+Okay.
+Was macht Hyperland in der Zwischenzeit so?
+Ah, nice, Hyperland crasht immer noch mit Firefox.
+Bist du eigentlich bald ready für den Iron Man? Ja, ganz bestimmt.
+Ganz bestimmt.
+Oh, guck mal, noch läuft Hyperland. Leute, es ist noch nicht gecrasht.
+Ah, jetzt ist es gecrasht, okay.
+Das funzt erstklassig in der VM.
+Richtig nice.
+Das wird, ohne Scheiß soll ich sagen, das wird mit Wayland das Quiz, das kannst du vergessen.
+Zumindest im Kontext von der VM.
+Deswegen ist ja eigentlich auch die Sache, weswegen wir das heute ausprobiert haben, dass ich vielleicht mal was anderes zum Arbeiten verwenden kann als meine Linux-VM.
+Also, mit Arbeiten. Wenn ich irgendwas mache, was ich nicht in Windows machen will, nehme ich mit dem Mini-PC, den ich hier am Start habe.
+Aber aktuell sieht es nicht so aus. Es ist immer noch sehr eklig.
+Wobei das Stream über Moonlight zu Sunshine, die Namen, Alter, echt erstaunlich gut und lackfrei funktioniert.
+Suchen wir da einmal.
+Sway VM.
+Oh ja.
+Was soll ich selecten?
+Ups, das ist das falsche. SSH.
+Ah, Moment, der sitzt gerade im Boot.
+Den großen Arch-Setup-Stream, den gibt es, sobald ich in irgendeiner Art und Weise da ein Setup drauflaufen habe, was ich so verwenden will.
+Das wird noch ein bisschen dauern.
+Was soll ich, das soll ich installieren?
+Warum soll ich Xorg-Drivers installieren, damit Sway in Wayland gescheit funktioniert?
+Das erscheint mir irgendwie nicht ganz zielführend zu sein, ehrlich gesagt.
+Aber wir machen es mal.
+Vieles Linux, man.
+Ich überlege gerade, ob ich noch eine Runde Fahrrad fahren gehe.
+Also, eigentlich habe ich keinen Bock.
+Ich war schon zwei Stunden unterwegs heute.
+Ah, Moment.
+Wir müssen wieder den alten Sway installieren.
+Das Sway aus Git tut ja nicht.
+Was?
+Okay.
+Sway.
+Alter.
+Geh mir nicht auf den Sack.
+Mod Pro minus R PC Speaker.
+Hau ab.
+Sway. Git. Yes.
+Alter, was?
+Der Kram wird nicht richtig entfernt, oder wie?
+Force.
+Ne.
+Wie geht das jetzt?
+Kann man irgendwie Force sagen?
+Dass er das alles überschreibt?
+Pac-Man Force.
+Minus Minus Override.
+What the fuck, Alter?
+Override.
+Muss bei Minus hinter Minus S, ne?
+Okay, keine Ahnung, wie das funktioniert.
+Ist mir auch zu dumm jetzt.
+Gibt's das nicht mehr?
+Also, Minus Minus Force ist nicht mehr.
+Okay, Force Override ist nicht mehr erlaubt.
+Warum auch immer.
+So, ein verkacktes Hour Package,
+was die Hälfte nicht deinstalliert.
+Und dann...
+Moment, man muss Backslash Sternchen.
+Also, wie obskur willst du es denn eigentlich noch machen?
+Also, wie obskur willst du es denn eigentlich noch machen?
+Ah, das funzt jetzt, oder was?
+Okay, alles klar.
+X, A, S.
+Okay, ich geb's auf.
+Kein Wayland in der VM.
+Ist schon ein bisschen kacke.
+Wem auch immer man jetzt da die Schuld
+in die Schuhe schieben kann, im Zweifelsfall
+wahrscheinlich VMware.
+Aber die Linux Desktop Fragmentierung
+und
+Nischenanwendung in der Nischenanwendung
+trägt mit Sicherheit dazu bei.
+Weil ganz ehrlich, VMware kann sich das ja auch nur
+erlauben, weil es fünf Anwender auf der Welt
+gibt, die diese Kombination vielleicht verwenden wollen.
+Wären es fünf Millionen Anwender, dann
+gibt's deutlich mehr Probleme.
+Für VMware, wenn's nicht gehen würde.
+Wobei VMware auch auf vieles scheißt.
+Spätestens seit es Broadcom ist.
+Aber wir haben unser Ziel für heute erfüllt.
+Wir können es
+Remote Unlocken.
+Guck hier nochmal. Beweis, dass es
+funktioniert. System startet.
+System möchte
+Passwort eingegeben haben.
+So, und ich kann
+über SSH Remote
+die Disk entlocken.
+Und es bootet weiter.
+Ja, ich sag ja vielleicht,
+fünf Leute oder so.
+Hast du mal mit Proxmox in der VGPU
+getestet? Wäre spannend, ob's dann...
+Ach, dann wird das wahrscheinlich funktionieren. Da geh ich mal von aus.
+Aber es ist halt ein Setup, was mir wenig bringt.
+Haben die das erfunden, um RGB zu komprimieren?
+Ich hab keine Ahnung, auf was du anspielst.
+So.
+Dann würde ich sagen, das hier weg. Power off.
+Bam. Open Directory.
+Hier kommt's weg.
+Open Directory.
+Arch Test, by the way.
+Auch weg. Zack.
+Empty Recycle Bin.
+Bam. Weg ist es.
+Geht das über Hyper-V?
+Keine Ahnung, das werd ich aber auch nicht
+ausprobieren.
+Das werd ich bestimmt nicht ausprobieren.
+Aber Proxmox probieren wir auf der Mini-PC
+Kiste nochmal aus. Das ist ne gute Idee.
+Einfach nur just for fun.
+Ob das... Wie das so funktioniert.
+Das ist kein Setup, was ich benutzen will.
+Aber... Können wir mal ausprobieren.
+Wofür ist der neue Mini-PC?
+Eigentlich hab ich den geplant
+als...
+Eigentlich hab ich den geplant
+als Alternative hier zu
+meiner Linux-Desktop-VM.
+Und ich will's genauso verwenden
+wie hier.
+Ich will einfach auf meinem zweiten
+Desktop ein Fullscreen-Windows haben.
+Fertig.
+Mit der VM ist das überhaupt kein Problem.
+Von der Performance her ist die VM...
+Also...
+Ich will jetzt nicht sagen,
+es ist Native-Performance.
+Aber...
+Es fühlt sich an wie Native-Performance.
+Das einzige, wo man das merkt,
+ist, wenn man, ja, beispielsweise
+YouTube-Videos in der VM abspielen will,
+dann ist halt die CPU-Last
+relativ hoch, weil dort
+keine Grafikkarte drin ist mit
+Video-Decodern.
+Aber gehen tut das auch.
+Und...
+Das VM-Setup hat halt
+einige Vorteile, ja.
+Erstens integriert sich super in meinen...
+Windows...
+Ich meine, ich mache 90% der Sachen,
+wenn ich was mache, unter Linux.
+Aber trotzdem lässt sich
+Linux unter Windows besser virtualisieren
+als Windows unter Linux.
+Zumindest in der Art und Weise, wie ich's benutzen will.
+Und...
+Du hast halt im Endeffekt schon ein paar
+Vorteile dadurch.
+Du hast relativ easy Zugriff auf
+Linux-System auf dem zweiten Desktop.
+Kannst einfach switchen.
+Ja, es ist super integriert.
+Wenn du mal wieder da am rumbasteln bist.
+Und Performance
+ist auch vollkommen nice.
+Copy-Paste funktioniert auch ohne Probleme.
+Also ich kann jetzt hier hingehen und keine Ahnung,
+das da kopieren und hier einfügen.
+So. Und das nachzubauen,
+beispielsweise,
+wenn man hier nebendran einen Mini-PC stehen hat,
+ist gar nicht so einfach.
+Man kann über Sunshine streamen.
+Man kann über Sunshine streamen.
+Das funktioniert. Ja, das VM-Setup ist auch
+deutlich angenehmer. Aktuell zumindest noch.
+Man kann über Sunshine streamen.
+Der Sunshine-Stream
+ist echt nicht schlecht. Der funktioniert
+relativ gut und relativ latency-free.
+Aber da hast du Probleme mit Soundausgabe.
+Teilweise.
+Ja, und generell auch
+auf Native-Kiste ist Wayland und
+Hyperland jetzt bisschen pain in the ass.
+Wie viele Ressourcen ich
+meiner Linux-VM zugewiesen hab? Viel zu viele.
+Ich glaub 24 GB
+RAM
+und 8 CPU-Kerne.
+Das läuft auch
+deutlich weniger gut.
+Die idlet im Endeffekt
+ja nur rum.
+Du kannst ja auch ohne Probleme
+ähm, nur
+3 CPU-Kerne
+zuweisen und 4 oder 8 GB
+RAM. Das geht genauso gut.
+Bei mir ist es halt so, also
+ich hab absichtlich so viel RAM, weil
+ich zum Beispiel mal ganz gerne
+sagen wir mal hier
+Rider offen hab
+und
+warum ist die
+Schrift so weird?
+Rider offen hab, dann hab ich hier
+GoLand auf und bei dem anderen hab ich noch
+eh, Visual Studio Code auf.
+Oh, und hier noch Visual Studio Code
+auf. Und da siehst du schon,
+da braucht auch, und das liegt nicht daran,
+dass es eine VM ist, das braucht
+einfach so viel Leistung, ja,
+und so viel, und so viel RAM.
+Und wenn ich hier noch ein bisschen Frontend-Zeug
+aufhab, dann wirst du halt sehen,
+dann haben wir jetzt auf einen Schlag,
+also nicht nur, dass das Ding ultra viel
+CPU-Last gerade verursacht, was aber gleich wieder runtergeht,
+was gleich wieder runtergeht,
+nachdem der ganze Kram geladen ist. Also sobald
+der Kram geladen ist, geht's, geht's wieder runter.
+Das dauert, das dauert
+jetzt kurz. Die wurden auch gerade
+geupdatet, die Software zum ersten Mal und so, das
+passt schon. So, guck jetzt ist wieder alles
+gut. Aber trotzdem,
+jetzt haben wir ordentlich RAM belegt,
+ja.
+Das braucht schon ein bisschen was.
+Jetzt ist die CPU wieder super idle.
+Ich glaub du hast dich einfach schon an ein paar
+Sachen gewöhnt.
+Fängt ja schon an, dass Wofi als App-Launcher
+sich overlayt.
+Mehrfach.
+Und man das selbst skripten muss, dass es das nicht tut.
+Ja, wird es, wird das auch.
+Hyperland ist aber echt ganz nice.
+Also von den ganzen
+Wayland-Dingern ist das das erste, was
+mich anspricht, so dass ich's mal ausprobieren
+wollte. Ich hab mir auch schon überlegt,
+ob ich's nicht einfach so mache, dass ich im Endeffekt
+hier meine, ähm,
+meine Capture-Card starte
+und im Fullscreen
+den auf dem zweiten Desktop anzeige.
+Dann hast du aber auch wieder das Problem,
+Maus-Input,
+das wird sich noch mit irgendwas wie Synergy
+lösen lassen und sowas, ja.
+Aber dann fängt's da schon an wieder eklig zu werden.
+Also ganz
+ehrlich, ich hab bis jetzt noch kein Setup
+gefunden, was
+so easy funzt wie
+meine VM im Fullscreen auf dem zweiten Desktop.
+Und was auch einfach funktioniert, ja.
+Es wäre halt cool, würde
+das ganze Wayland-Zeug besser in der VM
+laufen, dann würde ich's auch benutzen,
+aber macht's halt nicht.
+Geiler Background. Ach ja, zum Thema
+Background. Falls ihr der
+Background oder falls euch der Background gefällt,
+mach mal hier den ganzen Krempel
+zu. Der wechselt übrigens auch öfters,
+der Background, der wechselt alle, alle Viertelstunde.
+Es gibt eine ganze
+Sammlung bei mir auf GitHub
+von den Pepo-Backgrounds
+für jede Tageszeit.
+Ach ja, VM-Switch ist auch so,
+so nervig.
+Es ist alles eklig, es ist alles
+eklig im Vergleich zu zweiter Desktop und
+ne VM im Fullscreen.
+Da VM-Switch hast du das Problem, Keyboard ist nicht geshared.
+Das erste, was mir einfällt, du hast
+für alle unterschiedlichen Tageszeiten
+macht der Pepo
+unterschiedliche
+Dinger. Irgendwann putzt er sich auch noch
+die Zähne und ihr träumt da
+Zeug und guckt
+Channels,
+die irgendwie gerade keine Videos machen.
+Ja. Es gibt sogar
+in dem Repo,
+Spice kannst du auch vergessen.
+Außerdem
+geht das nur, wenn du schon unter Linux bist.
+Will ich ja nicht. Host ist ja
+Windows. Ja, hast du
+nen KVM-Switch, das dann Keyboard geshared ist?
+Äh, nicht Keyboard, Clipboard.
+Wüsste nicht, wie den KVM-Switch
+Shared Clipboard machen soll.
+Guck mal, wir haben da sogar einen.
+Hab ich gar nicht gesehen.
+Das stimmt!
+Warum putzt der Pepo
+eigentlich nicht seine Zähne morgens, sondern
+nur abends?
+Der sollte eigentlich auch morgens die Zähne putzen.
+Vielleicht hat der Rackman ja Zeit
+und kann dem Pepo auch noch eine Zahnbürste
+morgens in die Hand drücken.
+Ja, da brauchst du wieder ne extra Software, um Clipboards
+zu sharen. Gibt's ja auch ein paar Sachen.
+KDE Connect hab ich übrigens nicht gecheckt,
+ob das nur zwischen Desktop
+und Phone ist, oder auch
+zwischen Desktops funktioniert.
+Und es gibt noch ein Skript, dass das alle Viertelstunde
+den Background ändert, je nach
+Tageszeit.
+Aber das ist alles schon wieder gefuddelt.
+KDE Connect hab ich auch ausprobiert.
+KDE Connect hat bei mir sich die Desktops
+untereinander nicht gefunden.
+Kann auch sein, dass ich irgendwelche Packages vergessen hab.
+Alles bisschen Painschamp.
+Also ich weiß nicht, ich werd wahrscheinlich
+auf ewig auf meiner
+zweiten Desktop mit 4M hängenbleiben, weil's
+einfach funktioniert.
+Unter Windows geht der Hintergrund
+natürlich auch, das sind ganz normale Bilder.
+Das Bash-Skript
+zum Ändern der Hintergründe funktioniert
+nicht unter Windows, nee, aber
+war auch nicht notwendig.
+Die Hintergründe gehen unter Windows,
+das sind ganz normale PNG-Bilder.
+Ja, 3D-Sachen in der 4M
+ist tatsächlich ein Problem.
+Auch Animationen und sowas.
+Weil die irgendwie nicht alles unterstützen.
+Und 4M, wer auch irgendwie keinen Bock hat, da dran zu arbeiten.
+Es geht erstaunlich gut
+in der 4M, wenn's geht.
+Also wenn alles
+unterstützt wird in der 4M, ist 3D-Performance
+gar nicht schlecht.
+Oder allgemein, ja, Beschleunigungs-
+performance gar nicht schlecht. Wenn's nicht unterstützt wird,
+crashen die Programme halt oder haben Klitsche.
+Das heißt, das ist nicht wirklich gut.
+Aber für mein Gedöns hier,
+bisschen IDE
+und Web-Entwicklung und Mikrocontroller-
+Entwicklung, Server-Anwendung,
+Command-Line-Tools und so, dafür ist es top.
+Ja genau, das ist richtig.
+Wenn's geht, läuft's relativ
+gut, aber vieles geht halt nicht.
+Ihr gibt es ja schon, aber das wird
+von 4M per Workstation nicht unterstützt.
+Hätte 4M per Workstation die Möglichkeit,
+eine Grafikkarte durchzureichen?
+Das wäre natürlich
+cool, da müsstest
+ihr nur überlegen, wie du das mit dem Video-Output
+wieder machst, aber können sie nicht.
+Zumindest nicht unter Windows.
+Ja, glaub ich auch nicht,
+dass 4M mit richtigen Wayland-Support ordentlich
+Das liegt
+aber halt auch daran, weil 4M sich das leisten
+kann. Das ist, weil Wayland
+und der jeweilige Desktop auch noch
+das ist halt, Linux-Desktop ist
+eh schon Nische as fuck.
+Dann Wayland ist
+nochmal noch mehr Nische und dann darauf
+noch Hyperland oder sowas.
+Was willst du sagen?
+Warum sollte 4M was machen für 5 User
+auf der Welt?
+Da ist der Rage gar nicht groß
+genug, das interessiert die überhaupt nicht.
+Man könnte jetzt
+sagen, ja gut, weil sie ein gutes
+Virtualisierungs-Produkt machen wollen, aber das geht 4M
+doch schon lange am Arsch vorbei.
+Das Jahr des Linux-Desktops, ich sag euch,
+wann das Jahr des Linux-Desktops war.
+Das Jahr des Linux-Desktops war so ungefähr
+2009 rum,
+als Ubuntu angesagt war
+mit Compits.
+Das war
+Next Level Linux-Desktop.
+Mit Würfeln und
+abbrennbaren Fenstern und das wichtigste
+Wobbly Windows.
+Geht das eigentlich für Hyperland?
+Wobbly?
+Wobbly Windows.
+Es wurde anscheinend nie gemerged, Wobbly Windows für Hyperland.
+Übrigens, dass
+man sieht, dass das tatsächlich
+relevant ist, was ich gesagt habe, mit Nische
+von der Nische, mit der Nische.
+Ich wette mit euch, wenn ich
+jetzt ein aktuelles
+keine Ahnung, Ubuntu installiere,
+mit einem Gnome drauf, was
+übrigens auch defaultmäßig unter Wayland läuft,
+auch in der 4M, da starten
+x-Programme wahrscheinlich.
+Ich gehe mal davon aus, dass wir da einfach
+funktionieren.
+Und da siehst du das Problem, dass
+die Implementierung der ganzen Wayland-Protokolle
+halt je nach Desktop-Umgebung und
+nach, ich weiß nicht, wie man es genau nennt,
+Wayland,
+Composite-Implementierung
+unterschiedlich ist.
+Und das Problem hat sie zumindest unter x nicht.
+x war immer scheiße.
+Aber wenn es ging, dann ging es.
+Wie Wobbly Windows aussieht, Moment.
+Das muss ich dir jetzt zeigen.
+Da ist das richtige massive
+Bildungslücke, wer kein Wobbly Windows kennt.
+Wobbly Windows.
+Will er das vielleicht mal zeigen heute noch?
+Ja.
+Hier, Wobbly Windows.
+Da ist es, da hast du es.
+Beste.
+Der beste Effekt.
+Leider ist das überhaupt nicht mehr so
+drin heute.
+Beste war das, Wobbly Windows.
+Das war das Ja
+des Linux-Desktops.
+Wayland ist in ganz vielen Fällen
+broken. Und das
+geile ist ja, dass man nicht mal
+wirklich sagen kann, Wayland ist
+broken, sondern man kann wahrscheinlich
+sagen, die jeweilige
+Implementierung der Wayland-Protokolle
+deiner gewählten
+Implementierung sind
+broken.
+Das ist halt auch schon wieder ein bisschen
+problematisch alles.
+Weil du dann Wayland-Fehler
+hast, in Anführungszeichen, die keine Wayland-Fehler
+sind, sondern halt wirklich dann
+Hyperland- oder Gnome-Fehler.
+Aber das hilft alles nichts,
+weil es die E50-User
+nur noch weiter unterteilt.
+Warum sollte VMware kehren
+dafür, wenn irgendwie
+drei Hyperland-User auf der Welt
+sich über irgendwas beschweren, was in
+der Welt nicht geht? Das geht VMware
+komplett am Arsch vorbei.
+Leider.
+Ich sehe auch ein bisschen das Problem,
+wie bei vielen größeren Projekten,
+es gibt auch gute Gegenbeispiele,
+bei Wayland sehe ich
+ein bisschen das Problem, dass sie super
+langsam mit allem sind, was man so als
+Außenstehender mitverfolgt,
+dass sie super langsam sind mit allem
+und dass die kleinsten Sachen,
+die kleinsten Änderungen
+über
+Monate
+zerdiskutiert werden
+und da der quasi, der
+weiß ich nicht, wie man das auf Deutsch sagen soll,
+mit
+seitenlangen Aufsätzen
+über grundsätzliche
+Sachen, ob
+Icons jetzt dieses Pixel-Format
+haben sollten oder andere,
+mit Aufsätzen übertroffen
+wird, mehrere A4-Seiten
+lang, dann hast du Merch-Requests,
+die sind 160,
+180 Seiten lang,
+mit Romanen drinnen,
+über
+Grundsatzdinger,
+das Pixel-Format
+war schon immer scheiße,
+wir brauchen jetzt das Byte an der Stelle und so,
+aber wie es der ursprüngliche
+Implementierer gemacht hat, das funktioniert
+unter Gnome nicht, aber Gnome ist eh egal,
+weil Gnome würde es eh nicht implementieren,
+die Gnome-Leute sind immer die geilsten
+in diesen Diskussionen, die Gnome-Leute,
+die kommen, also zumindest,
+wenn ich mir irgendwelche Wayland-Sachen angucke,
+die Gnome-Leute, die kommen in die Diskussion rein,
+und sagen, nein, nein, nein, das kann man
+so nicht implementieren, aber
+letztendlich ist es auch egal, weil Gnome
+wird es eh nie adapten.
+Ja, dann scheiß doch drauf, Alter!
+Das sind eh die geilsten, ne?
+Wayland-RS, ne?
+Ich glaube, der Zug
+ist abgefahren. Du kannst
+unter Linux nicht sagen,
+ja, wir bleiben einfach bei X,
+also das kannst du schon machen,
+aber du wirst immer, immer,
+immer zunehmend
+mehr Probleme kriegen,
+und Wayland
+kannst du auch nicht benutzen,
+weil vieles nicht richtig funktioniert.
+Ich glaube, wir sind, was Linux
+Desktop angeht,
+es ist ja nicht ganz korrekt,
+zu sagen, Linux Desktop,
+also quasi Linux Display
+Server, und selbst da kommen jetzt
+die Wayland-Leute schon an, und sagen,
+Wayland ist aber kein Display Server.
+Ähm, ein bisschen
+in der Sackgasse, was das angeht.
+Ich glaube, für so eine Technik
+ist es manchmal gar nicht verkehrt,
+wenn es einen großen
+Hersteller gibt,
+der mit ordentlich Entwicklungspower
+zumindest mal so
+die Grundlagen hinstellt,
+und
+die Meute
+vor vollendete Tatsachen stellt.
+Ich glaube, dass es in manchen
+Fällen, dass es einfach vorwärts
+geht, gar nicht mal so verkehrt.
+Wenn Microsoft heute,
+ich werde mit euch,
+ganz ehrlich, ich habe ernsthaft keinen Bock
+auf einen Microsoft Desktop
+unter Linux.
+Vor allem nicht, wenn er so kacke ist
+wie Windows.
+Aber ohne Scheiß, wenn Microsoft
+jetzt sagen würde,
+wir setzen auf Linux,
+wir bringen eine Oberfläche für Wayland
+raus, da würde Microsoft
+einfach ein Ja daran entwickeln,
+auf alles
+scheißen, was
+die Wayland-Typen sagen, ob ihnen das
+gefällt oder nicht, und am Ende
+hätten wir eine Desktop-Oberfläche,
+die wahrscheinlich ganz gut funktionieren würde,
+abfuck zu benutzen wäre, weil die Microsoft-Leute
+keine Ahnung haben, wie man eine gescheite Oberfläche
+baut, aber die grundsätzlichen
+Sachen so implementiert wären, dass sie
+funktionieren. Und dann
+würden sich wahrscheinlich alle an dem
+Art und Weise orientieren,
+wie das Microsoft gemacht hat,
+und das hätte die ganze Sache
+mit Sicherheit ein bisschen vorangebracht.
+Auch wenn die Oberfläche wahrscheinlich für den Arsch wäre.
+Aber da werden einfach ein paar
+Sachen etabliert, und die Leute würden vor vollendete
+Sachen stehen, so nach dem Motto, okay,
+so benutzt man es halt nun mal, warum?
+Ja, weil sich das Microsoft mal überlegt hat.
+Ja, wie gesagt,
+das ist ja auch der Grund, warum es VMware sich leisten
+kann, und zu
+sagen, uns interessiert
+das schlicht und ergreifend nicht, ob unsere
+GPU-Implementierung da
+verkackt ist unter Linux.
+Denen einfach egal. Oder für Wayland
+verkackt ist, weil die Wayland-User
+kannst du, VMware-Wayland-User, kannst du ja in
+einer Hand abzählen, und
+dann noch
+die passende Desktop-Umgebung,
+das kannst du knicken, ja.
+Und manche kriegen es ja hin, ja. Ich bin mir ziemlich,
+ich bin mir ziemlich sicher,
+dass wenn ich ein aktuelles Gnome in der
+VM starte, VMware, dass das Ganze funktionieren wird.
+Auch mit X-Programm.
+Wollen wir das mal machen? Machen wir jetzt.
+Müssen wir nur eine Live-CD starten. Dauert zwei Minuten.
+Wir starten jetzt mal ein aktuelles
+Ubuntu, ich hab die VM schon gelöscht, ich kack nur.
+Wir starten jetzt mal ein aktuelles Ubuntu.
+Was ja unter, was ja, was ja mit Wayland
+läuft. Ah, hier, zack.
+Ja, fünf Kerne.
+Acht Gigabyte.
+Ah, kann ruhig mit Nutt laufen, ist
+mir egal. Ja.
+Printer weg.
+Ah, Soundkarte, meinetwegen. Ah, zack.
+Finish. So.
+Das wird wahrscheinlich einfach laufen. Schauen
+wir mal. Ah, Moment, Moment, Moment, Moment.
+Ja, deswegen, ich kann,
+ich verstehe das voll und ganz, dass die
+Leute lieber macOS benutzen.
+100 Pro?
+100 Pro?
+Also, ich persönlich
+bin auch kein großer Fan
+der macOS GUI.
+Aber du hast bei macOS wirklich
+eine ganz gute Verbindung
+aus, es ist
+genug Linux drin,
+bzw. BSD ist es ja eigentlich.
+Es ist genug Unix unter der Haube
+drin.
+Ja, aktuell ist genau.
+Und auch an
+Linux Packages
+gibt es genug, dass es dich nicht abfuckt.
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+prinzip jedes mac os exakt gleich aussieht das hat seine vor- und nachteile
+ja gibt ja auch gibt ja nicht nur nachteile dadurch gibt ja auch vorteile
+wenn du sagst okay das system ist überall einheitliche sieht wenigstens
+überall nicht kacke aus mein mein fall ist es nicht ja und auch dass ich das
+window management und herr merkel es ist alles super hakelig anfühlt aber kein
+ding ist okay zumindest kannst du dich darauf verlassen dass es funktioniert
+und nicht dass du ein programm startest und wenn es den google öffnen öffnen
+willen kompletten desktop crasht also deswegen verstehe ich dass es viele
+entwickler mögen weil du hast die kombination aus eigentlich so gut wie
+alle entwickler tools command line tools ordentliches terminal hast mit item 2
+beispielsweise auch du hast eine gute umgebung mit allen tools die du brauchst
+ja docker und so ist halt vielleicht bissel eklig aber geht auch also das
+meiste geht mittlerweile und du hast technisch alles da was du brauchst also
+deswegen ich würde als entwickler auch mac os windows eindeutig
+vorhaben
+vorziehen linux nicht zumindest nicht in der art und weise wie ich es
+eingerichtet habe aber wenn ich mich entscheiden müsste dazwischen kaputte
+kaputtes wayland linux was sie richtig funktioniert windows oder mac os ich
+würde auch mac os nehmen ja das stimmt schon natürlich apple hat
+einen riesenvorteil dass sie den kram selbst baut wofür sie den kram
+programmiert klar ist mir aber als user egal wenn du einfach was willst was
+funktioniert ist das ist ja kein
+richtiger pluspunkt so du kannst sagen ist halt so ich verstehe dass so ist
+aber wie war das jetzt noch mal sich anzuzeigen lassen ob man unter wayland
+läuft ich habe schon wieder vergessen habt habt install xs x11 app wayland
+session oder irgendwie so ging das doch
+ok
+echo xtg irgendwas xtg session type
+ach es ist x11 ok kann man nicht mittlerweile ist das nicht
+standardmäßig wayland mittlerweile ubuntu hätte ich eigentlich gedacht aber
+anscheinend nicht ok ja dann nicht aktuelles fedora nehmen hätte eigentlich gedacht
+ja aber aktuelles fedora ist gut fedora ist so ein bisschen das vielleicht nicht beim live iso das stimmt schon
+vielleicht nicht beim live iso das stimmt schon vielleicht nicht beim live iso das stimmt schon
+Fedora ist ja so ein bisschen das Vorzeige Wayland Ding. Was ist denn das aktuelle? 40? Genau, jawoll.
+Wieso sollte das Wayland sein? Weil ich dachte, dass es Default ist mittlerweile. Also Fedora
+wahrscheinlich. Fedora die machen schon lange Werbung dafür, dass sie jetzt Default Wayland
+haben. Schauen wir mal, wie es in der VM ist. Ja, so sehe ich das mit MacOS auch. Gibt es sogar Leute,
+die verwenden Docker unter Windows, was halt richtig fake ist. Downloadet das jetzt irgendwas?
+Ja, macht einfach gar nichts. Docker unter Windows ist halt richtig, richtig Fakeware.
+Es ist ein Linux VM unter der Haube. Ja, muss ja. Docker unter jedem Betriebssystem außer Linux
+muss fake... Wobei, der Fairness halber muss man das jetzt ja auch trennen zwischen Container Runs
+Time und Docker. Docker ist ja letztendlich nur das, nehmen wir es mal, das UI dafür. Aber Linux
+Container laufen halt nun mal nur unter Linux. Dementsprechend sind halt Linux Container unter
+Mac und Windows Fake. Also irgendwelche VMs, wie es unter... Okay, Fedora boot nicht. Drauf
+geschissen. Hat keinen Bock. Weg damit. M. Spend. Okay, Leute. Ich hoffe, euch hat es gefallen. Wenn
+es euch gefallen hat, dann freue ich mich natürlich sehr, wenn ihr jetzt einmal Follow klickt.
+Dann werde ich auch notifiziert beim nächsten Stream. Ich bin morgen früh wieder am Start,
+so gegen neun, denke ich mal, so in dem Dreh. Also morgen hier, so irgendwann so irgendwie um neun Uhr
+rum. Wer noch ein bisschen Geld an Bezos überweisen will und noch einen freien Prime Sub hat, freue ich
+mich natürlich auch sehr drüber. Morgen neun Uhr bin ich wieder am Start. Gucken wir mal, was sich
+die Woche so getan hat. Hab gesehen, es gibt ein neues. Ein neues Lohnsichters Video. Das guck ich
+mal sonst gern. Mal schauen, was uns YouTube sonst noch so empfiehlt.
+Was? Ein Tiefdrucker. Ein was? Äh, Kebab Chris und Don Sgitor. Subscription. Danke, Leute. Sehr,
+sehr nice. Ich auch nicht. Ich geh jetzt auf. Wir hören uns morgen früh. Bis denn. See you.
+Ciao.
