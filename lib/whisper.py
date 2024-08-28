@@ -1,5 +1,6 @@
 import json
 import os
+from typing import Literal
 
 import torch
 from faster_whisper import WhisperModel, format_timestamp
@@ -8,10 +9,9 @@ from tqdm import tqdm
 
 
 class ArchivWhisper:
-    def select_device(self) -> str:
+    def select_device(self, device: Literal["cuda", "cpu"] = "cuda") -> str:
         """sets the device being used by whisper. cuda or cpu"""
-        device = "cuda"
-        if not torch.cuda.is_available():
+        if device == "cuda" and not torch.cuda.is_available():
             device = "cpu"
             print(colored(
                 "CUDA IS NOT AVAILABLE! Whisper will run in CPU mode which is 3-4x slower... Please set up cuda.", "yellow"))
@@ -58,14 +58,16 @@ class ArchivWhisper:
 
                 # vtt
                 final_vtt += "\n"
-                final_vtt += f"{format_timestamp(segment.start)} --> {format_timestamp(segment.end)}\n"
+                final_vtt += f"{format_timestamp(segment.start)} --> {
+                    format_timestamp(segment.end)}\n"
                 final_vtt += segment.text.strip() + "\n"
 
                 # srt
                 if final_srt != "":
                     final_srt += "\n"
                 final_srt += f"{segment.id}\n"
-                final_srt += f"{format_timestamp(segment.start, True, ',')} --> {format_timestamp(segment.end, True, ',')}\n"
+                final_srt += f"{format_timestamp(segment.start, True, ',')} --> {
+                    format_timestamp(segment.end, True, ',')}\n"
                 final_srt += segment.text.strip() + "\n"
             pbar.n = pbar.total
 

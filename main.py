@@ -53,7 +53,7 @@ def run_transcribe():
 
     # get the device to run whisper on
     whisper = ArchivWhisper()
-    whisper_device = whisper.select_device()
+    whisper_device = whisper.select_device(args.device)
 
     # transcribe each vod
     i = 0
@@ -133,6 +133,8 @@ if __name__ == "__main__":
     transcribe_parser.add_argument("-m", "--model", choices=["tiny", "tiny.en", "base", "base.en", "small", "small.en",
                                    "medium", "medium.en", "large-v1", "large-v2", "large-v3"], default="large-v3",
                                    type=str, help="Whisper language model")
+    transcribe_parser.add_argument("-d", "--device", choices=["cuda", "cpu"], default="cuda",
+                                   type=str, help="Device which runs the model")
 
     # parser for post
     post_parser = subparsers.add_parser(
