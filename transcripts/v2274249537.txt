@@ -1,0 +1,3020 @@
+Seid aber schnell am Start, Leute.
+Der Stream ist ganz knapp eine Minute erst online.
+Ja, das werden wir heute sehen.
+Wie gut das mit JavaScript alles funktioniert.
+Also, der Plan ist folgendes, das muss ich eh heute noch 30 Milliarden mal sagen, deswegen sage ich das gleich.
+Der Plan ist folgendes, wir bauen das gleiche Tool.
+Das wird nicht sonderlich kompliziert, aber ich weiß auch schon genau, was wir bauen.
+Und der Grund, warum wir das bauen, ist, weil ich das brauche und ich hab was, das hab ich vor 3-4 Jahren schon mal gebaut, aber ich finde den Source Code nicht mehr.
+Das war mir wohl damals sogar schon zu unbedeutend, das hab ich noch nicht mal bei mir lokal ins Shit-Repo gepusht.
+Also, was ich jetzt gemacht hab ist, das war ein .NET Programm.
+Was ich jetzt gemacht hab ist, ich hab mir vom Raspberry Pi im Keller die .NET-DLL runterkopiert, dekompilt und die wichtigsten Parts rüberkopiert, dass ich hier abgucken kann, okay?
+Das heißt, wir bauen das gleiche Tool in C-Sharp, in JavaScript und in Go.
+Also, oder besser gesagt in .NET, in Deno 2.0, ja, oder in Go.
+So, was ist es denn? Ja, das sag ich, da warte ich jetzt mal kurz.
+Also, na gut, wie gesagt, ich muss das eh 580.000 mal erzählen heute.
+Also, was ist es? Es ist folgendes.
+Es ist ein Tool für den Raspberry Pi.
+Das heißt, es muss auf jeden Fall schon mal auf Arm laufen.
+Es ist ein ziemlich, es ist ein Raspberry Pi 3, glaube ich.
+Oder 2? Ich glaube 3. Ich glaube, es ist ein Raspberry Pi 3.
+Der steht bei mir im Keller.
+Der hat einen Sensor dran.
+Und es ist ein altes Debian.
+Es ist ein Debian, weiß nicht.
+Das ist 2020 oder so.
+So, und ich will den Raspberry Pi auch nicht updaten.
+Der steht im Keller und der steht da am Arsch der Welt.
+Und der soll da auch stehen bleiben.
+Also, ich mache kein OS-Update.
+Was das Tool macht, ist folgendes.
+Das liest einfach Sensorwerte aus.
+Und wenn die Sensorwerte über einem gewissen Level sind, kurz,
+dann triggert das einen Zip-Call an meine Fritzbox.
+Das heißt, der macht keinen richtigen Call.
+Der lässt bloß klingeln, dass ich weiß, dass das Sensor über einem gewissen Wert ist.
+Was für ein Sensor?
+Ein Analog-zu-Digital-Konverter.
+Der liest Spannungen aus.
+Und wenn das über 19 Volt ist, dann soll der einen Zip-Anruf triggern.
+Das funzt auch.
+Ich habe da auch was auf dem Raspberry Pi liegen, was prinzipiell funzt.
+Aber das macht noch mehr und ich habe den Source-Code nicht mehr dafür.
+Das ist simpel.
+Es ist wirklich simpel in .NET.
+Das sind vielleicht, weiß ich nicht, 50, 60 Zeilen ins Gerät.
+Insgesamt mit allem, mit Zeremonie drumherum.
+Das ist wirklich simpel.
+Das einzige mit dem Sensor auslesen, weiß ich noch, war ein bisschen kompliziert, bis das funktioniert hat.
+Das heißt, wir brauchen prinzipiell Libraries für den Sensor.
+Und um einen Zip-Call zu machen.
+Und das Ganze muss irgendwie sich am besten Cross-Compilen lassen für 32-Bit ARMv7.
+Oder was ist der Raspberry Pi 3?
+Und dann kann man es darauf ausführen.
+Also ich bin mir relativ sicher, dass die beste Sache, die wir benutzen können, eigentlich Go wäre dafür.
+Weil Go ist einfach das Beste, wenn es um Self-Contained Binaries geht.
+Aber ich bin mir nicht so sicher, wie es mit IoT-Ready, oder sagen wir IoT ist vielleicht das falsche Wort,
+wie es mit Raspberry Pi und Sensor-Libraries für Go aussieht.
+Wir machen das übrigens, by the way, nicht in Python.
+Und wisst ihr auch, warum wir es nicht in Python machen?
+Was könnte der Grund sein?
+Nein, das ist nicht das Problem.
+Es ist zu einfach.
+Es ist zu einfach in Python.
+Es ist zu einfach.
+Weil es gibt eine offizielle Library für den Sensor vom Hersteller für Python.
+Und den Zip-Call machen, mache ich im Zweifelsfall einen Shell-Exec in Python.
+Das Problem ist aber vielmehr, dass mich Python abfuckt.
+Und zwar aus einem Grund.
+Gar nicht von der Sprache an selbst.
+Packaging von Programmen in Python ist einfach kompletter Abfuck.
+Also wenn sowas in JavaScript mittlerweile schon besser funktioniert, das heißt echt was.
+Programmieren in Python und so, gar kein Problem, finde ich eigentlich so gar nicht ganz gut.
+Aber das Packagen von Anwendungen, am besten als Executable, dass das einfach auf eine Kiste schieben kann,
+das ist extremer Abfuck.
+Ja, ne, so einfach geht das nicht.
+Das geht schon mal gar nicht einfach.
+Wenn ich das auf eine x86...
+x86-Kiste für eine ARM-Kiste machen will.
+Und es geht auch schon immer einfach, wenn die Kiste, auf der ich das Package baue, deutlich neuer ist, als ein alter Raspberry Pi, der im Keller steht.
+Das ist das...
+Ich kenne das.
+Ich kenne das.
+Das ist alles in der Theorie, ist das ganz toll, aber in der Praxis fällt das ziemlich.
+Ja, oder beispielsweise, nehmen wir mal ein besseres Beispiel.
+Du hast einen Entwicklerrechner, der hat ein relativ neues Betriebssystem drauf.
+Du nimmst dein Python-Programm, bastelst das zu einem Executable, dann schiebst es auf ein CentOS.
+Also auf einen Red Hat 8, CentOS gibt es ja nicht mehr, oder auf einen Rocky Linux 8 oder was auch immer, auf einen Red Hat, Red Hat Linux 8 Server.
+Und stellst fest, bam, geht nicht, weil GLEP-C zu alt oder sowas.
+Ist auf dem Pi kein Python installiert, doch, aber irgendein altes.
+Ja, Moment, aber ich habe ja Dependencies.
+Ich habe mal zumindest Dependencies auf die Library für die Sensoren und für ZIP.
+Also irgendwie, irgendwie so eine Self-Contained Binary, was alles enthält.
+Oder, oder...
+Zumindest, sich zumindest starten lässt, wäre eigentlich ganz nice.
+Also das Packagen von Apps ist in Python wirklich der allergrößte Abfuck.
+Aber prinzipiell die eigentliche Entwicklung dieses Tools ist in Python tatsächlich zu einfach.
+Die größte Herausforderung dabei wäre wahrscheinlich wirklich das zu, das zu packagen.
+Also, hallo, meine Tastatur wird nicht, äh, doch jetzt.
+Wir machen da erstmal Update.
+Besser Perl, in Perl glaube ich kann ich den Sensor noch nicht mal auslehnen.
+Gibt es ein ADS1015 für Perl?
+Äh, okay, Pleading Edge-Technologie, 0 Sterne auf GitHub und äh, sieben Jahre alt.
+Nice, das brauchen wir.
+Ja, also ganz generell, äh, Python Apps Packagen ist übelster Abfuck.
+Ich weiß gar nicht, warum die, warum, warum das so kacke ist.
+Ich habe jetzt letztens ein Tool g-gesehen, da habe ich ein Video zu gesehen, das nennt sich UV.
+Das soll das wohl in Zukunft alles ein bisschen einfacher machen, aber das kann beispielsweise noch keine fertigen, also kann noch keine, natürlich,
+written, pleasingly fast, written in Rust und in C++ teilweise, was sonst.
+Ähm, das kann wohl noch keine gepackagten Apps in, äh, Binaries packen.
+Mal gucken.
+Also das ist auf jeden Fall was, was man im Auge behalten muss.
+Und was ich auch letztens gefunden habe.
+Ox.
+Ein, mal wieder 30 Milliarden das JavaScript Tool.
+Diesmal anscheinend vom Erfinder von Vite und Vue.js.
+Written in Rust, pleasingly fast, was sonst.
+Alles pleasingly fast, was die Krustentiere so anfassen.
+Und das kann wohl JavaScript parsen, linden, formaten, transformieren, minifilen, resolven, was auch immer.
+So soll man nächstes Mal ausprobieren.
+Ja, FNU hat sich jetzt gedacht, er gründet mal eine eigene Firma und macht ein bisschen Geld mit seinem Open Source Zeug.
+Hat er auch recht.
+Naja.
+Das krank, also, ich habe einige dieser Tools ausprobiert.
+Die meisten kranken genau an den zwei Sachen, die ich vorhin gesagt habe.
+Erstens ist es unglaublich schwierig, was Cross zu Compilen.
+Von einer Person.
+Von einer Plattform auf die andere damit.
+Was gar nicht so wild wäre.
+Man hat ja letztendlich die Zielplattformen und die Zielbetriebssysteme.
+Hat man ja zur Verfügung meistens.
+Und dass die meistens auch abhängig sind von Libraries, die sich zum Compile-Zeitpunkt eben auf dem Compile-Rechner befunden haben.
+Und dementsprechend schlecht rückwärtskompatibel sind.
+Das heißt, man braucht dann erstmal am besten einen CentOS 8 oder sowas Docker-Container, um es da drin zu Compilen, dass es schön alt ist.
+Oder einen Ubuntu 18.04 oder sowas, dass es schön auf vielen Kisten läuft.
+Das ist aber was, das haben alle Tools in dieser Richtung.
+Außer Go.
+Außer Go.
+Ja.
+Also die meisten Sachen haben diese Probleme.
+Außer Go.
+Go ist, was das angeht, Self-Contained Binaries, das Beste, was es gibt.
+Das Problem bei Go ist bloß, sobald du Interop mit irgendwas brauchst, was nicht Go ist, dann nützt es wieder Abfuck.
+So eine rundum schöne Lösung, die toll ist für alle, sie gibt es halt einfach nicht.
+Icefreak, Dankeschön für den Satz.
+Hast du dich umbenannt oder warst du schon immer so krass?
+Was für ein Leadspeak?
+Also das ist ein bisschen, aber dass das I vorne auch jetzt eine 1 ist, das kann ich mich nicht dran erinnern.
+Oder hast du, hast du verleadspeakifiziert in letzter Zeit noch mehr?
+Warst du schon immer in der Form?
+Okay, ja gut, dann.
+So, wir haben geupdatet alles.
+Wie sieht es aus mit Our Pack Visual Studio Code?
+Natürlich, was sonst?
+Das ist ja auch jedes Mal am Start.
+So, gibt es hier was zu updaten?
+Nein.
+Dann würde ich jetzt sagen.
+Rrrrrr.
+E-Boot.
+Passt.
+Oh, na gut, ich warte mal, bis er fertig ist.
+Ja, und das werden wir heute machen.
+Wir werden dieses gleiche Tool, wir werden das gleiche Tool bauen in .NET, in Deno und in Go oder halt in C-Sharp, in JavaScript und Go.
+Auf dem Raspberry Pi wohlgemerkt.
+Also ich werde das programmieren hier auf meiner Kiste, aber ausführen werden wir es auf dem Raspberry Pi im Keller.
+Mal gucken, wie wir das machen.
+Ich bin mir da selbst noch ein bisschen unschlüssig.
+Wahrscheinlich mounte ich mir einfach einen PSSHFS, einfach ein Verzeichnis vom Raspberry Pi und PSSH.
+Führe ich es dann aus oder irgendwie sowas.
+Arzi, danke für den Sub.
+Exzellente Subscriptions, Leute.
+Richtig porge.
+Warum genau diese drei Sprachen?
+Weil ich die nach strengen wissenschaftlichen Kriterien im Vorfeld ausgewählt habe.
+Mir fällt aber sonst ehrlich gesagt auch nichts anderes ein, in dem wir es gescheit machen könnten.
+Fällt euch sonst noch irgendwas Sinniges ein für diesen Anwendungsfall?
+Jetzt kommt mir nicht mit Python, das habe ich schon erklärt, warum nicht.
+C++ kommt jetzt wahrscheinlich gleich, Leute.
+Ich warte noch darauf, dass irgendeiner C++ oder irgendwie sowas erzählt, ja?
+Hast du schon mal Rust programmiert?
+Ja, sogar im Stream.
+Also mit Rust?
+Ganz ehrlich, mit Rust wäre eine Option tatsächlich.
+Rust.
+Gibt es dafür eine gescheite Library?
+Ja, gibt es.
+Ok, Leute.
+Rust.
+Also Rust wäre...
+Äh, sieht man da irgendwo den Source Code?
+Wo der herkommt?
+Wo der herkommt?
+Von irgendeinem Github-Repo?
+Sieht man das?
+Chatge...
+Habt ihr irgendeine Ahnung?
+Wenn ihr irgendwo sehen könnt, aus welchem Github-Repo das Ganze kommt?
+Ne, oder?
+Sieht man... sieht man nicht.
+Zu overrated, outdated, jebaited.
+Wenn man den Source Code sehen will.
+Das da vielleicht, das ist das bestimmt.
+Ja.
+Geht das für einen Raspberry Pi?
+Ist bei euch übrigens auch heute die ganzen Tag schon die Githubsuche kaputt?
+Ach, jetzt geht's auf einmal.
+Jetzt geht's auf einmal. Wenn man ein bisschen klickt, dann geht das.
+Ok, Rust.
+Rust könnten wir tatsächlich auch mal ausprobieren.
+Aber nicht...
+What the fuck, da bist du ja blind hier.
+Aber nicht heute.
+Hast du das mit der Wayback-Maschine mitbekommen?
+Ne, wieso?
+Du meinst das Internet-Archiv?
+Ach, ne, oder?
+Ah, der Umbau. Ok, das kommt aber wieder.
+Ne?
+Weil das Internet, das ist legit eine der wichtigsten Seiten, die es gibt.
+Weil das Internet, das ist legit eine der wichtigsten Seiten, die es gibt.
+Und das ist auch nix,
+wo man einfach mal sich lokal backuppen kann.
+Weil ich hab letztens gelesen...
+Chatge, ratet mal, nicht nachgucken.
+Ratet mal,
+wie viel Gigabyte, Terabyte, Petabyte
+oder was es sonst noch gibt, das Internet-Archiv aktuell
+groß ist.
+Archive.org
+Ich hab das letztens gelesen auf Hacker-News,
+glaub ich. Ratet mal.
+Ziemlich gut. Ziemlich gut.
+99 Petabyte.
+99 Petabyte.
+Der Hype-Train ist am Start.
+Da wären wir nicht drauf gekommen.
+99 Petabyte.
+99 Petabyte.
+Habe ich letztens irgendwo mal gelesen.
+Reboot.
+Ich gehe davon aus, die werden gesponsert.
+Übrigens...
+Jetzt wird hier Werbung.
+Wenn ihr nicht wisst, wohin mit eurer Kohle und auch Prime-Subs übrig habt,
+wenn ihr nicht wisst, wohin mit eurer Kohle und auch Prime-Subs übrig habt,
+wäre es sehr porge...
+Lass mal kurz migrieren, ja.
+Lass mal kurz migrieren, ja.
+Was ich wieder...
+Ist da was?
+Ich habe keine Ahnung.
+Ich weiß nur, dass Apple-Cloud-Gedöns auf Google-Cloud läuft.
+Ich weiß nur, dass Apple-Cloud-Gedöns auf Google-Cloud läuft.
+Oder Apple...
+Also der ganze Apple-Cloud-Storage-Kram läuft wohl auf Google-Cloud.
+Also der ganze Apple-Cloud-Storage-Kram läuft wohl auf Google-Cloud.
+Also eigentlich gibt es Apple-Cloud gar nicht.
+Also eigentlich gibt es Apple-Cloud gar nicht.
+Chat, was ist der größte Cloud-Anbieter?
+Wer weiß es aus dem Kopf?
+AWS.
+Chat meint AWS.
+Ihr habt Recht.
+AWS. Was heißt AWS, da kommt ihr jetzt aus dem Kopf.
+der zweitgrößte?
+Ne, ne, ne. Alibaba-Klauseln.
+Was ist der zweitgrößte?
+Azure? Ja, richtig.
+Ne, der zweitgrößte ist Azure.
+Google ist gar nicht so groß.
+Also Google
+ist richtig klein im Vergleich
+zu AWS und Azure.
+Ich glaube,
+AWS hat 30% Marktanteil,
+Azure 25% oder so.
+Google hat 8%
+oder so was. Oder 10% mittlerweile vielleicht.
+Also
+GCP ist echt
+nicht mal ansatzweise so groß wie
+AWS oder Azure.
+Und irgendwo dazwischen ist glaube ich auch noch
+die Alibaba-Cloud.
+Und ich glaube, bei den Amis ist Salesforce
+auch voll beliebt.
+MonkaS.
+So. Chat-Gil.
+Dann legen wir uns doch mal
+ein Repo an.
+Wart ihr alle schon rechtzeitig da und wisst,
+um was es geht?
+MKDier. Zip.
+Zip.
+Klingel.
+Champ.
+Hat das Ding wenigstens einen ordentlichen Namen.
+Naja gut, ordentlich ist
+fragwürdig.
+So. Dann machen wir mal einen Ordner
+für
+den .NET-Code, für den JavaScript-Code
+und für den Go-Code.
+Und wir fangen an, das Ganze in .NET
+zu bauen.
+Und ich logge mich mal auf meine
+Raspberry Pi ein.
+Ich hab mir hier mal die IP-Adresse rauskopiert.
+Von meinem
+Raspberry Pi. Das brauchen wir übrigens. Alles nett.
+Äh.
+Ich hoffe, da hat er Standard-Passwort.
+Oh.
+Hab ich aber nochmal
+Glück gehabt, Alter. Hab ich nochmal
+Glück gehabt.
+IP-Leak. Fuck.
+Chat.
+Jetzt ist vorbei.
+Seid ihr schon eingeloggt?
+Seid ihr schon am Start?
+Bis dem Local Host. Ja. Ich hab nix anderes
+erwartet von euch.
+So. Machen wir mal hier. MKDier. Zip.
+Bell. Champ.
+So. Time's minute.
+Was denn?
+Okay.
+Lert.
+So. Um das mal zu zeigen. Das ist ein ziemlich
+altes Debian von 2021.
+ETC Debiaaan
+Version 10?
+War das Buster?
+Was war das?
+Buster. Ja.
+Also, ich hab es wohl schon mal geupdatet. Ganz
+so extrem alt ist es nicht.
+ein bisschen älter das letzte habe ich 10 10 geupdatet 10 10 war okay 2021 mitte 2021 also
+ist das ungefähr drei jahre alt dass es da drauf ich update das jetzt aber auch nicht mehr kommt
+nicht auf die idee dass jetzt etwas so nach dem motto mach mal kurz war mal kurz und ab ich fast
+den raspberry pi nicht an ich habe auch keinen bock jetzt den keller zu müssen falls das ding
+nicht mehr puten oder sowas platz ist auf jeden fall genug drauf so gut wie so gut wie nix so gut
+wie nix voll das ist 32 gig ssd drin mit x4 noch was sonst so also dann werde ich jetzt noch mal
+kurz erklären was wir machen wir bauen das gleiche tool in c sharp in javascript und in go bzw in
+dotnet in den o und in go was das ganze machen soll ist folgendes an dem raspberry pi ist ein
+sensor dran nämlich ein analog digital konverter ein ads 10 15 das so ein teil hier oder eher so
+ein teil hier und der kann spannungen auslesen von null bis zwölf
+24 volt zumindest die sensor variante die ich habe 0 bis 24 volt und da hängt im endeffekt was dran
+am input und ich will sobald am input über 19 volt sind analog digital konverter will ich was
+auslösen mit dem programm und zwar einen sip anruf aber was ich auslösen will ist eigentlich gar
+nicht so so relevant das auslösen kann man ausprobieren das wird ein zip call träger
+einen web call trägern gegen meine fritz box und ich habe hier leute ich weiß nicht was hört hier
+habe ich das telefon liegen wenn das telefon dann klingelt dann wissen was funktioniert so und ich
+habe das schon mal gemacht in dotnet das liegt doch irgendwo auf der kiste rum gegen den kein
+gigaset sein dass ein fritz phone ich habe das auch schon mal gemacht also ich ich habe dann
+dort ein programm was das macht was ich will das ding ist ich habe den source code nirgendwo
+bloß noch die dls die auf der auf der raspberry pi kiste liegen ich habe das ganze genau altes
+projekt des zeichnen ja was heißt recyceln ich brauche ich wollte ja was daran ändern aber ich
+habe den source code nicht mehr ich habe das ich habe das sehr kompakt und hat mir die wichtigsten
+sachen schon raus kopiert das kann ich kann euch das die komplette nicht zeigen weil ein
+paar passwörter und so drin steht natürlich hardcoded im software score wo sonst ja
+die richtigen sachen habe ich wäre aus kopiert die wir die wichtigsten sachen
+sind im prinzip eigentlich nur wie das funktioniert mit dem sensor und wie ich
+das gemacht habe mit dem anrufen an die fritzbox das habe ich alles hier das ist kein problem das
+ist easy ja und das besser werden es jetzt schnell im dotnet bauen ich weiß gar nicht
+übrigens ich bin mir nicht sicher ob ich glaube heute werden wir da wahrscheinlich
+nicht fertig werden wenn wir glück haben schaffen wir heute dort nett und eine der abende die f
+weg geht und man chanting hat dann i- ts automated wir weg aus � grünen mit der 2010 hauptsacheCEA government die Rare Guest Marketing聚jub,
+Sprachen. Wir bauen das jetzt als erstes
+schnell in .NET, weil da habe ich das letzte Mal
+auch gebaut und weiß noch ungefähr, was ich
+gemacht habe. Das wird nichts Großartiges.
+Machst du auch schön Benchmark mit
+Prometheus und Grafana? Ne.
+Wozu sollte
+ich da was mit Prometheus und Grafana machen?
+Jo.
+Wir machen das, wie gesagt, wir werden das schnell in .NET
+machen. Schnell. Schnell ist nicht
+Stunde oder so. Keine Ahnung.
+Wir werden das schnell in .NET machen. Gucken, ob
+alles funktioniert. Ich muss mir jetzt nur überlegen,
+wie ich das
+gescheit mache, weil
+entwickeln will ich ja lokal hier auf meiner
+VM. Ausführen will ich
+das Ganze auf dem Raspberry Pi.
+Was haltet... Okay, ich
+habe eine Idee. Wir machen erst mal .NET
+New Console App.
+Dann
+bauen wir Rider auf und öffnen
+die Hello World App drin.
+Open.
+Advent of Code, keck, wait,
+Alter. Repos,
+zip,
+zip,
+champ, .NET,
+yes, trust,
+trust us.
+Äh, das machen wir von Hand
+auf der Command Line, das machen wir nicht über
+Java. Okay, Chat,
+Chat, Chat, Chat.
+Ich, ich, ich hab, ihr habt mich auf eine Idee
+gebracht. Ich halte mir für die,
+für den nächsten Stream nochmal zwei Sachen offen.
+Und zwar
+das Zip-Tool
+in Rust und
+wir machen nicht Java, wir machen Kotlin, okay?
+Weil auf Java stellt's
+hab ich keinen Bock.
+Aber, aber erst mal, aber erst mal
+Deno, Go und .NET.
+Zick, nee.
+Das ist bei mir unten durch.
+Wisst ihr, ich hab das, ich hab damit schon ein bisschen
+rumgebastelt. Die Pointer-Syntax-
+Insekt, die ist ja so ultra-abfucked.
+Das war irgendwie sowas.
+Sternchen, Punkt, Sternchen und sowas.
+Lul.
+Ich dachte immer C++,
+beziehungsweise C ist hässlich.
+Was Pointer-Syntax angeht, Alter.
+Aber das ist wirklich der Gipfel
+der hässlichen Pointer-Syntax.
+Ich mein, immerhin sieht's aus wie, wie so ein
+wie so ein Gesicht, was Sternchen-Augen
+hat, aber nee.
+Da kann man sich drüber streiten, da würden sicherlich
+einige widersprechen, aber in Python machen wir's nicht.
+Aber du meinst die Schlange?
+Ja, gut, die ist.
+Wow, warum ist denn das so fett?
+Pepo, Pepo-Fett.
+Source-Code.
+Moment.
+18 Point, ja, das sieht doch schon
+besser aus.
+Chat, das kann man immer noch gut erkennen, oder?
+Kann auch ein bisschen größer machen.
+Also, wie machen wir das Ganze denn jetzt,
+dass ich das schön ausführen kann
+auf meinem Raspberry Pi?
+Also ich mein hier, lokal läuft das Ganze schon mal easy.
+Ja.
+Also.
+Cute Chat.
+Bestes Beispielprogramm.
+Craplang, das gibt's doch, das hat's doch
+keine,
+hat doch nicht Fahrt aufgenommen,
+Craplang, oder?
+Das war mal so ein,
+so ein,
+ähm, nicht Crab, Crab, also,
+Krabbel, das war mal so ein Rustfork.
+Aber,
+da tut sich nix, nix wirklich.
+Okay, wie machen wir das denn jetzt am besten, dass, ähm,
+ich den Krempel,
+also wir machen als erstes mal ein gitignore-File.
+Da kommt mein IDE-Folder rein,
+Object, bin und, und
+Bild und, und Output, oder wie heißt das?
+Keine Ahnung.
+So, das reicht erst mal.
+Dann machen wir ein git init da drinnen,
+dass wir nix verpassen.
+Ja, add.
+Okay, da ist nix
+reingewandert, was nicht reinwandern soll.
+Mir ist übrigens aufgefallen,
+dass das Projekt
+net heißt.
+Das gefällt mir nicht.
+Das muss ich noch mal,
+muss noch mal weg.
+Wir machen, ähm,
+Console new,
+und wie geht das dann? Help?
+Project.
+Oder?
+Ach, minus name.
+Minus n.
+Äh, ja, so soll das heißen, wie
+der Ordner oben drüber.
+Ach so, ich kack noob.
+Jetzt hab ich ja null.
+Das war natürlich sehr schlau, Max.
+Jetzt hab ich natürlich,
+aber ich habe immerhin mein div,
+ja, mein gitignore gelöscht.
+Aber da haben wir's wieder.
+Okay. Okay, nice.
+So, das gefällt mir schon besser.
+Gut.
+Also, dann müssen wir das ganze noch mal neu öffnen.
+Weil das natürlich kaputt gegangen ist,
+wenn ich den Ordner gelöscht hab.
+Äh, repos zip
+dot,
+ne, das ist zip net
+und
+Moment, hat der jetzt
+nen Ordner da drin gemacht? Du sollst da keinen Ordner drinnen machen.
+Dot net stels macht's
+einem manchmal echt schwer.
+Ich will, dass das Projekt so heißt,
+aber im Ordner net ist.
+Okay.
+Dann machen wir das ganz einfach.
+Wir kopieren einfach
+der Program
+und das da hier hin.
+Project.
+Kopieren das hier hin
+und löschen
+das da.
+Dot net run.
+So, sollte immer noch
+funktionieren. Jawoll.
+This window.
+Okay, gut. Kunst.
+Wir haben's. Das ist ein Akt.
+Welche Distro benutzt du?
+Arch, by the way. Hentai Watcher.
+Hentai Watcher.
+Jetzt fehlt eigentlich nur noch Chain-Lore.
+Der wird rumspermen,
+wenn er den Namen sieht.
+Das ist Arch Linux.
+By the way, use ich das.
+Und wer jetzt sagt, Max, warum verwendest
+du Neo Fetch? Das ist doch outdated.
+Haha.
+Neo Fetch ist alias zu Fast Fetch.
+By the way, wusstest du, dass es
+die besseren Flags minus rd gibt?
+Also, was
+d macht, bin ich mir
+ehrlich gesagt gar nicht sicher.
+Remove empty directories.
+Okay, pass mal auf. Ich zeig dir jetzt mal was,
+was richtig pfeifert ist.
+Ich benutze nämlich
+gar kein richtiges rm.
+Ich hab rm alias auf
+rm minus groß i.
+Und es ist wichtig, dass es so rum ist
+und das i nicht zuerst, weil es zählt
+bei den Optionen immer, welche Optionen
+erst angegeben wurden.
+Was überschreibt?
+Also rm minus rf
+minus i
+dann überschreibt das i für
+interactive das f.
+Wenn ich rf hinten dran mache,
+dann überschreibt das f das i.
+Pfeifertime.
+So, und wenn ich jetzt
+hier reingehe und sage,
+machen wir mal irgendeinen Ordner. Ich zeige euch das mal hier.
+Hab ich hier irgendeinen temp Ordner?
+Temp? Temp oder sowas?
+Tmp? Ja, wunderbar.
+Rm gradier kecke.
+Ha, scheiße.
+Okay, das gibt es für euch nicht. Alles klar.
+So, omega lul. Jetzt machen wir mal
+hier
+1000 Dateien oder 100 Dateien
+rein in den Ordner.
+Und jetzt mache ich rm minus rf
+omega lul.
+Und dann sagt er mir,
+aha, willst du das removen?
+Yes. Und dann geht das.
+So, du musst immer
+bestätigen.
+Wenn du jetzt allerdings
+das war das ganze Verzeichnis,
+wenn du jetzt allerdings
+sagst touch und sagst
+hier innen drin rm minus rf Sternchen,
+dann fragt er dich,
+bist du dir sicher, dass du mehr als 100
+als 100 Dateien löschen willst?
+Und das ist das minus i hinten dran.
+Weil der Unterschied
+zwischen groß, viel und klein ist,
+der fragt dich vor jedem Removal
+und minus i
+fragt dich nur, wenn er
+mehr als 3 Dateien löschen will.
+Und wenn du Verzeichnisse hast,
+mit ganz viel Unterverzeichnissen,
+dann musst du sagen, okay, ich bin mir ganz sicher,
+yes, rm minus rf.
+Deswegen habe ich das
+gealiast und seitdem habe ich nie wieder
+aus Versehen irgendwas gelöscht.
+Alles klar, konnte man mir folgen
+im Chat.
+Lul.
+So, aber ich wollte mein .NET Zeug
+auf dem Raspberry Pi ausführen.
+Okay, also erstes Mal müssen wir das bundlen.
+Ähm,
+Single
+oder
+self-contained
+für Linux ARM.
+So,
+wir müssen uns mal die Options
+für .NET Publish raussuchen.
+Also, wir wollen cross-compilen für
+Linux ARM, wir wollen das ganze
+self-contained haben.
+Im output directory build,
+was wir an der Stelle auch dann in
+habe ich schon, ins git ignore schreiben.
+So,
+dann will ich
+publish
+.NET single file
+publish
+single file
+minus
+p publish single
+file
+Diese Syntax ist halt schon wieder
+absolut lächerlich. Und dann will ich noch
+compress
+compress
+enable compression in single file.
+Okay, minus p
+doppelpunkt gleich true. Da hat sich Microsoft
+selbst übertroffen mit dieser Syntax.
+.NET Website for free.
+Ja, true, that's not that easy.
+You need a provider
+that supports
+.NET.
+The free ones only support PHP.
+I think your best bet is to
+to
+get a virtual machine at
+Oracle. Oracle
+has a free tier
+for small virtual machines.
+But then you need to
+manage the Linux and .NET yourself.
+I think
+Chat was my idea.
+I think Oracle free tier is
+the way to go.
+But Oracle sucks if you
+if it gets
+semi popular, your service,
+Oracle will close your
+free tier and delete your VM.
+Because it's Oracle.
+If
+it's allowed to
+cost some
+dollars, you can go
+to Hetzner. It's really cheap.
+You can get
+dual core
+VM for around
+I think three or four.
+I'm
+not sure. Hetzner pricing
+four dollar.
+Around four dollar.
+And if you want to go
+really low cost, you can even
+get
+ARM CPUs.
+But it's not that much of a difference.
+You can save the IPv4
+address and get
+IPv6 only to save a few cents.
+But try Oracle free tier.
+Oracle free tier is easy.
+Easy money, easy life.
+So, aber sind wir stehen geblieben.
+Single publish, single file build.
+Zack. So, ich hoffe, dass
+von uns jetzt was ich hier an Optionen
+angegeben habe, weil ich weiß nicht,
+was sich Microsoft mit diesen komischen
+Options denkt, ehrlich gesagt.
+So, ich sollte jetzt hier einen Build-Ordner
+haben, der meine, mein Binary
+enthält. Okay. Ach so, ja gut,
+ich habe Cross-Compile zu ARM. Kein Wunder,
+dass das nicht funktioniert, ja.
+Okay, Leute, ich habe eine Idee, wie wir das
+mit dem Raspberry Pi machen.
+mkdir build. Wir machen jetzt five five hat time.
+Passt mal auf. ssh
+sshfs machen wir jetzt.
+sshfs und zwar
+bauen wir uns dieses Verzeichnis
+hier auf dem Raspberry Pi
+in das Build-Verzeichnis hier.
+Und jetzt
+und jetzt publish ich
+in dieses Build-Verzeichnis rein.
+Und wenn das klappt, sollte mein Binary
+hier rauskommen auf dem Raspberry. Siehste? Easy.
+Easy.
+Da ist es doch.
+Ja.
+Manch einer mag jetzt sagen, 31 MB
+für den Hello World ist ein bisschen viel.
+Aber ihr habt ja noch keine JavaScript
+Self-Contained Binaries gesehen.
+Das ist jetzt übrigens kein AUT Binary
+in .NET. Das ist ein wirklich
+Oldschool Self-Contained .NET Binary.
+Also sprich, das enthält die komplette .NET Runtime.
+Machst du was mit SIP, ja?
+Aber nur sehr rudimentär.
+Ich habe einen Zen...
+Das ist ein Raspberry Pi, der steht im Keller.
+Das ist auch ein altes Debian und nicht geupdatet.
+Da hängt ein Sensor dran. Und wenn der
+Sensor, das ist ein Analog-Digital-Converter,
+wenn der Sensor über
+19 Volt misst, dann will ich einen SIP-Call machen.
+Mehr nicht.
+Nicht irgendwie großartig da drüber Sprache
+übertragen, sondern einfach nur einen Anruf machen.
+An der Adresse von meiner Fritzbox.
+Und dann klingelt das Telefon.
+Telefon habe ich übrigens hier liegen.
+Also hier, da, ihr hört es vielleicht im Hintergrund.
+Pipipip.
+Und das ist aber wirklich
+easy. Ich weiß wie das geht.
+In .NET haben wir das wirklich in einer halben Stunde gemacht.
+So.
+Ich habe eine ganze Library dafür.
+Ich mache hier keine, äh,
+Hello User Agent und Gedöns von Hand.
+Irgendwie.
+Es gibt eine richtig gute
+.NET Library
+für SIP- und WebRTC-Krempel.
+Nämlich die hier.
+Die kann fast alles.
+Also so simple Sachen
+wie ein SIP-Call erst recht.
+So. Also. Jetzt können wir gucken, ob hier
+unser Krempel läuft.
+Nice.
+Funst.
+Startup ist normal.
+Ein Startup von .NET dauert immer ein bisschen.
+Beziehungsweise auch, weil es komprimiert ist
+und erstmal quasi entzippt werden muss.
+Okay. Also.
+Wir haben hier oben entwickelt und hier unten auf dem Raspberry Pi
+können wir ausführen. Das ist doch schon mal gut.
+So. Funst das.
+Okay. Chatgear.
+Wo fangen wir denn an?
+Als erstes würde ich sagen, Sensor auslesen.
+Zum Thema Sensor auslesen.
+Das kopiere ich mir.
+Das kopiere ich mir aus dem alten Projekt.
+Also.
+Wir machen jetzt hier erstmal.
+Das kommt alles weg.
+Keine Ahnung.
+Ich kopiere mir den Krempel mal kurz aus dem alten Projekt.
+Wartet mal.
+Also. Altes Projekt.
+Da habe ich das mit dem Auslesen schon gemacht.
+Ich habe mir auch irgendwo
+rüberkopiert,
+welche Libraries ich dafür
+verwendet habe.
+Okay. Wir gucken mal.
+Vielleicht geht es auch ganz ohne rüberkopieren.
+Wir gucken nämlich einfach mal, welches Projekt
+das hier zur Verfügung
+stellt.
+UNO Square Raspberry Pi IO.
+Das klingt
+eigentlich schon mal ganz gut.
+Die habe ich nämlich auch das letzte Mal verwendet.
+Wir schauen einfach mal,
+ob das jetzt so billig, wie ich mir das
+Read Channel
+0
+glaube ich.
+Okay. Schauen wir mal.
+So einfach wird das natürlich
+nicht funktionieren. Das wäre ja viel zu einfach,
+wenn das First Try
+irgendwie funzen würde oder so.
+So. Also.
+Oh. Nice.
+You must first initialize Pi
+referencing a valid i-bootstrap
+implementation.
+Vielleicht sollte ich doch abgucken, wie ich das gemacht habe.
+Guckt mal. Moment.
+Ich habe halt nur die
+compiled source code vom alten Projekt.
+Program
+Pi init.
+Pi init.
+Und dann bootstrap
+habe ich hier nicht.
+Bootstrap.
+GitHub UNO.
+Wie hießen die?
+UNO
+UNO Square
+Raspberry Pi.
+Aha. Okay.
+Leicht deprecated alles.
+Aber egal, solange es funktioniert.
+Init.
+Das da.
+Genau das da.
+Muss ich machen.
+Find this type on Nougat.
+Wiring Pi. Okay.
+Die Version stimmt auch
+überein mit meiner alten App.
+Obviously. Selbsterklären.
+Ja klar. Was sonst?
+So.
+Zum Glück kann ich abgucken. Wie gesagt, ich habe das
+alte Projekt noch, aber halt nur in decompilter
+Variante.
+So. Jetzt hoffen wir mal, dass das funzt.
+Ich sollte jetzt
+irgendeinen Wert bekommen
+von dem Digital Analog. Ich muss da noch ein bisschen
+Magic mit dem Wert machen.
+Ist das zu klein?
+Ist doch eigentlich ziemlich groß, oder?
+Ich mein.
+Wie groß soll ich das noch machen?
+Passt ja nix mehr drauf.
+So. Erkennt man das jetzt besser.
+Das Terminal.
+Nur das Terminal ist
+Und es kann auch sein, dass er mich
+debatet, ja.
+So. Was hat er jetzt?
+Ne Moment.
+Aha.
+Value cannot be null.
+Parameter Path 1.
+Alles klar.
+Jetzt wissen wir Bescheid.
+Extract all.
+Moment.
+Was macht der hier eigentlich?
+Ja, ja. Ich agree.
+Extract all.
+Backt rum.
+Ah. Der hat irgendwelche embedded
+Ressourcen.
+Ja, das ist ja kacke.
+Das funzt natürlich nicht, weil ich das
+in Single Binary compile.
+Okay.
+Shit. Was macht der denn hier?
+Embedded Resource. Brauch ich doch alles net.
+Ja.
+I square C bus.
+Das ist das einzige, was ich brauche.
+Bam.
+Wir machen jetzt unsere eigene Raspberry Pi
+Conf.
+Extract all. Lock.
+Wir machen hier nichts multi-threaded.
+Geh weg.
+Pi config.
+Weg.
+Weg.
+Alles weg.
+Außer der I square C bus.
+So. Weg.
+Weg.
+Wie besser.
+Wette mit euch.
+Es geht immer noch in Abak.
+Bloß sonst mit irgendwelchen .NET Schiss rumschlagen.
+Wette.
+Wette. Soll ich wetten?
+Wollen wir wetten? Es funzt, wenn ich
+Publish Single File ausmache.
+Der macht irgendwelche Reflektor Magic und kommt
+damit nicht klar, dass das alles im gleichen Binary
+jetzt drin ist.
+Oh. Was ist denn jetzt schon wieder?
+Unable to load shared library.
+Lib wiring. Achso.
+Das ist das, was der wahrscheinlich extrahiert hat vorher.
+Ok. Finden wir das bei denen im Projekt?
+Unusquare.
+Repos.
+Pi.
+Wiring.
+Wiringpi.net.
+Support.
+Source.
+Wiringpi.
+Native.
+Resources.
+Aha.
+Copy.
+We get.
+Zack.
+File.
+Lib Wiring Pi.
+Da ist es doch.
+Ok. Man braucht eine Native Library dafür.
+Dann. Wir machen uns jetzt mal einfach.
+Wir machen da keine Embedded Resources bei.
+Ähm.
+Wir kopieren das einfach in den Output Ordner. Ok?
+Dann sollte es eigentlich funktionieren.
+39,5 Minuten.
+Zeit stoppen ab jetzt.
+Da ist es doch.
+Ok.
+Brake.
+Brake.
+Da ist er.
+Der Wert ist aber nicht wirklich das, was ich haben will, wenn ich ehrlich bin.
+Ich, ich müsste irgendwas um 18 Volt.
+17, 18 Volt aktuell auf der Leitung messen.
+Nicht, nicht, nicht.
+753.
+Ok.
+Ich guck nochmal kurz nach.
+Ich mach da nämlich irgendeine Magic.
+Das weiß ich noch.
+Das Problem hab ich das letzte Mal auch gehabt.
+Ich mach da irgendeine Magic, dass das funktioniert.
+Ich mach da sowas bei mir.
+Da fragt man sich natürlich.
+Ich hab das, ich hab diese Sensorsache das letzte Mal selbst gemacht.
+Ich hab keine Library, also
+keine komplett fertige Library verwendet.
+Ich mach da sowas hier.
+Guckt mal.
+Math Round
+Read Channel 0
+durch 3,3 mal
+25,85
+Warum? Ich weiß es nicht.
+Das steht so drin.
+LQS, danke für den Sub.
+Abofalle am Start. Pok.
+Ok, 3,3 verstehe ich,
+weil die Standardspannung beim Raspberry Pi
+auf dem GPIO ist.
+3,3 Volt ist.
+25,85
+Ich hab absolut
+keinen Blasenschimmer mehr.
+Warum?
+Ich hab keine Ahnung.
+Ok, aber vorher muss ich noch was machen.
+Und zwar ADC Gain.
+Und zwar
+auf 1 stellen.
+Gained.
+Es ist komisch,
+dass es kein Float ist.
+Da geb ich dir ehrlich gesagt recht.
+Aber wir können es ja selbst
+so ne Float machen.
+Ok, was passiert denn bei durch 3,3?
+Kommt dann da irgendwas?
+Ok, das müssen wir eigentlich nicht.
+Durch 3,3 kommt da irgendwas Sinnvolles raus?
+Nein, kommt's nicht.
+Kommt da irgendwas Sinnvolles raus,
+wenn ich...
+Moment, Schätke. Punkt vor Strich Rechnung
+heißt, das kommt zuerst
+und danach das. Ne?
+Also das Ergebnis davon
+wird mal 2,35
+genommen.
+Aber so rum auch egal.
+Leute, es müsste irgendwas
+mit 17 oder 18 Volt rauskommen.
+Ja, Punkt vor Strich, das heißt
+dann rechts vor links.
+Äh, links vor rechts.
+Nicht rechts vor links. Punkt vor Strich Rechnung.
+Gibt's hier nicht. Das heißt
+von links nach rechts.
+Also das hier zuerst. Warum hab ich überhaupt
+Punkt vor Strich Rechnung gesagt? Blödsinn.
+Ja, ich weiß, ich weiß.
+Ne, den haben wir nicht gemacht.
+Das da von links nach rechts.
+Also das zuerst.
+Das stimmt doch. Also
+welche Auflösung? Keine Ahnung.
+Ich kann dir nur das sagen, weil
+ich das letzte Mal auch ausprobiert hab.
+Das letzte Mal
+hab ich da nix großartig
+eingestellt.
+Ich hab noch Optionen mitgegeben.
+Adresse hab ich noch mitgegeben.
+72 ist aber auch schon defaultmäßig.
+Und dann hab ich dem noch mitgegeben
+1
+und 4.
+Was auch immer das bedeutet.
+Schauen wir mal, vielleicht macht er das hier auch so.
+1 und 4. Genau.
+Das hatte ich das letzte Mal auch so.
+Okay, Delay und Shift.
+Ja, das ist mehr oder weniger
+das, was ich das letzte Mal von Hand gemacht hab.
+Auch.
+So. Was kann man
+da noch so einstellen?
+Wo ist die Musik eigentlich auf einmal so laut?
+Egal.
+Was kann man da noch so einstellen?
+Eigentlich nur
+nur
+Gain.
+So, jetzt ist die große Preisfrage.
+Was ist
+da anders, dass ich
+da jetzt nicht
+irgendwas mit 17 rausbekomme
+oder 18?
+Also durch 3,3 wird's schon mal nett sein.
+Da müssen wir jetzt vergleichen.
+Oder wir nehmen einfach
+den Source Code von mir.
+Stand da das letzte
+da stand
+humanize.
+Das bringt irgendwie
+ne komische Library mit,
+die ich nicht haben will.
+Okay.
+Chatge,
+ich zeige euch jetzt mal den Source Code,
+den ich decompiled hab
+aus meinem alten Projekt.
+Das sieht so aus.
+Das müssen wir jetzt mal vergleichen mit dem,
+was das hier hat.
+Warum das das nicht ausliest.
+So, hier.
+Machen das mal eine eigene Datei.
+Move.
+Add.
+Und noch ein Namespace dran.
+So, jetzt müssen wir das mal kurz vergleichen.
+Ah, das funzt jetzt nicht,
+weil das gleich heißt.
+Ja, geil. Geil, Max. Nice.
+Okay, auskommentieren.
+Also, wo kommt denn das hier her?
+Das ist doch genau das gleiche.
+Kann man das,
+kann man hier irgendwie schön das ganze splitten?
+So. Also.
+Das hat er aber doch hier schon.
+Guck mal.
+Bla bla bla. Das ist alles,
+das ist alles fast noch das gleiche.
+Hier ist irgendwie ein bisschen,
+ein bisschen anderer Kram.
+Aber das behaupte ich jetzt einfach,
+aber wird wahrscheinlich alles stimmen.
+So. Okay, das sieht schon ein bisschen anders aus.
+Standard Zeug.
+Max Voltage. Gain.
+Das ist aber auch egal.
+Read Channel ist das Interessante.
+Read Channel
+ist genau das gleiche.
+Ah, Moment. Das ist RAW.
+Moment. Moment. Moment.
+Moment. Moment. Moment.
+Read Channel
+ist das,
+was bei mir, was hier
+Read Channel RAW war.
+Read Channel selber.
+Aha. Aha.
+Das muss man auch
+drauf machen, dass das stimmt.
+Was ist das für Magic?
+Hier hinten dran.
+Durch 2048F
+mal This Max Voltage.
+RF Programmer. Das funktioniert.
+Ich habe ja ein Programm, wo es funktioniert.
+Mir egal, ob das Sinn macht oder nicht.
+Ich weiß, dass es funktioniert.
+Okay. Also muss ich, muss ich noch.
+Okay. Okay. Okay. Moment.
+Also. Was muss ich jetzt machen?
+Ähm.
+Read Channel RAW
+muss ich machen.
+Ach. Das expost das
+gar nicht, oder was? Wie?
+Ah, Moment.
+Blödsinn. Der hat nur noch Read Channel.
+Mein Alters hatte Read Channel RAW.
+Okay. Das heißt, ich muss
+jetzt das hier noch teilen
+durch
+2048 mal
+ADC Max Voltage.
+Ja gut. Was ist, was ist Max Voltage
+in dem Fall?
+Wahrscheinlich 3,
+wahrscheinlich 3,3?
+Keine Ahnung, Alter.
+Ich könnte auch einfach
+meinen alten Code kopieren und dann ist gut.
+Max Voltage ist hier was?
+Ah.
+Gain 1, 4,
+4 Dingsbums. Okay.
+Alter, das ist ja super krass.
+Magic hoch 10, Alter.
+Sicher, dass das 17 bis 18
+Volt sind? Das letzte Mal, wo ich drauf
+geguckt habe, war es das noch.
+Ich habe keine Ahnung, was da passiert.
+Ha. Bam. In your
+face. Ha.
+17,7 Leute.
+Outplayed.
+Outplayed.
+Outplayed.
+Outplayed.
+Outhackerman.
+Okay.
+Keine Ahnung, Leute. Absolut keinen
+flassen Schimmer. Warum? Aber
+es ist so. Ich habe keine
+Ahnung, warum.
+Gibt es vielleicht jetzt einen besseren
+Weg, das zu machen als
+Read Channel.
+Configure, then read?
+Was?
+Okay.
+Write Register 1.
+AdS Gain oder
+AdS. Okay, der macht da sowas.
+In der Richtung macht der da auch.
+Gain.
+Ne, das ist einfach Blödsinn.
+Guck mal, das ist einfach Blödsinn.
+Was der da macht.
+Der macht hier irgendwas mit 512.
+Dabei sollte das
+4096 sein, nicht 512.
+512 ist
+eigentlich 8.
+Das ist falsch. Anzeige.
+Was ist hier?
+Es ist falsch, was die programmiert haben.
+Okay, Chat, aber
+ganz ehrlich, mir egal.
+Passt schon.
+Damit kann ich leben.
+Hauptsache, der liest das Richtige.
+Okay?
+Hauptsache, der liest das Richtige.
+Vielleicht macht das den Code ja richtig,
+wenn du ihn so wie Intended nutzt.
+Wie ist denn Intended?
+Also, ich liest da irgendwas mit 700
+noch irgendwas.
+Wie soll ich es denn anders benutzen?
+Ich habe Magic Numbers, aber
+es kommt das Richtige raus, das ist doch entscheidend.
+Macht es einen Unterschied, ob
+17 oder 750 sind?
+Ja, weil ich will gucken, ob es über 19 ist.
+Und ich will wissen,
+ob es über 19 ist, nicht ob es über
+750 ist.
+Woher kommt die 19?
+Weil, wenn jemand auf meiner Klingel klingelt,
+geht die Spannung auf über 19 Volt hoch.
+Dann weiß ich, dass jemand geklingelt hat.
+Das sagt die Spezifikation von der Klingel.
+Was kommt denn für eine
+Zahl, wenn du klingelst und nicht wild rumrechtest?
+Weiß ich nicht, aber da müsste ich jetzt runter gehen
+und klingeln, da habe ich keinen Bock drauf.
+Aber 17 ist richtig, da soll
+17 rauskommen und nicht irgendein random
+Kack. Okay, Chat,
+es ist mir aber auch vollkommen egal, Hauptsache
+das funktioniert, ja.
+Wir machen das vielleicht so,
+wir machen das so,
+wir
+rappen uns das mal kurz
+hier.
+Und zwar, wir machen hier unsere eigene
+Class davon.
+Zack, zack.
+Namespace.
+Äh, Namespace. So, und das nennen wir
+jetzt einfach nur ADS.
+Oder so.
+Ist auch schon
+vorbelastet.
+Wurscht, ADS ist
+okay.
+Komm, ADS Sensor.
+Alles klar, dann heißt das Ding auch noch schön.
+ADS Sensor, das lassen wir so,
+weil das hat ja funktioniert.
+Das kommt weg, wer braucht Kommentare?
+Das ist eh outdated, overrated, jebaited.
+ADS Sensor.
+Address, brauchen wir nicht.
+Address wird bei mir einfach hardcoded.
+Ist auch schon.
+Gain 1, kriegt der bei mir
+einfach
+Gain
+1, bam.
+Weiß nicht genau, was es macht.
+Eigentlich, eigentlich sollte es
+4000 Ischen
+was sein, ist auch wurscht. So.
+Das
+können wir wegmachen.
+Den Gain.
+So, und jetzt müssen wir doch
+eigentlich nur
+Die Datei heißt, by the way,
+falsch.
+Renamen.
+Edit, Rename.
+Und jetzt
+müssen wir eigentlich nur diesen Campbell nochmal
+neu
+Also, dass das quasi drin ist,
+was wir da grad von Hand gebaut haben.
+Also quasi sowas wie hier
+Public
+Double Read Value
+Zack.
+Und nun machen wir das, was wir hier
+gemacht haben. Read Channel und sowas.
+Einfach, einfach damit
+rein. Also
+Read Channel this
+Read Channel null
+Durch bla bla bla bla
+Value das hier
+Und das ist das, was wir haben wollen.
+So, und wir können das tatsächlich noch
+rounden. Komm, wir sind mal nicht so.
+Wir rounden das mal tatsächlich
+auf die dritte Nachkommastelle, okay?
+So.
+Und wenn ich das jetzt richtig gemacht hab,
+das brauchen wir nicht mehr.
+Und wenn ich das jetzt richtig gemacht hab,
+dann sollte ich
+eigentlich ConsoleWriteLine
+ADC Read Channel
+Ja gut, null.
+Es ist hardcoded null.
+Read Value habe ich es genannt.
+Read Value
+Sollte ich jetzt 17
+irgendwie 17, 18 irgendwas rauskriegen.
+Ja, warum das nicht funktioniert
+hat ursprünglich, keine Ahnung.
+So, jetzt kommen die richtigen Werte raus.
+So, und jetzt bam. Jawoll!
+Leute. Jawoll!
+Es funzt. Es kommt irgendwas zwischen 17 und 18
+raus. So soll das sein.
+Excellent. Excellent.
+Da habe ich das letzte Mal auch eine Weile rumgewurstet.
+Das weiß ich noch. Deswegen
+habe ich das jetzt mal einfach kopiert aus dem alten.
+Gut. Sehr schön.
+Haben wir es doch.
+Können wir das doch hier wegschmeißen.
+Excellent.
+PyConfig
+kommt auch in eigene
+Ordner. Zack.
+Und das wird
+Internal. Brauchen wir nicht.
+Nicht Interface.
+Internal. Sealed.
+Was will er denn von mir?
+Namespace.
+Der ist aber auch echt
+anspruchsvoll.
+It's never instantiated.
+Kann man das irgendwie
+unterdrücken diese Meldung?
+Disable one first command.
+Excellent.
+Aesthetic darf es nicht sein.
+Richtig massive cleaner code.
+Zwischen welchen Pod...
+Du fragst mich hier
+ein paar Sachen, Alter.
+Das ist ein...
+Also ich kann dir zeigen, was auf meinem Raspberry Pi drauf ist.
+So ein Teil ist
+auf meinem Raspberry Pi drauf.
+Nur die alte
+Version davon, okay?
+So.
+Und der hat an...
+Der hat an dem Input
+hier an irgendeinem...
+An einem der Analog-Digital-
+Konverter, Pins
+oder Terminals
+hat der den Draht von
+meiner Türklingel dran.
+Und da misst er das, den Input.
+Aber es funzt. Es funzt.
+Es kommt das Richtige raus.
+17,829.
+Und was ist mit Ground? Brauche ich nicht.
+Doch, Ground ist auch dran.
+Ground ist auch dran.
+Jaja.
+Ground ist auch dran.
+Ne, nicht zur Klingel. Es ist...
+Ja doch, zur Klingel.
+Es ist...
+Das sind zwei...
+Das ist Siedle 1 plus N.
+Das ist ein Ground-Draht und ein Signal-Draht.
+So genau weiß ich das auch nicht mehr.
+Ich meine, ich war da vor einem halben Jahr oder so mal unten.
+Das steht da schon seit
+vier Jahren oder drei...
+Seit drei Jahren.
+Aber es funzt ja.
+Es ist ja alles gut. Es liest ja das Richtige aus.
+Also das können wir so lassen,
+wie es ist.
+Okay. Gut.
+Chat-Game.
+Next.
+Was würden wir jetzt als nächstes machen?
+Ich habe meine Sensorsachen.
+Lass uns mal kurz... Lass uns mal eine Sache checken.
+While, True, Console, Readline.
+Machen wir mal hier irgendeine...
+Await, Task, Delay, 10 Millisekunden.
+Alle 10... Was ist das?
+Hat das jetzt neuerdings AI-Features,
+die nicht mehr deaktivierbar sind, oder wie?
+Ja, das habe ich ja Bock drauf.
+Vor allem, dass das der Ende-Button ist,
+was das vervollständigt. Das will ich überhaupt nicht.
+Okay. Funzt, Leute.
+Eigentlich...
+Eigentlich müsste ich jetzt runtergehen und klingeln
+und gucken, ob es 19 ist, über 19 ist.
+Aber ich bin deutlich zu faul,
+runterzugehen und zu klingeln.
+Was machen wir, wenn wir den Rest programmiert haben?
+Dann gucken wir mal, ob die Klingel funktioniert.
+Also, hier haben wir das Ganze.
+Gut. Okay.
+Next.
+Mach für die Gains...
+Ich war heute schon zweimal unterwegs für die Gains.
+Das reicht. Ich brauche nicht die Gains.
+Die Gains vom Treppe laufen.
+Ich habe heute genug gelaufen.
+Und morgen wieder über eine Stunde.
+Also...
+Stunde 15.
+40 Kilometer.
+Ja.
+Es reicht.
+So, also prinzipiell funzt das.
+Das liest das Ganze aus.
+So, Leute. Ich habe jetzt eine Six-Head-Idee.
+Warum schwingt der ADC?
+Ich würde nicht sagen,
+dass der ADC schwingt.
+Ich würde sagen,
+der ADC auf der Leitung ist einfach nicht exakt konstant.
+Ich meine,
+das schwingt.
+Das ist ja hier im Nachkommabereich.
+So, ich habe eine Idee.
+Wir machen das jetzt mal schön.
+Passt mal auf.
+Nicht Terminal.
+Spectre Console.
+Konsole.
+Spectre Console.
+So, und jetzt
+Spectre Console Status.
+Wir machen jetzt so einen Progress.
+Nein, wir machen keinen Progress.
+Exzellent.
+Das machen wir jetzt.
+Wir machen jetzt einen Status-Balken.
+Da bin ich jetzt mal gespannt.
+Standard ist 0.
+So.
+Dann sagen wir
+Auto-Refresh.
+True.
+Und dann while true
+das da rein.
+Mal gespannt, ob das funzt.
+Also sprich jetzt sagen wir
+ctx-status gleich
+toString
+und jetzt sagen wir Format-Code,
+dass es dann was aussieht.
+Sieht genauso aus wie vorher.
+Funzt das jetzt?
+Jetzt sollten wir einen schönen Progress,
+schöne Progress-Balken haben.
+Während der
+liest.
+Guck dir mal hier, ist das nicht wunderbar?
+Das ist nicht wirklich
+Next Gen CLI
+UI Engineering?
+Ich gehe jetzt, weil
+ihr seid, ich gehe jetzt runter gleich klingeln.
+So.
+Ich will nur gucken, wie ich hier eine Ausgabe
+mache, wenn es
+über 19 Volt, ich muss es ja am Ende ja auch
+sehen, ob da über 19 Volt rauskommt.
+Eigentlich. Achso, Moment, ich habe es ja gar nicht
+kompiliert. Okay, das funzt.
+Das gibt dann auch was aus.
+Alles klar. So. Dann gucken wir doch mal.
+Das müssen wir hier
+auslesen.
+War current value
+gleich.
+Read value, current value
+toString. Was meckert er hier eigentlich mit
+toString? Ja.
+Was auch immer. So. Und jetzt
+if
+current
+value größer,
+größer gleich 19,
+dann
+right line
+omega keckel
+klingel.
+Ich bin mir nicht sicher.
+Wir machen mal größer gleich 18. Wobei
+größer gleich 18 kann sein.
+19. Okay.
+Chat, ich schmeiße es jetzt an und
+dann gehe ich runter klingeln und
+ihr müsst genau aufpassen, ob dann auftaucht
+omega keckel klingel.
+Ich meine, ich sehe es natürlich auch nachher.
+Vielleicht, vielleicht sollten wir
+noch eine andere Sachen machen. Vielleicht sollten wir hier noch
+einmal noch die Uhrzeit reinmachen.
+Date, time,
+now. Ups.
+Fuck. Now.
+Ihr müsst keinen Clip machen. Ich sehe es
+doch in der Konsole da. Wir können natürlich auch Clipen,
+wenn ihr wollt. Moin Patrick, aber
+es ist ja wurscht, ob ihr mich clippt oder nicht.
+Ich sehe es ja aus gerade. So.
+Bin ich mal gespannt.
+Es ist sackdunkel schon, ey.
+Okay.
+Also, das soll, Chat, das dauert
+jetzt ein, eins, zwei Minuten. Ich muss auch noch kurz
+Schuhe anziehen und sowas.
+Ich gehe jetzt runter und klingel.
+Und in der Zwischenzeit könnt ihr euch oben noch
+am ASCII-Quarium erfreuen, okay?
+Warum kannst
+du programmieren als Fisi? Weil ich es gelernt habe.
+Ich werde das Back der Konsole
+zerhauzen. Das sehen wir gleich.
+Okay, Chat. Ich bin in einer Minute wieder da.
+Guckt genauer nach, ob da jetzt
+irgendwas auftaucht.
+Das dauert aber eine Minute, ne? Wo habe ich
+überhaupt meinen Schlüssel?
+Alles klar. So, ich bin gleich wieder da.
+Force Champ.
+Moment. So.
+Bestes, passendste Emote dafür.
+Ihr könnt jetzt mal ein, zwei Minuten
+Force Champen im Chat.
+Dann bin ich wieder da.
+Und hat es funktioniert? Ja.
+Hat funktioniert.
+Funktioniert.
+Seht ihr?
+Ich sage doch, wenn es über 19 Volt ist, dann habe ich geklingelt.
+Ihr habt gut
+gepaustchamped.
+Oh, hier. 20 Uhr 21.
+42. Ich habe, ich habe, man sieht es auch.
+Guck mal, ich habe zweimal geklingelt.
+Ich habe einmal kurz oben und einmal kurz unten geklingelt.
+Maxi-Spannung ist auf 14 runter.
+Das ist normal. Das ist, das ist
+so, das ist so ein ganz
+merkwürdiges Protokoll vom
+Hersteller.
+Wenn du, wenn du klingelst,
+geht die Spannung auf über 19 Volt.
+Idle ist die Spannung so um 17,
+18 Volt. Wenn
+das Telefon
+in, also die, solange die
+Gegensprechanlage innen drin aktiv
+ist, beziehungsweise man annehmen kann,
+geht es runter auf 14, 15 Volt.
+Das sagt, das sagen die Specs vom
+Hersteller.
+Das fragt mich, fragt mich nicht, warum
+das so ist, aber das ist so korrekt.
+Ah, nice.
+War was mit 20? Ja, ich weiß nur, wenn es über
+19 ist. Okay.
+Funktioniert ja, was wir gebaut
+haben.
+Wenn es über 20 ist, dann
+klingeln.
+So soll das sein.
+War doch easy.
+It's easy.
+War das easy.
+Okay.
+Und jetzt muss ich noch einen SIP-Call machen.
+Wenn die Spannung über 19, aber den
+SIP-Call,
+den teste ich, den teste ich,
+ich renne jetzt nicht nochmal runter, ja.
+Wir faken das jetzt einfach mal.
+Die sagen größer 17,5.
+Ja, das kommt doch manchmal vor hier.
+Ah, das kommt öfters vor. Sagen wir mal,
+sagen wir mal, größer 17,
+17,8 oder so.
+Sollte der Wert nicht wieder abfallen, ne, das ist
+gut so.
+Das ist alles gut so.
+Okay, also.
+Jetzt müssen wir noch einen SIP-Call machen da drinnen.
+Ich mache das häufiger, ihr seid bloß nicht dabei.
+Okay.
+Und jetzt machen wir einen SIP-Call.
+Dazu brauchen wir die Library.
+SIP
+Sorcery.
+Und da habe ich auch was,
+wo ich abgucken kann, wie das funktioniert.
+Und zwar
+funktioniert das so.
+Make
+SIP-Call User Password
+Target.
+So, Funds das.
+Make SIP-Call
+User String Password
+Helper Logger.
+Ne.
+So was haben wir hier nicht.
+ANSI Konsole.
+Brightline.
+Das ist das höchste der
+Gefühle.
+Logger, kommen wir da hin.
+Okay. Ah, man übergibt da
+einen Array.
+Okay, das testen wir jetzt einfach mal unabhängig davon.
+Ich werde das mal kurz hier
+wieder auskommentieren.
+Make
+SIP-Call. Und zwar
+User. Ja.
+Das will ich euch eigentlich nicht
+zeigen.
+Wie machen wir das? Environment Variable machen wir das jetzt.
+Aber ich kann euch die Adresse
+zeigen, die wir anrufen
+wollen. Hier.
+Wir rufen die Nummer an bei meiner Fritzbox.
+Ups.
+What the fuck, Alter.
+Die Nummer rufen wir an
+an meiner Fritzbox.
+Ich hoffe, ihr seid schon wieder drinnen.
+Moment, das sind ja
+ein, muss ein Array sein.
+Okay.
+Kann man neue Collection Expression verwenden.
+Pythonx, dankeschön für den
+Sub. Pog.
+Dankeschön für die ganzen Subs, Leute.
+Ich habe die Hälfte wahrscheinlich übersehen.
+Nee, habe ich nicht. Gut.
+Gut. Excellent.
+Wie mache ich denn das jetzt mit dem Username, Passwort
+gescheit, dass ihr das nicht seht?
+Environment Variable, ha?
+Wobei, eigentlich ist es
+egal.
+Environment Variable.
+Es schaut weg, ja, dann ist gut.
+Ich habe eine Idee.
+Gibt es in .NET irgendwie
+die Möglichkeit, wenn ich sage hier,
+wenn ich hier mal eine Datei mache,
+secret.cs
+secret.cs
+Wenn ich da
+jetzt eine Klasse mache,
+keine Ahnung, public
+static class
+secret
+und da sage ich hier,
+ich will ja nur nicht, dass ihr es seht,
+public static
+string
+user gleich
+null.
+Wenn ich das jetzt hier, wenn ich das jetzt hier
+einbinde,
+secret user
+Ah, das sehe ich nicht.
+Okay, das ist nice.
+Das ist gut.
+Ich will leider, ich will leider, ich will
+nichts super Geheimes verstecken. Das ist doch nicht mal
+schlimm, wenn ihr das rauskriegt,
+weil ihr kommt ja von außen nicht auf meine Fritzbox drauf.
+Aber,
+ich will trotzdem nicht, dass man es sieht.
+So, und so sieht man es nicht.
+Das ist okay, das ist gut.
+Dann müsst ihr, da müsst ihr
+ganz kurz weggucken jetzt.
+Chat, alle, alle, keiner darf hingucken.
+Augen zu, sehr gut.
+Username,
+Admin, Passwort 123456
+Okay, da sind wir wieder.
+Äh, Passwort.
+Alles klar.
+Jetzt schauen wir mal, ob das mit dem zip call
+funktioniert, was ich hier gebastelt habe.
+Das ist zwar für mich
+für mehrere Ziele.
+Also, was der hier macht, ist folgendes.
+Der startet
+einen VoIP Agent
+für jedes, für jede Nummer,
+die er anrufen soll, startet einen eigenen
+Task, legt einen zip user agent
+an, sagt, er will nur Audio
+und dann macht er
+einen Call, einen Call
+an die Adresse mit dem User und Passwort,
+äh, mediaset, okay,
+30 Sekunden klingelt's
+und dann sagt der im Endeffekt, ob es geklappt hat oder nicht.
+Okay.
+Schauen wir mal.
+Publish.
+Wobei, das könnte ich eigentlich sogar von
+meiner Hostkiste jetzt
+machen.
+Egal, gucken wir mal.
+Also passt mal auf, es sollte jetzt eigentlich gleich hier
+mein Fritz Phone
+bimmeln. Ich mach mal ein bisschen lauter.
+Schauen wir mal, ob mein Fritz Phone
+bimmelt.
+Äh, Call? Okay.
+Ha! Hört ihr's?
+Ja.
+Es klingelt.
+Easy. Und jetzt hab ich aufgelegt,
+es ist der Call failed. Hat funktioniert.
+So, dann können wir das jetzt ja
+verbinden. Und zwar
+gehen wir sagen,
+wenn das
+über 19 ist,
+dann make zip call.
+Das war's.
+Ich würd sagen, wir sind fertig, oder?
+Ich mein, das ist natürlich nicht,
+ich geb auf meinem Phone gar nichts ein,
+ich mein, das ist jetzt vielleicht nicht
+die schönste Variante,
+aber es funktioniert.
+Ja, also
+was man jetzt noch verschönern könnte,
+wäre, diese
+WiringPi Library irgendwie
+embedden, weil aktuell
+kopiert er die einfach mit und das
+ist nicht, nicht schön
+in dem
+in dem Binary embedded und so was,
+aber scheiß drauf. Wurscht.
+Ja. Funst.
+Man könnte noch,
+ja, ich kann's als Ressource
+embedden, aber ich muss die auspacken am Anfang
+irgendwie. Ja, das können wir tatsächlich noch probieren.
+Eigentlich müsste man das hier ja schon
+customizable machen, oder?
+Also zumindest, zumindest die Targets,
+weil die Sachen hardcoded im Sourcecode
+ist noch ein bisschen blöd. Stell dir mal vor, ich will noch
+eine andere Telefonnummer haben oder sowas.
+Wobei ich sagen würd für jetzt,
+okay Chat,
+ihr könnt euch das jetzt aussuchen.
+Wollen wir das noch ein bisschen schöner machen,
+die .NET Variante, oder wollen wir uns das Ganze
+jetzt mal in Go und JavaScript angucken?
+10 Minuten schöner machen.
+Okay. 5 Minuten
+zum schöner machen. Machen wir's so,
+5 Minuten zum schöner
+machen, okay?
+5 bis 10 Minuten zum schöner machen. Und dann
+was wollen wir machen als nächstes?
+Wir machen schon mal eine Abstimmung.
+Haben wir Modgis am Start?
+Ansonsten
+können wir hier machen, ähm,
+wie ging das nochmal? Poll.
+Ich mach das mal kurz.
+Was als nächstes?
+Fragezeichen
+Go oder JavaScript?
+Duration.
+5 Minuten.
+Okay, 5 Minuten.
+Okay, also was machen wir denn?
+Was können wir denn auf die Stelle machen,
+um das Ganze schöner zu machen?
+Ich würd sagen, wir brauchen auf jeden Fall,
+wir sollten auf jeden Fall diese Sachen hier
+übergeben lassen per
+Command Line und das User und Passwort
+auch. Okay.
+Machen wir das.
+Kona.
+Ich mach hier kein Command Line
+Parsing selbst oder sowas.
+Run.
+Also was für, was für,
+irgendwie sowas, ne?
+So, also was für, was für
+Command Line Argumente
+brauchen wir denn? Wir brauchen
+ein String Array. Das ist nicht optional.
+Das nennen wir einfach
+Targets. Okay.
+So.
+Und da kommt das da rein.
+Vielleicht, vielleicht machen wir noch einen
+Bool Test, wo man
+die Anrufe testen kann.
+Was wir sagen, hier
+und das Ganze muss Async sein.
+Ähm, da sagen wir dann irgendwie sowas
+wie if test
+return
+und wir
+machen, wir machen einen Anruf
+an die
+Targets.
+Testanruf an die Targets, wenn da minus minus Test
+steht. Ansonsten, das
+passt schon. So.
+Dann dürfte
+das jetzt schon mal deutlich hübscher sein.
+Als vorher.
+Kompilieren.
+Ich hoffe, ich hab nichts verpa... Ne, hab ich nicht.
+Wir kriegen jetzt sogar einen Help.
+Wir haben sogar eine Help-Ausgabe jetzt.
+Dadurch, dass wir das hinzugefügt
+haben. Guck mal, wir haben sogar einen Help.
+Ja, ist das jetzt... Was macht
+eigentlich hier mein Cursor-Ding? Der ist weg.
+Jetzt können wir sagen, minus minus Targets.
+Hier.
+Alter, ist der lahm gerade.
+Okay, alles, Leute. Und jetzt...
+Oh ne, Moment! Fuck!
+Ich kann nicht abbrechen. Warum?
+Weil, weil ich irgendwie vergessen hab, meine
+Wildschleife cancelbar zu machen.
+Perfekt. Danach hat's
+die Zeit bricht ja ab.
+Ähm, hier.
+CTX.
+Ne, Moment. Nichts hier. Doch. Ne.
+Wollen wir das... Nennen wir das mal
+irgendwie Status. Kontext.
+Äh, guck mal.
+Cancel. Cancelation Token.
+Is cancellation
+if not cancellation requested?
+Ups, jetzt hab ich das angeklickt.
+Ne, ne.
+Das will ich nicht anrufen.
+So.
+Ah, es scheint noch zu funsen.
+Okay. Und jetzt machen wir minus minus
+Test. Jetzt soll der Testanruf
+machen. Gucken wir mal, ob das funktioniert.
+Äh, hallo?
+Ja, nice.
+Es funst. Es funst.
+Ich ruf mich an. Ich ruf intern.
+Ich ruf intern meine Fritzbox an.
+Okay, das ist tatsächlich ein bisschen
+hübscher schon jetzt. Ähm...
+Ich würd fast sagen, das ist hübsch
+genug jetzt. Wir können doch ein bisschen
+cheaten.
+Kann auch was anderes kopieren von nem anderen.
+Wir cheaten ein bisschen.
+Wir machen jetzt, wir machen auch das
+Logging hübsch jetzt. Äh, warum auch
+immer das nicht geht. Was hat der denn für
+Schmerzen? Warum geht das nicht?
+Geht das nicht? Moment, das ist das falsche
+iLogger, was der da drinnen hat.
+Ich will das
+haben von
+Microsoft
+Logger Extensions.
+Go hat gewonnen! Okay.
+Internal.
+Ne, Moment. Space.
+Ne, Go hat gewonnen.
+Das hat irgendjemand richtig hart was
+in Go noch reingebuttert gerade.
+Hab ich, hab ich gesehen.
+Ne, ne, wir machen
+Secrets nicht auf. Keck, wait.
+So, wir machen jetzt, ich hab noch ne Idee.
+Wir machen das genau so, wie
+ich das schon mal hatte.
+Helper. Public.
+Static. Class.
+Wir setzen einfach jetzt ne
+Public Logging Methode und dann haben wir immer
+das Datum noch davor.
+Warum wird das mit den Bits nicht angezeigt?
+Wird angezeigt.
+Wir machen jetzt keine Dependency Injection
+oder sonst irgendwas.
+Public. Static.
+iLogger.
+Äh.
+Irgendwas hier.
+Is not null.
+You
+custom log.
+So.
+Jetzt können wir tatsächlich,
+jetzt sehen die Textmessages sogar ganz gut aus
+glaube ich. Jetzt können wir nämlich hier sagen
+Log
+Information.
+So wie es ursprünglich gewesen ist.
+Da hab ich das jetzt genau nochmal so gemacht.
+So, jetzt sieht das, jetzt sieht das auch glaube ich
+ganz brauchbar aus. Jetzt haben wir sogar die
+Uhrzeit und so davor.
+Gucken wir mal, ob das jetzt funzt.
+Sollte jetzt sogar farbige Konsolenausgabe
+bei den Logs gleich sein.
+Hey, guckt euch das mal an.
+Und deutsches Datumsformat.
+Ja jetzt, also schöner, schöner geht's
+jetzt wirklich nicht mehr. Das muss jetzt
+reichen. Also jetzt
+ist wirklich Maximum
+Pewtified das Ganze.
+Emojis wegen.
+Wir können, okay, wir könnten noch
+Make Zip Call. Jetzt wo wir
+eine Helperklasse haben,
+können wir einfach
+Make Zip Call
+einfach da reinstecken und vergessen.
+Gachibuzz.
+Dann sieht Main sogar halbwegs
+clean aus. Guckt mal.
+42 Zeilen Main. Das muss reichen.
+Okay. Wunderbar.
+Ich würde sagen, das war's.
+Mit .NET. Nochmal abschließend
+checken, ob alles funktioniert.
+Einmal Anruf checken, ob's funktioniert.
+Geht. Kunst.
+Ihr hört's.
+Und ohne Minustest
+sollte er jetzt einfach den
+Analog-Digital-Converter
+abfragen
+und anzeigen und auslösen.
+Okay. Und es ist cancelbar.
+Alles gut. Nice.
+So lassen wir das jetzt.
+Speedfighter.
+Genug
+hübsch gemacht.
+Damit kann ich jetzt leben.
+Streng genommen müssten wir eigentlich noch
+die DLL hier embedden, dass das dann auch
+lesbar ist.
+Aber wir wollen's mal nicht übertreiben.
+Scheiß drauf. Das passt jetzt so.
+Okay. Jetzt kommt Go dran.
+Das wird ein bisschen komplizierter,
+weil ich
+das so noch nicht gemacht hab.
+Irgendwelche Raspberry Pi GPIO
+Sachen mit Go.
+Dann machen wir jetzt erstmal ein Git.
+Ne, wir machen kein
+Go mit auf jeden Fall.
+Wir machen WimGitIgnore
+Secrets
+Sieg
+Secret.cs
+Wie jetzt?
+Ah ne, das hab ich schon geedet. Ich kack Noob.
+Shit.
+Naja gut. Ich push das eh nirgends wohin.
+Leider nicht.
+Letztendlich ist auch da nix super Geheimes drin.
+Das passt schon. Okay.
+Git comment.
+Upu. Ganz toll.
+Achso, das war...
+Ich glaub das war ein Stream, wo ich mal aufs Klo muss
+zwischendurch.
+So. Okay.
+.NET ist...
+.NET Zeug ist fertig.
+Dann gehen wir mal in den Go-Ordner.
+Da fängt's jetzt schon an. Ich weiß noch nicht mal,
+wie man ein Go-Projekt überhaupt anlegt.
+Wir machen das hier zu.
+Wir machen auf jeden Fall GoLand auf.
+GoLand weiß, wie das funktioniert.
+GoMod init
+namespace
+Ich mach das jetzt mal, was du sagst.
+GoMod
+init
+So wie ich
+will, dass das heißt.
+Okay.
+Ähm.
+Was ist jetzt schon?
+Trust this window.
+Okay, new.
+Wir brauchen jetzt ein main.go
+auf jeden Fall.
+Ne, so funzt es schon mal nicht.
+Simple application.
+Okay, main.go
+already exists.
+Package?
+Das muss main heißen, wenn ich das richtig in Erinnerung hab.
+Ne?
+Go main.go.
+Bei go hört's auf.
+Warum ist das so kompliziert?
+Import fmt. Okay, alles klar.
+Wir machen mal ein bisschen größer, dass man was sieht.
+Go run.
+.
+Easy.
+Cgo muss auf jeden Fall ausgeschaltet werden.
+Ach, guck mal. Wir haben ja noch
+schon was.
+Go arm linux
+cgo enable 0, das ist ganz wichtig.
+Sonst funzt das net. Und let's go build.
+Perfekt. Okay, ausführbar
+ist es hier nicht, weil das ein arm binary ist.
+Okay, dann
+gehen wir jetzt nochmal zurück.
+Wir müssen nochmal ins .net verzeichnen
+und das unmounten.
+Weil das hier ist ein sshfs mount.
+So, dann gehen wir noch
+zu go.
+Wir löschen jetzt mal alles, was hier drin ist.
+Und
+wie sagt man go build
+in output directory?
+Kann man irgendwie sowas von machen wie
+"-o build"?
+Nee.
+Go build output directory.
+Aber das
+"-o muss hinter das build.
+Ganz hinten dran geht nicht.
+Also hier, "-o build".
+Ah ja.
+Okay. Ach ne, Moment.
+Das ist wie's heißt.
+Also muss ich jetzt mal
+build slash zip
+Ah, ja, ja. Okay.
+Dann machen wir nämlich wieder das gleiche
+wie bei
+wie bei .net.
+Wir machen, wir mounten
+uns das Ganze. sshfs
+sshfs
+Wir mounten uns das.
+Mapminister.
+Grad erst reingekommen. Ich hab's schon gar nicht
+gesehen. Doch, dort bist du vorher auch am Start.
+Du bist einfach nur white people happy.
+Versteh ich.
+Ich sehe, dass 233
+von euch da sind. Da bin ich auch white people happy, Leute.
+Massive white people happy.
+Na, kein Suse
+hier. Hör mal auf.
+Any arch enjoyers?
+By the way. Build.
+So.
+Kunst.
+Okay, also das mit dem rüber kopieren
+klappt schon mal. Von dem go binary.
+Das macht zwar noch nix. So, jetzt brauchen wir
+noch ne git ignore wieder.
+Das da kommt rein. Das da kommt rein.
+Und ansonsten
+eigentlich...
+Erst mal nix, oder?
+Gut, dann fangen wir doch mal an
+das Ganze in go zu machen.
+Ich werd mal Rider aufmachen
+zum abgucken.
+Also ich mein, wir werden's wahrscheinlich nicht
+exakt hundertprozentig so
+hinkriegen wie in .NET, weil ich beispielsweise...
+Kennt ihr mal ne schöne Library für
+Spinner auf der Konsole
+in go und sowas?
+So wie wir hier haben.
+Command Line Spinner in go. Da gibt's
+bestimmt auch irgendwelche schönen
+Go Konsolen Putify
+Libraries. Wobei das ja nicht wirklich
+der Kern des Ganzen hier ist.
+Ich krieg das auch
+auch nicht. Also.
+Wir müssen im Endeffekt
+erst mal schauen, wie man einen Sensor
+mit go ausliest.
+Bubble T go. Das hab ich schon mal
+gehört.
+Spinner. Bubbles.
+Mr. Bubbles.
+Guck mal, die hat sogar
+eingebaute Spinners.
+Oder auch nicht.
+Was passiert hier?
+Bei go hab ich immer erst mal
+Fragezeichen überm Kopf. Was da eigentlich
+vor sich geht.
+Aber immerhin hab ich schon mal ein GIF. Genau sowas will ich haben.
+Sowas da.
+Genau sowas da.
+Gibt es...
+Golang CLI Spinner.
+Haben wir da schöne...
+Also.
+Ja easy. Es gibt ein Package, was Spinner heißt.
+Ja genau sowas will ich haben.
+Ease. Eats.
+Gibt es da auch ein bisschen was Dezentes?
+Sowas hier. Das ist gut.
+Das ist gut hier.
+Das will ich haben.
+Das da. 14.
+Nur mal eine blöde Frage. Wie importiert man das denn jetzt?
+Wenn man mehrere Sachen in go importiert.
+So? Ne.
+Ach das ist ja wieder...
+Das triggert mich an go immer. Ich darf jetzt
+nicht speichern. Ansonsten
+löscht das ja automatisch.
+Musste man das so machen?
+Hab ich richtig gemacht.
+Alter. Der hat...
+Ah. Das ist so scheiße.
+Mann. Das fuckt mich in go
+immer so extrem ab.
+Stimmt. Man kann einen anderen Score davor machen.
+Dann bleibst du da.
+Man muss ja das so machen.
+Das ist ja...
+Mehrere Sachen die man...
+Okay.
+Konnte nicht irgendwie...
+Fix Missing Dependency.
+Jetzt pullt er.
+Ja das macht die IDE.
+Die kann das auch pullen.
+Okay. So. Und nun?
+New Spinner.
+Ja gut. Go hat keine E-Names.
+Da kann man das nicht schöner machen.
+Ohne E-Names.
+Aber wir wollten 14.
+Das ist halt hässlich as fuck. Oder?
+Charsets 14.
+Okay. Wir machen alle...
+Alle 10 Millisekunden.
+Start. Run for some time.
+Okay. Passt.
+Äh.
+Go. Run.
+Äh. Punkt.
+Kunst.
+Ich bin schon lange auf Twitch.
+So.
+Jetzt darf ich auch das da entfernen, oder?
+Ohne das der rumspankt.
+Das schlimme an Go ist,
+dass man es mal wieder raus macht.
+Aber das ist schon okay.
+So. Alles klar.
+Das ist okay. Das passt schon.
+Es ist ein bisschen schnell. Das stimmt.
+Aber alle 100 oder so.
+Vielleicht immer nur ein bisschen...
+Moment. Aber...
+Sollte jetzt eigentlich...
+Äh. Okay.
+Ach. Das ist diese Go-Duration-Geschichte.
+Moment. Da muss man doch...
+Jaja.
+Das ist... Das ist Go-Time...
+Timespan-Handling.
+Das ist... Weird... Weirdchamp.
+So. Ist okay.
+Gut. So. Jetzt haben wir schon...
+Als wichtigstes haben wir schon einen Command-Line-Spinner.
+Jetzt kann eigentlich nichts mehr schief gehen.
+So. Also. Da fangen wir an. Wie lese ich denn jetzt
+einen Sensor in Go aus?
+Go.
+ADS...
+10105
+Guck mal. Da gibt's was.
+Das ist ne Arduino.
+Das brauchen wir nicht.
+Oh. Guck mal. Das kommt sogar direkt von Google.
+Is now read only.
+Geil. Older version.
+Ah. Der wollte nicht mehr, dass das was mit Google zu tun hat.
+Hier. Devices.
+Da ist er doch.
+ADS 10...
+Mal gucken, ob der jetzt das Ganze
+übrigens richtig ausliest. Wahrscheinlich auch nicht.
+Guck mal. Examples.
+Äh...
+What?
+Host-Init.
+Okay. Das ist quasi
+sowas wie Pi-Init.
+Das können wir...
+Okay. Das können wir uns schon mal rauskopieren.
+Okay. Kopieren wir uns mal die drei Sachen raus.
+So. Und dann
+brauchen wir...
+Diese vier Sachen.
+Okay.
+Vater, kein Bock.
+Go.
+Warum auch immer das drin ist.
+Ähm. Okay.
+Äh. New.
+Ah. Den da wollen wir. Genau.
+So.
+Und jetzt. Log.
+FMT. Ne. Wie ging das nochmal?
+Hat es nicht? Log.
+Ah. Ne. Hier. Log.
+Printline.
+ADC.
+Pin for channel.
+Äh. Vermutlich 0.
+Pin halt.
+Pin read.
+What?
+Go. Go. Verwirrt mich gerade ein bisschen.
+Aber das mal hier.
+New.
+Weil das habe ich jetzt gelöscht. Das war blöd.
+So.
+Channel.
+Channel 0.
+Kann ich nicht einfach hier sagen...
+0?
+Doch.
+Bei Pin?
+Ich habe doch keine Ahnung an welchem Pin.
+Das musste ich da auch nicht angeben.
+Das hat den 0 interessiert.
+Guck mal.
+Hier in .net habe ich
+doch keinen Pin angeben müssen.
+Oder?
+Base?
+Delay?
+Ne.
+Das I2C Modul hat das selbst gesucht.
+Pin.
+Ich habe absolut keine Ahnung an welchem Pin das Ding hängt.
+Channel 0.
+Minus 3.
+Okay. Alles klar.
+5 mal Physik.
+Volt. Physik. Herz.
+Save.
+Okay.
+Ich lese jetzt einfach mal aus.
+Und guck was passiert.
+Ich habe keinen Schimmer.
+So. Auf meinem Rechner selbst wird das Ganze natürlich nicht laufen.
+Wo war read Channel 0?
+Moment. Ist das .net?
+Ne.
+Read Channel 0 ist was anderes.
+Das ist glaube ich nicht Pinfort Channel.
+Das ist irgendwas anderes.
+Oder?
+Wir werden es gleich sehen.
+Wir werden es gleich sehen.
+Bild.
+Okay.
+Das ist gar nicht so falsch, Leute.
+Es sind 17,4 nicht 1,7.
+Aber das ist prinzipiell gar nicht mal
+so weit weg davon.
+Schwankt das dann auch?
+Ja.
+Also es ist 1,719.
+Es müsste eigentlich 17,
+das ist ein bisschen verkehrt.
+Aber prinzipiell macht das
+was ist, wenn ich hier 0 reinschreibe?
+Ne, das stimmt.
+Dann stimmt es nicht, was rauskommt.
+Da muss aus irgendwelchen Gründen Channel
+Channel 0 minus 3.
+Kann ich nicht einfach sagen.
+Was passiert, wenn ich einfach
+sage Channel 0?
+Ne, das stimmt nicht. Okay.
+Also ich habe absolut keinen,
+nicht den Hauch einer Ahnung.
+Was ist, wenn ich hier...
+Was das bedeuten soll überhaupt?
+Ne.
+Es muss tatsächlich
+Channel 0 minus 3 sein.
+Sonst kommt nicht das richtige raus.
+Weil das hier stimmt. Das ist gut.
+Das Komma ist nicht ganz richtig, aber...
+Was muss hier rein? Max Voltage.
+Ah!
+Das haben wir hier auch.
+Max Voltage.
+War das 2048?
+Ne, 4096
+war das nicht.
+Aber ich meine, das ist 3,3.
+Ups.
+Okay.
+Es gehen nur ganze Zahlen.
+Ähm.
+Aber, Moment. Herz?
+Hatten wir da auch irgendwas mit
+Frequenz?
+Irgendwie?
+Das ist super high IQ
+das in Go zu benutzen.
+Ich trag da jetzt einfach mal.
+Just for fun.
+Soll ich da 4096 eintragen?
+Oder 4 Komma?
+Und dann mal gucken,
+was rauskommt.
+Oh. Ne.
+Okay.
+Ich lass das mal einfach so.
+Kein Schimmer.
+Ne, ne, ne.
+Die Frequenz müsste irgendwie hier beim Anlegen kommen.
+Guck mal hier.
+Frequency. Ob da irgendwas steht.
+Freak? Ne.
+Hast du die Hintergrundmusik?
+Ich glaub, die ist gerade einfach ein bisschen lauter.
+Dieser Track.
+Oder ich bin leiser.
+Ich hab keinen blassen Schimmer,
+was das macht hier.
+Best quality.
+Best quality.
+Ja, ist alles okay.
+Also, Frequency.
+Ich lass das einfach mal so.
+Es kommt ja das richtige raus.
+Nur nicht ganz.
+Was passiert denn,
+wenn ich 3 sage hier zum Beispiel?
+Dann stimmt's gar nicht.
+Ich glaube, dass
+irgendwie Fail.
+Da muss ich jetzt erst rauskriegen,
+wie man das in Go,
+was der hier eigentlich macht.
+Das stimmt schon, was der hier.
+Also, das ist jetzt richtig.
+Ey, keine Ahnung.
+Ich meine, es scheint das Richtige zu machen.
+Wir müssen das auf jeden Fall,
+das muss auf jeden Fall noch mal
+mal 10, was da raus.
+Ne?
+Achso, Moment.
+Read.
+Reading.
+Gleich Reading
+mal 10.
+Hä?
+Jetzt.
+Ah, Raw.
+Äh, Moment.
+Okay, Moment, Leute.
+Wir sind in Go.
+Äh, Go. Doppelpunkt gleich.
+Reading.
+Warum immer so eine Extrawurscht brauchen?
+Was soll ich machen?
+Warum?
+Wollen wir mal gucken, ob es einen Unterschied macht?
+Äh.
+Was?
+Äh, was?
+Es gibt gar keine Semikolons am Ende, gell?
+Hä?
+Was jetzt?
+Hier ist irgendwas falsch.
+Ach, hä?
+Wie habe ich denn das weggekriegt?
+Ne, Moment.
+Ich will nicht Raw.
+Kann man das mal 10 rechnen?
+Geht das?
+Okay. Alles klar.
+Und was macht der jetzt hier?
+Read values continuously.
+Jetzt macht der hier unten noch irgendwelche Magic-Sachen.
+C?
+It's iterated der da irgendwie drüber.
+Mal 10.
+Ja, dann sparen wir uns das hier oben,
+dass das einfach mal initiales einlesen und gut ist.
+Okay.
+Äh, brauchen wir nicht.
+Wie jetzt?
+Geht das nicht?
+Ach so.
+Hä?
+Aber, Moment mal, Moment mal.
+Moment.
+Das würde gehen.
+Aber das kann das eine an der Stelle gehen.
+Das kann das eine an der Stelle gehen.
+Geht nicht.
+Und dann muss man das...
+Das ist anscheinend irgendwelche Go-Magic,
+die man nicht verstehen muss.
+Warum, wenn ich was diskarde,
+muss ich den Doppelpunkt wegmachen?
+Was hat denn das eine mit dem anderen zu tun?
+Okay.
+Value gleich Reading.
+Okay, zack.
+So ganz stimmt das aber nicht, was der da liest, ne?
+So ganz stimmt das nicht, weil...
+So ganz stimmt das nicht, weil...
+Dass da mal 16 dazwischen ist.
+Äh...
+Mach mal Best Performance, genau.
+Wir machen nicht Dings, wir machen...
+Best Quality.
+So richtig stimmen tut das nicht.
+So richtig stimmen tut das nicht.
+Ich muss jetzt mal runtergehen und klingeln, aber ich hab keinen Bock.
+Was ist denn, wenn ich einfach hier sage 6?
+So, einfach gucken, was dann passiert.
+So, einfach gucken, was dann passiert.
+Juckt den gar nicht.
+Mach 10 plus 1, easy.
+Einfach Magic Zeugs irgendwie hinschreiben.
+Naja, ob das so stimmt, was ich da mache?
+Ich weiß ja nicht.
+Ach, hier. Dafür ist das Herz hier hinten.
+Jetzt liest...
+Der liest, wie schnell...
+Wie schnell dieser Iterator da iterated.
+Dafür ist das.
+Dafür ist das.
+Aha.
+Das kann ich aber in meiner .NET-Geschichte gar nicht angeben.
+Das gibt's da überhaupt nicht.
+Irgendwas...
+Na gut, da bestimme ich ja auch, wann ich auslese.
+Na gut, da bestimme ich ja auch, wann ich auslese.
+Da war was mit Delay.
+Das stimmt, ja.
+Das ist glaube ich was anderes.
+Egal, aber wir können einfach sagen,
+wir wollen das Ganze jetzt quasi
+100...
+100 Mal pro Sekunde haben.
+Genau, ich will mich anrufen,
+wenn einer klingelt.
+Die .NET-Variante haben wir
+und die funktioniert.
+Jetzt will ich das Ganze nochmal in Go machen.
+Wobei mich die
+die Go-Sache etwas
+verwirrt teilweise.
+So, zumindest
+klappt das ja an der Stelle soweit.
+Max Voltage ist
+der zweite Parameter...
+Ja, das weiß ich, das habe ich gesehen.
+Das Problem ist nur,
+eigentlich wäre es 4096
+beziehungsweise
+eigentlich wäre es sowas,
+aber das ist ja nicht erlaubt an der Stelle.
+Gibt's da sowas wie...
+Volt? Ah, Millivolt gibt's auch.
+Okay.
+Jetzt vielleicht so?
+Ist dann besser?
+Auch nicht, wirklich.
+Ja, alles Mögliche verwirrt mich
+an Go.
+Aber 2048 war das nicht.
+Das war irgendein anderer Magic-Wert,
+den ich gebraucht...
+Okay.
+Aber ich glaube, so ist es
+richtiger.
+Das entspricht eher dem, was ich...
+Das hier checke ich halt gar nicht.
+Channel 0-3
+Kein
+Plasenschimmer, was das sein soll.
+Aber wir haben Best Quality.
+Also wir haben aus irgendwelchen Gründen
+haben wir nur 16
+Volt. Ich müsste echt mal runter gehen
+klingeln und gucken, was rauskommt.
+Du hattest Spicy Sharp, aber...
+Naja, dieses...
+Diese Library macht da Dinger.
+Was auch immer die da macht.
+Ja, hier.
+Das ist bestimmt die Byte-Verschiebung.
+Du meinst das hier?
+Den Zusammenhang, ey, schließt sich
+mir grad nicht.
+Ja, was auch immer.
+Zumindest kommt so ungefähr das raus,
+was ich haben will.
+Ja, da war was mit Byte.
+Da war was mit 3 Byte.
+Das war bei...
+1
+1
+Das steht da bei mir drinnen.
+Und keine Ahnung, was das...
+Ach so,
+meinst du das...
+Ich hab echt keine Ahnung, was das macht.
+Shift 4
+Stimmt.
+Hier hab ich 1.
+Aber wenn ich hier 4 reinschreibe, kommt bestimmt
+was ganz was anderes raus.
+Ja.
+22
+Und 22 kommt was.
+Also, da ist
+zumindest das, was ursprünglich mal rausgekommen
+ist... Ne, da kommt was ganz was anderes raus
+jetzt. Ne, also ich hab...
+Okay, ich hab keine Ahnung.
+Ich weiß aber halt auch nicht, wie man den Sensor
+richtig ausliest, ehrlich gesagt.
+Ich hab mich jetzt einfach auf die Library
+verlassen und die hat das halbwegs gescheit gemacht.
+Und ich geh davon aus, wenn ich wüsste,
+wie das jetzt funktioniert, dann würde
+ich das auch... Aber ich
+mein, das ist schon mal ungefähr in die richtige
+Richtung, ja?
+So.
+Dann lassen wir den mal
+Command Line spinnen.
+Und
+starten den. Wir stoppen.
+Man kann doch
+sowas hier sagen in Go, oder?
+Genau, so nach dem Motto, wenn der exited, stoppt das auch
+auf jeden Fall. Wir brauchen
+ein Sleep. So.
+Jetzt sollten wir einen ordentlichen Spinner
+haben in Go. Naja gut, den machen wir jetzt wieder
+kaputt damit. Wie kann ich
+denn jetzt in der Go
+Spinner Library...
+Wie kann ich denn da Text...
+Prefix or append
+Text to the Spinner?
+Okay, das will ich haben.
+Ich will im Prinzip Spinner
+Prefix
+gleich Value.
+Ey, da geht
+wirklich...
+To String.
+So.
+String? So?
+Ja, fast.
+Conversion to String
+interprets the integer value as a
+Codepod. Nee.
+Okay.
+Was war das? IO? Nee. Moment.
+Das
+wusste ich letztens schon mal.
+Wie ging das in Go?
+Nicht IO-Utils, das war was anderes.
+Go into
+String. Welche Lip ich
+benutze? Das
+Ding hier. Für die...
+Strillkonf. Genau das
+meine ich. Strillkonf.
+Wie wäre es mit einem Hilfetext
+daneben, dass man...
+Dass man wüsste, was es macht?
+Strillkonf.
+Ah, die Musik wieder.
+Mach mal ADS Channel 3.
+Okay.
+Gleich, gleich. Mach ich gleich.
+Strillkonf
+Format Int.
+Oder Itor.
+Das haben sie
+irgendwo sich aus C geklaut.
+Moment,
+es ist ja gar kein Int.
+Moment, man kriegt da direkt einen String raus?
+Okay, ich habe nichts gesagt. Easy.
+Moment, Print Value muss weg.
+Also das geht
+in Go zumindest ein bisschen schneller.
+Das ist doch schön. Das ist doch fast
+das, was ich haben will.
+Ich will übrigens nicht Prefix, sondern
+Suffix haben und dann am besten
+noch ein Leerzeichen davor.
+Das sieht doch schon mal gut aus.
+Continuous Reading juckt
+mich doch mal gar nicht. Single Reading
+juckt mich auch nicht. Das kann alles fort.
+Hello World kann natürlich auch raus.
+So.
+Das sieht doch schon mal gar nicht so übel
+aus für den Sensor. Plus, dass es
+nicht stimmt, was ich auslese. So, was soll
+ich machen?
+3300 mal Millivolt.
+So meinste.
+Juckt den jetzt nicht so
+richtig. Kommt mehr
+oder weniger das gleiche raus wie vorher.
+Passiert ja, wenn ich einfach sage 2.
+Ah, das stimmt nichts.
+Die Werte sind ja
+gar nicht so verkehrt.
+Ja, das funktioniert schon mal. So.
+Und jetzt müssen wir gucken, wie man einen Zip Call macht in Go.
+So wirklich
+hübsch finde ich das jetzt allerdings
+nicht. Wie würde man das jetzt in
+Go ordentlich machen? Kann man da so was
+zumindest, zumindest mal so was wie
+Function, irgendwie Init
+oder sowas und dann, dass wir zumindest mal
+diesen, ah nicht wirklich, oder?
+Das braucht man ja
+alles. Fällt jetzt nicht ein, wie man
+das schöner machen könnte. Ich würde
+das ja gerne irgendwie ein bisschen auslagern.
+Weil das echt wild
+ausschaut. Aber ich glaube, das funktioniert
+nicht. Ich glaube, das muss so.
+Das muss so, es geht nicht anders.
+Ich meine, es ist ja wenigstens
+ganz gut lesbar, also kann man sich ja nicht
+beschweren. So, nee,
+ich gehe jetzt nicht mehr rausklingeln.
+So, Go Lang
+Zip Call.
+Zip Go.
+Zip. Zip Lang
+Fast Zip Devices.
+Supported Protocols
+UDP, TCP, Websocket
+Usage.
+Zip Go.
+Es gibt auch Go Zip.
+Ne, meine
+Fast. Ja, wie jetzt?
+Examples. Wir gucken uns
+Server. Nee, nee, nee, nee.
+Search. Was?
+Das ist ein Protokoll
+für Telefone. Ich will einfach
+nur einen Call initiieren.
+Ich glaube, das Beispiel hier ist eigentlich
+ganz gut. Ja, genau.
+Genau. Server?
+Ich will, ich will gar keinen Server.
+Ich, ich will, ich will einfach nur
+anrufen.
+Okay.
+Wir, wir ko... Was?
+So, das mit dem Server sparen wir uns
+komplett.
+Also, wir, wir probieren das jetzt mal.
+Machen wir jetzt hier.
+Kann man hier einfach sagen Return,
+sodass der Shit... Moment, da meckert Go
+doch garantiert, wenn das einfach nur auskommt.
+Ach, das ist erlaubt in Go.
+So ein random Return zwischendurch. Okay, dann ist
+gut. Welche
+Example, Examples
+brauchen wir hier mal kurz.
+Proxysip. Ich will einfach, ehrlich gesagt
+will ich einfach nur gucken, was ich importieren muss.
+Äh.
+Was da?
+Okay, nice.
+Zip Go.
+Server. Nee, Server
+will ich schon mal gar nicht. Null.
+Juckt mich gar nicht.
+Bist du... Nein, nein, nein, ich bin Woblo aus.
+Weißt du doch.
+Wo kommt denn CTX an der Stelle
+her? Nee.
+What? Wo kommt denn CTX
+her? Signal
+Notify Context.
+MonkaW.
+Äh.
+Es ist so obvious, woher CTX
+kommt, dass man das nicht angeben muss.
+Äh. Pff.
+Ja. Nice.
+Alles klar.
+Was? Context? Context?
+Background.
+What?
+Da jetzt, oder wie?
+Was ist das? Magic.
+Das ist mir, das ist mir jetzt zu hoch.
+Das ist mir eindeutig zu
+zu high IQ.
+Dein Channel könnte falsch sein.
+Im Moment wird dir nicht der Wert gegen Crown ange...
+Gib mal nur
+Channel X und nicht Channel...
+Das hat nicht funktioniert. Das habe ich schon ausprobiert.
+Das ist gar nicht so falsch,
+was der ausliest.
+Das kommt noch am ehesten hin.
+Hier schreibt man jetzt quasi...
+Schreibe ich jetzt hier diese
+17...
+So hier rein?
+Nee.
+Nee, nee, nee.
+So einfach ist es nicht.
+Eine Uri
+brauche ich. Sip Uri.
+What the...
+Ah, User Password.
+Ach, hier muss ich den ganzen krempeln. Okay.
+Also kann ich jetzt quasi sagen, hier
+das ist mega verwirrend.
+Wie das funzt.
+Ich will einfach nur einen Anruf machen.
+New Client.
+Host Name.
+Was habe ich denn da angegeben?
+Make Sip Call.
+Nix, oder? Sip User Agent.
+Default User Agent.
+Ja, egal wie der heißt.
+With Host Name.
+Auch vollkommen okay.
+So, also ich brauche Headers.
+Brauche ich nicht.
+Host brauche ich.
+Host ist das da.
+Also ich denke mal,
+dass er mit der Zielhost gemeint ist.
+Hä, Alter.
+What?
+So, Password, Headers.
+User Wildcard.
+Scheme.
+Also ich habe sowas hier.
+Wie macht man das?
+Tja, da müssen wir jetzt
+von Sip eine Ahnung haben, wie dieser ganze
+Kram heißt.
+Ich will da anrufen.
+Transaction.
+Kann ich nicht einfach sagen, New Sip Request?
+Kannst du auch passen?
+Ja, wie denn?
+Sip.
+Pass, irgendwie.
+Pass Message.
+Pass Address?
+Pass, ne.
+Pass Address.
+Sowas hier, oder?
+Was will der?
+Was will der von mir?
+Was für ein Pointer?
+Auf was?
+Ich hätte jetzt einen Return erwartet.
+Muss ich einfach den Link
+der Lehre angeben, oder wie?
+Wieso?
+Und? Sowas, hä?
+Handle Error.
+Ja, das funzt so nicht.
+Das habe ich auch schon gecheckt.
+So, und da ist es jetzt drin, oder was?
+Kann ich nicht sagen, Fatal Error
+oder sowas, dass das dann gleich abkackt?
+So.
+Jetzt lassen wir diesen ganzen Kontext-Scheiß einfach weg.
+Hier, so.
+New Sip Request.
+Uri, haben wir doch
+hier jetzt.
+Was hat er hier für Schmerzen?
+Unused.
+Ich glaube, ich hätte das mit dem Client machen sollen.
+Was ist das für ein Shit, Mann?
+Da versteht doch keine Sau, wie das funktioniert, Alter.
+Client?
+Do. Do ist immer gut.
+Request.
+Was will der mit diesem komischen
+Kontext eigentlich von mir?
+Kann ich einfach sowas
+hier sagen? Bam.
+Und dann geht's. Wow.
+Ah, easy.
+Declare not used. Ah, Moment.
+Hier oben habe ich ja schon was.
+Ja, das wäre jetzt auch zu einfach gewesen.
+Muss ich doch
+sagen, Pass Address
+Host, zurück kriege ich
+Host String, ne.
+Keine Ahnung.
+Da muss doch bestimmt noch irgendwas davor.
+Muss da irgendwie Sip Doppelpunkt Slash Slash oder
+was davor?
+What?
+Ohne? Also so im Endeffekt.
+Invite Sip
+Failed to write
+Request on init. Tja.
+Bestimmt wegen Username
+Passwort. Muss mal
+gucken, ob ich das seh. Hm.
+Eine Idee, wie ich in Go
+Secret Go
+ähm
+Kann ich in Go irgendwie
+Kann ich hier auch irgendwas verstecken?
+Ich will einfach nicht, dass ihr es seht.
+Also quasi sowas wie
+User gleich
+Keckel so.
+Package Main gibt's schon, gell?
+Ja, ich denk auch, dass Go
+das anzeigt.
+Env-Variable, das will ich
+eigentlich nicht. Äh, das ist
+Können einfach, können wir nicht
+einfach hier unten irgendwie ne Variable hinmachen
+oder so? Wobei, dann ist die
+nachher definiert.
+Ne, das ist doch einfach viel zu umständlich.
+Ich will jetzt kein neues
+Secret Management Framework
+oder sowas. Kann man nicht
+Ich weiß, wie wir das machen.
+Keck Wait.
+Ähm.
+Gibt's nicht die Möglichkeit, dass man sagt
+Wie kann das? Secret?
+So. Und
+Okay, Package Main mag er ja net.
+Dass man da irgendwie sowas sagt
+wie Function.
+Ähm. Ja, was ist? Get User
+Return
+Keckel. Weil das zeigt er dann net an.
+Weil das irgendwie return
+Äh, was? Too many
+Arguments? Ach, man muss
+den, den Return-Wert noch, ne?
+Ah, okay.
+Ähm.
+Get Password. So.
+Und wie kann ich da jetzt drauf zugreifen?
+Uri.
+User.
+Get. Achso.
+Okay, easy. Weil
+das liest er auch nicht aus.
+Okay, Chat. Ihr müsst jetzt
+kurz weggucken.
+Alle Augen zu. Ich hoffe,
+der zeigt es nicht gleich
+im Debug-Log an. Leute, ich
+probier mal. Ich trag mal Mist ein.
+Mal gucken, ob es im Debug-Log drinne steht.
+Es steht natürlich
+im Debug-Log drinne.
+Ja, dann, dann nicht.
+Debug gleich false.
+Ne, ich will, ehrlich gesagt, will ich ja eigentlich nicht
+Debug false machen. Ich will ja
+schon sehen, was da treibt, ne?
+Chat, dann könnt ihr jetzt leider grad mal
+nicht zugucken. Okay, es
+Failed. Es, es
+Failed auf allen Ebenen, Leute.
+Es liegt nicht an Username und Password.
+Also, dann kann ich das
+...
+Wir schwärzen hier nichts.
+So, dann kann ich das wieder um... Also, das, was ihr
+jetzt seht im Debug-Log ist nicht das echte, okay?
+Also, wir müssen
+erst mal gucken, warum das Failed. Wahrscheinlich
+passt der das dann richtig.
+Ah, geil.
+Jetzt hab ich's geleakt. Jawoll.
+Ich mein, ihr kommt eh nicht dran. Ist scheißegal.
+Es ist eigentlich komplett
+egal. Ihr kommt nicht dran.
+Das ist rein lokaler User per SIP
+auf meiner Fritzbox.
+So. Ne, es ist
+es ist wurscht. Ich kann's auch eintragen.
+Es ist ein lokaler User auf meiner Fritzbox.
+Vollkommen wurscht.
+Zu spät. Ja, ich weiß, chat,
+chat. Ihr seid alle schon am Start.
+Aber was viel interessanter
+ist, warum
+Failed das hier?
+Ich mein, was, was mach ich, was
+mach ich in .NET
+.NET?
+Was ist denn da der Default von
+SIP transport?
+Whatever. Weiß ich net.
+Der setzt da
+Call, ja. Der setzt da
+halt den kram schon richtig stimmt ja moment das ist ja was ganz was anderes jetzt das ist
+ja was ganz was anderes ich will dass user name und passwort an der stelle gar nicht setzen ich
+will dass user name passwort setzen bei hier eigentlich beim client ich setze das hier auch
+ich setze das hier wenn ich den call mache also im prinzip hier irgendwo setze ich das vielleicht
+muss man das vom client user name passwort setzen und dann weiß ich es auch nicht register client
+das ist eine gute idee hier example register client main ja ja das ist gut das gut with user
+agent
+ja das ist was anderes da muss user ist ein string moment das muss ein pointer sein was
+was will er von mir ich finde das in go teilweise extrem kryptisch das ist doch ein string was will
+er ach moment das ist der client das ist wieder was anderes
+was ist das hier an der stelle ob das in options die kann man sich wahrscheinlich auch schenken
+oder client options typ client options und wo er weiß ich jetzt was es für options gibt also das
+ist quasi einfach nur objekt was der client host name klein port
+matt
+address das ist das kann ich mir doch das kann ich mir noch sparen oder auf der wegklasse klein port
+ich der kann mich überhaupt nicht anrufen soll was macht er wo machen die hier was mit passwort
+und mich verarschen okay das ist ja wirklich hardcore manueller betrieb hierbei bei der
+library die haben in was ich voll web framework okay vielleicht geht es damit einfacher
+register f passwort das findet man hier noch nicht alter der neue github editor man das sieht schon mal besser aus das sieht schon mal deutlich besser aus ja ich glaube ich glaube wir verwenden das hier lieber wir verwenden das hier lieber ja das ist mit das also das ist wirklich hyper low level ey egal ich kann mich nicht mehr konzentrieren es reicht für heute
+boah
+go geschichte
+schon nicht ohne
+wenn man das nicht so oft macht
+ja ich hab's gesehen
+da muss
+da muss erstmal irgendwie so ein
+register
+anfrage schicken und dann muss man
+darauf reagieren und dann sagt das ist mir zu blöd
+ich mach das das nächste mal wirklich mit dieser
+high level library
+das ist ja gar nix so
+da werden aus 40 zeilen.net
+werden 800 zeilen go
+wenn man das von hand alles machen muss
+aus dem herrlich von zip
+keine ahnung
+mehr heiligte
+genug
+genug für heute
+das war aber immer weiter
+das ist dank
+gelung
+ein uraltes mmo
+mit hammer gestrimmt hat
+das hat ihr divides
+Sure
+blur und sowas guckt
+last minute entlich sieht unsere
+meistkehren
+dessen
+ist zu spät aber die tage weiter ich gehe jetzt ins bett gehen
+wir sehen uns morgen früh um irgendwie so weiß ich nicht zwischen zwischen 8
+und 10 irgendwann bett geteilt schön dass sie am start war

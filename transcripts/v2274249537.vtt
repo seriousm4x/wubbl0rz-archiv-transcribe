@@ -1,0 +1,9061 @@
+WEBVTT
+
+01:07.060 --> 01:09.000
+Seid aber schnell am Start, Leute.
+
+01:10.520 --> 01:13.420
+Der Stream ist ganz knapp eine Minute erst online.
+
+01:17.840 --> 01:19.020
+Ja, das werden wir heute sehen.
+
+01:20.160 --> 01:23.840
+Wie gut das mit JavaScript alles funktioniert.
+
+01:25.000 --> 01:29.920
+Also, der Plan ist folgendes, das muss ich eh heute noch 30 Milliarden mal sagen, deswegen sage ich das gleich.
+
+01:30.460 --> 01:34.020
+Der Plan ist folgendes, wir bauen das gleiche Tool.
+
+01:34.720 --> 01:38.180
+Das wird nicht sonderlich kompliziert, aber ich weiß auch schon genau, was wir bauen.
+
+01:38.180 --> 01:54.100
+Und der Grund, warum wir das bauen, ist, weil ich das brauche und ich hab was, das hab ich vor 3-4 Jahren schon mal gebaut, aber ich finde den Source Code nicht mehr.
+
+01:54.520 --> 02:00.180
+Das war mir wohl damals sogar schon zu unbedeutend, das hab ich noch nicht mal bei mir lokal ins Shit-Repo gepusht.
+
+02:02.480 --> 02:07.880
+Also, was ich jetzt gemacht hab ist, das war ein .NET Programm.
+
+02:08.180 --> 02:20.060
+Was ich jetzt gemacht hab ist, ich hab mir vom Raspberry Pi im Keller die .NET-DLL runterkopiert, dekompilt und die wichtigsten Parts rüberkopiert, dass ich hier abgucken kann, okay?
+
+02:21.680 --> 02:26.440
+Das heißt, wir bauen das gleiche Tool in C-Sharp, in JavaScript und in Go.
+
+02:27.340 --> 02:33.260
+Also, oder besser gesagt in .NET, in Deno 2.0, ja, oder in Go.
+
+02:37.060 --> 02:40.560
+So, was ist es denn? Ja, das sag ich, da warte ich jetzt mal kurz.
+
+02:40.580 --> 02:43.960
+Also, na gut, wie gesagt, ich muss das eh 580.000 mal erzählen heute.
+
+02:44.320 --> 02:45.280
+Also, was ist es? Es ist folgendes.
+
+02:48.200 --> 02:49.880
+Es ist ein Tool für den Raspberry Pi.
+
+02:52.020 --> 02:54.840
+Das heißt, es muss auf jeden Fall schon mal auf Arm laufen.
+
+02:54.980 --> 02:57.760
+Es ist ein ziemlich, es ist ein Raspberry Pi 3, glaube ich.
+
+03:00.020 --> 03:04.160
+Oder 2? Ich glaube 3. Ich glaube, es ist ein Raspberry Pi 3.
+
+03:04.700 --> 03:05.800
+Der steht bei mir im Keller.
+
+03:06.600 --> 03:07.780
+Der hat einen Sensor dran.
+
+03:09.240 --> 03:10.660
+Und es ist ein altes Debian.
+
+03:10.660 --> 03:13.540
+Es ist ein Debian, weiß nicht.
+
+03:14.000 --> 03:15.380
+Das ist 2020 oder so.
+
+03:17.530 --> 03:20.450
+So, und ich will den Raspberry Pi auch nicht updaten.
+
+03:20.530 --> 03:22.610
+Der steht im Keller und der steht da am Arsch der Welt.
+
+03:22.810 --> 03:24.270
+Und der soll da auch stehen bleiben.
+
+03:24.390 --> 03:25.470
+Also, ich mache kein OS-Update.
+
+03:26.170 --> 03:27.570
+Was das Tool macht, ist folgendes.
+
+03:27.790 --> 03:29.790
+Das liest einfach Sensorwerte aus.
+
+03:30.910 --> 03:36.010
+Und wenn die Sensorwerte über einem gewissen Level sind, kurz,
+
+03:36.910 --> 03:40.370
+dann triggert das einen Zip-Call an meine Fritzbox.
+
+03:41.510 --> 03:46.920
+Das heißt, der macht keinen richtigen Call.
+
+03:47.040 --> 03:50.360
+Der lässt bloß klingeln, dass ich weiß, dass das Sensor über einem gewissen Wert ist.
+
+03:50.400 --> 03:50.900
+Was für ein Sensor?
+
+03:51.440 --> 03:53.180
+Ein Analog-zu-Digital-Konverter.
+
+03:53.660 --> 03:55.140
+Der liest Spannungen aus.
+
+03:56.200 --> 04:01.180
+Und wenn das über 19 Volt ist, dann soll der einen Zip-Anruf triggern.
+
+04:01.900 --> 04:02.780
+Das funzt auch.
+
+04:02.820 --> 04:05.840
+Ich habe da auch was auf dem Raspberry Pi liegen, was prinzipiell funzt.
+
+04:05.900 --> 04:08.000
+Aber das macht noch mehr und ich habe den Source-Code nicht mehr dafür.
+
+04:09.580 --> 04:10.720
+Das ist simpel.
+
+04:10.760 --> 04:12.000
+Es ist wirklich simpel in .NET.
+
+04:12.000 --> 04:17.000
+Das sind vielleicht, weiß ich nicht, 50, 60 Zeilen ins Gerät.
+
+04:17.040 --> 04:19.480
+Insgesamt mit allem, mit Zeremonie drumherum.
+
+04:19.480 --> 04:20.480
+Das ist wirklich simpel.
+
+04:21.480 --> 04:26.480
+Das einzige mit dem Sensor auslesen, weiß ich noch, war ein bisschen kompliziert, bis das funktioniert hat.
+
+04:26.480 --> 04:30.480
+Das heißt, wir brauchen prinzipiell Libraries für den Sensor.
+
+04:30.480 --> 04:32.480
+Und um einen Zip-Call zu machen.
+
+04:32.480 --> 04:43.480
+Und das Ganze muss irgendwie sich am besten Cross-Compilen lassen für 32-Bit ARMv7.
+
+04:43.480 --> 04:45.480
+Oder was ist der Raspberry Pi 3?
+
+04:47.040 --> 04:50.360
+Und dann kann man es darauf ausführen.
+
+04:51.000 --> 04:55.940
+Also ich bin mir relativ sicher, dass die beste Sache, die wir benutzen können, eigentlich Go wäre dafür.
+
+04:56.720 --> 05:00.720
+Weil Go ist einfach das Beste, wenn es um Self-Contained Binaries geht.
+
+05:01.120 --> 05:04.840
+Aber ich bin mir nicht so sicher, wie es mit IoT-Ready, oder sagen wir IoT ist vielleicht das falsche Wort,
+
+05:04.900 --> 05:08.220
+wie es mit Raspberry Pi und Sensor-Libraries für Go aussieht.
+
+05:08.220 --> 05:10.680
+Wir machen das übrigens, by the way, nicht in Python.
+
+05:10.800 --> 05:12.600
+Und wisst ihr auch, warum wir es nicht in Python machen?
+
+05:16.000 --> 05:17.220
+Was könnte der Grund sein?
+
+05:30.670 --> 05:32.390
+Nein, das ist nicht das Problem.
+
+05:33.870 --> 05:35.490
+Es ist zu einfach.
+
+05:36.010 --> 05:38.050
+Es ist zu einfach in Python.
+
+05:39.910 --> 05:41.350
+Es ist zu einfach.
+
+05:43.550 --> 05:48.990
+Weil es gibt eine offizielle Library für den Sensor vom Hersteller für Python.
+
+05:49.270 --> 05:53.410
+Und den Zip-Call machen, mache ich im Zweifelsfall einen Shell-Exec in Python.
+
+05:53.970 --> 05:57.630
+Das Problem ist aber vielmehr, dass mich Python abfuckt.
+
+05:57.630 --> 05:59.050
+Und zwar aus einem Grund.
+
+05:59.630 --> 06:01.350
+Gar nicht von der Sprache an selbst.
+
+06:02.270 --> 06:05.870
+Packaging von Programmen in Python ist einfach kompletter Abfuck.
+
+06:06.710 --> 06:10.310
+Also wenn sowas in JavaScript mittlerweile schon besser funktioniert, das heißt echt was.
+
+06:12.350 --> 06:16.450
+Programmieren in Python und so, gar kein Problem, finde ich eigentlich so gar nicht ganz gut.
+
+06:16.970 --> 06:23.670
+Aber das Packagen von Anwendungen, am besten als Executable, dass das einfach auf eine Kiste schieben kann,
+
+06:23.670 --> 06:25.670
+das ist extremer Abfuck.
+
+06:26.330 --> 06:28.170
+Ja, ne, so einfach geht das nicht.
+
+06:28.930 --> 06:30.930
+Das geht schon mal gar nicht einfach.
+
+06:31.310 --> 06:32.070
+Wenn ich das auf eine x86...
+
+06:32.270 --> 06:34.270
+x86-Kiste für eine ARM-Kiste machen will.
+
+06:34.550 --> 06:42.390
+Und es geht auch schon immer einfach, wenn die Kiste, auf der ich das Package baue, deutlich neuer ist, als ein alter Raspberry Pi, der im Keller steht.
+
+06:43.350 --> 06:43.850
+Das ist das...
+
+06:43.850 --> 06:44.350
+Ich kenne das.
+
+06:44.350 --> 06:44.850
+Ich kenne das.
+
+06:44.850 --> 06:49.070
+Das ist alles in der Theorie, ist das ganz toll, aber in der Praxis fällt das ziemlich.
+
+06:49.770 --> 06:52.310
+Ja, oder beispielsweise, nehmen wir mal ein besseres Beispiel.
+
+06:52.670 --> 06:55.470
+Du hast einen Entwicklerrechner, der hat ein relativ neues Betriebssystem drauf.
+
+06:55.850 --> 07:01.930
+Du nimmst dein Python-Programm, bastelst das zu einem Executable, dann schiebst es auf ein CentOS.
+
+07:01.930 --> 07:09.170
+Also auf einen Red Hat 8, CentOS gibt es ja nicht mehr, oder auf einen Rocky Linux 8 oder was auch immer, auf einen Red Hat, Red Hat Linux 8 Server.
+
+07:09.510 --> 07:12.510
+Und stellst fest, bam, geht nicht, weil GLEP-C zu alt oder sowas.
+
+07:13.890 --> 07:16.790
+Ist auf dem Pi kein Python installiert, doch, aber irgendein altes.
+
+07:17.690 --> 07:19.250
+Ja, Moment, aber ich habe ja Dependencies.
+
+07:19.370 --> 07:25.270
+Ich habe mal zumindest Dependencies auf die Library für die Sensoren und für ZIP.
+
+07:26.010 --> 07:30.710
+Also irgendwie, irgendwie so eine Self-Contained Binary, was alles enthält.
+
+07:31.270 --> 07:31.810
+Oder, oder...
+
+07:31.930 --> 07:35.130
+Zumindest, sich zumindest starten lässt, wäre eigentlich ganz nice.
+
+07:36.470 --> 07:39.410
+Also das Packagen von Apps ist in Python wirklich der allergrößte Abfuck.
+
+07:39.830 --> 07:43.750
+Aber prinzipiell die eigentliche Entwicklung dieses Tools ist in Python tatsächlich zu einfach.
+
+07:44.270 --> 07:48.230
+Die größte Herausforderung dabei wäre wahrscheinlich wirklich das zu, das zu packagen.
+
+07:49.390 --> 07:51.530
+Also, hallo, meine Tastatur wird nicht, äh, doch jetzt.
+
+07:56.010 --> 07:57.630
+Wir machen da erstmal Update.
+
+07:59.890 --> 08:02.450
+Besser Perl, in Perl glaube ich kann ich den Sensor noch nicht mal auslehnen.
+
+08:02.450 --> 08:05.410
+Gibt es ein ADS1015 für Perl?
+
+08:09.680 --> 08:17.320
+Äh, okay, Pleading Edge-Technologie, 0 Sterne auf GitHub und äh, sieben Jahre alt.
+
+08:19.610 --> 08:20.930
+Nice, das brauchen wir.
+
+08:23.080 --> 08:28.200
+Ja, also ganz generell, äh, Python Apps Packagen ist übelster Abfuck.
+
+08:28.200 --> 08:31.740
+Ich weiß gar nicht, warum die, warum, warum das so kacke ist.
+
+08:32.300 --> 08:36.640
+Ich habe jetzt letztens ein Tool g-gesehen, da habe ich ein Video zu gesehen, das nennt sich UV.
+
+08:38.950 --> 08:45.510
+Das soll das wohl in Zukunft alles ein bisschen einfacher machen, aber das kann beispielsweise noch keine fertigen, also kann noch keine, natürlich,
+
+08:45.510 --> 08:49.570
+written, pleasingly fast, written in Rust und in C++ teilweise, was sonst.
+
+08:50.470 --> 08:56.150
+Ähm, das kann wohl noch keine gepackagten Apps in, äh, Binaries packen.
+
+08:56.690 --> 08:57.070
+Mal gucken.
+
+08:57.570 --> 08:59.550
+Also das ist auf jeden Fall was, was man im Auge behalten muss.
+
+08:59.630 --> 09:01.150
+Und was ich auch letztens gefunden habe.
+
+09:02.770 --> 09:03.170
+Ox.
+
+09:04.230 --> 09:07.450
+Ein, mal wieder 30 Milliarden das JavaScript Tool.
+
+09:08.450 --> 09:11.950
+Diesmal anscheinend vom Erfinder von Vite und Vue.js.
+
+09:12.490 --> 09:15.250
+Written in Rust, pleasingly fast, was sonst.
+
+09:15.250 --> 09:17.890
+Alles pleasingly fast, was die Krustentiere so anfassen.
+
+09:18.890 --> 09:24.150
+Und das kann wohl JavaScript parsen, linden, formaten, transformieren, minifilen, resolven, was auch immer.
+
+09:24.690 --> 09:25.910
+So soll man nächstes Mal ausprobieren.
+
+09:26.610 --> 09:31.590
+Ja, FNU hat sich jetzt gedacht, er gründet mal eine eigene Firma und macht ein bisschen Geld mit seinem Open Source Zeug.
+
+09:31.790 --> 09:32.410
+Hat er auch recht.
+
+09:36.940 --> 09:37.140
+Naja.
+
+09:37.620 --> 09:40.180
+Das krank, also, ich habe einige dieser Tools ausprobiert.
+
+09:40.520 --> 09:44.320
+Die meisten kranken genau an den zwei Sachen, die ich vorhin gesagt habe.
+
+09:45.160 --> 09:47.960
+Erstens ist es unglaublich schwierig, was Cross zu Compilen.
+
+09:48.200 --> 09:48.560
+Von einer Person.
+
+09:48.580 --> 09:49.880
+Von einer Plattform auf die andere damit.
+
+09:50.300 --> 09:51.260
+Was gar nicht so wild wäre.
+
+09:51.320 --> 09:53.580
+Man hat ja letztendlich die Zielplattformen und die Zielbetriebssysteme.
+
+09:54.520 --> 09:56.900
+Hat man ja zur Verfügung meistens.
+
+09:57.140 --> 10:04.680
+Und dass die meistens auch abhängig sind von Libraries, die sich zum Compile-Zeitpunkt eben auf dem Compile-Rechner befunden haben.
+
+10:05.020 --> 10:07.160
+Und dementsprechend schlecht rückwärtskompatibel sind.
+
+10:07.500 --> 10:13.880
+Das heißt, man braucht dann erstmal am besten einen CentOS 8 oder sowas Docker-Container, um es da drin zu Compilen, dass es schön alt ist.
+
+10:14.300 --> 10:18.220
+Oder einen Ubuntu 18.04 oder sowas, dass es schön auf vielen Kisten läuft.
+
+10:19.180 --> 10:22.660
+Das ist aber was, das haben alle Tools in dieser Richtung.
+
+10:22.740 --> 10:23.220
+Außer Go.
+
+10:23.480 --> 10:24.100
+Außer Go.
+
+10:24.560 --> 10:24.680
+Ja.
+
+10:25.100 --> 10:28.280
+Also die meisten Sachen haben diese Probleme.
+
+10:28.440 --> 10:29.080
+Außer Go.
+
+10:29.300 --> 10:33.580
+Go ist, was das angeht, Self-Contained Binaries, das Beste, was es gibt.
+
+10:34.580 --> 10:39.100
+Das Problem bei Go ist bloß, sobald du Interop mit irgendwas brauchst, was nicht Go ist, dann nützt es wieder Abfuck.
+
+10:40.280 --> 10:43.780
+So eine rundum schöne Lösung, die toll ist für alle, sie gibt es halt einfach nicht.
+
+10:46.090 --> 10:47.390
+Icefreak, Dankeschön für den Satz.
+
+10:47.570 --> 10:49.510
+Hast du dich umbenannt oder warst du schon immer so krass?
+
+10:49.990 --> 10:50.710
+Was für ein Leadspeak?
+
+10:51.070 --> 10:55.770
+Also das ist ein bisschen, aber dass das I vorne auch jetzt eine 1 ist, das kann ich mich nicht dran erinnern.
+
+10:59.080 --> 11:02.780
+Oder hast du, hast du verleadspeakifiziert in letzter Zeit noch mehr?
+
+11:03.300 --> 11:04.500
+Warst du schon immer in der Form?
+
+11:04.620 --> 11:05.800
+Okay, ja gut, dann.
+
+11:06.620 --> 11:08.280
+So, wir haben geupdatet alles.
+
+11:08.960 --> 11:12.560
+Wie sieht es aus mit Our Pack Visual Studio Code?
+
+11:12.680 --> 11:13.340
+Natürlich, was sonst?
+
+11:13.740 --> 11:15.320
+Das ist ja auch jedes Mal am Start.
+
+11:17.750 --> 11:19.270
+So, gibt es hier was zu updaten?
+
+11:19.550 --> 11:19.830
+Nein.
+
+11:21.530 --> 11:22.130
+Dann würde ich jetzt sagen.
+
+11:22.970 --> 11:23.410
+Rrrrrr.
+
+11:24.370 --> 11:25.330
+E-Boot.
+
+11:26.210 --> 11:26.710
+Passt.
+
+11:26.910 --> 11:29.010
+Oh, na gut, ich warte mal, bis er fertig ist.
+
+11:30.590 --> 11:31.690
+Ja, und das werden wir heute machen.
+
+11:31.690 --> 11:37.990
+Wir werden dieses gleiche Tool, wir werden das gleiche Tool bauen in .NET, in Deno und in Go oder halt in C-Sharp, in JavaScript und Go.
+
+11:38.870 --> 11:40.990
+Auf dem Raspberry Pi wohlgemerkt.
+
+11:41.230 --> 11:46.650
+Also ich werde das programmieren hier auf meiner Kiste, aber ausführen werden wir es auf dem Raspberry Pi im Keller.
+
+11:46.910 --> 11:48.030
+Mal gucken, wie wir das machen.
+
+11:48.030 --> 11:49.230
+Ich bin mir da selbst noch ein bisschen unschlüssig.
+
+11:49.230 --> 11:54.270
+Wahrscheinlich mounte ich mir einfach einen PSSHFS, einfach ein Verzeichnis vom Raspberry Pi und PSSH.
+
+11:54.370 --> 11:55.370
+Führe ich es dann aus oder irgendwie sowas.
+
+11:57.010 --> 11:58.210
+Arzi, danke für den Sub.
+
+11:58.210 --> 12:00.210
+Exzellente Subscriptions, Leute.
+
+12:00.210 --> 12:02.210
+Richtig porge.
+
+12:02.210 --> 12:06.450
+Warum genau diese drei Sprachen?
+
+12:06.450 --> 12:10.450
+Weil ich die nach strengen wissenschaftlichen Kriterien im Vorfeld ausgewählt habe.
+
+12:10.450 --> 12:20.800
+Mir fällt aber sonst ehrlich gesagt auch nichts anderes ein, in dem wir es gescheit machen könnten.
+
+12:20.800 --> 12:25.800
+Fällt euch sonst noch irgendwas Sinniges ein für diesen Anwendungsfall?
+
+12:25.800 --> 12:29.800
+Jetzt kommt mir nicht mit Python, das habe ich schon erklärt, warum nicht.
+
+12:29.800 --> 12:31.800
+C++ kommt jetzt wahrscheinlich gleich, Leute.
+
+12:31.800 --> 12:35.800
+Ich warte noch darauf, dass irgendeiner C++ oder irgendwie sowas erzählt, ja?
+
+12:35.800 --> 12:39.800
+Hast du schon mal Rust programmiert?
+
+12:39.800 --> 12:44.200
+Ja, sogar im Stream.
+
+12:44.200 --> 12:46.200
+Also mit Rust?
+
+12:46.200 --> 12:50.200
+Ganz ehrlich, mit Rust wäre eine Option tatsächlich.
+
+12:50.200 --> 12:52.200
+Rust.
+
+12:52.200 --> 12:54.200
+Gibt es dafür eine gescheite Library?
+
+12:54.200 --> 12:56.200
+Ja, gibt es.
+
+12:56.200 --> 12:57.200
+Ok, Leute.
+
+12:57.200 --> 13:07.860
+Rust.
+
+13:07.860 --> 13:09.860
+Also Rust wäre...
+
+13:09.860 --> 13:16.820
+Äh, sieht man da irgendwo den Source Code?
+
+13:16.820 --> 13:17.460
+Wo der herkommt?
+
+13:17.460 --> 13:18.500
+Wo der herkommt?
+
+13:18.500 --> 13:20.500
+Von irgendeinem Github-Repo?
+
+13:20.500 --> 13:22.500
+Sieht man das?
+
+13:22.500 --> 13:24.500
+Chatge...
+
+13:24.500 --> 13:32.480
+Habt ihr irgendeine Ahnung?
+
+13:32.480 --> 13:34.480
+Wenn ihr irgendwo sehen könnt, aus welchem Github-Repo das Ganze kommt?
+
+13:34.480 --> 13:38.920
+Ne, oder?
+
+13:38.920 --> 13:40.920
+Sieht man... sieht man nicht.
+
+13:40.920 --> 13:46.850
+Zu overrated, outdated, jebaited.
+
+13:46.850 --> 13:48.850
+Wenn man den Source Code sehen will.
+
+13:48.850 --> 13:54.630
+Das da vielleicht, das ist das bestimmt.
+
+13:54.630 --> 13:58.000
+Ja.
+
+13:58.000 --> 14:00.000
+Geht das für einen Raspberry Pi?
+
+14:00.000 --> 14:06.180
+Ist bei euch übrigens auch heute die ganzen Tag schon die Githubsuche kaputt?
+
+14:06.180 --> 14:08.180
+Ach, jetzt geht's auf einmal.
+
+14:08.180 --> 14:10.180
+Jetzt geht's auf einmal. Wenn man ein bisschen klickt, dann geht das.
+
+14:10.180 --> 14:17.650
+Ok, Rust.
+
+14:17.650 --> 14:19.650
+Rust könnten wir tatsächlich auch mal ausprobieren.
+
+14:19.650 --> 14:21.650
+Aber nicht...
+
+14:21.650 --> 14:23.650
+What the fuck, da bist du ja blind hier.
+
+14:23.650 --> 14:29.970
+Aber nicht heute.
+
+14:29.970 --> 14:31.970
+Hast du das mit der Wayback-Maschine mitbekommen?
+
+14:31.970 --> 14:33.970
+Ne, wieso?
+
+14:33.970 --> 14:35.970
+Du meinst das Internet-Archiv?
+
+14:35.970 --> 14:40.690
+Ach, ne, oder?
+
+14:40.690 --> 14:48.870
+Ah, der Umbau. Ok, das kommt aber wieder.
+
+14:48.870 --> 14:54.100
+Ne?
+
+14:54.100 --> 14:56.100
+Weil das Internet, das ist legit eine der wichtigsten Seiten, die es gibt.
+
+14:56.100 --> 14:58.100
+Weil das Internet, das ist legit eine der wichtigsten Seiten, die es gibt.
+
+14:58.100 --> 15:00.100
+Und das ist auch nix,
+
+15:00.100 --> 15:02.100
+wo man einfach mal sich lokal backuppen kann.
+
+15:02.100 --> 15:04.100
+Weil ich hab letztens gelesen...
+
+15:04.100 --> 15:06.100
+Chatge, ratet mal, nicht nachgucken.
+
+15:06.100 --> 15:08.100
+Ratet mal,
+
+15:08.100 --> 15:10.100
+wie viel Gigabyte, Terabyte, Petabyte
+
+15:10.100 --> 15:12.100
+oder was es sonst noch gibt, das Internet-Archiv aktuell
+
+15:12.100 --> 15:14.100
+groß ist.
+
+15:14.100 --> 15:16.100
+Archive.org
+
+15:16.100 --> 15:18.100
+Ich hab das letztens gelesen auf Hacker-News,
+
+15:18.100 --> 15:22.760
+glaub ich. Ratet mal.
+
+15:22.760 --> 15:24.760
+Ziemlich gut. Ziemlich gut.
+
+15:24.760 --> 15:29.860
+99 Petabyte.
+
+15:29.860 --> 15:31.860
+99 Petabyte.
+
+15:31.860 --> 15:39.010
+Der Hype-Train ist am Start.
+
+15:39.010 --> 15:48.400
+Da wären wir nicht drauf gekommen.
+
+15:48.400 --> 15:52.550
+99 Petabyte.
+
+15:52.550 --> 15:54.550
+99 Petabyte.
+
+15:54.550 --> 15:56.550
+Habe ich letztens irgendwo mal gelesen.
+
+15:56.550 --> 16:00.500
+Reboot.
+
+16:00.500 --> 16:07.650
+Ich gehe davon aus, die werden gesponsert.
+
+16:07.650 --> 16:09.650
+Übrigens...
+
+16:09.650 --> 16:11.650
+Jetzt wird hier Werbung.
+
+16:11.650 --> 16:13.650
+Wenn ihr nicht wisst, wohin mit eurer Kohle und auch Prime-Subs übrig habt,
+
+16:13.650 --> 16:15.650
+wenn ihr nicht wisst, wohin mit eurer Kohle und auch Prime-Subs übrig habt,
+
+16:15.650 --> 16:21.270
+wäre es sehr porge...
+
+16:21.270 --> 16:23.270
+Lass mal kurz migrieren, ja.
+
+16:23.270 --> 16:25.270
+Lass mal kurz migrieren, ja.
+
+16:25.270 --> 16:27.270
+Was ich wieder...
+
+16:27.270 --> 16:30.640
+Ist da was?
+
+16:30.640 --> 16:32.640
+Ich habe keine Ahnung.
+
+16:32.640 --> 16:34.640
+Ich weiß nur, dass Apple-Cloud-Gedöns auf Google-Cloud läuft.
+
+16:34.640 --> 16:36.640
+Ich weiß nur, dass Apple-Cloud-Gedöns auf Google-Cloud läuft.
+
+16:36.640 --> 16:38.640
+Oder Apple...
+
+16:38.640 --> 16:40.640
+Also der ganze Apple-Cloud-Storage-Kram läuft wohl auf Google-Cloud.
+
+16:40.640 --> 16:42.640
+Also der ganze Apple-Cloud-Storage-Kram läuft wohl auf Google-Cloud.
+
+16:42.640 --> 16:44.640
+Also eigentlich gibt es Apple-Cloud gar nicht.
+
+16:44.640 --> 16:48.980
+Also eigentlich gibt es Apple-Cloud gar nicht.
+
+16:48.980 --> 16:50.980
+Chat, was ist der größte Cloud-Anbieter?
+
+16:50.980 --> 16:58.640
+Wer weiß es aus dem Kopf?
+
+16:58.640 --> 17:00.640
+AWS.
+
+17:00.640 --> 17:04.600
+Chat meint AWS.
+
+17:04.600 --> 17:10.020
+Ihr habt Recht.
+
+17:10.020 --> 17:12.020
+AWS. Was heißt AWS, da kommt ihr jetzt aus dem Kopf.
+
+17:12.020 --> 17:12.780
+der zweitgrößte?
+
+17:15.200 --> 17:17.640
+Ne, ne, ne. Alibaba-Klauseln.
+
+17:17.720 --> 17:18.500
+Was ist der zweitgrößte?
+
+17:19.520 --> 17:20.980
+Azure? Ja, richtig.
+
+17:22.060 --> 17:23.300
+Ne, der zweitgrößte ist Azure.
+
+17:24.260 --> 17:25.820
+Google ist gar nicht so groß.
+
+17:27.240 --> 17:27.700
+Also Google
+
+17:27.700 --> 17:29.520
+ist richtig klein im Vergleich
+
+17:29.520 --> 17:30.820
+zu AWS und Azure.
+
+17:31.860 --> 17:32.240
+Ich glaube,
+
+17:33.620 --> 17:35.820
+AWS hat 30% Marktanteil,
+
+17:36.360 --> 17:37.900
+Azure 25% oder so.
+
+17:38.760 --> 17:39.700
+Google hat 8%
+
+17:39.700 --> 17:41.840
+oder so was. Oder 10% mittlerweile vielleicht.
+
+17:41.840 --> 17:43.560
+Also
+
+17:43.560 --> 17:45.920
+GCP ist echt
+
+17:45.920 --> 17:47.740
+nicht mal ansatzweise so groß wie
+
+17:47.740 --> 17:48.900
+AWS oder Azure.
+
+17:50.140 --> 17:51.940
+Und irgendwo dazwischen ist glaube ich auch noch
+
+17:51.940 --> 17:52.960
+die Alibaba-Cloud.
+
+18:03.620 --> 18:05.420
+Und ich glaube, bei den Amis ist Salesforce
+
+18:05.420 --> 18:06.540
+auch voll beliebt.
+
+18:09.930 --> 18:10.450
+MonkaS.
+
+18:12.070 --> 18:14.010
+So. Chat-Gil.
+
+18:14.850 --> 18:16.030
+Dann legen wir uns doch mal
+
+18:16.030 --> 18:16.910
+ein Repo an.
+
+18:18.050 --> 18:19.870
+Wart ihr alle schon rechtzeitig da und wisst,
+
+18:19.910 --> 18:20.650
+um was es geht?
+
+18:21.370 --> 18:22.370
+MKDier. Zip.
+
+18:23.330 --> 18:23.850
+Zip.
+
+18:23.970 --> 18:25.870
+Klingel.
+
+18:27.330 --> 18:27.810
+Champ.
+
+18:30.120 --> 18:31.600
+Hat das Ding wenigstens einen ordentlichen Namen.
+
+18:31.740 --> 18:32.680
+Naja gut, ordentlich ist
+
+18:32.680 --> 18:34.900
+fragwürdig.
+
+18:37.820 --> 18:39.820
+So. Dann machen wir mal einen Ordner
+
+18:39.820 --> 18:40.480
+für
+
+18:40.480 --> 18:43.660
+den .NET-Code, für den JavaScript-Code
+
+18:43.660 --> 18:45.040
+und für den Go-Code.
+
+18:46.000 --> 18:48.060
+Und wir fangen an, das Ganze in .NET
+
+18:48.060 --> 18:48.660
+zu bauen.
+
+18:50.340 --> 18:51.680
+Und ich logge mich mal auf meine
+
+18:51.680 --> 18:52.660
+Raspberry Pi ein.
+
+18:53.340 --> 18:55.580
+Ich hab mir hier mal die IP-Adresse rauskopiert.
+
+18:55.580 --> 18:56.580
+Von meinem
+
+18:57.580 --> 18:59.580
+Raspberry Pi. Das brauchen wir übrigens. Alles nett.
+
+18:59.580 --> 19:01.580
+Äh.
+
+19:01.580 --> 19:03.580
+Ich hoffe, da hat er Standard-Passwort.
+
+19:03.580 --> 19:04.080
+Oh.
+
+19:04.080 --> 19:05.580
+Hab ich aber nochmal
+
+19:05.580 --> 19:07.580
+Glück gehabt, Alter. Hab ich nochmal
+
+19:07.580 --> 19:09.580
+Glück gehabt.
+
+19:09.580 --> 19:11.580
+IP-Leak. Fuck.
+
+19:11.580 --> 19:13.580
+Chat.
+
+19:13.580 --> 19:15.580
+Jetzt ist vorbei.
+
+19:15.580 --> 19:24.720
+Seid ihr schon eingeloggt?
+
+19:24.720 --> 19:28.540
+Seid ihr schon am Start?
+
+19:28.540 --> 19:30.540
+Bis dem Local Host. Ja. Ich hab nix anderes
+
+19:30.540 --> 19:34.560
+erwartet von euch.
+
+19:34.560 --> 19:36.560
+So. Machen wir mal hier. MKDier. Zip.
+
+19:36.560 --> 19:38.560
+Bell. Champ.
+
+19:38.560 --> 19:41.080
+So. Time's minute.
+
+19:41.080 --> 19:42.560
+Was denn?
+
+19:42.560 --> 19:44.560
+Okay.
+
+19:44.560 --> 19:46.680
+Lert.
+
+19:46.680 --> 19:48.680
+So. Um das mal zu zeigen. Das ist ein ziemlich
+
+19:48.680 --> 19:50.680
+altes Debian von 2021.
+
+19:53.820 --> 19:55.820
+ETC Debiaaan
+
+19:55.820 --> 19:58.000
+Version 10?
+
+19:58.000 --> 20:02.430
+War das Buster?
+
+20:02.430 --> 20:04.430
+Was war das?
+
+20:04.430 --> 20:11.090
+Buster. Ja.
+
+20:11.090 --> 20:13.210
+Also, ich hab es wohl schon mal geupdatet. Ganz
+
+20:13.210 --> 20:15.430
+so extrem alt ist es nicht.
+
+20:15.430 --> 20:28.450
+ein bisschen älter das letzte habe ich 10 10 geupdatet 10 10 war okay 2021 mitte 2021 also
+
+20:28.450 --> 20:33.750
+ist das ungefähr drei jahre alt dass es da drauf ich update das jetzt aber auch nicht mehr kommt
+
+20:33.750 --> 20:37.950
+nicht auf die idee dass jetzt etwas so nach dem motto mach mal kurz war mal kurz und ab ich fast
+
+20:37.950 --> 20:41.650
+den raspberry pi nicht an ich habe auch keinen bock jetzt den keller zu müssen falls das ding
+
+20:41.650 --> 20:52.090
+nicht mehr puten oder sowas platz ist auf jeden fall genug drauf so gut wie so gut wie nix so gut
+
+20:52.090 --> 21:07.890
+wie nix voll das ist 32 gig ssd drin mit x4 noch was sonst so also dann werde ich jetzt noch mal
+
+21:07.890 --> 21:16.050
+kurz erklären was wir machen wir bauen das gleiche tool in c sharp in javascript und in go bzw in
+
+21:16.050 --> 21:26.190
+dotnet in den o und in go was das ganze machen soll ist folgendes an dem raspberry pi ist ein
+
+21:26.190 --> 21:37.470
+sensor dran nämlich ein analog digital konverter ein ads 10 15 das so ein teil hier oder eher so
+
+21:37.470 --> 21:48.150
+ein teil hier und der kann spannungen auslesen von null bis zwölf
+
+21:48.510 --> 21:59.040
+24 volt zumindest die sensor variante die ich habe 0 bis 24 volt und da hängt im endeffekt was dran
+
+21:59.040 --> 22:08.760
+am input und ich will sobald am input über 19 volt sind analog digital konverter will ich was
+
+22:08.760 --> 22:13.620
+auslösen mit dem programm und zwar einen sip anruf aber was ich auslösen will ist eigentlich gar
+
+22:13.620 --> 22:20.180
+nicht so so relevant das auslösen kann man ausprobieren das wird ein zip call träger
+
+22:20.180 --> 22:24.200
+einen web call trägern gegen meine fritz box und ich habe hier leute ich weiß nicht was hört hier
+
+22:24.200 --> 22:35.500
+habe ich das telefon liegen wenn das telefon dann klingelt dann wissen was funktioniert so und ich
+
+22:35.500 --> 22:40.660
+habe das schon mal gemacht in dotnet das liegt doch irgendwo auf der kiste rum gegen den kein
+
+22:40.660 --> 22:47.020
+gigaset sein dass ein fritz phone ich habe das auch schon mal gemacht also ich ich habe dann
+
+22:47.020 --> 22:52.460
+dort ein programm was das macht was ich will das ding ist ich habe den source code nirgendwo
+
+22:53.320 --> 23:00.460
+bloß noch die dls die auf der auf der raspberry pi kiste liegen ich habe das ganze genau altes
+
+23:00.460 --> 23:05.300
+projekt des zeichnen ja was heißt recyceln ich brauche ich wollte ja was daran ändern aber ich
+
+23:05.300 --> 23:10.900
+habe den source code nicht mehr ich habe das ich habe das sehr kompakt und hat mir die wichtigsten
+
+23:10.900 --> 23:17.300
+sachen schon raus kopiert das kann ich kann euch das die komplette nicht zeigen weil ein
+
+23:17.300 --> 23:20.780
+paar passwörter und so drin steht natürlich hardcoded im software score wo sonst ja
+
+23:24.300 --> 23:30.180
+die richtigen sachen habe ich wäre aus kopiert die wir die wichtigsten sachen
+
+23:30.180 --> 23:36.840
+sind im prinzip eigentlich nur wie das funktioniert mit dem sensor und wie ich
+
+23:36.840 --> 23:41.200
+das gemacht habe mit dem anrufen an die fritzbox das habe ich alles hier das ist kein problem das
+
+23:41.200 --> 23:47.340
+ist easy ja und das besser werden es jetzt schnell im dotnet bauen ich weiß gar nicht
+
+23:47.340 --> 23:49.680
+übrigens ich bin mir nicht sicher ob ich glaube heute werden wir da wahrscheinlich
+
+23:49.680 --> 23:53.140
+nicht fertig werden wenn wir glück haben schaffen wir heute dort nett und eine der abende die f
+
+23:53.140 --> 23:53.300
+weg geht und man chanting hat dann i- ts automated wir weg aus � grünen mit der 2010 hauptsacheCEA government die Rare Guest Marketing聚jub,
+
+23:53.320 --> 23:55.680
+Sprachen. Wir bauen das jetzt als erstes
+
+23:55.680 --> 23:57.640
+schnell in .NET, weil da habe ich das letzte Mal
+
+23:57.640 --> 23:59.600
+auch gebaut und weiß noch ungefähr, was ich
+
+23:59.600 --> 24:01.640
+gemacht habe. Das wird nichts Großartiges.
+
+24:02.320 --> 24:03.560
+Machst du auch schön Benchmark mit
+
+24:03.560 --> 24:04.820
+Prometheus und Grafana? Ne.
+
+24:07.000 --> 24:07.640
+Wozu sollte
+
+24:07.640 --> 24:09.200
+ich da was mit Prometheus und Grafana machen?
+
+24:11.710 --> 24:11.870
+Jo.
+
+24:13.250 --> 24:15.350
+Wir machen das, wie gesagt, wir werden das schnell in .NET
+
+24:15.350 --> 24:17.070
+machen. Schnell. Schnell ist nicht
+
+24:17.070 --> 24:18.910
+Stunde oder so. Keine Ahnung.
+
+24:19.470 --> 24:21.230
+Wir werden das schnell in .NET machen. Gucken, ob
+
+24:21.230 --> 24:23.530
+alles funktioniert. Ich muss mir jetzt nur überlegen,
+
+24:23.530 --> 24:25.630
+wie ich das
+
+24:25.630 --> 24:26.670
+gescheit mache, weil
+
+24:26.670 --> 24:29.250
+entwickeln will ich ja lokal hier auf meiner
+
+24:29.250 --> 24:31.450
+VM. Ausführen will ich
+
+24:31.450 --> 24:32.910
+das Ganze auf dem Raspberry Pi.
+
+24:34.250 --> 24:35.610
+Was haltet... Okay, ich
+
+24:35.610 --> 24:37.270
+habe eine Idee. Wir machen erst mal .NET
+
+24:37.270 --> 24:39.050
+New Console App.
+
+24:42.720 --> 24:43.100
+Dann
+
+24:43.100 --> 24:46.620
+bauen wir Rider auf und öffnen
+
+24:46.620 --> 24:47.920
+die Hello World App drin.
+
+24:49.480 --> 24:50.000
+Open.
+
+24:52.180 --> 24:53.680
+Advent of Code, keck, wait,
+
+24:53.780 --> 24:55.520
+Alter. Repos,
+
+24:55.520 --> 24:55.980
+zip,
+
+24:57.320 --> 24:57.680
+zip,
+
+24:57.720 --> 24:59.380
+champ, .NET,
+
+25:02.060 --> 25:03.060
+yes, trust,
+
+25:04.540 --> 25:05.320
+trust us.
+
+25:08.640 --> 25:09.620
+Äh, das machen wir von Hand
+
+25:09.620 --> 25:11.380
+auf der Command Line, das machen wir nicht über
+
+25:11.380 --> 25:13.120
+Java. Okay, Chat,
+
+25:13.200 --> 25:15.220
+Chat, Chat, Chat.
+
+25:15.620 --> 25:17.640
+Ich, ich, ich hab, ihr habt mich auf eine Idee
+
+25:17.640 --> 25:19.620
+gebracht. Ich halte mir für die,
+
+25:19.740 --> 25:21.620
+für den nächsten Stream nochmal zwei Sachen offen.
+
+25:21.620 --> 25:22.080
+Und zwar
+
+25:22.080 --> 25:25.400
+das Zip-Tool
+
+25:25.400 --> 25:27.380
+in Rust und
+
+25:27.380 --> 25:29.740
+wir machen nicht Java, wir machen Kotlin, okay?
+
+25:30.680 --> 25:31.720
+Weil auf Java stellt's
+
+25:31.720 --> 25:32.340
+hab ich keinen Bock.
+
+25:34.180 --> 25:35.940
+Aber, aber erst mal, aber erst mal
+
+25:35.940 --> 25:37.520
+Deno, Go und .NET.
+
+25:38.820 --> 25:39.560
+Zick, nee.
+
+25:40.000 --> 25:41.440
+Das ist bei mir unten durch.
+
+25:41.920 --> 25:43.680
+Wisst ihr, ich hab das, ich hab damit schon ein bisschen
+
+25:43.680 --> 25:46.040
+rumgebastelt. Die Pointer-Syntax-
+
+25:46.040 --> 25:47.720
+Insekt, die ist ja so ultra-abfucked.
+
+25:47.940 --> 25:49.020
+Das war irgendwie sowas.
+
+25:49.700 --> 25:51.740
+Sternchen, Punkt, Sternchen und sowas.
+
+25:52.000 --> 25:52.220
+Lul.
+
+25:53.940 --> 25:55.460
+Ich dachte immer C++,
+
+25:55.840 --> 25:57.220
+beziehungsweise C ist hässlich.
+
+25:57.220 --> 25:59.600
+Was Pointer-Syntax angeht, Alter.
+
+26:01.720 --> 26:03.440
+Aber das ist wirklich der Gipfel
+
+26:03.440 --> 26:04.820
+der hässlichen Pointer-Syntax.
+
+26:05.660 --> 26:07.340
+Ich mein, immerhin sieht's aus wie, wie so ein
+
+26:07.340 --> 26:10.080
+wie so ein Gesicht, was Sternchen-Augen
+
+26:10.080 --> 26:10.880
+hat, aber nee.
+
+26:17.160 --> 26:19.200
+Da kann man sich drüber streiten, da würden sicherlich
+
+26:19.200 --> 26:21.360
+einige widersprechen, aber in Python machen wir's nicht.
+
+26:25.500 --> 26:26.320
+Aber du meinst die Schlange?
+
+26:26.720 --> 26:27.520
+Ja, gut, die ist.
+
+26:29.520 --> 26:30.760
+Wow, warum ist denn das so fett?
+
+26:33.500 --> 26:34.620
+Pepo, Pepo-Fett.
+
+26:35.140 --> 26:35.700
+Source-Code.
+
+26:40.000 --> 26:40.260
+Moment.
+
+26:42.940 --> 26:44.420
+18 Point, ja, das sieht doch schon
+
+26:44.420 --> 26:44.980
+besser aus.
+
+26:46.120 --> 26:47.900
+Chat, das kann man immer noch gut erkennen, oder?
+
+26:50.060 --> 26:51.060
+Kann auch ein bisschen größer machen.
+
+26:53.610 --> 26:55.430
+Also, wie machen wir das Ganze denn jetzt,
+
+26:55.510 --> 26:56.990
+dass ich das schön ausführen kann
+
+26:56.990 --> 26:58.950
+auf meinem Raspberry Pi?
+
+26:59.070 --> 27:01.750
+Also ich mein hier, lokal läuft das Ganze schon mal easy.
+
+27:03.530 --> 27:03.710
+Ja.
+
+27:04.590 --> 27:04.890
+Also.
+
+27:06.030 --> 27:07.070
+Cute Chat.
+
+27:07.570 --> 27:08.850
+Bestes Beispielprogramm.
+
+27:11.210 --> 27:13.090
+Craplang, das gibt's doch, das hat's doch
+
+27:13.090 --> 27:14.210
+keine,
+
+27:14.210 --> 27:16.450
+hat doch nicht Fahrt aufgenommen,
+
+27:16.570 --> 27:17.750
+Craplang, oder?
+
+27:19.530 --> 27:20.530
+Das war mal so ein,
+
+27:20.530 --> 27:20.870
+so ein,
+
+27:20.870 --> 27:22.870
+ähm, nicht Crab, Crab, also,
+
+27:22.870 --> 27:25.270
+Krabbel, das war mal so ein Rustfork.
+
+27:27.230 --> 27:28.150
+Aber,
+
+27:29.630 --> 27:31.430
+da tut sich nix, nix wirklich.
+
+27:39.140 --> 27:41.860
+Okay, wie machen wir das denn jetzt am besten, dass, ähm,
+
+27:42.060 --> 27:43.860
+ich den Krempel,
+
+27:44.860 --> 27:47.340
+also wir machen als erstes mal ein gitignore-File.
+
+27:48.220 --> 27:50.220
+Da kommt mein IDE-Folder rein,
+
+27:50.220 --> 27:52.420
+Object, bin und, und
+
+27:52.420 --> 27:55.740
+Bild und, und Output, oder wie heißt das?
+
+27:55.740 --> 27:57.740
+Keine Ahnung.
+
+27:57.740 --> 27:59.740
+So, das reicht erst mal.
+
+27:59.740 --> 28:01.740
+Dann machen wir ein git init da drinnen,
+
+28:01.740 --> 28:03.740
+dass wir nix verpassen.
+
+28:03.740 --> 28:05.740
+Ja, add.
+
+28:05.740 --> 28:10.780
+Okay, da ist nix
+
+28:10.780 --> 28:12.780
+reingewandert, was nicht reinwandern soll.
+
+28:12.780 --> 28:14.780
+Mir ist übrigens aufgefallen,
+
+28:14.780 --> 28:19.300
+dass das Projekt
+
+28:19.300 --> 28:21.300
+net heißt.
+
+28:21.300 --> 28:23.300
+Das gefällt mir nicht.
+
+28:23.300 --> 28:25.300
+Das muss ich noch mal,
+
+28:25.300 --> 28:29.130
+muss noch mal weg.
+
+28:29.130 --> 28:31.130
+Wir machen, ähm,
+
+28:31.130 --> 28:33.130
+Console new,
+
+28:33.130 --> 28:35.130
+und wie geht das dann? Help?
+
+28:35.130 --> 28:42.150
+Project.
+
+28:42.150 --> 28:44.150
+Oder?
+
+28:44.150 --> 28:46.150
+Ach, minus name.
+
+28:46.150 --> 28:48.150
+Minus n.
+
+28:48.150 --> 28:50.150
+Äh, ja, so soll das heißen, wie
+
+28:50.150 --> 28:52.150
+der Ordner oben drüber.
+
+28:52.150 --> 28:57.540
+Ach so, ich kack noob.
+
+28:57.540 --> 28:59.540
+Jetzt hab ich ja null.
+
+28:59.540 --> 29:01.540
+Das war natürlich sehr schlau, Max.
+
+29:01.540 --> 29:03.540
+Jetzt hab ich natürlich,
+
+29:03.540 --> 29:05.540
+aber ich habe immerhin mein div,
+
+29:05.540 --> 29:07.540
+ja, mein gitignore gelöscht.
+
+29:07.540 --> 29:16.710
+Aber da haben wir's wieder.
+
+29:16.710 --> 29:24.860
+Okay. Okay, nice.
+
+29:24.860 --> 29:28.620
+So, das gefällt mir schon besser.
+
+29:28.620 --> 29:30.620
+Gut.
+
+29:30.620 --> 29:32.620
+Also, dann müssen wir das ganze noch mal neu öffnen.
+
+29:32.620 --> 29:34.620
+Weil das natürlich kaputt gegangen ist,
+
+29:34.620 --> 29:36.620
+wenn ich den Ordner gelöscht hab.
+
+29:36.620 --> 29:38.620
+Äh, repos zip
+
+29:38.620 --> 29:40.620
+dot,
+
+29:40.620 --> 29:42.620
+ne, das ist zip net
+
+29:42.620 --> 29:44.620
+und
+
+29:44.620 --> 29:46.620
+Moment, hat der jetzt
+
+29:46.620 --> 29:48.620
+nen Ordner da drin gemacht? Du sollst da keinen Ordner drinnen machen.
+
+29:48.620 --> 29:54.260
+Dot net stels macht's
+
+29:54.260 --> 29:56.260
+einem manchmal echt schwer.
+
+29:56.260 --> 30:00.570
+Ich will, dass das Projekt so heißt,
+
+30:00.570 --> 30:02.570
+aber im Ordner net ist.
+
+30:02.570 --> 30:04.570
+Okay.
+
+30:04.570 --> 30:08.460
+Dann machen wir das ganz einfach.
+
+30:08.460 --> 30:10.460
+Wir kopieren einfach
+
+30:10.460 --> 30:12.460
+der Program
+
+30:12.460 --> 30:14.460
+und das da hier hin.
+
+30:14.460 --> 30:22.250
+Project.
+
+30:22.250 --> 30:24.250
+Kopieren das hier hin
+
+30:24.250 --> 30:26.250
+und löschen
+
+30:26.250 --> 30:28.250
+das da.
+
+30:28.250 --> 30:30.250
+Dot net run.
+
+30:30.250 --> 30:32.250
+So, sollte immer noch
+
+30:32.250 --> 30:34.250
+funktionieren. Jawoll.
+
+30:34.250 --> 30:40.280
+This window.
+
+30:40.280 --> 30:42.280
+Okay, gut. Kunst.
+
+30:42.280 --> 30:51.420
+Wir haben's. Das ist ein Akt.
+
+30:51.420 --> 30:53.420
+Welche Distro benutzt du?
+
+30:53.420 --> 30:55.420
+Arch, by the way. Hentai Watcher.
+
+30:55.420 --> 30:57.420
+Hentai Watcher.
+
+30:57.420 --> 30:59.420
+Jetzt fehlt eigentlich nur noch Chain-Lore.
+
+30:59.420 --> 31:04.710
+Der wird rumspermen,
+
+31:04.710 --> 31:06.710
+wenn er den Namen sieht.
+
+31:06.710 --> 31:08.710
+Das ist Arch Linux.
+
+31:08.710 --> 31:13.780
+By the way, use ich das.
+
+31:13.780 --> 31:15.780
+Und wer jetzt sagt, Max, warum verwendest
+
+31:15.780 --> 31:17.780
+du Neo Fetch? Das ist doch outdated.
+
+31:17.780 --> 31:19.780
+Haha.
+
+31:19.780 --> 31:21.780
+Neo Fetch ist alias zu Fast Fetch.
+
+31:21.780 --> 31:26.410
+By the way, wusstest du, dass es
+
+31:26.410 --> 31:28.410
+die besseren Flags minus rd gibt?
+
+31:28.410 --> 31:32.410
+Also, was
+
+31:32.410 --> 31:34.410
+d macht, bin ich mir
+
+31:34.410 --> 31:36.410
+ehrlich gesagt gar nicht sicher.
+
+31:36.410 --> 31:38.410
+Remove empty directories.
+
+31:38.410 --> 31:40.410
+Okay, pass mal auf. Ich zeig dir jetzt mal was,
+
+31:40.410 --> 31:42.410
+was richtig pfeifert ist.
+
+31:42.410 --> 31:44.410
+Ich benutze nämlich
+
+31:44.410 --> 31:46.410
+gar kein richtiges rm.
+
+31:46.410 --> 31:48.410
+Ich hab rm alias auf
+
+31:48.410 --> 31:50.410
+rm minus groß i.
+
+31:52.410 --> 31:54.410
+Und es ist wichtig, dass es so rum ist
+
+31:54.410 --> 31:56.410
+und das i nicht zuerst, weil es zählt
+
+31:56.410 --> 31:58.410
+bei den Optionen immer, welche Optionen
+
+31:58.410 --> 32:00.410
+erst angegeben wurden.
+
+32:00.410 --> 32:02.410
+Was überschreibt?
+
+32:02.410 --> 32:04.410
+Also rm minus rf
+
+32:04.410 --> 32:06.410
+minus i
+
+32:06.410 --> 32:08.410
+dann überschreibt das i für
+
+32:08.410 --> 32:10.410
+interactive das f.
+
+32:10.410 --> 32:12.410
+Wenn ich rf hinten dran mache,
+
+32:12.410 --> 32:14.410
+dann überschreibt das f das i.
+
+32:14.410 --> 32:16.410
+Pfeifertime.
+
+32:16.410 --> 32:18.410
+So, und wenn ich jetzt
+
+32:18.410 --> 32:20.410
+hier reingehe und sage,
+
+32:20.410 --> 32:22.410
+machen wir mal irgendeinen Ordner. Ich zeige euch das mal hier.
+
+32:22.410 --> 32:24.410
+Hab ich hier irgendeinen temp Ordner?
+
+32:24.410 --> 32:26.410
+Temp? Temp oder sowas?
+
+32:26.410 --> 32:28.410
+Tmp? Ja, wunderbar.
+
+32:28.410 --> 32:30.410
+Rm gradier kecke.
+
+32:30.410 --> 32:40.150
+Ha, scheiße.
+
+32:40.150 --> 32:42.150
+Okay, das gibt es für euch nicht. Alles klar.
+
+32:42.150 --> 32:44.150
+So, omega lul. Jetzt machen wir mal
+
+32:44.150 --> 32:46.150
+hier
+
+32:46.150 --> 32:48.150
+1000 Dateien oder 100 Dateien
+
+32:48.150 --> 32:50.150
+rein in den Ordner.
+
+32:50.150 --> 32:52.150
+Und jetzt mache ich rm minus rf
+
+32:52.150 --> 32:54.150
+omega lul.
+
+32:54.150 --> 32:56.150
+Und dann sagt er mir,
+
+32:56.150 --> 32:58.150
+aha, willst du das removen?
+
+32:58.150 --> 33:03.770
+Yes. Und dann geht das.
+
+33:03.770 --> 33:05.770
+So, du musst immer
+
+33:05.770 --> 33:07.770
+bestätigen.
+
+33:07.770 --> 33:09.770
+Wenn du jetzt allerdings
+
+33:09.770 --> 33:11.770
+das war das ganze Verzeichnis,
+
+33:11.770 --> 33:13.770
+wenn du jetzt allerdings
+
+33:13.770 --> 33:15.770
+sagst touch und sagst
+
+33:15.770 --> 33:17.770
+hier innen drin rm minus rf Sternchen,
+
+33:17.770 --> 33:19.770
+dann fragt er dich,
+
+33:19.770 --> 33:21.770
+bist du dir sicher, dass du mehr als 100
+
+33:21.770 --> 33:23.770
+als 100 Dateien löschen willst?
+
+33:23.770 --> 33:25.770
+Und das ist das minus i hinten dran.
+
+33:25.770 --> 33:27.770
+Weil der Unterschied
+
+33:27.770 --> 33:29.770
+zwischen groß, viel und klein ist,
+
+33:29.770 --> 33:31.770
+der fragt dich vor jedem Removal
+
+33:31.770 --> 33:33.770
+und minus i
+
+33:33.770 --> 33:35.770
+fragt dich nur, wenn er
+
+33:35.770 --> 33:39.850
+mehr als 3 Dateien löschen will.
+
+33:39.850 --> 33:41.850
+Und wenn du Verzeichnisse hast,
+
+33:41.850 --> 33:43.850
+mit ganz viel Unterverzeichnissen,
+
+33:43.850 --> 33:45.850
+dann musst du sagen, okay, ich bin mir ganz sicher,
+
+33:45.850 --> 33:47.850
+yes, rm minus rf.
+
+33:47.850 --> 33:53.180
+Deswegen habe ich das
+
+33:53.180 --> 33:55.180
+gealiast und seitdem habe ich nie wieder
+
+33:55.180 --> 34:00.440
+aus Versehen irgendwas gelöscht.
+
+34:00.440 --> 34:03.980
+Alles klar, konnte man mir folgen
+
+34:03.980 --> 34:10.490
+im Chat.
+
+34:12.490 --> 34:20.600
+Lul.
+
+34:20.600 --> 34:22.600
+So, aber ich wollte mein .NET Zeug
+
+34:22.600 --> 34:24.600
+auf dem Raspberry Pi ausführen.
+
+34:24.600 --> 34:26.600
+Okay, also erstes Mal müssen wir das bundlen.
+
+34:26.600 --> 34:28.600
+Ähm,
+
+34:28.600 --> 34:30.600
+Single
+
+34:30.600 --> 34:32.600
+oder
+
+34:32.600 --> 34:34.600
+self-contained
+
+34:34.600 --> 34:36.600
+für Linux ARM.
+
+34:36.600 --> 34:38.600
+So,
+
+34:38.600 --> 34:40.600
+wir müssen uns mal die Options
+
+34:40.600 --> 34:42.600
+für .NET Publish raussuchen.
+
+34:42.600 --> 34:44.600
+Also, wir wollen cross-compilen für
+
+34:44.600 --> 34:46.600
+Linux ARM, wir wollen das ganze
+
+34:46.600 --> 34:48.600
+self-contained haben.
+
+34:48.600 --> 34:50.600
+Im output directory build,
+
+34:50.600 --> 34:52.600
+was wir an der Stelle auch dann in
+
+34:52.600 --> 34:54.600
+habe ich schon, ins git ignore schreiben.
+
+34:54.600 --> 34:56.600
+So,
+
+34:56.600 --> 34:58.600
+dann will ich
+
+34:58.600 --> 35:00.600
+publish
+
+35:00.600 --> 35:02.600
+.NET single file
+
+35:02.600 --> 35:08.500
+publish
+
+35:08.500 --> 35:10.500
+single file
+
+35:10.500 --> 35:14.230
+minus
+
+35:14.230 --> 35:16.230
+p publish single
+
+35:16.230 --> 35:20.150
+file
+
+35:20.150 --> 35:22.150
+Diese Syntax ist halt schon wieder
+
+35:22.150 --> 35:24.150
+absolut lächerlich. Und dann will ich noch
+
+35:24.150 --> 35:26.150
+compress
+
+35:26.150 --> 35:28.150
+compress
+
+35:28.150 --> 35:30.150
+enable compression in single file.
+
+35:30.150 --> 35:32.150
+Okay, minus p
+
+35:32.150 --> 35:34.150
+doppelpunkt gleich true. Da hat sich Microsoft
+
+35:34.150 --> 35:36.150
+selbst übertroffen mit dieser Syntax.
+
+35:36.150 --> 35:44.780
+.NET Website for free.
+
+35:46.780 --> 35:48.780
+Ja, true, that's not that easy.
+
+35:48.780 --> 35:50.780
+You need a provider
+
+35:50.780 --> 35:52.780
+that supports
+
+35:52.780 --> 35:54.780
+.NET.
+
+35:54.780 --> 35:56.780
+The free ones only support PHP.
+
+35:58.780 --> 36:00.780
+I think your best bet is to
+
+36:00.780 --> 36:02.780
+to
+
+36:02.780 --> 36:04.780
+get a virtual machine at
+
+36:04.780 --> 36:06.780
+Oracle. Oracle
+
+36:06.780 --> 36:08.780
+has a free tier
+
+36:08.780 --> 36:10.780
+for small virtual machines.
+
+36:10.780 --> 36:14.250
+But then you need to
+
+36:14.250 --> 36:16.250
+manage the Linux and .NET yourself.
+
+36:16.250 --> 36:22.730
+I think
+
+36:22.730 --> 36:24.730
+Chat was my idea.
+
+36:24.730 --> 36:26.730
+I think Oracle free tier is
+
+36:26.730 --> 36:28.730
+the way to go.
+
+36:28.730 --> 36:30.730
+But Oracle sucks if you
+
+36:30.730 --> 36:32.730
+if it gets
+
+36:32.730 --> 36:34.730
+semi popular, your service,
+
+36:34.730 --> 36:36.730
+Oracle will close your
+
+36:36.730 --> 36:38.730
+free tier and delete your VM.
+
+36:38.730 --> 36:40.730
+Because it's Oracle.
+
+36:40.730 --> 36:45.320
+If
+
+36:45.320 --> 36:47.320
+it's allowed to
+
+36:47.320 --> 36:49.320
+cost some
+
+36:49.320 --> 36:51.320
+dollars, you can go
+
+36:51.320 --> 36:53.320
+to Hetzner. It's really cheap.
+
+36:53.320 --> 36:55.320
+You can get
+
+36:55.320 --> 36:57.320
+dual core
+
+36:57.320 --> 36:59.320
+VM for around
+
+36:59.320 --> 37:01.320
+I think three or four.
+
+37:01.320 --> 37:04.630
+I'm
+
+37:04.630 --> 37:06.630
+not sure. Hetzner pricing
+
+37:06.630 --> 37:11.000
+four dollar.
+
+37:11.000 --> 37:13.000
+Around four dollar.
+
+37:15.000 --> 37:19.750
+And if you want to go
+
+37:19.750 --> 37:21.750
+really low cost, you can even
+
+37:21.750 --> 37:23.750
+get
+
+37:23.750 --> 37:25.750
+ARM CPUs.
+
+37:25.750 --> 37:27.750
+But it's not that much of a difference.
+
+37:27.750 --> 37:32.630
+You can save the IPv4
+
+37:32.630 --> 37:34.630
+address and get
+
+37:34.630 --> 37:36.630
+IPv6 only to save a few cents.
+
+37:38.630 --> 37:40.630
+But try Oracle free tier.
+
+37:40.630 --> 37:42.630
+Oracle free tier is easy.
+
+37:42.630 --> 37:49.240
+Easy money, easy life.
+
+37:49.240 --> 37:51.240
+So, aber sind wir stehen geblieben.
+
+37:51.240 --> 37:53.240
+Single publish, single file build.
+
+37:53.240 --> 37:57.610
+Zack. So, ich hoffe, dass
+
+37:57.610 --> 37:59.610
+von uns jetzt was ich hier an Optionen
+
+37:59.610 --> 38:01.610
+angegeben habe, weil ich weiß nicht,
+
+38:01.610 --> 38:03.610
+was sich Microsoft mit diesen komischen
+
+38:03.610 --> 38:05.610
+Options denkt, ehrlich gesagt.
+
+38:05.610 --> 38:07.610
+So, ich sollte jetzt hier einen Build-Ordner
+
+38:07.610 --> 38:09.610
+haben, der meine, mein Binary
+
+38:09.610 --> 38:12.920
+enthält. Okay. Ach so, ja gut,
+
+38:12.920 --> 38:14.920
+ich habe Cross-Compile zu ARM. Kein Wunder,
+
+38:14.920 --> 38:16.920
+dass das nicht funktioniert, ja.
+
+38:16.920 --> 38:18.920
+Okay, Leute, ich habe eine Idee, wie wir das
+
+38:18.920 --> 38:20.920
+mit dem Raspberry Pi machen.
+
+38:20.920 --> 38:22.920
+mkdir build. Wir machen jetzt five five hat time.
+
+38:22.920 --> 38:24.920
+Passt mal auf. ssh
+
+38:24.920 --> 38:26.920
+sshfs machen wir jetzt.
+
+38:26.920 --> 38:28.920
+sshfs und zwar
+
+38:28.920 --> 38:30.920
+bauen wir uns dieses Verzeichnis
+
+38:30.920 --> 38:32.920
+hier auf dem Raspberry Pi
+
+38:32.920 --> 38:34.920
+in das Build-Verzeichnis hier.
+
+38:34.920 --> 38:40.600
+Und jetzt
+
+38:42.600 --> 38:44.600
+und jetzt publish ich
+
+38:44.600 --> 38:46.600
+in dieses Build-Verzeichnis rein.
+
+38:46.600 --> 38:48.600
+Und wenn das klappt, sollte mein Binary
+
+38:48.600 --> 38:50.600
+hier rauskommen auf dem Raspberry. Siehste? Easy.
+
+38:50.600 --> 38:52.600
+Easy.
+
+38:56.600 --> 39:00.300
+Da ist es doch.
+
+39:00.300 --> 39:02.300
+Ja.
+
+39:02.300 --> 39:04.300
+Manch einer mag jetzt sagen, 31 MB
+
+39:04.300 --> 39:06.300
+für den Hello World ist ein bisschen viel.
+
+39:06.300 --> 39:08.300
+Aber ihr habt ja noch keine JavaScript
+
+39:08.300 --> 39:10.300
+Self-Contained Binaries gesehen.
+
+39:10.300 --> 39:12.300
+Das ist jetzt übrigens kein AUT Binary
+
+39:12.300 --> 39:14.300
+in .NET. Das ist ein wirklich
+
+39:14.300 --> 39:16.300
+Oldschool Self-Contained .NET Binary.
+
+39:16.300 --> 39:18.300
+Also sprich, das enthält die komplette .NET Runtime.
+
+39:18.300 --> 39:22.920
+Machst du was mit SIP, ja?
+
+39:22.920 --> 39:24.920
+Aber nur sehr rudimentär.
+
+39:24.920 --> 39:26.920
+Ich habe einen Zen...
+
+39:26.920 --> 39:28.920
+Das ist ein Raspberry Pi, der steht im Keller.
+
+39:28.920 --> 39:30.920
+Das ist auch ein altes Debian und nicht geupdatet.
+
+39:32.920 --> 39:34.920
+Da hängt ein Sensor dran. Und wenn der
+
+39:34.920 --> 39:36.920
+Sensor, das ist ein Analog-Digital-Converter,
+
+39:36.920 --> 39:38.920
+wenn der Sensor über
+
+39:38.920 --> 39:40.920
+19 Volt misst, dann will ich einen SIP-Call machen.
+
+39:40.920 --> 39:42.920
+Mehr nicht.
+
+39:42.920 --> 39:44.920
+Nicht irgendwie großartig da drüber Sprache
+
+39:44.920 --> 39:46.920
+übertragen, sondern einfach nur einen Anruf machen.
+
+39:46.920 --> 39:48.920
+An der Adresse von meiner Fritzbox.
+
+39:48.920 --> 39:50.920
+Und dann klingelt das Telefon.
+
+39:50.920 --> 39:52.920
+Telefon habe ich übrigens hier liegen.
+
+39:52.920 --> 39:54.920
+Also hier, da, ihr hört es vielleicht im Hintergrund.
+
+39:54.920 --> 39:56.920
+Pipipip.
+
+39:56.920 --> 39:58.920
+Und das ist aber wirklich
+
+39:58.920 --> 40:00.920
+easy. Ich weiß wie das geht.
+
+40:00.920 --> 40:02.920
+In .NET haben wir das wirklich in einer halben Stunde gemacht.
+
+40:02.920 --> 40:07.160
+So.
+
+40:07.160 --> 40:09.160
+Ich habe eine ganze Library dafür.
+
+40:09.160 --> 40:11.160
+Ich mache hier keine, äh,
+
+40:11.160 --> 40:13.160
+Hello User Agent und Gedöns von Hand.
+
+40:13.160 --> 40:15.160
+Irgendwie.
+
+40:15.160 --> 40:17.160
+Es gibt eine richtig gute
+
+40:17.160 --> 40:19.160
+.NET Library
+
+40:19.160 --> 40:21.160
+für SIP- und WebRTC-Krempel.
+
+40:21.160 --> 40:23.160
+Nämlich die hier.
+
+40:23.160 --> 40:25.160
+Die kann fast alles.
+
+40:25.160 --> 40:27.160
+Also so simple Sachen
+
+40:27.160 --> 40:29.160
+wie ein SIP-Call erst recht.
+
+40:29.160 --> 40:31.160
+So. Also. Jetzt können wir gucken, ob hier
+
+40:31.160 --> 40:33.160
+unser Krempel läuft.
+
+40:33.160 --> 40:35.160
+Nice.
+
+40:35.160 --> 40:37.160
+Funst.
+
+40:37.160 --> 40:39.160
+Startup ist normal.
+
+40:39.160 --> 40:41.160
+Ein Startup von .NET dauert immer ein bisschen.
+
+40:41.160 --> 40:43.160
+Beziehungsweise auch, weil es komprimiert ist
+
+40:43.160 --> 40:45.160
+und erstmal quasi entzippt werden muss.
+
+40:45.160 --> 40:47.160
+Okay. Also.
+
+40:47.160 --> 40:49.160
+Wir haben hier oben entwickelt und hier unten auf dem Raspberry Pi
+
+40:49.160 --> 40:51.160
+können wir ausführen. Das ist doch schon mal gut.
+
+40:51.160 --> 40:55.180
+So. Funst das.
+
+40:55.180 --> 40:57.180
+Okay. Chatgear.
+
+40:57.180 --> 40:59.180
+Wo fangen wir denn an?
+
+40:59.180 --> 41:01.180
+Als erstes würde ich sagen, Sensor auslesen.
+
+41:01.180 --> 41:03.180
+Zum Thema Sensor auslesen.
+
+41:03.180 --> 41:06.650
+Das kopiere ich mir.
+
+41:06.650 --> 41:08.650
+Das kopiere ich mir aus dem alten Projekt.
+
+41:08.650 --> 41:10.650
+Also.
+
+41:10.650 --> 41:12.650
+Wir machen jetzt hier erstmal.
+
+41:12.650 --> 41:14.650
+Das kommt alles weg.
+
+41:14.650 --> 41:18.090
+Keine Ahnung.
+
+41:18.090 --> 41:20.090
+Ich kopiere mir den Krempel mal kurz aus dem alten Projekt.
+
+41:20.090 --> 41:22.090
+Wartet mal.
+
+41:22.090 --> 41:25.690
+Also. Altes Projekt.
+
+41:25.690 --> 41:27.690
+Da habe ich das mit dem Auslesen schon gemacht.
+
+41:27.690 --> 41:29.690
+Ich habe mir auch irgendwo
+
+41:29.690 --> 41:31.690
+rüberkopiert,
+
+41:31.690 --> 41:35.700
+welche Libraries ich dafür
+
+41:35.700 --> 41:37.700
+verwendet habe.
+
+41:37.700 --> 41:39.700
+Okay. Wir gucken mal.
+
+41:39.700 --> 41:43.020
+Vielleicht geht es auch ganz ohne rüberkopieren.
+
+41:43.020 --> 41:45.020
+Wir gucken nämlich einfach mal, welches Projekt
+
+41:45.020 --> 41:47.020
+das hier zur Verfügung
+
+41:47.020 --> 41:49.020
+stellt.
+
+41:49.020 --> 41:51.020
+UNO Square Raspberry Pi IO.
+
+41:51.020 --> 41:53.020
+Das klingt
+
+41:53.020 --> 41:55.020
+eigentlich schon mal ganz gut.
+
+41:55.020 --> 41:57.020
+Die habe ich nämlich auch das letzte Mal verwendet.
+
+41:57.020 --> 42:06.020
+Wir schauen einfach mal,
+
+42:06.020 --> 42:08.020
+ob das jetzt so billig, wie ich mir das
+
+42:08.020 --> 42:10.020
+Read Channel
+
+42:10.020 --> 42:14.100
+0
+
+42:14.100 --> 42:16.100
+glaube ich.
+
+42:16.100 --> 42:18.100
+Okay. Schauen wir mal.
+
+42:18.100 --> 42:20.100
+So einfach wird das natürlich
+
+42:20.100 --> 42:22.100
+nicht funktionieren. Das wäre ja viel zu einfach,
+
+42:22.100 --> 42:24.100
+wenn das First Try
+
+42:24.100 --> 42:26.100
+irgendwie funzen würde oder so.
+
+42:26.100 --> 42:30.340
+So. Also.
+
+42:30.340 --> 42:32.340
+Oh. Nice.
+
+42:32.340 --> 42:34.340
+You must first initialize Pi
+
+42:34.340 --> 42:36.340
+referencing a valid i-bootstrap
+
+42:36.340 --> 42:45.540
+implementation.
+
+42:45.540 --> 42:47.540
+Vielleicht sollte ich doch abgucken, wie ich das gemacht habe.
+
+42:47.540 --> 42:49.540
+Guckt mal. Moment.
+
+42:49.540 --> 42:51.540
+Ich habe halt nur die
+
+42:51.540 --> 42:53.540
+compiled source code vom alten Projekt.
+
+42:53.540 --> 42:55.540
+Program
+
+42:55.540 --> 43:00.970
+Pi init.
+
+43:00.970 --> 43:02.970
+Pi init.
+
+43:02.970 --> 43:04.970
+Und dann bootstrap
+
+43:04.970 --> 43:06.970
+habe ich hier nicht.
+
+43:06.970 --> 43:08.970
+Bootstrap.
+
+43:08.970 --> 43:10.970
+GitHub UNO.
+
+43:10.970 --> 43:12.970
+Wie hießen die?
+
+43:12.970 --> 43:14.970
+UNO
+
+43:14.970 --> 43:16.970
+UNO Square
+
+43:16.970 --> 43:18.970
+Raspberry Pi.
+
+43:18.970 --> 43:23.690
+Aha. Okay.
+
+43:23.690 --> 43:25.690
+Leicht deprecated alles.
+
+43:25.690 --> 43:27.690
+Aber egal, solange es funktioniert.
+
+43:27.690 --> 43:29.690
+Init.
+
+43:29.690 --> 43:31.690
+Das da.
+
+43:31.690 --> 43:35.290
+Genau das da.
+
+43:35.290 --> 43:37.290
+Muss ich machen.
+
+43:37.290 --> 43:39.290
+Find this type on Nougat.
+
+43:39.290 --> 43:41.290
+Wiring Pi. Okay.
+
+43:41.290 --> 43:43.290
+Die Version stimmt auch
+
+43:43.290 --> 43:45.290
+überein mit meiner alten App.
+
+43:45.290 --> 43:47.290
+Obviously. Selbsterklären.
+
+43:47.290 --> 43:49.290
+Ja klar. Was sonst?
+
+43:49.290 --> 43:51.290
+So.
+
+43:51.290 --> 43:53.290
+Zum Glück kann ich abgucken. Wie gesagt, ich habe das
+
+43:53.290 --> 43:55.290
+alte Projekt noch, aber halt nur in decompilter
+
+43:55.290 --> 43:57.290
+Variante.
+
+43:57.290 --> 43:59.290
+So. Jetzt hoffen wir mal, dass das funzt.
+
+43:59.290 --> 44:03.720
+Ich sollte jetzt
+
+44:03.720 --> 44:05.720
+irgendeinen Wert bekommen
+
+44:05.720 --> 44:07.720
+von dem Digital Analog. Ich muss da noch ein bisschen
+
+44:07.720 --> 44:11.860
+Magic mit dem Wert machen.
+
+44:11.860 --> 44:13.860
+Ist das zu klein?
+
+44:13.860 --> 44:15.860
+Ist doch eigentlich ziemlich groß, oder?
+
+44:15.860 --> 44:19.940
+Ich mein.
+
+44:19.940 --> 44:21.940
+Wie groß soll ich das noch machen?
+
+44:21.940 --> 44:26.150
+Passt ja nix mehr drauf.
+
+44:26.150 --> 44:33.270
+So. Erkennt man das jetzt besser.
+
+44:33.270 --> 44:38.790
+Das Terminal.
+
+44:38.790 --> 44:40.790
+Nur das Terminal ist
+
+44:40.790 --> 44:48.740
+Und es kann auch sein, dass er mich
+
+44:48.740 --> 44:50.740
+debatet, ja.
+
+44:50.740 --> 44:52.740
+So. Was hat er jetzt?
+
+44:52.740 --> 44:54.740
+Ne Moment.
+
+44:54.740 --> 44:56.740
+Aha.
+
+44:56.740 --> 44:58.740
+Value cannot be null.
+
+44:58.740 --> 45:02.180
+Parameter Path 1.
+
+45:02.180 --> 45:05.660
+Alles klar.
+
+45:05.660 --> 45:07.660
+Jetzt wissen wir Bescheid.
+
+45:07.660 --> 45:09.660
+Extract all.
+
+45:09.660 --> 45:11.660
+Moment.
+
+45:11.660 --> 45:13.660
+Was macht der hier eigentlich?
+
+45:13.660 --> 45:15.660
+Ja, ja. Ich agree.
+
+45:15.660 --> 45:17.660
+Extract all.
+
+45:17.660 --> 45:21.480
+Backt rum.
+
+45:21.480 --> 45:23.480
+Ah. Der hat irgendwelche embedded
+
+45:23.480 --> 45:26.860
+Ressourcen.
+
+45:26.860 --> 45:31.160
+Ja, das ist ja kacke.
+
+45:31.160 --> 45:33.160
+Das funzt natürlich nicht, weil ich das
+
+45:33.160 --> 45:42.200
+in Single Binary compile.
+
+45:42.200 --> 45:44.200
+Okay.
+
+45:44.200 --> 45:46.200
+Shit. Was macht der denn hier?
+
+45:46.200 --> 45:48.200
+Embedded Resource. Brauch ich doch alles net.
+
+45:48.200 --> 45:50.200
+Ja.
+
+45:50.200 --> 45:52.200
+I square C bus.
+
+45:52.200 --> 45:54.200
+Das ist das einzige, was ich brauche.
+
+45:54.200 --> 45:56.200
+Bam.
+
+45:56.200 --> 45:58.200
+Wir machen jetzt unsere eigene Raspberry Pi
+
+45:58.200 --> 46:02.790
+Conf.
+
+46:02.790 --> 46:04.790
+Extract all. Lock.
+
+46:04.790 --> 46:06.790
+Wir machen hier nichts multi-threaded.
+
+46:06.790 --> 46:08.790
+Geh weg.
+
+46:08.790 --> 46:10.790
+Pi config.
+
+46:10.790 --> 46:12.790
+Weg.
+
+46:12.790 --> 46:14.790
+Weg.
+
+46:14.790 --> 46:16.790
+Alles weg.
+
+46:16.790 --> 46:18.790
+Außer der I square C bus.
+
+46:18.790 --> 46:20.790
+So. Weg.
+
+46:20.790 --> 46:22.790
+Weg.
+
+46:22.790 --> 46:24.790
+Wie besser.
+
+46:24.790 --> 46:26.790
+Wette mit euch.
+
+46:26.790 --> 46:28.790
+Es geht immer noch in Abak.
+
+46:28.790 --> 46:30.790
+Bloß sonst mit irgendwelchen .NET Schiss rumschlagen.
+
+46:30.790 --> 46:32.790
+Wette.
+
+46:32.790 --> 46:34.790
+Wette. Soll ich wetten?
+
+46:34.790 --> 46:36.790
+Wollen wir wetten? Es funzt, wenn ich
+
+46:36.790 --> 46:38.790
+Publish Single File ausmache.
+
+46:38.790 --> 46:40.790
+Der macht irgendwelche Reflektor Magic und kommt
+
+46:40.790 --> 46:42.790
+damit nicht klar, dass das alles im gleichen Binary
+
+46:42.790 --> 46:44.790
+jetzt drin ist.
+
+46:44.790 --> 46:46.790
+Oh. Was ist denn jetzt schon wieder?
+
+46:46.790 --> 46:48.790
+Unable to load shared library.
+
+46:48.790 --> 46:50.790
+Lib wiring. Achso.
+
+46:50.790 --> 46:52.790
+Das ist das, was der wahrscheinlich extrahiert hat vorher.
+
+46:52.790 --> 46:56.040
+Ok. Finden wir das bei denen im Projekt?
+
+46:56.040 --> 46:58.040
+Unusquare.
+
+46:58.040 --> 47:00.040
+Repos.
+
+47:00.040 --> 47:02.040
+Pi.
+
+47:02.040 --> 47:04.040
+Wiring.
+
+47:04.040 --> 47:10.070
+Wiringpi.net.
+
+47:10.070 --> 47:13.930
+Support.
+
+47:13.930 --> 47:15.930
+Source.
+
+47:15.930 --> 47:17.930
+Wiringpi.
+
+47:17.930 --> 47:19.930
+Native.
+
+47:19.930 --> 47:21.930
+Resources.
+
+47:21.930 --> 47:27.380
+Aha.
+
+47:27.380 --> 47:31.460
+Copy.
+
+47:31.460 --> 47:33.460
+We get.
+
+47:33.460 --> 47:35.460
+Zack.
+
+47:35.460 --> 47:37.460
+File.
+
+47:37.460 --> 47:39.460
+Lib Wiring Pi.
+
+47:39.460 --> 47:41.460
+Da ist es doch.
+
+47:41.460 --> 47:46.380
+Ok. Man braucht eine Native Library dafür.
+
+47:46.380 --> 47:48.380
+Dann. Wir machen uns jetzt mal einfach.
+
+47:48.380 --> 47:50.380
+Wir machen da keine Embedded Resources bei.
+
+47:50.380 --> 47:52.380
+Ähm.
+
+47:52.380 --> 47:54.380
+Wir kopieren das einfach in den Output Ordner. Ok?
+
+47:54.380 --> 47:56.380
+Dann sollte es eigentlich funktionieren.
+
+47:56.380 --> 48:01.930
+39,5 Minuten.
+
+48:03.930 --> 48:05.930
+Zeit stoppen ab jetzt.
+
+48:05.930 --> 48:07.930
+Da ist es doch.
+
+48:07.930 --> 48:09.930
+Ok.
+
+48:09.930 --> 48:14.260
+Brake.
+
+48:14.260 --> 48:16.260
+Brake.
+
+48:16.260 --> 48:18.260
+Da ist er.
+
+48:18.260 --> 48:20.260
+Der Wert ist aber nicht wirklich das, was ich haben will, wenn ich ehrlich bin.
+
+48:20.260 --> 48:22.260
+Ich, ich müsste irgendwas um 18 Volt.
+
+48:22.260 --> 48:24.260
+17, 18 Volt aktuell auf der Leitung messen.
+
+48:24.260 --> 48:26.260
+Nicht, nicht, nicht.
+
+48:26.260 --> 48:28.260
+753.
+
+48:28.260 --> 48:31.800
+Ok.
+
+48:31.800 --> 48:33.800
+Ich guck nochmal kurz nach.
+
+48:33.800 --> 48:35.800
+Ich mach da nämlich irgendeine Magic.
+
+48:35.800 --> 48:37.800
+Das weiß ich noch.
+
+48:37.800 --> 48:39.800
+Das Problem hab ich das letzte Mal auch gehabt.
+
+48:39.800 --> 48:43.080
+Ich mach da irgendeine Magic, dass das funktioniert.
+
+48:43.080 --> 48:47.480
+Ich mach da sowas bei mir.
+
+48:47.480 --> 48:49.480
+Da fragt man sich natürlich.
+
+48:49.480 --> 48:51.480
+Ich hab das, ich hab diese Sensorsache das letzte Mal selbst gemacht.
+
+48:51.480 --> 48:53.480
+Ich hab keine Library, also
+
+48:53.480 --> 48:55.480
+keine komplett fertige Library verwendet.
+
+48:55.480 --> 48:57.480
+Ich mach da sowas hier.
+
+48:57.480 --> 48:59.480
+Guckt mal.
+
+48:59.480 --> 49:01.480
+Math Round
+
+49:01.480 --> 49:03.480
+Read Channel 0
+
+49:03.480 --> 49:05.480
+durch 3,3 mal
+
+49:05.480 --> 49:10.100
+25,85
+
+49:10.100 --> 49:12.100
+Warum? Ich weiß es nicht.
+
+49:12.100 --> 49:14.100
+Das steht so drin.
+
+49:14.100 --> 49:16.100
+LQS, danke für den Sub.
+
+49:16.100 --> 49:18.100
+Abofalle am Start. Pok.
+
+49:18.100 --> 49:20.100
+Ok, 3,3 verstehe ich,
+
+49:20.100 --> 49:22.100
+weil die Standardspannung beim Raspberry Pi
+
+49:22.100 --> 49:24.100
+auf dem GPIO ist.
+
+49:24.100 --> 49:26.100
+3,3 Volt ist.
+
+49:28.100 --> 49:30.100
+25,85
+
+49:30.100 --> 49:32.100
+Ich hab absolut
+
+49:32.100 --> 49:34.100
+keinen Blasenschimmer mehr.
+
+49:34.100 --> 49:46.180
+Warum?
+
+49:46.180 --> 49:48.180
+Ich hab keine Ahnung.
+
+49:48.180 --> 49:50.180
+Ok, aber vorher muss ich noch was machen.
+
+49:50.180 --> 49:52.180
+Und zwar ADC Gain.
+
+49:52.180 --> 49:54.180
+Und zwar
+
+49:54.180 --> 49:58.940
+auf 1 stellen.
+
+49:58.940 --> 50:04.520
+Gained.
+
+50:04.520 --> 50:06.520
+Es ist komisch,
+
+50:06.520 --> 50:08.520
+dass es kein Float ist.
+
+50:08.520 --> 50:10.520
+Da geb ich dir ehrlich gesagt recht.
+
+50:10.520 --> 50:18.820
+Aber wir können es ja selbst
+
+50:18.820 --> 50:20.820
+so ne Float machen.
+
+50:20.820 --> 50:22.820
+Ok, was passiert denn bei durch 3,3?
+
+50:22.820 --> 50:24.820
+Kommt dann da irgendwas?
+
+50:24.820 --> 50:26.820
+Ok, das müssen wir eigentlich nicht.
+
+50:26.820 --> 50:28.820
+Durch 3,3 kommt da irgendwas Sinnvolles raus?
+
+50:28.820 --> 50:30.820
+Nein, kommt's nicht.
+
+50:30.820 --> 50:32.820
+Kommt da irgendwas Sinnvolles raus,
+
+50:32.820 --> 50:37.700
+wenn ich...
+
+50:37.700 --> 50:39.700
+Moment, Schätke. Punkt vor Strich Rechnung
+
+50:39.700 --> 50:41.700
+heißt, das kommt zuerst
+
+50:41.700 --> 50:43.700
+und danach das. Ne?
+
+50:43.700 --> 50:45.700
+Also das Ergebnis davon
+
+50:45.700 --> 50:47.700
+wird mal 2,35
+
+50:47.700 --> 51:04.040
+genommen.
+
+51:04.040 --> 51:08.410
+Aber so rum auch egal.
+
+51:08.410 --> 51:10.410
+Leute, es müsste irgendwas
+
+51:10.410 --> 51:12.410
+mit 17 oder 18 Volt rauskommen.
+
+51:12.410 --> 51:16.070
+Ja, Punkt vor Strich, das heißt
+
+51:16.070 --> 51:18.070
+dann rechts vor links.
+
+51:18.070 --> 51:20.070
+Äh, links vor rechts.
+
+51:20.070 --> 51:22.070
+Nicht rechts vor links. Punkt vor Strich Rechnung.
+
+51:22.070 --> 51:24.070
+Gibt's hier nicht. Das heißt
+
+51:24.070 --> 51:26.070
+von links nach rechts.
+
+51:26.070 --> 51:28.070
+Also das hier zuerst. Warum hab ich überhaupt
+
+51:28.070 --> 51:30.070
+Punkt vor Strich Rechnung gesagt? Blödsinn.
+
+51:30.070 --> 51:32.070
+Ja, ich weiß, ich weiß.
+
+51:32.070 --> 51:34.070
+Ne, den haben wir nicht gemacht.
+
+51:34.070 --> 51:36.070
+Das da von links nach rechts.
+
+51:36.070 --> 51:38.070
+Also das zuerst.
+
+51:38.070 --> 51:40.070
+Das stimmt doch. Also
+
+51:40.070 --> 51:46.550
+welche Auflösung? Keine Ahnung.
+
+51:46.550 --> 51:48.550
+Ich kann dir nur das sagen, weil
+
+51:48.550 --> 51:50.550
+ich das letzte Mal auch ausprobiert hab.
+
+51:50.550 --> 51:52.550
+Das letzte Mal
+
+51:52.550 --> 51:54.550
+hab ich da nix großartig
+
+51:54.550 --> 51:58.660
+eingestellt.
+
+51:58.660 --> 52:00.660
+Ich hab noch Optionen mitgegeben.
+
+52:00.660 --> 52:02.660
+Adresse hab ich noch mitgegeben.
+
+52:02.660 --> 52:04.660
+72 ist aber auch schon defaultmäßig.
+
+52:04.660 --> 52:06.660
+Und dann hab ich dem noch mitgegeben
+
+52:06.660 --> 52:08.660
+1
+
+52:08.660 --> 52:10.660
+und 4.
+
+52:10.660 --> 52:12.660
+Was auch immer das bedeutet.
+
+52:14.660 --> 52:16.660
+Schauen wir mal, vielleicht macht er das hier auch so.
+
+52:16.660 --> 52:20.260
+1 und 4. Genau.
+
+52:20.260 --> 52:22.260
+Das hatte ich das letzte Mal auch so.
+
+52:22.260 --> 52:24.260
+Okay, Delay und Shift.
+
+52:24.260 --> 52:26.260
+Ja, das ist mehr oder weniger
+
+52:26.260 --> 52:28.260
+das, was ich das letzte Mal von Hand gemacht hab.
+
+52:28.260 --> 52:30.260
+Auch.
+
+52:30.260 --> 52:34.150
+So. Was kann man
+
+52:34.150 --> 52:37.660
+da noch so einstellen?
+
+52:37.660 --> 52:39.660
+Wo ist die Musik eigentlich auf einmal so laut?
+
+52:39.660 --> 52:41.660
+Egal.
+
+52:41.660 --> 52:48.490
+Was kann man da noch so einstellen?
+
+52:48.490 --> 52:51.770
+Eigentlich nur
+
+52:51.770 --> 52:53.770
+nur
+
+52:53.770 --> 52:55.770
+Gain.
+
+52:55.770 --> 52:57.770
+So, jetzt ist die große Preisfrage.
+
+52:57.770 --> 52:59.770
+Was ist
+
+52:59.770 --> 53:03.820
+da anders, dass ich
+
+53:03.820 --> 53:05.820
+da jetzt nicht
+
+53:05.820 --> 53:07.820
+irgendwas mit 17 rausbekomme
+
+53:07.820 --> 53:11.320
+oder 18?
+
+53:11.320 --> 53:13.320
+Also durch 3,3 wird's schon mal nett sein.
+
+53:13.320 --> 53:16.730
+Da müssen wir jetzt vergleichen.
+
+53:16.730 --> 53:18.730
+Oder wir nehmen einfach
+
+53:18.730 --> 53:20.730
+den Source Code von mir.
+
+53:20.730 --> 53:22.730
+Stand da das letzte
+
+53:22.730 --> 53:24.730
+da stand
+
+53:24.730 --> 53:26.730
+humanize.
+
+53:26.730 --> 53:28.730
+Das bringt irgendwie
+
+53:28.730 --> 53:30.730
+ne komische Library mit,
+
+53:30.730 --> 53:32.730
+die ich nicht haben will.
+
+53:32.730 --> 53:43.430
+Okay.
+
+53:43.430 --> 53:46.900
+Chatge,
+
+53:46.900 --> 53:48.900
+ich zeige euch jetzt mal den Source Code,
+
+53:48.900 --> 53:50.900
+den ich decompiled hab
+
+53:50.900 --> 53:54.150
+aus meinem alten Projekt.
+
+53:54.150 --> 53:56.150
+Das sieht so aus.
+
+53:56.150 --> 53:58.150
+Das müssen wir jetzt mal vergleichen mit dem,
+
+53:58.150 --> 54:00.150
+was das hier hat.
+
+54:00.150 --> 54:02.150
+Warum das das nicht ausliest.
+
+54:02.150 --> 54:05.620
+So, hier.
+
+54:05.620 --> 54:11.270
+Machen das mal eine eigene Datei.
+
+54:11.270 --> 54:13.270
+Move.
+
+54:13.270 --> 54:15.270
+Add.
+
+54:15.270 --> 54:20.660
+Und noch ein Namespace dran.
+
+54:20.660 --> 54:22.660
+So, jetzt müssen wir das mal kurz vergleichen.
+
+54:22.660 --> 54:26.780
+Ah, das funzt jetzt nicht,
+
+54:26.780 --> 54:28.780
+weil das gleich heißt.
+
+54:28.780 --> 54:30.780
+Ja, geil. Geil, Max. Nice.
+
+54:30.780 --> 54:35.940
+Okay, auskommentieren.
+
+54:35.940 --> 54:37.940
+Also, wo kommt denn das hier her?
+
+54:37.940 --> 54:39.940
+Das ist doch genau das gleiche.
+
+54:39.940 --> 54:41.940
+Kann man das,
+
+54:41.940 --> 54:43.940
+kann man hier irgendwie schön das ganze splitten?
+
+54:43.940 --> 54:45.940
+So. Also.
+
+54:45.940 --> 54:47.940
+Das hat er aber doch hier schon.
+
+54:47.940 --> 54:49.940
+Guck mal.
+
+54:49.940 --> 54:51.940
+Bla bla bla. Das ist alles,
+
+54:51.940 --> 54:53.940
+das ist alles fast noch das gleiche.
+
+54:53.940 --> 54:55.940
+Hier ist irgendwie ein bisschen,
+
+54:55.940 --> 54:59.860
+ein bisschen anderer Kram.
+
+54:59.860 --> 55:01.860
+Aber das behaupte ich jetzt einfach,
+
+55:01.860 --> 55:05.370
+aber wird wahrscheinlich alles stimmen.
+
+55:05.370 --> 55:09.030
+So. Okay, das sieht schon ein bisschen anders aus.
+
+55:09.030 --> 55:11.030
+Standard Zeug.
+
+55:11.030 --> 55:13.030
+Max Voltage. Gain.
+
+55:13.030 --> 55:15.030
+Das ist aber auch egal.
+
+55:15.030 --> 55:17.030
+Read Channel ist das Interessante.
+
+55:17.030 --> 55:23.960
+Read Channel
+
+55:23.960 --> 55:39.400
+ist genau das gleiche.
+
+55:39.400 --> 55:41.400
+Ah, Moment. Das ist RAW.
+
+55:41.400 --> 55:43.400
+Moment. Moment. Moment.
+
+55:43.400 --> 55:45.400
+Moment. Moment. Moment.
+
+55:45.400 --> 55:47.400
+Read Channel
+
+55:47.400 --> 55:49.400
+ist das,
+
+55:49.400 --> 55:51.400
+was bei mir, was hier
+
+55:51.400 --> 55:53.400
+Read Channel RAW war.
+
+55:53.400 --> 55:55.400
+Read Channel selber.
+
+55:55.400 --> 56:03.450
+Aha. Aha.
+
+56:03.450 --> 56:07.980
+Das muss man auch
+
+56:07.980 --> 56:12.250
+drauf machen, dass das stimmt.
+
+56:12.250 --> 56:14.250
+Was ist das für Magic?
+
+56:14.250 --> 56:16.250
+Hier hinten dran.
+
+56:16.250 --> 56:18.250
+Durch 2048F
+
+56:18.250 --> 56:20.250
+mal This Max Voltage.
+
+56:20.250 --> 56:28.970
+RF Programmer. Das funktioniert.
+
+56:28.970 --> 56:30.970
+Ich habe ja ein Programm, wo es funktioniert.
+
+56:30.970 --> 56:32.970
+Mir egal, ob das Sinn macht oder nicht.
+
+56:32.970 --> 56:40.700
+Ich weiß, dass es funktioniert.
+
+56:40.700 --> 56:42.700
+Okay. Also muss ich, muss ich noch.
+
+56:42.700 --> 56:44.700
+Okay. Okay. Okay. Moment.
+
+56:44.700 --> 56:48.330
+Also. Was muss ich jetzt machen?
+
+56:48.330 --> 56:50.330
+Ähm.
+
+56:50.330 --> 56:52.330
+Read Channel RAW
+
+56:52.330 --> 56:54.330
+muss ich machen.
+
+56:54.330 --> 56:56.330
+Ach. Das expost das
+
+56:56.330 --> 57:00.440
+gar nicht, oder was? Wie?
+
+57:00.440 --> 57:12.970
+Ah, Moment.
+
+57:12.970 --> 57:14.970
+Blödsinn. Der hat nur noch Read Channel.
+
+57:14.970 --> 57:16.970
+Mein Alters hatte Read Channel RAW.
+
+57:16.970 --> 57:18.970
+Okay. Das heißt, ich muss
+
+57:18.970 --> 57:20.970
+jetzt das hier noch teilen
+
+57:20.970 --> 57:22.970
+durch
+
+57:22.970 --> 57:24.970
+2048 mal
+
+57:24.970 --> 57:26.970
+ADC Max Voltage.
+
+57:26.970 --> 57:28.970
+Ja gut. Was ist, was ist Max Voltage
+
+57:28.970 --> 57:30.970
+in dem Fall?
+
+57:30.970 --> 57:32.970
+Wahrscheinlich 3,
+
+57:32.970 --> 57:34.970
+wahrscheinlich 3,3?
+
+57:34.970 --> 57:36.970
+Keine Ahnung, Alter.
+
+57:36.970 --> 57:38.970
+Ich könnte auch einfach
+
+57:38.970 --> 57:40.970
+meinen alten Code kopieren und dann ist gut.
+
+57:40.970 --> 57:47.480
+Max Voltage ist hier was?
+
+57:47.480 --> 57:49.480
+Ah.
+
+57:49.480 --> 57:51.480
+Gain 1, 4,
+
+57:51.480 --> 57:53.480
+4 Dingsbums. Okay.
+
+57:53.480 --> 58:03.220
+Alter, das ist ja super krass.
+
+58:03.220 --> 58:17.000
+Magic hoch 10, Alter.
+
+58:17.000 --> 58:19.000
+Sicher, dass das 17 bis 18
+
+58:19.000 --> 58:21.000
+Volt sind? Das letzte Mal, wo ich drauf
+
+58:21.000 --> 58:30.940
+geguckt habe, war es das noch.
+
+58:30.940 --> 58:32.940
+Ich habe keine Ahnung, was da passiert.
+
+58:32.940 --> 58:34.940
+Ha. Bam. In your
+
+58:34.940 --> 58:36.940
+face. Ha.
+
+58:36.940 --> 58:40.280
+17,7 Leute.
+
+58:40.280 --> 58:42.280
+Outplayed.
+
+58:42.280 --> 58:44.280
+Outplayed.
+
+58:44.280 --> 58:46.280
+Outplayed.
+
+58:46.280 --> 58:48.280
+Outplayed.
+
+58:48.280 --> 58:50.280
+Outhackerman.
+
+58:50.280 --> 58:58.140
+Okay.
+
+58:58.140 --> 59:00.140
+Keine Ahnung, Leute. Absolut keinen
+
+59:00.140 --> 59:02.140
+flassen Schimmer. Warum? Aber
+
+59:02.140 --> 59:11.080
+es ist so. Ich habe keine
+
+59:11.080 --> 59:13.080
+Ahnung, warum.
+
+59:13.080 --> 59:15.080
+Gibt es vielleicht jetzt einen besseren
+
+59:15.080 --> 59:17.080
+Weg, das zu machen als
+
+59:17.080 --> 59:24.420
+Read Channel.
+
+59:24.420 --> 59:37.080
+Configure, then read?
+
+59:37.080 --> 59:39.080
+Was?
+
+59:39.080 --> 59:41.080
+Okay.
+
+59:41.080 --> 59:45.000
+Write Register 1.
+
+59:45.000 --> 59:47.000
+AdS Gain oder
+
+59:47.000 --> 59:49.000
+AdS. Okay, der macht da sowas.
+
+59:49.000 --> 59:51.000
+In der Richtung macht der da auch.
+
+59:51.000 --> 01:00:03.240
+Gain.
+
+01:00:03.240 --> 01:00:05.240
+Ne, das ist einfach Blödsinn.
+
+01:00:05.240 --> 01:00:07.240
+Guck mal, das ist einfach Blödsinn.
+
+01:00:07.240 --> 01:00:09.240
+Was der da macht.
+
+01:00:09.240 --> 01:00:11.240
+Der macht hier irgendwas mit 512.
+
+01:00:11.240 --> 01:00:13.240
+Dabei sollte das
+
+01:00:13.240 --> 01:00:15.240
+4096 sein, nicht 512.
+
+01:00:15.240 --> 01:00:17.240
+512 ist
+
+01:00:17.240 --> 01:00:23.660
+eigentlich 8.
+
+01:00:23.660 --> 01:00:25.660
+Das ist falsch. Anzeige.
+
+01:00:25.660 --> 01:00:27.660
+Was ist hier?
+
+01:00:27.660 --> 01:00:32.150
+Es ist falsch, was die programmiert haben.
+
+01:00:32.150 --> 01:00:40.010
+Okay, Chat, aber
+
+01:00:40.010 --> 01:00:42.010
+ganz ehrlich, mir egal.
+
+01:00:42.010 --> 01:00:44.010
+Passt schon.
+
+01:00:44.010 --> 01:00:46.010
+Damit kann ich leben.
+
+01:00:46.010 --> 01:00:48.010
+Hauptsache, der liest das Richtige.
+
+01:00:48.010 --> 01:00:50.010
+Okay?
+
+01:00:50.010 --> 01:00:52.010
+Hauptsache, der liest das Richtige.
+
+01:00:52.010 --> 01:00:57.850
+Vielleicht macht das den Code ja richtig,
+
+01:00:57.850 --> 01:00:59.850
+wenn du ihn so wie Intended nutzt.
+
+01:00:59.850 --> 01:01:03.260
+Wie ist denn Intended?
+
+01:01:03.260 --> 01:01:05.260
+Also, ich liest da irgendwas mit 700
+
+01:01:05.260 --> 01:01:08.760
+noch irgendwas.
+
+01:01:08.760 --> 01:01:27.660
+Wie soll ich es denn anders benutzen?
+
+01:01:27.660 --> 01:01:29.660
+Ich habe Magic Numbers, aber
+
+01:01:29.660 --> 01:01:31.660
+es kommt das Richtige raus, das ist doch entscheidend.
+
+01:01:31.660 --> 01:01:35.990
+Macht es einen Unterschied, ob
+
+01:01:35.990 --> 01:01:37.990
+17 oder 750 sind?
+
+01:01:37.990 --> 01:01:39.990
+Ja, weil ich will gucken, ob es über 19 ist.
+
+01:01:39.990 --> 01:01:45.130
+Und ich will wissen,
+
+01:01:45.130 --> 01:01:47.130
+ob es über 19 ist, nicht ob es über
+
+01:01:47.130 --> 01:01:57.290
+750 ist.
+
+01:01:57.290 --> 01:01:59.290
+Woher kommt die 19?
+
+01:01:59.290 --> 01:02:01.290
+Weil, wenn jemand auf meiner Klingel klingelt,
+
+01:02:01.290 --> 01:02:03.290
+geht die Spannung auf über 19 Volt hoch.
+
+01:02:03.290 --> 01:02:08.520
+Dann weiß ich, dass jemand geklingelt hat.
+
+01:02:08.520 --> 01:02:10.520
+Das sagt die Spezifikation von der Klingel.
+
+01:02:10.520 --> 01:02:22.950
+Was kommt denn für eine
+
+01:02:22.950 --> 01:02:24.950
+Zahl, wenn du klingelst und nicht wild rumrechtest?
+
+01:02:24.950 --> 01:02:26.950
+Weiß ich nicht, aber da müsste ich jetzt runter gehen
+
+01:02:26.950 --> 01:02:28.950
+und klingeln, da habe ich keinen Bock drauf.
+
+01:02:28.950 --> 01:02:30.950
+Aber 17 ist richtig, da soll
+
+01:02:30.950 --> 01:02:32.950
+17 rauskommen und nicht irgendein random
+
+01:02:32.950 --> 01:02:37.960
+Kack. Okay, Chat,
+
+01:02:37.960 --> 01:02:39.960
+es ist mir aber auch vollkommen egal, Hauptsache
+
+01:02:39.960 --> 01:02:41.960
+das funktioniert, ja.
+
+01:02:41.960 --> 01:02:43.960
+Wir machen das vielleicht so,
+
+01:02:43.960 --> 01:02:45.960
+wir machen das so,
+
+01:02:45.960 --> 01:02:47.960
+wir
+
+01:02:47.960 --> 01:02:49.960
+rappen uns das mal kurz
+
+01:02:49.960 --> 01:02:51.960
+hier.
+
+01:02:51.960 --> 01:02:53.960
+Und zwar, wir machen hier unsere eigene
+
+01:02:53.960 --> 01:02:55.960
+Class davon.
+
+01:02:55.960 --> 01:02:59.500
+Zack, zack.
+
+01:02:59.500 --> 01:03:01.500
+Namespace.
+
+01:03:01.500 --> 01:03:03.500
+Äh, Namespace. So, und das nennen wir
+
+01:03:03.500 --> 01:03:05.500
+jetzt einfach nur ADS.
+
+01:03:05.500 --> 01:03:07.500
+Oder so.
+
+01:03:07.500 --> 01:03:09.500
+Ist auch schon
+
+01:03:09.500 --> 01:03:11.500
+vorbelastet.
+
+01:03:11.500 --> 01:03:13.500
+Wurscht, ADS ist
+
+01:03:13.500 --> 01:03:15.500
+okay.
+
+01:03:15.500 --> 01:03:17.500
+Komm, ADS Sensor.
+
+01:03:17.500 --> 01:03:19.500
+Alles klar, dann heißt das Ding auch noch schön.
+
+01:03:19.500 --> 01:03:21.500
+ADS Sensor, das lassen wir so,
+
+01:03:21.500 --> 01:03:31.300
+weil das hat ja funktioniert.
+
+01:03:31.300 --> 01:03:33.300
+Das kommt weg, wer braucht Kommentare?
+
+01:03:33.300 --> 01:03:35.300
+Das ist eh outdated, overrated, jebaited.
+
+01:03:35.300 --> 01:03:37.300
+ADS Sensor.
+
+01:03:37.300 --> 01:03:39.300
+Address, brauchen wir nicht.
+
+01:03:39.300 --> 01:03:41.300
+Address wird bei mir einfach hardcoded.
+
+01:03:41.300 --> 01:03:43.300
+Ist auch schon.
+
+01:03:43.300 --> 01:03:47.480
+Gain 1, kriegt der bei mir
+
+01:03:47.480 --> 01:03:49.480
+einfach
+
+01:03:49.480 --> 01:03:53.660
+Gain
+
+01:03:53.660 --> 01:03:55.660
+1, bam.
+
+01:03:55.660 --> 01:03:57.660
+Weiß nicht genau, was es macht.
+
+01:03:57.660 --> 01:03:59.660
+Eigentlich, eigentlich sollte es
+
+01:03:59.660 --> 01:04:01.660
+4000 Ischen
+
+01:04:01.660 --> 01:04:03.660
+was sein, ist auch wurscht. So.
+
+01:04:03.660 --> 01:04:08.150
+Das
+
+01:04:08.150 --> 01:04:10.150
+können wir wegmachen.
+
+01:04:10.150 --> 01:04:12.150
+Den Gain.
+
+01:04:12.150 --> 01:04:14.150
+So, und jetzt müssen wir doch
+
+01:04:14.150 --> 01:04:16.150
+eigentlich nur
+
+01:04:16.150 --> 01:04:18.150
+Die Datei heißt, by the way,
+
+01:04:18.150 --> 01:04:20.150
+falsch.
+
+01:04:20.150 --> 01:04:22.150
+Renamen.
+
+01:04:22.150 --> 01:04:24.150
+Edit, Rename.
+
+01:04:24.150 --> 01:04:26.150
+Und jetzt
+
+01:04:26.150 --> 01:04:28.150
+müssen wir eigentlich nur diesen Campbell nochmal
+
+01:04:28.150 --> 01:04:30.150
+neu
+
+01:04:30.150 --> 01:04:32.150
+Also, dass das quasi drin ist,
+
+01:04:32.150 --> 01:04:34.150
+was wir da grad von Hand gebaut haben.
+
+01:04:34.150 --> 01:04:37.910
+Also quasi sowas wie hier
+
+01:04:37.910 --> 01:04:39.910
+Public
+
+01:04:39.910 --> 01:04:41.910
+Double Read Value
+
+01:04:41.910 --> 01:04:45.190
+Zack.
+
+01:04:45.190 --> 01:04:47.190
+Und nun machen wir das, was wir hier
+
+01:04:47.190 --> 01:04:49.190
+gemacht haben. Read Channel und sowas.
+
+01:04:49.190 --> 01:04:53.270
+Einfach, einfach damit
+
+01:04:53.270 --> 01:04:55.270
+rein. Also
+
+01:04:55.270 --> 01:04:57.270
+Read Channel this
+
+01:04:57.270 --> 01:04:59.270
+Read Channel null
+
+01:04:59.270 --> 01:05:01.270
+Durch bla bla bla bla
+
+01:05:01.270 --> 01:05:03.270
+Value das hier
+
+01:05:03.270 --> 01:05:05.270
+Und das ist das, was wir haben wollen.
+
+01:05:05.270 --> 01:05:07.270
+So, und wir können das tatsächlich noch
+
+01:05:07.270 --> 01:05:09.270
+rounden. Komm, wir sind mal nicht so.
+
+01:05:09.270 --> 01:05:11.270
+Wir rounden das mal tatsächlich
+
+01:05:11.270 --> 01:05:13.270
+auf die dritte Nachkommastelle, okay?
+
+01:05:13.270 --> 01:05:15.270
+So.
+
+01:05:15.270 --> 01:05:17.270
+Und wenn ich das jetzt richtig gemacht hab,
+
+01:05:17.270 --> 01:05:19.270
+das brauchen wir nicht mehr.
+
+01:05:19.270 --> 01:05:21.270
+Und wenn ich das jetzt richtig gemacht hab,
+
+01:05:21.270 --> 01:05:23.270
+dann sollte ich
+
+01:05:23.270 --> 01:05:25.270
+eigentlich ConsoleWriteLine
+
+01:05:25.270 --> 01:05:27.270
+ADC Read Channel
+
+01:05:27.270 --> 01:05:29.270
+Ja gut, null.
+
+01:05:29.270 --> 01:05:35.820
+Es ist hardcoded null.
+
+01:05:35.820 --> 01:05:37.820
+Read Value habe ich es genannt.
+
+01:05:37.820 --> 01:05:39.820
+Read Value
+
+01:05:39.820 --> 01:05:41.820
+Sollte ich jetzt 17
+
+01:05:41.820 --> 01:05:43.820
+irgendwie 17, 18 irgendwas rauskriegen.
+
+01:05:43.820 --> 01:05:50.490
+Ja, warum das nicht funktioniert
+
+01:05:50.490 --> 01:05:52.490
+hat ursprünglich, keine Ahnung.
+
+01:05:52.490 --> 01:05:54.490
+So, jetzt kommen die richtigen Werte raus.
+
+01:05:54.490 --> 01:05:56.490
+So, und jetzt bam. Jawoll!
+
+01:05:56.490 --> 01:05:58.490
+Leute. Jawoll!
+
+01:05:58.490 --> 01:06:00.490
+Es funzt. Es kommt irgendwas zwischen 17 und 18
+
+01:06:00.490 --> 01:06:02.490
+raus. So soll das sein.
+
+01:06:02.490 --> 01:06:04.490
+Excellent. Excellent.
+
+01:06:04.490 --> 01:06:06.490
+Da habe ich das letzte Mal auch eine Weile rumgewurstet.
+
+01:06:06.490 --> 01:06:08.490
+Das weiß ich noch. Deswegen
+
+01:06:08.490 --> 01:06:10.490
+habe ich das jetzt mal einfach kopiert aus dem alten.
+
+01:06:10.490 --> 01:06:12.490
+Gut. Sehr schön.
+
+01:06:12.490 --> 01:06:14.490
+Haben wir es doch.
+
+01:06:14.490 --> 01:06:16.490
+Können wir das doch hier wegschmeißen.
+
+01:06:16.490 --> 01:06:18.490
+Excellent.
+
+01:06:18.490 --> 01:06:20.490
+PyConfig
+
+01:06:20.490 --> 01:06:22.490
+kommt auch in eigene
+
+01:06:22.490 --> 01:06:24.490
+Ordner. Zack.
+
+01:06:24.490 --> 01:06:26.490
+Und das wird
+
+01:06:26.490 --> 01:06:28.490
+Internal. Brauchen wir nicht.
+
+01:06:28.490 --> 01:06:30.490
+Nicht Interface.
+
+01:06:30.490 --> 01:06:32.490
+Internal. Sealed.
+
+01:06:32.490 --> 01:06:34.490
+Was will er denn von mir?
+
+01:06:34.490 --> 01:06:36.490
+Namespace.
+
+01:06:36.490 --> 01:06:38.490
+Der ist aber auch echt
+
+01:06:38.490 --> 01:06:40.490
+anspruchsvoll.
+
+01:06:40.490 --> 01:06:42.490
+It's never instantiated.
+
+01:06:42.490 --> 01:06:44.490
+Kann man das irgendwie
+
+01:06:44.490 --> 01:06:48.440
+unterdrücken diese Meldung?
+
+01:06:48.440 --> 01:06:50.440
+Disable one first command.
+
+01:06:50.440 --> 01:06:57.340
+Excellent.
+
+01:06:57.340 --> 01:06:59.340
+Aesthetic darf es nicht sein.
+
+01:06:59.340 --> 01:07:01.340
+Richtig massive cleaner code.
+
+01:07:01.340 --> 01:07:03.340
+Zwischen welchen Pod...
+
+01:07:03.340 --> 01:07:05.340
+Du fragst mich hier
+
+01:07:05.340 --> 01:07:07.340
+ein paar Sachen, Alter.
+
+01:07:07.340 --> 01:07:11.960
+Das ist ein...
+
+01:07:11.960 --> 01:07:13.960
+Also ich kann dir zeigen, was auf meinem Raspberry Pi drauf ist.
+
+01:07:13.960 --> 01:07:25.240
+So ein Teil ist
+
+01:07:25.240 --> 01:07:27.240
+auf meinem Raspberry Pi drauf.
+
+01:07:27.240 --> 01:07:29.240
+Nur die alte
+
+01:07:29.240 --> 01:07:31.240
+Version davon, okay?
+
+01:07:31.240 --> 01:07:33.240
+So.
+
+01:07:33.240 --> 01:07:35.240
+Und der hat an...
+
+01:07:35.240 --> 01:07:37.240
+Der hat an dem Input
+
+01:07:37.240 --> 01:07:39.240
+hier an irgendeinem...
+
+01:07:39.240 --> 01:07:41.240
+An einem der Analog-Digital-
+
+01:07:41.240 --> 01:07:43.240
+Konverter, Pins
+
+01:07:43.240 --> 01:07:45.240
+oder Terminals
+
+01:07:45.240 --> 01:07:47.240
+hat der den Draht von
+
+01:07:47.240 --> 01:07:49.240
+meiner Türklingel dran.
+
+01:07:49.240 --> 01:07:57.000
+Und da misst er das, den Input.
+
+01:07:57.000 --> 01:07:59.000
+Aber es funzt. Es funzt.
+
+01:07:59.000 --> 01:08:01.000
+Es kommt das Richtige raus.
+
+01:08:01.000 --> 01:08:03.000
+17,829.
+
+01:08:03.000 --> 01:08:05.000
+Und was ist mit Ground? Brauche ich nicht.
+
+01:08:05.000 --> 01:08:07.000
+Doch, Ground ist auch dran.
+
+01:08:07.000 --> 01:08:10.470
+Ground ist auch dran.
+
+01:08:10.470 --> 01:08:12.470
+Jaja.
+
+01:08:12.470 --> 01:08:21.740
+Ground ist auch dran.
+
+01:08:21.740 --> 01:08:23.740
+Ne, nicht zur Klingel. Es ist...
+
+01:08:23.740 --> 01:08:25.740
+Ja doch, zur Klingel.
+
+01:08:25.740 --> 01:08:27.740
+Es ist...
+
+01:08:27.740 --> 01:08:29.740
+Das sind zwei...
+
+01:08:29.740 --> 01:08:31.740
+Das ist Siedle 1 plus N.
+
+01:08:31.740 --> 01:08:33.740
+Das ist ein Ground-Draht und ein Signal-Draht.
+
+01:08:33.740 --> 01:08:35.740
+So genau weiß ich das auch nicht mehr.
+
+01:08:35.740 --> 01:08:37.740
+Ich meine, ich war da vor einem halben Jahr oder so mal unten.
+
+01:08:37.740 --> 01:08:39.740
+Das steht da schon seit
+
+01:08:39.740 --> 01:08:41.740
+vier Jahren oder drei...
+
+01:08:41.740 --> 01:08:43.740
+Seit drei Jahren.
+
+01:08:43.740 --> 01:08:45.740
+Aber es funzt ja.
+
+01:08:45.740 --> 01:08:47.740
+Es ist ja alles gut. Es liest ja das Richtige aus.
+
+01:08:47.740 --> 01:08:49.740
+Also das können wir so lassen,
+
+01:08:49.740 --> 01:08:51.740
+wie es ist.
+
+01:08:51.740 --> 01:08:53.740
+Okay. Gut.
+
+01:08:53.740 --> 01:08:55.740
+Chat-Game.
+
+01:08:55.740 --> 01:08:57.740
+Next.
+
+01:08:57.740 --> 01:08:59.740
+Was würden wir jetzt als nächstes machen?
+
+01:08:59.740 --> 01:09:01.740
+Ich habe meine Sensorsachen.
+
+01:09:01.740 --> 01:09:03.740
+Lass uns mal kurz... Lass uns mal eine Sache checken.
+
+01:09:03.740 --> 01:09:05.740
+While, True, Console, Readline.
+
+01:09:05.740 --> 01:09:07.740
+Machen wir mal hier irgendeine...
+
+01:09:07.740 --> 01:09:09.740
+Await, Task, Delay, 10 Millisekunden.
+
+01:09:09.740 --> 01:09:13.110
+Alle 10... Was ist das?
+
+01:09:13.110 --> 01:09:17.640
+Hat das jetzt neuerdings AI-Features,
+
+01:09:17.640 --> 01:09:19.640
+die nicht mehr deaktivierbar sind, oder wie?
+
+01:09:19.640 --> 01:09:29.160
+Ja, das habe ich ja Bock drauf.
+
+01:09:29.160 --> 01:09:31.160
+Vor allem, dass das der Ende-Button ist,
+
+01:09:31.160 --> 01:09:33.160
+was das vervollständigt. Das will ich überhaupt nicht.
+
+01:09:33.160 --> 01:09:37.270
+Okay. Funzt, Leute.
+
+01:09:37.270 --> 01:09:39.270
+Eigentlich...
+
+01:09:39.270 --> 01:09:41.270
+Eigentlich müsste ich jetzt runtergehen und klingeln
+
+01:09:41.270 --> 01:09:43.270
+und gucken, ob es 19 ist, über 19 ist.
+
+01:09:43.270 --> 01:09:45.270
+Aber ich bin deutlich zu faul,
+
+01:09:45.270 --> 01:09:50.380
+runterzugehen und zu klingeln.
+
+01:09:50.380 --> 01:09:52.380
+Was machen wir, wenn wir den Rest programmiert haben?
+
+01:09:52.380 --> 01:09:54.380
+Dann gucken wir mal, ob die Klingel funktioniert.
+
+01:09:54.380 --> 01:09:56.380
+Also, hier haben wir das Ganze.
+
+01:09:56.380 --> 01:09:58.380
+Gut. Okay.
+
+01:09:58.380 --> 01:10:03.900
+Next.
+
+01:10:03.900 --> 01:10:05.900
+Mach für die Gains...
+
+01:10:05.900 --> 01:10:07.900
+Ich war heute schon zweimal unterwegs für die Gains.
+
+01:10:07.900 --> 01:10:09.900
+Das reicht. Ich brauche nicht die Gains.
+
+01:10:09.900 --> 01:10:11.900
+Die Gains vom Treppe laufen.
+
+01:10:11.900 --> 01:10:13.900
+Ich habe heute genug gelaufen.
+
+01:10:13.900 --> 01:10:15.900
+Und morgen wieder über eine Stunde.
+
+01:10:15.900 --> 01:10:17.900
+Also...
+
+01:10:17.900 --> 01:10:19.900
+Stunde 15.
+
+01:10:19.900 --> 01:10:21.900
+40 Kilometer.
+
+01:10:21.900 --> 01:10:25.300
+Ja.
+
+01:10:25.300 --> 01:10:27.300
+Es reicht.
+
+01:10:27.300 --> 01:10:29.300
+So, also prinzipiell funzt das.
+
+01:10:29.300 --> 01:10:31.300
+Das liest das Ganze aus.
+
+01:10:31.300 --> 01:10:33.300
+So, Leute. Ich habe jetzt eine Six-Head-Idee.
+
+01:10:33.300 --> 01:10:35.300
+Warum schwingt der ADC?
+
+01:10:35.300 --> 01:10:37.300
+Ich würde nicht sagen,
+
+01:10:37.300 --> 01:10:39.300
+dass der ADC schwingt.
+
+01:10:39.300 --> 01:10:41.300
+Ich würde sagen,
+
+01:10:41.300 --> 01:10:43.300
+der ADC auf der Leitung ist einfach nicht exakt konstant.
+
+01:10:43.300 --> 01:10:45.300
+Ich meine,
+
+01:10:45.300 --> 01:10:47.300
+das schwingt.
+
+01:10:47.300 --> 01:10:49.300
+Das ist ja hier im Nachkommabereich.
+
+01:10:49.300 --> 01:10:57.320
+So, ich habe eine Idee.
+
+01:10:57.320 --> 01:10:59.320
+Wir machen das jetzt mal schön.
+
+01:10:59.320 --> 01:11:01.320
+Passt mal auf.
+
+01:11:01.320 --> 01:11:03.320
+Nicht Terminal.
+
+01:11:03.320 --> 01:11:05.320
+Spectre Console.
+
+01:11:05.320 --> 01:11:07.320
+Konsole.
+
+01:11:07.320 --> 01:11:14.220
+Spectre Console.
+
+01:11:14.220 --> 01:11:16.220
+So, und jetzt
+
+01:11:16.220 --> 01:11:18.220
+Spectre Console Status.
+
+01:11:18.220 --> 01:11:20.220
+Wir machen jetzt so einen Progress.
+
+01:11:20.220 --> 01:11:22.220
+Nein, wir machen keinen Progress.
+
+01:11:22.220 --> 01:11:24.220
+Exzellent.
+
+01:11:24.220 --> 01:11:28.170
+Das machen wir jetzt.
+
+01:11:28.170 --> 01:11:30.170
+Wir machen jetzt einen Status-Balken.
+
+01:11:30.170 --> 01:11:32.170
+Da bin ich jetzt mal gespannt.
+
+01:11:32.170 --> 01:11:34.170
+Standard ist 0.
+
+01:11:34.170 --> 01:11:36.170
+So.
+
+01:11:36.170 --> 01:11:38.170
+Dann sagen wir
+
+01:11:38.170 --> 01:11:40.170
+Auto-Refresh.
+
+01:11:40.170 --> 01:11:42.170
+True.
+
+01:11:42.170 --> 01:11:44.170
+Und dann while true
+
+01:11:44.170 --> 01:11:46.170
+das da rein.
+
+01:11:48.170 --> 01:11:50.170
+Mal gespannt, ob das funzt.
+
+01:11:52.170 --> 01:11:54.170
+Also sprich jetzt sagen wir
+
+01:11:54.170 --> 01:11:56.170
+ctx-status gleich
+
+01:11:56.170 --> 01:11:58.170
+toString
+
+01:11:58.170 --> 01:12:03.180
+und jetzt sagen wir Format-Code,
+
+01:12:03.180 --> 01:12:05.180
+dass es dann was aussieht.
+
+01:12:05.180 --> 01:12:07.180
+Sieht genauso aus wie vorher.
+
+01:12:07.180 --> 01:12:09.180
+Funzt das jetzt?
+
+01:12:09.180 --> 01:12:11.180
+Jetzt sollten wir einen schönen Progress,
+
+01:12:11.180 --> 01:12:13.180
+schöne Progress-Balken haben.
+
+01:12:13.180 --> 01:12:15.180
+Während der
+
+01:12:15.180 --> 01:12:26.520
+liest.
+
+01:12:26.520 --> 01:12:28.520
+Guck dir mal hier, ist das nicht wunderbar?
+
+01:12:28.520 --> 01:12:30.520
+Das ist nicht wirklich
+
+01:12:30.520 --> 01:12:32.520
+Next Gen CLI
+
+01:12:32.520 --> 01:12:51.000
+UI Engineering?
+
+01:12:51.000 --> 01:12:53.000
+Ich gehe jetzt, weil
+
+01:12:53.000 --> 01:12:55.000
+ihr seid, ich gehe jetzt runter gleich klingeln.
+
+01:12:55.000 --> 01:12:57.000
+So.
+
+01:12:57.000 --> 01:12:59.000
+Ich will nur gucken, wie ich hier eine Ausgabe
+
+01:12:59.000 --> 01:13:01.000
+mache, wenn es
+
+01:13:01.000 --> 01:13:03.000
+über 19 Volt, ich muss es ja am Ende ja auch
+
+01:13:03.000 --> 01:13:05.000
+sehen, ob da über 19 Volt rauskommt.
+
+01:13:07.000 --> 01:13:09.000
+Eigentlich. Achso, Moment, ich habe es ja gar nicht
+
+01:13:09.000 --> 01:13:26.360
+kompiliert. Okay, das funzt.
+
+01:13:26.360 --> 01:13:28.360
+Das gibt dann auch was aus.
+
+01:13:28.360 --> 01:13:30.360
+Alles klar. So. Dann gucken wir doch mal.
+
+01:13:30.360 --> 01:13:32.360
+Das müssen wir hier
+
+01:13:32.360 --> 01:13:34.360
+auslesen.
+
+01:13:34.360 --> 01:13:36.360
+War current value
+
+01:13:36.360 --> 01:13:38.360
+gleich.
+
+01:13:38.360 --> 01:13:40.360
+Read value, current value
+
+01:13:40.360 --> 01:13:42.360
+toString. Was meckert er hier eigentlich mit
+
+01:13:42.360 --> 01:13:44.360
+toString? Ja.
+
+01:13:44.360 --> 01:13:46.360
+Was auch immer. So. Und jetzt
+
+01:13:46.360 --> 01:13:48.360
+if
+
+01:13:48.360 --> 01:13:50.360
+current
+
+01:13:50.360 --> 01:13:52.360
+value größer,
+
+01:13:52.360 --> 01:13:54.360
+größer gleich 19,
+
+01:13:54.360 --> 01:13:56.360
+dann
+
+01:13:56.360 --> 01:13:59.960
+right line
+
+01:13:59.960 --> 01:14:01.960
+omega keckel
+
+01:14:01.960 --> 01:14:03.960
+klingel.
+
+01:14:03.960 --> 01:14:10.980
+Ich bin mir nicht sicher.
+
+01:14:10.980 --> 01:14:12.980
+Wir machen mal größer gleich 18. Wobei
+
+01:14:12.980 --> 01:14:14.980
+größer gleich 18 kann sein.
+
+01:14:14.980 --> 01:14:16.980
+19. Okay.
+
+01:14:16.980 --> 01:14:18.980
+Chat, ich schmeiße es jetzt an und
+
+01:14:18.980 --> 01:14:20.980
+dann gehe ich runter klingeln und
+
+01:14:20.980 --> 01:14:22.980
+ihr müsst genau aufpassen, ob dann auftaucht
+
+01:14:22.980 --> 01:14:24.980
+omega keckel klingel.
+
+01:14:24.980 --> 01:14:26.980
+Ich meine, ich sehe es natürlich auch nachher.
+
+01:14:26.980 --> 01:14:28.980
+Vielleicht, vielleicht sollten wir
+
+01:14:28.980 --> 01:14:30.980
+noch eine andere Sachen machen. Vielleicht sollten wir hier noch
+
+01:14:30.980 --> 01:14:32.980
+einmal noch die Uhrzeit reinmachen.
+
+01:14:32.980 --> 01:14:34.980
+Date, time,
+
+01:14:34.980 --> 01:14:36.980
+now. Ups.
+
+01:14:36.980 --> 01:14:38.980
+Fuck. Now.
+
+01:14:38.980 --> 01:14:43.450
+Ihr müsst keinen Clip machen. Ich sehe es
+
+01:14:43.450 --> 01:14:45.450
+doch in der Konsole da. Wir können natürlich auch Clipen,
+
+01:14:45.450 --> 01:14:47.450
+wenn ihr wollt. Moin Patrick, aber
+
+01:14:47.450 --> 01:14:49.450
+es ist ja wurscht, ob ihr mich clippt oder nicht.
+
+01:14:49.450 --> 01:14:51.450
+Ich sehe es ja aus gerade. So.
+
+01:14:51.450 --> 01:14:55.240
+Bin ich mal gespannt.
+
+01:14:55.240 --> 01:14:57.240
+Es ist sackdunkel schon, ey.
+
+01:14:57.240 --> 01:14:59.240
+Okay.
+
+01:14:59.240 --> 01:15:01.240
+Also, das soll, Chat, das dauert
+
+01:15:01.240 --> 01:15:03.240
+jetzt ein, eins, zwei Minuten. Ich muss auch noch kurz
+
+01:15:03.240 --> 01:15:05.240
+Schuhe anziehen und sowas.
+
+01:15:05.240 --> 01:15:08.710
+Ich gehe jetzt runter und klingel.
+
+01:15:08.710 --> 01:15:10.710
+Und in der Zwischenzeit könnt ihr euch oben noch
+
+01:15:10.710 --> 01:15:12.710
+am ASCII-Quarium erfreuen, okay?
+
+01:15:12.710 --> 01:15:14.710
+Warum kannst
+
+01:15:14.710 --> 01:15:16.710
+du programmieren als Fisi? Weil ich es gelernt habe.
+
+01:15:16.710 --> 01:15:25.750
+Ich werde das Back der Konsole
+
+01:15:25.750 --> 01:15:30.250
+zerhauzen. Das sehen wir gleich.
+
+01:15:30.250 --> 01:15:32.250
+Okay, Chat. Ich bin in einer Minute wieder da.
+
+01:15:32.250 --> 01:15:34.250
+Guckt genauer nach, ob da jetzt
+
+01:15:34.250 --> 01:15:37.980
+irgendwas auftaucht.
+
+01:15:37.980 --> 01:15:39.980
+Das dauert aber eine Minute, ne? Wo habe ich
+
+01:15:39.980 --> 01:15:45.270
+überhaupt meinen Schlüssel?
+
+01:15:45.270 --> 01:15:47.270
+Alles klar. So, ich bin gleich wieder da.
+
+01:15:47.270 --> 01:15:55.160
+Force Champ.
+
+01:15:55.160 --> 01:15:57.160
+Moment. So.
+
+01:15:57.160 --> 01:15:59.160
+Bestes, passendste Emote dafür.
+
+01:15:59.160 --> 01:16:01.160
+Ihr könnt jetzt mal ein, zwei Minuten
+
+01:16:01.160 --> 01:16:03.160
+Force Champen im Chat.
+
+01:16:03.160 --> 01:17:58.180
+Dann bin ich wieder da.
+
+01:17:58.180 --> 01:18:00.180
+Und hat es funktioniert? Ja.
+
+01:18:00.180 --> 01:18:12.330
+Hat funktioniert.
+
+01:18:12.330 --> 01:18:14.330
+Funktioniert.
+
+01:18:14.330 --> 01:18:16.330
+Seht ihr?
+
+01:18:16.330 --> 01:18:18.330
+Ich sage doch, wenn es über 19 Volt ist, dann habe ich geklingelt.
+
+01:18:18.330 --> 01:18:20.330
+Ihr habt gut
+
+01:18:20.330 --> 01:18:24.700
+gepaustchamped.
+
+01:18:24.700 --> 01:18:26.700
+Oh, hier. 20 Uhr 21.
+
+01:18:26.700 --> 01:18:28.700
+42. Ich habe, ich habe, man sieht es auch.
+
+01:18:28.700 --> 01:18:30.700
+Guck mal, ich habe zweimal geklingelt.
+
+01:18:30.700 --> 01:18:32.700
+Ich habe einmal kurz oben und einmal kurz unten geklingelt.
+
+01:18:34.700 --> 01:18:36.700
+Maxi-Spannung ist auf 14 runter.
+
+01:18:36.700 --> 01:18:38.700
+Das ist normal. Das ist, das ist
+
+01:18:38.700 --> 01:18:40.700
+so, das ist so ein ganz
+
+01:18:40.700 --> 01:18:42.700
+merkwürdiges Protokoll vom
+
+01:18:42.700 --> 01:18:44.700
+Hersteller.
+
+01:18:44.700 --> 01:18:46.700
+Wenn du, wenn du klingelst,
+
+01:18:46.700 --> 01:18:48.700
+geht die Spannung auf über 19 Volt.
+
+01:18:48.700 --> 01:18:50.700
+Idle ist die Spannung so um 17,
+
+01:18:50.700 --> 01:18:52.700
+18 Volt. Wenn
+
+01:18:52.700 --> 01:18:54.700
+das Telefon
+
+01:18:54.700 --> 01:18:56.700
+in, also die, solange die
+
+01:18:56.700 --> 01:18:58.700
+Gegensprechanlage innen drin aktiv
+
+01:18:58.700 --> 01:19:00.700
+ist, beziehungsweise man annehmen kann,
+
+01:19:00.700 --> 01:19:02.700
+geht es runter auf 14, 15 Volt.
+
+01:19:02.700 --> 01:19:04.700
+Das sagt, das sagen die Specs vom
+
+01:19:04.700 --> 01:19:06.700
+Hersteller.
+
+01:19:06.700 --> 01:19:08.700
+Das fragt mich, fragt mich nicht, warum
+
+01:19:08.700 --> 01:19:10.700
+das so ist, aber das ist so korrekt.
+
+01:19:10.700 --> 01:19:26.230
+Ah, nice.
+
+01:19:26.230 --> 01:19:28.230
+War was mit 20? Ja, ich weiß nur, wenn es über
+
+01:19:28.230 --> 01:19:30.230
+19 ist. Okay.
+
+01:19:30.230 --> 01:19:32.230
+Funktioniert ja, was wir gebaut
+
+01:19:32.230 --> 01:19:34.230
+haben.
+
+01:19:34.230 --> 01:19:36.230
+Wenn es über 20 ist, dann
+
+01:19:36.230 --> 01:19:38.230
+klingeln.
+
+01:19:38.230 --> 01:19:40.230
+So soll das sein.
+
+01:19:40.230 --> 01:19:42.230
+War doch easy.
+
+01:19:42.230 --> 01:19:44.230
+It's easy.
+
+01:19:44.230 --> 01:19:47.540
+War das easy.
+
+01:19:47.540 --> 01:19:49.540
+Okay.
+
+01:19:49.540 --> 01:19:51.540
+Und jetzt muss ich noch einen SIP-Call machen.
+
+01:19:51.540 --> 01:19:53.540
+Wenn die Spannung über 19, aber den
+
+01:19:53.540 --> 01:19:55.540
+SIP-Call,
+
+01:19:55.540 --> 01:19:57.540
+den teste ich, den teste ich,
+
+01:19:57.540 --> 01:19:59.540
+ich renne jetzt nicht nochmal runter, ja.
+
+01:19:59.540 --> 01:20:05.740
+Wir faken das jetzt einfach mal.
+
+01:20:05.740 --> 01:20:07.740
+Die sagen größer 17,5.
+
+01:20:07.740 --> 01:20:14.700
+Ja, das kommt doch manchmal vor hier.
+
+01:20:14.700 --> 01:20:16.700
+Ah, das kommt öfters vor. Sagen wir mal,
+
+01:20:16.700 --> 01:20:18.700
+sagen wir mal, größer 17,
+
+01:20:18.700 --> 01:20:22.970
+17,8 oder so.
+
+01:20:22.970 --> 01:20:24.970
+Sollte der Wert nicht wieder abfallen, ne, das ist
+
+01:20:24.970 --> 01:20:26.970
+gut so.
+
+01:20:26.970 --> 01:20:28.970
+Das ist alles gut so.
+
+01:20:28.970 --> 01:20:33.780
+Okay, also.
+
+01:20:33.780 --> 01:20:35.780
+Jetzt müssen wir noch einen SIP-Call machen da drinnen.
+
+01:20:40.920 --> 01:20:42.920
+Ich mache das häufiger, ihr seid bloß nicht dabei.
+
+01:20:42.920 --> 01:20:44.920
+Okay.
+
+01:20:44.920 --> 01:20:46.920
+Und jetzt machen wir einen SIP-Call.
+
+01:20:46.920 --> 01:20:48.920
+Dazu brauchen wir die Library.
+
+01:20:48.920 --> 01:20:50.920
+SIP
+
+01:20:50.920 --> 01:20:52.920
+Sorcery.
+
+01:20:52.920 --> 01:20:54.920
+Und da habe ich auch was,
+
+01:20:54.920 --> 01:20:56.920
+wo ich abgucken kann, wie das funktioniert.
+
+01:20:56.920 --> 01:21:01.130
+Und zwar
+
+01:21:01.130 --> 01:21:03.130
+funktioniert das so.
+
+01:21:03.130 --> 01:21:05.130
+Make
+
+01:21:05.130 --> 01:21:07.130
+SIP-Call User Password
+
+01:21:07.130 --> 01:21:13.030
+Target.
+
+01:21:13.030 --> 01:21:15.030
+So, Funds das.
+
+01:21:15.030 --> 01:21:25.640
+Make SIP-Call
+
+01:21:25.640 --> 01:21:27.640
+User String Password
+
+01:21:27.640 --> 01:21:30.890
+Helper Logger.
+
+01:21:30.890 --> 01:21:32.890
+Ne.
+
+01:21:32.890 --> 01:21:34.890
+So was haben wir hier nicht.
+
+01:21:34.890 --> 01:21:38.170
+ANSI Konsole.
+
+01:21:38.170 --> 01:21:40.170
+Brightline.
+
+01:21:40.170 --> 01:21:42.170
+Das ist das höchste der
+
+01:21:42.170 --> 01:21:48.070
+Gefühle.
+
+01:21:48.070 --> 01:21:51.640
+Logger, kommen wir da hin.
+
+01:21:51.640 --> 01:21:55.620
+Okay. Ah, man übergibt da
+
+01:21:55.620 --> 01:21:59.380
+einen Array.
+
+01:21:59.380 --> 01:22:01.380
+Okay, das testen wir jetzt einfach mal unabhängig davon.
+
+01:22:01.380 --> 01:22:03.380
+Ich werde das mal kurz hier
+
+01:22:03.380 --> 01:22:05.380
+wieder auskommentieren.
+
+01:22:05.380 --> 01:22:07.380
+Make
+
+01:22:07.380 --> 01:22:09.380
+SIP-Call. Und zwar
+
+01:22:09.380 --> 01:22:11.380
+User. Ja.
+
+01:22:11.380 --> 01:22:13.380
+Das will ich euch eigentlich nicht
+
+01:22:13.380 --> 01:22:15.380
+zeigen.
+
+01:22:15.380 --> 01:22:17.380
+Wie machen wir das? Environment Variable machen wir das jetzt.
+
+01:22:17.380 --> 01:22:19.380
+Aber ich kann euch die Adresse
+
+01:22:19.380 --> 01:22:21.380
+zeigen, die wir anrufen
+
+01:22:21.380 --> 01:22:23.380
+wollen. Hier.
+
+01:22:23.380 --> 01:22:25.380
+Wir rufen die Nummer an bei meiner Fritzbox.
+
+01:22:25.380 --> 01:22:27.380
+Ups.
+
+01:22:27.380 --> 01:22:29.380
+What the fuck, Alter.
+
+01:22:29.380 --> 01:22:31.380
+Die Nummer rufen wir an
+
+01:22:31.380 --> 01:22:37.420
+an meiner Fritzbox.
+
+01:22:37.420 --> 01:22:39.420
+Ich hoffe, ihr seid schon wieder drinnen.
+
+01:22:39.420 --> 01:22:43.300
+Moment, das sind ja
+
+01:22:43.300 --> 01:22:45.300
+ein, muss ein Array sein.
+
+01:22:45.300 --> 01:22:55.270
+Okay.
+
+01:22:55.270 --> 01:22:57.270
+Kann man neue Collection Expression verwenden.
+
+01:22:57.270 --> 01:22:59.270
+Pythonx, dankeschön für den
+
+01:22:59.270 --> 01:23:01.270
+Sub. Pog.
+
+01:23:01.270 --> 01:23:03.270
+Dankeschön für die ganzen Subs, Leute.
+
+01:23:03.270 --> 01:23:05.270
+Ich habe die Hälfte wahrscheinlich übersehen.
+
+01:23:05.270 --> 01:23:10.790
+Nee, habe ich nicht. Gut.
+
+01:23:10.790 --> 01:23:12.790
+Gut. Excellent.
+
+01:23:12.790 --> 01:23:16.460
+Wie mache ich denn das jetzt mit dem Username, Passwort
+
+01:23:16.460 --> 01:23:18.460
+gescheit, dass ihr das nicht seht?
+
+01:23:18.460 --> 01:23:22.920
+Environment Variable, ha?
+
+01:23:22.920 --> 01:23:26.580
+Wobei, eigentlich ist es
+
+01:23:26.580 --> 01:23:30.250
+egal.
+
+01:23:30.250 --> 01:23:32.250
+Environment Variable.
+
+01:23:32.250 --> 01:23:35.590
+Es schaut weg, ja, dann ist gut.
+
+01:23:35.590 --> 01:23:37.590
+Ich habe eine Idee.
+
+01:23:37.590 --> 01:23:39.590
+Gibt es in .NET irgendwie
+
+01:23:39.590 --> 01:23:41.590
+die Möglichkeit, wenn ich sage hier,
+
+01:23:41.590 --> 01:23:43.590
+wenn ich hier mal eine Datei mache,
+
+01:23:43.590 --> 01:23:49.460
+secret.cs
+
+01:23:49.460 --> 01:23:51.460
+secret.cs
+
+01:23:51.460 --> 01:23:53.460
+Wenn ich da
+
+01:23:53.460 --> 01:23:55.460
+jetzt eine Klasse mache,
+
+01:23:55.460 --> 01:23:57.460
+keine Ahnung, public
+
+01:23:57.460 --> 01:23:59.460
+static class
+
+01:23:59.460 --> 01:24:01.460
+secret
+
+01:24:01.460 --> 01:24:03.460
+und da sage ich hier,
+
+01:24:03.460 --> 01:24:05.460
+ich will ja nur nicht, dass ihr es seht,
+
+01:24:05.460 --> 01:24:07.460
+public static
+
+01:24:07.460 --> 01:24:09.460
+string
+
+01:24:09.460 --> 01:24:11.460
+user gleich
+
+01:24:11.460 --> 01:24:15.220
+null.
+
+01:24:15.220 --> 01:24:17.220
+Wenn ich das jetzt hier, wenn ich das jetzt hier
+
+01:24:17.220 --> 01:24:19.220
+einbinde,
+
+01:24:19.220 --> 01:24:21.220
+secret user
+
+01:24:21.220 --> 01:24:23.220
+Ah, das sehe ich nicht.
+
+01:24:23.220 --> 01:24:26.600
+Okay, das ist nice.
+
+01:24:26.600 --> 01:24:28.600
+Das ist gut.
+
+01:24:28.600 --> 01:24:30.600
+Ich will leider, ich will leider, ich will
+
+01:24:30.600 --> 01:24:32.600
+nichts super Geheimes verstecken. Das ist doch nicht mal
+
+01:24:32.600 --> 01:24:34.600
+schlimm, wenn ihr das rauskriegt,
+
+01:24:34.600 --> 01:24:36.600
+weil ihr kommt ja von außen nicht auf meine Fritzbox drauf.
+
+01:24:36.600 --> 01:24:40.710
+Aber,
+
+01:24:40.710 --> 01:24:42.710
+ich will trotzdem nicht, dass man es sieht.
+
+01:24:42.710 --> 01:24:44.710
+So, und so sieht man es nicht.
+
+01:24:44.710 --> 01:24:46.710
+Das ist okay, das ist gut.
+
+01:24:46.710 --> 01:24:48.710
+Dann müsst ihr, da müsst ihr
+
+01:24:48.710 --> 01:24:50.710
+ganz kurz weggucken jetzt.
+
+01:24:50.710 --> 01:24:52.710
+Chat, alle, alle, keiner darf hingucken.
+
+01:24:52.710 --> 01:25:08.660
+Augen zu, sehr gut.
+
+01:25:08.660 --> 01:25:10.660
+Username,
+
+01:25:10.660 --> 01:25:12.660
+Admin, Passwort 123456
+
+01:25:12.660 --> 01:25:21.060
+Okay, da sind wir wieder.
+
+01:25:21.060 --> 01:25:25.590
+Äh, Passwort.
+
+01:25:25.590 --> 01:25:29.100
+Alles klar.
+
+01:25:29.100 --> 01:25:31.100
+Jetzt schauen wir mal, ob das mit dem zip call
+
+01:25:31.100 --> 01:25:33.100
+funktioniert, was ich hier gebastelt habe.
+
+01:25:33.100 --> 01:25:35.100
+Das ist zwar für mich
+
+01:25:35.100 --> 01:25:37.100
+für mehrere Ziele.
+
+01:25:37.100 --> 01:25:39.100
+Also, was der hier macht, ist folgendes.
+
+01:25:39.100 --> 01:25:41.100
+Der startet
+
+01:25:41.100 --> 01:25:43.100
+einen VoIP Agent
+
+01:25:43.100 --> 01:25:45.100
+für jedes, für jede Nummer,
+
+01:25:45.100 --> 01:25:47.100
+die er anrufen soll, startet einen eigenen
+
+01:25:47.100 --> 01:25:49.100
+Task, legt einen zip user agent
+
+01:25:49.100 --> 01:25:51.100
+an, sagt, er will nur Audio
+
+01:25:51.100 --> 01:25:53.100
+und dann macht er
+
+01:25:53.100 --> 01:25:55.100
+einen Call, einen Call
+
+01:25:55.100 --> 01:25:57.100
+an die Adresse mit dem User und Passwort,
+
+01:25:57.100 --> 01:25:59.100
+äh, mediaset, okay,
+
+01:25:59.100 --> 01:26:01.100
+30 Sekunden klingelt's
+
+01:26:01.100 --> 01:26:03.100
+und dann sagt der im Endeffekt, ob es geklappt hat oder nicht.
+
+01:26:03.100 --> 01:26:05.100
+Okay.
+
+01:26:05.100 --> 01:26:07.100
+Schauen wir mal.
+
+01:26:07.100 --> 01:26:09.100
+Publish.
+
+01:26:09.100 --> 01:26:11.100
+Wobei, das könnte ich eigentlich sogar von
+
+01:26:11.100 --> 01:26:13.100
+meiner Hostkiste jetzt
+
+01:26:13.100 --> 01:26:15.100
+machen.
+
+01:26:15.100 --> 01:26:18.410
+Egal, gucken wir mal.
+
+01:26:18.410 --> 01:26:20.410
+Also passt mal auf, es sollte jetzt eigentlich gleich hier
+
+01:26:20.410 --> 01:26:22.410
+mein Fritz Phone
+
+01:26:22.410 --> 01:26:24.410
+bimmeln. Ich mach mal ein bisschen lauter.
+
+01:26:24.410 --> 01:26:26.410
+Schauen wir mal, ob mein Fritz Phone
+
+01:26:26.410 --> 01:26:28.410
+bimmelt.
+
+01:26:28.410 --> 01:26:30.410
+Äh, Call? Okay.
+
+01:26:30.410 --> 01:26:35.100
+Ha! Hört ihr's?
+
+01:26:35.100 --> 01:26:37.100
+Ja.
+
+01:26:37.100 --> 01:26:43.000
+Es klingelt.
+
+01:26:43.000 --> 01:26:45.000
+Easy. Und jetzt hab ich aufgelegt,
+
+01:26:45.000 --> 01:26:50.460
+es ist der Call failed. Hat funktioniert.
+
+01:26:50.460 --> 01:26:59.400
+So, dann können wir das jetzt ja
+
+01:26:59.400 --> 01:27:02.650
+verbinden. Und zwar
+
+01:27:02.650 --> 01:27:04.650
+gehen wir sagen,
+
+01:27:04.650 --> 01:27:10.010
+wenn das
+
+01:27:10.010 --> 01:27:12.010
+über 19 ist,
+
+01:27:12.010 --> 01:27:15.350
+dann make zip call.
+
+01:27:15.350 --> 01:27:21.990
+Das war's.
+
+01:27:21.990 --> 01:27:23.990
+Ich würd sagen, wir sind fertig, oder?
+
+01:27:23.990 --> 01:27:29.900
+Ich mein, das ist natürlich nicht,
+
+01:27:29.900 --> 01:27:31.900
+ich geb auf meinem Phone gar nichts ein,
+
+01:27:31.900 --> 01:27:33.900
+ich mein, das ist jetzt vielleicht nicht
+
+01:27:33.900 --> 01:27:35.900
+die schönste Variante,
+
+01:27:35.900 --> 01:27:37.900
+aber es funktioniert.
+
+01:27:37.900 --> 01:27:39.900
+Ja, also
+
+01:27:39.900 --> 01:27:41.900
+was man jetzt noch verschönern könnte,
+
+01:27:41.900 --> 01:27:43.900
+wäre, diese
+
+01:27:43.900 --> 01:27:45.900
+WiringPi Library irgendwie
+
+01:27:45.900 --> 01:27:47.900
+embedden, weil aktuell
+
+01:27:47.900 --> 01:27:49.900
+kopiert er die einfach mit und das
+
+01:27:49.900 --> 01:27:51.900
+ist nicht, nicht schön
+
+01:27:51.900 --> 01:27:53.900
+in dem
+
+01:27:53.900 --> 01:27:55.900
+in dem Binary embedded und so was,
+
+01:27:55.900 --> 01:27:57.900
+aber scheiß drauf. Wurscht.
+
+01:27:57.900 --> 01:27:59.900
+Ja. Funst.
+
+01:27:59.900 --> 01:28:01.900
+Man könnte noch,
+
+01:28:01.900 --> 01:28:07.260
+ja, ich kann's als Ressource
+
+01:28:07.260 --> 01:28:09.260
+embedden, aber ich muss die auspacken am Anfang
+
+01:28:09.260 --> 01:28:11.260
+irgendwie. Ja, das können wir tatsächlich noch probieren.
+
+01:28:11.260 --> 01:28:19.820
+Eigentlich müsste man das hier ja schon
+
+01:28:19.820 --> 01:28:23.320
+customizable machen, oder?
+
+01:28:23.320 --> 01:28:25.320
+Also zumindest, zumindest die Targets,
+
+01:28:25.320 --> 01:28:27.320
+weil die Sachen hardcoded im Sourcecode
+
+01:28:27.320 --> 01:28:29.320
+ist noch ein bisschen blöd. Stell dir mal vor, ich will noch
+
+01:28:29.320 --> 01:28:31.320
+eine andere Telefonnummer haben oder sowas.
+
+01:28:31.320 --> 01:28:44.140
+Wobei ich sagen würd für jetzt,
+
+01:28:44.140 --> 01:28:46.140
+okay Chat,
+
+01:28:46.140 --> 01:28:48.140
+ihr könnt euch das jetzt aussuchen.
+
+01:28:48.140 --> 01:28:50.140
+Wollen wir das noch ein bisschen schöner machen,
+
+01:28:50.140 --> 01:28:52.140
+die .NET Variante, oder wollen wir uns das Ganze
+
+01:28:52.140 --> 01:29:08.020
+jetzt mal in Go und JavaScript angucken?
+
+01:29:08.020 --> 01:29:10.020
+10 Minuten schöner machen.
+
+01:29:10.020 --> 01:29:18.200
+Okay. 5 Minuten
+
+01:29:18.200 --> 01:29:20.200
+zum schöner machen. Machen wir's so,
+
+01:29:20.200 --> 01:29:22.200
+5 Minuten zum schöner
+
+01:29:22.200 --> 01:29:25.540
+machen, okay?
+
+01:29:25.540 --> 01:29:27.540
+5 bis 10 Minuten zum schöner machen. Und dann
+
+01:29:27.540 --> 01:29:29.540
+was wollen wir machen als nächstes?
+
+01:29:29.540 --> 01:29:31.540
+Wir machen schon mal eine Abstimmung.
+
+01:29:31.540 --> 01:29:33.540
+Haben wir Modgis am Start?
+
+01:29:33.540 --> 01:29:35.540
+Ansonsten
+
+01:29:35.540 --> 01:29:37.540
+können wir hier machen, ähm,
+
+01:29:37.540 --> 01:29:39.540
+wie ging das nochmal? Poll.
+
+01:29:39.540 --> 01:29:41.540
+Ich mach das mal kurz.
+
+01:29:41.540 --> 01:29:43.540
+Was als nächstes?
+
+01:29:43.540 --> 01:29:47.850
+Fragezeichen
+
+01:29:47.850 --> 01:29:49.850
+Go oder JavaScript?
+
+01:29:49.850 --> 01:29:54.340
+Duration.
+
+01:29:54.340 --> 01:29:58.420
+5 Minuten.
+
+01:29:58.420 --> 01:30:06.660
+Okay, 5 Minuten.
+
+01:30:06.660 --> 01:30:12.860
+Okay, also was machen wir denn?
+
+01:30:12.860 --> 01:30:14.860
+Was können wir denn auf die Stelle machen,
+
+01:30:14.860 --> 01:30:16.860
+um das Ganze schöner zu machen?
+
+01:30:16.860 --> 01:30:31.500
+Ich würd sagen, wir brauchen auf jeden Fall,
+
+01:30:31.500 --> 01:30:33.500
+wir sollten auf jeden Fall diese Sachen hier
+
+01:30:33.500 --> 01:30:35.500
+übergeben lassen per
+
+01:30:35.500 --> 01:30:37.500
+Command Line und das User und Passwort
+
+01:30:37.500 --> 01:30:45.510
+auch. Okay.
+
+01:30:45.510 --> 01:30:47.510
+Machen wir das.
+
+01:30:47.510 --> 01:30:49.510
+Kona.
+
+01:30:49.510 --> 01:30:51.510
+Ich mach hier kein Command Line
+
+01:30:51.510 --> 01:30:58.440
+Parsing selbst oder sowas.
+
+01:30:58.440 --> 01:31:00.440
+Run.
+
+01:31:00.440 --> 01:31:02.440
+Also was für, was für,
+
+01:31:02.440 --> 01:31:12.310
+irgendwie sowas, ne?
+
+01:31:12.310 --> 01:31:14.310
+So, also was für, was für
+
+01:31:14.310 --> 01:31:16.310
+Command Line Argumente
+
+01:31:16.310 --> 01:31:18.310
+brauchen wir denn? Wir brauchen
+
+01:31:18.310 --> 01:31:20.310
+ein String Array. Das ist nicht optional.
+
+01:31:20.310 --> 01:31:22.310
+Das nennen wir einfach
+
+01:31:22.310 --> 01:31:24.310
+Targets. Okay.
+
+01:31:24.310 --> 01:31:26.310
+So.
+
+01:31:26.310 --> 01:31:30.140
+Und da kommt das da rein.
+
+01:31:30.140 --> 01:31:32.140
+Vielleicht, vielleicht machen wir noch einen
+
+01:31:32.140 --> 01:31:34.140
+Bool Test, wo man
+
+01:31:34.140 --> 01:31:36.140
+die Anrufe testen kann.
+
+01:31:36.140 --> 01:31:38.140
+Was wir sagen, hier
+
+01:31:38.140 --> 01:31:40.140
+und das Ganze muss Async sein.
+
+01:31:40.140 --> 01:31:42.140
+Ähm, da sagen wir dann irgendwie sowas
+
+01:31:42.140 --> 01:31:44.140
+wie if test
+
+01:31:44.140 --> 01:31:46.140
+return
+
+01:31:46.140 --> 01:31:48.140
+und wir
+
+01:31:48.140 --> 01:31:52.890
+machen, wir machen einen Anruf
+
+01:31:52.890 --> 01:31:54.890
+an die
+
+01:31:54.890 --> 01:32:00.060
+Targets.
+
+01:32:00.060 --> 01:32:02.060
+Testanruf an die Targets, wenn da minus minus Test
+
+01:32:02.060 --> 01:32:04.060
+steht. Ansonsten, das
+
+01:32:04.060 --> 01:32:08.740
+passt schon. So.
+
+01:32:08.740 --> 01:32:10.740
+Dann dürfte
+
+01:32:10.740 --> 01:32:12.740
+das jetzt schon mal deutlich hübscher sein.
+
+01:32:12.740 --> 01:32:15.990
+Als vorher.
+
+01:32:15.990 --> 01:32:17.990
+Kompilieren.
+
+01:32:17.990 --> 01:32:19.990
+Ich hoffe, ich hab nichts verpa... Ne, hab ich nicht.
+
+01:32:19.990 --> 01:32:21.990
+Wir kriegen jetzt sogar einen Help.
+
+01:32:21.990 --> 01:32:23.990
+Wir haben sogar eine Help-Ausgabe jetzt.
+
+01:32:23.990 --> 01:32:28.360
+Dadurch, dass wir das hinzugefügt
+
+01:32:28.360 --> 01:32:35.220
+haben. Guck mal, wir haben sogar einen Help.
+
+01:32:35.220 --> 01:32:37.220
+Ja, ist das jetzt... Was macht
+
+01:32:37.220 --> 01:32:39.220
+eigentlich hier mein Cursor-Ding? Der ist weg.
+
+01:32:39.220 --> 01:32:42.890
+Jetzt können wir sagen, minus minus Targets.
+
+01:32:42.890 --> 01:32:44.890
+Hier.
+
+01:32:44.890 --> 01:32:52.970
+Alter, ist der lahm gerade.
+
+01:32:52.970 --> 01:32:54.970
+Okay, alles, Leute. Und jetzt...
+
+01:32:54.970 --> 01:32:56.970
+Oh ne, Moment! Fuck!
+
+01:32:56.970 --> 01:32:58.970
+Ich kann nicht abbrechen. Warum?
+
+01:32:58.970 --> 01:33:00.970
+Weil, weil ich irgendwie vergessen hab, meine
+
+01:33:00.970 --> 01:33:02.970
+Wildschleife cancelbar zu machen.
+
+01:33:02.970 --> 01:33:04.970
+Perfekt. Danach hat's
+
+01:33:04.970 --> 01:33:06.970
+die Zeit bricht ja ab.
+
+01:33:06.970 --> 01:33:08.970
+Ähm, hier.
+
+01:33:08.970 --> 01:33:10.970
+CTX.
+
+01:33:10.970 --> 01:33:12.970
+Ne, Moment. Nichts hier. Doch. Ne.
+
+01:33:12.970 --> 01:33:14.970
+Wollen wir das... Nennen wir das mal
+
+01:33:14.970 --> 01:33:16.970
+irgendwie Status. Kontext.
+
+01:33:16.970 --> 01:33:22.200
+Äh, guck mal.
+
+01:33:22.200 --> 01:33:24.200
+Cancel. Cancelation Token.
+
+01:33:24.200 --> 01:33:26.200
+Is cancellation
+
+01:33:26.200 --> 01:33:28.200
+if not cancellation requested?
+
+01:33:28.200 --> 01:33:41.020
+Ups, jetzt hab ich das angeklickt.
+
+01:33:41.020 --> 01:33:43.020
+Ne, ne.
+
+01:33:43.020 --> 01:33:45.020
+Das will ich nicht anrufen.
+
+01:33:45.020 --> 01:33:52.900
+So.
+
+01:33:52.900 --> 01:33:54.900
+Ah, es scheint noch zu funsen.
+
+01:33:54.900 --> 01:33:56.900
+Okay. Und jetzt machen wir minus minus
+
+01:33:56.900 --> 01:33:58.900
+Test. Jetzt soll der Testanruf
+
+01:33:58.900 --> 01:34:00.900
+machen. Gucken wir mal, ob das funktioniert.
+
+01:34:00.900 --> 01:34:07.540
+Äh, hallo?
+
+01:34:07.540 --> 01:34:09.540
+Ja, nice.
+
+01:34:09.540 --> 01:34:11.540
+Es funst. Es funst.
+
+01:34:11.540 --> 01:34:13.540
+Ich ruf mich an. Ich ruf intern.
+
+01:34:13.540 --> 01:34:15.540
+Ich ruf intern meine Fritzbox an.
+
+01:34:15.540 --> 01:34:19.270
+Okay, das ist tatsächlich ein bisschen
+
+01:34:19.270 --> 01:34:22.650
+hübscher schon jetzt. Ähm...
+
+01:34:22.650 --> 01:34:35.400
+Ich würd fast sagen, das ist hübsch
+
+01:34:35.400 --> 01:34:43.610
+genug jetzt. Wir können doch ein bisschen
+
+01:34:43.610 --> 01:34:45.610
+cheaten.
+
+01:34:45.610 --> 01:34:47.610
+Kann auch was anderes kopieren von nem anderen.
+
+01:34:47.610 --> 01:34:59.500
+Wir cheaten ein bisschen.
+
+01:34:59.500 --> 01:35:06.520
+Wir machen jetzt, wir machen auch das
+
+01:35:06.520 --> 01:35:12.040
+Logging hübsch jetzt. Äh, warum auch
+
+01:35:12.040 --> 01:35:20.310
+immer das nicht geht. Was hat der denn für
+
+01:35:20.310 --> 01:35:26.150
+Schmerzen? Warum geht das nicht?
+
+01:35:26.150 --> 01:35:40.310
+Geht das nicht? Moment, das ist das falsche
+
+01:35:40.310 --> 01:35:42.310
+iLogger, was der da drinnen hat.
+
+01:35:42.310 --> 01:35:44.310
+Ich will das
+
+01:35:44.310 --> 01:35:46.310
+haben von
+
+01:35:46.310 --> 01:35:48.310
+Microsoft
+
+01:35:48.310 --> 01:35:52.170
+Logger Extensions.
+
+01:35:52.170 --> 01:35:54.170
+Go hat gewonnen! Okay.
+
+01:35:54.170 --> 01:35:58.790
+Internal.
+
+01:35:58.790 --> 01:36:11.700
+Ne, Moment. Space.
+
+01:36:11.700 --> 01:36:15.530
+Ne, Go hat gewonnen.
+
+01:36:15.530 --> 01:36:17.530
+Das hat irgendjemand richtig hart was
+
+01:36:17.530 --> 01:36:19.530
+in Go noch reingebuttert gerade.
+
+01:36:19.530 --> 01:36:21.530
+Hab ich, hab ich gesehen.
+
+01:36:21.530 --> 01:36:23.530
+Ne, ne, wir machen
+
+01:36:23.530 --> 01:36:25.530
+Secrets nicht auf. Keck, wait.
+
+01:36:25.530 --> 01:36:33.580
+So, wir machen jetzt, ich hab noch ne Idee.
+
+01:36:33.580 --> 01:36:35.580
+Wir machen das genau so, wie
+
+01:36:35.580 --> 01:36:39.140
+ich das schon mal hatte.
+
+01:36:39.140 --> 01:36:46.460
+Helper. Public.
+
+01:36:46.460 --> 01:36:49.860
+Static. Class.
+
+01:36:49.860 --> 01:36:51.860
+Wir setzen einfach jetzt ne
+
+01:36:51.860 --> 01:36:53.860
+Public Logging Methode und dann haben wir immer
+
+01:36:53.860 --> 01:37:00.280
+das Datum noch davor.
+
+01:37:00.280 --> 01:37:02.280
+Warum wird das mit den Bits nicht angezeigt?
+
+01:37:02.280 --> 01:37:06.330
+Wird angezeigt.
+
+01:37:06.330 --> 01:37:08.330
+Wir machen jetzt keine Dependency Injection
+
+01:37:08.330 --> 01:37:10.330
+oder sonst irgendwas.
+
+01:37:10.330 --> 01:37:12.330
+Public. Static.
+
+01:37:12.330 --> 01:37:14.330
+iLogger.
+
+01:37:14.330 --> 01:37:16.330
+Äh.
+
+01:37:16.330 --> 01:37:18.330
+Irgendwas hier.
+
+01:37:18.330 --> 01:37:28.140
+Is not null.
+
+01:37:28.140 --> 01:37:30.140
+You
+
+01:37:30.140 --> 01:37:33.960
+custom log.
+
+01:37:33.960 --> 01:37:35.960
+So.
+
+01:37:35.960 --> 01:37:37.960
+Jetzt können wir tatsächlich,
+
+01:37:37.960 --> 01:37:39.960
+jetzt sehen die Textmessages sogar ganz gut aus
+
+01:37:39.960 --> 01:37:41.960
+glaube ich. Jetzt können wir nämlich hier sagen
+
+01:37:41.960 --> 01:37:46.040
+Log
+
+01:37:46.040 --> 01:37:48.040
+Information.
+
+01:37:48.040 --> 01:37:50.040
+So wie es ursprünglich gewesen ist.
+
+01:37:50.040 --> 01:37:52.040
+Da hab ich das jetzt genau nochmal so gemacht.
+
+01:37:52.040 --> 01:37:54.040
+So, jetzt sieht das, jetzt sieht das auch glaube ich
+
+01:37:54.040 --> 01:37:56.040
+ganz brauchbar aus. Jetzt haben wir sogar die
+
+01:37:56.040 --> 01:37:58.040
+Uhrzeit und so davor.
+
+01:37:58.040 --> 01:38:00.040
+Gucken wir mal, ob das jetzt funzt.
+
+01:38:00.040 --> 01:38:07.540
+Sollte jetzt sogar farbige Konsolenausgabe
+
+01:38:07.540 --> 01:38:09.540
+bei den Logs gleich sein.
+
+01:38:09.540 --> 01:38:18.710
+Hey, guckt euch das mal an.
+
+01:38:18.710 --> 01:38:20.710
+Und deutsches Datumsformat.
+
+01:38:20.710 --> 01:38:22.710
+Ja jetzt, also schöner, schöner geht's
+
+01:38:22.710 --> 01:38:24.710
+jetzt wirklich nicht mehr. Das muss jetzt
+
+01:38:24.710 --> 01:38:28.220
+reichen. Also jetzt
+
+01:38:28.220 --> 01:38:30.220
+ist wirklich Maximum
+
+01:38:30.220 --> 01:38:37.460
+Pewtified das Ganze.
+
+01:38:37.460 --> 01:38:39.460
+Emojis wegen.
+
+01:38:39.460 --> 01:38:41.460
+Wir können, okay, wir könnten noch
+
+01:38:41.460 --> 01:38:43.460
+Make Zip Call. Jetzt wo wir
+
+01:38:43.460 --> 01:38:45.460
+eine Helperklasse haben,
+
+01:38:45.460 --> 01:38:47.460
+können wir einfach
+
+01:38:47.460 --> 01:38:51.580
+Make Zip Call
+
+01:38:51.580 --> 01:38:53.580
+einfach da reinstecken und vergessen.
+
+01:38:53.580 --> 01:39:00.470
+Gachibuzz.
+
+01:39:00.470 --> 01:39:02.470
+Dann sieht Main sogar halbwegs
+
+01:39:02.470 --> 01:39:04.470
+clean aus. Guckt mal.
+
+01:39:04.470 --> 01:39:06.470
+42 Zeilen Main. Das muss reichen.
+
+01:39:06.470 --> 01:39:10.070
+Okay. Wunderbar.
+
+01:39:10.070 --> 01:39:12.070
+Ich würde sagen, das war's.
+
+01:39:12.070 --> 01:39:14.070
+Mit .NET. Nochmal abschließend
+
+01:39:14.070 --> 01:39:24.330
+checken, ob alles funktioniert.
+
+01:39:24.330 --> 01:39:26.330
+Einmal Anruf checken, ob's funktioniert.
+
+01:39:26.330 --> 01:39:37.510
+Geht. Kunst.
+
+01:39:37.510 --> 01:39:39.510
+Ihr hört's.
+
+01:39:39.510 --> 01:39:41.510
+Und ohne Minustest
+
+01:39:41.510 --> 01:39:43.510
+sollte er jetzt einfach den
+
+01:39:43.510 --> 01:39:45.510
+Analog-Digital-Converter
+
+01:39:45.510 --> 01:39:47.510
+abfragen
+
+01:39:47.510 --> 01:39:49.510
+und anzeigen und auslösen.
+
+01:39:49.510 --> 01:39:51.510
+Okay. Und es ist cancelbar.
+
+01:39:51.510 --> 01:39:53.510
+Alles gut. Nice.
+
+01:39:53.510 --> 01:39:55.510
+So lassen wir das jetzt.
+
+01:39:55.510 --> 01:39:57.510
+Speedfighter.
+
+01:39:57.510 --> 01:39:59.510
+Genug
+
+01:39:59.510 --> 01:40:05.800
+hübsch gemacht.
+
+01:40:05.800 --> 01:40:11.060
+Damit kann ich jetzt leben.
+
+01:40:11.060 --> 01:40:13.060
+Streng genommen müssten wir eigentlich noch
+
+01:40:13.060 --> 01:40:15.060
+die DLL hier embedden, dass das dann auch
+
+01:40:15.060 --> 01:40:17.060
+lesbar ist.
+
+01:40:17.060 --> 01:40:19.060
+Aber wir wollen's mal nicht übertreiben.
+
+01:40:19.060 --> 01:40:23.050
+Scheiß drauf. Das passt jetzt so.
+
+01:40:23.050 --> 01:40:25.050
+Okay. Jetzt kommt Go dran.
+
+01:40:25.050 --> 01:40:27.050
+Das wird ein bisschen komplizierter,
+
+01:40:27.050 --> 01:40:29.050
+weil ich
+
+01:40:29.050 --> 01:40:31.050
+das so noch nicht gemacht hab.
+
+01:40:31.050 --> 01:40:33.050
+Irgendwelche Raspberry Pi GPIO
+
+01:40:33.050 --> 01:40:35.050
+Sachen mit Go.
+
+01:40:35.050 --> 01:40:37.050
+Dann machen wir jetzt erstmal ein Git.
+
+01:40:37.050 --> 01:40:39.050
+Ne, wir machen kein
+
+01:40:39.050 --> 01:40:41.050
+Go mit auf jeden Fall.
+
+01:40:41.050 --> 01:40:43.050
+Wir machen WimGitIgnore
+
+01:40:43.050 --> 01:40:45.050
+Secrets
+
+01:40:45.050 --> 01:40:47.050
+Sieg
+
+01:40:47.050 --> 01:40:49.050
+Secret.cs
+
+01:40:49.050 --> 01:40:53.580
+Wie jetzt?
+
+01:40:53.580 --> 01:40:55.580
+Ah ne, das hab ich schon geedet. Ich kack Noob.
+
+01:40:55.580 --> 01:40:57.580
+Shit.
+
+01:40:57.580 --> 01:41:01.590
+Naja gut. Ich push das eh nirgends wohin.
+
+01:41:01.590 --> 01:41:06.090
+Leider nicht.
+
+01:41:06.090 --> 01:41:08.090
+Letztendlich ist auch da nix super Geheimes drin.
+
+01:41:08.090 --> 01:41:11.430
+Das passt schon. Okay.
+
+01:41:11.430 --> 01:41:13.430
+Git comment.
+
+01:41:15.430 --> 01:41:19.740
+Upu. Ganz toll.
+
+01:41:19.740 --> 01:41:21.740
+Achso, das war...
+
+01:41:21.740 --> 01:41:23.740
+Ich glaub das war ein Stream, wo ich mal aufs Klo muss
+
+01:41:23.740 --> 01:41:25.740
+zwischendurch.
+
+01:41:25.740 --> 01:41:27.740
+So. Okay.
+
+01:41:27.740 --> 01:41:29.740
+.NET ist...
+
+01:41:29.740 --> 01:41:31.740
+.NET Zeug ist fertig.
+
+01:41:31.740 --> 01:41:33.740
+Dann gehen wir mal in den Go-Ordner.
+
+01:41:33.740 --> 01:41:35.740
+Da fängt's jetzt schon an. Ich weiß noch nicht mal,
+
+01:41:35.740 --> 01:41:37.740
+wie man ein Go-Projekt überhaupt anlegt.
+
+01:41:37.740 --> 01:41:39.740
+Wir machen das hier zu.
+
+01:41:39.740 --> 01:41:41.740
+Wir machen auf jeden Fall GoLand auf.
+
+01:41:41.740 --> 01:41:47.900
+GoLand weiß, wie das funktioniert.
+
+01:41:47.900 --> 01:41:49.900
+GoMod init
+
+01:41:49.900 --> 01:41:51.900
+namespace
+
+01:41:51.900 --> 01:41:57.060
+Ich mach das jetzt mal, was du sagst.
+
+01:41:57.060 --> 01:41:59.060
+GoMod
+
+01:41:59.060 --> 01:42:01.060
+init
+
+01:42:01.060 --> 01:42:12.820
+So wie ich
+
+01:42:12.820 --> 01:42:14.820
+will, dass das heißt.
+
+01:42:14.820 --> 01:42:24.760
+Okay.
+
+01:42:24.760 --> 01:42:26.760
+Ähm.
+
+01:42:26.760 --> 01:42:42.650
+Was ist jetzt schon?
+
+01:42:42.650 --> 01:42:46.280
+Trust this window.
+
+01:42:46.280 --> 01:42:48.280
+Okay, new.
+
+01:42:48.280 --> 01:42:50.280
+Wir brauchen jetzt ein main.go
+
+01:42:50.280 --> 01:42:52.280
+auf jeden Fall.
+
+01:42:52.280 --> 01:42:54.280
+Ne, so funzt es schon mal nicht.
+
+01:42:54.280 --> 01:42:58.040
+Simple application.
+
+01:42:58.040 --> 01:43:03.400
+Okay, main.go
+
+01:43:03.400 --> 01:43:05.400
+already exists.
+
+01:43:05.400 --> 01:43:07.400
+Package?
+
+01:43:07.400 --> 01:43:09.400
+Das muss main heißen, wenn ich das richtig in Erinnerung hab.
+
+01:43:09.400 --> 01:43:16.040
+Ne?
+
+01:43:16.040 --> 01:43:18.040
+Go main.go.
+
+01:43:18.040 --> 01:43:24.710
+Bei go hört's auf.
+
+01:43:24.710 --> 01:43:28.410
+Warum ist das so kompliziert?
+
+01:43:28.410 --> 01:43:33.000
+Import fmt. Okay, alles klar.
+
+01:43:33.000 --> 01:43:35.000
+Wir machen mal ein bisschen größer, dass man was sieht.
+
+01:43:35.000 --> 01:43:39.400
+Go run.
+
+01:43:39.400 --> 01:43:43.190
+.
+
+01:43:43.190 --> 01:43:45.190
+Easy.
+
+01:43:45.190 --> 01:43:47.190
+Cgo muss auf jeden Fall ausgeschaltet werden.
+
+01:43:47.190 --> 01:43:49.190
+Ach, guck mal. Wir haben ja noch
+
+01:43:49.190 --> 01:43:51.190
+schon was.
+
+01:43:51.190 --> 01:43:53.190
+Go arm linux
+
+01:43:53.190 --> 01:43:55.190
+cgo enable 0, das ist ganz wichtig.
+
+01:43:55.190 --> 01:43:57.190
+Sonst funzt das net. Und let's go build.
+
+01:43:57.190 --> 01:44:04.950
+Perfekt. Okay, ausführbar
+
+01:44:04.950 --> 01:44:06.950
+ist es hier nicht, weil das ein arm binary ist.
+
+01:44:06.950 --> 01:44:08.950
+Okay, dann
+
+01:44:08.950 --> 01:44:10.950
+gehen wir jetzt nochmal zurück.
+
+01:44:10.950 --> 01:44:12.950
+Wir müssen nochmal ins .net verzeichnen
+
+01:44:12.950 --> 01:44:14.950
+und das unmounten.
+
+01:44:14.950 --> 01:44:16.950
+Weil das hier ist ein sshfs mount.
+
+01:44:16.950 --> 01:44:18.950
+So, dann gehen wir noch
+
+01:44:18.950 --> 01:44:20.950
+zu go.
+
+01:44:20.950 --> 01:44:22.950
+Wir löschen jetzt mal alles, was hier drin ist.
+
+01:44:22.950 --> 01:44:27.100
+Und
+
+01:44:27.100 --> 01:44:29.100
+wie sagt man go build
+
+01:44:29.100 --> 01:44:31.100
+in output directory?
+
+01:44:31.100 --> 01:44:34.630
+Kann man irgendwie sowas von machen wie
+
+01:44:34.630 --> 01:44:36.630
+"-o build"?
+
+01:44:36.630 --> 01:44:38.630
+Nee.
+
+01:44:38.630 --> 01:44:40.630
+Go build output directory.
+
+01:44:40.630 --> 01:44:50.470
+Aber das
+
+01:44:50.470 --> 01:44:52.470
+"-o muss hinter das build.
+
+01:44:52.470 --> 01:44:54.470
+Ganz hinten dran geht nicht.
+
+01:44:54.470 --> 01:44:56.470
+Also hier, "-o build".
+
+01:44:56.470 --> 01:44:58.470
+Ah ja.
+
+01:44:58.470 --> 01:45:00.470
+Okay. Ach ne, Moment.
+
+01:45:00.470 --> 01:45:02.470
+Das ist wie's heißt.
+
+01:45:02.470 --> 01:45:04.470
+Also muss ich jetzt mal
+
+01:45:04.470 --> 01:45:06.470
+build slash zip
+
+01:45:06.470 --> 01:45:14.100
+Ah, ja, ja. Okay.
+
+01:45:14.100 --> 01:45:16.100
+Dann machen wir nämlich wieder das gleiche
+
+01:45:16.100 --> 01:45:18.100
+wie bei
+
+01:45:20.100 --> 01:45:22.100
+wie bei .net.
+
+01:45:22.100 --> 01:45:24.100
+Wir machen, wir mounten
+
+01:45:24.100 --> 01:45:26.100
+uns das Ganze. sshfs
+
+01:45:26.100 --> 01:45:28.100
+sshfs
+
+01:45:28.100 --> 01:45:31.770
+Wir mounten uns das.
+
+01:45:31.770 --> 01:45:33.770
+Mapminister.
+
+01:45:33.770 --> 01:45:35.770
+Grad erst reingekommen. Ich hab's schon gar nicht
+
+01:45:35.770 --> 01:45:37.770
+gesehen. Doch, dort bist du vorher auch am Start.
+
+01:45:37.770 --> 01:45:39.770
+Du bist einfach nur white people happy.
+
+01:45:39.770 --> 01:45:41.770
+Versteh ich.
+
+01:45:41.770 --> 01:45:43.770
+Ich sehe, dass 233
+
+01:45:43.770 --> 01:45:45.770
+von euch da sind. Da bin ich auch white people happy, Leute.
+
+01:45:45.770 --> 01:45:47.770
+Massive white people happy.
+
+01:45:47.770 --> 01:45:52.490
+Na, kein Suse
+
+01:45:52.490 --> 01:45:54.490
+hier. Hör mal auf.
+
+01:45:54.490 --> 01:46:00.650
+Any arch enjoyers?
+
+01:46:00.650 --> 01:46:04.630
+By the way. Build.
+
+01:46:04.630 --> 01:46:09.900
+So.
+
+01:46:09.900 --> 01:46:13.530
+Kunst.
+
+01:46:13.530 --> 01:46:15.530
+Okay, also das mit dem rüber kopieren
+
+01:46:15.530 --> 01:46:17.530
+klappt schon mal. Von dem go binary.
+
+01:46:17.530 --> 01:46:19.530
+Das macht zwar noch nix. So, jetzt brauchen wir
+
+01:46:19.530 --> 01:46:21.530
+noch ne git ignore wieder.
+
+01:46:21.530 --> 01:46:23.530
+Das da kommt rein. Das da kommt rein.
+
+01:46:23.530 --> 01:46:25.530
+Und ansonsten
+
+01:46:25.530 --> 01:46:27.530
+eigentlich...
+
+01:46:27.530 --> 01:46:34.390
+Erst mal nix, oder?
+
+01:46:34.390 --> 01:46:36.390
+Gut, dann fangen wir doch mal an
+
+01:46:36.390 --> 01:46:38.390
+das Ganze in go zu machen.
+
+01:46:38.390 --> 01:46:40.390
+Ich werd mal Rider aufmachen
+
+01:46:40.390 --> 01:46:46.230
+zum abgucken.
+
+01:46:46.230 --> 01:46:48.230
+Also ich mein, wir werden's wahrscheinlich nicht
+
+01:46:48.230 --> 01:46:50.230
+exakt hundertprozentig so
+
+01:46:50.230 --> 01:46:52.230
+hinkriegen wie in .NET, weil ich beispielsweise...
+
+01:46:52.230 --> 01:46:54.230
+Kennt ihr mal ne schöne Library für
+
+01:46:54.230 --> 01:46:56.230
+Spinner auf der Konsole
+
+01:46:56.230 --> 01:46:58.230
+in go und sowas?
+
+01:46:58.230 --> 01:47:01.930
+So wie wir hier haben.
+
+01:47:01.930 --> 01:47:03.930
+Command Line Spinner in go. Da gibt's
+
+01:47:03.930 --> 01:47:07.400
+bestimmt auch irgendwelche schönen
+
+01:47:07.400 --> 01:47:09.400
+Go Konsolen Putify
+
+01:47:09.400 --> 01:47:11.400
+Libraries. Wobei das ja nicht wirklich
+
+01:47:11.400 --> 01:47:13.400
+der Kern des Ganzen hier ist.
+
+01:47:13.400 --> 01:47:15.400
+Ich krieg das auch
+
+01:47:15.400 --> 01:47:17.400
+auch nicht. Also.
+
+01:47:17.400 --> 01:47:19.400
+Wir müssen im Endeffekt
+
+01:47:19.400 --> 01:47:21.400
+erst mal schauen, wie man einen Sensor
+
+01:47:21.400 --> 01:47:25.480
+mit go ausliest.
+
+01:47:25.480 --> 01:47:27.480
+Bubble T go. Das hab ich schon mal
+
+01:47:27.480 --> 01:47:29.480
+gehört.
+
+01:47:29.480 --> 01:47:33.460
+Spinner. Bubbles.
+
+01:47:33.460 --> 01:47:36.810
+Mr. Bubbles.
+
+01:47:36.810 --> 01:47:43.420
+Guck mal, die hat sogar
+
+01:47:43.420 --> 01:47:45.420
+eingebaute Spinners.
+
+01:47:45.420 --> 01:47:47.420
+Oder auch nicht.
+
+01:47:47.420 --> 01:48:00.490
+Was passiert hier?
+
+01:48:00.490 --> 01:48:13.370
+Bei go hab ich immer erst mal
+
+01:48:13.370 --> 01:48:15.370
+Fragezeichen überm Kopf. Was da eigentlich
+
+01:48:15.370 --> 01:48:22.100
+vor sich geht.
+
+01:48:22.100 --> 01:48:24.100
+Aber immerhin hab ich schon mal ein GIF. Genau sowas will ich haben.
+
+01:48:24.100 --> 01:48:26.100
+Sowas da.
+
+01:48:26.100 --> 01:48:29.770
+Genau sowas da.
+
+01:48:29.770 --> 01:48:31.770
+Gibt es...
+
+01:48:31.770 --> 01:48:33.770
+Golang CLI Spinner.
+
+01:48:33.770 --> 01:48:35.770
+Haben wir da schöne...
+
+01:48:35.770 --> 01:48:37.770
+Also.
+
+01:48:37.770 --> 01:48:39.770
+Ja easy. Es gibt ein Package, was Spinner heißt.
+
+01:48:39.770 --> 01:48:41.770
+Ja genau sowas will ich haben.
+
+01:48:41.770 --> 01:48:43.770
+Ease. Eats.
+
+01:48:43.770 --> 01:48:48.620
+Gibt es da auch ein bisschen was Dezentes?
+
+01:48:48.620 --> 01:48:53.460
+Sowas hier. Das ist gut.
+
+01:48:53.460 --> 01:48:59.660
+Das ist gut hier.
+
+01:48:59.660 --> 01:49:01.660
+Das will ich haben.
+
+01:49:01.660 --> 01:49:06.570
+Das da. 14.
+
+01:49:06.570 --> 01:49:08.570
+Nur mal eine blöde Frage. Wie importiert man das denn jetzt?
+
+01:49:08.570 --> 01:49:10.570
+Wenn man mehrere Sachen in go importiert.
+
+01:49:10.570 --> 01:49:12.570
+So? Ne.
+
+01:49:12.570 --> 01:49:14.570
+Ach das ist ja wieder...
+
+01:49:14.570 --> 01:49:16.570
+Das triggert mich an go immer. Ich darf jetzt
+
+01:49:16.570 --> 01:49:18.570
+nicht speichern. Ansonsten
+
+01:49:18.570 --> 01:49:26.840
+löscht das ja automatisch.
+
+01:49:26.840 --> 01:49:34.340
+Musste man das so machen?
+
+01:49:34.340 --> 01:49:36.340
+Hab ich richtig gemacht.
+
+01:49:36.340 --> 01:49:38.340
+Alter. Der hat...
+
+01:49:38.340 --> 01:49:40.340
+Ah. Das ist so scheiße.
+
+01:49:40.340 --> 01:49:42.340
+Mann. Das fuckt mich in go
+
+01:49:42.340 --> 01:49:49.370
+immer so extrem ab.
+
+01:49:49.370 --> 01:49:51.370
+Stimmt. Man kann einen anderen Score davor machen.
+
+01:49:51.370 --> 01:49:56.760
+Dann bleibst du da.
+
+01:49:56.760 --> 01:49:58.760
+Man muss ja das so machen.
+
+01:49:58.760 --> 01:50:00.760
+Das ist ja...
+
+01:50:00.760 --> 01:50:13.290
+Mehrere Sachen die man...
+
+01:50:13.290 --> 01:50:15.290
+Okay.
+
+01:50:15.290 --> 01:50:17.290
+Konnte nicht irgendwie...
+
+01:50:17.290 --> 01:50:19.290
+Fix Missing Dependency.
+
+01:50:19.290 --> 01:50:21.290
+Jetzt pullt er.
+
+01:50:21.290 --> 01:50:23.290
+Ja das macht die IDE.
+
+01:50:23.290 --> 01:50:26.760
+Die kann das auch pullen.
+
+01:50:26.760 --> 01:50:28.760
+Okay. So. Und nun?
+
+01:50:28.760 --> 01:50:30.760
+New Spinner.
+
+01:50:30.760 --> 01:50:38.840
+Ja gut. Go hat keine E-Names.
+
+01:50:38.840 --> 01:50:40.840
+Da kann man das nicht schöner machen.
+
+01:50:40.840 --> 01:50:44.890
+Ohne E-Names.
+
+01:50:44.890 --> 01:50:46.890
+Aber wir wollten 14.
+
+01:50:46.890 --> 01:50:48.890
+Das ist halt hässlich as fuck. Oder?
+
+01:50:48.890 --> 01:50:52.490
+Charsets 14.
+
+01:50:52.490 --> 01:50:54.490
+Okay. Wir machen alle...
+
+01:50:54.490 --> 01:50:56.490
+Alle 10 Millisekunden.
+
+01:50:56.490 --> 01:50:59.770
+Start. Run for some time.
+
+01:50:59.770 --> 01:51:01.770
+Okay. Passt.
+
+01:51:01.770 --> 01:51:03.770
+Äh.
+
+01:51:03.770 --> 01:51:05.770
+Go. Run.
+
+01:51:05.770 --> 01:51:07.770
+Äh. Punkt.
+
+01:51:07.770 --> 01:51:14.310
+Kunst.
+
+01:51:14.310 --> 01:51:16.310
+Ich bin schon lange auf Twitch.
+
+01:51:16.310 --> 01:51:18.310
+So.
+
+01:51:18.310 --> 01:51:20.310
+Jetzt darf ich auch das da entfernen, oder?
+
+01:51:20.310 --> 01:51:22.310
+Ohne das der rumspankt.
+
+01:51:22.310 --> 01:51:24.310
+Das schlimme an Go ist,
+
+01:51:24.310 --> 01:51:26.310
+dass man es mal wieder raus macht.
+
+01:51:26.310 --> 01:51:28.310
+Aber das ist schon okay.
+
+01:51:28.310 --> 01:51:36.680
+So. Alles klar.
+
+01:51:36.680 --> 01:51:38.680
+Das ist okay. Das passt schon.
+
+01:51:38.680 --> 01:51:40.680
+Es ist ein bisschen schnell. Das stimmt.
+
+01:51:40.680 --> 01:51:44.600
+Aber alle 100 oder so.
+
+01:51:44.600 --> 01:51:46.600
+Vielleicht immer nur ein bisschen...
+
+01:51:46.600 --> 01:51:48.600
+Moment. Aber...
+
+01:51:48.600 --> 01:51:50.600
+Sollte jetzt eigentlich...
+
+01:51:50.600 --> 01:51:52.600
+Äh. Okay.
+
+01:51:52.600 --> 01:51:59.080
+Ach. Das ist diese Go-Duration-Geschichte.
+
+01:51:59.080 --> 01:52:01.080
+Moment. Da muss man doch...
+
+01:52:01.080 --> 01:52:03.080
+Jaja.
+
+01:52:03.080 --> 01:52:05.080
+Das ist... Das ist Go-Time...
+
+01:52:05.080 --> 01:52:07.080
+Timespan-Handling.
+
+01:52:07.080 --> 01:52:09.080
+Das ist... Weird... Weirdchamp.
+
+01:52:09.080 --> 01:52:16.100
+So. Ist okay.
+
+01:52:16.100 --> 01:52:22.620
+Gut. So. Jetzt haben wir schon...
+
+01:52:22.620 --> 01:52:24.620
+Als wichtigstes haben wir schon einen Command-Line-Spinner.
+
+01:52:24.620 --> 01:52:26.620
+Jetzt kann eigentlich nichts mehr schief gehen.
+
+01:52:26.620 --> 01:52:28.620
+So. Also. Da fangen wir an. Wie lese ich denn jetzt
+
+01:52:28.620 --> 01:52:30.620
+einen Sensor in Go aus?
+
+01:52:30.620 --> 01:52:32.620
+Go.
+
+01:52:32.620 --> 01:52:34.620
+ADS...
+
+01:52:34.620 --> 01:52:36.620
+10105
+
+01:52:36.620 --> 01:52:38.620
+Guck mal. Da gibt's was.
+
+01:52:38.620 --> 01:52:41.860
+Das ist ne Arduino.
+
+01:52:41.860 --> 01:52:48.860
+Das brauchen wir nicht.
+
+01:52:48.860 --> 01:52:50.860
+Oh. Guck mal. Das kommt sogar direkt von Google.
+
+01:52:50.860 --> 01:52:52.860
+Is now read only.
+
+01:52:52.860 --> 01:53:00.140
+Geil. Older version.
+
+01:53:00.140 --> 01:53:02.140
+Ah. Der wollte nicht mehr, dass das was mit Google zu tun hat.
+
+01:53:02.140 --> 01:53:10.890
+Hier. Devices.
+
+01:53:10.890 --> 01:53:12.890
+Da ist er doch.
+
+01:53:12.890 --> 01:53:14.890
+ADS 10...
+
+01:53:14.890 --> 01:53:16.890
+Mal gucken, ob der jetzt das Ganze
+
+01:53:16.890 --> 01:53:18.890
+übrigens richtig ausliest. Wahrscheinlich auch nicht.
+
+01:53:18.890 --> 01:53:20.890
+Guck mal. Examples.
+
+01:53:20.890 --> 01:53:25.510
+Äh...
+
+01:53:25.510 --> 01:53:27.510
+What?
+
+01:53:27.510 --> 01:53:29.510
+Host-Init.
+
+01:53:29.510 --> 01:53:33.980
+Okay. Das ist quasi
+
+01:53:33.980 --> 01:53:35.980
+sowas wie Pi-Init.
+
+01:53:35.980 --> 01:53:37.980
+Das können wir...
+
+01:53:37.980 --> 01:53:46.470
+Okay. Das können wir uns schon mal rauskopieren.
+
+01:53:46.470 --> 01:53:48.470
+Okay. Kopieren wir uns mal die drei Sachen raus.
+
+01:53:48.470 --> 01:53:57.190
+So. Und dann
+
+01:53:57.190 --> 01:54:01.690
+brauchen wir...
+
+01:54:01.690 --> 01:54:03.690
+Diese vier Sachen.
+
+01:54:03.690 --> 01:54:08.700
+Okay.
+
+01:54:08.700 --> 01:54:10.700
+Vater, kein Bock.
+
+01:54:10.700 --> 01:54:28.120
+Go.
+
+01:54:28.120 --> 01:54:30.120
+Warum auch immer das drin ist.
+
+01:54:30.120 --> 01:54:32.120
+Ähm. Okay.
+
+01:54:32.120 --> 01:54:34.120
+Äh. New.
+
+01:54:34.120 --> 01:54:36.120
+Ah. Den da wollen wir. Genau.
+
+01:54:36.120 --> 01:54:38.120
+So.
+
+01:54:38.120 --> 01:54:40.120
+Und jetzt. Log.
+
+01:54:40.120 --> 01:54:42.120
+FMT. Ne. Wie ging das nochmal?
+
+01:54:42.120 --> 01:54:44.120
+Hat es nicht? Log.
+
+01:54:44.120 --> 01:54:46.120
+Ah. Ne. Hier. Log.
+
+01:54:46.120 --> 01:54:49.660
+Printline.
+
+01:54:49.660 --> 01:54:51.660
+ADC.
+
+01:54:51.660 --> 01:54:53.660
+Pin for channel.
+
+01:54:53.660 --> 01:54:55.660
+Äh. Vermutlich 0.
+
+01:54:55.660 --> 01:55:05.820
+Pin halt.
+
+01:55:05.820 --> 01:55:07.820
+Pin read.
+
+01:55:07.820 --> 01:55:15.350
+What?
+
+01:55:15.350 --> 01:55:19.300
+Go. Go. Verwirrt mich gerade ein bisschen.
+
+01:55:19.300 --> 01:55:21.300
+Aber das mal hier.
+
+01:55:21.300 --> 01:55:23.300
+New.
+
+01:55:23.300 --> 01:55:25.300
+Weil das habe ich jetzt gelöscht. Das war blöd.
+
+01:55:25.300 --> 01:55:32.900
+So.
+
+01:55:32.900 --> 01:55:34.900
+Channel.
+
+01:55:34.900 --> 01:55:36.900
+Channel 0.
+
+01:55:38.900 --> 01:55:40.900
+Kann ich nicht einfach hier sagen...
+
+01:55:40.900 --> 01:55:42.900
+0?
+
+01:55:42.900 --> 01:55:44.900
+Doch.
+
+01:55:44.900 --> 01:55:49.530
+Bei Pin?
+
+01:55:49.530 --> 01:55:53.990
+Ich habe doch keine Ahnung an welchem Pin.
+
+01:55:53.990 --> 01:55:55.990
+Das musste ich da auch nicht angeben.
+
+01:55:55.990 --> 01:55:57.990
+Das hat den 0 interessiert.
+
+01:55:57.990 --> 01:55:59.990
+Guck mal.
+
+01:55:59.990 --> 01:56:03.750
+Hier in .net habe ich
+
+01:56:03.750 --> 01:56:05.750
+doch keinen Pin angeben müssen.
+
+01:56:05.750 --> 01:56:07.750
+Oder?
+
+01:56:07.750 --> 01:56:09.750
+Base?
+
+01:56:09.750 --> 01:56:11.750
+Delay?
+
+01:56:11.750 --> 01:56:13.750
+Ne.
+
+01:56:13.750 --> 01:56:15.750
+Das I2C Modul hat das selbst gesucht.
+
+01:56:15.750 --> 01:56:19.260
+Pin.
+
+01:56:19.260 --> 01:56:21.260
+Ich habe absolut keine Ahnung an welchem Pin das Ding hängt.
+
+01:56:21.260 --> 01:56:23.260
+Channel 0.
+
+01:56:23.260 --> 01:56:28.100
+Minus 3.
+
+01:56:28.100 --> 01:56:30.100
+Okay. Alles klar.
+
+01:56:30.100 --> 01:56:32.100
+5 mal Physik.
+
+01:56:32.100 --> 01:56:34.100
+Volt. Physik. Herz.
+
+01:56:34.100 --> 01:56:36.100
+Save.
+
+01:56:36.100 --> 01:56:39.800
+Okay.
+
+01:56:39.800 --> 01:56:41.800
+Ich lese jetzt einfach mal aus.
+
+01:56:43.800 --> 01:56:45.800
+Und guck was passiert.
+
+01:56:45.800 --> 01:56:47.800
+Ich habe keinen Schimmer.
+
+01:56:47.800 --> 01:56:53.160
+So. Auf meinem Rechner selbst wird das Ganze natürlich nicht laufen.
+
+01:56:53.160 --> 01:56:55.160
+Wo war read Channel 0?
+
+01:56:55.160 --> 01:56:59.240
+Moment. Ist das .net?
+
+01:56:59.240 --> 01:57:04.380
+Ne.
+
+01:57:04.380 --> 01:57:06.380
+Read Channel 0 ist was anderes.
+
+01:57:06.380 --> 01:57:10.620
+Das ist glaube ich nicht Pinfort Channel.
+
+01:57:10.620 --> 01:57:15.690
+Das ist irgendwas anderes.
+
+01:57:15.690 --> 01:57:19.160
+Oder?
+
+01:57:19.160 --> 01:57:25.000
+Wir werden es gleich sehen.
+
+01:57:25.000 --> 01:57:27.000
+Wir werden es gleich sehen.
+
+01:57:27.000 --> 01:57:33.100
+Bild.
+
+01:57:33.100 --> 01:57:38.520
+Okay.
+
+01:57:38.520 --> 01:57:40.520
+Das ist gar nicht so falsch, Leute.
+
+01:57:40.520 --> 01:57:46.650
+Es sind 17,4 nicht 1,7.
+
+01:57:46.650 --> 01:57:48.650
+Aber das ist prinzipiell gar nicht mal
+
+01:57:48.650 --> 01:57:50.650
+so weit weg davon.
+
+01:57:50.650 --> 01:57:52.650
+Schwankt das dann auch?
+
+01:57:52.650 --> 01:57:54.650
+Ja.
+
+01:57:54.650 --> 01:57:56.650
+Also es ist 1,719.
+
+01:57:56.650 --> 01:57:58.650
+Es müsste eigentlich 17,
+
+01:57:58.650 --> 01:58:00.650
+das ist ein bisschen verkehrt.
+
+01:58:00.650 --> 01:58:02.650
+Aber prinzipiell macht das
+
+01:58:02.650 --> 01:58:04.650
+was ist, wenn ich hier 0 reinschreibe?
+
+01:58:04.650 --> 01:58:12.220
+Ne, das stimmt.
+
+01:58:12.220 --> 01:58:14.220
+Dann stimmt es nicht, was rauskommt.
+
+01:58:14.220 --> 01:58:17.530
+Da muss aus irgendwelchen Gründen Channel
+
+01:58:17.530 --> 01:58:22.180
+Channel 0 minus 3.
+
+01:58:22.180 --> 01:58:28.540
+Kann ich nicht einfach sagen.
+
+01:58:28.540 --> 01:58:35.500
+Was passiert, wenn ich einfach
+
+01:58:35.500 --> 01:58:39.450
+sage Channel 0?
+
+01:58:39.450 --> 01:58:41.450
+Ne, das stimmt nicht. Okay.
+
+01:58:41.450 --> 01:58:43.450
+Also ich habe absolut keinen,
+
+01:58:43.450 --> 01:58:45.450
+nicht den Hauch einer Ahnung.
+
+01:58:45.450 --> 01:58:47.450
+Was ist, wenn ich hier...
+
+01:58:47.450 --> 01:58:49.450
+Was das bedeuten soll überhaupt?
+
+01:58:49.450 --> 01:58:54.040
+Ne.
+
+01:58:54.040 --> 01:58:56.040
+Es muss tatsächlich
+
+01:58:56.040 --> 01:58:58.040
+Channel 0 minus 3 sein.
+
+01:58:58.040 --> 01:59:00.040
+Sonst kommt nicht das richtige raus.
+
+01:59:00.040 --> 01:59:02.040
+Weil das hier stimmt. Das ist gut.
+
+01:59:02.040 --> 01:59:04.040
+Das Komma ist nicht ganz richtig, aber...
+
+01:59:04.040 --> 01:59:07.480
+Was muss hier rein? Max Voltage.
+
+01:59:07.480 --> 01:59:09.480
+Ah!
+
+01:59:09.480 --> 01:59:18.650
+Das haben wir hier auch.
+
+01:59:18.650 --> 01:59:23.750
+Max Voltage.
+
+01:59:23.750 --> 01:59:31.830
+War das 2048?
+
+01:59:31.830 --> 01:59:33.830
+Ne, 4096
+
+01:59:33.830 --> 01:59:37.210
+war das nicht.
+
+01:59:37.210 --> 01:59:39.210
+Aber ich meine, das ist 3,3.
+
+01:59:39.210 --> 01:59:41.210
+Ups.
+
+01:59:41.210 --> 01:59:54.820
+Okay.
+
+01:59:54.820 --> 01:59:59.220
+Es gehen nur ganze Zahlen.
+
+01:59:59.220 --> 02:00:01.220
+Ähm.
+
+02:00:01.220 --> 02:00:03.220
+Aber, Moment. Herz?
+
+02:00:03.220 --> 02:00:05.220
+Hatten wir da auch irgendwas mit
+
+02:00:05.220 --> 02:00:16.380
+Frequenz?
+
+02:00:16.380 --> 02:00:18.380
+Irgendwie?
+
+02:00:18.380 --> 02:00:20.380
+Das ist super high IQ
+
+02:00:20.380 --> 02:00:29.380
+das in Go zu benutzen.
+
+02:00:29.380 --> 02:00:31.380
+Ich trag da jetzt einfach mal.
+
+02:00:31.380 --> 02:00:35.980
+Just for fun.
+
+02:00:35.980 --> 02:00:37.980
+Soll ich da 4096 eintragen?
+
+02:00:37.980 --> 02:00:39.980
+Oder 4 Komma?
+
+02:00:39.980 --> 02:00:41.980
+Und dann mal gucken,
+
+02:00:41.980 --> 02:00:43.980
+was rauskommt.
+
+02:00:43.980 --> 02:00:56.380
+Oh. Ne.
+
+02:00:56.380 --> 02:00:58.380
+Okay.
+
+02:00:58.380 --> 02:01:00.380
+Ich lass das mal einfach so.
+
+02:01:00.380 --> 02:01:04.040
+Kein Schimmer.
+
+02:01:04.040 --> 02:01:06.040
+Ne, ne, ne.
+
+02:01:06.040 --> 02:01:09.670
+Die Frequenz müsste irgendwie hier beim Anlegen kommen.
+
+02:01:09.670 --> 02:01:11.670
+Guck mal hier.
+
+02:01:11.670 --> 02:01:13.670
+Frequency. Ob da irgendwas steht.
+
+02:01:13.670 --> 02:01:30.260
+Freak? Ne.
+
+02:01:30.260 --> 02:01:32.260
+Hast du die Hintergrundmusik?
+
+02:01:32.260 --> 02:01:34.260
+Ich glaub, die ist gerade einfach ein bisschen lauter.
+
+02:01:34.260 --> 02:01:36.260
+Dieser Track.
+
+02:01:36.260 --> 02:01:39.900
+Oder ich bin leiser.
+
+02:01:39.900 --> 02:01:41.900
+Ich hab keinen blassen Schimmer,
+
+02:01:41.900 --> 02:01:43.900
+was das macht hier.
+
+02:01:43.900 --> 02:01:49.990
+Best quality.
+
+02:01:49.990 --> 02:01:55.700
+Best quality.
+
+02:01:55.700 --> 02:01:57.700
+Ja, ist alles okay.
+
+02:01:57.700 --> 02:02:01.300
+Also, Frequency.
+
+02:02:01.300 --> 02:02:03.300
+Ich lass das einfach mal so.
+
+02:02:03.300 --> 02:02:05.300
+Es kommt ja das richtige raus.
+
+02:02:05.300 --> 02:02:09.830
+Nur nicht ganz.
+
+02:02:09.830 --> 02:02:11.830
+Was passiert denn,
+
+02:02:11.830 --> 02:02:13.830
+wenn ich 3 sage hier zum Beispiel?
+
+02:02:13.830 --> 02:02:17.180
+Dann stimmt's gar nicht.
+
+02:02:17.180 --> 02:02:25.450
+Ich glaube, dass
+
+02:02:25.450 --> 02:02:27.450
+irgendwie Fail.
+
+02:02:27.450 --> 02:02:29.450
+Da muss ich jetzt erst rauskriegen,
+
+02:02:29.450 --> 02:02:31.450
+wie man das in Go,
+
+02:02:31.450 --> 02:02:35.750
+was der hier eigentlich macht.
+
+02:02:35.750 --> 02:02:37.750
+Das stimmt schon, was der hier.
+
+02:02:37.750 --> 02:02:43.340
+Also, das ist jetzt richtig.
+
+02:02:43.340 --> 02:02:51.700
+Ey, keine Ahnung.
+
+02:02:51.700 --> 02:02:53.700
+Ich meine, es scheint das Richtige zu machen.
+
+02:02:55.700 --> 02:03:00.010
+Wir müssen das auf jeden Fall,
+
+02:03:00.010 --> 02:03:02.010
+das muss auf jeden Fall noch mal
+
+02:03:02.010 --> 02:03:04.010
+mal 10, was da raus.
+
+02:03:04.010 --> 02:03:09.980
+Ne?
+
+02:03:09.980 --> 02:03:11.980
+Achso, Moment.
+
+02:03:11.980 --> 02:03:13.980
+Read.
+
+02:03:13.980 --> 02:03:15.980
+Reading.
+
+02:03:15.980 --> 02:03:17.980
+Gleich Reading
+
+02:03:17.980 --> 02:03:19.980
+mal 10.
+
+02:03:19.980 --> 02:03:21.980
+Hä?
+
+02:03:21.980 --> 02:03:43.430
+Jetzt.
+
+02:03:43.430 --> 02:03:51.540
+Ah, Raw.
+
+02:03:51.540 --> 02:03:53.540
+Äh, Moment.
+
+02:03:53.540 --> 02:03:55.540
+Okay, Moment, Leute.
+
+02:03:55.540 --> 02:03:57.540
+Wir sind in Go.
+
+02:03:57.540 --> 02:04:02.390
+Äh, Go. Doppelpunkt gleich.
+
+02:04:02.390 --> 02:04:07.180
+Reading.
+
+02:04:07.180 --> 02:04:09.180
+Warum immer so eine Extrawurscht brauchen?
+
+02:04:09.180 --> 02:04:19.050
+Was soll ich machen?
+
+02:04:19.050 --> 02:04:21.050
+Warum?
+
+02:04:21.050 --> 02:04:23.050
+Wollen wir mal gucken, ob es einen Unterschied macht?
+
+02:04:23.050 --> 02:04:25.050
+Äh.
+
+02:04:25.050 --> 02:04:27.050
+Was?
+
+02:04:27.050 --> 02:04:34.650
+Äh, was?
+
+02:04:34.650 --> 02:04:36.650
+Es gibt gar keine Semikolons am Ende, gell?
+
+02:04:36.650 --> 02:04:38.650
+Hä?
+
+02:04:38.650 --> 02:04:40.650
+Was jetzt?
+
+02:04:40.650 --> 02:05:00.920
+Hier ist irgendwas falsch.
+
+02:05:00.920 --> 02:05:02.920
+Ach, hä?
+
+02:05:02.920 --> 02:05:04.920
+Wie habe ich denn das weggekriegt?
+
+02:05:04.920 --> 02:05:20.010
+Ne, Moment.
+
+02:05:20.010 --> 02:05:22.010
+Ich will nicht Raw.
+
+02:05:22.010 --> 02:05:26.020
+Kann man das mal 10 rechnen?
+
+02:05:26.020 --> 02:05:30.170
+Geht das?
+
+02:05:30.170 --> 02:05:33.740
+Okay. Alles klar.
+
+02:05:33.740 --> 02:05:37.880
+Und was macht der jetzt hier?
+
+02:05:37.880 --> 02:05:39.880
+Read values continuously.
+
+02:05:39.880 --> 02:05:41.880
+Jetzt macht der hier unten noch irgendwelche Magic-Sachen.
+
+02:05:41.880 --> 02:05:48.520
+C?
+
+02:05:48.520 --> 02:05:50.520
+It's iterated der da irgendwie drüber.
+
+02:05:50.520 --> 02:05:52.520
+Mal 10.
+
+02:05:52.520 --> 02:05:57.500
+Ja, dann sparen wir uns das hier oben,
+
+02:05:57.500 --> 02:05:59.500
+dass das einfach mal initiales einlesen und gut ist.
+
+02:05:59.500 --> 02:06:03.130
+Okay.
+
+02:06:03.130 --> 02:06:05.130
+Äh, brauchen wir nicht.
+
+02:06:05.130 --> 02:06:08.660
+Wie jetzt?
+
+02:06:08.660 --> 02:06:19.820
+Geht das nicht?
+
+02:06:19.820 --> 02:06:21.820
+Ach so.
+
+02:06:21.820 --> 02:06:30.220
+Hä?
+
+02:06:30.220 --> 02:06:32.220
+Aber, Moment mal, Moment mal.
+
+02:06:32.220 --> 02:06:36.550
+Moment.
+
+02:06:36.550 --> 02:06:38.550
+Das würde gehen.
+
+02:06:38.550 --> 02:06:40.550
+Aber das kann das eine an der Stelle gehen.
+
+02:06:40.550 --> 02:06:42.550
+Das kann das eine an der Stelle gehen.
+
+02:06:42.550 --> 02:06:44.550
+Geht nicht.
+
+02:06:44.550 --> 02:06:53.500
+Und dann muss man das...
+
+02:06:53.500 --> 02:06:55.500
+Das ist anscheinend irgendwelche Go-Magic,
+
+02:06:55.500 --> 02:06:57.500
+die man nicht verstehen muss.
+
+02:06:57.500 --> 02:06:59.500
+Warum, wenn ich was diskarde,
+
+02:06:59.500 --> 02:07:01.500
+muss ich den Doppelpunkt wegmachen?
+
+02:07:01.500 --> 02:07:07.880
+Was hat denn das eine mit dem anderen zu tun?
+
+02:07:07.880 --> 02:07:09.880
+Okay.
+
+02:07:09.880 --> 02:07:18.980
+Value gleich Reading.
+
+02:07:18.980 --> 02:07:26.710
+Okay, zack.
+
+02:07:26.710 --> 02:07:28.710
+So ganz stimmt das aber nicht, was der da liest, ne?
+
+02:07:28.710 --> 02:07:33.400
+So ganz stimmt das nicht, weil...
+
+02:07:33.400 --> 02:07:35.400
+So ganz stimmt das nicht, weil...
+
+02:07:35.400 --> 02:07:37.400
+Dass da mal 16 dazwischen ist.
+
+02:07:37.400 --> 02:07:41.960
+Äh...
+
+02:07:41.960 --> 02:07:43.960
+Mach mal Best Performance, genau.
+
+02:07:43.960 --> 02:07:45.960
+Wir machen nicht Dings, wir machen...
+
+02:07:45.960 --> 02:07:51.160
+Best Quality.
+
+02:07:51.160 --> 02:08:07.780
+So richtig stimmen tut das nicht.
+
+02:08:07.780 --> 02:08:19.320
+So richtig stimmen tut das nicht.
+
+02:08:19.320 --> 02:08:21.320
+Ich muss jetzt mal runtergehen und klingeln, aber ich hab keinen Bock.
+
+02:08:21.320 --> 02:08:26.200
+Was ist denn, wenn ich einfach hier sage 6?
+
+02:08:26.200 --> 02:08:28.200
+So, einfach gucken, was dann passiert.
+
+02:08:28.200 --> 02:08:34.360
+So, einfach gucken, was dann passiert.
+
+02:08:34.360 --> 02:08:38.440
+Juckt den gar nicht.
+
+02:08:38.440 --> 02:08:40.440
+Mach 10 plus 1, easy.
+
+02:08:40.440 --> 02:08:42.440
+Einfach Magic Zeugs irgendwie hinschreiben.
+
+02:08:42.440 --> 02:08:48.280
+Naja, ob das so stimmt, was ich da mache?
+
+02:08:48.280 --> 02:08:50.280
+Ich weiß ja nicht.
+
+02:08:50.280 --> 02:08:52.280
+Ach, hier. Dafür ist das Herz hier hinten.
+
+02:08:52.280 --> 02:08:54.280
+Jetzt liest...
+
+02:08:54.280 --> 02:08:56.280
+Der liest, wie schnell...
+
+02:08:56.280 --> 02:08:58.280
+Wie schnell dieser Iterator da iterated.
+
+02:08:58.280 --> 02:09:06.010
+Dafür ist das.
+
+02:09:06.010 --> 02:09:08.010
+Dafür ist das.
+
+02:09:08.010 --> 02:09:11.320
+Aha.
+
+02:09:11.320 --> 02:09:13.320
+Das kann ich aber in meiner .NET-Geschichte gar nicht angeben.
+
+02:09:13.320 --> 02:09:22.360
+Das gibt's da überhaupt nicht.
+
+02:09:22.360 --> 02:09:25.740
+Irgendwas...
+
+02:09:25.740 --> 02:09:27.740
+Na gut, da bestimme ich ja auch, wann ich auslese.
+
+02:09:27.740 --> 02:09:29.740
+Na gut, da bestimme ich ja auch, wann ich auslese.
+
+02:09:29.740 --> 02:09:31.740
+Da war was mit Delay.
+
+02:09:31.740 --> 02:09:35.050
+Das stimmt, ja.
+
+02:09:35.050 --> 02:09:37.050
+Das ist glaube ich was anderes.
+
+02:09:37.050 --> 02:09:39.050
+Egal, aber wir können einfach sagen,
+
+02:09:39.050 --> 02:09:41.050
+wir wollen das Ganze jetzt quasi
+
+02:09:41.050 --> 02:09:43.050
+100...
+
+02:09:43.050 --> 02:09:45.050
+100 Mal pro Sekunde haben.
+
+02:09:45.050 --> 02:09:55.210
+Genau, ich will mich anrufen,
+
+02:09:55.210 --> 02:09:57.210
+wenn einer klingelt.
+
+02:09:57.210 --> 02:09:59.210
+Die .NET-Variante haben wir
+
+02:09:59.210 --> 02:10:01.210
+und die funktioniert.
+
+02:10:01.210 --> 02:10:03.210
+Jetzt will ich das Ganze nochmal in Go machen.
+
+02:10:03.210 --> 02:10:05.210
+Wobei mich die
+
+02:10:05.210 --> 02:10:07.210
+die Go-Sache etwas
+
+02:10:07.210 --> 02:10:09.210
+verwirrt teilweise.
+
+02:10:09.210 --> 02:10:11.210
+So, zumindest
+
+02:10:11.210 --> 02:10:13.210
+klappt das ja an der Stelle soweit.
+
+02:10:13.210 --> 02:10:16.900
+Max Voltage ist
+
+02:10:16.900 --> 02:10:18.900
+der zweite Parameter...
+
+02:10:18.900 --> 02:10:23.660
+Ja, das weiß ich, das habe ich gesehen.
+
+02:10:23.660 --> 02:10:25.660
+Das Problem ist nur,
+
+02:10:25.660 --> 02:10:27.660
+eigentlich wäre es 4096
+
+02:10:27.660 --> 02:10:33.050
+beziehungsweise
+
+02:10:33.050 --> 02:10:35.050
+eigentlich wäre es sowas,
+
+02:10:35.050 --> 02:10:37.050
+aber das ist ja nicht erlaubt an der Stelle.
+
+02:10:37.050 --> 02:10:39.050
+Gibt's da sowas wie...
+
+02:10:39.050 --> 02:10:41.050
+Volt? Ah, Millivolt gibt's auch.
+
+02:10:41.050 --> 02:10:46.500
+Okay.
+
+02:10:46.500 --> 02:10:48.500
+Jetzt vielleicht so?
+
+02:10:48.500 --> 02:10:50.500
+Ist dann besser?
+
+02:10:50.500 --> 02:10:52.500
+Auch nicht, wirklich.
+
+02:10:52.500 --> 02:10:58.180
+Ja, alles Mögliche verwirrt mich
+
+02:10:58.180 --> 02:11:02.420
+an Go.
+
+02:11:02.420 --> 02:11:04.420
+Aber 2048 war das nicht.
+
+02:11:04.420 --> 02:11:06.420
+Das war irgendein anderer Magic-Wert,
+
+02:11:06.420 --> 02:11:08.420
+den ich gebraucht...
+
+02:11:08.420 --> 02:11:10.420
+Okay.
+
+02:11:10.420 --> 02:11:12.420
+Aber ich glaube, so ist es
+
+02:11:12.420 --> 02:11:14.420
+richtiger.
+
+02:11:14.420 --> 02:11:16.420
+Das entspricht eher dem, was ich...
+
+02:11:16.420 --> 02:11:18.420
+Das hier checke ich halt gar nicht.
+
+02:11:18.420 --> 02:11:20.420
+Channel 0-3
+
+02:11:20.420 --> 02:11:22.420
+Kein
+
+02:11:22.420 --> 02:11:24.420
+Plasenschimmer, was das sein soll.
+
+02:11:24.420 --> 02:11:26.420
+Aber wir haben Best Quality.
+
+02:11:26.420 --> 02:11:28.420
+Also wir haben aus irgendwelchen Gründen
+
+02:11:28.420 --> 02:11:30.420
+haben wir nur 16
+
+02:11:30.420 --> 02:11:32.420
+Volt. Ich müsste echt mal runter gehen
+
+02:11:32.420 --> 02:11:37.850
+klingeln und gucken, was rauskommt.
+
+02:11:37.850 --> 02:11:39.850
+Du hattest Spicy Sharp, aber...
+
+02:11:39.850 --> 02:11:41.850
+Naja, dieses...
+
+02:11:41.850 --> 02:11:43.850
+Diese Library macht da Dinger.
+
+02:11:43.850 --> 02:11:45.850
+Was auch immer die da macht.
+
+02:11:45.850 --> 02:11:55.720
+Ja, hier.
+
+02:11:55.720 --> 02:11:57.720
+Das ist bestimmt die Byte-Verschiebung.
+
+02:11:57.720 --> 02:12:12.870
+Du meinst das hier?
+
+02:12:12.870 --> 02:12:14.870
+Den Zusammenhang, ey, schließt sich
+
+02:12:14.870 --> 02:12:20.140
+mir grad nicht.
+
+02:12:20.140 --> 02:12:30.070
+Ja, was auch immer.
+
+02:12:30.070 --> 02:12:32.070
+Zumindest kommt so ungefähr das raus,
+
+02:12:32.070 --> 02:12:36.980
+was ich haben will.
+
+02:12:36.980 --> 02:12:38.980
+Ja, da war was mit Byte.
+
+02:12:38.980 --> 02:12:40.980
+Da war was mit 3 Byte.
+
+02:12:40.980 --> 02:12:46.760
+Das war bei...
+
+02:12:46.760 --> 02:12:48.760
+1
+
+02:12:48.760 --> 02:12:50.760
+1
+
+02:12:50.760 --> 02:12:58.230
+Das steht da bei mir drinnen.
+
+02:12:58.230 --> 02:13:00.230
+Und keine Ahnung, was das...
+
+02:13:00.230 --> 02:13:06.780
+Ach so,
+
+02:13:06.780 --> 02:13:19.430
+meinst du das...
+
+02:13:19.430 --> 02:13:21.430
+Ich hab echt keine Ahnung, was das macht.
+
+02:13:21.430 --> 02:13:40.810
+Shift 4
+
+02:13:40.810 --> 02:13:44.660
+Stimmt.
+
+02:13:44.660 --> 02:13:46.660
+Hier hab ich 1.
+
+02:13:46.660 --> 02:13:48.660
+Aber wenn ich hier 4 reinschreibe, kommt bestimmt
+
+02:13:48.660 --> 02:13:50.660
+was ganz was anderes raus.
+
+02:13:50.660 --> 02:13:52.660
+Ja.
+
+02:13:52.660 --> 02:13:54.660
+22
+
+02:13:54.660 --> 02:13:56.660
+Und 22 kommt was.
+
+02:13:56.660 --> 02:14:07.110
+Also, da ist
+
+02:14:07.110 --> 02:14:09.110
+zumindest das, was ursprünglich mal rausgekommen
+
+02:14:09.110 --> 02:14:11.110
+ist... Ne, da kommt was ganz was anderes raus
+
+02:14:11.110 --> 02:14:18.490
+jetzt. Ne, also ich hab...
+
+02:14:18.490 --> 02:14:20.490
+Okay, ich hab keine Ahnung.
+
+02:14:20.490 --> 02:14:22.490
+Ich weiß aber halt auch nicht, wie man den Sensor
+
+02:14:22.490 --> 02:14:24.490
+richtig ausliest, ehrlich gesagt.
+
+02:14:24.490 --> 02:14:26.490
+Ich hab mich jetzt einfach auf die Library
+
+02:14:26.490 --> 02:14:28.490
+verlassen und die hat das halbwegs gescheit gemacht.
+
+02:14:28.490 --> 02:14:30.490
+Und ich geh davon aus, wenn ich wüsste,
+
+02:14:30.490 --> 02:14:32.490
+wie das jetzt funktioniert, dann würde
+
+02:14:32.490 --> 02:14:34.490
+ich das auch... Aber ich
+
+02:14:34.490 --> 02:14:36.490
+mein, das ist schon mal ungefähr in die richtige
+
+02:14:36.490 --> 02:14:38.490
+Richtung, ja?
+
+02:14:38.490 --> 02:14:48.330
+So.
+
+02:14:48.330 --> 02:14:50.330
+Dann lassen wir den mal
+
+02:14:50.330 --> 02:14:52.330
+Command Line spinnen.
+
+02:14:52.330 --> 02:14:56.310
+Und
+
+02:14:56.310 --> 02:14:58.310
+starten den. Wir stoppen.
+
+02:14:58.310 --> 02:15:00.310
+Man kann doch
+
+02:15:00.310 --> 02:15:02.310
+sowas hier sagen in Go, oder?
+
+02:15:02.310 --> 02:15:04.310
+Genau, so nach dem Motto, wenn der exited, stoppt das auch
+
+02:15:04.310 --> 02:15:06.310
+auf jeden Fall. Wir brauchen
+
+02:15:06.310 --> 02:15:12.310
+ein Sleep. So.
+
+02:15:12.310 --> 02:15:14.310
+Jetzt sollten wir einen ordentlichen Spinner
+
+02:15:14.310 --> 02:15:16.310
+haben in Go. Naja gut, den machen wir jetzt wieder
+
+02:15:16.310 --> 02:15:20.100
+kaputt damit. Wie kann ich
+
+02:15:20.100 --> 02:15:22.100
+denn jetzt in der Go
+
+02:15:22.100 --> 02:15:24.100
+Spinner Library...
+
+02:15:24.100 --> 02:15:28.820
+Wie kann ich denn da Text...
+
+02:15:28.820 --> 02:15:32.520
+Prefix or append
+
+02:15:32.520 --> 02:15:35.990
+Text to the Spinner?
+
+02:15:35.990 --> 02:15:37.990
+Okay, das will ich haben.
+
+02:15:37.990 --> 02:15:39.990
+Ich will im Prinzip Spinner
+
+02:15:39.990 --> 02:15:43.430
+Prefix
+
+02:15:43.430 --> 02:15:45.430
+gleich Value.
+
+02:15:45.430 --> 02:15:47.430
+Ey, da geht
+
+02:15:47.430 --> 02:15:49.430
+wirklich...
+
+02:15:49.430 --> 02:15:51.430
+To String.
+
+02:15:51.430 --> 02:15:53.430
+So.
+
+02:15:55.430 --> 02:15:57.430
+String? So?
+
+02:15:57.430 --> 02:15:59.430
+Ja, fast.
+
+02:15:59.430 --> 02:16:01.430
+Conversion to String
+
+02:16:01.430 --> 02:16:03.430
+interprets the integer value as a
+
+02:16:03.430 --> 02:16:05.430
+Codepod. Nee.
+
+02:16:05.430 --> 02:16:07.430
+Okay.
+
+02:16:07.430 --> 02:16:09.430
+Was war das? IO? Nee. Moment.
+
+02:16:09.430 --> 02:16:11.430
+Das
+
+02:16:11.430 --> 02:16:13.430
+wusste ich letztens schon mal.
+
+02:16:13.430 --> 02:16:15.430
+Wie ging das in Go?
+
+02:16:15.430 --> 02:16:17.430
+Nicht IO-Utils, das war was anderes.
+
+02:16:17.430 --> 02:16:21.740
+Go into
+
+02:16:21.740 --> 02:16:26.840
+String. Welche Lip ich
+
+02:16:26.840 --> 02:16:28.840
+benutze? Das
+
+02:16:28.840 --> 02:16:30.840
+Ding hier. Für die...
+
+02:16:30.840 --> 02:16:32.840
+Strillkonf. Genau das
+
+02:16:32.840 --> 02:16:34.840
+meine ich. Strillkonf.
+
+02:16:34.840 --> 02:16:41.610
+Wie wäre es mit einem Hilfetext
+
+02:16:41.610 --> 02:16:43.610
+daneben, dass man...
+
+02:16:43.610 --> 02:16:45.610
+Dass man wüsste, was es macht?
+
+02:16:45.610 --> 02:16:51.260
+Strillkonf.
+
+02:16:51.260 --> 02:16:57.770
+Ah, die Musik wieder.
+
+02:16:57.770 --> 02:16:59.770
+Mach mal ADS Channel 3.
+
+02:16:59.770 --> 02:17:01.770
+Okay.
+
+02:17:01.770 --> 02:17:03.770
+Gleich, gleich. Mach ich gleich.
+
+02:17:03.770 --> 02:17:05.770
+Strillkonf
+
+02:17:05.770 --> 02:17:11.480
+Format Int.
+
+02:17:11.480 --> 02:17:13.480
+Oder Itor.
+
+02:17:13.480 --> 02:17:18.200
+Das haben sie
+
+02:17:18.200 --> 02:17:20.200
+irgendwo sich aus C geklaut.
+
+02:17:20.200 --> 02:17:22.200
+Moment,
+
+02:17:22.200 --> 02:17:26.700
+es ist ja gar kein Int.
+
+02:17:26.700 --> 02:17:28.700
+Moment, man kriegt da direkt einen String raus?
+
+02:17:28.700 --> 02:17:30.700
+Okay, ich habe nichts gesagt. Easy.
+
+02:17:30.700 --> 02:17:40.700
+Moment, Print Value muss weg.
+
+02:17:40.700 --> 02:17:42.700
+Also das geht
+
+02:17:42.700 --> 02:17:44.700
+in Go zumindest ein bisschen schneller.
+
+02:17:44.700 --> 02:17:46.700
+Das ist doch schön. Das ist doch fast
+
+02:17:46.700 --> 02:17:48.700
+das, was ich haben will.
+
+02:17:48.700 --> 02:17:50.700
+Ich will übrigens nicht Prefix, sondern
+
+02:17:50.700 --> 02:17:52.700
+Suffix haben und dann am besten
+
+02:17:52.700 --> 02:17:57.990
+noch ein Leerzeichen davor.
+
+02:17:57.990 --> 02:18:03.450
+Das sieht doch schon mal gut aus.
+
+02:18:03.450 --> 02:18:05.450
+Continuous Reading juckt
+
+02:18:05.450 --> 02:18:07.450
+mich doch mal gar nicht. Single Reading
+
+02:18:07.450 --> 02:18:09.450
+juckt mich auch nicht. Das kann alles fort.
+
+02:18:09.450 --> 02:18:15.320
+Hello World kann natürlich auch raus.
+
+02:18:15.320 --> 02:18:17.320
+So.
+
+02:18:17.320 --> 02:18:19.320
+Das sieht doch schon mal gar nicht so übel
+
+02:18:19.320 --> 02:18:21.320
+aus für den Sensor. Plus, dass es
+
+02:18:21.320 --> 02:18:23.320
+nicht stimmt, was ich auslese. So, was soll
+
+02:18:23.320 --> 02:18:29.320
+ich machen?
+
+02:18:29.320 --> 02:18:31.320
+3300 mal Millivolt.
+
+02:18:31.320 --> 02:18:34.600
+So meinste.
+
+02:18:34.600 --> 02:18:40.630
+Juckt den jetzt nicht so
+
+02:18:40.630 --> 02:18:44.230
+richtig. Kommt mehr
+
+02:18:44.230 --> 02:18:46.230
+oder weniger das gleiche raus wie vorher.
+
+02:18:46.230 --> 02:18:56.040
+Passiert ja, wenn ich einfach sage 2.
+
+02:18:56.040 --> 02:18:58.040
+Ah, das stimmt nichts.
+
+02:18:58.040 --> 02:19:10.440
+Die Werte sind ja
+
+02:19:10.440 --> 02:19:17.980
+gar nicht so verkehrt.
+
+02:19:17.980 --> 02:19:19.980
+Ja, das funktioniert schon mal. So.
+
+02:19:19.980 --> 02:19:21.980
+Und jetzt müssen wir gucken, wie man einen Zip Call macht in Go.
+
+02:19:21.980 --> 02:19:23.980
+So wirklich
+
+02:19:23.980 --> 02:19:25.980
+hübsch finde ich das jetzt allerdings
+
+02:19:25.980 --> 02:19:27.980
+nicht. Wie würde man das jetzt in
+
+02:19:27.980 --> 02:19:29.980
+Go ordentlich machen? Kann man da so was
+
+02:19:29.980 --> 02:19:31.980
+zumindest, zumindest mal so was wie
+
+02:19:31.980 --> 02:19:33.980
+Function, irgendwie Init
+
+02:19:33.980 --> 02:19:35.980
+oder sowas und dann, dass wir zumindest mal
+
+02:19:35.980 --> 02:19:41.530
+diesen, ah nicht wirklich, oder?
+
+02:19:41.530 --> 02:19:43.530
+Das braucht man ja
+
+02:19:43.530 --> 02:19:59.290
+alles. Fällt jetzt nicht ein, wie man
+
+02:19:59.290 --> 02:20:01.290
+das schöner machen könnte. Ich würde
+
+02:20:01.290 --> 02:20:03.290
+das ja gerne irgendwie ein bisschen auslagern.
+
+02:20:03.290 --> 02:20:08.040
+Weil das echt wild
+
+02:20:08.040 --> 02:20:10.040
+ausschaut. Aber ich glaube, das funktioniert
+
+02:20:10.040 --> 02:20:15.910
+nicht. Ich glaube, das muss so.
+
+02:20:15.910 --> 02:20:21.620
+Das muss so, es geht nicht anders.
+
+02:20:21.620 --> 02:20:26.920
+Ich meine, es ist ja wenigstens
+
+02:20:26.920 --> 02:20:28.920
+ganz gut lesbar, also kann man sich ja nicht
+
+02:20:28.920 --> 02:20:33.350
+beschweren. So, nee,
+
+02:20:33.350 --> 02:20:35.350
+ich gehe jetzt nicht mehr rausklingeln.
+
+02:20:35.350 --> 02:20:37.350
+So, Go Lang
+
+02:20:37.350 --> 02:20:39.350
+Zip Call.
+
+02:20:39.350 --> 02:20:41.350
+Zip Go.
+
+02:20:41.350 --> 02:20:48.340
+Zip. Zip Lang
+
+02:20:48.340 --> 02:20:50.340
+Fast Zip Devices.
+
+02:20:50.340 --> 02:20:56.760
+Supported Protocols
+
+02:20:56.760 --> 02:20:58.760
+UDP, TCP, Websocket
+
+02:20:58.760 --> 02:21:00.760
+Usage.
+
+02:21:00.760 --> 02:21:02.760
+Zip Go.
+
+02:21:02.760 --> 02:21:09.980
+Es gibt auch Go Zip.
+
+02:21:09.980 --> 02:21:11.980
+Ne, meine
+
+02:21:11.980 --> 02:21:17.110
+Fast. Ja, wie jetzt?
+
+02:21:17.110 --> 02:21:29.290
+Examples. Wir gucken uns
+
+02:21:29.290 --> 02:21:31.290
+Server. Nee, nee, nee, nee.
+
+02:21:31.290 --> 02:21:33.290
+Search. Was?
+
+02:21:33.290 --> 02:21:37.590
+Das ist ein Protokoll
+
+02:21:37.590 --> 02:21:39.590
+für Telefone. Ich will einfach
+
+02:21:39.590 --> 02:21:43.540
+nur einen Call initiieren.
+
+02:21:43.540 --> 02:21:45.540
+Ich glaube, das Beispiel hier ist eigentlich
+
+02:21:45.540 --> 02:21:51.420
+ganz gut. Ja, genau.
+
+02:21:51.420 --> 02:21:55.980
+Genau. Server?
+
+02:21:55.980 --> 02:21:57.980
+Ich will, ich will gar keinen Server.
+
+02:21:57.980 --> 02:22:03.080
+Ich, ich will, ich will einfach nur
+
+02:22:03.080 --> 02:22:05.080
+anrufen.
+
+02:22:05.080 --> 02:22:19.300
+Okay.
+
+02:22:19.300 --> 02:22:23.830
+Wir, wir ko... Was?
+
+02:22:23.830 --> 02:22:29.450
+So, das mit dem Server sparen wir uns
+
+02:22:29.450 --> 02:22:31.450
+komplett.
+
+02:22:31.450 --> 02:22:33.450
+Also, wir, wir probieren das jetzt mal.
+
+02:22:33.450 --> 02:22:35.450
+Machen wir jetzt hier.
+
+02:22:35.450 --> 02:22:37.450
+Kann man hier einfach sagen Return,
+
+02:22:37.450 --> 02:22:39.450
+sodass der Shit... Moment, da meckert Go
+
+02:22:39.450 --> 02:22:41.450
+doch garantiert, wenn das einfach nur auskommt.
+
+02:22:41.450 --> 02:22:43.450
+Ach, das ist erlaubt in Go.
+
+02:22:43.450 --> 02:22:45.450
+So ein random Return zwischendurch. Okay, dann ist
+
+02:22:45.450 --> 02:22:50.170
+gut. Welche
+
+02:22:50.170 --> 02:22:52.170
+Example, Examples
+
+02:22:52.170 --> 02:22:55.990
+brauchen wir hier mal kurz.
+
+02:22:55.990 --> 02:22:57.990
+Proxysip. Ich will einfach, ehrlich gesagt
+
+02:22:57.990 --> 02:22:59.990
+will ich einfach nur gucken, was ich importieren muss.
+
+02:22:59.990 --> 02:23:01.990
+Äh.
+
+02:23:01.990 --> 02:23:03.990
+Was da?
+
+02:23:03.990 --> 02:23:21.420
+Okay, nice.
+
+02:23:21.420 --> 02:23:23.420
+Zip Go.
+
+02:23:23.420 --> 02:23:25.420
+Server. Nee, Server
+
+02:23:25.420 --> 02:23:27.420
+will ich schon mal gar nicht. Null.
+
+02:23:27.420 --> 02:23:29.420
+Juckt mich gar nicht.
+
+02:23:29.420 --> 02:23:31.420
+Bist du... Nein, nein, nein, ich bin Woblo aus.
+
+02:23:31.420 --> 02:23:33.420
+Weißt du doch.
+
+02:23:33.420 --> 02:23:35.420
+Wo kommt denn CTX an der Stelle
+
+02:23:35.420 --> 02:23:43.560
+her? Nee.
+
+02:23:43.560 --> 02:23:47.030
+What? Wo kommt denn CTX
+
+02:23:47.030 --> 02:23:56.070
+her? Signal
+
+02:23:56.070 --> 02:23:58.070
+Notify Context.
+
+02:23:58.070 --> 02:24:01.960
+MonkaW.
+
+02:24:01.960 --> 02:24:11.350
+Äh.
+
+02:24:11.350 --> 02:24:13.350
+Es ist so obvious, woher CTX
+
+02:24:13.350 --> 02:24:15.350
+kommt, dass man das nicht angeben muss.
+
+02:24:15.350 --> 02:24:29.000
+Äh. Pff.
+
+02:24:29.000 --> 02:24:31.000
+Ja. Nice.
+
+02:24:31.000 --> 02:24:34.570
+Alles klar.
+
+02:24:34.570 --> 02:24:36.570
+Was? Context? Context?
+
+02:24:36.570 --> 02:24:40.620
+Background.
+
+02:24:40.620 --> 02:24:42.620
+What?
+
+02:24:42.620 --> 02:24:44.620
+Da jetzt, oder wie?
+
+02:24:44.620 --> 02:24:58.200
+Was ist das? Magic.
+
+02:24:58.200 --> 02:25:00.200
+Das ist mir, das ist mir jetzt zu hoch.
+
+02:25:00.200 --> 02:25:03.640
+Das ist mir eindeutig zu
+
+02:25:03.640 --> 02:25:05.640
+zu high IQ.
+
+02:25:05.640 --> 02:25:11.830
+Dein Channel könnte falsch sein.
+
+02:25:11.830 --> 02:25:13.830
+Im Moment wird dir nicht der Wert gegen Crown ange...
+
+02:25:13.830 --> 02:25:15.830
+Gib mal nur
+
+02:25:15.830 --> 02:25:17.830
+Channel X und nicht Channel...
+
+02:25:17.830 --> 02:25:19.830
+Das hat nicht funktioniert. Das habe ich schon ausprobiert.
+
+02:25:19.830 --> 02:25:21.830
+Das ist gar nicht so falsch,
+
+02:25:21.830 --> 02:25:23.830
+was der ausliest.
+
+02:25:23.830 --> 02:25:25.830
+Das kommt noch am ehesten hin.
+
+02:25:25.830 --> 02:25:27.830
+Hier schreibt man jetzt quasi...
+
+02:25:27.830 --> 02:25:29.830
+Schreibe ich jetzt hier diese
+
+02:25:29.830 --> 02:25:31.830
+17...
+
+02:25:31.830 --> 02:25:33.830
+So hier rein?
+
+02:25:33.830 --> 02:25:35.830
+Nee.
+
+02:25:35.830 --> 02:25:37.830
+Nee, nee, nee.
+
+02:25:37.830 --> 02:25:39.830
+So einfach ist es nicht.
+
+02:25:39.830 --> 02:25:41.830
+Eine Uri
+
+02:25:41.830 --> 02:25:43.830
+brauche ich. Sip Uri.
+
+02:25:43.830 --> 02:25:54.220
+What the...
+
+02:25:54.220 --> 02:25:56.220
+Ah, User Password.
+
+02:25:56.220 --> 02:26:00.010
+Ach, hier muss ich den ganzen krempeln. Okay.
+
+02:26:00.010 --> 02:26:02.010
+Also kann ich jetzt quasi sagen, hier
+
+02:26:02.010 --> 02:26:08.520
+das ist mega verwirrend.
+
+02:26:08.520 --> 02:26:10.520
+Wie das funzt.
+
+02:26:10.520 --> 02:26:12.520
+Ich will einfach nur einen Anruf machen.
+
+02:26:12.520 --> 02:26:15.860
+New Client.
+
+02:26:15.860 --> 02:26:17.860
+Host Name.
+
+02:26:17.860 --> 02:26:19.860
+Was habe ich denn da angegeben?
+
+02:26:19.860 --> 02:26:24.740
+Make Sip Call.
+
+02:26:24.740 --> 02:26:26.740
+Nix, oder? Sip User Agent.
+
+02:26:26.740 --> 02:26:28.740
+Default User Agent.
+
+02:26:28.740 --> 02:26:30.740
+Ja, egal wie der heißt.
+
+02:26:30.740 --> 02:26:32.740
+With Host Name.
+
+02:26:32.740 --> 02:26:36.890
+Auch vollkommen okay.
+
+02:26:36.890 --> 02:26:38.890
+So, also ich brauche Headers.
+
+02:26:38.890 --> 02:26:40.890
+Brauche ich nicht.
+
+02:26:40.890 --> 02:26:42.890
+Host brauche ich.
+
+02:26:42.890 --> 02:26:44.890
+Host ist das da.
+
+02:26:44.890 --> 02:26:46.890
+Also ich denke mal,
+
+02:26:46.890 --> 02:26:48.890
+dass er mit der Zielhost gemeint ist.
+
+02:26:48.890 --> 02:26:50.890
+Hä, Alter.
+
+02:26:50.890 --> 02:26:52.890
+What?
+
+02:26:52.890 --> 02:26:54.890
+So, Password, Headers.
+
+02:26:54.890 --> 02:26:56.890
+User Wildcard.
+
+02:26:56.890 --> 02:27:00.520
+Scheme.
+
+02:27:00.520 --> 02:27:02.520
+Also ich habe sowas hier.
+
+02:27:02.520 --> 02:27:04.520
+Wie macht man das?
+
+02:27:04.520 --> 02:27:13.370
+Tja, da müssen wir jetzt
+
+02:27:13.370 --> 02:27:15.370
+von Sip eine Ahnung haben, wie dieser ganze
+
+02:27:15.370 --> 02:27:33.660
+Kram heißt.
+
+02:27:33.660 --> 02:27:37.260
+Ich will da anrufen.
+
+02:27:37.260 --> 02:27:39.260
+Transaction.
+
+02:27:39.260 --> 02:27:41.260
+Kann ich nicht einfach sagen, New Sip Request?
+
+02:27:41.260 --> 02:27:47.350
+Kannst du auch passen?
+
+02:27:47.350 --> 02:27:49.350
+Ja, wie denn?
+
+02:27:49.350 --> 02:27:51.350
+Sip.
+
+02:27:51.350 --> 02:27:53.350
+Pass, irgendwie.
+
+02:27:53.350 --> 02:28:00.920
+Pass Message.
+
+02:28:00.920 --> 02:28:14.540
+Pass Address?
+
+02:28:14.540 --> 02:28:16.540
+Pass, ne.
+
+02:28:16.540 --> 02:28:18.540
+Pass Address.
+
+02:28:18.540 --> 02:28:20.540
+Sowas hier, oder?
+
+02:28:20.540 --> 02:28:37.830
+Was will der?
+
+02:28:37.830 --> 02:28:51.100
+Was will der von mir?
+
+02:28:51.100 --> 02:28:53.100
+Was für ein Pointer?
+
+02:28:53.100 --> 02:28:55.100
+Auf was?
+
+02:28:55.100 --> 02:28:57.100
+Ich hätte jetzt einen Return erwartet.
+
+02:28:57.100 --> 02:29:05.250
+Muss ich einfach den Link
+
+02:29:05.250 --> 02:29:12.880
+der Lehre angeben, oder wie?
+
+02:29:12.880 --> 02:29:25.250
+Wieso?
+
+02:29:25.250 --> 02:29:32.980
+Und? Sowas, hä?
+
+02:29:32.980 --> 02:29:44.640
+Handle Error.
+
+02:29:44.640 --> 02:29:46.640
+Ja, das funzt so nicht.
+
+02:29:46.640 --> 02:29:50.340
+Das habe ich auch schon gecheckt.
+
+02:29:50.340 --> 02:29:52.340
+So, und da ist es jetzt drin, oder was?
+
+02:29:52.340 --> 02:29:54.340
+Kann ich nicht sagen, Fatal Error
+
+02:29:54.340 --> 02:30:00.820
+oder sowas, dass das dann gleich abkackt?
+
+02:30:00.820 --> 02:30:02.820
+So.
+
+02:30:02.820 --> 02:30:04.820
+Jetzt lassen wir diesen ganzen Kontext-Scheiß einfach weg.
+
+02:30:04.820 --> 02:30:06.820
+Hier, so.
+
+02:30:06.820 --> 02:30:08.820
+New Sip Request.
+
+02:30:08.820 --> 02:30:10.820
+Uri, haben wir doch
+
+02:30:10.820 --> 02:30:17.140
+hier jetzt.
+
+02:30:17.140 --> 02:30:27.080
+Was hat er hier für Schmerzen?
+
+02:30:27.080 --> 02:30:32.760
+Unused.
+
+02:30:32.760 --> 02:30:34.760
+Ich glaube, ich hätte das mit dem Client machen sollen.
+
+02:30:34.760 --> 02:30:40.310
+Was ist das für ein Shit, Mann?
+
+02:30:40.310 --> 02:30:42.310
+Da versteht doch keine Sau, wie das funktioniert, Alter.
+
+02:30:42.310 --> 02:30:52.980
+Client?
+
+02:30:52.980 --> 02:30:54.980
+Do. Do ist immer gut.
+
+02:30:54.980 --> 02:31:02.320
+Request.
+
+02:31:02.320 --> 02:31:04.320
+Was will der mit diesem komischen
+
+02:31:04.320 --> 02:31:06.320
+Kontext eigentlich von mir?
+
+02:31:06.320 --> 02:31:08.320
+Kann ich einfach sowas
+
+02:31:08.320 --> 02:31:10.320
+hier sagen? Bam.
+
+02:31:10.320 --> 02:31:38.760
+Und dann geht's. Wow.
+
+02:31:38.760 --> 02:31:45.010
+Ah, easy.
+
+02:31:45.010 --> 02:31:51.680
+Declare not used. Ah, Moment.
+
+02:31:51.680 --> 02:32:09.840
+Hier oben habe ich ja schon was.
+
+02:32:09.840 --> 02:32:11.840
+Ja, das wäre jetzt auch zu einfach gewesen.
+
+02:32:11.840 --> 02:32:13.840
+Muss ich doch
+
+02:32:13.840 --> 02:32:23.680
+sagen, Pass Address
+
+02:32:23.680 --> 02:32:25.680
+Host, zurück kriege ich
+
+02:32:25.680 --> 02:32:29.190
+Host String, ne.
+
+02:32:29.190 --> 02:32:31.190
+Keine Ahnung.
+
+02:32:31.190 --> 02:32:33.190
+Da muss doch bestimmt noch irgendwas davor.
+
+02:32:33.190 --> 02:32:35.190
+Muss da irgendwie Sip Doppelpunkt Slash Slash oder
+
+02:32:35.190 --> 02:32:53.410
+was davor?
+
+02:32:53.410 --> 02:33:00.340
+What?
+
+02:33:00.340 --> 02:33:02.340
+Ohne? Also so im Endeffekt.
+
+02:33:02.340 --> 02:33:18.450
+Invite Sip
+
+02:33:18.450 --> 02:33:21.860
+Failed to write
+
+02:33:21.860 --> 02:33:23.860
+Request on init. Tja.
+
+02:33:23.860 --> 02:33:29.600
+Bestimmt wegen Username
+
+02:33:29.600 --> 02:33:35.700
+Passwort. Muss mal
+
+02:33:35.700 --> 02:33:37.700
+gucken, ob ich das seh. Hm.
+
+02:33:37.700 --> 02:33:39.700
+Eine Idee, wie ich in Go
+
+02:33:39.700 --> 02:33:41.700
+Secret Go
+
+02:33:41.700 --> 02:33:43.700
+ähm
+
+02:33:43.700 --> 02:33:45.700
+Kann ich in Go irgendwie
+
+02:33:45.700 --> 02:33:50.070
+Kann ich hier auch irgendwas verstecken?
+
+02:33:52.070 --> 02:33:56.080
+Ich will einfach nicht, dass ihr es seht.
+
+02:33:56.080 --> 02:33:58.080
+Also quasi sowas wie
+
+02:33:58.080 --> 02:34:00.080
+User gleich
+
+02:34:00.080 --> 02:34:04.680
+Keckel so.
+
+02:34:04.680 --> 02:34:06.680
+Package Main gibt's schon, gell?
+
+02:34:06.680 --> 02:34:11.590
+Ja, ich denk auch, dass Go
+
+02:34:11.590 --> 02:34:17.620
+das anzeigt.
+
+02:34:17.620 --> 02:34:19.620
+Env-Variable, das will ich
+
+02:34:19.620 --> 02:34:24.120
+eigentlich nicht. Äh, das ist
+
+02:34:24.120 --> 02:34:28.200
+Können einfach, können wir nicht
+
+02:34:28.200 --> 02:34:30.200
+einfach hier unten irgendwie ne Variable hinmachen
+
+02:34:30.200 --> 02:34:32.200
+oder so? Wobei, dann ist die
+
+02:34:32.200 --> 02:34:37.110
+nachher definiert.
+
+02:34:37.110 --> 02:34:39.110
+Ne, das ist doch einfach viel zu umständlich.
+
+02:34:39.110 --> 02:34:41.110
+Ich will jetzt kein neues
+
+02:34:41.110 --> 02:34:43.110
+Secret Management Framework
+
+02:34:43.110 --> 02:34:47.730
+oder sowas. Kann man nicht
+
+02:34:47.730 --> 02:34:51.560
+Ich weiß, wie wir das machen.
+
+02:34:51.560 --> 02:34:53.560
+Keck Wait.
+
+02:34:53.560 --> 02:35:00.710
+Ähm.
+
+02:35:00.710 --> 02:35:02.710
+Gibt's nicht die Möglichkeit, dass man sagt
+
+02:35:02.710 --> 02:35:08.450
+Wie kann das? Secret?
+
+02:35:08.450 --> 02:35:10.450
+So. Und
+
+02:35:10.450 --> 02:35:12.450
+Okay, Package Main mag er ja net.
+
+02:35:12.450 --> 02:35:14.450
+Dass man da irgendwie sowas sagt
+
+02:35:14.450 --> 02:35:16.450
+wie Function.
+
+02:35:16.450 --> 02:35:18.450
+Ähm. Ja, was ist? Get User
+
+02:35:18.450 --> 02:35:20.450
+Return
+
+02:35:20.450 --> 02:35:22.450
+Keckel. Weil das zeigt er dann net an.
+
+02:35:24.450 --> 02:35:26.450
+Weil das irgendwie return
+
+02:35:26.450 --> 02:35:31.810
+Äh, was? Too many
+
+02:35:31.810 --> 02:35:38.160
+Arguments? Ach, man muss
+
+02:35:38.160 --> 02:35:40.160
+den, den Return-Wert noch, ne?
+
+02:35:40.160 --> 02:35:42.160
+Ah, okay.
+
+02:35:42.160 --> 02:35:45.700
+Ähm.
+
+02:35:45.700 --> 02:35:47.700
+Get Password. So.
+
+02:35:47.700 --> 02:35:49.700
+Und wie kann ich da jetzt drauf zugreifen?
+
+02:35:49.700 --> 02:35:54.100
+Uri.
+
+02:35:54.100 --> 02:35:56.100
+User.
+
+02:35:56.100 --> 02:35:58.100
+Get. Achso.
+
+02:35:58.100 --> 02:36:05.190
+Okay, easy. Weil
+
+02:36:05.190 --> 02:36:07.190
+das liest er auch nicht aus.
+
+02:36:07.190 --> 02:36:10.660
+Okay, Chat. Ihr müsst jetzt
+
+02:36:10.660 --> 02:36:12.660
+kurz weggucken.
+
+02:36:12.660 --> 02:36:32.840
+Alle Augen zu. Ich hoffe,
+
+02:36:32.840 --> 02:36:34.840
+der zeigt es nicht gleich
+
+02:36:34.840 --> 02:36:36.840
+im Debug-Log an. Leute, ich
+
+02:36:36.840 --> 02:36:38.840
+probier mal. Ich trag mal Mist ein.
+
+02:36:38.840 --> 02:36:40.840
+Mal gucken, ob es im Debug-Log drinne steht.
+
+02:36:40.840 --> 02:36:45.140
+Es steht natürlich
+
+02:36:45.140 --> 02:36:55.200
+im Debug-Log drinne.
+
+02:36:55.200 --> 02:36:57.200
+Ja, dann, dann nicht.
+
+02:36:57.200 --> 02:37:03.490
+Debug gleich false.
+
+02:37:03.490 --> 02:37:05.490
+Ne, ich will, ehrlich gesagt, will ich ja eigentlich nicht
+
+02:37:05.490 --> 02:37:07.490
+Debug false machen. Ich will ja
+
+02:37:07.490 --> 02:37:09.490
+schon sehen, was da treibt, ne?
+
+02:37:09.490 --> 02:37:11.490
+Chat, dann könnt ihr jetzt leider grad mal
+
+02:37:11.490 --> 02:37:17.680
+nicht zugucken. Okay, es
+
+02:37:17.680 --> 02:37:21.320
+Failed. Es, es
+
+02:37:21.320 --> 02:37:23.320
+Failed auf allen Ebenen, Leute.
+
+02:37:23.320 --> 02:37:25.320
+Es liegt nicht an Username und Password.
+
+02:37:25.320 --> 02:37:33.360
+Also, dann kann ich das
+
+02:37:33.360 --> 02:37:35.360
+...
+
+02:37:35.360 --> 02:37:37.360
+Wir schwärzen hier nichts.
+
+02:37:37.360 --> 02:37:39.360
+So, dann kann ich das wieder um... Also, das, was ihr
+
+02:37:39.360 --> 02:37:41.360
+jetzt seht im Debug-Log ist nicht das echte, okay?
+
+02:37:41.360 --> 02:37:46.120
+Also, wir müssen
+
+02:37:46.120 --> 02:37:48.120
+erst mal gucken, warum das Failed. Wahrscheinlich
+
+02:37:48.120 --> 02:37:50.120
+passt der das dann richtig.
+
+02:37:50.120 --> 02:37:52.120
+Ah, geil.
+
+02:37:52.120 --> 02:37:54.120
+Jetzt hab ich's geleakt. Jawoll.
+
+02:37:54.120 --> 02:37:56.120
+Ich mein, ihr kommt eh nicht dran. Ist scheißegal.
+
+02:37:56.120 --> 02:37:58.120
+Es ist eigentlich komplett
+
+02:37:58.120 --> 02:38:00.120
+egal. Ihr kommt nicht dran.
+
+02:38:00.120 --> 02:38:02.120
+Das ist rein lokaler User per SIP
+
+02:38:02.120 --> 02:38:04.120
+auf meiner Fritzbox.
+
+02:38:04.120 --> 02:38:08.290
+So. Ne, es ist
+
+02:38:08.290 --> 02:38:10.290
+es ist wurscht. Ich kann's auch eintragen.
+
+02:38:10.290 --> 02:38:12.290
+Es ist ein lokaler User auf meiner Fritzbox.
+
+02:38:12.290 --> 02:38:14.290
+Vollkommen wurscht.
+
+02:38:14.290 --> 02:38:18.080
+Zu spät. Ja, ich weiß, chat,
+
+02:38:18.080 --> 02:38:20.080
+chat. Ihr seid alle schon am Start.
+
+02:38:20.080 --> 02:38:23.650
+Aber was viel interessanter
+
+02:38:23.650 --> 02:38:25.650
+ist, warum
+
+02:38:25.650 --> 02:38:27.650
+Failed das hier?
+
+02:38:27.650 --> 02:38:31.540
+Ich mein, was, was mach ich, was
+
+02:38:31.540 --> 02:38:33.540
+mach ich in .NET
+
+02:38:33.540 --> 02:38:35.540
+.NET?
+
+02:38:35.540 --> 02:38:37.540
+Was ist denn da der Default von
+
+02:38:37.540 --> 02:38:47.600
+SIP transport?
+
+02:38:47.600 --> 02:38:52.040
+Whatever. Weiß ich net.
+
+02:38:52.040 --> 02:38:56.500
+Der setzt da
+
+02:38:56.500 --> 02:38:58.500
+Call, ja. Der setzt da
+
+02:38:58.500 --> 02:39:18.140
+halt den kram schon richtig stimmt ja moment das ist ja was ganz was anderes jetzt das ist
+
+02:39:18.140 --> 02:39:25.160
+ja was ganz was anderes ich will dass user name und passwort an der stelle gar nicht setzen ich
+
+02:39:25.160 --> 02:39:37.820
+will dass user name passwort setzen bei hier eigentlich beim client ich setze das hier auch
+
+02:39:37.820 --> 02:39:46.560
+ich setze das hier wenn ich den call mache also im prinzip hier irgendwo setze ich das vielleicht
+
+02:39:46.560 --> 02:39:59.960
+muss man das vom client user name passwort setzen und dann weiß ich es auch nicht register client
+
+02:39:59.960 --> 02:40:22.700
+das ist eine gute idee hier example register client main ja ja das ist gut das gut with user
+
+02:40:22.700 --> 02:40:23.660
+agent
+
+02:40:26.730 --> 02:41:00.260
+ja das ist was anderes da muss user ist ein string moment das muss ein pointer sein was
+
+02:41:00.260 --> 02:41:21.440
+was will er von mir ich finde das in go teilweise extrem kryptisch das ist doch ein string was will
+
+02:41:21.440 --> 02:41:30.570
+er ach moment das ist der client das ist wieder was anderes
+
+02:41:30.870 --> 02:41:52.600
+was ist das hier an der stelle ob das in options die kann man sich wahrscheinlich auch schenken
+
+02:41:52.600 --> 02:42:11.400
+oder client options typ client options und wo er weiß ich jetzt was es für options gibt also das
+
+02:42:11.400 --> 02:42:22.170
+ist quasi einfach nur objekt was der client host name klein port
+
+02:42:22.170 --> 02:42:24.210
+matt
+
+02:42:25.770 --> 02:42:38.190
+address das ist das kann ich mir doch das kann ich mir noch sparen oder auf der wegklasse klein port
+
+02:42:38.190 --> 02:42:50.500
+ich der kann mich überhaupt nicht anrufen soll was macht er wo machen die hier was mit passwort
+
+02:42:50.500 --> 02:43:12.140
+und mich verarschen okay das ist ja wirklich hardcore manueller betrieb hierbei bei der
+
+02:43:12.140 --> 02:43:22.070
+library die haben in was ich voll web framework okay vielleicht geht es damit einfacher
+
+02:43:25.660 --> 02:44:16.280
+register f passwort das findet man hier noch nicht alter der neue github editor man das sieht schon mal besser aus das sieht schon mal deutlich besser aus ja ich glaube ich glaube wir verwenden das hier lieber wir verwenden das hier lieber ja das ist mit das also das ist wirklich hyper low level ey egal ich kann mich nicht mehr konzentrieren es reicht für heute
+
+02:44:16.280 --> 02:44:17.400
+boah
+
+02:44:17.400 --> 02:44:22.000
+go geschichte
+
+02:44:22.020 --> 02:44:23.340
+schon nicht ohne
+
+02:44:23.340 --> 02:44:25.580
+wenn man das nicht so oft macht
+
+02:44:25.580 --> 02:44:27.000
+ja ich hab's gesehen
+
+02:44:27.000 --> 02:44:27.900
+da muss
+
+02:44:27.900 --> 02:44:31.640
+da muss erstmal irgendwie so ein
+
+02:44:31.640 --> 02:44:33.280
+register
+
+02:44:33.280 --> 02:44:36.060
+anfrage schicken und dann muss man
+
+02:44:36.060 --> 02:44:37.980
+darauf reagieren und dann sagt das ist mir zu blöd
+
+02:44:37.980 --> 02:44:41.760
+ich mach das das nächste mal wirklich mit dieser
+
+02:44:41.760 --> 02:44:42.600
+high level library
+
+02:44:42.600 --> 02:44:44.900
+das ist ja gar nix so
+
+02:44:44.900 --> 02:44:49.940
+da werden aus 40 zeilen.net
+
+02:44:49.940 --> 02:44:51.520
+werden 800 zeilen go
+
+02:44:51.520 --> 02:44:54.440
+wenn man das von hand alles machen muss
+
+02:44:54.440 --> 02:44:55.920
+aus dem herrlich von zip
+
+02:44:55.920 --> 02:44:56.620
+keine ahnung
+
+02:44:59.060 --> 02:45:00.900
+mehr heiligte
+
+02:45:00.900 --> 02:45:03.740
+genug
+
+02:45:03.740 --> 02:45:08.490
+genug für heute
+
+02:45:08.490 --> 02:45:22.790
+das war aber immer weiter
+
+02:45:22.790 --> 02:45:24.470
+das ist dank
+
+02:45:24.470 --> 02:45:27.760
+gelung
+
+02:45:27.760 --> 02:45:34.590
+ein uraltes mmo
+
+02:45:34.590 --> 02:45:42.960
+mit hammer gestrimmt hat
+
+02:45:42.960 --> 02:45:46.220
+das hat ihr divides
+
+02:45:46.220 --> 02:45:48.400
+Sure
+
+02:45:48.400 --> 02:45:51.340
+blur und sowas guckt
+
+02:45:51.340 --> 02:45:59.060
+last minute entlich sieht unsere
+
+02:45:59.060 --> 02:46:02.260
+meistkehren
+
+02:46:02.260 --> 02:46:12.920
+dessen
+
+02:46:13.320 --> 02:46:18.700
+ist zu spät aber die tage weiter ich gehe jetzt ins bett gehen
+
+02:46:18.700 --> 02:46:27.720
+wir sehen uns morgen früh um irgendwie so weiß ich nicht zwischen zwischen 8
+
+02:46:27.720 --> 02:46:41.830
+und 10 irgendwann bett geteilt schön dass sie am start war
