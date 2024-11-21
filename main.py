@@ -33,7 +33,7 @@ def run_transcribe():
 
     # keep out transcripts up to date
     git = ArchivGit()
-    git.pull()
+    # git.pull()
 
     # get vods in api
     api = ArchivApi(config[args.environment])
@@ -72,7 +72,7 @@ def run_transcribe():
         os.remove(m4a)
 
         # push transcript to git
-        git.pull()
+        # git.pull()
         git.push(f"[🤖] add {vod['filename']}", args.output)
 
         # some console output
@@ -118,27 +118,55 @@ def main() -> None:
 if __name__ == "__main__":
     # main parser
     parser = argparse.ArgumentParser(prog="Wubbl0rz Archiv Transcribe")
-    parser.add_argument("-c", "--config", help="Path to config.json", default=os.path.join(
-        pathlib.Path(__file__).parent.resolve(), "config.json"), type=pathlib.Path)
-    parser.add_argument("-e", "--environment", choices=[
-                        "prod", "dev"], required=True, type=str, help="Target environment")
-    parser.add_argument("-o", "--output", default=os.path.join(pathlib.Path(__file__).parent.resolve(),
-                        "transcripts"), type=pathlib.Path, help="Output directory for transcripts")
+    parser.add_argument(
+        "-c",
+        "--config",
+        help="Path to config.json",
+        default=os.path.join(
+            pathlib.Path(__file__).parent.resolve(), "config.json"),
+        type=pathlib.Path)
+    parser.add_argument(
+        "-e",
+        "--environment",
+        choices=["prod", "dev"],
+        required=True,
+        type=str,
+        help="Target environment")
+    parser.add_argument(
+        "-o",
+        "--output",
+        default=os.path.join(pathlib.Path(
+            __file__).parent.resolve(), "transcripts"),
+        type=pathlib.Path,
+        help="Output directory for transcripts")
     subparsers = parser.add_subparsers(
-        dest="cmd", help="Available commands")
+        dest="cmd",
+        help="Available commands")
 
     # parser for transcibe
     transcribe_parser = subparsers.add_parser(
-        "transcribe",  help="Run whisper to transcribe vods to text")
-    transcribe_parser.add_argument("-m", "--model", choices=["tiny", "tiny.en", "base", "base.en", "small", "small.en",
-                                   "medium", "medium.en", "large-v1", "large-v2", "large-v3"], default="large-v3",
-                                   type=str, help="Whisper language model")
-    transcribe_parser.add_argument("-d", "--device", choices=["cuda", "cpu"], default="cuda",
-                                   type=str, help="Device which runs the model")
+        "transcribe",
+        help="Run whisper to transcribe vods to text")
+    transcribe_parser.add_argument(
+        "-m",
+        "--model",
+        help="Whisper language model",
+        choices=["tiny", "tiny.en", "base", "base.en", "small", "small.en", "medium",
+                 "medium.en", "large-v1", "large-v2", "large-v3", "large-v3-turbo"],
+        default="large-v3",
+        type=str)
+    transcribe_parser.add_argument(
+        "-d",
+        "--device",
+        help="Device which runs the model",
+        choices=["cuda", "cpu"],
+        default="cuda",
+        type=str)
 
     # parser for post
     post_parser = subparsers.add_parser(
-        "post",  help="Post available transcriptions")
+        "post",
+        help="Post available transcriptions")
 
     # run parse
     args = parser.parse_args()
