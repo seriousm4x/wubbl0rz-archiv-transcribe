@@ -3,9 +3,9 @@ import os
 from typing import Literal
 
 import torch
-from faster_whisper import WhisperModel, format_timestamp
+from faster_whisper import (BatchedInferencePipeline, WhisperModel,
+                            format_timestamp)
 from termcolor import colored
-from tqdm import tqdm
 
 
 class ArchivWhisper:
@@ -14,7 +14,8 @@ class ArchivWhisper:
         if device == "cuda" and not torch.cuda.is_available():
             device = "cpu"
             print(colored(
-                "CUDA IS NOT AVAILABLE! Whisper will run in CPU mode which is 3-4x slower... Please set up cuda.", "yellow"))
+                "CUDA IS NOT AVAILABLE! Whisper will run in CPU mode which is 3-4x slower... Please set up cuda.",
+                "yellow"))
             reply = None
             while reply not in ["y", "n"]:
                 reply = input(
@@ -30,7 +31,12 @@ class ArchivWhisper:
               f"Started: m4a={m4a}, model={model}, device={device}")
 
         model = WhisperModel(model_size_or_path=model, device=device)
-        segments, info = model.transcribe(m4a, language="de", vad_filter=True)
+        batched_model = BatchedInferencePipeline(model=model)
+        segments, info = batched_model.transcribe(
+            m4a,
+            vad_filter=True,
+            log_progress=True,
+            multilingual=True)
 
         filename = os.path.splitext(m4a)[0]
         final_json = {
@@ -41,35 +47,27 @@ class ArchivWhisper:
         final_vtt = "WEBVTT\n"
         final_srt = ""
 
-        with tqdm(total=info.duration, dynamic_ncols=True, unit="sec", bar_format="{l_bar}{bar} | {n:0.1f}/{total:0.1f} [{elapsed}<{remaining}, {rate_fmt}{postfix}]") as pbar:
-            for segment in segments:
-                # sometimes update failes due to invalid values. update is not important, so just pass the error
-                try:
-                    pbar.update(segment.end - pbar.n)
-                except:
-                    pass
+        for segment in segments:
+            # json
+            final_json["text"] += segment.text.strip() + "\n"
+            segment_dict = segment._asdict()
+            segment_dict.pop("words")
+            segment_dict["text"] = segment.text.strip()
+            final_json["segments"].append(segment_dict)
 
-                # json
-                final_json["text"] += segment.text.strip() + "\n"
-                segment_dict = segment._asdict()
-                segment_dict.pop("words")
-                segment_dict["text"] = segment.text.strip()
-                final_json["segments"].append(segment_dict)
+            # vtt
+            final_vtt += "\n"
+            final_vtt += f"{format_timestamp(segment.start)} --> {
+                format_timestamp(segment.end)}\n"
+            final_vtt += segment.text.strip() + "\n"
 
-                # vtt
-                final_vtt += "\n"
-                final_vtt += f"{format_timestamp(segment.start)} --> {
-                    format_timestamp(segment.end)}\n"
-                final_vtt += segment.text.strip() + "\n"
-
-                # srt
-                if final_srt != "":
-                    final_srt += "\n"
-                final_srt += f"{segment.id}\n"
-                final_srt += f"{format_timestamp(segment.start, True, ',')} --> {
-                    format_timestamp(segment.end, True, ',')}\n"
-                final_srt += segment.text.strip() + "\n"
-            pbar.n = pbar.total
+            # srt
+            if final_srt != "":
+                final_srt += "\n"
+            final_srt += f"{segment.id}\n"
+            final_srt += f"{format_timestamp(segment.start, True, ',')} --> {
+                format_timestamp(segment.end, True, ',')}\n"
+            final_srt += segment.text.strip() + "\n"
 
         with open(os.path.join(output, filename + ".json"), "w", encoding="utf-8") as f:
             json.dump(final_json, f)
