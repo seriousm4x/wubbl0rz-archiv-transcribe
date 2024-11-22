@@ -1,11 +1,47 @@
 import json
 import os
+import platform
 from typing import Literal
 
 import torch
-from faster_whisper import (BatchedInferencePipeline, WhisperModel,
-                            format_timestamp)
 from termcolor import colored
+
+if platform.system() == "Darwin":
+    from mlx_whisper import transcribe, writers
+else:
+    from faster_whisper import (BatchedInferencePipeline, WhisperModel,
+                                format_timestamp)
+
+
+class ArchivWhisperMac:
+    def run(self, m4a: str, model: str, output: str, *args, **kwargs):
+        print(colored("[mlx-whisper]", "blue"),
+              f"Started: m4a={m4a}, model={model}")
+
+        result = transcribe(
+            audio=m4a,
+            path_or_hf_repo=model,
+            language="de",
+            condition_on_previous_text=False,
+            verbose=False)
+
+        filename = os.path.splitext(m4a)[0]
+
+        writer_txt = writers.get_writer(
+            output_format="txt", output_dir=output)
+        writer_txt(result, filename)
+
+        writer_vtt = writers.get_writer(
+            output_format="vtt", output_dir=output)
+        writer_vtt(result, filename)
+
+        writer_srt = writers.get_writer(
+            output_format="srt", output_dir=output)
+        writer_srt(result, filename)
+
+        writer_json = writers.get_writer(
+            output_format="json", output_dir=output)
+        writer_json(result, filename)
 
 
 class ArchivWhisper:

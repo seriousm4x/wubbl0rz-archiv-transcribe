@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import pathlib
+import platform
 import time
 from datetime import timedelta
 from typing import Any, Optional
@@ -11,7 +12,7 @@ from termcolor import colored
 from lib.api import ArchivApi
 from lib.git import ArchivGit
 from lib.meili import ArchivMeili
-from lib.whisper import ArchivWhisper
+from lib.whisper import ArchivWhisper, ArchivWhisperMac
 
 
 def read_config() -> Any:
@@ -52,8 +53,12 @@ def run_transcribe():
         exit(0)
 
     # get the device to run whisper on
-    whisper = ArchivWhisper()
-    whisper_device = whisper.select_device(args.device)
+    whisper_device = ""
+    if platform.system() == "Darwin":
+        whisper = ArchivWhisperMac()
+    else:
+        whisper = ArchivWhisper()
+        whisper_device = whisper.select_device(args.device)
 
     # transcribe each vod
     i = 0
@@ -73,7 +78,7 @@ def run_transcribe():
 
         # push transcript to git
         # git.pull()
-        git.push(f"[🤖] add {vod['filename']}", args.output)
+        # git.push(f"[🤖] add {vod['filename']}", args.output)
 
         # some console output
         end = time.time()
@@ -151,17 +156,21 @@ if __name__ == "__main__":
         "-m",
         "--model",
         help="Whisper language model",
-        choices=["tiny", "tiny.en", "base", "base.en", "small", "small.en", "medium",
-                 "medium.en", "large-v1", "large-v2", "large-v3", "large-v3-turbo"],
-        default="large-v3",
+        choices=["mlx-community/whisper-large-v3-turbo",
+                 "mlx-community/whisper-large-v3-mlx"]
+        if platform.system() == "Darwin" else
+        ["tiny", "tiny.en", "base", "base.en", "small", "small.en", "medium",
+             "medium.en", "large-v1", "large-v2", "large-v3", "large-v3-turbo"],
+        default="mlx-community/whisper-large-v3-mlx" if platform.system() == "Darwin" else "large-v3",
         type=str)
-    transcribe_parser.add_argument(
-        "-d",
-        "--device",
-        help="Device which runs the model",
-        choices=["cuda", "cpu"],
-        default="cuda",
-        type=str)
+    if platform.system() != "Darwin":
+        transcribe_parser.add_argument(
+            "-d",
+            "--device",
+            help="Device which runs the model",
+            choices=["cuda", "cpu"],
+            default="cuda",
+            type=str)
 
     # parser for post
     post_parser = subparsers.add_parser(
