@@ -34,7 +34,7 @@ def run_transcribe():
 
     # keep out transcripts up to date
     git = ArchivGit()
-    # git.pull()
+    git.pull()
 
     # get vods in api
     api = ArchivApi(config[args.environment])
@@ -77,8 +77,8 @@ def run_transcribe():
         os.remove(m4a)
 
         # push transcript to git
-        # git.pull()
-        # git.push(f"[🤖] add {vod['filename']}", args.output)
+        git.pull()
+        git.push(f"[🤖] add {vod['filename']}", args.output)
 
         # some console output
         end = time.time()
