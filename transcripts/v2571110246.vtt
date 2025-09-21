@@ -1,0 +1,5546 @@
+WEBVTT
+
+00:00.000 --> 00:29.980
+Bis zum nächsten Mal.
+
+00:30.000 --> 00:59.980
+Bis zum nächsten Mal.
+
+01:00.000 --> 01:29.980
+Bis zum nächsten Mal.
+
+01:30.000 --> 01:39.760
+So, da bin ich.
+
+01:41.200 --> 01:41.640
+Test.
+
+01:41.940 --> 01:42.140
+Tut.
+
+01:42.480 --> 01:42.600
+Ja.
+
+01:44.600 --> 01:45.800
+Kewo, danke schön für den Sub.
+
+01:46.800 --> 01:47.280
+Exquisite.
+
+01:47.920 --> 01:49.440
+IIQ Subscription.
+
+02:00.000 --> 02:08.660
+Das machen wir dann heute mal an.
+
+02:30.000 --> 02:31.520
+Ich will zu entspannen gerade.
+
+02:32.700 --> 02:34.580
+Machen wir mal wieder hier unsere...
+
+02:34.580 --> 02:36.540
+Meine Lieblingsplaylist an.
+
+02:39.320 --> 02:41.380
+War vorher sogar in Frankfurt und Hanau.
+
+02:42.000 --> 02:42.520
+Exzellent.
+
+02:43.060 --> 02:43.860
+Und hast du überlebt?
+
+02:49.780 --> 02:50.900
+Geht's weiter? Ja!
+
+02:51.600 --> 02:53.380
+Heute machen wir tatsächlich etwas
+
+02:53.380 --> 02:56.300
+advancederes, würde ich sagen.
+
+02:56.400 --> 02:58.000
+Weil ich meine, lernen bringt ja nichts,
+
+02:58.000 --> 02:59.760
+weil man immer nur so easy Sachen und Sachen,
+
+02:59.760 --> 03:02.700
+die man im Prinzip eh schon irgendwie hinbekommen würde und macht.
+
+03:03.180 --> 03:10.160
+Heute probieren wir mal, wie man JSON-Responses macht mit Spring Boot,
+
+03:10.240 --> 03:13.740
+wie man Websockets macht mit Spring Boot.
+
+03:13.860 --> 03:14.700
+Da bin ich mal gespannt.
+
+03:16.180 --> 03:20.520
+Und also im Prinzip habe ich mir gedacht, wir machen irgendwie so eine,
+
+03:21.400 --> 03:26.520
+wir zapfen irgendwie einen der 3000 verschiedenen Public-Test-APIs,
+
+03:26.520 --> 03:28.360
+die es da so gibt, an, so irgendwelche
+
+03:28.360 --> 03:30.880
+Zitat-APs, Star Wars-AP,
+
+03:31.100 --> 03:32.640
+Pokémon-AP, keine Ahnung, gibt es ja ganz
+
+03:32.640 --> 03:34.640
+viele, und
+
+03:34.640 --> 03:37.020
+ziehen da per Background-Job
+
+03:37.020 --> 03:38.820
+irgendwie
+
+03:38.820 --> 03:40.320
+alle 10 Sekunden oder so
+
+03:40.320 --> 03:42.680
+ein neues Zitat und pushen
+
+03:42.680 --> 03:43.960
+das dann per Websocket
+
+03:43.960 --> 03:45.880
+auf unseren Client.
+
+03:46.200 --> 03:48.780
+Dazu muss ich Websockets in Spring Boot lernen
+
+03:48.780 --> 03:50.780
+und ich muss gucken, wie man JSON-Responses
+
+03:50.780 --> 03:52.900
+macht, wie man HTTP-Requests
+
+03:52.900 --> 03:53.660
+macht in Java.
+
+03:53.660 --> 04:01.040
+und wenn das alles viel viel einfacher geht als ich mir das jetzt so vorstelle kann ja
+
+04:01.040 --> 04:09.720
+rein gerade mit der hilfe vom chat chat liegt ja prinzipiell die falsch noch nie erlebt leute
+
+04:09.720 --> 04:14.780
+oder hat hatte schon einmal erlebt dass der chat falsch liegen oder ich nenne das kann also gerade
+
+04:14.780 --> 04:22.160
+was bei progast themen angeht das ist immer first try fehlerfrei für immer wenn das wenn das zumindest
+
+04:22.160 --> 04:26.720
+das first try fehlerfrei für immer ohne probleme funktioniert dann gucken wir
+
+04:26.720 --> 04:32.780
+noch wie man eine sql-datenbank anbieten das glaube ich aber nicht dass wir das
+
+04:32.780 --> 04:39.320
+heute schaffen ich hoffe sind mit http requests websockets und background
+
+04:39.320 --> 04:43.580
+threats und so schon genug beschäftigt ich weiß noch nicht ich habe ich habe
+
+04:43.580 --> 04:49.200
+nicht einmal multi treten java aber leute ich habe doch letztens im stream
+
+04:49.200 --> 04:51.300
+gesagt, so sinngemäß, ich kann es ja
+
+04:51.300 --> 04:53.120
+nicht mal 100%ig sagen, im letzten Stream, wo es
+
+04:53.120 --> 04:54.900
+schon hier mit Springboot und Java ging,
+
+04:55.320 --> 04:56.100
+habe ich doch gesagt,
+
+04:57.200 --> 04:58.260
+sinngemäß, ähm,
+
+04:59.020 --> 05:01.100
+Java kann ich lesen und ein bisschen was
+
+05:01.100 --> 05:03.060
+schreiben drin, aber Springboot
+
+05:03.060 --> 05:05.280
+habe ich noch, habe ich gar keine
+
+05:05.280 --> 05:07.160
+Ahnung und Java eigentlich auch nie groß
+
+05:07.160 --> 05:08.920
+was mitgemacht. So.
+
+05:09.520 --> 05:11.140
+Und wisst ihr, was mir da aufgefallen ist?
+
+05:13.120 --> 05:13.560
+Ähm,
+
+05:14.180 --> 05:14.720
+guckt mal,
+
+05:15.600 --> 05:16.420
+ich habe doch hier
+
+05:16.420 --> 05:19.120
+das Skills-PDF von meiner
+
+05:19.120 --> 05:19.760
+Bewerbung.
+
+05:21.100 --> 05:23.320
+Und da habe ich zufälligerweise mal reingeguckt
+
+05:23.320 --> 05:24.960
+und da ist mir aufgefallen,
+
+05:25.100 --> 05:26.360
+guckt mal, bei
+
+05:26.360 --> 05:28.380
+Programmiersprachen steht Java drin.
+
+05:33.520 --> 05:35.160
+Ich glaube, ich wollte da Kotlin
+
+05:35.160 --> 05:37.120
+schreiben, weil in Kotlin haben wir
+
+05:37.120 --> 05:38.800
+schon mal was zusammen gemacht im Stream.
+
+05:38.900 --> 05:41.000
+In Java eigentlich nicht. Der Rest stimmt
+
+05:41.000 --> 05:42.880
+ja alles. Der Rest ist alles richtig.
+
+05:44.000 --> 05:44.980
+Also hier, das haben wir ja alles
+
+05:44.980 --> 05:47.040
+im Stream sogar schon gemacht, aber Java?
+
+05:47.680 --> 05:49.020
+Ja, hatten wir jemals schon
+
+05:49.020 --> 05:50.220
+Ja, aber...
+
+05:50.220 --> 05:52.060
+Ich glaube nicht, oder?
+
+05:53.340 --> 05:54.580
+Egal, Hauptsache mal reingeschrieben.
+
+05:54.800 --> 05:56.740
+Der Rest stimmt ja. Groovy stimmt auch.
+
+05:56.920 --> 05:58.240
+Das ist meine einzige Sprache
+
+05:58.240 --> 06:00.720
+mit ein bisschen Kotlin zusammen, wo ich auf
+
+06:00.720 --> 06:02.840
+die JVM mal was gebastelt habe. Da habe ich mal was für Confluence
+
+06:02.840 --> 06:03.920
+gebastelt in Groovy.
+
+06:05.760 --> 06:06.060
+Naja.
+
+06:07.520 --> 06:08.980
+Der Rest stimmt. Den Rest kann ich ja sogar
+
+06:08.980 --> 06:10.760
+beweisen hier im Stream. Aber alles schon
+
+06:10.760 --> 06:12.760
+im Stream gemacht. Was ich da alles...
+
+06:13.360 --> 06:14.840
+Das ist übrigens nicht die
+
+06:14.840 --> 06:16.560
+finale komplette Liste.
+
+06:16.740 --> 06:18.520
+Das ist die, die wir hier mal im Stream erstellt haben.
+
+06:18.520 --> 06:20.500
+ich hab die noch ein bisschen hübscher gemacht
+
+06:20.500 --> 06:22.260
+als das, was ich hier jetzt liegen hab, ja
+
+06:22.260 --> 06:24.660
+ups, warum danst der Pepo eigentlich
+
+06:24.660 --> 06:26.240
+die ganze Zeit da immer noch rum
+
+06:26.240 --> 06:28.320
+ja, das ist ein bisschen
+
+06:28.320 --> 06:30.280
+weniger und ein bisschen
+
+06:30.280 --> 06:32.480
+wilder zusammengeschrieben als das, was ich
+
+06:32.480 --> 06:33.780
+dann da wirklich hingeschickt hab
+
+06:33.780 --> 06:35.680
+aber im großen Ganzen
+
+06:35.680 --> 06:38.680
+ist das zu 95% das, was
+
+06:38.680 --> 06:39.480
+ich hingeschickt hab
+
+06:39.480 --> 06:42.520
+ja, ja, und dann ist mir aufgefallen, da steht
+
+06:42.520 --> 06:43.580
+einfach mal Java drin
+
+06:43.580 --> 06:46.660
+ich mein, da steht auch C++
+
+06:46.660 --> 06:48.380
+drin, das kann mir keiner vorwerfen
+
+06:48.380 --> 06:51.000
+dass ich noch kein C++ gemacht habe,
+
+06:51.060 --> 06:53.220
+beziehungsweise überhaupt keine Ahnung von C++ habe.
+
+06:53.280 --> 06:54.500
+Dafür haben wir schon viel zu viele
+
+06:54.500 --> 06:56.060
+C++ Streams gemacht.
+
+06:56.440 --> 06:58.260
+Was da drin ja nicht steht ist,
+
+06:58.620 --> 07:00.220
+ob ich das gut oder schlecht finde.
+
+07:00.920 --> 07:02.700
+Steht einfach nur, dass ich mich damit auskenne.
+
+07:05.680 --> 07:06.120
+Aber
+
+07:06.120 --> 07:08.280
+nicht, ob ich es gut oder schlecht finde.
+
+07:08.800 --> 07:10.960
+Hier steht einiges drin, was ich nicht so tolle finde.
+
+07:11.440 --> 07:12.880
+Haben wir eigentlich Kobol reingeschrieben?
+
+07:12.980 --> 07:13.200
+Moment.
+
+07:14.340 --> 07:15.060
+Wie, warum nicht?
+
+07:18.380 --> 07:22.140
+Warum habe ich nicht Kobol in meine Bewerbung reingeschrieben?
+
+07:24.460 --> 07:26.840
+Wir haben doch schon mal einen Kobol-Stream gemacht.
+
+07:27.780 --> 07:35.660
+Da kenne ich mich besser aus als 99,99% der Weltbevölkerung mit Kobol.
+
+07:39.660 --> 07:41.380
+Wie, du glaubst Kobol nicht?
+
+07:41.840 --> 07:42.940
+Wirklich? Wie jetzt?
+
+07:43.380 --> 07:43.680
+Chat!
+
+07:44.980 --> 07:47.620
+Dante, sagst du etwa, ich lüge im Stream?
+
+07:47.620 --> 07:50.660
+Pass auf, ich kann dir das sogar beweisen
+
+07:50.660 --> 07:53.800
+Da, Kobold Stream
+
+07:53.800 --> 07:54.340
+Bam
+
+07:54.340 --> 07:59.220
+2020
+
+07:59.220 --> 08:02.160
+So viel hat sich seitdem in Kobold nicht getan
+
+08:02.160 --> 08:03.360
+Guck hier, Kobold
+
+08:03.360 --> 08:06.900
+Kobold Broggers in der besten Schriftart
+
+08:06.900 --> 08:07.740
+Ist auch noch dabei
+
+08:07.740 --> 08:16.300
+Richtiger Hacker Man
+
+08:16.300 --> 08:22.060
+kompiliert leute
+
+08:22.060 --> 08:31.780
+dazu der imochi support naja
+
+08:31.780 --> 08:40.060
+richtig herr kaman manche das habe ich nicht habe ich nicht eingetragen das ist auch so
+
+08:40.060 --> 08:40.940
+So ein Nischen-Ding.
+
+08:42.720 --> 08:44.720
+Doch, das war Weihnachts- oder Silvester-Stream.
+
+08:45.020 --> 08:45.400
+Kobol.
+
+08:45.720 --> 08:46.540
+Ja, ja, ja.
+
+08:46.740 --> 08:47.100
+War's.
+
+08:48.420 --> 08:49.220
+Übrigens, Chat.
+
+08:50.380 --> 08:51.880
+Ich hab jetzt...
+
+08:51.880 --> 08:52.160
+Ups.
+
+08:52.900 --> 08:53.440
+Geht das nicht?
+
+08:59.480 --> 09:00.840
+Ich muss mal kurz was checken.
+
+09:02.840 --> 09:03.900
+Wo ist IntelliJ?
+
+09:04.060 --> 09:04.200
+Da.
+
+09:04.680 --> 09:05.300
+Chat, Chat.
+
+09:05.840 --> 09:07.840
+Ich weiß, ihr versprecht mir nicht hinzugucken, aber...
+
+09:07.840 --> 09:10.380
+ich muss euch trotzdem mal kurz ausmachen.
+
+09:10.980 --> 09:11.500
+Ich hab mal was
+
+09:11.500 --> 09:12.940
+checken.
+
+09:12.940 --> 09:38.180
+Ähm.
+
+09:38.180 --> 09:42.440
+Was immer.
+
+09:42.940 --> 09:44.100
+Ich bin gerade verwirrt.
+
+09:52.940 --> 09:53.420
+Okay.
+
+09:54.720 --> 09:55.880
+Ich mache euch wieder an.
+
+09:57.760 --> 09:57.940
+So.
+
+09:57.940 --> 09:58.880
+Ähm.
+
+09:59.800 --> 10:03.240
+Chat, ich bin hochgradig verwirrt.
+
+10:04.240 --> 10:05.660
+Ich habe mich jetzt
+
+10:05.660 --> 10:10.180
+eingeloggt in der JetBrains Toolbox.
+
+10:12.940 --> 10:15.900
+Und ich habe immer noch keine Ultimate.
+
+10:19.680 --> 10:21.720
+Ich soll irgendeine Trial starten?
+
+10:23.920 --> 10:26.460
+Muss ich die vielleicht nochmal reinstallen?
+
+10:30.960 --> 10:33.560
+Ich habe das All-Desktop-Pack.
+
+10:36.900 --> 10:41.020
+Wir uninstallen IntelliJ Ultimate nochmal.
+
+10:42.940 --> 10:44.240
+Die scammen hier.
+
+10:44.620 --> 10:46.800
+Ist das nicht mehr da drin?
+
+10:48.960 --> 10:50.440
+Ist das...
+
+10:50.440 --> 10:52.940
+JetBrains All...
+
+10:54.140 --> 10:57.060
+All Products, ja.
+
+10:58.680 --> 10:59.660
+Da ist...
+
+10:59.660 --> 11:00.360
+Ist doch drin!
+
+11:00.360 --> 11:00.480
+Ja!
+
+11:05.820 --> 11:07.200
+Ich bin eingeloggt.
+
+11:07.420 --> 11:08.800
+Ich hab mich extra eingeloggt vorhin.
+
+11:09.900 --> 11:11.160
+Wir machen mal ein Update
+
+11:11.160 --> 11:13.220
+und danach installieren wir IntelliJ nochmal neu.
+
+11:13.560 --> 11:14.820
+Das hat bestimmt gebackt.
+
+11:15.320 --> 11:17.480
+Das hat bestimmt gebackt, weil ich die installiert
+
+11:17.480 --> 11:18.960
+hab, wo ich nur nicht eingeloggt war.
+
+11:20.160 --> 11:21.440
+Splixa, danke schön für den Sub.
+
+11:22.200 --> 11:23.320
+Max, synkst du eigentlich Joplin
+
+11:23.320 --> 11:24.640
+über die gehasste Nextcloud?
+
+11:26.480 --> 11:27.400
+Ne, aktuell
+
+11:27.400 --> 11:28.200
+synk ich das gar nicht.
+
+11:32.860 --> 11:33.560
+Aber wenn ich
+
+11:33.560 --> 11:34.620
+synken würde, dann wahrscheinlich.
+
+11:36.620 --> 11:37.540
+Chat, wir müssen
+
+11:37.540 --> 11:38.740
+uns morgen ein Video angucken.
+
+11:38.740 --> 11:41.560
+Ich mach das schon mal auf
+
+11:41.560 --> 11:43.180
+Das wurde mir empfohlen
+
+11:43.180 --> 11:44.640
+Wartet mal, ich muss mal kurz gucken
+
+11:44.640 --> 11:48.940
+Ähm
+
+11:48.940 --> 11:50.520
+Ich hab's in meiner YouTube History
+
+11:50.520 --> 11:52.860
+Das ist wieder ein Video
+
+11:52.860 --> 11:54.580
+Opa Max erzählt vom Krieg
+
+11:54.580 --> 11:56.960
+Ah, das wirst du uns morgen früh angucken
+
+11:56.960 --> 11:58.360
+Moment, wo hab ich's denn
+
+11:58.360 --> 12:00.640
+Ähm
+
+12:08.740 --> 12:14.760
+Hä? Wo ist das denn? Hm, ich find's net.
+
+12:18.760 --> 12:23.920
+Das ist ein Video, so geht Internet von 1993 oder sowas.
+
+12:23.920 --> 12:38.700
+Sag mal, warum hat YouTube eigentlich diese blöde Angewohnheit, Videotitel zu übersetzen?
+
+12:38.800 --> 12:39.740
+Das finde ich voll nervig.
+
+12:44.260 --> 12:45.400
+Ach, du warst auf Twitter.
+
+12:46.020 --> 12:46.360
+Ne, ne.
+
+12:46.920 --> 12:49.660
+Also die einzigen, die mich auf Twitter gebannt haben, war MSI.
+
+12:49.660 --> 12:58.720
+hier wdr computer club von 1999 internet das muss uns morgen mal angucken wie kommt man in
+
+12:58.720 --> 13:10.400
+die ins internet genau da kann ob er max wieder was vom krieg erzählen die auto translate ist
+
+13:10.400 --> 13:16.060
+übelst nervig übrigens leute nachher wenn ich hier fertig geschrieben bin wird wird eine runde
+
+13:16.060 --> 13:20.060
+gerannt wieder für zeit dass ich wieder mal regelmäßig rennen gehe hier ich
+
+13:20.060 --> 13:26.260
+dieses rum gehänge den ganzen tag bestimmt jetzt wieder ich habe zwei
+
+13:26.260 --> 13:29.200
+monate fast nichts mehr gemacht das heißt ich brauche jetzt wieder vier
+
+13:29.200 --> 13:32.260
+monate bis wieder auf dem stand bin von vor zwei monaten naja vielleicht
+
+13:32.260 --> 13:39.580
+bisschen übertrieben aber dauert immer ganze ecke länger bis man das wieder
+
+13:39.580 --> 13:41.580
+hat. So, jetzt installieren wir
+
+13:41.580 --> 13:42.120
+mal
+
+13:42.120 --> 13:45.380
+IntelliJ Community Edition.
+
+13:45.580 --> 13:46.540
+Nein, wir installieren
+
+13:46.540 --> 13:49.160
+IntelliJ Ultimate.
+
+13:50.500 --> 13:51.340
+Jetzt bin ich mal
+
+13:51.340 --> 13:53.140
+gespannt, ob das jetzt funktioniert.
+
+14:09.580 --> 14:12.840
+IntelliJ so gut.
+
+14:13.480 --> 14:15.040
+Die ganzen Jetbrains-Dinger sind gut.
+
+14:16.980 --> 14:18.640
+Also ich benutze ja hier ausgiebig
+
+14:18.640 --> 14:20.460
+diesen ganzen Krempel, ja, von denen.
+
+14:21.880 --> 14:23.200
+Und ich muss sagen,
+
+14:23.400 --> 14:23.680
+also
+
+14:23.680 --> 14:27.040
+das Einzige, wo man sich vielleicht
+
+14:27.040 --> 14:28.840
+ein bisschen drüber beschweren könnte, dass das Zeug
+
+14:28.840 --> 14:30.680
+alles rammfrisst wie sonst was,
+
+14:32.620 --> 14:32.980
+ist nicht
+
+14:32.980 --> 14:34.880
+Radfahren besser, bevor es wieder Winter wird?
+
+14:34.940 --> 14:36.540
+Ne, ich geh ne Runde rennen. Kein Bock.
+
+14:37.480 --> 14:38.760
+Kein Bock. Fahrradfahren finde ich
+
+14:38.760 --> 14:40.060
+lohnt sich für eine Stunde nicht.
+
+14:42.020 --> 14:42.320
+Aber
+
+14:42.320 --> 14:44.760
+viel länger, eine Stunde
+
+14:44.760 --> 14:45.880
+hier einmal quasi mal
+
+14:45.880 --> 14:48.760
+am Einlagen und so, das geht, aber
+
+14:48.760 --> 14:50.800
+Stunde für eine Stunde Fahrradfahren bringt nichts,
+
+14:50.880 --> 14:52.840
+weil ich brauche ja schon eine halbe
+
+14:52.840 --> 14:54.000
+Stunde, bis ich hier so mal
+
+14:54.000 --> 14:56.720
+aus der belebteren
+
+14:56.720 --> 14:57.580
+Gegend raus bin.
+
+14:58.720 --> 15:00.820
+Und das lohnt
+
+15:00.820 --> 15:02.640
+sich nicht. Also Fahrradfahren lohnt sich eigentlich
+
+15:02.640 --> 15:03.640
+unter zwei Stunden nicht.
+
+15:06.540 --> 15:06.940
+Webstorm
+
+15:06.940 --> 15:08.180
+fand ich jetzt auch nicht so geil.
+
+15:08.760 --> 15:09.560
+Das stimmt.
+
+15:10.320 --> 15:12.600
+Webstorm habe ich mir auch mal angeguckt und da habe ich mir gedacht,
+
+15:12.680 --> 15:14.720
+ne, brauche ich nicht. Bleibe ich bei Visual Studio Code.
+
+15:15.460 --> 15:16.480
+Unlock Ultimate?
+
+15:17.040 --> 15:17.360
+Warum?
+
+15:19.640 --> 15:20.540
+Was ist das?
+
+15:25.980 --> 15:26.460
+Warum?
+
+15:27.460 --> 15:28.600
+Ich habe ein Abo!
+
+15:30.600 --> 15:31.460
+Guck mal, sonst könnte ich
+
+15:31.460 --> 15:33.120
+ein Rider gar nicht verwenden ohne Abo.
+
+15:34.500 --> 15:35.600
+Ich bin auch eingeloggt.
+
+15:35.680 --> 15:37.360
+Ich kann jetzt nicht draufklicken, weil ich nicht Zeug
+
+15:37.360 --> 15:38.120
+leaken will, aber
+
+15:38.120 --> 15:39.980
+Moment, brauche ich...
+
+15:39.980 --> 15:40.780
+Hä?
+
+15:42.720 --> 15:43.360
+Ich habe
+
+15:43.360 --> 15:45.340
+ein Abo.
+
+15:45.720 --> 15:47.040
+Sonst könnte ich C-Line und das Ganze
+
+15:47.040 --> 15:47.960
+verwenden.
+
+15:54.800 --> 15:55.620
+Verstehe ich nicht.
+
+15:57.580 --> 15:58.540
+Moment, Moment, Moment.
+
+15:58.800 --> 16:00.980
+Leute, ich logg mich jetzt mal kurz hier auf den zweiten Rechner.
+
+16:02.120 --> 16:02.700
+Ich mache mal kurz hier
+
+16:02.700 --> 16:04.500
+mein Clipboard aus, dass ich nichts leake.
+
+16:08.120 --> 16:15.000
+Moment, das Clipboard, ich hab das Clipboard wieder angeschaltet, es war schon aus, lul.
+
+16:17.620 --> 16:17.820
+Was?
+
+16:20.260 --> 16:21.860
+Mein Abo ist nicht abgelaufen.
+
+16:23.560 --> 16:27.140
+Das verlängert sich einmal im Jahr, kostet 179 Euro oder irgendwie sowas.
+
+16:28.560 --> 16:30.040
+Sekunde, ich log mich mal kurz hier.
+
+16:30.620 --> 16:33.080
+Jet Brains Login, das kann ich euch mal sagen, was ich hab.
+
+16:36.640 --> 16:37.740
+Jet, was ist das?
+
+16:38.120 --> 16:40.120
+jetbrains.com
+
+16:43.560 --> 16:45.560
+Login
+
+16:46.280 --> 16:48.280
+Wartet mal
+
+16:50.200 --> 16:55.340
+Muss ich jetzt mal gucken, weil das nervt mich jetzt schon wieder. Was ist das hier? Jetbrains
+
+17:00.360 --> 17:02.360
+Okay, continue
+
+17:02.720 --> 17:06.800
+Nein, das ist das falsche, was ich hier kopiert habe. Copy Password, Login
+
+17:06.800 --> 17:10.040
+Ich hab All Products Pack.
+
+17:11.740 --> 17:14.300
+All Products Pack.
+
+17:26.540 --> 17:32.540
+Billing Date 19. Juni 2026 wird's wieder gebildet.
+
+17:36.800 --> 17:39.960
+Following products included.
+
+17:40.120 --> 17:42.000
+IntelliJ Idea Ultimate.
+
+17:43.980 --> 17:44.200
+Hä?
+
+17:46.200 --> 17:46.980
+Was ist das?
+
+17:51.480 --> 17:53.060
+Das check ich nicht.
+
+17:53.300 --> 17:54.680
+Ich bin doch eingeloggt.
+
+17:57.180 --> 17:58.720
+Ja, ich bin eingeloggt.
+
+18:01.060 --> 18:02.280
+Ich verstehe das nicht.
+
+18:06.800 --> 18:13.300
+steht sogar hier dabei guck chat ich
+
+18:28.300 --> 18:32.680
+kann man das kann man nicht irgendwie mal ein paar sachen unkenntlich machen
+
+18:32.680 --> 18:37.180
+das geht natürlich nicht das wäre zu einfach
+
+18:43.020 --> 18:47.200
+zack ich zeige euch das guckt hier
+
+18:47.200 --> 18:52.260
+kurz hier guckt dass ich nichts leake
+
+18:57.640 --> 19:00.640
+ja
+
+19:02.680 --> 19:07.600
+Guck.
+
+19:11.600 --> 19:14.160
+Seht ihr das?
+
+19:15.440 --> 19:15.680
+Also.
+
+19:19.680 --> 19:23.020
+Weiß nicht.
+
+19:29.560 --> 19:32.000
+Ich hab mich gerade erst eingeloggt in der Toolbox.
+
+19:32.680 --> 19:35.200
+Name Leak Max K.
+
+19:35.360 --> 19:36.820
+Ja, super krasser Leak.
+
+19:39.740 --> 19:40.300
+Ich heiß...
+
+19:40.300 --> 19:41.240
+Jetzt ist es raus.
+
+19:41.360 --> 19:43.140
+Ich heiß einfach nur K mit Nachnamen.
+
+19:50.560 --> 19:52.360
+Guck, und hier unten steht sogar,
+
+19:53.040 --> 19:55.120
+dass IntelliJ Ultimate dabei ist.
+
+19:57.400 --> 19:58.340
+Verstehe ich nicht.
+
+19:58.440 --> 19:59.080
+Was ist denn das?
+
+20:00.620 --> 20:02.660
+Ich muss nicht Ultimate unlocken.
+
+20:02.680 --> 20:11.560
+Okay, ich hab ne Idee
+
+20:11.560 --> 20:13.580
+Das Ding hat
+
+20:13.580 --> 20:15.840
+Das Ding hat das bestimmt nicht gecheckt
+
+20:15.840 --> 20:18.000
+Wir machen jetzt hier
+
+20:18.000 --> 20:21.540
+Wir uninstall
+
+20:21.540 --> 20:22.080
+Warte mal
+
+20:22.080 --> 20:25.420
+Wo speichert denn dieses
+
+20:25.420 --> 20:27.580
+Dieses Jetbrains Zeug
+
+20:27.580 --> 20:29.240
+Wo speichert denn das Infos
+
+20:29.240 --> 20:30.460
+IntelliJ oder so
+
+20:30.460 --> 20:36.580
+Wo liegen denn hier die Daten rum?
+
+20:41.920 --> 20:42.960
+Tja, ich weiß nicht
+
+20:42.960 --> 20:46.680
+Reboot bringt da auch nichts
+
+20:46.680 --> 20:50.960
+Sieht man irgendwie, wo hier die Daten liegen?
+
+20:59.100 --> 20:59.680
+Ach hier
+
+20:59.680 --> 21:03.680
+Local Share Jetbrain-Zubehör-Apps
+
+21:03.680 --> 21:09.500
+Ja, Moment, das ist die
+
+21:09.500 --> 21:11.140
+Aber ich suche doch die Config
+
+21:11.140 --> 21:13.580
+Ich suche doch die Config
+
+21:13.580 --> 21:14.900
+Das will ich mal alles löschen
+
+21:14.900 --> 21:24.900
+J, Config, Home Directory
+
+21:24.900 --> 21:27.580
+Das Ding hat sich wahrscheinlich
+
+21:27.580 --> 21:28.660
+irgendwas gemerkt
+
+21:28.660 --> 21:32.420
+was
+
+21:32.420 --> 21:47.020
+configuration directory hier linux config jet brains ok config jet brains
+
+21:47.020 --> 21:48.580
+wow
+
+21:48.580 --> 21:50.600
+Alter
+
+21:50.600 --> 21:51.840
+ähm
+
+21:51.840 --> 21:54.080
+IntelliJ
+
+21:54.080 --> 21:57.860
+haben wir sonst noch irgendwas
+
+21:57.860 --> 21:58.900
+ja
+
+21:58.900 --> 22:01.100
+ok
+
+22:01.100 --> 22:02.380
+bam
+
+22:02.380 --> 22:04.980
+gucken wir mal
+
+22:04.980 --> 22:06.880
+ja
+
+22:06.880 --> 22:11.860
+wir
+
+22:11.860 --> 22:13.960
+wir skippen im Port
+
+22:13.960 --> 22:18.520
+Ah, das sieht glaube ich schon besser aus
+
+22:18.520 --> 22:21.120
+New Project
+
+22:21.120 --> 22:23.820
+Activating Subscription
+
+22:23.820 --> 22:24.680
+Hab das gelesen
+
+22:24.680 --> 22:27.420
+Einfach mal die komplette
+
+22:27.420 --> 22:29.700
+Config gelöscht, schon geht's
+
+22:29.700 --> 22:33.940
+Jetzt kann man nämlich sogar hier ein Spring Boot Projekt anlegen
+
+22:33.940 --> 22:36.420
+Das ist das, was ich letztens gesucht habe
+
+22:36.420 --> 22:38.280
+Was nicht funktioniert hat
+
+22:38.280 --> 22:41.280
+So sieht's aus
+
+22:41.280 --> 22:43.280
+Pogu
+
+22:43.280 --> 22:46.020
+Force Champ.
+
+22:46.840 --> 22:48.160
+Also, dann machen wir das doch mal hier.
+
+22:51.760 --> 22:53.060
+Hast du was mit Kotlin gemacht?
+
+22:53.160 --> 22:53.260
+Ja?
+
+22:54.960 --> 22:56.940
+Ja, ja. Ich finde es auch
+
+22:56.940 --> 22:58.900
+angenehmer als Java. Zumindest das, was ich
+
+22:58.900 --> 23:00.660
+letztens gesehen habe. Also, ich habe ja erst
+
+23:00.660 --> 23:02.200
+einen Java-Stream gemacht.
+
+23:02.840 --> 23:04.760
+Deutlich angenehmer. Aber, also,
+
+23:04.760 --> 23:06.520
+der Grund, vielleicht sage ich das nochmal.
+
+23:06.880 --> 23:08.740
+Der Grund, warum ich ein bisschen
+
+23:08.740 --> 23:10.380
+Java lernen will, ist folgendes.
+
+23:12.060 --> 23:13.140
+Auf der Arbeit
+
+23:13.140 --> 23:16.380
+kann man mal so
+
+23:16.380 --> 23:18.640
+so eine Art Praktikum
+
+23:18.640 --> 23:19.980
+machen in anderen Abteilungen.
+
+23:20.100 --> 23:21.960
+Und ich habe gesagt, ich würde gerne mal 14 Tage
+
+23:21.960 --> 23:23.040
+zu unseren Entwicklern.
+
+23:23.900 --> 23:24.620
+Und die
+
+23:24.620 --> 23:27.180
+programmieren dann hauptsächlich in Java. Und ich habe mir gedacht,
+
+23:27.600 --> 23:29.060
+bevor ich das mache, wäre es vielleicht
+
+23:29.060 --> 23:30.960
+sinnvoll, wenn ich ein bisschen Ahnung von Java habe.
+
+23:31.340 --> 23:33.160
+Und dann sagen wir mal, ein bisschen mehr als das, was ich schon
+
+23:33.160 --> 23:33.360
+habe.
+
+23:34.640 --> 23:37.000
+Deswegen basteln wir ein paar kleine Sachen jetzt in Java.
+
+23:37.920 --> 23:38.580
+Und dann
+
+23:38.580 --> 23:41.120
+kenne ich mich damit so weit aus,
+
+23:41.160 --> 23:43.020
+dass ich vielleicht die ein oder anderen kleinen Sachen machen kann.
+
+23:43.140 --> 23:47.760
+nicht lange keine ahnung wie lange ich da hingehe 14 tage drei wochen oder so
+
+23:47.760 --> 23:54.060
+was ich mir an wieso
+
+23:54.060 --> 24:00.620
+also jetzt mal also belegen jetzt war ein projekt an
+
+24:00.620 --> 24:05.140
+kek weh champ
+
+24:05.140 --> 24:16.600
+geht repo braun man nicht wir machen wir machen maven language java group
+
+24:16.600 --> 24:24.940
+w punkt wo blitz group ist ja sowas wie eine namespace gier da kam unique
+
+24:24.940 --> 24:29.860
+identifizieren project ja sowas fast sowas in der richtung
+
+24:29.860 --> 24:38.240
+jdk 25 java version 25 das ist der unterschied zwischen war und ja
+
+24:38.240 --> 24:43.180
+ist war ist das web assembly ja ja ja wollen wir haben
+
+24:43.180 --> 24:52.900
+so und jetzt will ich gleich dieses dieses webstarter template hinzufügen geht das hier
+
+24:52.900 --> 24:53.860
+hier? Aha.
+
+24:55.000 --> 24:55.960
+Was? Lombok.
+
+24:56.240 --> 24:56.600
+Was?
+
+24:59.100 --> 25:00.420
+Reduce Boilerplate Code.
+
+25:00.500 --> 25:02.200
+Ja, das ist gut. Aber nicht übertreiben.
+
+25:02.280 --> 25:03.060
+Nicht übertreiben. Hier.
+
+25:04.180 --> 25:05.020
+Spring Web.
+
+25:06.020 --> 25:07.300
+Ist das das Starter?
+
+25:11.860 --> 25:14.100
+Mach Lombok. Warum? Ich weiß nicht mal, was das ist.
+
+25:17.940 --> 25:19.160
+Ist Spring Web
+
+25:19.160 --> 25:20.780
+das Starter?
+
+25:20.780 --> 25:23.520
+Nee, egal. Wir machen mal nix hier mit Dependencies.
+
+25:24.820 --> 25:25.220
+Start.
+
+25:31.300 --> 25:31.700
+Ja.
+
+25:33.200 --> 25:35.060
+Ich mach erst Vereinfachungssachen,
+
+25:35.140 --> 25:36.400
+wenn ich halbwegs checke, was es gibt.
+
+25:36.520 --> 25:37.580
+Gibt's hier sowas wie Websocket?
+
+25:38.000 --> 25:39.240
+Ah, guck mal da.
+
+25:39.720 --> 25:42.780
+Builds Servlet-based Websocket.
+
+25:43.780 --> 25:44.700
+SockJS und Stomp.
+
+25:44.840 --> 25:46.520
+What? Kann ich nicht einfach stinknormals
+
+25:46.520 --> 25:47.800
+Websocket benutzen?
+
+25:47.800 --> 25:49.880
+Was ist SockJS und Stomp, Alter?
+
+25:50.780 --> 25:54.320
+Was soll das sein?
+
+26:00.360 --> 26:03.160
+Okay, wir machen einfach...
+
+26:03.160 --> 26:04.100
+Ok, mal 356.
+
+26:04.200 --> 26:05.760
+Gestern gab es noch 355.
+
+26:05.820 --> 26:06.360
+Kann das sein?
+
+26:08.580 --> 26:09.520
+So, create.
+
+26:10.520 --> 26:10.840
+Zack.
+
+26:13.200 --> 26:14.100
+Da sind wir.
+
+26:16.480 --> 26:17.000
+Help.
+
+26:17.460 --> 26:18.400
+Wir brauchen Help.
+
+26:18.400 --> 26:27.160
+so ich würde sagen wir kopieren uns jetzt mal kurz die sache von gestern da rein wobei kopieren
+
+26:27.160 --> 26:32.060
+uns die sache von gestern ist doch eigentlich egal wir können wir machen das einfach machen
+
+26:32.060 --> 26:40.060
+das neue so als erstes muss man aber kurz von kontur umstellen und sei es und sowas editor
+
+26:40.060 --> 26:56.060
+und wo ist es noch mal und da von sony jet planes mono sondern heck und zwar heck 16 dann erkennt
+
+26:56.060 --> 27:03.220
+man ebenso was das ist glaube ich ganz gut color scheme und so das kann so bleiben da habe ich
+
+27:03.220 --> 27:09.060
+keine schmerzen mit ist okay genau und jetzt müssen wir hier noch in die
+
+27:09.060 --> 27:14.800
+pomp xml das habe ich auch gestern gelernt vom xml ist so was wie das die
+
+27:14.800 --> 27:21.240
+project projekt datei in dotnet wo man nur dass man unter mit dotnet
+
+27:21.240 --> 27:25.480
+nuget packages ordentlich installieren kann hier über die idee das habe ich
+
+27:25.480 --> 27:28.560
+jetzt noch nicht gefunden aber vielleicht geht es jetzt weil jetzt habe
+
+27:28.560 --> 27:35.580
+ich ja eine vollversion von intellij das probieren wir jetzt mal wie ging das jetzt hier nochmal
+
+27:35.580 --> 27:49.620
+generate die pendel sie jetzt kann man nach starter suchen okay es funktioniert immer
+
+27:49.620 --> 27:57.660
+anders sein dass ich da erst noch in den settings irgendwas einstellen muss dass
+
+27:57.660 --> 28:04.440
+man erst quasi noch mehr von repo dinge wie hieß das ding maven central hinzufügen muss
+
+28:04.440 --> 28:15.300
+also kann man vielleicht vielleicht die settings davon springen das ist herbst
+
+28:15.300 --> 28:26.460
+Da steht Add Startups
+
+28:26.460 --> 28:28.320
+Was wo? Add Startups?
+
+28:30.040 --> 28:31.020
+Ach da, ja du hast recht
+
+28:31.020 --> 28:32.960
+Aber trotzdem, die Suche muss doch eigentlich
+
+28:32.960 --> 28:34.260
+Gescheit funktionieren, hm?
+
+28:35.760 --> 28:36.580
+Ähm, Maven
+
+28:36.580 --> 28:39.560
+Ach was suche ich da?
+
+28:39.600 --> 28:40.520
+Ah ja, hier, guck mal
+
+28:40.520 --> 28:42.540
+Ah, Kataloge
+
+28:42.540 --> 28:45.520
+Aber Maven Central ist drin.
+
+28:50.320 --> 28:50.720
+Repositories.
+
+28:53.020 --> 28:53.900
+Ach, keine Ahnung.
+
+28:54.060 --> 28:55.340
+Wir kopieren das wieder von Hand.
+
+28:55.720 --> 28:56.260
+Aber guck mal hier.
+
+28:56.320 --> 28:57.120
+Ad Starters.
+
+28:57.280 --> 28:57.880
+Was haben wir da?
+
+29:07.240 --> 29:09.540
+Das ist ja schön und gut, aber...
+
+29:09.540 --> 29:11.740
+Daniel Lull,
+
+29:11.820 --> 29:12.780
+Dankeschön für den Sub.
+
+29:15.100 --> 29:15.500
+Ähm.
+
+29:16.900 --> 29:18.120
+Da wäre ich jetzt nicht schlau draus.
+
+29:18.460 --> 29:20.480
+Wir machen das so, wie ich das gestern gelernt habe.
+
+29:21.300 --> 29:21.880
+Wir gehen nach...
+
+29:21.880 --> 29:22.600
+War das überhaupt gestern?
+
+29:24.320 --> 29:25.800
+Oh, Leute. Wisst ihr was?
+
+29:26.720 --> 29:28.160
+Ich muss euch mal was...
+
+29:28.160 --> 29:30.180
+Wahrscheinlich was Ekliges
+
+29:30.180 --> 29:31.620
+für euch erzählen.
+
+29:31.620 --> 29:33.540
+Also erstens was nicht so Ekliges.
+
+29:33.900 --> 29:35.180
+Mir juckt der Rücken.
+
+29:35.740 --> 29:36.400
+Und es liegt daran,
+
+29:37.360 --> 29:39.440
+ich war am Donnerstag
+
+29:39.440 --> 29:41.420
+beim Hautarzt und hab
+
+29:41.420 --> 29:43.620
+einen kleinen Leberfleck rausgeschnibbelt
+
+29:43.620 --> 29:45.820
+bekommen. Und da ist jetzt so ein großes
+
+29:45.820 --> 29:47.420
+wasserdichtes Pflaster
+
+29:47.420 --> 29:47.960
+drauf.
+
+29:50.420 --> 29:51.380
+Und das juckt
+
+29:51.380 --> 29:53.180
+wie Sau da drunter.
+
+29:55.160 --> 29:56.740
+Immer wenn ich nicht dran denke,
+
+29:57.260 --> 29:59.320
+fängt es wieder an zu jucken. Und wenn ich dran denke, merke ich,
+
+29:59.420 --> 30:01.300
+dass es juckt, dann denke ich, okay, jetzt geht's mir, dann denke ich wieder
+
+30:01.300 --> 30:01.740
+nicht dran.
+
+30:03.820 --> 30:05.000
+Voll abartig.
+
+30:05.560 --> 30:07.400
+So, und jetzt, wo
+
+30:07.400 --> 30:08.900
+es vielleicht ein bisschen eklig wird,
+
+30:09.440 --> 30:18.020
+Der hat gesagt, ich soll nach Möglichkeit aufpassen, dass die ersten Tage gar kein Fall irgendwie Wasser dran kommt.
+
+30:18.900 --> 30:24.100
+Und nach Möglichkeit soll ich mich nicht waschen da am Rücken oder nicht duschen auch.
+
+30:24.660 --> 30:28.240
+Das heißt, ich werde jetzt wahrscheinlich bis Montag mich nicht unter das Wasser stellen.
+
+30:28.240 --> 30:42.060
+Das heißt, Donnerstag, ganzen Tag nicht wäschen, Freitag ganzen Tag nicht, Samstag und Sonntag, also 4,5, 5 Tage.
+
+30:44.080 --> 30:47.220
+Also wäschen darf ich mich, aber ich darf mich ja nur in die Dusche stellen.
+
+30:47.340 --> 30:48.880
+Also nur wäschen mit dem Waschlappen und so darf ich.
+
+30:49.160 --> 30:53.560
+Ich darf halt, muss halt nur aufpassen, dass auf meinen Rücken kein Wasser kommt.
+
+30:53.560 --> 30:56.860
+Also mal spätestens am Montag
+
+30:56.860 --> 30:57.840
+Ich muss mal
+
+30:57.840 --> 30:59.480
+Ich muss aber auf jeden Fall mal
+
+30:59.480 --> 31:02.280
+Mein Kopf unter den Wasserhahn oder so
+
+31:02.280 --> 31:03.760
+Weil mir juckt der Kopf schon
+
+31:03.760 --> 31:07.260
+Ja
+
+31:07.260 --> 31:09.960
+Was man nicht alles macht für die Gesundheit
+
+31:09.960 --> 31:12.620
+So hier also das brauchen wir
+
+31:12.620 --> 31:13.240
+Das haben wir ja gemerkt
+
+31:13.240 --> 31:15.340
+So kann man das einfügen
+
+31:15.340 --> 31:16.360
+Im Prinzip
+
+31:16.360 --> 31:20.220
+Für die ganzen Java Kenner unter euch
+
+31:20.220 --> 31:22.580
+Ich zeig euch jetzt mal wie das in .NET funktioniert
+
+31:22.580 --> 31:30.540
+Nur, dass ihr das einfach mal gesehen habt, weil ich finde, das ist in Rider viel schöner gelöst.
+
+31:34.160 --> 31:37.820
+So, machen wir mal hier irgendein Projekt auf, ein .NET Projekt.
+
+31:40.420 --> 31:41.640
+Äh, Don't Send.
+
+31:41.860 --> 31:45.380
+Okay, die Schriftart ist vielleicht minimal zu groß, ja.
+
+31:46.980 --> 31:48.420
+Ja, aber dann sieht man wenigstens was.
+
+31:48.780 --> 31:51.260
+Guck, dann geht man hier hin, sagt Nougat.
+
+31:52.580 --> 31:54.100
+Hat dann hier so eine Suche.
+
+31:54.440 --> 31:56.560
+Und dann sucht man zum Beispiel hier irgendwie nach
+
+31:56.560 --> 31:59.140
+Spectre Console.
+
+31:59.360 --> 32:00.640
+Das ist so was, wo man dort nicht die
+
+32:00.640 --> 32:02.480
+Konsole...
+
+32:02.480 --> 32:04.080
+Machen wir Preview-Version aus.
+
+32:04.740 --> 32:06.300
+Und dann sage ich hier Spectre Console
+
+32:06.300 --> 32:08.620
+hinzufügen zum Projekt. Install. Fertig.
+
+32:10.900 --> 32:12.440
+So. Und jetzt kann ich hier
+
+32:12.440 --> 32:14.580
+Spectre Console
+
+32:14.580 --> 32:15.780
+verwenden. Das ist alles.
+
+32:20.620 --> 32:21.860
+Also da muss ich sagen,
+
+32:22.580 --> 32:30.380
+das ist mir deutlich lieber als dieses gebastelt hier mit der prom xml moment
+
+32:30.380 --> 32:35.580
+wo musste man jetzt noch mal klicken dass er das installiert hier oder was
+
+32:35.580 --> 32:39.980
+jetzt passiert monka ist hier oben muss ich klicken
+
+32:39.980 --> 32:47.420
+zink maven changes ok so jetzt haben wir jetzt können wir unsere web anwendungen
+
+32:47.420 --> 32:51.860
+programmieren jetzt gehen wir noch einmal in das projekt ach so dass er
+
+32:51.860 --> 33:06.140
+immer da das projekt von gestern repos kqs service und wir kopieren und smart kurz controllers
+
+33:06.140 --> 33:12.080
+controller moment moment
+
+33:12.080 --> 33:12.220
+Moment.
+
+33:13.180 --> 33:14.020
+Das ist...
+
+33:14.020 --> 33:16.680
+Das ist das Tottenham-Projekt.
+
+33:17.580 --> 33:18.720
+Spring Boot Champ.
+
+33:19.980 --> 33:20.120
+Da.
+
+33:21.760 --> 33:22.360
+Source.
+
+33:23.280 --> 33:23.840
+Main.
+
+33:24.520 --> 33:24.960
+Java.
+
+33:25.260 --> 33:25.460
+Cake.
+
+33:25.560 --> 33:25.740
+Alter.
+
+33:25.880 --> 33:28.240
+What the...
+
+33:28.240 --> 33:30.100
+Warum ist denn diese Fahrt so lang?
+
+33:33.980 --> 33:36.540
+Also in Ryder funktioniert das mit Nuga ziemlich gut.
+
+33:39.760 --> 33:41.100
+Wie man sonst 3000...
+
+33:41.100 --> 33:41.640
+Stimmt eigentlich.
+
+33:41.640 --> 33:44.500
+Wenn das einfach funktionieren würde, dann wäre das ja easy.
+
+33:45.480 --> 33:46.880
+So, das brauchen wir jetzt hier.
+
+33:47.160 --> 33:52.220
+Ich will mir einfach nochmal rauskopieren, wie wir das gestern gemacht haben, dass man einen Restendpunkt hatte.
+
+33:53.780 --> 33:56.580
+Wohin habe ich das kopiert? In diese Application rein.
+
+33:56.820 --> 33:57.600
+Also quasi so.
+
+33:58.460 --> 34:00.020
+Ups, ja, geh mal weg.
+
+34:03.320 --> 34:05.060
+Gibt es sowas wie Auto-Format?
+
+34:05.300 --> 34:07.300
+Format? Reformat-Code? Ja, wunderbar.
+
+34:07.440 --> 34:09.300
+Get Mapping. Zack. Import.
+
+34:09.300 --> 34:11.000
+Sehr schön
+
+34:11.000 --> 34:12.840
+Producers Media Type
+
+34:12.840 --> 34:13.880
+Images, ne
+
+34:13.880 --> 34:16.700
+Producers Media Type, gibt es JSON?
+
+34:18.000 --> 34:18.220
+Ne
+
+34:18.220 --> 34:20.240
+Dann lassen wir das
+
+34:20.240 --> 34:21.640
+Slash
+
+34:21.640 --> 34:25.020
+Unter Slash wollen wir eigentlich jetzt eine Index HTML
+
+34:25.020 --> 34:25.880
+Ausliefern
+
+34:25.880 --> 34:29.180
+Gleich mal checken, wie das funzt mit einer Index HTML
+
+34:29.180 --> 34:30.320
+Übrigens und
+
+34:30.320 --> 34:31.740
+Ich hab gelesen
+
+34:31.740 --> 34:33.640
+Dass
+
+34:33.640 --> 34:36.420
+Es ist irgendwie verpönt, aber gefühlt macht es jeder
+
+34:36.420 --> 34:38.160
+Die meisten Leute schreiben hier einfach
+
+34:38.160 --> 34:40.020
+an ihre Methoden ThrowsException dran
+
+34:40.020 --> 34:42.040
+und somit bist du fein raus und kannst
+
+34:42.040 --> 34:42.880
+verwenden, was du willst.
+
+34:43.660 --> 34:45.920
+Deswegen babbeln bei allen Java-Anwendungen auch immer
+
+34:45.920 --> 34:47.460
+30.000 Exceptions hoch.
+
+34:49.040 --> 34:50.360
+Habe ich das richtig verstanden,
+
+34:50.480 --> 34:52.260
+Chat? Java-Kenners
+
+34:52.260 --> 34:53.920
+unter uns? Einfach
+
+34:53.920 --> 34:55.460
+ThrowsException überall hinschreiben.
+
+34:55.460 --> 35:08.240
+Ein String kommt da zurück.
+
+35:11.040 --> 35:21.260
+So, und jetzt ist die Preisfrage, wie kriegen wir jetzt eine HTML-Seite hier zurück?
+
+35:21.260 --> 35:32.120
+das geht bestimmt also ich muss bestimmt nicht sagen file read all lines oder sowas oder das
+
+35:32.120 --> 35:46.060
+geht bestimmt besser ok spring boot return index html display index per using controller das ist
+
+35:46.060 --> 35:55.720
+doch schon mal als response body das habe ich jetzt so oft was ist der unterschied
+
+35:55.720 --> 36:05.500
+zur request mapping versus get mapping difference between get mapping und request mapping ach so da
+
+36:05.500 --> 36:13.180
+kann man was anderes hinschreiben als ach so ok get mapping ist quasi das gleiche wie request
+
+36:13.180 --> 36:19.060
+mapping method get. Okay, ja gut.
+
+36:23.620 --> 36:27.820
+Kannst du die Schriftgröße nach oben stellen? Hier ist zu klein. Ja, kannst du ein bisschen
+
+36:27.820 --> 36:39.580
+größer machen. Da machen wir 18, das wird aber schon ganz schön fett jetzt. So ist gut, oder?
+
+36:39.580 --> 36:44.260
+So, wie returne ich denn?
+
+36:49.260 --> 36:50.240
+Display Index,
+
+36:50.500 --> 36:52.360
+HTML Page Using, Add Controller.
+
+36:52.840 --> 36:54.660
+Ah, Moment, das muss ich noch machen.
+
+36:55.460 --> 36:55.800
+Äh,
+
+36:57.080 --> 36:58.300
+Add Rest Controller.
+
+36:58.960 --> 36:59.760
+Rest Controller?
+
+37:02.980 --> 37:03.620
+Wirklich?
+
+37:04.400 --> 37:06.060
+Ich will eigentlich kein Rest Controller.
+
+37:06.760 --> 37:07.600
+Ich will Controller.
+
+37:07.600 --> 37:12.740
+Weil ich will ja eigentlich gar keinen Rest-Endpunkt
+
+37:12.740 --> 37:14.800
+Ich will HTML
+
+37:14.800 --> 37:16.140
+Soll ich returnen
+
+37:16.140 --> 37:18.660
+Übrigens
+
+37:18.660 --> 37:20.660
+Das ist in .NET auch deutlich einfacher
+
+37:20.660 --> 37:22.660
+Da würde ich einfach sagen
+
+37:22.660 --> 37:24.740
+Use File Server
+
+37:24.740 --> 37:26.540
+Ich denke mal
+
+37:26.540 --> 37:28.740
+Sowas gibt es in Spring nicht
+
+37:28.740 --> 37:30.480
+Da würde ich sagen, use File Server
+
+37:30.480 --> 37:33.420
+Und dann wird alles gesurft, was in www-Root liegt
+
+37:37.600 --> 37:48.100
+die move response von mir controller aber muss einfach nur index was man moment
+
+38:07.600 --> 38:16.580
+ok also rest controller ist schon mal verkehrt ich will auf jeden fall controller weil ich
+
+38:16.580 --> 38:23.920
+will kein jason gedöns machen so und jetzt sage ich index okay dann sagt man einfach nur return
+
+38:23.920 --> 38:34.660
+index jsp ich will html return okay schauen wir mal ob das jetzt von ich habe keine ahnung
+
+38:34.660 --> 38:43.480
+und etwas index aber riebkurs mapping slash klinger guter kann wobei eigentlich wollen
+
+38:43.480 --> 38:49.880
+wir mehr ping haben get mapping slash so return index aber der return doch jetzt
+
+38:49.880 --> 38:54.380
+den string index und nicht etwa einen ich habe ja gar kein index html
+
+38:54.380 --> 38:59.560
+machen wir mal ein ordner hier sauce
+
+39:04.660 --> 39:17.500
+directory www root ich nenne es jetzt einfach mal so ja so und das war hier html file index.html
+
+39:17.500 --> 39:31.600
+kecke unter resources ach so nee oder gucken wir mal wir gucken mal was jetzt passiert wenn ich
+
+39:31.600 --> 39:39.840
+das hier starte shift f10
+
+39:45.760 --> 39:53.820
+80 80 ok aber ich starte mal hier chrome localhost 80 80
+
+40:01.600 --> 40:05.600
+Sollte jetzt nicht zumindest irgendwas da zurückkommen?
+
+40:10.420 --> 40:11.660
+Cannot resolve.
+
+40:13.660 --> 40:16.540
+Ja, aber der sollte doch jetzt zumindest mal einen String returnen, oder?
+
+40:18.220 --> 40:19.300
+Weil als mindestens.
+
+40:21.600 --> 40:25.580
+Aber doch, der sollte jetzt zumindest mal einen Text returnen, oder?
+
+40:31.600 --> 40:42.420
+Okay, vielleicht, wenn ich das so mache, dann...
+
+40:42.420 --> 40:44.640
+Das ist der Unterschied zwischen REST-Controller und...
+
+40:44.640 --> 40:46.260
+Ach so!
+
+40:50.220 --> 40:51.420
+Ach so!
+
+40:52.640 --> 40:56.080
+Das heißt, REST-Controller macht automatisch JSON-Gedöns
+
+40:56.080 --> 40:59.320
+und Controller versucht, eine HTML-Datei zu finden.
+
+41:01.600 --> 41:03.640
+Achso, okay.
+
+41:04.460 --> 41:05.080
+Der sagt hier,
+
+41:05.420 --> 41:08.300
+Cannot resolve MVC-View-Index.
+
+41:08.460 --> 41:09.800
+Guck mal nochmal, was IntelliJ
+
+41:09.800 --> 41:10.640
+da vorschlägt.
+
+41:13.300 --> 41:13.600
+Ja, ne.
+
+41:13.760 --> 41:15.320
+Beheben kann er das auch nicht.
+
+41:22.120 --> 41:24.200
+Wo mussten denn die Views hin?
+
+41:29.980 --> 41:31.100
+Index HTML.
+
+41:31.600 --> 41:37.180
+in resources static okay
+
+41:44.680 --> 41:48.840
+der hat hier eine extra my app structure ist das ist aber anscheinend verkehrt
+
+42:01.600 --> 42:07.420
+Ich habe jetzt nicht gecheckt, woher der weiß, in welchem Ordner die Dateien liegen.
+
+42:13.420 --> 42:13.980
+Okay.
+
+42:14.780 --> 42:18.620
+Spring boot where to put index.html.
+
+42:19.140 --> 42:19.740
+Hör mal noch richtig.
+
+42:21.140 --> 42:23.680
+Proper location for HTML files.
+
+42:23.680 --> 42:43.740
+source main resources public aha ok static static klingt gut static also die sources static
+
+42:43.740 --> 42:57.820
+Oh jetzt haben wir krass Refactored, Alter.
+
+42:57.820 --> 42:59.860
+Wahrscheinlich muss ich auch index.html schreiben, kann das sein?
+
+42:59.860 --> 43:08.560
+Ha!
+
+43:09.220 --> 43:10.480
+Kunst!
+
+43:12.480 --> 43:15.960
+Okay, das ist zwar ein bisschen Magic.
+
+43:17.280 --> 43:17.760
+Magic.
+
+43:17.760 --> 43:17.940
+Magic.
+
+43:21.320 --> 43:23.520
+Aber wenn man weiß, wie es geht,
+
+43:23.820 --> 43:25.340
+dann...
+
+43:25.340 --> 43:26.380
+Production ready, ja.
+
+43:26.900 --> 43:27.640
+Let's ship it.
+
+43:28.620 --> 43:29.300
+0W.
+
+43:29.860 --> 43:35.300
+Chat, warum reloadet er die Seite nicht?
+
+43:36.400 --> 43:36.940
+Ist sie irgendwie
+
+43:36.940 --> 43:39.300
+embedded oder so? Moment, ich muss
+
+43:39.300 --> 43:40.400
+das neu starten,
+
+43:40.920 --> 43:42.680
+wenn sich der Inhalt von HTML ändert?
+
+43:47.680 --> 43:48.240
+Ja,
+
+43:48.440 --> 43:48.840
+naja,
+
+43:49.520 --> 43:50.720
+das ist vielleicht ein bisschen
+
+43:50.720 --> 43:55.040
+doof,
+
+43:55.440 --> 43:57.040
+aber gut, ist halt so, ne?
+
+43:59.860 --> 44:08.740
+gibt schlimmeres macht nichts das macht nichts das meili hallo das macht nichts das ist nicht
+
+44:08.740 --> 44:13.060
+das was ich weiß ich wollte mal gucken wie man hier html seiten wie man html sachen ausliefert
+
+44:13.060 --> 44:25.120
+also dann gucken wir doch mal wie wir einen jason endpunkt machen dann muss ich bestimmt
+
+44:25.120 --> 44:33.060
+eine neue Klasse anlegen. So, nennen wir das mal hier... Moment, gibt es hier etwas wie Generate und dann
+
+44:33.060 --> 44:47.860
+Controller oder sowas? Spring Component... Aha, aha, aha, aha, guck mal da. Äh, tja. Ähm... Jason Controller.
+
+44:47.860 --> 45:03.400
+controller ok request mapping slash api so machen wir einfach mal aber wir wollen get
+
+45:03.400 --> 45:12.280
+hier so rest controller hat eine mapping und da wollen wir jetzt so was hier haben
+
+45:12.280 --> 45:21.360
+So und da wollen wir jetzt mal eine JSON-Response raushauen
+
+45:21.360 --> 45:26.260
+Wie hauen wir da jetzt eine JSON-Response raus?
+
+45:26.660 --> 45:27.680
+Was passiert denn jetzt?
+
+45:27.920 --> 45:30.040
+Warte mal, Shift-F10 für Restart
+
+45:30.040 --> 45:34.320
+Was passiert denn jetzt, wenn ich hier mal einfach hinkörle?
+
+45:35.220 --> 45:36.400
+Local Host
+
+45:36.400 --> 45:38.840
+Ja und jetzt auf API
+
+45:38.840 --> 45:41.280
+Inexact, ok da kommt der Text zurück
+
+45:41.280 --> 45:44.360
+Und jetzt will ich Jason-Kram zurückgeben.
+
+45:47.840 --> 45:49.780
+Hier, da gab es doch hier Response.
+
+45:52.300 --> 45:54.140
+Response Body, was auch immer das macht.
+
+45:54.780 --> 45:56.540
+Ach, das war ja eine Kombination aus.
+
+45:58.760 --> 46:00.260
+Okay, das müssen wir uns mal angucken.
+
+46:01.040 --> 46:05.660
+Spring Boot Return Jason Rest Controller.
+
+46:06.340 --> 46:09.420
+Man kann doch bestimmt irgendeine Datei serialisieren lassen.
+
+46:09.420 --> 46:13.960
+Also dass man jetzt zum Beispiel sagt, ähm, machen wir nochmal hier was.
+
+46:14.080 --> 46:17.940
+Class, kann man das automatisch irgendwie generaten lassen?
+
+46:18.200 --> 46:21.320
+Class, okay, Class, blub.
+
+46:22.540 --> 46:24.520
+Äh, wie sieht denn das richtig aus in Java, so?
+
+46:26.040 --> 46:29.940
+Äh, äh, okay, wie macht man dann Property in Java?
+
+46:30.480 --> 46:32.980
+Wir machen, wir machen eine Public, Public Variable, okay.
+
+46:33.780 --> 46:38.080
+Ähm, hier, int, 0 gleich 5.
+
+46:38.080 --> 46:51.960
+beste und jetzt sage ich hier return new blub und das jetzt
+
+46:51.960 --> 47:04.080
+ne club cannot be converted ok dann habe ich keine ahnung wie kannst
+
+47:04.080 --> 47:17.640
+ja einfach ein object geht das kann ich so was hier sagen objekt oder so dann
+
+47:17.640 --> 47:20.900
+geht das
+
+47:34.080 --> 47:48.180
+status 406 not acceptable warum nicht was was will er von mir was wir sagen
+
+47:48.180 --> 47:58.500
+das ist nicht acceptable objekt oder dass das kann so nicht sein
+
+47:58.500 --> 48:07.740
+das ist noch acceptable weil ich weiß was plop type ist aber da oben steht es doch
+
+48:07.740 --> 48:15.900
+okay das returning jason os responsible das wir lesen uns einfach mal durch wie das funst
+
+48:15.900 --> 48:20.500
+jason objekt muss man da schreiben
+
+48:20.500 --> 48:27.180
+das was anderes
+
+48:27.180 --> 48:32.940
+der ist noch nie zu explizit konvertiert
+
+48:32.940 --> 48:38.180
+return of pojo das mache ich doch
+
+49:02.940 --> 49:10.140
+keine ahnung was
+
+49:10.140 --> 49:18.420
+der törner ist von den jason formalia zeigt zeigt her
+
+49:18.420 --> 49:28.840
+user response ok great rest controller wieso mache ich doch genau so mache ich das
+
+49:28.840 --> 49:30.960
+das? Ah!
+
+49:31.460 --> 49:32.920
+Produces Application
+
+49:32.920 --> 49:34.640
+JSON Value muss da hin.
+
+49:37.900 --> 49:38.580
+Aha!
+
+49:54.200 --> 49:54.840
+Okay.
+
+49:55.960 --> 49:58.000
+Das bringt jetzt Wasser, oder wie?
+
+49:58.840 --> 50:01.520
+Ist immer noch, immer noch.
+
+50:01.780 --> 50:03.560
+Oh, jetzt haben wir einen Internal Server Error.
+
+50:05.800 --> 50:07.360
+Muss das nicht Path sein?
+
+50:07.760 --> 50:08.040
+Anstatt
+
+50:08.040 --> 50:16.520
+Internal Server Error.
+
+50:22.000 --> 50:23.420
+Aber hier machen sie Value.
+
+50:26.260 --> 50:28.560
+Ja, das check ich jetzt auch nicht so genau.
+
+50:28.840 --> 50:34.640
+Ach nee.
+
+50:37.740 --> 50:39.680
+Moment, aber das hat doch funktioniert,
+
+50:39.840 --> 50:41.340
+als ich hier einen String returned habe.
+
+50:42.700 --> 50:43.960
+Da ging das doch noch.
+
+50:50.520 --> 50:51.880
+Ja, wenn ich den String return,
+
+50:51.980 --> 50:53.240
+dann tut es doch.
+
+50:54.100 --> 50:54.920
+Was hat er denn?
+
+50:58.840 --> 51:00.080
+Was hat er denn?
+
+51:01.080 --> 51:04.660
+Ärgert den vielleicht, dass...
+
+51:04.660 --> 51:08.380
+Okay, dann nehmen wir doch mal von ihm den Kram.
+
+51:10.000 --> 51:10.520
+Public.
+
+51:14.760 --> 51:16.400
+Kopiere das jetzt einfach mal.
+
+51:20.860 --> 51:21.840
+Get Name.
+
+51:23.940 --> 51:24.500
+Okay.
+
+51:25.300 --> 51:26.160
+Eternal Sister.
+
+51:26.560 --> 51:28.020
+So, so bleibt es jetzt.
+
+51:28.840 --> 51:34.160
+Benutz mal Record, mach ich gleich, sobald es funktioniert.
+
+51:37.340 --> 51:38.360
+Jetzt geht's!
+
+51:38.880 --> 51:43.100
+Das war, weil die Klasse kein Property-Zeug hatte.
+
+51:44.760 --> 51:47.360
+Ach so, okay, jetzt funktioniert's.
+
+51:48.580 --> 51:50.580
+Ist aber doch eigentlich ganz gut gelöst.
+
+51:51.580 --> 51:53.760
+Ah, oh, da liegt es an dem leeren Konstruktor.
+
+51:54.000 --> 51:57.760
+Ist das nicht implizit default, ein leerer Konstruktor?
+
+51:58.840 --> 52:02.200
+Doch ist es.
+
+52:03.040 --> 52:03.440
+Ist es.
+
+52:04.340 --> 52:05.800
+Das lag hier, dass die Klasse
+
+52:05.800 --> 52:07.720
+nichts beinhaltet hat.
+
+52:09.960 --> 52:10.400
+Okay.
+
+52:11.460 --> 52:12.340
+Nutz mal Record.
+
+52:12.460 --> 52:13.260
+Das gibt es auch.
+
+52:17.940 --> 52:19.340
+Also quasi Record.
+
+52:19.340 --> 52:21.100
+Das erinnert mich tatsächlich
+
+52:21.100 --> 52:22.420
+ein bisschen an C Sharp dann.
+
+52:22.960 --> 52:23.460
+Hier, blub.
+
+52:25.960 --> 52:27.300
+String Name.
+
+52:27.880 --> 52:28.420
+Zum Beispiel.
+
+52:28.840 --> 52:32.920
+Hä?
+
+52:34.420 --> 52:34.980
+Äh.
+
+52:44.180 --> 52:45.140
+But why?
+
+52:48.540 --> 52:50.400
+Das ist doch irgendwie überflüssig.
+
+52:51.440 --> 52:52.920
+Wenn man es leer haben will.
+
+52:53.340 --> 52:54.680
+Weil Java, okay, verstehe.
+
+52:56.900 --> 52:57.460
+Oh.
+
+52:58.840 --> 53:01.200
+Plop in record. Plop cannot.
+
+53:01.500 --> 53:01.700
+Was?
+
+53:03.860 --> 53:05.320
+Plop cannot be applied
+
+53:05.320 --> 53:06.300
+to given types.
+
+53:09.020 --> 53:09.540
+Was?
+
+53:11.940 --> 53:13.700
+Ach, ich muss was angeben.
+
+53:14.140 --> 53:14.520
+Ach so.
+
+53:15.660 --> 53:15.920
+Ja.
+
+53:16.920 --> 53:17.880
+Cute Chat.
+
+53:21.840 --> 53:22.560
+Macht Sinn.
+
+53:23.740 --> 53:24.120
+Punz.
+
+53:25.680 --> 53:27.880
+Ganz ehrlich, ich finde es gar nicht so schlecht.
+
+53:28.840 --> 53:32.680
+Man könnte jetzt ein bisschen drüber meckern, dass das alles ein bisschen verbose ist und so.
+
+53:33.680 --> 53:36.680
+Ich kann mir nicht merken, ob es verbose oder verbos heißt.
+
+53:37.720 --> 53:40.600
+Aber das geht doch eigentlich.
+
+53:40.880 --> 53:42.460
+Das ist doch eigentlich ganz gut gemacht.
+
+53:45.460 --> 53:49.460
+Also so Boilerplate hält sich doch bis jetzt so halbwegs in Grenzen.
+
+53:56.160 --> 53:57.360
+Das ist doch eigentlich ganz gut.
+
+53:57.360 --> 53:59.640
+Also, jetzt wissen wir schon mal, wie man
+
+53:59.640 --> 54:02.080
+JSON-Objects serialized.
+
+54:04.420 --> 54:05.440
+Gut, dann
+
+54:05.440 --> 54:07.940
+machen wir mal das, was ich eigentlich vorhatte.
+
+54:08.300 --> 54:08.700
+Websocket.
+
+54:10.860 --> 54:12.440
+Da bin ich jetzt ja mal gespannt.
+
+54:13.460 --> 54:14.020
+Gibt es einen Grund,
+
+54:14.160 --> 54:15.420
+warum du das lernst? Ja.
+
+54:15.900 --> 54:17.440
+Chat, ruckelt der Stream bei euch?
+
+54:18.180 --> 54:19.800
+Ich sehe den, der Viewer-Account ist
+
+54:19.800 --> 54:21.080
+krass am rumspringen.
+
+54:22.340 --> 54:23.760
+Und das ist meistens
+
+54:23.760 --> 54:26.040
+ein Zeichen
+
+54:26.040 --> 54:28.040
+für...
+
+54:31.100 --> 54:32.240
+Der View-Account
+
+54:32.240 --> 54:33.620
+springt bei mir immer um 50.
+
+54:35.740 --> 54:36.400
+Alles gut.
+
+54:36.480 --> 54:37.080
+Ja, es ist auch keine
+
+54:37.080 --> 54:38.740
+Frames gedroppt.
+
+54:42.100 --> 54:43.980
+Man weiß eh nicht, was er für Schmerzen hat.
+
+54:45.220 --> 54:46.240
+Macht Twitch wieder komische
+
+54:46.240 --> 54:46.560
+Sachen.
+
+54:53.700 --> 54:54.340
+Ja gut.
+
+54:54.340 --> 54:57.340
+So, dann können wir das machen, was ich eigentlich ursprünglich vorhatte.
+
+55:00.160 --> 55:02.480
+Wir gucken mal, wie man Websockets macht.
+
+55:03.460 --> 55:05.340
+Wollen wir mal? Komm, wir fragen mal ChatGPT.
+
+55:07.860 --> 55:17.960
+Ähm, Java Spring Boot Minimal Websocket, Socket Example with JS Client.
+
+55:18.560 --> 55:21.980
+So, schauen wir mal, ob das jetzt sich Mist ausdenkt oder nicht.
+
+55:21.980 --> 55:25.460
+Spring Boot Data Websocket
+
+55:25.460 --> 55:26.660
+Das klingt schon mal sinnvoll
+
+55:26.660 --> 55:31.620
+Websocket Configuration
+
+55:31.620 --> 55:32.420
+Ad Handler
+
+55:32.420 --> 55:34.220
+Kami, danke für den Sub
+
+55:34.220 --> 55:36.160
+Websocket Handler
+
+55:36.160 --> 55:46.140
+Ich glaube nicht, dass das funktioniert, oder?
+
+55:47.280 --> 55:48.580
+Meine des Funds, was ist das da?
+
+55:51.980 --> 55:54.860
+was es da generiert hat.
+
+56:04.280 --> 56:05.360
+Gott, vier Videos.
+
+56:05.500 --> 56:06.920
+Boah, Alter, das ist ja schon so lange her.
+
+56:11.580 --> 56:12.520
+So, Websocket.
+
+56:12.640 --> 56:15.520
+Also, das heißt, wir brauchen jetzt erst einmal hier Websocket.
+
+56:17.520 --> 56:19.000
+Also, Starter Web.
+
+56:19.860 --> 56:21.820
+Dann wollen wir jetzt...
+
+56:21.820 --> 56:23.420
+Ne, wir müssen wieder in Maven Central.
+
+56:24.200 --> 56:25.140
+Maven Central.
+
+56:27.140 --> 56:28.940
+Und jetzt Websocket.
+
+56:32.100 --> 56:32.780
+Starter.
+
+56:33.420 --> 56:34.060
+Starter.
+
+56:36.220 --> 56:38.000
+Spring Boot Starter Websocket.
+
+56:41.260 --> 56:43.680
+Also das ist jetzt nicht super eklig.
+
+56:43.680 --> 56:44.840
+Ne, das ist falsch.
+
+56:45.440 --> 56:46.860
+Das ist jetzt nicht super eklig.
+
+56:47.620 --> 56:49.780
+Mit diesem XML gepaste.
+
+56:50.360 --> 56:51.260
+Aber ganz ehrlich.
+
+56:51.260 --> 56:53.380
+die Nougat Sache, die ich euch gezeigt habe,
+
+56:53.420 --> 56:54.120
+war schon besser, oder?
+
+56:58.780 --> 56:59.220
+So.
+
+57:00.280 --> 57:01.420
+Jetzt haben wir hier
+
+57:01.420 --> 57:03.580
+den können wir mal
+
+57:03.580 --> 57:04.620
+kleiner machen.
+
+57:05.220 --> 57:07.040
+Jetzt haben wir hier die Möglichkeit, unser
+
+57:07.040 --> 57:09.260
+wollen wir mal gucken, ob das, was
+
+57:09.260 --> 57:11.480
+ChatGPT sagt, ob das sinnvoll ist.
+
+57:12.240 --> 57:13.360
+Weil das haben wir gemacht.
+
+57:18.000 --> 57:18.700
+Ne, mit
+
+57:18.700 --> 57:20.140
+AddStarter habe ich nichts gefunden.
+
+57:20.140 --> 57:21.960
+guck, warte mal
+
+57:21.960 --> 57:23.480
+Add Starters
+
+57:23.480 --> 57:25.640
+da habe ich, wenn ich, ich sage
+
+57:25.640 --> 57:27.760
+und wenn ich nach Starter suche, findet er aber nichts
+
+57:27.760 --> 57:29.940
+obwohl ich Add Starters
+
+57:29.940 --> 57:30.700
+gemacht habe
+
+57:30.700 --> 57:33.740
+oder
+
+57:33.740 --> 57:35.800
+ist WebSocket, ach das
+
+57:35.800 --> 57:37.620
+ist das, die haben einfach nur das Ding nicht
+
+57:37.620 --> 57:38.600
+Starter genannt
+
+57:38.600 --> 57:41.600
+das sind alles Starter
+
+57:41.600 --> 57:43.680
+deswegen haben die den Namen Starter
+
+57:43.680 --> 57:45.320
+weggelassen, achso
+
+57:45.320 --> 57:47.640
+SQLite, wie gibt es nicht
+
+57:47.640 --> 57:48.460
+gibt es Postgres
+
+57:48.460 --> 58:02.500
+ok jetzt haben wir websocket zeusch ich suche noch mal hier minimal websocket example spring boot
+
+58:14.020 --> 58:14.920
+kleon wieder
+
+58:18.460 --> 58:21.540
+Ja, ja, bla bla bla bla bla bla.
+
+58:21.620 --> 58:22.640
+Stomp. Nein, nein, nein.
+
+58:22.720 --> 58:24.860
+Ich will das Simpelste haben überhaupt.
+
+58:25.200 --> 58:26.360
+Ich weiß nicht mehr, was Stomp ist.
+
+58:30.340 --> 58:31.940
+Jetzt macht es aber kompliziert.
+
+58:34.280 --> 58:34.820
+Bonk AS.
+
+58:36.940 --> 58:38.120
+Was bin ich hier sehend?
+
+58:39.320 --> 58:41.580
+Gibt es nicht irgendwie so ein kleines, kurzes,
+
+58:42.680 --> 58:44.000
+prägnantes Beispiel?
+
+58:45.300 --> 58:46.620
+Ist ein Websocket-Protokoll.
+
+58:46.620 --> 58:48.580
+Ich brauche einfach nur Text darüber, gut ist.
+
+58:51.160 --> 58:52.280
+Spring Messaging.
+
+58:54.100 --> 58:55.720
+Enable Websocket in Spring.
+
+58:58.600 --> 58:59.460
+Stomp, schon wieder.
+
+59:00.280 --> 59:02.240
+Komm, Chat, wir trusten jetzt Chat.
+
+59:02.340 --> 59:04.760
+Wir trusten jetzt Chat GPT, wie das funktioniert.
+
+59:12.080 --> 59:13.460
+Ich kopiere das jetzt einfach.
+
+59:13.460 --> 59:15.680
+Ich glaube nicht, dass es funktioniert, ehrlich gesagt.
+
+59:15.680 --> 59:27.620
+aber der websocket config figuren
+
+59:29.260 --> 59:35.300
+bei websocket händler slash wie er sagt das klingt doch aber eigentlich ganz
+
+59:35.300 --> 59:43.240
+ganz sinnig websocket händler tag
+
+59:45.680 --> 59:54.840
+text websocket händler websocket session text messer ich importiere einfach alles
+
+59:54.840 --> 59:59.120
+und diese funkt schon mal nicht weil
+
+01:00:00.740 --> 01:00:11.220
+das aber doch kein error oder es wirklich ein error weil das kann doch
+
+01:00:11.220 --> 01:00:14.500
+nicht sein dass es ein error ist
+
+01:00:15.680 --> 01:00:24.080
+public das ist wirklich ein error naja muss ja nicht public sein
+
+01:00:24.080 --> 01:00:31.340
+nicht public sein so moment wollen wir sagen das ist wirklich schon alles jetzt
+
+01:00:31.340 --> 01:00:38.480
+websocket at at händler slash bs
+
+01:00:38.480 --> 01:00:46.980
+ich weiß ja gar nicht ob ich das haben will
+
+01:00:46.980 --> 01:00:57.640
+also laut chat gpt hubs laut chat gpt war es das jetzt mal gespannt ob das so stimmt
+
+01:00:57.640 --> 01:01:04.800
+WS-Cat?
+
+01:01:05.200 --> 01:01:06.400
+Nee, äh
+
+01:01:06.400 --> 01:01:08.380
+WS? Ah ja, hier, okay
+
+01:01:08.380 --> 01:01:10.400
+WS
+
+01:01:10.400 --> 01:01:12.160
+Local Host
+
+01:01:12.160 --> 01:01:14.200
+Host
+
+01:01:14.200 --> 01:01:16.220
+80
+
+01:01:16.220 --> 01:01:17.240
+80 WS
+
+01:01:24.360 --> 01:01:24.880
+Was?
+
+01:01:24.960 --> 01:01:25.300
+Was funzt?
+
+01:01:27.640 --> 01:01:30.920
+Das war? Ja, das ist doch gar nicht so kompliziert.
+
+01:01:31.280 --> 01:01:39.320
+Ganz ehrlich, das ist gar nicht so unterschiedlich zu ASP.NET Core mit Signal A.
+
+01:01:41.220 --> 01:01:43.140
+Ich bin beim Battlefield 6 am Start, ja.
+
+01:01:44.600 --> 01:01:47.140
+Max, ich habe eine Frage als Java-Noob.
+
+01:01:47.860 --> 01:01:50.560
+Ja, komm, als bin ich der Java-Pro, Mann.
+
+01:01:53.380 --> 01:01:56.580
+Warum rufst du die Plup-Funktion per Exception auf?
+
+01:01:56.580 --> 01:01:58.420
+ist Exception. Hä? Was mache ich?
+
+01:02:02.260 --> 01:02:04.320
+Ne, ne. Das heißt, dass
+
+01:02:04.320 --> 01:02:06.580
+diese Methode eine Exception werfen
+
+01:02:06.580 --> 01:02:06.940
+kann.
+
+01:02:10.520 --> 01:02:12.340
+Warum nicht direkt Kotlin anstatt Java?
+
+01:02:12.520 --> 01:02:14.400
+Das kann ich dir erklären, weil
+
+01:02:14.400 --> 01:02:16.120
+bei uns auf der Arbeit so gut wie alles in Java
+
+01:02:16.120 --> 01:02:18.060
+programmiert wird. Ich arbeite bei einer Versicherung,
+
+01:02:18.240 --> 01:02:20.300
+Business Enterprise stellt, das ist alles
+
+01:02:20.300 --> 01:02:22.260
+in Java und ich gehe
+
+01:02:22.260 --> 01:02:24.200
+demnächst mal für 14 Tage zu unseren
+
+01:02:24.200 --> 01:02:26.300
+Entwicklern und ich dachte mir, bevor ich
+
+01:02:26.300 --> 01:02:30.620
+dahin gehe ich mache so ein internes man guckt sich mal eine andere abteilung an
+
+01:02:30.620 --> 01:02:37.400
+praktikum bei uns intern oder dachte mir das macht schon sinn bis den jahr war zu
+
+01:02:37.400 --> 01:02:42.780
+wissen bevor man da hingeht also das heißt was wir hier machen da
+
+01:02:42.780 --> 01:02:45.560
+kommt nichts sinnvolles am ende raus außer dass man ein bisschen java und
+
+01:02:45.560 --> 01:02:52.760
+springboot gelernt hat jetzt mal eine ganz doofe frage an euch wenn das hier
+
+01:02:52.760 --> 01:02:58.000
+Ja, schon komplett ausreicht, um Websocket Kommunikation zu machen.
+
+01:02:58.480 --> 01:03:02.340
+Was zum Teufel machen denn diese ganzen Anleitungen hier?
+
+01:03:03.660 --> 01:03:06.780
+Mit Stomp und hast du nicht gesehen?
+
+01:03:08.920 --> 01:03:10.600
+Wer braucht das überhaupt?
+
+01:03:11.040 --> 01:03:12.400
+Sock.js Stomp?
+
+01:03:14.360 --> 01:03:16.100
+Ne, der macht das ohne Stomp.
+
+01:03:17.280 --> 01:03:19.360
+Moment, der macht das doch hier fast so wie ich, oder?
+
+01:03:20.100 --> 01:03:21.540
+Text Websocket Händler.
+
+01:03:22.400 --> 01:03:23.300
+Ja, das mache ich doch auch.
+
+01:03:32.740 --> 01:03:35.100
+Der macht doch im Prinzip so etwas Ähnliches wie ich hier.
+
+01:03:35.200 --> 01:03:35.580
+Guckt mal.
+
+01:03:36.160 --> 01:03:37.700
+Der macht hier so eine...
+
+01:03:37.700 --> 01:03:39.400
+Whatever.
+
+01:03:42.400 --> 01:03:42.800
+Zeug.
+
+01:03:49.740 --> 01:03:50.540
+Und dann?
+
+01:03:51.540 --> 01:03:54.460
+Live Ping Event.
+
+01:03:54.740 --> 01:03:57.800
+Ja, das ist das nächste, wie ich per Websocket Sachen hinschicke.
+
+01:03:57.880 --> 01:03:58.600
+Aber das probieren wir gleich.
+
+01:03:58.660 --> 01:04:01.600
+Da müssen wir jetzt so ein kleines JavaScript Frontend basteln.
+
+01:04:03.140 --> 01:04:04.240
+Das brauchen wir alles nicht.
+
+01:04:07.820 --> 01:04:10.260
+Der Websocket Konfigurer.
+
+01:04:11.180 --> 01:04:12.280
+Und AdHandler.
+
+01:04:13.500 --> 01:04:16.840
+Ja genau, im Prinzip ist es ja das, was ich auch gemacht habe.
+
+01:04:16.840 --> 01:04:23.200
+das dann dann connecten wir uns da jetzt mal per javascript hin machen wir das hier mal zu
+
+01:04:23.200 --> 01:04:32.380
+dann machen wir das mal dann gehen wir jetzt waren wir mal hier außerhalb von source machen
+
+01:04:32.380 --> 01:04:44.140
+wir mal hier directory keine ahnung web app was denn unter target web app da gehen wir mal hier
+
+01:04:44.140 --> 01:04:47.760
+nach rein nach i
+
+01:04:50.560 --> 01:04:55.620
+was ist denn der real java champ
+
+01:05:01.020 --> 01:05:06.900
+ah das war was was mein kotlin gebaut haben damals ich erinnere mich dunkel
+
+01:05:06.900 --> 01:05:18.180
+also gehen wir mal hier hin web app und ja gut da war jetzt wohl studio code auf
+
+01:05:18.180 --> 01:05:31.620
+dotnet gedönst mama ford getrusten web app müssen unser wish list studio code umstellen auf web
+
+01:05:31.620 --> 01:05:35.580
+und dann legen wir mal ein index html an
+
+01:05:35.580 --> 01:05:55.680
+mit einem standard template drin genau bla bla title 0w body copilot geh mal weg so und
+
+01:05:55.680 --> 01:06:06.120
+da machen wir jetzt unser javascript zeug drinne. Machen wir hier mal den Browser auf. Achso,
+
+01:06:06.120 --> 01:06:20.820
+Moment, Sekunde. Ne, wir machen das ohne, auf 8000. Wir machen das ohne Content Framework
+
+01:06:20.820 --> 01:06:21.620
+oder sonst was.
+
+01:06:23.060 --> 01:06:24.900
+Einfach nur hier die
+
+01:06:25.500 --> 01:06:28.820
+Vanilla
+
+01:06:28.820 --> 01:06:30.360
+JavaScript Zeug.
+
+01:06:31.540 --> 01:06:32.900
+Also jetzt connecten
+
+01:06:32.900 --> 01:06:35.040
+wir uns mal zu unserem Websocket.
+
+01:06:46.240 --> 01:06:46.800
+Also
+
+01:06:46.800 --> 01:06:48.960
+Moment, ich kann gar kein
+
+01:06:48.960 --> 01:06:51.020
+Vanilla.js mehr basteln. Also, wie ging das
+
+01:06:51.020 --> 01:06:52.220
+jetzt hier so? Script.
+
+01:06:53.780 --> 01:06:55.000
+Console. Gucken wir mal, ob das
+
+01:06:55.000 --> 01:06:56.640
+an sich wenigstens Funs, weil ich da mache.
+
+01:06:58.580 --> 01:06:58.820
+Ja, okay.
+
+01:07:00.360 --> 01:07:00.760
+Also.
+
+01:07:02.360 --> 01:07:02.720
+Wo war das?
+
+01:07:04.640 --> 01:07:05.180
+Was sagt
+
+01:07:05.180 --> 01:07:07.280
+dein Chat-GPT, wie mein JavaScript-Client
+
+01:07:07.280 --> 01:07:08.820
+aussehen soll? New Websocket.
+
+01:07:09.040 --> 01:07:09.300
+Genau.
+
+01:07:09.300 --> 01:07:09.440
+So.
+
+01:07:11.080 --> 01:07:11.440
+Also.
+
+01:07:13.720 --> 01:07:15.500
+Let WS
+
+01:07:15.500 --> 01:07:17.360
+gleich. Warte mal. War es denn
+
+01:07:17.360 --> 01:07:18.320
+überhaupt Let in JavaScript?
+
+01:07:18.960 --> 01:07:28.680
+web socket auf wie es doppel punkt um sich localhost doppelpunkt 80 80 ps
+
+01:07:28.680 --> 01:07:34.900
+hat noch gefunden wie es connect
+
+01:07:34.900 --> 01:07:39.840
+auf ich weiß nicht
+
+01:07:39.840 --> 01:07:46.780
+oder ist oder connecte das jetzt direkt wenn man das so macht
+
+01:07:46.780 --> 01:08:01.720
+an die open kann man eine nachricht red red registern und message on close ja ok
+
+01:08:01.720 --> 01:08:06.780
+ok die drei dinger sollten wir uns wahrscheinlich mal holen ja es macht schon sinn
+
+01:08:09.840 --> 01:08:14.240
+Aber hier vs. Es war dieses TypeScript bonkers. Geh weg
+
+01:08:16.200 --> 01:08:18.200
+Message
+
+01:08:19.220 --> 01:08:22.460
+Connection open okay, connected
+
+01:08:32.560 --> 01:08:34.560
+Log
+
+01:08:35.020 --> 01:08:37.020
+Message
+
+01:08:37.020 --> 01:08:47.400
+hier klaus okay jetzt haben wir hier jetzt können wir eine message schicken per websocket und dann
+
+01:08:47.400 --> 01:08:52.960
+sollte die eigentlich auf dem kleinen rauskommen aktuell ist es so wie wir schicken einem ach nee
+
+01:08:52.960 --> 01:08:59.220
+ich musste message senden dass ich der antwort bekomme okay dann machen wir das mal mama hier
+
+01:08:59.220 --> 01:09:01.000
+in on open
+
+01:09:01.000 --> 01:09:06.360
+ist das Arch
+
+01:09:06.360 --> 01:09:08.340
+by the way
+
+01:09:08.340 --> 01:09:11.360
+es ist Arch
+
+01:09:11.360 --> 01:09:17.360
+aber in vm
+
+01:09:17.360 --> 01:09:18.020
+in der vm
+
+01:09:18.020 --> 01:09:24.360
+so
+
+01:09:24.360 --> 01:09:26.820
+dann machen wir mal hier on open
+
+01:09:26.820 --> 01:09:33.620
+Das ist die 3
+
+01:09:33.620 --> 01:09:36.360
+Wayland in der VM funktioniert richtig
+
+01:09:36.360 --> 01:09:44.500
+So und dann machen wir jetzt mal hier
+
+01:09:44.500 --> 01:09:45.660
+WS Send
+
+01:09:45.660 --> 01:09:47.620
+0W
+
+01:09:47.620 --> 01:09:48.940
+Irgendwas, ist doch egal
+
+01:09:48.940 --> 01:09:53.240
+Und wir bekommen ein Echo Event
+
+01:09:53.240 --> 01:09:59.000
+Das ist ja viel einfacher, als ich mir das eigentlich gedacht habe.
+
+01:09:59.860 --> 01:10:00.900
+Mit Websockets.
+
+01:10:03.080 --> 01:10:05.020
+Also wir sind noch lange nicht fertig.
+
+01:10:05.500 --> 01:10:11.960
+Ich will ja, dass das im Hintergrund automatisch updatet und per HTTP sich Sachen abruft von irgendeiner API und dann mir alle 10 Sekunden schickt und sowas.
+
+01:10:12.620 --> 01:10:14.380
+Aber Lernst du WebDev jetzt?
+
+01:10:14.660 --> 01:10:20.300
+Naja, gar so schlecht bin ich jetzt ja auch nicht, was Frontend-Sachen angeht.
+
+01:10:20.400 --> 01:10:22.400
+Also wir haben ja schon die ein oder anderen Frontend-Sachen gemacht.
+
+01:10:22.400 --> 01:10:24.820
+Ich bin jetzt hier kein Fulltime Frontend
+
+01:10:24.820 --> 01:10:27.140
+Entwickler, aber so ein bisschen Ahnung
+
+01:10:27.140 --> 01:10:28.760
+Von Frontend Sachen habe ich schon
+
+01:10:28.760 --> 01:10:34.220
+Direkt in Lebenslauf
+
+01:10:34.220 --> 01:10:37.400
+Du hast es am Anfang des Streams verpasst
+
+01:10:37.400 --> 01:10:37.540
+Oder?
+
+01:10:38.880 --> 01:10:40.960
+Ich hab das schon bei mir im Lebenslauf drinstehen
+
+01:10:40.960 --> 01:10:49.080
+Alter Edge
+
+01:10:49.080 --> 01:10:50.000
+Was willst du von mir?
+
+01:10:50.540 --> 01:10:52.320
+Ich hab das schon im Lebenslauf drinstehen
+
+01:10:52.320 --> 01:11:02.560
+Okay, so
+
+01:11:02.560 --> 01:11:04.240
+Also, das Funst
+
+01:11:04.240 --> 01:11:06.460
+Ich bin jetzt gerade bisschen
+
+01:11:06.460 --> 01:11:08.720
+Bisschen verpeilt, Leute
+
+01:11:08.720 --> 01:11:17.320
+Konnte man nicht
+
+01:11:22.320 --> 01:11:27.860
+Wie ging das nochmal in JavaScript? Ich versuche gerade, ich habe mir gerade
+
+01:11:27.860 --> 01:11:32.460
+überlegt, wenn ich hier unten weiter schreibe, ja, dass ich nicht so viel nested
+
+01:11:32.460 --> 01:11:38.320
+Code habe. Ich würde gern so was machen wie await ws onopen, aber das funzt ja
+
+01:11:38.320 --> 01:11:44.380
+nicht. Das muss man irgendwie mit promises machen, aber das ist glaube ich zu
+
+01:11:44.380 --> 01:11:50.300
+kompliziert. Ich wollte eigentlich warten bis der connected ist.
+
+01:11:52.320 --> 01:11:59.380
+Ich glaube da muss irgendwie sagen, irgendwie let you promise oder sowas.
+
+01:11:59.380 --> 01:12:07.020
+Und irgendwie resolve.
+
+01:12:10.720 --> 01:12:11.540
+Ach, keine Ahnung.
+
+01:12:11.980 --> 01:12:13.460
+Zumindest kann ich dann sagen, irgendwie await.
+
+01:12:15.140 --> 01:12:17.040
+Ich check nicht, wie das von uns, aber egal.
+
+01:12:19.460 --> 01:12:20.880
+Das können wir dann reinschreiben.
+
+01:12:22.320 --> 01:12:34.340
+Jetzt haben wir doch eigentlich
+
+01:12:34.340 --> 01:12:36.140
+freundetmäßig alles, was wir brauchen.
+
+01:12:36.580 --> 01:12:38.660
+Jetzt will ich nur, dass automatisch
+
+01:12:38.660 --> 01:12:40.620
+dass das hier, das hier
+
+01:12:40.620 --> 01:12:42.060
+soll automatisch passieren.
+
+01:12:43.640 --> 01:12:44.920
+Handle Text Message.
+
+01:12:45.280 --> 01:12:46.660
+So, Handle Text Message wollen
+
+01:12:46.660 --> 01:12:48.740
+wir gar nicht. Ich will, ich will
+
+01:12:48.740 --> 01:12:50.600
+eigentlich das hier machen. Okay?
+
+01:12:50.600 --> 01:12:54.880
+Ich will automatisch im Hintergrund alle 10 Sekunden was an den Client schicken.
+
+01:12:55.260 --> 01:13:09.820
+Das heißt doch im Endeffekt, eine Websocket Session, After Connection Established, die muss ich mir irgendwo speichern, die Websocket Session.
+
+01:13:10.600 --> 01:13:14.520
+Damit ich nachher da wieder drauf zugreifen kann.
+
+01:13:15.080 --> 01:13:21.240
+Also heißt es im Endeffekt, ich brauche irgendwie sowas wie ein Dictionary.
+
+01:13:21.740 --> 01:13:26.300
+Das heißt, in Java ist es HashMap, wenn ich das richtig im Kopf habe.
+
+01:13:26.300 --> 01:13:33.680
+So, und da will ich einmal ein String und eine WebSocket Session haben.
+
+01:13:35.440 --> 01:13:39.860
+Gibt es eigentlich in Java sowas wie eine ThreadSafe HashMap?
+
+01:13:40.360 --> 01:13:42.080
+Wobei, der hat doch hier auch sowas, der Typ, oder?
+
+01:13:44.520 --> 01:13:51.580
+Ach ne.
+
+01:13:59.580 --> 01:14:00.420
+Ähm...
+
+01:14:00.420 --> 01:14:02.140
+Java Threads...
+
+01:14:02.140 --> 01:14:03.660
+Konkurrent Hashmap gibt es?
+
+01:14:07.560 --> 01:14:08.440
+Hashmap.
+
+01:14:08.540 --> 01:14:09.100
+Ah, sehr gut.
+
+01:14:11.180 --> 01:14:13.020
+Wobei, brauche ich eigentlich eine Hashmap?
+
+01:14:13.740 --> 01:14:14.460
+Eigentlich nicht.
+
+01:14:14.520 --> 01:14:16.600
+Gibt es eine Konkurrent-List?
+
+01:14:18.460 --> 01:14:19.240
+Was haben wir denn?
+
+01:14:19.320 --> 01:14:21.600
+Konkurrent-Map? Konkurrent-Hash-Map?
+
+01:14:22.880 --> 01:14:23.640
+Map-Linked?
+
+01:14:26.920 --> 01:14:29.100
+Gibt es eine Konkurrent-List?
+
+01:14:31.840 --> 01:14:32.800
+Weil wir nicht.
+
+01:14:33.560 --> 01:14:34.640
+Machen wir einfach so. Zack.
+
+01:14:35.480 --> 01:14:36.200
+Konkurrent-Hash-Map.
+
+01:14:38.480 --> 01:14:39.040
+Sessions.
+
+01:14:39.980 --> 01:14:41.880
+Das macht man garantiert in Java nicht so, oder?
+
+01:14:41.880 --> 01:14:44.660
+mit dem Underscore.
+
+01:14:46.680 --> 01:14:47.540
+Bestimmt nicht.
+
+01:14:57.540 --> 01:14:58.060
+So.
+
+01:14:58.340 --> 01:15:00.040
+Und jetzt sagen wir hier Sessions
+
+01:15:00.040 --> 01:15:02.320
+and
+
+01:15:02.320 --> 01:15:04.620
+nein, put ist es.
+
+01:15:05.100 --> 01:15:05.620
+Put
+
+01:15:05.620 --> 01:15:08.300
+getSessionIdSession.
+
+01:15:08.400 --> 01:15:09.480
+Genau, das wollen wir haben.
+
+01:15:11.880 --> 01:15:15.380
+Ja, ich will ja eigentlich auch
+
+01:15:15.380 --> 01:15:17.380
+broadcasten. So, Handle Text
+
+01:15:17.380 --> 01:15:18.560
+Message, das brauchen wir nicht.
+
+01:15:19.320 --> 01:15:20.660
+Äh, Comment.
+
+01:15:27.440 --> 01:15:29.260
+So. Wir wollen
+
+01:15:29.260 --> 01:15:31.520
+eigentlich im Endeffekt, jetzt ist die Frage,
+
+01:15:31.900 --> 01:15:33.380
+wie mache ich das jetzt
+
+01:15:33.380 --> 01:15:35.300
+gescheit? Also wir machen es jetzt mal so,
+
+01:15:35.400 --> 01:15:37.020
+wie man es auf jeden Fall nicht macht, weil ich
+
+01:15:37.020 --> 01:15:38.800
+bin mir unsicher, wie ich das mache.
+
+01:15:39.100 --> 01:15:41.120
+Ich will jetzt automatisch alle
+
+01:15:41.120 --> 01:15:45.320
+den Sekunden was an den Client schicken.
+
+01:15:45.940 --> 01:15:47.540
+Normalerweise hätte ich jetzt hier
+
+01:15:47.540 --> 01:15:49.980
+irgendwie irgendein Background-Task.
+
+01:15:50.920 --> 01:15:51.100
+So.
+
+01:15:51.900 --> 01:15:53.900
+Und da müsste man dann...
+
+01:15:53.900 --> 01:15:55.380
+Na gut, das muss einfach
+
+01:15:55.380 --> 01:15:56.820
+Static und Public sein, oder?
+
+01:15:57.180 --> 01:15:59.300
+Dann funzt das. Aber das ist bestimmt nicht so gedacht.
+
+01:16:09.440 --> 01:16:10.920
+Das ist bestimmt nicht so gedacht.
+
+01:16:10.920 --> 01:16:20.880
+static und public aber scheiß drauf war trotzdem jetzt was wird das wenn es fertig ist ich lerne
+
+01:16:20.880 --> 01:16:27.720
+einfach nur java und spring gut also deshalb das hat keinen tieferen mehrwert am ende was
+
+01:16:27.720 --> 01:16:31.980
+anwendungen rauskommt aktuell ist das ziel ich will per websocket alle zehn sekunden was an
+
+01:16:31.980 --> 01:16:32.620
+einen kleinen schicken.
+
+01:16:41.080 --> 01:16:42.640
+Okay, hier können wir uns
+
+01:16:42.640 --> 01:16:44.120
+connecten gleich und dann sehen wir das.
+
+01:16:44.560 --> 01:16:46.240
+So, und jetzt will ich sowas machen.
+
+01:16:49.680 --> 01:16:50.780
+Jetzt will ich
+
+01:16:50.780 --> 01:16:52.900
+im Endeffekt, wo haben wir hier
+
+01:16:52.900 --> 01:16:54.400
+Main? Hier, Main.
+
+01:16:57.080 --> 01:16:58.880
+So, und da will ich
+
+01:16:58.880 --> 01:17:01.020
+sowas wie Task Run
+
+01:17:01.020 --> 01:17:02.120
+oder sowas machen.
+
+01:17:02.820 --> 01:17:04.180
+Moment, es gibt was, was Task heißt?
+
+01:17:07.020 --> 01:17:07.880
+Ich mach das.
+
+01:17:08.920 --> 01:17:09.400
+Ne, nix.
+
+01:17:09.400 --> 01:17:11.260
+Ähm.
+
+01:17:13.700 --> 01:17:16.360
+Ja, äh.
+
+01:17:16.680 --> 01:17:18.040
+Java Task Run.
+
+01:17:18.040 --> 01:17:31.740
+Du kannst dir einen
+
+01:17:31.740 --> 01:17:34.620
+Scheduled Executor Service holen
+
+01:17:34.620 --> 01:17:36.260
+Der dann alle x Sekunden
+
+01:17:36.260 --> 01:17:37.040
+Dinge ausführt
+
+01:17:37.040 --> 01:17:38.220
+Ja sowas will ich haben
+
+01:17:38.220 --> 01:17:39.280
+Das klingt gut
+
+01:17:39.280 --> 01:17:41.440
+Ist das was was bei Spring dabei ist
+
+01:17:41.440 --> 01:17:45.260
+Ich kann übrigens gerade nicht mal copy pasten
+
+01:17:45.260 --> 01:17:45.940
+Doch kann ich
+
+01:17:45.940 --> 01:17:53.620
+aber okay spring boot schedule gibt es gibt es bestimmt auch was
+
+01:17:53.620 --> 01:17:59.020
+scheduling task spring enable scheduling
+
+01:17:59.020 --> 01:18:06.520
+Create a
+
+01:18:06.520 --> 01:18:08.840
+Playung
+
+01:18:08.840 --> 01:18:12.840
+Warum heißt die Seite Playung?
+
+01:18:12.920 --> 01:18:13.700
+Ich verstehe es nicht
+
+01:18:13.700 --> 01:18:17.200
+Ja, ich weiß, die heißt nicht so, aber so ähnlich
+
+01:18:17.200 --> 01:18:19.480
+So, Schedule Task at Component
+
+01:18:19.480 --> 01:18:20.260
+Okay, ich habe keine
+
+01:18:20.260 --> 01:18:26.080
+All
+
+01:18:26.080 --> 01:18:32.420
+Immer Annotations.
+
+01:18:32.480 --> 01:18:34.120
+Das habe ich mittlerweile auch schon mitgekriegt.
+
+01:18:35.320 --> 01:18:36.620
+Also Enable
+
+01:18:36.620 --> 01:18:38.120
+Scheduling.
+
+01:18:39.460 --> 01:18:40.480
+Muss man da machen.
+
+01:18:41.000 --> 01:18:41.960
+Hauptsache Annotations.
+
+01:18:42.080 --> 01:18:43.980
+Das finde ich auch teilweise ein bisschen übertrieben.
+
+01:18:49.320 --> 01:18:50.200
+Und jetzt
+
+01:18:50.200 --> 01:18:51.680
+einfach das hier?
+
+01:18:56.080 --> 01:19:00.400
+jetzt sage ich quasi hier
+
+01:19:00.400 --> 01:19:02.640
+Scheduled Task
+
+01:19:02.640 --> 01:19:03.580
+hier Component
+
+01:19:03.580 --> 01:19:08.380
+doch das, guck mal, warum soll ich
+
+01:19:08.380 --> 01:19:10.240
+alles, guck mal, wir haben jetzt
+
+01:19:10.240 --> 01:19:12.420
+noch nicht mal 100 Zeilen, warum soll ich
+
+01:19:12.420 --> 01:19:14.380
+mich durch zig Dateien klicken, wenn ich
+
+01:19:14.380 --> 01:19:16.420
+das im Prinzip alles fast schon auf ein Bildschirm
+
+01:19:16.420 --> 01:19:16.860
+kriege
+
+01:19:16.860 --> 01:19:20.480
+so, Scheduled brauchen
+
+01:19:20.480 --> 01:19:22.320
+wir hier, sind das Millisekunden
+
+01:19:22.320 --> 01:19:27.320
+Das kriegen wir nicht gesagt
+
+01:19:27.320 --> 01:19:27.520
+Was
+
+01:19:27.520 --> 01:19:31.520
+Bonk heißt
+
+01:19:31.520 --> 01:19:33.800
+Sind das Millisekunden
+
+01:19:33.800 --> 01:19:34.700
+Man weiß es nicht
+
+01:19:34.700 --> 01:19:37.480
+Im Controller
+
+01:19:37.480 --> 01:19:39.320
+Nein das gefällt mir nicht
+
+01:19:39.320 --> 01:19:40.380
+Tja
+
+01:19:40.380 --> 01:19:42.000
+Sind das Millisekunden
+
+01:19:42.000 --> 01:19:51.100
+Es wäre halt nice
+
+01:19:51.100 --> 01:19:53.400
+wenn es irgendwo stehen würde, dass es Millisekunden
+
+01:19:53.400 --> 01:19:53.680
+sind.
+
+01:19:58.920 --> 01:20:00.640
+Ganze Gelogger brauchen wir hier nicht.
+
+01:20:00.800 --> 01:20:01.740
+Juckt mich null.
+
+01:20:04.660 --> 01:20:07.060
+So, und jetzt machen wir was, was wahrscheinlich relativ eklig
+
+01:20:07.060 --> 01:20:09.260
+ist. Hier, äh,
+
+01:20:09.260 --> 01:20:11.340
+ich nenn's einfach mal Pink Client oder so.
+
+01:20:12.080 --> 01:20:13.400
+So, jetzt machen wir was, was relativ
+
+01:20:13.400 --> 01:20:15.160
+eklig ist, und zwar, weil ich hab keine,
+
+01:20:15.200 --> 01:20:17.440
+ich hab keine Idee, wie wir's sonst hinkriegen.
+
+01:20:18.420 --> 01:20:19.140
+Und zwar,
+
+01:20:19.140 --> 01:20:26.320
+My Websocket Handler
+
+01:20:26.320 --> 01:20:27.300
+Sessions.
+
+01:20:28.700 --> 01:20:30.320
+Globale Variable für alle.
+
+01:20:31.520 --> 01:20:32.960
+Das geht bestimmt schöner.
+
+01:20:33.620 --> 01:20:35.040
+Ich habe aber immer noch keine Ahnung,
+
+01:20:35.140 --> 01:20:36.080
+wie ich meine ganzen
+
+01:20:36.080 --> 01:20:38.480
+Websocket Dinger von da
+
+01:20:38.480 --> 01:20:39.700
+da rein bekomme.
+
+01:20:41.560 --> 01:20:42.500
+Und jetzt will ich
+
+01:20:42.500 --> 01:20:43.860
+eine Schleife da drüber machen.
+
+01:20:46.860 --> 01:20:47.780
+For each?
+
+01:20:47.780 --> 01:20:49.340
+4
+
+01:20:49.340 --> 01:20:51.300
+4i? Ne.
+
+01:20:52.580 --> 01:20:52.940
+4
+
+01:20:52.940 --> 01:20:57.600
+Java for each.
+
+01:21:00.740 --> 01:21:03.260
+Der hat ne List, aber ich will ne Threadsave-List haben.
+
+01:21:05.360 --> 01:21:05.760
+Ah.
+
+01:21:08.820 --> 01:21:09.260
+Aha.
+
+01:21:12.560 --> 01:21:13.820
+Ah, ich will nicht String.
+
+01:21:13.940 --> 01:21:14.220
+War.
+
+01:21:15.360 --> 01:21:17.040
+Fange erst mit gar nichts anderem an.
+
+01:21:17.040 --> 01:21:18.660
+My Websocket.
+
+01:21:19.780 --> 01:21:20.420
+Sessions.
+
+01:21:21.540 --> 01:21:22.420
+Was hat er für Schmerzen?
+
+01:21:23.240 --> 01:21:24.420
+For each not applicable.
+
+01:21:24.700 --> 01:21:25.500
+Applicable.
+
+01:21:29.500 --> 01:21:30.800
+Ähm, okay.
+
+01:21:33.140 --> 01:21:33.600
+Java.
+
+01:21:33.940 --> 01:21:34.760
+Iterate.
+
+01:21:35.340 --> 01:21:36.900
+Concurrent Hash Map.
+
+01:21:40.280 --> 01:21:41.640
+Wie geht das?
+
+01:21:44.060 --> 01:21:45.220
+Entry Set.
+
+01:21:45.220 --> 01:21:45.660
+What?
+
+01:21:47.040 --> 01:21:51.920
+was will er
+
+01:21:51.920 --> 01:21:57.300
+ja jetzt der kaufler erzählen wir wie es geht values
+
+01:21:57.300 --> 01:22:13.480
+was will er jetzt von mir also als public ist und jetzt wollen wir eigentlich dass auch nicht
+
+01:22:13.480 --> 01:22:25.540
+hier session jetzt wollen was session punkt send message da müssen wir noch
+
+01:22:25.540 --> 01:22:29.020
+mal in das beispiel hier reingucken
+
+01:22:33.640 --> 01:22:40.960
+send message new text message aha new text message und dann irgendwie
+
+01:22:40.960 --> 01:22:43.060
+irgendein Payload?
+
+01:22:45.860 --> 01:22:46.500
+Was?
+
+01:22:46.580 --> 01:22:47.080
+Was to string?
+
+01:22:51.460 --> 01:22:52.740
+Char Sequence.
+
+01:22:53.340 --> 01:22:55.180
+Er ist doch hier. Char Sequence.
+
+01:22:56.400 --> 01:22:57.000
+Ne.
+
+01:22:59.460 --> 01:23:00.600
+Unhandled Exception.
+
+01:23:05.040 --> 01:23:06.640
+Wobei, ne Leute.
+
+01:23:07.460 --> 01:23:08.600
+Das soll nicht crashen.
+
+01:23:09.540 --> 01:23:12.000
+Es könnte ja auch sein, dass die Session mittlerweile geschlossen ist.
+
+01:23:12.300 --> 01:23:14.440
+Da müssen wir jetzt wirklich einen Try-Catch drumherum machen.
+
+01:23:16.540 --> 01:23:18.380
+Wie kann man hier einzelne Zeilen verschieben?
+
+01:23:20.780 --> 01:23:22.300
+Da müssen wir wirklich einen Try-Catch drumherum machen.
+
+01:23:22.380 --> 01:23:23.580
+Das kackt uns das Ganze ab.
+
+01:23:25.900 --> 01:23:26.260
+Catch.
+
+01:23:27.340 --> 01:23:27.880
+I.O.X.
+
+01:23:28.580 --> 01:23:29.860
+IntelliJ ist nicht schlecht, oder?
+
+01:23:32.140 --> 01:23:33.680
+Das ist nicht schlecht, IntelliJ.
+
+01:23:35.260 --> 01:23:38.540
+Der schlägt uns gleich die Exception vor, die da gethrowt wird drinnen.
+
+01:23:38.600 --> 01:23:43.500
+So
+
+01:23:43.500 --> 01:23:47.380
+Das will er von mir
+
+01:23:47.380 --> 01:23:50.200
+Perfekt
+
+01:23:50.200 --> 01:23:51.380
+Wegschmeißen
+
+01:23:51.380 --> 01:23:53.120
+Sehr gut
+
+01:23:53.120 --> 01:23:56.660
+So, wenn ich jetzt alles richtig gemacht hab
+
+01:23:56.660 --> 01:23:58.620
+Dann
+
+01:23:58.620 --> 01:24:00.320
+Sollten wir jetzt
+
+01:24:00.320 --> 01:24:02.500
+Alle 5 Sekunden
+
+01:24:02.500 --> 01:24:05.560
+Bekommen wir die Textnachricht
+
+01:24:05.560 --> 01:24:08.140
+Na
+
+01:24:08.140 --> 01:24:11.980
+dazu kann ich ja nur sagen
+
+01:24:11.980 --> 01:24:15.160
+easy
+
+01:24:15.160 --> 01:24:16.360
+easy
+
+01:24:16.360 --> 01:24:17.640
+easy
+
+01:24:17.640 --> 01:24:21.640
+way too easy
+
+01:24:21.640 --> 01:24:24.680
+doch es funzt auf Anhieb
+
+01:24:24.680 --> 01:24:26.140
+oh es ist abgekackt
+
+01:24:26.140 --> 01:24:28.760
+Websocket session has been closed
+
+01:24:28.760 --> 01:24:29.400
+and no message
+
+01:24:29.400 --> 01:24:33.560
+ja deswegen catche ich das doch auch
+
+01:24:33.560 --> 01:24:34.920
+warum kackt
+
+01:24:34.920 --> 01:24:35.720
+das jetzt ab
+
+01:24:35.720 --> 01:24:40.100
+Warum ist das jetzt abgekackt?
+
+01:24:41.540 --> 01:24:43.500
+Ich catche doch die Exception hier
+
+01:24:49.740 --> 01:24:51.500
+Wo ist er denn abgekackt?
+
+01:24:55.180 --> 01:24:56.980
+Ach ne, der ist gar nicht abgekackt
+
+01:24:56.980 --> 01:24:59.780
+Der läuft immer noch weiter
+
+01:24:59.780 --> 01:25:02.380
+Ah, verstehe
+
+01:25:02.380 --> 01:25:05.980
+Das ist eine Logging, eine Log-Meldung von denen.
+
+01:25:07.460 --> 01:25:08.500
+Ne, ne, ne, ne, das ist schon richtig.
+
+01:25:09.000 --> 01:25:10.960
+Ich muss das jetzt ja noch löschen.
+
+01:25:11.760 --> 01:25:12.920
+Ne, ne, die Hash-Map ist nicht leer.
+
+01:25:13.300 --> 01:25:15.980
+In der Hash-Map ist eine Session drin, die wurde geclosed.
+
+01:25:16.360 --> 01:25:19.360
+Ich muss jetzt noch sagen, on close oder irgendwie sowas.
+
+01:25:20.440 --> 01:25:21.400
+Aber wie geht das jetzt hier?
+
+01:25:21.540 --> 01:25:22.860
+Add, overwrite.
+
+01:25:23.260 --> 01:25:24.500
+Hauptsache mehr Annotations.
+
+01:25:25.760 --> 01:25:26.740
+Public, void.
+
+01:25:27.140 --> 01:25:28.300
+Wobei, das kann man doch bestimmt,
+
+01:25:28.640 --> 01:25:30.740
+bestimmt kann einem da IntelliJ helfen, oder?
+
+01:25:32.380 --> 01:25:33.680
+Wie liste ich hier?
+
+01:25:38.920 --> 01:25:40.000
+Override Methods.
+
+01:25:40.000 --> 01:25:40.320
+Haha.
+
+01:25:43.320 --> 01:25:43.840
+Close.
+
+01:25:44.080 --> 01:25:45.080
+Irgendwas mit Close.
+
+01:25:47.040 --> 01:25:48.240
+Bist du neu bei Java?
+
+01:25:48.400 --> 01:25:48.520
+Ja.
+
+01:25:49.780 --> 01:25:50.580
+Relativ neu.
+
+01:25:52.100 --> 01:25:52.620
+Handle.
+
+01:25:53.260 --> 01:25:55.000
+Also, das ist mein zweiter Stream mit Java.
+
+01:25:56.300 --> 01:25:59.380
+Sonst habe ich nur ganz, also ganz, ganz wenig Java-Erfahrung.
+
+01:26:00.180 --> 01:26:01.180
+Und Spring Boot gar nicht.
+
+01:26:02.380 --> 01:26:03.120
+Wo ist denn hier?
+
+01:26:03.860 --> 01:26:05.160
+After Connection Closed.
+
+01:26:06.420 --> 01:26:07.820
+Das habe ich gesucht.
+
+01:26:08.760 --> 01:26:10.720
+So, After Connection Closed.
+
+01:26:13.260 --> 01:26:13.900
+Will ich.
+
+01:26:15.900 --> 01:26:16.460
+Sessions.
+
+01:26:16.460 --> 01:26:16.580
+Sessions.
+
+01:26:17.960 --> 01:26:18.740
+Delete.
+
+01:26:19.440 --> 01:26:19.580
+Ne.
+
+01:26:25.680 --> 01:26:26.360
+Ja.
+
+01:26:30.140 --> 01:26:30.860
+Remove.
+
+01:26:32.380 --> 01:26:37.300
+Session ID.
+
+01:26:38.460 --> 01:26:39.800
+Was hat er hier für Schmerzen?
+
+01:26:44.800 --> 01:26:46.440
+Achso, falls es das nicht gibt.
+
+01:26:48.300 --> 01:26:49.760
+Also, ja gut.
+
+01:26:59.380 --> 01:27:01.540
+Aber was meckert er denn jetzt hier gerade an?
+
+01:27:02.380 --> 01:27:08.380
+was hat was hat er jetzt für ich verstehe das problem jetzt gar nicht
+
+01:27:08.380 --> 01:27:17.980
+0 ach so 0 weil es eine null point der exception geben kann wenn es den kino ich
+
+01:27:17.980 --> 01:27:25.120
+gibt okay das macht in der tat tatsächlich dann sinn auch noch mal einen try catch zu rappen
+
+01:27:32.380 --> 01:27:40.900
+aber was was will er denn hier was was was was warum ist das denn jetzt
+
+01:27:47.560 --> 01:27:49.800
+oder gibt es drei remove
+
+01:27:49.800 --> 01:27:57.160
+er will dass du so was wie ein using macht
+
+01:27:57.160 --> 01:28:05.560
+den das geld der index in der ich brauche nicht den index das ist der
+
+01:28:05.560 --> 01:28:13.180
+hash map ich brauche einen key den einzigartigen key ich bin ich bin jetzt
+
+01:28:13.180 --> 01:28:22.060
+irgendwie gerade verwirrt was der google try with okay frei mit resources
+
+01:28:22.060 --> 01:28:25.740
+Ja, aber hier, guck mal, IntelliJ mag ja nix.
+
+01:28:27.780 --> 01:28:30.140
+Der bietet mir nix an, um das zu fixen.
+
+01:28:30.140 --> 01:28:31.140
+Oder...
+
+01:28:31.140 --> 01:28:36.000
+Try with resources statement.
+
+01:28:36.200 --> 01:28:38.140
+Try...
+
+01:28:38.140 --> 01:28:40.140
+What the...
+
+01:28:41.980 --> 01:28:44.460
+Will der sowas haben?
+
+01:28:47.680 --> 01:28:48.080
+Nee, oder?
+
+01:28:52.060 --> 01:28:57.060
+Was?
+
+01:29:05.060 --> 01:29:08.060
+Ich hab...
+
+01:29:08.060 --> 01:29:10.060
+Returned das irgendwas?
+
+01:29:10.400 --> 01:29:10.840
+Remove?
+
+01:29:19.060 --> 01:29:19.540
+Was?
+
+01:29:19.720 --> 01:29:20.380
+Was returned das denn?
+
+01:29:22.060 --> 01:29:24.160
+Ach, die Session
+
+01:29:24.160 --> 01:29:25.140
+returnt das.
+
+01:29:26.680 --> 01:29:28.220
+Also ich habe keine Ahnung, was der
+
+01:29:28.220 --> 01:29:29.940
+eigentlich will, ehrlich gesagt, von mir.
+
+01:29:30.020 --> 01:29:31.940
+Warum das unterkringelt ist.
+
+01:29:35.640 --> 01:29:37.340
+Ich habe absolut keinen Plan.
+
+01:29:39.740 --> 01:29:41.920
+Websocket Session used without...
+
+01:29:41.920 --> 01:29:44.820
+Ach, jetzt weiß ich es, glaube ich.
+
+01:29:45.500 --> 01:29:46.220
+Der will das
+
+01:29:46.220 --> 01:29:47.460
+da von mir haben, oder?
+
+01:29:49.620 --> 01:29:51.380
+Ach, sowas will er von mir haben.
+
+01:29:52.060 --> 01:29:53.360
+Sowas ähnliches.
+
+01:29:57.800 --> 01:29:59.880
+Ich checke aber nicht, wie es jetzt weitergeht.
+
+01:30:06.760 --> 01:30:07.480
+Hä?
+
+01:30:07.480 --> 01:30:25.360
+Also, seriously, kein Schimmer, was das Ding von mir will.
+
+01:30:28.240 --> 01:30:28.800
+Wurscht.
+
+01:30:28.800 --> 01:30:29.360
+So.
+
+01:30:30.200 --> 01:30:30.840
+Bam.
+
+01:30:37.480 --> 01:30:55.200
+Aber zumindest sollte das mein Problem jetzt fixen.
+
+01:30:55.920 --> 01:31:01.200
+Dass der dann ewig rummeckert hier unten, wenn die Session zu ist.
+
+01:31:07.480 --> 01:31:18.040
+jetzt gucken wir mal krieg ich alle fünf sekunden kriege ich was geschickt so jetzt
+
+01:31:18.040 --> 01:31:24.300
+breche ich ab guck jetzt hat das jetzt kackt er hier nicht mal ab jetzt hat das direkt
+
+01:31:24.300 --> 01:31:34.720
+entfernt schreiben wir hier noch noch rein closed connection so so ist gut ja das ist
+
+01:31:34.720 --> 01:31:36.220
+nice, da brauchen wir dieses ganze Gedöns nicht.
+
+01:31:36.520 --> 01:31:38.660
+So, und jetzt können wir unser Frontend reingucken.
+
+01:31:40.820 --> 01:31:42.640
+Ach, den Wörter. Das ist doch echt nicht
+
+01:31:42.640 --> 01:31:44.760
+schlecht. Also, ich muss sagen,
+
+01:31:44.840 --> 01:31:46.180
+ich hab mir das schlimmer vorgestellt.
+
+01:31:46.500 --> 01:31:48.500
+Das ganze Annotate ist vielleicht ein bisschen
+
+01:31:48.500 --> 01:31:50.840
+nervig, aber ganz ehrlich,
+
+01:31:51.480 --> 01:31:52.680
+wenn das alles ist, was man
+
+01:31:52.680 --> 01:31:54.500
+für WebSocket-Handling braucht, dann
+
+01:31:54.500 --> 01:31:56.520
+ist das doch echt überschaubar
+
+01:31:56.520 --> 01:31:57.260
+und gut gemacht.
+
+01:31:58.940 --> 01:32:00.760
+Was ich halt überhaupt nicht checke, ist,
+
+01:32:01.420 --> 01:32:02.480
+warum die Beispiele
+
+01:32:02.480 --> 01:32:03.760
+so krass bloated sind.
+
+01:32:04.720 --> 01:32:12.720
+Ja, wenn du hier suchst
+
+01:32:12.720 --> 01:32:14.940
+Spring Boot Websocket
+
+01:32:14.940 --> 01:32:16.520
+Minimal Example
+
+01:32:16.520 --> 01:32:20.620
+Da findest du dann solche Dinger
+
+01:32:20.620 --> 01:32:21.680
+Die
+
+01:32:21.680 --> 01:32:27.300
+100.000 Sachen machen
+
+01:32:27.300 --> 01:32:29.060
+Irgendwelche Endpunkte
+
+01:32:29.060 --> 01:32:29.420
+Und
+
+01:32:29.420 --> 01:32:34.380
+Stomp
+
+01:32:34.380 --> 01:32:36.300
+Was auch immer.
+
+01:32:40.580 --> 01:32:43.080
+Und dann brauchst du irgendwelche extra kleinen Sachen,
+
+01:32:43.220 --> 01:32:44.200
+dass es funktioniert.
+
+01:32:46.940 --> 01:32:48.320
+Das will ich gar nicht.
+
+01:32:48.400 --> 01:32:50.120
+Ich will einfach stinknormales Websocket haben.
+
+01:32:54.040 --> 01:32:56.260
+So, dann machen wir das doch mal.
+
+01:32:56.360 --> 01:32:57.640
+Wenn das Millisekunden sind,
+
+01:32:58.320 --> 01:33:00.020
+alle 100 Millisekunden
+
+01:33:00.020 --> 01:33:01.280
+will ich was geschickt kriegen.
+
+01:33:02.500 --> 01:33:02.980
+Restart.
+
+01:33:03.780 --> 01:33:04.680
+Gucken, ob das jetzt funzt.
+
+01:33:04.940 --> 01:33:06.980
+Jetzt sollte uns das ganz schön die Konsole vollspammen.
+
+01:33:08.780 --> 01:33:09.140
+Jawohl.
+
+01:33:09.920 --> 01:33:10.440
+Sehr gut.
+
+01:33:11.540 --> 01:33:11.880
+So.
+
+01:33:12.900 --> 01:33:13.260
+Next.
+
+01:33:13.500 --> 01:33:15.180
+Wie macht man HTTP-Requests?
+
+01:33:15.280 --> 01:33:17.300
+Machen wir mal alle Sekunden.
+
+01:33:17.300 --> 01:33:19.420
+Wir wollen die APIs jetzt nicht so krass vollspammen.
+
+01:33:22.200 --> 01:33:24.980
+Ich finde das gar nicht schlecht, ehrlich gesagt, Leute.
+
+01:33:25.820 --> 01:33:27.300
+Das ist ziemlich...
+
+01:33:27.820 --> 01:33:30.920
+Also für Java-Verhältnisse ziemlich kurz und knackig.
+
+01:33:31.580 --> 01:33:32.900
+Das Websocket-Handling hier.
+
+01:33:32.980 --> 01:33:35.980
+kannst du dich nicht beschweren
+
+01:33:42.100 --> 01:33:45.100
+so wirklich übersichtlich
+
+01:33:45.700 --> 01:33:51.160
+so und jetzt kommt man wie man http request macht jetzt hat die api
+
+01:33:54.160 --> 01:34:01.320
+wir suchen uns jetzt mal irgendeine api raus wo wir zeug für abfragen können
+
+01:34:01.320 --> 01:34:05.660
+zur not nehmen die star wars api
+
+01:34:08.360 --> 01:34:20.000
+tom hicks lucifer kurz habe ich geguckt die serie die war ich ganz neues
+
+01:34:20.000 --> 01:34:22.000
+Harry Potter Quotes
+
+01:34:27.440 --> 01:34:34.200
+Die Poké-RP, ja das ist... nein die Herr der Ringe-RP. Wir brauchen eine RP-Key?
+
+01:34:40.360 --> 01:34:42.360
+The One-RP
+
+01:34:50.000 --> 01:34:58.020
+Brauchen Keinen api wobei wobei das mit dem api ist gar nicht so blöd da können wir uns auch noch überlegen gleich wie es funktioniert
+
+01:35:06.800 --> 01:35:11.740
+Wir Suchen uns Irgendeine ich weiß was quote in der quote anime quotes
+
+01:35:11.880 --> 01:35:16.120
+Ja Genau das das ist das allerwichtigste das brauche
+
+01:35:20.000 --> 01:35:27.300
+Die letzten Staffeln habe ich auch nicht geguckt.
+
+01:35:27.420 --> 01:35:28.900
+Ich habe bei Staffel 4 oder so aufgehört.
+
+01:35:30.900 --> 01:35:32.180
+Jason Placeholder.
+
+01:35:35.760 --> 01:35:39.060
+Ich finde, das ist tatsächlich für unseren Fall gar nicht so verkehrt.
+
+01:35:40.700 --> 01:35:44.280
+Free, fake and reliable API for testing and prototyping.
+
+01:35:45.600 --> 01:35:47.480
+Patch to do...
+
+01:35:47.480 --> 01:35:49.440
+Ja, das ist ziemlich gut. Das machen wir.
+
+01:35:50.000 --> 01:35:53.540
+Ja, das ist gut.
+
+01:35:53.540 --> 01:36:00.240
+Das benutzen wir und dann machen wir noch einen Timestamp.
+
+01:36:00.240 --> 01:36:08.940
+Ja, das ist gut, das benutzen wir.
+
+01:36:08.940 --> 01:36:13.900
+Wie viele To-Do's gibt es hier eigentlich?
+
+01:36:13.900 --> 01:36:18.480
+Kann man das listen irgendwie?
+
+01:36:18.480 --> 01:36:31.760
+hier hier sind alle alle to do's regenerate sich das irgendwie random
+
+01:36:36.920 --> 01:36:42.740
+ich habe die idee was wir machen wir rufen einfach random 1 bis 10 ab das
+
+01:36:42.740 --> 01:36:54.500
+schon okay so jetzt ist die preisfrage wie macht man in java http requests das ist eher das ist
+
+01:36:54.500 --> 01:37:03.980
+eher keine spring boot frage sondern eine java frage oder web klein non blocking reactive klein
+
+01:37:03.980 --> 01:37:11.600
+mit fluchen ab ihr rest klein moment sehe ich das richtig allein das spring
+
+01:37:11.600 --> 01:37:16.300
+framework hat vier verschiedene http clients
+
+01:37:16.480 --> 01:37:19.480
+und
+
+01:37:21.160 --> 01:37:23.480
+ja
+
+01:37:28.740 --> 01:37:33.220
+das ist ein kleines klein mit der flut ab sinken das klein mit template method
+
+01:37:33.220 --> 01:37:39.040
+api prominent web non blocking reactive klein mit kluder in den restline restline klingt gut
+
+01:37:39.040 --> 01:37:45.040
+alter ort
+
+01:37:45.040 --> 01:38:02.060
+http-commons-client http-request-factory
+
+01:38:02.060 --> 01:38:10.980
+mehr Java-Benahmung geht nicht mehr, Alter.
+
+01:38:15.040 --> 01:38:20.980
+aber wir können einfach sagen rest client default create das schon mal gut
+
+01:38:20.980 --> 01:38:31.180
+okay ich mache das mal in die main in meine main methode rein weil ich ganz ehrlich ich will ja
+
+01:38:31.180 --> 01:38:37.180
+nur gucken wie man wie http request macht eigentlich kacken ob ich habe meinen clipboard
+
+01:38:37.180 --> 01:38:54.700
+ausgeschaltet war war auch die programme am start http client http client jetzt
+
+01:38:54.700 --> 01:39:01.240
+gibt es wahrscheinlich was aber dann noch so für methoden hier drin
+
+01:39:01.240 --> 01:39:12.680
+get delete put add method mutate patch post ok get wollen wir haben wie macht man ein get request
+
+01:39:23.460 --> 01:39:26.580
+so schon immer nett das wäre auch deutlich zu einfach
+
+01:39:26.580 --> 01:39:32.400
+wie macht man einen weg
+
+01:39:32.400 --> 01:39:38.680
+moment
+
+01:39:38.680 --> 01:39:55.380
+man macht einen get und danach gibt man erst die url an wie macht denn ein get ohne dass er die
+
+01:39:55.380 --> 01:40:06.380
+url weiß in den bildern bin ich jetzt bin ich ein bisschen leicht verwirrt
+
+01:40:06.380 --> 01:40:16.320
+ok aber ich will platzhalter okay das kann dann machen wir so hier noch die
+
+01:40:16.320 --> 01:40:19.480
+ID ist... Moment.
+
+01:40:19.740 --> 01:40:20.400
+Ah, haha.
+
+01:40:21.280 --> 01:40:23.640
+Das habe ich doch gestern gelernt, wie man random macht
+
+01:40:23.640 --> 01:40:25.180
+in Java. Random.
+
+01:40:26.260 --> 01:40:27.580
+Thread. Local.
+
+01:40:28.280 --> 01:40:29.220
+Random. Ne.
+
+01:40:29.420 --> 01:40:29.640
+Ah.
+
+01:40:33.160 --> 01:40:33.880
+Current.
+
+01:40:34.740 --> 01:40:35.500
+Next.
+
+01:40:35.680 --> 01:40:36.000
+Int.
+
+01:40:37.460 --> 01:40:39.000
+Von 1 bis
+
+01:40:39.000 --> 01:40:42.880
+10. Keine Ahnung.
+
+01:40:42.880 --> 01:40:43.160
+So.
+
+01:40:43.160 --> 01:40:49.820
+ich weiß auch nicht warum das so kompliziert ist sind in den in sich zu rennen meisten in die aber
+
+01:40:49.820 --> 01:41:05.900
+ich glaube müssen 11 nehmen weil das weil das inklusive 1 vermutlich und dann bis 11 also
+
+01:41:05.900 --> 01:41:14.240
+inklusive 10 exklusive 11 oder einfach random next in das hat nicht funktioniert das habe
+
+01:41:14.240 --> 01:41:25.960
+ich gestern ausprobiert das geht schon mal nicht next in
+
+01:41:25.960 --> 01:41:35.900
+so id jetzt lädt er das runter
+
+01:41:35.900 --> 01:41:44.020
+und jetzt geben wir uns das mal aus gibt es hier vielleicht ein makro für
+
+01:41:44.020 --> 01:41:47.720
+out was war das system out print id
+
+01:41:47.720 --> 01:41:53.160
+hat das im fonds das jetzt schon lass mal gucken
+
+01:41:53.160 --> 01:42:05.880
+alle nicht print id was mache ich denn das bonn es bonn ist ein http herr speck
+
+01:42:05.880 --> 01:42:17.940
+moment ich muss gucken wie man wie man den request macht bin dazu blöd für retrieved
+
+01:42:17.940 --> 01:42:19.800
+muss man dann sagen. Aha.
+
+01:42:21.760 --> 01:42:22.260
+Und dann was?
+
+01:42:22.520 --> 01:42:23.940
+Body String Class.
+
+01:42:24.780 --> 01:42:26.400
+Das ist aber wirklich jetzt alles andere
+
+01:42:26.400 --> 01:42:27.600
+als intuitiv.
+
+01:42:30.780 --> 01:42:31.940
+Machen wir mal so.
+
+01:42:33.240 --> 01:42:33.460
+So.
+
+01:42:34.500 --> 01:42:35.100
+Retrieve.
+
+01:42:37.020 --> 01:42:38.400
+Was hat er für Schmerzen
+
+01:42:38.400 --> 01:42:38.600
+wieder?
+
+01:42:39.780 --> 01:42:41.080
+Result is ignored.
+
+01:42:41.080 --> 01:42:41.960
+Ja, ja.
+
+01:42:43.780 --> 01:42:44.580
+Sponsor.
+
+01:42:47.940 --> 01:42:57.660
+response body kann man nicht sagen to string doch zu springen geht bestimmt auch response
+
+01:42:57.660 --> 01:43:05.040
+to bodyless entity wie sich das anhört mal kurz
+
+01:43:05.040 --> 01:43:16.980
+welche java version 25 to string guck mal was da jetzt rauskommt
+
+01:43:16.980 --> 01:43:28.020
+kommt daten so geht das schon mal mit response body
+
+01:43:29.280 --> 01:43:33.060
+ich finde das warum gibt es nicht so was wie es stringt das ist so ziemlich
+
+01:43:33.060 --> 01:43:38.700
+wahrscheinlich was 99,9 prozent der leute wollen mit dem response
+
+01:43:38.700 --> 01:43:45.480
+Okay, String, Punkt klar.
+
+01:43:45.820 --> 01:43:48.400
+Das finde ich jetzt abartig, ehrlich gesagt.
+
+01:43:52.620 --> 01:43:55.080
+Weil du Responses fast nie als String haben willst.
+
+01:43:55.780 --> 01:43:59.340
+Also ganz ehrlich, ich will zu 99% meine Responses als String haben,
+
+01:43:59.700 --> 01:44:02.140
+damit ich sie danach als JSON oder so parsen kann.
+
+01:44:08.700 --> 01:44:22.140
+auf uns kannst auch string machen das bezweifle ich dass man so meint so wir
+
+01:44:22.140 --> 01:44:31.220
+sind ja nicht in dort netter das von uns natürlich nett oder
+
+01:44:31.220 --> 01:44:39.220
+Oh ne, ah, Moment, redo?
+
+01:44:44.640 --> 01:44:45.980
+So, so will ich das haben.
+
+01:44:48.740 --> 01:44:50.360
+Ach, ich kann da...
+
+01:44:50.360 --> 01:44:53.900
+Ach, jetzt verstehe ich das.
+
+01:44:55.720 --> 01:44:56.720
+Ich mache...
+
+01:44:56.720 --> 01:44:57.540
+Ach so.
+
+01:44:57.540 --> 01:45:09.540
+also eigentlich machen wir sowas hier wie ja keine api response sowas chat
+
+01:45:09.540 --> 01:45:23.280
+wir machen ein rekord wieder ist doch viel besser records records string user id string
+
+01:45:23.280 --> 01:45:41.460
+und id die string title moment war was hat er denn für schmerzen gerade was will er jetzt von mir
+
+01:45:53.280 --> 01:45:56.280
+Achso der Name.
+
+01:45:56.280 --> 01:45:58.280
+Api Response.
+
+01:45:58.280 --> 01:46:05.280
+User ID, Int ID, String Title, Completed.
+
+01:46:05.280 --> 01:46:09.280
+Bool.
+
+01:46:09.280 --> 01:46:18.280
+Chat, was ist denn der Unterschied zwischen Int und Int?
+
+01:46:18.280 --> 01:46:20.280
+Ah ne, Int gibt es gar nicht.
+
+01:46:20.280 --> 01:46:22.280
+Aber...
+
+01:46:30.280 --> 01:46:31.700
+Ist eine Rapper-Klasse.
+
+01:46:32.180 --> 01:46:33.780
+Warum soll ich ein Int rappen wollen?
+
+01:46:35.420 --> 01:46:36.380
+Achso, das kann
+
+01:46:36.380 --> 01:46:37.600
+null sein, das andere nicht.
+
+01:46:38.120 --> 01:46:40.360
+Also das Gegenstück von sowas hier
+
+01:46:40.360 --> 01:46:41.400
+in .NET quasi.
+
+01:46:42.620 --> 01:46:44.360
+Also das ist in .NET, ist das ein Nullable
+
+01:46:44.360 --> 01:46:44.660
+Int.
+
+01:46:50.280 --> 01:46:58.040
+ok verstehe das heißt jetzt sage ich wenn ich das hier zum die sehr realisieren verwenden
+
+01:46:58.040 --> 01:47:07.200
+will sage ich hier ab response punkt glas korrekt das ist doch eigentlich ganz cool
+
+01:47:07.200 --> 01:47:18.240
+das ist gefällt ist ganz ehrlich das gefällt mir eigentlich ganz gut das ist ein bisschen
+
+01:47:18.240 --> 01:47:20.860
+wie in .NET, wenn man sowas sagt,
+
+01:47:20.940 --> 01:47:22.040
+dann hier irgendwie, keine Ahnung,
+
+01:47:22.180 --> 01:47:23.940
+JSON-Response, Punkt,
+
+01:47:24.820 --> 01:47:26.220
+wie war das jetzt nochmal,
+
+01:47:26.480 --> 01:47:28.520
+nicht S, die Serialize irgendwie,
+
+01:47:28.760 --> 01:47:31.340
+die Serialize
+
+01:47:31.340 --> 01:47:32.420
+als
+
+01:47:32.420 --> 01:47:34.420
+API-Response, so.
+
+01:47:34.820 --> 01:47:36.560
+In .NET wird das so ungefähr ausschauen.
+
+01:47:43.660 --> 01:47:45.080
+Also von der Gewöhnung her
+
+01:47:45.080 --> 01:47:46.580
+finde ich das ja auch schöner,
+
+01:47:46.580 --> 01:47:48.800
+aber das geht klar.
+
+01:47:49.100 --> 01:47:50.240
+Also das geht echt klar, finde ich.
+
+01:47:50.460 --> 01:47:51.320
+Kann man so lassen.
+
+01:47:52.300 --> 01:47:53.940
+So, jetzt haben wir hier ein
+
+01:47:53.940 --> 01:47:55.280
+randomizedes
+
+01:47:55.280 --> 01:48:00.800
+eine randomizede
+
+01:48:00.800 --> 01:48:02.760
+API-Response. Gut, dann
+
+01:48:02.760 --> 01:48:04.620
+kopieren wir uns diesen ganzen Krempel mal
+
+01:48:04.620 --> 01:48:09.900
+und starten wieder unsere
+
+01:48:09.900 --> 01:48:12.120
+Spring-Anwendung
+
+01:48:14.460 --> 01:48:15.900
+und gehen jetzt mal hier hin,
+
+01:48:15.900 --> 01:48:22.840
+wo wir automatisch aktuell nur immer diesen sinnlosen Text senden.
+
+01:48:23.460 --> 01:48:26.500
+So, wir wollen alle, einmal pro Sekunde,
+
+01:48:27.020 --> 01:48:34.940
+wir wollen einmal pro Sekunde, wollen wir neues,
+
+01:48:35.780 --> 01:48:41.300
+neue hier Fake-To-Dos abrufen.
+
+01:48:42.240 --> 01:48:44.660
+Wir können das auch printen, das ist okay.
+
+01:48:45.900 --> 01:48:55.260
+und dann wollen wir das ganze senden aber das nicht auf eine zeile macht
+
+01:48:55.260 --> 01:49:04.020
+manchmal kurz format und jetzt sagen wir hier als payload
+
+01:49:04.020 --> 01:49:11.080
+das kann man eigentlich alles machen hierbei bei send message
+
+01:49:11.080 --> 01:49:16.920
+Ich will das als chasen senden, siehste?
+
+01:49:16.920 --> 01:49:21.080
+Okay, wir tun jetzt mal so, als hätten wir was damit gemacht.
+
+01:49:21.080 --> 01:49:24.520
+Wir tun jetzt mal so, als hätten wir was gemacht.
+
+01:49:24.520 --> 01:49:31.860
+Also, ähm, wir nennen das Ding jetzt nicht api, also hier, nennen wir das mal anders.
+
+01:49:31.860 --> 01:49:36.200
+Nennen wir das mal hier, ähm, hier todo api response.
+
+01:49:36.200 --> 01:49:44.820
+und dann haben wir unseren Kram, das heißt hier, whatever hier, Frontend-API-Response oder so.
+
+01:49:44.820 --> 01:49:52.400
+So, und unsere Frontend-API-Response sieht anders aus, wie das da ist.
+
+01:49:53.320 --> 01:49:53.900
+Keine Ahnung.
+
+01:49:54.440 --> 01:49:57.880
+Da gibt es noch einen Timestamp dabei bei uns hier.
+
+01:49:58.460 --> 01:49:59.600
+Int-Timestamp.
+
+01:49:59.900 --> 01:50:02.800
+So, einfach mal jetzt.
+
+01:50:02.800 --> 01:50:04.340
+So
+
+01:50:04.340 --> 01:50:05.860
+Das heißt
+
+01:50:05.860 --> 01:50:10.200
+Wir parsen uns das hier
+
+01:50:10.200 --> 01:50:16.220
+Ach ne, das kann ich hier direkt dran machen, gell
+
+01:50:16.220 --> 01:50:18.120
+So, hier hinten dran
+
+01:50:18.120 --> 01:50:20.220
+Dann ist hier in Response ist das drin
+
+01:50:20.220 --> 01:50:24.120
+Okay, dann printen wir die Response einmal
+
+01:50:24.120 --> 01:50:25.440
+So, dann sagen wir
+
+01:50:25.440 --> 01:50:27.560
+New Frontend API Response
+
+01:50:27.560 --> 01:50:29.600
+Mir fällt echt kein dümmerer Name ein gerade
+
+01:50:29.600 --> 01:50:38.840
+so gibt es die möglichkeit dass man das muss ich jetzt alles von hand mapen dass
+
+01:50:38.840 --> 01:50:47.720
+ich jetzt irgendwie sage response so direkt geht net in dort nette
+
+01:50:47.720 --> 01:50:49.760
+könnte ich jetzt sowas hier machen geht das ja auch
+
+01:50:49.760 --> 01:50:52.980
+Nee, ne?
+
+01:50:55.280 --> 01:50:55.560
+Oder?
+
+01:51:00.480 --> 01:51:01.960
+Okay, Response.
+
+01:51:03.440 --> 01:51:04.500
+User ID.
+
+01:51:06.920 --> 01:51:08.400
+Was will er jetzt von mir?
+
+01:51:10.740 --> 01:51:12.600
+May produce 0 Pro...
+
+01:51:12.600 --> 01:51:14.360
+Warum?
+
+01:51:15.780 --> 01:51:17.320
+Weil Response 0 sein könnte?
+
+01:51:17.720 --> 01:51:18.780
+Gibt's in Java sowas?
+
+01:51:19.760 --> 01:51:21.660
+Das ist nichts Null.
+
+01:51:28.000 --> 01:51:29.720
+Spawns.
+
+01:51:30.060 --> 01:51:31.060
+ID.
+
+01:51:32.560 --> 01:51:33.600
+Spawns.
+
+01:51:34.540 --> 01:51:35.200
+Title.
+
+01:51:36.460 --> 01:51:37.400
+Spawns.
+
+01:51:38.060 --> 01:51:38.660
+Completed.
+
+01:51:39.260 --> 01:51:40.560
+Und jetzt kommt ein Timestamp.
+
+01:51:41.060 --> 01:51:42.020
+Jetzt brauchen wir ein Timestamp.
+
+01:51:42.620 --> 01:51:44.000
+Unix Timestamp.
+
+01:51:45.680 --> 01:51:48.600
+Java generate Unix Timestamp.
+
+01:51:49.760 --> 01:51:51.940
+Unique Time in Java.
+
+01:51:54.640 --> 01:51:56.760
+System Current Time Millispl...
+
+01:51:56.760 --> 01:51:59.280
+Easy.
+
+01:52:10.560 --> 01:52:11.700
+So.
+
+01:52:13.040 --> 01:52:14.720
+Es ist ein Long.
+
+01:52:18.720 --> 01:52:19.160
+Okay.
+
+01:52:19.760 --> 01:52:24.140
+So, jetzt haben wir hier unsere komische Klasse am Start dafür.
+
+01:52:29.040 --> 01:52:30.000
+Message oder so.
+
+01:52:30.760 --> 01:52:34.600
+Jetzt ist natürlich die Frage, wie kriegen wir diese Klasse hier verschickt?
+
+01:52:35.460 --> 01:52:38.060
+Kann man da auch einfach sagen, Message?
+
+01:52:39.400 --> 01:52:39.640
+Ne.
+
+01:52:40.380 --> 01:52:42.860
+Wie serialise ich das denn jetzt wieder als Message?
+
+01:52:47.500 --> 01:52:47.980
+New?
+
+01:52:47.980 --> 01:52:51.040
+Binary Message, Pong Message
+
+01:52:51.040 --> 01:52:53.300
+Ich will keine Binary Message
+
+01:52:53.300 --> 01:52:54.360
+Ich will eine Text Message
+
+01:52:54.360 --> 01:52:56.940
+Aber ich würde gerne
+
+01:52:56.940 --> 01:53:01.500
+Das serializen
+
+01:53:01.500 --> 01:53:06.460
+Macht das Spring auch irgendwie für mich?
+
+01:53:10.460 --> 01:53:12.200
+Du kannst es einfach returnen
+
+01:53:12.200 --> 01:53:12.860
+Ne, anscheinend nicht
+
+01:53:17.980 --> 01:53:26.140
+anscheinend nicht also gucken wir noch ob wir gucken mal schnell ob noch alles funktioniert
+
+01:53:26.140 --> 01:53:37.480
+system out message aber ob das hier an sich funktioniert
+
+01:53:37.480 --> 01:53:47.260
+ja und timestamp unix time und alles
+
+01:53:47.260 --> 01:53:59.380
+ich habe keinen return tab es gibt hier nichts was return wird ich will das als als message an
+
+01:53:59.380 --> 01:54:07.440
+alle meine frontend sachen schicken also ist jetzt wie wie serielle ist sehr realisiere ich
+
+01:54:07.440 --> 01:54:18.400
+das denn schön dass chasen dass das spring magic macht aber spring serialize objekt to jason
+
+01:54:18.400 --> 01:54:23.600
+auto sind objekt zu jason
+
+01:54:23.600 --> 01:54:41.600
+Jason
+
+01:54:41.600 --> 01:54:44.340
+Jackson
+
+01:54:44.340 --> 01:54:46.520
+What the fuck
+
+01:54:53.600 --> 01:54:55.780
+Pleon wieder.
+
+01:55:00.780 --> 01:55:02.020
+Object Mapper.
+
+01:55:09.120 --> 01:55:11.200
+Object Mapper.
+
+01:55:13.120 --> 01:55:14.160
+Ah ne.
+
+01:55:14.400 --> 01:55:15.880
+New Object Mapper.
+
+01:55:19.440 --> 01:55:20.400
+Write.
+
+01:55:21.600 --> 01:55:22.100
+Value.
+
+01:55:22.600 --> 01:55:25.820
+Okay, kryptischer hätte man es jetzt ja nur wirklich nicht benennen können.
+
+01:55:27.740 --> 01:55:29.600
+New Object Mapper Write Value.
+
+01:55:29.680 --> 01:55:32.160
+Und da kommt dann am Ende ein serialisiertes Jason-Buy raus.
+
+01:55:32.280 --> 01:55:34.960
+Also, die Benamung ist wirklich hängen geblieben.
+
+01:55:44.360 --> 01:55:45.340
+Auch nicht besser.
+
+01:55:52.100 --> 01:56:04.460
+wobei ich will ja gar kein egal will er da gar keine exception
+
+01:56:04.460 --> 01:56:07.400
+schmeißen muss ich jetzt wieder try try catchen oder was
+
+01:56:07.400 --> 01:56:26.620
+Jetzt muss das hier natürlich, wenn ich das hier brauche, muss das in das Trial rein.
+
+01:56:26.620 --> 01:56:28.900
+mehr Einrückungstiefe, please.
+
+01:56:39.040 --> 01:56:39.480
+So.
+
+01:56:40.740 --> 01:56:42.740
+Jetzt kann ich das hier schicken.
+
+01:56:43.460 --> 01:56:44.200
+Das ist jetzt nicht schön.
+
+01:56:44.280 --> 01:56:46.100
+Das kann man bestimmt noch etwas verfeinern,
+
+01:56:46.200 --> 01:56:47.960
+weil man versteht, was man da eigentlich macht.
+
+01:56:49.020 --> 01:56:50.620
+So, aber jetzt müsste ich hier eigentlich
+
+01:56:50.620 --> 01:56:51.540
+eine Antwort kriegen.
+
+01:56:52.080 --> 01:56:52.220
+Ja.
+
+01:56:53.800 --> 01:56:54.680
+Mit Timestamp.
+
+01:56:55.800 --> 01:56:56.200
+Kunst.
+
+01:56:56.620 --> 01:57:05.860
+Das ist, wenn du Java und C++ zusammenwurschtelst, ja.
+
+01:57:08.520 --> 01:57:09.220
+Das funzt.
+
+01:57:12.820 --> 01:57:18.220
+Wir kriegen jetzt alle Sekunde, also der ruft jetzt einmal in der Sekunde von der API was Neues ab,
+
+01:57:18.700 --> 01:57:21.420
+packt noch einen Timestamp dabei und schickt es an mein Frontend zurück.
+
+01:57:21.700 --> 01:57:26.100
+Heißt im Endeffekt auch, wenn wir jetzt hier in unser Frontend gehen,
+
+01:57:26.620 --> 01:57:28.860
+Kriegen wir alle Sekunde eine Nachricht geschickt?
+
+01:57:35.300 --> 01:57:38.380
+Guck mal, ich hatte gerade mehrfach 8 hintereinander.
+
+01:57:40.520 --> 01:57:42.660
+So, und jetzt können wir das eigentlich anzeigen.
+
+01:57:43.180 --> 01:57:47.000
+Also sprich, wir können jetzt sagen, onMessage, wir loggen das.
+
+01:57:47.840 --> 01:57:51.800
+Und jetzt hören meine Vanilla-Java-Skript-Skills gerade auf.
+
+01:57:53.540 --> 01:57:55.900
+Moment, wie würde ich das jetzt eigentlich machen?
+
+01:57:55.900 --> 01:58:13.200
+div id ja keine ahnung content oder so und dann java javascript document get element by id content
+
+01:58:13.200 --> 01:58:30.540
+und jetzt irgendwie inner html inner text gleich message
+
+01:58:30.540 --> 01:58:35.640
+ach nee moment
+
+01:58:35.640 --> 01:58:42.540
+Pass.
+
+01:58:42.540 --> 01:58:44.800
+Message.
+
+01:58:53.100 --> 01:58:57.900
+Ach, Data.
+
+01:59:05.640 --> 01:59:13.860
+Ich check's immer noch nicht so ganz.
+
+01:59:18.660 --> 01:59:19.880
+Ach ne, Moment. Text.
+
+01:59:20.540 --> 01:59:22.100
+Ich muss da gar nichts chasen, parsen.
+
+01:59:23.640 --> 01:59:24.080
+Ja.
+
+01:59:27.040 --> 01:59:27.480
+Okay.
+
+01:59:27.740 --> 01:59:28.060
+Für uns.
+
+01:59:29.080 --> 01:59:31.680
+Wir kriegen per Websocket
+
+01:59:31.680 --> 01:59:33.760
+einmal in der Sekunde neues Zeug geschickt.
+
+01:59:34.600 --> 01:59:37.160
+Wir verzichten jetzt mal drauf, unser Frontend hübsch zu machen.
+
+01:59:37.280 --> 01:59:38.280
+Darum geht es jetzt ja nicht.
+
+01:59:41.300 --> 01:59:42.060
+Das klappt.
+
+01:59:43.500 --> 01:59:49.560
+Also ich muss sagen, dass das deutlich einfacher ging, als ich mir das vorgestellt habe.
+
+01:59:50.000 --> 01:59:54.160
+Das hier ist nicht schön und das ist jetzt sicher bestimmt nicht Java, Business, Enterprise,
+
+01:59:54.160 --> 01:59:56.120
+High IQ Zeug mäßig gemacht.
+
+01:59:58.060 --> 02:00:02.440
+Gerade diese 500 mal Try ineinander finde ich schon ziemlich cringe.
+
+02:00:02.440 --> 02:00:08.020
+wobei das brauchen wir doch gar nicht guck mal das try können wir uns sparen
+
+02:00:08.020 --> 02:00:15.400
+weil wir jetzt das äußere haben so kann man mehrere exceptions eigentlich
+
+02:00:15.400 --> 02:00:23.440
+catchen irgendwie so ne ja man muss ja mehrere catch blöcke machen wahrscheinlich
+
+02:00:23.440 --> 02:00:32.200
+aber wir können einfach hier zack bumm so easy einfach mal alles ignorieren
+
+02:00:32.200 --> 02:00:40.200
+mein pipe da wäre ich jetzt nicht drauf gekommen
+
+02:00:40.200 --> 02:00:48.220
+wo man chat gpt fragen wie wir das hier hübscher machen können
+
+02:00:48.220 --> 02:01:04.660
+Wie könnte man diese Methode, das ist ja eine Klasse, ist egal, hübscher machen?
+
+02:01:04.660 --> 02:01:11.920
+Einige Codesmells, Leute!
+
+02:01:11.920 --> 02:01:20.660
+Codesmells
+
+02:01:20.660 --> 02:01:25.380
+JetGPT hat anscheinend gehört
+
+02:01:25.380 --> 02:01:27.240
+dass ich mich 3-4 Tage nicht waschen darf
+
+02:01:27.240 --> 02:01:27.800
+wegen meiner
+
+02:01:27.800 --> 02:01:30.380
+Pflaster auf dem Rücken
+
+02:01:30.380 --> 02:01:36.420
+Verletzung der Single Responsibility
+
+02:01:36.420 --> 02:01:36.740
+Prinzip
+
+02:01:36.740 --> 02:01:38.360
+Jetzt brauchen wir mal nicht übertreiben
+
+02:01:38.360 --> 02:01:45.360
+hier jetzt flasche ich habe am donnerstag habe ich einen kleinen leberfleck raus geschnippelt
+
+02:01:45.360 --> 02:01:51.120
+bekommen am rücken michael 50 milliarden wollen lange nicht gesehen und der doktor hat gesagt ich
+
+02:01:51.120 --> 02:01:54.320
+soll das pflaster so lange wie es geht drauf lassen uns auf gar keinen fall soll wasser
+
+02:01:54.320 --> 02:02:00.480
+dran kommen das heißt nach möglichkeit dahinter nicht wäschen oder nicht duschen gehen für so
+
+02:02:00.480 --> 02:02:05.480
+lange wie ich aushalte ich habe mir gedacht bis montag halte ich aus das ist dann donnerstag
+
+02:02:05.480 --> 02:02:07.940
+Freitag, Samstag, so vier Tag quasi.
+
+02:02:09.760 --> 02:02:11.840
+Dann muss ich aber mal wieder...
+
+02:02:13.600 --> 02:02:15.340
+Nutzt doch Cursor für die Entwicklung.
+
+02:02:15.500 --> 02:02:15.700
+Nee.
+
+02:02:20.500 --> 02:02:21.240
+Also Michael,
+
+02:02:21.400 --> 02:02:23.160
+fünf Spiele an. Bei mir hat der Doktor gesagt,
+
+02:02:23.220 --> 02:02:24.620
+du musst mir da keine Gedanken machen.
+
+02:02:27.220 --> 02:02:29.020
+Da hat dein Kollege aber nochmal Glück gehabt,
+
+02:02:29.140 --> 02:02:31.140
+dass das alles so...
+
+02:02:31.140 --> 02:02:33.940
+so früh erkannt wurde, oder?
+
+02:02:35.480 --> 02:02:42.740
+Wenn nicht Cursor, was sonst?
+
+02:02:43.920 --> 02:02:45.460
+Einfach weniger Vibe coden.
+
+02:02:53.140 --> 02:02:54.320
+Vierjähriges Jubiläum.
+
+02:02:54.420 --> 02:02:55.380
+Das stand nirgendwo.
+
+02:02:57.040 --> 02:02:58.320
+Wieso nutzt du Java?
+
+02:02:58.600 --> 02:03:00.340
+Weil ich auf der Arbeit
+
+02:03:00.340 --> 02:03:02.360
+eventuell demnächst ein bisschen Java
+
+02:03:02.360 --> 02:03:04.340
+basteln muss.
+
+02:03:05.480 --> 02:03:11.540
+muss ich habe mich da freiwillig freiwillig mache ich mache so ein 14 tage praktikum bei
+
+02:03:11.540 --> 02:03:15.980
+unseren entwicklern ich nenne es mal praktikum habe ich gesagt will ich mal machen und da hätte
+
+02:03:15.980 --> 02:03:21.600
+dachte ich mir es wäre vielleicht nicht verkehrt ein bisschen bisschen probleme bisschen was zu
+
+02:03:21.600 --> 02:03:29.360
+wissen darüber wo ist das problem mit vibe coding wenn du weib code ist ohne zu verstehen was es
+
+02:03:29.360 --> 02:03:42.060
+macht so also was sagt er denn jetzt rief die fakt dort
+
+02:03:42.060 --> 02:03:57.280
+Will er mit Logger?
+
+02:03:57.700 --> 02:03:58.160
+Geh weg.
+
+02:04:00.600 --> 02:04:01.880
+Websocket Service?
+
+02:04:02.320 --> 02:04:02.540
+What?
+
+02:04:03.540 --> 02:04:05.520
+Alter, ChatGPT macht da wieder
+
+02:04:05.520 --> 02:04:07.720
+ein super krasses Business Enterprise
+
+02:04:07.720 --> 02:04:08.760
+Ding draus.
+
+02:04:12.060 --> 02:04:30.060
+also ich weiß nicht so viel besser finde ich das jetzt nicht was chat gpt da gebastelt hat
+
+02:04:30.060 --> 02:04:38.640
+außer dass es das alles ausgeklärt hat
+
+02:04:38.640 --> 02:04:49.500
+würde es dann auch funktionieren ich bist gar nicht ausbricht also das finde ich ganz
+
+02:04:49.500 --> 02:04:54.540
+gut was chat gpt macht das ist das finde ich in der tat tatsächlich sinnvoll und
+
+02:04:54.540 --> 02:04:59.460
+zwar zu sagen dass man das was man hier mehrfach braucht dass man daraus
+
+02:04:59.460 --> 02:05:05.560
+kann es das kann doch intelli j garantiert
+
+02:05:05.560 --> 02:05:18.780
+So, ja.
+
+02:05:20.880 --> 02:05:22.880
+Das finde ich tatsächlich ganz sinnvoll.
+
+02:05:23.240 --> 02:05:24.420
+Einmal machen wir das.
+
+02:05:24.980 --> 02:05:25.960
+Können wir das renamen?
+
+02:05:27.780 --> 02:05:29.020
+Rename zu...
+
+02:05:29.020 --> 02:05:31.120
+Ich weiß, das macht man im Java-Umfeld nicht,
+
+02:05:31.200 --> 02:05:32.500
+aber ich finde das eigentlich mal ganz gut so.
+
+02:05:32.840 --> 02:05:33.560
+Dass man...
+
+02:05:35.560 --> 02:05:39.600
+dass man das Ding hier einmal global macht,
+
+02:05:39.840 --> 02:05:41.800
+das macht natürlich schon irgendwo Sinn.
+
+02:05:44.900 --> 02:05:45.500
+Ja.
+
+02:05:46.260 --> 02:05:47.460
+Aber funzt alles.
+
+02:05:54.400 --> 02:05:55.600
+Bin begeistert.
+
+02:05:58.440 --> 02:06:00.740
+Ja, da haben wir unser Ziel für heute erreicht.
+
+02:06:02.500 --> 02:06:03.060
+Websocket.
+
+02:06:03.060 --> 02:06:07.760
+oder was ist das? Funktionierende Websocket-Anwendung
+
+02:06:07.760 --> 02:06:09.260
+mit Spring Boot.
+
+02:06:14.080 --> 02:06:14.800
+Geguckt, wie man
+
+02:06:14.800 --> 02:06:17.160
+HTTP-Requests macht.
+
+02:06:18.840 --> 02:06:20.500
+Und Chat, was sagt ihr?
+
+02:06:21.000 --> 02:06:23.500
+Wie schlage ich mich für jemanden, der keinen Plan von Spring Boot
+
+02:06:23.500 --> 02:06:26.660
+und Java hat? Ich finde, geht doch klar, oder?
+
+02:06:27.060 --> 02:06:28.020
+Für die kurze Zeit.
+
+02:06:28.020 --> 02:06:35.100
+ich habe jetzt nicht gefragt dass ich krass gelobt werde interessiert mich einfach nur
+
+02:06:35.100 --> 02:06:43.800
+was sie davon denkt außerdem loben geht immer html file von spring so das hatten wir schon
+
+02:06:43.800 --> 02:06:51.780
+das haben wir schon gemacht hier aber das blöde ist wenn das html ausgeliefert wird hier vom vom
+
+02:06:51.780 --> 02:06:58.240
+tomcat dann muss ich jedes mal die anwendung neu starten
+
+02:07:05.100 --> 02:07:09.540
+anhand einer sonstigen konings okay das heißt sonst programmiert immer totalen
+
+02:07:09.540 --> 02:07:17.920
+schrott und heute war okay oder spring dev tools für hot reload das habe ich
+
+02:07:17.920 --> 02:07:19.880
+gelesen im Tutorial, das reloadet
+
+02:07:19.880 --> 02:07:21.700
+irgendwie alle 5 oder 10 Sekunden.
+
+02:07:21.840 --> 02:07:22.880
+Das ist doch eklig.
+
+02:07:24.280 --> 02:07:25.340
+Und mal ganz davon abgesehen,
+
+02:07:25.800 --> 02:07:27.840
+wenn man irgendein Frontend-Framework
+
+02:07:27.840 --> 02:07:30.260
+benutzt mit Vite oder so für Hot Reload,
+
+02:07:30.560 --> 02:07:32.100
+dann kann man das eh nicht ausliefern lassen.
+
+02:07:32.480 --> 02:07:33.980
+Dann würde ich das eh so machen, dass ich
+
+02:07:33.980 --> 02:07:35.760
+die Frontend-Anwendung halt so
+
+02:07:35.760 --> 02:07:37.580
+entwickle und einen
+
+02:07:37.580 --> 02:07:39.520
+Node.js Dev-Server laufen habe
+
+02:07:39.520 --> 02:07:41.880
+und dann an mein Backend gehe und
+
+02:07:41.880 --> 02:07:43.320
+erst wenn ich das Ding quasi
+
+02:07:43.320 --> 02:07:45.860
+ausliefern will
+
+02:07:45.860 --> 02:07:53.240
+im Endeffekt würde ich da eine statische Version bauen lassen und hier rein kopieren.
+
+02:08:03.240 --> 02:08:09.740
+Swing UI. Swing, sieht das mittlerweile wenigstens ganz, ganz brauchbar aus.
+
+02:08:15.860 --> 02:08:20.800
+sondern ich gehe jetzt eine runde joggen wird man echt wieder zeit habe zwei monate fast nichts gemacht
+
+02:08:23.800 --> 02:08:27.100
+Überlegt noch ob ich meine fitness uhr anziehen soll oder nicht
+
+02:08:28.120 --> 02:08:34.000
+weil wenn ich die uhr anziehe dann sehe ich erst mal wieder wie schlecht geworden bin deswegen lasse ich die uhr wahrscheinlich aus
+
+02:08:34.000 --> 02:08:42.580
+Näh, Strava poste ich nicht.
+
+02:08:43.000 --> 02:08:45.400
+Ich poste auch mein Fahrradzeug nicht auf Strava.
+
+02:08:57.780 --> 02:08:58.820
+Das macht nix.
+
+02:08:59.680 --> 02:09:01.100
+Soll nur kein Wasser drankommen.
+
+02:09:04.000 --> 02:09:13.120
+Das Problem ist allerdings,
+
+02:09:13.300 --> 02:09:14.720
+ihr sagt jetzt da was,
+
+02:09:15.720 --> 02:09:18.280
+wenn ich mich bis Montag nicht gescheit wäschen darf,
+
+02:09:19.580 --> 02:09:20.920
+wegen dem Pflaster und alles,
+
+02:09:21.000 --> 02:09:22.100
+wenn ich jetzt rennen gehe,
+
+02:09:22.460 --> 02:09:23.380
+dann wird das ja noch schlimmer.
+
+02:09:26.100 --> 02:09:28.140
+Ja, dann muss ich vielleicht doch morgen schon.
+
+02:09:34.000 --> 02:09:45.840
+ja waschlappen darf ich waschlappen darf ich das darf ich ja ich muss nur gucken
+
+02:09:45.840 --> 02:09:51.660
+dass auf den rücken kein kein wasser kommt gut leute da sehen wir uns
+
+02:09:51.660 --> 02:09:54.720
+vielleicht morgen früh zum aufwachen schrie mal gucken ob ich diese diese
+
+02:09:54.720 --> 02:10:01.440
+woche ein hinbekomme wir hören uns bis dann macht's gut
+
+02:10:01.440 --> 02:10:02.160
+See you!
+
