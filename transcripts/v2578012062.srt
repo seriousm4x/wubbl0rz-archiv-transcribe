@@ -1,0 +1,7156 @@
+1
+00:00:00,000 --> 00:00:29,280
+Pock, pock, pock, pock, pock, pock, pock.
+
+2
+00:00:30,000 --> 00:00:38,880
+Ja, ich bin wieder am Start.
+
+3
+00:00:50,580 --> 00:00:51,060
+Moin.
+
+4
+00:00:51,060 --> 00:00:59,040
+Erstmal warten, bis
+
+5
+00:00:59,040 --> 00:01:03,120
+Twitch sich wieder eingekriegt hat
+
+6
+00:01:03,120 --> 00:01:09,160
+Zeigt bei mir immer noch zwei Zuschauer
+
+7
+00:01:09,160 --> 00:01:11,500
+Was ja in der Launchpad nicht so ganz sein kann
+
+8
+00:01:11,500 --> 00:01:13,000
+Ah, jetzt 19, okay
+
+9
+00:01:13,000 --> 00:01:19,780
+Heute nicht Rust, Leute
+
+10
+00:01:19,780 --> 00:01:30,400
+seht ihr das oben rechts was da guck mal ich kann euch sogar winken hallo warum kann ich
+
+11
+00:01:30,400 --> 00:01:33,720
+euch nicht winken jetzt kann ich mich
+
+12
+00:01:45,300 --> 00:01:54,360
+spiegelung liegt mfg also oben seht ihr das board ich habe das auch so ein mini
+
+13
+00:01:54,360 --> 00:02:02,040
+breadboard gesteppt gestöpselt das gerade liegen bleibt da sieht man die
+
+14
+00:02:02,040 --> 00:02:07,920
+buttons und das display die gps sieht man nicht die sind auf der anderen seite
+
+15
+00:02:07,920 --> 00:02:15,120
+aber wir brauchen heute auch gar keine tp aus hausnummer reflektiert ja das ist
+
+16
+00:02:15,120 --> 00:02:20,120
+die bekannte 180 grad von außen nach innen spiegelung
+
+17
+00:02:24,360 --> 00:02:36,120
+richtig man kann es gibt es eigentlich in den schönes c++ im mode was wir verwenden können
+
+18
+00:02:36,120 --> 00:02:43,760
+irgendwelche blöden c++
+
+19
+00:02:43,760 --> 00:02:54,200
+ja ja ich war ich war jetzt nicht als abkürzung sondern als bild so was wie keck javascript haben
+
+20
+00:02:54,200 --> 00:03:03,240
+wir so was haben wir sowas für c++ ich guck mal kurz bei das ist mal kurz gucken hier 70 wie im
+
+21
+00:03:03,240 --> 00:03:19,700
+ort gibt sowas c++ natürlich nicht cpp ok aber nur das licht aber nur das logo gibt es logo will ich
+
+22
+00:03:19,700 --> 00:03:34,580
+nicht das ist nicht schlecht was das für die weeks unter uns aber erkennt man
+
+23
+00:03:34,580 --> 00:03:42,460
+überhaupt nicht gibt es gibt es irgend ein besseres
+
+24
+00:03:42,460 --> 00:03:48,700
+Ich nehm das jetzt mal.
+
+25
+00:03:48,700 --> 00:03:51,960
+Einfach, dass wir eine C++ Emote haben.
+
+26
+00:03:51,960 --> 00:03:53,500
+Sign in.
+
+27
+00:03:53,500 --> 00:03:54,840
+Oh fuck.
+
+28
+00:03:54,840 --> 00:03:55,840
+Continue with Twitch.
+
+29
+00:03:55,840 --> 00:03:58,700
+Okay, okay geht.
+
+30
+00:03:58,700 --> 00:04:04,500
+Emote add to Roblox Emotes confirm.
+
+31
+00:04:04,500 --> 00:04:07,140
+Müsste hinzugefügt haben.
+
+32
+00:04:07,140 --> 00:04:08,140
+Ja.
+
+33
+00:04:08,140 --> 00:04:09,140
+Good.
+
+34
+00:04:09,140 --> 00:04:16,940
+jetzt haben wir einen c++ Weep Emote da kann ja nichts mal schief gehen
+
+35
+00:04:16,940 --> 00:04:20,000
+falsch rum
+
+36
+00:04:27,000 --> 00:04:29,820
+ok ich mach mal meine VM an
+
+37
+00:04:29,820 --> 00:04:38,680
+also was wir heute probieren werden ist auf diesem display was sie hier oben rechts in
+
+38
+00:04:38,680 --> 00:04:45,220
+der ecke seht also ist die sp 32 mit display da will ich ein qr code drauf anzeigen und glaubt
+
+39
+00:04:45,220 --> 00:04:52,180
+ja das ist nicht so einfach wie man sich das vielleicht erst mal vorstellen zumindest habe
+
+40
+00:04:52,180 --> 00:04:56,860
+ich weil ich mein okay okay vielleicht ist es auch so einfach aber also ich stelle es mir nicht
+
+41
+00:04:56,860 --> 00:05:06,360
+einfach vor und ich weiß auch nicht wie ich das gescheit machen
+
+42
+00:05:06,620 --> 00:05:13,040
+hintergrund der idee ist wenn man ein neues gerät welche daten wifi daten
+
+43
+00:05:13,040 --> 00:05:17,840
+also weiß ich mir gedacht habe warum das ganz cool ist wenn man iot geräte
+
+44
+00:05:17,840 --> 00:05:23,800
+einrichtet da muss man ja initial mit dem wifi verbinden und meistens gibt es
+
+45
+00:05:23,800 --> 00:05:30,460
+dann einen offenen Access Point, über den man sich verbindet und dann dort sein WiFi-Zeug
+
+46
+00:05:30,460 --> 00:05:38,840
+eingibt. Aber warum machen wir es nicht so? Wir machen einen WiFi-Access Point auf, auf
+
+47
+00:05:38,840 --> 00:05:46,360
+dem ESP32 mit Passwort und dann gibt es auf dem Display einen QR-Code, so einen WiFi-Connect-QR-Code,
+
+48
+00:05:46,680 --> 00:05:50,580
+den man scannen kann mit dem Handy. Dann lockt man sich in den QR-Code ein und dann wird
+
+49
+00:05:50,580 --> 00:05:55,140
+man gleich weiter redirekt auf die seite wo man dann seine richtige als party tps
+
+50
+00:05:55,140 --> 00:05:58,820
+wo dann seine wifi credentials eingeben kann
+
+51
+00:05:58,820 --> 00:06:02,820
+dann ist alles verschlüsselt kein offener access point oder außerdem
+
+52
+00:06:02,820 --> 00:06:07,620
+interessiert mich einfach wie ich ein qr-code auf das display kriege also wir
+
+53
+00:06:07,620 --> 00:06:10,260
+kümmern uns heute mal nur um die qr-code geschichte das wird tatsächlich
+
+54
+00:06:10,260 --> 00:06:17,380
+komplizierter weil ich weiß auch noch gar nicht wie ich mit lvgl gescheit
+
+55
+00:06:17,380 --> 00:06:19,800
+überhaupt irgendwas aufs Display kriege.
+
+56
+00:06:21,580 --> 00:06:22,320
+Was ist das hier?
+
+57
+00:06:22,900 --> 00:06:23,840
+Also müssen wir mal gucken hier.
+
+58
+00:06:24,640 --> 00:06:25,980
+Haben wir hier schon mal den Display-Champ?
+
+59
+00:06:26,120 --> 00:06:27,680
+Aha, hier hatten wir schon mal den Display-Champ.
+
+60
+00:06:28,640 --> 00:06:30,540
+Da haben wir vielleicht noch ein paar Sachen mit Display.
+
+61
+00:06:30,680 --> 00:06:31,680
+Lasst mich mal kurz gucken.
+
+62
+00:06:32,580 --> 00:06:32,880
+Main.
+
+63
+00:06:34,620 --> 00:06:35,920
+Secret mache ich bestimmt nicht auf.
+
+64
+00:06:36,800 --> 00:06:38,640
+Haben wir hier schon mal was mit dem Display gemacht?
+
+65
+00:06:41,640 --> 00:06:42,800
+Ne, nur Web-Server.
+
+66
+00:06:43,500 --> 00:06:43,900
+Gedöns.
+
+67
+00:06:43,900 --> 00:06:48,680
+Nee, nee, mit dem Display haben wir noch nichts gemacht.
+
+68
+00:06:49,180 --> 00:06:50,180
+Ja, das ist ein anderes Display.
+
+69
+00:06:50,340 --> 00:06:52,400
+Wobei, ich weiß nicht, ob das das Display...
+
+70
+00:06:52,400 --> 00:06:55,080
+Aber das haben wir nicht mit LVGL gemacht.
+
+71
+00:06:55,180 --> 00:06:56,400
+Ich will das mit LVGL machen.
+
+72
+00:06:58,000 --> 00:07:00,440
+Weil es die einzige Library ist,
+
+73
+00:07:00,680 --> 00:07:02,640
+für so Zeug, die aktiv, gescheit,
+
+74
+00:07:02,700 --> 00:07:04,880
+gemaintained wird und modern ist
+
+75
+00:07:04,880 --> 00:07:06,900
+und auch User Interfaces malen kann
+
+76
+00:07:06,900 --> 00:07:07,400
+und sowas.
+
+77
+00:07:10,040 --> 00:07:10,860
+Okay, aber
+
+78
+00:07:10,860 --> 00:07:12,640
+passt schon mal.
+
+79
+00:07:12,640 --> 00:07:15,700
+Okay, dann machen wir hier ein neues Repo.
+
+80
+00:07:16,040 --> 00:07:19,260
+MKDier QR-Code Champ.
+
+81
+00:07:24,760 --> 00:07:25,360
+So.
+
+82
+00:07:26,780 --> 00:07:33,840
+Genau. Und wer sich fragt, was das ist, das ist ein ESP32 TTGO T-Display S3.
+
+83
+00:07:36,540 --> 00:07:37,840
+Das Teil ist das.
+
+84
+00:07:38,780 --> 00:07:42,100
+Ein ziemlich cooles Board, habe ich ja heute Morgen oder gestern schon mal gezeigt.
+
+85
+00:07:42,640 --> 00:07:46,960
+eigentlich ein ziemlich nice sport weil du hast alles was du brauchst am start
+
+86
+00:07:46,960 --> 00:07:55,760
+du hast zwei buttons du hast display du hast 16 oder wie viele gps
+
+87
+00:07:57,660 --> 00:08:01,480
+erste fünf voll pin 3 volt pin
+
+88
+00:08:02,700 --> 00:08:09,020
+23 volt pin sogar batterieanschluss mit wie heißt dieses ding noch mal mit
+
+89
+00:08:09,020 --> 00:08:11,560
+diesen zwei verschiedenen connector dingen die und diesem zum einen
+
+90
+00:08:11,560 --> 00:08:18,840
+verschiedenen connector was da gibt weiß ich ob das da auch ein connector ist
+
+91
+00:08:20,440 --> 00:08:26,240
+zumindest ist das ist sehr nice ist package der hat sogar touch hatte hat er
+
+92
+00:08:26,240 --> 00:08:29,800
+wusste ich gar nicht dazu an touch wusste ich gar nicht dass ein touch
+
+93
+00:08:29,800 --> 00:08:38,340
+touch display ist und das nice ist gibt es halt für relativ günstig alles hier
+
+94
+00:08:38,340 --> 00:08:38,980
+integriert.
+
+95
+00:08:41,520 --> 00:08:42,660
+Also ich finde, das ist ein echt
+
+96
+00:08:42,660 --> 00:08:44,700
+mit USB-C
+
+97
+00:08:44,700 --> 00:08:46,240
+Anschluss ein echt sehr nice
+
+98
+00:08:46,240 --> 00:08:48,300
+Board.
+
+99
+00:08:48,300 --> 00:08:49,620
+Und hier neben hast du noch einen kleinen
+
+100
+00:08:49,620 --> 00:08:51,580
+Button für Reset und sowas.
+
+101
+00:08:53,560 --> 00:08:54,440
+Und es gibt
+
+102
+00:08:54,440 --> 00:08:56,140
+sogar ein offizielles Gehäuse dafür,
+
+103
+00:08:56,280 --> 00:08:57,360
+was ich auch ganz nice finde.
+
+104
+00:08:57,360 --> 00:09:14,940
+Gibt sogar so ein offizielles Case dafür, was ich echt ganz cool finde.
+
+105
+00:09:14,940 --> 00:09:16,640
+Da muss man sich dann xsaps3d drucken.
+
+106
+00:09:16,640 --> 00:09:23,840
+also das ist nicht nur die shell das ist das gerät plus eine schelle
+
+107
+00:09:23,840 --> 00:09:32,360
+china chinesen 9 dollar ja das ist halt billig kummel in germany
+
+108
+00:09:32,360 --> 00:09:38,720
+gibt's auch noch mit crash finde ich eigentlich ganz nice kombination
+
+109
+00:09:38,720 --> 00:09:43,080
+Ja, habe ich schon.
+
+110
+00:09:43,580 --> 00:09:45,900
+Habe ich sogar schon mal fertig implementiert,
+
+111
+00:09:46,140 --> 00:09:48,040
+aber nie wirklich im Einsatz gehabt.
+
+112
+00:09:48,840 --> 00:09:50,000
+Ich hatte da so einen
+
+113
+00:09:50,000 --> 00:09:52,120
+IR, so einen Infrarot,
+
+114
+00:09:52,400 --> 00:09:53,700
+boah, wie hieß dieses Ding?
+
+115
+00:09:57,020 --> 00:09:58,380
+So einen Infrarotsensor
+
+116
+00:09:58,380 --> 00:09:58,780
+für
+
+117
+00:09:58,780 --> 00:10:05,740
+Irgendwie sowas, ja.
+
+118
+00:10:06,940 --> 00:10:08,140
+Also nicht, also
+
+119
+00:10:08,140 --> 00:10:14,720
+Ich meine jetzt nicht dieses Ding, was plinkt, sondern wirklich diesen Ferraris-Zähler, den ich mal abgelesen habe hier.
+
+120
+00:10:16,020 --> 00:10:18,860
+Das hat aber nicht so hundertprozentig gut funktioniert.
+
+121
+00:10:18,980 --> 00:10:19,920
+Dieses Ding meinst du, ne?
+
+122
+00:10:22,120 --> 00:10:24,300
+Das Teil meinst du, oder?
+
+123
+00:10:31,060 --> 00:10:33,640
+Oder meinst du das Teil, der schon eine LED dran hat?
+
+124
+00:10:34,020 --> 00:10:34,440
+Die neuen.
+
+125
+00:10:34,840 --> 00:10:37,540
+Die neuen mit LED, die sind easy auszulesen.
+
+126
+00:10:38,140 --> 00:10:48,280
+brauchst du bloß ein foto resist das mit led da brauchst du nur ein foto resistor und das
+
+127
+00:10:48,280 --> 00:10:57,080
+war es eigentlich das ding hängst du hier vorne hängst du auf die led und
+
+128
+00:10:57,080 --> 00:11:00,140
+da hinten machst du dann esp dran also das ist tatsächlich sehr easy damit
+
+129
+00:11:08,140 --> 00:11:15,520
+gibt es auch einzeln hier da muss aber selbst noch kram dran löten also das ist
+
+130
+00:11:15,520 --> 00:11:23,080
+das ist wirklich easy das habe ich schon gemacht ja also das ist nicht schwierig
+
+131
+00:11:23,080 --> 00:11:30,460
+das kriegst du locker hin es gibt auch fertige geräte dafür wenn du das nicht
+
+132
+00:11:30,460 --> 00:11:34,420
+selbst bauen willst aber es geht ja oft mal so ein teil des spaßes ist ja
+
+133
+00:11:34,420 --> 00:11:46,480
+quasi das basteln so spdf wo ich muss ich muss mal das ganze entwicklungs zeug noch hier runterladen
+
+134
+00:11:46,480 --> 00:11:56,340
+weil ich das nicht am start habe in der neuesten version mama hier cd cd sp
+
+135
+00:11:56,340 --> 00:12:12,960
+geht clown spdf punkt geht will ich master klonen das will ich klonen ich will v 5.5
+
+136
+00:12:12,960 --> 00:12:32,160
+release tags will ich klonen 5.5.1 das will ich klonen 5.5.1 und zwar in v 5.5.1
+
+137
+00:12:32,160 --> 00:12:40,200
+das muss erstmal alles installieren dass wir den kram rogers können und mario jura
+
+138
+00:12:40,200 --> 00:12:42,180
+Skyer, dankeschön für den Raid.
+
+139
+00:12:43,720 --> 00:12:44,240
+Exzellent.
+
+140
+00:12:45,200 --> 00:12:45,620
+Hallo Leute.
+
+141
+00:12:49,240 --> 00:12:50,560
+Schön, dass ihr da seid.
+
+142
+00:12:51,620 --> 00:12:52,220
+Wir haben noch gar nicht
+
+143
+00:12:52,220 --> 00:12:52,980
+richtig angefangen.
+
+144
+00:12:59,740 --> 00:13:01,020
+30 Sekunden Werbung.
+
+145
+00:13:01,220 --> 00:13:02,100
+Alter, das ist schlimm, oder?
+
+146
+00:13:03,120 --> 00:13:04,080
+Mittlerweile auf Twitch.
+
+147
+00:13:04,260 --> 00:13:04,760
+Das ist echt
+
+148
+00:13:04,760 --> 00:13:07,920
+richtig hardcore-pepega.
+
+149
+00:13:10,200 --> 00:13:19,440
+dann noch mal kurz zur erklärung für alle die jetzt neu dabei gekommen sind was wir heute
+
+150
+00:13:19,440 --> 00:13:32,480
+machen und zwar ihr seht ja hier oben rechts da wird er so ein sp 32 das ist ein so sieht
+
+151
+00:13:32,480 --> 00:13:42,500
+es nicht aus ja das ist ein sp 32 display s3 und sp 32 s3 display ist ein sehr nice microcontroller
+
+152
+00:13:42,500 --> 00:13:49,400
+bord mit einem touch display zwei buttons und batterieanschlüsseln und was ich mal probieren
+
+153
+00:13:49,400 --> 00:13:56,240
+wollte ist darauf ein qr code zu generieren und den auf display anzuzeigen also für wifi
+
+154
+00:13:56,240 --> 00:14:03,440
+credentials das ist das geld soll quasi so einen wifi connect qr code generieren
+
+155
+00:14:03,440 --> 00:14:09,040
+und auf dem display anzeigen das ding ist ich habe ich habe grob der ahnung ja
+
+156
+00:14:09,040 --> 00:14:15,020
+also ich habe schon einiges gemacht beim sp 32 und auch mit spdf aber gerade was
+
+157
+00:14:15,020 --> 00:14:20,840
+so grafik ausgaben angeht also care code habe ich noch nie generiert und
+
+158
+00:14:20,840 --> 00:14:25,000
+grafik ausgaben habe ich nur super rudimentär gemacht und auch nie mit lv
+
+159
+00:14:25,000 --> 00:14:27,320
+GL. Das heißt, wir probieren das jetzt mal aus.
+
+160
+00:14:29,260 --> 00:14:31,020
+Mal gucken, wie das klappt. Aber erstmal
+
+161
+00:14:31,020 --> 00:14:32,960
+muss ich das ganze SDK-Zeug runterladen.
+
+162
+00:14:33,040 --> 00:14:34,160
+Das dauert bei den
+
+163
+00:14:34,160 --> 00:14:36,180
+China-Chinesen
+
+164
+00:14:36,180 --> 00:14:38,580
+SDK immer ewig.
+
+165
+00:14:41,100 --> 00:14:42,620
+Dann muss ich gucken, wie man C-Line...
+
+166
+00:14:42,620 --> 00:14:44,300
+Ah, hab ich C-Line überhaupt drauf? Ja.
+
+167
+00:14:45,300 --> 00:14:46,960
+Schauen wir mal, ob es dafür eine neue Version
+
+168
+00:14:46,960 --> 00:14:47,620
+vielleicht gibt.
+
+169
+00:14:49,060 --> 00:14:50,140
+Ne, gibt's nicht.
+
+170
+00:14:50,140 --> 00:14:50,460
+Gut.
+
+171
+00:14:52,660 --> 00:14:54,060
+Auf, jetzt klone mal hier.
+
+172
+00:14:55,000 --> 00:14:58,380
+So und dann, ich muss mal gucken, ESP-EDF install.
+
+173
+00:14:58,700 --> 00:15:00,000
+Danach muss man irgendwie...
+
+174
+00:15:01,380 --> 00:15:10,440
+Danach muss man irgendwie so einen Install-Skript ausführen in dem geklonten Repo.
+
+175
+00:15:10,760 --> 00:15:13,040
+Ja, das Prerequisites haben wir alle installiert.
+
+176
+00:15:13,960 --> 00:15:15,880
+Bla bla bla bla bla.
+
+177
+00:15:16,200 --> 00:15:17,500
+Ja, das haben wir gerade gemacht.
+
+178
+00:15:18,160 --> 00:15:19,880
+Und ganz ohne Hilfe-Datei.
+
+179
+00:15:21,080 --> 00:15:22,900
+Setup-Tools, genau, das brauche ich.
+
+180
+00:15:22,900 --> 00:15:39,380
+install esp 32 s 3 das wollen wir gleich machen ok cd v 5.5 1 install esp 32 s 3
+
+181
+00:15:39,380 --> 00:15:46,640
+als leder den ganzen anderen krempel runter switch sagt ich bin immer noch
+
+182
+00:15:46,640 --> 00:15:53,320
+bei null viewer hat which refresh mal wird es manchmal
+
+183
+00:16:11,240 --> 00:16:15,320
+das dauert jetzt bilden wir können ziele ein schau mal die können wir nicht
+
+184
+00:16:15,320 --> 00:16:22,340
+Ich muss mir dann eh das Beispielprojekt
+
+185
+00:16:22,340 --> 00:16:24,180
+darüber kopieren, weil ich mir immer nicht merken kann,
+
+186
+00:16:24,280 --> 00:16:25,300
+wie man dort ein Projekt anlegt.
+
+187
+00:16:25,440 --> 00:16:27,460
+Das ist ganz furchtbar wirr gemacht.
+
+188
+00:16:33,060 --> 00:16:34,300
+Ja, das brauchen wir dann auch
+
+189
+00:16:34,300 --> 00:16:35,300
+gleich noch, genau.
+
+190
+00:16:37,800 --> 00:16:38,020
+Also.
+
+191
+00:16:39,420 --> 00:16:40,460
+Der Pfad stimmt ja eh nicht.
+
+192
+00:16:43,060 --> 00:16:44,620
+So, download, download, download.
+
+193
+00:16:45,320 --> 00:16:55,680
+so genau es braucht punkt wir machen das aber schreiben das mal aus hier repos
+
+194
+00:16:55,680 --> 00:17:03,680
+niveau was sp hatten was na ja ich weiß dass exe kopieren uns auch das example auf 5.1
+
+195
+00:17:03,680 --> 00:17:20,240
+1 nicht components ex ich kann ja tippen export und sh aber das einmal hier unten und dann machen
+
+196
+00:17:20,240 --> 00:17:26,900
+wir das ganze noch hier wobei das hier unten brauche gar nicht nur deshalb brauche wunderbar
+
+197
+00:17:26,900 --> 00:17:34,660
+dann muss ich noch mal gucken ist sie leyen esp edf muss man einrichten aber vor brauchen wir
+
+198
+00:17:34,660 --> 00:17:41,120
+erst mal ein projekt also kopieren wir uns mal aus dem kram was wir runtergeladen haben ein
+
+199
+00:17:41,120 --> 00:17:49,220
+example projekt example jetzt startet hello world das perfektes brauner jetzt
+
+200
+00:17:49,220 --> 00:17:58,580
+dann müssen wir mal schauen also das brauchen wir eigentlich alles nett wir brauchen im endeffekt
+
+201
+00:17:58,580 --> 00:18:08,680
+nur das da und main sonst brauche ich glaube ich nichts dass das wird es ein
+
+202
+00:18:08,680 --> 00:18:17,980
+ein bisschen komplizierter das einmal initial ab auf zu aufzusetzen genau so sie make list
+
+203
+00:18:17,980 --> 00:18:23,920
+main wir müssen das nämlich umstellen von einem c auf ein c++ projekt dass das funktioniert so
+
+204
+00:18:23,920 --> 00:18:30,380
+ging das glaube ich jetzt muss ich einmal sagen idf punkt bei menü config
+
+205
+00:18:30,380 --> 00:18:38,000
+Hier speichern wir mal
+
+206
+00:18:38,000 --> 00:18:39,840
+Wir haben ja nichts angepasst, reicht ja
+
+207
+00:18:39,840 --> 00:18:43,380
+Okay, jetzt haben wir auch die SDK-Config
+
+208
+00:18:43,380 --> 00:18:46,060
+Oh, Alter, diese Bot-Gespamme
+
+209
+00:18:46,060 --> 00:18:47,360
+Das fuckt mich ja richtig ab
+
+210
+00:18:47,360 --> 00:18:49,320
+Es kommt jeden Stream
+
+211
+00:18:49,320 --> 00:18:54,960
+Jeden Stream mit irgendeinem anderen Account, Alter
+
+212
+00:18:54,960 --> 00:18:57,900
+Okay, jetzt haben wir das
+
+213
+00:18:57,900 --> 00:19:03,140
+da starten wir sea lion jetzt mal hier drin
+
+214
+00:19:11,820 --> 00:19:18,400
+okay skip import trust an open pro jahr wir trusten allem
+
+215
+00:19:18,400 --> 00:19:33,220
+da und senke mit a alter was macht denn sie leihen darauf ist es total hängen
+
+216
+00:19:33,220 --> 00:19:36,460
+geblieben das soll das aktuelle verzeichnis öffnen
+
+217
+00:19:36,460 --> 00:19:45,160
+Das war ein bisschen verwirrt gerade, C-Line.
+
+218
+00:19:47,200 --> 00:19:47,640
+Okay.
+
+219
+00:19:48,700 --> 00:19:51,180
+Ich glaube, der hat sogar schon alles auto-detected.
+
+220
+00:19:53,700 --> 00:19:56,280
+Guck mal, ich glaube, der hat schon auto-detected, wie es sein soll.
+
+221
+00:19:57,440 --> 00:19:58,240
+Schauen wir mal kurz.
+
+222
+00:20:00,460 --> 00:20:03,420
+Ob das theoretisch bilden würde.
+
+223
+00:20:06,460 --> 00:20:15,020
+So.
+
+224
+00:20:15,920 --> 00:20:18,800
+Wir lassen jetzt wirklich nur mal das Beispielprojekt
+
+225
+00:20:18,800 --> 00:20:20,480
+hier drauf. Ich mach mal die Schrift ein bisschen
+
+226
+00:20:20,480 --> 00:20:20,960
+größer.
+
+227
+00:20:23,200 --> 00:20:23,520
+Font.
+
+228
+00:20:25,380 --> 00:20:26,020
+Size.
+
+229
+00:20:27,600 --> 00:20:27,880
+Äh.
+
+230
+00:20:28,920 --> 00:20:29,080
+Was?
+
+231
+00:20:30,040 --> 00:20:31,000
+Editor Font.
+
+232
+00:20:32,220 --> 00:20:33,040
+Bin ich jetzt total
+
+233
+00:20:33,040 --> 00:20:35,000
+hängen geblieben? Was zum...
+
+234
+00:20:35,000 --> 00:20:37,360
+Warum?
+
+235
+00:20:44,320 --> 00:20:47,040
+Es heißt Editor Font Size.
+
+236
+00:20:47,780 --> 00:20:49,720
+Oder Editor Font.
+
+237
+00:20:54,720 --> 00:20:56,320
+Äh.
+
+238
+00:20:58,120 --> 00:20:59,400
+Total verwirrt.
+
+239
+00:21:05,000 --> 00:21:07,520
+Wo zum Teufel ist die Fond-Einstellung?
+
+240
+00:21:12,320 --> 00:21:13,280
+Da ist doch Fond.
+
+241
+00:21:13,920 --> 00:21:15,200
+Warum findet er das nicht?
+
+242
+00:21:16,660 --> 00:21:16,960
+Okay.
+
+243
+00:21:17,360 --> 00:21:19,540
+Wir können Jetbrains Mono lassen,
+
+244
+00:21:19,700 --> 00:21:20,780
+aber wir machen das mal auf
+
+245
+00:21:20,780 --> 00:21:22,640
+16.
+
+246
+00:21:22,860 --> 00:21:24,580
+Das ist ganz gute Größe, oder, Jet?
+
+247
+00:21:25,440 --> 00:21:26,100
+Was sagt ihr?
+
+248
+00:21:27,780 --> 00:21:29,440
+Das glaube ich ganz gescheit.
+
+249
+00:21:31,840 --> 00:21:32,320
+Oder?
+
+250
+00:21:33,640 --> 00:21:34,580
+Erkennt man alles?
+
+251
+00:21:35,000 --> 00:21:35,820
+denke schon.
+
+252
+00:21:36,580 --> 00:21:38,420
+Sonst gucken wir mal, ob das bilden würde.
+
+253
+00:21:40,100 --> 00:21:41,880
+Okay, es würde bilden.
+
+254
+00:21:43,020 --> 00:21:43,500
+Exzellent.
+
+255
+00:21:47,300 --> 00:21:47,780
+So.
+
+256
+00:21:48,780 --> 00:21:50,380
+Dann schmeißen wir da mal jetzt einfach
+
+257
+00:21:50,380 --> 00:21:51,340
+ein bisschen was raus.
+
+258
+00:21:58,900 --> 00:22:00,240
+Okay, das können wir drin lassen.
+
+259
+00:22:00,440 --> 00:22:01,260
+Das können wir drin lassen.
+
+260
+00:22:03,460 --> 00:22:04,460
+So, das reicht.
+
+261
+00:22:04,460 --> 00:22:15,380
+ganzen anderen krempe perfekt hello world so ok dann flächen wir das ganze mal und schauen was passiert
+
+262
+00:22:20,660 --> 00:22:26,220
+flash flash und monitor ich stöpsel die kirche das ding immer ein
+
+263
+00:22:26,220 --> 00:22:30,380
+Blubblum.
+
+264
+00:22:31,500 --> 00:22:34,120
+Ihr müsstet jetzt oben sehen, dass die LED grün geworden ist.
+
+265
+00:22:35,020 --> 00:22:36,040
+Sieht man das? Ja, sieht man.
+
+266
+00:22:36,840 --> 00:22:37,880
+Okay, flashen wir mal.
+
+267
+00:22:42,160 --> 00:22:44,940
+Was ich heute mache, ich versuche auf diesem Ding, was du oben rechts siehst,
+
+268
+00:22:45,000 --> 00:22:47,340
+einen QR-Code zu generieren und anzuz...
+
+269
+00:22:47,340 --> 00:22:48,520
+Ah!
+
+270
+00:22:51,760 --> 00:22:54,340
+Das Chip ist ESP32S und ESP32.
+
+271
+00:22:54,340 --> 00:23:00,020
+Ich muss ja noch setzen, dass wir einen ESP32 S3 haben.
+
+272
+00:23:00,560 --> 00:23:02,020
+Wo machen wir denn das jetzt nochmal?
+
+273
+00:23:07,660 --> 00:23:10,740
+Das Set Target ESP S2.
+
+274
+00:23:10,840 --> 00:23:11,820
+Das war es, genau.
+
+275
+00:23:13,240 --> 00:23:13,520
+Siehste?
+
+276
+00:23:15,080 --> 00:23:16,180
+Flash und Monitor.
+
+277
+00:23:17,720 --> 00:23:19,020
+Jetzt sieht es auch schon besser aus.
+
+278
+00:23:19,020 --> 00:23:24,540
+By the way, mein C-Line hier oben ist voll am durchdrehen.
+
+279
+00:23:25,720 --> 00:23:26,900
+Aber wir Fullscreen.
+
+280
+00:23:28,380 --> 00:23:29,200
+Es wird geflasht.
+
+281
+00:23:29,680 --> 00:23:33,040
+Hello World, Minimum Free, Heapsize, Restarting.
+
+282
+00:23:33,420 --> 00:23:33,700
+Okay.
+
+283
+00:23:35,020 --> 00:23:36,220
+Es läuft prinzipiell.
+
+284
+00:23:43,800 --> 00:23:45,820
+Gut, jetzt brauchen wir noch ein paar andere Sachen.
+
+285
+00:23:46,220 --> 00:23:48,020
+Wir wollen ja, dass es ein C++ Projekt ist.
+
+286
+00:23:48,020 --> 00:24:06,020
+Das muss ich mal kurz abgucken. Das können wir uns abgucken. Wir haben doch hier selbst, warte mal, wir haben doch hier noch was. Guck mal, CD, Gebro, Display Champ. Wie ging das jetzt nochmal? Wir müssen, wir brauchen eine Main.cpp, also wir müssen das CMAG-File anpassen. Und zwar...
+
+287
+00:24:06,020 --> 00:24:11,120
+Projekt
+
+288
+00:24:11,120 --> 00:24:13,880
+Das ist wie es heißt
+
+289
+00:24:13,880 --> 00:24:15,340
+Das ist auch schon mal ganz sinnvoll
+
+290
+00:24:15,340 --> 00:24:16,300
+Okay, warte mal
+
+291
+00:24:16,300 --> 00:24:18,840
+C-Make
+
+292
+00:24:18,840 --> 00:24:21,160
+Projekt Hello World, das soll nicht Hello World heißen
+
+293
+00:24:21,160 --> 00:24:22,580
+Das soll
+
+294
+00:24:22,580 --> 00:24:25,560
+QR-Code Champ
+
+295
+00:24:25,560 --> 00:24:26,640
+heißen
+
+296
+00:24:26,640 --> 00:24:30,860
+FMT haben wir noch nicht
+
+297
+00:24:30,860 --> 00:24:32,620
+Fügen wir dann gleich noch hinzu
+
+298
+00:24:32,620 --> 00:24:41,860
+lasse ich auch erstmal mache ich auch mal kurz nichts dran okay das passt so und jetzt müssen
+
+299
+00:24:41,860 --> 00:24:53,140
+wir in maine alle hier in die c-max hier wasser in klugen soll eintragen genau so
+
+300
+00:24:53,140 --> 00:25:05,940
+inkludiert fragt mit c++ projekt konflikt ist immer absoluter abfuck so und jetzt
+
+301
+00:25:05,940 --> 00:25:17,200
+muss man das umbenennen in main cpp so jetzt heißt es main cpp das alleine funzt ja noch
+
+302
+00:25:17,200 --> 00:25:26,980
+nicht weil der kram muss jetzt ja extern c up main sein sonst tut es ja nicht weil c++ logik
+
+303
+00:25:26,980 --> 00:25:37,900
+was habe ich falsch gemacht
+
+304
+00:25:37,900 --> 00:25:47,280
+Ich glaube, ich muss einfach mal rebuilden, dann funktioniert es schon.
+
+305
+00:25:47,280 --> 00:25:50,140
+Was?
+
+306
+00:25:58,480 --> 00:25:59,580
+Was will er von mir?
+
+307
+00:26:05,580 --> 00:26:06,120
+Geht doch!
+
+308
+00:26:07,000 --> 00:26:07,760
+Der lügt.
+
+309
+00:26:15,940 --> 00:26:16,340
+Okay.
+
+310
+00:26:19,940 --> 00:26:21,400
+Habe ich jetzt alles richtig gemacht?
+
+311
+00:26:21,500 --> 00:26:22,060
+Ich glaube schon.
+
+312
+00:26:22,620 --> 00:26:23,100
+Gucken wir mal.
+
+313
+00:26:23,220 --> 00:26:24,160
+Hier schreiben wir einfach rein.
+
+314
+00:26:25,860 --> 00:26:27,400
+Mal gucken, ob er das jetzt ausgibt.
+
+315
+00:26:27,720 --> 00:26:29,000
+Dann wissen wir, dass alles funktioniert hat.
+
+316
+00:26:29,000 --> 00:26:36,200
+Okay, ja, hat funktioniert
+
+317
+00:26:36,200 --> 00:26:38,380
+Ja, dann habe ich das
+
+318
+00:26:38,380 --> 00:26:39,140
+noch richtig gemacht
+
+319
+00:26:39,140 --> 00:26:41,780
+Was hat denn meine IDE jetzt gerade für Schmerzen?
+
+320
+00:26:43,680 --> 00:26:44,160
+Wisst ihr was?
+
+321
+00:26:44,780 --> 00:26:45,980
+Wisst ihr was immer hilft bei sowas?
+
+322
+00:26:48,320 --> 00:26:48,760
+Reboot
+
+323
+00:26:54,760 --> 00:26:56,500
+Du du du du du
+
+324
+00:26:56,500 --> 00:27:00,880
+und schon von easy
+
+325
+00:27:00,880 --> 00:27:07,600
+von zimmer noch nicht
+
+326
+00:27:17,680 --> 00:27:22,740
+was das fall das noch belang zu einem project was hat er denn für schmerzen gerade wenn man fragen
+
+327
+00:27:22,740 --> 00:27:23,060
+darf.
+
+328
+00:27:27,780 --> 00:27:29,240
+Was will er denn?
+
+329
+00:27:39,660 --> 00:27:40,780
+Was zum Teufel
+
+330
+00:27:40,780 --> 00:27:41,620
+geht hier gerade ab?
+
+331
+00:27:45,180 --> 00:27:46,940
+Ja, IDF Target habe ich ja gesetzt.
+
+332
+00:27:47,300 --> 00:27:48,820
+Wenn ich auf der Konsole kompiliere,
+
+333
+00:27:48,820 --> 00:27:49,680
+geht ja auch alles.
+
+334
+00:27:52,740 --> 00:28:02,160
+okay ich glaube ich glaube ich weiß ich glaube ich weiß woran es liegt wir müssen das setup
+
+335
+00:28:02,160 --> 00:28:08,040
+hierfür machen das hat er sonst nichts hat er sonst nicht gecheckt genau das haben wir
+
+336
+00:28:08,040 --> 00:28:14,680
+schon gemacht projekt öffnen at environments müssen wir jetzt nämlich noch machen
+
+337
+00:28:14,680 --> 00:28:30,300
+wo muss ich nach wohin nach tool chain tool chain
+
+338
+00:28:30,300 --> 00:28:35,940
+environment from file
+
+339
+00:28:35,940 --> 00:28:43,820
+ich glaube jetzt sollte das besser checken
+
+340
+00:28:43,820 --> 00:28:49,860
+ich rieche da noch mal
+
+341
+00:28:49,860 --> 00:28:58,000
+ohne das aus dem verzeichnis zu starten ja das ist das setup ist immer ein bisschen abfuck
+
+342
+00:28:58,000 --> 00:29:11,920
+aha jetzt hat das hier erkannt das enable das mal wieder
+
+343
+00:29:11,920 --> 00:29:16,480
+und jetzt hoffen dass funktioniert
+
+344
+00:29:16,480 --> 00:29:25,000
+MonkaSS MonkaSS MonkaSS Monka MonkaSS
+
+345
+00:29:25,000 --> 00:29:29,880
+Es geht!
+
+346
+00:29:29,880 --> 00:29:40,640
+Nice!
+
+347
+00:29:40,640 --> 00:29:44,680
+Easy!
+
+348
+00:29:44,680 --> 00:29:56,020
+ok funzt kann das hier und weckt jetzt brauchen wir das alles nicht mehr okay jetzt haben wir
+
+349
+00:29:56,020 --> 00:30:00,940
+ein c++ projekt das will ich nicht dass da will ich haben aber ein c++ projekt okay
+
+350
+00:30:00,940 --> 00:30:07,920
+wie war das jetzt noch mal mit komponenten installieren wir müssen ich will auf jeden
+
+351
+00:30:07,920 --> 00:30:15,800
+fall wieder fmt lib haben components esp idf die haben ja so eine eigene registry für libraries und
+
+352
+00:30:15,800 --> 00:30:35,040
+sowas fmt fmt da haben wir es doch esp idf pi add dependency okay jetzt haben wir eine idf
+
+353
+00:30:35,040 --> 00:30:37,340
+Da ist die Dependency drin.
+
+354
+00:30:38,600 --> 00:30:40,460
+So, jetzt kann ich sagen, include.
+
+355
+00:30:42,220 --> 00:30:43,020
+Hm, fmt.
+
+356
+00:30:43,960 --> 00:30:44,480
+Format.
+
+357
+00:30:46,220 --> 00:30:46,400
+Ne.
+
+358
+00:30:48,300 --> 00:30:49,440
+Ich dachte fmt.
+
+359
+00:30:50,620 --> 00:30:53,120
+Ach, ich muss wahrscheinlich wieder bilden, dass es funktioniert.
+
+360
+00:30:55,100 --> 00:30:56,100
+No work to do.
+
+361
+00:30:56,320 --> 00:30:56,500
+Okay.
+
+362
+00:30:59,500 --> 00:31:01,080
+Oder was muss man als nächstes machen?
+
+363
+00:31:05,040 --> 00:31:11,340
+fmt lib example wobei wir haben doch hier noch ein example hat man doch hier guck mal
+
+364
+00:31:11,340 --> 00:31:15,000
+im helper
+
+365
+00:31:15,000 --> 00:31:22,920
+nochmal abgucken was wir da gemacht haben monka ist was das alles wir
+
+366
+00:31:22,920 --> 00:31:28,320
+brauchen fmt core und fmt kompakt der meinetwegen wenn es sein muss
+
+367
+00:31:28,320 --> 00:31:34,080
+die fmt gibt es nicht warum gibt es fmt was habe ich was habe ich falsch gemacht
+
+368
+00:31:34,080 --> 00:31:38,840
+gemacht irgendwas habe ich verkehrt gemacht
+
+369
+00:31:48,560 --> 00:31:54,080
+muss ich hier irgendwie noch mal so tun als hätte ich ich tue mal so als hätte
+
+370
+00:31:54,080 --> 00:31:56,460
+ich was geändert
+
+371
+00:31:56,460 --> 00:31:59,360
+Ah, jetzt checkt, ist okay.
+
+372
+00:32:01,360 --> 00:32:03,320
+Einfach mal so tun, als hätte sich was getan.
+
+373
+00:32:09,700 --> 00:32:10,940
+Jetzt hat er es kapiert.
+
+374
+00:32:12,400 --> 00:32:18,800
+Ich glaube, man kann es mittlerweile einfach so importieren, ohne was Spezielles.
+
+375
+00:32:18,800 --> 00:32:19,100
+Genau.
+
+376
+00:32:20,880 --> 00:32:23,200
+FMT Base kann man jetzt inkluden.
+
+377
+00:32:25,440 --> 00:32:26,120
+FMT Base.
+
+378
+00:32:26,120 --> 00:32:28,960
+So, und jetzt gibt es sowas wie, das ist nämlich viel nicer.
+
+379
+00:32:30,660 --> 00:32:32,960
+Ich mach das hier mal weg, das brauchen wir dann auch nicht mehr.
+
+380
+00:32:34,200 --> 00:32:35,160
+Das ist nämlich viel nicer.
+
+381
+00:32:35,280 --> 00:32:39,260
+Jetzt kann man nämlich sagen, fmt, brindeln.
+
+382
+00:32:40,300 --> 00:32:42,340
+Und jetzt kann man sowas wie ein Python bisschen machen.
+
+383
+00:32:42,440 --> 00:32:45,880
+Da kann man sagen so, hallo, chat.
+
+384
+00:32:47,080 --> 00:32:49,100
+Und dann hier kann man angeben, was man haben will.
+
+385
+00:32:49,180 --> 00:32:53,680
+Was weiß ich, 1 oder 1.
+
+386
+00:32:53,680 --> 00:32:57,020
+Was hat der jetzt für Schmerzen?
+
+387
+00:33:03,680 --> 00:33:04,740
+Achso, Klängen.
+
+388
+00:33:05,180 --> 00:33:06,680
+Das können wir...
+
+389
+00:33:06,680 --> 00:33:09,480
+Das können wir ausschalten.
+
+390
+00:33:10,460 --> 00:33:11,500
+Das reportet.
+
+391
+00:33:12,140 --> 00:33:12,360
+Mist.
+
+392
+00:33:13,940 --> 00:33:15,460
+So, und jetzt flashen wir das Ganze.
+
+393
+00:33:15,460 --> 00:33:16,400
+Und jetzt schauen wir mal.
+
+394
+00:33:17,460 --> 00:33:19,500
+Jetzt sollte der Hallo Chat 1 ausgeben.
+
+395
+00:33:23,680 --> 00:33:27,580
+ok fmt ist schon mal viel zu fett die müssen wir ein bisschen kleiner machen
+
+396
+00:33:27,580 --> 00:33:37,680
+da sind tausend sachen drin die wir nicht brauchen sie make lists
+
+397
+00:33:37,680 --> 00:33:48,560
+ich bin falsch im ordner im see make lists hier das brauchen wir alles das
+
+398
+00:33:48,560 --> 00:33:57,040
+kommen alles hinzufügen so dass der das wird dann deutlich kleiner
+
+399
+00:33:59,560 --> 00:34:06,860
+wir wollen keine 128 flots keine 128 mit flots verwenden wir wollen keine long
+
+400
+00:34:06,860 --> 00:34:10,760
+doppels was auch immer long doppels sind und kann damals ein flow zu aufwenden
+
+401
+00:34:10,760 --> 00:34:15,800
+und als separator für 1000 dann immer einen punkt und nicht irgendwie was
+
+402
+00:34:15,800 --> 00:34:21,680
+sprachabhängiges oder so ein blödsinn und jetzt ist das ganze auch gleich passt mal auf
+
+403
+00:34:21,680 --> 00:34:29,740
+machen das jetzt mal so machen das hier rein aber
+
+404
+00:34:29,740 --> 00:34:40,520
+jetzt baut er neue weil ich meine sie mit konflikt geändert habe
+
+405
+00:34:45,800 --> 00:34:48,500
+Ja, guck, jetzt ist er nämlich auch gleich viel kleiner und schneller.
+
+406
+00:34:49,760 --> 00:34:50,160
+Excellent.
+
+407
+00:34:51,700 --> 00:34:52,300
+Hallo, Chat.
+
+408
+00:34:52,520 --> 00:34:54,040
+10.89.64, Reboot.
+
+409
+00:34:55,260 --> 00:34:56,120
+Gut, Funst.
+
+410
+00:34:57,320 --> 00:35:02,620
+Dann würde ich sagen, sind wir ready für Display.
+
+411
+00:35:07,640 --> 00:35:10,320
+Ich muss mal kurz gucken, kann man noch ein bisschen schneller flashen?
+
+412
+00:35:10,900 --> 00:35:13,260
+Man konnte doch irgendwie die Boutrade angeben oder so.
+
+413
+00:35:13,820 --> 00:35:14,220
+Boutrade.
+
+414
+00:35:14,220 --> 00:35:17,000
+also das ist jetzt super langsam
+
+415
+00:35:17,000 --> 00:35:17,240
+ne
+
+416
+00:35:17,240 --> 00:35:19,500
+ne
+
+417
+00:35:19,500 --> 00:35:24,340
+ist das so
+
+418
+00:35:24,340 --> 00:35:32,520
+ok
+
+419
+00:35:32,520 --> 00:35:35,200
+pass mal auf das ist super lahm also das will ich gar nicht
+
+420
+00:35:35,200 --> 00:35:35,900
+angeben
+
+421
+00:35:35,900 --> 00:35:38,840
+ich würde mal hier angeben
+
+422
+00:35:38,840 --> 00:35:40,720
+so keine ahnung mal
+
+423
+00:35:40,720 --> 00:35:41,640
+16 bam
+
+424
+00:35:41,640 --> 00:35:43,060
+Beste.
+
+425
+00:35:43,420 --> 00:35:45,200
+Mit der Geschwindigkeit will ich flashen.
+
+426
+00:35:45,440 --> 00:35:45,660
+Zack.
+
+427
+00:35:49,160 --> 00:35:51,040
+Es macht ehrlich gesagt keinen Unterschied, ne?
+
+428
+00:35:52,200 --> 00:35:52,820
+Warte mal.
+
+429
+00:35:53,040 --> 00:35:54,240
+Ich geb mal an, 18.
+
+430
+00:35:54,560 --> 00:35:56,260
+Dann müsste das eigentlich super lahm flashen.
+
+431
+00:35:57,460 --> 00:35:57,640
+Nö.
+
+432
+00:35:58,460 --> 00:36:01,400
+Das juckt den mal überhaupt gar nicht, was ich da überhaupt angebe.
+
+433
+00:36:01,460 --> 00:36:02,300
+Da kann ich ihn auch weglassen.
+
+434
+00:36:05,300 --> 00:36:07,120
+So, Chat. Auf geht's.
+
+435
+00:36:08,680 --> 00:36:09,400
+Es funzt.
+
+436
+00:36:11,640 --> 00:36:15,460
+Wie fangen wir denn jetzt am besten an?
+
+437
+00:36:17,660 --> 00:36:20,400
+Wir brauchen erstmal LVGL, würde ich sagen.
+
+438
+00:36:22,080 --> 00:36:24,380
+ESP Components Registry.
+
+439
+00:36:25,300 --> 00:36:29,360
+Also jetzt müssen wir mal irgendwas auf dem Display überhaupt anzeigen.
+
+440
+00:36:31,100 --> 00:36:31,620
+LVGL.
+
+441
+00:36:35,620 --> 00:36:36,100
+Ähm.
+
+442
+00:36:38,200 --> 00:36:40,540
+Jetzt geht es ja schon los. Was nehme ich denn überhaupt?
+
+443
+00:36:41,640 --> 00:36:49,800
+sp 32 lvgl oder hier etwas in der unterschied des components helms
+
+444
+00:36:49,800 --> 00:36:56,040
+with using lvgl lcd and touch drivers
+
+445
+00:36:56,040 --> 00:37:03,380
+es press es lcd in touch drivers okay das wird abfangen leute
+
+446
+00:37:03,380 --> 00:37:11,660
+wie funktion das jetzt
+
+447
+00:37:11,660 --> 00:37:20,600
+hat sie mal so gemacht hat man ich muss mal kurz gucken ich muss mal kurz in meinem
+
+448
+00:37:20,600 --> 00:37:22,940
+GIT-Repo gucken, in meinem hier internen.
+
+449
+00:37:23,580 --> 00:37:24,760
+Ob ich irgendwas
+
+450
+00:37:24,760 --> 00:37:26,920
+in dieser Richtung schon hab?
+
+451
+00:37:34,040 --> 00:37:34,520
+Ne.
+
+452
+00:37:39,380 --> 00:37:40,560
+Chat, ihr seid so ruhig.
+
+453
+00:37:40,620 --> 00:37:41,620
+Geht der Chat überhaupt noch?
+
+454
+00:37:43,980 --> 00:37:44,460
+Ja.
+
+455
+00:37:44,820 --> 00:37:45,760
+Scheint zu funktionieren.
+
+456
+00:37:46,060 --> 00:37:47,580
+Gibt anscheinend nichts zu sagen gerade.
+
+457
+00:37:47,580 --> 00:37:51,460
+Okay, dann installieren wir das jetzt mal.
+
+458
+00:37:55,780 --> 00:37:57,740
+Ja, geht. Okay, nice.
+
+459
+00:38:03,020 --> 00:38:04,460
+Menu-Config nochmal.
+
+460
+00:38:05,380 --> 00:38:07,120
+Weil aus irgendwelchen Gründen...
+
+461
+00:38:07,120 --> 00:38:08,060
+Ach, jetzt checkt das.
+
+462
+00:38:10,460 --> 00:38:11,600
+Jetzt checkt das.
+
+463
+00:38:17,580 --> 00:38:26,820
+im airfryer beste ok jetzt wird es auch gleich viel fetter na gut noch benutzen
+
+464
+00:38:26,820 --> 00:38:32,220
+wir nichts ok leute ich brauche ein example ich habe legit absolut kein
+
+465
+00:38:32,220 --> 00:38:36,260
+platzen schimmer wie wie es funst
+
+466
+00:38:36,260 --> 00:38:58,260
+Wir brauchen ein...
+
+467
+00:38:58,260 --> 00:38:59,540
+Wir brauchen...
+
+468
+00:38:59,540 --> 00:39:00,200
+Warte mal.
+
+469
+00:39:00,440 --> 00:39:03,480
+Ich habe doch hier dieses Board hier aufgehabt.
+
+470
+00:39:03,480 --> 00:39:05,880
+s222
+
+471
+00:39:05,880 --> 00:39:08,080
+T-Display S3
+
+472
+00:39:08,080 --> 00:39:10,120
+Ich brauche die GPIO-Belegung.
+
+473
+00:39:12,600 --> 00:39:14,840
+Hier haben wir die GPIO-Belegung.
+
+474
+00:39:17,780 --> 00:39:18,020
+Ja.
+
+475
+00:39:18,020 --> 00:39:18,860
+Ähm.
+
+476
+00:39:22,240 --> 00:39:23,340
+Oh shit.
+
+477
+00:39:23,940 --> 00:39:25,680
+Warte mal. Wir gucken mal.
+
+478
+00:39:25,740 --> 00:39:26,680
+Wir gucken mal was anderes.
+
+479
+00:39:27,580 --> 00:39:29,320
+ESP32 GitHub
+
+480
+00:39:29,320 --> 00:39:31,720
+T-Display S3
+
+481
+00:39:31,720 --> 00:39:36,200
+ob die ein example vielleicht dafür haben aha guck mal wir hatten sogar das
+
+482
+00:39:36,200 --> 00:39:43,120
+example schon mal auf aber wahrscheinlich nicht für display kram
+
+483
+00:39:44,840 --> 00:39:53,040
+ich glaube meins ist nicht damit touch würde ja auch drauf stehen
+
+484
+00:39:53,040 --> 00:40:06,300
+das ist meiner dann hat meiner doch touch ok arduino touch lv demos
+
+485
+00:40:06,300 --> 00:40:18,120
+noch mal lv lv demos ist mit arduino stilz gemacht dass wir aber egal
+
+486
+00:40:18,120 --> 00:40:24,660
+Ja, ja, ja, ist klar.
+
+487
+00:40:31,960 --> 00:40:32,640
+Easy.
+
+488
+00:40:35,500 --> 00:40:36,240
+Na klar.
+
+489
+00:40:41,020 --> 00:40:43,860
+Ist doch eigentlich so die fucking Pinbelegung.
+
+490
+00:40:44,800 --> 00:40:45,660
+Das ist ja easy.
+
+491
+00:40:48,120 --> 00:40:53,060
+Ach du Scheiße, Mann.
+
+492
+00:40:54,860 --> 00:40:55,740
+What the fuck?
+
+493
+00:40:59,820 --> 00:41:03,500
+Das erscheint mir jetzt doch etwas komplizierter, als ich mir das vorgestellt habe.
+
+494
+00:41:04,880 --> 00:41:05,220
+Okay.
+
+495
+00:41:06,220 --> 00:41:07,420
+Turn on Display Power.
+
+496
+00:41:09,420 --> 00:41:11,520
+Aber ich muss doch irgendwas haben.
+
+497
+00:41:18,120 --> 00:41:27,660
+Das wird richtig PP geil.
+
+498
+00:41:34,660 --> 00:41:36,820
+Ach du Scheiße.
+
+499
+00:41:41,660 --> 00:41:42,560
+Ha!
+
+500
+00:41:45,560 --> 00:41:47,660
+Haben wir hier vielleicht...
+
+501
+00:41:48,120 --> 00:41:58,140
+hin konflikt okay das schon mal ganz gut okay hier haben wir pin lcd 0 40 ok da hier haben
+
+502
+00:41:58,140 --> 00:42:06,900
+wir die pin konflikt das ist ja schon mal etwas hin power 15 gut das brauche auf jeden fall dass
+
+503
+00:42:06,900 --> 00:42:16,620
+cool dass das kopiere ich mir mal also power fürs display an dass das schauer
+
+504
+00:42:16,620 --> 00:42:20,040
+schon mal gut zu wissen okay das probieren jetzt mal aus ob das
+
+505
+00:42:20,040 --> 00:42:22,700
+funktioniert
+
+506
+00:42:23,780 --> 00:42:36,000
+gp gp config mit esp edf das ist doch irgendwas gewesen mit übrigens wir bauen
+
+507
+00:42:36,000 --> 00:42:45,720
+uns mal eine Delay Funktion. Delay, sowas gibt es bei Arduino standardmäßig hier nicht. Milliseconds.
+
+508
+00:42:45,720 --> 00:43:00,720
+So, beste. Was? Uint gibt es nicht. Ja, ist ja auch komplett unbedeutend, brauchen wir nicht. Was will
+
+509
+00:43:00,720 --> 00:43:11,340
+von mir at konst in 16 t genau das geht das jetzt eigentlich kaputt wenn ich das
+
+510
+00:43:11,340 --> 00:43:13,720
+weg macht
+
+511
+00:43:15,420 --> 00:43:22,440
+okay so jetzt können wir nämlich sagen am anfang nämlich mal beim start-up
+
+512
+00:43:22,440 --> 00:43:25,260
+manchmal die lei von 100 millisekunden rein warum auch immer ich bin mir da
+
+513
+00:43:25,260 --> 00:43:27,120
+immer das sicher ob das dann alles schon ready ist
+
+514
+00:43:27,120 --> 00:43:37,720
+ok und jetzt sagen wir pin auf wie war das über kurz was abgucken gp config gp
+
+515
+00:43:37,720 --> 00:43:44,120
+config und da muss man jetzt setzen
+
+516
+00:43:45,240 --> 00:43:54,500
+den kam nicht aus wenn ich sp sp edf gp example github
+
+517
+00:43:54,500 --> 00:44:00,740
+das schöne ist die haben für alles irgendwelche
+
+518
+00:44:11,440 --> 00:44:14,740
+eigentlich schon wollen
+
+519
+00:44:16,600 --> 00:44:23,260
+warum haben die hier glaubt gpi config ist es
+
+520
+00:44:23,260 --> 00:44:26,260
+GPIO, Dump IO Configuration.
+
+521
+00:44:29,260 --> 00:44:31,260
+Ja hier, das...
+
+522
+00:44:32,260 --> 00:44:35,260
+Wie ging das denn nochmal? Pinsetzen.
+
+523
+00:44:39,260 --> 00:44:43,260
+ESP EDF Set GPIO to High.
+
+524
+00:44:45,260 --> 00:44:48,260
+Ja, genau. Zeig mir, wie funzt das?
+
+525
+00:44:53,260 --> 00:44:54,820
+Okay, die Seite
+
+526
+00:44:54,820 --> 00:44:56,620
+suckt.
+
+527
+00:44:58,580 --> 00:44:59,140
+GPIO
+
+528
+00:44:59,140 --> 00:45:00,060
+Z-Direction.
+
+529
+00:45:01,260 --> 00:45:02,200
+Z-Level.
+
+530
+00:45:03,340 --> 00:45:04,240
+Das will ich haben.
+
+531
+00:45:09,580 --> 00:45:11,060
+Direction
+
+532
+00:45:11,060 --> 00:45:11,760
+Output.
+
+533
+00:45:13,920 --> 00:45:14,960
+Die haben doch hier bestimmt
+
+534
+00:45:14,960 --> 00:45:16,120
+auch ein Example drin.
+
+535
+00:45:17,120 --> 00:45:17,840
+In
+
+536
+00:45:17,840 --> 00:45:21,080
+hier.
+
+537
+00:45:21,080 --> 00:45:23,080
+Ach, das ist ein Arduino
+
+538
+00:45:23,080 --> 00:45:28,280
+example jetzt kapiere ich das ach so
+
+539
+00:45:28,280 --> 00:45:34,120
+arduino example bringen uns nichts
+
+540
+00:45:36,840 --> 00:45:39,840
+hallo
+
+541
+00:45:41,960 --> 00:45:44,560
+fuck
+
+542
+00:45:45,300 --> 00:45:48,780
+kann man das mal please importieren
+
+543
+00:45:53,080 --> 00:45:58,960
+Der importiert nicht? Warum nicht? Ist Sea Lion irgendwie kaputt?
+
+544
+00:45:58,960 --> 00:46:04,300
+Ich glaube das ist broken.
+
+545
+00:46:04,300 --> 00:46:14,440
+Ok. Include GPIO.
+
+546
+00:46:14,440 --> 00:46:17,920
+Punkt A gibt es nicht.
+
+547
+00:46:18,040 --> 00:46:18,240
+Hä?
+
+548
+00:46:22,360 --> 00:46:23,060
+Bin ich jetzt
+
+549
+00:46:23,060 --> 00:46:24,540
+blöd verwirrt?
+
+550
+00:46:29,880 --> 00:46:31,900
+Ich bilde das gerade noch mal.
+
+551
+00:46:33,180 --> 00:46:34,040
+Talent verschmerzt.
+
+552
+00:46:43,740 --> 00:46:44,340
+Drivers.
+
+553
+00:46:44,440 --> 00:46:45,000
+GPIO.
+
+554
+00:46:48,300 --> 00:46:48,860
+Okay.
+
+555
+00:46:49,660 --> 00:46:50,080
+Aber noch mal.
+
+556
+00:46:55,200 --> 00:46:56,320
+Äh, wo kommt hier eine
+
+557
+00:46:56,320 --> 00:46:57,880
+While-Schleife auf einmal hin?
+
+558
+00:46:59,560 --> 00:46:59,920
+Okay.
+
+559
+00:47:03,520 --> 00:47:05,180
+Ich weiß gar nicht, was sie da macht.
+
+560
+00:47:08,880 --> 00:47:09,520
+GPIO.
+
+561
+00:47:09,720 --> 00:47:10,740
+Set Direction.
+
+562
+00:47:10,740 --> 00:47:16,400
+Der importet einfach grad nix.
+
+563
+00:47:16,400 --> 00:47:19,860
+Super weird.
+
+564
+00:47:19,860 --> 00:47:27,340
+Include driver GPIO.
+
+565
+00:47:27,340 --> 00:47:29,740
+Set direction.
+
+566
+00:47:29,740 --> 00:47:31,740
+Set direction.
+
+567
+00:47:31,740 --> 00:47:36,400
+Okay, so.
+
+568
+00:47:36,400 --> 00:47:39,180
+Set direction brauchen wir output.
+
+569
+00:47:39,180 --> 00:47:44,620
+Also Pin, Power, Output.
+
+570
+00:47:44,620 --> 00:47:51,680
+Okay, 15.
+
+571
+00:47:51,680 --> 00:48:00,060
+Machen wir einfach so.
+
+572
+00:48:00,060 --> 00:48:01,060
+Okay, passt.
+
+573
+00:48:01,060 --> 00:48:04,860
+Set Direction, Set Level 1.
+
+574
+00:48:04,860 --> 00:48:09,600
+Okay, so
+
+575
+00:48:09,600 --> 00:48:12,760
+Dann machen wir das mal, mal gucken, ob jetzt in irgendeiner Art und Weise
+
+576
+00:48:12,760 --> 00:48:13,860
+Das Display angeht
+
+577
+00:48:13,860 --> 00:48:15,800
+Kein Plan
+
+578
+00:48:15,800 --> 00:48:19,500
+Schau mal einfach mal
+
+579
+00:48:19,500 --> 00:48:22,420
+Chat, du musst ganz genau gucken
+
+580
+00:48:22,420 --> 00:48:23,760
+Geht da irgendwie ein Display an?
+
+581
+00:48:27,760 --> 00:48:29,000
+Irgendwas passiert gerade?
+
+582
+00:48:29,900 --> 00:48:30,280
+Ne, oder?
+
+583
+00:48:30,280 --> 00:48:34,280
+Ja, vielleicht, weil ich
+
+584
+00:48:34,280 --> 00:48:35,460
+Vielleicht, weil ich nix
+
+585
+00:48:35,460 --> 00:48:44,660
+Ist es wirklich was passiert?
+
+586
+00:48:44,740 --> 00:48:45,040
+Nee, oder?
+
+587
+00:48:47,800 --> 00:48:48,800
+Nee, ich glaub nicht
+
+588
+00:49:00,280 --> 00:49:11,440
+PIN POWER ON
+
+589
+00:49:30,280 --> 00:49:31,840
+Also ich bin mir schon damit zu...
+
+590
+00:49:31,840 --> 00:49:38,680
+Ich habe die Tage gehört, dass man C-Line weiterhin benutzen kann, wenn man die Subscription...
+
+591
+00:49:38,680 --> 00:49:42,860
+Kann man? Ja, C-Line ist mittlerweile free. Tatsächlich.
+
+592
+00:49:46,680 --> 00:49:48,560
+Ja, C-Line ist mittlerweile free.
+
+593
+00:49:54,920 --> 00:49:55,900
+Nicht Arduino.
+
+594
+00:49:57,000 --> 00:49:58,860
+Hier haben wir noch ein schönes Exempel vielleicht.
+
+595
+00:50:00,280 --> 00:50:14,560
+pin config pin 1 button 1 button 2 ok pin sd s hat spät pins display pins 15 haben wir richtig
+
+596
+00:50:14,560 --> 00:50:27,880
+ein cpp aber das ist auch wieder arduino stellt mama lv beginnen alter warum ist das gibt es da
+
+597
+00:50:27,880 --> 00:50:36,520
+vielleicht ein einfaches example für dieses display glaubt sie leihen ist
+
+598
+00:50:36,520 --> 00:50:45,560
+jetzt free nicht kommerzielle nutzung also wenn du das nächste krasse start up
+
+599
+00:50:46,920 --> 00:50:52,620
+start up wills dann nicht
+
+600
+00:50:57,880 --> 00:50:59,740
+Da muss doch ein Example geben.
+
+601
+00:51:01,660 --> 00:51:02,840
+Das hatten wir gerade offener.
+
+602
+00:51:03,840 --> 00:51:04,140
+Ah ne.
+
+603
+00:51:06,400 --> 00:51:09,440
+Haben wir schon mal was mit LVGL gemacht?
+
+604
+00:51:09,600 --> 00:51:10,380
+Kann das sein?
+
+605
+00:51:11,380 --> 00:51:13,540
+Nicht, dass ich das jetzt noch irgendwie...
+
+606
+00:51:20,540 --> 00:51:21,920
+Ich glaube nicht, oder?
+
+607
+00:51:22,820 --> 00:51:24,100
+Aber wir machen mal minus i.
+
+608
+00:51:27,880 --> 00:51:39,320
+Hä?
+
+609
+00:51:39,960 --> 00:51:41,920
+Ich glaube nicht. Wo könnte das denn noch sein?
+
+610
+00:51:41,920 --> 00:51:58,200
+Include lv.el.h
+
+611
+00:51:58,200 --> 00:52:11,200
+So planlos wie das...
+
+612
+00:52:21,200 --> 00:52:23,080
+Ich wüsste nicht, wo wir das haben.
+
+613
+00:52:23,080 --> 00:52:28,180
+Display Champ
+
+614
+00:52:28,180 --> 00:52:33,220
+Ich wüsste nicht, wo wir das haben sollen
+
+615
+00:52:33,220 --> 00:52:37,840
+Hier ist nichts mit
+
+616
+00:52:37,840 --> 00:52:41,620
+Der da vielleicht
+
+617
+00:52:41,620 --> 00:52:45,840
+Könnte das was sein
+
+618
+00:52:45,840 --> 00:52:46,220
+Vom
+
+619
+00:52:46,220 --> 00:52:48,280
+ESP32
+
+620
+00:52:48,280 --> 00:52:51,720
+Ne
+
+621
+00:52:51,720 --> 00:52:53,320
+Dann habe ich kein
+
+622
+00:52:53,320 --> 00:52:54,320
+Exempel dafür.
+
+623
+00:52:55,060 --> 00:52:56,720
+Dann müssen wir uns das hier nochmal klauen.
+
+624
+00:53:00,400 --> 00:53:01,960
+Das merke ich mir mal.
+
+625
+00:53:04,420 --> 00:53:04,800
+Aber
+
+626
+00:53:04,800 --> 00:53:07,380
+Okay.
+
+627
+00:53:08,520 --> 00:53:09,040
+Bane.
+
+628
+00:53:14,760 --> 00:53:15,280
+Aha.
+
+629
+00:53:15,500 --> 00:53:17,260
+Das brauchen wir nicht.
+
+630
+00:53:17,260 --> 00:53:28,300
+LVGL Setup. Vielleicht sollten wir uns mal das Example angucken von dem hier.
+
+631
+00:53:28,300 --> 00:53:34,420
+Boah, ich bin echt richtig planlos wie das Funst.
+
+632
+00:53:34,420 --> 00:53:41,940
+ad screen
+
+633
+00:53:41,940 --> 00:53:56,040
+esp lcd spi bus handle 1 monka es all da ist das kompliziert ok new lcd panel st 7789 moment was
+
+634
+00:53:56,040 --> 00:54:02,460
+für ein display haben wir das ist ein st 7789 das schon mal gutes example das hat schon was
+
+635
+00:54:02,460 --> 00:54:07,620
+mit unserem display zu tun okay ich werde mir das jetzt mal einfach copy
+
+636
+00:54:07,620 --> 00:54:11,220
+pasten und mal gucken was dann passiert
+
+637
+00:54:12,020 --> 00:54:18,340
+tag initialisation will er mir das mal drin also
+
+638
+00:54:23,180 --> 00:54:26,500
+wir gehen einfach mal von aus wir haben keine errosse
+
+639
+00:54:26,500 --> 00:54:31,420
+komm ja fmt prindeln
+
+640
+00:54:32,500 --> 00:54:34,920
+ero
+
+641
+00:54:35,300 --> 00:54:41,600
+guck mal ob es bis dahin funktioniert flash
+
+642
+00:54:42,680 --> 00:54:45,160
+flash
+
+643
+00:54:47,500 --> 00:54:51,820
+ich fand das so unglaublich nervig von jetbrains auf whistle studio zu wechseln
+
+644
+00:54:51,820 --> 00:54:55,840
+ja warum machst du sowas auch ich finde whistle studio ist richtig sack
+
+645
+00:54:55,840 --> 00:54:57,960
+gegenüber den ganzen Chat-Prints.
+
+646
+00:54:58,200 --> 00:54:59,120
+Okay, das hat funktioniert.
+
+647
+00:55:01,520 --> 00:55:02,280
+Error ist null.
+
+648
+00:55:06,960 --> 00:55:07,620
+Add Screen.
+
+649
+00:55:08,460 --> 00:55:08,940
+Alter!
+
+650
+00:55:10,020 --> 00:55:11,720
+Wie kompliziert
+
+651
+00:55:11,720 --> 00:55:14,140
+ist denn das, dieses Display anzusprechen,
+
+652
+00:55:14,140 --> 00:55:14,480
+Mann!
+
+653
+00:55:19,540 --> 00:55:22,000
+Ich copy-paste mir das jetzt einfach.
+
+654
+00:55:22,000 --> 00:55:26,000
+Wo kommt denn das hier her?
+
+655
+00:55:26,000 --> 00:55:30,460
+Woher bekommt man das hier?
+
+656
+00:55:30,460 --> 00:55:39,880
+Welche Idee benutzt ein Java-Kollegen Telly J? Haben die alle.
+
+657
+00:55:39,880 --> 00:55:45,000
+Cannot resolve simple IOConfig.
+
+658
+00:55:45,000 --> 00:55:53,580
+ja schön weiß auch nicht wo er kommt
+
+659
+00:55:53,580 --> 00:56:04,080
+das ist ja super krass kompliziert das habe ich auch nicht so vorgestellt
+
+660
+00:56:11,000 --> 00:56:12,880
+das hier klingt ja schon mal gut
+
+661
+00:56:15,000 --> 00:56:17,000
+Tja.
+
+662
+00:56:45,000 --> 00:56:48,960
+Okay, wir machen das jetzt.
+
+663
+00:56:49,040 --> 00:56:50,820
+Wir machen das jetzt einfach mal so.
+
+664
+00:56:51,100 --> 00:56:52,800
+Wir gucken uns einfach an, was was ist.
+
+665
+00:56:53,760 --> 00:56:57,960
+Also, als nächstes brauchen wir ein I.O. Handle.
+
+666
+00:57:00,140 --> 00:57:01,220
+Das ist 0.
+
+667
+00:57:01,600 --> 00:57:03,120
+Okay, das kopieren wir da schon mal rein.
+
+668
+00:57:03,440 --> 00:57:04,800
+Das sollte ja keine Probleme machen.
+
+669
+00:57:05,460 --> 00:57:08,300
+Dann brauchen wir das, was auch immer.
+
+670
+00:57:09,780 --> 00:57:11,560
+Moment mal, kann das sein?
+
+671
+00:57:15,000 --> 00:57:20,920
+dass wir diese IOConfig noch anlegen müssen, weil IOConfig gibt es ja nicht.
+
+672
+00:57:22,440 --> 00:57:34,140
+Also quasi sowas wie IOConfig ESP-LCD-Panel-IOSPI-Config-T.
+
+673
+00:57:36,220 --> 00:57:40,140
+Ich weiß, dass mein Display per SPI angeboten ist, genau das, okay?
+
+674
+00:57:45,000 --> 00:57:57,120
+konflikt gleich ja zack so ok ok und jetzt muss man das film ich boah alter fall da was was gibt
+
+675
+00:57:57,120 --> 00:58:10,680
+es denn da jetzt konflikt csn a post trans pretrans sind hier los cs aha hier kann man
+
+676
+00:58:10,680 --> 00:58:21,180
+ein gps setzen jetzt haben es okay cs cs cpi number cs ist das klick signal für
+
+677
+00:58:21,180 --> 00:58:34,680
+sp das ist was ist denn das ich habe doch hier pin 6 gps 6
+
+678
+00:58:34,680 --> 00:58:50,940
+heißt gpio 6 ok next io config dc gpio number klingt auch gut dc ist was 7
+
+679
+00:59:04,680 --> 00:59:16,640
+gibt doch einen example für aha guck mal da example aha
+
+680
+00:59:18,000 --> 00:59:30,360
+how to sehr gute frage in it sp mode gleich null
+
+681
+00:59:30,360 --> 00:59:35,100
+okay das klingt schon mal das klingt schon mal ganz gut
+
+682
+00:59:36,240 --> 00:59:49,360
+oh mann wo sind hier die aber wo machen die das hier mit dem display gar nicht
+
+683
+01:00:00,360 --> 01:00:02,280
+LV-Demos.
+
+684
+01:00:04,560 --> 01:00:05,900
+Muss mir das hier mal durchgucken.
+
+685
+01:00:06,000 --> 01:00:07,200
+Das ist das offizielle...
+
+686
+01:00:07,200 --> 01:00:07,900
+K, guck mal hier!
+
+687
+01:00:13,140 --> 01:00:14,280
+Was ist denn der Unterschied?
+
+688
+01:00:15,140 --> 01:00:16,560
+I80 vs. SPI.
+
+689
+01:00:16,660 --> 01:00:17,380
+Was ist denn da der Unterschied?
+
+690
+01:00:23,800 --> 01:00:25,360
+Was? Parallele Schnittstelle?
+
+691
+01:00:30,360 --> 01:00:37,440
+Das ist aber noch ein SPI Display.
+
+692
+01:00:39,520 --> 01:00:42,260
+Kann man das mit dem STM32 kombinieren?
+
+693
+01:00:43,480 --> 01:00:45,000
+Ne, das ist ein eigener Controller.
+
+694
+01:00:50,200 --> 01:00:54,300
+Ich glaube, das ergibt keinen Sinn, was hier drin steht.
+
+695
+01:00:56,520 --> 01:00:58,400
+Was ist denn ein I80-Bus?
+
+696
+01:01:00,360 --> 01:01:01,920
+Okay, what is I80-Bus?
+
+697
+01:01:11,520 --> 01:01:14,440
+It's a parallel plus a right line.
+
+698
+01:01:24,520 --> 01:01:26,020
+Kann das sein, dass...
+
+699
+01:01:26,020 --> 01:01:27,520
+Also, weil ich bin mir ziemlich sicher,
+
+700
+01:01:27,640 --> 01:01:29,480
+meins ist per SPI angebunden.
+
+701
+01:01:30,360 --> 01:01:32,440
+Vielleicht sind die auch einfach nur...
+
+702
+01:01:32,440 --> 01:01:34,860
+Vielleicht sacken die auch einfach nur die Docs dazu.
+
+703
+01:01:39,720 --> 01:01:42,300
+T-Display, S3, SPI.
+
+704
+01:01:48,420 --> 01:01:49,740
+Eigentlich gibt es auch noch was.
+
+705
+01:01:52,120 --> 01:01:54,080
+Ist das kompliziert, man.
+
+706
+01:02:00,360 --> 01:02:03,760
+Ja, das sind die doch. Ja genau.
+
+707
+01:02:11,400 --> 01:02:13,820
+Ist das das? Mark Chat GPT.
+
+708
+01:02:23,560 --> 01:02:26,020
+Samples. VGL.
+
+709
+01:02:26,020 --> 01:02:30,740
+Das ist wieder was anderes.
+
+710
+01:02:30,740 --> 01:02:33,680
+Ich mach mich fertig.
+
+711
+01:02:33,680 --> 01:02:46,140
+Ja, wir copy-pasten.
+
+712
+01:02:46,140 --> 01:02:52,140
+Also ich bin mir relativ sicher, dass es ein SPI-Ding ist.
+
+713
+01:02:52,140 --> 01:02:58,020
+ok mach guck mal weiter was haben wir dann sonst noch konflikt
+
+714
+01:02:58,020 --> 01:03:06,360
+flex ok ich habe doch irgendwas in diesem forum gerade gefunden
+
+715
+01:03:06,360 --> 01:03:10,860
+da hatten die doch
+
+716
+01:03:10,860 --> 01:03:16,700
+gegen example
+
+717
+01:03:16,700 --> 01:03:22,280
+sp 32
+
+718
+01:03:22,280 --> 01:03:34,860
+es presset warum hat man doch gerade irgendwie war das denn oder typ was gepostet hat
+
+719
+01:03:34,860 --> 01:03:46,700
+Ist ich jetzt blind?
+
+720
+01:03:49,700 --> 01:03:50,140
+Hä?
+
+721
+01:03:50,620 --> 01:03:52,220
+Ich hatte doch gerade so ein Example,
+
+722
+01:03:52,640 --> 01:03:54,540
+wo irgendein Typ im Forum gepostet hat.
+
+723
+01:04:03,420 --> 01:04:03,860
+Checksnatch.
+
+724
+01:04:04,860 --> 01:04:07,360
+Ach hier, das war's doch.
+
+725
+01:04:08,380 --> 01:04:08,940
+Ja, ne.
+
+726
+01:04:10,320 --> 01:04:11,860
+Meine Güte, Alter.
+
+727
+01:04:19,860 --> 01:04:21,140
+Browserhistory von Arsch, ja.
+
+728
+01:04:22,840 --> 01:04:23,680
+Was war das?
+
+729
+01:04:24,180 --> 01:04:25,260
+SPI-Mode.
+
+730
+01:04:32,180 --> 01:04:33,160
+Jetzt mal nachher.
+
+731
+01:04:33,160 --> 01:04:35,000
+Was ist das da? Das hat doch irgendeiner hier gesetzt.
+
+732
+01:04:51,820 --> 01:04:52,220
+Aha.
+
+733
+01:04:54,380 --> 01:04:55,340
+SPI-Mode.
+
+734
+01:04:59,280 --> 01:05:01,020
+Okay, SPI-Mode gleich.
+
+735
+01:05:01,220 --> 01:05:02,300
+Ah, hier haben wir ein paar Dinger.
+
+736
+01:05:03,160 --> 01:05:15,040
+ich was sp mode gleich null okay was auch immer das bedeutet was auch immer das bedeutet okay
+
+737
+01:05:15,040 --> 01:05:31,360
+also so konflikt hat man als nächstes irgendwas mit herz hatten sie noch frequency findet man
+
+738
+01:05:31,360 --> 01:05:32,160
+damit irgendwas?
+
+739
+01:05:36,160 --> 01:05:37,280
+Google, please.
+
+740
+01:05:37,880 --> 01:05:38,400
+Hilf mir.
+
+741
+01:05:43,080 --> 01:05:44,940
+Ich weiß noch nicht mal, was ich Chat-GPT
+
+742
+01:05:44,940 --> 01:05:45,700
+fragen könnte.
+
+743
+01:05:57,880 --> 01:05:58,400
+Haha.
+
+744
+01:06:00,140 --> 01:06:01,300
+Hier gibt es
+
+745
+01:06:01,300 --> 01:06:07,720
+irgendwelche ich habe irgendwo ein beispiel projekt ich habe damit schon
+
+746
+01:06:07,720 --> 01:06:15,480
+mal eine ausgabe grafik ausgabe hinbekommen irgendwann habe ich das denn
+
+747
+01:06:15,480 --> 01:06:27,500
+warte mal ich muss noch mal kurz mein getriebe gucken display display 11
+
+748
+01:06:27,500 --> 01:06:29,820
+Warte mal. LVGL.
+
+749
+01:06:32,400 --> 01:06:34,620
+Warte mal. Hier habe ich was mit LVGL.
+
+750
+01:06:36,460 --> 01:06:36,860
+Main.
+
+751
+01:06:39,340 --> 01:06:40,340
+Init Display.
+
+752
+01:06:41,060 --> 01:06:41,460
+Auskommentiert.
+
+753
+01:06:41,980 --> 01:06:43,020
+Das klingt doch schon mal gut.
+
+754
+01:06:52,440 --> 01:06:52,840
+Okay.
+
+755
+01:06:53,020 --> 01:06:54,060
+Leute, ich habe was gefunden.
+
+756
+01:06:54,380 --> 01:06:54,680
+Pog.
+
+757
+01:06:57,500 --> 01:06:58,980
+Wir sind gerettet.
+
+758
+01:06:59,680 --> 01:07:01,620
+Ich habe mit meinem eigenen Krempl schon was gefunden.
+
+759
+01:07:03,200 --> 01:07:04,020
+Okay, ich gucke mal.
+
+760
+01:07:04,100 --> 01:07:05,140
+Vielleicht kommen wir ja ohne aus.
+
+761
+01:07:05,420 --> 01:07:06,660
+Vielleicht ist das hier ja besser.
+
+762
+01:07:09,240 --> 01:07:11,120
+Lily, go, T-Disp, set up an examples.
+
+763
+01:07:11,400 --> 01:07:12,120
+Okay, nice.
+
+764
+01:07:12,620 --> 01:07:13,020
+Example.
+
+765
+01:07:13,020 --> 01:07:18,140
+Wo ist ein Example für Display?
+
+766
+01:07:20,840 --> 01:07:21,100
+Da.
+
+767
+01:07:23,180 --> 01:07:24,460
+Das ist aber auch Arduino.
+
+768
+01:07:24,460 --> 01:07:34,060
+und das ist mit tft sp das benutze ich nicht also wir copy pasten jetzt mal aus meinem eigenen
+
+769
+01:07:34,060 --> 01:07:50,620
+projekt ok als erstes mache ich sowas hier ich habe keine ahnung warum ich vermute dass das
+
+770
+01:07:50,620 --> 01:07:59,060
+hier das gleiche ist was ist die ftbl alter woher kommt die ftbl ich bin in meinem eigenen projekt
+
+771
+01:07:59,060 --> 01:08:09,900
+nicht durch globales die ftbl ist die bio nummer vier moment sollte es nicht die pia 15 angeblich
+
+772
+01:08:09,900 --> 01:08:18,780
+sein ich ich kopiere das jetzt ich kopiere das jetzt aus meinem eigenen projekt raus
+
+773
+01:08:18,780 --> 01:08:24,860
+Okay, so
+
+774
+01:08:24,860 --> 01:08:33,600
+GPU 23 gibt es gar nicht
+
+775
+01:08:33,600 --> 01:08:35,260
+Warum nicht?
+
+776
+01:08:38,540 --> 01:08:38,760
+Hä?
+
+777
+01:08:39,520 --> 01:08:40,520
+Wollt ihr mich verarschen?
+
+778
+01:08:42,600 --> 01:08:43,400
+21?
+
+779
+01:08:48,780 --> 01:08:49,920
+Wie jetzt?
+
+780
+01:08:50,580 --> 01:08:51,540
+Ja, wie jetzt?
+
+781
+01:08:51,680 --> 01:08:52,260
+Was? Wo?
+
+782
+01:09:00,120 --> 01:09:00,840
+Was?
+
+783
+01:09:02,240 --> 01:09:03,400
+Das kann doch nicht
+
+784
+01:09:03,400 --> 01:09:04,440
+ein Bug sein.
+
+785
+01:09:07,020 --> 01:09:09,360
+Warum gibt es kein GPIO23?
+
+786
+01:09:16,360 --> 01:09:17,520
+Was gibt es nicht?
+
+787
+01:09:18,780 --> 01:09:20,780
+wie
+
+788
+01:09:20,780 --> 01:09:26,780
+was wie
+
+789
+01:09:26,780 --> 01:09:32,780
+chat kann mir das irgendjemand erklären warum es das einfach nicht gibt
+
+790
+01:09:32,780 --> 01:09:38,780
+weil angebliches display reset ist gpo 23
+
+791
+01:09:38,780 --> 01:09:45,980
+Guck mal, es gibt bis 19, dann gibt es 20, 21
+
+792
+01:09:45,980 --> 01:09:48,000
+und dann geht es erst ab 26.
+
+793
+01:09:49,240 --> 01:09:50,040
+Aber internal?
+
+794
+01:09:50,480 --> 01:09:52,340
+Das ist an meinem Display angeschlossen.
+
+795
+01:09:54,480 --> 01:09:55,640
+Missing ESP.
+
+796
+01:10:04,700 --> 01:10:05,820
+Wie mache ich fertig?
+
+797
+01:10:08,780 --> 01:10:15,220
+Na gut, ich meine, wir brauchen es nicht unbedingt, wir können es einfach auch von Hand machen.
+
+798
+01:10:15,380 --> 01:10:25,480
+Also wir können hier 19 reinschreiben, 18, 5, 16, 23 und 4.
+
+799
+01:10:25,940 --> 01:10:29,700
+So, jetzt habe ich aber, nachdem ich hier die Daten von dem Display habe,
+
+800
+01:10:30,020 --> 01:10:34,700
+dann können wir doch mal gucken, was ich eigentlich, was habe ich denn überhaupt für ein Gerät?
+
+801
+01:10:34,700 --> 01:10:36,820
+Guck mal, das ist das Falsche, was ich hier habe.
+
+802
+01:10:36,820 --> 01:10:41,200
+Ich habe anscheinend eine Resolution von 240x135.
+
+803
+01:10:42,520 --> 01:10:44,440
+Das ist das Falsche.
+
+804
+01:10:53,420 --> 01:10:55,340
+Das ist das Falsche.
+
+805
+01:10:57,560 --> 01:10:57,800
+Hier.
+
+806
+01:10:59,720 --> 01:11:00,820
+Ist das vielleicht...
+
+807
+01:11:02,340 --> 01:11:05,700
+Ist das hier vielleicht das Richtige?
+
+808
+01:11:06,820 --> 01:11:12,400
+Ah, ne, noch besser.
+
+809
+01:11:14,440 --> 01:11:16,220
+200, okay, Alter, was hab ich denn
+
+810
+01:11:16,220 --> 01:11:17,260
+für ein Gerät überhaupt?
+
+811
+01:11:17,700 --> 01:11:19,680
+Ich muss da jetzt mal kurz drauf gucken. Was steht da?
+
+812
+01:11:19,760 --> 01:11:22,040
+T-Display? Na super, das steht unten, da kann ich
+
+813
+01:11:22,040 --> 01:11:22,780
+jetzt nicht drauf gucken.
+
+814
+01:11:23,400 --> 01:11:24,200
+T-Display
+
+815
+01:11:24,200 --> 01:11:27,420
+mal 135.
+
+816
+01:11:29,740 --> 01:11:30,780
+Okay, da haben wir es doch.
+
+817
+01:11:30,780 --> 01:11:37,660
+Das ist aber nicht das
+
+818
+01:11:37,660 --> 01:11:40,140
+Ihr seht es doch selbst, das sieht ganz anders aus
+
+819
+01:11:40,140 --> 01:11:46,580
+Guckt euch mal oben rechts an
+
+820
+01:11:46,580 --> 01:11:47,740
+Das sieht doch ganz anders aus
+
+821
+01:11:58,080 --> 01:11:59,220
+S3, suchen wir nochmal
+
+822
+01:11:59,220 --> 01:12:05,420
+Ach guck mal, hier gibt es ein Example.
+
+823
+01:12:08,480 --> 01:12:09,780
+Das ist aber das falsche.
+
+824
+01:12:11,100 --> 01:12:12,140
+Das ist das S3.
+
+825
+01:12:24,920 --> 01:12:25,580
+Ja, nee.
+
+826
+01:12:29,220 --> 01:12:42,280
+Das ist doch deins.
+
+827
+01:12:42,520 --> 01:12:42,660
+Was?
+
+828
+01:12:44,200 --> 01:12:46,200
+Das hier, ja, aber ich finde dazu jetzt keine
+
+829
+01:12:46,200 --> 01:12:47,880
+GPIO-Belegung. Ich hätte gerne einen
+
+830
+01:12:47,880 --> 01:12:49,360
+Datasheet oder sowas.
+
+831
+01:12:59,220 --> 01:13:11,760
+das ist das richtige die china chinesen man das ist das falsche genau auf die bildersuche
+
+832
+01:13:11,760 --> 01:13:19,440
+1.1
+
+833
+01:13:19,440 --> 01:13:22,980
+Vielleicht habe ich V1.1
+
+834
+01:13:22,980 --> 01:13:27,560
+V1.1 S3
+
+835
+01:13:42,360 --> 01:13:43,120
+Was ist denn das?
+
+836
+01:13:43,260 --> 01:13:46,200
+Da gibt es V1.1 Data Sheet
+
+837
+01:13:46,200 --> 01:13:54,860
+Data Sheet
+
+838
+01:13:54,860 --> 01:13:59,100
+Womks
+
+839
+01:13:59,100 --> 01:14:04,660
+Ah, das China-Chinesen-Zeug, man
+
+840
+01:14:04,660 --> 01:14:06,820
+Ist ja schlimm
+
+841
+01:14:16,200 --> 01:14:18,280
+Ist das das Richtige?
+
+842
+01:14:19,000 --> 01:14:19,300
+Nein.
+
+843
+01:14:20,120 --> 01:14:21,140
+Leute, ich muss mal zumachen.
+
+844
+01:14:21,300 --> 01:14:22,400
+Das wird mir zu viel.
+
+845
+01:14:24,260 --> 01:14:24,920
+Wartet mal.
+
+846
+01:14:25,140 --> 01:14:25,840
+Wir gucken noch mal.
+
+847
+01:14:26,100 --> 01:14:27,600
+Was steht denn hier für eine Version drauf?
+
+848
+01:14:30,600 --> 01:14:31,400
+Gar keine.
+
+849
+01:14:31,900 --> 01:14:32,920
+Hier, T-Display S3.
+
+850
+01:14:33,680 --> 01:14:34,600
+V1.1.
+
+851
+01:14:34,680 --> 01:14:35,180
+Das ist aber voll.
+
+852
+01:14:35,940 --> 01:14:36,700
+Also meins...
+
+853
+01:14:36,700 --> 01:14:38,860
+Ich habe das ja nicht ohne Grund gemacht.
+
+854
+01:14:46,200 --> 01:14:47,560
+S3.
+
+855
+01:14:56,180 --> 01:14:58,540
+Das alte TTGO Display.
+
+856
+01:14:59,640 --> 01:15:02,500
+Kann das sein, dass ich selbst Mist getippt habe?
+
+857
+01:15:03,360 --> 01:15:05,220
+Hattest du das Manual schon offen?
+
+858
+01:15:05,220 --> 01:15:05,540
+Nee.
+
+859
+01:15:06,020 --> 01:15:08,220
+Kann das sein, dass ich in meinem alten...
+
+860
+01:15:09,020 --> 01:15:10,460
+Dass ich da Mist getippt habe?
+
+861
+01:15:11,520 --> 01:15:12,560
+Oder noch schlimmer.
+
+862
+01:15:12,560 --> 01:15:16,460
+Kann das sein, dass ich das
+
+863
+01:15:16,460 --> 01:15:18,580
+gar nicht da drauf gemacht hab?
+
+864
+01:15:19,140 --> 01:15:21,380
+Moment, das ist ein Projekt von dem alten
+
+865
+01:15:21,380 --> 01:15:22,200
+T-Display
+
+866
+01:15:22,200 --> 01:15:25,360
+Das ist gar nicht von dem neuen T-Display
+
+867
+01:15:25,360 --> 01:15:28,940
+Ich glaub, das ist von... Oh, fuck
+
+868
+01:15:28,940 --> 01:15:35,600
+Das ist ein Projekt von dem alten T-Display
+
+869
+01:15:35,600 --> 01:15:39,640
+Was ich da in meinem GitHub gefunden hab
+
+870
+01:15:39,640 --> 01:15:41,360
+MonkaS, ja, alles klar hier
+
+871
+01:15:41,360 --> 01:15:43,800
+Okay, dann ist das das.
+
+872
+01:15:43,940 --> 01:15:44,040
+Okay.
+
+873
+01:15:45,520 --> 01:15:48,100
+Dann können wir uns wirklich nur...
+
+874
+01:15:48,100 --> 01:15:50,200
+Oh ne, dann geht das ja ganz anders anzusteuern.
+
+875
+01:15:52,120 --> 01:15:53,480
+Dann geht das ja so gar nicht.
+
+876
+01:15:57,280 --> 01:15:57,660
+Okay.
+
+877
+01:16:00,500 --> 01:16:01,820
+Oh, ich bin lost, Leute.
+
+878
+01:16:02,080 --> 01:16:03,660
+Okay, dann gucken wir uns jetzt...
+
+879
+01:16:03,660 --> 01:16:05,900
+Dann müssen wir uns hier die...
+
+880
+01:16:05,900 --> 01:16:07,820
+Ich guck mal kurz auf
+
+881
+01:16:07,820 --> 01:16:08,940
+mein T-Display drauf.
+
+882
+01:16:08,940 --> 01:16:16,440
+was da was da hinten drauf steht wartet mal hier gucken dass ich richtig positiv
+
+883
+01:16:27,900 --> 01:16:28,800
+1.2
+
+884
+01:16:38,940 --> 01:16:46,860
+1.2 habe ich da steht drauf T-Display 1.2 was ich habe
+
+885
+01:16:46,860 --> 01:16:53,100
+T-Display S3 1.2
+
+886
+01:17:01,560 --> 01:17:02,680
+V1.2
+
+887
+01:17:08,940 --> 01:17:14,940
+Dann habe ich bestimmt das Richtige.
+
+888
+01:17:15,920 --> 01:17:18,500
+Dann habe ich hier das Richtige die ganze Zeit schon rausgesucht.
+
+889
+01:17:19,900 --> 01:17:23,120
+Ich meine, hier steht zwar aus irgendwelchen Gründen V1.1 drauf,
+
+890
+01:17:23,240 --> 01:17:24,640
+aber bei mir steht V1.2.
+
+891
+01:17:24,940 --> 01:17:26,740
+Da habe ich vielleicht einfach noch ein bisschen was Neues.
+
+892
+01:17:27,660 --> 01:17:31,000
+Vielleicht liegt das auch daran, weil ich welche...
+
+893
+01:17:31,000 --> 01:17:31,920
+Touch Soldered?
+
+894
+01:17:31,920 --> 01:17:32,920
+Aber das...
+
+895
+01:17:33,740 --> 01:17:36,180
+Non-Touch Soldered?
+
+896
+01:17:37,760 --> 01:17:38,520
+Soldered Pin?
+
+897
+01:17:38,940 --> 01:17:46,060
+ja das ist das habe ich ja okay da steht nur 1.1 trauers aber okay dann stimmt
+
+898
+01:17:46,060 --> 01:17:54,900
+das hier doch dann stimmt das jedoch okay also dann tippen wir das mal ab
+
+899
+01:17:54,900 --> 01:18:01,980
+Backlight ist GPIO... Hallo?
+
+900
+01:18:01,980 --> 01:18:14,520
+Krackt mir C-Line gerade ab? GPIO number... also 38.
+
+901
+01:18:14,520 --> 01:18:20,760
+so rst gibt's hier nicht
+
+902
+01:18:22,800 --> 01:18:27,140
+und dann fand das doch anders mit dem ort dass das wird ein struggle bis es
+
+903
+01:18:27,140 --> 01:18:34,960
+läuft ich sag's euch da gibt es die 0 der da kann ich das doch aus dem dann
+
+904
+01:18:34,960 --> 01:18:38,240
+kann ich das doch hier raus
+
+905
+01:18:38,240 --> 01:18:47,960
+doch hier raus kopieren hier dann kann ich das doch aus kopieren power pin
+
+906
+01:18:47,960 --> 01:19:03,520
+beckleid 38 beste zack beim okay was brauchen also das ist schon mal die
+
+907
+01:19:03,520 --> 01:19:07,200
+resolution ist schon mal blödsinn das stimmt stimmt schon mal nett
+
+908
+01:19:07,200 --> 01:19:16,760
+also backlight dann haben wir die pins pin power on das display wahrscheinlich
+
+909
+01:19:16,760 --> 01:19:24,100
+lcd reset csdc wrd was auch immer das pin button battery das brauchen wir
+
+910
+01:19:24,100 --> 01:19:27,020
+nicht pin brauchen wahrscheinlich auch nicht
+
+911
+01:19:27,020 --> 01:19:30,340
+und touch brauchen wir auch nicht okay das sind unsere pins das schon mal gut
+
+912
+01:19:30,340 --> 01:19:35,640
+so weiter jetzt kann ich ja abgucken
+
+913
+01:19:37,200 --> 01:19:41,800
+So, jetzt kann ich ja abgucken.
+
+914
+01:19:42,860 --> 01:19:43,820
+Oder auch nicht.
+
+915
+01:19:44,860 --> 01:19:46,200
+Also, was ich jetzt bei mir mache...
+
+916
+01:19:52,120 --> 01:19:55,480
+Touch.
+
+917
+01:20:01,100 --> 01:20:02,580
+Es wird abwacken.
+
+918
+01:20:02,580 --> 01:20:03,060
+Ich habe gestruggelt.
+
+919
+01:20:03,060 --> 01:20:12,680
+hier esp lcd 80 bus händel wo kommt das her
+
+920
+01:20:12,680 --> 01:20:20,120
+okay wir müssen mit ok der pin also ich kann euch mal zeigen was ich mache hier bei mir in
+
+921
+01:20:20,120 --> 01:20:30,620
+meinem alten projekt das da mache ich hier so was auch immer das jetzt genau das da
+
+922
+01:20:30,620 --> 01:20:44,340
+in bit mask tft backlight gibt es ja nicht mehr oder lcd backlight ok lcd backlight machen wir an
+
+923
+01:20:49,060 --> 01:20:50,720
+lcd backlight machen wir an
+
+924
+01:20:50,720 --> 01:21:02,360
+und dann sage ich hier gp config geben
+
+925
+01:21:05,780 --> 01:21:06,800
+reformat
+
+926
+01:21:10,480 --> 01:21:19,760
+aber hier müssen wir müssen pin was ist denn rd rd auf high und pin power haben die haben die auch
+
+927
+01:21:19,760 --> 01:21:26,980
+Benutzen die Backlight auch irgendwo?
+
+928
+01:21:30,980 --> 01:21:32,420
+Attach Pin?
+
+929
+01:21:35,380 --> 01:21:35,760
+Äh.
+
+930
+01:21:43,760 --> 01:21:45,660
+Was machen die da?
+
+931
+01:21:47,240 --> 01:21:49,220
+Ist SBL Backlight?
+
+932
+01:21:49,760 --> 01:21:53,780
+wahrscheinlich
+
+933
+01:21:53,780 --> 01:22:00,100
+monka w
+
+934
+01:22:00,100 --> 01:22:03,140
+gibt es ein example für
+
+935
+01:22:12,000 --> 01:22:14,900
+wobei es gab doch hier die set direction
+
+936
+01:22:19,760 --> 01:22:28,260
+also wir wollen hin
+
+937
+01:22:28,260 --> 01:22:39,740
+wo geht's denn los hier also pin power auf high und pin rd auf high
+
+938
+01:22:39,740 --> 01:22:45,140
+also lassen wir das mal weg so pin power
+
+939
+01:22:45,140 --> 01:22:49,960
+Power on.
+
+940
+01:22:53,960 --> 01:22:55,760
+Was hat er denn für Schmerzen?
+
+941
+01:22:55,860 --> 01:22:56,500
+Warum geht das nicht?
+
+942
+01:23:01,820 --> 01:23:03,240
+Cannot convert int.
+
+943
+01:23:04,900 --> 01:23:06,580
+Ich dreh am Rad.
+
+944
+01:23:08,580 --> 01:23:09,620
+GPIO 38.
+
+945
+01:23:15,140 --> 01:23:44,900
+gp 39 gp auf 40 40 gp 41 gp 42 gp auf 45 gp 46 gp 47 48 gp auf 15
+
+946
+01:23:44,900 --> 01:24:13,620
+TPI auf 5. 6, 7, 8, 9. Okay, gut. Jetzt funzt's. Set level high. Oder 1. 1 auch. Okay. 0 low, 1 high.
+
+947
+01:24:14,900 --> 01:24:16,100
+Powerpin. So.
+
+948
+01:24:16,560 --> 01:24:18,520
+Das setzen wir. Gut. Next.
+
+949
+01:24:19,640 --> 01:24:20,480
+Dann müssen wir
+
+950
+01:24:20,480 --> 01:24:22,840
+Pin LCD-RD
+
+951
+01:24:22,840 --> 01:24:23,380
+setzen.
+
+952
+01:24:25,280 --> 01:24:26,600
+LCD-RD.
+
+953
+01:24:26,920 --> 01:24:28,240
+Set Level auch auf High.
+
+954
+01:24:28,660 --> 01:24:30,420
+Gut. So. Dann brauchen wir
+
+955
+01:24:30,420 --> 01:24:33,040
+ein ESP-LCD-I80
+
+956
+01:24:33,040 --> 01:24:34,700
+Bushendel-T. Wo bekommen wir
+
+957
+01:24:34,700 --> 01:24:36,640
+das überhaupt her? Das gibt's bei mir
+
+958
+01:24:36,640 --> 01:24:37,860
+nämlich im gesamten Projekt nicht.
+
+959
+01:24:38,700 --> 01:24:39,160
+Oder doch?
+
+960
+01:24:42,060 --> 01:24:42,500
+Äh.
+
+961
+01:24:43,040 --> 01:24:44,580
+Ach, das gibt's. Ich hab nix gesagt.
+
+962
+01:24:44,900 --> 01:24:56,060
+so 0 80 bus was auch immer der 80 bus ist jetzt brauchen wir das hier
+
+963
+01:24:56,060 --> 01:25:05,960
+ok also die ich ich kopiere das jetzt einfach mal davon aus dem beispiel raus
+
+964
+01:25:05,960 --> 01:25:12,320
+lv gl lcd bach sei es bekommt es her
+
+965
+01:25:12,320 --> 01:25:17,660
+pin config
+
+966
+01:25:17,660 --> 01:25:27,380
+ach so die resolution muss da rein okay das macht sinn
+
+967
+01:25:27,380 --> 01:25:34,440
+das macht sinn dass das stößt das machen wir machen wir uns auch hier
+
+968
+01:25:34,440 --> 01:25:38,440
+define lcd
+
+969
+01:25:38,440 --> 01:25:41,680
+width
+
+970
+01:25:41,680 --> 01:25:46,840
+height
+
+971
+01:25:46,840 --> 01:25:51,440
+was haben wir denn hier für eine
+
+972
+01:25:52,060 --> 01:25:57,420
+breite 170
+
+973
+01:25:57,420 --> 01:25:59,660
+170
+
+974
+01:25:59,660 --> 01:26:02,020
+oder ist die Höhe 100
+
+975
+01:26:02,020 --> 01:26:04,360
+ne, gut je nachdem wie man es
+
+976
+01:26:04,360 --> 01:26:11,260
+320 ich will es eher seitlich verwenden anstatt hoch kann so
+
+977
+01:26:11,260 --> 01:26:17,380
+buffer size
+
+978
+01:26:17,380 --> 01:26:25,480
+lcd breite mal lcd höhe
+
+979
+01:26:25,480 --> 01:26:31,900
+ein QR-Code will ich darauf anzeigen lassen.
+
+980
+01:26:32,320 --> 01:26:33,540
+Mit WiFi-Connect,
+
+981
+01:26:33,660 --> 01:26:36,020
+WiFi-Credentials, also so ein
+
+982
+01:26:36,020 --> 01:26:38,080
+Connect-QR-Code, wo du da mit dem Handy
+
+983
+01:26:38,080 --> 01:26:39,820
+scannen kannst, da verbindest du dich zum WiFi.
+
+984
+01:26:41,380 --> 01:26:42,120
+So, das
+
+985
+01:26:42,120 --> 01:26:42,800
+haben wir jetzt.
+
+986
+01:26:51,420 --> 01:26:52,280
+Also mit Touch
+
+987
+01:26:52,280 --> 01:26:53,060
+mache ich da nichts.
+
+988
+01:26:53,060 --> 01:26:59,520
+So, und jetzt ESP-LCD-NEW-I80-Bus.
+
+989
+01:27:02,220 --> 01:27:02,440
+Okay.
+
+990
+01:27:04,360 --> 01:27:04,800
+Alright.
+
+991
+01:27:06,300 --> 01:27:07,180
+IOConfig.
+
+992
+01:27:12,180 --> 01:27:14,800
+Ich copy-paste das einfach alles.
+
+993
+01:27:17,160 --> 01:27:19,880
+Example-LCD-Pixel-Clockhertz.
+
+994
+01:27:19,880 --> 01:27:24,500
+was soll ich denn wissen
+
+995
+01:27:24,500 --> 01:27:37,460
+und wo zum teufel kommt der display driver her für gäste nehmen und iot gerät hast du das initial
+
+996
+01:27:37,460 --> 01:27:43,220
+einrichten willst dann kriegst du macht das ding den access point auf zeigt den qr code auf dem
+
+997
+01:27:43,220 --> 01:27:48,680
+display an dann scannen es kommt auf der website da gibt es dann deine echten wlan credentials
+
+998
+01:27:48,680 --> 01:27:49,680
+ein und rebootest.
+
+999
+01:27:53,420 --> 01:27:54,580
+Okay, wir müssen mal kurz
+
+1000
+01:27:54,580 --> 01:27:56,680
+gucken, wo das hier her...
+
+1001
+01:27:56,680 --> 01:27:59,020
+wo das hier herkommt.
+
+1002
+01:28:00,780 --> 01:28:01,240
+Okay.
+
+1003
+01:28:02,760 --> 01:28:04,020
+Obviously, Leute.
+
+1004
+01:28:12,780 --> 01:28:14,000
+Okay, wir machen das doch
+
+1005
+01:28:14,000 --> 01:28:15,000
+mit
+
+1006
+01:28:15,000 --> 01:28:17,520
+Höhe 320.
+
+1007
+01:28:18,680 --> 01:28:19,720
+Aber auch so.
+
+1008
+01:28:21,360 --> 01:28:21,540
+So.
+
+1009
+01:28:22,780 --> 01:28:23,060
+Okay.
+
+1010
+01:28:24,060 --> 01:28:25,980
+Exakt das und nichts anderes.
+
+1011
+01:28:27,980 --> 01:28:28,840
+Ich fände, das ist
+
+1012
+01:28:28,840 --> 01:28:30,120
+obviously klar, oder?
+
+1013
+01:28:30,940 --> 01:28:31,300
+Warum?
+
+1014
+01:28:48,680 --> 01:28:52,460
+Leute, soll das ein Kommentar sein?
+
+1015
+01:28:55,720 --> 01:28:57,480
+Was genau soll das sein?
+
+1016
+01:28:57,560 --> 01:28:58,720
+Soll das ein Kommentar sein?
+
+1017
+01:29:02,140 --> 01:29:04,360
+Aber 10 mal 1000 mal 1000
+
+1018
+01:29:04,360 --> 01:29:06,800
+ist nicht 6 Millionen irgendwas.
+
+1019
+01:29:07,200 --> 01:29:08,040
+Wartet mal kurz.
+
+1020
+01:29:18,680 --> 01:29:28,720
+Ich schreib das da jetzt einfach mal so hin, wie es hier drin steht.
+
+1021
+01:29:29,900 --> 01:29:30,960
+So, wie geht's jetzt weiter?
+
+1022
+01:29:48,680 --> 01:30:04,680
+Haben die hier
+
+1023
+01:30:04,680 --> 01:30:06,440
+einen Durch zu viel? Kann das sein?
+
+1024
+01:30:11,180 --> 01:30:12,680
+Ich schreib jetzt...
+
+1025
+01:30:12,680 --> 01:30:19,680
+Ich habe legit keinen blassen Schirm aus der Nacht.
+
+1026
+01:30:19,680 --> 01:30:22,680
+Okay, Displayen.
+
+1027
+01:30:22,680 --> 01:30:26,680
+Ich suche da einfach mal danach.
+
+1028
+01:30:26,680 --> 01:30:38,680
+Tja, man weiß es nicht.
+
+1029
+01:30:38,680 --> 01:30:55,060
+wir können das ja mehr rein schreibt dann mag er aber nicht das kann auch nicht fassen
+
+1030
+01:30:55,060 --> 01:31:03,820
+aber aber in die fein sollte doch gar keinen unterschied machen als es ist
+
+1031
+01:31:03,820 --> 01:31:06,340
+doch im prinzip das gleiche wenn ich das eintrage oder
+
+1032
+01:31:06,340 --> 01:31:12,080
+Nee, ist es nicht.
+
+1033
+01:31:14,120 --> 01:31:15,040
+Okay, whatever.
+
+1034
+01:31:17,720 --> 01:31:20,000
+Ach so, weil es hier oben schon ein Comment ist.
+
+1035
+01:31:21,220 --> 01:31:23,640
+Ich vermute, die wollten so machen, ehrlich gesagt.
+
+1036
+01:31:23,780 --> 01:31:24,280
+Aber na gut.
+
+1037
+01:31:29,380 --> 01:31:30,340
+Was ist das?
+
+1038
+01:31:31,180 --> 01:31:32,320
+Example Notify.
+
+1039
+01:31:33,100 --> 01:31:34,300
+Okay, wo kommt das her?
+
+1040
+01:31:36,340 --> 01:31:41,040
+Wo kommt es her?
+
+1041
+01:31:44,640 --> 01:31:46,480
+Mon KS, Alter!
+
+1042
+01:31:47,500 --> 01:31:48,660
+Was wollt ihr von mir?
+
+1043
+01:31:52,240 --> 01:31:54,360
+Ich will einfach nur das Display anbekommen.
+
+1044
+01:31:56,940 --> 01:31:59,040
+Was ist Display Driver bei mir?
+
+1045
+01:32:01,860 --> 01:32:04,320
+Wo kommt ein Display Driver her?
+
+1046
+01:32:06,340 --> 01:32:30,120
+Das ist einfach leer.
+
+1047
+01:32:33,120 --> 01:32:33,900
+Das ist auch leer.
+
+1048
+01:32:34,180 --> 01:32:35,380
+Alles was ich weiß, das ist leer.
+
+1049
+01:32:35,460 --> 01:32:36,220
+Mal gucken was passiert.
+
+1050
+01:32:36,340 --> 01:32:56,420
+so als brauner dass händel gibt es aus irgendwelchen gründen nicht
+
+1051
+01:32:56,420 --> 01:32:58,460
+Was?
+
+1052
+01:32:59,260 --> 01:33:01,000
+Cannot resolve simple, da ist... Ah, Moment, Moment.
+
+1053
+01:33:02,100 --> 01:33:02,380
+Ah.
+
+1054
+01:33:07,060 --> 01:33:08,700
+Wo kommt denn der Allhandle jetzt her?
+
+1055
+01:33:12,880 --> 01:33:14,800
+Ach so, das ist was, was man hier übergeben muss.
+
+1056
+01:33:26,420 --> 01:33:31,740
+Ich habe so keinen Plan, was ich hier mache.
+
+1057
+01:33:38,220 --> 01:33:39,900
+Das gibt es schon mal gar nicht.
+
+1058
+01:33:42,480 --> 01:33:44,740
+Ich will doch einfach nur ein Display, was angeht.
+
+1059
+01:33:50,320 --> 01:33:51,420
+Panic Cell, danke für den Sub.
+
+1060
+01:33:56,420 --> 01:33:59,420
+das her
+
+1061
+01:34:06,140 --> 01:34:09,140
+es gibt es gibt es doch
+
+1062
+01:34:11,060 --> 01:34:14,360
+ich muss das importieren ich esse brötchen gerade
+
+1063
+01:34:17,780 --> 01:34:20,780
+ok
+
+1064
+01:34:26,420 --> 01:34:36,060
+Das habe ich nicht.
+
+1065
+01:34:36,120 --> 01:34:36,900
+Wo kommt denn das her?
+
+1066
+01:34:39,420 --> 01:34:39,860
+Hä?
+
+1067
+01:34:43,300 --> 01:34:43,740
+Hä?
+
+1068
+01:34:51,960 --> 01:34:52,940
+Angeblich gibt es das.
+
+1069
+01:34:56,420 --> 01:35:01,280
+Hat das jetzt included?
+
+1070
+01:35:02,960 --> 01:35:03,940
+Hat das included?
+
+1071
+01:35:11,240 --> 01:35:11,720
+Okay.
+
+1072
+01:35:12,480 --> 01:35:13,240
+Und jetzt?
+
+1073
+01:35:18,140 --> 01:35:19,080
+Ich hab keinen
+
+1074
+01:35:19,080 --> 01:35:20,740
+Plastenschimmer, was hier überhaupt passiert, Alter.
+
+1075
+01:35:22,500 --> 01:35:23,640
+Das machen wir mal weg.
+
+1076
+01:35:26,420 --> 01:35:38,860
+ok
+
+1077
+01:35:38,860 --> 01:35:51,100
+Wartet mal.
+
+1078
+01:35:51,100 --> 01:36:04,720
+das las ich mal weg gerade
+
+1079
+01:36:13,980 --> 01:36:19,100
+doch ich komme mal was passiert wenn ich es jetzt fläche kein blassenschimmer ob ich überhaupt ob
+
+1080
+01:36:19,100 --> 01:36:22,360
+das war kompiliert natürlich nicht
+
+1081
+01:36:28,580 --> 01:36:34,720
+platform warum macht jetzt da auch kein unterschied
+
+1082
+01:36:35,620 --> 01:36:42,160
+wir sehen was passiert oder sehen wir ist irgendwie nur weg leid oder so
+
+1083
+01:36:42,160 --> 01:36:45,120
+angegangen irgendwas
+
+1084
+01:36:49,100 --> 01:37:14,340
+was macht dann was macht denn led c set up das ist irgendein arduino die apwm ist das
+
+1085
+01:37:14,340 --> 01:37:26,780
+wo kommen
+
+1086
+01:37:26,780 --> 01:37:37,780
+War ich ein ESP, EDF...
+
+1087
+01:37:39,780 --> 01:37:41,420
+So was.
+
+1088
+01:37:48,420 --> 01:37:51,480
+Aha.
+
+1089
+01:37:56,780 --> 01:37:58,880
+Ne, ich mach's nicht mit dem Arduino-Framework.
+
+1090
+01:38:02,720 --> 01:38:04,180
+Arduino geht mal auf den Keks.
+
+1091
+01:38:06,500 --> 01:38:08,740
+Okay, das ist deutlich mehr High IQ,
+
+1092
+01:38:09,000 --> 01:38:10,100
+als ich gedacht hab hier.
+
+1093
+01:38:12,660 --> 01:38:13,020
+Ähm.
+
+1094
+01:38:14,280 --> 01:38:16,060
+Kann ich nicht einfach sagen?
+
+1095
+01:38:17,800 --> 01:38:20,380
+Zumindest, dass es mal die Hintergrundbeleuchtung angeht.
+
+1096
+01:38:24,000 --> 01:38:25,720
+Pin LCD BL.
+
+1097
+01:38:25,720 --> 01:38:27,720
+So, das soll jetzt mal zumindest irgendwas...
+
+1098
+01:38:40,520 --> 01:38:42,560
+Ne, da ist nichts angange, oder?
+
+1099
+01:38:51,760 --> 01:38:53,540
+Wer soll denn das verstehen, man?
+
+1100
+01:38:55,720 --> 01:39:03,940
+ich meine ich habe immerhin etwas aus kommentiert
+
+1101
+01:39:03,940 --> 01:39:15,000
+ich habe das hier aus kommentiert und das aber
+
+1102
+01:39:15,000 --> 01:39:19,500
+die treiber fehlt nichts
+
+1103
+01:39:19,500 --> 01:39:25,860
+nutze ich doch hier gar nicht nirgendwo
+
+1104
+01:39:25,860 --> 01:39:31,740
+jetzt geht es ja nur aktuell um das backlight an ein und auszuschalten
+
+1105
+01:39:31,740 --> 01:39:44,160
+wo fehlt hier was driver hier nichts mit driver
+
+1106
+01:39:44,160 --> 01:39:53,700
+Ach das hier, das habe ich das, habe ich das, habe ich das auskommentiert? Wo denn?
+
+1107
+01:39:53,700 --> 01:39:57,540
+Boah, das ist mir zu hoch gerade.
+
+1108
+01:40:07,920 --> 01:40:08,960
+Das da meinst du?
+
+1109
+01:40:14,160 --> 01:40:23,540
+user kontext das brauche ich nicht deswegen welche callbacks oder so
+
+1110
+01:40:23,540 --> 01:40:29,760
+ich will jetzt eigentlich das hier machen
+
+1111
+01:40:29,760 --> 01:40:43,500
+ich weiß bloß nicht wie ich das in esp spdf mache was macht dann led c setup
+
+1112
+01:40:43,500 --> 01:40:47,100
+Also irgendwie PWM.
+
+1113
+01:40:57,100 --> 01:40:58,500
+Example.
+
+1114
+01:41:05,260 --> 01:41:07,560
+GitHub.
+
+1115
+01:41:13,500 --> 01:41:29,940
+Was ist für da absolutes High-IQ Zeug?
+
+1116
+01:41:29,940 --> 01:41:33,900
+So ne...
+
+1117
+01:41:33,900 --> 01:41:36,260
+examples led basic sehr gut
+
+1118
+01:41:50,860 --> 01:41:53,240
+Na das ist mir heute zu high iq
+
+1119
+01:42:03,900 --> 01:42:20,700
+Okay, ich kopiere mir das mal.
+
+1120
+01:42:20,700 --> 01:42:21,700
+Das gibt es noch nicht mal.
+
+1121
+01:42:21,700 --> 01:42:22,700
+Doch, gibt es.
+
+1122
+01:42:22,700 --> 01:42:27,120
+Was hat er denn für Schmerzen?
+
+1123
+01:42:27,120 --> 01:42:29,120
+Cannot resolve?
+
+1124
+01:42:29,120 --> 01:42:31,120
+Wie jetzt?
+
+1125
+01:42:31,120 --> 01:42:34,120
+es ist doch
+
+1126
+01:42:35,080 --> 01:42:39,220
+warum kannst du das nicht wie salve resäumen
+
+1127
+01:42:44,940 --> 01:42:49,440
+ich habe noch einen video ich habe auch noch ein video
+
+1128
+01:42:49,620 --> 01:42:53,620
+ok also channel
+
+1129
+01:43:01,120 --> 01:43:05,000
+Pass mal auf, wir fragen jetzt ChatGPT.
+
+1130
+01:43:12,740 --> 01:43:18,960
+I need this Arduino code translated to ESP-EDF.
+
+1131
+01:43:24,720 --> 01:43:28,360
+Da gucken wir mal, schauen wir mal, was uns ChatGPT sagt.
+
+1132
+01:43:31,120 --> 01:43:33,120
+ok
+
+1133
+01:43:33,120 --> 01:43:36,180
+alles klar
+
+1134
+01:43:36,180 --> 01:43:37,560
+chat gpt nice
+
+1135
+01:43:37,560 --> 01:43:42,440
+vibe coding
+
+1136
+01:43:42,440 --> 01:43:43,720
+activated
+
+1137
+01:43:43,720 --> 01:43:47,800
+ups
+
+1138
+01:44:01,120 --> 01:44:07,300
+kommt das her muss man moment muss man das irgendwie erst noch hätten
+
+1139
+01:44:07,300 --> 01:44:12,800
+wo bekommt man das überhaupt her
+
+1140
+01:44:21,680 --> 01:44:23,020
+wir in den example drin
+
+1141
+01:44:23,020 --> 01:44:29,840
+aber wir hatten doch wo wir hatten auch hier ein
+
+1142
+01:44:29,840 --> 01:44:30,580
+ein Exempel.
+
+1143
+01:44:33,280 --> 01:44:33,760
+Driver
+
+1144
+01:44:33,760 --> 01:44:34,800
+LEDC.
+
+1145
+01:44:40,980 --> 01:44:41,460
+Haha.
+
+1146
+01:44:44,820 --> 01:44:45,900
+Ah, Moment, wir haben den
+
+1147
+01:44:45,900 --> 01:44:47,180
+Channel ja noch gar nicht angegeben.
+
+1148
+01:44:48,560 --> 01:44:49,860
+Wir wollen auf
+
+1149
+01:44:49,860 --> 01:44:52,140
+Pin
+
+1150
+01:44:52,140 --> 01:44:53,100
+LCD BL.
+
+1151
+01:44:53,860 --> 01:44:55,740
+Moment, woher weiß das Chat GPT?
+
+1152
+01:44:59,840 --> 01:45:05,840
+Achso, weil ich das schon unten eingetragen habe.
+
+1153
+01:45:11,840 --> 01:45:13,940
+Das funzt jetzt, oder wie?
+
+1154
+01:45:16,600 --> 01:45:19,240
+Da habe ich ja meine Zweifel, dass das irgendwas macht.
+
+1155
+01:45:23,380 --> 01:45:23,980
+Okay.
+
+1156
+01:45:23,980 --> 01:45:34,540
+was genau will er jetzt das ist wieder irgendeine c++ shit leute das ist
+
+1157
+01:45:34,540 --> 01:45:47,180
+irgendein c++ da muss ich da muss man das irgendwie so schreiben weil
+
+1158
+01:45:47,180 --> 01:45:59,620
+bleibt halt
+
+1159
+01:45:59,620 --> 01:46:18,380
+Ich weiss aber doch nicht was die richtige Reihenfolge ist.
+
+1160
+01:46:18,380 --> 01:46:33,060
+Du siehst das ja in der Declaration, da kann ich es aber auch so schreiben.
+
+1161
+01:46:33,060 --> 01:46:35,880
+Muss ich da nachgucken.
+
+1162
+01:46:35,880 --> 01:46:42,540
+zwischen dinge zwischen sprache ist kacke und lehrer acht problem ist das gerade so
+
+1163
+01:46:42,540 --> 01:46:58,800
+channel speed nochmals speed mode aber das nicht gerade schon
+
+1164
+01:47:05,880 --> 01:47:13,280
+sie leihen kann das auto fixen wirklich das schauen wir mal
+
+1165
+01:47:13,280 --> 01:47:18,600
+kann
+
+1166
+01:47:27,220 --> 01:47:30,320
+kann er nicht und ich weiß besser gesagt nicht wie
+
+1167
+01:47:30,320 --> 01:47:34,720
+channel
+
+1168
+01:47:44,220 --> 01:47:46,120
+nach mir wenn ich mit mist kopiere
+
+1169
+01:48:00,320 --> 01:48:01,180
+Okay, so.
+
+1170
+01:48:07,760 --> 01:48:09,180
+Kannst du C++20?
+
+1171
+01:48:09,560 --> 01:48:11,820
+Ach, habe ich noch eine alte C++-Version?
+
+1172
+01:48:14,300 --> 01:48:16,860
+Wir gucken mal kurz, was ich für eine C++-Version habe.
+
+1173
+01:48:18,780 --> 01:48:19,840
+Macht das jetzt irgendwas?
+
+1174
+01:48:22,600 --> 01:48:24,240
+Warte mal, ist das Display gerade angegangen?
+
+1175
+01:48:24,600 --> 01:48:24,780
+Chat?
+
+1176
+01:48:26,000 --> 01:48:26,440
+Chat?
+
+1177
+01:48:30,320 --> 01:48:36,440
+hat sich gerade irgendwas getan
+
+1178
+01:48:36,440 --> 01:48:45,640
+ich will mir ein dass display hat sich gerade irgendwie oder das will ich mir ein das will
+
+1179
+01:48:45,640 --> 01:48:48,300
+ich mir glaube ich ein
+
+1180
+01:48:58,840 --> 01:49:06,940
+kann man das hier einfach mal endlos schleife wiederholen dieses um zu gucken
+
+1181
+01:49:06,940 --> 01:49:09,900
+ob irgendwas passiert
+
+1182
+01:49:15,640 --> 01:49:27,500
+Ey, Chat, das macht nix.
+
+1183
+01:49:28,840 --> 01:49:29,680
+Das macht nix.
+
+1184
+01:49:31,220 --> 01:49:31,700
+Sadge.
+
+1185
+01:49:38,000 --> 01:49:40,740
+Okay, da bin ich legit heute Abend zu dumm für.
+
+1186
+01:49:42,740 --> 01:49:44,620
+Dieses Display zum Laufen zu bekommen.
+
+1187
+01:49:44,620 --> 01:49:47,260
+Ich muss was essen, Chat. Ich bleibe aber online.
+
+1188
+01:49:47,720 --> 01:49:49,860
+Wir gucken uns mal nebenbei, vielleicht machen wir danach noch weiter.
+
+1189
+01:49:50,680 --> 01:49:54,120
+Wir gucken uns mal dieses Video hier an, was ich mir angucken wollte schon die ganze Zeit hier.
+
+1190
+01:49:54,240 --> 01:49:55,240
+I hate JavaScript.
+
+1191
+01:49:55,400 --> 01:49:58,660
+I hope it's not a controversial take that JavaScript is a kind of curse language.
+
+1192
+01:49:59,720 --> 01:50:01,780
+Was hast du denn hier für ein Video? Zeig mal her.
+
+1193
+01:50:04,560 --> 01:50:05,920
+Gaspedal statt Fahrpedal.
+
+1194
+01:50:07,360 --> 01:50:08,220
+Ist die Autos...
+
+1195
+01:50:08,220 --> 01:50:13,120
+Weil Deutschland auch so ein autofreindliches Land ist.
+
+1196
+01:50:13,120 --> 01:50:14,580
+Cursed language.
+
+1197
+01:50:14,620 --> 01:50:15,880
+Wo geht's denn los? Hier?
+
+1198
+01:50:17,640 --> 01:50:18,080
+Nee, hier.
+
+1199
+01:50:18,880 --> 01:50:19,860
+Der macht irgendwie so ein Quiz.
+
+1200
+01:50:21,120 --> 01:50:22,660
+Quick word from today's sponsor
+
+1201
+01:50:22,660 --> 01:50:23,900
+and then you can watch me suffer.
+
+1202
+01:50:24,240 --> 01:50:24,380
+Okay.
+
+1203
+01:50:25,500 --> 01:50:26,900
+You could skip switch and click.
+
+1204
+01:50:26,900 --> 01:50:29,080
+I have a bad weird date.
+
+1205
+01:50:29,200 --> 01:50:31,220
+How well I'm gonna do on this.
+
+1206
+01:50:31,680 --> 01:50:32,720
+I notoriously
+
+1207
+01:50:32,720 --> 01:50:34,900
+am not great at weird date time stuff
+
+1208
+01:50:34,900 --> 01:50:36,620
+in JavaScript and I have a bad feeling.
+
+1209
+01:50:37,020 --> 01:50:38,600
+I'm about to embarrass myself immensely.
+
+1210
+01:50:39,400 --> 01:50:39,920
+Okay.
+
+1211
+01:50:40,660 --> 01:50:40,920
+No?
+
+1212
+01:50:41,720 --> 01:50:43,120
+Moment, Moment, Moment.
+
+1213
+01:50:43,120 --> 01:51:13,100
+Ich werde mich sehr überraschen.
+
+1214
+01:51:13,120 --> 01:51:17,880
+Okay
+
+1215
+01:51:17,880 --> 01:51:20,540
+Was?
+
+1216
+01:51:22,340 --> 01:51:23,300
+2000?
+
+1217
+01:51:25,100 --> 01:51:25,840
+Warum?
+
+1218
+01:51:25,840 --> 01:51:26,020
+Warum?
+
+1219
+01:51:37,600 --> 01:51:38,560
+Warum 2000?
+
+1220
+01:51:39,640 --> 01:51:41,160
+Ich hätte ja Unix Time
+
+1221
+01:51:41,160 --> 01:51:44,000
+1.1.1907, das hätte ich ja noch irgendwie verstanden.
+
+1222
+01:51:49,840 --> 01:51:51,400
+Aber warum 2000?
+
+1223
+01:51:53,340 --> 01:51:55,320
+Das verstehe ich nicht. Egal, guck mal weiter.
+
+1224
+01:51:55,320 --> 01:51:55,500
+Was?
+
+1225
+01:51:59,120 --> 01:52:01,820
+Warum ist 0 verzeichnet als 2000?
+
+1226
+01:52:02,680 --> 01:52:03,860
+Das würde mich auch interessieren.
+
+1227
+01:52:04,800 --> 01:52:07,300
+Okay, kann ich meinen eigenen Reppel aufschreiben?
+
+1228
+01:52:08,400 --> 01:52:09,820
+Ich möchte jetzt Double Zero versuchen.
+
+1229
+01:52:09,820 --> 01:52:11,980
+jetzt. Gleiches, okay. Und 1?
+
+1230
+01:52:15,440 --> 01:52:16,000
+Was?
+
+1231
+01:52:16,620 --> 01:52:17,760
+Moment, Moment, Moment, Moment.
+
+1232
+01:52:18,280 --> 01:52:19,900
+0 ist 2000 und
+
+1233
+01:52:19,900 --> 01:52:21,740
+1 ist 2001, oder was?
+
+1234
+01:52:22,120 --> 01:52:23,300
+Okay, also 0 ist
+
+1235
+01:52:23,300 --> 01:52:24,380
+2001,
+
+1236
+01:52:24,940 --> 01:52:26,100
+aber 1 ist
+
+1237
+01:52:26,100 --> 01:52:28,100
+2001, und dann 2 ist
+
+1238
+01:52:28,100 --> 01:52:28,700
+2001,
+
+1239
+01:52:28,780 --> 01:52:34,460
+Wie soft,
+
+1240
+01:52:34,560 --> 01:52:35,060
+Teufel!
+
+1241
+01:52:37,540 --> 01:52:38,200
+Also nur,
+
+1242
+01:52:38,340 --> 01:52:39,320
+dass ich das jetzt...
+
+1243
+01:52:39,320 --> 01:52:41,460
+Nur weil ich das richtig verstehe.
+
+1244
+01:52:41,880 --> 01:52:42,840
+0 ist 2000,
+
+1245
+01:52:43,500 --> 01:52:44,760
+1 ist 2001,
+
+1246
+01:52:46,200 --> 01:52:47,180
+aber 2
+
+1247
+01:52:47,180 --> 01:52:49,640
+ist 2001 Februar.
+
+1248
+01:52:52,820 --> 01:52:53,380
+What?
+
+1249
+01:52:54,620 --> 01:52:56,260
+Okay, this is gonna hurt me deeply.
+
+1250
+01:52:57,700 --> 01:52:58,300
+Scheiße.
+
+1251
+01:52:59,360 --> 01:53:00,300
+JavaScript, Alter.
+
+1252
+01:53:02,220 --> 01:53:03,300
+Okay, jetzt kommt
+
+1253
+01:53:03,300 --> 01:53:04,400
+New Date mit einem Int.
+
+1254
+01:53:06,700 --> 01:53:07,260
+Also,
+
+1255
+01:53:07,260 --> 01:53:10,140
+ich würde jetzt ja mal drauf tippen,
+
+1256
+01:53:10,220 --> 01:53:12,240
+das ist genau das gleiche. Aber das ist
+
+1257
+01:53:12,240 --> 01:53:14,200
+JavaScript. Das ist bestimmt nicht
+
+1258
+01:53:14,200 --> 01:53:15,860
+das gleiche. Okay.
+
+1259
+01:53:16,280 --> 01:53:18,060
+Ich weiß es. 0
+
+1260
+01:53:18,060 --> 01:53:19,960
+int ist 2. 2.
+
+1261
+01:53:20,100 --> 01:53:20,700
+Ich sag 2.
+
+1262
+01:53:24,700 --> 01:53:25,840
+Jetzt 0 ist
+
+1263
+01:53:25,840 --> 01:53:26,960
+Unix-Time-Start.
+
+1264
+01:53:28,560 --> 01:53:29,160
+2.
+
+1265
+01:53:29,160 --> 01:53:29,220
+Okay.
+
+1266
+01:53:30,220 --> 01:53:31,420
+Und die Zahlen...
+
+1267
+01:53:31,420 --> 01:53:34,900
+Ich werde so viel
+
+1268
+01:53:34,900 --> 01:53:36,720
+Schmerzen von dem. Bitte sag mir.
+
+1269
+01:53:36,720 --> 01:53:37,840
+Ah, wir haben recht.
+
+1270
+01:53:43,620 --> 01:53:51,300
+Okay, wir parsen 0 und 0 String.
+
+1271
+01:53:52,400 --> 01:53:55,780
+Okay, von der Idee her müssten wir natürlich sagen, das ist false.
+
+1272
+01:53:56,140 --> 01:53:57,860
+Aber es ist JavaScript.
+
+1273
+01:53:58,480 --> 01:53:59,960
+Deswegen sage ich, es ist true.
+
+1274
+01:54:00,380 --> 01:54:02,380
+Ich verstehe nicht, warum es true ist.
+
+1275
+01:54:03,260 --> 01:54:05,720
+Also wenn es true ist, verstehe ich nicht, warum.
+
+1276
+01:54:05,720 --> 01:54:09,980
+aber ich tippe einfach mal drauf es ist true. Gucken wir mal.
+
+1277
+01:54:09,980 --> 01:54:23,180
+Ich hab richtig geraten.
+
+1278
+01:54:23,180 --> 01:54:24,180
+Aber...
+
+1279
+01:54:24,180 --> 01:54:26,280
+Throwing something to date can throw an error.
+
+1280
+01:54:26,280 --> 01:54:27,280
+Not a date?
+
+1281
+01:54:27,280 --> 01:54:36,280
+Von der Idee her würde ich sagen invalid date.
+
+1282
+01:54:36,280 --> 01:54:41,020
+Invalid date klingt irgendwie am naheliegendsten.
+
+1283
+01:54:41,020 --> 01:54:44,980
+Aber es könnte auch JavaScript Null oder undefined sein.
+
+1284
+01:54:44,980 --> 01:54:46,260
+I don't know what the behavior is.
+
+1285
+01:54:46,260 --> 01:54:47,660
+I would never do this.
+
+1286
+01:54:47,660 --> 01:54:48,860
+This is gonna hurt.
+
+1287
+01:54:48,860 --> 01:54:51,500
+This is like literally a random guess.
+
+1288
+01:54:51,500 --> 01:54:52,500
+Invalid date.
+
+1289
+01:54:52,500 --> 01:54:52,900
+Hey!
+
+1290
+01:54:53,140 --> 01:54:54,180
+It's still a date object.
+
+1291
+01:54:54,320 --> 01:54:55,240
+It's not null or an error.
+
+1292
+01:54:55,360 --> 01:54:55,560
+Great.
+
+1293
+01:54:58,820 --> 01:54:59,300
+Moment.
+
+1294
+01:55:00,800 --> 01:55:01,240
+Moment.
+
+1295
+01:55:02,980 --> 01:55:06,040
+Wir wissen, dass not a date invalid date ist.
+
+1296
+01:55:06,620 --> 01:55:09,340
+Man kann von einem invalid date get time machen, ja?
+
+1297
+01:55:15,200 --> 01:55:16,420
+Alter, keine Ahnung.
+
+1298
+01:55:18,620 --> 01:55:19,100
+Null?
+
+1299
+01:55:19,460 --> 01:55:19,960
+Null?
+
+1300
+01:55:20,460 --> 01:55:20,980
+Error.
+
+1301
+01:55:21,380 --> 01:55:21,660
+Drei.
+
+1302
+01:55:22,500 --> 01:55:26,580
+Ich sag drei. Aber wahrscheinlich ist es null oder irgendwas komisches.
+
+1303
+01:55:28,340 --> 01:55:33,540
+Was passiert, wenn du Zeit drauf hast? Oh nein. Oh nein.
+
+1304
+01:55:34,180 --> 01:55:35,640
+Bitte sag mir, es ist ein Nen. Okay.
+
+1305
+01:55:35,840 --> 01:55:39,020
+Nichts. Ja gut, macht Sinn. Okay.
+
+1306
+01:55:41,920 --> 01:55:44,440
+Es ist invalid, also ist die Zeit nicht ein Nen. Okay.
+
+1307
+01:55:45,440 --> 01:55:47,400
+Irgendwie hat es noch eine gewisse Logik.
+
+1308
+01:55:48,220 --> 01:55:49,860
+Okay, wir sind bei zwei richtigen.
+
+1309
+01:55:49,860 --> 01:55:52,400
+so far. To isostring.
+
+1310
+01:55:54,400 --> 01:55:55,800
+What's it going to return?
+
+1311
+01:55:56,980 --> 01:55:58,220
+Ich hab keine Ahnung.
+
+1312
+01:55:58,240 --> 01:55:59,200
+Okay, wir wissen es ja schon.
+
+1313
+01:55:59,300 --> 01:56:01,240
+Jetzt wirft es ein Error.
+
+1314
+01:56:01,420 --> 01:56:03,020
+Okay, then it throws an error.
+
+1315
+01:56:04,180 --> 01:56:06,000
+Chat says I need to just go by vibes.
+
+1316
+01:56:06,080 --> 01:56:07,000
+I'll feel it in my heart.
+
+1317
+01:56:07,420 --> 01:56:09,640
+I have a bad feeling I'm gonna feel something in my heart.
+
+1318
+01:56:10,560 --> 01:56:11,660
+To timestring.
+
+1319
+01:56:12,340 --> 01:56:13,180
+So to iso.
+
+1320
+01:56:14,220 --> 01:56:15,700
+Ich würde sagen, throwt auch
+
+1321
+01:56:15,700 --> 01:56:16,200
+ein Error.
+
+1322
+01:56:16,200 --> 01:56:18,020
+Oh, threw an error.
+
+1323
+01:56:18,580 --> 01:56:19,100
+Will this also?
+
+1324
+01:56:19,860 --> 01:56:21,420
+Du lachst, oder?
+
+1325
+01:56:30,420 --> 01:56:32,220
+Ja, was gibt man?
+
+1326
+01:56:37,740 --> 01:56:38,740
+Warum?
+
+1327
+01:56:40,360 --> 01:56:41,440
+Warum?
+
+1328
+01:56:41,660 --> 01:56:42,760
+Warum würde
+
+1329
+01:56:42,760 --> 01:56:43,920
+zu Timestring
+
+1330
+01:56:43,920 --> 01:56:45,020
+die String
+
+1331
+01:56:45,020 --> 01:56:45,900
+invalidieren,
+
+1332
+01:56:46,020 --> 01:56:47,520
+aber zu Isostring
+
+1333
+01:56:47,520 --> 01:56:48,440
+eine Error-Return?
+
+1334
+01:56:48,560 --> 01:56:49,560
+Wenn du nicht sicher bist,
+
+1335
+01:56:49,560 --> 01:56:51,880
+pick two options. Das macht keinen Sinn.
+
+1336
+01:56:52,140 --> 01:56:53,820
+Das macht absolut keinen Sinn.
+
+1337
+01:56:54,220 --> 01:56:56,160
+Choose the one that you believe it isn't.
+
+1338
+01:56:56,360 --> 01:56:57,660
+That's honestly the best advice
+
+1339
+01:56:57,660 --> 01:56:58,840
+I've gotten so far.
+
+1340
+01:56:59,640 --> 01:57:00,000
+Okay.
+
+1341
+01:57:01,340 --> 01:57:03,280
+Okay, I cheated a bit. I'm sorry.
+
+1342
+01:57:06,240 --> 01:57:07,520
+Und zwei ist aber Februar
+
+1343
+01:57:07,520 --> 01:57:09,220
+2001. Haben wir gerade gelernt.
+
+1344
+01:57:12,220 --> 01:57:13,620
+I don't know how I vibe
+
+1345
+01:57:13,620 --> 01:57:15,740
+code guessed this. Oh, 12.
+
+1346
+01:57:16,080 --> 01:57:17,200
+Oh, God. 12.
+
+1347
+01:57:17,200 --> 01:57:19,320
+I hope that it follows the pattern of the map.
+
+1348
+01:57:19,560 --> 01:57:22,160
+Ja, würde ich auch sagen.
+
+1349
+01:57:22,400 --> 01:57:23,740
+Würde ich auch sagen.
+
+1350
+01:57:26,680 --> 01:57:28,600
+Aber das, was jemand vorhin gesagt hat,
+
+1351
+01:57:28,680 --> 01:57:30,100
+das war gute Hinweise, ist,
+
+1352
+01:57:31,040 --> 01:57:31,740
+wähle die zwei
+
+1353
+01:57:31,740 --> 01:57:34,040
+und benutze die, die am wenigsten möglich ist.
+
+1354
+01:57:34,640 --> 01:57:36,240
+Also, ich würde denken, es sind ein oder zwei.
+
+1355
+01:57:36,320 --> 01:57:38,000
+Und mein Wunsch ist, dass es zwei hier sind.
+
+1356
+01:57:38,100 --> 01:57:38,960
+Ja, denke ich auch.
+
+1357
+01:57:38,960 --> 01:57:40,180
+Ich folge dem Pattern.
+
+1358
+01:57:41,420 --> 01:57:42,240
+Also, es wird das sein.
+
+1359
+01:57:42,420 --> 01:57:44,240
+Nein, es war... Ich muss meinen Mund vertrauen.
+
+1360
+01:57:46,400 --> 01:57:47,240
+Oh Gott.
+
+1361
+01:57:47,240 --> 01:57:50,140
+Ähm, nee, Essenpause.
+
+1362
+01:57:52,240 --> 01:57:53,980
+Well, it can't be that, that's not real.
+
+1363
+01:57:54,180 --> 01:57:54,860
+Oh, 13!
+
+1364
+01:57:57,220 --> 01:57:59,120
+Oh shit, was macht der denn bei 13?
+
+1365
+01:57:59,820 --> 01:58:01,940
+Weil den 13. Monat gibt's ja nicht.
+
+1366
+01:58:03,940 --> 01:58:06,980
+Ähm, macht der dann 2013?
+
+1367
+01:58:13,980 --> 01:58:14,920
+Macht der 2013?
+
+1368
+01:58:14,920 --> 01:58:15,920
+Vielleicht macht der invalid.
+
+1369
+01:58:16,080 --> 01:58:16,480
+Invalid?
+
+1370
+01:58:17,240 --> 01:58:20,100
+Es ist Javascript, der macht drei, Leute, der macht drei.
+
+1371
+01:58:20,580 --> 01:58:22,200
+So, it has to be one or three.
+
+1372
+01:58:23,860 --> 01:58:24,820
+Ja, es ist Invalid Date.
+
+1373
+01:58:26,600 --> 01:58:27,740
+I'm going to die.
+
+1374
+01:58:28,080 --> 01:58:29,540
+I'm actually going to die.
+
+1375
+01:58:31,300 --> 01:58:31,740
+What?
+
+1376
+01:58:33,700 --> 01:58:35,140
+I just, I have to know.
+
+1377
+01:58:35,280 --> 01:58:36,180
+I'm sorry, guys.
+
+1378
+01:58:37,600 --> 01:58:37,880
+Okay.
+
+1379
+01:58:39,320 --> 01:58:39,600
+Hä?
+
+1380
+01:58:39,860 --> 01:58:41,320
+Okay, that makes sense.
+
+1381
+01:58:41,820 --> 01:58:42,940
+No, it doesn't make sense.
+
+1382
+01:58:45,940 --> 01:58:47,100
+Es ist so hängen geblieben.
+
+1383
+01:58:47,240 --> 01:58:49,540
+2000, 2001, 2001, 2002.
+
+1384
+01:58:50,300 --> 01:58:52,620
+Ab 13 ist Invalid Time.
+
+1385
+01:58:52,900 --> 01:58:53,460
+Okay.
+
+1386
+01:58:54,140 --> 01:58:54,380
+What?
+
+1387
+01:58:54,540 --> 01:58:55,720
+I hate this language.
+
+1388
+01:58:56,400 --> 01:58:59,240
+What if I make this 300 though?
+
+1389
+01:59:01,740 --> 01:59:02,100
+Was?
+
+1390
+01:59:02,500 --> 01:59:02,920
+Was?
+
+1391
+01:59:03,020 --> 01:59:04,480
+It starts working again.
+
+1392
+01:59:05,420 --> 01:59:06,020
+What?
+
+1393
+01:59:06,020 --> 01:59:06,760
+After 32?
+
+1394
+01:59:09,140 --> 01:59:09,780
+Moment.
+
+1395
+01:59:09,780 --> 01:59:10,080
+Okay.
+
+1396
+01:59:11,540 --> 01:59:13,700
+Bis 12 hätte ich ja noch halbwegs verstanden.
+
+1397
+01:59:13,700 --> 01:59:18,580
+Aber warum fängt das bei 32 einfach random wieder an?
+
+1398
+01:59:22,580 --> 01:59:24,580
+Das ist so teufelig.
+
+1399
+01:59:29,700 --> 01:59:30,060
+Why?
+
+1400
+01:59:30,320 --> 01:59:31,140
+Ja, why?
+
+1401
+01:59:32,000 --> 01:59:38,440
+What is wrong with numbers 13 through 31 that they're not able to be passed and then everything past that can?
+
+1402
+01:59:39,180 --> 01:59:40,220
+What is this language?
+
+1403
+01:59:40,740 --> 01:59:41,960
+Und vor allem, guck mal.
+
+1404
+01:59:41,960 --> 01:59:46,420
+Auf einmal sind wir dann im Jahr 150 wieder.
+
+1405
+01:59:48,000 --> 01:59:49,380
+Oh, und noch lustiger.
+
+1406
+01:59:50,540 --> 01:59:53,900
+Und zwischendrin macht er 1999 mal 100, das ist das Jahrhundert.
+
+1407
+01:59:54,580 --> 01:59:55,940
+Du Scheiße, Alter.
+
+1408
+01:59:58,540 --> 02:00:01,620
+Once you break 99, oh, okay, way funnier.
+
+1409
+02:00:02,020 --> 02:00:03,400
+When you hit 40...
+
+1410
+02:00:03,400 --> 02:00:03,640
+Moment.
+
+1411
+02:00:04,440 --> 02:00:07,260
+Und da ist es dann nur noch 1950.
+
+1412
+02:00:11,960 --> 02:00:13,440
+Das macht mich fertig, Alter.
+
+1413
+02:00:36,920 --> 02:00:38,180
+Das ist ja so abgedreht.
+
+1414
+02:00:41,960 --> 02:00:46,960
+das ist hier 100 und das ist hier 1999 also ist es das treu hier
+
+1415
+02:00:46,960 --> 02:01:09,920
+ich habe auch keine ahnung absolut kein schimmer was da rauskommen könnte ich
+
+1416
+02:01:09,920 --> 02:01:15,760
+Ich meine, irgendwie halbwegs normal wäre invalid date, aber es ist JavaScript, es ist bestimmt nicht invalid date.
+
+1417
+02:01:19,760 --> 02:01:22,420
+I, no, what?
+
+1418
+02:01:23,880 --> 02:01:24,360
+Okay.
+
+1419
+02:01:25,220 --> 02:01:26,780
+That the same as if I just passed 12?
+
+1420
+02:01:27,480 --> 02:01:28,900
+Or is it the same as if I just passed 12?
+
+1421
+02:01:30,580 --> 02:01:31,600
+12.01.08.
+
+1422
+02:01:32,380 --> 02:01:34,060
+Oh no, it resets to zero.
+
+1423
+02:01:34,760 --> 02:01:35,140
+What?
+
+1424
+02:01:36,620 --> 02:01:37,360
+Aha, die Uhrzeit.
+
+1425
+02:01:37,360 --> 02:01:38,700
+This all makes so much sense.
+
+1426
+02:01:38,700 --> 02:01:42,580
+Und jetzt ist, Moment, 12.1 ist die Uhrzeit 0.
+
+1427
+02:01:42,880 --> 02:01:44,600
+Was ist denn bei 12.0 da an der Frage?
+
+1428
+02:01:44,620 --> 02:01:48,720
+Okay, so, 0.1, reset the timestamp part to 0.
+
+1429
+02:01:49,580 --> 02:01:51,200
+What does 0.0 do?
+
+1430
+02:01:51,420 --> 02:01:53,660
+Das ist eine gute Frage, ich habe absolut keine Ahnung.
+
+1431
+02:01:54,480 --> 02:01:58,680
+Ich tippe, ich tippe auch mal auf invalid date, weil es macht keinen Sinn, egal was es ist.
+
+1432
+02:01:59,760 --> 02:02:00,140
+Jawohl!
+
+1433
+02:02:01,160 --> 02:02:03,140
+I don't like that I was right on that.
+
+1434
+02:02:04,340 --> 02:02:05,740
+I'm going to go insane.
+
+1435
+02:02:05,740 --> 02:02:09,320
+No month has a zeroth day, so it's considered invalid.
+
+1436
+02:02:09,620 --> 02:02:11,280
+Yeah, great. Thanks, JavaScript.
+
+1437
+02:02:11,500 --> 02:02:12,420
+You make so much sense.
+
+1438
+02:02:14,420 --> 02:02:15,600
+I don't even want to think...
+
+1439
+02:02:15,600 --> 02:02:16,580
+Zwölf, man.
+
+1440
+02:02:16,960 --> 02:02:18,420
+Zwölf Punkt minus ein.
+
+1441
+02:02:19,300 --> 02:02:21,440
+Okay. Invalid date?
+
+1442
+02:02:22,400 --> 02:02:23,160
+What about this one?
+
+1443
+02:02:23,220 --> 02:02:23,840
+Invalid date?
+
+1444
+02:02:23,840 --> 02:02:25,120
+What happens if you do a...
+
+1445
+02:02:25,120 --> 02:02:27,960
+Invalid is the only thing that makes sense,
+
+1446
+02:02:28,260 --> 02:02:29,620
+but it's not going to be invalid.
+
+1447
+02:02:29,740 --> 02:02:31,420
+It's going to treat the dash
+
+1448
+02:02:31,420 --> 02:02:34,320
+as this type of dash.
+
+1449
+02:02:35,740 --> 02:02:39,140
+Ich dachte nur, was ist das dummste, was es tun könnte?
+
+1450
+02:02:39,140 --> 02:02:41,280
+Und ich habe das dummste ausgewählt und ich war richtig.
+
+1451
+02:02:41,280 --> 02:02:42,880
+Das ist, warum wir das jetzt vornehmen.
+
+1452
+02:02:42,880 --> 02:02:46,080
+Vielleicht 1. Es wird die String nicht vergessen,
+
+1453
+02:02:46,080 --> 02:02:48,640
+weil die String nicht eine Date-Time-Type String ist.
+
+1454
+02:02:48,640 --> 02:02:50,640
+Es ist nicht ein Monat oder ein Wochenende oder so.
+
+1455
+02:02:50,640 --> 02:02:51,840
+Es wird das nicht vergessen.
+
+1456
+02:02:51,840 --> 02:02:53,200
+Es wird die 1 benutzen.
+
+1457
+02:02:53,200 --> 02:02:54,780
+Und wie wir es schon vorhin eröffnet haben,
+
+1458
+02:02:54,780 --> 02:02:56,880
+das ist 2001-01-01.
+
+1459
+02:02:56,880 --> 02:02:57,580
+Cool.
+
+1460
+02:02:57,580 --> 02:02:59,680
+Wenn du nur ein dummes Ding machst, wirst du es richtig machen.
+
+1461
+02:02:59,680 --> 02:03:00,880
+Alles klar.
+
+1462
+02:03:00,880 --> 02:03:02,180
+Leere String.
+
+1463
+02:03:02,180 --> 02:03:03,000
+Ein leeres.
+
+1464
+02:03:03,000 --> 02:03:06,140
+So, perhaps isn't a month or a weekday,
+
+1465
+02:03:06,140 --> 02:03:09,140
+which means that it's going to be nullified,
+
+1466
+02:03:09,140 --> 02:03:10,940
+so this isn't part of the input anymore,
+
+1467
+02:03:10,940 --> 02:03:13,060
+which means it's now effectively an empty string.
+
+1468
+02:03:13,060 --> 02:03:14,740
+An empty string is effectively zero,
+
+1469
+02:03:14,740 --> 02:03:16,640
+and zero is effectively epoch time,
+
+1470
+02:03:16,640 --> 02:03:17,640
+so obviously it's in...
+
+1471
+02:03:21,960 --> 02:03:22,960
+Valid fucking date.
+
+1472
+02:03:24,700 --> 02:03:25,940
+What is this language?
+
+1473
+02:03:26,940 --> 02:03:28,640
+Hat er sich so schön hergeleitet.
+
+1474
+02:03:30,040 --> 02:03:32,060
+I should have chat showing for this one.
+
+1475
+02:03:33,000 --> 02:03:36,560
+Ich werde mein Bestes tun, nicht im Chat zu schauen, aber ich will es hier, damit ihr es könnt.
+
+1476
+02:03:37,160 --> 02:03:37,780
+Nächste Frage.
+
+1477
+02:03:38,920 --> 02:03:39,580
+Vielleicht eine.
+
+1478
+02:03:39,960 --> 02:03:42,740
+Gleiches Problem, weil vielleicht ist eine random String.
+
+1479
+02:03:43,000 --> 02:03:43,800
+Warte, May.
+
+1480
+02:03:44,000 --> 02:03:44,900
+Es sagt May in es.
+
+1481
+02:03:47,960 --> 02:03:48,480
+Oh.
+
+1482
+02:03:49,060 --> 02:03:50,800
+Das wird gepasst als May.
+
+1483
+02:03:51,640 --> 02:03:52,440
+Er ist in BST.
+
+1484
+02:03:52,620 --> 02:03:53,400
+Ich wurde auf das gescammt.
+
+1485
+02:03:54,180 --> 02:03:55,960
+Ich wusste nicht, warum er vier geben würde.
+
+1486
+02:04:03,000 --> 02:04:05,040
+Aha, alles klar, JavaScript.
+
+1487
+02:04:20,940 --> 02:04:25,000
+Alter, jetzt mal ernsthaft, es gibt doch niemand auf der Welt, der das wirklich richtig hinklickt, oder?
+
+1488
+02:04:27,200 --> 02:04:30,480
+Außer der Chat hier vielleicht, der Chat ist ja wirklich massive, frei IQ.
+
+1489
+02:04:33,000 --> 02:04:35,020
+Chat würde das bestimmt hinkriegen, aber sonst keiner.
+
+1490
+02:04:37,340 --> 02:04:38,480
+I almost clicked that one.
+
+1491
+02:04:38,580 --> 02:04:40,580
+I was like, okay, it's gonna do the thing where it goes backwards again.
+
+1492
+02:04:40,680 --> 02:04:41,940
+Maybe not though, because it doesn't have the...
+
+1493
+02:04:41,940 --> 02:04:44,660
+Wobei ich glaube, das ist was, wo der IQ wirklich schadet.
+
+1494
+02:04:45,240 --> 02:04:46,440
+Weil du denkst zu logisch.
+
+1495
+02:04:47,080 --> 02:04:48,700
+Und du musst das nicht logisch denken.
+
+1496
+02:04:50,080 --> 02:04:51,580
+Like, zeroth.
+
+1497
+02:04:52,040 --> 02:04:53,360
+May 4 UTC.
+
+1498
+02:04:53,480 --> 02:04:54,820
+What's it gonna use the 4 for?
+
+1499
+02:04:54,980 --> 02:04:56,620
+It's not gonna use it for anything logical.
+
+1500
+02:04:57,380 --> 02:04:59,040
+It's gonna ignore the UTC, for sure.
+
+1501
+02:04:59,620 --> 02:05:02,360
+The only one of these that would make literally no sense is this one.
+
+1502
+02:05:02,360 --> 02:05:04,360
+so wenn ich mit der 1 0
+
+1503
+02:05:04,360 --> 02:05:05,960
+es hat die UTC Part
+
+1504
+02:05:05,960 --> 02:05:06,960
+cool gut zu wissen
+
+1505
+02:05:06,960 --> 02:05:10,360
+es ist die einzige Zeit, in der es eine Antwort hatte, die fast Sinn gemacht hat
+
+1506
+02:05:10,360 --> 02:05:12,760
+UTC plus 1, es wird nicht richtig veröffentlichen
+
+1507
+02:05:12,760 --> 02:05:14,760
+nein, es wird
+
+1508
+02:05:14,760 --> 02:05:16,960
+ich habe so viel Glauben verloren
+
+1509
+02:05:16,960 --> 02:05:19,760
+oh Gott, was wird es hier tun?
+
+1510
+02:05:19,760 --> 02:05:21,360
+an diesem Punkt
+
+1511
+02:05:21,360 --> 02:05:23,060
+ich
+
+1512
+02:05:23,060 --> 02:05:23,860
+weiß es nicht
+
+1513
+02:05:23,860 --> 02:05:25,160
+okay
+
+1514
+02:05:25,160 --> 02:05:26,060
+22 01
+
+1515
+02:05:26,060 --> 02:05:28,760
+okay, also hat es die richtige Menge ausgesetzt, du kannst es
+
+1516
+02:05:28,760 --> 02:05:33,420
+Wir können das nicht chat-gpt testen, da müsste man das alles durchklicken und einzeln reingruppieren und sowas.
+
+1517
+02:05:36,120 --> 02:05:37,140
+Bin ich zu faul für.
+
+1518
+02:05:58,760 --> 02:06:00,700
+Ich will einen finden, der alle Infos hier benutzt.
+
+1519
+02:06:00,700 --> 02:06:05,680
+Okay, keine dieser haben die 1990-Parte und die 2010-Parte.
+
+1520
+02:06:06,380 --> 02:06:08,520
+Es gibt keine Antwort hier, mit der ich glücklich bin.
+
+1521
+02:06:09,420 --> 02:06:10,820
+Okay, endlich.
+
+1522
+02:06:12,340 --> 02:06:12,920
+Oh Gott.
+
+1523
+02:06:13,660 --> 02:06:15,780
+Also, wenn du die 2010 in Parenz schreibst,
+
+1524
+02:06:16,140 --> 02:06:19,160
+ich hoffe wirklich, dass es nicht validiert wird.
+
+1525
+02:06:19,580 --> 02:06:23,000
+Und für einen Grund, Text in Klammern ist immer ignoriert.
+
+1526
+02:06:23,460 --> 02:06:26,160
+Wird immer ignoriert. Warum? Man weiß es nicht. Ist halt so.
+
+1527
+02:06:26,160 --> 02:06:28,760
+Aber die Parenthesis-Texte sind verabschiedet?
+
+1528
+02:06:29,080 --> 02:06:30,640
+Ist das immer der Fall?
+
+1529
+02:06:32,140 --> 02:06:33,400
+Es ist. Cool.
+
+1530
+02:06:35,560 --> 02:06:37,880
+Okay, es ist egal, wo die Parenthesis sind.
+
+1531
+02:06:38,020 --> 02:06:38,920
+Es wird verabschiedet. Okay.
+
+1532
+02:06:39,760 --> 02:06:41,260
+Neue Date, negative...
+
+1533
+02:06:41,260 --> 02:06:42,940
+Negative Empty Array.
+
+1534
+02:06:43,160 --> 02:06:44,260
+Empty Array. Okay.
+
+1535
+02:06:46,220 --> 02:06:47,800
+Was mapt negative Empty Array überhaupt?
+
+1536
+02:06:48,140 --> 02:06:49,720
+Ich gebe mir eine Hinweise. Es ist negative 0.
+
+1537
+02:06:51,400 --> 02:06:53,600
+Negative 0 ist 0, 1970. Okay, cool.
+
+1538
+02:06:53,600 --> 02:07:02,380
+Alles klar. Okay, das ergibt Sinn. Das ist tatsächlich eines der wenigen Dinge, wo ich jetzt nachvollziehen kann, warum das rauskommt.
+
+1539
+02:07:04,060 --> 02:07:04,260
+Woo!
+
+1540
+02:07:05,060 --> 02:07:09,380
+Almost half. I almost got a 50%. I hate this language.
+
+1541
+02:07:09,380 --> 02:07:10,040
+Meine Güte.
+
+1542
+02:07:10,060 --> 02:07:12,940
+I hate this so much. And that was with some cheating, yeah.
+
+1543
+02:07:13,560 --> 02:07:16,180
+Oh my God, what is this language? Why do we do this to ourselves?
+
+1544
+02:07:17,120 --> 02:07:18,980
+I am very excited about the Temporal API.
+
+1545
+02:07:19,280 --> 02:07:19,400
+Ja.
+
+1546
+02:07:19,780 --> 02:07:21,480
+Zoned Date Time takes in an...
+
+1547
+02:07:21,480 --> 02:07:27,480
+Ich auch. Leider unterstützen die meisten Browser oder alle Browser, glaube ich, noch keine Temporal API.
+
+1548
+02:07:28,860 --> 02:07:32,840
+Das ist schon seit zwei Jahren oder so quasi verabschiedet, aber hat irgendwie noch keiner eingebaut.
+
+1549
+02:07:33,000 --> 02:07:33,680
+Verstehe gar nicht, warum.
+
+1550
+02:07:36,420 --> 02:07:41,560
+Also ich mag ja, wie heißt dieses Ding? DateFNS?
+
+1551
+02:07:42,820 --> 02:07:45,580
+Das da finde ich eigentlich ganz nice für DateTimes in JavaScript.
+
+1552
+02:07:45,580 --> 02:07:45,880
+kippt.
+
+1553
+02:07:50,600 --> 02:07:52,140
+This is going to help so much.
+
+1554
+02:07:52,840 --> 02:07:53,460
+So much.
+
+1555
+02:07:54,380 --> 02:07:55,760
+I'm still a DJS guy,
+
+1556
+02:07:55,880 --> 02:07:57,420
+but Date FNS is really good too.
+
+1557
+02:07:57,960 --> 02:07:59,600
+There's a lot of options that are a lot better
+
+1558
+02:07:59,600 --> 02:08:00,340
+than New Date.
+
+1559
+02:08:01,020 --> 02:08:03,040
+It never does what I expect it to.
+
+1560
+02:08:03,340 --> 02:08:04,160
+I want to die.
+
+1561
+02:08:05,060 --> 02:08:06,920
+Shout out to Sam for putting together this
+
+1562
+02:08:06,920 --> 02:08:09,260
+absolute monstrosity that is making my head hurt.
+
+1563
+02:08:09,540 --> 02:08:11,480
+He has written so many awesome articles.
+
+1564
+02:08:11,620 --> 02:08:12,360
+Many of which you guys...
+
+1565
+02:08:12,360 --> 02:08:14,920
+Ich wollte mir nur dieses Quiz anschauen.
+
+1566
+02:08:15,580 --> 02:08:17,460
+Das ist ja schon abgedrehter Shit, ey.
+
+1567
+02:08:22,340 --> 02:08:23,340
+Oh, guck mal hier.
+
+1568
+02:08:27,700 --> 02:08:29,240
+Unser Controller kackt ab.
+
+1569
+02:08:32,380 --> 02:08:33,220
+Immer wieder.
+
+1570
+02:08:37,220 --> 02:08:39,100
+Sollte ich vielleicht mal hier die Ticks
+
+1571
+02:08:39,100 --> 02:08:43,800
+einfach mal auf 10 Millisekunden hoch machen?
+
+1572
+02:08:43,800 --> 02:08:46,240
+Mal gucken, was passiert.
+
+1573
+02:08:47,060 --> 02:08:48,660
+Aber irgendwie funktioniert das Display nicht.
+
+1574
+02:08:49,380 --> 02:08:50,940
+Aber es liegt eindeutig an mir.
+
+1575
+02:08:58,200 --> 02:08:59,940
+Wir machen mal kurz das Licht aus.
+
+1576
+02:09:04,780 --> 02:09:05,220
+Ha?
+
+1577
+02:09:05,580 --> 02:09:06,780
+Hab ich da gerade was gesehen, Leute?
+
+1578
+02:09:07,340 --> 02:09:08,460
+Hab ich da gerade was gesehen?
+
+1579
+02:09:12,160 --> 02:09:13,020
+Was ist da?
+
+1580
+02:09:13,800 --> 02:09:15,180
+Das macht was.
+
+1581
+02:09:15,820 --> 02:09:16,660
+Ich seh's genau.
+
+1582
+02:09:21,460 --> 02:09:22,880
+Das macht was.
+
+1583
+02:09:35,260 --> 02:09:36,420
+Das macht Dinger.
+
+1584
+02:09:36,420 --> 02:09:44,860
+also das display funktioniert
+
+1585
+02:09:44,860 --> 02:09:53,700
+war das vielleicht ein problem weil ich hier nur zwei millisekunden gemacht habe
+
+1586
+02:09:53,700 --> 02:09:59,880
+zum warten da ging's nicht weil ich vielleicht noch mal neu
+
+1587
+02:10:06,420 --> 02:10:07,780
+Das war zu schnell.
+
+1588
+02:10:08,460 --> 02:10:09,060
+Wobei, nee.
+
+1589
+02:10:17,720 --> 02:10:20,460
+Das ist zu schnell einfach nur.
+
+1590
+02:10:23,200 --> 02:10:25,920
+Warte mal, ich mach das hier mal auf 20 Millisekunden rauf.
+
+1591
+02:10:26,640 --> 02:10:27,720
+Ich mein, das ist das Backlight.
+
+1592
+02:10:27,860 --> 02:10:29,600
+Das Display zeigt ja noch nichts an.
+
+1593
+02:10:33,200 --> 02:10:35,480
+Aber immerhin wissen wir, dass das Display funktioniert.
+
+1594
+02:10:35,480 --> 02:10:53,420
+besser gesagt das backlight vom display ja guckt es funst was ich vorhabe ich
+
+1595
+02:10:53,420 --> 02:10:56,420
+will den qr code anzeigen lassen auf dem display den man scannen kann mit dem
+
+1596
+02:10:56,420 --> 02:11:00,940
+handy und dann kommt man in den access point die das ding auf gemacht hat
+
+1597
+02:11:05,480 --> 02:11:15,160
+nachdem das ja funktioniert
+
+1598
+02:11:15,160 --> 02:11:32,480
+Dass hier aus irgendwelchen Gründen funktioniert.
+
+1599
+02:11:32,480 --> 02:11:37,260
+Können wir jetzt einfach mal irgendwas anzeigen lassen auf dem Display in der Hoffnung da
+
+1600
+02:11:37,260 --> 02:11:38,260
+tut sich was.
+
+1601
+02:11:38,260 --> 02:11:47,260
+LVInit Display Buffer
+
+1602
+02:11:47,260 --> 02:11:50,700
+What?
+
+1603
+02:12:01,940 --> 02:12:03,900
+Will keine Touch Inputs haben.
+
+1604
+02:12:05,460 --> 02:12:06,860
+Willk braucht keinen Touch.
+
+1605
+02:12:08,260 --> 02:12:11,800
+ne Leute, das ist mir für heute
+
+1606
+02:12:11,800 --> 02:12:12,800
+ist mir das zu high IQ.
+
+1607
+02:12:13,720 --> 02:12:14,760
+Das krieg ich heute noch mal gemacht.
+
+1608
+02:12:17,220 --> 02:12:17,980
+Macht mein Hirn
+
+1609
+02:12:17,980 --> 02:12:18,300
+nicht mit.
+
+1610
+02:12:20,100 --> 02:12:21,800
+Aber immerhin, wir haben zumindest mal
+
+1611
+02:12:21,800 --> 02:12:23,400
+hingekriegt, dass das Display angeht.
+
+1612
+02:12:25,220 --> 02:12:25,900
+Ich verstehe
+
+1613
+02:12:25,900 --> 02:12:28,000
+zwar null, was er für Schmerzen hat.
+
+1614
+02:12:34,140 --> 02:12:35,360
+Das hatten wir doch schon mal hier.
+
+1615
+02:12:36,320 --> 02:12:36,720
+Gruppis.
+
+1616
+02:12:36,720 --> 02:12:38,500
+T3 Display
+
+1617
+02:12:38,500 --> 02:12:54,000
+PS
+
+1618
+02:13:06,720 --> 02:13:13,740
+ja das hatten wir okay dass das merken wir uns mal das ist ganz gutes projekt
+
+1619
+02:13:30,840 --> 02:13:32,900
+er hat touch konflikt wie gesagt prominent
+
+1620
+02:13:36,720 --> 02:13:40,520
+Ja, macht's halt noch komplizierter, Mann.
+
+1621
+02:13:42,140 --> 02:13:44,240
+Können wir noch Spiegel-TV-Videos schauen?
+
+1622
+02:13:44,340 --> 02:13:45,020
+Ich weiß nicht.
+
+1623
+02:13:47,020 --> 02:13:48,580
+Ey, das interessiert mich nicht so.
+
+1624
+02:13:51,540 --> 02:13:53,200
+Kriege ich mich wieder auf, weil das
+
+1625
+02:13:53,200 --> 02:13:56,840
+infrastrukturmäßig so sackt mit dem Fahrrad in Deutschland.
+
+1626
+02:13:58,320 --> 02:14:00,460
+Leute, ich hätte gedacht, es ist deutlich einfacher,
+
+1627
+02:14:00,580 --> 02:14:02,740
+dieses Display anzusteuern, als es letztendlich ist.
+
+1628
+02:14:03,580 --> 02:14:04,220
+Aber gut.
+
+1629
+02:14:06,720 --> 02:14:08,340
+Muss man, muss man durch, ne?
+
+1630
+02:14:12,560 --> 02:14:13,760
+E-Mail WTF?
+
+1631
+02:14:16,540 --> 02:14:17,400
+Was ist das?
+
+1632
+02:14:24,700 --> 02:14:26,840
+Everyone knows what an E-Mail address is, right?
+
+1633
+02:14:27,800 --> 02:14:29,320
+Decide if each E-Mail address is valid.
+
+1634
+02:14:29,420 --> 02:14:31,100
+Oh, E-Mail RegEx.
+
+1635
+02:14:31,480 --> 02:14:34,560
+Leute, das ist eines der abartigsten RegExe, die es gibt.
+
+1636
+02:14:36,720 --> 02:14:46,860
+Alles klar, oder?
+
+1637
+02:14:49,280 --> 02:14:50,280
+Der E-Mail-Regex.
+
+1638
+02:14:54,280 --> 02:14:54,680
+Obviously.
+
+1639
+02:15:06,720 --> 02:15:19,680
+das ist in der tat nicht so einfach okay das ist werlet easy plus ich habe keine ahnung ob
+
+1640
+02:15:19,680 --> 02:15:29,700
+nun plus in e mail adressen erlaubt ist ich würde mal sagen sie es wäre ja da würde ich sagen das
+
+1641
+02:15:29,700 --> 02:15:35,160
+ist in welt weil da fehlt ja alles an domain und sowas okay in welt alles klar noch ist sie sie
+
+1642
+02:15:35,160 --> 02:15:35,780
+noch ist easy.
+
+1643
+02:15:36,980 --> 02:15:38,320
+adexample.com
+
+1644
+02:15:38,320 --> 02:15:40,540
+Da würde ich auch sagen, ist invalid.
+
+1645
+02:15:42,400 --> 02:15:43,120
+Easy
+
+1646
+02:15:43,120 --> 02:15:44,040
+adexample.
+
+1647
+02:15:50,000 --> 02:15:51,160
+Das ist valid.
+
+1648
+02:15:53,060 --> 02:15:54,300
+Das ist valid.
+
+1649
+02:15:55,580 --> 02:15:56,920
+Weil es kann ja root
+
+1650
+02:15:56,920 --> 02:15:57,780
+at local host.
+
+1651
+02:16:00,380 --> 02:16:01,060
+Spaces.
+
+1652
+02:16:01,600 --> 02:16:02,700
+Uff. Boah.
+
+1653
+02:16:05,160 --> 02:16:12,760
+Ich tippe darauf, dass Spaces invalid sind.
+
+1654
+02:16:14,220 --> 02:16:15,360
+Sicher bin ich mir nicht.
+
+1655
+02:16:18,500 --> 02:16:18,980
+Okay.
+
+1656
+02:16:20,480 --> 02:16:21,820
+Maybe like...
+
+1657
+02:16:21,820 --> 02:16:23,260
+Okay, da sind auch Spaces drin.
+
+1658
+02:16:23,340 --> 02:16:24,100
+Das ist dann auch invalid.
+
+1659
+02:16:24,280 --> 02:16:24,580
+Was?
+
+1660
+02:16:32,200 --> 02:16:32,800
+Whatever.
+
+1661
+02:16:35,160 --> 02:16:49,040
+trailing dort also ich würde mein bauchgefühl sagt mir das ist erlaubt
+
+1662
+02:16:49,040 --> 02:17:00,960
+aber sicher bin ich mir nicht man sieht also punkte sind auf jeden fall erlaubt
+
+1663
+02:17:00,960 --> 02:17:03,500
+aber ob ein Trailing-Dot erlaubt ist.
+
+1664
+02:17:03,940 --> 02:17:05,060
+Ich sag mal Valid.
+
+1665
+02:17:05,240 --> 02:17:05,940
+Okay, Invalid.
+
+1666
+02:17:06,820 --> 02:17:09,060
+Okay, das ist Invalid.
+
+1667
+02:17:12,180 --> 02:17:12,700
+Alter.
+
+1668
+02:17:13,000 --> 02:17:14,820
+Domains können Spaces enthalten.
+
+1669
+02:17:14,980 --> 02:17:15,240
+Na gut.
+
+1670
+02:17:17,560 --> 02:17:19,280
+Normal WTF ist es.
+
+1671
+02:17:20,260 --> 02:17:21,180
+Okay, pass mal auf.
+
+1672
+02:17:21,500 --> 02:17:22,600
+Ich sag, das ist Valid,
+
+1673
+02:17:22,980 --> 02:17:24,720
+weil er die Sachen in Klammern ignoriert.
+
+1674
+02:17:25,700 --> 02:17:26,220
+Jawoll!
+
+1675
+02:17:27,120 --> 02:17:28,060
+Aber stimmt das überhaupt?
+
+1676
+02:17:28,060 --> 02:17:29,400
+Das sind Kommentare.
+
+1677
+02:17:30,960 --> 02:17:36,060
+E-Mails could have comments. Anything in Klammern ist comment.
+
+1678
+02:17:38,060 --> 02:17:38,980
+Alles klar.
+
+1679
+02:17:41,160 --> 02:17:44,720
+Okay, das ist ein Kommentar. Wird ignoriert, also ist es invalid.
+
+1680
+02:17:44,720 --> 02:17:59,180
+Das ist die
+
+1681
+02:17:59,180 --> 02:18:01,200
+Das ist eine
+
+1682
+02:18:01,200 --> 02:18:02,820
+BashForkBomb
+
+1683
+02:18:02,820 --> 02:18:04,120
+Als E-Mail Adresse
+
+1684
+02:18:04,120 --> 02:18:08,940
+Ich sag
+
+1685
+02:18:08,940 --> 02:18:10,760
+Ich sag das ist invalid
+
+1686
+02:18:10,760 --> 02:18:12,620
+Wenn das valid wäre
+
+1687
+02:18:12,620 --> 02:18:13,100
+Alter
+
+1688
+02:18:13,100 --> 02:18:17,860
+Okay
+
+1689
+02:18:17,860 --> 02:18:20,280
+Lehrer
+
+1690
+02:18:20,280 --> 02:18:22,720
+Okay, pass mal auf, ich glaube das ist invalid
+
+1691
+02:18:22,720 --> 02:18:23,780
+Aber ich sag jetzt einfach valid
+
+1692
+02:18:23,780 --> 02:18:25,300
+Jawoll, alles klar
+
+1693
+02:18:25,300 --> 02:18:33,140
+Ähm
+
+1694
+02:18:33,140 --> 02:18:36,560
+Hat das ne maximale Länge von E-Mails?
+
+1695
+02:18:36,980 --> 02:18:38,300
+Valid, nein, ist invalid
+
+1696
+02:18:38,300 --> 02:18:40,620
+Aha, weil es maximal
+
+1697
+02:18:40,620 --> 02:18:42,060
+198 Characters
+
+1698
+02:18:42,060 --> 02:18:54,240
+ok magic erd ich würde sagen das ist erlaubt weil es eine ipv6 adresse eventuell ist ja ok
+
+1699
+02:19:03,540 --> 02:19:08,980
+also wenn es eine normale domain würde ich sagen das ist erlaubt aber
+
+1700
+02:19:08,980 --> 02:19:12,540
+Als IP?
+
+1701
+02:19:16,540 --> 02:19:18,760
+Da würde ich sagen, das ist invalid.
+
+1702
+02:19:19,580 --> 02:19:19,980
+Fuck.
+
+1703
+02:19:21,180 --> 02:19:21,440
+Okay.
+
+1704
+02:19:23,940 --> 02:19:24,980
+Valid?
+
+1705
+02:19:32,980 --> 02:19:34,180
+Okay, valid.
+
+1706
+02:19:34,640 --> 02:19:35,020
+Jawohl.
+
+1707
+02:19:36,360 --> 02:19:38,580
+Alles, wo man denkt, es ist nicht valid,
+
+1708
+02:19:38,980 --> 02:19:42,600
+Ich sage einfach valid, wenn ich denke, es ist so abgedreht.
+
+1709
+02:19:44,540 --> 02:19:45,520
+Mittlere Punkte valid.
+
+1710
+02:19:45,720 --> 02:19:47,020
+Oh ne, das ist invalid.
+
+1711
+02:19:47,020 --> 02:19:47,380
+Okay.
+
+1712
+02:19:52,000 --> 02:19:55,020
+Achso, doppelte Punkte sind nicht erlaubt.
+
+1713
+02:19:58,640 --> 02:19:59,400
+Valid.
+
+1714
+02:20:03,320 --> 02:20:04,100
+Zalgotext.
+
+1715
+02:20:04,320 --> 02:20:05,940
+Was zum Teufel ist Zalgotext?
+
+1716
+02:20:07,360 --> 02:20:08,060
+Curse Text.
+
+1717
+02:20:08,580 --> 02:20:08,780
+Aha.
+
+1718
+02:20:08,980 --> 02:20:19,800
+14 von 21 gar nicht so schlecht für diesen ganzen blödsinn also
+
+1719
+02:20:19,800 --> 02:20:24,540
+jstvwtf haben gerade gesehen
+
+1720
+02:20:24,540 --> 02:20:29,220
+gibt es noch mehr dieser adressen
+
+1721
+02:20:38,980 --> 02:20:39,840
+Ah hier.
+
+1722
+02:20:41,000 --> 02:20:44,040
+Ne, der hat bloß E-Mail WTF und JS Date WTF.
+
+1723
+02:20:46,460 --> 02:20:47,180
+Okay.
+
+1724
+02:20:49,840 --> 02:20:51,840
+Dann nicht.
+
+1725
+02:20:55,660 --> 02:20:56,960
+Das ist schon abgedreht.
+
+1726
+02:20:57,580 --> 02:21:00,440
+Also das sind so Dinger, das weiß ja auch niemand wirklich aus dem Kopf.
+
+1727
+02:21:00,800 --> 02:21:03,960
+Okay Leute, es ist schon einen halben Tag her, wo ich Package Updates gemacht habe.
+
+1728
+02:21:04,500 --> 02:21:06,260
+Mein System kommt mir schon viel zu alt vor.
+
+1729
+02:21:08,980 --> 02:21:09,360
+Was?
+
+1730
+02:21:11,120 --> 02:21:12,500
+Keine Package-Updates.
+
+1731
+02:21:13,080 --> 02:21:14,640
+Mein System ist einen halben Tag alt.
+
+1732
+02:21:15,600 --> 02:21:19,960
+Also ich finde nicht, dass das sich gehört, Archlinux.
+
+1733
+02:21:21,280 --> 02:21:23,080
+Bist du fertig mit Spring Boot lernen?
+
+1734
+02:21:24,220 --> 02:21:25,040
+Nee, noch nicht.
+
+1735
+02:21:26,100 --> 02:21:28,080
+Mit den Basics jetzt erst einmal schon.
+
+1736
+02:21:29,400 --> 02:21:33,120
+Ich bin gerade am überlegen, was sinnvoll ist, sich als nächstes anzugucken.
+
+1737
+02:21:33,220 --> 02:21:34,740
+Also wenn du Vorschläge hast, hau rein.
+
+1738
+02:21:36,040 --> 02:21:36,840
+Sag Bescheid.
+
+1739
+02:21:36,840 --> 02:21:42,960
+nee ich kotlin liegt also warum ich das nicht in kopf also ich habe mir schon überlegt ob es
+
+1740
+02:21:42,960 --> 02:21:47,320
+vielleicht das ganze noch mal in kotlin machen ist bei uns auf der arbeit wenn nur java verwendet die
+
+1741
+02:21:47,320 --> 02:21:55,800
+haben so gut wie nichts in nichts in kotlin deswegen ich lerne das ja mal auf der arbeit
+
+1742
+02:21:55,800 --> 02:22:02,340
+ja war so angesagt ist er und spring gut mache ich ja auch weil ich weiß dass die bei uns auf
+
+1743
+02:22:02,340 --> 02:22:06,720
+der arbeit zum größten teil hat ja von spring gut verwenden ich mache das gar nicht so sehr weil ich
+
+1744
+02:22:06,720 --> 02:22:10,320
+persönlich java und springboot schon immer mal lernen wollte wobei es echt
+
+1745
+02:22:10,320 --> 02:22:15,280
+spaß macht als muss sagen für viel besser als gedacht hätte ist das
+
+1746
+02:22:16,880 --> 02:22:20,420
+es gibt bestimmt noch ein paar dinge die wir in die man springen und nicht
+
+1747
+02:22:20,420 --> 02:22:24,880
+gemacht haben die man braucht die aber dann erst einfallen wenn man vor dem
+
+1748
+02:22:24,880 --> 02:22:27,440
+problem steht
+
+1749
+02:22:27,440 --> 02:22:40,200
+ich glaube du hast eher das problem also bei e mail bei e mail clients weiß ich nicht ob die
+
+1750
+02:22:40,200 --> 02:22:44,180
+rumpen meckern und vielleicht aber ich glaube viel eher dass seine e mails wahrscheinlich
+
+1751
+02:22:44,180 --> 02:22:51,200
+sie erst mal als spam deklariert werden wenn du so komische e mail adressen hast die sagen
+
+1752
+02:22:51,200 --> 02:22:56,300
+einfach nur leid ich nicht weiter und sagt vielleicht wird auch gleich abgewiesen von
+
+1753
+02:22:56,300 --> 02:23:07,220
+irgendeinem mta sie sagen ich muss auch ehrlich sagen ich hatte noch nie
+
+1754
+02:23:07,220 --> 02:23:11,660
+irgendwie das bedürfnis für eine e mail adresse die im ort enthält auch wenn das
+
+1755
+02:23:11,660 --> 02:23:16,160
+geht wobei ich das ja noch am sinnvollsten von der ganzen sache finden
+
+1756
+02:23:16,160 --> 02:23:19,040
+finde
+
+1757
+02:23:19,040 --> 02:23:29,160
+machen sie nicht warum warum erlauben sie das nicht
+
+1758
+02:23:29,160 --> 02:23:45,160
+was ist denn als df.de ist das deine ist das ist das deine domain jolo fand darf man sich
+
+1759
+02:23:45,160 --> 02:23:51,240
+trauen als df punkt an der server return 500 okay
+
+1760
+02:23:59,020 --> 02:24:04,720
+ja und das alles zu spam vermeidung da gibt es vieles auch was im filter hängen
+
+1761
+02:24:04,720 --> 02:24:11,280
+bleibt obwohl es eigentlich legit ist
+
+1762
+02:24:11,280 --> 02:24:13,360
+naja
+
+1763
+02:24:13,360 --> 02:24:15,760
+ok Leute, lange noch rumgebastelt jetzt
+
+1764
+02:24:15,760 --> 02:24:17,780
+ich mach heute mit dem Display nicht weiter, das ist mir zu
+
+1765
+02:24:17,780 --> 02:24:19,580
+zu high IQ gerade
+
+1766
+02:24:19,580 --> 02:24:21,700
+muss ich vielleicht mal offstream ein bisschen
+
+1767
+02:24:21,700 --> 02:24:23,700
+ausprobieren oder wir machen irgendwann anders weiter
+
+1768
+02:24:23,700 --> 02:24:25,540
+das ist mir zu advanced
+
+1769
+02:24:25,540 --> 02:24:28,040
+heute Abend auf jeden Fall
+
+1770
+02:24:35,760 --> 02:24:36,780
+habt ihr eine Idee?
+
+1771
+02:24:37,220 --> 02:24:37,880
+habt ihr irgendeinen
+
+1772
+02:24:37,880 --> 02:24:40,140
+Tipp für
+
+1773
+02:24:40,140 --> 02:24:49,260
+film oder serie den man unbedingt geguckt haben muss oder anime dem er
+
+1774
+02:24:49,260 --> 02:24:52,680
+unbedingt geguckt haben muss irgendwas ich war bin mir nicht sicher weil ich
+
+1775
+02:24:52,680 --> 02:24:55,900
+jetzt restlichen abend gucken soll
+
+1776
+02:24:57,180 --> 02:25:02,060
+sex in the city das ist nichts für mich
+
+1777
+02:25:10,140 --> 02:25:14,060
+Das ist nichts für mich.
+
+1778
+02:25:16,720 --> 02:25:17,980
+Severance habe ich schon geguckt.
+
+1779
+02:25:25,740 --> 02:25:26,880
+Expanse habe ich geguckt.
+
+1780
+02:25:27,420 --> 02:25:32,060
+Die ersten 2 oder 3 Staffeln, dann weiß ich nicht, dann war es irgendwie Luftraus für mich.
+
+1781
+02:25:36,360 --> 02:25:37,700
+John Wick habe ich schon geguckt.
+
+1782
+02:25:37,960 --> 02:25:39,880
+Außer den letzten, den habe ich nicht geguckt bis jetzt.
+
+1783
+02:25:40,140 --> 02:25:42,000
+Seilo.
+
+1784
+02:25:44,160 --> 02:25:45,640
+Apple Plus ist nicht so das,
+
+1785
+02:25:45,740 --> 02:25:47,540
+wo ich mir gerade Bock drauf hab, weil ich
+
+1786
+02:25:47,540 --> 02:25:49,280
+hab meine Apple Plus Subscription.
+
+1787
+02:25:49,540 --> 02:25:50,980
+Müsste ich dann nur dafür erneuern.
+
+1788
+02:26:10,140 --> 02:26:24,000
+weiß nicht kann sein gucken alles klar leute reicht für heute ich gehe jetzt irgendwie noch
+
+1789
+02:26:24,000 --> 02:26:29,640
+eine runde serie oder irgendwas gucken wir haben uns die tage macht's gut zu
+

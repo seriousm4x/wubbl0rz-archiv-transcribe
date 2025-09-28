@@ -1,0 +1,1789 @@
+Pock, pock, pock, pock, pock, pock, pock.
+Ja, ich bin wieder am Start.
+Moin.
+Erstmal warten, bis
+Twitch sich wieder eingekriegt hat
+Zeigt bei mir immer noch zwei Zuschauer
+Was ja in der Launchpad nicht so ganz sein kann
+Ah, jetzt 19, okay
+Heute nicht Rust, Leute
+seht ihr das oben rechts was da guck mal ich kann euch sogar winken hallo warum kann ich
+euch nicht winken jetzt kann ich mich
+spiegelung liegt mfg also oben seht ihr das board ich habe das auch so ein mini
+breadboard gesteppt gestöpselt das gerade liegen bleibt da sieht man die
+buttons und das display die gps sieht man nicht die sind auf der anderen seite
+aber wir brauchen heute auch gar keine tp aus hausnummer reflektiert ja das ist
+die bekannte 180 grad von außen nach innen spiegelung
+richtig man kann es gibt es eigentlich in den schönes c++ im mode was wir verwenden können
+irgendwelche blöden c++
+ja ja ich war ich war jetzt nicht als abkürzung sondern als bild so was wie keck javascript haben
+wir so was haben wir sowas für c++ ich guck mal kurz bei das ist mal kurz gucken hier 70 wie im
+ort gibt sowas c++ natürlich nicht cpp ok aber nur das licht aber nur das logo gibt es logo will ich
+nicht das ist nicht schlecht was das für die weeks unter uns aber erkennt man
+überhaupt nicht gibt es gibt es irgend ein besseres
+Ich nehm das jetzt mal.
+Einfach, dass wir eine C++ Emote haben.
+Sign in.
+Oh fuck.
+Continue with Twitch.
+Okay, okay geht.
+Emote add to Roblox Emotes confirm.
+Müsste hinzugefügt haben.
+Ja.
+Good.
+jetzt haben wir einen c++ Weep Emote da kann ja nichts mal schief gehen
+falsch rum
+ok ich mach mal meine VM an
+also was wir heute probieren werden ist auf diesem display was sie hier oben rechts in
+der ecke seht also ist die sp 32 mit display da will ich ein qr code drauf anzeigen und glaubt
+ja das ist nicht so einfach wie man sich das vielleicht erst mal vorstellen zumindest habe
+ich weil ich mein okay okay vielleicht ist es auch so einfach aber also ich stelle es mir nicht
+einfach vor und ich weiß auch nicht wie ich das gescheit machen
+hintergrund der idee ist wenn man ein neues gerät welche daten wifi daten
+also weiß ich mir gedacht habe warum das ganz cool ist wenn man iot geräte
+einrichtet da muss man ja initial mit dem wifi verbinden und meistens gibt es
+dann einen offenen Access Point, über den man sich verbindet und dann dort sein WiFi-Zeug
+eingibt. Aber warum machen wir es nicht so? Wir machen einen WiFi-Access Point auf, auf
+dem ESP32 mit Passwort und dann gibt es auf dem Display einen QR-Code, so einen WiFi-Connect-QR-Code,
+den man scannen kann mit dem Handy. Dann lockt man sich in den QR-Code ein und dann wird
+man gleich weiter redirekt auf die seite wo man dann seine richtige als party tps
+wo dann seine wifi credentials eingeben kann
+dann ist alles verschlüsselt kein offener access point oder außerdem
+interessiert mich einfach wie ich ein qr-code auf das display kriege also wir
+kümmern uns heute mal nur um die qr-code geschichte das wird tatsächlich
+komplizierter weil ich weiß auch noch gar nicht wie ich mit lvgl gescheit
+überhaupt irgendwas aufs Display kriege.
+Was ist das hier?
+Also müssen wir mal gucken hier.
+Haben wir hier schon mal den Display-Champ?
+Aha, hier hatten wir schon mal den Display-Champ.
+Da haben wir vielleicht noch ein paar Sachen mit Display.
+Lasst mich mal kurz gucken.
+Main.
+Secret mache ich bestimmt nicht auf.
+Haben wir hier schon mal was mit dem Display gemacht?
+Ne, nur Web-Server.
+Gedöns.
+Nee, nee, mit dem Display haben wir noch nichts gemacht.
+Ja, das ist ein anderes Display.
+Wobei, ich weiß nicht, ob das das Display...
+Aber das haben wir nicht mit LVGL gemacht.
+Ich will das mit LVGL machen.
+Weil es die einzige Library ist,
+für so Zeug, die aktiv, gescheit,
+gemaintained wird und modern ist
+und auch User Interfaces malen kann
+und sowas.
+Okay, aber
+passt schon mal.
+Okay, dann machen wir hier ein neues Repo.
+MKDier QR-Code Champ.
+So.
+Genau. Und wer sich fragt, was das ist, das ist ein ESP32 TTGO T-Display S3.
+Das Teil ist das.
+Ein ziemlich cooles Board, habe ich ja heute Morgen oder gestern schon mal gezeigt.
+eigentlich ein ziemlich nice sport weil du hast alles was du brauchst am start
+du hast zwei buttons du hast display du hast 16 oder wie viele gps
+erste fünf voll pin 3 volt pin
+23 volt pin sogar batterieanschluss mit wie heißt dieses ding noch mal mit
+diesen zwei verschiedenen connector dingen die und diesem zum einen
+verschiedenen connector was da gibt weiß ich ob das da auch ein connector ist
+zumindest ist das ist sehr nice ist package der hat sogar touch hatte hat er
+wusste ich gar nicht dazu an touch wusste ich gar nicht dass ein touch
+touch display ist und das nice ist gibt es halt für relativ günstig alles hier
+integriert.
+Also ich finde, das ist ein echt
+mit USB-C
+Anschluss ein echt sehr nice
+Board.
+Und hier neben hast du noch einen kleinen
+Button für Reset und sowas.
+Und es gibt
+sogar ein offizielles Gehäuse dafür,
+was ich auch ganz nice finde.
+Gibt sogar so ein offizielles Case dafür, was ich echt ganz cool finde.
+Da muss man sich dann xsaps3d drucken.
+also das ist nicht nur die shell das ist das gerät plus eine schelle
+china chinesen 9 dollar ja das ist halt billig kummel in germany
+gibt's auch noch mit crash finde ich eigentlich ganz nice kombination
+Ja, habe ich schon.
+Habe ich sogar schon mal fertig implementiert,
+aber nie wirklich im Einsatz gehabt.
+Ich hatte da so einen
+IR, so einen Infrarot,
+boah, wie hieß dieses Ding?
+So einen Infrarotsensor
+für
+Irgendwie sowas, ja.
+Also nicht, also
+Ich meine jetzt nicht dieses Ding, was plinkt, sondern wirklich diesen Ferraris-Zähler, den ich mal abgelesen habe hier.
+Das hat aber nicht so hundertprozentig gut funktioniert.
+Dieses Ding meinst du, ne?
+Das Teil meinst du, oder?
+Oder meinst du das Teil, der schon eine LED dran hat?
+Die neuen.
+Die neuen mit LED, die sind easy auszulesen.
+brauchst du bloß ein foto resist das mit led da brauchst du nur ein foto resistor und das
+war es eigentlich das ding hängst du hier vorne hängst du auf die led und
+da hinten machst du dann esp dran also das ist tatsächlich sehr easy damit
+gibt es auch einzeln hier da muss aber selbst noch kram dran löten also das ist
+das ist wirklich easy das habe ich schon gemacht ja also das ist nicht schwierig
+das kriegst du locker hin es gibt auch fertige geräte dafür wenn du das nicht
+selbst bauen willst aber es geht ja oft mal so ein teil des spaßes ist ja
+quasi das basteln so spdf wo ich muss ich muss mal das ganze entwicklungs zeug noch hier runterladen
+weil ich das nicht am start habe in der neuesten version mama hier cd cd sp
+geht clown spdf punkt geht will ich master klonen das will ich klonen ich will v 5.5
+release tags will ich klonen 5.5.1 das will ich klonen 5.5.1 und zwar in v 5.5.1
+das muss erstmal alles installieren dass wir den kram rogers können und mario jura
+Skyer, dankeschön für den Raid.
+Exzellent.
+Hallo Leute.
+Schön, dass ihr da seid.
+Wir haben noch gar nicht
+richtig angefangen.
+30 Sekunden Werbung.
+Alter, das ist schlimm, oder?
+Mittlerweile auf Twitch.
+Das ist echt
+richtig hardcore-pepega.
+dann noch mal kurz zur erklärung für alle die jetzt neu dabei gekommen sind was wir heute
+machen und zwar ihr seht ja hier oben rechts da wird er so ein sp 32 das ist ein so sieht
+es nicht aus ja das ist ein sp 32 display s3 und sp 32 s3 display ist ein sehr nice microcontroller
+bord mit einem touch display zwei buttons und batterieanschlüsseln und was ich mal probieren
+wollte ist darauf ein qr code zu generieren und den auf display anzuzeigen also für wifi
+credentials das ist das geld soll quasi so einen wifi connect qr code generieren
+und auf dem display anzeigen das ding ist ich habe ich habe grob der ahnung ja
+also ich habe schon einiges gemacht beim sp 32 und auch mit spdf aber gerade was
+so grafik ausgaben angeht also care code habe ich noch nie generiert und
+grafik ausgaben habe ich nur super rudimentär gemacht und auch nie mit lv
+GL. Das heißt, wir probieren das jetzt mal aus.
+Mal gucken, wie das klappt. Aber erstmal
+muss ich das ganze SDK-Zeug runterladen.
+Das dauert bei den
+China-Chinesen
+SDK immer ewig.
+Dann muss ich gucken, wie man C-Line...
+Ah, hab ich C-Line überhaupt drauf? Ja.
+Schauen wir mal, ob es dafür eine neue Version
+vielleicht gibt.
+Ne, gibt's nicht.
+Gut.
+Auf, jetzt klone mal hier.
+So und dann, ich muss mal gucken, ESP-EDF install.
+Danach muss man irgendwie...
+Danach muss man irgendwie so einen Install-Skript ausführen in dem geklonten Repo.
+Ja, das Prerequisites haben wir alle installiert.
+Bla bla bla bla bla.
+Ja, das haben wir gerade gemacht.
+Und ganz ohne Hilfe-Datei.
+Setup-Tools, genau, das brauche ich.
+install esp 32 s 3 das wollen wir gleich machen ok cd v 5.5 1 install esp 32 s 3
+als leder den ganzen anderen krempel runter switch sagt ich bin immer noch
+bei null viewer hat which refresh mal wird es manchmal
+das dauert jetzt bilden wir können ziele ein schau mal die können wir nicht
+Ich muss mir dann eh das Beispielprojekt
+darüber kopieren, weil ich mir immer nicht merken kann,
+wie man dort ein Projekt anlegt.
+Das ist ganz furchtbar wirr gemacht.
+Ja, das brauchen wir dann auch
+gleich noch, genau.
+Also.
+Der Pfad stimmt ja eh nicht.
+So, download, download, download.
+so genau es braucht punkt wir machen das aber schreiben das mal aus hier repos
+niveau was sp hatten was na ja ich weiß dass exe kopieren uns auch das example auf 5.1
+1 nicht components ex ich kann ja tippen export und sh aber das einmal hier unten und dann machen
+wir das ganze noch hier wobei das hier unten brauche gar nicht nur deshalb brauche wunderbar
+dann muss ich noch mal gucken ist sie leyen esp edf muss man einrichten aber vor brauchen wir
+erst mal ein projekt also kopieren wir uns mal aus dem kram was wir runtergeladen haben ein
+example projekt example jetzt startet hello world das perfektes brauner jetzt
+dann müssen wir mal schauen also das brauchen wir eigentlich alles nett wir brauchen im endeffekt
+nur das da und main sonst brauche ich glaube ich nichts dass das wird es ein
+ein bisschen komplizierter das einmal initial ab auf zu aufzusetzen genau so sie make list
+main wir müssen das nämlich umstellen von einem c auf ein c++ projekt dass das funktioniert so
+ging das glaube ich jetzt muss ich einmal sagen idf punkt bei menü config
+Hier speichern wir mal
+Wir haben ja nichts angepasst, reicht ja
+Okay, jetzt haben wir auch die SDK-Config
+Oh, Alter, diese Bot-Gespamme
+Das fuckt mich ja richtig ab
+Es kommt jeden Stream
+Jeden Stream mit irgendeinem anderen Account, Alter
+Okay, jetzt haben wir das
+da starten wir sea lion jetzt mal hier drin
+okay skip import trust an open pro jahr wir trusten allem
+da und senke mit a alter was macht denn sie leihen darauf ist es total hängen
+geblieben das soll das aktuelle verzeichnis öffnen
+Das war ein bisschen verwirrt gerade, C-Line.
+Okay.
+Ich glaube, der hat sogar schon alles auto-detected.
+Guck mal, ich glaube, der hat schon auto-detected, wie es sein soll.
+Schauen wir mal kurz.
+Ob das theoretisch bilden würde.
+So.
+Wir lassen jetzt wirklich nur mal das Beispielprojekt
+hier drauf. Ich mach mal die Schrift ein bisschen
+größer.
+Font.
+Size.
+Äh.
+Was?
+Editor Font.
+Bin ich jetzt total
+hängen geblieben? Was zum...
+Warum?
+Es heißt Editor Font Size.
+Oder Editor Font.
+Äh.
+Total verwirrt.
+Wo zum Teufel ist die Fond-Einstellung?
+Da ist doch Fond.
+Warum findet er das nicht?
+Okay.
+Wir können Jetbrains Mono lassen,
+aber wir machen das mal auf
+16.
+Das ist ganz gute Größe, oder, Jet?
+Was sagt ihr?
+Das glaube ich ganz gescheit.
+Oder?
+Erkennt man alles?
+denke schon.
+Sonst gucken wir mal, ob das bilden würde.
+Okay, es würde bilden.
+Exzellent.
+So.
+Dann schmeißen wir da mal jetzt einfach
+ein bisschen was raus.
+Okay, das können wir drin lassen.
+Das können wir drin lassen.
+So, das reicht.
+ganzen anderen krempe perfekt hello world so ok dann flächen wir das ganze mal und schauen was passiert
+flash flash und monitor ich stöpsel die kirche das ding immer ein
+Blubblum.
+Ihr müsstet jetzt oben sehen, dass die LED grün geworden ist.
+Sieht man das? Ja, sieht man.
+Okay, flashen wir mal.
+Was ich heute mache, ich versuche auf diesem Ding, was du oben rechts siehst,
+einen QR-Code zu generieren und anzuz...
+Ah!
+Das Chip ist ESP32S und ESP32.
+Ich muss ja noch setzen, dass wir einen ESP32 S3 haben.
+Wo machen wir denn das jetzt nochmal?
+Das Set Target ESP S2.
+Das war es, genau.
+Siehste?
+Flash und Monitor.
+Jetzt sieht es auch schon besser aus.
+By the way, mein C-Line hier oben ist voll am durchdrehen.
+Aber wir Fullscreen.
+Es wird geflasht.
+Hello World, Minimum Free, Heapsize, Restarting.
+Okay.
+Es läuft prinzipiell.
+Gut, jetzt brauchen wir noch ein paar andere Sachen.
+Wir wollen ja, dass es ein C++ Projekt ist.
+Das muss ich mal kurz abgucken. Das können wir uns abgucken. Wir haben doch hier selbst, warte mal, wir haben doch hier noch was. Guck mal, CD, Gebro, Display Champ. Wie ging das jetzt nochmal? Wir müssen, wir brauchen eine Main.cpp, also wir müssen das CMAG-File anpassen. Und zwar...
+Projekt
+Das ist wie es heißt
+Das ist auch schon mal ganz sinnvoll
+Okay, warte mal
+C-Make
+Projekt Hello World, das soll nicht Hello World heißen
+Das soll
+QR-Code Champ
+heißen
+FMT haben wir noch nicht
+Fügen wir dann gleich noch hinzu
+lasse ich auch erstmal mache ich auch mal kurz nichts dran okay das passt so und jetzt müssen
+wir in maine alle hier in die c-max hier wasser in klugen soll eintragen genau so
+inkludiert fragt mit c++ projekt konflikt ist immer absoluter abfuck so und jetzt
+muss man das umbenennen in main cpp so jetzt heißt es main cpp das alleine funzt ja noch
+nicht weil der kram muss jetzt ja extern c up main sein sonst tut es ja nicht weil c++ logik
+was habe ich falsch gemacht
+Ich glaube, ich muss einfach mal rebuilden, dann funktioniert es schon.
+Was?
+Was will er von mir?
+Geht doch!
+Der lügt.
+Okay.
+Habe ich jetzt alles richtig gemacht?
+Ich glaube schon.
+Gucken wir mal.
+Hier schreiben wir einfach rein.
+Mal gucken, ob er das jetzt ausgibt.
+Dann wissen wir, dass alles funktioniert hat.
+Okay, ja, hat funktioniert
+Ja, dann habe ich das
+noch richtig gemacht
+Was hat denn meine IDE jetzt gerade für Schmerzen?
+Wisst ihr was?
+Wisst ihr was immer hilft bei sowas?
+Reboot
+Du du du du du
+und schon von easy
+von zimmer noch nicht
+was das fall das noch belang zu einem project was hat er denn für schmerzen gerade wenn man fragen
+darf.
+Was will er denn?
+Was zum Teufel
+geht hier gerade ab?
+Ja, IDF Target habe ich ja gesetzt.
+Wenn ich auf der Konsole kompiliere,
+geht ja auch alles.
+okay ich glaube ich glaube ich weiß ich glaube ich weiß woran es liegt wir müssen das setup
+hierfür machen das hat er sonst nichts hat er sonst nicht gecheckt genau das haben wir
+schon gemacht projekt öffnen at environments müssen wir jetzt nämlich noch machen
+wo muss ich nach wohin nach tool chain tool chain
+environment from file
+ich glaube jetzt sollte das besser checken
+ich rieche da noch mal
+ohne das aus dem verzeichnis zu starten ja das ist das setup ist immer ein bisschen abfuck
+aha jetzt hat das hier erkannt das enable das mal wieder
+und jetzt hoffen dass funktioniert
+MonkaSS MonkaSS MonkaSS Monka MonkaSS
+Es geht!
+Nice!
+Easy!
+ok funzt kann das hier und weckt jetzt brauchen wir das alles nicht mehr okay jetzt haben wir
+ein c++ projekt das will ich nicht dass da will ich haben aber ein c++ projekt okay
+wie war das jetzt noch mal mit komponenten installieren wir müssen ich will auf jeden
+fall wieder fmt lib haben components esp idf die haben ja so eine eigene registry für libraries und
+sowas fmt fmt da haben wir es doch esp idf pi add dependency okay jetzt haben wir eine idf
+Da ist die Dependency drin.
+So, jetzt kann ich sagen, include.
+Hm, fmt.
+Format.
+Ne.
+Ich dachte fmt.
+Ach, ich muss wahrscheinlich wieder bilden, dass es funktioniert.
+No work to do.
+Okay.
+Oder was muss man als nächstes machen?
+fmt lib example wobei wir haben doch hier noch ein example hat man doch hier guck mal
+im helper
+nochmal abgucken was wir da gemacht haben monka ist was das alles wir
+brauchen fmt core und fmt kompakt der meinetwegen wenn es sein muss
+die fmt gibt es nicht warum gibt es fmt was habe ich was habe ich falsch gemacht
+gemacht irgendwas habe ich verkehrt gemacht
+muss ich hier irgendwie noch mal so tun als hätte ich ich tue mal so als hätte
+ich was geändert
+Ah, jetzt checkt, ist okay.
+Einfach mal so tun, als hätte sich was getan.
+Jetzt hat er es kapiert.
+Ich glaube, man kann es mittlerweile einfach so importieren, ohne was Spezielles.
+Genau.
+FMT Base kann man jetzt inkluden.
+FMT Base.
+So, und jetzt gibt es sowas wie, das ist nämlich viel nicer.
+Ich mach das hier mal weg, das brauchen wir dann auch nicht mehr.
+Das ist nämlich viel nicer.
+Jetzt kann man nämlich sagen, fmt, brindeln.
+Und jetzt kann man sowas wie ein Python bisschen machen.
+Da kann man sagen so, hallo, chat.
+Und dann hier kann man angeben, was man haben will.
+Was weiß ich, 1 oder 1.
+Was hat der jetzt für Schmerzen?
+Achso, Klängen.
+Das können wir...
+Das können wir ausschalten.
+Das reportet.
+Mist.
+So, und jetzt flashen wir das Ganze.
+Und jetzt schauen wir mal.
+Jetzt sollte der Hallo Chat 1 ausgeben.
+ok fmt ist schon mal viel zu fett die müssen wir ein bisschen kleiner machen
+da sind tausend sachen drin die wir nicht brauchen sie make lists
+ich bin falsch im ordner im see make lists hier das brauchen wir alles das
+kommen alles hinzufügen so dass der das wird dann deutlich kleiner
+wir wollen keine 128 flots keine 128 mit flots verwenden wir wollen keine long
+doppels was auch immer long doppels sind und kann damals ein flow zu aufwenden
+und als separator für 1000 dann immer einen punkt und nicht irgendwie was
+sprachabhängiges oder so ein blödsinn und jetzt ist das ganze auch gleich passt mal auf
+machen das jetzt mal so machen das hier rein aber
+jetzt baut er neue weil ich meine sie mit konflikt geändert habe
+Ja, guck, jetzt ist er nämlich auch gleich viel kleiner und schneller.
+Excellent.
+Hallo, Chat.
+10.89.64, Reboot.
+Gut, Funst.
+Dann würde ich sagen, sind wir ready für Display.
+Ich muss mal kurz gucken, kann man noch ein bisschen schneller flashen?
+Man konnte doch irgendwie die Boutrade angeben oder so.
+Boutrade.
+also das ist jetzt super langsam
+ne
+ne
+ist das so
+ok
+pass mal auf das ist super lahm also das will ich gar nicht
+angeben
+ich würde mal hier angeben
+so keine ahnung mal
+16 bam
+Beste.
+Mit der Geschwindigkeit will ich flashen.
+Zack.
+Es macht ehrlich gesagt keinen Unterschied, ne?
+Warte mal.
+Ich geb mal an, 18.
+Dann müsste das eigentlich super lahm flashen.
+Nö.
+Das juckt den mal überhaupt gar nicht, was ich da überhaupt angebe.
+Da kann ich ihn auch weglassen.
+So, Chat. Auf geht's.
+Es funzt.
+Wie fangen wir denn jetzt am besten an?
+Wir brauchen erstmal LVGL, würde ich sagen.
+ESP Components Registry.
+Also jetzt müssen wir mal irgendwas auf dem Display überhaupt anzeigen.
+LVGL.
+Ähm.
+Jetzt geht es ja schon los. Was nehme ich denn überhaupt?
+sp 32 lvgl oder hier etwas in der unterschied des components helms
+with using lvgl lcd and touch drivers
+es press es lcd in touch drivers okay das wird abfangen leute
+wie funktion das jetzt
+hat sie mal so gemacht hat man ich muss mal kurz gucken ich muss mal kurz in meinem
+GIT-Repo gucken, in meinem hier internen.
+Ob ich irgendwas
+in dieser Richtung schon hab?
+Ne.
+Chat, ihr seid so ruhig.
+Geht der Chat überhaupt noch?
+Ja.
+Scheint zu funktionieren.
+Gibt anscheinend nichts zu sagen gerade.
+Okay, dann installieren wir das jetzt mal.
+Ja, geht. Okay, nice.
+Menu-Config nochmal.
+Weil aus irgendwelchen Gründen...
+Ach, jetzt checkt das.
+Jetzt checkt das.
+im airfryer beste ok jetzt wird es auch gleich viel fetter na gut noch benutzen
+wir nichts ok leute ich brauche ein example ich habe legit absolut kein
+platzen schimmer wie wie es funst
+Wir brauchen ein...
+Wir brauchen...
+Warte mal.
+Ich habe doch hier dieses Board hier aufgehabt.
+s222
+T-Display S3
+Ich brauche die GPIO-Belegung.
+Hier haben wir die GPIO-Belegung.
+Ja.
+Ähm.
+Oh shit.
+Warte mal. Wir gucken mal.
+Wir gucken mal was anderes.
+ESP32 GitHub
+T-Display S3
+ob die ein example vielleicht dafür haben aha guck mal wir hatten sogar das
+example schon mal auf aber wahrscheinlich nicht für display kram
+ich glaube meins ist nicht damit touch würde ja auch drauf stehen
+das ist meiner dann hat meiner doch touch ok arduino touch lv demos
+noch mal lv lv demos ist mit arduino stilz gemacht dass wir aber egal
+Ja, ja, ja, ist klar.
+Easy.
+Na klar.
+Ist doch eigentlich so die fucking Pinbelegung.
+Das ist ja easy.
+Ach du Scheiße, Mann.
+What the fuck?
+Das erscheint mir jetzt doch etwas komplizierter, als ich mir das vorgestellt habe.
+Okay.
+Turn on Display Power.
+Aber ich muss doch irgendwas haben.
+Das wird richtig PP geil.
+Ach du Scheiße.
+Ha!
+Haben wir hier vielleicht...
+hin konflikt okay das schon mal ganz gut okay hier haben wir pin lcd 0 40 ok da hier haben
+wir die pin konflikt das ist ja schon mal etwas hin power 15 gut das brauche auf jeden fall dass
+cool dass das kopiere ich mir mal also power fürs display an dass das schauer
+schon mal gut zu wissen okay das probieren jetzt mal aus ob das
+funktioniert
+gp gp config mit esp edf das ist doch irgendwas gewesen mit übrigens wir bauen
+uns mal eine Delay Funktion. Delay, sowas gibt es bei Arduino standardmäßig hier nicht. Milliseconds.
+So, beste. Was? Uint gibt es nicht. Ja, ist ja auch komplett unbedeutend, brauchen wir nicht. Was will
+von mir at konst in 16 t genau das geht das jetzt eigentlich kaputt wenn ich das
+weg macht
+okay so jetzt können wir nämlich sagen am anfang nämlich mal beim start-up
+manchmal die lei von 100 millisekunden rein warum auch immer ich bin mir da
+immer das sicher ob das dann alles schon ready ist
+ok und jetzt sagen wir pin auf wie war das über kurz was abgucken gp config gp
+config und da muss man jetzt setzen
+den kam nicht aus wenn ich sp sp edf gp example github
+das schöne ist die haben für alles irgendwelche
+eigentlich schon wollen
+warum haben die hier glaubt gpi config ist es
+GPIO, Dump IO Configuration.
+Ja hier, das...
+Wie ging das denn nochmal? Pinsetzen.
+ESP EDF Set GPIO to High.
+Ja, genau. Zeig mir, wie funzt das?
+Okay, die Seite
+suckt.
+GPIO
+Z-Direction.
+Z-Level.
+Das will ich haben.
+Direction
+Output.
+Die haben doch hier bestimmt
+auch ein Example drin.
+In
+hier.
+Ach, das ist ein Arduino
+example jetzt kapiere ich das ach so
+arduino example bringen uns nichts
+hallo
+fuck
+kann man das mal please importieren
+Der importiert nicht? Warum nicht? Ist Sea Lion irgendwie kaputt?
+Ich glaube das ist broken.
+Ok. Include GPIO.
+Punkt A gibt es nicht.
+Hä?
+Bin ich jetzt
+blöd verwirrt?
+Ich bilde das gerade noch mal.
+Talent verschmerzt.
+Drivers.
+GPIO.
+Okay.
+Aber noch mal.
+Äh, wo kommt hier eine
+While-Schleife auf einmal hin?
+Okay.
+Ich weiß gar nicht, was sie da macht.
+GPIO.
+Set Direction.
+Der importet einfach grad nix.
+Super weird.
+Include driver GPIO.
+Set direction.
+Set direction.
+Okay, so.
+Set direction brauchen wir output.
+Also Pin, Power, Output.
+Okay, 15.
+Machen wir einfach so.
+Okay, passt.
+Set Direction, Set Level 1.
+Okay, so
+Dann machen wir das mal, mal gucken, ob jetzt in irgendeiner Art und Weise
+Das Display angeht
+Kein Plan
+Schau mal einfach mal
+Chat, du musst ganz genau gucken
+Geht da irgendwie ein Display an?
+Irgendwas passiert gerade?
+Ne, oder?
+Ja, vielleicht, weil ich
+Vielleicht, weil ich nix
+Ist es wirklich was passiert?
+Nee, oder?
+Nee, ich glaub nicht
+PIN POWER ON
+Also ich bin mir schon damit zu...
+Ich habe die Tage gehört, dass man C-Line weiterhin benutzen kann, wenn man die Subscription...
+Kann man? Ja, C-Line ist mittlerweile free. Tatsächlich.
+Ja, C-Line ist mittlerweile free.
+Nicht Arduino.
+Hier haben wir noch ein schönes Exempel vielleicht.
+pin config pin 1 button 1 button 2 ok pin sd s hat spät pins display pins 15 haben wir richtig
+ein cpp aber das ist auch wieder arduino stellt mama lv beginnen alter warum ist das gibt es da
+vielleicht ein einfaches example für dieses display glaubt sie leihen ist
+jetzt free nicht kommerzielle nutzung also wenn du das nächste krasse start up
+start up wills dann nicht
+Da muss doch ein Example geben.
+Das hatten wir gerade offener.
+Ah ne.
+Haben wir schon mal was mit LVGL gemacht?
+Kann das sein?
+Nicht, dass ich das jetzt noch irgendwie...
+Ich glaube nicht, oder?
+Aber wir machen mal minus i.
+Hä?
+Ich glaube nicht. Wo könnte das denn noch sein?
+Include lv.el.h
+So planlos wie das...
+Ich wüsste nicht, wo wir das haben.
+Display Champ
+Ich wüsste nicht, wo wir das haben sollen
+Hier ist nichts mit
+Der da vielleicht
+Könnte das was sein
+Vom
+ESP32
+Ne
+Dann habe ich kein
+Exempel dafür.
+Dann müssen wir uns das hier nochmal klauen.
+Das merke ich mir mal.
+Aber
+Okay.
+Bane.
+Aha.
+Das brauchen wir nicht.
+LVGL Setup. Vielleicht sollten wir uns mal das Example angucken von dem hier.
+Boah, ich bin echt richtig planlos wie das Funst.
+ad screen
+esp lcd spi bus handle 1 monka es all da ist das kompliziert ok new lcd panel st 7789 moment was
+für ein display haben wir das ist ein st 7789 das schon mal gutes example das hat schon was
+mit unserem display zu tun okay ich werde mir das jetzt mal einfach copy
+pasten und mal gucken was dann passiert
+tag initialisation will er mir das mal drin also
+wir gehen einfach mal von aus wir haben keine errosse
+komm ja fmt prindeln
+ero
+guck mal ob es bis dahin funktioniert flash
+flash
+ich fand das so unglaublich nervig von jetbrains auf whistle studio zu wechseln
+ja warum machst du sowas auch ich finde whistle studio ist richtig sack
+gegenüber den ganzen Chat-Prints.
+Okay, das hat funktioniert.
+Error ist null.
+Add Screen.
+Alter!
+Wie kompliziert
+ist denn das, dieses Display anzusprechen,
+Mann!
+Ich copy-paste mir das jetzt einfach.
+Wo kommt denn das hier her?
+Woher bekommt man das hier?
+Welche Idee benutzt ein Java-Kollegen Telly J? Haben die alle.
+Cannot resolve simple IOConfig.
+ja schön weiß auch nicht wo er kommt
+das ist ja super krass kompliziert das habe ich auch nicht so vorgestellt
+das hier klingt ja schon mal gut
+Tja.
+Okay, wir machen das jetzt.
+Wir machen das jetzt einfach mal so.
+Wir gucken uns einfach an, was was ist.
+Also, als nächstes brauchen wir ein I.O. Handle.
+Das ist 0.
+Okay, das kopieren wir da schon mal rein.
+Das sollte ja keine Probleme machen.
+Dann brauchen wir das, was auch immer.
+Moment mal, kann das sein?
+dass wir diese IOConfig noch anlegen müssen, weil IOConfig gibt es ja nicht.
+Also quasi sowas wie IOConfig ESP-LCD-Panel-IOSPI-Config-T.
+Ich weiß, dass mein Display per SPI angeboten ist, genau das, okay?
+konflikt gleich ja zack so ok ok und jetzt muss man das film ich boah alter fall da was was gibt
+es denn da jetzt konflikt csn a post trans pretrans sind hier los cs aha hier kann man
+ein gps setzen jetzt haben es okay cs cs cpi number cs ist das klick signal für
+sp das ist was ist denn das ich habe doch hier pin 6 gps 6
+heißt gpio 6 ok next io config dc gpio number klingt auch gut dc ist was 7
+gibt doch einen example für aha guck mal da example aha
+how to sehr gute frage in it sp mode gleich null
+okay das klingt schon mal das klingt schon mal ganz gut
+oh mann wo sind hier die aber wo machen die das hier mit dem display gar nicht
+LV-Demos.
+Muss mir das hier mal durchgucken.
+Das ist das offizielle...
+K, guck mal hier!
+Was ist denn der Unterschied?
+I80 vs. SPI.
+Was ist denn da der Unterschied?
+Was? Parallele Schnittstelle?
+Das ist aber noch ein SPI Display.
+Kann man das mit dem STM32 kombinieren?
+Ne, das ist ein eigener Controller.
+Ich glaube, das ergibt keinen Sinn, was hier drin steht.
+Was ist denn ein I80-Bus?
+Okay, what is I80-Bus?
+It's a parallel plus a right line.
+Kann das sein, dass...
+Also, weil ich bin mir ziemlich sicher,
+meins ist per SPI angebunden.
+Vielleicht sind die auch einfach nur...
+Vielleicht sacken die auch einfach nur die Docs dazu.
+T-Display, S3, SPI.
+Eigentlich gibt es auch noch was.
+Ist das kompliziert, man.
+Ja, das sind die doch. Ja genau.
+Ist das das? Mark Chat GPT.
+Samples. VGL.
+Das ist wieder was anderes.
+Ich mach mich fertig.
+Ja, wir copy-pasten.
+Also ich bin mir relativ sicher, dass es ein SPI-Ding ist.
+ok mach guck mal weiter was haben wir dann sonst noch konflikt
+flex ok ich habe doch irgendwas in diesem forum gerade gefunden
+da hatten die doch
+gegen example
+sp 32
+es presset warum hat man doch gerade irgendwie war das denn oder typ was gepostet hat
+Ist ich jetzt blind?
+Hä?
+Ich hatte doch gerade so ein Example,
+wo irgendein Typ im Forum gepostet hat.
+Checksnatch.
+Ach hier, das war's doch.
+Ja, ne.
+Meine Güte, Alter.
+Browserhistory von Arsch, ja.
+Was war das?
+SPI-Mode.
+Jetzt mal nachher.
+Was ist das da? Das hat doch irgendeiner hier gesetzt.
+Aha.
+SPI-Mode.
+Okay, SPI-Mode gleich.
+Ah, hier haben wir ein paar Dinger.
+ich was sp mode gleich null okay was auch immer das bedeutet was auch immer das bedeutet okay
+also so konflikt hat man als nächstes irgendwas mit herz hatten sie noch frequency findet man
+damit irgendwas?
+Google, please.
+Hilf mir.
+Ich weiß noch nicht mal, was ich Chat-GPT
+fragen könnte.
+Haha.
+Hier gibt es
+irgendwelche ich habe irgendwo ein beispiel projekt ich habe damit schon
+mal eine ausgabe grafik ausgabe hinbekommen irgendwann habe ich das denn
+warte mal ich muss noch mal kurz mein getriebe gucken display display 11
+Warte mal. LVGL.
+Warte mal. Hier habe ich was mit LVGL.
+Main.
+Init Display.
+Auskommentiert.
+Das klingt doch schon mal gut.
+Okay.
+Leute, ich habe was gefunden.
+Pog.
+Wir sind gerettet.
+Ich habe mit meinem eigenen Krempl schon was gefunden.
+Okay, ich gucke mal.
+Vielleicht kommen wir ja ohne aus.
+Vielleicht ist das hier ja besser.
+Lily, go, T-Disp, set up an examples.
+Okay, nice.
+Example.
+Wo ist ein Example für Display?
+Da.
+Das ist aber auch Arduino.
+und das ist mit tft sp das benutze ich nicht also wir copy pasten jetzt mal aus meinem eigenen
+projekt ok als erstes mache ich sowas hier ich habe keine ahnung warum ich vermute dass das
+hier das gleiche ist was ist die ftbl alter woher kommt die ftbl ich bin in meinem eigenen projekt
+nicht durch globales die ftbl ist die bio nummer vier moment sollte es nicht die pia 15 angeblich
+sein ich ich kopiere das jetzt ich kopiere das jetzt aus meinem eigenen projekt raus
+Okay, so
+GPU 23 gibt es gar nicht
+Warum nicht?
+Hä?
+Wollt ihr mich verarschen?
+21?
+Wie jetzt?
+Ja, wie jetzt?
+Was? Wo?
+Was?
+Das kann doch nicht
+ein Bug sein.
+Warum gibt es kein GPIO23?
+Was gibt es nicht?
+wie
+was wie
+chat kann mir das irgendjemand erklären warum es das einfach nicht gibt
+weil angebliches display reset ist gpo 23
+Guck mal, es gibt bis 19, dann gibt es 20, 21
+und dann geht es erst ab 26.
+Aber internal?
+Das ist an meinem Display angeschlossen.
+Missing ESP.
+Wie mache ich fertig?
+Na gut, ich meine, wir brauchen es nicht unbedingt, wir können es einfach auch von Hand machen.
+Also wir können hier 19 reinschreiben, 18, 5, 16, 23 und 4.
+So, jetzt habe ich aber, nachdem ich hier die Daten von dem Display habe,
+dann können wir doch mal gucken, was ich eigentlich, was habe ich denn überhaupt für ein Gerät?
+Guck mal, das ist das Falsche, was ich hier habe.
+Ich habe anscheinend eine Resolution von 240x135.
+Das ist das Falsche.
+Das ist das Falsche.
+Hier.
+Ist das vielleicht...
+Ist das hier vielleicht das Richtige?
+Ah, ne, noch besser.
+200, okay, Alter, was hab ich denn
+für ein Gerät überhaupt?
+Ich muss da jetzt mal kurz drauf gucken. Was steht da?
+T-Display? Na super, das steht unten, da kann ich
+jetzt nicht drauf gucken.
+T-Display
+mal 135.
+Okay, da haben wir es doch.
+Das ist aber nicht das
+Ihr seht es doch selbst, das sieht ganz anders aus
+Guckt euch mal oben rechts an
+Das sieht doch ganz anders aus
+S3, suchen wir nochmal
+Ach guck mal, hier gibt es ein Example.
+Das ist aber das falsche.
+Das ist das S3.
+Ja, nee.
+Das ist doch deins.
+Was?
+Das hier, ja, aber ich finde dazu jetzt keine
+GPIO-Belegung. Ich hätte gerne einen
+Datasheet oder sowas.
+das ist das richtige die china chinesen man das ist das falsche genau auf die bildersuche
+1.1
+Vielleicht habe ich V1.1
+V1.1 S3
+Was ist denn das?
+Da gibt es V1.1 Data Sheet
+Data Sheet
+Womks
+Ah, das China-Chinesen-Zeug, man
+Ist ja schlimm
+Ist das das Richtige?
+Nein.
+Leute, ich muss mal zumachen.
+Das wird mir zu viel.
+Wartet mal.
+Wir gucken noch mal.
+Was steht denn hier für eine Version drauf?
+Gar keine.
+Hier, T-Display S3.
+V1.1.
+Das ist aber voll.
+Also meins...
+Ich habe das ja nicht ohne Grund gemacht.
+S3.
+Das alte TTGO Display.
+Kann das sein, dass ich selbst Mist getippt habe?
+Hattest du das Manual schon offen?
+Nee.
+Kann das sein, dass ich in meinem alten...
+Dass ich da Mist getippt habe?
+Oder noch schlimmer.
+Kann das sein, dass ich das
+gar nicht da drauf gemacht hab?
+Moment, das ist ein Projekt von dem alten
+T-Display
+Das ist gar nicht von dem neuen T-Display
+Ich glaub, das ist von... Oh, fuck
+Das ist ein Projekt von dem alten T-Display
+Was ich da in meinem GitHub gefunden hab
+MonkaS, ja, alles klar hier
+Okay, dann ist das das.
+Okay.
+Dann können wir uns wirklich nur...
+Oh ne, dann geht das ja ganz anders anzusteuern.
+Dann geht das ja so gar nicht.
+Okay.
+Oh, ich bin lost, Leute.
+Okay, dann gucken wir uns jetzt...
+Dann müssen wir uns hier die...
+Ich guck mal kurz auf
+mein T-Display drauf.
+was da was da hinten drauf steht wartet mal hier gucken dass ich richtig positiv
+1.2
+1.2 habe ich da steht drauf T-Display 1.2 was ich habe
+T-Display S3 1.2
+V1.2
+Dann habe ich bestimmt das Richtige.
+Dann habe ich hier das Richtige die ganze Zeit schon rausgesucht.
+Ich meine, hier steht zwar aus irgendwelchen Gründen V1.1 drauf,
+aber bei mir steht V1.2.
+Da habe ich vielleicht einfach noch ein bisschen was Neues.
+Vielleicht liegt das auch daran, weil ich welche...
+Touch Soldered?
+Aber das...
+Non-Touch Soldered?
+Soldered Pin?
+ja das ist das habe ich ja okay da steht nur 1.1 trauers aber okay dann stimmt
+das hier doch dann stimmt das jedoch okay also dann tippen wir das mal ab
+Backlight ist GPIO... Hallo?
+Krackt mir C-Line gerade ab? GPIO number... also 38.
+so rst gibt's hier nicht
+und dann fand das doch anders mit dem ort dass das wird ein struggle bis es
+läuft ich sag's euch da gibt es die 0 der da kann ich das doch aus dem dann
+kann ich das doch hier raus
+doch hier raus kopieren hier dann kann ich das doch aus kopieren power pin
+beckleid 38 beste zack beim okay was brauchen also das ist schon mal die
+resolution ist schon mal blödsinn das stimmt stimmt schon mal nett
+also backlight dann haben wir die pins pin power on das display wahrscheinlich
+lcd reset csdc wrd was auch immer das pin button battery das brauchen wir
+nicht pin brauchen wahrscheinlich auch nicht
+und touch brauchen wir auch nicht okay das sind unsere pins das schon mal gut
+so weiter jetzt kann ich ja abgucken
+So, jetzt kann ich ja abgucken.
+Oder auch nicht.
+Also, was ich jetzt bei mir mache...
+Touch.
+Es wird abwacken.
+Ich habe gestruggelt.
+hier esp lcd 80 bus händel wo kommt das her
+okay wir müssen mit ok der pin also ich kann euch mal zeigen was ich mache hier bei mir in
+meinem alten projekt das da mache ich hier so was auch immer das jetzt genau das da
+in bit mask tft backlight gibt es ja nicht mehr oder lcd backlight ok lcd backlight machen wir an
+lcd backlight machen wir an
+und dann sage ich hier gp config geben
+reformat
+aber hier müssen wir müssen pin was ist denn rd rd auf high und pin power haben die haben die auch
+Benutzen die Backlight auch irgendwo?
+Attach Pin?
+Äh.
+Was machen die da?
+Ist SBL Backlight?
+wahrscheinlich
+monka w
+gibt es ein example für
+wobei es gab doch hier die set direction
+also wir wollen hin
+wo geht's denn los hier also pin power auf high und pin rd auf high
+also lassen wir das mal weg so pin power
+Power on.
+Was hat er denn für Schmerzen?
+Warum geht das nicht?
+Cannot convert int.
+Ich dreh am Rad.
+GPIO 38.
+gp 39 gp auf 40 40 gp 41 gp 42 gp auf 45 gp 46 gp 47 48 gp auf 15
+TPI auf 5. 6, 7, 8, 9. Okay, gut. Jetzt funzt's. Set level high. Oder 1. 1 auch. Okay. 0 low, 1 high.
+Powerpin. So.
+Das setzen wir. Gut. Next.
+Dann müssen wir
+Pin LCD-RD
+setzen.
+LCD-RD.
+Set Level auch auf High.
+Gut. So. Dann brauchen wir
+ein ESP-LCD-I80
+Bushendel-T. Wo bekommen wir
+das überhaupt her? Das gibt's bei mir
+nämlich im gesamten Projekt nicht.
+Oder doch?
+Äh.
+Ach, das gibt's. Ich hab nix gesagt.
+so 0 80 bus was auch immer der 80 bus ist jetzt brauchen wir das hier
+ok also die ich ich kopiere das jetzt einfach mal davon aus dem beispiel raus
+lv gl lcd bach sei es bekommt es her
+pin config
+ach so die resolution muss da rein okay das macht sinn
+das macht sinn dass das stößt das machen wir machen wir uns auch hier
+define lcd
+width
+height
+was haben wir denn hier für eine
+breite 170
+170
+oder ist die Höhe 100
+ne, gut je nachdem wie man es
+320 ich will es eher seitlich verwenden anstatt hoch kann so
+buffer size
+lcd breite mal lcd höhe
+ein QR-Code will ich darauf anzeigen lassen.
+Mit WiFi-Connect,
+WiFi-Credentials, also so ein
+Connect-QR-Code, wo du da mit dem Handy
+scannen kannst, da verbindest du dich zum WiFi.
+So, das
+haben wir jetzt.
+Also mit Touch
+mache ich da nichts.
+So, und jetzt ESP-LCD-NEW-I80-Bus.
+Okay.
+Alright.
+IOConfig.
+Ich copy-paste das einfach alles.
+Example-LCD-Pixel-Clockhertz.
+was soll ich denn wissen
+und wo zum teufel kommt der display driver her für gäste nehmen und iot gerät hast du das initial
+einrichten willst dann kriegst du macht das ding den access point auf zeigt den qr code auf dem
+display an dann scannen es kommt auf der website da gibt es dann deine echten wlan credentials
+ein und rebootest.
+Okay, wir müssen mal kurz
+gucken, wo das hier her...
+wo das hier herkommt.
+Okay.
+Obviously, Leute.
+Okay, wir machen das doch
+mit
+Höhe 320.
+Aber auch so.
+So.
+Okay.
+Exakt das und nichts anderes.
+Ich fände, das ist
+obviously klar, oder?
+Warum?
+Leute, soll das ein Kommentar sein?
+Was genau soll das sein?
+Soll das ein Kommentar sein?
+Aber 10 mal 1000 mal 1000
+ist nicht 6 Millionen irgendwas.
+Wartet mal kurz.
+Ich schreib das da jetzt einfach mal so hin, wie es hier drin steht.
+So, wie geht's jetzt weiter?
+Haben die hier
+einen Durch zu viel? Kann das sein?
+Ich schreib jetzt...
+Ich habe legit keinen blassen Schirm aus der Nacht.
+Okay, Displayen.
+Ich suche da einfach mal danach.
+Tja, man weiß es nicht.
+wir können das ja mehr rein schreibt dann mag er aber nicht das kann auch nicht fassen
+aber aber in die fein sollte doch gar keinen unterschied machen als es ist
+doch im prinzip das gleiche wenn ich das eintrage oder
+Nee, ist es nicht.
+Okay, whatever.
+Ach so, weil es hier oben schon ein Comment ist.
+Ich vermute, die wollten so machen, ehrlich gesagt.
+Aber na gut.
+Was ist das?
+Example Notify.
+Okay, wo kommt das her?
+Wo kommt es her?
+Mon KS, Alter!
+Was wollt ihr von mir?
+Ich will einfach nur das Display anbekommen.
+Was ist Display Driver bei mir?
+Wo kommt ein Display Driver her?
+Das ist einfach leer.
+Das ist auch leer.
+Alles was ich weiß, das ist leer.
+Mal gucken was passiert.
+so als brauner dass händel gibt es aus irgendwelchen gründen nicht
+Was?
+Cannot resolve simple, da ist... Ah, Moment, Moment.
+Ah.
+Wo kommt denn der Allhandle jetzt her?
+Ach so, das ist was, was man hier übergeben muss.
+Ich habe so keinen Plan, was ich hier mache.
+Das gibt es schon mal gar nicht.
+Ich will doch einfach nur ein Display, was angeht.
+Panic Cell, danke für den Sub.
+das her
+es gibt es gibt es doch
+ich muss das importieren ich esse brötchen gerade
+ok
+Das habe ich nicht.
+Wo kommt denn das her?
+Hä?
+Hä?
+Angeblich gibt es das.
+Hat das jetzt included?
+Hat das included?
+Okay.
+Und jetzt?
+Ich hab keinen
+Plastenschimmer, was hier überhaupt passiert, Alter.
+Das machen wir mal weg.
+ok
+Wartet mal.
+das las ich mal weg gerade
+doch ich komme mal was passiert wenn ich es jetzt fläche kein blassenschimmer ob ich überhaupt ob
+das war kompiliert natürlich nicht
+platform warum macht jetzt da auch kein unterschied
+wir sehen was passiert oder sehen wir ist irgendwie nur weg leid oder so
+angegangen irgendwas
+was macht dann was macht denn led c set up das ist irgendein arduino die apwm ist das
+wo kommen
+War ich ein ESP, EDF...
+So was.
+Aha.
+Ne, ich mach's nicht mit dem Arduino-Framework.
+Arduino geht mal auf den Keks.
+Okay, das ist deutlich mehr High IQ,
+als ich gedacht hab hier.
+Ähm.
+Kann ich nicht einfach sagen?
+Zumindest, dass es mal die Hintergrundbeleuchtung angeht.
+Pin LCD BL.
+So, das soll jetzt mal zumindest irgendwas...
+Ne, da ist nichts angange, oder?
+Wer soll denn das verstehen, man?
+ich meine ich habe immerhin etwas aus kommentiert
+ich habe das hier aus kommentiert und das aber
+die treiber fehlt nichts
+nutze ich doch hier gar nicht nirgendwo
+jetzt geht es ja nur aktuell um das backlight an ein und auszuschalten
+wo fehlt hier was driver hier nichts mit driver
+Ach das hier, das habe ich das, habe ich das, habe ich das auskommentiert? Wo denn?
+Boah, das ist mir zu hoch gerade.
+Das da meinst du?
+user kontext das brauche ich nicht deswegen welche callbacks oder so
+ich will jetzt eigentlich das hier machen
+ich weiß bloß nicht wie ich das in esp spdf mache was macht dann led c setup
+Also irgendwie PWM.
+Example.
+GitHub.
+Was ist für da absolutes High-IQ Zeug?
+So ne...
+examples led basic sehr gut
+Na das ist mir heute zu high iq
+Okay, ich kopiere mir das mal.
+Das gibt es noch nicht mal.
+Doch, gibt es.
+Was hat er denn für Schmerzen?
+Cannot resolve?
+Wie jetzt?
+es ist doch
+warum kannst du das nicht wie salve resäumen
+ich habe noch einen video ich habe auch noch ein video
+ok also channel
+Pass mal auf, wir fragen jetzt ChatGPT.
+I need this Arduino code translated to ESP-EDF.
+Da gucken wir mal, schauen wir mal, was uns ChatGPT sagt.
+ok
+alles klar
+chat gpt nice
+vibe coding
+activated
+ups
+kommt das her muss man moment muss man das irgendwie erst noch hätten
+wo bekommt man das überhaupt her
+wir in den example drin
+aber wir hatten doch wo wir hatten auch hier ein
+ein Exempel.
+Driver
+LEDC.
+Haha.
+Ah, Moment, wir haben den
+Channel ja noch gar nicht angegeben.
+Wir wollen auf
+Pin
+LCD BL.
+Moment, woher weiß das Chat GPT?
+Achso, weil ich das schon unten eingetragen habe.
+Das funzt jetzt, oder wie?
+Da habe ich ja meine Zweifel, dass das irgendwas macht.
+Okay.
+was genau will er jetzt das ist wieder irgendeine c++ shit leute das ist
+irgendein c++ da muss ich da muss man das irgendwie so schreiben weil
+bleibt halt
+Ich weiss aber doch nicht was die richtige Reihenfolge ist.
+Du siehst das ja in der Declaration, da kann ich es aber auch so schreiben.
+Muss ich da nachgucken.
+zwischen dinge zwischen sprache ist kacke und lehrer acht problem ist das gerade so
+channel speed nochmals speed mode aber das nicht gerade schon
+sie leihen kann das auto fixen wirklich das schauen wir mal
+kann
+kann er nicht und ich weiß besser gesagt nicht wie
+channel
+nach mir wenn ich mit mist kopiere
+Okay, so.
+Kannst du C++20?
+Ach, habe ich noch eine alte C++-Version?
+Wir gucken mal kurz, was ich für eine C++-Version habe.
+Macht das jetzt irgendwas?
+Warte mal, ist das Display gerade angegangen?
+Chat?
+Chat?
+hat sich gerade irgendwas getan
+ich will mir ein dass display hat sich gerade irgendwie oder das will ich mir ein das will
+ich mir glaube ich ein
+kann man das hier einfach mal endlos schleife wiederholen dieses um zu gucken
+ob irgendwas passiert
+Ey, Chat, das macht nix.
+Das macht nix.
+Sadge.
+Okay, da bin ich legit heute Abend zu dumm für.
+Dieses Display zum Laufen zu bekommen.
+Ich muss was essen, Chat. Ich bleibe aber online.
+Wir gucken uns mal nebenbei, vielleicht machen wir danach noch weiter.
+Wir gucken uns mal dieses Video hier an, was ich mir angucken wollte schon die ganze Zeit hier.
+I hate JavaScript.
+I hope it's not a controversial take that JavaScript is a kind of curse language.
+Was hast du denn hier für ein Video? Zeig mal her.
+Gaspedal statt Fahrpedal.
+Ist die Autos...
+Weil Deutschland auch so ein autofreindliches Land ist.
+Cursed language.
+Wo geht's denn los? Hier?
+Nee, hier.
+Der macht irgendwie so ein Quiz.
+Quick word from today's sponsor
+and then you can watch me suffer.
+Okay.
+You could skip switch and click.
+I have a bad weird date.
+How well I'm gonna do on this.
+I notoriously
+am not great at weird date time stuff
+in JavaScript and I have a bad feeling.
+I'm about to embarrass myself immensely.
+Okay.
+No?
+Moment, Moment, Moment.
+Ich werde mich sehr überraschen.
+Okay
+Was?
+2000?
+Warum?
+Warum?
+Warum 2000?
+Ich hätte ja Unix Time
+1.1.1907, das hätte ich ja noch irgendwie verstanden.
+Aber warum 2000?
+Das verstehe ich nicht. Egal, guck mal weiter.
+Was?
+Warum ist 0 verzeichnet als 2000?
+Das würde mich auch interessieren.
+Okay, kann ich meinen eigenen Reppel aufschreiben?
+Ich möchte jetzt Double Zero versuchen.
+jetzt. Gleiches, okay. Und 1?
+Was?
+Moment, Moment, Moment, Moment.
+0 ist 2000 und
+1 ist 2001, oder was?
+Okay, also 0 ist
+2001,
+aber 1 ist
+2001, und dann 2 ist
+2001,
+Wie soft,
+Teufel!
+Also nur,
+dass ich das jetzt...
+Nur weil ich das richtig verstehe.
+0 ist 2000,
+1 ist 2001,
+aber 2
+ist 2001 Februar.
+What?
+Okay, this is gonna hurt me deeply.
+Scheiße.
+JavaScript, Alter.
+Okay, jetzt kommt
+New Date mit einem Int.
+Also,
+ich würde jetzt ja mal drauf tippen,
+das ist genau das gleiche. Aber das ist
+JavaScript. Das ist bestimmt nicht
+das gleiche. Okay.
+Ich weiß es. 0
+int ist 2. 2.
+Ich sag 2.
+Jetzt 0 ist
+Unix-Time-Start.
+2.
+Okay.
+Und die Zahlen...
+Ich werde so viel
+Schmerzen von dem. Bitte sag mir.
+Ah, wir haben recht.
+Okay, wir parsen 0 und 0 String.
+Okay, von der Idee her müssten wir natürlich sagen, das ist false.
+Aber es ist JavaScript.
+Deswegen sage ich, es ist true.
+Ich verstehe nicht, warum es true ist.
+Also wenn es true ist, verstehe ich nicht, warum.
+aber ich tippe einfach mal drauf es ist true. Gucken wir mal.
+Ich hab richtig geraten.
+Aber...
+Throwing something to date can throw an error.
+Not a date?
+Von der Idee her würde ich sagen invalid date.
+Invalid date klingt irgendwie am naheliegendsten.
+Aber es könnte auch JavaScript Null oder undefined sein.
+I don't know what the behavior is.
+I would never do this.
+This is gonna hurt.
+This is like literally a random guess.
+Invalid date.
+Hey!
+It's still a date object.
+It's not null or an error.
+Great.
+Moment.
+Moment.
+Wir wissen, dass not a date invalid date ist.
+Man kann von einem invalid date get time machen, ja?
+Alter, keine Ahnung.
+Null?
+Null?
+Error.
+Drei.
+Ich sag drei. Aber wahrscheinlich ist es null oder irgendwas komisches.
+Was passiert, wenn du Zeit drauf hast? Oh nein. Oh nein.
+Bitte sag mir, es ist ein Nen. Okay.
+Nichts. Ja gut, macht Sinn. Okay.
+Es ist invalid, also ist die Zeit nicht ein Nen. Okay.
+Irgendwie hat es noch eine gewisse Logik.
+Okay, wir sind bei zwei richtigen.
+so far. To isostring.
+What's it going to return?
+Ich hab keine Ahnung.
+Okay, wir wissen es ja schon.
+Jetzt wirft es ein Error.
+Okay, then it throws an error.
+Chat says I need to just go by vibes.
+I'll feel it in my heart.
+I have a bad feeling I'm gonna feel something in my heart.
+To timestring.
+So to iso.
+Ich würde sagen, throwt auch
+ein Error.
+Oh, threw an error.
+Will this also?
+Du lachst, oder?
+Ja, was gibt man?
+Warum?
+Warum?
+Warum würde
+zu Timestring
+die String
+invalidieren,
+aber zu Isostring
+eine Error-Return?
+Wenn du nicht sicher bist,
+pick two options. Das macht keinen Sinn.
+Das macht absolut keinen Sinn.
+Choose the one that you believe it isn't.
+That's honestly the best advice
+I've gotten so far.
+Okay.
+Okay, I cheated a bit. I'm sorry.
+Und zwei ist aber Februar
+2001. Haben wir gerade gelernt.
+I don't know how I vibe
+code guessed this. Oh, 12.
+Oh, God. 12.
+I hope that it follows the pattern of the map.
+Ja, würde ich auch sagen.
+Würde ich auch sagen.
+Aber das, was jemand vorhin gesagt hat,
+das war gute Hinweise, ist,
+wähle die zwei
+und benutze die, die am wenigsten möglich ist.
+Also, ich würde denken, es sind ein oder zwei.
+Und mein Wunsch ist, dass es zwei hier sind.
+Ja, denke ich auch.
+Ich folge dem Pattern.
+Also, es wird das sein.
+Nein, es war... Ich muss meinen Mund vertrauen.
+Oh Gott.
+Ähm, nee, Essenpause.
+Well, it can't be that, that's not real.
+Oh, 13!
+Oh shit, was macht der denn bei 13?
+Weil den 13. Monat gibt's ja nicht.
+Ähm, macht der dann 2013?
+Macht der 2013?
+Vielleicht macht der invalid.
+Invalid?
+Es ist Javascript, der macht drei, Leute, der macht drei.
+So, it has to be one or three.
+Ja, es ist Invalid Date.
+I'm going to die.
+I'm actually going to die.
+What?
+I just, I have to know.
+I'm sorry, guys.
+Okay.
+Hä?
+Okay, that makes sense.
+No, it doesn't make sense.
+Es ist so hängen geblieben.
+2000, 2001, 2001, 2002.
+Ab 13 ist Invalid Time.
+Okay.
+What?
+I hate this language.
+What if I make this 300 though?
+Was?
+Was?
+It starts working again.
+What?
+After 32?
+Moment.
+Okay.
+Bis 12 hätte ich ja noch halbwegs verstanden.
+Aber warum fängt das bei 32 einfach random wieder an?
+Das ist so teufelig.
+Why?
+Ja, why?
+What is wrong with numbers 13 through 31 that they're not able to be passed and then everything past that can?
+What is this language?
+Und vor allem, guck mal.
+Auf einmal sind wir dann im Jahr 150 wieder.
+Oh, und noch lustiger.
+Und zwischendrin macht er 1999 mal 100, das ist das Jahrhundert.
+Du Scheiße, Alter.
+Once you break 99, oh, okay, way funnier.
+When you hit 40...
+Moment.
+Und da ist es dann nur noch 1950.
+Das macht mich fertig, Alter.
+Das ist ja so abgedreht.
+das ist hier 100 und das ist hier 1999 also ist es das treu hier
+ich habe auch keine ahnung absolut kein schimmer was da rauskommen könnte ich
+Ich meine, irgendwie halbwegs normal wäre invalid date, aber es ist JavaScript, es ist bestimmt nicht invalid date.
+I, no, what?
+Okay.
+That the same as if I just passed 12?
+Or is it the same as if I just passed 12?
+12.01.08.
+Oh no, it resets to zero.
+What?
+Aha, die Uhrzeit.
+This all makes so much sense.
+Und jetzt ist, Moment, 12.1 ist die Uhrzeit 0.
+Was ist denn bei 12.0 da an der Frage?
+Okay, so, 0.1, reset the timestamp part to 0.
+What does 0.0 do?
+Das ist eine gute Frage, ich habe absolut keine Ahnung.
+Ich tippe, ich tippe auch mal auf invalid date, weil es macht keinen Sinn, egal was es ist.
+Jawohl!
+I don't like that I was right on that.
+I'm going to go insane.
+No month has a zeroth day, so it's considered invalid.
+Yeah, great. Thanks, JavaScript.
+You make so much sense.
+I don't even want to think...
+Zwölf, man.
+Zwölf Punkt minus ein.
+Okay. Invalid date?
+What about this one?
+Invalid date?
+What happens if you do a...
+Invalid is the only thing that makes sense,
+but it's not going to be invalid.
+It's going to treat the dash
+as this type of dash.
+Ich dachte nur, was ist das dummste, was es tun könnte?
+Und ich habe das dummste ausgewählt und ich war richtig.
+Das ist, warum wir das jetzt vornehmen.
+Vielleicht 1. Es wird die String nicht vergessen,
+weil die String nicht eine Date-Time-Type String ist.
+Es ist nicht ein Monat oder ein Wochenende oder so.
+Es wird das nicht vergessen.
+Es wird die 1 benutzen.
+Und wie wir es schon vorhin eröffnet haben,
+das ist 2001-01-01.
+Cool.
+Wenn du nur ein dummes Ding machst, wirst du es richtig machen.
+Alles klar.
+Leere String.
+Ein leeres.
+So, perhaps isn't a month or a weekday,
+which means that it's going to be nullified,
+so this isn't part of the input anymore,
+which means it's now effectively an empty string.
+An empty string is effectively zero,
+and zero is effectively epoch time,
+so obviously it's in...
+Valid fucking date.
+What is this language?
+Hat er sich so schön hergeleitet.
+I should have chat showing for this one.
+Ich werde mein Bestes tun, nicht im Chat zu schauen, aber ich will es hier, damit ihr es könnt.
+Nächste Frage.
+Vielleicht eine.
+Gleiches Problem, weil vielleicht ist eine random String.
+Warte, May.
+Es sagt May in es.
+Oh.
+Das wird gepasst als May.
+Er ist in BST.
+Ich wurde auf das gescammt.
+Ich wusste nicht, warum er vier geben würde.
+Aha, alles klar, JavaScript.
+Alter, jetzt mal ernsthaft, es gibt doch niemand auf der Welt, der das wirklich richtig hinklickt, oder?
+Außer der Chat hier vielleicht, der Chat ist ja wirklich massive, frei IQ.
+Chat würde das bestimmt hinkriegen, aber sonst keiner.
+I almost clicked that one.
+I was like, okay, it's gonna do the thing where it goes backwards again.
+Maybe not though, because it doesn't have the...
+Wobei ich glaube, das ist was, wo der IQ wirklich schadet.
+Weil du denkst zu logisch.
+Und du musst das nicht logisch denken.
+Like, zeroth.
+May 4 UTC.
+What's it gonna use the 4 for?
+It's not gonna use it for anything logical.
+It's gonna ignore the UTC, for sure.
+The only one of these that would make literally no sense is this one.
+so wenn ich mit der 1 0
+es hat die UTC Part
+cool gut zu wissen
+es ist die einzige Zeit, in der es eine Antwort hatte, die fast Sinn gemacht hat
+UTC plus 1, es wird nicht richtig veröffentlichen
+nein, es wird
+ich habe so viel Glauben verloren
+oh Gott, was wird es hier tun?
+an diesem Punkt
+ich
+weiß es nicht
+okay
+22 01
+okay, also hat es die richtige Menge ausgesetzt, du kannst es
+Wir können das nicht chat-gpt testen, da müsste man das alles durchklicken und einzeln reingruppieren und sowas.
+Bin ich zu faul für.
+Ich will einen finden, der alle Infos hier benutzt.
+Okay, keine dieser haben die 1990-Parte und die 2010-Parte.
+Es gibt keine Antwort hier, mit der ich glücklich bin.
+Okay, endlich.
+Oh Gott.
+Also, wenn du die 2010 in Parenz schreibst,
+ich hoffe wirklich, dass es nicht validiert wird.
+Und für einen Grund, Text in Klammern ist immer ignoriert.
+Wird immer ignoriert. Warum? Man weiß es nicht. Ist halt so.
+Aber die Parenthesis-Texte sind verabschiedet?
+Ist das immer der Fall?
+Es ist. Cool.
+Okay, es ist egal, wo die Parenthesis sind.
+Es wird verabschiedet. Okay.
+Neue Date, negative...
+Negative Empty Array.
+Empty Array. Okay.
+Was mapt negative Empty Array überhaupt?
+Ich gebe mir eine Hinweise. Es ist negative 0.
+Negative 0 ist 0, 1970. Okay, cool.
+Alles klar. Okay, das ergibt Sinn. Das ist tatsächlich eines der wenigen Dinge, wo ich jetzt nachvollziehen kann, warum das rauskommt.
+Woo!
+Almost half. I almost got a 50%. I hate this language.
+Meine Güte.
+I hate this so much. And that was with some cheating, yeah.
+Oh my God, what is this language? Why do we do this to ourselves?
+I am very excited about the Temporal API.
+Ja.
+Zoned Date Time takes in an...
+Ich auch. Leider unterstützen die meisten Browser oder alle Browser, glaube ich, noch keine Temporal API.
+Das ist schon seit zwei Jahren oder so quasi verabschiedet, aber hat irgendwie noch keiner eingebaut.
+Verstehe gar nicht, warum.
+Also ich mag ja, wie heißt dieses Ding? DateFNS?
+Das da finde ich eigentlich ganz nice für DateTimes in JavaScript.
+kippt.
+This is going to help so much.
+So much.
+I'm still a DJS guy,
+but Date FNS is really good too.
+There's a lot of options that are a lot better
+than New Date.
+It never does what I expect it to.
+I want to die.
+Shout out to Sam for putting together this
+absolute monstrosity that is making my head hurt.
+He has written so many awesome articles.
+Many of which you guys...
+Ich wollte mir nur dieses Quiz anschauen.
+Das ist ja schon abgedrehter Shit, ey.
+Oh, guck mal hier.
+Unser Controller kackt ab.
+Immer wieder.
+Sollte ich vielleicht mal hier die Ticks
+einfach mal auf 10 Millisekunden hoch machen?
+Mal gucken, was passiert.
+Aber irgendwie funktioniert das Display nicht.
+Aber es liegt eindeutig an mir.
+Wir machen mal kurz das Licht aus.
+Ha?
+Hab ich da gerade was gesehen, Leute?
+Hab ich da gerade was gesehen?
+Was ist da?
+Das macht was.
+Ich seh's genau.
+Das macht was.
+Das macht Dinger.
+also das display funktioniert
+war das vielleicht ein problem weil ich hier nur zwei millisekunden gemacht habe
+zum warten da ging's nicht weil ich vielleicht noch mal neu
+Das war zu schnell.
+Wobei, nee.
+Das ist zu schnell einfach nur.
+Warte mal, ich mach das hier mal auf 20 Millisekunden rauf.
+Ich mein, das ist das Backlight.
+Das Display zeigt ja noch nichts an.
+Aber immerhin wissen wir, dass das Display funktioniert.
+besser gesagt das backlight vom display ja guckt es funst was ich vorhabe ich
+will den qr code anzeigen lassen auf dem display den man scannen kann mit dem
+handy und dann kommt man in den access point die das ding auf gemacht hat
+nachdem das ja funktioniert
+Dass hier aus irgendwelchen Gründen funktioniert.
+Können wir jetzt einfach mal irgendwas anzeigen lassen auf dem Display in der Hoffnung da
+tut sich was.
+LVInit Display Buffer
+What?
+Will keine Touch Inputs haben.
+Willk braucht keinen Touch.
+ne Leute, das ist mir für heute
+ist mir das zu high IQ.
+Das krieg ich heute noch mal gemacht.
+Macht mein Hirn
+nicht mit.
+Aber immerhin, wir haben zumindest mal
+hingekriegt, dass das Display angeht.
+Ich verstehe
+zwar null, was er für Schmerzen hat.
+Das hatten wir doch schon mal hier.
+Gruppis.
+T3 Display
+PS
+ja das hatten wir okay dass das merken wir uns mal das ist ganz gutes projekt
+er hat touch konflikt wie gesagt prominent
+Ja, macht's halt noch komplizierter, Mann.
+Können wir noch Spiegel-TV-Videos schauen?
+Ich weiß nicht.
+Ey, das interessiert mich nicht so.
+Kriege ich mich wieder auf, weil das
+infrastrukturmäßig so sackt mit dem Fahrrad in Deutschland.
+Leute, ich hätte gedacht, es ist deutlich einfacher,
+dieses Display anzusteuern, als es letztendlich ist.
+Aber gut.
+Muss man, muss man durch, ne?
+E-Mail WTF?
+Was ist das?
+Everyone knows what an E-Mail address is, right?
+Decide if each E-Mail address is valid.
+Oh, E-Mail RegEx.
+Leute, das ist eines der abartigsten RegExe, die es gibt.
+Alles klar, oder?
+Der E-Mail-Regex.
+Obviously.
+das ist in der tat nicht so einfach okay das ist werlet easy plus ich habe keine ahnung ob
+nun plus in e mail adressen erlaubt ist ich würde mal sagen sie es wäre ja da würde ich sagen das
+ist in welt weil da fehlt ja alles an domain und sowas okay in welt alles klar noch ist sie sie
+noch ist easy.
+adexample.com
+Da würde ich auch sagen, ist invalid.
+Easy
+adexample.
+Das ist valid.
+Das ist valid.
+Weil es kann ja root
+at local host.
+Spaces.
+Uff. Boah.
+Ich tippe darauf, dass Spaces invalid sind.
+Sicher bin ich mir nicht.
+Okay.
+Maybe like...
+Okay, da sind auch Spaces drin.
+Das ist dann auch invalid.
+Was?
+Whatever.
+trailing dort also ich würde mein bauchgefühl sagt mir das ist erlaubt
+aber sicher bin ich mir nicht man sieht also punkte sind auf jeden fall erlaubt
+aber ob ein Trailing-Dot erlaubt ist.
+Ich sag mal Valid.
+Okay, Invalid.
+Okay, das ist Invalid.
+Alter.
+Domains können Spaces enthalten.
+Na gut.
+Normal WTF ist es.
+Okay, pass mal auf.
+Ich sag, das ist Valid,
+weil er die Sachen in Klammern ignoriert.
+Jawoll!
+Aber stimmt das überhaupt?
+Das sind Kommentare.
+E-Mails could have comments. Anything in Klammern ist comment.
+Alles klar.
+Okay, das ist ein Kommentar. Wird ignoriert, also ist es invalid.
+Das ist die
+Das ist eine
+BashForkBomb
+Als E-Mail Adresse
+Ich sag
+Ich sag das ist invalid
+Wenn das valid wäre
+Alter
+Okay
+Lehrer
+Okay, pass mal auf, ich glaube das ist invalid
+Aber ich sag jetzt einfach valid
+Jawoll, alles klar
+Ähm
+Hat das ne maximale Länge von E-Mails?
+Valid, nein, ist invalid
+Aha, weil es maximal
+198 Characters
+ok magic erd ich würde sagen das ist erlaubt weil es eine ipv6 adresse eventuell ist ja ok
+also wenn es eine normale domain würde ich sagen das ist erlaubt aber
+Als IP?
+Da würde ich sagen, das ist invalid.
+Fuck.
+Okay.
+Valid?
+Okay, valid.
+Jawohl.
+Alles, wo man denkt, es ist nicht valid,
+Ich sage einfach valid, wenn ich denke, es ist so abgedreht.
+Mittlere Punkte valid.
+Oh ne, das ist invalid.
+Okay.
+Achso, doppelte Punkte sind nicht erlaubt.
+Valid.
+Zalgotext.
+Was zum Teufel ist Zalgotext?
+Curse Text.
+Aha.
+14 von 21 gar nicht so schlecht für diesen ganzen blödsinn also
+jstvwtf haben gerade gesehen
+gibt es noch mehr dieser adressen
+Ah hier.
+Ne, der hat bloß E-Mail WTF und JS Date WTF.
+Okay.
+Dann nicht.
+Das ist schon abgedreht.
+Also das sind so Dinger, das weiß ja auch niemand wirklich aus dem Kopf.
+Okay Leute, es ist schon einen halben Tag her, wo ich Package Updates gemacht habe.
+Mein System kommt mir schon viel zu alt vor.
+Was?
+Keine Package-Updates.
+Mein System ist einen halben Tag alt.
+Also ich finde nicht, dass das sich gehört, Archlinux.
+Bist du fertig mit Spring Boot lernen?
+Nee, noch nicht.
+Mit den Basics jetzt erst einmal schon.
+Ich bin gerade am überlegen, was sinnvoll ist, sich als nächstes anzugucken.
+Also wenn du Vorschläge hast, hau rein.
+Sag Bescheid.
+nee ich kotlin liegt also warum ich das nicht in kopf also ich habe mir schon überlegt ob es
+vielleicht das ganze noch mal in kotlin machen ist bei uns auf der arbeit wenn nur java verwendet die
+haben so gut wie nichts in nichts in kotlin deswegen ich lerne das ja mal auf der arbeit
+ja war so angesagt ist er und spring gut mache ich ja auch weil ich weiß dass die bei uns auf
+der arbeit zum größten teil hat ja von spring gut verwenden ich mache das gar nicht so sehr weil ich
+persönlich java und springboot schon immer mal lernen wollte wobei es echt
+spaß macht als muss sagen für viel besser als gedacht hätte ist das
+es gibt bestimmt noch ein paar dinge die wir in die man springen und nicht
+gemacht haben die man braucht die aber dann erst einfallen wenn man vor dem
+problem steht
+ich glaube du hast eher das problem also bei e mail bei e mail clients weiß ich nicht ob die
+rumpen meckern und vielleicht aber ich glaube viel eher dass seine e mails wahrscheinlich
+sie erst mal als spam deklariert werden wenn du so komische e mail adressen hast die sagen
+einfach nur leid ich nicht weiter und sagt vielleicht wird auch gleich abgewiesen von
+irgendeinem mta sie sagen ich muss auch ehrlich sagen ich hatte noch nie
+irgendwie das bedürfnis für eine e mail adresse die im ort enthält auch wenn das
+geht wobei ich das ja noch am sinnvollsten von der ganzen sache finden
+finde
+machen sie nicht warum warum erlauben sie das nicht
+was ist denn als df.de ist das deine ist das ist das deine domain jolo fand darf man sich
+trauen als df punkt an der server return 500 okay
+ja und das alles zu spam vermeidung da gibt es vieles auch was im filter hängen
+bleibt obwohl es eigentlich legit ist
+naja
+ok Leute, lange noch rumgebastelt jetzt
+ich mach heute mit dem Display nicht weiter, das ist mir zu
+zu high IQ gerade
+muss ich vielleicht mal offstream ein bisschen
+ausprobieren oder wir machen irgendwann anders weiter
+das ist mir zu advanced
+heute Abend auf jeden Fall
+habt ihr eine Idee?
+habt ihr irgendeinen
+Tipp für
+film oder serie den man unbedingt geguckt haben muss oder anime dem er
+unbedingt geguckt haben muss irgendwas ich war bin mir nicht sicher weil ich
+jetzt restlichen abend gucken soll
+sex in the city das ist nichts für mich
+Das ist nichts für mich.
+Severance habe ich schon geguckt.
+Expanse habe ich geguckt.
+Die ersten 2 oder 3 Staffeln, dann weiß ich nicht, dann war es irgendwie Luftraus für mich.
+John Wick habe ich schon geguckt.
+Außer den letzten, den habe ich nicht geguckt bis jetzt.
+Seilo.
+Apple Plus ist nicht so das,
+wo ich mir gerade Bock drauf hab, weil ich
+hab meine Apple Plus Subscription.
+Müsste ich dann nur dafür erneuern.
+weiß nicht kann sein gucken alles klar leute reicht für heute ich gehe jetzt irgendwie noch
+eine runde serie oder irgendwas gucken wir haben uns die tage macht's gut zu
