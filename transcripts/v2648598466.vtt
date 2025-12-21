@@ -1,0 +1,7841 @@
+WEBVTT
+
+00:00.000 --> 00:29.980
+Bis zum nächsten Mal.
+
+00:30.000 --> 00:59.980
+Bis zum nächsten Mal.
+
+01:00.000 --> 01:11.080
+So, da bin ich.
+
+01:11.240 --> 01:12.360
+Gucken, ob das Mikro funktioniert.
+
+01:13.180 --> 01:14.080
+Battlefield 6.
+
+01:14.800 --> 01:16.940
+Dazu müsste ich Battlefield 6 erstmal spielen.
+
+01:18.440 --> 01:19.620
+Ich weiß immer noch nicht,
+
+01:19.680 --> 01:20.600
+ob ich das machen soll.
+
+01:22.760 --> 01:24.780
+Lest ja da viel Widersprüchliches.
+
+01:25.320 --> 01:26.780
+Und viele meinen auch irgendwie schon,
+
+01:26.780 --> 01:28.540
+dass man nach zwei Monaten die Luft raus und
+
+01:28.540 --> 01:29.500
+ach, keine Ahnung.
+
+01:30.000 --> 01:33.040
+Irgendwie haben die mich verbrannt mit Battlefield 2042.
+
+01:33.240 --> 01:34.300
+Ich habe gar nicht richtig Bock.
+
+01:35.180 --> 01:37.520
+Obwohl ich extra meinen Rechner neu aufgesetzt habe.
+
+01:37.760 --> 01:40.040
+Ich musste ja Windows neu installieren wegen Secure Boot.
+
+01:42.280 --> 01:43.480
+Und Anti-Cheat.
+
+01:43.900 --> 01:45.600
+Dass das funktioniert, habe ich ja gemacht.
+
+01:45.740 --> 01:48.580
+Also ich könnte jetzt spielen, aber ich habe nicht gespielt.
+
+01:48.920 --> 01:49.300
+Bis jetzt.
+
+01:49.820 --> 01:51.040
+Overlay, danke schön für den Sub.
+
+01:52.260 --> 01:54.080
+Massive Subscription.
+
+01:55.400 --> 01:57.940
+Ich habe mir gedacht, wir haben das letzte Mal
+
+01:57.940 --> 02:00.300
+haben wir so viel Java gemacht.
+
+02:02.000 --> 02:02.400
+Und
+
+02:02.400 --> 02:04.700
+ich habe ja gesagt, wir machen dann was
+
+02:04.700 --> 02:06.560
+in Kotlin. Aber ich habe mir jetzt gedacht,
+
+02:06.680 --> 02:08.820
+komm, genug Java-Krempel erstmal.
+
+02:09.040 --> 02:10.660
+Wir machen jetzt zwischenzeitlich mal was
+
+02:10.660 --> 02:11.100
+in Rust.
+
+02:14.460 --> 02:16.740
+Ich lerne ein bisschen Rust und
+
+02:16.740 --> 02:20.900
+ich nenne den Titel einfach mal
+
+02:20.900 --> 02:22.260
+Rust lernen.
+
+02:27.940 --> 02:31.860
+Die Krabben sind unterwegs.
+
+02:36.980 --> 02:37.380
+So.
+
+02:37.800 --> 02:39.720
+Ja, ich mach mal kurz das Java-Zeug weg hier,
+
+02:39.780 --> 02:40.500
+was wir da noch haben.
+
+02:41.780 --> 02:43.500
+Und jetzt kann ich euch nochmal das Schöne zeigen,
+
+02:43.620 --> 02:46.040
+wie nice das ist, wenn man hier diese Container-Entwicklungs-Stells
+
+02:46.040 --> 02:47.260
+macht. Guckt mal hier.
+
+02:47.800 --> 02:48.740
+Und jetzt, zack.
+
+02:49.800 --> 02:51.040
+Alle Rückstände wieder weg.
+
+02:51.520 --> 02:52.460
+Bist du krank?
+
+02:52.800 --> 02:54.820
+Nee. Ich hab ein bisschen
+
+02:54.820 --> 02:56.680
+ich hab ein bisschen
+
+02:56.680 --> 03:04.120
+so raubtrocknen hals aber ich bin nicht krank ich hoffe ich hoffe auch nicht dass ich krank werde
+
+03:04.120 --> 03:19.000
+blazingly fast nase job keine ahnung ist mal so mal so ich glaube ich habe nicht genug getrunken
+
+03:19.000 --> 03:32.200
+so und jetzt blazingly fast written in rust wir gucken uns heute wir machen
+
+03:32.200 --> 03:37.660
+in der das ist denn hier warum ist das rgb sekunde rgb beleuchtung von
+
+03:37.660 --> 03:41.760
+meiner tastatur ist falsch jetzt also richtig rein raus gestöpselt
+
+03:41.760 --> 03:46.680
+Wollte ich jetzt gerade sagen.
+
+03:47.120 --> 03:53.160
+Genau, wir gucken uns mal Rust Web Framework an.
+
+03:53.380 --> 03:55.340
+Und zwar Rust Axum.
+
+03:55.420 --> 03:58.360
+Das scheint der neueste Shit zu sein bei Rust.
+
+03:58.580 --> 04:00.540
+Im Rust Ökosystem blickt man ja nicht durch.
+
+04:01.020 --> 04:06.480
+Rust Projekte bestehen aus fast so vielen Dependencies wie Node.js Projekte.
+
+04:06.480 --> 04:16.280
+Und alle zwei Jahre, ach Quatsch, zwei Jahre, alle paar Monate ist irgendein Framework dann wieder unmaintained und irgendwas Neues.
+
+04:16.720 --> 04:19.560
+Also das Rust-Ökosystem, da kann eh auch niemand Schritt halten.
+
+04:19.720 --> 04:22.180
+Fast so schlimm wie JavaScript, nicht ganz so schlimm.
+
+04:27.980 --> 04:28.500
+Ja.
+
+04:28.500 --> 04:42.500
+Deswegen gucken wir uns heute mal Axum an, beziehungsweise so Sachen, die drumherum gehören.
+
+04:42.700 --> 04:47.820
+Wie macht man einen Background-Job? Wie macht man Structured Logging?
+
+04:49.280 --> 04:52.200
+Wie macht man irgendwie so eine globale App-Config?
+
+04:52.900 --> 04:57.280
+Ich weiß, globale Variablen in Rust sind ja super, super verpönt, aber manchmal kommt man nicht drumherum.
+
+04:57.280 --> 04:59.860
+Wie macht man Command-Line-Parsing?
+
+05:04.120 --> 05:05.420
+Ja, irgendwie sowas.
+
+05:05.640 --> 05:05.980
+Mal gucken.
+
+05:06.080 --> 05:10.100
+Ich glaube nicht, dass da jetzt eine richtig tolle Anwendung bei rauskommt am Ende.
+
+05:10.200 --> 05:11.280
+Aber man hat wieder was gelernt.
+
+05:11.780 --> 05:14.900
+Und die nächsten Tage, ich würde sagen, ich finde es immer ganz gut.
+
+05:15.400 --> 05:18.120
+Das hat mir auch so die letzten Streams gezeigt.
+
+05:18.260 --> 05:23.720
+Es ist immer ganz gut, wenn man ein Thema so zwei, drei Streams macht.
+
+05:23.720 --> 05:29.840
+weil ansonsten wird es unübersichtlich und man kommt schlecht rein wenn man die streams davor
+
+05:29.840 --> 05:36.560
+nicht dabei war und in 12 streams ist meistens nicht so viel passiert wenn man kurz drüber
+
+05:36.560 --> 05:41.060
+scrollt blickt man schnell durch und dann kann man noch kann man drei streams machen
+
+05:41.060 --> 05:49.000
+zu dem thema das reicht auch meistens erst einmal sonst wird es zu zu abgedreht meistens
+
+05:49.000 --> 05:52.840
+Doch, doch, das machen wir auch noch.
+
+05:53.020 --> 05:54.520
+Das machen wir auf jeden Fall noch den Dezember.
+
+05:56.420 --> 05:57.180
+Ja, und dann
+
+05:57.180 --> 05:59.000
+macht man drei Streams
+
+05:59.000 --> 06:00.540
+zu einem Thema. Das ist immer ganz gut.
+
+06:00.740 --> 06:02.300
+Kriegt man dann alles auch ganz gut durch.
+
+06:04.000 --> 06:04.400
+Dann
+
+06:04.400 --> 06:06.560
+machen wir was anderes. Dann machen wir
+
+06:06.560 --> 06:08.520
+Set-Servers. Mit echt mal Zeit.
+
+06:08.900 --> 06:10.140
+Die haben mittlerweile 70
+
+06:10.140 --> 06:11.800
+oder weiß nicht wie viele.
+
+06:13.380 --> 06:14.300
+Warte, lass mich mal kurz gucken.
+
+06:17.280 --> 06:18.820
+Die haben mittlerweile
+
+06:18.820 --> 06:20.900
+Szenarios. 70 Szenarios.
+
+06:21.000 --> 06:22.680
+75 Szenarios oder sowas hier.
+
+06:26.720 --> 06:28.900
+Moment, Moment. Nee, die haben mehr.
+
+06:29.520 --> 06:31.280
+Guck mal. Die haben 25
+
+06:31.280 --> 06:32.160
+Easy.
+
+06:34.160 --> 06:34.800
+56.
+
+06:35.940 --> 06:36.360
+Boah.
+
+06:37.120 --> 06:38.740
+Die haben ja richtig viele
+
+06:38.740 --> 06:41.020
+mittlerweile. Allein schon
+
+06:41.020 --> 06:43.100
+Easy und Hard zusammen sind 40.
+
+06:44.400 --> 06:44.940
+Die haben
+
+06:44.940 --> 06:46.820
+96 Szenarien mittlerweile.
+
+06:47.540 --> 06:48.480
+Boah, das ist aber richtig...
+
+06:48.480 --> 06:50.420
+Wo wir das gemacht haben vor ein paar Jahren,
+
+06:50.960 --> 06:52.780
+da hatten die, keine Ahnung,
+
+06:53.660 --> 06:55.080
+25 oder so.
+
+06:57.900 --> 06:58.840
+Ob ich noch weiß,
+
+06:58.900 --> 06:59.660
+welche ich gemacht habe?
+
+06:59.920 --> 07:02.460
+Ich weiß nur, dass ich das hier auf jeden Fall gemacht habe.
+
+07:02.460 --> 07:03.460
+Da kann ich mich noch dran erinnern.
+
+07:04.080 --> 07:06.380
+Das ist nämlich einmal gucken,
+
+07:06.600 --> 07:08.420
+welcher Prozess läuft und dann killen.
+
+07:08.720 --> 07:09.960
+So, das...
+
+07:09.960 --> 07:11.640
+Da kann ich mich noch dran erinnern.
+
+07:11.820 --> 07:13.240
+An die anderen kann ich mich nicht versuchten.
+
+07:13.800 --> 07:16.260
+Den habe ich auch schon ein paar Mal zum Beispiel gemacht.
+
+07:16.820 --> 07:18.900
+Bei den anderen muss ich dann mal gucken.
+
+07:24.060 --> 07:25.600
+Das haben wir auch schon gemacht.
+
+07:25.840 --> 07:26.980
+Das kommt mir auch bekannt vor.
+
+07:38.240 --> 07:40.500
+Das haben wir glaube ich auch schon gemacht.
+
+07:43.420 --> 07:44.560
+Das auch.
+
+07:45.820 --> 07:46.780
+Ich weiß es nicht.
+
+07:46.820 --> 07:49.160
+Wir haben damals die alle gemacht, die es schon gab.
+
+07:51.120 --> 07:53.560
+Und ich blick da nicht mehr durch.
+
+07:55.780 --> 07:56.720
+Wollen die dafür Geld?
+
+07:56.840 --> 07:59.160
+Ja, es gibt jetzt eine Pro-Subscription.
+
+07:59.620 --> 08:02.000
+Die finde ich ist auch ganz okay gepriced.
+
+08:03.700 --> 08:07.860
+Kannst du für 50 Euro für ein Jahr oder sowas.
+
+08:07.980 --> 08:11.020
+Ja genau, 50 Dollar für ein Jahr kannst du dir holen.
+
+08:11.780 --> 08:14.360
+Und da kriegst du nicht nur die Pro-Szenarios,
+
+08:14.360 --> 08:18.080
+sondern du kriegst auch so ein bisschen auswertung falls du das andere leute
+
+08:18.080 --> 08:21.980
+machen lässt das ist eher dafür gedacht
+
+08:22.800 --> 08:29.600
+wenn du beispielsweise ein admin einstellen willst und willst checken ob
+
+08:29.600 --> 08:34.280
+da auch wirklich bisserl ahnung von linux hat hast und sagt hier mach doch mal
+
+08:34.280 --> 08:38.240
+aufgabe 5 und 15 da kannst du nämlich im nachhinein auch
+
+08:38.240 --> 08:43.100
+noch die aufzeichnung angucken was der gemacht hat und so was
+
+08:44.360 --> 08:47.360
+Ansonsten kann man sich ein...
+
+08:47.360 --> 08:53.200
+Also man kann ja auch schon relativ viele Szenarien machen for free.
+
+08:54.960 --> 08:59.140
+Oder man muss halt 5 Dollar ausgeben, um die zu machen.
+
+08:59.700 --> 09:00.580
+Das finde ich ist fair.
+
+09:01.040 --> 09:05.680
+Letztendlich steckt hinter jedem Szenario eine AWS-VM.
+
+09:06.180 --> 09:08.760
+Das kostet ja auch Geld, also irgendwie müssen die den Kram ja bezahlen.
+
+09:08.760 --> 09:19.200
+ja das wird das wird bestimmt was kosten ja mal stark von aus sind zwar kleine vms aber
+
+09:19.200 --> 09:24.740
+sind vms und mittlerweile ist der service ja auch relativ bekannt das heißt da sind auch
+
+09:24.740 --> 09:30.640
+tagtäglich sich vms ab also es wird auf jeden fall was kostet und aws vms sind nicht billig
+
+09:30.640 --> 09:40.240
+also hier aws pricing instance pricing
+
+09:40.240 --> 09:52.140
+anfälle wenn ich auf der aws zeit was man das general purpose keine ahnung mal zwei cpus
+
+09:52.140 --> 10:00.000
+Kann man den Kram irgendwie umstellen auf monatlich?
+
+10:00.000 --> 10:05.160
+Ich bin nicht so der große AWS Checker, haben die eine Möglichkeit monatlich hier anzuzeigen?
+
+10:05.160 --> 10:09.060
+Oder muss man das selbst ausrechnen?
+
+10:09.060 --> 10:14.460
+Weil die nicht wollen, weil die nicht wollen, dass man sieht wie teuer es denn ist.
+
+10:14.460 --> 10:24.980
+zumindest sind vms bei allen großen cloud anbietern also jetzt egal ob das microsoft
+
+10:24.980 --> 10:34.320
+ist in asia oder google oder aws oder sonst wie vms sind relativ teuer wenn man wenn man
+
+10:34.320 --> 10:39.980
+einfach nur eine nackige linux vm braucht fährt man mit so was wie hetzner viel besser als mit
+
+10:39.980 --> 10:44.360
+den üblichen cloud anbietern dafür haben die halt auch ein größeres ökosystem ja du hast ja
+
+10:44.360 --> 10:45.740
+wenn du dich bei...
+
+10:45.740 --> 10:46.300
+Fuck.
+
+10:47.280 --> 10:49.600
+Wenn du dich bei Google einloggst,
+
+10:49.700 --> 10:52.360
+wenn du hier diese Übersicht...
+
+10:54.440 --> 10:55.940
+Ich bin jetzt nicht eingeloggt,
+
+10:56.020 --> 10:57.680
+aber ich glaube, wir haben ein Bild davon.
+
+11:00.460 --> 11:02.520
+Wir haben ja hier links...
+
+11:02.520 --> 11:03.080
+Ja, okay.
+
+11:04.340 --> 11:06.140
+Da kein Bild davon irgendwie.
+
+11:06.700 --> 11:07.220
+Genau, hier.
+
+11:07.680 --> 11:10.340
+Hierneben, in dieser Leiste,
+
+11:10.460 --> 11:12.600
+wo man die Services anzeigt,
+
+11:12.600 --> 11:16.800
+Da haben die ja mittlerweile 150 Stinger oder so drin.
+
+11:17.660 --> 11:23.340
+Also das Ökosystem bei den etablierten größeren Hyperscalern, wie man das ja so schön nennt, weil es irgendwie geil klingt.
+
+11:24.120 --> 11:26.780
+Weil ich finde es klingt ein bisschen cringe, wenn ich ehrlich bin.
+
+11:27.700 --> 11:32.740
+Aber die haben so viele Angebote und Services mittlerweile, da blickst du nicht mehr durch.
+
+11:33.320 --> 11:40.040
+Das heißt, wenn man einfach eine Nackische VM braucht, ohne dieses große Ökosystem drunter, Hetzner Kiste kaufen, das ist deutlich billiger.
+
+11:42.600 --> 11:44.720
+oder irgendwas anderes.
+
+11:45.440 --> 11:47.660
+Digital Ocean ist ein ganz guter Kompromiss.
+
+11:47.960 --> 11:49.440
+Die haben noch ein bisschen mehr als VMs,
+
+11:49.480 --> 11:51.440
+die haben auch Managed Datenbank, Kubernetes Cluster,
+
+11:52.360 --> 11:54.580
+aber nicht ganz so teuer,
+
+11:54.940 --> 11:57.540
+wie beispielsweise bei Azure die VMs.
+
+11:58.860 --> 12:01.700
+Aber wenn man wirklich nur eine nackige VM braucht,
+
+12:02.540 --> 12:04.360
+ist Hetzner echt super.
+
+12:04.660 --> 12:05.580
+Ich kann sogar sagen,
+
+12:05.700 --> 12:07.960
+man verzichtet auf eine Public IPv4-Adresse,
+
+12:08.060 --> 12:09.440
+dann ist es sogar noch mal ein bisschen billiger.
+
+12:10.120 --> 12:12.160
+Noch mal 50 Cent billiger.
+
+12:12.600 --> 12:17.940
+Hast du noch einen Rabattcode von Hetzner?
+
+12:18.260 --> 12:19.720
+Nee, keinen mehr, der funktioniert.
+
+12:20.200 --> 12:22.460
+Ich habe mit dem auch schon eine Weile nichts mehr gemacht.
+
+12:22.740 --> 12:26.740
+Also, dementsprechend werde ich wahrscheinlich in nächster Zeit auch keinen Rabattcode haben.
+
+12:28.400 --> 12:33.640
+Man könnte natürlich mal wieder Hallo sagen und gucken, ob man was machen will.
+
+12:33.640 --> 12:37.820
+Aber ich habe gerade wenig Bock auf Sponsor-Streams und Videos ja auch nicht.
+
+12:38.100 --> 12:39.860
+Also, ne.
+
+12:42.600 --> 12:43.680
+Das lassen wir.
+
+12:44.180 --> 12:48.880
+Ja, also meine Lieblingskiste bei Hetzner ist ja...
+
+12:48.880 --> 12:50.420
+Bin ich jetzt blöd? Wo ist die denn?
+
+12:51.100 --> 12:52.200
+Hier? Ne.
+
+12:53.120 --> 12:53.300
+Hä?
+
+12:54.580 --> 12:55.380
+Gibt's die nicht mehr?
+
+12:59.380 --> 13:02.540
+Sag mal, Chat, bin ich dumm?
+
+13:05.060 --> 13:08.580
+Wo ist denn die Triple Core Kiste?
+
+13:08.760 --> 13:09.600
+Gibt's die nicht mehr?
+
+13:12.600 --> 13:17.540
+Und seit wann gibt es in Germany nur noch eine Location?
+
+13:21.260 --> 13:23.700
+Und warum gibt es keine Location mehr in den USA?
+
+13:24.620 --> 13:25.380
+Bin ich jetzt verwirrt?
+
+13:25.500 --> 13:26.720
+Haben die Probleme?
+
+13:26.720 --> 13:27.480
+Oder was ist?
+
+13:33.280 --> 13:34.760
+Die haben umstrukturiert.
+
+13:34.860 --> 13:35.000
+Aha.
+
+13:35.620 --> 13:38.180
+Also es gibt kein Rechenzentrum mehr in den USA.
+
+13:38.680 --> 13:40.640
+Und nur noch eins in Deutschland.
+
+13:41.100 --> 13:41.880
+Sehe ich das richtig?
+
+13:42.600 --> 13:43.140
+Ach nee.
+
+13:43.700 --> 13:44.080
+Ah.
+
+13:45.300 --> 13:46.940
+Regular Performance gibt es noch.
+
+13:49.200 --> 13:52.040
+Da gibt es auch welche in USA und Singapur.
+
+13:53.040 --> 13:53.560
+But it's not a triple core.
+
+13:53.560 --> 13:53.660
+But it's not a triple core.
+
+13:53.840 --> 13:57.500
+Aber es gibt keine Triple Core Kiste mehr.
+
+13:57.960 --> 13:58.800
+Ja, das ist aber doof.
+
+13:59.100 --> 14:01.320
+Das war meine Lieblingskiste, die Triple Core Kiste.
+
+14:02.400 --> 14:04.020
+Die hat ordentlich CPU Leistung gehabt.
+
+14:04.400 --> 14:06.320
+Genug RAM, genug Speicherplatz für alles.
+
+14:06.860 --> 14:09.060
+Und hat auch irgendwie so nicht viel mehr gekostet.
+
+14:09.500 --> 14:10.140
+Die war mir lieber.
+
+14:12.600 --> 14:17.340
+Naja gut.
+
+14:18.620 --> 14:21.220
+Ist aber, ich mein, kannst dich immer noch nicht beschweren.
+
+14:21.780 --> 14:27.500
+Ja, 5,49 Euro oder 4,99, wenn du auf deine IPv4-Adresse verzichtest.
+
+14:27.900 --> 14:29.360
+Das ist immer noch in Ordnung.
+
+14:29.580 --> 14:30.980
+Da kannst du nix sagen, ja.
+
+14:31.880 --> 14:33.100
+Das ist vollkommen okay.
+
+14:34.760 --> 14:36.780
+Ja, da fährt man auf jeden Fall am besten mit.
+
+14:37.080 --> 14:39.780
+Nicht unbedingt jetzt rein mit Hetzner, aber mit...
+
+14:39.780 --> 14:46.000
+mit ein bisschen oldschooligen Hosting-Anbietern
+
+14:46.000 --> 14:49.380
+und nicht die kompletten All-in-One-Cloud-Lösungen, die es gibt.
+
+14:49.680 --> 14:51.140
+Das lassen sie sich halt auch gut bezahlen.
+
+14:51.760 --> 14:53.680
+Ich habe übrigens gehört, bei mir auf der Arbeit,
+
+14:55.580 --> 15:00.920
+da wird jetzt ein Versuchsaufbau gestartet
+
+15:00.920 --> 15:07.480
+für Cloud,
+
+15:07.820 --> 15:09.940
+für eine Cloud-Lösung in Deutschland.
+
+15:10.760 --> 15:12.060
+Da bin ich mal
+
+15:12.060 --> 15:12.500
+gespannt,
+
+15:13.980 --> 15:15.620
+also welcher Anbieter es dann da wird,
+
+15:16.000 --> 15:17.260
+ob es Lidl wird oder
+
+15:17.260 --> 15:19.220
+Telekom oder keine Ahnung.
+
+15:19.960 --> 15:22.200
+Die wollen wohl irgendwie gucken, ob es Alternativen
+
+15:22.200 --> 15:23.460
+zu Azure und
+
+15:23.460 --> 15:25.720
+AWS und GCP
+
+15:25.720 --> 15:27.880
+gibt, die man auch sinnvoll
+
+15:27.880 --> 15:28.580
+verwenden kann.
+
+15:30.920 --> 15:34.840
+Ich habe ja das Gefühl, sie wird rauskommen.
+
+15:35.560 --> 15:37.480
+Ist nicht so das.
+
+15:38.560 --> 15:39.300
+Aber mal gucken.
+
+15:39.700 --> 15:40.160
+Mal gucken.
+
+15:42.900 --> 15:43.800
+Rast Pogu.
+
+15:47.800 --> 15:49.240
+Wer guckt deine Firma?
+
+15:49.660 --> 15:49.680
+Was?
+
+15:50.340 --> 15:51.180
+Was meinst du?
+
+15:52.740 --> 15:53.440
+Nee, nicht meine.
+
+15:53.560 --> 15:54.380
+Da, wo ich arbeite.
+
+15:58.000 --> 16:00.520
+Nee, nicht meine Ein-Mann-Firma.
+
+16:00.920 --> 16:08.260
+25 commits, 250 files touched.
+
+16:08.960 --> 16:09.640
+Ja, ordentlich.
+
+16:15.640 --> 16:17.660
+Eine eigene Programmiersprache.
+
+16:18.100 --> 16:19.500
+Ist ja auch nur just for fun, oder?
+
+16:19.880 --> 16:21.780
+Weil es dich interessiert, wie man sowas baut.
+
+16:25.480 --> 16:27.560
+Oder hast du große Ambitionen?
+
+16:30.920 --> 16:36.580
+Achso, T-Lang.
+
+16:41.300 --> 16:41.820
+OKS.
+
+16:44.060 --> 16:45.640
+Ne, das ist die von Garmin.
+
+16:46.200 --> 16:47.760
+Garmin benutzt Monkey C
+
+16:47.760 --> 16:48.580
+um ihre
+
+16:48.580 --> 16:53.800
+Navigationsgeräte, Fahrradcomputer, Uhren
+
+16:53.800 --> 16:55.900
+und so, wenn man dafür was programmieren will.
+
+16:56.500 --> 16:56.840
+Ach ne.
+
+16:57.260 --> 16:59.900
+Ach so. Das heißt wirklich so bei dir.
+
+17:00.220 --> 17:00.540
+Achso.
+
+17:00.920 --> 17:03.920
+Ich dachte, du meinst...
+
+17:03.920 --> 17:05.480
+Jetzt hab ich durcheinander gebracht, Chat.
+
+17:06.020 --> 17:07.320
+Ich dachte, ihr meint das von Garmin.
+
+17:08.560 --> 17:08.780
+Let.
+
+17:09.440 --> 17:09.780
+Na?
+
+17:10.580 --> 17:13.860
+Geht schon los in die Richtung, wie wir uns heute mit Rust beschäftigen.
+
+17:14.220 --> 17:16.920
+Damit auch lettet die ganzen Variablen.
+
+17:17.380 --> 17:19.660
+Lettmut gibt's in Rust.
+
+17:19.900 --> 17:20.380
+Lettmut.
+
+17:22.920 --> 17:23.260
+Aha.
+
+17:24.460 --> 17:26.200
+Ja, es gibt keine...
+
+17:26.200 --> 17:28.120
+Wie wär's mit Syntax-Highlighting?
+
+17:28.880 --> 17:31.500
+Ich weiß, es gibt keinen fertigen Syntax-Highlighter, der das kann.
+
+17:32.080 --> 17:33.920
+Aber du kannst ja von Hand Syntax highlighten.
+
+17:33.960 --> 17:35.740
+Dann sieht das Beispiel einfach nicer aus.
+
+17:39.820 --> 17:44.120
+Was seid ihr alles für High-IQ-Leute, die sich hier eigene Programmiersprachen erstellen?
+
+17:45.360 --> 17:45.680
+Massive.
+
+17:45.920 --> 17:48.020
+Aber immerhin schöne Emojis drin.
+
+17:48.020 --> 17:54.200
+Ist die Readme-AI zusammengeschustert?
+
+17:55.400 --> 17:56.020
+Wird's cool.
+
+17:56.020 --> 18:01.020
+Was ich glaube, ich glaube, die ist AI-mäßig zusammengewurschtelt.
+
+18:03.200 --> 18:05.160
+Das sieht irgendwie nach AI aus.
+
+18:05.320 --> 18:05.780
+Ich weiß nicht.
+
+18:06.360 --> 18:09.600
+Das ist so viel, so viel, so viel Worte, so viel Text.
+
+18:10.300 --> 18:12.080
+Das sieht nach AI aus.
+
+18:14.800 --> 18:15.700
+Sarix, moin.
+
+18:16.160 --> 18:17.000
+Exzellent, Leute.
+
+18:20.180 --> 18:24.560
+So, wir müssen erst einmal, bevor wir überhaupt anfangen können mit Rust, ne.
+
+18:24.560 --> 18:27.020
+müssen wir uns erstmal eine VM erstellen.
+
+18:27.100 --> 18:29.020
+Quatsch, was laber ich denn für einen Scheiß?
+
+18:29.560 --> 18:30.640
+Keine VM erstellen.
+
+18:31.000 --> 18:33.000
+Container erstellen, in dem wir entwickeln können.
+
+18:33.360 --> 18:34.840
+Weil ich bin ja dazu übergegangen,
+
+18:34.900 --> 18:36.480
+nur noch in Containern zu entwickeln.
+
+18:36.780 --> 18:37.440
+Mit DevPod.
+
+18:38.500 --> 18:41.340
+Da bin ich fast immun gegen Supply Chain Angriffe.
+
+18:41.860 --> 18:43.340
+Der VM Champ, der geht nicht mehr.
+
+18:43.340 --> 18:45.380
+Aber wir brauchen eh keine VM, wir brauchen einen Container.
+
+18:47.080 --> 18:47.840
+Container Champ.
+
+18:48.420 --> 18:50.020
+Ich kopiere mir das mal kurz.
+
+18:50.140 --> 18:51.040
+Den Quarkus Champ.
+
+18:51.300 --> 18:52.380
+Den kopiere ich mir mal rüber.
+
+18:52.380 --> 18:54.640
+nach Rust.
+
+18:54.760 --> 18:56.780
+Guck mal, hier hatten wir den Sigmetric-Champ.
+
+18:57.100 --> 18:58.740
+Da waren wir den Rust...
+
+18:58.740 --> 18:59.860
+Nee, einfach nur den Rust-Champ.
+
+19:02.060 --> 19:04.540
+Und jetzt löschen wir mal alles, was mit Java zu tun hat.
+
+19:06.360 --> 19:06.660
+Zack.
+
+19:07.220 --> 19:07.560
+Zack.
+
+19:08.640 --> 19:09.660
+Um. Weg damit.
+
+19:10.500 --> 19:10.900
+Excellent.
+
+19:12.280 --> 19:14.520
+So, dann gehen wir nach Dev-Container rein
+
+19:14.520 --> 19:16.360
+und schauen uns das Ganze mal an.
+
+19:16.360 --> 19:18.120
+Wir müssen Container bauen für Rust.
+
+19:19.100 --> 19:20.400
+Bin mir gar nicht sicher,
+
+19:20.620 --> 19:22.160
+was die beste Variante ist.
+
+19:22.380 --> 19:26.940
+Kennst du den Clipchamp von Windows? Ja, den kenn ich. Den hab ich aber nicht installiert.
+
+19:26.940 --> 19:33.140
+Das ist optional. Oh doch, den hab ich installiert. Dann kommt der Clipchamp, kommt jetzt weg.
+
+19:33.140 --> 19:35.140
+Bam, uninstall Clipchamp.
+
+19:35.140 --> 19:44.080
+Es ist übrigens auch geil, ne, dass, ähm, da sieht man mal wie schlecht das eigentlich
+
+19:44.080 --> 19:51.520
+programmiert ist in windows dass man denkt dass das wenn du was an installs tier im startmenü
+
+19:51.520 --> 19:57.880
+sich das nicht automatisch wie flash wenn die anwender an install durch ist ich bin der meinung
+
+19:57.880 --> 20:06.220
+dass man das windows es gibt keinen windows killer der windows gilt windows kann nur bzw microsoft nur
+
+20:06.220 --> 20:11.500
+sich selbst killen was windows angeht und das haben sie die letzten paar jahre echt ganz gut
+
+20:11.500 --> 20:22.220
+hingekriegt und ich denke man kann jetzt zu recht sagen 2026 waren wir noch nie so nah am
+
+20:22.220 --> 20:30.760
+jahr des linux desktops dran wie 2026 es wird auch 2026 nicht wirklich das jahr des linux desktops
+
+20:30.760 --> 20:40.860
+aber wir waren noch nie so nah dran ja ja ja ja da wäre ich da war ich auch am start wenn anti
+
+20:40.860 --> 20:42.900
+die Cheat auf Linux laufen würde. Da wäre ich auch am Start.
+
+20:45.560 --> 20:45.920
+Ja.
+
+20:46.800 --> 20:48.920
+Deswegen. Ich sag ja, nur Microsoft
+
+20:48.920 --> 20:50.920
+kann Windows killen und da arbeiten sie ja hart
+
+20:50.920 --> 20:51.180
+dran.
+
+20:53.680 --> 20:55.020
+Übrigens, der Microsoft-Chef,
+
+20:55.060 --> 20:56.180
+ich weiß nicht, ob ihr das gelesen habt,
+
+20:57.080 --> 20:58.860
+der Microsoft-Chef,
+
+20:58.940 --> 20:59.840
+der hat jetzt gesagt,
+
+21:00.460 --> 21:02.820
+alle Mitarbeiter
+
+21:02.820 --> 21:04.420
+sollen gefälligst
+
+21:04.420 --> 21:06.780
+wie verrückt nur noch AI
+
+21:06.780 --> 21:08.940
+machen und wer das nicht will,
+
+21:08.940 --> 21:11.000
+soll abhauen, so sinngemäß.
+
+21:14.380 --> 21:14.820
+Also,
+
+21:15.320 --> 21:16.080
+das deckt sich
+
+21:16.080 --> 21:18.460
+auch mit der Erfahrung,
+
+21:19.180 --> 21:20.720
+was ich so gehört habe von Microsoft.
+
+21:20.900 --> 21:23.260
+Es gab ja bei uns so ein paar Verkaufsveranstaltungen.
+
+21:24.260 --> 21:24.980
+Offiziell waren das ja
+
+21:24.980 --> 21:27.040
+keine Verkaufsveranstaltungen, das waren
+
+21:27.040 --> 21:28.900
+so, wir, ja doch,
+
+21:28.960 --> 21:30.040
+schon Verkaufsveranstaltungen.
+
+21:30.040 --> 21:31.780
+Also, es gibt
+
+21:31.780 --> 21:34.100
+öfter so Veranstaltungen, da werden
+
+21:34.100 --> 21:36.180
+Leute, die in größeren
+
+21:36.180 --> 21:38.200
+Unternehmen Entscheidungen treffen, eingeladen,
+
+21:38.720 --> 21:40.540
+dass man denen erzählen kann, was es so Neues gibt.
+
+21:40.620 --> 21:42.160
+Es sind nicht direkt Verkaufsveranstaltungen,
+
+21:42.240 --> 21:44.840
+aber es sind irgendwie auch Verkaufsveranstaltungen.
+
+21:45.680 --> 21:48.660
+Und unser Chef hat erzählt,
+
+21:49.220 --> 21:51.280
+also nicht der Chef, der Abteilungsleiter hat erzählt,
+
+21:51.940 --> 21:54.720
+die waren eigentlich alle ganz gut von Microsoft,
+
+21:54.720 --> 21:56.500
+die waren, Schwachsinn, von Google,
+
+21:56.580 --> 21:59.520
+die waren ganz gut die Leute, die neue Cloud-Sachen gezeigt haben.
+
+21:59.980 --> 22:02.720
+Von AWS, die waren ganz gut die neue Cloud-Sachen gezeigt haben.
+
+22:03.080 --> 22:04.860
+Die haben sich auch der Thematik angenommen,
+
+22:05.260 --> 22:07.340
+sind drauf eingegangen mit, wie ist das mit Daten,
+
+22:07.340 --> 22:10.160
+dass die nur in Europa bleiben und sowas, außer Microsoft.
+
+22:10.660 --> 22:16.420
+Microsoft hat prinzipiell nichts beantwortet, gescheit, nichts gescheit gezeigt,
+
+22:16.600 --> 22:20.600
+außer wir haben AI und ihr müsst AI kaufen, AI-Beste.
+
+22:21.940 --> 22:26.520
+Das muss man sich wirklich so vorgestellt haben, wie, ja, hallo Herr Microsoft,
+
+22:27.000 --> 22:31.200
+hallo Herr Azure, sagen Sie mal, wie ist es, wie sieht es denn mit Datenschutz aus
+
+22:31.200 --> 22:33.900
+und Daten in der Cloud, dass die in Europa bleiben?
+
+22:33.900 --> 22:36.740
+Da müssen die sinngemäß dann sowas drauf geantwortet haben.
+
+22:36.740 --> 22:40.740
+Aha, das ist eine sehr gute Frage, die man auch toll mit AI lösen kann.
+
+22:45.160 --> 22:48.520
+Also, die kannst du voll knicken, gell.
+
+22:52.280 --> 22:57.580
+Cliffy schreibt, bin fiesi. Einmal im Monat zum Patch-Test, sagt dann ein Kollege im Morgen.
+
+22:58.020 --> 23:01.320
+Ach ja, das neue Update hat das und das kaputt gemacht. Hier, das war lustig.
+
+23:01.320 --> 23:04.360
+Ich sag dann immer, wo gearbeitet wird
+
+23:04.360 --> 23:06.280
+Fallen, äh, ne, nein, nein, nicht wo gearbeitet wird
+
+23:06.280 --> 23:08.280
+Wo gehobelt wird, fallen Späne
+
+23:08.280 --> 23:10.660
+Ne, wie geht das? Wo gehobelt wird, fallen Späne?
+
+23:10.800 --> 23:11.340
+So rum, gell?
+
+23:11.700 --> 23:13.740
+Kann ich mal richtig reden
+
+23:13.740 --> 23:21.060
+Wie findest du denn MacOS?
+
+23:22.540 --> 23:24.680
+Das bisschen, was ich bisher von MacOS
+
+23:24.680 --> 23:25.600
+gesehen habe
+
+23:25.600 --> 23:28.440
+Also das ganz kleine bisschen
+
+23:28.440 --> 23:30.580
+Was ich selbst bisher von MacOS gesehen habe
+
+23:30.580 --> 23:31.880
+fand ich ganz okay.
+
+23:32.540 --> 23:33.940
+Und was ich bei Videos sehe,
+
+23:34.520 --> 23:36.460
+finde ich auch ganz okay. Hauptsächlich.
+
+23:36.820 --> 23:38.300
+Nicht wegen dem GUI oder sonst was.
+
+23:38.780 --> 23:40.360
+Sondern weil es, sagen wir mal,
+
+23:40.440 --> 23:43.000
+Unix-artig genug ist, um nicht abzufacken.
+
+23:43.480 --> 23:44.720
+Den Rest kannst du ignorieren.
+
+23:46.140 --> 23:46.540
+Also
+
+23:46.540 --> 23:47.760
+ist ganz brauchbar.
+
+23:49.360 --> 23:50.160
+Ja, also
+
+23:50.160 --> 23:52.780
+für Technik
+
+23:52.780 --> 23:54.800
+Sachen zu machen, für Sachen zu entwickeln,
+
+23:55.320 --> 23:56.560
+für Bastelkram oder so,
+
+23:56.840 --> 23:58.660
+ist alles besser als
+
+23:58.660 --> 24:05.620
+windows also ist egal ob es ein ordentlich eingerichtetes linux ist oder mac os oder
+
+24:05.620 --> 24:10.840
+ein fix und fertig ist ubuntu einfach nur drauf ist alles besser als windows windows hat nur noch
+
+24:10.840 --> 24:17.860
+so ein paar feiler das ist einmal gaming hauptsächlich auch wegen anti cheat gaming
+
+24:17.860 --> 24:23.620
+selbst an sich ist ja mittlerweile linux gar nicht so übel aber hauptsächlich anti cheat
+
+24:23.620 --> 24:26.600
+und ein paar professionelle Anwendungsgebiete.
+
+24:27.800 --> 24:31.440
+Also die Leute, die unbedingt Photoshop mit Grafikbeschleunigung benutzen müssen
+
+24:31.440 --> 24:34.860
+und keine Ahnung, was gibt es da sonst noch?
+
+24:37.460 --> 24:40.980
+Irgendwelche Videoschnittdinger, wobei es da mit DaVinci Resolve ja mittlerweile auch,
+
+24:40.980 --> 24:44.560
+habe ich noch nicht probiert, aber auch ein ganz gutes Cross-Plattform-Ding gibt.
+
+24:45.300 --> 24:51.260
+Oder irgendwelche Business-Anwendungen, wo das nur zertifiziert ist für Windows 11
+
+24:51.260 --> 24:54.120
+und irgendwelche CAD-Geschichten oder so.
+
+24:54.440 --> 24:55.680
+So paar Dinger.
+
+24:56.040 --> 24:58.420
+Aber ansonsten ist Windows eigentlich für alles andere
+
+24:58.420 --> 25:00.120
+der größte Rotz.
+
+25:10.460 --> 25:13.020
+Was? Windows killt Intel-Chips?
+
+25:13.180 --> 25:14.560
+Davon habe ich noch nichts mitgekriegt.
+
+25:17.980 --> 25:19.780
+Erinnert sich noch einer an Silverlight,
+
+25:19.780 --> 25:23.400
+Wo wir gerade bei toten Microsoft-Technologien sind
+
+25:23.400 --> 25:26.380
+Das war auch so ein Ding
+
+25:26.380 --> 25:29.240
+Silverlight, wer das nicht kennt, das war Microsoft Flash
+
+25:29.240 --> 25:32.040
+Das war Flash, quasi
+
+25:32.040 --> 25:35.100
+Der Flash-Konkurrent von Microsoft war Silverlight
+
+25:35.100 --> 25:37.580
+Und
+
+25:37.580 --> 25:41.880
+Das ist aber, nach ganz kurzer Zeit haben die es schon wieder sterben lassen
+
+25:41.880 --> 25:43.880
+Hast du das GitHub-Drama mitbekommen?
+
+25:44.360 --> 25:46.480
+Ja, das ist aber schon ein paar Tage alt
+
+25:46.480 --> 25:48.060
+Gab es da mittlerweile was Neues?
+
+25:48.060 --> 26:04.060
+Also du meinst das Drama, dass GitHub Runner, GitHub Action Runner, die man selbst hostet, jetzt irgendwie mit 0,02 Cent die Minute, nee, keine Ahnung, wie auch immer, zu Buche schlagen.
+
+26:04.060 --> 26:10.580
+Ja, und das habe ich auch gehört. Ich habe auch gehört, das ist das Letzte, was ich davon gehört habe, dass die einen Rückzieher gemacht haben, ja.
+
+26:11.460 --> 26:23.240
+Moonlight, ja, kenne ich. Das war die Mono-Implementierung von Silverlight. Moonlight ist ja mittlerweile was anderes. Moonlight ist mittlerweile eine Implementierung vom Nvidia Streaming Service.
+
+26:24.740 --> 26:26.340
+Doppelt benannt, belegter Name.
+
+26:28.620 --> 26:30.820
+Nvidia-Dreiber sind immer noch nicht so geil unter Linux.
+
+26:30.820 --> 26:35.160
+Das mit Sleep ist auch geil
+
+26:35.160 --> 26:36.560
+Habt ihr das mitgekriegt?
+
+26:36.720 --> 26:37.980
+Save Sleep auf GitHub
+
+26:37.980 --> 26:39.940
+Ich weiß, wir sind jetzt ein bisschen sidetracked, aber
+
+26:39.940 --> 26:43.100
+Save Sleep
+
+26:43.100 --> 26:44.800
+Auf GitHub
+
+26:44.800 --> 26:53.960
+Guck, sowas läuft hier auf GitHub, Runnern
+
+26:53.960 --> 26:54.700
+Save Sleep
+
+26:54.700 --> 26:55.880
+Hahaha
+
+26:55.880 --> 27:11.480
+Also, ich muss, also zwei Sachen sind daran extrem beschissen.
+
+27:12.480 --> 27:17.340
+Erstens ist das idle, oder wie nennt man das, busy, busy waiting, heißt das so?
+
+27:17.340 --> 27:24.720
+Ja, also die haben im Endeffekt, ist das eine Endlosschleife, die brutal CPU zieht,
+
+27:24.720 --> 27:30.240
+weil die die sleep nicht oder so die rödel und macht nichts also so eine
+
+27:30.240 --> 27:35.220
+busy waiting endlos schleife da hast du wenn du wenn ich das wenn man das
+
+27:35.220 --> 27:41.100
+ausführt hast du einen cpu kern komplett voll oder mit mehrere teilweise weil es
+
+27:41.100 --> 27:48.500
+ja gescheduled wird so und jetzt ist das zweite problem also das ist ungefähr so
+
+27:48.500 --> 27:56.900
+wie wenn ich es koki weil weil true was und jetzt nichts machen ich wusste gar nicht dass das geht
+
+27:56.900 --> 28:12.620
+ehrlich gesagt also du ok cook endlos schleife ein cpu kern ist voll das passiert damit so das
+
+28:12.620 --> 28:23.780
+nächste problem ist die gucken hier das ist eine magic variable in bash die hoch zählt so das
+
+28:23.780 --> 28:34.700
+nächste problem ist die busy waiten hier bis die sekunden also solange die sekunden ungleich dem
+
+28:34.700 --> 28:39.500
+ersten argument sind also wenn das jetzt beispielsweise eine aufruft sie ist selbst
+
+28:39.500 --> 28:41.640
+Sleep 10, dann steht hier 10
+
+28:41.640 --> 28:43.900
+drinne und sobald das hier gleich
+
+28:43.900 --> 28:45.700
+wird, also sprich sobald 10 Sekunden
+
+28:45.700 --> 28:47.720
+rum sind, bricht die Schleife
+
+28:47.720 --> 28:49.540
+ab. Das Problem ist jetzt
+
+28:49.540 --> 28:51.400
+allerdings, die checken
+
+28:51.400 --> 28:53.500
+ungleich. Was ist denn
+
+28:53.500 --> 28:55.840
+jetzt, wenn es kurz ruckelt
+
+28:55.840 --> 28:57.600
+und die Sekunden
+
+28:57.600 --> 28:59.480
+auf 11 gehen?
+
+29:00.240 --> 29:01.440
+Die gehen von 9 auf
+
+29:01.440 --> 29:03.520
+11. Dann ist
+
+29:03.520 --> 29:05.460
+es auch ungleich. Und dann
+
+29:05.460 --> 29:07.420
+haben wir eine Endlosschleife, die wirklich endlos
+
+29:07.420 --> 29:07.820
+läuft.
+
+29:09.500 --> 29:15.260
+Also, der hätte mal schon so was wie
+
+29:15.260 --> 29:16.960
+kleiner gleich oder so machen müssen.
+
+29:17.100 --> 29:19.180
+Aber nee, unklar. Also, das ist wirklich
+
+29:19.180 --> 29:21.080
+hardcore-Pepega,
+
+29:21.240 --> 29:21.740
+dieses Ding.
+
+29:23.000 --> 29:24.720
+Ja, dann 07, ja.
+
+29:27.240 --> 29:28.840
+Dann ist LOL angesagt.
+
+29:32.040 --> 29:32.560
+So.
+
+29:32.560 --> 29:34.500
+So sieht's aus. Das war das mit
+
+29:34.500 --> 29:35.960
+Safe Sleep, ja.
+
+29:38.120 --> 29:38.820
+So, irgendwas
+
+29:38.820 --> 29:39.960
+Was soll wohl hier noch gefragt?
+
+29:41.520 --> 29:42.840
+Was? Sau blöde Frage.
+
+29:43.020 --> 29:43.640
+Weiß das jemand?
+
+29:44.080 --> 29:46.200
+Die physikalische Grenze beim Protokoll-
+
+29:46.200 --> 29:47.720
+Was? Protokoll-Overhead.
+
+29:47.820 --> 29:50.060
+Bezieht die sich auf den Port oder auch auf das Kabel?
+
+29:52.220 --> 29:53.140
+Äh, was?
+
+29:54.720 --> 29:56.840
+Die physikalische Grenze
+
+29:56.840 --> 29:58.560
+beim Protokoll-Overhead?
+
+30:04.160 --> 30:05.360
+Das verstehe ich nicht.
+
+30:05.360 --> 30:09.740
+Keine Ahnung, was damit gemeint sein soll
+
+30:23.740 --> 30:25.020
+Eine blöde Frage
+
+30:25.020 --> 30:26.380
+Gerade standen Telekom-Mitarbeiter
+
+30:26.380 --> 30:28.940
+Oh, das waren doch bestimmt irgendwelche Leute
+
+30:28.940 --> 30:30.560
+Die Glasfaser verkaufen wollten, oder?
+
+30:31.020 --> 30:31.440
+Ja, ja
+
+30:31.440 --> 30:32.460
+Ja, ja
+
+30:32.460 --> 30:32.820
+Jaja.
+
+30:33.900 --> 30:34.680
+Ne, ne, blablabla.
+
+30:34.980 --> 30:37.160
+Das sind irgendwelche, wie heißen die?
+
+30:37.240 --> 30:39.260
+Ranger-Marketing oder sowas, gell?
+
+30:43.260 --> 30:49.820
+Das sind irgendwelche Sales-Leute von einem Drittanbieter, die für die Telekom unterwegs sind.
+
+30:50.760 --> 30:51.700
+Ignorier die einfach.
+
+30:52.500 --> 30:53.960
+Ich hatte die auch schon vor der Tür.
+
+30:54.960 --> 30:58.480
+Und die wollten auch erzählen, ja, sie wissen doch, dass bald Glasfaser ausgebaut wird.
+
+30:58.800 --> 31:02.080
+Da habe ich zu ihnen gesagt, ja, ich gucke mal im Internet, wie es mit dem Ausbau aussieht.
+
+31:02.080 --> 31:02.900
+Dann waren sie wieder weg.
+
+31:03.760 --> 31:05.040
+Und dann habe ich im Internet geguckt.
+
+31:05.620 --> 31:06.960
+Da war noch nicht mal was geplant.
+
+31:16.100 --> 31:17.480
+Ja, das habe ich auch gelesen.
+
+31:17.840 --> 31:22.200
+Der Typ, der jegliche C und C++ aus der Microsoft Codebase eliminieren will.
+
+31:22.600 --> 31:25.040
+Aber ich finde, da hat Reddit, hat das gut erkannt,
+
+31:25.500 --> 31:28.020
+dass es ein typisches Projekt von einem, der befördert werden will.
+
+31:28.100 --> 31:29.960
+Und sobald er die Beförderung hat, hat er keinen Bock mehr drauf.
+
+31:29.960 --> 31:30.940
+Sprix, danke schön für den Sub.
+
+31:32.080 --> 31:36.280
+Irgendwo gab es vorhin noch eine Frage.
+
+31:37.180 --> 31:38.560
+Aber die finde ich jetzt nicht mehr.
+
+31:40.760 --> 31:40.900
+Oh.
+
+31:41.700 --> 31:42.060
+Na gut.
+
+31:44.620 --> 31:45.680
+Jetzt aber Rust. Genau.
+
+31:49.040 --> 31:49.440
+Rust.
+
+32:02.080 --> 32:06.520
+Ja gut, Vodafone-Kabel ist aber shared.
+
+32:07.280 --> 32:11.220
+Also, potenziell ist so ein eigener Glasfaseranschluss schon nicer.
+
+32:13.440 --> 32:17.160
+Aber du kriegst trotzdem ordentlich Bandbreite bei Vodafone für wenig Geld.
+
+32:17.700 --> 32:18.420
+Für weniger Geld.
+
+32:18.700 --> 32:19.660
+Ich habe ja selbst Vodafone.
+
+32:19.900 --> 32:23.640
+Aber auch nur, weil es bei mir noch keinen Glasfaseranschluss gibt.
+
+32:26.260 --> 32:27.540
+So, Rust.
+
+32:27.700 --> 32:29.560
+Also, wir müssen erstmal einen Container bauen.
+
+32:30.220 --> 32:32.360
+Wie installiert man am besten Rust mittlerweile?
+
+32:32.940 --> 32:35.320
+Also ihr wisst, ich entwickle ja nur noch in Containern.
+
+32:35.820 --> 32:40.560
+Das heißt, bevor wir anfangen können zu basteln, müssen wir uns erstmal einen Container bauen, in dem wir dann entwickeln können.
+
+32:43.800 --> 32:46.680
+Da können wir uns dann direkt mit der IDE auch reinkonnekten und sowas.
+
+32:47.400 --> 32:50.740
+So, also, JDK brauchen wir auf jeden Fall nicht für Rust.
+
+32:52.160 --> 32:53.940
+Nix brauchen wir auch.
+
+32:54.100 --> 32:55.740
+Wobei, können wir...
+
+32:56.640 --> 32:59.160
+Ne, wir installieren das nicht über Nix. Scheiß drauf.
+
+32:59.560 --> 33:04.400
+wir installieren noch geht weiß gar nicht warum ich das da oben nicht drin
+
+33:04.400 --> 33:12.360
+habe ja und jetzt rast ab
+
+33:12.360 --> 33:18.300
+doch wird die idee wird auf dem host und im container installiert das funktioniert
+
+33:18.300 --> 33:24.740
+folgendermaßen du hast wobei ich kann es ja ich kann es ja gleich zeigen aber du
+
+33:24.740 --> 33:29.240
+hast eine idee auf deinem host system das ist halt da auch wo das gui und
+
+33:29.240 --> 33:31.260
+alles läuft, aber du hast quasi
+
+33:31.260 --> 33:32.520
+so eine Client
+
+33:32.520 --> 33:35.200
+Package von der IDE,
+
+33:35.720 --> 33:37.280
+den hast du im Container laufen, weil du
+
+33:37.280 --> 33:39.440
+willst ja gucken, was dort für
+
+33:39.440 --> 33:41.480
+Environment Variablen gesetzt sind,
+
+33:41.620 --> 33:43.160
+welche Toolchains installiert sind
+
+33:43.160 --> 33:45.080
+und sowas in der Richtung. Also in zwei Sachen.
+
+33:45.260 --> 33:47.220
+Es gibt im Container, das macht
+
+33:47.220 --> 33:49.160
+aber DevPod auch alles automatisch, deswegen
+
+33:49.160 --> 33:50.580
+verwende ich das mittlerweile echt gern
+
+33:50.580 --> 33:53.300
+und das installiert
+
+33:53.300 --> 33:55.200
+es für dich schon drauf und dann musst du
+
+33:55.200 --> 33:56.820
+nur noch einmal die Connection einrichten
+
+33:56.820 --> 33:57.860
+und dann geht das.
+
+33:59.240 --> 34:01.420
+So, äh, Rust Up.
+
+34:03.460 --> 34:03.900
+Rust.
+
+34:05.440 --> 34:07.140
+Gab's da nicht, gab's da nicht
+
+34:07.140 --> 34:09.560
+ein, äh, ein Buch für Rust Up?
+
+34:09.980 --> 34:10.980
+The Rust Up Book.
+
+34:12.860 --> 34:13.560
+Also ich hab ja schon mal
+
+34:13.560 --> 34:14.860
+ein bisschen was in Rust gemacht, so ist es nicht.
+
+34:14.900 --> 34:17.160
+Bin nicht komplett 100%iger Noob, aber
+
+34:17.160 --> 34:18.060
+ziemlicher Rust Noob.
+
+34:22.220 --> 34:23.380
+Wird aber dann in die
+
+34:23.380 --> 34:24.400
+Files gemountet.
+
+34:25.180 --> 34:27.240
+Das Projektverzeichnis wird
+
+34:27.240 --> 34:28.660
+in den Container gemountet, ja.
+
+34:29.240 --> 34:40.100
+das unter slash workspaces wird das verzeichnis reingemaut indem die dev container jason liegt
+
+34:40.100 --> 34:43.400
+du wirst also durch das gleich sehen du wirst das gleich sehen das ist eigentlich relativ
+
+34:43.400 --> 34:53.240
+easy so wir installieren jetzt installation chapter also wie von stars install nightly
+
+34:53.240 --> 34:55.240
+Dann machen wir das doch.
+
+34:56.460 --> 34:58.400
+Curl müssen wir auch noch installieren.
+
+35:00.860 --> 35:02.520
+Und dann sagen wir
+
+35:02.520 --> 35:05.240
+Curl
+
+35:05.820 --> 35:09.280
+Default Toolchain None
+
+35:09.280 --> 35:11.680
+J, okay, ja, machen wir so.
+
+35:12.100 --> 35:12.360
+Beste.
+
+35:18.820 --> 35:19.580
+Ne, Moment.
+
+35:20.100 --> 35:21.120
+Das muss ich hier machen.
+
+35:22.060 --> 35:22.760
+Rust up.
+
+35:22.760 --> 35:24.560
+Ich will das ja nicht als Root installieren.
+
+35:25.620 --> 35:26.020
+Oder?
+
+35:26.860 --> 35:28.860
+Moment, Moment, Chat, ich muss denken.
+
+35:29.260 --> 35:30.540
+Quatsch, das ist ja gar kein Root hier.
+
+35:30.660 --> 35:31.560
+Ich mach Blödsinn. Da.
+
+35:32.760 --> 35:33.040
+Okay.
+
+35:37.440 --> 35:38.360
+Nicht Knightly?
+
+35:38.520 --> 35:39.420
+Warum nicht Knightly?
+
+35:41.800 --> 35:42.580
+Pleading Edge?
+
+35:42.960 --> 35:43.360
+Rust.
+
+35:45.900 --> 35:46.040
+So.
+
+35:47.660 --> 35:48.660
+Docker, Build.
+
+35:48.740 --> 35:50.740
+Wir gucken mal, ob das funktioniert, was ich hier gebaut hab.
+
+35:51.540 --> 35:52.100
+Wobei, nee.
+
+35:52.100 --> 35:55.320
+RustUp alleine installieren reicht ja noch gar nicht
+
+35:55.320 --> 36:00.740
+RustUp alleine ist ja gar nicht genug
+
+36:00.740 --> 36:03.500
+Wir müssen ja dann auch hier den Kram da machen
+
+36:03.500 --> 36:06.240
+RustUp
+
+36:06.240 --> 36:07.980
+Toolchain install nightly
+
+36:07.980 --> 36:09.660
+Allow .profil minimal
+
+36:09.660 --> 36:10.960
+Komponent Clippy
+
+36:10.960 --> 36:12.820
+Können wir nicht einfach sagen
+
+36:12.820 --> 36:15.280
+RustUp Toolchain install
+
+36:15.280 --> 36:17.320
+Was mache ich denn anstatt nightly dann?
+
+36:17.540 --> 36:17.940
+Stable?
+
+36:17.940 --> 36:19.480
+War ich dann stable?
+
+36:20.700 --> 36:21.640
+Okay, das scheint
+
+36:21.640 --> 36:22.420
+funktioniert zu haben.
+
+36:23.300 --> 36:24.120
+Docker-File.
+
+36:26.300 --> 36:27.040
+Rust up.
+
+36:27.260 --> 36:29.100
+Toolchain install nightly.
+
+36:38.120 --> 36:40.060
+Clippy ist empfehlenswert.
+
+36:40.220 --> 36:40.340
+Okay.
+
+36:42.400 --> 36:42.800
+Clippy.
+
+36:44.320 --> 36:45.280
+Clippy.
+
+36:45.280 --> 36:47.280
+Das hat aber nichts mit der
+
+36:47.280 --> 36:51.840
+Büroklammer von Office zu tun, oder?
+
+36:52.520 --> 36:54.300
+Sorry, Microsoft 365.
+
+36:54.820 --> 36:55.900
+Office heißt es ja nicht mehr.
+
+36:58.140 --> 37:00.100
+Heißt es eigentlich noch Microsoft 365?
+
+37:01.120 --> 37:02.880
+Die sind doch immer wild am Umbenennen.
+
+37:04.860 --> 37:05.540
+So, und jetzt?
+
+37:06.500 --> 37:06.920
+Okay.
+
+37:06.920 --> 37:07.020
+Okay.
+
+37:08.460 --> 37:10.320
+Wir müssen dann wahrscheinlich noch eine andere
+
+37:10.320 --> 37:12.920
+C-Library installieren, dass wir Static Builds
+
+37:12.920 --> 37:14.920
+machen können, aber das muss ich mal ausprobieren, wenn ich es dann
+
+37:14.920 --> 37:16.580
+wenn ich es dann am
+
+37:16.580 --> 37:21.400
+Dacht habe okay locker bild
+
+37:29.120 --> 37:31.120
+Jawohl wird alles installt
+
+37:34.200 --> 37:37.260
+Ist nach dem büro klammern wirklich aber warum
+
+37:40.020 --> 37:45.760
+Ich muss ja sagen ich hatte bei früher in office hatte ich nie klippi ich hatte immer den zauberer
+
+37:46.580 --> 37:59.780
+kennt ihr noch jemand da gab es ein zauberer anstelle von anstelle von klammer gab es
+
+37:59.780 --> 38:13.340
+und zauberer aber ich glaube das findet man nicht mehr hier den da oder die katze genau
+
+38:13.340 --> 38:15.320
+Die Katze hatte ich auch oft. Katze oder
+
+38:15.320 --> 38:15.920
+Zauberer.
+
+38:22.920 --> 38:24.480
+Cache der eigentlich jetzt den Download?
+
+38:28.480 --> 38:29.080
+Ähm...
+
+38:29.080 --> 38:31.480
+Ja, und also, das funktioniert
+
+38:31.480 --> 38:33.300
+so. Moment, Docker-File.
+
+38:33.720 --> 38:34.620
+Das funktioniert so.
+
+38:35.220 --> 38:37.000
+Docker cached jede Zeile.
+
+38:37.620 --> 38:39.380
+Und wenn sich in dieser Zeile was
+
+38:39.380 --> 38:40.800
+ändert, oder davor,
+
+38:41.300 --> 38:43.120
+dann wird ab hier, also quasi
+
+38:43.120 --> 38:44.320
+ab danach
+
+38:44.320 --> 38:46.860
+wird komplett weiter
+
+38:46.860 --> 38:49.000
+gebildet. Also wenn ich jetzt hier hingehen würde
+
+38:49.000 --> 38:50.460
+und schreib hier oben drüber
+
+38:50.460 --> 38:53.100
+Run, Cackle, dann würde
+
+38:53.100 --> 38:54.320
+alles ab hier neu gebaut.
+
+38:55.480 --> 38:57.280
+Also das ist ein relativ doofes Caching.
+
+38:58.040 --> 38:58.980
+Es gibt noch
+
+38:58.980 --> 39:00.800
+andere Varianten, ja, also es gibt noch
+
+39:00.800 --> 39:02.640
+aber das macht es dann komplizierter.
+
+39:02.980 --> 39:05.140
+Es gibt noch die Möglichkeit, wenn du so Sachen
+
+39:05.140 --> 39:06.960
+hast wie Node-Modules und so
+
+39:06.960 --> 39:09.000
+und die cachen willst, gibt es noch irgendwie
+
+39:09.000 --> 39:11.100
+was mit Storage-Provider oder so
+
+39:11.100 --> 39:13.080
+was, dass du das cachen kannst. Das ist aber ein bisschen
+
+39:13.080 --> 39:15.160
+komplizierter. Zu 900% reicht
+
+39:15.160 --> 39:15.580
+das so.
+
+39:20.580 --> 39:21.060
+So,
+
+39:21.240 --> 39:22.760
+jetzt haben wir hier unseren Container.
+
+39:24.200 --> 39:24.980
+Und wir wollen
+
+39:24.980 --> 39:26.660
+nicht IntelliJ, wir wollen
+
+39:26.660 --> 39:28.880
+Rust Rover haben.
+
+39:30.160 --> 39:31.040
+Und dann können wir
+
+39:31.040 --> 39:31.500
+loslegen.
+
+39:33.000 --> 39:34.040
+Vielleicht noch nicht ganz.
+
+39:34.820 --> 39:36.900
+Ups, warum starte ich das denn jetzt? Das ist falsch.
+
+39:38.000 --> 39:39.020
+Ich will das gar nicht starten.
+
+39:39.020 --> 39:44.160
+Ich gucke aber mal
+
+39:44.160 --> 39:46.240
+In der Toolbox
+
+39:46.240 --> 39:48.900
+Ob es neue Updates gibt
+
+39:48.900 --> 39:50.220
+Oh je
+
+39:50.220 --> 39:51.360
+Oh ne Leute
+
+39:51.360 --> 39:53.040
+Shit
+
+39:53.040 --> 39:55.580
+Ich update nur Rust Rover
+
+39:55.580 --> 39:59.060
+Weil ansonsten dauert es wieder 3 Stunden
+
+39:59.060 --> 40:00.240
+Bis alles geupdatet ist
+
+40:09.020 --> 40:16.540
+rast chef aha schon hier sind die rastkenner am start
+
+40:19.780 --> 40:23.080
+wir machen jetzt kein update wir machen nur rastro wird geupdatet da habe ich
+
+40:23.080 --> 40:29.520
+keinen bock drauf jetzt alles aber ab was wird das projekt
+
+40:29.520 --> 40:33.640
+hauptsächlich zu rast lernen das wird irgendeine web in den web server
+
+40:33.640 --> 40:40.420
+beziehungsweise ein backend was bisschen start ist html ausliefert aber wir gucken uns halt
+
+40:40.420 --> 40:47.000
+auch mal die sachen drumherum an sowie kriegt man gescheit gelockt wie kriegt man konfiguration
+
+40:47.000 --> 40:54.040
+verwaltet über config falls über ein wein und variablen wie passt man sie alle argumente so
+
+40:54.040 --> 41:01.720
+zeug wir handeln uns da mal so ein bisschen ein bisschen dran rum so dann können wir uns verbinden
+
+41:01.720 --> 41:11.860
+sag so guck ich weiß nicht mehr wer es wissen wollte du startest du startest jetzt einfach
+
+41:11.860 --> 41:18.820
+dieses connect skript und der lädt also der baut den container wenn er nicht gebaut ist der lädt
+
+41:18.820 --> 41:25.360
+die idee schon runter diese kleinen idee schon in den container rein und danach startet er die
+
+41:25.360 --> 41:30.100
+chatpoint idee direkt mit dem connection string wie du zum container kommst du musst also dann
+
+41:30.100 --> 41:32.020
+eigentlich gar nichts mehr großartig machen und wirst direkt
+
+41:32.020 --> 41:33.980
+in den Container connected. Das ist
+
+41:33.980 --> 41:36.160
+sehr nice. Und eine SSH-Verbindung geht
+
+41:36.160 --> 41:36.460
+auf.
+
+41:38.480 --> 41:39.920
+Das musste ich auch nur einmal machen.
+
+41:47.220 --> 41:48.220
+Und das Gute ist,
+
+41:48.280 --> 41:49.140
+wenn ich fertig bin,
+
+41:50.300 --> 41:52.020
+dann kann ich einfach deleten
+
+41:52.020 --> 41:54.540
+und gut ist.
+
+42:00.100 --> 42:02.080
+Okay, jetzt habe ich hier ein Terminal im Container.
+
+42:03.520 --> 42:05.540
+Jetzt geht hier gleich meine...
+
+42:05.540 --> 42:06.720
+Ich gehe schon mal auf den dritten Desktop.
+
+42:07.880 --> 42:08.860
+Dev-Container sind richtig, ne?
+
+42:08.880 --> 42:11.660
+Ich habe das total lang ignoriert, weil ich mir gedacht habe, wozu braucht man sowas?
+
+42:12.180 --> 42:16.040
+Ich bin jetzt erst drauf gekommen, vor ein paar Wochen erst,
+
+42:16.540 --> 42:18.560
+wegen diesen ganzen Scheihulut.
+
+42:19.400 --> 42:21.320
+Das hört sich immer an, als sei es einer erkältet.
+
+42:22.000 --> 42:23.400
+Supply-Chain-Angriffe auf NPM.
+
+42:23.520 --> 42:24.580
+Da habe ich mir gedacht, was kann man denn machen,
+
+42:24.580 --> 42:27.460
+dass wenn man sich selbst mal was einfangen sollte,
+
+42:27.460 --> 42:29.100
+das nicht so
+
+42:29.100 --> 42:30.780
+gefährlich ist.
+
+42:31.740 --> 42:33.600
+Und da bin ich zum Schluss gekommen,
+
+42:33.680 --> 42:36.080
+ja, ist ja auch ganz sinnvoll, einfach in Containern zu entwickeln.
+
+42:36.860 --> 42:38.060
+Da fängst du dir dann höchstens
+
+42:38.060 --> 42:39.060
+was im Container ein.
+
+42:44.280 --> 42:46.300
+So, da haben wir unsere EDE offen.
+
+42:47.820 --> 42:48.760
+Projekt gestartet.
+
+42:48.860 --> 42:50.740
+Wir haben noch kein Rust-Projekt angelegt.
+
+42:51.060 --> 42:51.500
+Das heißt,
+
+42:52.240 --> 42:54.400
+wir brauchen ein...
+
+42:54.400 --> 42:56.020
+Boah, mal gucken, ob ich das noch aus dem Kopf...
+
+42:56.020 --> 42:58.220
+Ich glaube, es ist Cargo New, ne?
+
+42:59.020 --> 43:02.840
+Cargo New und dann Lulwe zum Beispiel.
+
+43:03.700 --> 43:04.720
+Oder habe ich es falsch gemacht?
+
+43:05.680 --> 43:05.860
+Ne.
+
+43:11.940 --> 43:12.800
+Ja, genau.
+
+43:16.380 --> 43:21.820
+Okay, wir nennen es nicht Lulwe, wir nennen es Rust Champ.
+
+43:26.020 --> 43:27.520
+Cargo, New,
+
+43:28.520 --> 43:30.500
+Rust. Ich glaube, da macht man Snake Case.
+
+43:30.760 --> 43:31.680
+Rust Champ.
+
+43:34.020 --> 43:35.140
+Okay. Und dann?
+
+43:35.540 --> 43:36.620
+Hier ist der Rust Champ.
+
+43:37.280 --> 43:38.600
+Dann öffnen wir den mal.
+
+43:38.960 --> 43:39.900
+Als Projekt.
+
+43:41.460 --> 43:41.980
+Gucken wir mal.
+
+43:42.080 --> 43:44.440
+Hier wird automatisch in den Container
+
+43:44.440 --> 43:46.940
+das aktuelle Verzeichnis reingemount
+
+43:46.940 --> 43:47.920
+oder Workspaces.
+
+43:48.960 --> 43:51.340
+Es ist fast wie wenn ich es lokal habe.
+
+43:51.640 --> 43:52.580
+Also nicht im Container.
+
+43:53.380 --> 43:54.380
+Es ist wirklich nice.
+
+43:54.380 --> 44:01.200
+Okay, hier gibt es kaum Platz für Text. Das brauchen wir nicht, oder? Hier Cargo-Stells,
+
+44:01.200 --> 44:09.200
+das machen wir auf der Command Line. C Sharp machen wir bestimmt auch demnächst mal wieder.
+
+44:09.200 --> 44:23.300
+Main-RS. So, boah, ja, mach's noch kleiner. Font-Size. Change Font-Size in all Editors.
+
+44:23.300 --> 44:26.120
+Oh, kann man wenigstens was erkennen.
+
+44:28.800 --> 44:31.160
+Musst du Rust Rover dann sagen, wo der Rust Compiler liegt?
+
+44:32.420 --> 44:35.020
+Nee, anscheinend checkt das Rust Rover von alleine.
+
+44:38.440 --> 44:38.680
+Guck.
+
+44:39.960 --> 44:40.500
+Er checkt das.
+
+44:40.500 --> 44:48.940
+Der ist wahrscheinlich so schlau und guckt schon in einem Standardverzeichnis.
+
+44:51.500 --> 44:52.680
+So, Hello World.
+
+44:52.680 --> 44:59.680
+Das heißt, jetzt können wir sagen, Cargo Run, wenn ich das richtig im Kopf habe.
+
+45:06.980 --> 45:08.880
+Ah, Build Essentials fehlen, oder?
+
+45:13.380 --> 45:14.680
+Build Essentials.
+
+45:17.060 --> 45:21.320
+Okay, wo wir gerade dabei sind, das schreiben wir gleich in unser Docker-File,
+
+45:21.320 --> 45:27.080
+dass wir das nächste mal nicht vergessen das ist jetzt muss ich den kompletten container neu bauen
+
+45:27.080 --> 45:37.820
+weil ich hier oben was hinzufügen wild ist so cargo run bm hello world so next ich will statische
+
+45:37.820 --> 45:45.000
+binaries produzieren da muss man musel installieren für guck mal das habe ich doch immer das habe ich
+
+45:45.000 --> 45:46.740
+noch so im Kopf.
+
+45:46.860 --> 45:48.940
+Ich glaube Release macht man hier auch.
+
+45:49.100 --> 45:50.900
+Genau. So und jetzt können wir gucken.
+
+45:52.000 --> 45:52.440
+Target
+
+45:52.440 --> 45:55.380
+Release
+
+45:55.380 --> 45:56.760
+Rust-Champ.
+
+45:57.600 --> 45:58.500
+Wenn man da mal schauen,
+
+45:58.880 --> 46:00.680
+wie das gebildet ist, sieht man, es ist
+
+46:00.680 --> 46:03.120
+gelinkt gegen libgcc, libc,
+
+46:03.340 --> 46:04.060
+linux, bla bla bla.
+
+46:05.640 --> 46:06.680
+Jetzt kommt das nächste.
+
+46:06.820 --> 46:09.000
+Wie baue ich statische Libraries?
+
+46:11.280 --> 46:11.720
+Static,
+
+46:12.440 --> 46:13.240
+Binary,
+
+46:13.240 --> 46:15.680
+Rust mit Musel.
+
+46:17.460 --> 46:18.200
+Also das ist so.
+
+46:18.460 --> 46:19.900
+Ich versuche das mal halbwegs zu erklären,
+
+46:20.040 --> 46:21.920
+weil ich habe mich damit vor einer Weile schon mal beschäftigt.
+
+46:23.160 --> 46:23.640
+Standardmäßig
+
+46:23.640 --> 46:26.020
+verwendet Linux, zumindest die meisten,
+
+46:26.240 --> 46:27.960
+mal außer Alpine und so außen vor,
+
+46:28.520 --> 46:29.980
+verwendet GLibc.
+
+46:32.120 --> 46:33.960
+Und wenn man ein
+
+46:33.960 --> 46:36.060
+Binary baut,
+
+46:36.060 --> 46:38.060
+ein ausführbares
+
+46:38.860 --> 46:39.700
+Binary baut,
+
+46:40.100 --> 46:41.360
+dann
+
+46:41.360 --> 46:46.580
+und man verwendet Funktionen aus der C-Standard-Library,
+
+46:47.520 --> 46:48.800
+was oftmals passiert,
+
+46:49.380 --> 46:53.180
+dann linkt der standardmäßig dynamisch gegen GLibc.
+
+46:54.320 --> 46:55.940
+Das Problem dabei ist,
+
+46:56.620 --> 46:59.460
+wenn man jetzt das Binary auf eine andere Linux-Kiste kopiert,
+
+47:00.140 --> 47:05.480
+die eine ältere GLibc-Version hat,
+
+47:05.760 --> 47:07.540
+als gegen die, wo man gelinkt hat,
+
+47:08.900 --> 47:10.640
+dann geht es nicht, dann kackt es ab.
+
+47:11.360 --> 47:13.300
+Und das ist ziemlich doof.
+
+47:14.480 --> 47:15.080
+Die...
+
+47:16.440 --> 47:18.460
+Äh, was macht...
+
+47:18.460 --> 47:20.840
+Was hat denn hier so viele Auslastung?
+
+47:22.960 --> 47:23.540
+Okay.
+
+47:25.400 --> 47:26.240
+Rust macht Dinger.
+
+47:31.340 --> 47:34.900
+Auf Ubuntu bilden und auf Alpine geht's nicht?
+
+47:35.300 --> 47:37.420
+Ja, es geht sogar auf einem älteren Ubuntu ja schon nicht.
+
+47:37.420 --> 47:58.300
+So und das ist doof. Die Oldschool Variante, also sagen wir mal so, die Variante bei allen Programmiersprachen außer bei Go ist es, dann die C-Library statisch zu linken. Das Problem ist, dass man GLibc nicht richtig statisch linken kann.
+
+47:58.300 --> 48:08.580
+Der Unterschied zwischen Dynamisch und Statisch gelinken ist einfach der, beim Statisch linken wird beim Kompilieren quasi alles, was man als Abhängigkeiten hat, in das Binary mit reingepackt.
+
+48:09.060 --> 48:16.560
+Beim Dynamisch linken wird einfach nur reingeschrieben, ich will jetzt diese Funktion aufrufen aus der Library, die schon da ist.
+
+48:18.960 --> 48:26.020
+Es gibt eine ganz gute C-Library für Statisches linken und das ist Musel.libc.
+
+48:26.020 --> 48:32.640
+Und das unterstützt Rust auch standardmäßig zum Bilden von statischen Binaries.
+
+48:33.320 --> 48:35.640
+Ich hoffe, man hat jetzt verstanden, was ich euch sagen wollte.
+
+48:37.560 --> 48:38.900
+Konnte man mir folgen, ja?
+
+48:39.340 --> 48:42.240
+Deswegen muss ich jetzt mal gucken, wie man das nochmal genau gemacht hat.
+
+48:42.920 --> 48:44.020
+Das war ein bisschen komplizierter.
+
+48:45.140 --> 48:45.860
+Rust up.
+
+48:47.480 --> 48:50.280
+Weil jetzt ist es so, ich kann es euch ja mal zeigen.
+
+48:50.940 --> 48:52.440
+Immer besser als zu labern.
+
+48:52.700 --> 48:53.900
+Ich zeige es jetzt einfach mal.
+
+48:53.900 --> 49:00.680
+So, also auf der Kiste, ich gucke mir jetzt an, was hat mein Binary für Abhängigkeiten.
+
+49:00.800 --> 49:07.240
+Ich habe dynamische Abhängigkeiten zu libgcc, zu libc und zu linuxvdso, was auch immer das ist.
+
+49:08.360 --> 49:09.900
+Was ist linuxvdso?
+
+49:12.320 --> 49:14.640
+Virtual Dynamic Shared Object, aha.
+
+49:14.640 --> 49:26.340
+so auf dem gleichen system wo ich das kompiliert habe kann ich es ausführen das geht machen wir
+
+49:26.340 --> 49:36.060
+jetzt mal was anderes gehen wir mal hier rein rust champ target release jetzt versuchen wir
+
+49:36.060 --> 49:41.460
+es mal auszuführen auf meinem host system geht auch liegt daran weil ich gelebt zehn installiert
+
+49:41.460 --> 49:43.560
+habe und sogar noch eine neuere
+
+49:43.560 --> 49:45.420
+GLEPC-Version als hier im Container.
+
+49:45.860 --> 49:47.200
+Aber jetzt, passt mal auf,
+
+49:47.300 --> 49:47.840
+jetzt sagen wir,
+
+49:48.400 --> 49:50.700
+jetzt nehmen wir einfach mal ein älteres Ubuntu.
+
+49:51.180 --> 49:52.420
+Ubuntu, na komm.
+
+49:53.720 --> 49:55.360
+Nehmen wir 20, 2004.
+
+49:56.600 --> 49:57.460
+Wobei, das könnte noch
+
+49:57.460 --> 49:59.240
+aktuell genug sein. Egal.
+
+50:01.660 --> 50:03.200
+Kann man eigentlich sowas machen hier?
+
+50:11.460 --> 50:18.880
+Ah, geht. Guck hier. Rust Champ.
+
+50:19.380 --> 50:20.160
+Geht nicht mehr.
+
+50:21.020 --> 50:24.180
+Auf Ubuntu 20.04 läuft das Binary nicht,
+
+50:24.700 --> 50:28.360
+weil ich das kompiliert habe gegen eine neuere GLEP-C-Version.
+
+50:31.680 --> 50:34.660
+Dann sagt er hier, bla bla bla, gibt's nicht, kann ich, tut nicht.
+
+50:35.340 --> 50:35.500
+So.
+
+50:36.280 --> 50:37.960
+Jetzt machen wir das Gleiche nochmal.
+
+50:37.960 --> 50:42.640
+und kompilieren das allerdings nicht dynamisch gegen GLibc,
+
+50:43.280 --> 50:46.480
+sondern machen ein Static-Build mit MuselLibc.
+
+50:47.140 --> 50:49.240
+Wenn ich jetzt noch weiß, wie man den Kram installiert...
+
+50:54.680 --> 50:55.240
+Äh...
+
+50:59.240 --> 51:00.240
+Äh...
+
+51:00.240 --> 51:01.920
+Wie ging das nochmal?
+
+51:03.360 --> 51:03.940
+Ach, guck mal hier!
+
+51:05.440 --> 51:07.320
+Rust-Target-Add...
+
+51:07.320 --> 51:07.720
+Genau.
+
+51:07.960 --> 51:11.240
+Das schreiben wir auch in unser Dockerfile rein.
+
+51:11.780 --> 51:11.960
+Ups.
+
+51:17.660 --> 51:18.920
+So, hat er installiert.
+
+51:19.400 --> 51:21.480
+Dockerfile, dass das nächste Mal alles auch noch da ist.
+
+51:22.400 --> 51:22.720
+Run.
+
+51:23.360 --> 51:24.620
+Rust target at.
+
+51:25.920 --> 51:26.500
+Ja, gut.
+
+51:28.020 --> 51:28.580
+Wobei, komm.
+
+51:29.520 --> 51:30.400
+Das machen wir davor.
+
+51:33.000 --> 51:34.580
+Ne, das können wir nicht davor machen.
+
+51:34.640 --> 51:35.840
+Das müssen wir natürlich schon hier danach machen.
+
+51:36.960 --> 51:37.260
+So.
+
+51:37.960 --> 51:41.000
+Und nun bauen wir das Ganze nochmal.
+
+51:45.840 --> 51:47.860
+Jetzt bauen wir das Ganze nochmal.
+
+51:49.020 --> 51:49.580
+Cargo.
+
+51:49.920 --> 51:50.680
+Cargo.
+
+51:50.820 --> 51:51.160
+Bild.
+
+51:54.740 --> 51:55.720
+Ach ne.
+
+51:55.920 --> 51:57.060
+Ich muss angeben.
+
+51:57.060 --> 51:58.240
+Wie mache ich das denn?
+
+51:58.860 --> 51:59.760
+Steht das vielleicht hier drin?
+
+52:00.360 --> 52:00.780
+Cargo.
+
+52:00.860 --> 52:01.060
+Bild.
+
+52:03.940 --> 52:05.780
+Das muss man irgendwo angeben.
+
+52:07.960 --> 52:26.380
+das cargo bild ja hier das stand doch target cargo bild das genau so und jetzt gehen wir da rein
+
+52:26.380 --> 52:33.620
+ich lösche vorher noch mal mein target verzeichnis das clean ist und jetzt sagen wir noch mal docker
+
+52:33.620 --> 52:34.380
+Run.
+
+52:39.220 --> 52:39.400
+Hä?
+
+52:40.120 --> 52:40.920
+Mag er nicht mehr?
+
+52:42.220 --> 52:43.180
+Ah, ich bin im...
+
+52:43.180 --> 52:45.780
+Ich hab's verzeichnet, ist eben gelöscht.
+
+52:46.620 --> 52:47.200
+Jetzt...
+
+52:47.200 --> 52:49.660
+Okay. So, und jetzt gehen wir hier hin.
+
+52:50.180 --> 52:51.700
+Nach da rein.
+
+52:53.140 --> 52:53.740
+Release.
+
+52:53.740 --> 52:53.820
+Release.
+
+52:55.540 --> 52:57.580
+Rust Champ. Und zack, es läuft.
+
+52:57.980 --> 52:59.740
+Und wenn ich jetzt hier gucke...
+
+53:01.360 --> 53:02.880
+Ups, wenn mich das hier...
+
+53:02.880 --> 53:10.600
+Statically linked, das heißt das Ding kann ich jetzt auf jedes x-beliebige Linux kopieren und es läuft.
+
+53:11.880 --> 53:13.320
+Machen wir mal, ich zeige euch mal was.
+
+53:13.800 --> 53:15.580
+Ubuntu 12.04, okay.
+
+53:17.240 --> 53:18.560
+Das ist schon ein bisschen älter.
+
+53:24.740 --> 53:25.220
+Rust.
+
+53:27.140 --> 53:28.840
+x86, Release.
+
+53:30.000 --> 53:31.340
+Rust Champ, bam, läuft.
+
+53:31.340 --> 53:35.340
+Das ist jetzt genauso statisch wie beispielsweise eine Go-Anwendung.
+
+53:45.340 --> 53:49.600
+Was? Leider, leider, Chat, leider gibt es nichts Älteres.
+
+53:50.580 --> 53:50.780
+Guck.
+
+53:53.580 --> 53:54.440
+Gibt's nicht.
+
+53:54.800 --> 53:59.760
+1204 ist das älteste Ubuntu, wobei 11 habe ich noch nicht ausprobiert.
+
+53:59.760 --> 54:03.540
+Das älteste Ubuntu, für wo es Container gibt.
+
+54:04.560 --> 54:07.200
+11.11.10 gibt es vielleicht noch, wenn wir Glück haben.
+
+54:08.520 --> 54:08.700
+Nee.
+
+54:09.220 --> 54:12.320
+Also 12.04 ist tatsächlich das älteste, was es gibt.
+
+54:13.980 --> 54:14.660
+Gut, so.
+
+54:15.280 --> 54:22.260
+Deswegen will ich die Sachen statisch bilden, weil ich ein Fan von self-contained statischen Binarys bin.
+
+54:24.540 --> 54:25.700
+Spätestens seit Go.
+
+54:29.760 --> 54:32.400
+Wie ist die Binary Größe?
+
+54:32.480 --> 54:33.980
+Ah gut, die ist natürlich ein bisschen größer.
+
+54:35.860 --> 54:37.820
+Dürften so 5, 6 MB oder so sein.
+
+54:40.340 --> 54:41.200
+Ja, das stimmt.
+
+54:41.280 --> 54:42.280
+Das sollte man noch erwähnen.
+
+54:42.960 --> 54:43.400
+Dementsprechend.
+
+54:44.120 --> 54:45.600
+Ach ne, geht doch voll klar.
+
+54:46.340 --> 54:48.100
+548K für ein Hello World.
+
+54:49.100 --> 54:51.200
+Ich meine, zu DOS Zeiten war das viel.
+
+54:51.200 --> 54:54.540
+Da wäre fast eine Diskette voll gewesen mit.
+
+54:54.640 --> 54:56.920
+Aber heutzutage ist das vollkommen in Ordnung.
+
+54:59.760 --> 55:12.680
+No more Quarkus today, but I think next week we will do Quarkus again, but this time with
+
+55:12.680 --> 55:17.460
+Kotlin instead of Java.
+
+55:17.460 --> 55:21.200
+Today we learn Rust and web applications in Rust.
+
+55:21.200 --> 55:31.020
+Stimmt, du hast recht, das können wir auch mal
+
+55:31.020 --> 55:34.280
+Wir schmeißen die Debug-Symbole raus
+
+55:34.280 --> 55:40.380
+Dann ist die Anwendung nur 441k groß
+
+55:40.380 --> 55:44.440
+Aber der Fairness halber sollte man jetzt tatsächlich nochmal sagen
+
+55:44.440 --> 55:46.620
+Wenn ich jetzt Cargo
+
+55:46.620 --> 55:49.600
+Wenn ich das jetzt nochmal bilde
+
+55:49.600 --> 55:52.700
+mit dem statisch gelingt.
+
+55:53.600 --> 55:55.880
+Und ich gehe jetzt hier nach CD Release
+
+55:55.880 --> 55:58.060
+und gucke mir an, wie groß das ist.
+
+56:00.680 --> 56:02.420
+Dann sehe ich, die Anwendung ist fast genauso groß,
+
+56:02.520 --> 56:03.720
+obwohl sie statisch gelingt ist.
+
+56:07.980 --> 56:09.060
+Also gut, dann nicht.
+
+56:14.800 --> 56:16.080
+Gut, aber jetzt fangen wir mal an.
+
+56:16.900 --> 56:18.020
+Das ist nur so ein kleiner Exkurs
+
+56:18.020 --> 56:19.960
+zu statischen und dynamischen Binarys.
+
+56:21.500 --> 56:22.000
+Rust.
+
+56:23.520 --> 56:24.000
+Also.
+
+56:24.640 --> 56:25.160
+Axum.
+
+56:27.280 --> 56:28.320
+Wollen wir benutzen.
+
+56:29.140 --> 56:30.100
+Brauchen wir eine Hello World
+
+56:30.100 --> 56:31.860
+Anwendung für Axum. Guck mal, hier gibt es doch schon
+
+56:31.860 --> 56:32.820
+sogar eine.
+
+56:34.780 --> 56:35.560
+Ne, das ist vielleicht
+
+56:35.560 --> 56:37.920
+mal Overkill. Es gibt doch bestimmt hier
+
+56:37.920 --> 56:38.720
+ein Exempel.
+
+56:41.000 --> 56:41.480
+Exempel.
+
+56:46.480 --> 56:47.840
+Gibt es da nicht irgendwie ein simples
+
+56:47.840 --> 56:48.800
+Hello World oder so?
+
+56:50.100 --> 56:50.780
+Ah doch, doch hier.
+
+56:53.240 --> 56:53.680
+Okay.
+
+57:00.160 --> 57:00.960
+Source, Main.
+
+57:01.060 --> 57:02.820
+Okay, das ist übersichtlich.
+
+57:04.520 --> 57:06.400
+Dann machen wir das doch mal jetzt.
+
+57:10.240 --> 57:11.760
+Da bin ich ja mal gespannt.
+
+57:11.760 --> 57:18.760
+das kopieren wir einfach mal komplett
+
+57:18.760 --> 57:20.380
+und dann passen wir es ein bisschen an und gucken,
+
+57:22.180 --> 57:22.740
+wie das
+
+57:22.740 --> 57:23.680
+funzt.
+
+57:28.180 --> 57:29.220
+Okay, auf geht's.
+
+57:29.340 --> 57:30.980
+Also, Tokyo Main.
+
+57:31.420 --> 57:32.320
+Tokyo ist diese
+
+57:32.320 --> 57:33.940
+Async-Geschichte, ne?
+
+57:34.760 --> 57:36.160
+Ich erinnere mich dunkel dran,
+
+57:37.600 --> 57:38.280
+dass man
+
+57:38.280 --> 57:39.880
+Async-Away machen kann in Rust.
+
+57:41.760 --> 57:46.520
+die pen ach guck mal wie schlau die idee ist
+
+57:46.520 --> 57:54.260
+ich war über command line ich will nicht ich will nicht über über die idee
+
+58:03.520 --> 58:09.520
+guck mal hier das ist ja richtig nice wieder wieder das erkannt hat dass ich
+
+58:09.520 --> 58:11.700
+Tokio und Axum
+
+58:11.700 --> 58:13.400
+als Dependencies hab,
+
+58:13.740 --> 58:15.680
+die IDE und gleich meine Cargo-Config
+
+58:15.680 --> 58:17.420
+reingehauen hat.
+
+58:17.500 --> 58:18.520
+Das finde ich nice.
+
+58:19.560 --> 58:20.120
+Excellent.
+
+58:21.940 --> 58:22.540
+Gut.
+
+58:35.540 --> 58:37.280
+Okay, es geht nicht.
+
+58:37.600 --> 58:38.280
+Warum nicht?
+
+58:39.520 --> 58:44.760
+default runtime flavor ist multithread, but the RTMultithread feature is not...
+
+58:44.760 --> 58:47.760
+... ist disabled.
+
+58:49.960 --> 58:52.960
+Aha, okay, dann gehen wir mal
+
+58:54.220 --> 59:00.580
+pokio, gehen wir mal crates.io, da gibt es ja dieses, das ist ja der
+
+59:00.580 --> 59:03.580
+package manager von rust.
+
+59:03.580 --> 59:04.260
+Okio.
+
+59:07.220 --> 59:09.900
+Und gucken wir uns mal an, was wir verkehrt gemacht haben.
+
+59:10.120 --> 59:11.120
+In unserer Tommel.
+
+59:12.140 --> 59:12.880
+Ah, ja.
+
+59:13.800 --> 59:14.160
+Okay.
+
+59:15.180 --> 59:16.020
+So muss man machen.
+
+59:21.860 --> 59:23.520
+Aber es geht immer noch nicht.
+
+59:24.000 --> 59:24.180
+Tja.
+
+59:25.120 --> 59:26.320
+Moment, Moment.
+
+59:26.680 --> 59:27.520
+Ne, shit.
+
+59:28.160 --> 59:28.880
+Kackt immer noch ab.
+
+59:29.500 --> 59:32.320
+Die Fault Flay, das kopieren wir uns jetzt mal in irgendeine...
+
+59:32.320 --> 59:40.960
+jetzt ist weg der einfach nur ein bisschen reloaded so funks das jetzt ich
+
+59:40.960 --> 59:49.060
+starte das mal testweise wir haben einfach schon 70 pakete leute 70 pakete
+
+59:49.060 --> 59:52.700
+alles die pendels ich sagte aber das ist fast so schlimm wie bei not ist nicht
+
+59:52.700 --> 01:00:01.060
+ganz so schlimm aber da hast du wirklich 30 milliarden die pendels immer so wir
+
+01:00:01.060 --> 01:00:08.740
+haben jetzt hier eine web anwendung die irgendwas auf port 3000 macht guck mal curl local host port
+
+01:00:08.740 --> 01:00:17.680
+3000 bäum hellu world okay funzt nice das erste was wir ändern ist den port den port gehen wir
+
+01:00:17.680 --> 01:00:18.960
+auf 8080.
+
+01:00:19.860 --> 01:00:21.560
+Da können wir nämlich auch von hier curlen.
+
+01:00:24.680 --> 01:00:25.620
+Ja, nice.
+
+01:00:26.520 --> 01:00:27.740
+Watch, minus N,
+
+01:00:27.820 --> 01:00:28.920
+0,1.
+
+01:00:38.080 --> 01:00:39.620
+Okay, das fand ich ja schon mal
+
+01:00:39.620 --> 01:00:41.020
+erstaunlich easy.
+
+01:00:41.720 --> 01:00:43.920
+Aber ich weiß, Rust wird richtig eklig.
+
+01:00:44.760 --> 01:00:45.220
+Teilweise.
+
+01:00:45.960 --> 01:00:47.600
+Gerade wenn man so ein Kack-Noob ist wie ich.
+
+01:00:47.680 --> 01:00:56.860
+Wie groß ist das Binary jetzt? Sehr gute Frage. Jetzt können wir es nochmal vergleichen. Cargo,
+
+01:00:56.860 --> 01:01:02.200
+Build, Release. Wir gucken uns mal das Dynamische an und das Statische.
+
+01:01:02.200 --> 01:01:15.520
+Also Target, Release, 1,9 MB. Ich vermute mal das Statische ist jetzt tatsächlich ein bisschen
+
+01:01:15.520 --> 01:01:16.220
+größer.
+
+01:01:22.520 --> 01:01:23.080
+Argo
+
+01:01:23.080 --> 01:01:24.340
+Build.
+
+01:01:27.360 --> 01:01:28.420
+Oh, was hab ich verkehrt gemacht?
+
+01:01:31.180 --> 01:01:33.120
+Vergleichen wir mal die Binary Größe. Ich denke mal,
+
+01:01:33.140 --> 01:01:34.960
+das müsste jetzt größer als 1,9 MB sein.
+
+01:01:43.120 --> 01:01:43.600
+Target
+
+01:01:43.600 --> 01:01:44.880
+X86
+
+01:01:44.880 --> 01:01:46.460
+ich unknown Linux musel.
+
+01:01:51.260 --> 01:01:51.860
+Äh.
+
+01:01:54.300 --> 01:01:54.900
+Chat.
+
+01:01:58.020 --> 01:01:59.260
+Da stimmt was nicht.
+
+01:02:04.520 --> 01:02:06.720
+Ach so. Ha. Ich hab Release vergessen.
+
+01:02:07.620 --> 01:02:08.500
+Ich hab Release vergessen.
+
+01:02:10.580 --> 01:02:11.480
+Das war ein Debug-Bild.
+
+01:02:14.880 --> 01:02:19.060
+1,9.
+
+01:02:19.320 --> 01:02:20.580
+Es ist genauso groß.
+
+01:02:20.940 --> 01:02:23.820
+Ja gut, dann können wir doch erst recht statisch linken.
+
+01:02:29.540 --> 01:02:30.100
+Perfekt.
+
+01:02:34.620 --> 01:02:36.120
+Also es ist kaum größer,
+
+01:02:36.260 --> 01:02:37.260
+das statisch gelinkte.
+
+01:02:39.740 --> 01:02:41.280
+Und das statisch gelinkte...
+
+01:02:41.280 --> 01:02:43.660
+Komm, jetzt einfach hier starten.
+
+01:02:43.940 --> 01:02:44.480
+Da läuft's.
+
+01:02:44.880 --> 01:02:49.520
+so wisst ihr was mich interessieren würde früher ich kann mich daran erinnern
+
+01:02:49.520 --> 01:02:54.920
+es gab so was wie cargo watch run
+
+01:02:57.940 --> 01:03:04.760
+das war's gibt's seit heute und die nächsten zwei drei streams noch bis ich
+
+01:03:04.760 --> 01:03:10.220
+bis ich der meinung bin ich habe genug durchblick oder vielleicht auch
+
+01:03:10.220 --> 01:03:13.060
+vielleicht auch die nächsten zwei streams mal gucken wenn es euch gefällt
+
+01:03:13.060 --> 01:03:14.820
+Leute, wenn ihr dabei sein wollt, könnt ihr mir jetzt
+
+01:03:14.820 --> 01:03:16.920
+ein Follow am Start... Äh, ein Follow am
+
+01:03:16.920 --> 01:03:18.740
+Start lassen? Was auch immer. Ihr wisst, was ich
+
+01:03:18.740 --> 01:03:20.820
+sagen wollte. Könnt ihr mir
+
+01:03:20.820 --> 01:03:22.000
+ein Follow dalassen.
+
+01:03:25.140 --> 01:03:26.960
+Ich hab mich die letzten Streams sehr gefreut,
+
+01:03:27.020 --> 01:03:28.380
+dass es so viele Follows gab.
+
+01:03:36.160 --> 01:03:36.560
+Bacon.
+
+01:03:38.100 --> 01:03:38.780
+Ist das jetzt
+
+01:03:38.780 --> 01:03:40.880
+das neue Cargo Watch?
+
+01:03:40.880 --> 01:03:43.120
+Bacon.
+
+01:03:53.120 --> 01:03:54.080
+Bacon.
+
+01:03:55.260 --> 01:03:57.200
+Aber das ist ein Testrunner, oder?
+
+01:03:58.800 --> 01:04:00.040
+Sehe ich das falsch?
+
+01:04:05.560 --> 01:04:06.880
+Ist kein...
+
+01:04:06.880 --> 01:04:07.200
+Kein...
+
+01:04:07.200 --> 01:04:10.500
+Kein so
+
+01:04:10.500 --> 01:04:12.960
+Ich starte die Anwendung neu
+
+01:04:12.960 --> 01:04:18.260
+Ne, ne, ne, ne
+
+01:04:18.260 --> 01:04:18.960
+Ich will
+
+01:04:18.960 --> 01:04:23.040
+Sobald sich mein Source Code ändert
+
+01:04:23.040 --> 01:04:24.280
+Automatisch neu startet
+
+01:04:24.280 --> 01:04:26.900
+Okay, lass mal gucken
+
+01:04:26.900 --> 01:04:28.320
+Vielleicht kann das ja Bacon auch
+
+01:04:28.320 --> 01:04:31.160
+Cargo install locked Bacon
+
+01:04:31.160 --> 01:04:34.420
+Die Namen von den Projekten
+
+01:04:34.420 --> 01:04:40.720
+immer das machen wir hier auch in unsere unser docker file weil ansonsten weiß
+
+01:04:40.720 --> 01:04:43.840
+jetzt schon dass ich das wieder vergesse
+
+01:04:51.800 --> 01:05:00.520
+316 dependencies jetzt nicht bei meinem projekt sondern bei bacon das nimmt ja
+
+01:05:00.520 --> 01:05:04.760
+schon fast noch es aus maße an post
+
+01:05:04.760 --> 01:05:07.080
+champ
+
+01:05:15.360 --> 01:05:18.360
+bacon
+
+01:05:18.360 --> 01:05:24.460
+Was?
+
+01:05:24.740 --> 01:05:25.340
+Entry?
+
+01:05:25.960 --> 01:05:27.020
+Hört ja gar nicht mehr auf hier.
+
+01:05:28.200 --> 01:05:28.980
+Re-Entry?
+
+01:05:30.880 --> 01:05:31.220
+Moment.
+
+01:05:31.760 --> 01:05:31.980
+Was?
+
+01:05:37.980 --> 01:05:38.720
+Ach hier.
+
+01:05:39.540 --> 01:05:42.180
+Run arbitrary commands when files change.
+
+01:05:46.180 --> 01:05:46.660
+Ne.
+
+01:05:46.660 --> 01:05:50.340
+Wir benutzen noch kein C-Programm, um unser Rust-Zeug zu bilden.
+
+01:05:51.820 --> 01:05:54.320
+Da sind wir nicht blazingly fast written in Rust.
+
+01:05:55.220 --> 01:05:56.560
+Doch, das ist was, was ich suche.
+
+01:05:56.620 --> 01:05:57.660
+Aber wenn das Reddit mitbekommt...
+
+01:06:00.220 --> 01:06:01.120
+Das geht nicht.
+
+01:06:01.460 --> 01:06:04.780
+Wir können nicht unsafe code benutzen, um unser safe Rust zu run.
+
+01:06:05.460 --> 01:06:06.620
+Da gibt's...
+
+01:06:06.620 --> 01:06:08.580
+Da drehen sie durch.
+
+01:06:08.580 --> 01:06:17.400
+Ich könnte ja um die Leute zu triggern
+
+01:06:17.400 --> 01:06:18.840
+Aber eine Runde Unsafe
+
+01:06:18.840 --> 01:06:21.180
+Rust machen
+
+01:06:21.180 --> 01:06:22.360
+Da gab es doch
+
+01:06:22.360 --> 01:06:24.320
+Da war so vor der Weile irgendein
+
+01:06:24.320 --> 01:06:26.800
+Drama in der Rust Community
+
+01:06:26.800 --> 01:06:29.680
+Weil irgendjemand aus Performance
+
+01:06:29.680 --> 01:06:31.320
+Kunden Unsafe Rust drin hatte
+
+01:06:31.320 --> 01:06:33.360
+Und da haben die den so sehr
+
+01:06:33.360 --> 01:06:34.840
+Abgefuckt in GitHub Issues
+
+01:06:34.840 --> 01:06:37.160
+Dass er das Projekt archivt hat
+
+01:06:37.160 --> 01:06:45.660
+So, Bacon
+
+01:06:45.660 --> 01:06:47.400
+Okay, wie geht das jetzt? Bacon
+
+01:06:47.400 --> 01:06:51.760
+Check
+
+01:06:51.760 --> 01:06:52.720
+Ne, das wollen wir nicht
+
+01:06:52.720 --> 01:06:54.420
+Kann man Bacon Run machen?
+
+01:06:55.440 --> 01:06:55.860
+Ah
+
+01:06:55.860 --> 01:07:00.440
+Ja, nice
+
+01:07:00.440 --> 01:07:02.780
+Das wäre, das wäre es ja
+
+01:07:02.780 --> 01:07:04.620
+Okay, Hello World
+
+01:07:04.620 --> 01:07:06.340
+Jetzt ändern wir mal was hier drin
+
+01:07:06.340 --> 01:07:19.300
+blub blub blub und hat nicht reloadet warum nicht hat mich wie lautet
+
+01:07:19.300 --> 01:07:27.260
+wiederholt mich bacon reload server ich habe gespeichert ja
+
+01:07:27.260 --> 01:07:38.760
+nochmal restart vielleicht server rast rast gehen wir noch dazu ein cookbook
+
+01:07:38.760 --> 01:07:51.680
+bacon dies treu und change strategy kill den restart ich brauche dafür den config file
+
+01:07:51.680 --> 01:07:58.540
+kein konflikt
+
+01:07:58.540 --> 01:08:12.360
+kein konflikt da habe ich keinen bock drauf bacon hält schicke schicke terminal ausgabe
+
+01:08:12.360 --> 01:08:14.560
+Minus, minus, config.
+
+01:08:14.640 --> 01:08:16.560
+Ach, man kann das direkt ins Command schreiben.
+
+01:08:18.620 --> 01:08:19.980
+Also minus, minus.
+
+01:08:20.540 --> 01:08:22.420
+Und hier bake and run. Minus, minus.
+
+01:08:23.220 --> 01:08:24.480
+Config. Tommel.
+
+01:08:25.480 --> 01:08:26.040
+Gleich.
+
+01:08:27.520 --> 01:08:28.100
+Moment, Moment.
+
+01:08:28.600 --> 01:08:28.760
+So.
+
+01:08:31.100 --> 01:08:31.380
+Aha.
+
+01:08:34.000 --> 01:08:34.560
+Moment.
+
+01:08:35.280 --> 01:08:35.880
+1, 2, 3.
+
+01:08:36.880 --> 01:08:37.360
+Ah.
+
+01:08:42.360 --> 01:08:48.320
+Dazu kann ich nur sagen, easy, easy.
+
+01:08:55.100 --> 01:08:57.620
+So, jetzt startet er den Krempel neu. Ist doch nice.
+
+01:08:59.420 --> 01:09:00.500
+Ja, das gefällt mir.
+
+01:09:01.320 --> 01:09:02.260
+Guck mal, wie schnell das geht.
+
+01:09:04.100 --> 01:09:04.880
+Oh, oh.
+
+01:09:12.360 --> 01:09:24.120
+kannst einkaufen twitch twitch hat jetzt ein neues feature du kannst jetzt auf pause drücken
+
+01:09:24.120 --> 01:09:30.460
+und ach das geht gar nicht muss man das einschalten irgendwie dass man pause drücken
+
+01:09:30.460 --> 01:09:40.380
+kann ich habe nämlich gesehen manche streamer haben jetzt eine pause funktion nur wenn man
+
+01:09:40.380 --> 01:09:51.240
+subscribed ist ach so aber ich darf das bei mir selbst nicht machen ich dachte
+
+01:09:51.240 --> 01:09:57.300
+ich bin wenigstens bei mir selbst subscribed im eigenen stream darf man
+
+01:09:57.300 --> 01:10:03.120
+nicht dann musste dann musste höchstens das wort nachher gucken ich will dich
+
+01:10:03.120 --> 01:10:08.000
+jetzt nicht vom einkaufen abhalten gibt nicht mal lange heute was
+
+01:10:10.380 --> 01:10:14.200
+So, also, jetzt mal hier in mich gehen.
+
+01:10:19.100 --> 01:10:21.800
+Wie punzt das jetzt eigentlich?
+
+01:10:25.160 --> 01:10:30.760
+Wie ist das denn mit Error-Handling eigentlich in Rust?
+
+01:10:31.520 --> 01:10:34.120
+Guck mal, weil hier wird ja immer Unwrap verwendet.
+
+01:10:34.220 --> 01:10:36.560
+Bei Unwrap crasht das Ganze direkt.
+
+01:10:36.560 --> 01:10:42.680
+Aber wenn ich jetzt den Fehler printen will, anstatt irgendwie eine ordentliche Ausgabe machen will.
+
+01:10:43.920 --> 01:10:46.560
+Gibt es da irgendwie so eine automatische...
+
+01:10:47.460 --> 01:10:48.280
+Ah, guck mal hier.
+
+01:10:48.800 --> 01:10:51.560
+Replace unwrapped with dry.
+
+01:10:54.500 --> 01:10:55.460
+Oder match.
+
+01:10:59.740 --> 01:11:00.500
+Aha.
+
+01:11:00.500 --> 01:11:00.580
+Aha.
+
+01:11:00.580 --> 01:11:07.100
+Oh, das ist ja eklig
+
+01:11:07.100 --> 01:11:09.140
+Ähm, by the way
+
+01:11:09.140 --> 01:11:10.300
+Ich will Format haben
+
+01:11:10.300 --> 01:11:11.960
+Format und Save
+
+01:11:11.960 --> 01:11:14.640
+Ich hab
+
+01:11:14.640 --> 01:11:18.000
+Format und Save
+
+01:11:18.000 --> 01:11:18.680
+Unbedingt
+
+01:11:18.680 --> 01:11:27.500
+Hm
+
+01:11:27.500 --> 01:11:30.420
+Jetzt geht's hier um
+
+01:11:30.420 --> 01:11:33.060
+Rust-Geschichten. Also erst einmal
+
+01:11:33.060 --> 01:11:35.120
+App kommt nicht da oben hin, App kommt
+
+01:11:35.120 --> 01:11:37.160
+hier unten hin, weil ansonsten
+
+01:11:37.760 --> 01:11:40.700
+Listener, Mensch, also
+
+01:11:40.700 --> 01:11:44.800
+Ja, ja, das
+
+01:11:44.800 --> 01:11:47.220
+prinzipiell weiß ich das, aber
+
+01:11:47.220 --> 01:11:49.220
+würde ich jetzt
+
+01:11:49.220 --> 01:11:51.200
+dann beispielsweise, aber ich will ja
+
+01:11:51.200 --> 01:11:53.200
+kann ich
+
+01:11:53.200 --> 01:11:55.220
+okay, kann ich sowas hier machen?
+
+01:11:57.140 --> 01:11:57.540
+Return?
+
+01:11:58.380 --> 01:11:59.280
+Ach, das geht da
+
+01:11:59.280 --> 01:12:01.300
+drinne. Okay. Und jetzt könnte ich hier sagen
+
+01:12:01.300 --> 01:12:02.100
+Print line.
+
+01:12:03.100 --> 01:12:05.020
+Genau. Super. So.
+
+01:12:05.400 --> 01:12:06.240
+AI Champ.
+
+01:12:08.040 --> 01:12:09.480
+AI hat's kaputt gemacht.
+
+01:12:14.420 --> 01:12:15.380
+Unexpected token
+
+01:12:15.380 --> 01:12:15.960
+return.
+
+01:12:17.260 --> 01:12:17.780
+Hä?
+
+01:12:19.840 --> 01:12:20.320
+Warum?
+
+01:12:24.480 --> 01:12:24.960
+Hä?
+
+01:12:29.280 --> 01:12:32.640
+Moment, erholt sich vielleicht?
+
+01:12:44.940 --> 01:12:48.100
+Erholt sich Bacon nicht, wenn es mal einen Compile-Fehler gab?
+
+01:12:50.740 --> 01:12:52.000
+Ja, das ist ja doof.
+
+01:12:53.760 --> 01:12:56.340
+Wenn es mal einen Compile-Fehler gab, checkt es Bacon nicht.
+
+01:12:56.340 --> 01:12:59.780
+Das ist immer so halbherziges Zeug
+
+01:12:59.780 --> 01:13:00.680
+Oder ich bin zu dumm für
+
+01:13:00.680 --> 01:13:02.500
+Das kann natürlich auch sein
+
+01:13:02.500 --> 01:13:07.620
+Muss man eben abbrechen danach nochmal
+
+01:13:07.620 --> 01:13:09.520
+Da gibt es vielleicht auch eine Option für
+
+01:13:09.520 --> 01:13:10.320
+Um das zu setzen
+
+01:13:10.320 --> 01:13:12.620
+Print R
+
+01:13:12.620 --> 01:13:19.060
+Ne, gibt es nicht
+
+01:13:19.060 --> 01:13:21.100
+Das ist
+
+01:13:21.100 --> 01:13:22.660
+E-Print
+
+01:13:22.660 --> 01:13:34.180
+gibt es auch noch was da jetzt der unterschied okay wir machen cargo run ist mir zu doof mit
+
+01:13:34.180 --> 01:13:43.060
+bacon so fail to buy also wir haben jetzt mal was rein was es garantiert nicht gibt
+
+01:13:43.060 --> 01:13:58.900
+er brennt auf standard auf standard error ja okay fällt zu beiden tue blablup sowieso ja das ist okay
+
+01:13:58.900 --> 01:14:03.880
+das kann man so lassen aber dann bricht er auch ab danach ja das finde ich schon mal ganz brauchbar
+
+01:14:03.880 --> 01:14:14.200
+dass er abbricht das heißt sobald das funzt geht es weiter und er startet den server ja
+
+01:14:14.200 --> 01:14:22.180
+auch ganz nice gut da kommen wir schon zum ersten problem wie macht man command line
+
+01:14:22.180 --> 01:14:31.180
+parsing in rust gibt es garantiert fertige libraries für weil man möchte ja vielleicht
+
+01:14:31.180 --> 01:14:39.000
+den port und die adresse irgendwie überschreiben
+
+01:14:41.460 --> 01:14:44.420
+das machen wir doch mal
+
+01:14:45.060 --> 01:14:50.740
+doch ich kann cargo watch verwenden aber cargo watch ist wohl deprecated
+
+01:14:50.740 --> 01:14:53.580
+Crates.io.
+
+01:14:53.860 --> 01:14:56.440
+Wir gucken mal, was man bei CLI so findet.
+
+01:15:02.860 --> 01:15:04.320
+Updated 10 years ago.
+
+01:15:05.380 --> 01:15:07.240
+Ja, genau.
+
+01:15:08.340 --> 01:15:09.580
+Das brauchen wir.
+
+01:15:11.240 --> 01:15:11.820
+Hackweight.
+
+01:15:12.600 --> 01:15:12.940
+Clap.
+
+01:15:17.800 --> 01:15:18.860
+Easy Clap.
+
+01:15:20.740 --> 01:15:31.020
+So.
+
+01:15:35.020 --> 01:15:36.600
+Das habe ich schon mal benutzt, Leute.
+
+01:15:37.660 --> 01:15:39.800
+Jetzt, wo ich das sehe, kommt mir das bekannt vor.
+
+01:15:42.180 --> 01:15:43.000
+Das kenne ich.
+
+01:15:43.560 --> 01:15:44.640
+Das habe ich schon mal benutzt.
+
+01:15:48.640 --> 01:15:49.640
+Gucken wir mal kurz hier.
+
+01:15:49.980 --> 01:15:50.380
+Examples.
+
+01:15:50.740 --> 01:16:00.060
+Oh, gibt es da vielleicht noch was
+
+01:16:00.060 --> 01:16:01.000
+Einfaches?
+
+01:16:06.900 --> 01:16:07.420
+Monka
+
+01:16:07.420 --> 01:16:09.460
+Es, Alter, wie kompliziert will ich es machen?
+
+01:16:09.460 --> 01:16:22.340
+Gibt es da vielleicht auch ein Easy-Beispiel?
+
+01:16:22.340 --> 01:16:24.960
+Was ich checke?
+
+01:16:24.960 --> 01:16:28.960
+Demo, Demo-RS.
+
+01:16:28.960 --> 01:16:31.220
+Okay, das sieht übersichtlich aus.
+
+01:16:31.220 --> 01:16:37.760
+simple program to greet a person
+
+01:16:37.760 --> 01:16:43.520
+command version about
+
+01:16:43.520 --> 01:16:51.200
+struktur
+
+01:17:01.220 --> 01:17:03.800
+Achso, Moment, ich muss Clap erst noch installieren.
+
+01:17:07.780 --> 01:17:09.080
+Das ist ja nice.
+
+01:17:10.280 --> 01:17:14.460
+Das finde ich richtig nice, dass die IDE das checkt und für mich einfügen kann.
+
+01:17:14.540 --> 01:17:15.520
+Das ist mega praktisch.
+
+01:17:23.240 --> 01:17:25.000
+Guck mal, das ist gut.
+
+01:17:27.400 --> 01:17:30.740
+Guck mal, genau. Und die hat sogar gecheckt, dass ich Parser verwende.
+
+01:17:31.220 --> 01:17:51.560
+excellent xxx so dann machen wir jetzt mal hier so was wie address ort 16 aber oft heimste auch
+
+01:17:51.560 --> 01:18:03.120
+keine hilfe text was short long was was bedeutet das die fall value check ich
+
+01:18:03.120 --> 01:18:16.320
+ja noch die fortwählen 80 80 die kann ich so was sagen wie die ford well you
+
+01:18:16.320 --> 01:18:19.840
+Punkt 1.
+
+01:18:21.920 --> 01:18:22.200
+Ah, ne.
+
+01:18:25.200 --> 01:18:26.140
+Default Value.
+
+01:18:27.380 --> 01:18:28.840
+Warum ist da ein T hintendran?
+
+01:18:29.440 --> 01:18:29.600
+Hä?
+
+01:18:31.180 --> 01:18:31.680
+Was?
+
+01:18:39.880 --> 01:18:41.600
+Warum Default Value T?
+
+01:18:42.340 --> 01:18:44.440
+Was soll denn T überhaupt bedeuten?
+
+01:18:46.320 --> 01:19:00.000
+und kein short so version about wie geht es jetzt weiter
+
+01:19:06.200 --> 01:19:07.780
+einfach hier sagen pass
+
+01:19:07.780 --> 01:19:10.880
+ok
+
+01:19:10.880 --> 01:19:16.720
+args pass ok run
+
+01:19:16.720 --> 01:19:25.660
+ach so na gut ich sollte ja vielleicht noch was ausgeben das wäre noch ganz sinnvoll gibt es denn
+
+01:19:25.660 --> 01:19:34.420
+jetzt so was wie help zum beispiel das ist nice guck mal und sogar ein version dings hat da hinzu
+
+01:19:34.420 --> 01:19:36.900
+Waschschirm 0.1.
+
+01:19:38.500 --> 01:19:40.340
+Der generiert automatisch Hilfe.
+
+01:19:40.740 --> 01:19:42.460
+Auch nice. Das finde ich gut.
+
+01:19:42.900 --> 01:19:44.420
+Das machen die meisten so Command Line
+
+01:19:44.420 --> 01:19:46.300
+Frameworks, aber das finde ich gut, dass das die
+
+01:19:46.300 --> 01:19:47.400
+Rust Variante auch macht.
+
+01:19:50.460 --> 01:19:51.120
+Oh, gut.
+
+01:19:54.940 --> 01:19:56.380
+Was sind diese anderen Dinger
+
+01:19:56.380 --> 01:19:58.120
+hier? About und
+
+01:19:58.120 --> 01:20:00.040
+Version About gibt es doch gar nicht.
+
+01:20:00.260 --> 01:20:01.300
+Minus, Minus, About.
+
+01:20:04.420 --> 01:20:07.260
+Nö, gibt's nicht.
+
+01:20:10.260 --> 01:20:13.100
+Ach so, mit den drei Slashes taucht's in der Hilfe auf.
+
+01:20:13.820 --> 01:20:15.020
+Aber das checkt man so auch.
+
+01:20:16.820 --> 01:20:18.340
+Bout gibt's nicht und lange Bout an.
+
+01:20:19.080 --> 01:20:20.080
+Weg, weg damit.
+
+01:20:22.040 --> 01:20:24.800
+Dann können wir das doch hier AppConfig nennen.
+
+01:20:28.160 --> 01:20:29.740
+Ah, AppConfig.
+
+01:20:29.920 --> 01:20:31.840
+Und jetzt printen wir davon mal was.
+
+01:20:32.240 --> 01:20:33.220
+Ah, nächstes Problem.
+
+01:20:33.220 --> 01:20:35.920
+Wie mache ich Structured
+
+01:20:35.920 --> 01:20:37.800
+Structured JSON Logging
+
+01:20:37.800 --> 01:20:40.360
+Also wenn ich das Ding
+
+01:20:40.360 --> 01:20:41.500
+Jetzt hier zum Beispiel
+
+01:20:41.500 --> 01:20:45.700
+Printen will, gescheit
+
+01:20:45.700 --> 01:20:51.560
+Ja gut
+
+01:20:51.560 --> 01:20:56.360
+Ne, ist ja schon fast
+
+01:20:56.360 --> 01:20:58.080
+Ne, ist es nicht
+
+01:20:58.080 --> 01:21:00.320
+Das ist jetzt diese Representation
+
+01:21:00.320 --> 01:21:03.000
+Intern von Rust
+
+01:21:03.000 --> 01:21:08.600
+Nee, ich will Structured
+
+01:21:08.600 --> 01:21:10.840
+JSON Logging machen, also dass dann sowas rauskommt
+
+01:21:10.840 --> 01:21:12.560
+wie Message
+
+01:21:12.560 --> 01:21:14.520
+bla bla bla
+
+01:21:14.520 --> 01:21:16.600
+Da braucht man bestimmt
+
+01:21:16.600 --> 01:21:18.600
+irgendeine Library für
+
+01:21:18.600 --> 01:21:20.640
+Da, checken wir, Moment, Moment
+
+01:21:20.640 --> 01:21:22.760
+Wir fragen mal LM Studio
+
+01:21:22.760 --> 01:21:26.760
+Mal ein bisschen meine Grafikkarte verwenden
+
+01:21:26.760 --> 01:21:27.220
+für was
+
+01:21:33.000 --> 01:21:43.840
+So, fragen wir mal.
+
+01:21:44.660 --> 01:21:45.920
+Wie mache ich
+
+01:21:45.920 --> 01:21:48.020
+Structured Logging
+
+01:21:48.020 --> 01:21:48.760
+Hallo?
+
+01:21:55.480 --> 01:21:57.500
+In JSON, in Rust.
+
+01:22:03.000 --> 01:22:05.760
+Mit Serde und Lock empfohlen.
+
+01:22:08.760 --> 01:22:09.560
+Lock.
+
+01:22:09.740 --> 01:22:10.740
+Ist das Default?
+
+01:22:16.660 --> 01:22:17.520
+Endflogger.
+
+01:22:17.620 --> 01:22:17.820
+Init.
+
+01:22:19.420 --> 01:22:19.780
+Lock.
+
+01:22:19.920 --> 01:22:20.480
+Kontext.
+
+01:22:20.800 --> 01:22:21.040
+Aha.
+
+01:22:22.340 --> 01:22:22.760
+Level.
+
+01:22:22.940 --> 01:22:23.420
+Message.
+
+01:22:24.320 --> 01:22:24.960
+Serde.
+
+01:22:25.080 --> 01:22:27.260
+Das ist irgendwie so ein Serialisierungsding.
+
+01:22:27.680 --> 01:22:28.700
+To String.
+
+01:22:28.840 --> 01:22:29.440
+Kontext.
+
+01:22:29.620 --> 01:22:30.100
+Unwrap.
+
+01:22:30.100 --> 01:22:33.200
+Boah, das ist aber umständlich AF
+
+01:22:33.200 --> 01:22:37.400
+Mit Tracing, modernes Logging Framework
+
+01:22:37.400 --> 01:22:47.320
+Ja, und Custom Sachen gibt's
+
+01:22:49.460 --> 01:22:51.660
+Ach, hier oben ist das der Logging-Content
+
+01:22:51.660 --> 01:22:54.060
+Oh ne, das ist ja umständlich
+
+01:22:54.060 --> 01:22:57.460
+Ich will zum Beispiel auch einfach sagen können
+
+01:22:57.460 --> 01:22:59.280
+Print mir mal eine Map oder sowas
+
+01:22:59.280 --> 01:23:07.320
+tracing und tracing subscriber
+
+01:23:16.020 --> 01:23:24.240
+wie von das jetzt moment ich bin bin verwirrt tracing info war er aus band subscriber
+
+01:23:24.240 --> 01:23:29.740
+Was macht das hier für Dinger?
+
+01:23:31.860 --> 01:23:33.980
+Info, Message, Anwendung gestartet, Version.
+
+01:23:34.140 --> 01:23:36.180
+Aha, das gefällt mir schon viel besser.
+
+01:23:37.440 --> 01:23:38.580
+Von der Syntax her.
+
+01:23:42.480 --> 01:23:45.360
+Aber die Frage ist jetzt, wie kann ich nestet?
+
+01:23:49.940 --> 01:23:51.280
+Okay, oder Slog.
+
+01:23:51.560 --> 01:23:53.380
+Wir schauen mal kurz paar Crates.
+
+01:23:54.240 --> 01:23:55.880
+Slog.
+
+01:23:58.880 --> 01:24:00.000
+Ordentlich.
+
+01:24:00.280 --> 01:24:02.320
+Einfach mal 4 Millionen Downloads.
+
+01:24:03.000 --> 01:24:03.420
+Racing.
+
+01:24:04.780 --> 01:24:05.120
+Alter!
+
+01:24:06.140 --> 01:24:08.720
+62 Millionen Downloads.
+
+01:24:08.880 --> 01:24:09.360
+WTF?
+
+01:24:09.900 --> 01:24:12.220
+Okay, dann verwenden wir Tracing.
+
+01:24:13.680 --> 01:24:14.980
+Mal gucken, was mir besser gefällt
+
+01:24:14.980 --> 01:24:16.400
+von der Syntax her.
+
+01:24:16.400 --> 01:24:24.940
+Was, Train?
+
+01:24:27.620 --> 01:24:28.060
+Was?
+
+01:24:29.560 --> 01:24:32.000
+Okay, die Syntax finde ich schon mal abartig
+
+01:24:32.000 --> 01:24:39.020
+Wenn ich das schon sehe
+
+01:24:39.020 --> 01:24:40.300
+Was ist das denn, Train?
+
+01:24:40.800 --> 01:24:41.940
+Was trainet er denn?
+
+01:24:46.400 --> 01:24:57.460
+Slot hat ganz oben in der Readme auch geschrieben, you might consider using tracing instead.
+
+01:24:59.540 --> 01:25:00.160
+Okay, dann.
+
+01:25:02.800 --> 01:25:04.520
+Benutzer definierten Spannungen.
+
+01:25:05.980 --> 01:25:09.240
+Ich glaube nicht, ich glaube die meinen Span, oder? Nicht Spannung.
+
+01:25:09.240 --> 01:25:16.980
+User Context
+
+01:25:16.980 --> 01:25:31.200
+Okay, dann benutzen wir Tracing
+
+01:25:36.600 --> 01:25:38.060
+Ach, hier kann man auch Wasser
+
+01:25:38.060 --> 01:25:40.380
+Nee, ich will immer in Jason Dongen.
+
+01:25:41.880 --> 01:25:42.700
+Okay, Tracing.
+
+01:25:42.880 --> 01:25:44.260
+Und Tracing.
+
+01:25:45.480 --> 01:25:47.300
+Tracing und Tracing.
+
+01:25:49.120 --> 01:25:50.020
+Brauchen wir jetzt.
+
+01:25:50.220 --> 01:25:51.480
+Okay, dann schauen wir mal.
+
+01:25:51.740 --> 01:25:52.200
+Tracing.
+
+01:25:53.640 --> 01:25:55.360
+Gucken wir mal in die Examples rein.
+
+01:25:55.800 --> 01:25:57.460
+Das finde ich bei Rust-Projekten auch immer gut.
+
+01:25:57.460 --> 01:25:58.860
+Hier haben wir so einen Examples-Ordner.
+
+01:25:59.560 --> 01:25:59.960
+Examples.
+
+01:26:02.280 --> 01:26:04.720
+Gibt es da auch wieder ein Hello World oder sowas?
+
+01:26:05.960 --> 01:26:07.100
+Hello? Hello World?
+
+01:26:07.100 --> 01:26:08.300
+Nee, gibt's nicht. Ja, geil.
+
+01:26:08.860 --> 01:26:09.380
+Was haben wir denn hier?
+
+01:26:10.920 --> 01:26:11.440
+Valuable.
+
+01:26:11.740 --> 01:26:11.940
+What?
+
+01:26:13.000 --> 01:26:17.080
+Tower, Tokyo, Threat Info, Panic, Lock.
+
+01:26:17.220 --> 01:26:17.960
+Lock klingt gut.
+
+01:26:25.880 --> 01:26:26.800
+Format, Custom.
+
+01:26:28.000 --> 01:26:28.680
+Format, Jason.
+
+01:26:28.920 --> 01:26:29.460
+Das klingt gut.
+
+01:26:32.480 --> 01:26:33.320
+Format, Jason.
+
+01:26:33.720 --> 01:26:34.180
+Das ist gut.
+
+01:26:34.920 --> 01:26:35.180
+Okay.
+
+01:26:35.180 --> 01:26:38.140
+Das ist minimalistisch hier
+
+01:26:38.140 --> 01:26:39.420
+Was ist?
+
+01:26:39.560 --> 01:26:41.040
+Tracing Subscriber
+
+01:26:41.040 --> 01:26:43.260
+FNT with max level in it
+
+01:26:43.260 --> 01:26:46.200
+Ja, das ist ja nur wirklich überschaubar
+
+01:26:46.200 --> 01:26:48.380
+Vom Boilerplate
+
+01:26:48.380 --> 01:26:49.820
+Und Zeremonie drumherum
+
+01:26:49.820 --> 01:26:53.840
+Das finde ich okay
+
+01:26:53.840 --> 01:26:55.180
+Das hat was
+
+01:26:55.180 --> 01:27:04.040
+Ähm
+
+01:27:04.040 --> 01:27:06.680
+War ne Frage
+
+01:27:06.680 --> 01:27:08.480
+Woher kommt Lock?
+
+01:27:12.520 --> 01:27:14.580
+Ich kopier mir das mal kurz hier rein
+
+01:27:20.680 --> 01:27:22.780
+Der würde das hinzufügen
+
+01:27:22.780 --> 01:27:28.940
+No
+
+01:27:28.940 --> 01:27:33.580
+Lock will ich nicht
+
+01:27:33.580 --> 01:27:40.340
+kann man jetzt hier at tracing subscriber to dependencies und jetzt
+
+01:27:40.340 --> 01:27:46.760
+ach so jetzt macht das einzel ja ok und jetzt at tracing to dependencies
+
+01:27:56.160 --> 01:28:00.540
+das model ist doch ist doch so war doch so schnell schon ich hab's ich habe so
+
+01:28:00.540 --> 01:28:08.040
+settings für offloading ist hier irgendwo guckt das ist schon eigentlich fast auf max maximum
+
+01:28:08.040 --> 01:28:17.860
+ist es auch so schnell so tracing das ist ein max level standard max level
+
+01:28:17.860 --> 01:28:21.300
+jetzt ran
+
+01:28:21.300 --> 01:28:37.300
+Achso, Debug ist standardmäßig gar nicht aktiviert wahrscheinlich. Gibt es sowas wie Info?
+
+01:28:37.300 --> 01:28:43.540
+Guck mal hier, Info, this is the tracing. Moment, Moment, Moment, Moment, Moment. Ich will ja Jason,
+
+01:28:43.540 --> 01:28:49.780
+ich will ja einen Jason Output haben. Gibt es sowas wie hier, ah, Jason. Ne, gibt es nicht.
+
+01:28:49.780 --> 01:29:01.100
+war moment die idee ist richtig nice das muss ich mal sagen chat brains pock guck mal hier alles
+
+01:29:01.100 --> 01:29:04.840
+was ich jetzt manuell mir irgendwie zusammensuchen müsste über google check das ding schon von sich
+
+01:29:04.840 --> 01:29:13.620
+aus das kannst du kannst du wirklich sagen das ist top und schon haben wir jason logs
+
+01:29:13.620 --> 01:29:20.940
+timestamp level info fields message das ist ein tracing line target rust champ das brauchen wir
+
+01:29:20.940 --> 01:29:28.260
+nicht was haben wir sonst noch hier für sachen zur auswahl in den fmt compact
+
+01:29:28.260 --> 01:29:36.180
+less verbose formatter was passiert da
+
+01:29:36.180 --> 01:29:46.760
+glaube das hat kaputt gemacht
+
+01:29:46.760 --> 01:29:48.760
+macht.
+
+01:29:55.640 --> 01:30:01.180
+Pretty with ansie? Ach, dann macht er das farbig.
+
+01:30:06.440 --> 01:30:09.220
+Ja gut, aber halt jasonlocks kannst du halt farbig machen.
+
+01:30:09.220 --> 01:30:15.980
+mit file, ne
+
+01:30:15.980 --> 01:30:22.540
+level
+
+01:30:22.540 --> 01:30:25.060
+was ist denn
+
+01:30:25.060 --> 01:30:26.240
+eine span in dem
+
+01:30:26.240 --> 01:30:28.420
+in dem Zusammenhang
+
+01:30:28.420 --> 01:30:36.180
+with file, with level
+
+01:30:36.180 --> 01:30:37.980
+with line number
+
+01:30:37.980 --> 01:30:40.220
+Max Level Span Event.
+
+01:30:41.340 --> 01:30:41.900
+Target.
+
+01:30:42.840 --> 01:30:43.940
+Ne, Target.
+
+01:30:46.120 --> 01:30:48.420
+Target, aber False, dass das weg ist.
+
+01:30:51.780 --> 01:30:52.160
+Also was
+
+01:30:52.160 --> 01:30:54.280
+eine Span ist, musst du es mir noch
+
+01:30:54.280 --> 01:30:54.760
+erklären.
+
+01:30:57.140 --> 01:30:57.720
+Span.
+
+01:31:00.060 --> 01:31:01.460
+Ah geil, gibt es nichts dazu.
+
+01:31:07.980 --> 01:31:10.040
+Info-Span?
+
+01:31:13.740 --> 01:31:14.740
+Instrument?
+
+01:31:14.840 --> 01:31:15.980
+Was zum...
+
+01:31:19.980 --> 01:31:22.440
+Okay, hier wird irgendwelches Zeug...
+
+01:31:22.440 --> 01:31:23.340
+Ich hab kein Plassen.
+
+01:31:23.940 --> 01:31:28.420
+Was da passiert gerade?
+
+01:31:32.220 --> 01:31:33.240
+Tracing?
+
+01:31:33.620 --> 01:31:34.880
+Info-Span?
+
+01:31:37.980 --> 01:31:43.200
+Was passiert jetzt?
+
+01:31:44.760 --> 01:31:45.160
+Nix.
+
+01:31:45.360 --> 01:31:46.220
+Das wird nicht ausgegeben.
+
+01:31:46.640 --> 01:31:47.080
+Ja, toll.
+
+01:31:49.180 --> 01:31:51.220
+Ne, das muss ich hier irgendwie machen.
+
+01:31:51.700 --> 01:31:53.060
+Okay, aber das scheint ja mit Logging
+
+01:31:53.060 --> 01:31:54.380
+schon mal ganz gut zu funktionieren.
+
+01:31:54.860 --> 01:31:56.860
+Jetzt ist nur die Preisfrage, wie kriege ich hier
+
+01:31:56.860 --> 01:31:57.940
+gescheit Sachen rein?
+
+01:31:58.800 --> 01:32:00.400
+Also wie kriege ich jetzt hier rein
+
+01:32:00.400 --> 01:32:03.160
+meine App-Config
+
+01:32:03.160 --> 01:32:05.080
+zum Beispiel? Machen wir das doch mal
+
+01:32:05.080 --> 01:32:05.360
+hier.
+
+01:32:05.360 --> 01:32:08.640
+da stand doch irgendwas
+
+01:32:08.640 --> 01:32:10.600
+von, man konnte
+
+01:32:10.600 --> 01:32:12.800
+irgendwie mit Equals dazwischen
+
+01:32:12.800 --> 01:32:14.400
+also irgendwie Config gleich
+
+01:32:14.400 --> 01:32:16.420
+das da, geht nicht
+
+01:32:16.420 --> 01:32:18.280
+Named
+
+01:32:18.280 --> 01:32:20.860
+Argument never used
+
+01:32:20.860 --> 01:32:22.700
+vielleicht weil der String
+
+01:32:22.700 --> 01:32:23.720
+vorne drin ist
+
+01:32:23.720 --> 01:32:25.440
+öh
+
+01:32:25.440 --> 01:32:28.600
+darf ich den String dahinter machen dann
+
+01:32:28.600 --> 01:32:30.260
+auch nicht
+
+01:32:30.260 --> 01:32:31.960
+doof
+
+01:32:31.960 --> 01:32:34.780
+Config args trade
+
+01:32:34.780 --> 01:32:37.200
+Tracing value is not
+
+01:32:37.200 --> 01:32:39.240
+certified. Ach, muss ich...
+
+01:32:41.020 --> 01:32:41.900
+Wie geht denn das?
+
+01:32:42.600 --> 01:32:43.020
+Debug?
+
+01:32:52.020 --> 01:32:53.380
+Kann man so irgendwie
+
+01:32:53.380 --> 01:32:53.680
+machen?
+
+01:32:53.680 --> 01:32:54.660
+Nee.
+
+01:32:57.060 --> 01:32:59.460
+Ich brauche ein Beispiel.
+
+01:33:04.780 --> 01:33:16.540
+fragezeichen links und rechts dahinter vorne in das kannst du das glaube ich nicht ach guck mal hier
+
+01:33:22.660 --> 01:33:26.840
+ein prozent vor
+
+01:33:26.840 --> 01:33:35.620
+geht auch nicht. display is not implemented. ah ich hab nur debug
+
+01:33:35.620 --> 01:33:47.660
+also was soll ich fragen? hä das geht was ist das für eine syntax wieder alter. rust man.
+
+01:33:47.660 --> 01:33:52.640
+okay so und was passiert jetzt
+
+01:33:52.640 --> 01:34:05.540
+es geht nicht das sieht kacke aus moment der macht das ist falsch was der macht ich will
+
+01:34:05.540 --> 01:34:10.580
+das als jason objekt log nicht als nicht als komischer string mit es also ich will das als
+
+01:34:10.580 --> 01:34:11.960
+nested
+
+01:34:11.960 --> 01:34:14.980
+nested
+
+01:34:14.980 --> 01:34:16.840
+objects loggen. Also ich will loggen
+
+01:34:16.840 --> 01:34:19.240
+config, Klammer auf,
+
+01:34:19.540 --> 01:34:21.100
+address, das da,
+
+01:34:21.240 --> 01:34:23.180
+das da. Ich will nicht irgendwie
+
+01:34:23.180 --> 01:34:27.240
+so ein
+
+01:34:27.240 --> 01:34:28.800
+Rust-Object im...
+
+01:34:28.800 --> 01:34:31.120
+Da muss ich mein Model mal fragen,
+
+01:34:31.120 --> 01:34:32.280
+wie das funzt.
+
+01:34:35.680 --> 01:34:36.160
+Ups.
+
+01:34:40.580 --> 01:34:50.980
+Wir machen mal ein Beispiel, wie das das checkt.
+
+01:34:50.980 --> 01:34:54.400
+Let map gleich new, ach Quatsch, Moment.
+
+01:34:55.060 --> 01:34:56.440
+Hash map.
+
+01:34:59.340 --> 01:35:01.420
+Das darf man doch weglassen, ne?
+
+01:35:01.940 --> 01:35:02.740
+War das nicht so?
+
+01:35:02.980 --> 01:35:03.180
+Doch.
+
+01:35:03.640 --> 01:35:04.520
+Jetzt kann man sagen map.
+
+01:35:06.000 --> 01:35:06.980
+Map insert.
+
+01:35:09.240 --> 01:35:09.740
+Tackle.
+
+01:35:10.580 --> 01:35:16.820
+Was ist das Problem?
+
+01:35:18.260 --> 01:35:19.260
+Cannot borrow Mut-Tipp.
+
+01:35:19.340 --> 01:35:20.900
+Ah, jetzt kommt die Rust-Geschichte.
+
+01:35:21.900 --> 01:35:23.180
+Ach so, ah, man muss
+
+01:35:23.180 --> 01:35:24.520
+da vorschreiben, dass es Mut ist.
+
+01:35:26.060 --> 01:35:27.280
+Chat, was ist denn der Unterschied
+
+01:35:27.280 --> 01:35:28.680
+zwischen so und
+
+01:35:28.680 --> 01:35:30.120
+und so?
+
+01:35:30.120 --> 01:35:30.160
+Oh.
+
+01:35:31.740 --> 01:35:32.920
+Hä, das ist genau...
+
+01:35:32.920 --> 01:35:33.520
+Hä?
+
+01:35:40.580 --> 01:36:04.140
+So, ich bin wieder da.
+
+01:36:04.140 --> 01:36:06.060
+Ähm.
+
+01:36:09.980 --> 01:36:10.300
+So.
+
+01:36:10.580 --> 01:36:20.080
+Ich schreibt mal, ich will die Map als nested Object finden.
+
+01:36:20.080 --> 01:36:28.400
+Okay, jetzt mal gespannt.
+
+01:36:28.400 --> 01:36:33.460
+Also man muss auch mal sagen, dieses Gwencoder ist gar nicht so übel für ein lokales Model.
+
+01:36:33.460 --> 01:36:36.960
+Mal gucken, ob das stimmt, was es da jetzt raushaut.
+
+01:36:36.960 --> 01:36:43.260
+in was kann man herbst nicht direkt als strukturierte daten in tracing log zu
+
+01:36:43.260 --> 01:36:48.420
+werden aber es gibt mehrere möglichkeiten das zu erreichen wie viele gigabyte verbraucht die
+
+01:36:48.420 --> 01:36:55.000
+das hat auf jeden fall in die grafikkarte gepasst wo sieht man das
+
+01:36:55.000 --> 01:37:04.680
+18,63 gig
+
+01:37:04.680 --> 01:37:12.180
+Was hat meine Grafikkarte für
+
+01:37:12.180 --> 01:37:13.700
+Wie viel Speicher? 24 Gig
+
+01:37:13.700 --> 01:37:14.700
+Hat die glaube ich
+
+01:37:34.680 --> 01:37:39.140
+also erstmal kurz gucken was das hier sagt in rast kann man herbst nicht
+
+01:37:39.140 --> 01:37:42.780
+direkt als strukturelle daten in tracing los gibt mehr das zu erreichen mit sehr
+
+01:37:42.780 --> 01:37:51.360
+der jason nee das ist falsch das habe ich ja schon gemacht
+
+01:37:54.080 --> 01:37:59.900
+das habe ich ja schon gemacht das ist blödsinn
+
+01:38:04.680 --> 01:38:14.300
+dann macht er das ist das ist verkehrt das kann nicht funktionieren hier kommt
+
+01:38:14.300 --> 01:38:20.920
+eine jason string raus denen dann wiederum embedded in den jason string
+
+01:38:20.920 --> 01:38:25.980
+dass das also ich glaube das ist blödsinn was das hier anzeigt mit sehr
+
+01:38:25.980 --> 01:38:39.860
+der attributen direkt direkte jason formatierung ja ist klar
+
+01:38:44.860 --> 01:38:50.660
+also da sage ich mal das funktioniert alles nicht was da ihr anzeigt
+
+01:38:50.660 --> 01:39:02.120
+vollständiges beispiel mit tracing das ist mist okay wir geben google mal eine
+
+01:39:02.120 --> 01:39:09.020
+chance leute google hat doch jetzt diesen komischen ki modus die fragen wir jetzt mal
+
+01:39:09.020 --> 01:39:10.840
+frage jetzt den Google KI Modus.
+
+01:39:11.840 --> 01:39:12.900
+Google nervt nicht rum.
+
+01:39:16.200 --> 01:39:17.360
+AI Modus.
+
+01:39:17.740 --> 01:39:18.540
+So, also.
+
+01:39:24.120 --> 01:39:25.060
+Ich will
+
+01:39:25.060 --> 01:39:27.400
+ähm
+
+01:39:27.400 --> 01:39:28.620
+in Rust
+
+01:39:28.620 --> 01:39:31.320
+die Map als Nested
+
+01:39:31.320 --> 01:39:32.240
+Object
+
+01:39:32.240 --> 01:39:34.060
+finden.
+
+01:39:34.060 --> 01:39:43.260
+nicht als Jason String in Jason Strings added.
+
+01:39:44.100 --> 01:39:47.220
+So, gucken wir mal, ob das versteht überhaupt, was ich von ihm will.
+
+01:39:48.360 --> 01:39:53.320
+In Rust Tracing für ein komplexes Wert stellen wir über ihr Debug-Trade als flacher String gelockt,
+
+01:39:53.360 --> 01:39:56.540
+um eine Hashmap in der Jason-Ausgabe als echtes Verschachtel statt Stringer zu geben.
+
+01:39:56.540 --> 01:40:05.360
+das 2 die experimentelle experimentelle value able unterstützung empfohlen für
+
+01:40:05.360 --> 01:40:11.840
+echte objekte das klingt doch gut oder was ist das zweite rapper mit serde wenn
+
+01:40:11.840 --> 01:40:15.720
+du kein anstieg benutzen möchte kannst du ein hilfstück verwenden dass der
+
+01:40:15.720 --> 01:40:19.900
+implement und die selbe trance
+
+01:40:26.540 --> 01:40:35.260
+Das Value Able Ökosystem.
+
+01:40:35.260 --> 01:40:37.260
+Aha.
+
+01:40:37.260 --> 01:40:50.780
+Aha.
+
+01:40:52.360 --> 01:40:53.760
+Okay, wie funktioniert das?
+
+01:40:53.840 --> 01:40:54.460
+Die Pendancies.
+
+01:40:55.420 --> 01:40:56.260
+Value able.
+
+01:40:58.740 --> 01:41:00.140
+Okay, Moment, Moment, Moment.
+
+01:41:00.360 --> 01:41:02.500
+Das muss ich jetzt erst mal checken, was das von mir will.
+
+01:41:04.940 --> 01:41:06.280
+Value able hinzufügen.
+
+01:41:06.280 --> 01:41:08.100
+Wir vertrauen dem Model jetzt einfach mal.
+
+01:41:08.200 --> 01:41:10.160
+Es könnte auch sein, dass es übelst ein Bullshit anzeigt.
+
+01:41:12.760 --> 01:41:13.200
+Valuable.
+
+01:41:13.460 --> 01:41:13.600
+So.
+
+01:41:14.480 --> 01:41:14.920
+Tracing.
+
+01:41:17.960 --> 01:41:18.540
+Ja, Moment.
+
+01:41:18.600 --> 01:41:19.760
+Da schreiben wir doch gleich mal hier rein.
+
+01:41:19.820 --> 01:41:20.560
+1.44.
+
+01:41:20.940 --> 01:41:21.060
+Ja.
+
+01:41:21.660 --> 01:41:24.000
+Und hier machen wir auch 1.11.
+
+01:41:24.260 --> 01:41:26.100
+Und zwar Hardcoded Version reinschreiben.
+
+01:41:26.980 --> 01:41:28.700
+Und dann brauchen wir Tracing Subscriber.
+
+01:41:29.380 --> 01:41:33.980
+Tracing Subscriber soll auch noch Valuable kriegen.
+
+01:41:33.980 --> 01:41:35.880
+Und das kriegt hier Derive.
+
+01:41:36.280 --> 01:41:38.060
+Dann haben wir das drinnen stehen.
+
+01:41:38.420 --> 01:41:39.840
+Kompilieren mit den Flex.
+
+01:41:40.380 --> 01:41:43.260
+Rust Flex minus minus CFG.
+
+01:41:44.600 --> 01:41:46.740
+Wir benutzen Unstable Features.
+
+01:41:46.940 --> 01:41:47.780
+So mag ich das.
+
+01:41:48.060 --> 01:41:48.380
+Beste.
+
+01:41:52.940 --> 01:41:56.600
+Und jetzt kann ich sagen, Config Map S Value.
+
+01:41:57.440 --> 01:41:57.840
+Aha.
+
+01:41:59.120 --> 01:42:01.600
+Das ist richtig blazingly fast.
+
+01:42:01.600 --> 01:42:06.600
+Guck mal hier, wie fast ich bin beim Programme erstellen schon.
+
+01:42:07.440 --> 01:42:09.780
+In .NET hätte ich wahrscheinlich eine komplette Anwendung schon fertig,
+
+01:42:09.900 --> 01:42:11.760
+aber in Rust bin ich noch, wie konfiguriere ich Logging?
+
+01:42:13.800 --> 01:42:16.080
+Aber wenn es läuft, ist es blazingly fast.
+
+01:42:17.800 --> 01:42:18.780
+Was muss ich jetzt machen?
+
+01:42:19.100 --> 01:42:20.940
+S-Value.
+
+01:42:22.800 --> 01:42:23.440
+Geht nicht.
+
+01:42:24.940 --> 01:42:25.780
+Unresolved Reference.
+
+01:42:26.180 --> 01:42:30.460
+Ach so, das geht jetzt nicht, weil ich noch nicht Unstable hinzugefügt habe.
+
+01:42:30.460 --> 01:42:32.340
+Ne? Jetzt muss ich das hier sagen.
+
+01:42:33.160 --> 01:42:33.800
+Cargo run.
+
+01:42:41.500 --> 01:42:41.980
+Fuck.
+
+01:42:43.120 --> 01:42:44.500
+Method not found. Ah, ich hab bestimmt
+
+01:42:44.500 --> 01:42:45.660
+irgendwas nicht eingebunden.
+
+01:42:48.640 --> 01:42:49.120
+Import.
+
+01:42:50.940 --> 01:42:52.260
+Value able hab ich nicht
+
+01:42:52.260 --> 01:42:54.560
+geused. Guck mal mal, ob es ohne
+
+01:42:54.560 --> 01:42:55.640
+unstable funktioniert.
+
+01:42:56.700 --> 01:42:57.800
+Ne? Mit unstable?
+
+01:42:58.340 --> 01:42:58.580
+Ah.
+
+01:42:58.580 --> 01:43:02.320
+Guck mal, es funzt.
+
+01:43:03.420 --> 01:43:07.880
+Ich habe ein JSON-Objekt jetzt ordentlich als Objekt und nicht als Embedded in einen JSON,
+
+01:43:08.060 --> 01:43:09.480
+in einen anderen JSON-String-Embed.
+
+01:43:09.540 --> 01:43:10.880
+Genauso will ich das haben.
+
+01:43:11.400 --> 01:43:13.540
+So mag ich das.
+
+01:43:13.820 --> 01:43:20.660
+Kann das jetzt, die nächste Frage, kann das Ding auch meine App-Config serialisieren?
+
+01:43:22.920 --> 01:43:24.000
+S-Value.
+
+01:43:25.180 --> 01:43:25.700
+Ne.
+
+01:43:28.580 --> 01:43:35.220
+Das war doch einfach...
+
+01:43:35.220 --> 01:43:37.760
+Ich fand es ein bisschen durch die Brust ins Auge.
+
+01:43:41.900 --> 01:43:43.120
+So, Moment.
+
+01:43:43.780 --> 01:43:44.880
+Und wie mache ich das jetzt?
+
+01:43:50.300 --> 01:43:53.200
+Ich will dieses Struct hier
+
+01:43:53.200 --> 01:43:57.500
+als Jason ausgeben.
+
+01:43:57.660 --> 01:43:58.280
+Wie mache ich das?
+
+01:43:58.580 --> 01:44:04.620
+Wobei, das habe ich blöd gefragt jetzt.
+
+01:44:05.220 --> 01:44:06.080
+Ja, ja, hier.
+
+01:44:07.760 --> 01:44:13.860
+Ich meine, ich will das Struct ausgeben mit Tracing.
+
+01:44:16.960 --> 01:44:18.820
+Ist das hier schon Vibe-Coden?
+
+01:44:20.520 --> 01:44:22.520
+So, Valuable Clap.
+
+01:44:22.520 --> 01:44:29.920
+Struct mit Value Able ausstatten.
+
+01:44:29.920 --> 01:44:33.840
+Value Able ist hier entscheidend.
+
+01:44:33.840 --> 01:44:42.760
+Okay, ja dann, nice.
+
+01:44:42.760 --> 01:44:45.840
+Value Able.
+
+01:44:45.840 --> 01:44:46.840
+Okay.
+
+01:44:46.840 --> 01:44:50.580
+Wisst ihr, für sowas ist AI gut.
+
+01:44:50.580 --> 01:44:57.140
+ich finde es nicht sinnvoll zu sagen ich stelle mir eine webseite das ist für demos gut aber
+
+01:44:57.140 --> 01:45:02.580
+dafür so dinger ist das halt richtig praktisch sofern die eiwass tag chat gpt frage ich dafür
+
+01:45:02.580 --> 01:45:06.480
+erst gar nicht ich wette mit euch chat gpt hat den größten bullshit raus von sich gegeben
+
+01:45:06.480 --> 01:45:18.020
+address port funzt ja irgendwie finde ich es nice muss ich sagen also das hat was
+
+01:45:18.020 --> 01:45:30.960
+jetzt nur die frage wie kann ich wie kann ich das hier als default machen
+
+01:45:36.480 --> 01:45:43.520
+Füge folgenden Inhalt in die Cargo-Tommel ein.
+
+01:45:46.240 --> 01:45:47.860
+Moment, in welche Datei?
+
+01:45:48.720 --> 01:45:51.100
+Cargo-Config-Tommel erstellen.
+
+01:45:51.500 --> 01:45:51.700
+Hä?
+
+01:45:52.360 --> 01:45:53.060
+Warte mal.
+
+01:45:53.780 --> 01:45:57.480
+Ich habe hier eine Cargo-Tommel und jetzt eine Cargo-Config-Tommel.
+
+01:45:57.480 --> 01:45:59.480
+What the f...
+
+01:46:00.440 --> 01:46:02.920
+Moment.
+
+01:46:05.240 --> 01:46:06.340
+Also was soll ich erstellen?
+
+01:46:06.480 --> 01:46:08.260
+Sollen Ordner erstellen.
+
+01:46:09.140 --> 01:46:09.640
+Argo.
+
+01:46:10.160 --> 01:46:11.820
+Und da drinnen jetzt eine
+
+01:46:11.820 --> 01:46:13.680
+Konfig-Tommel.
+
+01:46:15.000 --> 01:46:16.100
+Was wie? Kein Wim.
+
+01:46:17.620 --> 01:46:18.380
+Keck, wait.
+
+01:46:23.080 --> 01:46:24.560
+Äh, Abt ist richtig schnell geworden
+
+01:46:24.560 --> 01:46:26.780
+seit den letzten Debian-Versionen.
+
+01:46:27.700 --> 01:46:29.240
+Frost Flags.
+
+01:46:36.480 --> 01:46:41.880
+Ohne Wim, ohne mich sehe ich genauso.
+
+01:46:42.240 --> 01:46:42.760
+Cargo.
+
+01:46:43.520 --> 01:46:44.460
+Cargo run.
+
+01:46:45.320 --> 01:46:45.900
+Nee, Funst.
+
+01:46:46.660 --> 01:46:48.880
+Das ist richtig hier, was Google...
+
+01:46:50.500 --> 01:46:51.360
+Was für ein Model ist das?
+
+01:46:51.440 --> 01:46:51.880
+Gemini?
+
+01:46:53.400 --> 01:46:54.420
+Was das sagt.
+
+01:46:55.460 --> 01:46:56.880
+Ist auf jeden Fall besser als...
+
+01:47:01.280 --> 01:47:03.300
+Was ChatGPT da fabriziert.
+
+01:47:03.300 --> 01:47:07.380
+Mein lokales Model war ein bisschen überfordert damit.
+
+01:47:07.380 --> 01:47:11.540
+Aber das geht klar.
+
+01:47:11.540 --> 01:47:17.540
+Ja Chat GPT ist ziemlich dumm geworden in letzter Zeit.
+
+01:47:29.260 --> 01:47:31.360
+So guck mal, da haben wir es doch schon.
+
+01:47:31.360 --> 01:47:34.860
+Jetzt können wir unsere App-Config loggen.
+
+01:47:37.180 --> 01:47:39.880
+So, also dann machen wir mal weiter im Text.
+
+01:47:40.940 --> 01:47:41.980
+Das können wir wieder wegmachen.
+
+01:47:42.360 --> 01:47:45.860
+Wir loggen jetzt unser, nennen wir das hier mal init.
+
+01:47:46.760 --> 01:47:49.560
+Loggen wir hier einfach unsere Config.
+
+01:47:49.980 --> 01:47:53.260
+Unsere Config steht aktuell nur in Port und String drin, das ist kein Problem.
+
+01:47:54.200 --> 01:47:55.200
+Es reicht erstmal.
+
+01:47:55.960 --> 01:47:59.300
+Jetzt kümmern wir uns mal um das Thema Error-Handling.
+
+01:47:59.300 --> 01:48:17.120
+Ich kann mich noch dran erinnern, man konnte in Rust, das hier lasse ich jetzt mal weg, man konnte in Rust das mit so einem Fragezeichen irgendwie machen, so Async-Geschichten.
+
+01:48:18.820 --> 01:48:20.120
+Nee, Onkers.
+
+01:48:20.120 --> 01:48:25.640
+konnte irgendwie sagen
+
+01:48:25.640 --> 01:48:29.180
+so, guck mal, so ging
+
+01:48:29.180 --> 01:48:32.480
+so konnte man irgendwie sagen
+
+01:48:32.480 --> 01:48:34.200
+hier so ein Fragezeichen hinten dran machen
+
+01:48:34.200 --> 01:48:37.300
+und dann hat das quasi
+
+01:48:37.300 --> 01:48:39.460
+das Result genommen
+
+01:48:39.460 --> 01:48:41.260
+geguckt, ob da was drin ist
+
+01:48:41.260 --> 01:48:42.720
+und
+
+01:48:42.720 --> 01:48:45.920
+also ob das hier fehlgeschlagen ist
+
+01:48:45.920 --> 01:48:46.960
+wenn das fehlgeschlagen ist
+
+01:48:46.960 --> 01:48:48.520
+hat es den Error gelockt
+
+01:48:48.520 --> 01:48:51.040
+Und ansonsten hat es das hier in die Variable geschrieben.
+
+01:48:53.680 --> 01:48:54.920
+Das geht aber nicht, weil
+
+01:48:54.920 --> 01:49:01.920
+Cannot use ?operator in function that returns ?zu
+
+01:49:01.920 --> 01:49:21.320
+Ist about the function in which the expression appears, not the expression in which...
+
+01:49:21.320 --> 01:49:22.400
+Ja, das dachte ich mir.
+
+01:49:24.960 --> 01:49:25.520
+Aha.
+
+01:49:26.640 --> 01:49:29.040
+Ein Result muss man zurückgeben.
+
+01:49:29.040 --> 01:49:35.720
+Kann man vielleicht sagen Standard-Error?
+
+01:49:35.720 --> 01:49:43.600
+So, so, so, so, so.
+
+01:49:43.600 --> 01:49:53.360
+Geht aber immer noch nicht.
+
+01:49:53.360 --> 01:50:00.360
+The Question Markable can only be used in an async block that returns result...
+
+01:50:01.400 --> 01:50:01.700
+Oh.
+
+01:50:04.700 --> 01:50:05.620
+Äh.
+
+01:50:07.340 --> 01:50:09.200
+Was will es von mir jetzt?
+
+01:50:19.400 --> 01:50:22.140
+Hier, wir stackoverflowen uns hier durch.
+
+01:50:23.360 --> 01:50:27.860
+Die Botschaft ist etwas komisch, weil die Transformation, die Sie verfolgen, Sie vielleicht...
+
+01:50:53.360 --> 01:50:54.780
+Man muss okay am Ende machen.
+
+01:50:55.720 --> 01:50:55.920
+Ok.
+
+01:50:58.200 --> 01:50:58.960
+Ok, ok.
+
+01:51:01.560 --> 01:51:03.200
+So, Unwrap kann ich jetzt wegmachen,
+
+01:51:03.440 --> 01:51:05.260
+weil ich das alles mit Fragezeichen
+
+01:51:05.260 --> 01:51:06.060
+handeln kann.
+
+01:51:06.700 --> 01:51:09.400
+Die große Preisfrage, die ich mir jetzt stelle,
+
+01:51:10.500 --> 01:51:12.420
+wenn meine Main-Methode
+
+01:51:12.420 --> 01:51:13.960
+einen Return-Type hat,
+
+01:51:14.300 --> 01:51:16.700
+es gibt nichts mehr, was höher ist als Main
+
+01:51:16.700 --> 01:51:18.220
+oder niedriger, je nachdem, wie man es sieht.
+
+01:51:18.220 --> 01:51:19.000
+Also das ist der Einstieg.
+
+01:51:19.480 --> 01:51:20.960
+Was passiert denn jetzt bei einem Fehler?
+
+01:51:20.960 --> 01:51:27.980
+main kann ja kein error return in dem sinn schreiben wir hier etwas rein guck mal was
+
+01:51:27.980 --> 01:51:35.660
+passiert wenn ich jetzt cargo runne bämm es knallt einfach mit einem print okay dann machen wir jetzt
+
+01:51:35.660 --> 01:51:40.820
+noch mal was anderes ich will es ja alles ordentlich als jason formatiert ausgeben
+
+01:51:40.820 --> 01:51:47.960
+dann können wir ja doch jetzt sagen okay ich habe eine idee ich habe ich habe eine idee
+
+01:51:47.960 --> 01:52:00.500
+Leute. Pass mal auf, wir machen das jetzt so. Wir nennen das hier Run. Das hier Main, ohne dass es
+
+01:52:00.500 --> 01:52:19.260
+was zurück gibt hier drinnen rufen wir ran auf und ich will gucken
+
+01:52:19.260 --> 01:52:32.100
+was was was was was macht expect returns to contain it contain it
+
+01:52:32.100 --> 01:52:37.620
+returns to contain okay value wie kostet
+
+01:52:37.620 --> 01:52:42.240
+okay das ist
+
+01:52:49.260 --> 01:52:57.700
+Okay, also, ähm, ich muss, ich will jetzt ein If machen, ob da, ob, ob da ein Error zurückgekommen ist.
+
+01:53:00.100 --> 01:53:02.560
+Ne, das nicht, wie mach ich das jetzt gescheit?
+
+01:53:03.580 --> 01:53:07.200
+Ähm, irgendwie If?
+
+01:53:13.080 --> 01:53:13.640
+Ja.
+
+01:53:13.640 --> 01:53:21.020
+Wie war da die Syntax für nochmal?
+
+01:53:24.600 --> 01:53:25.600
+War das
+
+01:53:25.600 --> 01:53:28.660
+Irgendwie so?
+
+01:53:32.160 --> 01:53:32.380
+Ne
+
+01:53:32.380 --> 01:53:33.480
+Shit
+
+01:53:33.480 --> 01:53:36.500
+Rust, Syntax, MonkaS
+
+01:53:36.500 --> 01:53:39.360
+Rust
+
+01:53:39.360 --> 01:53:39.560
+Rust
+
+01:53:39.560 --> 01:53:49.580
+das ist das auto kommt macht an der stelle anscheinend nichts match
+
+01:53:49.580 --> 01:53:52.440
+if
+
+01:53:52.440 --> 01:53:55.460
+RUST
+
+01:53:55.460 --> 01:53:56.760
+if error
+
+01:53:56.760 --> 01:53:59.560
+Handling errors.
+
+01:54:00.260 --> 01:54:00.860
+Geil. Super.
+
+01:54:06.440 --> 01:54:07.040
+Beispiel.
+
+01:54:07.440 --> 01:54:09.060
+Let. Okay. Ja, Moment.
+
+01:54:09.180 --> 01:54:11.120
+Im Okay-Fall will ich ja nichts machen.
+
+01:54:13.980 --> 01:54:15.480
+Gibt es da nicht die Möglichkeit
+
+01:54:15.480 --> 01:54:16.520
+ein If zu machen?
+
+01:54:19.580 --> 01:54:25.080
+Ne, die machen überall hier immer Matches.
+
+01:54:32.080 --> 01:54:33.160
+Aha.
+
+01:54:34.540 --> 01:54:34.740
+Hier.
+
+01:54:35.240 --> 01:54:35.500
+Let.
+
+01:54:37.020 --> 01:54:38.760
+Let Error.
+
+01:54:40.760 --> 01:54:41.660
+Wollen wir dann.
+
+01:54:41.760 --> 01:54:42.500
+Also quasi.
+
+01:54:43.600 --> 01:54:44.340
+Let.
+
+01:54:47.080 --> 01:54:48.120
+Error.
+
+01:54:48.120 --> 01:54:50.220
+oder R ist es, ne?
+
+01:54:51.280 --> 01:54:52.120
+Let Error
+
+01:54:52.120 --> 01:54:59.500
+Error
+
+01:54:59.500 --> 01:55:02.800
+Und jetzt kann ich sagen, wenn das ein Error ist,
+
+01:55:03.100 --> 01:55:04.420
+jetzt sagen wir Tracing
+
+01:55:04.420 --> 01:55:06.260
+Error
+
+01:55:06.260 --> 01:55:08.900
+E
+
+01:55:08.900 --> 01:55:12.700
+Okay, schauen wir mal. Cargo Run.
+
+01:55:13.320 --> 01:55:13.560
+Bam
+
+01:55:13.560 --> 01:55:18.920
+Wollen wir wieder kaputt machen?
+
+01:55:21.460 --> 01:55:22.620
+Guck mal, Funst!
+
+01:55:24.880 --> 01:55:27.040
+Jetzt wird automatisch alle Errors,
+
+01:55:27.220 --> 01:55:28.920
+die reinkommen,
+
+01:55:29.080 --> 01:55:30.840
+werden so raufpropagated.
+
+01:55:33.120 --> 01:55:33.680
+Und
+
+01:55:33.680 --> 01:55:36.280
+werden dann am Ende hier in der Main
+
+01:55:36.280 --> 01:55:37.400
+gelockt.
+
+01:55:38.740 --> 01:55:40.040
+Ja gut, nice.
+
+01:55:40.040 --> 01:55:44.480
+Exzellent sozusagen.
+
+01:55:46.480 --> 01:55:46.920
+Huge.
+
+01:55:54.440 --> 01:55:56.120
+Hash Map kann wieder raus.
+
+01:55:56.840 --> 01:55:58.840
+So, das gefällt mir jetzt schon mal ganz gut.
+
+01:55:59.860 --> 01:56:00.380
+So, Print.
+
+01:56:00.520 --> 01:56:01.860
+Printeln kommt raus.
+
+01:56:01.860 --> 01:56:03.560
+Jetzt reicht immer das hier ausgeben.
+
+01:56:05.360 --> 01:56:06.460
+Config S-Value.
+
+01:56:07.220 --> 01:56:07.500
+So.
+
+01:56:09.400 --> 01:56:09.840
+Jetzt.
+
+01:56:10.040 --> 01:56:12.280
+gibt es
+
+01:56:12.280 --> 01:56:15.000
+in Rust
+
+01:56:15.000 --> 01:56:16.100
+äh,
+
+01:56:16.420 --> 01:56:18.540
+Build-Infos, also sowas
+
+01:56:18.540 --> 01:56:20.700
+wie letzter Git-Commit-Hash
+
+01:56:20.700 --> 01:56:21.380
+und sowas.
+
+01:56:22.580 --> 01:56:24.300
+Das würde mich noch interessieren.
+
+01:56:24.800 --> 01:56:26.560
+Also was ich ganz gerne mache, ist
+
+01:56:26.560 --> 01:56:28.160
+am Anfang von solchen Anwendungen
+
+01:56:28.160 --> 01:56:30.540
+ausgeben,
+
+01:56:31.540 --> 01:56:32.500
+mit welcher
+
+01:56:32.500 --> 01:56:34.320
+Version die gebaut wurden und
+
+01:56:34.320 --> 01:56:36.260
+wann die gebaut wurden und sowas.
+
+01:56:36.660 --> 01:56:38.480
+Weil aktuell gibt es ja nur die Config aus.
+
+01:56:38.480 --> 01:56:53.940
+Ich würde jetzt gerne ausgeben noch Git-Commit-Hash, Git oder Build-Time und ob das Verzeichnis dirty war, irgendwas nicht committed war und die letzten Tag die Version ausgeben und sowas.
+
+01:56:55.180 --> 01:57:00.160
+Das wäre jetzt noch die Frage, wie man das macht.
+
+01:57:00.160 --> 01:57:08.000
+Okay, ChatGPT hat jetzt einmal Chance, hier sich wieder zu redeemen.
+
+01:57:08.700 --> 01:57:09.960
+Gucken wir mal.
+
+01:57:10.620 --> 01:57:25.040
+Ich will in einem Rust-Programm Build-Infos ausgeben, wie zum Beispiel git commit hash 30 oder tag oder build time.
+
+01:57:26.160 --> 01:57:28.460
+Mal gucken, was ChatGPT dazu sagt.
+
+01:57:28.460 --> 01:57:31.680
+Das geht in Rust sehr gut.
+
+01:57:32.120 --> 01:57:33.120
+Üblich ist eine Kombination
+
+01:57:33.120 --> 01:57:34.520
+Build.js plus Env.
+
+01:57:34.680 --> 01:57:35.580
+Option Env.
+
+01:57:36.180 --> 01:57:37.220
+Ohne ein fertiges Projekt.
+
+01:57:37.280 --> 01:57:38.260
+Ich zeige dir beide Wege.
+
+01:57:38.340 --> 01:57:39.800
+Zuerst den klassischen manuellen Weg.
+
+01:57:40.080 --> 01:57:41.540
+Okay, zeig mal her.
+
+01:57:43.640 --> 01:57:45.820
+Build.js anlegen im Projekt Root.
+
+01:57:46.040 --> 01:57:46.700
+Git hash.
+
+01:57:48.540 --> 01:57:49.660
+Roman new.
+
+01:57:51.120 --> 01:57:53.580
+Oh, das sieht aber umständlich aus.
+
+01:57:58.460 --> 01:58:01.100
+Das sieht umständlich aus, aber das ergibt Sinn.
+
+01:58:04.100 --> 01:58:07.060
+Aber es macht Sinn, was es hier schreibt.
+
+01:58:09.840 --> 01:58:15.080
+So übel ist das gar nicht, was ChatGPT hier zusammengezimmert hat, oder?
+
+01:58:17.660 --> 01:58:19.500
+Habe ich Git hier drauf überhaupt installiert?
+
+01:58:20.940 --> 01:58:25.220
+So schlecht ist das gar nicht, was ChatGPT da zusammengewurscht hat.
+
+01:58:25.220 --> 01:58:28.460
+wofür brauche ich krono
+
+01:58:32.900 --> 01:58:34.840
+ach so hier gut genau was so
+
+01:58:34.840 --> 01:58:43.360
+und wenn es gibt in der standard library keine möglichkeit die aktuelle date heim
+
+01:58:43.360 --> 01:58:49.640
+doch bestimmt rast standard date heim
+
+01:58:49.640 --> 01:59:02.100
+ist doch also das finde ich nicht verkehrt ehrlich gesagt was was chat gpt hier zusammen
+
+01:59:02.100 --> 01:59:07.580
+gezimmert hat ich werde es nicht eins zu eins zu übernehmen aber von der idee finde ich das
+
+01:59:07.580 --> 01:59:17.520
+nicht verkehrt was haben wir sonst noch hier als nächstes fertige crates empfohlen werken
+
+01:59:17.520 --> 01:59:31.920
+sehr beliebt bild die pendels werken version 8 werken mit bilder geht
+
+01:59:31.920 --> 01:59:35.520
+kommentiert geht dort jedes kreisbild timestamp im mit
+
+01:59:35.520 --> 01:59:50.820
+chat was meint ihr wo was selbst machen oder wollen wir werden verwenden wir testen zwar
+
+01:59:50.820 --> 01:59:56.100
+selbst ein nummer um zu sehen wie es funktioniert ja wir probieren das mal
+
+01:59:56.100 --> 02:00:05.760
+also wir brauchen jetzt hier hat er gesagt eine bild bild punkt rs so
+
+02:00:05.760 --> 02:00:23.820
+das machen wir weg wir machen auch immer nur
+
+02:00:23.820 --> 02:00:33.000
+wir machen hier nur das describe
+
+02:00:33.000 --> 02:00:41.900
+Describe
+
+02:00:41.900 --> 02:00:54.900
+Ups, muss vielleicht die Klammer zumachen
+
+02:00:54.900 --> 02:00:57.120
+So, und jetzt
+
+02:00:57.120 --> 02:00:58.620
+Wie verwende ich das jetzt?
+
+02:00:59.140 --> 02:01:00.180
+Also, das
+
+02:01:00.180 --> 02:01:02.620
+Das sieht auch echt super umständlich aus
+
+02:01:02.620 --> 02:01:04.460
+Also der führten Kommando aus Git.
+
+02:01:04.980 --> 02:01:06.440
+Describe minus minus Tags.
+
+02:01:06.720 --> 02:01:07.900
+Okay, machen wir das mal von Hand.
+
+02:01:08.020 --> 02:01:09.480
+Git describe.
+
+02:01:10.140 --> 02:01:10.820
+No names found.
+
+02:01:10.920 --> 02:01:13.260
+Cannot describe anything, weil ich noch kein Tag gesetzt habe.
+
+02:01:15.980 --> 02:01:17.640
+Man stand hier nicht auch noch Version drin?
+
+02:01:17.760 --> 02:01:18.620
+Version 0.10.
+
+02:01:19.380 --> 02:01:21.180
+Okay, dann machen wir, dann taggen wir das jetzt mal.
+
+02:01:21.400 --> 02:01:21.500
+Okay.
+
+02:01:27.220 --> 02:01:27.620
+Git.
+
+02:01:29.660 --> 02:01:30.480
+Git add.
+
+02:01:30.480 --> 02:01:30.580
+Git add.
+
+02:01:30.580 --> 02:01:53.740
+commit in it das kleid macht nichts und jetzt geht tag minus a 0.1.0 1.0 was richtig macht so
+
+02:01:53.740 --> 02:02:06.400
+und jetzt ist clive jetzt zeigt er mir auch was an an der stelle okay zeigte mir den tag an die
+
+02:02:06.400 --> 02:02:17.640
+frage ist jetzt wenn ich jetzt was er die tiere hier drin dann ist das jetzt ja dort weil was
+
+02:02:17.640 --> 02:02:22.240
+nicht kommentiert ist aber das zeigt es greift nicht an aber man kann bei describe glaube ich
+
+02:02:22.240 --> 02:02:23.340
+sowas hier angeben.
+
+02:02:26.480 --> 02:02:27.000
+Genau.
+
+02:02:28.760 --> 02:02:30.060
+Dann schreibt der Dirty
+
+02:02:30.060 --> 02:02:32.260
+hinten dran, wenn noch uncommittete Sachen drin sind.
+
+02:02:35.300 --> 02:02:36.340
+Und was hat er hier
+
+02:02:36.340 --> 02:02:38.140
+sonst noch für Optionen drin? Minus, minus
+
+02:02:38.140 --> 02:02:38.800
+Tags.
+
+02:02:40.020 --> 02:02:41.480
+Macht er doch standardmäßig.
+
+02:02:43.080 --> 02:02:44.440
+Und Abriff,
+
+02:02:44.440 --> 02:02:46.180
+was ist Abriff gleich 0?
+
+02:02:47.500 --> 02:02:48.160
+Weiß nicht.
+
+02:02:49.080 --> 02:02:50.580
+Und was ist, wenn ich jetzt,
+
+02:02:50.580 --> 02:02:52.300
+Okay, was ist, wenn ich jetzt nochmal
+
+02:02:52.300 --> 02:02:52.980
+committe?
+
+02:02:54.540 --> 02:02:54.900
+Blub.
+
+02:02:56.280 --> 02:02:58.620
+Dann müsste jetzt der Comet-Hash angezeigt werden.
+
+02:02:59.500 --> 02:02:59.840
+Genau.
+
+02:03:00.820 --> 02:03:01.060
+So.
+
+02:03:03.220 --> 02:03:04.380
+Wenn ich jetzt hier nochmal
+
+02:03:04.380 --> 02:03:06.440
+was editiere, dann
+
+02:03:06.440 --> 02:03:08.720
+genau. Letzter
+
+02:03:08.720 --> 02:03:09.920
+Tag, den er findet.
+
+02:03:10.480 --> 02:03:12.340
+Ein Comet, es kommt oben drauf.
+
+02:03:12.780 --> 02:03:14.340
+Dieses Comet hat diese Hash
+
+02:03:14.340 --> 02:03:16.380
+und es waren noch uncommittete Sachen drin.
+
+02:03:16.440 --> 02:03:18.440
+Das ist im Prinzip genau die Ausgabe, die ich haben will.
+
+02:03:20.580 --> 02:03:34.740
+genau die ausgabe die ich habe dann gucken wir mal jetzt describe minus minus dirty
+
+02:03:34.740 --> 02:03:38.640
+kann man das darf man das so machen
+
+02:03:38.640 --> 02:03:46.960
+Darf man das so machen?
+
+02:03:47.320 --> 02:03:47.720
+Geht das?
+
+02:03:49.580 --> 02:03:49.940
+Ne oder?
+
+02:03:51.520 --> 02:03:53.140
+Der spackt doch irgendwie rum jetzt
+
+02:04:00.140 --> 02:04:01.500
+Was hat er für Schmerzen?
+
+02:04:02.400 --> 02:04:03.520
+Eben ging es doch noch
+
+02:04:03.520 --> 02:04:13.820
+Eben ging es doch noch.
+
+02:04:22.160 --> 02:04:27.880
+R-Hash für einen Raw-String, in dem du Anführungszeichen benutzen kannst.
+
+02:04:28.100 --> 02:04:28.860
+Moment, was?
+
+02:04:29.600 --> 02:04:29.940
+So?
+
+02:04:33.520 --> 02:04:41.720
+Aber hier kann ich jetzt Anführungszeichen drin benutzen, oder wie?
+
+02:04:44.020 --> 02:04:45.220
+Ach, und hinten...
+
+02:04:45.220 --> 02:04:46.540
+Ach so.
+
+02:04:49.060 --> 02:04:50.440
+Ich verstehe.
+
+02:04:52.260 --> 02:04:55.200
+Okay, das ist aber Overkill für, weil es geht mit Single Quads genauso.
+
+02:05:03.520 --> 02:05:16.940
+So, das kommt weg.
+
+02:05:19.340 --> 02:05:21.260
+Sonst habe ich ja hier nichts drin, das ich stehen habe.
+
+02:05:22.140 --> 02:05:23.520
+Output, Result,
+
+02:05:23.800 --> 02:05:24.260
+okay.
+
+02:05:25.280 --> 02:05:27.360
+Was macht das denn hier für so
+
+02:05:27.360 --> 02:05:28.140
+super
+
+02:05:28.140 --> 02:05:32.200
+Output?
+
+02:05:33.520 --> 02:05:35.600
+Kann ich einfach sagen Unwrap?
+
+02:05:39.600 --> 02:05:40.220
+Ne.
+
+02:05:45.320 --> 02:05:46.060
+Und meiner.
+
+02:05:51.440 --> 02:05:54.420
+Was bin ich hier überhaupt sehend gerade?
+
+02:05:55.420 --> 02:05:56.200
+Output.
+
+02:05:56.200 --> 02:05:58.480
+Und dann?
+
+02:06:03.520 --> 02:06:06.280
+Ah.
+
+02:06:09.280 --> 02:06:11.560
+Boah, ist das kompliziert.
+
+02:06:13.080 --> 02:06:13.880
+Unwrap?
+
+02:06:14.780 --> 02:06:16.760
+Weil es soll ja knallen, wenn es nicht geht.
+
+02:06:18.380 --> 02:06:19.180
+Punkt.
+
+02:06:21.020 --> 02:06:22.340
+Stand it out.
+
+02:06:27.920 --> 02:06:28.360
+Into?
+
+02:06:29.120 --> 02:06:29.560
+Ne.
+
+02:06:30.380 --> 02:06:31.460
+Wie mache ich denn das jetzt?
+
+02:06:31.460 --> 02:06:34.920
+Wie wandle ich das jetzt ordentlich in einen String um?
+
+02:06:35.800 --> 02:06:36.580
+Standard Out
+
+02:06:36.580 --> 02:06:39.140
+Jetzt habe ich hier einen Weck U8
+
+02:06:39.140 --> 02:06:41.060
+String
+
+02:06:41.060 --> 02:06:42.720
+To
+
+02:06:42.720 --> 02:06:53.240
+Wie wandle ich das jetzt ordentlich in einen String um?
+
+02:06:56.960 --> 02:06:58.160
+He doesn't know
+
+02:06:58.160 --> 02:06:58.780
+Richtig
+
+02:06:58.780 --> 02:07:02.060
+hier, lacks critical information
+
+02:07:02.060 --> 02:07:08.000
+also irgendwie sowas
+
+02:07:08.000 --> 02:07:08.980
+machen die hier
+
+02:07:08.980 --> 02:07:11.860
+so hat JetKPT gemacht
+
+02:07:11.860 --> 02:07:13.440
+aber das
+
+02:07:13.440 --> 02:07:21.740
+ich mein ich kann so sagen hier
+
+02:07:21.740 --> 02:07:22.420
+String
+
+02:07:22.420 --> 02:07:26.460
+ROM
+
+02:07:26.460 --> 02:07:28.800
+UTF-8
+
+02:07:28.800 --> 02:07:30.340
+Aber das sieht ja mal
+
+02:07:30.340 --> 02:07:32.500
+Hardcore abartig aus, oder?
+
+02:07:34.980 --> 02:07:36.300
+Das geht doch bestimmt
+
+02:07:36.300 --> 02:07:41.380
+Das geht doch bestimmt
+
+02:07:41.380 --> 02:07:43.380
+Das sieht doch mal richtig eklig aus
+
+02:07:50.840 --> 02:07:52.600
+Moment, ich kann einfach sagen
+
+02:07:52.600 --> 02:07:58.660
+End
+
+02:07:58.660 --> 02:07:58.700
+End
+
+02:07:58.700 --> 02:08:12.780
+Ja, ich weiß, es macht fast dasselbe,
+
+02:08:12.900 --> 02:08:15.380
+aber es sieht hässlich aus.
+
+02:08:17.280 --> 02:08:17.840
+Calls
+
+02:08:17.840 --> 02:08:37.100
+Gibt es nicht sowas wie Machwas mit dem
+
+02:08:44.660 --> 02:08:45.800
+Ja doch Unwrap
+
+02:08:45.800 --> 02:08:48.420
+Unwrap? Das ist doch schon das Richtige, was ich haben will.
+
+02:09:13.420 --> 02:09:15.640
+So ganz check ich es immer noch nicht.
+
+02:09:15.800 --> 02:09:16.920
+And then?
+
+02:09:25.920 --> 02:09:26.660
+Äh, warum?
+
+02:09:29.420 --> 02:09:31.080
+Warum formatiert er das so dumm?
+
+02:09:32.720 --> 02:09:33.160
+Frage.
+
+02:09:37.440 --> 02:09:38.560
+Was macht das da?
+
+02:09:43.080 --> 02:09:45.640
+Ach so, weil hier drumherum, das wollen wir ja nicht.
+
+02:09:45.800 --> 02:09:48.120
+ich check's net.
+
+02:09:49.780 --> 02:09:50.600
+And then?
+
+02:09:51.900 --> 02:09:52.600
+Und was ist das?
+
+02:09:53.480 --> 02:09:53.620
+Wie
+
+02:09:53.620 --> 02:09:55.260
+fandst du das jetzt?
+
+02:09:56.060 --> 02:09:57.560
+Das ist Ruby Syntax hier.
+
+02:09:58.020 --> 02:09:58.620
+Output?
+
+02:10:00.980 --> 02:10:01.620
+Output?
+
+02:10:02.200 --> 02:10:02.680
+Und jetzt?
+
+02:10:04.960 --> 02:10:06.520
+Und jetzt so oder wie?
+
+02:10:08.520 --> 02:10:09.120
+Ne.
+
+02:10:14.720 --> 02:10:15.200
+Unwrap.
+
+02:10:15.800 --> 02:10:19.920
+Alter, ich bin zu unfähig für Rust, Mann!
+
+02:10:26.920 --> 02:10:28.480
+Hier sagen sie, okay.
+
+02:10:30.780 --> 02:10:33.560
+Ich bin zu dumm dafür.
+
+02:10:39.360 --> 02:10:40.780
+Expected result.
+
+02:10:42.400 --> 02:10:43.160
+Poundstring.
+
+02:10:43.160 --> 02:10:44.100
+Ah ja.
+
+02:10:45.800 --> 02:10:51.740
+Expected Result String
+
+02:10:51.740 --> 02:10:54.420
+Alter, ich bin
+
+02:10:54.420 --> 02:10:55.780
+da zu dämlich für.
+
+02:10:59.000 --> 02:11:00.140
+Okay, dann machen wir das so,
+
+02:11:00.380 --> 02:11:01.660
+also das gefällt mir nicht.
+
+02:11:01.840 --> 02:11:03.480
+Wir können es so machen, wie ich es vorher
+
+02:11:03.480 --> 02:11:05.100
+String
+
+02:11:05.100 --> 02:11:07.400
+from UTF-18
+
+02:11:07.400 --> 02:11:10.200
+UTF-18, neues Format
+
+02:11:10.200 --> 02:11:10.820
+created
+
+02:11:10.820 --> 02:11:13.660
+So
+
+02:11:13.660 --> 02:11:15.660
+Äh
+
+02:11:15.660 --> 02:11:21.960
+Äh
+
+02:11:21.960 --> 02:11:24.480
+Hatte ich das nicht eben so und es das ging
+
+02:11:24.480 --> 02:11:26.620
+Warum geht das jetzt so
+
+02:11:26.620 --> 02:11:27.120
+Vor allem an Emma
+
+02:11:27.120 --> 02:11:30.220
+Ah ne ah weil ich hier
+
+02:11:30.220 --> 02:11:31.840
+Standard Out machen muss
+
+02:11:36.700 --> 02:11:39.220
+Aber das sieht so hässlich aus
+
+02:11:39.220 --> 02:11:53.020
+Das sieht so hässlich aus. Warum gibt es nicht so was wie Map oder so? Gibt es vielleicht Map? Map!
+
+02:11:53.020 --> 02:12:05.020
+lull ja okay moment moment moment mal gucken
+
+02:12:05.020 --> 02:12:18.460
+standard out und jetzt kann ich hier sagen string rom utf 8
+
+02:12:23.020 --> 02:12:24.640
+Unwrap.
+
+02:12:27.060 --> 02:12:27.500
+Unwrap.
+
+02:12:29.240 --> 02:12:30.540
+So viel Unwrappe.
+
+02:12:31.560 --> 02:12:32.000
+Ungerappe.
+
+02:12:33.960 --> 02:12:34.620
+Ja gut.
+
+02:12:34.980 --> 02:12:36.240
+Das ist doch schon schöner.
+
+02:12:36.420 --> 02:12:38.160
+Das gefällt mir. So ist das gut. So lassen wir das.
+
+02:12:38.680 --> 02:12:39.640
+Das hier ist ein String.
+
+02:12:40.200 --> 02:12:42.660
+Und ich bekomme hier einen Describe.
+
+02:12:44.260 --> 02:12:44.900
+Sehr gut.
+
+02:12:45.440 --> 02:12:46.620
+So. Jetzt bin ich mal gespannt,
+
+02:12:46.620 --> 02:12:48.580
+ob das funst, was ich hier gebaut habe.
+
+02:12:50.900 --> 02:12:51.340
+Also.
+
+02:12:51.340 --> 02:12:58.960
+ich habe eine bild script schau mal cargo run kackt jetzt bestimmt direkt ab beim bilden
+
+02:12:58.960 --> 02:13:06.560
+macht es nicht so wie greife ich denn jetzt auf diese variablen zu weiß hat im code verwenden
+
+02:13:06.560 --> 02:13:08.600
+Enf. Enf.
+
+02:13:09.200 --> 02:13:09.500
+Okay.
+
+02:13:10.880 --> 02:13:11.220
+Main.
+
+02:13:15.780 --> 02:13:17.480
+Machen wir hier mal noch hier.
+
+02:13:18.160 --> 02:13:18.400
+Git.
+
+02:13:20.600 --> 02:13:21.360
+Enf.
+
+02:13:25.020 --> 02:13:26.260
+Git describe.
+
+02:13:26.580 --> 02:13:28.740
+Jawoll. Und jetzt run.
+
+02:13:29.280 --> 02:13:30.420
+Und Daumen drücken, dass es funzt.
+
+02:13:30.860 --> 02:13:32.500
+Es funzt, Leute.
+
+02:13:33.040 --> 02:13:33.920
+Es funzt.
+
+02:13:36.560 --> 02:13:44.560
+Was ich nicht ganz verstehe, wo kommt denn hier der...
+
+02:13:44.560 --> 02:13:45.300
+Ah, Moment.
+
+02:13:47.800 --> 02:13:48.320
+Die...
+
+02:13:48.320 --> 02:13:52.060
+Die Quotes braucht man gar nicht.
+
+02:13:53.500 --> 02:13:54.920
+Die Quotes braucht man nicht.
+
+02:13:59.600 --> 02:14:00.780
+Es funzt.
+
+02:14:02.000 --> 02:14:02.880
+Sehr schön.
+
+02:14:04.340 --> 02:14:04.940
+Pogge.
+
+02:14:06.560 --> 02:14:09.860
+Ja, das ist doch übersichtlich.
+
+02:14:13.260 --> 02:14:15.420
+Jetzt ist nur die Preisfrage.
+
+02:14:16.060 --> 02:14:18.660
+Jetzt mal ganz blöd.
+
+02:14:20.800 --> 02:14:21.720
+Mal ganz blöd.
+
+02:14:22.900 --> 02:14:24.840
+Wir sind jetzt hier auf diesem Comet.
+
+02:14:26.100 --> 02:14:26.900
+So, hier, guck.
+
+02:14:27.420 --> 02:14:28.900
+G09 irgendwas.
+
+02:14:28.900 --> 02:14:43.420
+wir sind nicht auf g 09 wir sind auf 09 bekommen das g her
+
+02:14:43.420 --> 02:14:48.460
+dass die die short variante
+
+02:14:48.460 --> 02:14:55.180
+bekommen das g her
+
+02:14:55.180 --> 02:15:02.520
+Kefelgit
+
+02:15:02.520 --> 02:15:10.040
+Vergönnen, ja, das glaube ich auch
+
+02:15:22.040 --> 02:15:22.600
+Okay
+
+02:15:22.600 --> 02:15:25.080
+Wir fragen mal
+
+02:15:25.180 --> 02:15:36.220
+Was steht G für?
+
+02:15:36.220 --> 02:15:41.320
+G steht für Git?
+
+02:15:41.320 --> 02:15:41.860
+Okay.
+
+02:15:41.860 --> 02:15:46.720
+Na gut, okay.
+
+02:15:46.720 --> 02:15:50.500
+Wieder was gelernt.
+
+02:15:50.500 --> 02:15:52.360
+War mir neu.
+
+02:15:52.360 --> 02:15:58.540
+Ja, aber was ich mit Flayer frage, ist jetzt,
+
+02:15:59.200 --> 02:16:00.500
+wenn ich jetzt committe,
+
+02:16:00.780 --> 02:16:02.580
+also wir haben jetzt hier
+
+02:16:02.580 --> 02:16:04.680
+Cargo run.
+
+02:16:05.620 --> 02:16:07.040
+So, wir haben jetzt hier 0,97.
+
+02:16:07.720 --> 02:16:08.920
+Jetzt machen wir hier mal ein Comet.
+
+02:16:11.000 --> 02:16:12.440
+Und jetzt sagt mein Describe,
+
+02:16:12.560 --> 02:16:14.780
+wir sind nicht mehr dirty und haben dieses Comet.
+
+02:16:15.220 --> 02:16:16.720
+Kriegt er das denn jetzt überhaupt mit
+
+02:16:16.720 --> 02:16:18.520
+mein Cargo run? Nö.
+
+02:16:19.080 --> 02:16:20.840
+Mein Cargo run kriegt das nicht mit.
+
+02:16:22.360 --> 02:16:34.360
+wie kann ich das jetzt mit meinem cargo mitteilen dass der reloaden soll
+
+02:16:34.360 --> 02:16:43.200
+bei einem bild ich weiß was ich machen kann ist ich kann immer meinen target löschen und
+
+02:16:43.200 --> 02:16:46.540
+komplett neu bilden das müsste wahrscheinlich funktion aber das kann ja nicht sinn und zweck
+
+02:16:46.540 --> 02:16:49.240
+der sache sein
+
+02:16:57.840 --> 02:17:03.980
+ja genau er guckt weil jetzt hat es gecheckt
+
+02:17:03.980 --> 02:17:07.660
+kannst es in deine cargo tommel hinzufügen
+
+02:17:07.660 --> 02:17:08.940
+Ja, aber was?
+
+02:17:09.940 --> 02:17:12.300
+Was soll ich in die Cargo-Tommel hinzufügen?
+
+02:17:13.980 --> 02:17:15.660
+Ähm, Cargo...
+
+02:17:18.960 --> 02:17:21.300
+Build-RS on Git-Change.
+
+02:17:23.500 --> 02:17:23.660
+Buildscripts.
+
+02:17:28.320 --> 02:17:29.660
+Rerun if changed.
+
+02:17:31.660 --> 02:17:34.560
+How to force Build-RS run after a comet.
+
+02:17:35.260 --> 02:17:35.700
+Aha.
+
+02:17:37.660 --> 02:17:39.820
+rerun if changed
+
+02:17:39.820 --> 02:17:40.800
+git head
+
+02:17:40.800 --> 02:17:43.280
+5 head time, Leute.
+
+02:17:45.620 --> 02:17:45.920
+Also.
+
+02:17:48.800 --> 02:17:50.020
+rerun if changed
+
+02:17:50.020 --> 02:17:51.680
+git
+
+02:17:51.680 --> 02:17:53.720
+.git head
+
+02:17:53.720 --> 02:18:01.320
+Und das soll jetzt funktionieren.
+
+02:18:07.660 --> 02:18:10.660
+Kommt mal.
+
+02:18:10.660 --> 02:18:13.540
+Kommt mit.
+
+02:18:13.540 --> 02:18:21.760
+Wir sollten jetzt 4 E8 bekommen.
+
+02:18:21.760 --> 02:18:27.340
+Geht nicht. Geht nicht.
+
+02:18:27.340 --> 02:18:33.980
+Geht nicht.
+
+02:18:33.980 --> 02:18:38.980
+Hat er nicht gecheckt?
+
+02:18:43.740 --> 02:18:44.800
+Eran have changed.
+
+02:18:44.900 --> 02:18:45.420
+Funst nicht.
+
+02:18:56.460 --> 02:18:58.560
+Ja, aber das ist doch die ganze Zeit schon immer.
+
+02:19:00.220 --> 02:19:02.620
+Die Datei changed doch gar nicht.
+
+02:19:03.980 --> 02:19:06.980
+das ist blödsinn
+
+02:19:16.980 --> 02:19:21.300
+in den edelst guck mal dass die tat ja auch gar nicht geändert
+
+02:19:21.300 --> 02:19:27.380
+und das steht ja immer nur master drin
+
+02:19:27.380 --> 02:19:32.240
+Was spricht denn die Version Runtime?
+
+02:19:32.680 --> 02:19:33.140
+Na, weil die
+
+02:19:33.140 --> 02:19:35.720
+zur Runtime nicht zur Verfügung steht
+
+02:19:35.720 --> 02:19:40.120
+Da kommt ein Binary raus
+
+02:19:40.120 --> 02:19:42.080
+Das Binary wird irgendwo hin kopiert, gestartet
+
+02:19:42.080 --> 02:19:43.660
+Das ist ja dann nicht mehr in dem Git-Repo drin
+
+02:19:57.380 --> 02:20:25.000
+Das Verhalten ist erwartet, reicht nicht, weil es sich meist nicht die Datei hat ändert.
+
+02:20:25.000 --> 02:20:30.100
+erhält nur einen point der jacke chat gpt ist heute frei fett sonst kackt sie
+
+02:20:30.100 --> 02:20:35.860
+immer ab bei einem neuen die datei ändert sich oder bei viel korrekte
+
+02:20:35.860 --> 02:20:43.900
+lösung minimal robust und empfohlen hat index packt raps und raps alter
+
+02:20:43.900 --> 02:20:51.900
+Okay.
+
+02:20:53.160 --> 02:20:54.040
+Ja, dann reicht's doch,
+
+02:20:54.060 --> 02:20:55.120
+dann reicht's doch,
+
+02:20:55.940 --> 02:20:57.040
+wenn ich...
+
+02:21:02.300 --> 02:21:02.860
+Okay.
+
+02:21:03.360 --> 02:21:05.120
+Egal. Wir machen das jetzt einfach mal,
+
+02:21:05.560 --> 02:21:07.320
+was ChatGPT da sagt.
+
+02:21:11.580 --> 02:21:12.180
+Cargo.
+
+02:21:13.900 --> 02:21:14.460
+Run.
+
+02:21:16.060 --> 02:21:17.680
+Okay, passt, passt.
+
+02:21:18.380 --> 02:21:18.820
+Commit.
+
+02:21:20.220 --> 02:21:21.660
+Describe. Also wir sollten jetzt
+
+02:21:21.660 --> 02:21:23.040
+eine 985 bekommen.
+
+02:21:23.920 --> 02:21:24.160
+Ups.
+
+02:21:25.920 --> 02:21:27.840
+Oh, wenn ich ja richtig tippen könnte.
+
+02:21:29.280 --> 02:21:29.760
+985.
+
+02:21:30.100 --> 02:21:30.780
+Es geht.
+
+02:21:31.280 --> 02:21:33.860
+Sehr gut.
+
+02:21:34.600 --> 02:21:35.780
+Guck mal, wir haben es selbst gebaut.
+
+02:21:35.780 --> 02:21:37.260
+Wir brauchen gar keine externe
+
+02:21:37.260 --> 02:21:39.000
+Dependencies dafür.
+
+02:21:39.760 --> 02:21:41.900
+Wir führen einfach einen Git Describe aus
+
+02:21:41.900 --> 02:21:43.040
+und ja, das gefällt mir.
+
+02:21:43.040 --> 02:21:46.140
+Das ist sehr nice.
+
+02:21:54.740 --> 02:21:56.140
+Das ist schick.
+
+02:21:56.640 --> 02:21:58.140
+Also das gefällt mir.
+
+02:21:58.580 --> 02:22:04.120
+Also, jetzt ist die Frage, wie kriegen wir das jetzt noch beispielsweise unsere App-Config rein?
+
+02:22:04.920 --> 02:22:06.400
+Also, sagen wir mal.
+
+02:22:07.420 --> 02:22:09.280
+Ne, nicht wirklich AI.
+
+02:22:09.280 --> 02:22:20.080
+sagen wir mal ich will so was haben wie jetzt version ja string sehr gut geht version string
+
+02:22:20.080 --> 02:22:33.100
+will ich haben wenn ich das jetzt ausführen gibt es also was wie ignore vielleicht ja
+
+02:22:33.100 --> 02:22:36.580
+ich noch
+
+02:22:36.580 --> 02:23:01.900
+clap ignore rust clap ignore field how to make clap ignore a specify field
+
+02:23:01.900 --> 02:23:12.580
+ins truck genau das wollen wir es gibt es gibt nicht so es gibt es klappt war das mal für arg
+
+02:23:12.580 --> 02:23:22.600
+skip ok weiß und so und jetzt brauche jetzt will ich jetzt jetzt die frage wie geht das in rast
+
+02:23:22.600 --> 02:23:27.580
+jetzt will ich hier draus eine globale config machen in der gesamten anwendung zur verfügung
+
+02:23:27.580 --> 02:23:45.700
+steht also ich will quasi was haben wie static oder app config app config das
+
+02:23:45.700 --> 02:23:50.860
+wird das wird so in rastl fünften ich muss ich muss ja ich muss jetzt zur
+
+02:23:50.860 --> 02:23:52.900
+Laufzeit der Sachen rein. Gibt es Static
+
+02:23:52.900 --> 02:23:53.340
+Mut?
+
+02:23:57.520 --> 02:23:58.520
+Static, Constant,
+
+02:23:58.700 --> 02:24:00.180
+Upconfig, Must have a value.
+
+02:24:02.760 --> 02:24:04.600
+Ja, aber ich bekomme das ja erst, wenn ich es parse.
+
+02:24:16.800 --> 02:24:18.260
+Ja, das ist irgendwie blöd.
+
+02:24:20.860 --> 02:24:24.860
+Sowas wie 0 gibt es in Rust ja nicht.
+
+02:24:25.760 --> 02:24:28.100
+Also es gibt None, aber das passt ja an der Stelle nicht.
+
+02:24:31.480 --> 02:24:33.740
+Ich meine, ich könnte da irgendeinen Mist reinschreiben.
+
+02:24:37.540 --> 02:24:38.700
+Aber das ist...
+
+02:24:38.700 --> 02:24:41.100
+Gibt es...
+
+02:24:41.100 --> 02:24:44.200
+Weiß nicht, das ist irgendwie...
+
+02:24:44.200 --> 02:24:47.660
+Das ist irgendwie blöd.
+
+02:24:47.660 --> 02:24:51.860
+Aber selbst jetzt mal angenommen, ne?
+
+02:24:53.600 --> 02:24:54.060
+Selbst
+
+02:24:54.060 --> 02:24:59.200
+String
+
+02:24:59.200 --> 02:25:01.520
+One cell
+
+02:25:01.520 --> 02:25:05.860
+Was ist hier?
+
+02:25:08.260 --> 02:25:10.560
+Cannot call in static
+
+02:25:10.560 --> 02:25:11.820
+Ach so, ich
+
+02:25:11.820 --> 02:25:13.120
+Äh
+
+02:25:13.120 --> 02:25:15.340
+Okay
+
+02:25:15.340 --> 02:25:30.940
+das funzt so schon mal nicht wie ich das haben will won cell von wegen ich höre
+
+02:25:30.940 --> 02:25:38.500
+nicht auf den chat was jeder immer unterstellt hier chat ist jetzt guckt
+
+02:25:38.500 --> 02:25:39.560
+Ist der Beweis.
+
+02:25:40.080 --> 02:25:42.300
+Ich höre gerade in diesem Moment auf den Chat.
+
+02:25:44.400 --> 02:25:44.860
+Sell.
+
+02:25:45.000 --> 02:25:45.820
+One sell new.
+
+02:25:46.140 --> 02:25:47.920
+One sell get or init.
+
+02:25:48.460 --> 02:25:49.780
+Ja, sowas.
+
+02:25:49.940 --> 02:25:51.740
+Das ist sowas, was ich haben will.
+
+02:25:51.920 --> 02:25:52.260
+Genau.
+
+02:25:52.260 --> 02:25:52.360
+Genau.
+
+02:25:57.040 --> 02:25:59.260
+Also würde ich jetzt quasi sagen.
+
+02:26:00.940 --> 02:26:01.380
+Gleich.
+
+02:26:04.360 --> 02:26:05.840
+One sell.
+
+02:26:05.840 --> 02:26:16.400
+Standard Cell, One Cell.
+
+02:26:27.400 --> 02:26:28.700
+Warum findet er hier
+
+02:26:28.700 --> 02:26:29.140
+vor nichts?
+
+02:26:30.980 --> 02:26:32.520
+One Cell.
+
+02:26:33.580 --> 02:26:34.580
+Gibt es nicht.
+
+02:26:35.840 --> 02:26:40.220
+Overrated, she baited.
+
+02:26:44.000 --> 02:26:46.280
+Jetzt findet er es angeblich doch.
+
+02:26:51.720 --> 02:26:52.800
+Wie mache ich das?
+
+02:26:52.960 --> 02:26:53.960
+Ich mache nochmal rückgängig.
+
+02:27:00.960 --> 02:27:01.740
+On sell.
+
+02:27:02.780 --> 02:27:03.200
+Gleich.
+
+02:27:03.200 --> 02:27:06.420
+Ich muss so machen, hä?
+
+02:27:07.480 --> 02:27:08.280
+App-Config.
+
+02:27:11.140 --> 02:27:11.620
+Aha.
+
+02:27:13.380 --> 02:27:15.220
+Warum darf ich denn new aufrufen?
+
+02:27:15.300 --> 02:27:16.460
+Das ist erlaubt, oder was?
+
+02:27:21.920 --> 02:27:22.740
+One cell.
+
+02:27:23.000 --> 02:27:25.120
+App-Config. Und dann muss ich hier sagen
+
+02:27:25.120 --> 02:27:26.900
+get or init.
+
+02:27:28.260 --> 02:27:29.440
+Das ist aber auch
+
+02:27:29.440 --> 02:27:31.160
+kacke. Das ist so eklig.
+
+02:27:33.200 --> 02:27:37.160
+Was wird gebaut? Ich gucke mir ein Web Framework an in Rust.
+
+02:27:40.160 --> 02:27:48.160
+Und lerne nebenbei ein bisschen Rust und wie man so Sachen macht wie Structured Logging oder Command Line Argumente parsen.
+
+02:27:59.320 --> 02:28:00.960
+Jetzt quasi App Config.
+
+02:28:00.960 --> 02:28:03.540
+Get on
+
+02:28:03.540 --> 02:28:04.760
+What?
+
+02:28:07.540 --> 02:28:08.820
+Was? Unsafe?
+
+02:28:09.500 --> 02:28:10.440
+Moment, muss das überhaupt
+
+02:28:10.440 --> 02:28:12.080
+MUT sein? Das muss nicht MUT sein, oder?
+
+02:28:17.840 --> 02:28:19.160
+Und jetzt sage ich hier
+
+02:28:19.160 --> 02:28:20.860
+AppConfig
+
+02:28:20.860 --> 02:28:21.640
+Ne
+
+02:28:21.640 --> 02:28:25.640
+Pass
+
+02:28:30.960 --> 02:28:34.340
+So, jetzt geht's, pass auf
+
+02:28:34.340 --> 02:28:36.820
+Shit, geht nicht
+
+02:28:36.820 --> 02:28:37.440
+Warum nicht?
+
+02:28:38.260 --> 02:28:39.180
+Warte mal, String?
+
+02:28:40.240 --> 02:28:41.360
+Wie kommen die auf String?
+
+02:28:42.240 --> 02:28:42.680
+Witzig
+
+02:28:42.680 --> 02:28:46.220
+Och, was ist denn jetzt schon wieder?
+
+02:28:49.860 --> 02:28:51.780
+Cannot be shared between threads safely
+
+02:28:51.780 --> 02:28:54.960
+Ich will das nicht, ich will das gar nicht zwischen Threads sharen
+
+02:28:54.960 --> 02:28:57.960
+Ich habe überhaupt nicht vor, das zwischen Threads zu sharen
+
+02:28:59.960 --> 02:29:00.720
+Rust
+
+02:29:00.720 --> 02:29:04.720
+Wie kommst du auf die Idee, dass ich das sharen will zwischen
+
+02:29:04.720 --> 02:29:13.680
+Wie kommt Rust da drauf, dass das
+
+02:29:13.680 --> 02:29:20.340
+Rust
+
+02:29:20.340 --> 02:29:22.500
+Wie kommst du drauf, dass ich das
+
+02:29:22.500 --> 02:29:24.500
+dass ich das sharen will zwischen Threads
+
+02:29:24.500 --> 02:29:26.500
+Threads.
+
+02:29:37.740 --> 02:29:38.600
+Ach so.
+
+02:29:39.200 --> 02:29:40.780
+Ach, weil ich...
+
+02:29:40.780 --> 02:29:42.020
+Aber guck mal, guck mal.
+
+02:29:42.340 --> 02:29:44.240
+Selbst wenn ich das auskommentiere, hier.
+
+02:29:44.800 --> 02:29:46.780
+So dass Rust gar keine Ahnung davon hat.
+
+02:29:47.760 --> 02:29:48.680
+Dann sagt er
+
+02:29:48.680 --> 02:29:49.480
+Cannot be shared.
+
+02:29:54.500 --> 02:30:04.580
+ja das ist doch abfakt das ist doch so das kann man dazu oder 200 machen das können wir so nicht
+
+02:30:04.580 --> 02:30:10.740
+machen wieder da weiß ich habe eine idee ich habe mir die leute ich weiß ich weiß was wir machen ich
+
+02:30:10.740 --> 02:30:20.180
+weiß was man passt auf jetzt sechs hat heim wir machen eine function die nicht eisung ist die
+
+02:30:20.180 --> 02:30:21.560
+nennen wir appconfig.
+
+02:30:23.500 --> 02:30:23.720
+So.
+
+02:30:26.120 --> 02:30:27.700
+Dann machen wir das da rein.
+
+02:30:28.320 --> 02:30:29.760
+Da kann es gar nicht rummeckern.
+
+02:30:40.400 --> 02:30:41.680
+Vielleicht wollen wir auch
+
+02:30:41.680 --> 02:30:43.300
+wirklich oneslog haben.
+
+02:30:46.840 --> 02:30:47.400
+Oneslog.
+
+02:30:50.180 --> 02:30:54.580
+War halt once lock auch gut aber dann brauche ich die funktion ja nicht mehr wenn ich schon
+
+02:30:57.260 --> 02:31:03.040
+Was das eklige so static once once lock
+
+02:31:05.300 --> 02:31:07.300
+Once lock
+
+02:31:09.140 --> 02:31:14.500
+Okay das funst und jetzt kommt man sagen app konfiguriert oder in it aha
+
+02:31:16.580 --> 02:31:18.580
+Und jetzt sagen wir hier
+
+02:31:20.180 --> 02:31:21.560
+App-Config.
+
+02:31:22.640 --> 02:31:23.940
+As-Value.
+
+02:31:24.060 --> 02:31:24.360
+Ach, nee.
+
+02:31:25.880 --> 02:31:28.580
+Nee, jetzt muss ich hier immer Get machen oder sowas.
+
+02:31:28.720 --> 02:31:30.660
+Get und dann noch eine Option.
+
+02:31:34.600 --> 02:31:36.160
+Das ist doch hässlich, AF.
+
+02:31:44.920 --> 02:31:46.040
+Boah, ist das hässlich.
+
+02:31:46.300 --> 02:31:47.520
+Meine Güte, ist das hässlich.
+
+02:31:47.520 --> 02:31:56.840
+welche lipp ich für die config verwende das ist klepp command line ein command line pass
+
+02:32:02.760 --> 02:32:03.140
+so
+
+02:32:03.140 --> 02:32:11.980
+das funst aber das ist das ist echt echt da man kann klepp wo wir gerade dabei
+
+02:32:11.980 --> 02:32:19.120
+sind klepp rast kann klepp environment variablen wollen wir musikwechsel wollen wir
+
+02:32:19.120 --> 02:32:30.940
+zwischen war auf die hier mein browser abgekackt leute doch nicht
+
+02:32:30.940 --> 02:32:43.940
+Warum die Config überhaupt global ablegen, das weiß ich noch nicht genau.
+
+02:32:43.940 --> 02:32:49.960
+Wahrscheinlich weil ich die unterschiedlichen Teilen brauche.
+
+02:32:49.960 --> 02:33:00.940
+kann das okay das heißt man kann sowas sagen wie
+
+02:33:00.940 --> 02:33:12.280
+meine idee das ach guck mal da die können sogar features auto kompleten
+
+02:33:19.960 --> 02:33:27.700
+auto kompleten von den ja das ist ja nice
+
+02:33:27.700 --> 02:33:44.920
+turns on user environment variablen
+
+02:33:44.920 --> 02:33:49.920
+ein wein und variables vor allem
+
+02:33:49.920 --> 02:33:58.000
+also schreibe einfach einfach dabei
+
+02:33:58.000 --> 02:34:09.400
+environment variables
+
+02:34:09.400 --> 02:34:21.220
+so und nun gibt es jetzt hier irgendwie sowas wie ein wein und ich habe da was gesehen
+
+02:34:39.400 --> 02:34:48.940
+und da gibt man jetzt an wie die environment variable heißt also sowas wie champ underscore
+
+02:34:48.940 --> 02:34:57.220
+address so zum beispiel und und hier
+
+02:34:57.220 --> 02:35:11.440
+Enf Champ Port. Gucken ob das funzt. Also noch haben wir hier Port 8080,
+
+02:35:11.440 --> 02:35:16.000
+Export, wobei wir können es auch hier davor schreiben. Champ gleich, ne,
+
+02:35:16.000 --> 02:35:26.260
+Champ Port gleich 1234. Port 1234, sehr schön, sehr schön. Das gefällt mir. Das war einfacher
+
+02:35:26.260 --> 02:35:31.900
+als gedacht aber das mit das wird der config datei fakt und immer noch ein
+
+02:35:31.900 --> 02:35:36.160
+bisschen ab es ist das ist ja mal richtig hässlich so aber wenn ich das
+
+02:35:36.160 --> 02:35:42.640
+überall durch reich ist doch irgendwie auch blöd ich mache ich mache dann
+
+02:35:42.640 --> 02:35:47.020
+irgendwann ein background job auf wo ich nach gucke wie oft da irgendwas
+
+02:35:47.020 --> 02:35:53.540
+aktualisiert werden soll und überall soll ich das übergeben als parameter
+
+02:35:53.540 --> 02:36:00.100
+ich weiß nicht so ein globales ding für diese sachen ist doch gar nicht verkehrt
+
+02:36:03.640 --> 02:36:13.620
+auf der anderen seite guckt in dotnet oder in spring boot oder
+
+02:36:13.620 --> 02:36:19.860
+ein go weniger da wird es da geht es alles über die pendency injection dann
+
+02:36:19.860 --> 02:36:25.200
+sagt man auch beim erstellen hier ich will meine app config haben also was haben wir hier nicht
+
+02:36:25.200 --> 02:36:31.680
+ach so hat die pendel sie in checken
+
+02:36:49.860 --> 02:37:04.100
+mal eine blöde frage warum muss man eigentlich eine globale variablen locken wenn sie von
+
+02:37:04.100 --> 02:37:09.440
+mehreren threats zugegriffen wird das problem ist doch nicht das zugreifen
+
+02:37:09.440 --> 02:37:13.500
+von mehreren threats sondern schreiben von mehreren threats
+
+02:37:13.500 --> 02:37:21.120
+also eigentlich ist es mal ist das mal komplett safe
+
+02:37:21.120 --> 02:37:30.380
+extraktor in axel
+
+02:37:30.380 --> 02:37:47.500
+So einfach ist es doch ist es eigentlich schon
+
+02:37:47.500 --> 02:37:53.060
+mehr mehrere reader sind nie ein problem
+
+02:37:53.060 --> 02:37:58.080
+Achso, das GetOrInit.
+
+02:37:58.660 --> 02:38:01.480
+Ja gut, einmal muss ja was reingeschrieben werden.
+
+02:38:05.320 --> 02:38:07.240
+Die globale Variable ist im Cache.
+
+02:38:07.460 --> 02:38:08.260
+Ja, das ist ja auch okay.
+
+02:38:09.620 --> 02:38:11.000
+Die ändert sich ja auch nicht.
+
+02:38:15.560 --> 02:38:18.140
+Stimmt, ich muss ja einmal was reinschreiben.
+
+02:38:18.620 --> 02:38:20.980
+Und das könnte ich von mehreren Threads aus machen.
+
+02:38:23.060 --> 02:38:28.640
+Ja, ich muss
+
+02:38:28.640 --> 02:38:30.820
+einmal muss ich was reinschreiben.
+
+02:38:31.020 --> 02:38:32.600
+Das stimmt. Ja, streng
+
+02:38:32.600 --> 02:38:34.580
+genommen ist das tatsächlich dann ein Problem. Das könnte
+
+02:38:34.580 --> 02:38:36.480
+ich ja aus mehreren Threads irgendwie parallel machen.
+
+02:38:36.760 --> 02:38:38.200
+Okay, gette ich.
+
+02:38:38.620 --> 02:38:40.240
+Macht Sinn. Hat Rust recht.
+
+02:38:49.240 --> 02:38:50.760
+Allgemein auf Threading bezogen
+
+02:38:50.760 --> 02:38:52.020
+ist Lesen nicht safe.
+
+02:38:52.020 --> 02:38:54.740
+Wo soll denn mehrere Reader
+
+02:38:54.740 --> 02:38:56.780
+Ohne Writer
+
+02:38:56.780 --> 02:38:58.760
+Wo soll das denn nicht safe sein
+
+02:38:58.760 --> 02:39:01.260
+Mehrere Reader sind immer safe
+
+02:39:01.260 --> 02:39:11.360
+Also ich wüsste jetzt nicht
+
+02:39:11.360 --> 02:39:13.040
+Wo mehrere Reader nicht safe sein können
+
+02:39:13.040 --> 02:39:14.360
+Probleme sind immer nur
+
+02:39:14.360 --> 02:39:16.420
+Wenn geschrieben wird
+
+02:39:16.420 --> 02:39:17.400
+Sobald geschrieben wird
+
+02:39:17.400 --> 02:39:19.060
+Mehrere Reader
+
+02:39:19.060 --> 02:39:20.460
+Eigentlich kein Problem
+
+02:39:20.460 --> 02:39:27.860
+Das gefällt mir so nicht.
+
+02:39:27.860 --> 02:39:37.360
+Das hier checke ich auch nicht so genau.
+
+02:39:37.360 --> 02:39:40.380
+Axum Extract Extension.
+
+02:39:40.380 --> 02:39:52.320
+Ich versuche gerade zu checken, was hier passiert.
+
+02:39:52.320 --> 02:40:00.220
+Warum ist das so ein langes, ewig langes Beispiel?
+
+02:40:00.220 --> 02:40:08.540
+Warum ist das so ein krass langes Beispiel, Alter?
+
+02:40:08.540 --> 02:40:10.840
+Da blickt doch kein Sau durch.
+
+02:40:15.300 --> 02:40:18.120
+Axum Extractors.
+
+02:40:21.860 --> 02:40:22.820
+Ja, das da.
+
+02:40:24.980 --> 02:40:25.680
+For example.
+
+02:40:28.020 --> 02:40:29.680
+Händlerfunction ist ein Essig von der...
+
+02:40:32.280 --> 02:40:36.100
+Ne, das ist doch nicht das, was ich haben will.
+
+02:40:38.540 --> 02:40:40.180
+Ja Moment, das ist nur für Routes.
+
+02:40:51.420 --> 02:40:54.120
+Aber ich will das ja auch hier in Run benutzen und so.
+
+02:40:58.040 --> 02:40:59.920
+Nee, das geht ja dann nicht gescheit.
+
+02:41:04.920 --> 02:41:06.900
+Nee, das ist irgendwie nicht so das.
+
+02:41:06.900 --> 02:41:10.240
+und ich will auch einen Background Thread starten
+
+02:41:10.240 --> 02:41:12.200
+und da drinnen
+
+02:41:12.200 --> 02:41:13.860
+dann drauf zugreifen. Ne, ne, ne, ne.
+
+02:41:13.860 --> 02:41:16.060
+Das ist nicht so das...
+
+02:41:16.060 --> 02:41:17.020
+Okay.
+
+02:41:17.620 --> 02:41:18.760
+Ich hab ne Idee.
+
+02:41:19.340 --> 02:41:21.280
+Ich hab ne Idee, was wir machen.
+
+02:41:21.980 --> 02:41:23.380
+Nachdem ich das hier so eklig finde,
+
+02:41:23.680 --> 02:41:25.420
+wir probieren das hier nochmal. Also wir sagen jetzt
+
+02:41:25.420 --> 02:41:26.040
+Function
+
+02:41:26.040 --> 02:41:29.080
+AppConfig
+
+02:41:29.080 --> 02:41:31.620
+Zack.
+
+02:41:32.000 --> 02:41:33.880
+So. Dann packen wir das
+
+02:41:33.880 --> 02:41:34.420
+da rein.
+
+02:41:36.900 --> 02:41:38.340
+Das da packen wir auch da rein.
+
+02:41:42.340 --> 02:41:44.280
+Und jetzt returnen wir
+
+02:41:44.280 --> 02:41:45.800
+App-Config.
+
+02:41:47.660 --> 02:41:48.300
+So.
+
+02:41:50.180 --> 02:41:50.700
+Funktioniert.
+
+02:41:51.320 --> 02:41:51.600
+Warum?
+
+02:41:53.360 --> 02:41:54.620
+Ah, weil ich
+
+02:41:54.620 --> 02:41:56.480
+und App-Config returnen muss?
+
+02:41:56.580 --> 02:41:57.480
+Ne, ähm.
+
+02:42:02.400 --> 02:42:04.000
+Was hat der jetzt für Schmerzen?
+
+02:42:04.000 --> 02:42:07.860
+wäre ja auch deutlich zu einfach.
+
+02:42:09.780 --> 02:42:10.820
+Wir machen mal hier
+
+02:42:10.820 --> 02:42:12.200
+letconfig.
+
+02:42:14.160 --> 02:42:15.120
+Moment, warum ist das...
+
+02:42:23.120 --> 02:42:24.460
+Moment, Moment, Moment.
+
+02:42:24.600 --> 02:42:25.340
+Wartet mal, wartet mal.
+
+02:42:28.420 --> 02:42:29.660
+Ich bin...
+
+02:42:29.660 --> 02:42:31.120
+Ich bin gerade...
+
+02:42:31.120 --> 02:42:37.220
+verwirrt
+
+02:42:44.040 --> 02:42:51.100
+ach so ok ok ok moment moment das ist doch richtig das ist doch richtig ich brauche jetzt
+
+02:42:51.100 --> 02:43:08.500
+und moment moment rast und static und static das brauche ich aber wenn ich das hier weg
+
+02:43:08.500 --> 02:43:17.060
+mache checkt das dann immer noch okay so jetzt habe ich eine globale app konfekt kann ich hier
+
+02:43:17.060 --> 02:43:29.960
+einfach nur sagen appconfig zack svalue doch das doch schon viel besser ja das
+
+02:43:29.960 --> 02:43:35.480
+finde ich schon schicker noch schicker wäre es wenn ich es value nicht brauchen
+
+02:43:35.480 --> 02:43:38.060
+würde aber das geht anscheinend nicht anders
+
+02:43:38.500 --> 02:43:39.560
+Das ist doch so ganz gut.
+
+02:43:43.940 --> 02:43:45.340
+Ja, das gefällt mir.
+
+02:43:49.920 --> 02:43:51.100
+Das kann man so lassen.
+
+02:44:05.980 --> 02:44:06.460
+Ja.
+
+02:44:07.380 --> 02:44:07.860
+Okay.
+
+02:44:08.060 --> 02:44:11.420
+Jetzt nächste Preisfrage.
+
+02:44:16.420 --> 02:44:19.520
+Wie starte ich einen Background Thread?
+
+02:44:24.260 --> 02:44:26.460
+Dein Rust Herz schmerzt.
+
+02:44:26.460 --> 02:44:31.700
+Ja, wie würdest du es machen? Rein mit der Dependency Ejection von Axum komme ich ja nicht hin.
+
+02:44:32.060 --> 02:44:34.240
+Das kann man ja nur in Händlern dann anscheinend verwenden.
+
+02:44:38.060 --> 02:44:44.660
+Wenn ich jetzt ein Background Thread hab, da ging das dann schon wieder nicht.
+
+02:44:47.780 --> 02:44:54.380
+Der Background Thread soll einmal in der Sekunde Blub ausgeben erstmal nur.
+
+02:44:57.620 --> 02:45:01.860
+Long Running Task ohne Ende.
+
+02:45:08.060 --> 02:45:08.620
+Okay also wir seralalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalal
+
+02:45:38.060 --> 02:45:40.040
+Mit Tokio geht das doch auch, oder?
+
+02:45:42.220 --> 02:45:43.900
+Genau, Tokio spawn.
+
+02:45:46.560 --> 02:45:47.160
+Tokio.
+
+02:45:49.000 --> 02:45:49.600
+Spawn.
+
+02:45:54.420 --> 02:45:56.240
+Genau, Tokio spawn.
+
+02:46:03.960 --> 02:46:06.700
+Tokio spawn. Jetzt muss man auch wieder so machen, gell?
+
+02:46:08.060 --> 02:46:11.140
+Oder nicht?
+
+02:46:15.960 --> 02:46:16.220
+Okay.
+
+02:46:16.600 --> 02:46:17.860
+Pokyo spawn.
+
+02:46:22.640 --> 02:46:24.420
+Zeige mal her.
+
+02:46:38.060 --> 02:46:39.660
+spawn.
+
+02:46:40.280 --> 02:46:42.240
+Ah, Async Move.
+
+02:46:48.520 --> 02:46:49.400
+Äh.
+
+02:46:50.560 --> 02:46:51.140
+Nee, nee.
+
+02:46:51.200 --> 02:46:52.260
+Move war nicht. Async.
+
+02:46:54.400 --> 02:46:55.240
+Dieses komische
+
+02:46:55.240 --> 02:46:56.480
+Ding brauch ich nicht mehr. Aha.
+
+02:46:57.000 --> 02:46:59.180
+Okay. Okay. Tokio Spawn
+
+02:46:59.180 --> 02:47:01.340
+Async. So. Und jetzt haben wir hier Loop.
+
+02:47:04.680 --> 02:47:05.340
+Für immer.
+
+02:47:06.020 --> 02:47:06.420
+So. Und jetzt
+
+02:47:06.420 --> 02:47:09.260
+gibt es sowas wie Tokio Sleep?
+
+02:47:11.260 --> 02:47:12.660
+Sleep? Delay?
+
+02:47:15.160 --> 02:47:16.200
+Delay? Ne.
+
+02:47:18.040 --> 02:47:18.560
+Sleep?
+
+02:47:20.660 --> 02:47:22.320
+Tokio Sleep Rust.
+
+02:47:23.720 --> 02:47:24.860
+Sinux, danke schön für den Sub.
+
+02:47:29.860 --> 02:47:31.200
+Tokio Time Sleep.
+
+02:47:36.420 --> 02:47:45.500
+Tokio Time Sleep.
+
+02:47:46.420 --> 02:47:48.340
+Durations from the seconds.
+
+02:47:49.160 --> 02:47:50.300
+Genau, so ist gut.
+
+02:47:50.300 --> 02:47:50.700
+So.
+
+02:47:51.620 --> 02:47:54.100
+Und jetzt sagen wir, Tracing.
+
+02:47:55.340 --> 02:47:56.100
+Info.
+
+02:47:56.720 --> 02:47:57.580
+Ja, keine Ahnung.
+
+02:47:58.360 --> 02:47:58.640
+Blub.
+
+02:48:04.300 --> 02:48:05.100
+So.
+
+02:48:06.420 --> 02:48:08.400
+Gucken wir mal, ob das jetzt funzt.
+
+02:48:10.880 --> 02:48:13.560
+Achso, ja, vielleicht soll ich den Fehler wieder rausnehmen.
+
+02:48:16.660 --> 02:48:17.780
+Easy, geht.
+
+02:48:25.860 --> 02:48:26.740
+Sehr gut.
+
+02:48:31.400 --> 02:48:33.960
+Dazu könnte man ja fast schon sagen, easy.
+
+02:48:33.960 --> 02:48:38.280
+oder nein das war das falsche
+
+02:48:46.280 --> 02:48:52.640
+so und da will ich jetzt auf meine config zugreifen nur mal so zu gucken wie es geht
+
+02:48:52.640 --> 02:49:00.040
+konfig gleich app config s value eigentlich wirklich die ei macht komische dinger
+
+02:49:03.960 --> 02:49:06.820
+Ja, geht.
+
+02:49:12.200 --> 02:49:13.520
+Geht.
+
+02:49:15.520 --> 02:49:18.320
+So, das hier ist übrigens verkehrt.
+
+02:49:18.460 --> 02:49:19.560
+Das muss hier weg.
+
+02:49:20.360 --> 02:49:22.160
+Und das soll...
+
+02:49:22.160 --> 02:49:22.500
+Moment.
+
+02:49:23.180 --> 02:49:23.940
+Let.
+
+02:49:25.060 --> 02:49:25.920
+Config.
+
+02:49:25.920 --> 02:49:35.920
+Moment, ne, da muss ja Klammern drumherum, ne?
+
+02:49:35.920 --> 02:49:44.540
+Aber irgendwas stimmt hier nicht.
+
+02:49:44.540 --> 02:49:47.540
+Ah ja.
+
+02:49:47.540 --> 02:49:51.980
+config und jetzt config get version gleich
+
+02:49:51.980 --> 02:49:58.760
+to string
+
+02:49:58.760 --> 02:50:05.840
+was hast du für schmerzen rast
+
+02:50:05.840 --> 02:50:19.660
+das sei eine new value to field immutable bei den das muss mutt mutt muss das sein mut und
+
+02:50:19.660 --> 02:50:32.960
+jetzt kann ich sagen tust ringen so jetzt haben wir das da drin jetzt jetzt müsste nämlich auch
+
+02:50:32.960 --> 02:50:34.360
+ausgeben können.
+
+02:50:35.200 --> 02:50:37.240
+Git-Version. Ja, sehr schick.
+
+02:50:37.640 --> 02:50:38.760
+Sehr gut. Das gefällt mir.
+
+02:50:39.640 --> 02:50:40.840
+Und einmal... So.
+
+02:50:41.240 --> 02:50:42.780
+Und jetzt machen wir mal...
+
+02:50:42.780 --> 02:50:44.260
+Jetzt gucken wir mal, ob das aus der...
+
+02:50:44.260 --> 02:50:45.980
+Jetzt sagen wir mal, das kommt aus der Config.
+
+02:50:46.740 --> 02:50:47.200
+Arc.
+
+02:50:49.700 --> 02:50:50.180
+Champ.
+
+02:50:52.420 --> 02:50:52.900
+Champ.
+
+02:50:53.580 --> 02:50:54.060
+Interval.
+
+02:50:54.880 --> 02:50:56.540
+Default ist 1.
+
+02:50:56.540 --> 02:50:56.540
+
+
+02:50:59.660 --> 02:51:00.140
+Interval.
+
+02:51:02.960 --> 02:51:05.420
+Und nun gucken wir mal.
+
+02:51:06.460 --> 02:51:07.220
+Config.
+
+02:51:07.960 --> 02:51:09.360
+From seconds.
+
+02:51:13.700 --> 02:51:15.420
+App-Config.
+
+02:51:15.820 --> 02:51:16.720
+Intervall.
+
+02:51:17.500 --> 02:51:18.980
+Okay, das funzt nicht. Warum?
+
+02:51:22.980 --> 02:51:25.520
+Moment, er will einen U64.
+
+02:51:25.520 --> 02:51:27.760
+Ich will aber einen U60.
+
+02:51:27.940 --> 02:51:28.520
+Wie jetzt?
+
+02:51:28.840 --> 02:51:31.520
+Ein U16 passt doch in einen U64 rein.
+
+02:51:32.960 --> 02:51:46.000
+Hol dir doch die Version direkt über Clap in die App-Config.
+
+02:51:46.000 --> 02:51:49.960
+Aber ich hab die Version nicht.
+
+02:51:49.960 --> 02:51:56.560
+Klepp macht es ja zur
+
+02:51:56.560 --> 02:51:58.440
+zur Runtime
+
+02:51:58.440 --> 02:51:59.860
+das da ist
+
+02:51:59.860 --> 02:52:02.040
+das da ist ja Compile Time
+
+02:52:02.040 --> 02:52:07.940
+Add Safecast
+
+02:52:07.940 --> 02:52:10.100
+Oh
+
+02:52:10.100 --> 02:52:15.200
+Okay, was ist besser?
+
+02:52:15.800 --> 02:52:17.840
+Das da oder was der Chat
+
+02:52:17.840 --> 02:52:19.800
+geschrieben hat? U64 from
+
+02:52:19.800 --> 02:52:20.640
+App-Config.
+
+02:52:22.640 --> 02:52:23.920
+Das hier sieht irgendwie
+
+02:52:23.920 --> 02:52:25.020
+angenehmer aus.
+
+02:52:27.700 --> 02:52:27.920
+So.
+
+02:52:28.540 --> 02:52:29.720
+Schauen wir mal. Cargo Run.
+
+02:52:35.800 --> 02:52:37.240
+Kann nicht failen.
+
+02:52:37.240 --> 02:52:39.660
+Und wenn es failt, was passiert dann?
+
+02:52:40.800 --> 02:52:41.400
+Kackts ab.
+
+02:52:47.320 --> 02:52:49.720
+So. Intervall 1.
+
+02:52:49.800 --> 02:52:57.380
+Jetzt gucken wir mal, wenn ich jetzt hier sage, Champ Intervall gleich 5.
+
+02:52:59.260 --> 02:53:02.680
+Guck, dann updaten wir auch nur noch alle 5 Sekunden.
+
+02:53:18.420 --> 02:53:19.200
+Das ist Funst.
+
+02:53:19.800 --> 02:53:23.360
+Kunst.
+
+02:53:24.000 --> 02:53:24.640
+Eis.
+
+02:53:25.860 --> 02:53:26.120
+So.
+
+02:53:26.560 --> 02:53:27.340
+Und jetzt.
+
+02:53:27.820 --> 02:53:27.940
+Was?
+
+02:53:28.180 --> 02:53:32.680
+Statt U64 lieber Into nehmen, setzt sich weniger fest auf einen Typen.
+
+02:53:33.400 --> 02:53:34.760
+Also sowas hier.
+
+02:53:34.920 --> 02:53:35.340
+Into.
+
+02:53:38.700 --> 02:53:39.180
+Äh.
+
+02:53:39.700 --> 02:53:40.920
+Moment, warum geht das jetzt?
+
+02:53:44.740 --> 02:53:45.340
+Moment.
+
+02:53:45.340 --> 02:53:51.460
+ist ist was jetzt so schlau zu checken was will das hier als parameter haben
+
+02:53:51.460 --> 02:53:56.160
+und dann kaste das in tue schon für mich
+
+02:53:58.340 --> 02:54:02.280
+das aber ziemlich pock
+
+02:54:06.400 --> 02:54:10.400
+das ist eigentlich ganz nice
+
+02:54:10.400 --> 02:54:15.980
+Yep, Clock.
+
+02:54:17.680 --> 02:54:19.440
+So, jetzt haben wir unseren Background-Thread.
+
+02:54:37.200 --> 02:54:38.000
+Okay, Leute.
+
+02:54:38.000 --> 02:54:42.220
+Drei Stunden kommt genau hin.
+
+02:54:43.140 --> 02:54:45.000
+Heute ist der Streamtitel ja...
+
+02:54:46.120 --> 02:54:46.820
+Moment.
+
+02:54:54.700 --> 02:55:04.400
+Das da, passt mal auf, Google, two hours, sind genau drei Stunden.
+
+02:55:08.000 --> 02:55:09.540
+Und drei Stunden sind gleich um.
+
+02:55:11.300 --> 02:55:13.220
+Ich muss nochmal an die frische Luft, Leute.
+
+02:55:16.540 --> 02:55:17.340
+Aber heute
+
+02:55:17.340 --> 02:55:18.920
+einiges gelernt über Rust.
+
+02:55:20.020 --> 02:55:21.140
+Ich habe verstanden,
+
+02:55:21.500 --> 02:55:23.640
+dass die Rust-Fans
+
+02:55:23.640 --> 02:55:27.840
+das hier nicht so mögen
+
+02:55:27.840 --> 02:55:29.300
+mit meiner globalen Config.
+
+02:55:30.000 --> 02:55:31.360
+Wirklich gute Alternative
+
+02:55:31.360 --> 02:55:32.780
+habe ich jetzt aber noch nicht gelesen.
+
+02:55:33.120 --> 02:55:34.720
+Außer überall alles zu übergeben.
+
+02:55:35.820 --> 02:55:36.640
+Sich zu übergeben.
+
+02:55:38.000 --> 02:55:42.260
+Welche Tastatur hast du?
+
+02:55:42.340 --> 02:55:45.040
+Ich habe eine Logitech, sage ich dir.
+
+02:55:45.840 --> 02:55:47.200
+G 512
+
+02:55:47.200 --> 02:55:49.040
+Carbon
+
+02:55:49.040 --> 02:55:50.720
+I
+
+02:55:50.720 --> 02:55:52.400
+G X
+
+02:55:52.400 --> 02:55:58.920
+Ja, steht da unten drauf.
+
+02:56:04.680 --> 02:56:06.400
+Wenn es euch gefallen hat, Leute,
+
+02:56:06.400 --> 02:56:09.240
+oder wenn ihr Bock auf solche Streams habt,
+
+02:56:09.340 --> 02:56:10.860
+dann könnt ihr mir jetzt ein Follow dalassen.
+
+02:56:12.520 --> 02:56:14.640
+Gucken, morgen geht es, glaube ich, weiter mit Rust.
+
+02:56:14.960 --> 02:56:17.800
+Noch für 1, 2, 3 eventuell Streams,
+
+02:56:17.980 --> 02:56:19.760
+bis wir unsere Anwendung hier am Start haben.
+
+02:56:24.380 --> 02:56:28.520
+Und bis wir uns halbwegs sicher fühlen, was Rust angeht.
+
+02:56:28.940 --> 02:56:31.040
+Wobei Rust ist nichts, was man in 3 Tagen lernt.
+
+02:56:31.660 --> 02:56:33.040
+Das habe ich schon gecheckt.
+
+02:56:33.860 --> 02:56:36.280
+Also die Basics kann man dann ganz gut.
+
+02:56:36.400 --> 02:56:37.560
+Kein Aufwachen-Stream?
+
+02:56:40.040 --> 02:56:42.220
+Na doch, doch, doch, vielleicht schon Aufwachen-Stream.
+
+02:56:42.600 --> 02:56:43.560
+Was willst du eigentlich servern?
+
+02:56:43.920 --> 02:56:45.560
+Nichts Spezielles, eine Web-Anwendung.
+
+02:56:46.440 --> 02:56:51.220
+Wir machen im Endeffekt die gleiche Anwendung, würde ich sagen, nochmal, die wir letztens in Quarkus gebaut haben.
+
+02:56:52.200 --> 02:56:53.980
+Da weiß ich nämlich schon, was wir alles einbauen.
+
+02:56:55.220 --> 02:57:01.140
+Wobei wir das ja eigentlich schon, eine Sache ja schon eingebaut haben, die es in der anderen Anwendung noch nicht gab.
+
+02:57:01.140 --> 02:57:04.140
+Nämlich diese Versionsnummer beim Startup.
+
+02:57:06.400 --> 02:57:12.900
+ja für den ersten tag also es ist nicht das allererste mal dass ich was mache muss gleich
+
+02:57:12.900 --> 02:57:19.940
+dazu sagen ja also ein bisschen was mit was habe ich schon gemacht aber auch noch was gelernt
+
+02:57:19.940 --> 02:57:29.920
+unterschiedliche cargo crates rust crates und bild skript klepp zum passen wenn übrigens sehr
+
+02:57:29.920 --> 02:57:35.780
+angenehm im handling hier klepp als command line passen kann man sich nicht beschweren macht alles
+
+02:57:35.780 --> 02:57:36.200
+was man will.
+
+02:57:42.320 --> 02:57:43.640
+Wenn ich jetzt noch frage, ist,
+
+02:57:43.720 --> 02:57:44.560
+wie man verschiedene
+
+02:57:44.560 --> 02:57:47.600
+Commands da unterbringt.
+
+02:57:47.820 --> 02:57:49.360
+Also wenn ich jetzt zum Beispiel Command Run
+
+02:57:49.360 --> 02:57:50.380
+oder so haben will.
+
+02:57:54.840 --> 02:57:55.240
+Naja.
+
+02:57:56.160 --> 02:57:58.100
+Das gucken wir uns dann aber das nächste Mal an.
+
+02:58:01.260 --> 02:58:02.440
+Ich würde sagen, Leute,
+
+02:58:03.400 --> 02:58:04.080
+wir sehen uns.
+
+02:58:05.780 --> 02:58:07.400
+Bis zum nächsten Stream.
+
+02:58:09.860 --> 02:58:11.660
+Dann wieder 1,08.
+
+02:58:12.740 --> 02:58:13.340
+Was auch immer.
+
+02:58:13.600 --> 02:58:16.320
+Hoch 7 Millisekunden.
+
+02:58:22.440 --> 02:58:23.300
+Bis dann.
+
+02:58:23.300 --> 02:58:24.140
+Macht's gut.
+
+02:58:26.540 --> 02:58:27.420
+See you.
+
