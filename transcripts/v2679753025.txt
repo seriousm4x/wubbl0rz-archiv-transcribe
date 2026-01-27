@@ -1,0 +1,2750 @@
+So, da bin ich wieder.
+Es ging schnell, hä?
+Aufgegangen,
+was gefuttert und gleich wieder
+ongegangen.
+Ongegangen, schein das Wort.
+Online gekommen.
+Mal gucken,
+ob die Leute das überhaupt
+auf dem Schirm haben,
+dass ich wieder da bin.
+wie man mich kennt sage ich das ja in der regel nur und kommt dann gar nicht
+mehr an am sonntag aber diesmal bin ich am start
+und richtiges pfeifferzeug extra raspberry pi rausgekramt dass wir es auf
+der echten kiste machen können
+Ja, habe ich doch gesagt, wir machen jetzt PXE-Bootstells.
+Welcher in 50 Billiarden? Moin!
+Schon moin dran gedacht.
+Ich habe mich gefragt, wo ist er denn?
+Da ist er.
+Exzellent.
+Ja, ich habe schnell gefuttert, ne?
+Das stimmt.
+Ich sage das immer, dann komme ich nicht auf.
+Das ist korrekt.
+Ich mach schon mal die VM an.
+Dann erklär ich noch mal kurz, was wir jetzt eigentlich machen.
+Massive Five Headstells.
+Ich hab schon ein bisschen vorgearbeitet die letzten Tage.
+Also ein bisschen Ahnung hab ich schon.
+Aber wir müssen das mal alles zusammenbringen heute.
+Max, ich habe eine Perle gefunden, die gerne in FFM chillt.
+Goethestraße, Louis Vuitton Store,
+zahl die Kollektion bar, fick auf Sponsor.
+Aber du meinst jetzt wahrscheinlich eher sowas zum Essen.
+Ja, also, okay, das ist jetzt wahrscheinlich
+nichts Elegantes
+zum lange
+Essen gehen. Aber eine Sache,
+die ich finde, die preis-leistungsmäßig gut ist
+und wirklich extrem gut schmeckt,
+ist
+Shiking.
+zu der nähe vom hauptbahnhof korean fried chicken das schmeckt mega nice nicht offenbach city hier
+das brauche elbe elbe straße das schmeckt richtig nah ist scheiß auf pommes frites würde ich nicht
+machen den da jungen jungen chicken und reis dabei beste weiß ich ob es auch speisekarten
+gibt die alles mit pommes frites und kannst du komplett vergessen hier ist die speisekarte
+genau hier jungen schicken jungen jungen jungen schicken mit mittagsmenü kostet das ganze auch
+ich glaube 11 euro kostet mittlerweile 11 euro mittagsmenü jungen chicken da ist reis dabei
+mittagsmenü ich nehme mir immer noch ein extra portion reis die städte bis noch eine alte
+speisekarte steht überhaupt nicht drauf extra portion reis kost 150 nur ich war auch gestern
+erst wieder da aber das ist das ist echt also es mir schmeckt das richtig gut und
+mittagsmenü ist preislich auch in ordnung gestern samstag gab es kein
+mittagsmenü gestern war ich da und habe hier gegessen für 14 50 genau für 14 50
+zweimal extra reis dabei noch mal drei euro und was kleines zu trinken das
+wertschrumpfen was gekostet aber unter der woche ist also kann ich empfehlen
+wäre in der nähe vom hauptbahnhof was
+neuestes für mittags sucht er cheeking
+statt schicken tofu zu bekommen ganz
+ehrlich bei einem korean fried chicken
+restaurant ist ohne chicken vielleicht
+bisschen unvorteilhaft oder es ist
+wahrscheinlich der richtige lagen pxe
+ja pxe wird mich abfacken heute ist
+jetzt schon abfucken mega pay in the ass ist das so ich habe mir in den raspberry
+pi moment habe das nicht chat aber das nicht heute morgen schon abgegradet bin
+ich jetzt total hängen geblieben.
+Wir haben das doch heute Morgen
+schon abgekriegt. Gab es denn schon wieder was Neues?
+Es geht aber schnell.
+Arch, by the way.
+Na gut.
+Tja.
+Die Soße und das Panierte und so,
+das könnten sie auch mit Tofu machen, aber ich glaube,
+das passt einfach zu Korean Fried Chicken nicht.
+So, Upgrade.
+so dann würde ich sagen fangen wir mal recht entspannt an wir installieren einfach mal auf
+dem auf der micro sd karte ich habe hier eine 64 gig samsung pro micro sd karte endurance ja
+nur vom feinsten für den chat installieren wir mal hier ein aktuelles raspberry pi image drauf
+Passt das nicht? Och nee!
+Ah doch passt. Sehr gut.
+Connect zur VM. Raspberry Pi Imager.
+Insufficient permissions. Na gut, dann halt als Sudo.
+Select your Raspberry Pi Device. Alter, was ist das für einer? Keine Ahnung.
+Moment, was ist denn das für einer?
+kann man das von außen wenn es in dem gehäuse ist irgendwo erkennen dass er kennt man ja ja
+das ist ein vierer ein vierer der hat 22 blaue usb anschlüsse das muss ein vierer sein das muss
+ein vierer sein es ist auch neu dass man das auswählen muss raspberry pi os 64 spiel port
+of the beyond rixi raspberry pi desktop nee ich will keinen raspberry pi desktop haben
+kann man da irgendwie
+No Desktop Environment.
+Das will ich haben.
+So.
+Next.
+Da drauf.
+Next.
+Enter your hostname.
+PXE Champ.
+Ähm.
+Was?
+Was wollen die von mir?
+Berlin ja okay keyboard layout.de das brauche ich jenals ich connect mich damit mit ssh drauf
+username max123456 super top secret passwort ich will kein wifi access kann man das kann man das
+leer lassen enable ssh use password on the notification use ja ja passwort ist okay
+das ist ich habe diesen debian diesen raspberry pi dings hier imager die neue
+version habe ich noch nie verwendet komplett neu für mich
+ein label raspberry pi connect was ist denn das
+writing es ist ein e-mail write you race
+der mensch ist gut gemacht ja muss man muss man echt sagen massive immer schon auch hier
+was ist was gibt's bei add options place und wenn finde ich die jack media wenn finished
+gerade wird geschrieben also mein plan ist folgender ich mal euch das jetzt noch einmal
+auf wir machen das hier in den filmen oder so mein plan ist ist folgender
+also px e tfdp gut jeweils unterschiedlich bios und uefi da braucht man nämlich unterschiedliche
+sachen zu ipx ipx e ist quasi die pxe nur dass man http anstelle tfdp benutzen kann allerdings
+für kisten die selbst noch kein native ipx e haben müssen ipx e erstmal von pxe booten
+alles klar dann zu einem minimal db an installer image und von dort an das db an cloud image auf
+platte die den und konflikt mit cloud in it ok so ist das gedacht von der idee
+weiß ich alles wie es funktioniert und die einzelteile müsste auch zusammen
+kriegen aber so alles alles in kombination vielleicht bisserl
+er muss denn seine sd karte verifizieren
+wird da rein gesteckt in den raspberry pi
+ob es falsch rum steckt die auch über die sdk den fall drum rein jedes mal
+ok netzwerk stärker sein was bei strom stecker wo ist er da
+und ist er an?
+Er ist an.
+Exzellent.
+Jetzt muss ich mich am zweiten Bildschirm mal kurz verbinden
+auf meinen Router,
+um dort mal zu gucken,
+was das Ding für eine
+IP-Adresse bekommt.
+Leases.
+Aha.
+bis jetzt sehe ich noch nichts
+jetzt sehe ich hier noch nichts aha was haben wir da ich sehe da ist ssh max
+11 22 14 also das ist auf jeden fall die richtige jetzt nur torst das ist die richtige
+ich habe so gerade meine router gesehen der pxe champ der hat die acht moment
+der es bei repute sicher immer weil er die platte risse ist doch gar nicht da
+hat sie eben eine ip geholt hat dann gedacht kein bock alter
+was ist denn jetzt es bei da ist
+du ein dhcp server multi die optionen setzt
+das wird advanced ich habe ein dhcp server da kann das aber nicht richtig deswegen werden wir
+einen dns mask daneben stellen der nicht die ip's manager sondern nur die informationen für
+pxe boot raus raushaut so kann man px also kann man die hcp server weiter auf meinem
+router bleiben und das pxe zeug wird von dem dns mask erledigt da sind wir was wir bei
+um es ist so langsam alter was da los mit f und wie war geht doch
+vielleicht doch eine ssd dran machen sollen
+upgrade aber so viel installieren müssen wir ja nicht
+ja wir machen einen zweiten server aber wir machen kein dhcp über den zweiten server oder
+wir machen doch doch wir machen so eine art wie machen dhcp ohne ip adressen zu verteilen das
+geht man kann quasi zu einem schon bestehenden dhcp server einfach nur pxe informationen liefern
+so machen wir das das weiß ich auch schon wie es geht das kann ich mir copy paste das habe ich hier
+aber gleich das war also wie das funktioniert weiß ich und frage ich hier den es mast kommt
+so geht das das zeige ich euch gleich ach so vielleicht soll ich hier noch dabei schreiben
+also das ausliefern also nx macht web server macht http zeug und dns maß macht halt ja cp
+proxy heißt das mit mit px infos
+was ist denn sq es cool sowas wie jay-q swiss armen auf ins back joint export
+data
+nicht
+Von der Armkiste kann man eine x86 Kiste PXE booten.
+Da wüsste ich jetzt nicht, was dagegen sprechen sollte.
+Ich meine, der liefert halt x86 Bootsachen aus.
+Das dürfte eigentlich kein Problem sein.
+So, da haben wir geupgradet.
+Wollen wir nochmal stehen?
+Komm, wir rebooten nochmal.
+Ne, wir geben mal eine statische IP.
+Nicht, dass das Ding zwischendurch wechselt.
+ETC Network Interfaction.
+E, äh, äh, äh, chat, oh fuck, äh, äh, äh.
+Wie konfiguriert man denn eine statische IP auf dem Raspberry Pi?
+network manager nm3 kann man machen das geht über network manager
+oder spd-pi. edit a connection netpla... darf ich das darüber machen?
+eher nicht oder? besser nicht. kommt sich bestimmt in die quere.
+netplan etc net net plan was für ein ding ist doch vom network manager install wim h top pv
+des den übrigen verdächtigen darauf fahren machst du auch noch unattended installation ja wobei ich
+keine unattended installation klassisch machen mit durchklicken ich lasse mir das
+debian cloud image auf die platte ddn und dann per cloud in it
+wie macht man das eigentlich was der tic ip
+immer eine statische ip vergibt
+ein wort der fuck wollen die mir sagen dass das nicht
+okay also geht es doch mal network manager
+und es ist also war ich doch richtig
+Oh, habe ich mir gerade die Netzwerkverbindung deaktiviert?
+Leute, ich glaube, ich habe mir gerade die Netzwerkverbindung deaktiviert.
+Scheiße
+Ups
+Ey, wer kann damit ahnen
+Wenn man auf activate connection geht
+Und enter drückt, dass es sich dann deaktiviert
+Alter
+Was ist das
+Okay, reicht es vielleicht
+Reicht es vielleicht, wenn ich einfach nur das Kabel
+Rein und raus ziehe
+Geht das vielleicht, reicht es oder muss ich die Kiste neu starten
+Oder bleibt es komplett deaktiviert
+Und ich muss das Image neu machen
+sind wir doch wieder da sind wir wieder
+kabel rein rausziehen hat geholfen
+scheiße das schaltet sich wieder ab im
+inschneu wirklich nee oder alter
+ok strom raus strom rein
+ich schließe jetzt kein monitor an die dann dass lieber das image neu drauf hauen
+das war jetzt richtig dumm alter
+bitte nicht ausschalten
+okay es geht immer noch das spricht spricht dafür dass es anscheinend funktioniert
+Edit.
+Äh.
+Hier, da.
+IPv4-Configuration.
+Äh.
+Manual.
+Okay.
+Ah.
+Address.
+Ach so geht das.
+Okay.
+Add.
+1, 9, 2, 1, 2.
+2.
+2.
+5, 5 oder so.
+Ist das frei?
+ja 55 gateway 12 22 2.5 dns server auch jeder router der router gut
+ipv6 können wir tatsächlich das able den jux sagen wir okay
+weg
+ähm
+und wie
+apply
+reboot wirklich
+pinken wir den und dann bringen wir die neue ip guck mal was als erstes anstatt kommt
+ach so ist das stimmt ja das hätte bestimmt auch funktioniert aber gut fix auf jeden fall auch
+also auf es geht wahrscheinlich sind da ist einfach gar nicht mehr
+habe ich irgendwo vertippt vielleicht da sind wir
+es haben und 50
+Terminal Spatrum
+55
+S
+Ich hab übrigens was sehr
+Nices mir geschrieben dort
+Muss ich euch mal kurz zeigen, ich hab mir das extra hier
+Moment, was machen wir jetzt
+Paste das hier mal rein
+Alles klar
+So, ich zeige euch jetzt mal was.
+Passt mal auf.
+Also, guckt mal, ihr kennt das doch.
+Das wenn man...
+SSH...
+Known Hosts...
+So, jetzt löschen wir den mal und tun so, als wäre der gewesen.
+Okay, jetzt fällt nämlich...
+Ja, jetzt fällt nämlich das SSH da drauf.
+Guck.
+Warum nicht?
+Jetzt doof, warum fällt das SSH
+da drauf nicht, wenn das ein alterer Key ist?
+Ah ja, okay. Jetzt fällt das SSH,
+weil
+der Key sich geändert hat.
+Der Server-Key. Wenn ich mir sicher bin,
+würde man normalerweise machen SSH
+Keygen
+SSH
+Keygen-R
+und dann schreibst du die IP hin. Was ich jetzt gemacht habe,
+ich habe hier einen Alias für die Shell
+eingeführt, heißt fix ssh.
+Eine Function in der Shell, fix ssh.
+Und jetzt
+funzt die Verbindung wieder.
+Und wisst ihr, wie das
+funktioniert? Das ist eigentlich
+richtig sick, finde ich.
+Der holt sich aus Westterm
+den Scrollback-Buffer, also er holt sich
+den Text aus dem Terminal.
+Ähm.
+Warte mal.
+er holt sich den Text aus dem Terminal
+greppt dort nach dieser Fehlermeldung
+greppt dann dort die IP-Adresse
+raus, holt sich die letzte
+das letzte ausgeführte fehlgeschlagene
+SSH-Kommando und dann führt
+er mit der IP einen SSH-Kigern-R
+aus. Theoretisch könnte
+man jetzt noch sowas hier drunter machen, dann würde
+er sogar das SSH neu ausführen.
+Aber das braucht's nicht.
+Das finde ich sehr nice.
+Guck, sobald es fehlt, schlägt.
+So, jetzt machen wir erstmal SSH Copy ID.
+Dass man sich da ordentlich drauf einloggen kann.
+Dreh ich durch.
+Wart.
+Der hat IDRSAZG.populiert, was der Standardmäßig nicht verwendet.
+Alter, hier, was ist das?
+Minus I.SSH.
+ID.
+ID.
+Was ist denn mein
+gescheiter Key hier? Der da bestimmt.
+Der ist bestimmt das Beste.
+God, let's do not match.
+Was habe ich da für dumme Keys rumliegen, man?
+Okay, dann...
+Okay, dann...
+ID, ID, RSA.
+Komm, der geht bestimmt.
+Ah ja, okay, der Pfotzt, sehr gut.
+Sehr schön. So, jetzt sind wir auf der Debian Kiste drauf. Das erste, was wir jetzt brauchen ist,
+ein DNS Mask, den müssen wir installieren. Ganz wichtig. Und ein Nginx müssen wir installieren.
+und dann gucken wir mal ob das booten funktioniert das müssen wir relativ easy
+hinkriegen hier ich lege mir schon mal eine vm an die eigentlich nur dafür da ist dass man
+dass man sie bietet later linux later px px px test heißt das ding jetzt ja keine ahnung
+4 CPUs brauchen wir eh nicht, äh, pflegekram. Bridge Networking machen wir mal um auf Nummer sicher zu gehen.
+LS, jaja, zack.
+20 Gig.
+customer ist hat wer soundkarte raus wenn ich okay und damit px e booten
+wir jetzt und gucken ob das prinzipiell mal funktioniert aber aus
+also noch ein stream ja so dns machst da brauchen wir jetzt eine config für dns machst die habe ich
+schon die habe ich schon die sieht nämlich folgendermaßen aus die müssen wir nur um die
+ip-adresse anpassen etc dns maß die erstmals kommt so alles weg set paced das brauche ich erkläre es
+mal kurz das habe ich schon ausprobiert also da weiß ja das prinzipiell funktioniert die ip
+müssen wir nur da habe ich da habe ich einen tag oder so gebraucht bis ich das raus gekriegt habe
+dann müssen wir bloß die ip anpassen ja also was das macht ist folgendes ich bin mir selbst bei
+manchen sachen nicht sicher ja ich habe das tatsächlich teilweise von der ki diese dinge
+habe ich tatsächlich von der ki generieren lassen hier diese teile weil ich keine ahnung wie ich das
+hinkriege was funktioniert also ihr wisst schon allein wenn wenn ich kommentare drin habe dann
+wisst ihr genau massive ki modus aktiviert also was das ding macht ist der guckt was für dhcp
+options der klein sendet wenn der client pxe option 175 sendet dann weiß er erbootet schon
+per pxe wenn die wenn der client optional sendet dann weiß er es ist ein bios boot wenn der option
+6 sendet dann weiß er es ist ein 32 bit system wenn er 7 sendet weiß er dass es in 64 bit system
+und 9 ist auch ein 64 bit system und danach match der danach guckt er okay wenn der tag nicht pxe
+ist weil wenn der pxe ist vom pxe booten ipx e booten wenn der tag nicht die pxe ist und x86 pc
+dann soll da das fürs bios laden
+wenn was auch immer bcv ist keiner wenn bcv gesetz ist es passt doch gibt überhaupt keinen
+sinn was mir die ei hier generiert hat oder müsste das hier oben nicht x86 wie heißen
+ich bin ich habe eigentlich gedacht dass hier von egal schauen wir mal die ip 55
+und hier und 55 so das ist jetzt ein dhcp server der eine ipc vergibt
+das gibt's also kannst auf dhcp request antworten ohne ip der halt dem booten den
+Server nur mit, wo er seine Images
+findet zum Booten.
+Wir gucken jetzt mal prinzipiell, ob das
+überhaupt funktioniert. Wir haben noch keine Images und nix.
+Aber wir können zumindest
+schon mal checken.
+Das ist ganz wild, ja.
+Wir können zumindest schon mal checken.
+Geil.
+SRV, TFTP
+inaccessible. Okay.
+MKDir, SRV,
+TFDP.
+Ähm.
+Okay, restart.
+Wir gucken jetzt mal, ob die Kiste prinzipiell
+booten würde. Also wir haben noch keine Images
+oder so, aber mal schauen. Was?
+Oh.
+Bin ich den Store?
+Macht der irgendwas?
+Ah, guck mal hier.
+Booty Pixel Bios.
+Ja, der würde booten,
+wenn eine Image da liegt.
+Das heißt, wir brauchen jetzt ein Image.
+Wir müssen nach
+CD, SAV und TFTP
+DNS-Mask,
+Conf
+und da müssen jetzt diese Images hier hin.
+Warum ist hier eigentlich
+WIM-Modus standardmäßig aktiviert?
+Das ist doch ganz abartig.
+Wim.wimrc
+SetMouse
+gleich
+Excellent.
+Achso, wir können auch noch hier
+SyntaxOn machen.
+Ja, so ist gut.
+So, damit kann man
+arbeiten.
+Ja, jetzt kann ich wenigstens ordentlich markieren.
+So, jetzt müssen wir
+Images legen, dahin.
+Wir benutzen IPXE zum Booten.
+IPXE
+äh, warte mal, was war das?
+boot.
+Oh ne, ipxe boot.pxe.org
+oder sowas?
+ipxe.
+Dann gab es hier glaube ich boot.
+Wenn ich das richtig im Kopf habe.
+boot.ipxe.org
+Genau. Also wir brauchen
+einmal das da für
+efi boot.
+Und wir brauchen
+Uni irgendetwas.
+Ne, undi only.
+Was auch immer das bedeuten soll.
+Eheführ.
+Gut.
+Jetzt haben wir die Dateien da liegen.
+Jetzt sollte der ordentlich booten.
+Der sollte jetzt...
+Also der kann auch nicht booten, aber der kann
+IPXE booten.
+Und auch, guck, IPXE startet.
+So.
+So, jetzt
+an der Stelle hört's auf,
+wo ich Ahnung habe. Dafür
+habe ich schon einen Tag gebraucht, bis das funktioniert
+hat. Ich kann euch auch beweisen, dass es
+funktioniert.
+Ich kann euch auch beweisen, dass es
+funktioniert. Wenn ich jetzt hier nämlich
+UEFI boote,
+ich hoffe mal, ich habe jetzt kein Lister erzählt,
+dann bootet er auch nach EPXE.
+Das heißt, dass
+auch dieser Switch BIOS EFI
+funktioniert.
+Guck,
+EPXE bootet er.
+natürlich geht es jetzt nicht weiter weil noch nichts dahinter ist aber er hat die pxe gebootet
+das spricht dafür dass alles funktioniert auch mal aus also
+So, ach Gott.
+Vor allem wäre es wieder
+die Pega.
+Kann man hier sowas wie Exit machen oder so?
+Ups.
+Ist da aus. Nice.
+So, und jetzt stellen wir das hier wieder auf Bios Boot um,
+weil ich das eh zu 90% in VMs verwende.
+Gut.
+Jetzt haben wir das Wichtigste
+schon mal. Nein, wir haben nicht das Wichtigste erledigt.
+das war jetzt nicht so schwierig also ipx e bootet jetzt jetzt brauchen wir ein ipx e
+file was uns ein schönes menü malt habe ich hier irgendwas in der richtung schon
+drin irgendwas mit gut hier gut epx genau das müssen wir jetzt anlegen jetzt auch mit matt
+in der vm das ist eine gute frage ich bin mir dann ehrlich gesagt nicht sicher ob pxe gescheit
+funktioniert nochmal ausprobieren hat
+ne ne hätte mich jetzt auch sehr gewundert wenn das funktioniert geht ja
+auch gar nicht dass das das broadcast und macht und tut das kann ich das das
+Das würde mich sehr, sehr wundern, wenn das funktionieren sollte.
+Mit NAT kann das nicht funktionieren.
+Aber es spricht ja nichts dagegen,
+das Install zu machen und dann danach auf NAT umzustellen.
+Das funktioniert ja ohne Probleme.
+das stimmt wohl aber du brauchst für dhcp muss das ding ja im gleichen netz hängen
+oder quasi auf switch ebene im gleichen layer 2 macht es ja nicht denkt er eine
+eigene netzwerkkarte in dem eigenen netz da gehen keine broadcasts raus und kommen keine zurück
+so
+okay das heißt wir brauchen jetzt ein boot ipx wir machen jetzt mal was einfaches wir versuchen mal
+wir versuchen mal zwei sachen erst mal dass er überhaupt ein menü bekommen ja
+genau ich lasse jetzt auch netboot xy das war mein plan ich lasse jetzt netboot xyz mal booten
+zum testen so also ipxee example netboot xyz gibt es da was
+was man auf
+open code sagt er jetzt weil die meine ganzen sachen ich nutze abgeschaltet die kostenlos
+okay ich brauche eine ipx eine gut punkt ipx e datei die mir ein auswahl menü gibt und darin
+kann ich local boot oder netboot xyz auswählen und guten mal gucken was chat gpd dazu sagt jetzt wird
+vibe admin machen wir heute ok start menü epx e boot lokal system booten timeout default local
+target chain auto free ok das liest sich gar nicht so doof das werden wir etwas customizen
+was chat gpt hier zusammen gewurschtelt hat also so einen komischen start tag ach so hier
+goto goto start können wir machen das ist okay wir machen das anders das kommt weg menü
+epix e boot heißt das ding einfach item wir müssen da keine sprüche malen so wir nennen
+1 nennen wir kann ein boot local boot local netboot xyz das finde ich eigentlich ganz gut
+als name reboot neustart das kann ich ehrlich gesagt brauche ich nicht das kann ich einfach
+mit eintippen und gut ist so tschüss timeout 10 sekunden fünf sekunden reichen default local
+local boot local habe ich das genannt gut local
+oder oder go to start nee wir wollen kann man da und und drinnen machen wenn oder oder geht
+dass ich sage und und
+go to target
+local exited einfach
+starte netboot
+xyz, ok
+chain auto freeboot
+netboot xp
+ähm, ich würde
+ehrlich gesagt lieber lokales netboot
+xyz booten anstatt ins internet zu gehen an der stelle aber wir probieren es mal aus ob das ob das sinn hinhaut
+So jetzt bin ich mal gespannt ob da jetzt ein menü kommt
+Post check guckte mal da ein menü
+Manchmal ist er ganz praktisch
+soll erst mal testen ob local boot funktioniert
+die local boot funktioniert
+not found logisch ist ja nichts drauf
+der netboot xyz operation not supported good not boot
+no aha no more network moment moment der ruft sich keine moment der ruft sich
+keine IP ab oder?
+PotatoBob, wir haben nicht mal ansatzweise irgendwas
+Gescheites hier am Start.
+Wir brauchen hier irgendwie die, der
+holt sich keine IP.
+Netboot
+IPXE
+Example Menu
+oder Example, einfach
+Einfach
+Da war es eine hässliche
+Seite.
+Boah, mein Auge.
+gibt es da nicht irgendwie gibt es da nicht irgendein minimalbeispiel oder so vielleicht dafür
+sample ipx file
+ok irgendwie erst beste github gedöns
+ok meinetwegen peter bolsch
+ich will kein iso image ich will einfach wissen wie dieses komische menü aussehen muss
+aha guck mal da guck mal da dhcp muss man da hinschreiben dhcp
+Wo schreibt man das denn hin?
+Jetzt bei jedem
+Bei jedem dieser Dinger?
+Ne, das kann man bestimmt oben reinschreiben
+Hier, DHCP
+Gucken wir mal, was passiert
+Zack
+Ich lese den Chat, klar
+So
+netboot
+oder holt er sich eine ip der holt es der hat sich schon ein ip geholt
+der muss sich eine ip geholt haben wie soll er sonst wie soll er sonst das hier
+geht das von uns nicht das war das chat gpt da zusammen gebastelt hat gibt es
+gibt es die möglichkeit ipx e boot iso kann man die iso booten
+laut in iso aufwahl josef
+zahnbutt
+zahnbutt notice kreis gut url iso
+ja das ist doch gut so das war ja doch so sahen gut sahen gut hier fehlt keck
+wait aller machen wir mal so was wie man die px e file set war er wird oder so
+was machen variabel sind gut menü
+set set boot menü und ja sowas hier das machen wir nämlich so was hier sagen wir jetzt set server ip
+das wird das nicht immer jedes mal rein tippen muss 192 168 2.55 mail condition brauchen wir
+nicht bei uns richtig richtig man muss einfach nur mit dem richtigen mindset daran gehen ist
+ja noch wie das ist wenn man gar nicht für möglich wenn man es überhaupt nicht
+zulässt dass es kaputt gehen kann dann geht doch nichts kaputt server ip ok und
+jetzt was machen wir da isos oder so isos netboot ja moment da muss ich jetzt
+erst einmal dahin hier war www html mk dir isos wie greifst du jetzt darauf zu auf was
+was weißt du dass hier das ist ein rest bei der peinlich per sass hat hoffen
+Du hast kein Portokoll angegeben, das ist richtig. Das stimmt schon, ich glaube das ist falsch, ja.
+Aber ich muss erst mal das netboot xyz ISO runterladen.
+copy download link wie cd isos regatt net boot xyz iso das heißt jetzt gehen wir wieder nach
+shv tfdp boot und jetzt sagen wir http://isos.net boot xyz iso
+So machen wir das und dann hoffen wir mal, dass es funktioniert.
+er versucht sich irgendwelche komischen dinge abzurufen
+was auch immer er versucht keine ahnung von meinem router versuchte die sich abzurufen
+das immer net buddh xyz am start das ist doch extrem nice aber das ist ja nicht das ziel
+net buddh xyz zu booten der ziel ist ein eigenes linux zu booten und dann das debian cloud image
+zu installen aber prinzipiell funktioniert er schon mal das ist ja ganz gut so jetzt brauchen
+wir so was wie sowas wie install so und jetzt bin ich mir jetzt habe ich keinen plan wie das
+funktioniert wie bootet man ein debian oder generell nennen linux ipx e ipx e
+boot debian irgendwas mit dem kölner oder so muss man da glaube angeben
+buch von form i px oder mal hier unten gab es auch was debian akku mal hier
+können und dann gut ich brauche jetzt so ein rand ist image genau das müssen wir
+uns jetzt noch generieren das können wir uns allerdings nicht auf dem raspberry
+generieren weil das keine x86 system ist vielleicht können wir das in docker
+machen muss man mal gucken
+so ich bin wieder da also wir brauchen irgendwie sowas hier debian also können
+so lass mal kurz in mich gehen wir laden das ganze per http schon mal wir können
+das ja schon mal vorbereiten und jetzt hier quasi server ip
+dann machen wir dann machen wir so ein verzeichnis würde ich sagen können wir
+hier noch eine variable machen sowas wie wie wie eine ahnung folder oder so oder irgendwie
+es folgt keine ahnung es folgt wird dann wie nennen wir den ordner installer installer image
+oder installen dann was install image install image install os folder linux und jetzt der
+körner in id und dann hier jetzt muss man eine ram disk bauen das wird was ein patrick hast du
+im docker ein komplettes linux kannst aber weiter ja ja aber ich muss den kram irgendwie
+du verboten also du hast im docker container kein komplettes linux der kabel ist vom haus
+system aber eine rand ist bauen die dann unter slash boot liegt das müsste eigentlich
+funktionieren müssen wir mal gucken das probieren jetzt gleich mal aus
+13 GitHub-Sterne seit gestern.
+Ey, das ist echt gut.
+Pock.
+Okay, jetzt müssen wir
+ein Debian-Image bauen.
+Können wir das nicht
+testweise
+mit einem schon bestehenden Debian-Image machen, wo wir uns das rausholen.
+Debian-Init-ID. Gibt es da nicht schon irgendwas Fertiges?
+aha guck mal hier linux in it rd die bringen uns nichts weil ich für den
+installer sind ich will einfach noch gucken ob das guten funktioniert okay
+und geht set und das andere heißt linux okay das heißt wir machen jetzt hier
+ein mkdir wie habe ich das genannt install image install image we get in
+it rd und linux kernel
+bin ich mal gespannt ob das funktioniert
+ach so moment es kann ja so nicht funktionieren muss ja hier noch
+einen eintrag machen ihr install local net boot install install
+soll jetzt noch mal guten wir werden heute auf das kann ich euch sagen
+ein paar boot install
+das boot in den db an install das wollte das will ich ja nicht weil einfach nur gucken ob es funktioniert
+so könnte man ein db an installer booten
+ein schlecht aber das will ich ja nicht will kann db an installer booten ich will
+einen db an image ein minimales remdesk image guten von dem aus ich dann in db an cloud image
+direkt auf die platte dd ich will ja nicht jedes mal diesen installer durchklicken und
+installieren müssen das muss viel schneller geht soll er viel schneller gehen aber prinzipiell
+Prinzipiell funktioniert das schon mal.
+Jetzt müssen wir eine eigene Linux-Körnel und so eine RAM-Disk-Geschichte bauen dafür.
+PXE für Windows 11, ganz ehrlich, das würde ich mir erst gar nicht geben.
+Da hätte ich überhaupt keinen Bock drauf, da würde ich durchdrehen.
+Du könntest natürlich auch den Installer nutzen, dem so eine Antwort-Datei geben.
+Ne, ne, wir machen das jetzt komplett selbst.
+Wenn schon, dann richtig.
+Können auch einfach Demo gestalten.
+Was?
+Habe ich das nicht vorhin installiert?
+Anscheinend nicht.
+Muss mal kurz Licht anmachen.
+Sekunde.
+Home Automation öffnen.
+Ansicht, Decke einschalten.
+Exzellent, schon viel besser.
+So, wir bauen jetzt ein eigenes Linux-Image.
+Okay, Docker run.
+Debian Trixi.
+Debian Trixi ist schon mal sehr gut.
+Okay, wie funzt sowas?
+Wir wollen ja auch einen SSH-Server haben, wenn wir da reinbooten.
+Up, Install, Drop hier.
+Das kenne ich.
+Drop, Update.
+habt install completion
+install wie heißt es tropf tropf ja ja ja ja nicht bier ja genau habt install tropf bier
+ob er in den tram fs also was sie jetzt machen will ist ich will mir ein eigenes linux ist so
+ein initial rem disk linux bauen was ich dann guten kann wo dann schon ein paar sachen drin
+sind mit der ich dann das db an cloud image quasi auf die platte dd und per cloud in den
+konfigurieren soweit so weit in der theorie mal gucken alle was das denn was will das hier von
+mir die selekte layout matching machine was was willst du von mir englisch utf 8 was ist denn das
+wollen wir wollen eigentlich ein deutsches keyboard set haben
+das mal neu machen aber gibt es da gibt es auch german german 64
+Ihr habt doch gesagt 64.
+1.
+UTF-8.
+Alter, was will denn das noch alles?
+Ja, ein Guess.
+Das wird auch ein Busybox.
+So.
+Habe ich jetzt unter Boot schon irgendwas?
+Update?
+Init RAMFS minus U
+ist es, glaube ich.
+Nee, ich habe ja kein Kernel-Zeug und so
+installiert, weil wir im Docker-Container sind.
+Das braucht man normalerweise nicht, aber
+wie installiert man unter Debian
+ein Kern? Linux?
+Minus?
+Headers?
+Ne, wie heißt das?
+Search Linux?
+Irgendwas mit Linux heißen die Dinger.
+Und ich habe kein
+Less installiert. Es wird ja immer schlimmer.
+ein sie die lux image 612 was ist der standard können ja das ist ja
+wahrscheinlich an sein
+das da ist wahrscheinlich der richtige linux image die gibt es muss doch da so
+ein generic package geben linux image install linux image den default köln
+linux image amd 64
+das ganz anderes kann ich das auch auf dem raspberry pi machen
+ab install linux image amd 64
+Kann ich auch auf dem Raspberry Pi einen AMD 64 Kernel installieren?
+Ich meine, einen Buden kann ich davon nicht, aber installieren.
+Und Search.
+ARM 64.
+Nee, es geht nicht.
+Wäre ja auch irgendwie unsinnig.
+So, habe ich jetzt hier unter
+Wut was?
+Ah, guck mal da. Da haben wir die Dinger.
+Jetzt kann ich ja Update in der DramaFS
+machen. Ja, genau.
+Sehr gut, sehr gut.
+Okay, okay. Sehr nice.
+Sehr nice.
+Excellent, excellent.
+ok wie bauen wir das jetzt also erstmal brauchen wir einen authorize key file dass ich mich per ssh
+dann drauf einloggen kann also ein job ja ubuntu für ubuntu gibt es meistens bessere guides
+install drop in etwa haben wir gemacht das brauchen wir nicht wir wollen damit nichts
+anlocken okay etc job erinnert muss das dahin das mal kurz gucken etc job erinnert ramfs job
+bier authorized at your public key ja gut man public key den gibt es ja noch gar nicht ssh
+keygen.
+Die habe ich nicht.
+Upt-Install-SSH.
+Nee, Open-SSH-Server.
+Geht das einfach auch so?
+Okay.
+SSH-Keygen.
+Okay, das wäre jetzt
+ziemlich dämlich, ehrlich gesagt.
+Hier drinnen auf einen zu generieren,
+in dem Docker-Container.
+Nehmen wir einfach mal einen der bestehenden, würde ich sagen.
+ssh idee habe hier eigentlich idrs ab max ed porgas das klingt gut das wollen
+wir haben max ed porgas da muss die datei hin ein bin ich muss mir das alles
+merken was ich hier in dem docker container machen es muss ja nachher in
+docker file irgendwie packen können und dann kann ich auf knopfdruck mir immer eine neue
+ram fs generieren eigentlich sehr nice so hier ssh key max add poggers jetzt updaten wir die ram disk
+Crypt Setup, das uninstall ich einfach wieder.
+Upt, Remove, Crypt Setup, das brauch ich da nicht.
+Ich will da nichts anlocken oder so.
+Okay, das ist doch schon mal gar nicht schlecht.
+Paukt das denn so?
+Wir versuchen jetzt mal davon zu booten, okay?
+Mal gucken, was passiert.
+Dazu muss ich mir jetzt irgendwie vom Docker-Container was runterkopieren.
+chat
+wie kopiert man sich aus dem docker container gescheit was raus
+doch cp da muss aber da installiert sein dass das funktioniert geht das
+pp running container
+locker ps locker cp und dann einfach so was hier probieren wir mal einfach mal
+testweise wir machen wir hier in repo mk dir pxe und pxe bootcamp hätte das
+eigentlich heißen müssen locker locker cp und jetzt hier ist es gibt kein auto
+komplett für der mtc haus korb das prinzipiell kopiert ok von nice haus
+okay wir machen das gleiche in den docker file das machen das gleiche
+docker fall sonst sonst ist es doch nichts
+also was habe ich jetzt gemacht viel ist es ja nicht gewesen
+ob es jetzt bin ich auf falschen kiste
+bin grad verwirrt war das da oben muss ich zu machen sonst sonst komme ich
+durcheinander hier doch erstellt also was haben wir nicht brauchen wir nicht
+brauchen wir nicht deshalb installiert okay wir bauen wir bauen wir brauchen
+einen docker file locker fallen die erste mal rom bild ja ja genau ganz
+toll. From Debian Trixi. Run, apt, update. Das ist erstmal das erste, was wir machen.
+Dann sagen wir apt install shop here. Run, Moment, wir müssen sogar noch sagen,
+dass er das automatisch machen soll. So. Äh, apt, dann haben wir gesagt remove, script, setup.
+dann haben wir gesagt ab install linux image amd 64 dann haben wir das hier angelegt mit
+dem inhalt drin mit diesem inhalt drin sekunde da ob das funks was ich hier
+bau
+so wie ich und das da rein da haben wir die datei
+habe ich sonst noch irgendwas wichtiges gemacht?
+Ich glaube nicht.
+Achso, ja doch.
+Dann müssen wir noch sagen
+Run
+Update
+Init RAM FS
+Minus U
+war es glaube ich. So, jetzt gucken wir mal, was
+passiert hier. Docker
+Build
+ja keine ahnung wii xe boot
+ach was habe ich dann wieder verkackt
+was genau hast du jetzt für probleme dem jan
+was ist jetzt das problem
+eben ging das doch noch
+ja aber warum geht die install nicht macht doch gar keinen sinn
+Hä?
+Soll ich zweimal Update machen?
+Okay, keine Ahnung. Zweimal Update
+Funds. Einmal war zu wenig.
+Keck, wait.
+Achso und jetzt will ich ja den Kram da raus kopieren.
+Ok, jetzt kann ich hier oben zu machen, weil mehr habe ich hier oben auch nicht gemacht.
+epos px e boots so jetzt mal docker an px eben ein eigenes gebautes px e boot image haben wir
+denn unter etc job wir in der tram fs eine authorize key feiligen haben wir mit dem
+richtigen key drin sehr schön das heißt jetzt muss ich mir hier was raus kopieren
+wir machen mal ein bild bild punkt sh locker bild
+bin.bash
+So, wir machen erst ein Docker-Build
+und danach machen wir ein Docker-CP.
+Jetzt kommt das Ding, da weiß ich
+das Kommando für nicht.
+Docker-CP. Ne, erstmal müssen wir ein Docker-Run
+noch machen.
+Docker-Run.
+Moment, wie machen wir das jetzt gescheit?
+Wie kriege ich denn das jetzt, wie kriege ich denn aus gescheit
+aus Docker was rauskopiert?
+Moment, wir haben doch da was, wir haben doch da was
+Wir haben doch hier ein
+Build-Skript, was genau sowas macht
+Bild.sh
+Also, was machen wir denn da?
+docker bild machen wir da doch aha
+ist der pfeiffer
+locker create name xe boot
+PXE
+Boot
+und jetzt sage ich
+Docker CP
+Gut, dass wir für alles schon mal irgendwas haben.
+Docker CP
+Das war aber nicht minus minus Q
+Gibt es Docker CP
+minus R? Gibt es sowas?
+Dass ich sagen kann, ich will
+PXE Boot
+Alles slash Boot
+was ist output dir
+okay kann ich einfach sagen ich will alles dahin kopieren das muss man mal das muss
+jetzt mal ausprobieren ob das ob das funst ob man das aber das machen kann ob also wir sagen
+jetzt wir wollen von nicht von px e boot von diesem hässlichen docker namen
+wo wir kopieren slash boot quasi direkt hier hin und da war nichts nach der
+f0 halten oder so ok das funks schon mal nett
+ok da sind die files ich brauch excellent
+hier das brauche bild und sh so und jetzt allerdings für px e boot dahin genau dann
+machen wir r-f punkt slash boot dir nehmen
+was richtig was aus dem alten skript kopieren nämlich dass da das ist six
+hat und zwar was das am anfang des skripts macht ist das wechselt in das
+verzeichnis in dem das best script selbst liegt das heißt alles was ich
+danach ausführe ist relativ zum skript das immer sehr praktisch so kann er gut
+machen doch cp mit der kram rüber kopiert hier und dann wieder docker rm
+pxe boot so jetzt bin ich mal gespannt ob das was ich da gebastelt habe
+funktioniert bild ca mod plus x bild wird wie das war es schon tatsächlich weil es
+von da haben wir da haben wir unsere karten geschichten die wir brauchen top
+So, wir kopieren uns den Kram von boot init rd boot vm linux.
+Kopieren wir uns nach max add.
+Was hat mein Raspberry Pi?
+55, genau.
+nach max 55 und dann nach war www hat ach da darf ich nicht reinschreiben oder war ww install image
+da darf ich nicht da darf ich nicht rein kopieren
+Moment, muss ich das auch mal richtig machen.
+Ah ja, Permission, Permission Denied.
+Ähm,
+Chat, wir machen es uns jetzt mal einfach.
+Machen es uns jetzt mal einfach.
+Wisst ihr, was wir jetzt machen?
+Wir loggen uns per Route ein.
+Es gab doch auch irgendwie so einen Trick,
+dass man, ähm,
+SCP
+But pseudo first.
+Da gab es doch so einen Trick.
+Den ich hier gerade noch nicht aus dem Kopf weiß.
+The eternal pain.
+Okay.
+Ist gut.
+Ja, alles okay.
+Das kann man so machen.
+Kann man so machen.
+scp schreiben wir hier in mein heimatverzeichnis rein
+ich bin im falschen verzeichnis
+okay das von uns das lässt sich kopieren gut dann packen wir das noch in das bildskript rein
+scp von boot in it rd wir machen hier mal leute wir machen hier mal ein sternchen hin dass der
+immer wenn der kram sich anders nennt auch match ich hoffe das funktioniert so das kopierte hin
+Danach machen wir SSH hier hin.
+Und dann sagen wir dort sudo mv.
+Wir machen das in den Extraordner hier.
+mkdir init-rd.
+So ist es besser.
+ok so da kann man nämlich sagen wir musen einfach von internet rd sternchen alles nach
+war
+www.html
+install
+image
+Ob das Funds, was ich hier gestrickt habe?
+Okay, gucken wir mal.
+Bild.
+Aha, aha.
+Oh, oh, oh, oh.
+Postchamp.
+war www.html
+html install image
+da ist das Zeug, perfekt
+Moment, Moment, Moment, ich will aber nicht, dass das so heißt
+da muss ich jedes Mal anpassen, ne, ne, ne, warte mal hier, m Sternchen
+wir machen das anders, wir, komm wir machen das einfach
+zweimal, ist doch egal, sudo, so wir kopieren
+die hier
+init
+init rd
+.image
+Sternchen
+kopieren wir hin unter
+init rd
+r
+und
+vm linux
+kopieren wir
+unter
+vm linux
+dass das immer gleich heißt auch beim updaten sonst kriegst ja durch im Kopf
+mal gucken ob das Funz was ich gebaut habe
+passt exzellent Leute exzellent xxx jetzt dreht er komplett durch
+so in rd vm linux
+geschaut was jetzt passiert beim boot jetzt bin ich selbst mal gespannt
+install operation not permitted moment moment ich hatte habe ich mich irgendwie verschrieben
+habe ich mich verschrieben wenn er sagt operation not permitted ist irgendwas hier falsch was ist
+denn falsch 12 255 install image slash in rd ob bittet guck dir mal hier
+ca mod 777 ist voller von welcher dann alles ja ja ja natürlich immer 77 so auf
+alles security brauche ich keine
+da guck mal an da bootet und es bietet sogar in meinen ssh server ist das nicht toll und da sind
+wir auf dem ram fs genau das was ich haben will und jetzt hätte ich gerne so was wie install was
+es ja gibt schon irgendwie setup ok setup script was mir jetzt quasi einen dialog anbietet willst
+du jetzt das Cloud-Image runterladen und dann
+dede mir das auf die erste Festplatte, die du gefunden
+hast. Da muss ich das Init-RAM-FS
+allerdings noch ein bisschen customizen.
+Also ich mache jetzt quasi da in diesem Menü
+das, was
+normalerweise man halt in einem Webinterface
+bei der Cloud macht.
+Wir schauen übrigens mal, ob man per SSH
+draufkommt. 2.141
+SSH
+1.4.1
+Hm.
+also host key verification fix ssh ist es nicht praktisch
+wenn ich max gut da sind wir wir sind in unserer sind per ssh in unserer
+internet ram ist das nicht nice da können wir jetzt nämlich da brauchst du
+nämlich gar kein monitor anschließen theoretisch kannst jetzt per ssh
+weitermachen das ist sogar noch besser als ein webinterface bei einem cloud an peter
+weil das alles vom terminal aus machen kannst so exquisite also das von schomer das finde ich
+äußerst nice.
+Jetzt, Chat, jetzt mal in mich gehen.
+Wie macht man das jetzt am besten?
+Ich brauche
+in meinem Installer
+in meinem Install-Image brauche ich ein Skript.
+Ein Skript,
+was mir
+sowas hier sinngemäß macht.
+LSBLK
+nach FZF.
+Achso.
+LSBLK nach FZF.
+Sowas in der Richtung.
+ja wo ich dann die disc auswählen kann und sagen ich will auf dieser dieser disk installieren so
+sondern sondern ist so eine art menü will ich da jetzt haben ja noch besser ich weiß was wir
+machen vorher machen wir eine abfrage ob wir debian stable testing oder unstable haben wollen
+würde ich sagen.
+Rust-CLI-Interface, Quatsch.
+Wir machen das mit Shell.
+Okay, okay, okay.
+Ich habe eine Idee. Ich habe eine Idee, Chat.
+Wir bauen uns
+in unser Init-RAM
+FS
+bauen wir uns ein Skript ein.
+Okay? Ein Skript
+nenne ich jetzt einfach mal setup.sh
+oder setup oder so.
+Wir bauen uns dann ein Skript ein, was nichts anderes macht, wie ein weiteres Skript von meinem Webserver runterzuladen.
+Der Hintergrund ist, ich will ja nicht jedes Mal mein Boot-Image anpassen, wenn ich Änderungen an dem Skript mache.
+Also wir bauen uns da quasi sowas hier sinngemäß.
+Das legen wir einfach hier in root.
+Wim.Skript.sh, beste Benamung überhaupt.
+Das muss allerdings ein bin.sh sein, weil das ja in der Busybox läuft.
+Da machen wir sowas wie rm.slash script.sh.
+Wobei ich nenne es nicht Script, ich nenne es wirklich Setup.
+Script.
+Setup.
+Setup.sh nennen wir es.
+Setup.
+So, das andere nennen wir Script.
+Kommt wieder ins Install.
+Install.sh.
+Okay.
+Install.sh.
+So.
+Ich weghette mir dann.
+HTTP.
+1.2.55.
+Slash.
+Install.sh.
+Weghette ich mir vom Server.
+Dann.
+chmod.
+Plus x.
+Install.
+Punkt sh.
+Und dann.
+Skript, ne Install hab ich es genannt
+Install.sh ausführen
+Fertig, mehr macht das Skript
+Was ich in mein
+Ähm, auch mit hardcoded
+IP und sowas, ja
+Mehr macht das nicht
+Die IP von dem Server
+Darf sich halt nicht ändern, aber
+Eine statische IP dafür, das ist okay
+So, mehr macht das nicht
+So
+Ähm
+Warte mal, ich bin ja auch blöd
+Guck dir mal
+Ich, ich depp
+Setup.sh
+Das hat hier überhaupt nichts zu suchen
+Das, das muss ins Image rein
+Also das muss im Docker-File
+Also es muss hier irgendwie eine Datei mal angelegt werden
+wir löschen das vorher dass es nicht in docker mit rein kopiert wird
+so also das kommt jetzt hier hin wenn wir es hier setup punkt sh
+so sehr mod plus 6.sh jetzt gehen wir unser docker file so wo müssen jetzt custom scripts
+hin wo muss da muss ich jetzt noch mal docker starten docker wo müssen custom scripts hin die
+in die in der trame fs eingebunden werden sollen da gab es irgendwo hucks irgendwas mit hucks
+etc in der trame fs tools
+das war woanders
+user share das klingt gut user share in the tram fs tools scripts genau dahin
+war das falsch jetzt richtig hucks genau da sind sachen trenne die letzte die dann
+letztendlich in das image kopiert werden das heißt wir brauchen jetzt ein skript
+ok da mussten wir fragen war chad chad gpt haupt copy customer script into in den tram fs und dem
+Das ist ein klassischer Debian-Init-Gramm-FS-Move.
+Alter, Chat, gib bitte halt.
+Das ist gelaber immer.
+Script-Example, make it executable.
+Create a hook.
+Ja, genau.
+ETC.
+ETC.
+Nee, nee, nee, nee, nee.
+Das muss ich.
+ich habe sowas schon mal gemacht was in der internet das muss hier unter user
+chat gpt erzählt ist okay aber der rest der rest ist eigentlich sehr übertrieben
+jetzt also war mal hier die copy files nennen wir das einfach mal okay install
+wim copy files so und da würde man jetzt kommt das ist alles blödsinn das
+Das kann man so lassen.
+Vielleicht sollten wir aber tatsächlich noch
+das da. Das da könnten wir vielleicht noch
+inkluden. Weil ansonsten gibt es ja
+CopyExec nicht.
+User-Local-Bin-Skript.
+Ich hoffe,
+das meckert jetzt beim Bilden von der
+E3-Best, dass es das da nicht gibt.
+Root-Slash
+setup.sh
+Wir kopieren das
+nach
+user
+bin setup.sh
+Und das Ganze kopieren wir
+nochmal nach setup
+und nochmal nach s. Weil ich kenne mich,
+ich bin faul beim Tippen.
+Irgendwann will ich nur noch s eingeben.
+Und das ist gut.
+So.
+Update init ramfs
+minus u.
+Und? Kackts ab?
+Ich hoffe, es kackt ab.
+Es kackt nicht ab.
+Habe ich das nicht ausführbar gemacht? Kann das sein?
+CRMOD plus X Copy Files.
+Ah, guck mal, jetzt kackt es ab.
+Sehr gut, sehr gut.
+Das heißt, es kackt ab.
+Das heißt, wir wissen, dass es funktioniert.
+Klingt jetzt doof, ist in dem Fall aber so.
+probieren wir das mal raus so das muss jetzt in unserer docker file irgendwie
+rein
+chat wie macht man multiline zeug in dem docker file mit mit mit mit hier docs
+oder also wir wollen multiline string doch ach komm komm leute ich weiß wie
+wir es machen scheiß drauf wir machen das überhaupt nicht ins docker file rein
+Wir legen das einfach hier hin.
+Äh, Copy Files.
+So.
+CRMod plus X.
+Copy Files.
+Da.
+Docker File.
+Äh, Copy.
+Das kommt weg.
+Das kommt ganz ohne immer hin.
+Copy.
+ob die files nach user user share in ram fs tools hook da soll das hin
+wir programmieren heute gar nicht wir machen heute vibe administration vibe admin wobei
+das meiste ist ja von mir ausgedacht aber manchmal kann man chat gpt fragen so copy
+copy file moment gut setup ja moment moment das muss ich ja davor auch noch hin kopieren
+Setup.sh
+Das muss ja auch noch kopiert werden.
+Wim.
+Dockerfile.
+Setup.sh
+Muss nach
+root.
+Okay.
+Passt das, was ich hier gestrickt habe?
+Schauen wir mal.
+Build.
+Build.
+Generating.
+Okay, das hat funktioniert.
+Jetzt bin ich mal gespannt.
+Okay, okay, okay, okay.
+SRV?
+Nee, nee, nee, nee.
+Install.
+Install Image.
+Ja, 15 Uhr, das sind die richtigen Images.
+Okay, schauen wir mal.
+Wenn ich es richtig gemacht habe,
+habe ich jetzt einen Setup.sh.
+was sich nicht ausführen lässt aber es müsste da sein install ja okay okay okay
+wir müssen noch was hinterher schießen
+und zwar ein sudo ch mod minus er 77 77
+html okay so da habe ich immer die richtigen berechtigung
+okay gut
+jetzt bin ich mal gespannt ob das funktioniert post champ chat meint ihr
+geht so haben wir ein setup punkt sh
+ab da ist es es funktioniert nicht aber wir haben es in unserer in unser skript
+eingebaut in unserer in der tram fs eingebaut easy richtig hyper easy easy
+so sieht's aus und wisst ihr was das gute daran ist jetzt ist ja was das gute daran
+ist. Jetzt muss ich
+mein InitramFS nicht mehr
+customizen,
+weil
+ich kann das Skript,
+was der hier abruft,
+kann ich jetzt hier customizen
+auf meinem Server.
+InstallImage
+oder was? Moment mal, was ruf ich ab?
+Moment.
+Setup.sh
+Setup.sh
+install.sh rufe ich ab also
+seamod plus x install.sh install.sh vim install.sh so und da drin machen wir jetzt
+nur mal einfach dass man sieht dass es geht ls minus la sonst nichts ok
+zack so switchen und jetzt ls minus la quasi gewollte code injection so
+kann ich hier was ausführen meine elit kam fs und aus kürze schon so jetzt ist die große preisfrage
+wie krieg ich
+Ich
+Wie kriege ich jetzt einen schönen dialog
+Wo ich auswählen kann
+Also wo ich auswählen kann, welche Debian-Version ich haben will und dann auf welcher Disk ich
+installieren will.
+Okay, Debian-Version sollte eigentlich relativ easy sein.
+In der DramaFS ist das, was dein Bootloader startet, das ist dein Linux-Kernel plus eine
+Remdisk und das was von dort dann gestartet wird, das startet dann dein eigentliches Linux System.
+Also dein Bootloader bootet in den Kernel in der InitramFS, macht da ein paar Dinger und
+dann startet es dein eigentliches System. Und man kann diese InitramFS auch benutzen,
+um da Custom Sachen drin zu machen, zum Beispiel ein Installer Script oder so hinlegen.
+Und das machen wir gerade
+Okay, ich will jetzt sowas hier machen
+Echo minus E
+Stable
+Testing
+Sit
+Ich bin blöd
+Backslash endlich
+Slash, wie kommen wir auf Flash
+So, und das Ganze
+Mit Dialog hast du das Shell-Auswahlmenü.
+Ich würde FZF nehmen.
+Dialog.
+Habe ich, bin ich mir ganz sicher,
+habe ich das schon mal verwendet?
+Nein, nein, wir machen das mit FZF.
+FZF ist mir lieber.
+Kannst sogar Fuzzy-Searchen hier an der Stelle.
+Oder Dialog.
+Wie benutzt man Dialog?
+Linux Dialog
+Auswahlmenü
+alle was für eine was für schwarze magie ist das denn
+wir machen das mit fzf leute fzf ist viel lieber
+da muss wir müssen doch unsere unsere rand ist anpassen
+wir müssen fzf installieren wir müssen fzf installieren fzf
+okay wir machen das umgedreht wir inszenieren den linux server hier oben
+weil das dauert immer eine weile wenn sie den job ja auch als eigenes und das
+machen wir auch und das machen wir auch und dann den rest machen wir dann nur
+hier install fzf gibt es noch irgendwas was wir brauchen warum ein doppel update
+weil es nicht funktioniert hat mit einem keine ahnung warum vielleicht war das
+auch einfach nur was temporäres ich lasse jetzt doppelt das update hat
+so und jetzt müssen wir unsere copy files wenn ich fzf installiere wohl liegt das dann
+schön ist es eine go anwendung user user bin fzf
+copy files
+user bin fzf mal kopieren wir machen das mal lokal ja wir machen das jetzt mal lokal also
+bei einmal einmal bilden können wir schon da nicht weiß jetzt weil ich jetzt verstehe ist
+ich muss jetzt ja aber stehe ich kann ein bisschen auf dem schlauch wie man das jetzt
+weitermachen erst mal gucken wie man gescheites auswahlmenü macht die discs
+also ich will so was wie lsb lkf aber halt was wir weib admin noch mal ein
+bisschen
+ich will lsb lkf pfeifen
+Und eine Liste bekommen mit allen Root-Disk-Devices.
+Also nicht SDH1-ETC.
+Okay, mal gucken, was Chat-GPDR draus macht.
+Okay.
+Also man muss sagen, für solche Sachen ist Chat-GPDR nicht verkehrt.
+Ja, das ist gut.
+ZRAM.
+Okay, Moment, Moment, Moment.
+Nur, nur Type-Disk.
+gibt es so was wie type vielleicht teil doch disc exquisite xl z ram also z ram brauchen
+wir nicht heißt im endeffekt ich will da jetzt minus vz ram weg erstmal grep grep
+startet mit disk ok und dann crept-vzram ja und jetzt habe ich meine disk zum auswählen
+da mal hier drauf will ich installieren dann muss ich jetzt nur noch das ganze mit awk rausholen
+dollar 2 sda exzellent okay sehr schön lsb lk brauchen wir glaube ich auch noch das ist da
+auch nicht standardmäßig dabei oder lsb lk natürlich nicht auch zu einfach lsb lk wo liegt das
+Which?
+LSBLK.
+User Bin.
+Oh, nice.
+Wenn alles unter User Bin liegt, soll mir das recht sein.
+User Bin, LSBLK.
+Build.
+Okay.
+So.
+Warum AWK?
+Keine Ahnung, weil mir gerade AWK schneller eingefallen ist.
+Tieferen Sinn hat es nicht.
+Also, dann.
+Bauen wir doch mal unser Skript.
+bauen wir doch mal unser Skript zusammen.
+Wir können jetzt schon mal noch einmal rebooten,
+dass wir die richtige NETRAMFS mit FZF und LSBLK und so drin haben.
+Install.
+Okay. Gut.
+Wir können uns übrigens auch wieder,
+weil das so nice per SSH funktioniert,
+verbinden hier per SSH.
+und zwar auf die 141 wieder.
+Es ist so nice, dass diese Initial RAM Disk,
+dass das SSH-Funds, fix SSH.
+So, hier, zack.
+Also, wir müssen jetzt,
+also einmal das hier brauchen wir gleich
+und, okay, Moment, wie machen wir das?
+ins install punkt sh brauchen wir install punkt sh da kommt jetzt kein
+ls minus 1 1 sondern da kommt erst einmal kommt oben set minus minus minus
+o ok lass mal überlegen ob ich das aus dem kopf raus kriegt was ist exit on
+error printe was du machst und und wenn ein kommando in der peip fällt auch raus
+ich weiß nicht ich weiß nur dass es ist als auch im kopf was die optionen bedeuten
+und und sowas hier wollen wir auch haben also aber so was sie hier
+man man clear davor so ist distro gleich echo minus stable testing fzf genau gut
+also was hier halt gleich fünf reicht ok distro das gibt es eine auswahl select
+haben wir noch mal einen debug echo selected distro gleich dollar bistro da kommen jetzt
+auch für den stable testing sind wir machen debian only was anderes installiere ich nicht
+Obuntu braucht dann auch wieder andere Cloud-Init-Configs und sowas, das ist eklig
+Ebian reicht mir, kein Ubuntu
+So, Distro, jetzt müssen wir die Disk auswählen
+Disk
+Gleich
+hier muss erst mal
+type name size model krebs und disc wir machen hier auch wieder halt 5
+Jetzt gehen wir nochmal aus hier, Selected, Disk, Ups, Disk, Disk, die richtige Disk ist
+aber eigentlich mit einem dev davor dev
+der windows 11 ganz vergesst fertig war so steff und dann kommt die des kinden
+dran okay jetzt schauen wir mal ob das funktioniert also wir sind hier wieder
+auf der kiste drauf setup wir können auswählen sit testing stable
+jetzt habe ich abgebrochen sehr schlau stable disk und jetzt muss ich das cloud
+image drauf die den ach das ist schön
+und jetzt jetzt werde installation fast schon fertig so bäume bäume auch hier
+Die eigentliche Installation fehlt noch.
+Ich habe da doch ein Skript vorbereitet, Leute.
+Hahaha.
+Exzellente Skripts.
+Hier, passt mal auf.
+Guck dir mal da.
+Ein massive Sixhead-Skript habe ich doch hier dafür.
+Guck dir mal da.
+install image update punkt sh guckte mal hier was wir hier haben ist ja was das macht nein
+das ist ja nicht aber das erzähle ich euch jetzt das lädt immer die neueste debian daily version
+runter und zwar für sit stable und testing wie es das macht ist folgendermaßen das gehört vom
+debian ftp die release info da kommt zeige euch wie das aussieht
+tricksy tricksy guck da kommt sowas hier zurück da krepp ich mir codename raus
+dann gehe ich hier auf die cloud images tricksy und hol mir hier diese zahl raus
+die Versionsnummer. Das ist voll durch die Brust
+ins Auge, aber es funktioniert.
+Dann hole ich mir diese Zahl hier raus, aus dem
+Image,
+dass noch eine übrig bleibt
+und dann
+downloade ich
+das letzte
+aktuelle Cloud-Image
+und jetzt kommt der Trick.
+Jetzt ist FIFAT-Time.
+Wobei, das muss ich auch noch in meinen
+Initial-RAM-FS einbauen. Jetzt ist FIFAT-Time.
+So, ich lade mir das Image runter als TAR.xz, einfach weil es kleiner ist.
+Dann enttare ich das.
+Okay.
+Und dann LZ4-e ich es wieder.
+Also ich wandle das quasi um von einem TAR.xz zu einem LZ4.
+Warum zu einem LZ4?
+Weil LZ4 sehr schnell dekomprimierbar ist.
+Das heißt, ich spare einfach massig Bandbreite, auch wenn ich mir später die Install-Images von meinem HTTP ziehe.
+Du hast gerade Distro als Distro-Trixi angegeben.
+Ja und? Ist doch richtig?
+Wo ist das Problem?
+Es heißt so.
+Aktuelle Debian Release heißt so
+Trixie ist der
+Dinosaurier glaube ich
+Ist Distro nicht Stable?
+Die aktuelle Stable Distributoren ist Trixie
+Trixie ist aus Toy Story dieser Triceratops oder?
+Ja
+Der hier
+Die Debian-Dinger sind doch immer nach einem Toy-Story-Charakter benannt.
+So, jetzt gucken wir mal, ob mein tolles Skript so tut, wie ich mir das hier denke.
+Also, Update.
+Command not found. Nice.
+Upt. Install. LZ4. Skript schon mal fehlgeschlagen.
+Update.
+Ha!
+Nice.
+Guck mal, und jetzt habe ich topaktuelle
+Debian-Images bei mir rumliegen,
+die ich nachts aktualisieren kann.
+Genau, Forky.
+Wer ist Forky eigentlich bei Toy Story?
+Das Viech.
+Ich kann mich legit an dieses Viech nicht mehr erinnern.
+Ich glaube, denen gehen die Namen langsam aus.
+Gab es Andy schon?
+Andy?
+Aber wenn du den Release-Link mit Stable angibst, bekommst du dann auch den richtigen Release-Link raus.
+Ist eine gute Frage.
+Äh.
+Ja.
+Geht auch.
+Aber ich bin mir nicht sicher, ob das bei Daily geht.
+Siehst du, da geht es nicht.
+Da muss man es mit dem Codenamen machen.
+Also.
+Wir können schon mal was anderes machen.
+Wir können mal LZ4 schon mal installieren.
+Es werden mir gerade zu viele Fenster, die ich hier am Start habe.
+repos.exe boot.wim docker file. lz4 wollen wir installieren. ich gehe einfach mal davon aus
+aus dass es auch in user bin lz 4 lz 4
+das brauchen wir jetzt nämlich gleich noch bild
+dann logge ich mich hier schon mal aus
+Jetzt können wir die Debian Images runterladen und gleich entpacken.
+Also init-ramefs kannst du halt nichts nachinstallieren.
+Das ist so wie es ist.
+Wobei ich ehrlich gesagt keine Ahnung habe, ob man da nicht auch apt installieren könnte
+drinne.
+Aber es wird wahrscheinlich nicht richtig funktionieren.
+so
+jetzt können wir uns da wieder per ssh drauf verbinden da sind wir gut also
+und schon haben wir top aktuelle debian images sind image lz 4 stable lz 4
+ich kenne buzzi nur weil es von morgen einer im stream geschrieben hat im chat ich kannte
+das bis heute morgen auch nicht ich könnte ja klar kenne ich das aber erkennt das nicht
+ich habe keine ahnung gehabt dass das existiert bis heute morgen gut c aber sogar noch irgendwie
+oft glaube ich habe morgen hier mal geguckt aber wusste ich nicht also ich habe noch nicht
+sogar hundertprozentig gecheckt, was das eigentlich ist.
+So, jetzt haben wir hier unsere
+Debian-Images. Jetzt müssen wir mal
+weiterbauen an unserem Skript.
+Ah, Mist!
+Curl und V-Gate brauche ich noch, hä?
+Na, Curl reicht.
+Curl brauche ich noch.
+Okay, kann ich gleich nochmal
+die Datei bilden.
+Sehr, sehr schlau.
+Ähm, Wim?
+copy files curl curl brauchen wir noch und dann muss auch noch in stocker file curl
+was versprecht ihr euch denn von der umstellung auf boot c vielleicht kriege ich da ein bisschen
+bisschen besser raus was das eigentlich genau ist und macht und tut
+ok also wo ich noch mal guten
+install
+Okay, haben wir Curl jetzt drauf?
+Ja.
+LZ4 ist auch drauf.
+Das ist ja deutsches Tastatur...
+Englisches Tastatur-Layout.
+Wie macht man denn der Init-RAM-FS denn ein deutsches Tastatur-Layout?
+Init-RAM-FS, Debian...
+ähm, change keyboard layout.
+Komm.
+Wir vibe-adminen heute.
+Got it. You want to change the keyboard?
+Init RAMFS shell. Edit console.
+Was?
+Debian stores the keyboard layout
+eine drama fs in etc in tram fs tools in der drama fs ist das so etc in der drama fs konf
+ja kommen wisse
+jetzt muss ich jetzt muss ich
+ich nur noch dafür sorgen
+etc default
+ich muss kurz lesen anstatt dass du jetzt ein de-ball-image hättest du ein bootable
+container als image also ein OCI-Imageformat mit kernel dass man bootet so auf ganze aha
+Leicht der Fallback, du hast ein Image mit Tag, das in den...
+Aha.
+Da muss ich ja mal Gedanken drüber machen, ob mir das gefällt oder nicht.
+XKB-Layout.
+Okay.
+Also, wie machen wir das jetzt schön hier mit...
+Wir replacen einfach usdurch.de, oder?
+Das sollte doch am einfachsten sein.
+Cat, seht.
+usdurch.de
+Chat, warum bin ich zu dumm für Seed gerade?
+Was mache ich falsch?
+Ist doch so richtig.
+Nee, nicht minus i.
+Hä?
+Bin ich jetzt...
+ach es habe ich vergessen ja ihr habt recht ihr habt recht ihr habt recht
+der seht minus etc default keyboard so das muss man editieren und danach
+etc in it etc in ramfs tools in ramfs keymap
+keymap n steht da standardmäßig trainer im mpn
+seht
+ihm abend durch kino bs ersetzen
+genau so diese zwei sachen brauchen wir also machen wir noch raus diese zwei sachen müssen
+noch einbauen etc in ram fs in der tram dass da seht also einmal das hier brauchen war und
+das hier brauchen wir die zwei sachen ob es jetzt habe ich
+gehen wir in unser in unser docker fall ran ran
+die zwei dinger brauchen wir brauchen wir noch irgendwas lz 4 curl zeug haben
+schon kopiert nur ich glaube das ist so
+ist er was ist ja was als man irgendwas editieren muss mit diesem ding ist wir
+einfach deutlich angenehmer wo liegt wohl liegt denn wir eigentlich ab install
+will in welchem verzeichnis liegt mir danach auch user user user bin user bin
+okay ich gehe noch ein bisschen installiert
+ok bild
+so und dann haben wir aber alles was wir brauchen da können wir uns uns kommt widmen
+So, zack, Reboot.
+Install.
+Schauen wir mal, ob wir jetzt einen Wim haben.
+Wir haben einen Wim.
+Der hat Probleme, der Wim.
+Aber er öffnet, ja, okay, immerhin.
+Und wir haben deutsche Keymap, Leute.
+hat funktioniert deutsche team
+denkt ein aktuell best practice ist container fall einstatt das altbekannte
+juckt mich überhaupt nicht ich brauche das zum bilden von parker sachen ob das
+jetzt ein docker pfeile sondern container falle ja vollkommen egal
+ich benutze das image ähnlich was da rauskommt so jetzt kann man unserem
+skript weiterbauen also hier unten connecten wir uns wieder auf den installer wir machen das anders
+wir gehen hier hin und connecten wird auf den installer also skript wie habe ich es genannt
+bin ja falsch hier install install punkt sh also ok chat wie geht es weiter jetzt haben wir hier
+uns die disk ausgewählt nachdem wir die disk ausgewählt haben wohin das installieren wollen
+müssen wir jetzt das image runterladen also curl wir machen hier oben man auch nur variable server
+server ip gleich 1 2 1 6 8.2.55
+wenn jetzt einfach server so curl minus s wir wollen nicht zugesperrt werden http doppelpunkt
+doppel slash prozent dollar server slash wie habe ich das genannt install image slash
+debian minus jetzt distro punkt image punkt lz 4
+so
+ich glaube so
+ab ev hätte ich noch gerne das haben wir auch noch drauf hat dabei sind pv hätte ich noch
+gerne install pv dass wir eine progress bar anzeigen lassen können in der shell
+copy files pv
+ja das muss man einmal initial machen danach kann dieses installer image immer gleich bleiben
+booten kann er schon mal
+Ups, habe ich es irgendwie kaputt gemacht? Ich habe es zerstört. Neu booten. So, install.
+ok jetzt kann man sie unten wieder connecten da sind wir wieder also nicht immer falsch da
+müssen wir hin also köln minus s ok wir pv das jetzt und dann nach der f0 einfach mal gucken
+ob das funktioniert was ich jetzt gebastelt habe also setup wir wollen debian stable wir
+wollen sie auf diese disque installieren und und und es downloadet es downloadet das image
+gut jetzt müssen wir das ganze noch jetzt müssen wir das ganze noch dekompressen
+das war hier davor lz 4- d ist es glaube ich wenn ich nicht ganz falsch schlägt pv ja okay
+noch mal gucken stable disk sehr schön das flutscht das flutscht auch richtig da seht
+ihr mal guck mal ich downloade das image jetzt mit 664 mb obwohl es gar nicht stimmt
+ich downloade das ja über eine gigabit connection das ist weil lz 4 halt so schnell die compressed
+ich lade das runter mit 100 mb die sekunde aber durch das die kompressen kommt darauf
+664 deswegen habe ich mir gedacht es eine gute idee dass lz 4 zu kompressen
+ok alles klar dann obst dann testen wir mal was jetzt passiert wenn man sagen die idee
+ist die idee überhaupt dabei ja glücklicherweise die idee nach
+nach disc
+die idee nach disk block sei es gleich 4m
+kannst du zwei pv anzeigen lassen was meinst du
+meinst zwei disks wenn es mehr als eine disk gibt in dem server
+das geht denn der nimmt alles was vom typ disk ist und lässt mich das auswählen
+Achso, zwei Progress Bars.
+Ja, aber...
+Ja, bestimmt irgendwie, aber dass man jetzt zu kompliziert
+würde für die Geschichte.
+So, jetzt bin ich mal gespannt, ob es funktioniert.
+Also...
+Äh, E ist Extended. Das ist das gleiche wie
+E-Crap, quasi.
+Regex. Extended Regex.
+Ich bin mir übrigens
+gar nicht sicher, ob ich das brauche
+hier davor.
+so also jetzt kommt es hier jetzt kommt der moment der wahrheit leute so ganz fertig ist
+das immer noch nicht aus name selection könnten wir theoretisch auch noch machen
+haus nehmen sie nicht wir müssen auch noch gucken wie man da cloud in it rein kriegen
+aber jetzt jetzt sollte er zumindest schon mal was installieren also passt mal auf ich
+Ich sag Install Debian Stable auf diese Disk.
+Bam.
+Äh, Chat.
+Irgendwie ist es kaputt gerade.
+Buggt mein Engine X rum?
+Systemzene restart Engine X.
+nochmal. Zack. Stable. Disk.
+Okay.
+Hat schon funktioniert. Der NGINX hat ja irgendwelche Schmerzen.
+So, jetzt ist installiert.
+Reboot. Ach, Reboot
+funzt, oder was?
+Ähm.
+Okay, wenn
+Reboot nichts nicht funzt, passt mal auf.
+Echo, B,
+rock sus rq träger das bauen wir noch moment das brauchen wir noch ins skript
+ein das war noch ins skript ein ich denke es heißt setup das heißt doch gar
+nicht das heißt install install.sh
+echo b also wenn ihr mal eine lösungskiste habt ihr nicht mehr partur
+booten will das hier geht immer ihr müsst nach sus pk pippen das ist hart hat vor reboot
+wir machen mal noch was anderes wir machen hier nach mann ins sink dann machen wir den echo
+install
+install completed, now rebooting
+sleep 5 machen wir mal oder sleep 3
+wir machen extra wir machen extra einen sync davor dass ja auch alles auf die platte raus
+geflasht hat.
+Okay.
+Dann gehen wir mal hier raus
+und tun mal so, als sind wir hier drauf.
+Zack. S.
+Debian Stable auf diese Disk.
+Bam. Volle Pulle drauf.
+Sag mal, was hat denn der für Schmerzen?
+Was ist denn das?
+Was ist denn das hier?
+Das liegt an VMware, Leute.
+Das liegt jetzt an VMware.
+Wir machen mal was anderes. Zack.
+Power off. Bam.
+Aber mit Power-Off geht nicht mal.
+The fuck?
+By the way, warum ist das jetzt auf einmal im Fullscreen?
+Äh.
+Ah, Moment, Moment.
+Das ist mein Debian, was da schon startet.
+Ich will doch gar nicht, dass mein Debian startet.
+Aha.
+Aber der Install hat funktioniert.
+Nochmal.
+Nochmal kurz hier booten.
+Wir wissen, ob das alles klappt.
+install es stable auf die disk
+was ist das denn
+habe ich da irgendwie den snapshot oder so dass es rumspackt
+es liegt 100 pro an vmware ich sag's euch also vor allem war krepp
+mein raspberry pi sollte nicht ausgelastet sein von 4 mb die sekunde
+der langweilig der juckt das juckt den überhaupt nicht
+durch das man da ist irgendwas das ist irgendeine vmware geschichte ich sag's euch
+irgendein vmware mist kann er den 2 nx neu starten okay wir installieren jetzt
+einfach debian testing okay vielleicht geht das besser ich sind das was ist da kaputt
+ich wette das sind vmware probleme das sind 100 pro vmware probleme
+Jetzt mag er anscheinend wieder.
+Installation completed.
+Now rebooting.
+Zack.
+Und wir haben unser Debian, Leute.
+Installiert.
+Ist das nicht nice?
+Wir haben keinen User oder sonst was.
+Aber wir haben ein vollständiges Debian installiert.
+Der kommt mit dem Download und gleichzeitig dem Decompressen nicht.
+Klar.
+Das ist eine fette Kiste hier.
+schon einmal unser demian installiert
+wobei das alleine ja noch nicht reichen
+so einfach ist es nicht
+also mal jetzt folgendes wir noch mal gehen hier rein
+so mein installer ist ja alles okay install da müssen wir nichts mehr dran machen an dem
+installer image selbst
+jetzt war man ein snapshot dass ich immer wieder schnell dahin zurück kann
+kannst du dir datei nicht zuerst runterladen und dann lz 4 entpacken
+jetzt noch egal.
+Ist das Pipe? Pipe?
+Oh, oh, oh, was hat er jetzt?
+Leute, es ist kaputt.
+Es ist kaputt gegangen beim Snapshot machen.
+WTF?
+Alter,
+Vmware, was ist das wieder für ein Schrott?
+Vmware ist wieder richtig räudig
+hier am Start.
+was ein mist noch mal probieren ich will dann statt wenn man lass mich scheiß ding booten
+classic pro kommer
+snapshot
+so ich hoffe es hat es funktioniert ja funzt okay sehr gut
+jetzt hat snapshot machen funktioniert also weiter im text install punkt sh was
+brauchen wir dann noch also lass mal überlegen wir dauern das image wie die
+den das image auf die disk
+Ich kann mich schlecht konzentrieren.
+Wir haben heute so viel gemacht schon.
+Heute war echt sehr produktiver Stream, oder?
+Muss man echt sagen.
+Exzellent.
+naja alfred ich habe im vorfeld schon ein bisschen geguckt also ist ja egal
+dass ich jetzt ganz planlos daran gegangen bin so laut innen wird eklig
+das weiß ich jetzt schon cloud winnet cloud innen wird hardcore abfacke wie
+bei den koch sendungen früher ich habe da was vorbereitet okay wir müssen uns auf jeden fall
+das image mountain so viel ist sicher wir müssen jetzt an dem installierten debian was machen also
+wir können das jetzt wir sind bis jetzt wir machen uns ein verzeichnis und wir mountain das okay wie
+machen wir wie mountain wir denn jetzt am besten mount also mk die mnt machen wir dann sagen wir
+war mount dev sda 1 wahrscheinlich nach mnt failed warum fehlt mount in busy box
+chat gpt chat gpt so am labern alter in valley is busy box in it is a classic
+jet gpt schwätzt wieder an
+maunz minus tx4 maunz minus tx4 excellent das muss ich mir auf das muss hier rein mount x4
+allerdings nicht der fsda 1 sondern dollar disc
+1 also quasi
+so
+so und die musik ist fertig die muss man kurz anschmeißen wieder
+so wird die das gemeldet alles klar den reboot den auskommen kommentiere ich mal aus weil ich
+will jetzt nicht guten so hat aber das gemacht jetzt gehen wir nach slash mnt
+cloud in it wie macht man cloud in it und die config in das debian einbau normalerweise macht
+man cloud in it über einen über ein zweites laufwerk an der vm mit cloud in it zeug drauf
+wie macht man cloud in it aus der vm raus jetzt habe ich mir jetzt so einfach vorgestellt aber
+ich weiß gar nicht wie das geht
+irgendjemand erfahrung da auch schon also cloud in den wirtschaft benutzen um
+sachen zu konfigurieren
+Was haltet ihr davon, wenn wir noch den Hostname
+äh, setzbar machen?
+Hilft das?
+Ne, das hilft nicht, weil ich jetzt nicht über Proxmox mache.
+Disk USB beim Start einbinden?
+Ich hab ja nix zum Einbinden.
+Ich bote über PXE
+und das soll dann am Ende raus...
+Okay, wie macht man lokales Cloud-Init?
+aber hier wie kann ich cloud in meinem image bacon
+du jetzt ist dort im konzert ist so dass es beim ersten boot seine dateien von
+jeweiligen cloud zieht aha cloud ist nicht das user fest einzubrennen sondern
+ja blablabla blablabla blablabla blablabla
+was ist das beispiel low-clou was etc etc cloud chat meinte des
+verzeichnis gibt's oder chat gpt hallo ziehe ich das zusammen etc cloud cloud
+CFG D90 Data Source CFG.
+Hello.
+What?
+Cloud in it, no cloud.
+etc cloud cloud cfg die sieht man kann das ist ja nice man kann sich die
+configs dann über http laden das ja perfekt dann zieht er die
+configs wie allen anderen krempel von vom web server
+ja das ist top dass das brahma das ist exzellent
+also dann machen wir hier mal jetzt der datei in meinem auf
+meinem web server hier auch hinter ins install image oder so
+ja keine ahnung data oder 99 haste punkt cfg so wirst du sag muss man da oben was
+reinschreiben was war da muss man da irgendwie cloud config oder so reinschreiben vielleicht
+wobei ich mache mal ich mache man ordner dass das das konfix heißt wir schreiben da oben mal
+hier rein cloud konflikt über die sich ob man das braucht data source muss dann in dem fall
+sein 12 16 82.55 slash configs dann mkdir configs ja fast richtig mkdir configs install image 99
+nach Configs.
+So.
+Wie bindet man das jetzt
+gescheit ein?
+Wieder über mein...
+Okay, wo muss ich denn hin?
+etc cloud
+cloud cfg
+d
+Da muss das hin.
+Heißt?
+Heißt?
+Heißt, wir machen da jetzt einen Curl
+oder was also weg ok ok das muss man an mount mnt das muss ich mal ausprobieren dass wir das
+hinkriegen war war ich kann kann schon immer tippen war www html so und da gibt es jetzt
+install punkt sh so also wir installieren hier unseren kram dann monte ich mir den kram okay
+Dann gehen wir nach mnt slash etc slash cloud slash cloud cfgd, ne?
+Slash, ne, das war's.
+Okay, dann curlen wir.
+Curl.
+http://server slash configs slash 99 custom.cfg
+nach 99
+custom.cfg
+So, jetzt haben wir dann eine Datei.
+Schauen wir mal, ob das jetzt soweit funzt,
+was ich hier gemacht habe.
+Also, install.
+Äh.
+Hallo?
+Vor allem, wer macht wieder komische Sachen?
+Was fehlt noch?
+MKD-P?
+Wieso?
+Wo denn?
+Ne, ne.
+Das ist da.
+Wir gucken mal hier mal, wenn das rumbackt.
+Ansonsten.
+Okay, irgendwie ist es.
+Also vor allem, wer fuckt schon gerade ein bisschen ab?
+ok stable disk jetzt guck mal jetzt geht es komischerweise wieder schnell mit dem
+installen keine ahnung was voran treibt was jetzt hallo
+Hey Mann, VmWare, was ist dein Problem, Alter?
+Meine Güte.
+Was ist denn für Schmerzen?
+Das ist eine ungeheurige VmWare-Geschichte.
+Stable Disk, bam.
+der snapshot ist das problem du rebootest nicht lügt nicht so cd mnt ls etc cloud cloud cfg punkt
+D.
+Und da ist eine 99 Custom
+CFG.
+Okay. Gut.
+Dann schauen wir mal kurz.
+Ah, jetzt habe ich eine Idee.
+Jetzt gucken wir mal kurz in meine
+...
+NGINX
+Logs, tail-f
+var log
+NGINX access log
+Da müsste es jetzt ja gleich Anfragen
+geben, wenn das Ding rebootet.
+Ich mach den Snapshot weg.
+Irgendwie spackt vor allem wer mit dem Snapshot rum.
+Wenn ich jetzt reboote und das Debian startet, dann müsste der eigentlich...
+Das geht natürlich wieder nicht.
+Dann müsste der jetzt eigentlich versuchen, sich Sachen zu ziehen vom Server, oder?
+Ja.
+macht irgendwas hier nix ok der download funktioniert nicht habe ich irgendwas
+verkehrt gemacht habe ich den server falsch geschrieben install punkt sh
+Seht ihr irgendwas Falsches?
+Custom CFG.
+X99 Custom CFG.
+HTTPS!
+Alter, oh man!
+Lul.
+So, tail-f access-log.
+disk install complete in augen das stimmt überhaupt nicht dass du
+genau reboot ist. Ich reboot
+jetzt.
+Reset.
+Okay, jetzt schauen wir mal.
+Der bootet jetzt.
+Jetzt ist er gleich
+bei der Netzwerkkarte.
+Ha! Es geht! Es geht!
+Der zieht sich Cloud-Config
+über das Netzwerk.
+Also die es nicht gibt, aber die können wir jetzt anlegen.
+ok moment wo er nicht holen wir mal network config war um fuck was gibt es sonst noch
+network config metadata sonst noch mehr vielleicht okay jetzt muss ich mal kurz in
+mein geht lab gucken er gibt es nicht gibt gibt gucken wir haben doch hier network config
+also cd configs network config
+was macht eine sehr wichtige sache das hat den interface namen wieder auf etha 0 weil
+ich krieg anfälle wenn das ding ns 85 1580 xd hd heißt und dann machen wir die hcp sehr schön da
+müssen wir das ganze noch mal machen ich habe die idee wir können snapshot ist das mit dem
+gutnäglich.
+So, wir machen jetzt, wir machen jetzt
+einen Snapshot.
+Und zwar
+einen Snapshot,
+wenn wir hier sind, okay?
+Das müsste doch jetzt funktionieren.
+Snapshot.
+Vmware, please!
+Warum ist die Software
+so scheiße geworden?
+Chat!
+Warum ist diesen Software so kacke?
+Mittlerweile
+Das war früher beste
+Ah jetzt geht es vor allem mal
+Okay
+Hyper-V
+Ganz bestimmt ist Hyper-V beste
+Es kommt als nächstes Xen Server oder was?
+Okay
+So, jetzt schauen wir mal, ob der die
+Also so schnell konnte ich jetzt nicht gucken, Chat.
+Hat er sich jetzt was gezogen?
+Ne, der hat sich... Hä?
+Bin ich jetzt total dumm?
+Eben hat er sich die Custom-CFG gezogen.
+Aber jetzt hat er beim Booten nichts gemacht.
+Wie kann denn das sein?
+Der macht überhaupt keine Netzwerkkonfiguration.
+der macht überhaupt keine netzwerk konflikt mehr als das paint
+Ich will hier einen Snapshot machen.
+VmW. Hier. Genau hier.
+Aber VmW will nicht.
+VmW hat einfach keinen Bock da drauf.
+Okay.
+Was auch immer.
+Vielleicht hat VmW jetzt doch Bock drauf.
+Aber was hat er denn jetzt für Schmerzen gehabt?
+Hat er die Datei da nicht richtig abgelegt?
+Oder?
+Oh, was?
+Vm-Ware, was ist dein Problem, Mann?
+Die Software ist ja mal unbenutzbar
+Scheiße geworden, seit Prodcom
+den Kram übernommen hat.
+Das kann doch jetzt nicht alles den hier in Ernst sein.
+Guckt euch das an!
+Was ist denn das?
+Mit Snapshots geht's nicht mehr.
+Die neueste hier, 25 Ink-Dabbers.
+Gibt's da was Neues vielleicht?
+Äh.
+Ich sollte wieder meine 18er-Version benutzen und Ruhe geben.
+Aber dann muss man diese Windows-Security-Sachen ausschalten.
+Okay, muss ich vielleicht
+den alten Snapshot löschen.
+Geht's vielleicht.
+Das könnte so easy sein,
+wenn vor allem, wenn ich so rumsacken würde.
+Now rebooting.
+Du rebootest überhaupt nicht.
+MNT, ETC, Cloud.
+Cloud cfg.de 99 custom
+Ok passt ich glaube ich sollte an mountain und sünden dann geht es vielleicht auch
+Jetzt funzt es jetzt
+Jetzt ruft er sich Dinger hier ab.
+Guck hier, Metadata versucht er sich abzurufen.
+Aber da hat sich auch so, da hat sich Netzwerk-Config und so hat er sich auch abgerufen.
+Okay, also wir brauchen auf jeden Fall was, was Metadata heißt.
+Da wüsste ich aber gar nicht, was wir da reinpacken sollen.
+Einfach Metadata.
+Wurst Hypervisor of all time, ja.
+Auch weil, da gibt es bestimmt noch was Schlimmeres.
+Cloud Config.
+Lassen wir einfach leer.
+Okay, was habe ich denn hier noch für Files?
+Zeig mal her.
+Ich habe hier eine Network Config.
+Ich habe User Data.
+Da muss der ganze Campbell rein später.
+und dann habe ich noch Vendor Data.
+Braucht man das vielleicht auch noch?
+CP, Metadata, Vendor Data.
+Metadata habe ich hier gar nicht.
+User Data.
+Okay.
+Jetzt sollte er zumindest so weit passen,
+dass der alles abrufen kann.
+Gucken wir nochmal.
+Snapshot.
+Restore.
+Bam.
+wie ein snapshot solche bugs wo ich habe keine ahnung weil vor allem was sagt
+mittlerweile stable disk wir machen noch was anderes
+wir sind ja hier mittlerweile ganz gut dabei install punkt sh wir machen hier
+den SYNC und den Unmount.
+Unmount brauchen wir hier auf jeden Fall noch.
+Äh.
+CD.
+Oder irgendwie so.
+Wie machen wir das jetzt am besten?
+Wir wechseln jetzt wieder. Wechseln jetzt
+wieder zurück.
+Machen wir hier.
+Ganz zum Schluss.
+Wechseln wir wieder zurück.
+sagen noch mal sinkt aber hier unten war noch mal sinkt und dann sagen wir sie kriegt eine
+sekunde zeit was war eigentlich plötzlich ist aber da sagen wir an mount slash mnt und sagen
+noch mal so meinetwegen dann machen wir uns diese meldung und dann rieb guten wir okay so gut
+snapshot sagt jetzt
+also stable disk
+aber ihr seht es in einer team wird mein gott nicht schon wieder und ich schaue
+wieder vor mwf ich drehe ich drehe durch wie soll man diesen kram verwenden wie
+soll man das verwenden das ist ja unbenutzbar
+ok install completed rebooting und während der boot sekunde sekunde sekunde ich muss hier mit
+gucken was der abruft echte gangster kummer er benennt sogar in ethan olob hat das gesehen
+der ruf network config am metadata user data und wenn nur data perfekt perfekt
+user data brauchen wir jetzt müssen ein bisschen was einrichten user data also in user data
+ich kann mal kopie ich kann ein paar sachen kopieren die ich ja ich habe einmal hier drin
+eine disable root das habe ich für irgendwelche anderen cloud kisten verwendet aber es muss ja
+hier auch funktionieren so dann haben wir hier drin ssh authorized keys da muss jetzt mein ssh
+key rein den hatten wir doch irgendwo gerade cat da hier naja gehen da so vielleicht soll ich mal
+fullscreen machen max progress ssh key dann brauchen wir ich weiß nicht mehr wofür ich
+das hier habe aber ich mache das einfach mal rein users default und jetzt kommt runcmd da kann man
+jetzt kommandos ausführen was wollen wir wollen wir irgendwas ausführen überhaupt ja wollen wir
+wir wollen ausführen erste mal ab update das ist nie verkehrt ab update funst was habe ich
+denn hier noch drin das habe ich ja schon wieder komplett vergessen als sehr schön passt mal auf
+jetzt seht ihr richtige magic falls das funktioniert was hier gebaut habe passt
+mal auf das ist richtig sex hat wisst ihr was das hier macht leute ihr werdet gleich sehen
+wenn alles funktioniert werde ich es gleich sehen es macht hause mal gucken
+ob ich kann ja passt
+Jetzt geht's wieder. Jetzt hängt wieder Forever nicht.
+Okay. Whatever.
+So. Achtung. Jetzt bin ich mal gespannt.
+Naja.
+Netzwerkstells. Netzwerkstells.
+Macht der Update.
+Deswegen hängt's jetzt auch ein bisschen.
+Haha.
+Seht ihr, was das macht?
+Für nice Sachen.
+Seht ihr das? Das ist richtig Hacker-Man-Five-Head-High-IQ-Shit.
+der chat denkt denkt warum fliegt also aus man sieht jetzt beim login die ip-adresse dieses
+kiste die kiste gekriegt hat das heißt wenn ich mich jetzt besser sein morgen will nachdem ich
+auf die konsole geguckt habe habe ich auch gleich die ip das ist doch extrem die kogger
+zatschen silva dankeschön für den sub das heißt wir können jetzt hier sagen ssh
+debian muss ich nehmen debian fix ssh
+und ich bin per ssh auf meiner neuen cloud kiste die allerdings nicht in der cloud ist sondern nur
+ähnlich professioniert wird wie in der Cloud, sondern bei mir
+lokal läuft. Ist das nicht nice?
+Guck mal, wie einfach jetzt so ein Install
+funktioniert.
+Okay, nächstes Problem.
+Fremder Tools. Fremder Tools
+sollten drauf. Das heißt,
+da gehen wir wieder in User Data.
+Das ist ein massive
+Pog, ist das.
+So, also Upt, Update.
+So, wir installieren jetzt ein paar
+Basic Sachen. Upt.
+ja apps install so tmux braucht man immer tmux braucht man immer htop braucht man wird wort
+brauchen wir dass man gleich gucken können ob wir in vmware sind tree ncdo pv und jq oder sowas
+Curl, ja, ist recht. Curl.
+We get
+NetTools.
+Heißt NetTools oder NetTool unter dem?
+Ja.
+Installed NetTool.
+NetTools.
+Wisst ihr warum?
+Weil ich IfConfigEnjoyer bin.
+Kommt da
+NetTools drauf.
+Ja, wie?
+Was ist hier los, Chat?
+Was ist daran, Boomer-if-Config zu verwenden?
+Chat, Chat, okay, okay, sind wir mal ehrlich.
+Okay, sind wir mal ehrlich.
+Pass mal auf.
+Chat, was ist...
+Jetzt mal ehrlich.
+Was ist schöner?
+Was ist schöner?
+If-Config oder IP-Add?
+sagt mal, was ist schöner?
+IP-Ad, weil es Farben hat.
+Okay, das ist tatsächlich...
+Ich gebe zu, ganz ehrlich,
+mit Farben finde ich IP-Ad
+auch besser, weil das highlightet direkt
+die IP. Bei F-Config weiß man gleich, wo man
+hingucken muss.
+Aber ihr habt schon recht.
+Mit den Farben... Also, wenn
+es Farben hat, IP-Ad,
+dann ist IP-Ad tatsächlich
+schöner und besser lesbar.
+Ja, das stimmt, das muss ich zugeben.
+Aber ansonsten,
+ifconfig jeden Tag
+über IP-Ad.
+Achso, ich wollte ja
+wird-what installieren und gucken, was da...
+wird-what
+also das heißt wir wollen jetzt sinngemäß so was hier machen wie wird wort soll da kreppen
+wir nach vmware wenn da vmware rauskommt dann sagen wir ab install open vm tools heißt das
+glaube ich ob vm tools mal gucken ob das funktioniert was hier gebastelt habe copy
+sehr gut exzellent das bauen wir doch schon mal hier
+das brauchen wir doch schon mal hier ein also wird wort oder hat der hat garantiert probleme
+der hat garantiert probleme mit dem pipe genauso wie hier oben mit dem es kämpfe ich werde das
+auch mal das ist halt mit jammel so also wird wort dann machen wir das gleiche noch mal wenn
+es kvm ist wenn es kvm ist installieren wir como guest agent was richtig geschrieben west west
+agent west agent gibt es sonst noch irgendwas nerviges was ich da haus
+name wobei haus nehmen wir gucken wie man das mit haus der machen
+etc wie sehen das eigentlich aus okay wir müssen noch was ganz wichtiges
+machen. Wim-Maus-Mode muss global disabled werden. Ganz wichtig. Sonst kratze ich ab,
+wenn ich das benutze. Instant Death. Wenn Maus-Mode in Wim aktiviert ist.
+Ist wirklich Instant-Rip.
+Wie schaltet man das am besten aus?
+Gibt es sowas wie etc.wimrc oder sowas?
+Okay, etc.wimrc.
+Ist hier irgendwas editierend drin?
+Na, hallo.
+Wimrc.local.
+Das klingt doch gut.
+Wim?
+WimRC.local
+disable mouse.
+Geht das so?
+wartet mal wartet mal ich zieht jetzt mal ich zieht jetzt mal wo habe ich das
+habe ich das wm rc
+im rc
+ich finde es nicht hier moment moment was man da in den städten passen auf
+probleme habe ich öfters hier das brauchen wir so ja gut dass ich das habe
+da wäre ich hier durchgedreht mit dem da und da Escapen.
+Brauchen wir sonst noch irgendwas?
+Chat, habt ihr noch eine Idee?
+Was brauchen wir noch standardmäßig auf jeder Debian-Kiste,
+die wir installieren?
+Ist da irgendwas Wichtiges noch dabei?
+Wim!
+Natürlich.
+Leute, ich kack noob.
+Wim!
+Ich lege Wim-Configs an, aber installiere kein Wim.
+Ja, das ist ziemlich pepega.
+ich glaube das ist okay so wir machen einfach ein sleep 1 runter für whatever falls da noch
+ein bisschen braucht immer schon drauf was die qual quatsch hyper wie für linux und sagt bloß
+das gibt's ich meine ich würde nicht davon ausgehen dass es das gibt aber aber bei microsoft
+Weißt du nie, das gibt Microsoft SQL auch für Linux mittlerweile.
+Sag nicht, die wollen wirklich Hyper-V für Linux machen, oder?
+Yobu brauchen wir nicht, wir haben Temux drauf.
+Hyper-V-Demons gibt es für Linux.
+Ja, was soll das denn sein?
+Linux
+Windows 12 hat dann ein Linux 12
+Ja, dann kann er in der Präsentation wenigstens auch
+vor Glück weinen wieder, wie bei Windows 11
+Dann hat er wenigstens einen Grund
+Ach so, wenn die
+Ach, das ist so was wie ein Guest Agent
+Okay, schauen wir mal, ob das hier funzt, was ich da so gebastelt habe.
+Snapshot.
+Achso, Hostname brauchen wir.
+Erstmal gucken, ob es funktioniert.
+Hostname brauchen wir dann auch irgendwie.
+Wie setzt man denn am besten den Hostname?
+Achso.
+Zack, zack.
+aus dem CTL. Ja, aber ich bin ja nicht
+in das Linux gebootet. Ich muss das irgendwie
+über Cloud Init machen.
+Und, oh, das wird in der Tat
+schwierig. Mein Cloud Init ist
+statisch auf dem Server.
+Ähm.
+Aber mein Hostname muss ins Cloud Init rein.
+Kann man ins Cloud Init noch irgendwie
+lokale Files inkluden oder sowas?
+Ja, ja, aber...
+Das...
+Die Cloud-Config ist ja auf dem Server.
+so also ich brauche ja die cloud config statisch vom server aber dynamisch dann von in der lokalen
+datei brauche ich mache ich das jetzt am besten aber jetzt gucken wir gucken wir gucken jetzt
+erst einmal ob das was ich hier gebaut habe funktioniert hat ssh fix ssh ist das nicht
+geil moment passt mal auf wir machen jetzt noch was anderes ich will mal gucken ob ich
+Ich meine, ob ich das noch verbessern kann,
+mein Fix-SSH.
+Einfach die letzten...
+Pass mal auf die letzten Kommandos hier.
+SSH. Bam, schlägt fehl.
+Fix-SSH.
+Shit, geht nicht. Command-Not-Forn.
+Äh.
+Kann das sein, dass man das so nicht machen darf,
+Chat?
+Kann das sein, dass das so nicht geht?
+Dass man das nicht hier in einem
+Skript irgendwie verwenden darf?
+Last Last Command.
+Geh weg.
+Last Command not working.
+Mal gucken, ob das hier die AI rauspasen kann, was ich da komisches rein...
+Ah, a classic shell!
+Was ist FC-LN1, Chat?
+Was zum...
+Was ist das?
+Ach, das letzte Command.
+Ewald.
+Jawohl.
+Aber das letzte Command?
+Nee, das ist keine gute Idee.
+Das ist keine gute Idee.
+Last Command kann auch was anderes sein.
+Ne, ne.
+Classic Shellgotcher.
+Ja, das Chat-GPT weiß halt Bescheid.
+Hat das denn jetzt funktioniert?
+Haben wir jetzt
+Open
+OpenVM-Tools drauf?
+Install OpenVM-Tools.
+Nice, hat funktioniert.
+Haben wir denn auch WIMP drauf?
+Haben wir. T-Mux haben wir. Jawohl.
+tree haben wir auch ja ja von sehr schön und und wim und wim ist wim maus
+disabled wim ist maus disabled excellent beste beste system so wie machen wir das
+jetzt mit dem hausnamen am besten kann man in cloud init lokale dateien
+inkluden irgendwie also dass ich quasi sagen kann so was hier sinngemäß dass
+ich sagen kann in klub keine ahnung temp blub so was und dass er sich daran was
+geht das geht das laut in it in clube files
+include
+ich hätte heute open code verwenden können für einige sachen aber open code
+ist der meinung die models die die ganze zeit früh waren sind nicht mehr free
+ziemlich selten
+ich glaube aus dem kannst du nicht mehr
+cloud config setzen
+ja das problem ist meine cloud config
+kommt statisch vom server und den
+hausnamen der ist ja dynamisch gesetzt
+ich müsste den lokal ich müsste noch ein
+zusätzliches cloud in den fall irgendwie da inkluden können was haben wir denn
+hier kommt man hier in cloud file in klug
+aha kann ich dann
+ja gerne 4.7 ist echt übel
+Ich habe vorhin kurz überlegt, mir einen Mac zu kaufen für lokale AI-Stells.
+Aber da habe ich festgestellt, die, wo sich lohnt, die Models, die halt richtig groß sind, wo mir dann auch die Grafikkarte nichts bringt, das ist dann auch richtig teuer.
+Also werde ich es doch nicht machen.
+Okay, Chat. Also, wir probieren das jetzt mal aus.
+Ob das funzt. Also, wir gehen jetzt mal hier hin.
+Wo bin ich denn hier überhaupt gerade? Achso, auf der Kiste.
+Also.
+Guck dir mal an.
+Also.
+Kann ich jetzt nicht sagen. Warte mal.
+User Data. Ich kopiere das mal um nach keinerlei Config oder so.
+Dann löschen wir UserData und schreiben das rein, wie hier aus dem Beispiel.
+Include.
+So, nur dass wir bei dem Include reinschreiben.
+http://config.
+Und dann, und das ist jetzt die Frage, ob das funktioniert.
+Und dann, keine Ahnung, root init hostname.
+Das ist jetzt die Frage, ob das so funktioniert.
+Kann man lokal, kann man auf lokal, oder vielleicht, vielleicht muss man auch so machen.
+Eventuell muss man auch so machen.
+Oder es geht gar nicht.
+Moment, wir fragen mal, ich vibe, ich vibe code mal.
+geht das in einer Cloud
+Init User Data.
+das geht so nicht weil wir den klub nicht unterstützt der grund was
+wenn du etwas lokales einlesen willst macht das zum beispiel so war ja als
+white files rand cmd das ist ja aber irgendwie schon nicht so geil
+Vielleicht lügt vielleicht lügt chat gpt auch und es geht trotzdem
+probier mal probier mal das mal aus also in klub passt konfig ist der ganze mist hier drin
+So, und jetzt müssen wir noch
+Jetzt müssen wir hier noch in unserem Installer
+Install.sh
+Hä?
+Hä?
+Ach, ich hab CD gemacht, ich Depp.
+Deswegen hat das nicht autocompleted.
+So, jetzt können wir noch in unserem Installer sagen
+was wollte ich machen war mein brain funks schon einmal richtig nach drei stunden pxe
+also die datei anlegen hier also machen wir mal so was wie hier mal uns also mal echo echo
+host nehmen wir müssen wir müssen so was hier machen warte mal echo minus cloud machen wir
+hier allerdings laut config also wahrscheinlich müsste man das so machen denke ich mal
+denke ich mal so was hier cloud config neue zeile host name doppelpunkt kecke
+moin rust keckel backslash n ja und das ganze jetzt nach mnt slash root slash init hostname
+ok so
+tale auf die access logs
+spannend ob das funzt jetzt bin ich mal weil wenn man jetzt so den haus namen setzen können
+dann bin ich komplett bin ich komplett zufrieden damit label zack kopieren
+war please nicht abkacken wieder please vor allem erfolgen wenn ich abkacken ich
+habe kacken heißt nicht abgekackt excellent so hat es bin ich mal gespannt ob das funktioniert
+Das kann...
+Chat...
+Nee, Chat-GPT, das geht wahrscheinlich nicht.
+Wahrscheinlich kann man nur von...
+Da müssen wir mal gucken, ob man vielleicht nach etc.cloud-config irgendwas...
+Also in diese Cloud-CFG was...
+Keckel!
+Es heißt Keckel!
+Chat!
+Es funktioniert!
+Es funktioniert!
+Easy!
+Easy.
+easy easy wir können so den hausnamen setzen
+der pock sehr extrem jetzt müssen wir uns nur noch überlegen wie wir das hier
+in unserem skript einbauen was man auf install punkt sh die machen
+gescheiten fzf prompt erst mal gucken ok chat mal kurz feifert feifert brainstorming wie generiert
+man in der bash eine kurze uuid uuid und video id in bash uuid gern was ist das denn proxys
+kernel random juju das gibt wirklich
+habe ich noch nie gesehen dass es gibt das ist mir komplett neue alternativ
+könnte man auch sagen, Cat,
+Dev,
+U-Random,
+U-Random, MD5-Sum,
+ne, ne, ne, ne, äh, äh, äh,
+äh, Dings, ähm, äh,
+keine Ahnung, äh,
+Head,
+8, 8 Charakter, MD5-Sum,
+so, das wird, das wird, das würde auch funktionieren,
+dann nochmal Head, minus C8, so,
+aber keine Ahnung,
+die ersten 128
+Randoms gehashed, das finde ich
+fast besser, das finde ich fast besser,
+Wir brauchen irgendeinen Random-Host-Namen.
+Was ist das für ein Classic-Hero-ID?
+Oh, dieses Geschwärze von
+Chat-GPT. Ja, das ist
+gut. Das gefällt mir.
+Ich hoffe, Head und
+sowas ist bei Busybox dabei.
+Moment, Chat. Ist MD5-Sum
+dabei?
+Ist MD5-Sum
+in der Busybox?
+MD5, ah, MD5 ist dabei.
+Excellent, excellent, excellent, excellent, excellent, excellent, excellent, excellent.
+PXE bringt dich zum Durchdrehen im Kopf, aber komplett.
+Fix SSH, gut, dass ich das hab.
+es funzt sehr nice install punkt sh also was machen wir denn jetzt also
+wir waren sie ausnahmen der hausnahme soll er nicht heckl sein
+der hausname soll sowas wie neben gleich so dass da und dann in debian davor so
+So, Debian.
+Dollar.
+Sowas. Das soll mein Hostname sein.
+Und jetzt brauchen wir noch irgendeinen Dialog.
+Oder irgendwas.
+Ah, oh, was ist das?
+WTF?
+So.
+Lass mal kurz checken, ob das funzt, was ich hier gebaut hab.
+Äh.
+Warum funzt es nicht?
+Chat.
+Ach, weil ich Dollar Debian geschrieben hab.
+Ich kack Noob, Alter.
+Kein Wunder, dass es nicht funzt.
+Ja.
+Exquisite.
+die bianek das ist ein schöner default hausnahme so und jetzt hätte ich gerne
+so einen so einen dialog mit fzf zum beispiel
+also die die sachen die ich heute gemacht ich muss unbedingt mal was bei
+die Pile danach Backup, nicht, dass ich das wieder lösche.
+So, also, jetzt.
+Name.
+So, und jetzt will ich so ein
+FZF-Dialog haben, also mal
+Echo.
+Echo Dollar Name.
+So.
+Das pipen
+wir
+nach FZF.
+So, und jetzt will ich so was haben wie
+Press Enter, bla bla bla.
+Auch nochmal.
+Halb 5.
+So, und jetzt will ich sowas haben.
+Press Enter.
+Gibt es FZF
+Ask
+oder Prompt oder sowas.
+Kommt wir vibe adminnen heute
+Ok minus minus prompt pointer marker
+Prompt minus minus prompt gleich
+Peckel.
+Ah, ja.
+So, das ist nice.
+Okay, dann schreiben wir jetzt dahin
+sowas wie Enter Hostname
+or
+Press Enter to keep
+the generated.
+Classic FZF
+Problem.
+Keep
+generated.
+Ja, sehr
+schön.
+Sehr gut.
+Und wenn ich jetzt einen Hausname entere,
+was passiert dann?
+Ah, nix.
+Oh.
+fcf always print input
+print query ob es das gibt
+das ist das was ich meine man wird halt einfach viel effektiver weil man ein bisschen
+AI-Kram benutzt. Das wird uns alle
+nicht ablösen, aber man kommt
+dann einfach schneller drauf. Früher hat man
+drei Stunden Stack Overflow gegoogelt dafür.
+Okay.
+Kunst. Okay, ich will
+immer... Moment, Moment,
+Moment.
+Moment, so ganz so ausgereift
+ist das doch nicht, was ich hier
+gebastelt hab.
+wenn ich was eingebe und das match dann drauf dann will ich ja nicht dass das obere ausgewählt
+okay ich habe eine idee wir peiten das nach xx und danach awk microcontroller forum hör mal
+auf ok db ja und jetzt kommt die raus excellent so das brauchen wir hier das kommt ins skript
+install punkt sh das heißt hier haben wir den kram mit dem hausamt die wir nehmen so
+name echo name fzf ich hoffe xx ist dabei bei pussy box aber ich denke mal schon awk 1
+ok moment
+ich muss das irgendwie speichern also quasi wo hier zack zack
+prompt mama single quotes ich mache um sowas immer gerne kurz was an input input gleich so
+da muss jetzt aber hier drumherum dollar input ich brauche quasi ein bisschen einen eigenen
+installer nur dass deutlich schneller geht input ok ok dann kommen wir jetzt
+hier noch ausgeben echo minus
+einfach mal echo ich sonst was aus
+echo disk ausnehmen dollar input
+werbung einbauen ja klar das kommt gleich als nächstes dann mache ich auf stream
+So, ich würde sagen, unser Installer ist fertig.
+Probieren wir das mal aus.
+Gehen wir mal hier hin.
+Wir können es auch per SSH machen, aber wir gehen mal hin.
+So, Install.
+Wir wollen Debian Unstable.
+Wir wollen es auf SDA installieren.
+Hey, achso, ja, okay, der dumpt jetzt erstmal.
+Äh, Chat?
+Warum fragt er mich nicht nach meinem Hausnamen?
+Wo?
+Was jetzt?
+Was ist das Problem?
+Bin ich jetzt blind und check's nicht, was ich falsch gemacht habe?
+Da ist FZF drauf, klar.
+Ja, trotzdem schön, dass du da bist.
+Was hat er denn für Probleme?
+Warum geht das jetzt nicht?
+Ja.
+Hä?
+Okay, Chad, wo steigt der denn jetzt hier aus?
+Mountain funktioniert noch.
+Hä?
+Hä?
+Wo ist denn jetzt mein Denkfehler hier?
+Ich sehe überhaupt nicht, wo der...
+Hat das andere noch funktioniert?
+X-Arcs? Doch, ist auch da.
+der view random ist auch da okay
+ich kann es ja lokal ausführen
+Aber das Minus...
+Wir machen das hier oben einfach mal weg gerade.
+Das funzt.
+Also das kackt vorher aus irgendwelchen Gründen ab.
+aber ich weiß nicht warum also es liegt an diesem set zeug ja also das prinzip
+herr also irgendwelche
+Um und mt
+Also wir machen das jetzt noch mal hier dann komme ich dir also irgendwelche sachen
+Gucken wir mal also wir machen jetzt mehr echo debugging 1
+So weit so weit kommt er nicht 12
+Echo 3.
+So.
+Ah ja.
+Alles gut.
+Hier kackt er ab, Boy.
+Hier kackt er ab.
+But why?
+Was?
+Chat.
+Hä?
+Alter, wo ist das Problem?
+Nehmen wir sonst die UID Variante
+Meint ihr da kackt er nicht ab?
+Also äh
+Cut
+Def
+Was war das?
+U U U ID
+Ähm
+Head
+Minus C8
+Gucken ob das funktioniert
+Oh Mann.
+So.
+Mein Snapshot ist wahrscheinlich schon 500 Billionen
+Gigabyte
+Das funzt
+Ey, warum funzt
+Das und das andere nicht
+Muss man das in irgendeiner Art und Weise verstehen
+Naja, anscheinend nicht, egal
+Kann man auch nehmen, ist auch gut, passt
+Alles, okay
+Okay, gut.
+Dann halt nicht.
+Wenn er nicht mag, dann nicht.
+So.
+Sehr schön, sehr schön.
+Dann haben wir unser Installer-Skript
+fertig.
+Dann würde ich sagen, booten wir noch mal
+abschließend.
+Hier, zack.
+Ah, wir müssen noch testen, ob der
+mit wie auch guten kann gleich install
+er bootet in meinen installer dann sage ich einfach erst stable disk
+wobei ein verbesserungs ich spreche mal ab ein verbesserungs vorschlag habe ich
+tatsächlich noch ihr install wenn ihr noch welche habt immer her damit wir
+haben hier noch wir machen das hier wir machen das am anfang die abfrage machen das so machen
+das direkt hier danach selekte disk elektrisch nehmen wir machen das hier direkt danach setzen
+es dann da unten ein das ist besser stable installiert sit sd a haus name and the house
+name press enter to keep the generated enter selected haus nehmen cloud image wird gedammt
+drei sekunden wird gerieh bietet euch das nice ist das nice das ist doch ohne mist das ist auch
+nicht in innen wenn es bei einem cloud anbieter installiert ist auch nicht langsamer schneller
+wir sind auch nicht langsamer das dauert ungefähr genauso lang weil die mann unter der haube machen
+ja was ähnliches und da sind wir ist das nicht nice das ist doch richtig rock alter das mut das
+ich muss unbedingt und debian ich muss unbedingt einen backup machen von dem kram und jetzt haben
+unsere debian kiste ist ganz ganz zackig wie man das aufbauen kann
+so jetzt schalten wir noch mal aus
+gucken wir ob das ganze auch mit uefi funktioniert wie gut network ich lösche
+schon mal ich lösche schon mal meinen snapshot hat hier 3 8000 sachen gemacht
+da sind wir install
+also das gefällt mir noch nicht ganz dass der hier dass der hier nichts
+schreibt ja dass man hier erstmal enter drücken muss aber an sich chat jetzt mal
+ohne scheiß was sagt ihr das ist das ist doch also da steht jetzt irgendwie
+klicken in der cloud zweimal auf weiter und haben eine kiste für lokal
+eigentliche mix nach das ist schon pock
+warum machst du dir so kompliziert am beispiel an der stelle read input an
+stelle vom kryptischen query
+keine ahnung kann man kann man bei readinput kann man da so eine so eine default angeben
+denkt wir sind in so einer busy box es hat nicht in bash guck und schon haben wir eine
+kiste ich lasse es jetzt so
+außen minus i und dann
+excellent komm wir sind auf vorkies it
+ist excellent wie es gefällt mich gut okay wir probieren jetzt aber trotzdem noch mal
+eine sache aus also in der halben stunde gehe ich was futtern so lange probieren
+es noch mal was wir gehen hier noch mal rein wir haben noch unser docker file mit dem ganzen
+krempe drin ach so chat wie sieht's aus soll ich den kram pushen auf geht habe
+wir müssen auf jeden fall geht nicht nur machen gut
+das gefällt wahrscheinlich nicht nur mir so wobei ich habe ja nicht mal alles
+hier in dem ordner trainer muss ich eigentlich noch alles ziehen ich müsste
+das noch okay das muss ich auch vorbereiten den kameraden rüber kopieren noch vom server wieder
+also wir machen noch mal folgendes gibt es die möglichkeit dass man auf eine shell getropft wird
+und custom script aus wird da muss ich mal hier fragen ich will auf auf eine shell getropft werden
+mit einem in den kram fs ok ok drop shell
+linux ich bin auf dem jan ja ok etc in der dhfs tools scripts in it top
+drop shell ok leute das muss natürlich schon sein oder also gar classic classic
+in der trama fs bonus notfall träger stand immer schnell
+grepp qw drop shell proxime ach so die idee ist eigentlich ganz cool aber
+promise also dass sie das im ort sollte sollte schon sein das ist schon enorm
+wichtig ohne emojis geht ja nix
+warum sollte das da rein okay ich kopiere es einfach
+ok ich habe heute wir haben vibe atmen also wie war das hier wollen
+etc in ram fs tools scripts auch für was sind diese fahrzeuge wollen wir fragen jetzt einfach
+mal für was sind alle diese verzeichnisse und in welcher reihenfolge wird ausgeführt
+gute frage das ist genau der richtige punkt alter laber halt immer chat gpt man classic
+Classic Init RAMFS Tools
+Chat Classic
+Boote den Fasen
+Also grobe Boot Reihenfolge
+Init Top
+Init Premount
+Init Local Top
+Ja dann würde ich sagen
+Wir wollen
+In
+Local Premount
+Wollen wir eine Shell droppen
+Local Premount
+direkt vor dem hauten von hut okay das machen wir local prima und
+soll ich wie sollte wie sollte man dieses ding hier anlegen
+Keine Ahnung. Drop Shell Punkt. Einfach nur Drop Shell heißt das Ding.
+okay das die mochi hat er irgendwie nie so ganz gecheckt war ja immer und g war
+das nicht so 99er ding ja normal schon aber hier brauche ich jetzt beide way ist mein
+warum ist mein wim im docker so am abschreiten checkt er das netz
+Okay, der checkt es wirklich nicht
+Aber Cat checkt das dann
+Okay, alles gut, passt, soll mir recht sein
+Meinetwegen
+Meinetwegen
+Okay
+Ähm
+also ich habe keine ahnung was das hier oben macht ich lasse es jetzt einfach
+mal drin
+shopping zu in die trance das müssen wir eigentlich gar nicht
+waren auch minus ich glaube nicht dass man exakt davor brauchen
+wir warten jetzt noch bis dhcp fertig ist wie checke ich okay wie kriege ich raus
+habe ich den snapshot schon gelöscht ich kann
+Wie kriege ich da am besten raus, ob ich schon eine IPv4 Adresse habe?
+UEFI bootet auf jeden Fall eine ganze Ecke langsamer.
+Install.
+Machen wir jetzt hier mal ssh.
+nicht debian es ist gut
+okay wie kriege ich raus ob ich schon ip habe also machen wir mal irgendwie ip-4 kann man
+glaube ich machen okay ip-4 address sowas wie show oder so noch hinten dran ist das gleiche
+So, grepp-v
+Moment, ip
+Ah, der zeigt das Loopback nicht an
+Wobei, wir filtern das trotzdem
+Ich bin mir nicht sicher, grepp-1, 7.0.0
+Filtern wir mal raus
+Wer weiß nicht, dass er das Loopback noch da anzeigt
+Grepp, wir filtern den Loopback raus
+Und dann greppen wir nach
+Inet
+Leerzeichen.
+Aha.
+Und wenn er das...
+Okay, das heißt, weil...
+Äh...
+Alter, äh...
+Wie...
+Konnte man das einfach so machen?
+U, Echo.
+Eins, dann...
+Uh!
+Äh...
+Ach nee, nee, Moment, Moment, Moment.
+Ich will...
+Weil not.
+Weil not will ich haben.
+Okay.
+Jetzt crepten wir mal was, was es nicht gibt.
+Und, okay, immer ein Sleep rein.
+Sleep 1.
+Okay.
+Echo.
+Wait for DHCP.
+Hier machen wir noch ein Clear vorher rein.
+Hält mir gerade ein.
+Clear.
+IP-Ad
+geben wir auch noch vorher aus.
+Dass man weiß, was Sache ist.
+ATCP gibt es auch, ja.
+Der bringt mir
+bloß in dem Fall nichts.
+Okay.
+Dann kopieren wir das hier noch rein.
+Äh.
+waiting for dhcp so das ding muss ich aber unbedingt copy pasten
+so weil das muss ich meinen docker file rein das ist hier das übrigens hier das muss auch anders
+hier nicht so lange ihn hat noch nicht geklebt noch nicht da ist dann weiter dhcp okay gut
+aber das mal zu ebos pxe boot das ding nennen wir drop shell ok ca mod plus x job shell und
+das muss hierhin etc in der drama des tools local mount also doch feier war das hier copy
+wie habe ich den kram noch mal genannt top shell top shell top shell
+okay jetzt bin ich mal gespannt wieso steht im docker fall zwei mal ab update weil darum
+gebakt hat vorhin keine ahnung eigentlich braucht man das nicht der
+hardcore umgebacht hat mehr stiftung bagger
+network
+Install.
+Da sind wir.
+Ja, das ist ja richtig nice, Leute.
+Guck mal.
+Jetzt.
+Okay.
+Das Emoji können wir wieder rausnehmen, Leute.
+Das funktioniert hier auf dem Kernelframe-Buffer nicht.
+Aber das ist ja richtig nice.
+Jetzt kriege ich hier ausgegeben,
+was die IP-Adresse ist und alles
+und habe hier eine Shell ohne dieses ganze andere Giraffe.
+Ja, das ist richtig, richtig nice.
+Das gefällt mir.
+Jetzt machen wir noch einen.
+Jetzt machen wir noch einen
+finalen Test.
+und zwar wir tun einfach mal so als gibt es diese vm hier nicht auf
+vm directory remove
+xe test beim ok so so wie wenn ich sonst normalen vor allem anlege also tag new vm custom next nix
+zum installieren linux linux linux perfekt wird ständig auswählen wo sie spritsch network weil
+mit nadd funktioniert es logischerweise nicht.
+Zack, zack, zack, zack,
+zack, zack,
+zack.
+Vor allem erstellt, starten.
+Vor allem, wer labert,
+wieder rum. Gehen wir nicht auf den Zack.
+Finish Install. Erbootet.
+Ich sag Install.
+Ich sag S,
+install stable testing sdr haus name perfekt
+Rebooting.
+Und fertig.
+leute in 30 sekunden oder wie lange es hat ungefähr 30 sekunden würde ich sagen jetzt
+genauert in 30 sekunden eine neue vm mit frisch installiertem db an allem was man braucht drauf
+das ist besser als bei den cloud anbietern und lokal progress provisioning high IQ provisioning
+Okay, 144. Jetzt kann ich sogar hier sagen noch, zack SSH, zack 144.
+Und zwar als Debian-User.
+Und es ist sogar mein SSH-Key drauf und ich kann mich per SSH drauf verbinden.
+Viel besser geht's dann immer.
+Und das Schöne ist, ich werde es jetzt so einrichten.
+Ah ja, Moment, der installiert im Hintergrund noch Sachen.
+Soll der erstmal abfertig machen.
+Das Schöne ist, ich kann jetzt hier mein Skript nächtlich laufen.
+Das werde ich auch machen. Ich lasse den Raspberry.
+Okay, ich lasse den Raspberry Pi über Nacht mal an.
+Und dann probiere ich das morgen nochmal aus.
+Ist das mittlerweile fertig mit installieren?
+Immer noch nicht, okay.
+Der Sorgs, Grab, Up, der macht Updates im Hintergrund.
+Open VM Tools installiert er im Hintergrund gerade.
+Aber die Stromkosten...
+Weil der Raspberry Pi im Idle auch so viel braucht.
+So, jetzt ist er fertig.
+es packt manchmal ein bisschen letzter zeit ab und hier unsere neue db an kiste excellent so
+was ich jetzt noch machen kann ist guck mal ich habe doch hier mein install image update
+skript was meine db an images und mein netboot xyz ich muss sagen für meine verhältnisse sogar
+ein relativ ordentliches script das lasse ich jetzt einfach einmal nachts laufen also zack update
+bmw tc kron daily
+das muss eine neue datei anlegen kann ich touch
+image update punkt einfach nur mit update
+vertrieblichkeit so ch mod plus x image update mit update muss in so einen eigentlich vorne
+um bin sh update bin sh zack und jetzt wir können das auch mal ausprobieren ob das gibt
+an sich jetzt funktioniert gibt es nicht run parts oder sowas konnte man da nicht
+Run Parts
+Daily.
+Kann ich hier sagen?
+Run Parts
+so tun als ob.
+Daily.
+Ja gut, guck.
+So würde das Korn heute Nacht auch machen.
+Und nachdem ich oben in mein...
+Ich brech das mal ab.
+Nachdem ich oben in meinem Skript...
+www.html.install-image
+Nachdem ich oben in meinem Skript drin stehen habe,
+gehe ich immer relativ zum Pfad, wo das Skript liegt.
+Und das dann auch gut.
+Guck, heute Nacht läuft dann einfach sowas hier.
+Der lädt sich das neueste SID-Image runter.
+Packt es als LZ4-Image ein.
+Das Einzige, was ich nicht machen kann, ist...
+Nacht zum 2 oder so, wann Kron Daily läuft, ein neues Debian in der Zeit installieren.
+Aber ich glaube, Nacht zum 2 installiere ich relativ selten neue Debions.
+Oder seid ihr Nacht zum 2 Debian-Enjoyer?
+Wieso das? Ja, ganz ungewöhnlich, ne?
+ganz ungewöhnlich können die neuen
+raspberry pi ist eigentlich poe
+nachts am 22 am schnellsten weil das
+netzwerk leer ist der poe hätte ich
+dachte native
+Aber der Pi 5 auch nicht, oder?
+Chat, ich sag mal, wenn euch der Stream gefallen hat, ich bleib noch on, ja, ich sag's jetzt mal.
+Wenn euch der Stream gefallen hat, das war wirklich High IQ Content.
+Also, wem es gefallen hat und mehr sowas in der Richtung sehen will, jetzt einfach den Follow-Button drücken.
+Oder natürlich auch den Subscribe-Button.
+Dann sei der das nächste Mal wieder fresh mit am Start.
+Und außerdem motiviert das, wenn es grüne Pfeile gibt.
+In der Twitch-Statistik.
+Sellout.
+Bisschen Sellout muss immer sein.
+Guckt ihr mal an, wie das bei anderen läuft.
+Da ist hier schon Sellout-freie Zone eigentlich.
+Aber ich kann verstehen, dass ihr mich nicht sammen wollt.
+Ich würd mich auch nicht sammen.
+Sag ich ganz ehrlich, ich würd mich auch nicht sammen.
+Ich bin letzter Zeit viel zu selten da.
+Aber wie gesagt, Leute, ich kann nicht.
+Ich kann gar nicht.
+Das liegt nicht, weil ich keinen Bock hab auf euch oder irgendwie Twitch an sich.
+Ich hab da immer noch mit meinen Problemen zu kämpfen.
+Und manchmal ist es halt so nervig, dass ich das dann nicht kann.
+So.
+so guck und schon sind meine debian images und mein netboot xyz iso aktiviert ja das ist ja
+auch noch was neues fällt mir da gerade auf ich kann jetzt auch überall bei mir im netzwerk ob
+er das jetzt mal richtig macht ich zeige euch das mal was für alle die das noch nicht kennen
+kennt ihr netboot xyz chat wenn ich ich zeige es euch einfach mal ich kann jetzt nämlich darüber
+überall bei mir im Netzwerk
+netbootxyz booten.
+netbootxyz ist eine
+richtig nice Sache.
+Und zwar ist das eigentlich
+nur eine Skript-Sammlung aus PXE-Skripts,
+die
+alle möglichen Betriebssysteme anbieten.
+So, jetzt boot ich mal
+netbootxyz rein.
+Das geht jetzt allerdings, muss man sagen, alles über das
+Internet gleich, ja. Also dementsprechend
+ist es bei weitem nicht so schnell wie
+meine lokale Debian-Installation, da.
+So, nachdem wir jetzt
+jetzt erst mal timeout hat startet er dann doch netzbüro xyz hat man so viele linux installs
+sind guck mal hier linux network installs das ist alles über px eboot hier guck mal
+zack kann ich alles installieren open euler was auch immer vollständig centos einmal linux gibt
+auch rocky gibt es auch rocky linux es rocky linux gibt's da hat man live cds also ich könnte jetzt
+beispielsweise sagen okay ich wollte jetzt schon immer mal elementary os version 7 hier live booten
+und dann geht das alles über netboot xyz wir machen keinen einen volt mache ich nicht web ist
+so abfuck, da kannst du mich jagen
+mit. Das mach ich nicht.
+Arch-Install-Stream haben wir doch schon oft gemacht.
+Okay, Kernel-Panic. Nice.
+Sehr gut, nett,
+Boot XYZ. Hat ja richtig gut
+funktioniert.
+Kernel-Panic.
+Okay. Elementary
+ist anscheinend nicht so gut, da drüber zu booten.
+Booten wir mal
+was anderes, okay?
+Booten wir mal irgendeine Rescue-CD oder so.
+Vorführeffekt.
+Ich kann nichts für die Netboot XYZ-Images.
+Wenn die halt sacken, dann sacken sie.
+Das ist nichts, wo ich was dran ändern kann.
+Nehmen wir mal irgendeine Rescue-CD oder so.
+Übrigens, wisst ihr, was meine Lieblings-Rescue-CD ist mittlerweile?
+Ich brauche nicht oft welche.
+Ich gleich dazu sagen.
+Und ich rede auch nur im privaten Umfeld,
+weil bei uns auf der Arbeit brauchen wir auch keine
+Rescue-CD, da lockt man sich einfach aus VMware-Interface
+ein.
+Wenn man da
+irgendwas dran machen muss.
+So, ähm,
+und da kann man dann theoretisch von einem Live-Linux booten,
+aber das habe ich bis jetzt in den ganzen Jahren
+noch nicht gebraucht. Zumindest
+meine Lieblings
+Live-CD
+oder Rescue-CD ist tatsächlich
+Linux Mint mittlerweile.
+Und wisst ihr auch warum? Ich zeige es euch mal.
+Starten jetzt mal Linux Mint.
+LMDE
+Made XFCE
+starten wir jetzt.
+Weil Linux Mint
+Ah, ich glaube,
+ich weiß, woran es liegt. Ich habe zu wenig RAM.
+Leute, ich habe zu wenig RAM.
+Die Kiste ist doch total klein
+professioniert hier.
+Ich habe zu wenig RAM. Das ist es.
+Chat, deswegen kackt das ab.
+das reicht für keine grafische oberfläche guck mal wir machen mal hier 44 cpu und machen
+8 gig 768 zu wenig gerade wenn es aus der rem disc läuft jetzt wird es auch funktionieren
+event bring mir von meinem fall nichts weil dann kannst du es mit booten also mir ist das
+viel lieber wenn ich irgendwas anderes braucht netzwerk oder hat mein lokales
+debian install was kein debian install ist sondern super schnelles cloud cloud image
+viel besser also px hat mich im kopf heute ein bisschen bin ich auch durchdrehen aber man muss
+sagen hat gut geklappt oder im großen und ganzen ich habe ja auch schon vorher ein bisschen geguckt
+so live cds linux mit 21 xfc jetzt geht das mit den guten auch wenn man genug ram hat
+Guck und schon funzt.
+Kaum hat man genug RAM.
+Warum brauchen die jetzt so lange?
+Was macht der da?
+Ah!
+Der!
+der lädt sich jetzt erst mal das mit image runter du kram ja ich habe noch 64 im rechner
+habe das ding aber auch 2022 wisst ihr was ich richtig krass finde ich habe mir diesen rechner
+hier gekauft dezember 2022 meint es war damals besser ging es nicht 13.900 k ohne 40 90 mir
+muss ich mal überlegen das ding ist jetzt sagen wir mal drei jahre alt okay auf die zwei monate
+scheißen wir mal drei jahre alt und drei also sagen wir über drei jahre alt okay etwas über
+drei jahre alt und der rechner war damals ziemlich high end und ist es immer noch drei jahre über
+knapp über drei jahre später eine 40 90 und 13.000 heute immer noch extrem gut drei jahre später
+früher konnte eineinhalb jahren rechner wegschmeißen
+schon krass oder
+wahrscheinlich kriege ich einen rechner wenn ich mal dran verkaufen würde
+mit
+also ich bilde mir einen mind hat eigentlich feuerwehrtools
+aber markt jetzt anscheinend nicht so wissen wisst ihr was ich bei linux mit enorm sehr
+nice finde das ist dass die zfz drauf haben da kannst du standardmäßig ohne was nachzudenken
+kannst du zfz sachen die bank mit als live system das finde ich cool und es ist ganz
+normales debian drunter das heißt du kannst ja auch sachen nach installieren
+also als live image muss ganz ehrlich sagen ich brauche keine extra rescue cds
+oder irgendwie so ein blödsinn mehr
+einfach linux mint und gutes natürlich nur wenn man ins internet kommt ja wenn
+man nicht ins internet kommt und was komplett das braucht mit rescue tools und
+zeug okay aber dann ist auch mit netboot xyz nicht dann musst du auch das lokale
+ISO mitnehmen.
+Power of Bam.
+Open VM Directory.
+Zack, zack. Weg damit.
+Weg damit.
+Und direkt
+recyceln.
+Was macht eigentlich meine Festplattenbelegung
+so? Okay.
+Die Hälfte von meiner 4TB
+SSD ist schon wieder voll.
+Kaum hat man den
+Speicher, benutzt man ihn auch.
+Ja, ja, ja, wenn es AirGap-Systeme sind,
+dann würde ich sowas auch benutzen, wie Ventoy zum
+Booten mit einem USB-Stick.
+Aber für sowas
+hier ist das top. Für daheim ist das richtig
+nice.
+Ja.
+So, Chat.
+Jetzt gehe ich wieder was futtern.
+Im Prinzip
+wurden heute meine Streams ja nur vom Essen
+unterbrochen, ne? Aufwachen-Stream?
+Fertig? Mittagessen? Wieder on?
+Nachmittagstream?
+Essen? Jetzt wieder off?
+Ne, es gab keine Nudeln mit Lachs.
+Es gab heute Nudeln mit Hähnchen.
+Aber jetzt gehe ich erstmal was essen, Leute.
+So.
+Also.
+Schön, dass ihr dabei wart.
+Ich hoffe, euch hat es gefallen.
+heute extremer 5 at iiq content wir hören uns chat bis zum nächsten mal
+macht's gut
