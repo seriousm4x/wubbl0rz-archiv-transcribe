@@ -27,8 +27,8 @@ class ArchivApi:
 
     def download_vod(self, filename: str) -> None:
         """Download vod and extract aac track"""
-        print(colored("[api]", "blue"), f"Downloading vod...")
+        print(colored("[api]", "blue"), "Downloading vod...")
         cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-stats", "-i",
-               f"{self.api}/download/vod/{filename}", "-vn",
+               f"{self.api}/vods/{filename}/vod.mp4", "-vn",
                "-c:a", "copy", "-y", f"{filename}.m4a"]
         subprocess.check_output(cmd)
