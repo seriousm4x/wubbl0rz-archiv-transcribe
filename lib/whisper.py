@@ -26,21 +26,24 @@ class ArchivWhisperMac:
             verbose=False)
 
         filename = os.path.splitext(m4a)[0]
+        outdir = os.path.join(output, filename)
+        if not os.path.exists(outdir):
+            os.makedirs(outdir)
 
         writer_txt = writers.get_writer(
-            output_format="txt", output_dir=output)
+            output_format="txt", output_dir=outdir)
         writer_txt(result, filename)
 
         writer_vtt = writers.get_writer(
-            output_format="vtt", output_dir=output)
+            output_format="vtt", output_dir=outdir)
         writer_vtt(result, filename)
 
         writer_srt = writers.get_writer(
-            output_format="srt", output_dir=output)
+            output_format="srt", output_dir=outdir)
         writer_srt(result, filename)
 
         writer_json = writers.get_writer(
-            output_format="json", output_dir=output)
+            output_format="json", output_dir=outdir)
         writer_json(result, filename)
 
 
