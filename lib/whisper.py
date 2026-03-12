@@ -105,11 +105,15 @@ class ArchivWhisper:
                 format_timestamp(segment.end, True, ',')}\n"
             final_srt += segment.text.strip() + "\n"
 
-        with open(os.path.join(output, filename + ".json"), "w", encoding="utf-8") as f:
+        outdir = os.path.join(output, filename)
+        if not os.path.exists(outdir):
+            os.makedirs(outdir)
+
+        with open(os.path.join(outdir, "subtitles.json"), "w", encoding="utf-8") as f:
             json.dump(final_json, f)
-        with open(os.path.join(output, filename + ".vtt"), "w", encoding="utf-8") as f:
+        with open(os.path.join(outdir, "subtitles.vtt"), "w", encoding="utf-8") as f:
             f.write(final_vtt)
-        with open(os.path.join(output, filename + ".srt"), "w", encoding="utf-8") as f:
+        with open(os.path.join(outdir, "subtitles.srt"), "w", encoding="utf-8") as f:
             f.write(final_srt)
-        with open(os.path.join(output, filename + ".txt"), "w", encoding="utf-8") as f:
+        with open(os.path.join(outdir, "subtitles.txt"), "w", encoding="utf-8") as f:
             f.write(final_json["text"])

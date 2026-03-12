@@ -43,7 +43,7 @@ def run_transcribe():
     # compare with local files
     vods_to_transcribe = []
     for vod in all_vods_in_api:
-        if not os.path.exists(os.path.join(args.output, vod["filename"] + ".json")):
+        if not os.path.exists(os.path.join(args.output, vod["filename"], "subtitles.json")):
             vods_to_transcribe.append(vod)
 
     # print result and exit if no vods

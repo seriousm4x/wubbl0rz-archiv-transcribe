@@ -30,7 +30,7 @@ class ArchivMeili:
         print(colored("[meili]", "blue"), "Updating transcripts...")
         segments = []
         for vod in vods:
-            json_path = os.path.join(output, vod["filename"] + ".json")
+            json_path = os.path.join(output, vod["filename"], "subtitles.json")
             if not os.path.exists(json_path):
                 continue
             with open(json_path, "r", encoding="utf-8") as f:
