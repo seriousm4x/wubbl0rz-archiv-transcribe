@@ -32,19 +32,19 @@ class ArchivWhisperMac:
 
         writer_txt = writers.get_writer(
             output_format="txt", output_dir=outdir)
-        writer_txt(result, filename)
+        writer_txt(result, "subtitles.txt")
 
         writer_vtt = writers.get_writer(
             output_format="vtt", output_dir=outdir)
-        writer_vtt(result, filename)
+        writer_vtt(result, "subtitles.vtt")
 
         writer_srt = writers.get_writer(
             output_format="srt", output_dir=outdir)
-        writer_srt(result, filename)
+        writer_srt(result, "subtitles.srt")
 
         writer_json = writers.get_writer(
             output_format="json", output_dir=outdir)
-        writer_json(result, filename)
+        writer_json(result, "subtitles.json")
 
 
 class ArchivWhisper:
