@@ -18,9 +18,9 @@ class ArchivMeili:
         """update or create vods"""
         print(colored("[meili]", "blue"), "Updating vods...")
         for vod in vods:
-            del vod["created"]
-            del vod["updated"]
-            del vod["expand"]
+            vod.pop("created", False)
+            vod.pop("updated", False)
+            vod.pop("expand", False)
             vod["date"] = int(datetime.datetime.strptime(
                 vod["date"], "%Y-%m-%d %H:%M:%S.%fZ").timestamp())
         self.client.index("vods").update_documents(vods)
