@@ -94,29 +94,23 @@ def run_transcribe():
               f"Transcribed {len(vods_to_transcribe)} files")
 
     # post vods to meilisearch
-    run_post(vods_to_transcribe, all_environments=True)
+    run_post(vods_to_transcribe)
 
 
-def run_post(vods_to_post: Optional[list] = None, all_environments: bool = False) -> None:
+def run_post(vods_to_post: Optional[list] = None) -> None:
     """Post transcriptions and vods to meilisearch"""
     # read config from args
     config = read_config()
 
-    # determine which environments to post to
-    environments = [k for k in config.keys() if k != "version"] if all_environments else [
-        args.environment]
+    api = ArchivApi(config[args.environment])
+    if not vods_to_post:
+        # get vods in api
+        vods_to_post = api.get_vods()
 
-    # post to each environment
-    for env in environments:
-        api = ArchivApi(config[env])
-        if not vods_to_post:
-            # get vods in api
-            vods_to_post = api.get_vods()
-
-        # run meilisearch
-        meili = ArchivMeili(config[env])
-        meili.update_vods(vods_to_post)
-        meili.update_transcripts(vods_to_post, args.output)
+    # run meilisearch
+    meili = ArchivMeili(config[args.environment])
+    meili.update_vods(vods_to_post)
+    meili.update_transcripts(vods_to_post, args.output)
 
 
 def main() -> None:
