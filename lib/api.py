@@ -9,6 +9,7 @@ class ArchivApi:
         """Set class variables"""
         print(colored("[api]", "blue"), "Connecting to pocketbase...")
         self.api = env["api_url"]
+        self.download_url = env["download_url"]
         self.client = PocketBase(self.api)
 
     def get_vods(self) -> list:
@@ -28,7 +29,7 @@ class ArchivApi:
     def download_vod(self, filename: str) -> None:
         """Download audio track of vod"""
         print(colored("[api]", "blue"), "Downloading audio...")
-        url = f"{self.api}/download/vod/{filename}?audio=true"
+        url = f"{self.download_url}/download/vod/{filename}?audio=true"
         with requests.get(url, stream=True) as r:
             r.raise_for_status()
             with open(f"{filename}.ogg", "wb") as f:
