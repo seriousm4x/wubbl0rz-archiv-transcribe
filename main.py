@@ -66,15 +66,15 @@ def run_transcribe():
         i += 1
         start = time.time()
         filename = vod["filename"]
-        m4a = f"{filename}.m4a"
+        ogg = f"{filename}.ogg"
         print(colored("[main]", "blue"), i, "of",
               len(vods_to_transcribe), filename)
 
-        # download vod and extract audio to m4a, transcribe audio and delete m4a afterwards
+        # download audio and transcribe, then delete afterwards
         api.download_vod(filename)
-        whisper.run(m4a=m4a, model=args.model,
+        whisper.run(ogg=ogg, model=args.model,
                     device=whisper_device, output=args.output)
-        os.remove(m4a)
+        os.remove(ogg)
 
         # push transcript to git
         git.pull()

@@ -1,4 +1,4 @@
-import subprocess
+import requests
 
 from pocketbase import PocketBase
 from termcolor import colored
@@ -26,9 +26,11 @@ class ArchivApi:
             page += 1
 
     def download_vod(self, filename: str) -> None:
-        """Download vod and extract aac track"""
-        print(colored("[api]", "blue"), "Downloading vod...")
-        cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-stats", "-i",
-               f"{self.api}/vods/{filename}/vod.mp4", "-vn",
-               "-c:a", "copy", "-y", f"{filename}.m4a"]
-        subprocess.check_output(cmd)
+        """Download audio track of vod"""
+        print(colored("[api]", "blue"), "Downloading audio...")
+        url = f"{self.api}/download/vod/{filename}?audio=true"
+        with requests.get(url, stream=True) as r:
+            r.raise_for_status()
+            with open(f"{filename}.ogg", "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)

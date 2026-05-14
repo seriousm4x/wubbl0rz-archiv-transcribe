@@ -14,18 +14,18 @@ else:
 
 
 class ArchivWhisperMac:
-    def run(self, m4a: str, model: str, output: str, *args, **kwargs):
+    def run(self, ogg: str, model: str, output: str, *args, **kwargs):
         print(colored("[mlx-whisper]", "blue"),
-              f"Started: m4a={m4a}, model={model}")
+              f"Started: ogg={ogg}, model={model}")
 
         result = transcribe(
-            audio=m4a,
+            audio=ogg,
             path_or_hf_repo=model,
             language="de",
             condition_on_previous_text=False,
             verbose=False)
 
-        filename = os.path.splitext(m4a)[0]
+        filename = os.path.splitext(ogg)[0]
         outdir = os.path.join(output, filename)
         if not os.path.exists(outdir):
             os.makedirs(outdir)
@@ -64,20 +64,20 @@ class ArchivWhisper:
         print(colored("[whisper]", "blue"), "Selected device:", device)
         return device
 
-    def run(self, m4a: str, model: str, device: str, output: str) -> None:
+    def run(self, ogg: str, model: str, device: str, output: str) -> None:
         """Transcribes all given vods to .txt .srt and .vtt"""
         print(colored("[whisper]", "blue"),
-              f"Started: m4a={m4a}, model={model}, device={device}")
+              f"Started: ogg={ogg}, model={model}, device={device}")
 
         model = WhisperModel(model_size_or_path=model, device=device)
         batched_model = BatchedInferencePipeline(model=model)
         segments, info = batched_model.transcribe(
-            m4a,
+            ogg,
             vad_filter=True,
             log_progress=True,
             multilingual=True)
 
-        filename = os.path.splitext(m4a)[0]
+        filename = os.path.splitext(ogg)[0]
         final_json = {
             "text": "",
             "segments": [],
